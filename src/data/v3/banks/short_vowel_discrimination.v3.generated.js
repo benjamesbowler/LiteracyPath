@@ -21,9 +21,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "bag. Which vowel do you hear in the middle of bag?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Bag. Which letter spells the middle vowel sound?",
   "choices": [
    "o",
    "a",
@@ -59,7 +59,7 @@ export const questions = [
    "e": "D-VOWEL",
    "u": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -69,21 +69,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "bag",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.A.short_a.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/ag/bag-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "bag",
-  "stimulusMediaId": "bag",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -93,13 +88,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/rhyming/variants/ag/bag-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ag/bag-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ag/bag-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ag/bag-02.webp",
-  "resolvedImageAssetKey": "bag",
-  "imageAlt": "bag"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_a.v2",
@@ -121,9 +110,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "ram. Which vowel do you hear in the middle of ram?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Ram. Which letter spells the middle vowel sound?",
   "choices": [
    "a",
    "u",
@@ -159,7 +148,7 @@ export const questions = [
    "e": "D-VOWEL",
    "i": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -169,21 +158,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "ram",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.B.short_a.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/am/ram-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "ram",
-  "stimulusMediaId": "ram",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -193,13 +177,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/rhyming/variants/am/ram-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/am/ram-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/am/ram-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/am/ram-02.webp",
-  "resolvedImageAssetKey": "ram",
-  "imageAlt": "ram"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_a.v3",
@@ -221,9 +199,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "tap. Which vowel do you hear in the middle of tap?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Tap. Which letter spells the middle vowel sound?",
   "choices": [
    "o",
    "i",
@@ -259,7 +237,7 @@ export const questions = [
    "o": "D-VOWEL",
    "i": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -269,21 +247,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "tap",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.C.short_a.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/ap/tap-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "tap",
-  "stimulusMediaId": "tap",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -293,13 +266,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/rhyming/variants/ap/tap-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ap/tap-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ap/tap-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ap/tap-02.webp",
-  "resolvedImageAssetKey": "tap",
-  "imageAlt": "tap"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.A.short_a.v4",
@@ -318,12 +285,12 @@ export const questions = [
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_a",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Tap. Which printed word matches the recording?",
   "choices": [
    "top",
    "ten",
@@ -359,31 +326,28 @@ export const questions = [
    "top": "D-VOWEL",
    "ten": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "tap",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.A.short_a.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/ap/tap-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "tap",
-  "stimulusMediaId": "tap",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -393,13 +357,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ap/tap-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ap/tap-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ap/tap-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ap/tap-02.webp",
-  "resolvedImageAssetKey": "tap",
-  "imageAlt": "tap"
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_a.v5",
@@ -418,12 +376,12 @@ export const questions = [
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_a",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Bad. Which printed word matches the recording?",
   "choices": [
    "bid",
    "bad",
@@ -459,31 +417,28 @@ export const questions = [
    "bud": "D-VOWEL",
    "bid": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "bad",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.B.short_a.v5",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/ad/bad-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "bad",
-  "stimulusMediaId": "bad",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -493,13 +448,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ad/bad-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ad/bad-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ad/bad-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ad/bad-02.webp",
-  "resolvedImageAssetKey": "bad",
-  "imageAlt": "bad"
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_a.v6",
@@ -518,12 +467,12 @@ export const questions = [
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_a",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Ram. Which printed word matches the recording?",
   "choices": [
    "ram",
    "rim",
@@ -559,31 +508,28 @@ export const questions = [
    "ran": "D-VISUAL-NEIGHBOR",
    "run": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "ram",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.C.short_a.v6",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/am/ram-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "ram",
-  "stimulusMediaId": "ram",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -593,13 +539,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/am/ram-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/am/ram-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/am/ram-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/am/ram-02.webp",
-  "resolvedImageAssetKey": "ram",
-  "imageAlt": "ram"
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_a.v1",
@@ -621,9 +561,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "hand. Which vowel do you hear in the middle of hand?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Hand. Which letter spells the middle vowel sound?",
   "choices": [
    "a",
    "e",
@@ -659,7 +599,7 @@ export const questions = [
    "o": "D-VOWEL",
    "u": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -669,21 +609,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "hand",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l2.A.short_a.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/hand.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "hand",
-  "stimulusMediaId": "hand",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -693,13 +628,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/blends/hand.webp",
-  "imageUrl": "/images/assessment/blends/hand.webp",
-  "targetImage": "/images/assessment/blends/hand.webp",
-  "targetImagePath": "/images/assessment/blends/hand.webp",
-  "resolvedImageAssetKey": "hand",
-  "imageAlt": "hand"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_a.v2",
@@ -721,9 +650,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "flag. Which vowel do you hear in the middle of flag?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Flag. Which letter spells the middle vowel sound?",
   "choices": [
    "e",
    "a",
@@ -759,7 +688,7 @@ export const questions = [
    "e": "D-VOWEL",
    "u": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -769,21 +698,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "flag",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l2.B.short_a.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/flag.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "flag",
-  "stimulusMediaId": "flag",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -793,13 +717,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/blends/flag.webp",
-  "imageUrl": "/images/assessment/blends/flag.webp",
-  "targetImage": "/images/assessment/blends/flag.webp",
-  "targetImagePath": "/images/assessment/blends/flag.webp",
-  "resolvedImageAssetKey": "flag",
-  "imageAlt": "flag"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.C.short_a.v3",
@@ -818,12 +736,12 @@ export const questions = [
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_a",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Hand. Which printed word matches the recording?",
   "choices": [
    "bend",
    "sand",
@@ -859,31 +777,28 @@ export const questions = [
    "bend": "D-VOWEL",
    "sand": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "hand",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l2.C.short_a.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/hand.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "hand",
-  "stimulusMediaId": "hand",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -893,13 +808,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/hand.webp",
-  "imageUrl": "/images/assessment/blends/hand.webp",
-  "targetImage": "/images/assessment/blends/hand.webp",
-  "targetImagePath": "/images/assessment/blends/hand.webp",
-  "resolvedImageAssetKey": "hand",
-  "imageAlt": "hand"
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_a.v4",
@@ -918,12 +827,12 @@ export const questions = [
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_a",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Flag. Which printed word matches the recording?",
   "choices": [
    "flap",
    "flag",
@@ -959,31 +868,28 @@ export const questions = [
    "flip": "D-VOWEL",
    "flop": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "flag",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l2.A.short_a.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/flag.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "flag",
-  "stimulusMediaId": "flag",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -993,13 +899,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "flag/flap differ by one letter; flip/flop swap the vowel",
-  "imagePath": "/images/assessment/blends/flag.webp",
-  "imageUrl": "/images/assessment/blends/flag.webp",
-  "targetImage": "/images/assessment/blends/flag.webp",
-  "targetImagePath": "/images/assessment/blends/flag.webp",
-  "resolvedImageAssetKey": "flag",
-  "imageAlt": "flag"
+  "notes": "flag/flap differ by one letter; flip/flop swap the vowel"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_a.v5",
@@ -1021,9 +921,9 @@ export const questions = [
   "formatType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "templateType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "questionType": "visual_card_choice",
-  "prompt": "Which picture has the short a sound?",
-  "question": "Which picture has the short a sound?",
-  "spokenPrompt": "Which picture's word has the short a sound in the middle?",
+  "prompt": "Which pictured word has the short a sound?",
+  "question": "Which pictured word has the short a sound?",
+  "spokenPrompt": "Which pictured word has the short a sound in the middle?",
   "choices": [
    "pig",
    "dog",
@@ -1063,8 +963,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "hideWrittenLabels": false,
+  "constructClaim": "short_vowel_picture_word_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
@@ -1076,9 +978,9 @@ export const questions = [
    "role": "answer-cards",
    "paths": [
     "/images/assessment/rhyming/variants/ig/pig-02.webp",
-    "/images/assessment/rhyming/variants/og/dog-02.webp",
-    "/images/assessment/rhyming/variants/ag/bag-02.webp",
-    "/images/assessment/rhyming/variants/ed/bed-02.webp"
+    "/images/assessment/objective-words/dog.webp",
+    "/images/assessment/objective-words/bag.webp",
+    "/images/assessment/objective-words/bed.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -1109,8 +1011,8 @@ export const questions = [
     "word": "dog",
     "value": "dog",
     "label": "dog",
-    "image": "/images/assessment/rhyming/variants/og/dog-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
+    "image": "/images/assessment/objective-words/dog.webp",
+    "imagePath": "/images/assessment/objective-words/dog.webp",
     "imageAlt": "dog"
    },
    {
@@ -1118,8 +1020,8 @@ export const questions = [
     "word": "bag",
     "value": "bag",
     "label": "bag",
-    "image": "/images/assessment/rhyming/variants/ag/bag-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ag/bag-02.webp",
+    "image": "/images/assessment/objective-words/bag.webp",
+    "imagePath": "/images/assessment/objective-words/bag.webp",
     "imageAlt": "bag"
    },
    {
@@ -1127,8 +1029,8 @@ export const questions = [
     "word": "bed",
     "value": "bed",
     "label": "bed",
-    "image": "/images/assessment/rhyming/variants/ed/bed-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+    "image": "/images/assessment/objective-words/bed.webp",
+    "imagePath": "/images/assessment/objective-words/bed.webp",
     "imageAlt": "bed"
    }
   ]
@@ -1153,14 +1055,14 @@ export const questions = [
   "formatType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "templateType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "questionType": "visual_card_choice",
-  "prompt": "Which picture has the short a sound?",
-  "question": "Which picture has the short a sound?",
-  "spokenPrompt": "Which picture's word has the short a sound in the middle?",
+  "prompt": "Which pictured word has the short a sound?",
+  "question": "Which pictured word has the short a sound?",
+  "spokenPrompt": "Which pictured word has the short a sound in the middle?",
   "choices": [
    "net",
    "pin",
    "mop",
-   "ram"
+   "ham"
   ],
   "answerOptions": [
    {
@@ -1179,13 +1081,13 @@ export const questions = [
     "text": "mop"
    },
    {
-    "value": "ram",
-    "label": "ram",
-    "text": "ram"
+    "value": "ham",
+    "label": "ham",
+    "text": "ham"
    }
   ],
-  "answer": "ram",
-  "correctAnswer": "ram",
+  "answer": "ham",
+  "correctAnswer": "ham",
   "distractorRationales": {
    "mop": "D-VOWEL",
    "net": "D-VOWEL",
@@ -1195,8 +1097,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "hideWrittenLabels": false,
+  "constructClaim": "short_vowel_picture_word_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
@@ -1207,10 +1111,10 @@ export const questions = [
    "itemId": "lp3.short_vowel_discrimination.l2.C.short_a.v6",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/rhyming/variants/et/net-02.webp",
+    "/images/assessment/objective-words/net.webp",
     "/images/assessment/rhyming/variants/in/pin-02.webp",
-    "/images/assessment/rhyming/variants/op/mop-02.webp",
-    "/images/assessment/rhyming/variants/am/ram-02.webp"
+    "/images/assessment/objective-words/mop.webp",
+    "/images/assessment/objective-words/ham.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -1232,8 +1136,8 @@ export const questions = [
     "word": "net",
     "value": "net",
     "label": "net",
-    "image": "/images/assessment/rhyming/variants/et/net-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
+    "image": "/images/assessment/objective-words/net.webp",
+    "imagePath": "/images/assessment/objective-words/net.webp",
     "imageAlt": "net"
    },
    {
@@ -1250,18 +1154,18 @@ export const questions = [
     "word": "mop",
     "value": "mop",
     "label": "mop",
-    "image": "/images/assessment/rhyming/variants/op/mop-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/op/mop-02.webp",
+    "image": "/images/assessment/objective-words/mop.webp",
+    "imagePath": "/images/assessment/objective-words/mop.webp",
     "imageAlt": "mop"
    },
    {
-    "id": "lp3.short_vowel_discrimination.l2.C.short_a.v6_card_ram",
-    "word": "ram",
-    "value": "ram",
-    "label": "ram",
-    "image": "/images/assessment/rhyming/variants/am/ram-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/am/ram-02.webp",
-    "imageAlt": "ram"
+    "id": "lp3.short_vowel_discrimination.l2.C.short_a.v6_card_ham",
+    "word": "ham",
+    "value": "ham",
+    "label": "ham",
+    "image": "/images/assessment/objective-words/ham.webp",
+    "imagePath": "/images/assessment/objective-words/ham.webp",
+    "imageAlt": "ham"
    }
   ]
  },
@@ -1285,9 +1189,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "web. Which vowel do you hear in the middle of web?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Web. Which letter spells the middle vowel sound?",
   "choices": [
    "a",
    "i",
@@ -1323,7 +1227,7 @@ export const questions = [
    "a": "D-VOWEL",
    "i": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1333,21 +1237,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "web",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.A.short_e.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/release-media/web-b645c8e4.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "web",
-  "stimulusMediaId": "web",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1357,13 +1256,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/release-media/web-b645c8e4.webp",
-  "imageUrl": "/images/assessment/release-media/web-b645c8e4.webp",
-  "targetImage": "/images/assessment/release-media/web-b645c8e4.webp",
-  "targetImagePath": "/images/assessment/release-media/web-b645c8e4.webp",
-  "resolvedImageAssetKey": "web",
-  "imageAlt": "web"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_e.v2",
@@ -1385,9 +1278,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "ten. Which vowel do you hear in the middle of ten?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Ten. Which letter spells the middle vowel sound?",
   "choices": [
    "a",
    "u",
@@ -1423,7 +1316,7 @@ export const questions = [
    "a": "D-VOWEL",
    "u": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1433,21 +1326,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "ten",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.B.short_e.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/en/ten-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "ten",
-  "stimulusMediaId": "ten",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1457,13 +1345,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "resolvedImageAssetKey": "ten",
-  "imageAlt": "ten"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_e.v3",
@@ -1485,9 +1367,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "leg. Which vowel do you hear in the middle of leg?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Leg. Which letter spells the middle vowel sound?",
   "choices": [
    "i",
    "e",
@@ -1523,7 +1405,7 @@ export const questions = [
    "a": "D-VOWEL",
    "u": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1533,21 +1415,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "leg",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.C.short_e.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/eg/leg-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "leg",
-  "stimulusMediaId": "leg",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1557,13 +1434,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/rhyming/variants/eg/leg-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/eg/leg-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/eg/leg-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/eg/leg-02.webp",
-  "resolvedImageAssetKey": "leg",
-  "imageAlt": "leg"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.A.short_e.v4",
@@ -1582,12 +1453,12 @@ export const questions = [
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_e",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Ten. Which printed word matches the recording?",
   "choices": [
    "ten",
    "tan",
@@ -1623,31 +1494,28 @@ export const questions = [
    "tin": "D-VOWEL",
    "ton": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "ten",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.A.short_e.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/en/ten-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "ten",
-  "stimulusMediaId": "ten",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1657,13 +1525,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "resolvedImageAssetKey": "ten",
-  "imageAlt": "ten"
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_e.v5",
@@ -1682,12 +1544,12 @@ export const questions = [
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_e",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Bell. Which printed word matches the recording?",
   "choices": [
    "ball",
    "bill",
@@ -1723,31 +1585,28 @@ export const questions = [
    "bill": "D-VOWEL",
    "bull": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "bell",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.B.short_e.v5",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/ell/bell-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "bell",
-  "stimulusMediaId": "bell",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1757,13 +1616,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ell/bell-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ell/bell-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ell/bell-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ell/bell-02.webp",
-  "resolvedImageAssetKey": "bell",
-  "imageAlt": "bell"
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_e.v6",
@@ -1782,12 +1635,12 @@ export const questions = [
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_e",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Leg. Which printed word matches the recording?",
   "choices": [
    "log",
    "lug",
@@ -1823,31 +1676,28 @@ export const questions = [
    "log": "D-VOWEL",
    "lug": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "leg",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.C.short_e.v6",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/eg/leg-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "leg",
-  "stimulusMediaId": "leg",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1857,13 +1707,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/eg/leg-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/eg/leg-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/eg/leg-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/eg/leg-02.webp",
-  "resolvedImageAssetKey": "leg",
-  "imageAlt": "leg"
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_e.v1",
@@ -1885,9 +1729,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "nest. Which vowel do you hear in the middle of nest?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Nest. Which letter spells the middle vowel sound?",
   "choices": [
    "a",
    "o",
@@ -1923,7 +1767,7 @@ export const questions = [
    "a": "D-VOWEL",
    "o": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1933,21 +1777,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "nest",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l2.A.short_e.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/nest.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "nest",
-  "stimulusMediaId": "nest",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1957,13 +1796,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/blends/nest.webp",
-  "imageUrl": "/images/assessment/blends/nest.webp",
-  "targetImage": "/images/assessment/blends/nest.webp",
-  "targetImagePath": "/images/assessment/blends/nest.webp",
-  "resolvedImageAssetKey": "nest",
-  "imageAlt": "nest"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_e.v2",
@@ -1985,9 +1818,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "shell. Which vowel do you hear in the middle of shell?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Shell. Which letter spells the middle vowel sound?",
   "choices": [
    "a",
    "o",
@@ -2023,7 +1856,7 @@ export const questions = [
    "u": "D-VOWEL",
    "a": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2033,21 +1866,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "shell",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l2.B.short_e.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/shell.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "shell",
-  "stimulusMediaId": "shell",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2057,13 +1885,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/digraphs/shell.webp",
-  "imageUrl": "/images/assessment/digraphs/shell.webp",
-  "targetImage": "/images/assessment/digraphs/shell.webp",
-  "targetImagePath": "/images/assessment/digraphs/shell.webp",
-  "resolvedImageAssetKey": "shell",
-  "imageAlt": "shell"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.C.short_e.v3",
@@ -2082,12 +1904,12 @@ export const questions = [
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_e",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Nest. Which printed word matches the recording?",
   "choices": [
    "nest",
    "vest",
@@ -2123,31 +1945,28 @@ export const questions = [
    "mast": "D-VOWEL",
    "mist": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "nest",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l2.C.short_e.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/nest.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "nest",
-  "stimulusMediaId": "nest",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2157,13 +1976,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "vest rhymes with the key and ties its es/goes overlap",
-  "imagePath": "/images/assessment/blends/nest.webp",
-  "imageUrl": "/images/assessment/blends/nest.webp",
-  "targetImage": "/images/assessment/blends/nest.webp",
-  "targetImagePath": "/images/assessment/blends/nest.webp",
-  "resolvedImageAssetKey": "nest",
-  "imageAlt": "nest"
+  "notes": "vest rhymes with the key and ties its es/goes overlap"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_e.v4",
@@ -2182,12 +1995,12 @@ export const questions = [
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_e",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Belt. Which printed word matches the recording?",
   "choices": [
    "bolt",
    "built",
@@ -2223,31 +2036,28 @@ export const questions = [
    "bolt": "D-VOWEL",
    "built": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "belt",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l2.A.short_e.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/belt.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "belt",
-  "stimulusMediaId": "belt",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2257,13 +2067,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "bell drops the final t — cluster reduction",
-  "imagePath": "/images/assessment/blends/belt.webp",
-  "imageUrl": "/images/assessment/blends/belt.webp",
-  "targetImage": "/images/assessment/blends/belt.webp",
-  "targetImagePath": "/images/assessment/blends/belt.webp",
-  "resolvedImageAssetKey": "belt",
-  "imageAlt": "belt"
+  "notes": "bell drops the final t — cluster reduction"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_e.v5",
@@ -2285,9 +2089,9 @@ export const questions = [
   "formatType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "templateType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "questionType": "visual_card_choice",
-  "prompt": "Which picture has the short e sound?",
-  "question": "Which picture has the short e sound?",
-  "spokenPrompt": "Which picture's word has the short e sound in the middle?",
+  "prompt": "Which pictured word has the short e sound?",
+  "question": "Which pictured word has the short e sound?",
+  "spokenPrompt": "Which pictured word has the short e sound in the middle?",
   "choices": [
    "bed",
    "bag",
@@ -2327,8 +2131,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "hideWrittenLabels": false,
+  "constructClaim": "short_vowel_picture_word_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
@@ -2339,8 +2145,8 @@ export const questions = [
    "itemId": "lp3.short_vowel_discrimination.l2.B.short_e.v5",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/rhyming/variants/ed/bed-02.webp",
-    "/images/assessment/rhyming/variants/ag/bag-02.webp",
+    "/images/assessment/objective-words/bed.webp",
+    "/images/assessment/objective-words/bag.webp",
     "/images/assessment/rhyming/variants/ig/pig-02.webp",
     "/images/assessment/rhyming/variants/sun/sun-02.webp"
    ],
@@ -2364,8 +2170,8 @@ export const questions = [
     "word": "bed",
     "value": "bed",
     "label": "bed",
-    "image": "/images/assessment/rhyming/variants/ed/bed-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+    "image": "/images/assessment/objective-words/bed.webp",
+    "imagePath": "/images/assessment/objective-words/bed.webp",
     "imageAlt": "bed"
    },
    {
@@ -2373,8 +2179,8 @@ export const questions = [
     "word": "bag",
     "value": "bag",
     "label": "bag",
-    "image": "/images/assessment/rhyming/variants/ag/bag-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ag/bag-02.webp",
+    "image": "/images/assessment/objective-words/bag.webp",
+    "imagePath": "/images/assessment/objective-words/bag.webp",
     "imageAlt": "bag"
    },
    {
@@ -2417,13 +2223,13 @@ export const questions = [
   "formatType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "templateType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "questionType": "visual_card_choice",
-  "prompt": "Which picture has the short e sound?",
-  "question": "Which picture has the short e sound?",
-  "spokenPrompt": "Which picture's word has the short e sound in the middle?",
+  "prompt": "Which pictured word has the short e sound?",
+  "question": "Which pictured word has the short e sound?",
+  "spokenPrompt": "Which pictured word has the short e sound in the middle?",
   "choices": [
    "dog",
    "ten",
-   "tap",
+   "cap",
    "tub"
   ],
   "answerOptions": [
@@ -2438,9 +2244,9 @@ export const questions = [
     "text": "ten"
    },
    {
-    "value": "tap",
-    "label": "tap",
-    "text": "tap"
+    "value": "cap",
+    "label": "cap",
+    "text": "cap"
    },
    {
     "value": "tub",
@@ -2452,15 +2258,17 @@ export const questions = [
   "correctAnswer": "ten",
   "distractorRationales": {
    "dog": "D-VOWEL",
-   "tap": "D-VOWEL",
+   "cap": "D-VOWEL",
    "tub": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "hideWrittenLabels": false,
+  "constructClaim": "short_vowel_picture_word_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
@@ -2471,9 +2279,9 @@ export const questions = [
    "itemId": "lp3.short_vowel_discrimination.l2.C.short_e.v6",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/rhyming/variants/og/dog-02.webp",
+    "/images/assessment/objective-words/dog.webp",
     "/images/assessment/rhyming/variants/en/ten-02.webp",
-    "/images/assessment/rhyming/variants/ap/tap-02.webp",
+    "/images/assessment/objective-words/cap.webp",
     "/images/assessment/release-media/tub-9c34a66d.webp"
    ],
    "alt": "Picture choices for this literacy question",
@@ -2496,8 +2304,8 @@ export const questions = [
     "word": "dog",
     "value": "dog",
     "label": "dog",
-    "image": "/images/assessment/rhyming/variants/og/dog-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
+    "image": "/images/assessment/objective-words/dog.webp",
+    "imagePath": "/images/assessment/objective-words/dog.webp",
     "imageAlt": "dog"
    },
    {
@@ -2510,13 +2318,13 @@ export const questions = [
     "imageAlt": "ten"
    },
    {
-    "id": "lp3.short_vowel_discrimination.l2.C.short_e.v6_card_tap",
-    "word": "tap",
-    "value": "tap",
-    "label": "tap",
-    "image": "/images/assessment/rhyming/variants/ap/tap-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ap/tap-02.webp",
-    "imageAlt": "tap"
+    "id": "lp3.short_vowel_discrimination.l2.C.short_e.v6_card_cap",
+    "word": "cap",
+    "value": "cap",
+    "label": "cap",
+    "image": "/images/assessment/objective-words/cap.webp",
+    "imagePath": "/images/assessment/objective-words/cap.webp",
+    "imageAlt": "cap"
    },
    {
     "id": "lp3.short_vowel_discrimination.l2.C.short_e.v6_card_tub",
@@ -2549,9 +2357,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "bin. Which vowel do you hear in the middle of bin?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Bin. Which letter spells the middle vowel sound?",
   "choices": [
    "u",
    "i",
@@ -2587,7 +2395,7 @@ export const questions = [
    "e": "D-VOWEL",
    "a": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2597,21 +2405,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "bin",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.A.short_i.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/in/bin-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "bin",
-  "stimulusMediaId": "bin",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2621,13 +2424,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/rhyming/variants/in/bin-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/in/bin-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/in/bin-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/in/bin-02.webp",
-  "resolvedImageAssetKey": "bin",
-  "imageAlt": "bin"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_i.v2",
@@ -2649,9 +2446,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "zip. Which vowel do you hear in the middle of zip?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Zip. Which letter spells the middle vowel sound?",
   "choices": [
    "i",
    "a",
@@ -2687,7 +2484,7 @@ export const questions = [
    "e": "D-VOWEL",
    "o": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2697,21 +2494,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "zip",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.B.short_i.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/ip/zip-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "zip",
-  "stimulusMediaId": "zip",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2721,13 +2513,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/rhyming/variants/ip/zip-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ip/zip-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ip/zip-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ip/zip-02.webp",
-  "resolvedImageAssetKey": "zip",
-  "imageAlt": "zip"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_i.v3",
@@ -2749,9 +2535,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "hit. Which vowel do you hear in the middle of hit?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Hit. Which letter spells the middle vowel sound?",
   "choices": [
    "e",
    "u",
@@ -2787,7 +2573,7 @@ export const questions = [
    "e": "D-VOWEL",
    "u": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2797,21 +2583,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "hit",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.C.short_i.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/it/hit-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "hit",
-  "stimulusMediaId": "hit",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2821,13 +2602,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/rhyming/variants/it/hit-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/it/hit-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/it/hit-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/it/hit-02.webp",
-  "resolvedImageAssetKey": "hit",
-  "imageAlt": "hit"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.A.short_i.v4",
@@ -2846,12 +2621,12 @@ export const questions = [
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_i",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Bin. Which printed word matches the recording?",
   "choices": [
    "bun",
    "band",
@@ -2887,31 +2662,28 @@ export const questions = [
    "bun": "D-VOWEL",
    "band": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "bin",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.A.short_i.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/in/bin-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "bin",
-  "stimulusMediaId": "bin",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2921,13 +2693,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/in/bin-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/in/bin-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/in/bin-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/in/bin-02.webp",
-  "resolvedImageAssetKey": "bin",
-  "imageAlt": "bin"
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_i.v5",
@@ -2946,12 +2712,12 @@ export const questions = [
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_i",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Hit. Which printed word matches the recording?",
   "choices": [
    "hid",
    "hit",
@@ -2987,31 +2753,28 @@ export const questions = [
    "hot": "D-VOWEL",
    "hid": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "hit",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.B.short_i.v5",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/it/hit-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "hit",
-  "stimulusMediaId": "hit",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3021,13 +2784,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "hid ties the hi/which overlap",
-  "imagePath": "/images/assessment/rhyming/variants/it/hit-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/it/hit-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/it/hit-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/it/hit-02.webp",
-  "resolvedImageAssetKey": "hit",
-  "imageAlt": "hit"
+  "notes": "hid ties the hi/which overlap"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_i.v6",
@@ -3046,12 +2803,12 @@ export const questions = [
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_i",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Zip. Which printed word matches the recording?",
   "choices": [
    "zip",
    "zap",
@@ -3087,31 +2844,28 @@ export const questions = [
    "lip": "D-VISUAL-NEIGHBOR",
    "lap": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "zip",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.C.short_i.v6",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/ip/zip-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "zip",
-  "stimulusMediaId": "zip",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3121,13 +2875,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ip/zip-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ip/zip-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ip/zip-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ip/zip-02.webp",
-  "resolvedImageAssetKey": "zip",
-  "imageAlt": "zip"
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_i.v1",
@@ -3149,9 +2897,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "brick. Which vowel do you hear in the middle of brick?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Brick. Which letter spells the middle vowel sound?",
   "choices": [
    "i",
    "e",
@@ -3187,7 +2935,7 @@ export const questions = [
    "a": "D-VOWEL",
    "o": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3197,21 +2945,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "brick",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l2.A.short_i.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/brick.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "brick",
-  "stimulusMediaId": "brick",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3221,13 +2964,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/digraphs/brick.webp",
-  "imageUrl": "/images/assessment/digraphs/brick.webp",
-  "targetImage": "/images/assessment/digraphs/brick.webp",
-  "targetImagePath": "/images/assessment/digraphs/brick.webp",
-  "resolvedImageAssetKey": "brick",
-  "imageAlt": "brick"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_i.v2",
@@ -3249,9 +2986,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "gift. Which vowel do you hear in the middle of gift?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Gift. Which letter spells the middle vowel sound?",
   "choices": [
    "a",
    "i",
@@ -3287,7 +3024,7 @@ export const questions = [
    "a": "D-VOWEL",
    "e": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3297,21 +3034,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "gift",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l2.B.short_i.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/gift.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "gift",
-  "stimulusMediaId": "gift",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3321,13 +3053,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/blends/gift.webp",
-  "imageUrl": "/images/assessment/blends/gift.webp",
-  "targetImage": "/images/assessment/blends/gift.webp",
-  "targetImagePath": "/images/assessment/blends/gift.webp",
-  "resolvedImageAssetKey": "gift",
-  "imageAlt": "gift"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.C.short_i.v3",
@@ -3346,12 +3072,12 @@ export const questions = [
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_i",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Gift. Which printed word matches the recording?",
   "choices": [
    "left",
    "loft",
@@ -3387,31 +3113,28 @@ export const questions = [
    "left": "D-VOWEL",
    "loft": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "gift",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l2.C.short_i.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/gift.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "gift",
-  "stimulusMediaId": "gift",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3421,13 +3144,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/gift.webp",
-  "imageUrl": "/images/assessment/blends/gift.webp",
-  "targetImage": "/images/assessment/blends/gift.webp",
-  "targetImagePath": "/images/assessment/blends/gift.webp",
-  "resolvedImageAssetKey": "gift",
-  "imageAlt": "gift"
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_i.v4",
@@ -3446,12 +3163,12 @@ export const questions = [
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_i",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Brick. Which printed word matches the recording?",
   "choices": [
    "click",
    "brick",
@@ -3487,31 +3204,28 @@ export const questions = [
    "black": "D-VOWEL",
    "block": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "brick",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l2.A.short_i.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/brick.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "brick",
-  "stimulusMediaId": "brick",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3521,13 +3235,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "click ties the ic/which overlap",
-  "imagePath": "/images/assessment/digraphs/brick.webp",
-  "imageUrl": "/images/assessment/digraphs/brick.webp",
-  "targetImage": "/images/assessment/digraphs/brick.webp",
-  "targetImagePath": "/images/assessment/digraphs/brick.webp",
-  "resolvedImageAssetKey": "brick",
-  "imageAlt": "brick"
+  "notes": "click ties the ic/which overlap"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_i.v5",
@@ -3549,13 +3257,13 @@ export const questions = [
   "formatType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "templateType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "questionType": "visual_card_choice",
-  "prompt": "Which picture has the short i sound?",
-  "question": "Which picture has the short i sound?",
-  "spokenPrompt": "Which picture's word has the short i sound in the middle?",
+  "prompt": "Which pictured word has the short i sound?",
+  "question": "Which pictured word has the short i sound?",
+  "spokenPrompt": "Which pictured word has the short i sound in the middle?",
   "choices": [
    "log",
    "cup",
-   "fin",
+   "brick",
    "fan"
   ],
   "answerOptions": [
@@ -3570,9 +3278,9 @@ export const questions = [
     "text": "cup"
    },
    {
-    "value": "fin",
-    "label": "fin",
-    "text": "fin"
+    "value": "brick",
+    "label": "brick",
+    "text": "brick"
    },
    {
     "value": "fan",
@@ -3580,8 +3288,8 @@ export const questions = [
     "text": "fan"
    }
   ],
-  "answer": "fin",
-  "correctAnswer": "fin",
+  "answer": "brick",
+  "correctAnswer": "brick",
   "distractorRationales": {
    "cup": "D-VOWEL",
    "fan": "D-VOWEL",
@@ -3591,8 +3299,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "hideWrittenLabels": false,
+  "constructClaim": "short_vowel_picture_word_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
@@ -3604,9 +3314,9 @@ export const questions = [
    "role": "answer-cards",
    "paths": [
     "/images/assessment/rhyming/variants/og/log-02.webp",
-    "/images/assessment/rhyming/variants/cup/cup-02.webp",
-    "/images/assessment/rhyming/variants/in/fin-02.webp",
-    "/images/assessment/rhyming/variants/an/fan-02.webp"
+    "/images/assessment/objective-words/cup.webp",
+    "/images/assessment/objective-words/brick.webp",
+    "/images/assessment/objective-words/fan.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -3621,7 +3331,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
+  "notes": "a concrete brick target replaces the less distinctive fin card",
   "imageCards": [
    {
     "id": "lp3.short_vowel_discrimination.l2.B.short_i.v5_card_log",
@@ -3637,26 +3347,26 @@ export const questions = [
     "word": "cup",
     "value": "cup",
     "label": "cup",
-    "image": "/images/assessment/rhyming/variants/cup/cup-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
+    "image": "/images/assessment/objective-words/cup.webp",
+    "imagePath": "/images/assessment/objective-words/cup.webp",
     "imageAlt": "cup"
    },
    {
-    "id": "lp3.short_vowel_discrimination.l2.B.short_i.v5_card_fin",
-    "word": "fin",
-    "value": "fin",
-    "label": "fin",
-    "image": "/images/assessment/rhyming/variants/in/fin-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/in/fin-02.webp",
-    "imageAlt": "fin"
+    "id": "lp3.short_vowel_discrimination.l2.B.short_i.v5_card_brick",
+    "word": "brick",
+    "value": "brick",
+    "label": "brick",
+    "image": "/images/assessment/objective-words/brick.webp",
+    "imagePath": "/images/assessment/objective-words/brick.webp",
+    "imageAlt": "brick"
    },
    {
     "id": "lp3.short_vowel_discrimination.l2.B.short_i.v5_card_fan",
     "word": "fan",
     "value": "fan",
     "label": "fan",
-    "image": "/images/assessment/rhyming/variants/an/fan-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/an/fan-02.webp",
+    "image": "/images/assessment/objective-words/fan.webp",
+    "imagePath": "/images/assessment/objective-words/fan.webp",
     "imageAlt": "fan"
    }
   ]
@@ -3681,14 +3391,14 @@ export const questions = [
   "formatType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "templateType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "questionType": "visual_card_choice",
-  "prompt": "Which picture has the short i sound?",
-  "question": "Which picture has the short i sound?",
-  "spokenPrompt": "Which picture's word has the short i sound in the middle?",
+  "prompt": "Which pictured word has the short i sound?",
+  "question": "Which pictured word has the short i sound?",
+  "spokenPrompt": "Which pictured word has the short i sound in the middle?",
   "choices": [
    "dog",
    "bag",
    "sun",
-   "dig"
+   "pig"
   ],
   "answerOptions": [
    {
@@ -3707,13 +3417,13 @@ export const questions = [
     "text": "sun"
    },
    {
-    "value": "dig",
-    "label": "dig",
-    "text": "dig"
+    "value": "pig",
+    "label": "pig",
+    "text": "pig"
    }
   ],
-  "answer": "dig",
-  "correctAnswer": "dig",
+  "answer": "pig",
+  "correctAnswer": "pig",
   "distractorRationales": {
    "sun": "D-VOWEL",
    "dog": "D-VOWEL",
@@ -3723,8 +3433,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "hideWrittenLabels": false,
+  "constructClaim": "short_vowel_picture_word_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
@@ -3735,10 +3447,10 @@ export const questions = [
    "itemId": "lp3.short_vowel_discrimination.l2.C.short_i.v6",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/rhyming/variants/og/dog-02.webp",
-    "/images/assessment/rhyming/variants/ag/bag-02.webp",
+    "/images/assessment/objective-words/dog.webp",
+    "/images/assessment/objective-words/bag.webp",
     "/images/assessment/rhyming/variants/sun/sun-02.webp",
-    "/images/assessment/rhyming/variants/ig/dig-02.webp"
+    "/images/assessment/rhyming/variants/ig/pig-02.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -3760,8 +3472,8 @@ export const questions = [
     "word": "dog",
     "value": "dog",
     "label": "dog",
-    "image": "/images/assessment/rhyming/variants/og/dog-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
+    "image": "/images/assessment/objective-words/dog.webp",
+    "imagePath": "/images/assessment/objective-words/dog.webp",
     "imageAlt": "dog"
    },
    {
@@ -3769,8 +3481,8 @@ export const questions = [
     "word": "bag",
     "value": "bag",
     "label": "bag",
-    "image": "/images/assessment/rhyming/variants/ag/bag-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ag/bag-02.webp",
+    "image": "/images/assessment/objective-words/bag.webp",
+    "imagePath": "/images/assessment/objective-words/bag.webp",
     "imageAlt": "bag"
    },
    {
@@ -3783,13 +3495,13 @@ export const questions = [
     "imageAlt": "sun"
    },
    {
-    "id": "lp3.short_vowel_discrimination.l2.C.short_i.v6_card_dig",
-    "word": "dig",
-    "value": "dig",
-    "label": "dig",
-    "image": "/images/assessment/rhyming/variants/ig/dig-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ig/dig-02.webp",
-    "imageAlt": "dig"
+    "id": "lp3.short_vowel_discrimination.l2.C.short_i.v6_card_pig",
+    "word": "pig",
+    "value": "pig",
+    "label": "pig",
+    "image": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+    "imageAlt": "pig"
    }
   ]
  },
@@ -3813,9 +3525,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "fox. Which vowel do you hear in the middle of fox?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Fox. Which letter spells the middle vowel sound?",
   "choices": [
    "a",
    "u",
@@ -3851,7 +3563,7 @@ export const questions = [
    "u": "D-VOWEL",
    "e": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3861,21 +3573,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "fox",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.A.short_o.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/release-media/fox-b54e337c.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "fox",
-  "stimulusMediaId": "fox",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3885,13 +3592,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/release-media/fox-b54e337c.webp",
-  "imageUrl": "/images/assessment/release-media/fox-b54e337c.webp",
-  "targetImage": "/images/assessment/release-media/fox-b54e337c.webp",
-  "targetImagePath": "/images/assessment/release-media/fox-b54e337c.webp",
-  "resolvedImageAssetKey": "fox",
-  "imageAlt": "fox"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_o.v2",
@@ -3913,9 +3614,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "mop. Which vowel do you hear in the middle of mop?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Mop. Which letter spells the middle vowel sound?",
   "choices": [
    "a",
    "i",
@@ -3951,7 +3652,7 @@ export const questions = [
    "u": "D-VOWEL",
    "a": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3961,21 +3662,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "mop",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.B.short_o.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/op/mop-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "mop",
-  "stimulusMediaId": "mop",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3985,13 +3681,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/rhyming/variants/op/mop-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/op/mop-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/op/mop-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/op/mop-02.webp",
-  "resolvedImageAssetKey": "mop",
-  "imageAlt": "mop"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_o.v3",
@@ -4013,9 +3703,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "dot. Which vowel do you hear in the middle of dot?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Dot. Which letter spells the middle vowel sound?",
   "choices": [
    "u",
    "o",
@@ -4051,7 +3741,7 @@ export const questions = [
    "e": "D-VOWEL",
    "u": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4061,21 +3751,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "dot",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.C.short_o.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/ot/dot-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "dot",
-  "stimulusMediaId": "dot",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4085,13 +3770,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/rhyming/variants/ot/dot-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ot/dot-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ot/dot-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ot/dot-02.webp",
-  "resolvedImageAssetKey": "dot",
-  "imageAlt": "dot"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.A.short_o.v4",
@@ -4110,12 +3789,12 @@ export const questions = [
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_o",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Dog. Which printed word matches the recording?",
   "choices": [
    "dog",
    "dig",
@@ -4151,31 +3830,28 @@ export const questions = [
    "bag": "D-VISUAL-NEIGHBOR",
    "dig": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "dog",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.A.short_o.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/og/dog-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "dog",
-  "stimulusMediaId": "dog",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4185,13 +3861,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/og/dog-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/og/dog-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
-  "resolvedImageAssetKey": "dog",
-  "imageAlt": "dog"
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_o.v5",
@@ -4210,12 +3880,12 @@ export const questions = [
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_o",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Top. Which printed word matches the recording?",
   "choices": [
    "tap",
    "tip",
@@ -4251,31 +3921,28 @@ export const questions = [
    "tub": "D-VISUAL-NEIGHBOR",
    "tap": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "top",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.B.short_o.v5",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/op/top-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "top",
-  "stimulusMediaId": "top",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4285,13 +3952,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/op/top-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/op/top-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/op/top-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/op/top-02.webp",
-  "resolvedImageAssetKey": "top",
-  "imageAlt": "top"
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_o.v6",
@@ -4310,12 +3971,12 @@ export const questions = [
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_o",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Pot. Which printed word matches the recording?",
   "choices": [
    "pit",
    "pet",
@@ -4351,31 +4012,28 @@ export const questions = [
    "pet": "D-VOWEL",
    "pat": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "pot",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.C.short_o.v6",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/ot/pot-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "pot",
-  "stimulusMediaId": "pot",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4385,13 +4043,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ot/pot-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ot/pot-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
-  "resolvedImageAssetKey": "pot",
-  "imageAlt": "pot"
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_o.v1",
@@ -4413,9 +4065,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "sock. Which vowel do you hear in the middle of sock?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Sock. Which letter spells the middle vowel sound?",
   "choices": [
    "u",
    "i",
@@ -4451,7 +4103,7 @@ export const questions = [
    "i": "D-VOWEL",
    "a": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4461,21 +4113,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "sock",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l2.A.short_o.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/sock.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "sock",
-  "stimulusMediaId": "sock",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4485,13 +4132,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/digraphs/sock.webp",
-  "imageUrl": "/images/assessment/digraphs/sock.webp",
-  "targetImage": "/images/assessment/digraphs/sock.webp",
-  "targetImagePath": "/images/assessment/digraphs/sock.webp",
-  "resolvedImageAssetKey": "sock",
-  "imageAlt": "sock"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_o.v2",
@@ -4513,9 +4154,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "clock. Which vowel do you hear in the middle of clock?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Clock. Which letter spells the middle vowel sound?",
   "choices": [
    "u",
    "a",
@@ -4551,7 +4192,7 @@ export const questions = [
    "a": "D-VOWEL",
    "e": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4561,21 +4202,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "clock",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l2.B.short_o.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/clock.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "clock",
-  "stimulusMediaId": "clock",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4585,13 +4221,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/digraphs/clock.webp",
-  "imageUrl": "/images/assessment/digraphs/clock.webp",
-  "targetImage": "/images/assessment/digraphs/clock.webp",
-  "targetImagePath": "/images/assessment/digraphs/clock.webp",
-  "resolvedImageAssetKey": "clock",
-  "imageAlt": "clock"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.C.short_o.v3",
@@ -4610,12 +4240,12 @@ export const questions = [
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_o",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Clock. Which printed word matches the recording?",
   "choices": [
    "clock",
    "click",
@@ -4651,31 +4281,28 @@ export const questions = [
    "block": "D-VISUAL-NEIGHBOR",
    "click": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "clock",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l2.C.short_o.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/clock.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "clock",
-  "stimulusMediaId": "clock",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4685,13 +4312,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/clock.webp",
-  "imageUrl": "/images/assessment/digraphs/clock.webp",
-  "targetImage": "/images/assessment/digraphs/clock.webp",
-  "targetImagePath": "/images/assessment/digraphs/clock.webp",
-  "resolvedImageAssetKey": "clock",
-  "imageAlt": "clock"
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_o.v4",
@@ -4710,12 +4331,12 @@ export const questions = [
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_o",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Dock. Which printed word matches the recording?",
   "choices": [
    "duck",
    "deck",
@@ -4751,31 +4372,28 @@ export const questions = [
    "deck": "D-VOWEL",
    "desk": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "dock",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l2.A.short_o.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/release-media/dock-26b680cc.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "dock",
-  "stimulusMediaId": "dock",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4785,13 +4403,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-media/dock-26b680cc.webp",
-  "imageUrl": "/images/assessment/release-media/dock-26b680cc.webp",
-  "targetImage": "/images/assessment/release-media/dock-26b680cc.webp",
-  "targetImagePath": "/images/assessment/release-media/dock-26b680cc.webp",
-  "resolvedImageAssetKey": "dock",
-  "imageAlt": "dock"
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_o.v5",
@@ -4813,9 +4425,9 @@ export const questions = [
   "formatType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "templateType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "questionType": "visual_card_choice",
-  "prompt": "Which picture has the short o sound?",
-  "question": "Which picture has the short o sound?",
-  "spokenPrompt": "Which picture's word has the short o sound in the middle?",
+  "prompt": "Which pictured word has the short o sound?",
+  "question": "Which pictured word has the short o sound?",
+  "spokenPrompt": "Which pictured word has the short o sound in the middle?",
   "choices": [
    "mop",
    "map",
@@ -4855,8 +4467,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "hideWrittenLabels": false,
+  "constructClaim": "short_vowel_picture_word_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
@@ -4867,9 +4481,9 @@ export const questions = [
    "itemId": "lp3.short_vowel_discrimination.l2.B.short_o.v5",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/rhyming/variants/op/mop-02.webp",
-    "/images/assessment/rhyming/variants/ap/map-02.webp",
-    "/images/assessment/rhyming/variants/et/net-02.webp",
+    "/images/assessment/objective-words/mop.webp",
+    "/images/assessment/objective-words/map.webp",
+    "/images/assessment/objective-words/net.webp",
     "/images/assessment/rhyming/variants/bug/bug-02.webp"
    ],
    "alt": "Picture choices for this literacy question",
@@ -4892,8 +4506,8 @@ export const questions = [
     "word": "mop",
     "value": "mop",
     "label": "mop",
-    "image": "/images/assessment/rhyming/variants/op/mop-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/op/mop-02.webp",
+    "image": "/images/assessment/objective-words/mop.webp",
+    "imagePath": "/images/assessment/objective-words/mop.webp",
     "imageAlt": "mop"
    },
    {
@@ -4901,8 +4515,8 @@ export const questions = [
     "word": "map",
     "value": "map",
     "label": "map",
-    "image": "/images/assessment/rhyming/variants/ap/map-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ap/map-02.webp",
+    "image": "/images/assessment/objective-words/map.webp",
+    "imagePath": "/images/assessment/objective-words/map.webp",
     "imageAlt": "map"
    },
    {
@@ -4910,8 +4524,8 @@ export const questions = [
     "word": "net",
     "value": "net",
     "label": "net",
-    "image": "/images/assessment/rhyming/variants/et/net-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
+    "image": "/images/assessment/objective-words/net.webp",
+    "imagePath": "/images/assessment/objective-words/net.webp",
     "imageAlt": "net"
    },
    {
@@ -4945,9 +4559,9 @@ export const questions = [
   "formatType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "templateType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "questionType": "visual_card_choice",
-  "prompt": "Which picture has the short o sound?",
-  "question": "Which picture has the short o sound?",
-  "spokenPrompt": "Which picture's word has the short o sound in the middle?",
+  "prompt": "Which pictured word has the short o sound?",
+  "question": "Which pictured word has the short o sound?",
+  "spokenPrompt": "Which pictured word has the short o sound in the middle?",
   "choices": [
    "bug",
    "pot",
@@ -4987,8 +4601,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "hideWrittenLabels": false,
+  "constructClaim": "short_vowel_picture_word_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
@@ -5000,9 +4616,9 @@ export const questions = [
    "role": "answer-cards",
    "paths": [
     "/images/assessment/rhyming/variants/bug/bug-02.webp",
-    "/images/assessment/rhyming/variants/ot/pot-02.webp",
+    "/images/assessment/objective-words/pot.webp",
     "/images/assessment/rhyming/variants/at/bat-02.webp",
-    "/images/assessment/rhyming/variants/ed/bed-02.webp"
+    "/images/assessment/objective-words/bed.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -5033,8 +4649,8 @@ export const questions = [
     "word": "pot",
     "value": "pot",
     "label": "pot",
-    "image": "/images/assessment/rhyming/variants/ot/pot-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
+    "image": "/images/assessment/objective-words/pot.webp",
+    "imagePath": "/images/assessment/objective-words/pot.webp",
     "imageAlt": "pot"
    },
    {
@@ -5051,8 +4667,8 @@ export const questions = [
     "word": "bed",
     "value": "bed",
     "label": "bed",
-    "image": "/images/assessment/rhyming/variants/ed/bed-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+    "image": "/images/assessment/objective-words/bed.webp",
+    "imagePath": "/images/assessment/objective-words/bed.webp",
     "imageAlt": "bed"
    }
   ]
@@ -5077,9 +4693,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "jug. Which vowel do you hear in the middle of jug?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Jug. Which letter spells the middle vowel sound?",
   "choices": [
    "i",
    "u",
@@ -5115,7 +4731,7 @@ export const questions = [
    "a": "D-VOWEL",
    "o": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5125,21 +4741,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "jug",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.A.short_u.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/jug/jug-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "jug",
-  "stimulusMediaId": "jug",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5149,13 +4760,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/rhyming/variants/jug/jug-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/jug/jug-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/jug/jug-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/jug/jug-02.webp",
-  "resolvedImageAssetKey": "jug",
-  "imageAlt": "jug"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_u.v2",
@@ -5177,9 +4782,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "cup. Which vowel do you hear in the middle of cup?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Cup. Which letter spells the middle vowel sound?",
   "choices": [
    "u",
    "o",
@@ -5215,7 +4820,7 @@ export const questions = [
    "a": "D-VOWEL",
    "e": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5225,21 +4830,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "cup",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.B.short_u.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/cup/cup-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "cup",
-  "stimulusMediaId": "cup",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5249,13 +4849,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/cup/cup-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/cup/cup-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
-  "resolvedImageAssetKey": "cup",
-  "imageAlt": "cup"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_u.v3",
@@ -5277,9 +4871,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "mud. Which vowel do you hear in the middle of mud?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Mud. Which letter spells the middle vowel sound?",
   "choices": [
    "a",
    "e",
@@ -5315,7 +4909,7 @@ export const questions = [
    "a": "D-VOWEL",
    "e": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5325,21 +4919,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "mud",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.C.short_u.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/release-media/mud-4f3d05c0.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "mud",
-  "stimulusMediaId": "mud",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5349,13 +4938,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/release-media/mud-4f3d05c0.webp",
-  "imageUrl": "/images/assessment/release-media/mud-4f3d05c0.webp",
-  "targetImage": "/images/assessment/release-media/mud-4f3d05c0.webp",
-  "targetImagePath": "/images/assessment/release-media/mud-4f3d05c0.webp",
-  "resolvedImageAssetKey": "mud",
-  "imageAlt": "mud"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.A.short_u.v4",
@@ -5374,12 +4957,12 @@ export const questions = [
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_u",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Jug. Which printed word matches the recording?",
   "choices": [
    "jig",
    "jet",
@@ -5415,31 +4998,28 @@ export const questions = [
    "jig": "D-VOWEL",
    "jet": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "jug",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.A.short_u.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/jug/jug-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "jug",
-  "stimulusMediaId": "jug",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5449,13 +5029,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/jug/jug-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/jug/jug-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/jug/jug-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/jug/jug-02.webp",
-  "resolvedImageAssetKey": "jug",
-  "imageAlt": "jug"
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_u.v5",
@@ -5474,12 +5048,12 @@ export const questions = [
   "form": "B",
   "itemType": "short_vowel",
   "itemKey": "short_u",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Cup. Which printed word matches the recording?",
   "choices": [
    "cub",
    "cup",
@@ -5515,31 +5089,28 @@ export const questions = [
    "cape": "D-PATTERN-TRAP",
    "cub": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "cup",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.B.short_u.v5",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/cup/cup-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "cup",
-  "stimulusMediaId": "cup",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5549,13 +5120,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cape is the long-a silent-e decoy",
-  "imagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/cup/cup-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/cup/cup-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
-  "resolvedImageAssetKey": "cup",
-  "imageAlt": "cup"
+  "notes": "cape is the long-a silent-e decoy"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_u.v6",
@@ -5574,12 +5139,12 @@ export const questions = [
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_u",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Rug. Which printed word matches the recording?",
   "choices": [
    "rug",
    "rag",
@@ -5615,31 +5180,28 @@ export const questions = [
    "rig": "D-VOWEL",
    "ram": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "rug",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.C.short_u.v6",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/rug/rug-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "rug",
-  "stimulusMediaId": "rug",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5649,13 +5211,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/rug/rug-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/rug/rug-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/rug/rug-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/rug/rug-02.webp",
-  "resolvedImageAssetKey": "rug",
-  "imageAlt": "rug"
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_u.v1",
@@ -5677,9 +5233,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "drum. Which vowel do you hear in the middle of drum?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Drum. Which letter spells the middle vowel sound?",
   "choices": [
    "u",
    "o",
@@ -5715,7 +5271,7 @@ export const questions = [
    "a": "D-VOWEL",
    "i": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5725,21 +5281,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "drum",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l2.A.short_u.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/drum.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "drum",
-  "stimulusMediaId": "drum",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5749,13 +5300,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/blends/drum.webp",
-  "imageUrl": "/images/assessment/blends/drum.webp",
-  "targetImage": "/images/assessment/blends/drum.webp",
-  "targetImagePath": "/images/assessment/blends/drum.webp",
-  "resolvedImageAssetKey": "drum",
-  "imageAlt": "drum"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_u.v2",
@@ -5777,9 +5322,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "brush. Which vowel do you hear in the middle of brush?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Brush. Which letter spells the middle vowel sound?",
   "choices": [
    "e",
    "u",
@@ -5815,7 +5360,7 @@ export const questions = [
    "e": "D-VOWEL",
    "a": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5825,21 +5370,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "brush",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l2.B.short_u.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/brush.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "brush",
-  "stimulusMediaId": "brush",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5849,13 +5389,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/digraphs/brush.webp",
-  "imageUrl": "/images/assessment/digraphs/brush.webp",
-  "targetImage": "/images/assessment/digraphs/brush.webp",
-  "targetImagePath": "/images/assessment/digraphs/brush.webp",
-  "resolvedImageAssetKey": "brush",
-  "imageAlt": "brush"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.C.short_u.v3",
@@ -5874,12 +5408,12 @@ export const questions = [
   "form": "C",
   "itemType": "short_vowel",
   "itemKey": "short_u",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Plug. Which printed word matches the recording?",
   "choices": [
    "plot",
    "plum",
@@ -5915,31 +5449,28 @@ export const questions = [
    "plot": "D-VOWEL",
    "plum": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "plug",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l2.C.short_u.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/plug.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "plug",
-  "stimulusMediaId": "plug",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5949,13 +5480,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/plug.webp",
-  "imageUrl": "/images/assessment/blends/plug.webp",
-  "targetImage": "/images/assessment/blends/plug.webp",
-  "targetImagePath": "/images/assessment/blends/plug.webp",
-  "resolvedImageAssetKey": "plug",
-  "imageAlt": "plug"
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_u.v4",
@@ -5974,12 +5499,12 @@ export const questions = [
   "form": "A",
   "itemType": "short_vowel",
   "itemKey": "short_u",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Truck. Which printed word matches the recording?",
   "choices": [
    "trunk",
    "truck",
@@ -6015,31 +5540,28 @@ export const questions = [
    "track": "D-VOWEL",
    "trick": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "truck",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l2.A.short_u.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/truck.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "truck",
-  "stimulusMediaId": "truck",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6049,13 +5571,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/truck.webp",
-  "imageUrl": "/images/assessment/digraphs/truck.webp",
-  "targetImage": "/images/assessment/digraphs/truck.webp",
-  "targetImagePath": "/images/assessment/digraphs/truck.webp",
-  "resolvedImageAssetKey": "truck",
-  "imageAlt": "truck"
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_u.v5",
@@ -6077,20 +5593,20 @@ export const questions = [
   "formatType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "templateType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "questionType": "visual_card_choice",
-  "prompt": "Which picture has the short u sound?",
-  "question": "Which picture has the short u sound?",
-  "spokenPrompt": "Which picture's word has the short u sound in the middle?",
+  "prompt": "Which pictured word has the short u sound?",
+  "question": "Which pictured word has the short u sound?",
+  "spokenPrompt": "Which pictured word has the short u sound in the middle?",
   "choices": [
-   "dot",
+   "pot",
    "pen",
    "bug",
    "bag"
   ],
   "answerOptions": [
    {
-    "value": "dot",
-    "label": "dot",
-    "text": "dot"
+    "value": "pot",
+    "label": "pot",
+    "text": "pot"
    },
    {
     "value": "pen",
@@ -6113,14 +5629,16 @@ export const questions = [
   "distractorRationales": {
    "pen": "D-VOWEL",
    "bag": "D-VOWEL",
-   "dot": "D-VOWEL"
+   "pot": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "hideWrittenLabels": false,
+  "constructClaim": "short_vowel_picture_word_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
@@ -6131,10 +5649,10 @@ export const questions = [
    "itemId": "lp3.short_vowel_discrimination.l2.B.short_u.v5",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/rhyming/variants/ot/dot-02.webp",
-    "/images/assessment/rhyming/variants/en/pen-02.webp",
+    "/images/assessment/objective-words/pot.webp",
+    "/images/assessment/objective-words/pen.webp",
     "/images/assessment/rhyming/variants/bug/bug-02.webp",
-    "/images/assessment/rhyming/variants/ag/bag-02.webp"
+    "/images/assessment/objective-words/bag.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -6152,21 +5670,21 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.short_vowel_discrimination.l2.B.short_u.v5_card_dot",
-    "word": "dot",
-    "value": "dot",
-    "label": "dot",
-    "image": "/images/assessment/rhyming/variants/ot/dot-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ot/dot-02.webp",
-    "imageAlt": "dot"
+    "id": "lp3.short_vowel_discrimination.l2.B.short_u.v5_card_pot",
+    "word": "pot",
+    "value": "pot",
+    "label": "pot",
+    "image": "/images/assessment/objective-words/pot.webp",
+    "imagePath": "/images/assessment/objective-words/pot.webp",
+    "imageAlt": "pot"
    },
    {
     "id": "lp3.short_vowel_discrimination.l2.B.short_u.v5_card_pen",
     "word": "pen",
     "value": "pen",
     "label": "pen",
-    "image": "/images/assessment/rhyming/variants/en/pen-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/en/pen-02.webp",
+    "image": "/images/assessment/objective-words/pen.webp",
+    "imagePath": "/images/assessment/objective-words/pen.webp",
     "imageAlt": "pen"
    },
    {
@@ -6183,8 +5701,8 @@ export const questions = [
     "word": "bag",
     "value": "bag",
     "label": "bag",
-    "image": "/images/assessment/rhyming/variants/ag/bag-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ag/bag-02.webp",
+    "image": "/images/assessment/objective-words/bag.webp",
+    "imagePath": "/images/assessment/objective-words/bag.webp",
     "imageAlt": "bag"
    }
   ]
@@ -6209,9 +5727,9 @@ export const questions = [
   "formatType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "templateType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "questionType": "visual_card_choice",
-  "prompt": "Which picture has the short u sound?",
-  "question": "Which picture has the short u sound?",
-  "spokenPrompt": "Which picture's word has the short u sound in the middle?",
+  "prompt": "Which pictured word has the short u sound?",
+  "question": "Which pictured word has the short u sound?",
+  "spokenPrompt": "Which pictured word has the short u sound in the middle?",
   "choices": [
    "mat",
    "pig",
@@ -6251,8 +5769,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "hideWrittenLabels": false,
+  "constructClaim": "short_vowel_picture_word_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
@@ -6263,10 +5783,10 @@ export const questions = [
    "itemId": "lp3.short_vowel_discrimination.l2.C.short_u.v6",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/rhyming/variants/at/mat-02.webp",
+    "/images/assessment/objective-words/mat.webp",
     "/images/assessment/rhyming/variants/ig/pig-02.webp",
-    "/images/assessment/rhyming/variants/en/hen-02.webp",
-    "/images/assessment/rhyming/variants/mug/mug-02.webp"
+    "/images/assessment/objective-words/hen.webp",
+    "/images/assessment/objective-words/mug.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -6288,8 +5808,8 @@ export const questions = [
     "word": "mat",
     "value": "mat",
     "label": "mat",
-    "image": "/images/assessment/rhyming/variants/at/mat-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/at/mat-02.webp",
+    "image": "/images/assessment/objective-words/mat.webp",
+    "imagePath": "/images/assessment/objective-words/mat.webp",
     "imageAlt": "mat"
    },
    {
@@ -6306,8 +5826,8 @@ export const questions = [
     "word": "hen",
     "value": "hen",
     "label": "hen",
-    "image": "/images/assessment/rhyming/variants/en/hen-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
+    "image": "/images/assessment/objective-words/hen.webp",
+    "imagePath": "/images/assessment/objective-words/hen.webp",
     "imageAlt": "hen"
    },
    {
@@ -6315,8 +5835,8 @@ export const questions = [
     "word": "mug",
     "value": "mug",
     "label": "mug",
-    "image": "/images/assessment/rhyming/variants/mug/mug-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/mug/mug-02.webp",
+    "image": "/images/assessment/objective-words/mug.webp",
+    "imagePath": "/images/assessment/objective-words/mug.webp",
     "imageAlt": "mug"
    }
   ]
@@ -6341,9 +5861,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "hen. Which vowel do you hear in the middle of hen?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Hen. Which letter spells the middle vowel sound?",
   "choices": [
    "e",
    "i",
@@ -6379,7 +5899,7 @@ export const questions = [
    "o": "D-VOWEL",
    "a": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -6389,21 +5909,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "hen",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.R.short_e.v7r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/en/hen-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "hen",
-  "stimulusMediaId": "hen",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6413,13 +5928,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "resolvedImageAssetKey": "hen",
-  "imageAlt": "hen"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.R.short_u.v7r",
@@ -6441,9 +5950,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "hut. Which vowel do you hear in the middle of hut?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Hut. Which letter spells the middle vowel sound?",
   "choices": [
    "e",
    "u",
@@ -6479,7 +5988,7 @@ export const questions = [
    "o": "D-VOWEL",
    "e": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -6489,21 +5998,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "hut",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.R.short_u.v7r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/hut/hut-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "hut",
-  "stimulusMediaId": "hut",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6513,13 +6017,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/rhyming/variants/hut/hut-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/hut/hut-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/hut/hut-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/hut/hut-02.webp",
-  "resolvedImageAssetKey": "hut",
-  "imageAlt": "hut"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.R.short_o.v7r",
@@ -6541,9 +6039,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "hop. Which vowel do you hear in the middle of hop?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Hop. Which letter spells the middle vowel sound?",
   "choices": [
    "e",
    "i",
@@ -6579,7 +6077,7 @@ export const questions = [
    "i": "D-VOWEL",
    "u": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -6589,21 +6087,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "hop",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.R.short_o.v7r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/op/hop-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "hop",
-  "stimulusMediaId": "hop",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6613,13 +6106,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/op/hop-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/op/hop-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
-  "resolvedImageAssetKey": "hop",
-  "imageAlt": "hop"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.R.short_i.v7r",
@@ -6641,9 +6128,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "sit. Which vowel do you hear in the middle of sit?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Sit. Which letter spells the middle vowel sound?",
   "choices": [
    "u",
    "e",
@@ -6679,7 +6166,7 @@ export const questions = [
    "e": "D-VOWEL",
    "o": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -6689,21 +6176,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "sit",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.R.short_i.v7r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/it/sit-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "sit",
-  "stimulusMediaId": "sit",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6713,13 +6195,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/rhyming/variants/it/sit-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/it/sit-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/it/sit-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/it/sit-02.webp",
-  "resolvedImageAssetKey": "sit",
-  "imageAlt": "sit"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.R.short_a.v7r",
@@ -6741,9 +6217,9 @@ export const questions = [
   "formatType": "LISTEN_CHOOSE_VOWEL",
   "templateType": "LISTEN_CHOOSE_VOWEL",
   "questionType": "multiple_choice",
-  "prompt": "Which vowel do you hear in the middle?",
-  "question": "Which vowel do you hear in the middle?",
-  "spokenPrompt": "crab. Which vowel do you hear in the middle of crab?",
+  "prompt": "Which letter spells the middle vowel sound?",
+  "question": "Which letter spells the middle vowel sound?",
+  "spokenPrompt": "Crab. Which letter spells the middle vowel sound?",
   "choices": [
    "o",
    "a",
@@ -6779,7 +6255,7 @@ export const questions = [
    "e": "D-VOWEL",
    "o": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -6789,21 +6265,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "crab",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l2.R.short_a.v7r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/crab.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "crab",
-  "stimulusMediaId": "crab",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6813,13 +6284,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/assessment/blends/crab.webp",
-  "imageUrl": "/images/assessment/blends/crab.webp",
-  "targetImage": "/images/assessment/blends/crab.webp",
-  "targetImagePath": "/images/assessment/blends/crab.webp",
-  "resolvedImageAssetKey": "crab",
-  "imageAlt": "crab"
+  "notes": "the word is heard and never printed"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.R.short_e.v8r",
@@ -6838,12 +6303,12 @@ export const questions = [
   "form": "R",
   "itemType": "short_vowel",
   "itemKey": "short_e",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Vet. Which printed word matches the recording?",
   "choices": [
    "vet",
    "vat",
@@ -6879,31 +6344,28 @@ export const questions = [
    "vat": "D-VOWEL",
    "vest": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "vet",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.R.short_e.v8r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/release-media/vet-3951b878.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "vet",
-  "stimulusMediaId": "vet",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6913,13 +6375,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-media/vet-3951b878.webp",
-  "imageUrl": "/images/assessment/release-media/vet-3951b878.webp",
-  "targetImage": "/images/assessment/release-media/vet-3951b878.webp",
-  "targetImagePath": "/images/assessment/release-media/vet-3951b878.webp",
-  "resolvedImageAssetKey": "vet",
-  "imageAlt": "vet"
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.R.short_o.v8r",
@@ -6938,12 +6394,12 @@ export const questions = [
   "form": "R",
   "itemType": "short_vowel",
   "itemKey": "short_o",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Hop. Which printed word matches the recording?",
   "choices": [
    "hut",
    "hop",
@@ -6979,31 +6435,28 @@ export const questions = [
    "hat": "D-VOWEL",
    "hut": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "hop",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.R.short_o.v8r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/op/hop-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "hop",
-  "stimulusMediaId": "hop",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7013,13 +6466,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/op/hop-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/op/hop-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
-  "resolvedImageAssetKey": "hop",
-  "imageAlt": "hop"
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.R.short_u.v8r",
@@ -7038,12 +6485,12 @@ export const questions = [
   "form": "R",
   "itemType": "short_vowel",
   "itemKey": "short_u",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Dug. Which printed word matches the recording?",
   "choices": [
    "dig",
    "den",
@@ -7079,31 +6526,28 @@ export const questions = [
    "dog": "D-VOWEL",
    "dig": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "dug",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.short_vowel_discrimination.l1.R.short_u.v8r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/release-media/dug-2ec526a8.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "dug",
-  "stimulusMediaId": "dug",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7113,13 +6557,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-media/dug-2ec526a8.webp",
-  "imageUrl": "/images/assessment/release-media/dug-2ec526a8.webp",
-  "targetImage": "/images/assessment/release-media/dug-2ec526a8.webp",
-  "targetImagePath": "/images/assessment/release-media/dug-2ec526a8.webp",
-  "resolvedImageAssetKey": "dug",
-  "imageAlt": "dug"
+  "notes": ""
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.R.short_e.v7r",
@@ -7141,9 +6579,9 @@ export const questions = [
   "formatType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "templateType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "questionType": "visual_card_choice",
-  "prompt": "Which picture has the short e sound?",
-  "question": "Which picture has the short e sound?",
-  "spokenPrompt": "Which picture's word has the short e sound in the middle?",
+  "prompt": "Which pictured word has the short e sound?",
+  "question": "Which pictured word has the short e sound?",
+  "spokenPrompt": "Which pictured word has the short e sound in the middle?",
   "choices": [
    "log",
    "bug",
@@ -7183,8 +6621,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+image",
   "evidenceRole": "retention",
-  "hideWrittenLabels": false,
+  "constructClaim": "short_vowel_picture_word_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
@@ -7197,8 +6637,8 @@ export const questions = [
    "paths": [
     "/images/assessment/rhyming/variants/og/log-02.webp",
     "/images/assessment/rhyming/variants/bug/bug-02.webp",
-    "/images/assessment/rhyming/variants/en/hen-02.webp",
-    "/images/assessment/rhyming/variants/at/hat-02.webp"
+    "/images/assessment/objective-words/hen.webp",
+    "/images/assessment/objective-words/hat.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -7238,8 +6678,8 @@ export const questions = [
     "word": "hen",
     "value": "hen",
     "label": "hen",
-    "image": "/images/assessment/rhyming/variants/en/hen-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
+    "image": "/images/assessment/objective-words/hen.webp",
+    "imagePath": "/images/assessment/objective-words/hen.webp",
     "imageAlt": "hen"
    },
    {
@@ -7247,8 +6687,8 @@ export const questions = [
     "word": "hat",
     "value": "hat",
     "label": "hat",
-    "image": "/images/assessment/rhyming/variants/at/hat-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
+    "image": "/images/assessment/objective-words/hat.webp",
+    "imagePath": "/images/assessment/objective-words/hat.webp",
     "imageAlt": "hat"
    }
   ]
@@ -7273,9 +6713,9 @@ export const questions = [
   "formatType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "templateType": "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "questionType": "visual_card_choice",
-  "prompt": "Which picture has the short o sound?",
-  "question": "Which picture has the short o sound?",
-  "spokenPrompt": "Which picture's word has the short o sound in the middle?",
+  "prompt": "Which pictured word has the short o sound?",
+  "question": "Which pictured word has the short o sound?",
+  "spokenPrompt": "Which pictured word has the short o sound in the middle?",
   "choices": [
    "jam",
    "pin",
@@ -7315,8 +6755,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+image",
   "evidenceRole": "retention",
-  "hideWrittenLabels": false,
+  "constructClaim": "short_vowel_picture_word_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
@@ -7327,9 +6769,9 @@ export const questions = [
    "itemId": "lp3.short_vowel_discrimination.l2.R.short_o.v7r",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/rhyming/variants/am/jam-02.webp",
+    "/images/assessment/objective-words/jam.webp",
     "/images/assessment/rhyming/variants/in/pin-02.webp",
-    "/images/assessment/rhyming/variants/cup/cup-02.webp",
+    "/images/assessment/objective-words/cup.webp",
     "/images/assessment/rhyming/variants/og/log-02.webp"
    ],
    "alt": "Picture choices for this literacy question",
@@ -7352,8 +6794,8 @@ export const questions = [
     "word": "jam",
     "value": "jam",
     "label": "jam",
-    "image": "/images/assessment/rhyming/variants/am/jam-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
+    "image": "/images/assessment/objective-words/jam.webp",
+    "imagePath": "/images/assessment/objective-words/jam.webp",
     "imageAlt": "jam"
    },
    {
@@ -7370,8 +6812,8 @@ export const questions = [
     "word": "cup",
     "value": "cup",
     "label": "cup",
-    "image": "/images/assessment/rhyming/variants/cup/cup-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
+    "image": "/images/assessment/objective-words/cup.webp",
+    "imagePath": "/images/assessment/objective-words/cup.webp",
     "imageAlt": "cup"
    },
    {

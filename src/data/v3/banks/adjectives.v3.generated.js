@@ -21,10 +21,10 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ animal filled the whole page.",
-  "question": "The ___ animal filled the whole page.",
-  "spokenPrompt": "Which describing word finishes the sentence?",
-  "sentence": "The ___ animal filled the whole page.",
+  "prompt": "Which description fits best: The ___ animal was bigger than the rest.",
+  "question": "Which description fits best: The ___ animal was bigger than the rest.",
+  "spokenPrompt": "Which description fits best? The … animal was bigger than the rest.",
+  "sentence": "The ___ animal was bigger than the rest.",
   "choices": [
    "soft",
    "huge",
@@ -68,23 +68,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The ___ animal filled the whole page.",
+  "sentenceText": "The ___ animal was bigger than the rest.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.A.adj_size.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-size.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-size.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -94,13 +89,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.B.adj_size.v2",
@@ -122,9 +111,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ button was smaller than my fingernail.",
-  "question": "The ___ button was smaller than my fingernail.",
-  "spokenPrompt": "Which describing word finishes the sentence?",
+  "prompt": "Which description fits best: The ___ button was smaller than my fingernail.",
+  "question": "Which description fits best: The ___ button was smaller than my fingernail.",
+  "spokenPrompt": "Which description fits best? The … button was smaller than my fingernail.",
   "sentence": "The ___ button was smaller than my fingernail.",
   "choices": [
    "tiny",
@@ -171,21 +160,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The ___ button was smaller than my fingernail.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.B.adj_size.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-size.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-size.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -195,13 +179,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.C.adj_size.v3",
@@ -223,9 +201,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ tree rose above every roof.",
-  "question": "The ___ tree rose above every roof.",
-  "spokenPrompt": "Which describing word finishes the sentence?",
+  "prompt": "Which description fits best: The ___ tree rose above every roof.",
+  "question": "Which description fits best: The ___ tree rose above every roof.",
+  "spokenPrompt": "Which description fits best? The … tree rose above every roof.",
   "sentence": "The ___ tree rose above every roof.",
   "choices": [
    "short",
@@ -272,21 +250,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The ___ tree rose above every roof.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.C.adj_size.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-size.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-size.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -296,13 +269,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.A.adj_size.v4",
@@ -371,21 +338,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.A.adj_size.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-size.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-size.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -395,13 +357,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.B.adj_size.v5",
@@ -470,21 +426,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.B.adj_size.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-size.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-size.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -494,13 +445,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.C.adj_size.v6",
@@ -569,21 +514,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.C.adj_size.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-size.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-size.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -593,13 +533,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.A.adj_color.v1",
@@ -621,10 +555,10 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The leaf stayed ___ all summer.",
-  "question": "The leaf stayed ___ all summer.",
-  "spokenPrompt": "Which describing word finishes the sentence?",
-  "sentence": "The leaf stayed ___ all summer.",
+  "prompt": "Which description fits best: The leaf matched fresh grass: it was ___.",
+  "question": "Which description fits best: The leaf matched fresh grass: it was ___.",
+  "spokenPrompt": "Which description fits best? The leaf matched fresh grass: it was ….",
+  "sentence": "The leaf matched fresh grass: it was ___.",
   "choices": [
    "red",
    "blue",
@@ -668,23 +602,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The leaf stayed ___ all summer.",
+  "sentenceText": "The leaf matched fresh grass: it was ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.A.adj_color.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-color.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-color.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -694,13 +623,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.B.adj_color.v2",
@@ -722,10 +645,10 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ripe banana was bright ___.",
-  "question": "The ripe banana was bright ___.",
-  "spokenPrompt": "Which describing word finishes the sentence?",
-  "sentence": "The ripe banana was bright ___.",
+  "prompt": "Which description fits best: The banana matched sunshine: it was ___.",
+  "question": "Which description fits best: The banana matched sunshine: it was ___.",
+  "spokenPrompt": "Which description fits best? The banana matched sunshine: it was ….",
+  "sentence": "The banana matched sunshine: it was ___.",
   "choices": [
    "blue",
    "black",
@@ -769,23 +692,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The ripe banana was bright ___.",
+  "sentenceText": "The banana matched sunshine: it was ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.B.adj_color.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-color.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-color.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -795,13 +713,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.C.adj_color.v3",
@@ -823,9 +735,9 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a colour word?",
-  "question": "Which word is a colour word?",
-  "spokenPrompt": "Which word is a colour word?",
+  "prompt": "Which word is a color word?",
+  "question": "Which word is a color word?",
+  "spokenPrompt": "Which word is a color word?",
   "choices": [
    "run",
    "red",
@@ -870,21 +782,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.C.adj_color.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-color.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-color.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -894,13 +801,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.A.adj_color.v4",
@@ -922,9 +823,9 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a colour word?",
-  "question": "Which word is a colour word?",
-  "spokenPrompt": "Which word is a colour word?",
+  "prompt": "Which word is a color word?",
+  "question": "Which word is a color word?",
+  "spokenPrompt": "Which word is a color word?",
   "choices": [
    "blue",
    "glue",
@@ -969,21 +870,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.A.adj_color.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-color.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-color.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -993,13 +889,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.B.adj_color.v5",
@@ -1021,9 +911,9 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a colour word?",
-  "question": "Which word is a colour word?",
-  "spokenPrompt": "Which word is a colour word?",
+  "prompt": "Which word is a color word?",
+  "question": "Which word is a color word?",
+  "spokenPrompt": "Which word is a color word?",
   "choices": [
    "grin",
    "grow",
@@ -1068,21 +958,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.B.adj_color.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-color.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-color.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1092,13 +977,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.C.adj_color.v6",
@@ -1120,9 +999,9 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a colour word?",
-  "question": "Which word is a colour word?",
-  "spokenPrompt": "Which word is a colour word?",
+  "prompt": "Which word is a color word?",
+  "question": "Which word is a color word?",
+  "spokenPrompt": "Which word is a color word?",
   "choices": [
    "brow",
    "barn",
@@ -1167,21 +1046,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.C.adj_color.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-color.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-color.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1191,13 +1065,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.A.adj_texture_state.v1",
@@ -1219,9 +1087,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ blanket felt gentle on my cheek.",
-  "question": "The ___ blanket felt gentle on my cheek.",
-  "spokenPrompt": "Which describing word finishes the sentence?",
+  "prompt": "Which description fits best: The ___ blanket felt gentle on my cheek.",
+  "question": "Which description fits best: The ___ blanket felt gentle on my cheek.",
+  "spokenPrompt": "Which description fits best? The … blanket felt gentle on my cheek.",
   "sentence": "The ___ blanket felt gentle on my cheek.",
   "choices": [
    "wet",
@@ -1268,21 +1136,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The ___ blanket felt gentle on my cheek.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.A.adj_texture_state.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-texture-state.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1292,13 +1155,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.B.adj_texture_state.v2",
@@ -1320,9 +1177,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ towel dripped onto the floor.",
-  "question": "The ___ towel dripped onto the floor.",
-  "spokenPrompt": "Which describing word finishes the sentence?",
+  "prompt": "Which description fits best: The ___ towel dripped onto the floor.",
+  "question": "Which description fits best: The ___ towel dripped onto the floor.",
+  "spokenPrompt": "Which description fits best? The … towel dripped onto the floor.",
   "sentence": "The ___ towel dripped onto the floor.",
   "choices": [
    "wet",
@@ -1369,21 +1226,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The ___ towel dripped onto the floor.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.B.adj_texture_state.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-texture-state.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1393,13 +1245,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.C.adj_texture_state.v3",
@@ -1421,10 +1267,10 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ stone would not bend or squash.",
-  "question": "The ___ stone would not bend or squash.",
-  "spokenPrompt": "Which describing word finishes the sentence?",
-  "sentence": "The ___ stone would not bend or squash.",
+  "prompt": "Which description fits best: The ___ stone stayed firm when squeezed.",
+  "question": "Which description fits best: The ___ stone stayed firm when squeezed.",
+  "spokenPrompt": "Which description fits best? The … stone stayed firm when squeezed.",
+  "sentence": "The ___ stone stayed firm when squeezed.",
   "choices": [
    "soft",
    "wet",
@@ -1468,23 +1314,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The ___ stone would not bend or squash.",
+  "sentenceText": "The ___ stone stayed firm when squeezed.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.C.adj_texture_state.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-texture-state.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1494,13 +1335,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.A.adj_texture_state.v4",
@@ -1522,9 +1357,9 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a describing word for how things feel?",
-  "question": "Which word is a describing word for how things feel?",
-  "spokenPrompt": "Which word is a describing word for how things feel?",
+  "prompt": "Which word describes how something feels to touch?",
+  "question": "Which word describes how something feels to touch?",
+  "spokenPrompt": "Which word describes how something feels to touch?",
   "choices": [
    "sat",
    "sock",
@@ -1569,21 +1404,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.A.adj_texture_state.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-texture-state.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1593,13 +1423,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.B.adj_texture_state.v5",
@@ -1621,9 +1445,9 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a describing word for how things feel?",
-  "question": "Which word is a describing word for how things feel?",
-  "spokenPrompt": "Which word is a describing word for how things feel?",
+  "prompt": "Which word describes how something feels to touch?",
+  "question": "Which word describes how something feels to touch?",
+  "spokenPrompt": "Which word describes how something feels to touch?",
   "choices": [
    "win",
    "wet",
@@ -1668,21 +1492,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.B.adj_texture_state.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-texture-state.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1692,13 +1511,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.C.adj_texture_state.v6",
@@ -1720,9 +1533,9 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a describing word for how things feel?",
-  "question": "Which word is a describing word for how things feel?",
-  "spokenPrompt": "Which word is a describing word for how things feel?",
+  "prompt": "Which word describes how something feels to touch?",
+  "question": "Which word describes how something feels to touch?",
+  "spokenPrompt": "Which word describes how something feels to touch?",
   "choices": [
    "cold",
    "coat",
@@ -1767,21 +1580,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.C.adj_texture_state.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-texture-state.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1791,13 +1599,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.A.adj_feeling.v1",
@@ -1819,13 +1621,13 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Mina felt ___ when her friend arrived.",
-  "question": "Mina felt ___ when her friend arrived.",
-  "spokenPrompt": "Which describing word finishes the sentence?",
-  "sentence": "Mina felt ___ when her friend arrived.",
+  "prompt": "Which description fits best: Mina smiled because she felt ___.",
+  "question": "Which description fits best: Mina smiled because she felt ___.",
+  "spokenPrompt": "Which description fits best? Mina smiled because she felt ….",
+  "sentence": "Mina smiled because she felt ___.",
   "choices": [
    "sad",
-   "cross",
+   "mad",
    "tired",
    "happy"
   ],
@@ -1836,9 +1638,9 @@ export const questions = [
     "text": "sad"
    },
    {
-    "value": "cross",
-    "label": "cross",
-    "text": "cross"
+    "value": "mad",
+    "label": "mad",
+    "text": "mad"
    },
    {
     "value": "tired",
@@ -1856,7 +1658,7 @@ export const questions = [
   "distractorRationales": {
    "tired": "D-PLAUSIBLE-UNSUPPORTED",
    "sad": "D-PLAUSIBLE-UNSUPPORTED",
-   "cross": "D-PLAUSIBLE-UNSUPPORTED"
+   "mad": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1866,23 +1668,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Mina felt ___ when her friend arrived.",
+  "sentenceText": "Mina smiled because she felt ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.A.adj_feeling.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-feeling.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1892,13 +1689,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.B.adj_feeling.v2",
@@ -1967,21 +1758,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.B.adj_feeling.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-feeling.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1991,13 +1777,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.C.adj_feeling.v3",
@@ -2066,21 +1846,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.C.adj_feeling.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-feeling.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2090,13 +1865,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "hoppy is the developmental spelling neighbour — real word, wrong class",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "hoppy is the developmental spelling neighbour — real word, wrong class"
  },
  {
   "id": "lp3.adjectives.l1.A.adj_feeling.v4",
@@ -2165,21 +1934,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.A.adj_feeling.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-feeling.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2189,13 +1953,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.B.adj_feeling.v5",
@@ -2221,39 +1979,39 @@ export const questions = [
   "question": "Which word is a feeling word?",
   "spokenPrompt": "Which word is a feeling word?",
   "choices": [
-   "crust",
-   "class",
-   "crisp",
-   "cross"
+   "mat",
+   "map",
+   "man",
+   "mad"
   ],
   "answerOptions": [
    {
-    "value": "crust",
-    "label": "crust",
-    "text": "crust"
+    "value": "mat",
+    "label": "mat",
+    "text": "mat"
    },
    {
-    "value": "class",
-    "label": "class",
-    "text": "class"
+    "value": "map",
+    "label": "map",
+    "text": "map"
    },
    {
-    "value": "crisp",
-    "label": "crisp",
-    "text": "crisp"
+    "value": "man",
+    "label": "man",
+    "text": "man"
    },
    {
-    "value": "cross",
-    "label": "cross",
-    "text": "cross"
+    "value": "mad",
+    "label": "mad",
+    "text": "mad"
    }
   ],
-  "answer": "cross",
-  "correctAnswer": "cross",
+  "answer": "mad",
+  "correctAnswer": "mad",
   "distractorRationales": {
-   "crust": "D-FUNCTION-SWAP",
-   "class": "D-FUNCTION-SWAP",
-   "crisp": "D-FUNCTION-SWAP"
+   "mat": "D-FUNCTION-SWAP",
+   "map": "D-FUNCTION-SWAP",
+   "man": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2264,21 +2022,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.B.adj_feeling.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-feeling.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2288,13 +2041,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cross the feeling — the British everyday word for angry",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.C.adj_feeling.v6",
@@ -2363,21 +2110,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.C.adj_feeling.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-feeling.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2387,13 +2129,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l2.A.adj_in_sentence.v1",
@@ -2415,9 +2151,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ soup burned my lip.",
-  "question": "The ___ soup burned my lip.",
-  "spokenPrompt": "Which describing word finishes the sentence? The … soup burned my lip.",
+  "prompt": "Which adjective fits: The ___ soup burned my lip.",
+  "question": "Which adjective fits: The ___ soup burned my lip.",
+  "spokenPrompt": "Which adjective fits? The … soup burned my lip.",
   "sentence": "The ___ soup burned my lip.",
   "choices": [
    "hot",
@@ -2464,21 +2200,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The ___ soup burned my lip.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.A.adj_in_sentence.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2488,13 +2219,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all four describe — burned pins hot",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "all four describe — burned pins hot"
  },
  {
   "id": "lp3.adjectives.l2.B.adj_in_sentence.v2",
@@ -2516,9 +2241,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "My ___ boots let the rain in.",
-  "question": "My ___ boots let the rain in.",
-  "spokenPrompt": "Which describing word finishes the sentence? My … boots let the rain in.",
+  "prompt": "Which adjective fits: My ___ boots let the rain in.",
+  "question": "Which adjective fits: My ___ boots let the rain in.",
+  "spokenPrompt": "Which adjective fits? My … boots let the rain in.",
   "sentence": "My ___ boots let the rain in.",
   "choices": [
    "warm",
@@ -2565,21 +2290,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "My ___ boots let the rain in.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.B.adj_in_sentence.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2589,13 +2309,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "let the rain in pins leaky",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "let the rain in pins leaky"
  },
  {
   "id": "lp3.adjectives.l2.C.adj_in_sentence.v3",
@@ -2617,10 +2331,10 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ box needed two of us to lift.",
-  "question": "The ___ box needed two of us to lift.",
-  "spokenPrompt": "Which describing word finishes the sentence? The … box needed two of us to lift.",
-  "sentence": "The ___ box needed two of us to lift.",
+  "prompt": "Which adjective fits: The ___ box weighed more than I could lift.",
+  "question": "Which adjective fits: The ___ box weighed more than I could lift.",
+  "spokenPrompt": "Which adjective fits? The … box weighed more than I could lift.",
+  "sentence": "The ___ box weighed more than I could lift.",
   "choices": [
    "tiny",
    "light",
@@ -2664,23 +2378,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The ___ box needed two of us to lift.",
+  "sentenceText": "The ___ box weighed more than I could lift.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.C.adj_in_sentence.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2690,13 +2399,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l2.A.adj_in_sentence.v4",
@@ -2718,21 +2421,21 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "We squinted in the ___ sunshine.",
-  "question": "We squinted in the ___ sunshine.",
-  "spokenPrompt": "Which describing word finishes the sentence? We squinted in the … sunshine.",
+  "prompt": "Which adjective fits: We squinted in the ___ sunshine.",
+  "question": "Which adjective fits: We squinted in the ___ sunshine.",
+  "spokenPrompt": "Which adjective fits? We squinted in the … sunshine.",
   "sentence": "We squinted in the ___ sunshine.",
   "choices": [
-   "grey",
+   "gray",
    "bright",
    "dim",
    "soft"
   ],
   "answerOptions": [
    {
-    "value": "grey",
-    "label": "grey",
-    "text": "grey"
+    "value": "gray",
+    "label": "gray",
+    "text": "gray"
    },
    {
     "value": "bright",
@@ -2755,7 +2458,7 @@ export const questions = [
   "distractorRationales": {
    "dim": "D-PLAUSIBLE-UNSUPPORTED",
    "soft": "D-PLAUSIBLE-UNSUPPORTED",
-   "grey": "D-PLAUSIBLE-UNSUPPORTED"
+   "gray": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2767,21 +2470,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "We squinted in the ___ sunshine.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.A.adj_in_sentence.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2791,13 +2489,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "squinted pins bright",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "squinted pins bright"
  },
  {
   "id": "lp3.adjectives.l2.B.adj_in_sentence.v5",
@@ -2866,21 +2558,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.B.adj_in_sentence.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2890,13 +2577,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l2.C.adj_in_sentence.v6",
@@ -2965,21 +2646,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.C.adj_in_sentence.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2989,13 +2665,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l2.A.adj_in_sentence.v7",
@@ -3017,9 +2687,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ kitten slept through the storm.",
-  "question": "The ___ kitten slept through the storm.",
-  "spokenPrompt": "Which describing word finishes the sentence? The … kitten slept through the storm.",
+  "prompt": "Which adjective fits: The ___ kitten slept through the storm.",
+  "question": "Which adjective fits: The ___ kitten slept through the storm.",
+  "spokenPrompt": "Which adjective fits? The … kitten slept through the storm.",
   "sentence": "The ___ kitten slept through the storm.",
   "choices": [
    "sleeps",
@@ -3066,21 +2736,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The ___ kitten slept through the storm.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.A.adj_in_sentence.v7",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3090,13 +2755,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the family fit — only the describing form sits before kitten",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the family fit — only the describing form sits before kitten"
  },
  {
   "id": "lp3.adjectives.l2.B.adj_in_sentence.v8",
@@ -3118,9 +2777,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Her ___ scarf trailed on the ground.",
-  "question": "Her ___ scarf trailed on the ground.",
-  "spokenPrompt": "Which describing word finishes the sentence? Her … scarf trailed on the ground.",
+  "prompt": "Which adjective fits: Her ___ scarf trailed on the ground.",
+  "question": "Which adjective fits: Her ___ scarf trailed on the ground.",
+  "spokenPrompt": "Which adjective fits? Her … scarf trailed on the ground.",
   "sentence": "Her ___ scarf trailed on the ground.",
   "choices": [
    "length",
@@ -3167,21 +2826,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "Her ___ scarf trailed on the ground.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.B.adj_in_sentence.v8",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3191,13 +2845,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l2.A.adj_precision.v1",
@@ -3219,9 +2867,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The path was ___ after days of rain.",
-  "question": "The path was ___ after days of rain.",
-  "spokenPrompt": "Which describing word finishes the sentence? The path was … after days of rain.",
+  "prompt": "Which adjective fits best: The path was ___ after days of rain.",
+  "question": "Which adjective fits best: The path was ___ after days of rain.",
+  "spokenPrompt": "Which adjective fits best? The path was … after days of rain.",
   "sentence": "The path was ___ after days of rain.",
   "choices": [
    "dusty",
@@ -3268,21 +2916,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The path was ___ after days of rain.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.A.adj_precision.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-precision.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3292,13 +2935,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "days of rain pins muddy — dusty is its dry opposite",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "days of rain pins muddy — dusty is its dry opposite"
  },
  {
   "id": "lp3.adjectives.l2.B.adj_precision.v2",
@@ -3320,9 +2957,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The lemonade was ___ and made our mouths pucker.",
-  "question": "The lemonade was ___ and made our mouths pucker.",
-  "spokenPrompt": "Which describing word finishes the sentence? The lemonade was … and made our mouths pucker.",
+  "prompt": "Which adjective fits best: The lemonade was ___ and made our mouths pucker.",
+  "question": "Which adjective fits best: The lemonade was ___ and made our mouths pucker.",
+  "spokenPrompt": "Which adjective fits best? The lemonade was … and made our mouths pucker.",
   "sentence": "The lemonade was ___ and made our mouths pucker.",
   "choices": [
    "sour",
@@ -3369,21 +3006,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The lemonade was ___ and made our mouths pucker.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.B.adj_precision.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-precision.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3393,13 +3025,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l2.C.adj_precision.v3",
@@ -3421,9 +3047,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The old stairs were ___ and groaned under our feet.",
-  "question": "The old stairs were ___ and groaned under our feet.",
-  "spokenPrompt": "Which describing word finishes the sentence? The old stairs were … and groaned under our feet.",
+  "prompt": "Which adjective fits best: The old stairs were ___ and groaned under our feet.",
+  "question": "Which adjective fits best: The old stairs were ___ and groaned under our feet.",
+  "spokenPrompt": "Which adjective fits best? The old stairs were … and groaned under our feet.",
   "sentence": "The old stairs were ___ and groaned under our feet.",
   "choices": [
    "creaky",
@@ -3470,21 +3096,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The old stairs were ___ and groaned under our feet.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.C.adj_precision.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-precision.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3494,13 +3115,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l2.A.adj_precision.v4",
@@ -3522,10 +3137,10 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Wear the ___ coat — it is snowing hard.",
-  "question": "Wear the ___ coat — it is snowing hard.",
-  "spokenPrompt": "Which describing word finishes the sentence? Wear the … coat — it is snowing hard.",
-  "sentence": "Wear the ___ coat — it is snowing hard.",
+  "prompt": "Which adjective fits best: Wear the ___ coat to stay warm in the snow.",
+  "question": "Which adjective fits best: Wear the ___ coat to stay warm in the snow.",
+  "spokenPrompt": "Which adjective fits best? Wear the … coat to stay warm in the snow.",
+  "sentence": "Wear the ___ coat to stay warm in the snow.",
   "choices": [
    "thick",
    "thin",
@@ -3569,23 +3184,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Wear the ___ coat — it is snowing hard.",
+  "sentenceText": "Wear the ___ coat to stay warm in the snow.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.A.adj_precision.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-precision.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3595,13 +3205,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l2.B.adj_precision.v5",
@@ -3670,21 +3274,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.B.adj_precision.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-precision.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3694,13 +3293,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l2.C.adj_precision.v6",
@@ -3769,21 +3362,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.C.adj_precision.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-precision.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3793,13 +3381,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l2.A.adj_precision.v7",
@@ -3821,9 +3403,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ knife went through the pumpkin easily.",
-  "question": "The ___ knife went through the pumpkin easily.",
-  "spokenPrompt": "Which describing word finishes the sentence? The … knife went through the pumpkin easily.",
+  "prompt": "Which adjective fits best: The ___ knife went through the pumpkin easily.",
+  "question": "Which adjective fits best: The ___ knife went through the pumpkin easily.",
+  "spokenPrompt": "Which adjective fits best? The … knife went through the pumpkin easily.",
   "sentence": "The ___ knife went through the pumpkin easily.",
   "choices": [
    "bent",
@@ -3870,21 +3452,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The ___ knife went through the pumpkin easily.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.A.adj_precision.v7",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-precision.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3894,13 +3471,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l2.B.adj_precision.v8",
@@ -3922,9 +3493,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Our tent felt ___ with five of us in it.",
-  "question": "Our tent felt ___ with five of us in it.",
-  "spokenPrompt": "Which describing word finishes the sentence? Our tent felt … with five of us in it.",
+  "prompt": "Which adjective fits best: Our tent felt ___ with five of us in it.",
+  "question": "Which adjective fits best: Our tent felt ___ with five of us in it.",
+  "spokenPrompt": "Which adjective fits best? Our tent felt … with five of us in it.",
   "sentence": "Our tent felt ___ with five of us in it.",
   "choices": [
    "airy",
@@ -3971,21 +3542,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "Our tent felt ___ with five of us in it.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.B.adj_precision.v8",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-precision.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3995,13 +3561,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l2.A.adj_vs_noun_verb.v1",
@@ -4023,25 +3583,25 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a describing word, not a naming or doing word?",
-  "question": "Which word is a describing word, not a naming or doing word?",
-  "spokenPrompt": "Which word is a describing word, not a naming or doing word?",
+  "prompt": "Which word describes something in ‘The soft blanket covered the bed’?",
+  "question": "Which word describes something in ‘The soft blanket covered the bed’?",
+  "spokenPrompt": "Which word describes something in ‘The soft blanket covered the bed’?",
   "choices": [
-   "sit",
-   "sand",
+   "covered",
+   "bed",
    "soft",
-   "sofa"
+   "blanket"
   ],
   "answerOptions": [
    {
-    "value": "sit",
-    "label": "sit",
-    "text": "sit"
+    "value": "covered",
+    "label": "covered",
+    "text": "covered"
    },
    {
-    "value": "sand",
-    "label": "sand",
-    "text": "sand"
+    "value": "bed",
+    "label": "bed",
+    "text": "bed"
    },
    {
     "value": "soft",
@@ -4049,17 +3609,17 @@ export const questions = [
     "text": "soft"
    },
    {
-    "value": "sofa",
-    "label": "sofa",
-    "text": "sofa"
+    "value": "blanket",
+    "label": "blanket",
+    "text": "blanket"
    }
   ],
   "answer": "soft",
   "correctAnswer": "soft",
   "distractorRationales": {
-   "sit": "D-FUNCTION-SWAP",
-   "sand": "D-FUNCTION-SWAP",
-   "sofa": "D-FUNCTION-SWAP"
+   "covered": "D-FUNCTION-SWAP",
+   "bed": "D-FUNCTION-SWAP",
+   "blanket": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4070,21 +3630,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4094,13 +3649,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l2.B.adj_vs_noun_verb.v2",
@@ -4122,30 +3671,30 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a describing word, not a naming or doing word?",
-  "question": "Which word is a describing word, not a naming or doing word?",
-  "spokenPrompt": "Which word is a describing word, not a naming or doing word?",
+  "prompt": "Which word describes something in ‘The brave child helped a friend’?",
+  "question": "Which word describes something in ‘The brave child helped a friend’?",
+  "spokenPrompt": "Which word describes something in ‘The brave child helped a friend’?",
   "choices": [
-   "bravery",
-   "brag",
-   "branch",
+   "child",
+   "helped",
+   "friend",
    "brave"
   ],
   "answerOptions": [
    {
-    "value": "bravery",
-    "label": "bravery",
-    "text": "bravery"
+    "value": "child",
+    "label": "child",
+    "text": "child"
    },
    {
-    "value": "brag",
-    "label": "brag",
-    "text": "brag"
+    "value": "helped",
+    "label": "helped",
+    "text": "helped"
    },
    {
-    "value": "branch",
-    "label": "branch",
-    "text": "branch"
+    "value": "friend",
+    "label": "friend",
+    "text": "friend"
    },
    {
     "value": "brave",
@@ -4156,9 +3705,9 @@ export const questions = [
   "answer": "brave",
   "correctAnswer": "brave",
   "distractorRationales": {
-   "brag": "D-FUNCTION-SWAP",
-   "branch": "D-FUNCTION-SWAP",
-   "bravery": "D-FUNCTION-SWAP"
+   "helped": "D-FUNCTION-SWAP",
+   "friend": "D-FUNCTION-SWAP",
+   "child": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4169,21 +3718,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.B.adj_vs_noun_verb.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4193,13 +3737,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l2.C.adj_vs_noun_verb.v3",
@@ -4221,25 +3759,25 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a describing word, not a naming or doing word?",
-  "question": "Which word is a describing word, not a naming or doing word?",
-  "spokenPrompt": "Which word is a describing word, not a naming or doing word?",
+  "prompt": "Which word describes something in ‘The windy day bent the trees’?",
+  "question": "Which word describes something in ‘The windy day bent the trees’?",
+  "spokenPrompt": "Which word describes something in ‘The windy day bent the trees’?",
   "choices": [
-   "window",
-   "winding",
+   "bent",
+   "trees",
    "windy",
-   "wind"
+   "day"
   ],
   "answerOptions": [
    {
-    "value": "window",
-    "label": "window",
-    "text": "window"
+    "value": "bent",
+    "label": "bent",
+    "text": "bent"
    },
    {
-    "value": "winding",
-    "label": "winding",
-    "text": "winding"
+    "value": "trees",
+    "label": "trees",
+    "text": "trees"
    },
    {
     "value": "windy",
@@ -4247,17 +3785,17 @@ export const questions = [
     "text": "windy"
    },
    {
-    "value": "wind",
-    "label": "wind",
-    "text": "wind"
+    "value": "day",
+    "label": "day",
+    "text": "day"
    }
   ],
   "answer": "windy",
   "correctAnswer": "windy",
   "distractorRationales": {
-   "window": "D-FUNCTION-SWAP",
-   "winding": "D-FUNCTION-SWAP",
-   "wind": "D-FUNCTION-SWAP"
+   "bent": "D-FUNCTION-SWAP",
+   "trees": "D-FUNCTION-SWAP",
+   "day": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4268,21 +3806,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.C.adj_vs_noun_verb.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4292,13 +3825,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the wind family in one set",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l2.A.adj_vs_noun_verb.v4",
@@ -4320,9 +3847,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ sea tossed the little boat.",
-  "question": "The ___ sea tossed the little boat.",
-  "spokenPrompt": "Which describing word finishes the sentence? The … sea tossed the little boat.",
+  "prompt": "Which adjective fits: The ___ sea tossed the little boat.",
+  "question": "Which adjective fits: The ___ sea tossed the little boat.",
+  "spokenPrompt": "Which adjective fits? The … sea tossed the little boat.",
   "sentence": "The ___ sea tossed the little boat.",
   "choices": [
    "storm",
@@ -4369,21 +3896,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The ___ sea tossed the little boat.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4393,13 +3915,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "family fit — only the describing form sits before sea",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "family fit — only the describing form sits before sea"
  },
  {
   "id": "lp3.adjectives.l2.B.adj_vs_noun_verb.v5",
@@ -4421,14 +3937,14 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a describing word, not a naming or doing word?",
-  "question": "Which word is a describing word, not a naming or doing word?",
-  "spokenPrompt": "Which word is a describing word, not a naming or doing word?",
+  "prompt": "Which word describes something in ‘The dusty shelf made me sneeze’?",
+  "question": "Which word describes something in ‘The dusty shelf made me sneeze’?",
+  "spokenPrompt": "Which word describes something in ‘The dusty shelf made me sneeze’?",
   "choices": [
    "dusty",
-   "dust",
-   "duster",
-   "dusting"
+   "shelf",
+   "made",
+   "sneeze"
   ],
   "answerOptions": [
    {
@@ -4437,27 +3953,27 @@ export const questions = [
     "text": "dusty"
    },
    {
-    "value": "dust",
-    "label": "dust",
-    "text": "dust"
+    "value": "shelf",
+    "label": "shelf",
+    "text": "shelf"
    },
    {
-    "value": "duster",
-    "label": "duster",
-    "text": "duster"
+    "value": "made",
+    "label": "made",
+    "text": "made"
    },
    {
-    "value": "dusting",
-    "label": "dusting",
-    "text": "dusting"
+    "value": "sneeze",
+    "label": "sneeze",
+    "text": "sneeze"
    }
   ],
   "answer": "dusty",
   "correctAnswer": "dusty",
   "distractorRationales": {
-   "dusting": "D-FUNCTION-SWAP",
-   "dust": "D-FUNCTION-SWAP",
-   "duster": "D-FUNCTION-SWAP"
+   "sneeze": "D-FUNCTION-SWAP",
+   "shelf": "D-FUNCTION-SWAP",
+   "made": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4468,21 +3984,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.B.adj_vs_noun_verb.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4492,13 +4003,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l2.C.adj_vs_noun_verb.v6",
@@ -4520,30 +4025,30 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a describing word, not a naming or doing word?",
-  "question": "Which word is a describing word, not a naming or doing word?",
-  "spokenPrompt": "Which word is a describing word, not a naming or doing word?",
+  "prompt": "Which word describes something in ‘The salty soup needed more water’?",
+  "question": "Which word describes something in ‘The salty soup needed more water’?",
+  "spokenPrompt": "Which word describes something in ‘The salty soup needed more water’?",
   "choices": [
-   "salt",
-   "sale",
-   "salute",
+   "soup",
+   "needed",
+   "water",
    "salty"
   ],
   "answerOptions": [
    {
-    "value": "salt",
-    "label": "salt",
-    "text": "salt"
+    "value": "soup",
+    "label": "soup",
+    "text": "soup"
    },
    {
-    "value": "sale",
-    "label": "sale",
-    "text": "sale"
+    "value": "needed",
+    "label": "needed",
+    "text": "needed"
    },
    {
-    "value": "salute",
-    "label": "salute",
-    "text": "salute"
+    "value": "water",
+    "label": "water",
+    "text": "water"
    },
    {
     "value": "salty",
@@ -4554,9 +4059,9 @@ export const questions = [
   "answer": "salty",
   "correctAnswer": "salty",
   "distractorRationales": {
-   "salt": "D-FUNCTION-SWAP",
-   "sale": "D-FUNCTION-SWAP",
-   "salute": "D-FUNCTION-SWAP"
+   "soup": "D-FUNCTION-SWAP",
+   "needed": "D-FUNCTION-SWAP",
+   "water": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4567,21 +4072,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.C.adj_vs_noun_verb.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4591,13 +4091,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l2.A.adj_vs_noun_verb.v7",
@@ -4619,9 +4113,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "A ___ morning is best for kites.",
-  "question": "A ___ morning is best for kites.",
-  "spokenPrompt": "Which describing word finishes the sentence? A … morning is best for kites.",
+  "prompt": "Which adjective fits: A ___ morning is best for kites.",
+  "question": "Which adjective fits: A ___ morning is best for kites.",
+  "spokenPrompt": "Which adjective fits? A … morning is best for kites.",
   "sentence": "A ___ morning is best for kites.",
   "choices": [
    "breezy",
@@ -4668,21 +4162,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "A ___ morning is best for kites.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v7",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4692,13 +4181,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l2.B.adj_vs_noun_verb.v8",
@@ -4720,20 +4203,20 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a describing word, not a naming or doing word?",
-  "question": "Which word is a describing word, not a naming or doing word?",
-  "spokenPrompt": "Which word is a describing word, not a naming or doing word?",
+  "prompt": "Which word describes something in ‘Her curly hair bounced as she ran’?",
+  "question": "Which word describes something in ‘Her curly hair bounced as she ran’?",
+  "spokenPrompt": "Which word describes something in ‘Her curly hair bounced as she ran’?",
   "choices": [
-   "curling",
+   "ran",
    "curly",
-   "curl",
-   "curler"
+   "hair",
+   "bounced"
   ],
   "answerOptions": [
    {
-    "value": "curling",
-    "label": "curling",
-    "text": "curling"
+    "value": "ran",
+    "label": "ran",
+    "text": "ran"
    },
    {
     "value": "curly",
@@ -4741,22 +4224,22 @@ export const questions = [
     "text": "curly"
    },
    {
-    "value": "curl",
-    "label": "curl",
-    "text": "curl"
+    "value": "hair",
+    "label": "hair",
+    "text": "hair"
    },
    {
-    "value": "curler",
-    "label": "curler",
-    "text": "curler"
+    "value": "bounced",
+    "label": "bounced",
+    "text": "bounced"
    }
   ],
   "answer": "curly",
   "correctAnswer": "curly",
   "distractorRationales": {
-   "curl": "D-FUNCTION-SWAP",
-   "curler": "D-FUNCTION-SWAP",
-   "curling": "D-FUNCTION-SWAP"
+   "hair": "D-FUNCTION-SWAP",
+   "bounced": "D-FUNCTION-SWAP",
+   "ran": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4767,21 +4250,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.B.adj_vs_noun_verb.v8",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4791,13 +4269,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.R.adj_size.v7r",
@@ -4819,10 +4291,10 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ mark was almost too small to see.",
-  "question": "The ___ mark was almost too small to see.",
-  "spokenPrompt": "Which describing word finishes the sentence?",
-  "sentence": "The ___ mark was almost too small to see.",
+  "prompt": "Which description fits best: The ___ mark was smaller than a dot.",
+  "question": "Which description fits best: The ___ mark was smaller than a dot.",
+  "spokenPrompt": "Which description fits best? The … mark was smaller than a dot.",
+  "sentence": "The ___ mark was smaller than a dot.",
   "choices": [
    "tiny",
    "huge",
@@ -4866,23 +4338,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The ___ mark was almost too small to see.",
+  "sentenceText": "The ___ mark was smaller than a dot.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.R.adj_size.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-size.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-size.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4892,13 +4359,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.R.adj_color.v7r",
@@ -4920,9 +4381,9 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a colour word?",
-  "question": "Which word is a colour word?",
-  "spokenPrompt": "Which word is a colour word?",
+  "prompt": "Which word is a color word?",
+  "question": "Which word is a color word?",
+  "spokenPrompt": "Which word is a color word?",
   "choices": [
    "sink",
    "pink",
@@ -4967,21 +4428,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.R.adj_color.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-color.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-color.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4991,13 +4447,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.R.adj_texture_state.v7r",
@@ -5019,9 +4469,9 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a describing word for how things feel?",
-  "question": "Which word is a describing word for how things feel?",
-  "spokenPrompt": "Which word is a describing word for how things feel?",
+  "prompt": "Which word describes how something feels to touch?",
+  "question": "Which word describes how something feels to touch?",
+  "spokenPrompt": "Which word describes how something feels to touch?",
   "choices": [
    "dig",
    "drum",
@@ -5066,21 +4516,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.R.adj_texture_state.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-texture-state.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5090,13 +4535,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.R.adj_feeling.v7r",
@@ -5165,21 +4604,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.R.adj_feeling.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-feeling.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5189,13 +4623,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l2.R.adj_in_sentence.v9r",
@@ -5217,9 +4645,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ floor squeaked with every step.",
-  "question": "The ___ floor squeaked with every step.",
-  "spokenPrompt": "Which describing word finishes the sentence? The … floor squeaked with every step.",
+  "prompt": "Which adjective fits: The ___ floor squeaked with every step.",
+  "question": "Which adjective fits: The ___ floor squeaked with every step.",
+  "spokenPrompt": "Which adjective fits? The … floor squeaked with every step.",
   "sentence": "The ___ floor squeaked with every step.",
   "choices": [
    "shines",
@@ -5266,21 +4694,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The ___ floor squeaked with every step.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.R.adj_in_sentence.v9r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5290,13 +4713,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l2.R.adj_precision.v9r",
@@ -5318,9 +4735,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The rope was too ___ to snap.",
-  "question": "The rope was too ___ to snap.",
-  "spokenPrompt": "Which describing word finishes the sentence? The rope was too … to snap.",
+  "prompt": "Which adjective fits best: The rope was too ___ to snap.",
+  "question": "Which adjective fits best: The rope was too ___ to snap.",
+  "spokenPrompt": "Which adjective fits best? The rope was too … to snap.",
   "sentence": "The rope was too ___ to snap.",
   "choices": [
    "thin",
@@ -5367,21 +4784,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The rope was too ___ to snap.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.R.adj_precision.v9r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-precision.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5391,13 +4803,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "too ___ to snap — only strong survives the frame",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "too ___ to snap — only strong survives the frame"
  },
  {
   "id": "lp3.adjectives.l2.R.adj_vs_noun_verb.v9r",
@@ -5419,30 +4825,30 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a describing word, not a naming or doing word?",
-  "question": "Which word is a describing word, not a naming or doing word?",
-  "spokenPrompt": "Which word is a describing word, not a naming or doing word?",
+  "prompt": "Which word describes something in ‘The rusty gate creaked when it opened’?",
+  "question": "Which word describes something in ‘The rusty gate creaked when it opened’?",
+  "spokenPrompt": "Which word describes something in ‘The rusty gate creaked when it opened’?",
   "choices": [
-   "rust",
-   "rustle",
-   "russet",
+   "gate",
+   "creaked",
+   "opened",
    "rusty"
   ],
   "answerOptions": [
    {
-    "value": "rust",
-    "label": "rust",
-    "text": "rust"
+    "value": "gate",
+    "label": "gate",
+    "text": "gate"
    },
    {
-    "value": "rustle",
-    "label": "rustle",
-    "text": "rustle"
+    "value": "creaked",
+    "label": "creaked",
+    "text": "creaked"
    },
    {
-    "value": "russet",
-    "label": "russet",
-    "text": "russet"
+    "value": "opened",
+    "label": "opened",
+    "text": "opened"
    },
    {
     "value": "rusty",
@@ -5453,9 +4859,9 @@ export const questions = [
   "answer": "rusty",
   "correctAnswer": "rusty",
   "distractorRationales": {
-   "russet": "D-FUNCTION-SWAP",
-   "rust": "D-FUNCTION-SWAP",
-   "rustle": "D-FUNCTION-SWAP"
+   "opened": "D-FUNCTION-SWAP",
+   "gate": "D-FUNCTION-SWAP",
+   "creaked": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5466,21 +4872,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.R.adj_vs_noun_verb.v9r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5490,13 +4891,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.R.adj_size.v8r",
@@ -5565,21 +4960,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.R.adj_size.v8r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-size.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-size.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5589,13 +4979,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.R.adj_texture_state.v8r",
@@ -5617,10 +5001,10 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ path made the buggy shake.",
-  "question": "The ___ path made the buggy shake.",
-  "spokenPrompt": "Which describing word finishes the sentence?",
-  "sentence": "The ___ path made the buggy shake.",
+  "prompt": "Which description fits best: The ___ path made the stroller shake.",
+  "question": "Which description fits best: The ___ path made the stroller shake.",
+  "spokenPrompt": "Which description fits best? The … path made the stroller shake.",
+  "sentence": "The ___ path made the stroller shake.",
   "choices": [
    "flat",
    "bumpy",
@@ -5664,23 +5048,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The ___ path made the buggy shake.",
+  "sentenceText": "The ___ path made the stroller shake.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.R.adj_texture_state.v8r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-texture-state.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5690,13 +5069,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l2.R.adj_in_sentence.v10r",
@@ -5718,9 +5091,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ moth circled the lamp.",
-  "question": "The ___ moth circled the lamp.",
-  "spokenPrompt": "Which describing word finishes the sentence? The … moth circled the lamp.",
+  "prompt": "Which adjective fits: The ___ moth circled the lamp.",
+  "question": "Which adjective fits: The ___ moth circled the lamp.",
+  "spokenPrompt": "Which adjective fits? The … moth circled the lamp.",
   "sentence": "The ___ moth circled the lamp.",
   "choices": [
    "dusty",
@@ -5767,21 +5140,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The ___ moth circled the lamp.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.R.adj_in_sentence.v10r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5791,13 +5159,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l2.R.adj_precision.v10r",
@@ -5866,21 +5228,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l2.R.adj_precision.v10r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-precision.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5890,13 +5247,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.adjectives.l1.R.adj_feeling.v8r",
@@ -5965,21 +5316,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.adjectives.l1.R.adj_feeling.v8r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/adjectives-adj-feeling.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5989,12 +5335,6 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "targetImage": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  }
 ];

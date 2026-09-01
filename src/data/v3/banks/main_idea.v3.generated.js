@@ -70,21 +70,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.A.mostly_about_fiction.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -94,13 +89,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_fiction.v2",
@@ -125,7 +114,7 @@ export const questions = [
   "prompt": "What is this story mostly about?",
   "question": "What is this story mostly about?",
   "spokenPrompt": "What is this story mostly about?",
-  "passage": "Tom could not find his library book anywhere. He looked under his bed and behind the sofa. He even checked the fridge. At last he found it inside his pillow case, right where he had read it last night.",
+  "passage": "Tom could not find his library book anywhere. He looked under his bed and behind the sofa. He even checked the fridge. At last he found it inside his pillowcase, right where he had read it last night.",
   "cell": "mostly_about_fiction",
   "choices": [
    "looking inside the fridge",
@@ -171,21 +160,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.B.mostly_about_fiction.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -195,13 +179,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.C.mostly_about_fiction.v3",
@@ -272,21 +250,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.C.mostly_about_fiction.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-fiction-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-fiction-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-fiction-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -296,13 +269,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-fiction-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-fiction-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-fiction-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-fiction-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-fiction-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_fiction.v4",
@@ -373,21 +340,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.A.mostly_about_fiction.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -397,13 +359,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_fiction.v5",
@@ -428,7 +384,7 @@ export const questions = [
   "prompt": "What is this story mostly about?",
   "question": "What is this story mostly about?",
   "spokenPrompt": "What is this story mostly about?",
-  "passage": "A thin grey kitten kept visiting Priya's steps. Each day Priya set out a little dish of water. Each day the kitten crept closer. On Friday it finally curled up on her lap, purring like a tiny engine.",
+  "passage": "A thin gray kitten kept visiting Priya's steps. Each day Priya set out a little dish of water. Each day the kitten crept closer. On Friday it finally curled up on her lap, purring like a tiny engine.",
   "cell": "mostly_about_fiction",
   "choices": [
    "slowly making friends with a kitten",
@@ -474,21 +430,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.B.mostly_about_fiction.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -498,13 +449,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.C.mostly_about_fiction.v6",
@@ -575,21 +520,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.C.mostly_about_fiction.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-fiction-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-fiction-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-fiction-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -599,13 +539,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-fiction-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-fiction-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-fiction-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-fiction-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-fiction-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_fiction.v7",
@@ -636,7 +570,7 @@ export const questions = [
    "a choir learning to sing together",
    "Miss Obi clapping a beat",
    "every kind of music",
-   "a show that was cancelled"
+   "a show that was canceled"
   ],
   "answerOptions": [
    {
@@ -655,15 +589,15 @@ export const questions = [
     "text": "every kind of music"
    },
    {
-    "value": "a show that was cancelled",
-    "label": "a show that was cancelled",
-    "text": "a show that was cancelled"
+    "value": "a show that was canceled",
+    "label": "a show that was canceled",
+    "text": "a show that was canceled"
    }
   ],
   "answer": "a choir learning to sing together",
   "correctAnswer": "a choir learning to sing together",
   "distractorRationales": {
-   "a show that was cancelled": "D-OPPOSITE",
+   "a show that was canceled": "D-OPPOSITE",
    "Miss Obi clapping a beat": "D-DETAIL-AS-MAIN",
    "every kind of music": "D-TOPIC-ADJACENT"
   },
@@ -676,21 +610,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.A.mostly_about_fiction.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -700,13 +629,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-fiction-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_fiction.v8",
@@ -731,11 +654,11 @@ export const questions = [
   "prompt": "What is this story mostly about?",
   "question": "What is this story mostly about?",
   "spokenPrompt": "What is this story mostly about?",
-  "passage": "Jin practised flipping pancakes with a cold, empty pan. Flip, catch. Flip, catch. On Sunday he tried it with a real pancake while his dad watched. The pancake spun in the air and landed back in the pan.",
+  "passage": "Jin practiced flipping pancakes with a cold, empty pan. Flip, catch. Flip, catch. On Sunday he tried it with a real pancake while his dad watched. The pancake spun in the air and landed back in the pan.",
   "cell": "mostly_about_fiction",
   "choices": [
    "a pancake that fell on the floor",
-   "practising until a pancake flip works",
+   "practicing until a pancake flip works",
    "a dad watching on Sunday",
    "what people eat for breakfast"
   ],
@@ -746,9 +669,9 @@ export const questions = [
     "text": "a pancake that fell on the floor"
    },
    {
-    "value": "practising until a pancake flip works",
-    "label": "practising until a pancake flip works",
-    "text": "practising until a pancake flip works"
+    "value": "practicing until a pancake flip works",
+    "label": "practicing until a pancake flip works",
+    "text": "practicing until a pancake flip works"
    },
    {
     "value": "a dad watching on Sunday",
@@ -761,8 +684,8 @@ export const questions = [
     "text": "what people eat for breakfast"
    }
   ],
-  "answer": "practising until a pancake flip works",
-  "correctAnswer": "practising until a pancake flip works",
+  "answer": "practicing until a pancake flip works",
+  "correctAnswer": "practicing until a pancake flip works",
   "distractorRationales": {
    "a pancake that fell on the floor": "D-OPPOSITE",
    "a dad watching on Sunday": "D-DETAIL-AS-MAIN",
@@ -777,21 +700,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.B.mostly_about_fiction.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -801,13 +719,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-fiction-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_info.v1",
@@ -878,21 +790,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.A.mostly_about_info.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -902,13 +809,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_info.v2",
@@ -979,21 +880,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.B.mostly_about_info.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1003,13 +899,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.C.mostly_about_info.v3",
@@ -1034,13 +924,13 @@ export const questions = [
   "prompt": "What is this passage mostly about?",
   "question": "What is this passage mostly about?",
   "spokenPrompt": "What is this passage mostly about?",
-  "passage": "Old paper does not have to be rubbish. Trucks take it to a special factory. There it is mashed with water into a grey soup. The soup is rolled flat and dried. It comes out as fresh, clean paper, ready to use again.",
+  "passage": "Old paper does not have to be trash. Trucks take it to a special factory. There it is mashed with water into a gray pulp. The pulp is rolled flat and dried. It comes out as fresh, clean paper, ready to use again.",
   "cell": "mostly_about_info",
   "choices": [
    "everything factories can make",
    "why paper must be thrown away",
    "how old paper is made new again",
-   "a grey soup of paper and water"
+   "a gray pulp of paper and water"
   ],
   "answerOptions": [
    {
@@ -1059,15 +949,15 @@ export const questions = [
     "text": "how old paper is made new again"
    },
    {
-    "value": "a grey soup of paper and water",
-    "label": "a grey soup of paper and water",
-    "text": "a grey soup of paper and water"
+    "value": "a gray pulp of paper and water",
+    "label": "a gray pulp of paper and water",
+    "text": "a gray pulp of paper and water"
    }
   ],
   "answer": "how old paper is made new again",
   "correctAnswer": "how old paper is made new again",
   "distractorRationales": {
-   "a grey soup of paper and water": "D-DETAIL-AS-MAIN",
+   "a gray pulp of paper and water": "D-DETAIL-AS-MAIN",
    "everything factories can make": "D-TOPIC-ADJACENT",
    "why paper must be thrown away": "D-OPPOSITE"
   },
@@ -1080,21 +970,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.C.mostly_about_info.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-info-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-info-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-info-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1104,13 +989,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-info-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-info-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-info-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-info-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-info-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_info.v4",
@@ -1181,21 +1060,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.A.mostly_about_info.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1205,13 +1079,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_info.v5",
@@ -1282,21 +1150,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.B.mostly_about_info.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1306,13 +1169,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.C.mostly_about_info.v6",
@@ -1383,21 +1240,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.C.mostly_about_info.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-info-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-info-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-info-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1407,13 +1259,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-info-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-info-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-info-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-info-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-info-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_info.v7",
@@ -1484,21 +1330,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.A.mostly_about_info.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1508,13 +1349,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-info-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_info.v8",
@@ -1585,21 +1420,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.B.mostly_about_info.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1609,13 +1439,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-info-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_everyday.v1",
@@ -1686,21 +1510,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.A.mostly_about_everyday.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1710,13 +1529,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_everyday.v2",
@@ -1741,7 +1554,7 @@ export const questions = [
   "prompt": "What is this passage mostly about?",
   "question": "What is this passage mostly about?",
   "spokenPrompt": "What is this passage mostly about?",
-  "passage": "Class 2 had a tidy-up race before home time. One team stacked the chairs. Another team collected the pencils. The last team wiped the tables. In five minutes the whole room was neat, and everyone won a sticker.",
+  "passage": "A second-grade class had a cleanup race before going home. One team stacked the chairs. Another team collected the pencils. The last team wiped the tables. In five minutes the whole room was neat, and everyone won a sticker.",
   "cell": "mostly_about_everyday",
   "choices": [
    "a room that stayed messy",
@@ -1787,21 +1600,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.B.mostly_about_everyday.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1811,13 +1619,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.C.mostly_about_everyday.v3",
@@ -1842,24 +1644,24 @@ export const questions = [
   "prompt": "What is this passage mostly about?",
   "question": "What is this passage mostly about?",
   "spokenPrompt": "What is this passage mostly about?",
-  "passage": "Saturday is market day. Nan gives Ade the shopping list. He finds the oranges, and Nan picks the fish. The stall man always adds one free plum for Ade. They walk home with heavy bags and happy plans for dinner.",
+  "passage": "Saturday is market day. Grandma gives Ade the shopping list. He finds the oranges, and Grandma picks the fish. The vendor always adds one free plum for Ade. They walk home with heavy bags and happy plans for dinner.",
   "cell": "mostly_about_everyday",
   "choices": [
-   "a Saturday trip to buy food with Nan",
-   "one free plum from the stall man",
+   "a Saturday trip to buy food with Grandma",
+   "one free plum from the vendor",
    "how all shops sell food",
    "a boy who stayed at home"
   ],
   "answerOptions": [
    {
-    "value": "a Saturday trip to buy food with Nan",
-    "label": "a Saturday trip to buy food with Nan",
-    "text": "a Saturday trip to buy food with Nan"
+    "value": "a Saturday trip to buy food with Grandma",
+    "label": "a Saturday trip to buy food with Grandma",
+    "text": "a Saturday trip to buy food with Grandma"
    },
    {
-    "value": "one free plum from the stall man",
-    "label": "one free plum from the stall man",
-    "text": "one free plum from the stall man"
+    "value": "one free plum from the vendor",
+    "label": "one free plum from the vendor",
+    "text": "one free plum from the vendor"
    },
    {
     "value": "how all shops sell food",
@@ -1872,10 +1674,10 @@ export const questions = [
     "text": "a boy who stayed at home"
    }
   ],
-  "answer": "a Saturday trip to buy food with Nan",
-  "correctAnswer": "a Saturday trip to buy food with Nan",
+  "answer": "a Saturday trip to buy food with Grandma",
+  "correctAnswer": "a Saturday trip to buy food with Grandma",
   "distractorRationales": {
-   "one free plum from the stall man": "D-DETAIL-AS-MAIN",
+   "one free plum from the vendor": "D-DETAIL-AS-MAIN",
    "how all shops sell food": "D-TOPIC-ADJACENT",
    "a boy who stayed at home": "D-OPPOSITE"
   },
@@ -1888,21 +1690,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.C.mostly_about_everyday.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-everyday-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-everyday-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-everyday-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1912,13 +1709,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-everyday-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-everyday-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-everyday-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-everyday-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-everyday-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_everyday.v4",
@@ -1943,11 +1734,11 @@ export const questions = [
   "prompt": "What is this passage mostly about?",
   "question": "What is this passage mostly about?",
   "spokenPrompt": "What is this passage mostly about?",
-  "passage": "The launderette on our street hums all morning. Round windows spin with socks and shirts. Mrs Kaur folds warm towels into tall piles. People chat while they wait, and the whole shop smells like clean cotton.",
+  "passage": "The laundromat on our street hums all morning. Round windows spin with socks and shirts. Mrs. Kaur folds warm towels into tall piles. People chat while they wait, and the whole shop smells like clean cotton.",
   "cell": "mostly_about_everyday",
   "choices": [
    "clothes nobody ever washes",
-   "a busy morning at the launderette",
+   "a busy morning at the laundromat",
    "towels folded into tall piles",
    "every shop on the street"
   ],
@@ -1958,9 +1749,9 @@ export const questions = [
     "text": "clothes nobody ever washes"
    },
    {
-    "value": "a busy morning at the launderette",
-    "label": "a busy morning at the launderette",
-    "text": "a busy morning at the launderette"
+    "value": "a busy morning at the laundromat",
+    "label": "a busy morning at the laundromat",
+    "text": "a busy morning at the laundromat"
    },
    {
     "value": "towels folded into tall piles",
@@ -1973,8 +1764,8 @@ export const questions = [
     "text": "every shop on the street"
    }
   ],
-  "answer": "a busy morning at the launderette",
-  "correctAnswer": "a busy morning at the launderette",
+  "answer": "a busy morning at the laundromat",
+  "correctAnswer": "a busy morning at the laundromat",
   "distractorRationales": {
    "clothes nobody ever washes": "D-OPPOSITE",
    "towels folded into tall piles": "D-DETAIL-AS-MAIN",
@@ -1989,21 +1780,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.A.mostly_about_everyday.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2013,13 +1799,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_everyday.v5",
@@ -2090,21 +1870,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.B.mostly_about_everyday.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2114,13 +1889,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.C.mostly_about_everyday.v6",
@@ -2191,21 +1960,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.C.mostly_about_everyday.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-everyday-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-everyday-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-everyday-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2215,13 +1979,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-everyday-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-everyday-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-everyday-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-everyday-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-c-mostly-about-everyday-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_everyday.v7",
@@ -2246,13 +2004,13 @@ export const questions = [
   "prompt": "What is this passage mostly about?",
   "question": "What is this passage mostly about?",
   "spokenPrompt": "What is this passage mostly about?",
-  "passage": "The postman's trolley squeaks up our road at nine. Letters slide through doors, flap, flap, flap. Number 12 gets a parcel and signs for it happily. Our dog waits by the letter box every single morning.",
+  "passage": "The mail carrier's cart squeaks up our road at nine. Letters slide through mail slots, flap, flap, flap. Number 12 gets a package and signs for it happily. Our dog waits by the mail slot every single morning.",
   "cell": "mostly_about_everyday",
   "choices": [
    "how dogs guard houses",
    "a road that gets no letters",
    "the post arriving on our road",
-   "a parcel for number 12"
+   "a package for number 12"
   ],
   "answerOptions": [
    {
@@ -2271,9 +2029,9 @@ export const questions = [
     "text": "the post arriving on our road"
    },
    {
-    "value": "a parcel for number 12",
-    "label": "a parcel for number 12",
-    "text": "a parcel for number 12"
+    "value": "a package for number 12",
+    "label": "a package for number 12",
+    "text": "a package for number 12"
    }
   ],
   "answer": "the post arriving on our road",
@@ -2281,7 +2039,7 @@ export const questions = [
   "distractorRationales": {
    "how dogs guard houses": "D-TOPIC-ADJACENT",
    "a road that gets no letters": "D-OPPOSITE",
-   "a parcel for number 12": "D-DETAIL-AS-MAIN"
+   "a package for number 12": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2292,21 +2050,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.A.mostly_about_everyday.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2316,13 +2069,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-a-mostly-about-everyday-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_everyday.v8",
@@ -2347,19 +2094,19 @@ export const questions = [
   "prompt": "What is this passage mostly about?",
   "question": "What is this passage mostly about?",
   "spokenPrompt": "What is this passage mostly about?",
-  "passage": "The bakery opens before the sun is up. Trays of rolls slide into the big oven. The smell of warm bread drifts down the street. By eight o'clock a little queue waits at the door, sniffing happily.",
+  "passage": "The bakery opens before the sun is up. Trays of rolls slide into the big oven. The smell of warm bread drifts down the street. By eight o'clock a little line waits at the door, sniffing happily.",
   "cell": "mostly_about_everyday",
   "choices": [
-   "a queue at eight o'clock",
+   "a line at eight o'clock",
    "every food people like",
    "a shop that never opens",
    "a bakery starting its morning"
   ],
   "answerOptions": [
    {
-    "value": "a queue at eight o'clock",
-    "label": "a queue at eight o'clock",
-    "text": "a queue at eight o'clock"
+    "value": "a line at eight o'clock",
+    "label": "a line at eight o'clock",
+    "text": "a line at eight o'clock"
    },
    {
     "value": "every food people like",
@@ -2380,7 +2127,7 @@ export const questions = [
   "answer": "a bakery starting its morning",
   "correctAnswer": "a bakery starting its morning",
   "distractorRationales": {
-   "a queue at eight o'clock": "D-DETAIL-AS-MAIN",
+   "a line at eight o'clock": "D-DETAIL-AS-MAIN",
    "every food people like": "D-TOPIC-ADJACENT",
    "a shop that never opens": "D-OPPOSITE"
   },
@@ -2393,21 +2140,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.B.mostly_about_everyday.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2417,13 +2159,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-b-mostly-about-everyday-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.A.best_title.v1",
@@ -2448,19 +2184,19 @@ export const questions = [
   "prompt": "Which title fits this passage best?",
   "question": "Which title fits this passage best?",
   "spokenPrompt": "Which title fits this passage best?",
-  "passage": "Nobody wanted the muddy corner of the school garden. Weeds grew tall, and crisp packets blew against the fence. Then Year 2 claimed it. They pulled the weeds, dug in compost, and planted sunflower seeds in careful rows. All summer the corner blazed yellow, and even the caretaker stopped to take photographs.",
+  "passage": "Nobody wanted the muddy corner of the school garden. Weeds grew tall, and snack wrappers blew against the fence. Then a second-grade class claimed it. They pulled the weeds, dug in compost, and planted sunflower seeds in careful rows. All summer the corner blazed yellow, and even the custodian stopped to take photographs.",
   "cell": "best_title",
   "choices": [
-   "Crisp Packets by the Fence",
+   "Snack Wrappers by the Fence",
    "A Guide to Every Garden Flower",
    "The Year the Garden Failed",
    "The Corner Nobody Wanted"
   ],
   "answerOptions": [
    {
-    "value": "Crisp Packets by the Fence",
-    "label": "Crisp Packets by the Fence",
-    "text": "Crisp Packets by the Fence"
+    "value": "Snack Wrappers by the Fence",
+    "label": "Snack Wrappers by the Fence",
+    "text": "Snack Wrappers by the Fence"
    },
    {
     "value": "A Guide to Every Garden Flower",
@@ -2483,7 +2219,7 @@ export const questions = [
   "distractorRationales": {
    "A Guide to Every Garden Flower": "D-TOPIC-ADJACENT",
    "The Year the Garden Failed": "D-OPPOSITE",
-   "Crisp Packets by the Fence": "D-DETAIL-AS-MAIN"
+   "Snack Wrappers by the Fence": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2494,21 +2230,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.A.best_title.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2518,13 +2249,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.B.best_title.v2",
@@ -2595,21 +2320,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.B.best_title.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2619,13 +2339,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.C.best_title.v3",
@@ -2650,7 +2364,7 @@ export const questions = [
   "prompt": "Which title fits this passage best?",
   "question": "Which title fits this passage best?",
   "spokenPrompt": "Which title fits this passage best?",
-  "passage": "Asha's drum kit lived in the garage, because drums are loud. Every evening she practised the same tricky rhythm, and every evening it fell apart in the middle. Her mum suggested slowing right down. Boring, thought Asha, but she tried it. Two slow weeks later, her sticks flew through the rhythm at full speed without a single slip.",
+  "passage": "Asha's drum kit lived in the garage, because drums are loud. Every evening she practiced the same tricky rhythm, and every evening it fell apart in the middle. Her mom suggested slowing right down. Boring, thought Asha, but she tried it. Two slow weeks later, her sticks flew through the rhythm at full speed without a single slip.",
   "cell": "best_title",
   "choices": [
    "The Girl Who Gave Up Music",
@@ -2696,21 +2410,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.C.best_title.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-c-best-title-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-best-title-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-best-title-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2720,13 +2429,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-best-title-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-best-title-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-best-title-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-best-title-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-best-title-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.A.best_title.v4",
@@ -2797,21 +2500,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.A.best_title.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2821,13 +2519,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.B.best_title.v5",
@@ -2856,7 +2548,7 @@ export const questions = [
   "cell": "best_title",
   "choices": [
    "A Flight Across the Kitchen",
-   "The History of Real Aeroplanes",
+   "The History of Real Airplanes",
    "The Plane That Would Not Fly",
    "A Paper Plane Passed Down"
   ],
@@ -2867,9 +2559,9 @@ export const questions = [
     "text": "A Flight Across the Kitchen"
    },
    {
-    "value": "The History of Real Aeroplanes",
-    "label": "The History of Real Aeroplanes",
-    "text": "The History of Real Aeroplanes"
+    "value": "The History of Real Airplanes",
+    "label": "The History of Real Airplanes",
+    "text": "The History of Real Airplanes"
    },
    {
     "value": "The Plane That Would Not Fly",
@@ -2887,7 +2579,7 @@ export const questions = [
   "distractorRationales": {
    "The Plane That Would Not Fly": "D-OPPOSITE",
    "A Flight Across the Kitchen": "D-DETAIL-AS-MAIN",
-   "The History of Real Aeroplanes": "D-TOPIC-ADJACENT"
+   "The History of Real Airplanes": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2898,21 +2590,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.B.best_title.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2922,13 +2609,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.C.best_title.v6",
@@ -2953,7 +2634,7 @@ export const questions = [
   "prompt": "Which title fits this passage best?",
   "question": "Which title fits this passage best?",
   "spokenPrompt": "Which title fits this passage best?",
-  "passage": "At first the new rain gauge seemed dull. A plastic tube, a ruler, an empty chart. But day by day the chart filled in. A dry week made a flat line. A stormy Tuesday shot the line up like a mountain. By the end of term, Class 3 could read their whole spring in one zigzag picture.",
+  "passage": "At first the new rain gauge seemed dull. A plastic tube, a ruler, an empty chart. But day by day the chart filled in. A dry week made a flat line. A stormy Tuesday shot the line up like a mountain. By the end of the term, a third-grade class could read their whole spring in one zigzag picture.",
   "cell": "best_title",
   "choices": [
    "Why Storms Happen",
@@ -2999,21 +2680,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.C.best_title.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-c-best-title-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-best-title-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-best-title-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3023,13 +2699,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-best-title-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-best-title-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-best-title-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-best-title-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-best-title-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.A.best_title.v7",
@@ -3100,21 +2770,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.A.best_title.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3124,13 +2789,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-best-title-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.B.best_title.v8",
@@ -3201,21 +2860,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.B.best_title.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3225,13 +2879,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-best-title-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.A.main_idea_vs_detail.v1",
@@ -3253,9 +2901,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "All of these are true. Which one is the MAIN idea?",
-  "question": "All of these are true. Which one is the MAIN idea?",
-  "spokenPrompt": "All of these are true. Which one is the MAIN idea?",
+  "prompt": "Which option best states the main idea?",
+  "question": "Which option best states the main idea?",
+  "spokenPrompt": "Which option best states the main idea?",
   "passage": "The class made soup for the winter fair. Priya chopped carrots into little moons. Sam stirred so the bottom would not stick. Miss Lee added one secret spoonful of ginger. When the pot finally bubbled, the whole corridor smelled wonderful, and the soup sold out in twenty minutes.",
   "cell": "main_idea_vs_detail",
   "choices": [
@@ -3302,21 +2950,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.A.main_idea_vs_detail.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3326,13 +2969,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "three true details vs the point — the defining discrimination of this cell",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "three true details vs the point — the defining discrimination of this cell"
  },
  {
   "id": "lp3.main_idea.l2.B.main_idea_vs_detail.v2",
@@ -3354,9 +2991,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "All of these are true. Which one is the MAIN idea?",
-  "question": "All of these are true. Which one is the MAIN idea?",
-  "spokenPrompt": "All of these are true. Which one is the MAIN idea?",
+  "prompt": "Which option best states the main idea?",
+  "question": "Which option best states the main idea?",
+  "spokenPrompt": "Which option best states the main idea?",
   "passage": "Hedgehogs need help in autumn. They look for a safe pile of leaves to sleep in all winter. People can leave a wild corner in the garden and check bonfires before lighting them. A small gap in the fence lets hedgehogs walk from garden to garden to find food.",
   "cell": "main_idea_vs_detail",
   "choices": [
@@ -3403,21 +3040,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.B.main_idea_vs_detail.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3427,13 +3059,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.C.main_idea_vs_detail.v3",
@@ -3455,9 +3081,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "All of these are true. Which one is the MAIN idea?",
-  "question": "All of these are true. Which one is the MAIN idea?",
-  "spokenPrompt": "All of these are true. Which one is the MAIN idea?",
+  "prompt": "Which option best states the main idea?",
+  "question": "Which option best states the main idea?",
+  "spokenPrompt": "Which option best states the main idea?",
   "passage": "Maya kept a moon diary for a month. On clear nights she drew the moon's shape in silver pencil. On cloudy nights she wrote 'hidden' in the box. Slowly her pages showed the moon growing round, then shrinking thin. Her diary turned a whole month of sky into one small story.",
   "cell": "main_idea_vs_detail",
   "choices": [
@@ -3504,21 +3130,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.C.main_idea_vs_detail.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-c-main-idea-vs-detail-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-main-idea-vs-detail-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-main-idea-vs-detail-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3528,13 +3149,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-main-idea-vs-detail-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-main-idea-vs-detail-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-main-idea-vs-detail-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-main-idea-vs-detail-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-main-idea-vs-detail-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.A.main_idea_vs_detail.v4",
@@ -3556,9 +3171,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "All of these are true. Which one is the MAIN idea?",
-  "question": "All of these are true. Which one is the MAIN idea?",
-  "spokenPrompt": "All of these are true. Which one is the MAIN idea?",
+  "prompt": "Which option best states the main idea?",
+  "question": "Which option best states the main idea?",
+  "spokenPrompt": "Which option best states the main idea?",
   "passage": "The old phone box on Elm Street does not hold a phone any more. The town filled it with books instead. Anyone may take one home, as long as they leave another. The shelves change every week: cookbooks, comics, mysteries. The little red box is now the smallest library in town.",
   "cell": "main_idea_vs_detail",
   "choices": [
@@ -3605,21 +3220,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.A.main_idea_vs_detail.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3629,13 +3239,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.B.main_idea_vs_detail.v5",
@@ -3657,15 +3261,15 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "All of these are true. Which one is the MAIN idea?",
-  "question": "All of these are true. Which one is the MAIN idea?",
-  "spokenPrompt": "All of these are true. Which one is the MAIN idea?",
-  "passage": "Dad's allotment gives us vegetables nearly all year. In spring we pull sweet little radishes. Summer brings beans that climb higher than me. In autumn we dig up potatoes like buried treasure. Even in winter there is kale, standing green in the frost.",
+  "prompt": "Which option best states the main idea?",
+  "question": "Which option best states the main idea?",
+  "spokenPrompt": "Which option best states the main idea?",
+  "passage": "Dad's garden plot gives us vegetables nearly all year. In spring we pull sweet little radishes. Summer brings beans that climb higher than me. In autumn we dig up potatoes like buried treasure. Even in winter there is kale, standing green in the frost.",
   "cell": "main_idea_vs_detail",
   "choices": [
    "potatoes are dug in autumn",
    "kale stands in the frost",
-   "the allotment grows food in every season",
+   "the garden plot grows food in every season",
    "beans climb very high"
   ],
   "answerOptions": [
@@ -3680,9 +3284,9 @@ export const questions = [
     "text": "kale stands in the frost"
    },
    {
-    "value": "the allotment grows food in every season",
-    "label": "the allotment grows food in every season",
-    "text": "the allotment grows food in every season"
+    "value": "the garden plot grows food in every season",
+    "label": "the garden plot grows food in every season",
+    "text": "the garden plot grows food in every season"
    },
    {
     "value": "beans climb very high",
@@ -3690,8 +3294,8 @@ export const questions = [
     "text": "beans climb very high"
    }
   ],
-  "answer": "the allotment grows food in every season",
-  "correctAnswer": "the allotment grows food in every season",
+  "answer": "the garden plot grows food in every season",
+  "correctAnswer": "the garden plot grows food in every season",
   "distractorRationales": {
    "beans climb very high": "D-DETAIL-AS-MAIN",
    "potatoes are dug in autumn": "D-DETAIL-AS-MAIN",
@@ -3706,21 +3310,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.B.main_idea_vs_detail.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3730,13 +3329,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.C.main_idea_vs_detail.v6",
@@ -3758,9 +3351,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "All of these are true. Which one is the MAIN idea?",
-  "question": "All of these are true. Which one is the MAIN idea?",
-  "spokenPrompt": "All of these are true. Which one is the MAIN idea?",
+  "prompt": "Which option best states the main idea?",
+  "question": "Which option best states the main idea?",
+  "spokenPrompt": "Which option best states the main idea?",
   "passage": "The fire station opened its doors on Saturday. Children tried on helmets that wobbled on their heads. A firefighter showed how the long ladder unfolds to reach high windows. Everyone got to spray the practice hose at a target. By home time, half the visitors wanted the job one day.",
   "cell": "main_idea_vs_detail",
   "choices": [
@@ -3807,21 +3400,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.C.main_idea_vs_detail.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-c-main-idea-vs-detail-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-main-idea-vs-detail-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-main-idea-vs-detail-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3831,13 +3419,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-main-idea-vs-detail-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-main-idea-vs-detail-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-main-idea-vs-detail-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-main-idea-vs-detail-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-main-idea-vs-detail-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.A.main_idea_vs_detail.v7",
@@ -3859,9 +3441,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "All of these are true. Which one is the MAIN idea?",
-  "question": "All of these are true. Which one is the MAIN idea?",
-  "spokenPrompt": "All of these are true. Which one is the MAIN idea?",
+  "prompt": "Which option best states the main idea?",
+  "question": "Which option best states the main idea?",
+  "spokenPrompt": "Which option best states the main idea?",
   "passage": "A wind farm stands on the hill above our town. Each turbine is taller than the church tower. When the blades spin, they turn wind into electricity for hundreds of homes. On still days the blades rest, and on wild days they whirl like giant white pinwheels.",
   "cell": "main_idea_vs_detail",
   "choices": [
@@ -3908,21 +3490,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.A.main_idea_vs_detail.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3932,13 +3509,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-main-idea-vs-detail-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.B.main_idea_vs_detail.v8",
@@ -3960,16 +3531,16 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "All of these are true. Which one is the MAIN idea?",
-  "question": "All of these are true. Which one is the MAIN idea?",
-  "spokenPrompt": "All of these are true. Which one is the MAIN idea?",
-  "passage": "Our street planned a surprise for Mr Chen's hundredth birthday. Neighbours strung flags from lamp post to lamp post. The cafe baked a cake with exactly one hundred candles, which took three tries to light. Children painted a banner as long as a bus. When Mr Chen stepped outside, the whole street sang at once.",
+  "prompt": "Which option best states the main idea?",
+  "question": "Which option best states the main idea?",
+  "spokenPrompt": "Which option best states the main idea?",
+  "passage": "Our street planned a surprise for Mr. Chen's hundredth birthday. Neighbors strung flags from lamp post to lamp post. The cafe baked a cake with exactly one hundred candles, which took three tries to light. Children painted a banner as long as a bus. When Mr. Chen stepped outside, the whole street sang at once.",
   "cell": "main_idea_vs_detail",
   "choices": [
    "the cake had one hundred candles",
    "the banner was as long as a bus",
    "flags were strung from lamp post to lamp post",
-   "the street celebrated Mr Chen's birthday together"
+   "the street celebrated Mr. Chen's birthday together"
   ],
   "answerOptions": [
    {
@@ -3988,13 +3559,13 @@ export const questions = [
     "text": "flags were strung from lamp post to lamp post"
    },
    {
-    "value": "the street celebrated Mr Chen's birthday together",
-    "label": "the street celebrated Mr Chen's birthday together",
-    "text": "the street celebrated Mr Chen's birthday together"
+    "value": "the street celebrated Mr. Chen's birthday together",
+    "label": "the street celebrated Mr. Chen's birthday together",
+    "text": "the street celebrated Mr. Chen's birthday together"
    }
   ],
-  "answer": "the street celebrated Mr Chen's birthday together",
-  "correctAnswer": "the street celebrated Mr Chen's birthday together",
+  "answer": "the street celebrated Mr. Chen's birthday together",
+  "correctAnswer": "the street celebrated Mr. Chen's birthday together",
   "distractorRationales": {
    "the banner was as long as a bus": "D-DETAIL-AS-MAIN",
    "flags were strung from lamp post to lamp post": "D-DETAIL-AS-MAIN",
@@ -4009,21 +3580,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.B.main_idea_vs_detail.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4033,13 +3599,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-main-idea-vs-detail-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.A.summary_choice.v1",
@@ -4110,21 +3670,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.A.summary_choice.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4134,13 +3689,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.B.summary_choice.v2",
@@ -4211,21 +3760,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.B.summary_choice.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4235,13 +3779,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.C.summary_choice.v3",
@@ -4266,12 +3804,12 @@ export const questions = [
   "prompt": "Which sentence sums up the whole passage best?",
   "question": "Which sentence sums up the whole passage best?",
   "spokenPrompt": "Which sentence sums up the whole passage best?",
-  "passage": "When the power went out, the flat went quiet and dark. Mum found candles, and we ate supper by their small light. With no screens, Gran taught us a clapping game from when she was small. The lights blinked on at bedtime, but we asked to keep one candle burning anyway.",
+  "passage": "When the power went out, the apartment went quiet and dark. Mom found candles, and we ate supper by their small light. With no screens, Grandma taught us a clapping game from when she was small. The lights blinked on at bedtime, but we asked to keep one candle burning anyway.",
   "cell": "summary_choice",
   "choices": [
    "The family sat bored until the lights returned.",
-   "A power cut turned into a cosy evening of old games.",
-   "Mum found some candles.",
+   "A power outage turned into a cozy evening of old games.",
+   "Mom found some candles.",
    "Electricity comes into homes through wires."
   ],
   "answerOptions": [
@@ -4281,14 +3819,14 @@ export const questions = [
     "text": "The family sat bored until the lights returned."
    },
    {
-    "value": "A power cut turned into a cosy evening of old games.",
-    "label": "A power cut turned into a cosy evening of old games.",
-    "text": "A power cut turned into a cosy evening of old games."
+    "value": "A power outage turned into a cozy evening of old games.",
+    "label": "A power outage turned into a cozy evening of old games.",
+    "text": "A power outage turned into a cozy evening of old games."
    },
    {
-    "value": "Mum found some candles.",
-    "label": "Mum found some candles.",
-    "text": "Mum found some candles."
+    "value": "Mom found some candles.",
+    "label": "Mom found some candles.",
+    "text": "Mom found some candles."
    },
    {
     "value": "Electricity comes into homes through wires.",
@@ -4296,10 +3834,10 @@ export const questions = [
     "text": "Electricity comes into homes through wires."
    }
   ],
-  "answer": "A power cut turned into a cosy evening of old games.",
-  "correctAnswer": "A power cut turned into a cosy evening of old games.",
+  "answer": "A power outage turned into a cozy evening of old games.",
+  "correctAnswer": "A power outage turned into a cozy evening of old games.",
   "distractorRationales": {
-   "Mum found some candles.": "D-DETAIL-AS-MAIN",
+   "Mom found some candles.": "D-DETAIL-AS-MAIN",
    "Electricity comes into homes through wires.": "D-TOPIC-ADJACENT",
    "The family sat bored until the lights returned.": "D-OPPOSITE"
   },
@@ -4312,21 +3850,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.C.summary_choice.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-c-summary-choice-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-summary-choice-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-summary-choice-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4336,13 +3869,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-summary-choice-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-summary-choice-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-summary-choice-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-summary-choice-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-summary-choice-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.A.summary_choice.v4",
@@ -4413,21 +3940,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.A.summary_choice.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4437,13 +3959,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.B.summary_choice.v5",
@@ -4514,21 +4030,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.B.summary_choice.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4538,13 +4049,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.C.summary_choice.v6",
@@ -4615,21 +4120,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.C.summary_choice.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-c-summary-choice-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-summary-choice-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-summary-choice-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4639,13 +4139,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-summary-choice-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-summary-choice-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-summary-choice-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-summary-choice-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-c-summary-choice-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.A.summary_choice.v7",
@@ -4670,13 +4164,13 @@ export const questions = [
   "prompt": "Which sentence sums up the whole passage best?",
   "question": "Which sentence sums up the whole passage best?",
   "spokenPrompt": "Which sentence sums up the whole passage best?",
-  "passage": "Amir's baby sister cried every time he practised trumpet. He tried playing in the garden, but the neighbours leaned out of windows. He tried the bathroom, where the echo was wonderful but the space was not. In the end, the wardrobe full of winter coats swallowed the sound perfectly, and everyone was happy.",
+  "passage": "Amir's baby sister cried every time he practiced trumpet. He tried playing in the yard, but the neighbors leaned out of windows. He tried the bathroom, where the echo was wonderful but the space was not. In the end, the closet full of winter coats muffled the sound, and everyone was happy.",
   "cell": "summary_choice",
   "choices": [
    "The bathroom had a wonderful echo.",
    "Trumpets are brass instruments.",
    "Amir gave his trumpet away.",
-   "Amir searched the flat until he found a good place to practise."
+   "Amir searched the apartment until he found a good place to practice."
   ],
   "answerOptions": [
    {
@@ -4695,13 +4189,13 @@ export const questions = [
     "text": "Amir gave his trumpet away."
    },
    {
-    "value": "Amir searched the flat until he found a good place to practise.",
-    "label": "Amir searched the flat until he found a good place to practise.",
-    "text": "Amir searched the flat until he found a good place to practise."
+    "value": "Amir searched the apartment until he found a good place to practice.",
+    "label": "Amir searched the apartment until he found a good place to practice.",
+    "text": "Amir searched the apartment until he found a good place to practice."
    }
   ],
-  "answer": "Amir searched the flat until he found a good place to practise.",
-  "correctAnswer": "Amir searched the flat until he found a good place to practise.",
+  "answer": "Amir searched the apartment until he found a good place to practice.",
+  "correctAnswer": "Amir searched the apartment until he found a good place to practice.",
   "distractorRationales": {
    "Amir gave his trumpet away.": "D-OPPOSITE",
    "The bathroom had a wonderful echo.": "D-DETAIL-AS-MAIN",
@@ -4716,21 +4210,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.A.summary_choice.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4740,13 +4229,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-a-summary-choice-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.B.summary_choice.v8",
@@ -4771,24 +4254,24 @@ export const questions = [
   "prompt": "Which sentence sums up the whole passage best?",
   "question": "Which sentence sums up the whole passage best?",
   "spokenPrompt": "Which sentence sums up the whole passage best?",
-  "passage": "The street mural began as one painted door. The artist added a whale above it the next week, then waves along three more houses. Neighbours started leaving paint tins by their walls as an invitation. By summer, the grey street had become a sea scene that visitors crossed town to photograph.",
+  "passage": "The street mural began as one painted door. The artist added a whale above it the next week, then waves along three more houses. Neighbors started leaving paint cans by their walls as an invitation. By summer, the gray street had become a sea scene that visitors crossed town to photograph.",
   "cell": "summary_choice",
   "choices": [
-   "Artists use many colours of paint.",
-   "The street stayed grey and plain.",
+   "Artists use many colors of paint.",
+   "The street stayed gray and plain.",
    "One painted door slowly grew into a whole street of art.",
    "A whale was painted above a door."
   ],
   "answerOptions": [
    {
-    "value": "Artists use many colours of paint.",
-    "label": "Artists use many colours of paint.",
-    "text": "Artists use many colours of paint."
+    "value": "Artists use many colors of paint.",
+    "label": "Artists use many colors of paint.",
+    "text": "Artists use many colors of paint."
    },
    {
-    "value": "The street stayed grey and plain.",
-    "label": "The street stayed grey and plain.",
-    "text": "The street stayed grey and plain."
+    "value": "The street stayed gray and plain.",
+    "label": "The street stayed gray and plain.",
+    "text": "The street stayed gray and plain."
    },
    {
     "value": "One painted door slowly grew into a whole street of art.",
@@ -4804,9 +4287,9 @@ export const questions = [
   "answer": "One painted door slowly grew into a whole street of art.",
   "correctAnswer": "One painted door slowly grew into a whole street of art.",
   "distractorRationales": {
-   "The street stayed grey and plain.": "D-OPPOSITE",
+   "The street stayed gray and plain.": "D-OPPOSITE",
    "A whale was painted above a door.": "D-DETAIL-AS-MAIN",
-   "Artists use many colours of paint.": "D-TOPIC-ADJACENT"
+   "Artists use many colors of paint.": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4817,21 +4300,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.B.summary_choice.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4841,13 +4319,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-b-summary-choice-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_fiction.v9r",
@@ -4918,21 +4390,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.R.mostly_about_fiction.v9r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v9r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v9r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4942,13 +4409,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v9r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v9r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v9r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v9r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v9r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_fiction.v10r",
@@ -4973,7 +4434,7 @@ export const questions = [
   "prompt": "What is this story mostly about?",
   "question": "What is this story mostly about?",
   "spokenPrompt": "What is this story mostly about?",
-  "passage": "Nia's kite would not fly. It flopped on the grass like a tired fish. Grandad tied on a longer tail made from his old scarf. The next gust lifted the kite high over the hill, and Nia ran laughing beneath it.",
+  "passage": "Nia's kite would not fly. It flopped on the grass like a tired fish. Grandpa tied on a longer tail made from his old scarf. The next gust lifted the kite high over the hill, and Nia ran laughing beneath it.",
   "cell": "mostly_about_fiction",
   "choices": [
    "getting a kite to fly at last",
@@ -5019,21 +4480,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.R.mostly_about_fiction.v10r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v10r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v10r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5043,13 +4499,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v10r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v10r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v10r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v10r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v10r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_info.v9r",
@@ -5120,21 +4570,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.R.mostly_about_info.v9r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v9r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v9r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5144,13 +4589,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v9r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v9r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v9r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v9r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v9r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_info.v10r",
@@ -5221,21 +4660,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.R.mostly_about_info.v10r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v10r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v10r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5245,13 +4679,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v10r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v10r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v10r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v10r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v10r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_everyday.v9r",
@@ -5276,19 +4704,19 @@ export const questions = [
   "prompt": "What is this passage mostly about?",
   "question": "What is this passage mostly about?",
   "spokenPrompt": "What is this passage mostly about?",
-  "passage": "The dentist's waiting room has a fish tank and a box of old comics. Ben watches the stripy fish glide while Mum reads. A buzzer sounds, a nurse smiles round the door, and it is Ben's turn to hop into the big moving chair.",
+  "passage": "The dentist's waiting room has a fish tank and a box of old comics. Ben watches the striped fish glide while Mom reads. A buzzer sounds, a nurse smiles around the door, and it is Ben's turn to hop into the big moving chair.",
   "cell": "mostly_about_everyday",
   "choices": [
-   "a tank with stripy fish",
+   "a tank with striped fish",
    "how teeth grow",
    "a boy who ran out of the door",
    "waiting for a turn at the dentist"
   ],
   "answerOptions": [
    {
-    "value": "a tank with stripy fish",
-    "label": "a tank with stripy fish",
-    "text": "a tank with stripy fish"
+    "value": "a tank with striped fish",
+    "label": "a tank with striped fish",
+    "text": "a tank with striped fish"
    },
    {
     "value": "how teeth grow",
@@ -5310,7 +4738,7 @@ export const questions = [
   "correctAnswer": "waiting for a turn at the dentist",
   "distractorRationales": {
    "a boy who ran out of the door": "D-OPPOSITE",
-   "a tank with stripy fish": "D-DETAIL-AS-MAIN",
+   "a tank with striped fish": "D-DETAIL-AS-MAIN",
    "how teeth grow": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
@@ -5322,21 +4750,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.R.mostly_about_everyday.v9r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-everyday-v9r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-everyday-v9r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-everyday-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5346,13 +4769,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-everyday-v9r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-everyday-v9r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-everyday-v9r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-everyday-v9r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-everyday-v9r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_everyday.v10r",
@@ -5377,7 +4794,7 @@ export const questions = [
   "prompt": "What is this passage mostly about?",
   "question": "What is this passage mostly about?",
   "spokenPrompt": "What is this passage mostly about?",
-  "passage": "On Sunday the whole flat smells of coconut rice. Aunty stirs the big silver pot. Cousins squeeze around the small table, elbow to elbow. There is always one more chair, one more plate, one more story before the food is gone.",
+  "passage": "On Sunday the whole apartment smells of coconut rice. Auntie stirs the big silver pot. Cousins squeeze around the small table, elbow to elbow. There is always one more chair, one more plate, one more story before the food is gone.",
   "cell": "mostly_about_everyday",
   "choices": [
    "a family crowding together for Sunday dinner",
@@ -5423,21 +4840,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.R.mostly_about_everyday.v10r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-everyday-v10r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-everyday-v10r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-everyday-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5447,13 +4859,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-everyday-v10r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-everyday-v10r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-everyday-v10r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-everyday-v10r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-everyday-v10r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_fiction.v11r",
@@ -5478,7 +4884,7 @@ export const questions = [
   "prompt": "What is this story mostly about?",
   "question": "What is this story mostly about?",
   "spokenPrompt": "What is this story mostly about?",
-  "passage": "The classroom hamster escaped on Friday. All weekend he was loose in the school. On Monday the children followed a trail of seed shells past the library. They found him asleep in the lost-property box, curled inside a woolly hat.",
+  "passage": "The classroom hamster escaped on Friday. All weekend he was loose in the school. On Monday the children followed a trail of seed shells past the library. They found him asleep in the lost-and-found box, curled inside a wool hat.",
   "cell": "mostly_about_fiction",
   "choices": [
    "a hamster that never left its cage",
@@ -5524,21 +4930,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.R.mostly_about_fiction.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5548,13 +4949,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-fiction-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_info.v11r",
@@ -5579,12 +4974,12 @@ export const questions = [
   "prompt": "What is this passage mostly about?",
   "question": "What is this passage mostly about?",
   "spokenPrompt": "What is this passage mostly about?",
-  "passage": "Rock pools change twice a day. When the tide is out, the pools sit still in the sun, and you can peer in. When the tide rolls back, the sea covers everything, bringing fresh water and food. The creatures in the pool live by this in-and-out clock.",
+  "passage": "Tide pools change twice a day. When the tide is out, the pools sit still in the sun, and you can peer in. When the tide rolls back, the sea covers everything, bringing fresh water and food. The creatures in the pool live by this in-and-out clock.",
   "cell": "mostly_about_info",
   "choices": [
    "every animal in the sea",
    "pools the sea never touches",
-   "how the tide changes life in a rock pool",
+   "how the tide changes life in a tide pool",
    "pools sitting still in the sun"
   ],
   "answerOptions": [
@@ -5599,9 +4994,9 @@ export const questions = [
     "text": "pools the sea never touches"
    },
    {
-    "value": "how the tide changes life in a rock pool",
-    "label": "how the tide changes life in a rock pool",
-    "text": "how the tide changes life in a rock pool"
+    "value": "how the tide changes life in a tide pool",
+    "label": "how the tide changes life in a tide pool",
+    "text": "how the tide changes life in a tide pool"
    },
    {
     "value": "pools sitting still in the sun",
@@ -5609,8 +5004,8 @@ export const questions = [
     "text": "pools sitting still in the sun"
    }
   ],
-  "answer": "how the tide changes life in a rock pool",
-  "correctAnswer": "how the tide changes life in a rock pool",
+  "answer": "how the tide changes life in a tide pool",
+  "correctAnswer": "how the tide changes life in a tide pool",
   "distractorRationales": {
    "pools sitting still in the sun": "D-DETAIL-AS-MAIN",
    "every animal in the sea": "D-TOPIC-ADJACENT",
@@ -5625,21 +5020,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l1.R.mostly_about_info.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5649,13 +5039,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l1-r-mostly-about-info-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.R.best_title.v9r",
@@ -5726,21 +5110,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.R.best_title.v9r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v9r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v9r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5750,13 +5129,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v9r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v9r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v9r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v9r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v9r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.R.best_title.v10r",
@@ -5781,13 +5154,13 @@ export const questions = [
   "prompt": "Which title fits this passage best?",
   "question": "Which title fits this passage best?",
   "spokenPrompt": "Which title fits this passage best?",
-  "passage": "The campfire needed three tries. The first pile of sticks was too wet. The second caught, then sulked into smoke. For the third try, Sana peeled dry bark shavings, stacked the sticks like a little tent, and shielded the match with her hand. The flame climbed, crackled, and settled in for the evening.",
+  "passage": "The campfire needed three tries. The first pile of sticks was too wet. The second caught, then faded into smoke. For the third try, Sana peeled dry bark shavings and stacked the sticks like a little tent. Her uncle lit them safely, and the flame climbed, crackled, and settled in for the evening.",
   "cell": "best_title",
   "choices": [
    "A Match Behind a Hand",
    "Forests and Their Trees",
    "The Fire That Never Lit",
-   "Third Time Lucky at the Campfire"
+   "Sana Keeps Trying"
   ],
   "answerOptions": [
    {
@@ -5806,13 +5179,13 @@ export const questions = [
     "text": "The Fire That Never Lit"
    },
    {
-    "value": "Third Time Lucky at the Campfire",
-    "label": "Third Time Lucky at the Campfire",
-    "text": "Third Time Lucky at the Campfire"
+    "value": "Sana Keeps Trying",
+    "label": "Sana Keeps Trying",
+    "text": "Sana Keeps Trying"
    }
   ],
-  "answer": "Third Time Lucky at the Campfire",
-  "correctAnswer": "Third Time Lucky at the Campfire",
+  "answer": "Sana Keeps Trying",
+  "correctAnswer": "Sana Keeps Trying",
   "distractorRationales": {
    "A Match Behind a Hand": "D-DETAIL-AS-MAIN",
    "Forests and Their Trees": "D-TOPIC-ADJACENT",
@@ -5827,21 +5200,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.R.best_title.v10r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v10r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v10r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5851,13 +5219,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v10r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v10r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v10r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v10r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v10r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.R.main_idea_vs_detail.v9r",
@@ -5879,9 +5241,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "All of these are true. Which one is the MAIN idea?",
-  "question": "All of these are true. Which one is the MAIN idea?",
-  "spokenPrompt": "All of these are true. Which one is the MAIN idea?",
+  "prompt": "Which option best states the main idea?",
+  "question": "Which option best states the main idea?",
+  "spokenPrompt": "Which option best states the main idea?",
   "passage": "Swifts are astonishing birds. They eat while flying and even sleep on the wing. Their nests are tucked under roofs, and when the chicks leave, they may not land again for two whole years. In late summer the sky over town fills with their screaming, swooping games.",
   "cell": "main_idea_vs_detail",
   "choices": [
@@ -5928,21 +5290,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.R.main_idea_vs_detail.v9r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-r-main-idea-vs-detail-v9r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-main-idea-vs-detail-v9r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-main-idea-vs-detail-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5952,13 +5309,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-main-idea-vs-detail-v9r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-main-idea-vs-detail-v9r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-main-idea-vs-detail-v9r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-main-idea-vs-detail-v9r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-main-idea-vs-detail-v9r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.R.main_idea_vs_detail.v10r",
@@ -5980,9 +5331,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "All of these are true. Which one is the MAIN idea?",
-  "question": "All of these are true. Which one is the MAIN idea?",
-  "spokenPrompt": "All of these are true. Which one is the MAIN idea?",
+  "prompt": "Which option best states the main idea?",
+  "question": "Which option best states the main idea?",
+  "spokenPrompt": "Which option best states the main idea?",
   "passage": "The repair cafe opens in the hall on the first Saturday of the month. People bring broken toasters, wobbly chairs, and jackets with stuck zips. Volunteers with toolboxes sit at long tables and mend things for free, explaining as they go. Most visitors leave with their things working and a new trick learned.",
   "cell": "main_idea_vs_detail",
   "choices": [
@@ -6029,21 +5380,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.R.main_idea_vs_detail.v10r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-r-main-idea-vs-detail-v10r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-main-idea-vs-detail-v10r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-main-idea-vs-detail-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6053,13 +5399,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-main-idea-vs-detail-v10r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-main-idea-vs-detail-v10r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-main-idea-vs-detail-v10r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-main-idea-vs-detail-v10r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-main-idea-vs-detail-v10r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.R.summary_choice.v9r",
@@ -6130,21 +5470,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.R.summary_choice.v9r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v9r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v9r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6154,13 +5489,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v9r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v9r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v9r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v9r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v9r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.R.summary_choice.v10r",
@@ -6185,13 +5514,13 @@ export const questions = [
   "prompt": "Which sentence sums up the whole passage best?",
   "question": "Which sentence sums up the whole passage best?",
   "spokenPrompt": "Which sentence sums up the whole passage best?",
-  "passage": "Every window on Wren Street has a different bird sticker, because of one shop. The bookshop owner noticed birds bumping the big clear glass. She stuck a paper owl in the window, and the bumping stopped. She printed spare stickers, left them in a basket by the till, and week by week the whole street joined in.",
+  "passage": "Every window on Wren Street has a different bird sticker, because of one shop. The bookstore owner noticed birds bumping the big clear glass. She stuck a paper owl in the window, and the bumping stopped. She printed spare stickers, left them in a basket by the register, and week by week the whole street joined in.",
   "cell": "summary_choice",
   "choices": [
    "A paper owl was stuck in the bookshop window.",
    "Bookshops sell many kinds of books.",
    "The street took every sticker down.",
-   "One shop's idea spread until the whole street protected birds."
+   "A window idea helped birds across the neighborhood."
   ],
   "answerOptions": [
    {
@@ -6210,13 +5539,13 @@ export const questions = [
     "text": "The street took every sticker down."
    },
    {
-    "value": "One shop's idea spread until the whole street protected birds.",
-    "label": "One shop's idea spread until the whole street protected birds.",
-    "text": "One shop's idea spread until the whole street protected birds."
+    "value": "A window idea helped birds across the neighborhood.",
+    "label": "A window idea helped birds across the neighborhood.",
+    "text": "A window idea helped birds across the neighborhood."
    }
   ],
-  "answer": "One shop's idea spread until the whole street protected birds.",
-  "correctAnswer": "One shop's idea spread until the whole street protected birds.",
+  "answer": "A window idea helped birds across the neighborhood.",
+  "correctAnswer": "A window idea helped birds across the neighborhood.",
   "distractorRationales": {
    "Bookshops sell many kinds of books.": "D-TOPIC-ADJACENT",
    "The street took every sticker down.": "D-OPPOSITE",
@@ -6231,21 +5560,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.R.summary_choice.v10r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v10r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v10r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6255,13 +5579,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v10r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v10r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v10r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v10r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v10r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.R.best_title.v11r",
@@ -6332,21 +5650,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.R.best_title.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6356,13 +5669,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-best-title-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.R.summary_choice.v11r",
@@ -6387,12 +5694,12 @@ export const questions = [
   "prompt": "Which sentence sums up the whole passage best?",
   "question": "Which sentence sums up the whole passage best?",
   "spokenPrompt": "Which sentence sums up the whole passage best?",
-  "passage": "The school's old apple tree gives more fruit than anyone can eat. This year the cook dried rings of apple for snack time. Class 1 pressed juice with a squeaky hand press. The rest went in crates by the gate with a sign saying HELP YOURSELF, and by Friday every crate was empty.",
+  "passage": "The school's old apple tree gives more fruit than anyone can eat. This year the cook dried rings of apple for snack time. A first-grade class pressed juice with a squeaky hand press. The rest went in crates by the gate with a sign saying HELP YOURSELF, and by Friday every crate was empty.",
   "cell": "summary_choice",
   "choices": [
    "The apples were left to rot.",
    "The school found ways to share a huge apple harvest.",
-   "Class 1 pressed juice with a hand press.",
+   "A first-grade class pressed juice with a hand press.",
    "Apple trees blossom in the spring."
   ],
   "answerOptions": [
@@ -6407,9 +5714,9 @@ export const questions = [
     "text": "The school found ways to share a huge apple harvest."
    },
    {
-    "value": "Class 1 pressed juice with a hand press.",
-    "label": "Class 1 pressed juice with a hand press.",
-    "text": "Class 1 pressed juice with a hand press."
+    "value": "A first-grade class pressed juice with a hand press.",
+    "label": "A first-grade class pressed juice with a hand press.",
+    "text": "A first-grade class pressed juice with a hand press."
    },
    {
     "value": "Apple trees blossom in the spring.",
@@ -6421,7 +5728,7 @@ export const questions = [
   "correctAnswer": "The school found ways to share a huge apple harvest.",
   "distractorRationales": {
    "The apples were left to rot.": "D-OPPOSITE",
-   "Class 1 pressed juice with a hand press.": "D-DETAIL-AS-MAIN",
+   "A first-grade class pressed juice with a hand press.": "D-DETAIL-AS-MAIN",
    "Apple trees blossom in the spring.": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
@@ -6433,21 +5740,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.main_idea.l2.R.summary_choice.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6457,12 +5759,6 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-main-idea-l2-r-summary-choice-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  }
 ];

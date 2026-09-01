@@ -21,9 +21,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ wore a golden crown.",
-  "question": "The ___ wore a golden crown.",
-  "spokenPrompt": "Which naming word finishes the sentence? The … wore a golden crown.",
+  "prompt": "Which naming word fits: The ___ wore a golden crown.",
+  "question": "Which naming word fits: The ___ wore a golden crown.",
+  "spokenPrompt": "Which naming word fits? The … wore a golden crown.",
   "sentence": "The ___ wore a golden crown.",
   "choices": [
    "clap",
@@ -70,21 +70,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The ___ wore a golden crown.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.A.noun_person.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-person.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-person.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -94,13 +89,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "nurse and baker keys stay out of this frame — their er/rs chunks sit inside person",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "nurse and baker keys stay out of this frame — their er/rs chunks sit inside person"
  },
  {
   "id": "lp3.nouns.l1.B.noun_person.v2",
@@ -122,9 +111,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ helped the sick dog.",
-  "question": "The ___ helped the sick dog.",
-  "spokenPrompt": "Which naming word finishes the sentence? The … helped the sick dog.",
+  "prompt": "Which naming word fits: The ___ helped the sick dog.",
+  "question": "Which naming word fits: The ___ helped the sick dog.",
+  "spokenPrompt": "Which naming word fits? The … helped the sick dog.",
   "sentence": "The ___ helped the sick dog.",
   "choices": [
    "draw",
@@ -171,21 +160,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The ___ helped the sick dog.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.B.noun_person.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-person.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-person.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -195,13 +179,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.nouns.l1.C.noun_person.v3",
@@ -223,9 +201,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ sat on the throne.",
-  "question": "The ___ sat on the throne.",
-  "spokenPrompt": "Which naming word finishes the sentence? The … sat on the throne.",
+  "prompt": "Which naming word fits: The ___ sat on the throne.",
+  "question": "Which naming word fits: The ___ sat on the throne.",
+  "spokenPrompt": "Which naming word fits? The … sat on the throne.",
   "sentence": "The ___ sat on the throne.",
   "choices": [
    "queen",
@@ -272,21 +250,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The ___ sat on the throne.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.C.noun_person.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-person.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-person.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -296,13 +269,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.nouns.l1.A.noun_person.v4",
@@ -371,21 +338,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.A.noun_person.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-person.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-person.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -395,13 +357,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.B.noun_person.v5",
@@ -470,21 +426,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.B.noun_person.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-person.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-person.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -494,13 +445,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.C.noun_person.v6",
@@ -569,21 +514,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.C.noun_person.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-person.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-person.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -593,13 +533,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.A.noun_animal.v1",
@@ -621,9 +555,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "A ___ crept past the hens.",
-  "question": "A ___ crept past the hens.",
-  "spokenPrompt": "Which naming word finishes the sentence? A … crept past the hens.",
+  "prompt": "Which naming word fits: A ___ crept past the hens.",
+  "question": "Which naming word fits: A ___ crept past the hens.",
+  "spokenPrompt": "Which naming word fits? A … crept past the hens.",
   "sentence": "A ___ crept past the hens.",
   "choices": [
    "fox",
@@ -670,21 +604,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "A ___ crept past the hens.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.A.noun_animal.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-animal.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-animal.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -694,13 +623,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.nouns.l1.B.noun_animal.v2",
@@ -722,9 +645,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ had black-and-white stripes.",
-  "question": "The ___ had black-and-white stripes.",
-  "spokenPrompt": "Which naming word finishes the sentence? The … had black-and-white stripes.",
+  "prompt": "Which naming word fits: The ___ had black-and-white stripes.",
+  "question": "Which naming word fits: The ___ had black-and-white stripes.",
+  "spokenPrompt": "Which naming word fits? The … had black-and-white stripes.",
   "sentence": "The ___ had black-and-white stripes.",
   "choices": [
    "hop",
@@ -771,21 +694,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The ___ had black-and-white stripes.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.B.noun_animal.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-animal.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-animal.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -795,13 +713,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.nouns.l1.C.noun_animal.v3",
@@ -823,9 +735,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "A ___ gave us warm wool.",
-  "question": "A ___ gave us warm wool.",
-  "spokenPrompt": "Which naming word finishes the sentence? A … gave us warm wool.",
+  "prompt": "Which naming word fits: A ___ gave us warm wool.",
+  "question": "Which naming word fits: A ___ gave us warm wool.",
+  "spokenPrompt": "Which naming word fits? A … gave us warm wool.",
   "sentence": "A ___ gave us warm wool.",
   "choices": [
    "clap",
@@ -872,21 +784,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "A ___ gave us warm wool.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.C.noun_animal.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-animal.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-animal.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -896,13 +803,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.nouns.l1.A.noun_animal.v4",
@@ -971,21 +872,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.A.noun_animal.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-animal.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-animal.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -995,13 +891,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.B.noun_animal.v5",
@@ -1070,21 +960,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.B.noun_animal.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-animal.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-animal.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1094,13 +979,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.C.noun_animal.v6",
@@ -1169,21 +1048,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.C.noun_animal.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-animal.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-animal.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1193,13 +1067,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.A.noun_place.v1",
@@ -1221,9 +1089,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "We saw cows at the ___.",
-  "question": "We saw cows at the ___.",
-  "spokenPrompt": "Which naming word finishes the sentence? We saw cows at the ….",
+  "prompt": "Which naming word fits: We saw cows at the ___.",
+  "question": "Which naming word fits: We saw cows at the ___.",
+  "spokenPrompt": "Which naming word fits? We saw cows at the ….",
   "sentence": "We saw cows at the ___.",
   "choices": [
    "swim",
@@ -1270,21 +1138,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "We saw cows at the ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.A.noun_place.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-place.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-place.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1294,13 +1157,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.nouns.l1.B.noun_place.v2",
@@ -1322,9 +1179,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "We played games at the ___.",
-  "question": "We played games at the ___.",
-  "spokenPrompt": "Which naming word finishes the sentence? We played games at the ….",
+  "prompt": "Which naming word fits: We played games at the ___.",
+  "question": "Which naming word fits: We played games at the ___.",
+  "spokenPrompt": "Which naming word fits? We played games at the ….",
   "sentence": "We played games at the ___.",
   "choices": [
    "dig",
@@ -1371,21 +1228,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "We played games at the ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.B.noun_place.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-place.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-place.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1395,13 +1247,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.nouns.l1.C.noun_place.v3",
@@ -1423,9 +1269,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "We visited lions at the ___.",
-  "question": "We visited lions at the ___.",
-  "spokenPrompt": "Which naming word finishes the sentence? We visited lions at the ….",
+  "prompt": "Which naming word fits: We visited lions at the ___.",
+  "question": "Which naming word fits: We visited lions at the ___.",
+  "spokenPrompt": "Which naming word fits? We visited lions at the ….",
   "sentence": "We visited lions at the ___.",
   "choices": [
    "zoo",
@@ -1472,21 +1318,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "We visited lions at the ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.C.noun_place.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-place.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-place.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1496,13 +1337,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.nouns.l1.A.noun_place.v4",
@@ -1571,21 +1406,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.A.noun_place.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-place.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-place.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1595,13 +1425,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.B.noun_place.v5",
@@ -1670,21 +1494,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.B.noun_place.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-place.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-place.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1694,13 +1513,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "lace ties the ac/place overlap — it names a thing, never a place",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "lace ties the ac/place overlap — it names a thing, never a place"
  },
  {
   "id": "lp3.nouns.l1.C.noun_place.v6",
@@ -1769,21 +1582,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.C.noun_place.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-place.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-place.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1793,13 +1601,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "chat ties the ch/which overlap",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "chat ties the ch/which overlap"
  },
  {
   "id": "lp3.nouns.l1.A.noun_thing.v1",
@@ -1821,9 +1623,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "I drank water from a ___.",
-  "question": "I drank water from a ___.",
-  "spokenPrompt": "Which naming word finishes the sentence? I drank water from a ….",
+  "prompt": "Which naming word fits: I drank water from a ___.",
+  "question": "Which naming word fits: I drank water from a ___.",
+  "spokenPrompt": "Which naming word fits? I drank water from a ….",
   "sentence": "I drank water from a ___.",
   "choices": [
    "cup",
@@ -1870,21 +1672,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "I drank water from a ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.A.noun_thing.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-thing.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-thing.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1894,13 +1691,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.nouns.l1.B.noun_thing.v2",
@@ -1922,9 +1713,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Sam tapped the ___ with sticks.",
-  "question": "Sam tapped the ___ with sticks.",
-  "spokenPrompt": "Which naming word finishes the sentence? Sam tapped the … with sticks.",
+  "prompt": "Which naming word fits: Sam tapped the ___ with sticks.",
+  "question": "Which naming word fits: Sam tapped the ___ with sticks.",
+  "spokenPrompt": "Which naming word fits? Sam tapped the … with sticks.",
   "sentence": "Sam tapped the ___ with sticks.",
   "choices": [
    "press",
@@ -1971,21 +1762,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "Sam tapped the ___ with sticks.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.B.noun_thing.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-thing.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-thing.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1995,13 +1781,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.nouns.l1.C.noun_thing.v3",
@@ -2023,9 +1803,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "I stirred the soup with a ___.",
-  "question": "I stirred the soup with a ___.",
-  "spokenPrompt": "Which naming word finishes the sentence? I stirred the soup with a ….",
+  "prompt": "Which naming word fits: I stirred the soup with a ___.",
+  "question": "Which naming word fits: I stirred the soup with a ___.",
+  "spokenPrompt": "Which naming word fits? I stirred the soup with a ….",
   "sentence": "I stirred the soup with a ___.",
   "choices": [
    "swim",
@@ -2072,21 +1852,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "I stirred the soup with a ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.C.noun_thing.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-thing.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-thing.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2096,13 +1871,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.nouns.l1.A.noun_thing.v4",
@@ -2124,9 +1893,9 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word names a thing?",
-  "question": "Which word names a thing?",
-  "spokenPrompt": "Which word names a thing?",
+  "prompt": "Which word names the thing that lit the room?",
+  "question": "Which word names the thing that lit the room?",
+  "spokenPrompt": "Which word names the thing that lit the room?",
   "choices": [
    "lick",
    "lamp",
@@ -2171,21 +1940,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.A.noun_thing.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-thing.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-thing.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2195,13 +1959,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.B.noun_thing.v5",
@@ -2223,9 +1981,9 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word names a thing?",
-  "question": "Which word names a thing?",
-  "spokenPrompt": "Which word names a thing?",
+  "prompt": "Which word names the thing worn around a waist?",
+  "question": "Which word names the thing worn around a waist?",
+  "spokenPrompt": "Which word names the thing worn around a waist?",
   "choices": [
    "bumpy",
    "bite",
@@ -2270,21 +2028,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.B.noun_thing.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-thing.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-thing.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2294,13 +2047,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.C.noun_thing.v6",
@@ -2322,9 +2069,9 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word names a thing?",
-  "question": "Which word names a thing?",
-  "spokenPrompt": "Which word names a thing?",
+  "prompt": "Which word names the thing that shows the time?",
+  "question": "Which word names the thing that shows the time?",
+  "spokenPrompt": "Which word names the thing that shows the time?",
   "choices": [
    "climb",
    "clean",
@@ -2369,21 +2116,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.C.noun_thing.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-thing.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-thing.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2393,13 +2135,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.A.noun_in_sentence.v1",
@@ -2421,9 +2157,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ sailed into the bay.",
-  "question": "The ___ sailed into the bay.",
-  "spokenPrompt": "Which naming word finishes the sentence? The … sailed into the bay.",
+  "prompt": "Which naming word fits: The ___ sailed into the bay.",
+  "question": "Which naming word fits: The ___ sailed into the bay.",
+  "spokenPrompt": "Which naming word fits? The … sailed into the bay.",
   "sentence": "The ___ sailed into the bay.",
   "choices": [
    "went",
@@ -2470,21 +2206,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The ___ sailed into the bay.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.A.noun_in_sentence.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2494,13 +2225,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "only ship can NAME the sailer — went/wet/ran cannot fill a naming slot",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "only ship can NAME the sailer — went/wet/ran cannot fill a naming slot"
  },
  {
   "id": "lp3.nouns.l2.B.noun_in_sentence.v2",
@@ -2522,9 +2247,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "A ___ buzzed by my ear.",
-  "question": "A ___ buzzed by my ear.",
-  "spokenPrompt": "Which naming word finishes the sentence? A … buzzed by my ear.",
+  "prompt": "Which naming word fits: A ___ buzzed by my ear.",
+  "question": "Which naming word fits: A ___ buzzed by my ear.",
+  "spokenPrompt": "Which naming word fits? A … buzzed by my ear.",
   "sentence": "A ___ buzzed by my ear.",
   "choices": [
    "loud",
@@ -2571,21 +2296,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "A ___ buzzed by my ear.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.B.noun_in_sentence.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2595,13 +2315,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "by, not past — past contains as and would gift the key a chunk",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "by, not past — past contains as and would gift the key a chunk"
  },
  {
   "id": "lp3.nouns.l2.C.noun_in_sentence.v3",
@@ -2623,9 +2337,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ dripped on the rug.",
-  "question": "The ___ dripped on the rug.",
-  "spokenPrompt": "Which naming word finishes the sentence? The … dripped on the rug.",
+  "prompt": "Which naming word fits: The ___ dripped on the rug.",
+  "question": "Which naming word fits: The ___ dripped on the rug.",
+  "spokenPrompt": "Which naming word fits? The … dripped on the rug.",
   "sentence": "The ___ dripped on the rug.",
   "choices": [
    "fell",
@@ -2672,21 +2386,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The ___ dripped on the rug.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.C.noun_in_sentence.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2696,13 +2405,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.A.noun_in_sentence.v4",
@@ -2724,9 +2427,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Our ___ creaks in the wind.",
-  "question": "Our ___ creaks in the wind.",
-  "spokenPrompt": "Which naming word finishes the sentence? Our … creaks in the wind.",
+  "prompt": "Which naming word fits: Our ___ creaks in the wind.",
+  "question": "Which naming word fits: Our ___ creaks in the wind.",
+  "spokenPrompt": "Which naming word fits? Our … creaks in the wind.",
   "sentence": "Our ___ creaks in the wind.",
   "choices": [
    "gate",
@@ -2773,21 +2476,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "Our ___ creaks in the wind.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.A.noun_in_sentence.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2797,13 +2495,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.B.noun_in_sentence.v5",
@@ -2872,21 +2564,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.B.noun_in_sentence.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2896,13 +2583,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.C.noun_in_sentence.v6",
@@ -2971,21 +2652,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.C.noun_in_sentence.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2995,13 +2671,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.A.noun_in_sentence.v7",
@@ -3023,9 +2693,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ hooted all night long.",
-  "question": "The ___ hooted all night long.",
-  "spokenPrompt": "Which naming word finishes the sentence? The … hooted all night long.",
+  "prompt": "Which naming word fits: The ___ hooted all night long.",
+  "question": "Which naming word fits: The ___ hooted all night long.",
+  "spokenPrompt": "Which naming word fits? The … hooted all night long.",
   "sentence": "The ___ hooted all night long.",
   "choices": [
    "flew",
@@ -3072,21 +2742,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The ___ hooted all night long.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.A.noun_in_sentence.v7",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3096,13 +2761,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.B.noun_in_sentence.v8",
@@ -3124,9 +2783,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "A ___ rolled off the shelf.",
-  "question": "A ___ rolled off the shelf.",
-  "spokenPrompt": "Which naming word finishes the sentence? A … rolled off the shelf.",
+  "prompt": "Which naming word fits: A ___ rolled off the shelf.",
+  "question": "Which naming word fits: A ___ rolled off the shelf.",
+  "spokenPrompt": "Which naming word fits? A … rolled off the shelf.",
   "sentence": "A ___ rolled off the shelf.",
   "choices": [
    "jar",
@@ -3173,21 +2832,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "A ___ rolled off the shelf.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.B.noun_in_sentence.v8",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3197,13 +2851,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.A.noun_vs_verb.v1",
@@ -3225,25 +2873,25 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which word names a thing, not a doing word?",
-  "question": "Which word names a thing, not a doing word?",
-  "spokenPrompt": "Which word names a thing, not a doing word?",
+  "prompt": "Which word is a naming word in ‘We jump onto the bed’?",
+  "question": "Which word is a naming word in ‘We jump onto the bed’?",
+  "spokenPrompt": "Which word is a naming word in ‘We jump onto the bed’?",
   "choices": [
-   "run",
-   "go",
+   "onto",
+   "we",
    "bed",
    "jump"
   ],
   "answerOptions": [
    {
-    "value": "run",
-    "label": "run",
-    "text": "run"
+    "value": "onto",
+    "label": "onto",
+    "text": "onto"
    },
    {
-    "value": "go",
-    "label": "go",
-    "text": "go"
+    "value": "we",
+    "label": "we",
+    "text": "we"
    },
    {
     "value": "bed",
@@ -3260,8 +2908,8 @@ export const questions = [
   "correctAnswer": "bed",
   "distractorRationales": {
    "jump": "D-FUNCTION-SWAP",
-   "run": "D-FUNCTION-SWAP",
-   "go": "D-FUNCTION-SWAP"
+   "onto": "D-FUNCTION-SWAP",
+   "we": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3272,21 +2920,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.A.noun_vs_verb.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-vs-verb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3296,13 +2939,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the blueprint exemplar set",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.B.noun_vs_verb.v2",
@@ -3321,23 +2958,24 @@ export const questions = [
   "form": "B",
   "itemType": "grammar_concept",
   "itemKey": "noun_vs_verb",
-  "formatType": "GRAMMAR_CONTRAST",
-  "templateType": "GRAMMAR_CONTRAST",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which word names a thing, not a doing word?",
-  "question": "Which word names a thing, not a doing word?",
-  "spokenPrompt": "Which word names a thing, not a doing word?",
+  "prompt": "Which naming word fits: I ate lunch with a ___.",
+  "question": "Which naming word fits: I ate lunch with a ___.",
+  "spokenPrompt": "Which naming word fits? I ate lunch with a ….",
+  "sentence": "I ate lunch with a ___.",
   "choices": [
-   "pour",
+   "hungry",
    "fork",
-   "stir",
-   "chop"
+   "stirring",
+   "quickly"
   ],
   "answerOptions": [
    {
-    "value": "pour",
-    "label": "pour",
-    "text": "pour"
+    "value": "hungry",
+    "label": "hungry",
+    "text": "hungry"
    },
    {
     "value": "fork",
@@ -3345,22 +2983,22 @@ export const questions = [
     "text": "fork"
    },
    {
-    "value": "stir",
-    "label": "stir",
-    "text": "stir"
+    "value": "stirring",
+    "label": "stirring",
+    "text": "stirring"
    },
    {
-    "value": "chop",
-    "label": "chop",
-    "text": "chop"
+    "value": "quickly",
+    "label": "quickly",
+    "text": "quickly"
    }
   ],
   "answer": "fork",
   "correctAnswer": "fork",
   "distractorRationales": {
-   "stir": "D-FUNCTION-SWAP",
-   "chop": "D-FUNCTION-SWAP",
-   "pour": "D-FUNCTION-SWAP"
+   "stirring": "D-FUNCTION-SWAP",
+   "quickly": "D-FUNCTION-SWAP",
+   "hungry": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3370,22 +3008,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "sentenceText": "I ate lunch with a ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.B.noun_vs_verb.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-vs-verb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3395,13 +3029,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.C.noun_vs_verb.v3",
@@ -3423,30 +3051,30 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which word names a thing, not a doing word?",
-  "question": "Which word names a thing, not a doing word?",
-  "spokenPrompt": "Which word names a thing, not a doing word?",
+  "prompt": "Which word is a naming word in ‘We hike to the tent’?",
+  "question": "Which word is a naming word in ‘We hike to the tent’?",
+  "spokenPrompt": "Which word is a naming word in ‘We hike to the tent’?",
   "choices": [
-   "camp",
    "hike",
-   "rest",
+   "to",
+   "we",
    "tent"
   ],
   "answerOptions": [
-   {
-    "value": "camp",
-    "label": "camp",
-    "text": "camp"
-   },
    {
     "value": "hike",
     "label": "hike",
     "text": "hike"
    },
    {
-    "value": "rest",
-    "label": "rest",
-    "text": "rest"
+    "value": "to",
+    "label": "to",
+    "text": "to"
+   },
+   {
+    "value": "we",
+    "label": "we",
+    "text": "we"
    },
    {
     "value": "tent",
@@ -3457,9 +3085,9 @@ export const questions = [
   "answer": "tent",
   "correctAnswer": "tent",
   "distractorRationales": {
-   "camp": "D-FUNCTION-SWAP",
    "hike": "D-FUNCTION-SWAP",
-   "rest": "D-FUNCTION-SWAP"
+   "to": "D-FUNCTION-SWAP",
+   "we": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3470,21 +3098,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.C.noun_vs_verb.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-vs-verb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3494,13 +3117,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.A.noun_vs_verb.v4",
@@ -3522,9 +3139,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ sang to the crowd.",
-  "question": "The ___ sang to the crowd.",
-  "spokenPrompt": "Which naming word finishes the sentence? The … sang to the crowd.",
+  "prompt": "Which naming word fits: The ___ sang to the crowd.",
+  "question": "Which naming word fits: The ___ sang to the crowd.",
+  "spokenPrompt": "Which naming word fits? The … sang to the crowd.",
   "sentence": "The ___ sang to the crowd.",
   "choices": [
    "sing",
@@ -3571,21 +3188,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The ___ sang to the crowd.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.A.noun_vs_verb.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-vs-verb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3595,13 +3207,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the whole verb family competes — only the naming word can follow The",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.B.noun_vs_verb.v5",
@@ -3623,25 +3229,25 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which word names a thing, not a doing word?",
-  "question": "Which word names a thing, not a doing word?",
-  "spokenPrompt": "Which word names a thing, not a doing word?",
+  "prompt": "Which word is a naming word in ‘I sweep with a broom’?",
+  "question": "Which word is a naming word in ‘I sweep with a broom’?",
+  "spokenPrompt": "Which word is a naming word in ‘I sweep with a broom’?",
   "choices": [
-   "scrub",
-   "wipe",
+   "with",
+   "I",
    "broom",
    "sweep"
   ],
   "answerOptions": [
    {
-    "value": "scrub",
-    "label": "scrub",
-    "text": "scrub"
+    "value": "with",
+    "label": "with",
+    "text": "with"
    },
    {
-    "value": "wipe",
-    "label": "wipe",
-    "text": "wipe"
+    "value": "I",
+    "label": "I",
+    "text": "I"
    },
    {
     "value": "broom",
@@ -3658,8 +3264,8 @@ export const questions = [
   "correctAnswer": "broom",
   "distractorRationales": {
    "sweep": "D-FUNCTION-SWAP",
-   "scrub": "D-FUNCTION-SWAP",
-   "wipe": "D-FUNCTION-SWAP"
+   "with": "D-FUNCTION-SWAP",
+   "I": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3670,21 +3276,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.B.noun_vs_verb.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-vs-verb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3694,13 +3295,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.C.noun_vs_verb.v6",
@@ -3722,43 +3317,43 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word, not a naming word?",
-  "question": "Which word is a doing word, not a naming word?",
-  "spokenPrompt": "Which word is a doing word, not a naming word?",
+  "prompt": "Which word is a naming word in ‘We climb the hill’?",
+  "question": "Which word is a naming word in ‘We climb the hill’?",
+  "spokenPrompt": "Which word is a naming word in ‘We climb the hill’?",
   "choices": [
+   "hill",
    "climb",
-   "ladder",
-   "roof",
-   "wall"
+   "the",
+   "we"
   ],
   "answerOptions": [
+   {
+    "value": "hill",
+    "label": "hill",
+    "text": "hill"
+   },
    {
     "value": "climb",
     "label": "climb",
     "text": "climb"
    },
    {
-    "value": "ladder",
-    "label": "ladder",
-    "text": "ladder"
+    "value": "the",
+    "label": "the",
+    "text": "the"
    },
    {
-    "value": "roof",
-    "label": "roof",
-    "text": "roof"
-   },
-   {
-    "value": "wall",
-    "label": "wall",
-    "text": "wall"
+    "value": "we",
+    "label": "we",
+    "text": "we"
    }
   ],
-  "answer": "climb",
-  "correctAnswer": "climb",
+  "answer": "hill",
+  "correctAnswer": "hill",
   "distractorRationales": {
-   "roof": "D-FUNCTION-SWAP",
-   "wall": "D-FUNCTION-SWAP",
-   "ladder": "D-FUNCTION-SWAP"
+   "the": "D-FUNCTION-SWAP",
+   "we": "D-FUNCTION-SWAP",
+   "climb": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3769,21 +3364,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.C.noun_vs_verb.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-vs-verb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3793,13 +3383,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.A.noun_vs_verb.v7",
@@ -3818,17 +3402,18 @@ export const questions = [
   "form": "A",
   "itemType": "grammar_concept",
   "itemKey": "noun_vs_verb",
-  "formatType": "GRAMMAR_CONTRAST",
-  "templateType": "GRAMMAR_CONTRAST",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which word names a thing, not a doing word?",
-  "question": "Which word names a thing, not a doing word?",
-  "spokenPrompt": "Which word names a thing, not a doing word?",
+  "prompt": "Which naming word fits: The ___ flew high in the wind.",
+  "question": "Which naming word fits: The ___ flew high in the wind.",
+  "spokenPrompt": "Which naming word fits? The … flew high in the wind.",
+  "sentence": "The ___ flew high in the wind.",
   "choices": [
    "kite",
-   "soar",
-   "glide",
-   "drift"
+   "soaring",
+   "glided",
+   "drifting"
   ],
   "answerOptions": [
    {
@@ -3837,27 +3422,27 @@ export const questions = [
     "text": "kite"
    },
    {
-    "value": "soar",
-    "label": "soar",
-    "text": "soar"
+    "value": "soaring",
+    "label": "soaring",
+    "text": "soaring"
    },
    {
-    "value": "glide",
-    "label": "glide",
-    "text": "glide"
+    "value": "glided",
+    "label": "glided",
+    "text": "glided"
    },
    {
-    "value": "drift",
-    "label": "drift",
-    "text": "drift"
+    "value": "drifting",
+    "label": "drifting",
+    "text": "drifting"
    }
   ],
   "answer": "kite",
   "correctAnswer": "kite",
   "distractorRationales": {
-   "drift": "D-FUNCTION-SWAP",
-   "soar": "D-FUNCTION-SWAP",
-   "glide": "D-FUNCTION-SWAP"
+   "drifting": "D-FUNCTION-SWAP",
+   "soaring": "D-FUNCTION-SWAP",
+   "glided": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3867,22 +3452,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "sentenceText": "The ___ flew high in the wind.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.A.noun_vs_verb.v7",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-vs-verb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3892,13 +3473,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.B.noun_vs_verb.v8",
@@ -3920,9 +3495,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Our ___ reads to us after lunch.",
-  "question": "Our ___ reads to us after lunch.",
-  "spokenPrompt": "Which naming word finishes the sentence? Our … reads to us after lunch.",
+  "prompt": "Which naming word fits: Our ___ reads to us after lunch.",
+  "question": "Which naming word fits: Our ___ reads to us after lunch.",
+  "spokenPrompt": "Which naming word fits? Our … reads to us after lunch.",
   "sentence": "Our ___ reads to us after lunch.",
   "choices": [
    "teach",
@@ -3969,21 +3544,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "Our ___ reads to us after lunch.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.B.noun_vs_verb.v8",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-vs-verb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3993,13 +3563,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.A.noun_two_step.v1",
@@ -4068,21 +3632,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.A.noun_two_step.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-two-step.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4092,13 +3651,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cat + mat; the others name one thing or none",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "cat + mat; the others name one thing or none"
  },
  {
   "id": "lp3.nouns.l2.B.noun_two_step.v2",
@@ -4167,21 +3720,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.B.noun_two_step.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-two-step.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4191,13 +3739,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.C.noun_two_step.v3",
@@ -4266,21 +3808,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.C.noun_two_step.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-two-step.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4290,13 +3827,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.A.noun_two_step.v4",
@@ -4318,9 +3849,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The cat and the ___ hid in the barn.",
-  "question": "The cat and the ___ hid in the barn.",
-  "spokenPrompt": "Which naming word finishes the sentence? The cat and the … hid in the barn.",
+  "prompt": "Which naming word fits: The cat and the ___ hid in the barn.",
+  "question": "Which naming word fits: The cat and the ___ hid in the barn.",
+  "spokenPrompt": "Which naming word fits? The cat and the … hid in the barn.",
   "sentence": "The cat and the ___ hid in the barn.",
   "choices": [
    "wet",
@@ -4367,21 +3898,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The cat and the ___ hid in the barn.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.A.noun_two_step.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-two-step.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4391,13 +3917,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "finish the two-thing list — only a naming word can join the and",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "finish the two-thing list — only a naming word can join the and"
  },
  {
   "id": "lp3.nouns.l2.B.noun_two_step.v5",
@@ -4466,21 +3986,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.B.noun_two_step.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-two-step.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4490,13 +4005,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.C.noun_two_step.v6",
@@ -4565,21 +4074,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.C.noun_two_step.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-two-step.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4589,13 +4093,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.A.noun_two_step.v7",
@@ -4664,21 +4162,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.A.noun_two_step.v7",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-two-step.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4688,13 +4181,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.B.noun_two_step.v8",
@@ -4716,9 +4203,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "A fork and a ___ sat by the plate.",
-  "question": "A fork and a ___ sat by the plate.",
-  "spokenPrompt": "Which naming word finishes the sentence? A fork and a … sat by the plate.",
+  "prompt": "Which naming word fits: A fork and a ___ sat by the plate.",
+  "question": "Which naming word fits: A fork and a ___ sat by the plate.",
+  "spokenPrompt": "Which naming word fits? A fork and a … sat by the plate.",
   "sentence": "A fork and a ___ sat by the plate.",
   "choices": [
    "clean",
@@ -4765,21 +4252,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "A fork and a ___ sat by the plate.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.B.noun_two_step.v8",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-two-step.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4789,13 +4271,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.R.noun_person.v7r",
@@ -4817,9 +4293,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ waved to her friend.",
-  "question": "The ___ waved to her friend.",
-  "spokenPrompt": "Which naming word finishes the sentence? The … waved to her friend.",
+  "prompt": "Which naming word fits: The ___ waved to her friend.",
+  "question": "Which naming word fits: The ___ waved to her friend.",
+  "spokenPrompt": "Which naming word fits? The … waved to her friend.",
   "sentence": "The ___ waved to her friend.",
   "choices": [
    "hop",
@@ -4866,21 +4342,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The ___ waved to her friend.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.R.noun_person.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-person.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-person.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4890,13 +4361,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.nouns.l1.R.noun_animal.v7r",
@@ -4918,9 +4383,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ munched grass by the gate.",
-  "question": "The ___ munched grass by the gate.",
-  "spokenPrompt": "Which naming word finishes the sentence? The … munched grass by the gate.",
+  "prompt": "Which naming word fits: The ___ munched grass by the gate.",
+  "question": "Which naming word fits: The ___ munched grass by the gate.",
+  "spokenPrompt": "Which naming word fits? The … munched grass by the gate.",
   "sentence": "The ___ munched grass by the gate.",
   "choices": [
    "goat",
@@ -4967,21 +4432,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The ___ munched grass by the gate.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.R.noun_animal.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-animal.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-animal.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4991,13 +4451,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.nouns.l1.R.noun_place.v7r",
@@ -5066,21 +4520,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.R.noun_place.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-place.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-place.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5090,13 +4539,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-place.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.R.noun_thing.v7r",
@@ -5165,21 +4608,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.R.noun_thing.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-thing.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-thing.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5189,13 +4627,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-thing.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.R.noun_in_sentence.v9r",
@@ -5217,9 +4649,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ chimed at noon.",
-  "question": "The ___ chimed at noon.",
-  "spokenPrompt": "Which naming word finishes the sentence? The … chimed at noon.",
+  "prompt": "Which naming word fits: The ___ chimed at noon.",
+  "question": "Which naming word fits: The ___ chimed at noon.",
+  "spokenPrompt": "Which naming word fits? The … chimed at noon.",
   "sentence": "The ___ chimed at noon.",
   "choices": [
    "loud",
@@ -5266,21 +4698,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The ___ chimed at noon.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.R.noun_in_sentence.v9r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5290,13 +4717,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.R.noun_vs_verb.v9r",
@@ -5315,33 +4736,34 @@ export const questions = [
   "form": "R",
   "itemType": "grammar_concept",
   "itemKey": "noun_vs_verb",
-  "formatType": "GRAMMAR_CONTRAST",
-  "templateType": "GRAMMAR_CONTRAST",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Which word names a thing, not a doing word?",
-  "question": "Which word names a thing, not a doing word?",
-  "spokenPrompt": "Which word names a thing, not a doing word?",
+  "prompt": "Which naming word fits: The bird slept in its ___.",
+  "question": "Which naming word fits: The bird slept in its ___.",
+  "spokenPrompt": "Which naming word fits? The bird slept in its ….",
+  "sentence": "The bird slept in its ___.",
   "choices": [
-   "build",
-   "perch",
-   "peck",
+   "built",
+   "perched",
+   "pecked",
    "nest"
   ],
   "answerOptions": [
    {
-    "value": "build",
-    "label": "build",
-    "text": "build"
+    "value": "built",
+    "label": "built",
+    "text": "built"
    },
    {
-    "value": "perch",
-    "label": "perch",
-    "text": "perch"
+    "value": "perched",
+    "label": "perched",
+    "text": "perched"
    },
    {
-    "value": "peck",
-    "label": "peck",
-    "text": "peck"
+    "value": "pecked",
+    "label": "pecked",
+    "text": "pecked"
    },
    {
     "value": "nest",
@@ -5352,9 +4774,9 @@ export const questions = [
   "answer": "nest",
   "correctAnswer": "nest",
   "distractorRationales": {
-   "perch": "D-FUNCTION-SWAP",
-   "peck": "D-FUNCTION-SWAP",
-   "build": "D-FUNCTION-SWAP"
+   "perched": "D-FUNCTION-SWAP",
+   "pecked": "D-FUNCTION-SWAP",
+   "built": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5364,22 +4786,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "sentenceText": "The bird slept in its ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.R.noun_vs_verb.v9r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-vs-verb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5389,13 +4807,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.R.noun_two_step.v9r",
@@ -5464,21 +4876,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.R.noun_two_step.v9r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-two-step.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5488,13 +4895,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.R.noun_person.v8r",
@@ -5563,21 +4964,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.R.noun_person.v8r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-person.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-person.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5587,13 +4983,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "water ties the er/person overlap — it names a thing, never a person",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-person.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "water ties the er/person overlap — it names a thing, never a person"
  },
  {
   "id": "lp3.nouns.l1.R.noun_animal.v8r",
@@ -5662,21 +5052,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l1.R.noun_animal.v8r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-animal.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-animal.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5686,13 +5071,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-animal.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.R.noun_in_sentence.v10r",
@@ -5714,9 +5093,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "A ___ nested in our chimney.",
-  "question": "A ___ nested in our chimney.",
-  "spokenPrompt": "Which naming word finishes the sentence? A … nested in our chimney.",
+  "prompt": "Which naming word fits: A ___ nested in our chimney.",
+  "question": "Which naming word fits: A ___ nested in our chimney.",
+  "spokenPrompt": "Which naming word fits? A … nested in our chimney.",
   "sentence": "A ___ nested in our chimney.",
   "choices": [
    "sang",
@@ -5763,21 +5142,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "A ___ nested in our chimney.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.R.noun_in_sentence.v10r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5787,13 +5161,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.R.noun_vs_verb.v10r",
@@ -5815,43 +5183,43 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word, not a naming word?",
-  "question": "Which word is a doing word, not a naming word?",
-  "spokenPrompt": "Which word is a doing word, not a naming word?",
+  "prompt": "Which word is a naming word in ‘The children splash in the pond’?",
+  "question": "Which word is a naming word in ‘The children splash in the pond’?",
+  "spokenPrompt": "Which word is a naming word in ‘The children splash in the pond’?",
   "choices": [
-   "duck",
-   "puddle",
-   "splash",
-   "pond"
+   "in",
+   "the",
+   "pond",
+   "splash"
   ],
   "answerOptions": [
    {
-    "value": "duck",
-    "label": "duck",
-    "text": "duck"
+    "value": "in",
+    "label": "in",
+    "text": "in"
    },
    {
-    "value": "puddle",
-    "label": "puddle",
-    "text": "puddle"
-   },
-   {
-    "value": "splash",
-    "label": "splash",
-    "text": "splash"
+    "value": "the",
+    "label": "the",
+    "text": "the"
    },
    {
     "value": "pond",
     "label": "pond",
     "text": "pond"
+   },
+   {
+    "value": "splash",
+    "label": "splash",
+    "text": "splash"
    }
   ],
-  "answer": "splash",
-  "correctAnswer": "splash",
+  "answer": "pond",
+  "correctAnswer": "pond",
   "distractorRationales": {
-   "duck": "D-FUNCTION-SWAP",
-   "puddle": "D-FUNCTION-SWAP",
-   "pond": "D-FUNCTION-SWAP"
+   "in": "D-FUNCTION-SWAP",
+   "the": "D-FUNCTION-SWAP",
+   "splash": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5862,21 +5230,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.R.noun_vs_verb.v10r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-vs-verb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5886,13 +5249,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "splash and duck both zero-derive — the frame asks for the doing word, and only splash is pictured as pure action; duck the animal is the trap",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-vs-verb.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.R.noun_two_step.v10r",
@@ -5961,21 +5318,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.nouns.l2.R.noun_two_step.v10r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/nouns-noun-two-step.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5985,12 +5337,6 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "imageUrl": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "targetImage": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "targetImagePath": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/nouns-noun-two-step.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  }
 ];

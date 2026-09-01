@@ -20,14 +20,22 @@ import { makeImageResolver } from "../lib.mjs";
 
 const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
+const sentenceCase = value => value ? `${value[0].toUpperCase()}${value.slice(1)}` : value;
+const SHORT_VOWEL_ANCHORS = {
+  a: "apple",
+  e: "egg",
+  i: "insect",
+  o: "octopus",
+  u: "umbrella"
+};
 
 const resolver = makeImageResolver(["cvc", "vowels", "rhyming", "digraphs", "blends", "long-vowels", "hfw"]);
 
 // MISSING_VOWEL_CVC: image-pinned blank, vowel letter choices.
 const mv = (u, lvl, ph, v, word, blanked, vowels, note = "") => ({
   u, lvl, ph, v, fmt: "MISSING_VOWEL_CVC",
-  prompt: `Complete: ${blanked}`,
-  spoken: `${word}. Which vowel finishes the word ${word}?`,
+  prompt: `Which vowel completes ${blanked}?`,
+  spoken: `${sentenceCase(word)}. Which vowel completes the word?`,
   choices: vowels.map((l, i) => (i === 0 ? K(l) : P(l, "D-VOWEL"))),
   media: "image-required",
   img: word,
@@ -38,8 +46,8 @@ const mv = (u, lvl, ph, v, word, blanked, vowels, note = "") => ({
 // PICTURE_TO_PRINT_MATCH: image target, minimal-pair printed words.
 const pp = (u, lvl, ph, v, word, words, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "PICTURE_TO_PRINT_MATCH",
-  prompt: "Which word goes with the picture?",
-  spoken: `Which word goes with the picture?`,
+  prompt: "Which word names the picture?",
+  spoken: "Which word names the picture?",
   choices: words.map(w => (w === word ? K(w) : P(w, rationales[w] || "D-VOWEL"))),
   media: "image-required",
   img: word,
@@ -51,7 +59,7 @@ const pp = (u, lvl, ph, v, word, words, rationales, note = "") => ({
 const svw = (u, lvl, ph, v, vowelName, words, keyWord, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "SHORT_VOWEL_WORD",
   prompt: `Which word has the short ${vowelName} sound?`,
-  spoken: `Which word has the short ${vowelName} sound? Listen: ${vowelName}.`,
+  spoken: `${sentenceCase(SHORT_VOWEL_ANCHORS[vowelName])}. Listen to the first sound. Which word has the same vowel sound?`,
   choices: words.map(w => (w === keyWord ? K(w) : P(w, rationales[w]))),
   media: "text",
   note
@@ -60,8 +68,8 @@ const svw = (u, lvl, ph, v, vowelName, words, keyWord, rationales, note = "") =>
 // PUT_SOUNDS_IN_ORDER: image + sound tiles, child arranges.
 const pso = (u, lvl, ph, v, word, tiles, note = "") => ({
   u, lvl, ph, v, fmt: "PUT_SOUNDS_IN_ORDER",
-  prompt: "Put the sounds in order to build the picture's word.",
-  spoken: `${word}. Put the sounds in order to build ${word}.`,
+  prompt: "Put the sounds in order to make the word shown in the picture.",
+  spoken: `${sentenceCase(word)}. Put the sounds in order to make the word.`,
   choices: [K(word)],
   soundTiles: tiles,
   media: "image-required",
@@ -87,7 +95,8 @@ export default {
     svw("short_a", 1, 1, 6, "a", ["pan", "rain", "nut", "dog"], "pan",
       { rain: "D-PATTERN-TRAP", nut: "D-VOWEL", dog: "D-VOWEL" }),
     mv("short_a", 2, 1, 1, "flag", "fl_g", ["a", "o", "u", "e"]),
-    mv("short_a", 2, 1, 2, "hand", "h_nd", ["a", "e", "o", "u"]),
+    mv("short_a", 2, 1, 2, "lamp", "l_mp", ["a", "e", "o", "u"],
+      "the single lamp is directly nameable and still tests a short-a final cluster"),
     pp("short_a", 2, 1, 3, "crab", ["crab", "crib", "cub", "cab"],
       { crib: "D-VOWEL", cub: "D-VOWEL", cab: "D-DEVELOPMENTAL" },
       "cab drops the r — the cluster-reduction error"),
@@ -107,7 +116,8 @@ export default {
     svw("short_e", 1, 1, 6, "e", ["ten", "tree", "tap", "top"], "ten",
       { tree: "D-PATTERN-TRAP", tap: "D-VOWEL", top: "D-VOWEL" }),
     mv("short_e", 2, 1, 1, "nest", "n_st", ["e", "a", "u", "i"]),
-    mv("short_e", 2, 1, 2, "desk", "d_sk", ["e", "i", "a", "o"]),
+    mv("short_e", 2, 1, 2, "vest", "v_st", ["e", "i", "a", "o"],
+      "the isolated vest removes the desk-versus-table and clutter ambiguity"),
     pp("short_e", 2, 1, 3, "tent", ["tent", "tint", "hunt", "ten"],
       { tint: "D-VOWEL", hunt: "D-VOWEL", ten: "D-DEVELOPMENTAL" },
       "ten drops the final t — the cluster-reduction error"),
@@ -123,8 +133,9 @@ export default {
     pp("short_i", 1, 1, 3, "pig", ["pig", "peg", "pug", "pit"],
       { peg: "D-VOWEL", pug: "D-VOWEL", pit: "D-RIME-NEAR" },
       "pit ties the pi/picture overlap so the key cannot be scanned out"),
-    pp("short_i", 1, 1, 4, "fin", ["fin", "fan", "fun", "ten"],
-      { fan: "D-VOWEL", fun: "D-VOWEL", ten: "D-ONSET" }),
+    pp("short_i", 1, 1, 4, "lid", ["lid", "led", "lip", "lot"],
+      { led: "D-VOWEL", lip: "D-RIME-NEAR", lot: "D-VOWEL" },
+      "a directly nameable lid replaces an easily confused animal fin picture"),
     svw("short_i", 1, 1, 5, "i", ["pin", "pine", "pen", "pot"], "pin",
       { pine: "D-PATTERN-TRAP", pen: "D-VOWEL", pot: "D-VOWEL" },
       "pine is one silent e away — the short/long discrimination"),
@@ -132,12 +143,12 @@ export default {
       { bike: "D-PATTERN-TRAP", bag: "D-VOWEL", bed: "D-VOWEL" }),
     mv("short_i", 2, 1, 1, "brick", "br_ck", ["i", "a", "o", "u"]),
     mv("short_i", 2, 1, 2, "gift", "g_ft", ["i", "a", "e", "o"]),
-    pp("short_i", 2, 1, 3, "swim", ["swim", "swam", "swum", "win"],
-      { swam: "D-VOWEL", swum: "D-VOWEL", win: "D-RIME-NEAR" },
-      "swim/swam/swum — the real verb family; win ties the wi/with overlap"),
+    pp("short_i", 2, 1, 3, "brick", ["brick", "black", "block", "click"],
+      { black: "D-VOWEL", block: "D-VOWEL", click: "D-RIME-NEAR" },
+      "a concrete brick target replaces an action picture; all printed choices remain real words"),
     pp("short_i", 2, 1, 4, "fish", ["fish", "fresh", "flash", "wish"],
       { fresh: "D-VOWEL", flash: "D-VOWEL", wish: "D-ONSET" }),
-    pso("short_i", 2, 1, 5, "swim", ["s", "w", "i", "m"]),
+    pso("short_i", 2, 1, 5, "gift", ["g", "i", "f", "t"]),
     pso("short_i", 2, 1, 6, "fish", ["f", "i", "sh"]),
 
     // ================= short_o =================
@@ -150,15 +161,16 @@ export default {
       { bone: "D-PATTERN-TRAP", dig: "D-VOWEL", dug: "D-VOWEL" }),
     svw("short_o", 1, 2, 6, "o", ["pot", "rope", "pat", "pet"], "pot",
       { rope: "D-PATTERN-TRAP", pat: "D-VOWEL", pet: "D-VOWEL" }),
-    mv("short_o", 2, 2, 1, "sock", "s_ck", ["o", "a", "i", "u"]),
+    mv("short_o", 2, 2, 1, "frog", "fr_g", ["o", "a", "i", "u"]),
     mv("short_o", 2, 2, 2, "clock", "cl_ck", ["o", "a", "u", "e"]),
-    pp("short_o", 2, 2, 3, "sock", ["sock", "sack", "sick", "snack"],
-      { sack: "D-VOWEL", sick: "D-VOWEL", snack: "D-PATTERN-TRAP" }),
+    pp("short_o", 2, 2, 3, "clock", ["clock", "click", "cluck", "clack"],
+      { click: "D-VOWEL", cluck: "D-VOWEL", clack: "D-VOWEL" },
+      "one clear clock anchors a four-way short-vowel comparison"),
     pp("short_o", 2, 2, 4, "frog", ["frog", "flag", "fog", "frown"],
       { flag: "D-VOWEL", fog: "D-DEVELOPMENTAL", frown: "D-PATTERN-TRAP" },
       "fog drops the r — the cluster-reduction error"),
     pso("short_o", 2, 2, 5, "frog", ["f", "r", "o", "g"]),
-    pso("short_o", 2, 2, 6, "sock", ["s", "o", "ck"]),
+    pso("short_o", 2, 2, 6, "clock", ["c", "l", "o", "ck"]),
 
     // ================= short_u =================
     mv("short_u", 1, 2, 1, "bug", "b_g", ["u", "a", "i", "o"],
@@ -172,7 +184,8 @@ export default {
     svw("short_u", 1, 2, 6, "u", ["mud", "moon", "mad", "mid"], "mud",
       { moon: "D-PATTERN-TRAP", mad: "D-VOWEL", mid: "D-VOWEL" }),
     mv("short_u", 2, 2, 1, "drum", "dr_m", ["u", "a", "i", "o"]),
-    mv("short_u", 2, 2, 2, "truck", "tr_ck", ["u", "a", "i", "e"]),
+    mv("short_u", 2, 2, 2, "brush", "br_sh", ["u", "a", "i", "e"],
+      "the directly nameable brush avoids the regional truck-versus-lorry label"),
     pp("short_u", 2, 2, 3, "duck", ["duck", "deck", "dock", "desk"],
       { deck: "D-VOWEL", dock: "D-VOWEL", desk: "D-PATTERN-TRAP" },
       "duck/deck/dock — a true vowel minimal triple"),
@@ -183,8 +196,8 @@ export default {
     pso("short_u", 2, 2, 6, "brush", ["b", "r", "u", "sh"]),
 
     // ================= Retention reserve (form R) =================
-    mv("short_u", 1, 2, 7, "hut", "h_t", ["u", "a", "o", "e"],
-      "h-a-t and h-o-t are real words — the hut image pins the target"),
+    mv("short_u", 1, 2, 7, "nut", "n_t", ["u", "a", "o", "e"],
+      "n-o-t and n-e-t are real words — the directly nameable nut image pins the target"),
     mv("short_u", 1, 2, 8, "mug", "m_g", ["u", "a", "i", "o"]),
     pp("short_a", 1, 1, 7, "hat", ["hat", "hot", "hut", "hit"], {},
       "the full hat/hot/hut/hit vowel square"),
@@ -193,10 +206,15 @@ export default {
       { game: "D-PATTERN-TRAP", jet: "D-VOWEL", jug: "D-VOWEL" }),
     svw("short_o", 1, 2, 7, "o", ["hot", "home", "hat", "hut"], "hot",
       { home: "D-PATTERN-TRAP", hat: "D-VOWEL", hut: "D-VOWEL" }),
-    mv("short_e", 2, 1, 7, "sled", "sl_d", ["e", "a", "i", "o"]),
-    pso("short_u", 2, 2, 7, "plug", ["p", "l", "u", "g"]),
-    mv("short_i", 1, 1, 8, "fin", "f_n", ["i", "a", "u", "e"]),
-    pp("short_u", 2, 2, 8, "cut", ["cut", "cot", "cat", "kit"], {})
+    mv("short_e", 2, 1, 7, "bell", "b_ll", ["e", "a", "i", "o"],
+      "the isolated bell is a direct short-e anchor without an action scene"),
+    pso("short_u", 2, 2, 7, "duck", ["d", "u", "ck"],
+      "the directly nameable duck keeps the final ck sound tile intact"),
+    mv("short_i", 1, 1, 8, "lid", "l_d", ["i", "a", "e", "o"],
+      "the retained lid image is a direct, single-object short-i anchor"),
+    pp("short_u", 2, 2, 8, "brush", ["brush", "brick", "fresh", "crush"],
+      { brick: "D-VOWEL", fresh: "D-VOWEL", crush: "D-ONSET" },
+      "the direct brush picture removes the regional truck-versus-lorry naming dependency")
   ].map(item => {
     if (item.v >= 7) item.retention = true;
     return item;

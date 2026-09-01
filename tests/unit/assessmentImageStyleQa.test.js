@@ -20,7 +20,11 @@ import {
   isMediaQaRuntimeAllowed
 } from "../../src/data/mediaQaManifest.js";
 import { SENTENCE_COMPREHENSION_SCORING_SCENES } from "../../src/content/assessments/v3/assessmentSceneMediaDecisions.js";
-import { ASSESSMENT_IMAGE_STYLE_DECISIONS } from "../../src/content/assessments/v3/assessmentImageStyleDecisions.generated.js";
+import {
+  ASSESSMENT_IMAGE_STYLE_DECISIONS,
+  BASE_ASSESSMENT_IMAGE_STYLE_DECISIONS,
+  OBJECTIVE_ASSESSMENT_IMAGE_STYLE_DECISIONS
+} from "../../src/content/assessments/v3/assessmentImageStyleDecisions.js";
 import { ASSESSMENT_ITEM_MEDIA_DECISIONS } from "../../src/content/assessments/v3/assessmentItemMediaDecisions.generated.js";
 import {
   ASSESSMENT_IMAGE_REVIEW_EVIDENCE_VERSION,
@@ -115,9 +119,11 @@ test("every scoring scene records the complete bright, bold, clean-cartoon appro
   });
 });
 
-test("every active assessment image matches its directly reviewed style decision and exact hash", () => {
+test("every eligible reviewed assessment image matches its exact approved hash", () => {
   const rows = Object.values(ASSESSMENT_IMAGE_STYLE_DECISIONS);
-  assert.equal(rows.length, 1339);
+  assert.equal(Object.keys(BASE_ASSESSMENT_IMAGE_STYLE_DECISIONS).length, 1010);
+  assert.equal(Object.keys(OBJECTIVE_ASSESSMENT_IMAGE_STYLE_DECISIONS).length, 90);
+  assert.equal(rows.length, 1100);
   rows.forEach(decision => {
     const absolutePath = path.join(projectRoot, "public", decision.path.replace(/^\//, ""));
     assert.equal(fs.existsSync(absolutePath), true, decision.path);
@@ -126,9 +132,18 @@ test("every active assessment image matches its directly reviewed style decision
     assert.equal(decision.visualReview, "approved", decision.path);
     assert.equal(decision.brightness, "bright", decision.path);
     assert.equal(decision.saturation, "bold", decision.path);
-    assert.equal(decision.medium, "classic-flat-2d-cartoon", decision.path);
+    const approvedRasterFinish = (
+      decision.medium === "classic-flat-2d-cartoon"
+      && decision.surfaces === "smooth-solid"
+    ) || (
+      decision.medium === "classic-flat-2d-raster"
+      && decision.surfaces === "smooth-solid"
+    ) || (
+      decision.medium === "professionally-rendered-storybook-raster"
+      && decision.surfaces === "smooth-richly-rendered"
+    );
+    assert.equal(approvedRasterFinish, true, decision.path);
     assert.equal(decision.contours, "crisp", decision.path);
-    assert.equal(decision.surfaces, "smooth-solid", decision.path);
     [
       "grain", "paperOrCanvasTexture", "embossed", "bevelled",
       "faux3d", "photoreal", "painterly"
@@ -137,13 +152,17 @@ test("every active assessment image matches its directly reviewed style decision
 });
 
 test("directly rejected pixels cannot return behind regenerated approval metadata", () => {
-  assert.equal(ASSESSMENT_IMAGE_REVIEW_EVIDENCE_VERSION, "direct-pixel-review-2026-08-14-v4");
+  assert.equal(ASSESSMENT_IMAGE_REVIEW_EVIDENCE_VERSION, "direct-pixel-review-2026-09-01-v9");
   const activeHashes = new Set(Object.values(ASSESSMENT_IMAGE_STYLE_DECISIONS).map(row => row.sha256));
   Object.entries(ASSESSMENT_REJECTED_IMAGE_HASHES).forEach(([hash, rejection]) => {
     assert.equal(activeHashes.has(hash), false, `${rejection.path}: ${rejection.reason}`);
   });
   Object.entries(ASSESSMENT_REVIEWED_REPLACEMENT_HASHES).forEach(([assetPath, hash]) => {
-    assert.equal(ASSESSMENT_IMAGE_STYLE_DECISIONS[assetPath]?.sha256, hash, assetPath);
+    if (ASSESSMENT_REJECTED_IMAGE_HASHES[hash]) {
+      assert.equal(ASSESSMENT_IMAGE_STYLE_DECISIONS[assetPath], undefined, assetPath);
+    } else {
+      assert.equal(ASSESSMENT_IMAGE_STYLE_DECISIONS[assetPath]?.sha256, hash, assetPath);
+    }
   });
 });
 

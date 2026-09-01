@@ -24,16 +24,16 @@ const L1_SENTENCES = {
   zoo: "We visited lions at the ___.",
   cup: "I drank water from a ___.",
   drum: "Sam tapped the ___ with sticks.",
-  spoon: "I stirred the soup with a ___."
-  , girl: "The ___ waved to her friend."
-  , goat: "The ___ munched grass by the gate."
+  spoon: "I stirred the soup with a ___.",
+  girl: "The ___ waved to her friend.",
+  goat: "The ___ munched grass by the gate."
 };
 
 // L1 context: one naming word and three function-swaps.
 const gic = (u, lvl, ph, v, prompt, cards, keyWord, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "GRAMMAR_SENTENCE_FIT",
-  prompt: L1_SENTENCES[keyWord],
-  spoken: `Which naming word finishes the sentence? ${L1_SENTENCES[keyWord].replace("___", "hmm")}`,
+  prompt: `Which naming word fits: ${L1_SENTENCES[keyWord]}`,
+  spoken: `Which naming word fits? ${L1_SENTENCES[keyWord].replace("___", "hmm")}`,
   sentence: L1_SENTENCES[keyWord],
   choices: cards.map(w => (w === keyWord ? K(w) : P(w, rationales[w] || "D-FUNCTION-SWAP"))),
   media: "text",
@@ -50,11 +50,11 @@ const gwc = (u, lvl, ph, v, prompt, words, rationales, note = "") => ({
   note
 });
 
-// L2 sentence fit — the sentence is the prompt (instruction words leak chunks).
+// L2 sentence fit — always show the full assessment task, not a bare frame.
 const gsf = (u, lvl, ph, v, sentence, words, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "GRAMMAR_SENTENCE_FIT",
-  prompt: sentence,
-  spoken: `Which naming word finishes the sentence? ${sentence.replace("___", "hmm")}`,
+  prompt: `Which naming word fits: ${sentence}`,
+  spoken: `Which naming word fits? ${sentence.replace("___", "hmm")}`,
   sentence,
   choices: words.map((w, i) => (i === 0 ? K(w) : P(w, rationales[i - 1]))),
   media: "text",
@@ -126,11 +126,11 @@ export default {
       ["drum", "draw", "dig", "press"], "drum", {}),
     gic("noun_thing", 1, 2, 3, "Which one shows a thing you can hold?",
       ["spoon", "hop", "swim", "draw"], "spoon", {}),
-    gwc("noun_thing", 1, 2, 4, "Which word names a thing?",
+    gwc("noun_thing", 1, 2, 4, "Which word names the thing that lit the room?",
       ["lamp", "lift", "loud", "lick"], [FS, FS, FS]),
-    gwc("noun_thing", 1, 2, 5, "Which word names a thing?",
+    gwc("noun_thing", 1, 2, 5, "Which word names the thing worn around a waist?",
       ["belt", "bend", "bumpy", "bite"], [FS, FS, FS]),
-    gwc("noun_thing", 1, 2, 6, "Which word names a thing?",
+    gwc("noun_thing", 1, 2, 6, "Which word names the thing that shows the time?",
       ["clock", "climb", "clean", "cry"], [FS, FS, FS]),
 
     // ================= L2 · noun_in_sentence (phase 1) =================
@@ -153,22 +153,20 @@ export default {
     gsf("noun_in_sentence", 2, 1, 8, "A ___ rolled off the shelf.",
       ["jar", "broke", "full", "fell"], [FS, FS, FS]),
     // ================= L2 · noun_vs_verb (phase 1) =================
-    gct("noun_vs_verb", 2, 1, 1, "Which word names a thing, not a doing word?",
-      ["bed", "jump", "run", "go"], [FS, FS, FS],
-      "the blueprint exemplar set"),
-    gct("noun_vs_verb", 2, 1, 2, "Which word names a thing, not a doing word?",
-      ["fork", "stir", "chop", "pour"], [FS, FS, FS]),
-    gct("noun_vs_verb", 2, 1, 3, "Which word names a thing, not a doing word?",
-      ["tent", "camp", "hike", "rest"], [FS, FS, FS]),
+    gct("noun_vs_verb", 2, 1, 1, "Which word is a naming word in ‘We jump onto the bed’?",
+      ["bed", "jump", "onto", "we"], [FS, FS, FS]),
+    gsf("noun_vs_verb", 2, 1, 2, "I ate lunch with a ___.",
+      ["fork", "stirring", "quickly", "hungry"], [FS, FS, FS]),
+    gct("noun_vs_verb", 2, 1, 3, "Which word is a naming word in ‘We hike to the tent’?",
+      ["tent", "hike", "to", "we"], [FS, FS, FS]),
     gsf("noun_vs_verb", 2, 1, 4, "The ___ sang to the crowd.",
-      ["singer", "sing", "sung", "sang"], [FS, FS, FS],
-      "the whole verb family competes — only the naming word can follow The"),
-    gct("noun_vs_verb", 2, 1, 5, "Which word names a thing, not a doing word?",
-      ["broom", "sweep", "scrub", "wipe"], [FS, FS, FS]),
-    gct("noun_vs_verb", 2, 1, 6, "Which word is a doing word, not a naming word?",
-      ["climb", "ladder", "roof", "wall"], [FS, FS, FS]),
-    gct("noun_vs_verb", 2, 1, 7, "Which word names a thing, not a doing word?",
-      ["kite", "soar", "glide", "drift"], [FS, FS, FS]),
+      ["singer", "sing", "sung", "sang"], [FS, FS, FS]),
+    gct("noun_vs_verb", 2, 1, 5, "Which word is a naming word in ‘I sweep with a broom’?",
+      ["broom", "sweep", "with", "I"], [FS, FS, FS]),
+    gct("noun_vs_verb", 2, 1, 6, "Which word is a naming word in ‘We climb the hill’?",
+      ["hill", "climb", "the", "we"], [FS, FS, FS]),
+    gsf("noun_vs_verb", 2, 1, 7, "The ___ flew high in the wind.",
+      ["kite", "soaring", "glided", "drifting"], [FS, FS, FS]),
     gsf("noun_vs_verb", 2, 1, 8, "Our ___ reads to us after lunch.",
       ["teacher", "teach", "taught", "teaches"], [FS, FS, FS]),
     // ================= L2 · noun_two_step (phase 2) =================
@@ -208,8 +206,8 @@ export default {
       ["brush", "brave", "bump", "blow"], [FS, FS, FS]),
     gsf("noun_in_sentence", 2, 1, 9, "The ___ chimed at noon.",
       ["clock", "rang", "loud", "slow"], [FS, FS, FS]),
-    gct("noun_vs_verb", 2, 1, 9, "Which word names a thing, not a doing word?",
-      ["nest", "build", "perch", "peck"], [FS, FS, FS]),
+    gsf("noun_vs_verb", 2, 1, 9, "The bird slept in its ___.",
+      ["nest", "built", "perched", "pecked"], [FS, FS, FS]),
     gct("noun_two_step", 2, 2, 9, "Which sentence names TWO things?",
       ["The hen laid an egg.", "Duck down and creep in.", "It is far too wet.", "She may not come."],
       [FS, FS, FS]),
@@ -220,9 +218,8 @@ export default {
       ["shark", "sharp", "swim", "dive"], [FS, FS, FS]),
     gsf("noun_in_sentence", 2, 1, 10, "A ___ nested in our chimney.",
       ["bird", "flew", "small", "sang"], [FS, FS, FS]),
-    gct("noun_vs_verb", 2, 1, 10, "Which word is a doing word, not a naming word?",
-      ["splash", "pond", "duck", "puddle"], [FS, FS, FS],
-      "splash and duck both zero-derive — the frame asks for the doing word, and only splash is pictured as pure action; duck the animal is the trap"),
+    gct("noun_vs_verb", 2, 1, 10, "Which word is a naming word in ‘The children splash in the pond’?",
+      ["pond", "splash", "in", "the"], [FS, FS, FS]),
     gct("noun_two_step", 2, 2, 10, "Which sentence names TWO things?",
       ["The moth flew at the lamp.", "Spin round and sit down.", "He was not there.", "You can all go."],
       [FS, FS, FS])

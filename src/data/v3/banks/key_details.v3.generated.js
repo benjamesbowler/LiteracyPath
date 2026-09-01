@@ -70,21 +70,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.A.what_happened.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -94,13 +89,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_002)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_002)"
  },
  {
   "id": "lp3.key_details.l1.B.what_happened.v2",
@@ -171,21 +160,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.B.what_happened.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -195,13 +179,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_004)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_004)"
  },
  {
   "id": "lp3.key_details.l1.C.what_happened.v3",
@@ -272,21 +250,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.C.what_happened.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-c-what-happened-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-c-what-happened-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-c-what-happened-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -296,13 +269,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_005)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-c-what-happened-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-c-what-happened-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-c-what-happened-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-c-what-happened-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-c-what-happened-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_005)"
  },
  {
   "id": "lp3.key_details.l1.A.what_happened.v4",
@@ -373,21 +340,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.A.what_happened.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -397,13 +359,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_006)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_006)"
  },
  {
   "id": "lp3.key_details.l1.B.what_happened.v5",
@@ -474,21 +430,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.B.what_happened.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -498,13 +449,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_007)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_007)"
  },
  {
   "id": "lp3.key_details.l1.C.what_happened.v6",
@@ -575,21 +520,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.C.what_happened.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-c-what-happened-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-c-what-happened-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-c-what-happened-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -599,13 +539,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_009)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-c-what-happened-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-c-what-happened-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-c-what-happened-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-c-what-happened-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-c-what-happened-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_009)"
  },
  {
   "id": "lp3.key_details.l1.A.what_happened.v7",
@@ -676,21 +610,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.A.what_happened.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -700,13 +629,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_010)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-what-happened-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_010)"
  },
  {
   "id": "lp3.key_details.l1.B.what_happened.v8",
@@ -777,21 +700,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.B.what_happened.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -801,13 +719,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_011)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-what-happened-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_011)"
  },
  {
   "id": "lp3.key_details.l1.A.where.v1",
@@ -878,21 +790,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.A.where.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -902,13 +809,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_001)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_001)"
  },
  {
   "id": "lp3.key_details.l1.B.where.v2",
@@ -979,21 +880,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.B.where.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1003,13 +899,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_008)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_008)"
  },
  {
   "id": "lp3.key_details.l1.C.where.v3",
@@ -1080,21 +970,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.C.where.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-c-where-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-c-where-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-c-where-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1104,13 +989,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_013)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-c-where-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-c-where-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-c-where-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-c-where-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-c-where-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_013)"
  },
  {
   "id": "lp3.key_details.l1.A.where.v4",
@@ -1181,21 +1060,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.A.where.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1205,13 +1079,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_022)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_022)"
  },
  {
   "id": "lp3.key_details.l1.B.where.v5",
@@ -1282,21 +1150,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.B.where.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1306,13 +1169,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_026)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_026)"
  },
  {
   "id": "lp3.key_details.l1.C.where.v6",
@@ -1383,21 +1240,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.C.where.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-c-where-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-c-where-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-c-where-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1407,13 +1259,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_061)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-c-where-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-c-where-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-c-where-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-c-where-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-c-where-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_061)"
  },
  {
   "id": "lp3.key_details.l1.A.where.v7",
@@ -1438,12 +1284,12 @@ export const questions = [
   "prompt": "Where did Ms. Lopez put the coin?",
   "question": "Where did Ms. Lopez put the coin?",
   "spokenPrompt": "Where did Ms. Lopez put the coin?",
-  "passage": "Ivy found a coin near the classroom door. She did not put it in her pocket. She gave it to Ms. Lopez, who placed it in the lost property box. At the end of the day, Omar came back to look for it.",
+  "passage": "Ivy found a coin near the classroom door. She did not put it in her pocket. She gave it to Ms. Lopez, who placed it in the lost-and-found box. At the end of the day, Omar came back to look for it.",
   "cell": "where",
   "choices": [
    "under the rug",
    "on the lunch table",
-   "in a found-items box",
+   "in the box for lost items",
    "inside Ivy's pocket"
   ],
   "answerOptions": [
@@ -1458,9 +1304,9 @@ export const questions = [
     "text": "on the lunch table"
    },
    {
-    "value": "in a found-items box",
-    "label": "in a found-items box",
-    "text": "in a found-items box"
+    "value": "in the box for lost items",
+    "label": "in the box for lost items",
+    "text": "in the box for lost items"
    },
    {
     "value": "inside Ivy's pocket",
@@ -1468,8 +1314,8 @@ export const questions = [
     "text": "inside Ivy's pocket"
    }
   ],
-  "answer": "in a found-items box",
-  "correctAnswer": "in a found-items box",
+  "answer": "in the box for lost items",
+  "correctAnswer": "in the box for lost items",
   "distractorRationales": {
    "inside Ivy's pocket": "D-PLAUSIBLE-UNSUPPORTED",
    "under the rug": "D-PLAUSIBLE-UNSUPPORTED",
@@ -1484,21 +1330,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.A.where.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1508,13 +1349,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_062)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-where-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_062)"
  },
  {
   "id": "lp3.key_details.l1.B.where.v8",
@@ -1585,21 +1420,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.B.where.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1609,13 +1439,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_063)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-where-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_063)"
  },
  {
   "id": "lp3.key_details.l1.A.who.v1",
@@ -1686,21 +1510,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.A.who.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1710,13 +1529,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_003)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_003)"
  },
  {
   "id": "lp3.key_details.l1.B.who.v2",
@@ -1741,12 +1554,12 @@ export const questions = [
   "prompt": "Who held the bag open?",
   "question": "Who held the bag open?",
   "spokenPrompt": "Who held the bag open?",
-  "passage": "Miles helped his grandad rake leaves. The wind blew leaves back across the path. Grandad held the bag open while Miles pushed the leaves inside. They tied the bag before the wind could scatter them again.",
+  "passage": "Miles helped his grandpa rake leaves. The wind blew leaves back across the path. Grandpa held the bag open while Miles pushed the leaves inside. They tied the bag before the wind could scatter them again.",
   "cell": "who",
   "choices": [
    "the bus driver",
    "Miles",
-   "Grandad",
+   "Grandpa",
    "the teacher"
   ],
   "answerOptions": [
@@ -1761,9 +1574,9 @@ export const questions = [
     "text": "Miles"
    },
    {
-    "value": "Grandad",
-    "label": "Grandad",
-    "text": "Grandad"
+    "value": "Grandpa",
+    "label": "Grandpa",
+    "text": "Grandpa"
    },
    {
     "value": "the teacher",
@@ -1771,8 +1584,8 @@ export const questions = [
     "text": "the teacher"
    }
   ],
-  "answer": "Grandad",
-  "correctAnswer": "Grandad",
+  "answer": "Grandpa",
+  "correctAnswer": "Grandpa",
   "distractorRationales": {
    "the teacher": "D-PLAUSIBLE-UNSUPPORTED",
    "the bus driver": "D-PLAUSIBLE-UNSUPPORTED",
@@ -1787,21 +1600,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.B.who.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1811,13 +1619,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_016)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_016)"
  },
  {
   "id": "lp3.key_details.l1.C.who.v3",
@@ -1842,13 +1644,13 @@ export const questions = [
   "prompt": "Who lent Grace a red pencil?",
   "question": "Who lent Grace a red pencil?",
   "spokenPrompt": "Who lent Grace a red pencil?",
-  "passage": "Grace opened her pencil box during writing time. Her red pencil was missing, but a blue pencil was still inside. She borrowed a red pencil from Noah. At the end of class, she returned it to him.",
+  "passage": "Grace opened her pencil box during writing time. Her red pencil was missing, while Maya wrote nearby with a blue one. Grace borrowed a red pencil from Noah. At the end of class, she returned it to him.",
   "cell": "who",
   "choices": [
    "her teacher",
    "Maya",
    "the librarian",
-   "the helpful classmate"
+   "Noah"
   ],
   "answerOptions": [
    {
@@ -1867,13 +1669,13 @@ export const questions = [
     "text": "the librarian"
    },
    {
-    "value": "the helpful classmate",
-    "label": "the helpful classmate",
-    "text": "the helpful classmate"
+    "value": "Noah",
+    "label": "Noah",
+    "text": "Noah"
    }
   ],
-  "answer": "the helpful classmate",
-  "correctAnswer": "the helpful classmate",
+  "answer": "Noah",
+  "correctAnswer": "Noah",
   "distractorRationales": {
    "the librarian": "D-PLAUSIBLE-UNSUPPORTED",
    "her teacher": "D-PLAUSIBLE-UNSUPPORTED",
@@ -1888,21 +1690,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.C.who.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-c-who-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-c-who-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-c-who-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1912,13 +1709,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_020)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-c-who-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-c-who-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-c-who-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-c-who-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-c-who-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_020)"
  },
  {
   "id": "lp3.key_details.l1.A.who.v4",
@@ -1989,21 +1780,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.A.who.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2013,13 +1799,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_028)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_028)"
  },
  {
   "id": "lp3.key_details.l1.B.who.v5",
@@ -2090,21 +1870,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.B.who.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2114,13 +1889,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_072)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_072)"
  },
  {
   "id": "lp3.key_details.l1.A.number_detail.v1",
@@ -2191,21 +1960,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.A.number_detail.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2215,13 +1979,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_014)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_014)"
  },
  {
   "id": "lp3.key_details.l1.B.number_detail.v2",
@@ -2292,21 +2050,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.B.number_detail.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2316,13 +2069,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_064)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_064)"
  },
  {
   "id": "lp3.key_details.l1.C.number_detail.v3",
@@ -2393,21 +2140,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.C.number_detail.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-c-number-detail-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-c-number-detail-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-c-number-detail-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2417,13 +2159,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_073)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-c-number-detail-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-c-number-detail-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-c-number-detail-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-c-number-detail-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-c-number-detail-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_073)"
  },
  {
   "id": "lp3.key_details.l1.A.number_detail.v4",
@@ -2494,21 +2230,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.A.number_detail.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2518,13 +2249,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_074)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_074)"
  },
  {
   "id": "lp3.key_details.l2.A.precise_detail.v1",
@@ -2595,21 +2320,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.A.precise_detail.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2619,13 +2339,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_032)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_032)"
  },
  {
   "id": "lp3.key_details.l2.B.precise_detail.v2",
@@ -2696,21 +2410,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.B.precise_detail.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2720,13 +2429,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_033)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_033)"
  },
  {
   "id": "lp3.key_details.l2.C.precise_detail.v3",
@@ -2797,21 +2500,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.C.precise_detail.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-c-precise-detail-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-c-precise-detail-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-c-precise-detail-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2821,13 +2519,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_034)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-c-precise-detail-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-c-precise-detail-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-c-precise-detail-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-c-precise-detail-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-c-precise-detail-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_034)"
  },
  {
   "id": "lp3.key_details.l2.A.precise_detail.v4",
@@ -2856,7 +2548,7 @@ export const questions = [
   "cell": "precise_detail",
   "choices": [
    "the title",
-   "the ending sound",
+   "the very end of the music",
    "the first word",
    "the middle drumbeat"
   ],
@@ -2867,9 +2559,9 @@ export const questions = [
     "text": "the title"
    },
    {
-    "value": "the ending sound",
-    "label": "the ending sound",
-    "text": "the ending sound"
+    "value": "the very end of the music",
+    "label": "the very end of the music",
+    "text": "the very end of the music"
    },
    {
     "value": "the first word",
@@ -2882,8 +2574,8 @@ export const questions = [
     "text": "the middle drumbeat"
    }
   ],
-  "answer": "the ending sound",
-  "correctAnswer": "the ending sound",
+  "answer": "the very end of the music",
+  "correctAnswer": "the very end of the music",
   "distractorRationales": {
    "the first word": "D-PLAUSIBLE-UNSUPPORTED",
    "the middle drumbeat": "D-PLAUSIBLE-UNSUPPORTED",
@@ -2898,21 +2590,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.A.precise_detail.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2922,13 +2609,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_039)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_039)"
  },
  {
   "id": "lp3.key_details.l2.B.precise_detail.v5",
@@ -2999,21 +2680,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.B.precise_detail.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3023,13 +2699,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_058)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_058)"
  },
  {
   "id": "lp3.key_details.l2.C.precise_detail.v6",
@@ -3100,21 +2770,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.C.precise_detail.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-c-precise-detail-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-c-precise-detail-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-c-precise-detail-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3124,13 +2789,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_080)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-c-precise-detail-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-c-precise-detail-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-c-precise-detail-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-c-precise-detail-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-c-precise-detail-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_080)"
  },
  {
   "id": "lp3.key_details.l2.A.precise_detail.v7",
@@ -3201,21 +2860,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.A.precise_detail.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3225,13 +2879,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_089)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-a-precise-detail-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_089)"
  },
  {
   "id": "lp3.key_details.l1.R.what_happened.v9r",
@@ -3259,16 +2907,16 @@ export const questions = [
   "passage": "Priya made a poster about sea turtles. She wrote the title at the top in large letters. Then she drew a turtle crawling toward the water. Her teacher asked her to label the beach and the ocean.",
   "cell": "what_happened",
   "choices": [
-   "an animal moving to the shore",
+   "a sea animal heading to shore",
    "a chair with a cracked leg",
    "a bike beside a gate",
    "a bowl of soup"
   ],
   "answerOptions": [
    {
-    "value": "an animal moving to the shore",
-    "label": "an animal moving to the shore",
-    "text": "an animal moving to the shore"
+    "value": "a sea animal heading to shore",
+    "label": "a sea animal heading to shore",
+    "text": "a sea animal heading to shore"
    },
    {
     "value": "a chair with a cracked leg",
@@ -3286,8 +2934,8 @@ export const questions = [
     "text": "a bowl of soup"
    }
   ],
-  "answer": "an animal moving to the shore",
-  "correctAnswer": "an animal moving to the shore",
+  "answer": "a sea animal heading to shore",
+  "correctAnswer": "a sea animal heading to shore",
   "distractorRationales": {
    "a chair with a cracked leg": "D-PLAUSIBLE-UNSUPPORTED",
    "a bike beside a gate": "D-PLAUSIBLE-UNSUPPORTED",
@@ -3302,21 +2950,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.R.what_happened.v9r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v9r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v9r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3326,13 +2969,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_012)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v9r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v9r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v9r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v9r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v9r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_012)"
  },
  {
   "id": "lp3.key_details.l1.R.what_happened.v10r",
@@ -3403,21 +3040,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.R.what_happened.v10r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v10r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v10r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3427,13 +3059,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_015)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v10r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v10r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v10r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v10r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v10r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_015)"
  },
  {
   "id": "lp3.key_details.l1.R.what_happened.v11r",
@@ -3504,21 +3130,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.R.what_happened.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3528,13 +3149,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_017)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-r-what-happened-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_017)"
  },
  {
   "id": "lp3.key_details.l1.R.where.v12r",
@@ -3605,21 +3220,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.R.where.v12r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-r-where-v12r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-r-where-v12r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-r-where-v12r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3629,13 +3239,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_069)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-r-where-v12r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-r-where-v12r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-r-where-v12r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-r-where-v12r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-r-where-v12r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_069)"
  },
  {
   "id": "lp3.key_details.l1.R.where.v13r",
@@ -3706,21 +3310,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.R.where.v13r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-r-where-v13r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-r-where-v13r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-r-where-v13r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3730,13 +3329,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_076)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-r-where-v13r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-r-where-v13r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-r-where-v13r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-r-where-v13r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-r-where-v13r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_076)"
  },
  {
   "id": "lp3.key_details.l2.R.detail_across_sentences.v9r",
@@ -3807,21 +3400,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.R.detail_across_sentences.v9r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v9r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v9r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3831,13 +3419,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_031)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v9r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v9r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v9r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v9r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v9r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_031)"
  },
  {
   "id": "lp3.key_details.l2.R.detail_across_sentences.v10r",
@@ -3908,21 +3490,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.R.detail_across_sentences.v10r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v10r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v10r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3932,13 +3509,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_035)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v10r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v10r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v10r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v10r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v10r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_035)"
  },
  {
   "id": "lp3.key_details.l2.R.detail_across_sentences.v11r",
@@ -3969,7 +3540,7 @@ export const questions = [
    "a laminated pass for the lunchroom",
    "a silver badge used for classroom play",
    "a folded visitor map from the zoo",
-   "portable communication equipment"
+   "the device used to hear messages"
   ],
   "answerOptions": [
    {
@@ -3988,13 +3559,13 @@ export const questions = [
     "text": "a folded visitor map from the zoo"
    },
    {
-    "value": "portable communication equipment",
-    "label": "portable communication equipment",
-    "text": "portable communication equipment"
+    "value": "the device used to hear messages",
+    "label": "the device used to hear messages",
+    "text": "the device used to hear messages"
    }
   ],
-  "answer": "portable communication equipment",
-  "correctAnswer": "portable communication equipment",
+  "answer": "the device used to hear messages",
+  "correctAnswer": "the device used to hear messages",
   "distractorRationales": {
    "a silver badge used for classroom play": "D-PLAUSIBLE-UNSUPPORTED",
    "a folded visitor map from the zoo": "D-PLAUSIBLE-UNSUPPORTED",
@@ -4009,21 +3580,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.R.detail_across_sentences.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4033,13 +3599,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_036)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_036)"
  },
  {
   "id": "lp3.key_details.l2.R.detail_across_sentences.v12r",
@@ -4110,21 +3670,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.R.detail_across_sentences.v12r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v12r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v12r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v12r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4134,13 +3689,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Numeric detail extraction retention check.",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v12r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v12r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v12r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v12r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v12r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "Numeric detail extraction retention check."
  },
  {
   "id": "lp3.key_details.l2.R.detail_across_sentences.v13r",
@@ -4211,21 +3760,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.R.detail_across_sentences.v13r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v13r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v13r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v13r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4235,13 +3779,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Time-detail extraction retention check.",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v13r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v13r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v13r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v13r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v13r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "Time-detail extraction retention check."
  },
  {
   "id": "lp3.key_details.l2.R.detail_across_sentences.v14r",
@@ -4312,21 +3850,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.R.detail_across_sentences.v14r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v14r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v14r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v14r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4336,13 +3869,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_040)",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v14r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v14r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v14r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v14r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v14r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_040)"
  },
  {
   "id": "lp3.key_details.l1.C.who.v6",
@@ -4367,19 +3894,19 @@ export const questions = [
   "prompt": "Who took the guinea pig home?",
   "question": "Who took the guinea pig home?",
   "spokenPrompt": "Who took the guinea pig home?",
-  "passage": "The class guinea pig needed a holiday home for half term. Four children offered. Miss Adu picked names from a cup, and the folded paper said 'Femi'. Femi carried the travel cage to the taxi very, very slowly.",
+  "passage": "The class guinea pig needed a home during the school break. Four children offered. Miss Adu picked names from a cup, and the folded paper said 'Femi'. Femi carried the travel cage carefully to the car.",
   "cell": "who",
   "choices": [
-   "the caretaker",
+   "the custodian",
    "Femi",
    "Miss Adu",
    "the taxi driver"
   ],
   "answerOptions": [
    {
-    "value": "the caretaker",
-    "label": "the caretaker",
-    "text": "the caretaker"
+    "value": "the custodian",
+    "label": "the custodian",
+    "text": "the custodian"
    },
    {
     "value": "Femi",
@@ -4402,7 +3929,7 @@ export const questions = [
   "distractorRationales": {
    "Miss Adu": "D-PLAUSIBLE-UNSUPPORTED",
    "the taxi driver": "D-PLAUSIBLE-UNSUPPORTED",
-   "the caretaker": "D-PLAUSIBLE-UNSUPPORTED"
+   "the custodian": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4413,21 +3940,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.C.who.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-c-who-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-c-who-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-c-who-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4437,13 +3959,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-c-who-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-c-who-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-c-who-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-c-who-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-c-who-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l1.A.who.v7",
@@ -4468,7 +3984,7 @@ export const questions = [
   "prompt": "Who lent the whistle?",
   "question": "Who lent the whistle?",
   "spokenPrompt": "Who lent the whistle?",
-  "passage": "The whistle for the sack race was lost. Mr Pole checked his pockets twice. In the end, little Sana lent him the silver whistle from her charm bracelet, and the race began only one minute late.",
+  "passage": "The whistle for the sack race was lost. Mr Pole checked his pockets twice. In the end, Sana lent him the spare whistle tied to her backpack, and the race began only one minute late.",
   "cell": "who",
   "choices": [
    "Mr Pole",
@@ -4514,21 +4030,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.A.who.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4538,13 +4049,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-who-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l1.B.who.v8",
@@ -4569,19 +4074,19 @@ export const questions = [
   "prompt": "Who mopped the puddle?",
   "question": "Who mopped the puddle?",
   "spokenPrompt": "Who mopped the puddle?",
-  "passage": "On wet Wednesdays, someone always mopped the puddle by the school door before the bell. Nobody knew who. One early morning, Priya spotted the mystery mopper through the window: it was Bill, the bus driver, mop in one hand, tea in the other.",
+  "passage": "On rainy Wednesdays, someone always mopped the puddle by the school door before the bell. Nobody knew who. One early morning, Priya spotted the mystery helper through the window: it was Bill, the bus driver, holding the mop.",
   "cell": "who",
   "choices": [
-   "the caretaker",
+   "the custodian",
    "Bill the bus driver",
    "Priya",
-   "the head teacher"
+   "the principal"
   ],
   "answerOptions": [
    {
-    "value": "the caretaker",
-    "label": "the caretaker",
-    "text": "the caretaker"
+    "value": "the custodian",
+    "label": "the custodian",
+    "text": "the custodian"
    },
    {
     "value": "Bill the bus driver",
@@ -4594,17 +4099,17 @@ export const questions = [
     "text": "Priya"
    },
    {
-    "value": "the head teacher",
-    "label": "the head teacher",
-    "text": "the head teacher"
+    "value": "the principal",
+    "label": "the principal",
+    "text": "the principal"
    }
   ],
   "answer": "Bill the bus driver",
   "correctAnswer": "Bill the bus driver",
   "distractorRationales": {
-   "the caretaker": "D-PLAUSIBLE-UNSUPPORTED",
+   "the custodian": "D-PLAUSIBLE-UNSUPPORTED",
    "Priya": "D-PLAUSIBLE-UNSUPPORTED",
-   "the head teacher": "D-PLAUSIBLE-UNSUPPORTED"
+   "the principal": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4615,21 +4120,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.B.who.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4639,13 +4139,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-who-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l1.B.number_detail.v5",
@@ -4670,7 +4164,7 @@ export const questions = [
   "prompt": "How many eggs were on the list?",
   "question": "How many eggs were on the list?",
   "spokenPrompt": "How many eggs were on the list?",
-  "passage": "Gran's shopping list was short: six eggs, two lemons, and one small bag of sugar. Tayo repeated it all the way to the shop like a song. He came home with everything on the list — and one free sticker from the shopkeeper.",
+  "passage": "Grandma's shopping list was short: six eggs, two lemons, and one small bag of sugar. Tayo repeated it all the way to the store like a song. He came home with everything on the list and one free sticker.",
   "cell": "number_detail",
   "choices": [
    "one",
@@ -4716,21 +4210,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.B.number_detail.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4740,13 +4229,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l1.C.number_detail.v6",
@@ -4771,7 +4254,7 @@ export const questions = [
   "prompt": "How many butterflies did the class count?",
   "question": "How many butterflies did the class count?",
   "spokenPrompt": "How many butterflies did the class count?",
-  "passage": "The nature walk had a counting game. Class 2 counted five snails on the wall, three white butterflies by the hedge, and one very slow worm crossing the path. The worm got a round of applause when it finally made it.",
+  "passage": "The nature walk had a counting game. The class counted five snails on the wall, three white butterflies by the hedge, and one turtle crossing the path. The turtle reached the other side before they left.",
   "cell": "number_detail",
   "choices": [
    "one",
@@ -4817,21 +4300,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.C.number_detail.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-c-number-detail-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-c-number-detail-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-c-number-detail-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4841,13 +4319,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-c-number-detail-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-c-number-detail-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-c-number-detail-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-c-number-detail-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-c-number-detail-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l1.A.number_detail.v7",
@@ -4872,11 +4344,11 @@ export const questions = [
   "prompt": "When did the bake sale open?",
   "question": "When did the bake sale open?",
   "spokenPrompt": "When did the bake sale open?",
-  "passage": "The bake sale opened at ten o'clock sharp. By half past ten every flapjack was gone. The last brownie survived until eleven, when the head teacher bought it 'for research'.",
+  "passage": "The bake sale opened at ten o'clock sharp. By 10:30 every oat bar was gone. The last brownie sold at eleven, when the principal bought it.",
   "cell": "number_detail",
   "choices": [
    "at ten o'clock",
-   "at half past ten",
+   "at 10:30",
    "at eleven",
    "at lunchtime"
   ],
@@ -4887,9 +4359,9 @@ export const questions = [
     "text": "at ten o'clock"
    },
    {
-    "value": "at half past ten",
-    "label": "at half past ten",
-    "text": "at half past ten"
+    "value": "at 10:30",
+    "label": "at 10:30",
+    "text": "at 10:30"
    },
    {
     "value": "at eleven",
@@ -4905,7 +4377,7 @@ export const questions = [
   "answer": "at ten o'clock",
   "correctAnswer": "at ten o'clock",
   "distractorRationales": {
-   "at half past ten": "D-SEQUENCE-SWAP",
+   "at 10:30": "D-SEQUENCE-SWAP",
    "at eleven": "D-SEQUENCE-SWAP",
    "at lunchtime": "D-PLAUSIBLE-UNSUPPORTED"
   },
@@ -4918,21 +4390,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.A.number_detail.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4942,13 +4409,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-a-number-detail-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l1.B.number_detail.v8",
@@ -5019,21 +4480,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.B.number_detail.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5043,13 +4499,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-b-number-detail-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.B.precise_detail.v8",
@@ -5120,21 +4570,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.B.precise_detail.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5144,13 +4589,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-b-precise-detail-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.A.detail_across_sentences.v1",
@@ -5175,13 +4614,13 @@ export const questions = [
   "prompt": "How long did the seeds last?",
   "question": "How long did the seeds last?",
   "spokenPrompt": "How long did the seeds last?",
-  "passage": "Ola filled the bird feeder with seeds at breakfast. At lunchtime the feeder was already half empty. By home time only dust was left, and one very round pigeon sat on the fence looking innocent.",
+  "passage": "Ola filled the bird feeder with seeds at breakfast. At lunchtime the feeder was already half empty. By the end of the school day only dust was left, and one round pigeon sat on the fence.",
   "cell": "detail_across_sentences",
   "choices": [
    "exactly one hour",
    "a whole week",
    "until the next morning",
-   "for the whole school day"
+   "through most of the school day"
   ],
   "answerOptions": [
    {
@@ -5200,13 +4639,13 @@ export const questions = [
     "text": "until the next morning"
    },
    {
-    "value": "for the whole school day",
-    "label": "for the whole school day",
-    "text": "for the whole school day"
+    "value": "through most of the school day",
+    "label": "through most of the school day",
+    "text": "through most of the school day"
    }
   ],
-  "answer": "for the whole school day",
-  "correctAnswer": "for the whole school day",
+  "answer": "through most of the school day",
+  "correctAnswer": "through most of the school day",
   "distractorRationales": {
    "a whole week": "D-PLAUSIBLE-UNSUPPORTED",
    "until the next morning": "D-SEQUENCE-SWAP",
@@ -5221,21 +4660,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.A.detail_across_sentences.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5245,13 +4679,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "answer assembled from first and third sentences",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "answer assembled from first and third sentences"
  },
  {
   "id": "lp3.key_details.l2.B.detail_across_sentences.v2",
@@ -5276,13 +4704,13 @@ export const questions = [
   "prompt": "Which treasure was still there on Saturday?",
   "question": "Which treasure was still there on Saturday?",
   "spokenPrompt": "Which treasure was still there on Saturday?",
-  "passage": "The lost property box gave up three treasures on Friday. Jun claimed the stripy scarf at morning break. The water bottle went home with Ivy after lunch. The dinosaur glove stayed unclaimed, so it guarded the box all weekend.",
+  "passage": "The lost-and-found box held three items on Friday. Jun claimed the striped scarf at morning recess. The water bottle went home with Ivy after lunch. The dinosaur glove stayed unclaimed, so it remained in the box all weekend.",
   "cell": "detail_across_sentences",
   "choices": [
    "the dinosaur glove",
-   "the stripy scarf",
+   "the striped scarf",
    "the water bottle",
-   "a woolly hat"
+   "a wool hat"
   ],
   "answerOptions": [
    {
@@ -5291,9 +4719,9 @@ export const questions = [
     "text": "the dinosaur glove"
    },
    {
-    "value": "the stripy scarf",
-    "label": "the stripy scarf",
-    "text": "the stripy scarf"
+    "value": "the striped scarf",
+    "label": "the striped scarf",
+    "text": "the striped scarf"
    },
    {
     "value": "the water bottle",
@@ -5301,17 +4729,17 @@ export const questions = [
     "text": "the water bottle"
    },
    {
-    "value": "a woolly hat",
-    "label": "a woolly hat",
-    "text": "a woolly hat"
+    "value": "a wool hat",
+    "label": "a wool hat",
+    "text": "a wool hat"
    }
   ],
   "answer": "the dinosaur glove",
   "correctAnswer": "the dinosaur glove",
   "distractorRationales": {
-   "the stripy scarf": "D-SEQUENCE-SWAP",
+   "the striped scarf": "D-SEQUENCE-SWAP",
    "the water bottle": "D-SEQUENCE-SWAP",
-   "a woolly hat": "D-PLAUSIBLE-UNSUPPORTED"
+   "a wool hat": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5322,21 +4750,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.B.detail_across_sentences.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5346,13 +4769,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.C.detail_across_sentences.v3",
@@ -5423,21 +4840,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.C.detail_across_sentences.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-c-detail-across-sentences-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-c-detail-across-sentences-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-c-detail-across-sentences-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5447,13 +4859,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-c-detail-across-sentences-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-c-detail-across-sentences-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-c-detail-across-sentences-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-c-detail-across-sentences-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-c-detail-across-sentences-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.A.detail_across_sentences.v4",
@@ -5478,13 +4884,13 @@ export const questions = [
   "prompt": "Where did the sword come from?",
   "question": "Where did the sword come from?",
   "spokenPrompt": "Where did the sword come from?",
-  "passage": "The school play needed props from three places. The crown came from Nell's dressing-up box. The cardboard sword came from Raj's recycling pile. The throne was two chairs from the staff room, taped together and painted gold by the whole class.",
+  "passage": "The school play needed props from three places. The crown came from Nell's costume box. The cardboard sword came from Raj's recycling pile. The throne was two chairs from the teachers' lounge, taped together and painted gold by the whole class.",
   "cell": "detail_across_sentences",
   "choices": [
    "Raj's recycling pile",
-   "Nell's dressing-up box",
-   "the staff room",
-   "the art shop"
+   "Nell's costume box",
+   "the teachers' lounge",
+   "the art store"
   ],
   "answerOptions": [
    {
@@ -5493,27 +4899,27 @@ export const questions = [
     "text": "Raj's recycling pile"
    },
    {
-    "value": "Nell's dressing-up box",
-    "label": "Nell's dressing-up box",
-    "text": "Nell's dressing-up box"
+    "value": "Nell's costume box",
+    "label": "Nell's costume box",
+    "text": "Nell's costume box"
    },
    {
-    "value": "the staff room",
-    "label": "the staff room",
-    "text": "the staff room"
+    "value": "the teachers' lounge",
+    "label": "the teachers' lounge",
+    "text": "the teachers' lounge"
    },
    {
-    "value": "the art shop",
-    "label": "the art shop",
-    "text": "the art shop"
+    "value": "the art store",
+    "label": "the art store",
+    "text": "the art store"
    }
   ],
   "answer": "Raj's recycling pile",
   "correctAnswer": "Raj's recycling pile",
   "distractorRationales": {
-   "Nell's dressing-up box": "D-SEQUENCE-SWAP",
-   "the staff room": "D-SEQUENCE-SWAP",
-   "the art shop": "D-PLAUSIBLE-UNSUPPORTED"
+   "Nell's costume box": "D-SEQUENCE-SWAP",
+   "the teachers' lounge": "D-SEQUENCE-SWAP",
+   "the art store": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5524,21 +4930,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.A.detail_across_sentences.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5548,13 +4949,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.B.detail_across_sentences.v5",
@@ -5579,12 +4974,12 @@ export const questions = [
   "prompt": "What is Keya allowed to do now?",
   "question": "What is Keya allowed to do now?",
   "spokenPrompt": "What is Keya allowed to do now?",
-  "passage": "Monday's swimming lesson had a ladder of groups. Beginners stayed where they could stand. Improvers swam widths with a float. The sharks — the top group — swam whole lengths, no floats allowed. Keya, an improver since spring, finally moved up on Monday, and handed her float to a beginner on the way.",
+  "passage": "Monday's swimming lesson had three groups. Beginners stayed where they could stand. The middle group swam widths with a kickboard. The advanced group swam whole lengths without kickboards. Keya had been in the middle group since spring. On Monday she moved to the advanced group and handed her kickboard to a beginner.",
   "cell": "detail_across_sentences",
   "choices": [
    "dive from the high board",
-   "swim whole lengths without a float",
-   "swim widths with a float",
+   "swim whole lengths without a kickboard",
+   "swim widths with a kickboard",
    "stay where she can stand"
   ],
   "answerOptions": [
@@ -5594,14 +4989,14 @@ export const questions = [
     "text": "dive from the high board"
    },
    {
-    "value": "swim whole lengths without a float",
-    "label": "swim whole lengths without a float",
-    "text": "swim whole lengths without a float"
+    "value": "swim whole lengths without a kickboard",
+    "label": "swim whole lengths without a kickboard",
+    "text": "swim whole lengths without a kickboard"
    },
    {
-    "value": "swim widths with a float",
-    "label": "swim widths with a float",
-    "text": "swim widths with a float"
+    "value": "swim widths with a kickboard",
+    "label": "swim widths with a kickboard",
+    "text": "swim widths with a kickboard"
    },
    {
     "value": "stay where she can stand",
@@ -5609,10 +5004,10 @@ export const questions = [
     "text": "stay where she can stand"
    }
   ],
-  "answer": "swim whole lengths without a float",
-  "correctAnswer": "swim whole lengths without a float",
+  "answer": "swim whole lengths without a kickboard",
+  "correctAnswer": "swim whole lengths without a kickboard",
   "distractorRationales": {
-   "swim widths with a float": "D-SEQUENCE-SWAP",
+   "swim widths with a kickboard": "D-SEQUENCE-SWAP",
    "stay where she can stand": "D-SEQUENCE-SWAP",
    "dive from the high board": "D-PLAUSIBLE-UNSUPPORTED"
   },
@@ -5625,21 +5020,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.B.detail_across_sentences.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5649,13 +5039,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "needs the group rules AND her promotion",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "needs the group rules AND her promotion"
  },
  {
   "id": "lp3.key_details.l2.C.detail_across_sentences.v6",
@@ -5677,45 +5061,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "How much did each twin pocket this week?",
-  "question": "How much did each twin pocket this week?",
-  "spokenPrompt": "How much did each twin pocket this week?",
-  "passage": "The twins divided the paper-round money the same way every week. Half went into the shared bike jar on the shelf. The rest they split evenly between them. This week the round paid ten pounds, so five went into the jar, and each twin pocketed exactly the same as the other.",
+  "prompt": "Where did the remaining cups go?",
+  "question": "Where did the remaining cups go?",
+  "spokenPrompt": "Where did the remaining cups go?",
+  "passage": "The twins sorted supplies after the school fair. Half the paper cups went into the classroom cabinet. They divided the remaining cups evenly between two art tables. At cleanup time, each art table had the same small stack ready for painting.",
   "cell": "detail_across_sentences",
   "choices": [
-   "nothing at all",
-   "two pounds fifty",
-   "five pounds",
-   "ten pounds"
+   "straight into the trash",
+   "into equal stacks on two art tables",
+   "all into one art table drawer",
+   "back to the school fair"
   ],
   "answerOptions": [
    {
-    "value": "nothing at all",
-    "label": "nothing at all",
-    "text": "nothing at all"
+    "value": "straight into the trash",
+    "label": "straight into the trash",
+    "text": "straight into the trash"
    },
    {
-    "value": "two pounds fifty",
-    "label": "two pounds fifty",
-    "text": "two pounds fifty"
+    "value": "into equal stacks on two art tables",
+    "label": "into equal stacks on two art tables",
+    "text": "into equal stacks on two art tables"
    },
    {
-    "value": "five pounds",
-    "label": "five pounds",
-    "text": "five pounds"
+    "value": "all into one art table drawer",
+    "label": "all into one art table drawer",
+    "text": "all into one art table drawer"
    },
    {
-    "value": "ten pounds",
-    "label": "ten pounds",
-    "text": "ten pounds"
+    "value": "back to the school fair",
+    "label": "back to the school fair",
+    "text": "back to the school fair"
    }
   ],
-  "answer": "two pounds fifty",
-  "correctAnswer": "two pounds fifty",
+  "answer": "into equal stacks on two art tables",
+  "correctAnswer": "into equal stacks on two art tables",
   "distractorRationales": {
-   "five pounds": "D-SEQUENCE-SWAP",
-   "ten pounds": "D-SEQUENCE-SWAP",
-   "nothing at all": "D-OPPOSITE"
+   "all into one art table drawer": "D-PLAUSIBLE-UNSUPPORTED",
+   "back to the school fair": "D-SEQUENCE-SWAP",
+   "straight into the trash": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5726,21 +5110,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.C.detail_across_sentences.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-c-detail-across-sentences-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-c-detail-across-sentences-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-c-detail-across-sentences-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5750,13 +5129,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "arithmetic across sentences",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-c-detail-across-sentences-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-c-detail-across-sentences-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-c-detail-across-sentences-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-c-detail-across-sentences-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-c-detail-across-sentences-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "integrates the storage sentence with the equal-table distribution sentence"
  },
  {
   "id": "lp3.key_details.l2.A.detail_across_sentences.v7",
@@ -5781,7 +5154,7 @@ export const questions = [
   "prompt": "Why did Priya skip the watering?",
   "question": "Why did Priya skip the watering?",
   "spokenPrompt": "Why did Priya skip the watering?",
-  "passage": "The window box plan was strict: water on Mondays and Thursdays, feed on the first Monday of the month, and never water on a day when it had rained. This Thursday the sky poured all morning. Priya looked at the streaming glass, put the watering can back under the sink, and ticked the chart anyway.",
+  "passage": "The planter box schedule was strict: water on Mondays and Thursdays, add plant food on the first Monday of the month, and never water on a day when it had rained. This Thursday the sky poured all morning. Priya looked at the streaming glass, put the watering can back under the sink, and marked the chart anyway.",
   "cell": "detail_across_sentences",
   "choices": [
    "it was a feeding day instead",
@@ -5827,21 +5200,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.A.detail_across_sentences.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5851,13 +5219,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rule sentence + weather sentence must combine",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-a-detail-across-sentences-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "rule sentence + weather sentence must combine"
  },
  {
   "id": "lp3.key_details.l2.B.detail_across_sentences.v8",
@@ -5882,12 +5244,12 @@ export const questions = [
   "prompt": "Which bench has a seed dish, and why?",
   "question": "Which bench has a seed dish, and why?",
   "spokenPrompt": "Which bench has a seed dish, and why?",
-  "passage": "Every bench in the park remembers somebody. The oak bench by the pond remembers Captain Reya. The curly iron bench remembers the twins' great-grandmother. And the newest bench, still smelling of paint, remembers Mr Alam, who fed the sparrows here for forty years — which is why the carpenter cut a little seed dish into its arm.",
+  "passage": "Every bench in the park remembers somebody. The oak bench by the pond remembers Captain Reya. The curly iron bench remembers the twins' great-grandmother. And the newest bench, still smelling of paint, remembers Mr. Alam, who fed the sparrows here for forty years — which is why the carpenter cut a little seed dish into its arm.",
   "cell": "detail_across_sentences",
   "choices": [
    "the iron bench, because of the twins",
    "no bench has one",
-   "Mr Alam's bench, to remember the birds he fed",
+   "Mr. Alam's bench, to remember the birds he fed",
    "the oak bench, because of Captain Reya"
   ],
   "answerOptions": [
@@ -5902,9 +5264,9 @@ export const questions = [
     "text": "no bench has one"
    },
    {
-    "value": "Mr Alam's bench, to remember the birds he fed",
-    "label": "Mr Alam's bench, to remember the birds he fed",
-    "text": "Mr Alam's bench, to remember the birds he fed"
+    "value": "Mr. Alam's bench, to remember the birds he fed",
+    "label": "Mr. Alam's bench, to remember the birds he fed",
+    "text": "Mr. Alam's bench, to remember the birds he fed"
    },
    {
     "value": "the oak bench, because of Captain Reya",
@@ -5912,8 +5274,8 @@ export const questions = [
     "text": "the oak bench, because of Captain Reya"
    }
   ],
-  "answer": "Mr Alam's bench, to remember the birds he fed",
-  "correctAnswer": "Mr Alam's bench, to remember the birds he fed",
+  "answer": "Mr. Alam's bench, to remember the birds he fed",
+  "correctAnswer": "Mr. Alam's bench, to remember the birds he fed",
   "distractorRationales": {
    "the iron bench, because of the twins": "D-SEQUENCE-SWAP",
    "no bench has one": "D-OPPOSITE",
@@ -5928,21 +5290,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.B.detail_across_sentences.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5952,13 +5309,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-b-detail-across-sentences-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.A.which_is_not.v1",
@@ -5983,7 +5334,7 @@ export const questions = [
   "prompt": "Which of these is NOT in the story?",
   "question": "Which of these is NOT in the story?",
   "spokenPrompt": "Which of these is NOT in the story?",
-  "passage": "The class aquarium got its spring clean on Friday. The gravel was rinsed in a sieve. The glass was wiped inside and out. The plastic castle came back shinier than ever, and the fish watched the whole operation from a bucket.",
+  "passage": "The class aquarium got its spring cleaning on Friday. The gravel was rinsed in a strainer. The glass was wiped inside and out. The plastic castle came back shinier than ever, and the fish watched the whole operation from a bucket.",
   "cell": "which_is_not",
   "choices": [
    "the glass was wiped",
@@ -6029,21 +5380,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.A.which_is_not.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6053,13 +5399,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the key is plausible but absent — verbatim matchers pick a true fact and miss",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "the key is plausible but absent — verbatim matchers pick a true fact and miss"
  },
  {
   "id": "lp3.key_details.l2.B.which_is_not.v2",
@@ -6084,11 +5424,11 @@ export const questions = [
   "prompt": "Which of these does the story NOT mention?",
   "question": "Which of these does the story NOT mention?",
   "spokenPrompt": "Which of these does the story NOT mention?",
-  "passage": "Sports day morning was all preparation. Lanes were painted white on the grass. Bean bags were counted into buckets. The finishing tape was tied between two posts, and somebody tested the megaphone by saying 'sausages' across the whole field.",
+  "passage": "Field day morning was all preparation. Lanes were painted white on the grass. Beanbags were counted into buckets. The finish tape was tied between two posts, and somebody tested the megaphone by saying 'pancakes' across the whole field.",
   "cell": "which_is_not",
   "choices": [
    "lanes were painted",
-   "bean bags were counted",
+   "beanbags were counted",
    "the megaphone was tested",
    "medals were polished"
   ],
@@ -6099,9 +5439,9 @@ export const questions = [
     "text": "lanes were painted"
    },
    {
-    "value": "bean bags were counted",
-    "label": "bean bags were counted",
-    "text": "bean bags were counted"
+    "value": "beanbags were counted",
+    "label": "beanbags were counted",
+    "text": "beanbags were counted"
    },
    {
     "value": "the megaphone was tested",
@@ -6117,7 +5457,7 @@ export const questions = [
   "answer": "medals were polished",
   "correctAnswer": "medals were polished",
   "distractorRationales": {
-   "bean bags were counted": "D-DETAIL-AS-MAIN",
+   "beanbags were counted": "D-DETAIL-AS-MAIN",
    "the megaphone was tested": "D-DETAIL-AS-MAIN",
    "lanes were painted": "D-DETAIL-AS-MAIN"
   },
@@ -6130,21 +5470,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.B.which_is_not.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6154,13 +5489,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.C.which_is_not.v3",
@@ -6185,11 +5514,11 @@ export const questions = [
   "prompt": "Which item is NOT in Amir's bag?",
   "question": "Which item is NOT in Amir's bag?",
   "spokenPrompt": "Which item is NOT in Amir's bag?",
-  "passage": "The night before the trip, Amir packed like an explorer. Raincoat, rolled tight. Sandwiches, wrapped and slightly squashed by the water bottle. Notebook and pencil, for bird spotting. His torch went in last, right at the top, in case of tunnels.",
+  "passage": "The night before the trip, Amir packed like an explorer. Raincoat, rolled tight. Sandwiches, wrapped and slightly squashed by the water bottle. Notebook and pencil, for bird spotting. His flashlight went in last, right at the top, in case of tunnels.",
   "cell": "which_is_not",
   "choices": [
    "a notebook",
-   "a torch",
+   "a flashlight",
    "a camera",
    "a raincoat"
   ],
@@ -6200,9 +5529,9 @@ export const questions = [
     "text": "a notebook"
    },
    {
-    "value": "a torch",
-    "label": "a torch",
-    "text": "a torch"
+    "value": "a flashlight",
+    "label": "a flashlight",
+    "text": "a flashlight"
    },
    {
     "value": "a camera",
@@ -6219,7 +5548,7 @@ export const questions = [
   "correctAnswer": "a camera",
   "distractorRationales": {
    "a notebook": "D-DETAIL-AS-MAIN",
-   "a torch": "D-DETAIL-AS-MAIN",
+   "a flashlight": "D-DETAIL-AS-MAIN",
    "a raincoat": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
@@ -6231,21 +5560,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.C.which_is_not.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-c-which-is-not-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-c-which-is-not-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-c-which-is-not-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6255,13 +5579,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-c-which-is-not-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-c-which-is-not-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-c-which-is-not-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-c-which-is-not-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-c-which-is-not-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.A.which_is_not.v4",
@@ -6286,7 +5604,7 @@ export const questions = [
   "prompt": "Which of these is NOT described in the shed?",
   "question": "Which of these is NOT described in the shed?",
   "spokenPrompt": "Which of these is NOT described in the shed?",
-  "passage": "Grandpa's shed had a place for everything. Screwdrivers hung on hooks in size order. Jam jars of screws lined the window shelf. The lawnmower lived under a blanket like a pet, and the radio kept its place by the door, always tuned to the cricket.",
+  "passage": "Grandpa's shed had a place for everything. Screwdrivers hung on hooks in size order. Clear jars of screws lined the window shelf. The lawn mower stayed under a cover, and the radio kept its place by the door, always tuned to music.",
   "cell": "which_is_not",
   "choices": [
    "screwdrivers on hooks",
@@ -6332,21 +5650,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.A.which_is_not.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6356,13 +5669,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.B.which_is_not.v5",
@@ -6387,7 +5694,7 @@ export const questions = [
   "prompt": "Which of these did NOT happen at the fair?",
   "question": "Which of these did NOT happen at the fair?",
   "spokenPrompt": "Which of these did NOT happen at the fair?",
-  "passage": "The book fair filled the hall for one whole day. Tables sagged under picture books and joke books. A signing corner had a real author with a real fountain pen. Tokens from the summer reading club counted double, and the librarian wore her legendary book-print dress.",
+  "passage": "The book fair filled the hall for one whole day. Tables sagged under picture books and joke books. A signing corner had an author with a fountain pen. Tokens from the summer reading club counted double, and the librarian wore a bright book-print dress.",
   "cell": "which_is_not",
   "choices": [
    "a poetry competition was judged",
@@ -6433,21 +5740,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.B.which_is_not.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6457,13 +5759,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.C.which_is_not.v6",
@@ -6488,19 +5784,19 @@ export const questions = [
   "prompt": "Which of these is NOT part of the story?",
   "question": "Which of these is NOT part of the story?",
   "spokenPrompt": "Which of these is NOT part of the story?",
-  "passage": "When the lights went out on the street, the neighbours made their own evening. Candles appeared in jam jars on doorsteps. Mr Okoye carried his guitar to the wall and played requests. The chip van, which ran on its own gas, did the best business of its life.",
+  "passage": "When the lights went out on the street, the neighbors made their own evening. Candles appeared in glass jars on doorsteps. Mr. Okoye carried his guitar outside and played requests. The food truck, which used its own gas, kept serving meals.",
   "cell": "which_is_not",
   "choices": [
-   "candles stood in jam jars",
+   "candles stood in glass jars",
    "a guitar played requests",
-   "the chip van kept selling",
+   "the food truck kept serving",
    "a bonfire was lit in the road"
   ],
   "answerOptions": [
    {
-    "value": "candles stood in jam jars",
-    "label": "candles stood in jam jars",
-    "text": "candles stood in jam jars"
+    "value": "candles stood in glass jars",
+    "label": "candles stood in glass jars",
+    "text": "candles stood in glass jars"
    },
    {
     "value": "a guitar played requests",
@@ -6508,9 +5804,9 @@ export const questions = [
     "text": "a guitar played requests"
    },
    {
-    "value": "the chip van kept selling",
-    "label": "the chip van kept selling",
-    "text": "the chip van kept selling"
+    "value": "the food truck kept serving",
+    "label": "the food truck kept serving",
+    "text": "the food truck kept serving"
    },
    {
     "value": "a bonfire was lit in the road",
@@ -6521,9 +5817,9 @@ export const questions = [
   "answer": "a bonfire was lit in the road",
   "correctAnswer": "a bonfire was lit in the road",
   "distractorRationales": {
-   "candles stood in jam jars": "D-DETAIL-AS-MAIN",
+   "candles stood in glass jars": "D-DETAIL-AS-MAIN",
    "a guitar played requests": "D-DETAIL-AS-MAIN",
-   "the chip van kept selling": "D-DETAIL-AS-MAIN"
+   "the food truck kept serving": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6534,21 +5830,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.C.which_is_not.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-c-which-is-not-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-c-which-is-not-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-c-which-is-not-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6558,13 +5849,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-c-which-is-not-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-c-which-is-not-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-c-which-is-not-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-c-which-is-not-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-c-which-is-not-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.A.which_is_not.v7",
@@ -6589,13 +5874,13 @@ export const questions = [
   "prompt": "Which rule is NOT on the door?",
   "question": "Which rule is NOT on the door?",
   "spokenPrompt": "Which rule is NOT on the door?",
-  "passage": "The museum's new dinosaur room opened with three rules on the door. Walk, don't run, because the floor was polished like ice. Whisper, because sound bounced off the bones. And photographs were welcome — but only without the flash, which was hard on the painted cave-wall copy.",
+  "passage": "The museum's new dinosaur room opened with three rules on the door. Walk, don't run, because the floor was very smooth. Whisper, because sound bounced off the bones. Photos were welcome — but only without the flash, which could harm the painted copy of a cave wall.",
   "cell": "which_is_not",
   "choices": [
    "no eating or drinking",
    "walk, don't run",
    "whisper",
-   "no flash photographs"
+   "no flash photos"
   ],
   "answerOptions": [
    {
@@ -6614,9 +5899,9 @@ export const questions = [
     "text": "whisper"
    },
    {
-    "value": "no flash photographs",
-    "label": "no flash photographs",
-    "text": "no flash photographs"
+    "value": "no flash photos",
+    "label": "no flash photos",
+    "text": "no flash photos"
    }
   ],
   "answer": "no eating or drinking",
@@ -6624,7 +5909,7 @@ export const questions = [
   "distractorRationales": {
    "walk, don't run": "D-DETAIL-AS-MAIN",
    "whisper": "D-DETAIL-AS-MAIN",
-   "no flash photographs": "D-DETAIL-AS-MAIN"
+   "no flash photos": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6635,21 +5920,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.A.which_is_not.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6659,13 +5939,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-a-which-is-not-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.B.which_is_not.v8",
@@ -6690,19 +5964,19 @@ export const questions = [
   "prompt": "Which of these is NOT in the story?",
   "question": "Which of these is NOT in the story?",
   "spokenPrompt": "Which of these is NOT in the story?",
-  "passage": "Harvest week at the allotment brought jobs for everyone. The tall cousins picked the runner beans. The small cousins hunted potatoes with trowels, shouting at every find. Gran weighed everything on her old kitchen scales, and the biggest marrow rode home in the wheelbarrow with a seatbelt of garden string.",
+  "passage": "Harvest week at the community garden brought jobs for everyone. The tall cousins picked the green beans. The small cousins dug potatoes with trowels, cheering at every find. Grandma weighed everything on her kitchen scale, and the biggest pumpkin rode home in the wheelbarrow.",
   "cell": "which_is_not",
   "choices": [
-   "the marrow rode the wheelbarrow",
+   "the pumpkin rode in the wheelbarrow",
    "carrots were pulled and washed",
    "beans were picked",
-   "potatoes were hunted"
+   "potatoes were dug up"
   ],
   "answerOptions": [
    {
-    "value": "the marrow rode the wheelbarrow",
-    "label": "the marrow rode the wheelbarrow",
-    "text": "the marrow rode the wheelbarrow"
+    "value": "the pumpkin rode in the wheelbarrow",
+    "label": "the pumpkin rode in the wheelbarrow",
+    "text": "the pumpkin rode in the wheelbarrow"
    },
    {
     "value": "carrots were pulled and washed",
@@ -6715,17 +5989,17 @@ export const questions = [
     "text": "beans were picked"
    },
    {
-    "value": "potatoes were hunted",
-    "label": "potatoes were hunted",
-    "text": "potatoes were hunted"
+    "value": "potatoes were dug up",
+    "label": "potatoes were dug up",
+    "text": "potatoes were dug up"
    }
   ],
   "answer": "carrots were pulled and washed",
   "correctAnswer": "carrots were pulled and washed",
   "distractorRationales": {
    "beans were picked": "D-DETAIL-AS-MAIN",
-   "potatoes were hunted": "D-DETAIL-AS-MAIN",
-   "the marrow rode the wheelbarrow": "D-DETAIL-AS-MAIN"
+   "potatoes were dug up": "D-DETAIL-AS-MAIN",
+   "the pumpkin rode in the wheelbarrow": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6736,21 +6010,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.B.which_is_not.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6760,13 +6029,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-b-which-is-not-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l1.R.who.v12r",
@@ -6791,12 +6054,12 @@ export const questions = [
   "prompt": "Who watered the plants?",
   "question": "Who watered the plants?",
   "spokenPrompt": "Who watered the plants?",
-  "passage": "The classroom plants drooped over the holidays until the secret waterer struck. On the first day back, the soil was damp and a tiny note said 'You are welcome — G.' Gita went pink when everyone looked at her.",
+  "passage": "The classroom plants drooped over the break. On the first day back, the principal read a note beside the damp soil. Gita smiled and admitted that she had watered them.",
   "cell": "who",
   "choices": [
    "nobody",
-   "the blushing girl",
-   "the head teacher",
+   "Gita",
+   "the principal",
    "the rain"
   ],
   "answerOptions": [
@@ -6806,14 +6069,14 @@ export const questions = [
     "text": "nobody"
    },
    {
-    "value": "the blushing girl",
-    "label": "the blushing girl",
-    "text": "the blushing girl"
+    "value": "Gita",
+    "label": "Gita",
+    "text": "Gita"
    },
    {
-    "value": "the head teacher",
-    "label": "the head teacher",
-    "text": "the head teacher"
+    "value": "the principal",
+    "label": "the principal",
+    "text": "the principal"
    },
    {
     "value": "the rain",
@@ -6821,10 +6084,10 @@ export const questions = [
     "text": "the rain"
    }
   ],
-  "answer": "the blushing girl",
-  "correctAnswer": "the blushing girl",
+  "answer": "Gita",
+  "correctAnswer": "Gita",
   "distractorRationales": {
-   "the head teacher": "D-PLAUSIBLE-UNSUPPORTED",
+   "the principal": "D-PLAUSIBLE-UNSUPPORTED",
    "the rain": "D-PLAUSIBLE-UNSUPPORTED",
    "nobody": "D-OPPOSITE"
   },
@@ -6837,21 +6100,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.R.who.v12r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-r-who-v12r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-r-who-v12r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-r-who-v12r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6861,13 +6119,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-r-who-v12r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-r-who-v12r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-r-who-v12r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-r-who-v12r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-r-who-v12r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l1.R.number_detail.v12r",
@@ -6892,7 +6144,7 @@ export const questions = [
   "prompt": "How long does the ferry take?",
   "question": "How long does the ferry take?",
   "spokenPrompt": "How long does the ferry take?",
-  "passage": "The ferry to the island takes twenty minutes. The bus from the harbour takes ten more. Door to door, Nan's visit is half an hour of travelling and a whole afternoon of cake.",
+  "passage": "The ferry to the island takes twenty minutes. The bus from the harbor takes ten more. Door to door, Grandma's trip is half an hour, followed by an afternoon visit.",
   "cell": "number_detail",
   "choices": [
    "half an hour",
@@ -6938,21 +6190,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l1.R.number_detail.v12r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l1-r-number-detail-v12r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-r-number-detail-v12r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l1-r-number-detail-v12r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6962,13 +6209,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-r-number-detail-v12r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l1-r-number-detail-v12r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l1-r-number-detail-v12r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l1-r-number-detail-v12r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l1-r-number-detail-v12r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.R.which_is_not.v9r",
@@ -6993,12 +6234,12 @@ export const questions = [
   "prompt": "Which of these was NOT on the table?",
   "question": "Which of these was NOT on the table?",
   "spokenPrompt": "Which of these was NOT on the table?",
-  "passage": "The car boot sale table was carefully arranged. Board games with all their pieces, checked twice. A shoebox of dinosaur figures, priced per dinosaur. The outgrown wellies stood in a row, smallest to biggest, and the old toy till sat ready to be the real till.",
+  "passage": "The yard sale table was carefully arranged. Board games with all their pieces were checked twice. A shoebox held dinosaur figures. The outgrown rain boots stood in a row, smallest to biggest, and the toy cash register was ready for sales.",
   "cell": "which_is_not",
   "choices": [
    "board games",
    "dinosaur figures",
-   "outgrown wellies",
+   "outgrown rain boots",
    "a basket of picture books"
   ],
   "answerOptions": [
@@ -7013,9 +6254,9 @@ export const questions = [
     "text": "dinosaur figures"
    },
    {
-    "value": "outgrown wellies",
-    "label": "outgrown wellies",
-    "text": "outgrown wellies"
+    "value": "outgrown rain boots",
+    "label": "outgrown rain boots",
+    "text": "outgrown rain boots"
    },
    {
     "value": "a basket of picture books",
@@ -7026,7 +6267,7 @@ export const questions = [
   "answer": "a basket of picture books",
   "correctAnswer": "a basket of picture books",
   "distractorRationales": {
-   "outgrown wellies": "D-DETAIL-AS-MAIN",
+   "outgrown rain boots": "D-DETAIL-AS-MAIN",
    "board games": "D-DETAIL-AS-MAIN",
    "dinosaur figures": "D-DETAIL-AS-MAIN"
   },
@@ -7039,21 +6280,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.R.which_is_not.v9r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-r-which-is-not-v9r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-r-which-is-not-v9r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-r-which-is-not-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7063,13 +6299,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-r-which-is-not-v9r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-r-which-is-not-v9r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-r-which-is-not-v9r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-r-which-is-not-v9r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-r-which-is-not-v9r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.R.detail_across_sentences.v15r",
@@ -7094,7 +6324,7 @@ export const questions = [
   "prompt": "Why did Omar run last?",
   "question": "Why did Omar run last?",
   "spokenPrompt": "Why did Omar run last?",
-  "passage": "The relay team ran in a fixed order. Jaya started, because her starts were lightning. Ben ran second and Priw third, keeping the pace steady. The last leg belonged to Omar — not the fastest starter, but nobody, ever, caught him from in front.",
+  "passage": "The relay team ran in a fixed order. Jaya started, because her starts were lightning. Ben ran second and Priw third, keeping the pace steady. The last leg belonged to Omar. He was not the fastest starter, but once he was in front, nobody ever caught him.",
   "cell": "detail_across_sentences",
   "choices": [
    "no one could catch him from in front",
@@ -7140,21 +6370,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.key_details.l2.R.detail_across_sentences.v15r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v15r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v15r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v15r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7164,12 +6389,6 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v15r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v15r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v15r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v15r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-key-details-l2-r-detail-across-sentences-v15r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  }
 ];

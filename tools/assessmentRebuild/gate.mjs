@@ -16,8 +16,8 @@ import path from "node:path";
 import { createHash } from "node:crypto";
 import { execSync } from "node:child_process";
 import {
-  ROOT, AUTHORING_DIR, STATUS_FILE, REPORT_DIR,
-  expandBank, lintBank, lintPerceptualMediaIndependence, simulate, simulateRegression, scannerAnswer, writeGeneratedBank, loadLexicon,
+  ROOT, AUTHORING_DIR, BANKS_DIR, STATUS_FILE, REPORT_DIR,
+  expandBank, generatedBankSource, lintBank, lintPerceptualMediaIndependence, simulate, simulateRegression, scannerAnswer, writeGeneratedBank, loadLexicon,
   norm, makeImageResolver, mediaDecisionContractIssues
 } from "./lib.mjs";
 import { skillBlueprints, ASSESSMENT_REBUILD_STANDARD_VERSION } from "../../src/content/blueprints/skillBlueprints.js";
@@ -25,7 +25,7 @@ import * as policy from "../../src/policy/skillStatusPolicy.js";
 import { getLedaWordAudioPath } from "../../src/data/ledaProductionAudio.js";
 import { getAssessmentSceneMediaDecision } from "../../src/content/assessments/v3/assessmentSceneMediaDecisions.js";
 import { ASSESSMENT_ITEM_MEDIA_DECISIONS } from "../../src/content/assessments/v3/assessmentItemMediaDecisions.generated.js";
-import { ASSESSMENT_IMAGE_STYLE_DECISIONS } from "../../src/content/assessments/v3/assessmentImageStyleDecisions.generated.js";
+import { ASSESSMENT_IMAGE_STYLE_DECISIONS } from "../../src/content/assessments/v3/assessmentImageStyleDecisions.js";
 import {
   ASSESSMENT_REJECTED_IMAGE_HASHES,
   ASSESSMENT_REVIEWED_REPLACEMENT_HASHES
@@ -64,10 +64,76 @@ function seededRandom(seedText) {
 
 const oneStatusBrain = productionUsesOneStatusBrain();
 
+const LEGACY_ASSESSMENT_PROMPT_PATTERN = /\bwhich one\b|\b(?:starts?|ends?)\s+like\b|\b(?:which|what|find)\b[^.!?]{0,100}\b(?:starts?|ends?)\s+(?:with\s+)?the\s+same\b|\bfind the one that (?:starts?|ends?)\b/i;
+
+function promptWordingIssues(items) {
+  const issues = [];
+  for (const item of items) {
+    for (const field of ["prompt", "question", "spokenPrompt"]) {
+      const value = String(item[field] || "").trim();
+      if (value && LEGACY_ASSESSMENT_PROMPT_PATTERN.test(value)) {
+        issues.push({
+          code: "L-PROMPT-WORDING",
+          itemId: item.id,
+          message: `${field} uses legacy or conversational assessment wording: ${JSON.stringify(value)}`
+        });
+      }
+    }
+
+    let canonicalPrompt = "";
+    if (item.formatType === "INITIAL_SOUND_PAIR_SELECT") {
+      canonicalPrompt = "Which word has the same starting sound?";
+    } else if (item.formatType === "FINAL_SOUND_PAIR_SELECT" && item.hideWrittenLabels) {
+      canonicalPrompt = "Which word has the same final sound?";
+    } else if (item.formatType === "DIGRAPH_IMAGE_CHOICE") {
+      canonicalPrompt = item.phonicsPosition === "final"
+        ? "Which word has the same final sound?"
+        : "Which word has the same starting sound?";
+    } else if (item.formatType === "BLEND_IMAGE_CHOICE") {
+      canonicalPrompt = "Which word begins with the same blend?";
+    } else if (item.formatType === "RHYME_MATCH_PICTURE") {
+      canonicalPrompt = "Which word rhymes with the word you hear?";
+    }
+    if (canonicalPrompt && item.prompt !== canonicalPrompt) {
+      issues.push({
+        code: "L-PROMPT-WORDING",
+        itemId: item.id,
+        message: `expected canonical prompt ${JSON.stringify(canonicalPrompt)}, received ${JSON.stringify(item.prompt)}`
+      });
+    }
+  }
+  return issues;
+}
+
+function generatedBankFreshnessIssues(skillId, items) {
+  if (write) return [];
+  const file = path.join(BANKS_DIR, `${skillId}.v3.generated.js`);
+  const expected = generatedBankSource(skillId, items);
+  const actual = fs.existsSync(file) ? fs.readFileSync(file, "utf8") : "";
+  return actual === expected ? [] : [{
+    code: "L-GENERATED-STALE",
+    itemId: skillId,
+    message: `published bank is stale or missing; run node tools/assessmentRebuild/gate.mjs --write`
+  }];
+}
+
 function requiredAudioIssues(items) {
   const issues = [];
+  const checked = new Set();
   const requireWord = (item, word, role) => {
-    const audioPath = getLedaWordAudioPath(word);
+    const normalizedWord = String(word || "").trim();
+    if (!normalizedWord) {
+      issues.push({
+        code: "L-AUDIO-REQUIRED",
+        itemId: item.id,
+        message: `missing ${role} text needed to resolve approved LEDA audio`
+      });
+      return;
+    }
+    const checkKey = `${item.id}|${role}|${normalizedWord.toLowerCase()}`;
+    if (checked.has(checkKey)) return;
+    checked.add(checkKey);
+    const audioPath = getLedaWordAudioPath(normalizedWord);
     const absolutePath = audioPath
       ? path.join(ROOT, "public", audioPath.replace(/^\//, ""))
       : "";
@@ -75,16 +141,25 @@ function requiredAudioIssues(items) {
       issues.push({
         code: "L-AUDIO-REQUIRED",
         itemId: item.id,
-        message: `missing approved LEDA ${role} audio for "${word}"`
+        message: `missing approved LEDA ${role} audio for "${normalizedWord}"`
       });
     }
   };
 
   for (const item of items) {
-    if (item.formatType === "HFW_AUDIO_FIND_WORD") {
+    if (item.mediaTier === "audio-required") {
       requireWord(item, item.targetWord || item.answer, "target-word");
     }
-    if (["RHYME_MATCH_PICTURE", "INITIAL_SOUND_PAIR_SELECT", "FINAL_SOUND_PAIR_SELECT"].includes(item.formatType)) {
+
+    if (item.hideWrittenLabels && item.evidenceModality === "audio+image") {
+      if (item.targetWord) {
+        requireWord(item, item.targetWord, "spoken-anchor");
+      } else {
+        const firstSpokenSegment = String(item.spokenPrompt || "").split(/[.!?]/)[0].trim();
+        if (/^[A-Za-z][A-Za-z'-]*$/.test(firstSpokenSegment)) {
+          requireWord(item, firstSpokenSegment, "spoken-anchor");
+        }
+      }
       for (const card of item.imageCards || []) requireWord(item, card.word || card.label, "answer-card");
     }
   }
@@ -175,14 +250,23 @@ function visualPolicyIssues(items) {
       if (reviewedReplacementHash && reviewedReplacementHash !== currentHash) {
         push(item, `reviewed replacement pixels changed without a new direct review: ${assetPath}`);
       }
+      const approvedRasterFinish = (
+        style.medium === "classic-flat-2d-cartoon"
+        && style.surfaces === "smooth-solid"
+      ) || (
+        style.medium === "classic-flat-2d-raster"
+        && style.surfaces === "smooth-solid"
+      ) || (
+        style.medium === "professionally-rendered-storybook-raster"
+        && style.surfaces === "smooth-richly-rendered"
+      );
       if (
         style.sha256 !== currentHash
         || style.visualReview !== "approved"
         || style.brightness !== "bright"
         || style.saturation !== "bold"
-        || style.medium !== "classic-flat-2d-cartoon"
+        || !approvedRasterFinish
         || style.contours !== "crisp"
-        || style.surfaces !== "smooth-solid"
         || style.grain !== false
         || style.paperOrCanvasTexture !== false
         || style.embossed !== false
@@ -233,10 +317,12 @@ for (const file of authoringFiles) {
     const lintIssues = lintBank(items, blueprint, { ...lexicon, imageWords: new Set() });
     const perceptualMediaIssues = await lintPerceptualMediaIndependence(items);
     const audioIssues = requiredAudioIssues(items);
+    const wordingIssues = promptWordingIssues(items);
+    const freshnessIssues = generatedBankFreshnessIssues(skillId, items);
     const manifestIssues = skillId === "sentence_comprehension" ? globalSceneManifestIssues : [];
     const visualIssues = visualPolicyIssues(items);
-    detail.lint = [...lintIssues, ...perceptualMediaIssues, ...audioIssues, ...manifestIssues, ...visualIssues];
-    gates.G1_structure = !lintIssues.some(i => ["L-SCHEMA", "L-COVER", "L-MEDIA"].includes(i.code));
+    detail.lint = [...lintIssues, ...perceptualMediaIssues, ...audioIssues, ...wordingIssues, ...freshnessIssues, ...manifestIssues, ...visualIssues];
+    gates.G1_structure = ![...lintIssues, ...wordingIssues, ...freshnessIssues].some(i => ["L-SCHEMA", "L-COVER", "L-MEDIA", "L-PROMPT-WORDING", "L-GENERATED-STALE"].includes(i.code));
     gates.G2_originality = !lintIssues.some(i => i.code.startsWith("L-UNIQ"));
     gates.G3_answer_integrity = !lintIssues.some(i => ["L-DIST", "L-REALWORD", "L-LEX", "L-GRAM", "L-READ", "L-KEY-BALANCE", "L-AMBIG"].includes(i.code));
 
@@ -306,9 +392,10 @@ for (const file of authoringFiles) {
     // G6 — runtime progression, class reports and student reports must all
     // consume the same pure status reducer.
     gates.G6_one_report = oneStatusBrain;
-    gates.G7_construct_validity = !lintIssues.some(i => [
+    gates.G7_construct_validity = ![...lintIssues, ...wordingIssues].some(i => [
       "L-AMBIG", "L-HFW-COPY", "L-MODALITY", "L-SEQUENCE-COPY",
-      "L-COMPREHENSION-COPY", "L-COMPREHENSION-VERBATIM", "L-MEDIA-CONSTRUCT", "L-CONSTRUCT-WEAK"
+      "L-COMPREHENSION-COPY", "L-COMPREHENSION-VERBATIM", "L-MEDIA-CONSTRUCT", "L-CONSTRUCT-WEAK",
+      "L-PROMPT-WORDING"
     ].includes(i.code));
     gates.G8_media_independence = ![...lintIssues, ...perceptualMediaIssues, ...manifestIssues].some(i => [
       "L-MEDIA", "L-MEDIA-INDEPENDENCE", "L-MEDIA-CONSTRUCT"

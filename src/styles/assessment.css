@@ -486,7 +486,7 @@
 
   .assessment-question-layout .visual-assessment-card-button img,
   .assessment-question-layout .initial-sound-image-button img {
-    max-height: clamp(76px, 11vh, 110px);
+    max-height: clamp(96px, 14vh, 132px);
   }
 }
 .assessment-step-navigation {

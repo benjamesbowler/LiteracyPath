@@ -21,9 +21,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: r__n",
-  "question": "Finish: r__n",
-  "spokenPrompt": "rain. Which letters finish the word rain?",
+  "prompt": "Which two letters complete r__n?",
+  "question": "Which two letters complete r__n?",
+  "spokenPrompt": "Rain. Which two letters complete the word?",
   "choices": [
    "ay",
    "ee",
@@ -59,7 +59,7 @@ export const questions = [
    "ay": "D-PATTERN-TRAP",
    "ee": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -69,21 +69,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "rain",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.A.ai.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/rain.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "rain",
-  "stimulusMediaId": "rain",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -93,13 +88,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/rain.webp",
-  "imageUrl": "/images/assessment/long-vowels/rain.webp",
-  "targetImage": "/images/assessment/long-vowels/rain.webp",
-  "targetImagePath": "/images/assessment/long-vowels/rain.webp",
-  "resolvedImageAssetKey": "rain",
-  "imageAlt": "rain"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.B.ai.v2",
@@ -121,9 +110,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: tr__n",
-  "question": "Finish: tr__n",
-  "spokenPrompt": "train. Which letters finish the word train?",
+  "prompt": "Which two letters complete tr__n?",
+  "question": "Which two letters complete tr__n?",
+  "spokenPrompt": "Train. Which two letters complete the word?",
   "choices": [
    "oa",
    "igh",
@@ -159,7 +148,7 @@ export const questions = [
    "ee": "D-PATTERN-TRAP",
    "oa": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -169,21 +158,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "train",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.B.ai.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/train.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "train",
-  "stimulusMediaId": "train",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -193,13 +177,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/train.webp",
-  "imageUrl": "/images/assessment/long-vowels/train.webp",
-  "targetImage": "/images/assessment/long-vowels/train.webp",
-  "targetImagePath": "/images/assessment/long-vowels/train.webp",
-  "resolvedImageAssetKey": "train",
-  "imageAlt": "train"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.C.ai.v3",
@@ -268,21 +246,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.C.ai.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/long-vowels/rain.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/long-vowels/rain.webp",
-  "stimulusMediaId": "/images/assessment/long-vowels/rain.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -292,13 +265,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the instructional-standards CPS exemplar, now actually published",
-  "imagePath": "/images/assessment/long-vowels/rain.webp",
-  "imageUrl": "/images/assessment/long-vowels/rain.webp",
-  "targetImage": "/images/assessment/long-vowels/rain.webp",
-  "targetImagePath": "/images/assessment/long-vowels/rain.webp",
-  "resolvedImageAssetKey": "/images/assessment/long-vowels/rain.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the instructional-standards CPS exemplar, now actually published"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ai.v4",
@@ -367,21 +334,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.A.ai.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/digraphs/chain.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/digraphs/chain.webp",
-  "stimulusMediaId": "/images/assessment/digraphs/chain.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -391,13 +353,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "chin is one letter from the key with the short sound",
-  "imagePath": "/images/assessment/digraphs/chain.webp",
-  "imageUrl": "/images/assessment/digraphs/chain.webp",
-  "targetImage": "/images/assessment/digraphs/chain.webp",
-  "targetImagePath": "/images/assessment/digraphs/chain.webp",
-  "resolvedImageAssetKey": "/images/assessment/digraphs/chain.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "chin is one letter from the key with the short sound"
  },
  {
   "id": "lp3.vowel_teams.l1.B.ai.v5",
@@ -416,12 +372,12 @@ export const questions = [
   "form": "B",
   "itemType": "phonics_pattern",
   "itemKey": "ai",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word names the picture?",
-  "question": "Which word names the picture?",
-  "spokenPrompt": "Which word names the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Chain. Which printed word matches the recording?",
   "choices": [
    "rain",
    "paint",
@@ -457,32 +413,29 @@ export const questions = [
    "snail": "D-PATTERN-TRAP",
    "rain": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
-  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "constructClaim": "spoken_to_real_word_vowel_team_recognition",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "chain",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.B.ai.v5",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/chain.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "chain",
-  "stimulusMediaId": "chain",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -492,13 +445,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all choices are real words from the taught vowel-team family",
-  "imagePath": "/images/assessment/digraphs/chain.webp",
-  "imageUrl": "/images/assessment/digraphs/chain.webp",
-  "targetImage": "/images/assessment/digraphs/chain.webp",
-  "targetImagePath": "/images/assessment/digraphs/chain.webp",
-  "resolvedImageAssetKey": "chain",
-  "imageAlt": "chain"
+  "notes": "all choices are real words from the taught vowel-team family; the target is heard, never pictured"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ai.v6",
@@ -517,12 +464,12 @@ export const questions = [
   "form": "C",
   "itemType": "phonics_pattern",
   "itemKey": "ai",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word names the picture?",
-  "question": "Which word names the picture?",
-  "spokenPrompt": "Which word names the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Train. Which printed word matches the recording?",
   "choices": [
    "chain",
    "snail",
@@ -558,32 +505,29 @@ export const questions = [
    "chain": "D-PATTERN-TRAP",
    "snail": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
-  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "constructClaim": "spoken_to_real_word_vowel_team_recognition",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "train",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.C.ai.v6",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/train.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "train",
-  "stimulusMediaId": "train",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -593,13 +537,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all choices are real words from the taught vowel-team family",
-  "imagePath": "/images/assessment/long-vowels/train.webp",
-  "imageUrl": "/images/assessment/long-vowels/train.webp",
-  "targetImage": "/images/assessment/long-vowels/train.webp",
-  "targetImagePath": "/images/assessment/long-vowels/train.webp",
-  "resolvedImageAssetKey": "train",
-  "imageAlt": "train"
+  "notes": "all choices are real words from the taught vowel-team family; the target is heard, never pictured"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ay.v1",
@@ -621,9 +559,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: pl__",
-  "question": "Finish: pl__",
-  "spokenPrompt": "play. Which letters finish the word play?",
+  "prompt": "Which two letters complete pl__?",
+  "question": "Which two letters complete pl__?",
+  "spokenPrompt": "Play. Which two letters complete the word?",
   "choices": [
    "oa",
    "ay",
@@ -659,7 +597,7 @@ export const questions = [
    "ai": "D-PATTERN-TRAP",
    "ee": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -669,21 +607,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "play",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.A.ay.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/play.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "play",
-  "stimulusMediaId": "play",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -693,13 +626,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "plai is the medial-team-in-final-position error",
-  "imagePath": "/images/assessment/long-vowels/play.webp",
-  "imageUrl": "/images/assessment/long-vowels/play.webp",
-  "targetImage": "/images/assessment/long-vowels/play.webp",
-  "targetImagePath": "/images/assessment/long-vowels/play.webp",
-  "resolvedImageAssetKey": "play",
-  "imageAlt": "play"
+  "notes": "plai is the medial-team-in-final-position error"
  },
  {
   "id": "lp3.vowel_teams.l1.B.ay.v2",
@@ -721,9 +648,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: tr__",
-  "question": "Finish: tr__",
-  "spokenPrompt": "tray. Which letters finish the word tray?",
+  "prompt": "Which two letters complete tr__?",
+  "question": "Which two letters complete tr__?",
+  "spokenPrompt": "Tray. Which two letters complete the word?",
   "choices": [
    "ay",
    "ai",
@@ -759,7 +686,7 @@ export const questions = [
    "ai": "D-PATTERN-TRAP",
    "oa": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -769,21 +696,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "tray",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.B.ay.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/tray.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "tray",
-  "stimulusMediaId": "tray",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -793,13 +715,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/tray.webp",
-  "imageUrl": "/images/assessment/long-vowels/tray.webp",
-  "targetImage": "/images/assessment/long-vowels/tray.webp",
-  "targetImagePath": "/images/assessment/long-vowels/tray.webp",
-  "resolvedImageAssetKey": "tray",
-  "imageAlt": "tray"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.C.ay.v3",
@@ -868,21 +784,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.C.ay.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/long-vowels/play.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/long-vowels/play.webp",
-  "stimulusMediaId": "/images/assessment/long-vowels/play.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -892,13 +803,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "plan shares three letters with the key but keeps the short a",
-  "imagePath": "/images/assessment/long-vowels/play.webp",
-  "imageUrl": "/images/assessment/long-vowels/play.webp",
-  "targetImage": "/images/assessment/long-vowels/play.webp",
-  "targetImagePath": "/images/assessment/long-vowels/play.webp",
-  "resolvedImageAssetKey": "/images/assessment/long-vowels/play.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "plan shares three letters with the key but keeps the short a"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ay.v4",
@@ -967,21 +872,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.A.ay.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/language/variants/plurals/day-days-01.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/language/variants/plurals/day-days-01.webp",
-  "stimulusMediaId": "/images/assessment/language/variants/plurals/day-days-01.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -991,13 +891,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/day-days-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/day-days-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
-  "resolvedImageAssetKey": "/images/assessment/language/variants/plurals/day-days-01.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.B.ay.v5",
@@ -1016,12 +910,12 @@ export const questions = [
   "form": "B",
   "itemType": "phonics_pattern",
   "itemKey": "ay",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word names the picture?",
-  "question": "Which word names the picture?",
-  "spokenPrompt": "Which word names the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Day. Which printed word matches the recording?",
   "choices": [
    "boy",
    "day",
@@ -1057,32 +951,29 @@ export const questions = [
    "boy": "D-PATTERN-TRAP",
    "play": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
-  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "constructClaim": "spoken_to_real_word_vowel_team_recognition",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "day",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.B.ay.v5",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/language/variants/plurals/day-days-01.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "day",
-  "stimulusMediaId": "day",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1092,13 +983,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all choices are real words from the taught vowel-team family",
-  "imagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/day-days-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/day-days-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
-  "resolvedImageAssetKey": "day",
-  "imageAlt": "day"
+  "notes": "all choices are real words from the taught vowel-team family; the target is heard, never pictured"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ay.v6",
@@ -1117,12 +1002,12 @@ export const questions = [
   "form": "C",
   "itemType": "phonics_pattern",
   "itemKey": "ay",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word names the picture?",
-  "question": "Which word names the picture?",
-  "spokenPrompt": "Which word names the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Tray. Which printed word matches the recording?",
   "choices": [
    "tray",
    "day",
@@ -1158,32 +1043,29 @@ export const questions = [
    "play": "D-PATTERN-TRAP",
    "toy": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
-  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "constructClaim": "spoken_to_real_word_vowel_team_recognition",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "tray",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.C.ay.v6",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/tray.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "tray",
-  "stimulusMediaId": "tray",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1193,13 +1075,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all choices are real words from the taught vowel-team family",
-  "imagePath": "/images/assessment/long-vowels/tray.webp",
-  "imageUrl": "/images/assessment/long-vowels/tray.webp",
-  "targetImage": "/images/assessment/long-vowels/tray.webp",
-  "targetImagePath": "/images/assessment/long-vowels/tray.webp",
-  "resolvedImageAssetKey": "tray",
-  "imageAlt": "tray"
+  "notes": "all choices are real words from the taught vowel-team family; the target is heard, never pictured"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ee.v1",
@@ -1221,9 +1097,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: sh__p",
-  "question": "Finish: sh__p",
-  "spokenPrompt": "sheep. Which letters finish the word sheep?",
+  "prompt": "Which two letters complete sh__p?",
+  "question": "Which two letters complete sh__p?",
+  "spokenPrompt": "Sheep. Which two letters complete the word?",
   "choices": [
    "ea",
    "ai",
@@ -1259,7 +1135,7 @@ export const questions = [
    "ea": "D-PATTERN-TRAP",
    "ai": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -1269,21 +1145,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "sheep",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.A.ee.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/sheep.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "sheep",
-  "stimulusMediaId": "sheep",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1293,13 +1164,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/sheep.webp",
-  "imageUrl": "/images/assessment/long-vowels/sheep.webp",
-  "targetImage": "/images/assessment/long-vowels/sheep.webp",
-  "targetImagePath": "/images/assessment/long-vowels/sheep.webp",
-  "resolvedImageAssetKey": "sheep",
-  "imageAlt": "sheep"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.B.ee.v2",
@@ -1321,9 +1186,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: gr__n",
-  "question": "Finish: gr__n",
-  "spokenPrompt": "green. Which letters finish the word green?",
+  "prompt": "Which two letters complete gr__n?",
+  "question": "Which two letters complete gr__n?",
+  "spokenPrompt": "Green. Which two letters complete the word?",
   "choices": [
    "ai",
    "oo",
@@ -1359,7 +1224,7 @@ export const questions = [
    "ea": "D-PATTERN-TRAP",
    "ai": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -1369,21 +1234,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "green",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.B.ee.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/green.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "green",
-  "stimulusMediaId": "green",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1393,13 +1253,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/green.webp",
-  "imageUrl": "/images/assessment/blends/green.webp",
-  "targetImage": "/images/assessment/blends/green.webp",
-  "targetImagePath": "/images/assessment/blends/green.webp",
-  "resolvedImageAssetKey": "green",
-  "imageAlt": "green"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.C.ee.v3",
@@ -1468,21 +1322,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.C.ee.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-media/feet-16298da4.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-media/feet-16298da4.webp",
-  "stimulusMediaId": "/images/assessment/release-media/feet-16298da4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1492,13 +1341,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-media/feet-16298da4.webp",
-  "imageUrl": "/images/assessment/release-media/feet-16298da4.webp",
-  "targetImage": "/images/assessment/release-media/feet-16298da4.webp",
-  "targetImagePath": "/images/assessment/release-media/feet-16298da4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-media/feet-16298da4.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.A.ee.v4",
@@ -1567,21 +1410,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.A.ee.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/long-vowels/tree.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/long-vowels/tree.webp",
-  "stimulusMediaId": "/images/assessment/long-vowels/tree.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1591,13 +1429,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/tree.webp",
-  "imageUrl": "/images/assessment/long-vowels/tree.webp",
-  "targetImage": "/images/assessment/long-vowels/tree.webp",
-  "targetImagePath": "/images/assessment/long-vowels/tree.webp",
-  "resolvedImageAssetKey": "/images/assessment/long-vowels/tree.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.B.ee.v5",
@@ -1616,12 +1448,12 @@ export const questions = [
   "form": "B",
   "itemType": "phonics_pattern",
   "itemKey": "ee",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word names the picture?",
-  "question": "Which word names the picture?",
-  "spokenPrompt": "Which word names the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Sheep. Which printed word matches the recording?",
   "choices": [
    "green",
    "tree",
@@ -1657,32 +1489,29 @@ export const questions = [
    "bee": "D-PATTERN-TRAP",
    "green": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
-  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "constructClaim": "spoken_to_real_word_vowel_team_recognition",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "sheep",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.B.ee.v5",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/sheep.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "sheep",
-  "stimulusMediaId": "sheep",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1692,13 +1521,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all choices are real words from the taught vowel-team family",
-  "imagePath": "/images/assessment/long-vowels/sheep.webp",
-  "imageUrl": "/images/assessment/long-vowels/sheep.webp",
-  "targetImage": "/images/assessment/long-vowels/sheep.webp",
-  "targetImagePath": "/images/assessment/long-vowels/sheep.webp",
-  "resolvedImageAssetKey": "sheep",
-  "imageAlt": "sheep"
+  "notes": "all choices are real words from the taught vowel-team family; the target is heard, never pictured"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ee.v6",
@@ -1717,12 +1540,12 @@ export const questions = [
   "form": "C",
   "itemType": "phonics_pattern",
   "itemKey": "ee",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word names the picture?",
-  "question": "Which word names the picture?",
-  "spokenPrompt": "Which word names the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Bee. Which printed word matches the recording?",
   "choices": [
    "feet",
    "tree",
@@ -1758,32 +1581,29 @@ export const questions = [
    "feet": "D-PATTERN-TRAP",
    "tree": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
-  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "constructClaim": "spoken_to_real_word_vowel_team_recognition",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "bee",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.C.ee.v6",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "bee",
-  "stimulusMediaId": "bee",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1793,13 +1613,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all choices are real words from the taught vowel-team family",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
-  "resolvedImageAssetKey": "bee",
-  "imageAlt": "bee"
+  "notes": "all choices are real words from the taught vowel-team family; the target is heard, never pictured"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ea.v1",
@@ -1821,9 +1635,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: l__f",
-  "question": "Finish: l__f",
-  "spokenPrompt": "leaf. Which letters finish the word leaf?",
+  "prompt": "Which two letters complete l__f?",
+  "question": "Which two letters complete l__f?",
+  "spokenPrompt": "Leaf. Which two letters complete the word?",
   "choices": [
    "oa",
    "ea",
@@ -1859,7 +1673,7 @@ export const questions = [
    "ee": "D-PATTERN-TRAP",
    "ai": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -1869,21 +1683,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "leaf",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.A.ea.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/leaf.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "leaf",
-  "stimulusMediaId": "leaf",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1893,13 +1702,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/leaf.webp",
-  "imageUrl": "/images/assessment/long-vowels/leaf.webp",
-  "targetImage": "/images/assessment/long-vowels/leaf.webp",
-  "targetImagePath": "/images/assessment/long-vowels/leaf.webp",
-  "resolvedImageAssetKey": "leaf",
-  "imageAlt": "leaf"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.B.ea.v2",
@@ -1921,9 +1724,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: m__t",
-  "question": "Finish: m__t",
-  "spokenPrompt": "meat. Which letters finish the word meat?",
+  "prompt": "Which two letters complete p__ch?",
+  "question": "Which two letters complete p__ch?",
+  "spokenPrompt": "Peach. Which two letters complete the word?",
   "choices": [
    "ea",
    "ee",
@@ -1959,7 +1762,7 @@ export const questions = [
    "ee": "D-PATTERN-TRAP",
    "ai": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -1967,23 +1770,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "meat",
+  "targetWord": "peach",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.B.ea.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/release-media/meat-52e1a2a7.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "meat",
-  "stimulusMediaId": "meat",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1993,13 +1791,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "meet is real — the meat image pins the target",
-  "imagePath": "/images/assessment/release-media/meat-52e1a2a7.webp",
-  "imageUrl": "/images/assessment/release-media/meat-52e1a2a7.webp",
-  "targetImage": "/images/assessment/release-media/meat-52e1a2a7.webp",
-  "targetImagePath": "/images/assessment/release-media/meat-52e1a2a7.webp",
-  "resolvedImageAssetKey": "meat",
-  "imageAlt": "meat"
+  "notes": "the heard word pins the conventional spelling; the alternatives are not words"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ea.v3",
@@ -2068,21 +1860,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.C.ea.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/long-vowels/leaf.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/long-vowels/leaf.webp",
-  "stimulusMediaId": "/images/assessment/long-vowels/leaf.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2092,13 +1879,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/leaf.webp",
-  "imageUrl": "/images/assessment/long-vowels/leaf.webp",
-  "targetImage": "/images/assessment/long-vowels/leaf.webp",
-  "targetImagePath": "/images/assessment/long-vowels/leaf.webp",
-  "resolvedImageAssetKey": "/images/assessment/long-vowels/leaf.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.A.ea.v4",
@@ -2167,21 +1948,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.A.ea.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/blends/bread.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/blends/bread.webp",
-  "stimulusMediaId": "/images/assessment/blends/bread.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2191,13 +1967,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "ea's two sounds — bread keeps the letters and loses the sound",
-  "imagePath": "/images/assessment/blends/bread.webp",
-  "imageUrl": "/images/assessment/blends/bread.webp",
-  "targetImage": "/images/assessment/blends/bread.webp",
-  "targetImagePath": "/images/assessment/blends/bread.webp",
-  "resolvedImageAssetKey": "/images/assessment/blends/bread.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "ea's two sounds — bread keeps the letters and loses the sound"
  },
  {
   "id": "lp3.vowel_teams.l1.B.ea.v5",
@@ -2266,21 +2036,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.B.ea.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/dead-5eb965.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/dead-5eb965.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/dead-5eb965.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2290,13 +2055,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
-  "imagePath": "/images/assessment/release-support/targets/dead-5eb965.webp",
-  "imageUrl": "/images/assessment/release-support/targets/dead-5eb965.webp",
-  "targetImage": "/images/assessment/release-support/targets/dead-5eb965.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/dead-5eb965.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/dead-5eb965.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ea.v6",
@@ -2315,12 +2074,12 @@ export const questions = [
   "form": "C",
   "itemType": "phonics_pattern",
   "itemKey": "ea",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word names the picture?",
-  "question": "Which word names the picture?",
-  "spokenPrompt": "Which word names the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Beach. Which printed word matches the recording?",
   "choices": [
    "beach",
    "leaf",
@@ -2356,32 +2115,29 @@ export const questions = [
    "meat": "D-PATTERN-TRAP",
    "sea": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
-  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "constructClaim": "spoken_to_real_word_vowel_team_recognition",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "beach",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.C.ea.v6",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/beach.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "beach",
-  "stimulusMediaId": "beach",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2391,13 +2147,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all choices are real words from the taught vowel-team family",
-  "imagePath": "/images/assessment/long-vowels/beach.webp",
-  "imageUrl": "/images/assessment/long-vowels/beach.webp",
-  "targetImage": "/images/assessment/long-vowels/beach.webp",
-  "targetImagePath": "/images/assessment/long-vowels/beach.webp",
-  "resolvedImageAssetKey": "beach",
-  "imageAlt": "beach"
+  "notes": "all choices are real words from the taught vowel-team family; the target is heard, never pictured"
  },
  {
   "id": "lp3.vowel_teams.l1.A.oa.v1",
@@ -2419,9 +2169,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: b__t",
-  "question": "Finish: b__t",
-  "spokenPrompt": "boat. Which letters finish the word boat?",
+  "prompt": "Which two letters complete b__t?",
+  "question": "Which two letters complete b__t?",
+  "spokenPrompt": "Boat. Which two letters complete the word?",
   "choices": [
    "ee",
    "ai",
@@ -2457,7 +2207,7 @@ export const questions = [
    "ai": "D-PATTERN-TRAP",
    "igh": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -2467,21 +2217,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "boat",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.A.oa.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/boat.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "boat",
-  "stimulusMediaId": "boat",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2491,13 +2236,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "beet and bait are real — the boat image pins the target",
-  "imagePath": "/images/assessment/long-vowels/boat.webp",
-  "imageUrl": "/images/assessment/long-vowels/boat.webp",
-  "targetImage": "/images/assessment/long-vowels/boat.webp",
-  "targetImagePath": "/images/assessment/long-vowels/boat.webp",
-  "resolvedImageAssetKey": "boat",
-  "imageAlt": "boat"
+  "notes": "beet and bait are real — the heard word pins the target"
  },
  {
   "id": "lp3.vowel_teams.l1.B.oa.v2",
@@ -2519,9 +2258,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: g__t",
-  "question": "Finish: g__t",
-  "spokenPrompt": "goat. Which letters finish the word goat?",
+  "prompt": "Which two letters complete g__t?",
+  "question": "Which two letters complete g__t?",
+  "spokenPrompt": "Goat. Which two letters complete the word?",
   "choices": [
    "ai",
    "ee",
@@ -2557,7 +2296,7 @@ export const questions = [
    "ai": "D-PATTERN-TRAP",
    "ee": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -2567,21 +2306,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "goat",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.B.oa.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/goat.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "goat",
-  "stimulusMediaId": "goat",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2591,13 +2325,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/goat.webp",
-  "imageUrl": "/images/assessment/long-vowels/goat.webp",
-  "targetImage": "/images/assessment/long-vowels/goat.webp",
-  "targetImagePath": "/images/assessment/long-vowels/goat.webp",
-  "resolvedImageAssetKey": "goat",
-  "imageAlt": "goat"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.C.oa.v3",
@@ -2666,21 +2394,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.C.oa.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/long-vowels/goat.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/long-vowels/goat.webp",
-  "stimulusMediaId": "/images/assessment/long-vowels/goat.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2690,13 +2413,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "got is the key minus its team — the short sibling",
-  "imagePath": "/images/assessment/long-vowels/goat.webp",
-  "imageUrl": "/images/assessment/long-vowels/goat.webp",
-  "targetImage": "/images/assessment/long-vowels/goat.webp",
-  "targetImagePath": "/images/assessment/long-vowels/goat.webp",
-  "resolvedImageAssetKey": "/images/assessment/long-vowels/goat.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "got is the key minus its team — the short sibling"
  },
  {
   "id": "lp3.vowel_teams.l1.A.oa.v4",
@@ -2765,21 +2482,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.A.oa.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-media/road-9aba0184.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-media/road-9aba0184.webp",
-  "stimulusMediaId": "/images/assessment/release-media/road-9aba0184.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2789,13 +2501,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-media/road-9aba0184.webp",
-  "imageUrl": "/images/assessment/release-media/road-9aba0184.webp",
-  "targetImage": "/images/assessment/release-media/road-9aba0184.webp",
-  "targetImagePath": "/images/assessment/release-media/road-9aba0184.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-media/road-9aba0184.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.B.oa.v5",
@@ -2814,12 +2520,12 @@ export const questions = [
   "form": "B",
   "itemType": "phonics_pattern",
   "itemKey": "oa",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word names the picture?",
-  "question": "Which word names the picture?",
-  "spokenPrompt": "Which word names the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Boat. Which printed word matches the recording?",
   "choices": [
    "goat",
    "road",
@@ -2855,32 +2561,29 @@ export const questions = [
    "road": "D-PATTERN-TRAP",
    "coat": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
-  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "constructClaim": "spoken_to_real_word_vowel_team_recognition",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "boat",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.B.oa.v5",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/boat.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "boat",
-  "stimulusMediaId": "boat",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2890,13 +2593,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all choices are real words from the taught vowel-team family",
-  "imagePath": "/images/assessment/long-vowels/boat.webp",
-  "imageUrl": "/images/assessment/long-vowels/boat.webp",
-  "targetImage": "/images/assessment/long-vowels/boat.webp",
-  "targetImagePath": "/images/assessment/long-vowels/boat.webp",
-  "resolvedImageAssetKey": "boat",
-  "imageAlt": "boat"
+  "notes": "all choices are real words from the taught vowel-team family; the target is heard, never pictured"
  },
  {
   "id": "lp3.vowel_teams.l1.C.oa.v6",
@@ -2915,12 +2612,12 @@ export const questions = [
   "form": "C",
   "itemType": "phonics_pattern",
   "itemKey": "oa",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word names the picture?",
-  "question": "Which word names the picture?",
-  "spokenPrompt": "Which word names the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Coat. Which printed word matches the recording?",
   "choices": [
    "goat",
    "soap",
@@ -2956,32 +2653,29 @@ export const questions = [
    "soap": "D-PATTERN-TRAP",
    "boat": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
-  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "constructClaim": "spoken_to_real_word_vowel_team_recognition",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "coat",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.C.oa.v6",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/oat/coat-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "coat",
-  "stimulusMediaId": "coat",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2991,13 +2685,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all choices are real words from the taught vowel-team family",
-  "imagePath": "/images/assessment/rhyming/variants/oat/coat-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/oat/coat-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/oat/coat-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/oat/coat-02.webp",
-  "resolvedImageAssetKey": "coat",
-  "imageAlt": "coat"
+  "notes": "all choices are real words from the taught vowel-team family; the target is heard, never pictured"
  },
  {
   "id": "lp3.vowel_teams.l1.A.igh.v1",
@@ -3019,9 +2707,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: l__t",
-  "question": "Finish: l__t",
-  "spokenPrompt": "light. Which letters finish the word light?",
+  "prompt": "Which three letters complete l__t?",
+  "question": "Which three letters complete l__t?",
+  "spokenPrompt": "Light. Which three letters complete the word?",
   "choices": [
    "oa",
    "igh",
@@ -3057,7 +2745,7 @@ export const questions = [
    "ee": "D-PATTERN-TRAP",
    "oa": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -3067,21 +2755,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "light",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.A.igh.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/light.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "light",
-  "stimulusMediaId": "light",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3091,13 +2774,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/light.webp",
-  "imageUrl": "/images/assessment/long-vowels/light.webp",
-  "targetImage": "/images/assessment/long-vowels/light.webp",
-  "targetImagePath": "/images/assessment/long-vowels/light.webp",
-  "resolvedImageAssetKey": "light",
-  "imageAlt": "light"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.B.igh.v2",
@@ -3119,9 +2796,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: n__t",
-  "question": "Finish: n__t",
-  "spokenPrompt": "night. Which letters finish the word night?",
+  "prompt": "Which three letters complete n__t?",
+  "question": "Which three letters complete n__t?",
+  "spokenPrompt": "Night. Which three letters complete the word?",
   "choices": [
    "igh",
    "ai",
@@ -3157,7 +2834,7 @@ export const questions = [
    "ai": "D-PATTERN-TRAP",
    "ee": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -3167,21 +2844,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "night",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.B.igh.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/night.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "night",
-  "stimulusMediaId": "night",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3191,13 +2863,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/night.webp",
-  "imageUrl": "/images/assessment/long-vowels/night.webp",
-  "targetImage": "/images/assessment/long-vowels/night.webp",
-  "targetImagePath": "/images/assessment/long-vowels/night.webp",
-  "resolvedImageAssetKey": "night",
-  "imageAlt": "night"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.C.igh.v3",
@@ -3266,21 +2932,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.C.igh.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/long-vowels/night.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/long-vowels/night.webp",
-  "stimulusMediaId": "/images/assessment/long-vowels/night.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3290,13 +2951,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/night.webp",
-  "imageUrl": "/images/assessment/long-vowels/night.webp",
-  "targetImage": "/images/assessment/long-vowels/night.webp",
-  "targetImagePath": "/images/assessment/long-vowels/night.webp",
-  "resolvedImageAssetKey": "/images/assessment/long-vowels/night.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.A.igh.v4",
@@ -3365,21 +3020,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.A.igh.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/long-vowels/light.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/long-vowels/light.webp",
-  "stimulusMediaId": "/images/assessment/long-vowels/light.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3389,13 +3039,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "lit is the key minus its team",
-  "imagePath": "/images/assessment/long-vowels/light.webp",
-  "imageUrl": "/images/assessment/long-vowels/light.webp",
-  "targetImage": "/images/assessment/long-vowels/light.webp",
-  "targetImagePath": "/images/assessment/long-vowels/light.webp",
-  "resolvedImageAssetKey": "/images/assessment/long-vowels/light.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "lit is the key minus its team"
  },
  {
   "id": "lp3.vowel_teams.l1.B.igh.v5",
@@ -3414,12 +3058,12 @@ export const questions = [
   "form": "B",
   "itemType": "phonics_pattern",
   "itemKey": "igh",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word names the picture?",
-  "question": "Which word names the picture?",
-  "spokenPrompt": "Which word names the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Light. Which printed word matches the recording?",
   "choices": [
    "kite",
    "light",
@@ -3455,32 +3099,29 @@ export const questions = [
    "kite": "D-PATTERN-TRAP",
    "night": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
-  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "constructClaim": "spoken_to_real_word_vowel_team_recognition",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "light",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.B.igh.v5",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/light.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "light",
-  "stimulusMediaId": "light",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3490,13 +3131,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all choices are real words from the taught vowel-team family",
-  "imagePath": "/images/assessment/long-vowels/light.webp",
-  "imageUrl": "/images/assessment/long-vowels/light.webp",
-  "targetImage": "/images/assessment/long-vowels/light.webp",
-  "targetImagePath": "/images/assessment/long-vowels/light.webp",
-  "resolvedImageAssetKey": "light",
-  "imageAlt": "light"
+  "notes": "all choices are real words from the taught vowel-team family; the target is heard, never pictured"
  },
  {
   "id": "lp3.vowel_teams.l1.C.igh.v6",
@@ -3515,12 +3150,12 @@ export const questions = [
   "form": "C",
   "itemType": "phonics_pattern",
   "itemKey": "igh",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word names the picture?",
-  "question": "Which word names the picture?",
-  "spokenPrompt": "Which word names the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Night. Which printed word matches the recording?",
   "choices": [
    "night",
    "light",
@@ -3556,32 +3191,29 @@ export const questions = [
    "high": "D-PATTERN-TRAP",
    "light": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
-  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "constructClaim": "spoken_to_real_word_vowel_team_recognition",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "night",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.C.igh.v6",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/night.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "night",
-  "stimulusMediaId": "night",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3591,13 +3223,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all choices are real words from the taught vowel-team family",
-  "imagePath": "/images/assessment/long-vowels/night.webp",
-  "imageUrl": "/images/assessment/long-vowels/night.webp",
-  "targetImage": "/images/assessment/long-vowels/night.webp",
-  "targetImagePath": "/images/assessment/long-vowels/night.webp",
-  "resolvedImageAssetKey": "night",
-  "imageAlt": "night"
+  "notes": "all choices are real words from the taught vowel-team family; the target is heard, never pictured"
  },
  {
   "id": "lp3.vowel_teams.l2.A.oo.v1",
@@ -3619,9 +3245,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: m__n",
-  "question": "Finish: m__n",
-  "spokenPrompt": "moon. Which letters finish the word moon?",
+  "prompt": "Which two letters complete m__n?",
+  "question": "Which two letters complete m__n?",
+  "spokenPrompt": "Moon. Which two letters complete the word?",
   "choices": [
    "oa",
    "ou",
@@ -3657,7 +3283,7 @@ export const questions = [
    "ou": "D-PATTERN-TRAP",
    "ew": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -3667,21 +3293,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "moon",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.A.oo.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/moon.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "moon",
-  "stimulusMediaId": "moon",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3691,13 +3312,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "moan is real — the moon image pins the target",
-  "imagePath": "/images/assessment/long-vowels/moon.webp",
-  "imageUrl": "/images/assessment/long-vowels/moon.webp",
-  "targetImage": "/images/assessment/long-vowels/moon.webp",
-  "targetImagePath": "/images/assessment/long-vowels/moon.webp",
-  "resolvedImageAssetKey": "moon",
-  "imageAlt": "moon"
+  "notes": "moan is real — the heard word pins the target"
  },
  {
   "id": "lp3.vowel_teams.l2.B.oo.v2",
@@ -3719,9 +3334,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: sp__n",
-  "question": "Finish: sp__n",
-  "spokenPrompt": "spoon. Which letters finish the word spoon?",
+  "prompt": "Which two letters complete sp__n?",
+  "question": "Which two letters complete sp__n?",
+  "spokenPrompt": "Spoon. Which two letters complete the word?",
   "choices": [
    "ew",
    "oa",
@@ -3757,7 +3372,7 @@ export const questions = [
    "ai": "D-PATTERN-TRAP",
    "ew": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -3767,21 +3382,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "spoon",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.B.oo.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/spoon.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "spoon",
-  "stimulusMediaId": "spoon",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3791,13 +3401,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/spoon.webp",
-  "imageUrl": "/images/assessment/long-vowels/spoon.webp",
-  "targetImage": "/images/assessment/long-vowels/spoon.webp",
-  "targetImagePath": "/images/assessment/long-vowels/spoon.webp",
-  "resolvedImageAssetKey": "spoon",
-  "imageAlt": "spoon"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.C.oo.v3",
@@ -3819,9 +3423,9 @@ export const questions = [
   "formatType": "CPS",
   "templateType": "CPS",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same sound as blue?",
-  "question": "Which word has the same sound as blue?",
-  "spokenPrompt": "blue. Which word has the same middle sound as blue?",
+  "prompt": "Which word has the same vowel sound?",
+  "question": "Which word has the same vowel sound?",
+  "spokenPrompt": "Blue. Which word has the same vowel sound?",
   "choices": [
    "broom",
    "book",
@@ -3857,31 +3461,28 @@ export const questions = [
    "pig": "D-VOWEL",
    "book": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "blue",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.C.oo.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/long-vowels/blue.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/long-vowels/blue.webp",
-  "stimulusMediaId": "/images/assessment/long-vowels/blue.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3891,13 +3492,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "book keeps the letters and swaps the sound — the two-oo contrast",
-  "imagePath": "/images/assessment/long-vowels/blue.webp",
-  "imageUrl": "/images/assessment/long-vowels/blue.webp",
-  "targetImage": "/images/assessment/long-vowels/blue.webp",
-  "targetImagePath": "/images/assessment/long-vowels/blue.webp",
-  "resolvedImageAssetKey": "/images/assessment/long-vowels/blue.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "book keeps the letters and swaps the sound — the two-oo contrast"
  },
  {
   "id": "lp3.vowel_teams.l2.A.oo.v4",
@@ -3919,9 +3514,9 @@ export const questions = [
   "formatType": "CPS",
   "templateType": "CPS",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same sound as glue?",
-  "question": "Which word has the same sound as glue?",
-  "spokenPrompt": "glue. Which word has the same middle sound as glue?",
+  "prompt": "Which word has the same vowel sound?",
+  "question": "Which word has the same vowel sound?",
+  "spokenPrompt": "Glue. Which word has the same vowel sound?",
   "choices": [
    "look",
    "fan",
@@ -3957,31 +3552,28 @@ export const questions = [
    "fan": "D-VOWEL",
    "net": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "glue",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.A.oo.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/glue-bf135d.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/glue-bf135d.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/glue-bf135d.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3991,13 +3583,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/targets/glue-bf135d.webp",
-  "imageUrl": "/images/assessment/release-support/targets/glue-bf135d.webp",
-  "targetImage": "/images/assessment/release-support/targets/glue-bf135d.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/glue-bf135d.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/glue-bf135d.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.B.oo.v5",
@@ -4066,21 +3652,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.B.oo.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/language/variants/plurals/book-books-01.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/language/variants/plurals/book-books-01.webp",
-  "stimulusMediaId": "/images/assessment/language/variants/plurals/book-books-01.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4090,13 +3671,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
-  "imagePath": "/images/assessment/language/variants/plurals/book-books-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/book-books-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/book-books-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/book-books-01.webp",
-  "resolvedImageAssetKey": "/images/assessment/language/variants/plurals/book-books-01.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
  },
  {
   "id": "lp3.vowel_teams.l2.C.oo.v6",
@@ -4165,21 +3740,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.C.oo.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/look-e09315.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/look-e09315.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/look-e09315.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4189,13 +3759,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
-  "imagePath": "/images/assessment/release-support/targets/look-e09315.webp",
-  "imageUrl": "/images/assessment/release-support/targets/look-e09315.webp",
-  "targetImage": "/images/assessment/release-support/targets/look-e09315.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/look-e09315.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/look-e09315.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
  },
  {
   "id": "lp3.vowel_teams.l2.A.ow.v1",
@@ -4217,9 +3781,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: sn__",
-  "question": "Finish: sn__",
-  "spokenPrompt": "snow. Which letters finish the word snow?",
+  "prompt": "Which two letters complete sn__?",
+  "question": "Which two letters complete sn__?",
+  "spokenPrompt": "Snow. Which two letters complete the word?",
   "choices": [
    "ow",
    "ou",
@@ -4255,7 +3819,7 @@ export const questions = [
    "oo": "D-PATTERN-TRAP",
    "ou": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -4265,21 +3829,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "snow",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.A.ow.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/snow.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "snow",
-  "stimulusMediaId": "snow",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4289,13 +3848,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/snow.webp",
-  "imageUrl": "/images/assessment/long-vowels/snow.webp",
-  "targetImage": "/images/assessment/long-vowels/snow.webp",
-  "targetImagePath": "/images/assessment/long-vowels/snow.webp",
-  "resolvedImageAssetKey": "snow",
-  "imageAlt": "snow"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.B.ow.v2",
@@ -4317,9 +3870,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: gr__",
-  "question": "Finish: gr__",
-  "spokenPrompt": "grow. Which letters finish the word grow?",
+  "prompt": "Which two letters complete gr__?",
+  "question": "Which two letters complete gr__?",
+  "spokenPrompt": "Grow. Which two letters complete the word?",
   "choices": [
    "aw",
    "ow",
@@ -4355,7 +3908,7 @@ export const questions = [
    "aw": "D-PATTERN-TRAP",
    "ou": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -4365,21 +3918,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "grow",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.B.ow.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/grow-c7c5d7.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/grow-c7c5d7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/grow-c7c5d7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4389,13 +3937,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/targets/grow-c7c5d7.webp",
-  "imageUrl": "/images/assessment/release-support/targets/grow-c7c5d7.webp",
-  "targetImage": "/images/assessment/release-support/targets/grow-c7c5d7.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/grow-c7c5d7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/grow-c7c5d7.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.C.ow.v3",
@@ -4417,9 +3959,9 @@ export const questions = [
   "formatType": "CPS",
   "templateType": "CPS",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same sound as boat?",
-  "question": "Which word has the same sound as boat?",
-  "spokenPrompt": "boat. Which word has the same middle sound as boat?",
+  "prompt": "Which word has the same vowel sound?",
+  "question": "Which word has the same vowel sound?",
+  "spokenPrompt": "Boat. Which word has the same vowel sound?",
   "choices": [
    "hat",
    "bed",
@@ -4455,31 +3997,28 @@ export const questions = [
    "bed": "D-VOWEL",
    "cow": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "boat",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.C.ow.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/long-vowels/boat.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/long-vowels/boat.webp",
-  "stimulusMediaId": "/images/assessment/long-vowels/boat.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4489,13 +4028,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cow keeps the letters and swaps the sound",
-  "imagePath": "/images/assessment/long-vowels/boat.webp",
-  "imageUrl": "/images/assessment/long-vowels/boat.webp",
-  "targetImage": "/images/assessment/long-vowels/boat.webp",
-  "targetImagePath": "/images/assessment/long-vowels/boat.webp",
-  "resolvedImageAssetKey": "/images/assessment/long-vowels/boat.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "cow keeps the letters and swaps the sound"
  },
  {
   "id": "lp3.vowel_teams.l2.A.ow.v4",
@@ -4517,9 +4050,9 @@ export const questions = [
   "formatType": "CPS",
   "templateType": "CPS",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same sound as loud?",
-  "question": "Which word has the same sound as loud?",
-  "spokenPrompt": "loud. Which word has the same middle sound as loud?",
+  "prompt": "Which word has the same vowel sound?",
+  "question": "Which word has the same vowel sound?",
+  "spokenPrompt": "Loud. Which word has the same vowel sound?",
   "choices": [
    "mud",
    "town",
@@ -4555,31 +4088,28 @@ export const questions = [
    "pin": "D-VOWEL",
    "mud": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "loud",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.A.ow.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/generated/concepts/loud.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/generated/concepts/loud.webp",
-  "stimulusMediaId": "/images/assessment/generated/concepts/loud.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4589,13 +4119,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/loud.webp",
-  "imageUrl": "/images/assessment/generated/concepts/loud.webp",
-  "targetImage": "/images/assessment/generated/concepts/loud.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/loud.webp",
-  "resolvedImageAssetKey": "/images/assessment/generated/concepts/loud.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.B.ow.v5",
@@ -4664,21 +4188,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.B.ow.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/long-vowels/snow.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/long-vowels/snow.webp",
-  "stimulusMediaId": "/images/assessment/long-vowels/snow.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4688,13 +4207,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
-  "imagePath": "/images/assessment/long-vowels/snow.webp",
-  "imageUrl": "/images/assessment/long-vowels/snow.webp",
-  "targetImage": "/images/assessment/long-vowels/snow.webp",
-  "targetImagePath": "/images/assessment/long-vowels/snow.webp",
-  "resolvedImageAssetKey": "/images/assessment/long-vowels/snow.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
  },
  {
   "id": "lp3.vowel_teams.l2.C.ow.v6",
@@ -4763,21 +4276,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.C.ow.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/cow-8bbddb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/cow-8bbddb.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/cow-8bbddb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4787,13 +4295,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
-  "imagePath": "/images/assessment/release-support/targets/cow-8bbddb.webp",
-  "imageUrl": "/images/assessment/release-support/targets/cow-8bbddb.webp",
-  "targetImage": "/images/assessment/release-support/targets/cow-8bbddb.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/cow-8bbddb.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/cow-8bbddb.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
  },
  {
   "id": "lp3.vowel_teams.l2.A.ou.v1",
@@ -4815,9 +4317,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: cl__d",
-  "question": "Finish: cl__d",
-  "spokenPrompt": "cloud. Which letters finish the word cloud?",
+  "prompt": "Which two letters complete cl__d?",
+  "question": "Which two letters complete cl__d?",
+  "spokenPrompt": "Cloud. Which two letters complete the word?",
   "choices": [
    "oo",
    "oa",
@@ -4853,7 +4355,7 @@ export const questions = [
    "oo": "D-PATTERN-TRAP",
    "oa": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -4863,21 +4365,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "cloud",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.A.ou.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/release-media/cloud-86182099.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "cloud",
-  "stimulusMediaId": "cloud",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4887,13 +4384,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-media/cloud-86182099.webp",
-  "imageUrl": "/images/assessment/release-media/cloud-86182099.webp",
-  "targetImage": "/images/assessment/release-media/cloud-86182099.webp",
-  "targetImagePath": "/images/assessment/release-media/cloud-86182099.webp",
-  "resolvedImageAssetKey": "cloud",
-  "imageAlt": "cloud"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.B.ou.v2",
@@ -4915,9 +4406,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: h__se",
-  "question": "Finish: h__se",
-  "spokenPrompt": "house. Which letters finish the word house?",
+  "prompt": "Which two letters complete h__se?",
+  "question": "Which two letters complete h__se?",
+  "spokenPrompt": "House. Which two letters complete the word?",
   "choices": [
    "ow",
    "oo",
@@ -4953,7 +4444,7 @@ export const questions = [
    "oo": "D-PATTERN-TRAP",
    "oa": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -4963,21 +4454,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "house",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.B.ou.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/house/house-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "house",
-  "stimulusMediaId": "house",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4987,13 +4473,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/house/house-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/house/house-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/house/house-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/house/house-02.webp",
-  "resolvedImageAssetKey": "house",
-  "imageAlt": "house"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.C.ou.v3",
@@ -5015,9 +4495,9 @@ export const questions = [
   "formatType": "CPS",
   "templateType": "CPS",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same sound as cow?",
-  "question": "Which word has the same sound as cow?",
-  "spokenPrompt": "cow. Which word has the same middle sound as cow?",
+  "prompt": "Which word has the same vowel sound?",
+  "question": "Which word has the same vowel sound?",
+  "spokenPrompt": "Cow. Which word has the same vowel sound?",
   "choices": [
    "loud",
    "fond",
@@ -5053,31 +4533,28 @@ export const questions = [
    "hat": "D-VOWEL",
    "zip": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "cow",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.C.ou.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/cow-8bbddb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/cow-8bbddb.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/cow-8bbddb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5087,13 +4564,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "keys avoid ound-words — the prompt word sound contains them; fond ties the nd chunk",
-  "imagePath": "/images/assessment/release-support/targets/cow-8bbddb.webp",
-  "imageUrl": "/images/assessment/release-support/targets/cow-8bbddb.webp",
-  "targetImage": "/images/assessment/release-support/targets/cow-8bbddb.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/cow-8bbddb.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/cow-8bbddb.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "keys avoid ound-words — the prompt word sound contains them; fond ties the nd chunk"
  },
  {
   "id": "lp3.vowel_teams.l2.A.ou.v4",
@@ -5115,9 +4586,9 @@ export const questions = [
   "formatType": "CPS",
   "templateType": "CPS",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same sound as how?",
-  "question": "Which word has the same sound as how?",
-  "spokenPrompt": "how. Which word has the same middle sound as how?",
+  "prompt": "Which word has the same vowel sound?",
+  "question": "Which word has the same vowel sound?",
+  "spokenPrompt": "How. Which word has the same vowel sound?",
   "choices": [
    "moth",
    "bag",
@@ -5153,31 +4624,28 @@ export const questions = [
    "moth": "D-PATTERN-TRAP",
    "bag": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "how",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.A.ou.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/how-0b0643.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/how-0b0643.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/how-0b0643.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5187,13 +4655,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "moth is the key minus one letter with a different vowel entirely",
-  "imagePath": "/images/assessment/release-support/targets/how-0b0643.webp",
-  "imageUrl": "/images/assessment/release-support/targets/how-0b0643.webp",
-  "targetImage": "/images/assessment/release-support/targets/how-0b0643.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/how-0b0643.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/how-0b0643.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "moth is the key minus one letter with a different vowel entirely"
  },
  {
   "id": "lp3.vowel_teams.l2.B.ou.v5",
@@ -5262,21 +4724,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.B.ou.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/soup-93ad1e.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/soup-93ad1e.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/soup-93ad1e.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5286,13 +4743,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "soup's ou says oo — the variable-team contrast",
-  "imagePath": "/images/assessment/release-support/targets/soup-93ad1e.webp",
-  "imageUrl": "/images/assessment/release-support/targets/soup-93ad1e.webp",
-  "targetImage": "/images/assessment/release-support/targets/soup-93ad1e.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/soup-93ad1e.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/soup-93ad1e.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "soup's ou says oo — the variable-team contrast"
  },
  {
   "id": "lp3.vowel_teams.l2.C.ou.v6",
@@ -5361,21 +4812,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.C.ou.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/could-e30de8.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/could-e30de8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/could-e30de8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5385,13 +4831,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "could's ou says the book-oo",
-  "imagePath": "/images/assessment/release-support/targets/could-e30de8.webp",
-  "imageUrl": "/images/assessment/release-support/targets/could-e30de8.webp",
-  "targetImage": "/images/assessment/release-support/targets/could-e30de8.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/could-e30de8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/could-e30de8.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "could's ou says the book-oo"
  },
  {
   "id": "lp3.vowel_teams.l2.A.oi.v1",
@@ -5413,9 +4853,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: c__n",
-  "question": "Finish: c__n",
-  "spokenPrompt": "coin. Which letters finish the word coin?",
+  "prompt": "Which two letters complete c__n?",
+  "question": "Which two letters complete c__n?",
+  "spokenPrompt": "Coin. Which two letters complete the word?",
   "choices": [
    "oi",
    "oy",
@@ -5451,7 +4891,7 @@ export const questions = [
    "ai": "D-PATTERN-TRAP",
    "ee": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -5461,21 +4901,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "coin",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.A.oi.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/coin-3478fe.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/coin-3478fe.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/coin-3478fe.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5485,13 +4920,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/targets/coin-3478fe.webp",
-  "imageUrl": "/images/assessment/release-support/targets/coin-3478fe.webp",
-  "targetImage": "/images/assessment/release-support/targets/coin-3478fe.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/coin-3478fe.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/coin-3478fe.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.B.oi.v2",
@@ -5513,9 +4942,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: b__l",
-  "question": "Finish: b__l",
-  "spokenPrompt": "boil. Which letters finish the word boil?",
+  "prompt": "Which two letters complete b__l?",
+  "question": "Which two letters complete b__l?",
+  "spokenPrompt": "Boil. Which two letters complete the word?",
   "choices": [
    "oo",
    "oi",
@@ -5551,7 +4980,7 @@ export const questions = [
    "ea": "D-PATTERN-TRAP",
    "oo": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -5561,21 +4990,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "boil",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.B.oi.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/generated/concepts/boil.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "boil",
-  "stimulusMediaId": "boil",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5585,13 +5009,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/boil.webp",
-  "imageUrl": "/images/assessment/generated/concepts/boil.webp",
-  "targetImage": "/images/assessment/generated/concepts/boil.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/boil.webp",
-  "resolvedImageAssetKey": "boil",
-  "imageAlt": "boil"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.C.oi.v3",
@@ -5613,9 +5031,9 @@ export const questions = [
   "formatType": "CPS",
   "templateType": "CPS",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same sound as toy?",
-  "question": "Which word has the same sound as toy?",
-  "spokenPrompt": "toy. Which word has the same middle sound as toy?",
+  "prompt": "Which word has the same vowel sound?",
+  "question": "Which word has the same vowel sound?",
+  "spokenPrompt": "Toy. Which word has the same vowel sound?",
   "choices": [
    "pin",
    "bag",
@@ -5651,31 +5069,28 @@ export const questions = [
    "pin": "D-VOWEL",
    "bag": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "toy",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.C.oi.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/language/variants/plurals/toy-toys-01.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
-  "stimulusMediaId": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5685,13 +5100,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
-  "resolvedImageAssetKey": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.A.oi.v4",
@@ -5713,9 +5122,9 @@ export const questions = [
   "formatType": "CPS",
   "templateType": "CPS",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same sound as boy?",
-  "question": "Which word has the same sound as boy?",
-  "spokenPrompt": "boy. Which word has the same middle sound as boy?",
+  "prompt": "Which word has the same vowel sound?",
+  "question": "Which word has the same vowel sound?",
+  "spokenPrompt": "Boy. Which word has the same vowel sound?",
   "choices": [
    "cup",
    "oil",
@@ -5751,31 +5160,28 @@ export const questions = [
    "log": "D-VOWEL",
    "pen": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "boy",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.A.oi.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/language/variants/plurals/boy-boys-01.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
-  "stimulusMediaId": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5785,13 +5191,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
-  "resolvedImageAssetKey": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.B.oi.v5",
@@ -5810,12 +5210,12 @@ export const questions = [
   "form": "B",
   "itemType": "phonics_pattern",
   "itemKey": "oi",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word names the picture?",
-  "question": "Which word names the picture?",
-  "spokenPrompt": "Which word names the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Oil. Which printed word matches the recording?",
   "choices": [
    "boil",
    "toy",
@@ -5851,32 +5251,29 @@ export const questions = [
    "boil": "D-PATTERN-TRAP",
    "toy": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
-  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "constructClaim": "spoken_to_real_word_vowel_team_recognition",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "oil",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.B.oi.v5",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/generated/concepts/oil.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "oil",
-  "stimulusMediaId": "oil",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5886,13 +5283,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all choices are real words from the taught vowel-team family",
-  "imagePath": "/images/assessment/generated/concepts/oil.webp",
-  "imageUrl": "/images/assessment/generated/concepts/oil.webp",
-  "targetImage": "/images/assessment/generated/concepts/oil.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/oil.webp",
-  "resolvedImageAssetKey": "oil",
-  "imageAlt": "oil"
+  "notes": "all choices are real words from the taught vowel-team family; the target is heard, never pictured"
  },
  {
   "id": "lp3.vowel_teams.l2.C.oi.v6",
@@ -5911,12 +5302,12 @@ export const questions = [
   "form": "C",
   "itemType": "phonics_pattern",
   "itemKey": "oi",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word names the picture?",
-  "question": "Which word names the picture?",
-  "spokenPrompt": "Which word names the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Boil. Which printed word matches the recording?",
   "choices": [
    "coin",
    "oil",
@@ -5952,32 +5343,29 @@ export const questions = [
    "coin": "D-PATTERN-TRAP",
    "oil": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
-  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "constructClaim": "spoken_to_real_word_vowel_team_recognition",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "boil",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.C.oi.v6",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/generated/concepts/boil.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "boil",
-  "stimulusMediaId": "boil",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5987,13 +5375,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all choices are real words from the taught vowel-team family",
-  "imagePath": "/images/assessment/generated/concepts/boil.webp",
-  "imageUrl": "/images/assessment/generated/concepts/boil.webp",
-  "targetImage": "/images/assessment/generated/concepts/boil.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/boil.webp",
-  "resolvedImageAssetKey": "boil",
-  "imageAlt": "boil"
+  "notes": "all choices are real words from the taught vowel-team family; the target is heard, never pictured"
  },
  {
   "id": "lp3.vowel_teams.l2.A.oy.v1",
@@ -6015,9 +5397,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: b__",
-  "question": "Finish: b__",
-  "spokenPrompt": "boy. Which letters finish the word boy?",
+  "prompt": "Which two letters complete b__?",
+  "question": "Which two letters complete b__?",
+  "spokenPrompt": "Boy. Which two letters complete the word?",
   "choices": [
    "ai",
    "ay",
@@ -6053,7 +5435,7 @@ export const questions = [
    "ai": "D-PATTERN-TRAP",
    "ay": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -6063,21 +5445,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "boy",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.A.oy.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/language/variants/plurals/boy-boys-01.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "boy",
-  "stimulusMediaId": "boy",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6087,13 +5464,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "bay is real — the boy image pins the target; boi is the position error",
-  "imagePath": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
-  "resolvedImageAssetKey": "boy",
-  "imageAlt": "boy"
+  "notes": "bay is real — the heard word pins the target; boi is the position error"
  },
  {
   "id": "lp3.vowel_teams.l2.B.oy.v2",
@@ -6115,9 +5486,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: j__",
-  "question": "Finish: j__",
-  "spokenPrompt": "joy. Which letters finish the word joy?",
+  "prompt": "Which two letters complete j__?",
+  "question": "Which two letters complete j__?",
+  "spokenPrompt": "Joy. Which two letters complete the word?",
   "choices": [
    "oi",
    "ai",
@@ -6153,7 +5524,7 @@ export const questions = [
    "ai": "D-PATTERN-TRAP",
    "ee": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -6163,21 +5534,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "joy",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.B.oy.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/generated/concepts/joy.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "joy",
-  "stimulusMediaId": "joy",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6187,13 +5553,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "joi, jai and jee are non-words",
-  "imagePath": "/images/assessment/generated/concepts/joy.webp",
-  "imageUrl": "/images/assessment/generated/concepts/joy.webp",
-  "targetImage": "/images/assessment/generated/concepts/joy.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/joy.webp",
-  "resolvedImageAssetKey": "joy",
-  "imageAlt": "joy"
+  "notes": "joi, jai and jee are non-words"
  },
  {
   "id": "lp3.vowel_teams.l2.C.oy.v3",
@@ -6215,9 +5575,9 @@ export const questions = [
   "formatType": "CPS",
   "templateType": "CPS",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same sound as coin?",
-  "question": "Which word has the same sound as coin?",
-  "spokenPrompt": "coin. Which word has the same middle sound as coin?",
+  "prompt": "Which word has the same vowel sound?",
+  "question": "Which word has the same vowel sound?",
+  "spokenPrompt": "Coin. Which word has the same vowel sound?",
   "choices": [
    "toy",
    "top",
@@ -6253,31 +5613,28 @@ export const questions = [
    "net": "D-VOWEL",
    "rug": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "coin",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.C.oy.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/coin-3478fe.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/coin-3478fe.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/coin-3478fe.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6287,13 +5644,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/targets/coin-3478fe.webp",
-  "imageUrl": "/images/assessment/release-support/targets/coin-3478fe.webp",
-  "targetImage": "/images/assessment/release-support/targets/coin-3478fe.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/coin-3478fe.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/coin-3478fe.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.A.oy.v4",
@@ -6315,9 +5666,9 @@ export const questions = [
   "formatType": "CPS",
   "templateType": "CPS",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same sound as oil?",
-  "question": "Which word has the same sound as oil?",
-  "spokenPrompt": "oil. Which word has the same middle sound as oil?",
+  "prompt": "Which word has the same vowel sound?",
+  "question": "Which word has the same vowel sound?",
+  "spokenPrompt": "Oil. Which word has the same vowel sound?",
   "choices": [
    "jog",
    "pin",
@@ -6353,31 +5704,28 @@ export const questions = [
    "jog": "D-PATTERN-TRAP",
    "pin": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "oil",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.A.oy.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/generated/concepts/oil.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/generated/concepts/oil.webp",
-  "stimulusMediaId": "/images/assessment/generated/concepts/oil.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6387,13 +5735,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/oil.webp",
-  "imageUrl": "/images/assessment/generated/concepts/oil.webp",
-  "targetImage": "/images/assessment/generated/concepts/oil.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/oil.webp",
-  "resolvedImageAssetKey": "/images/assessment/generated/concepts/oil.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.B.oy.v5",
@@ -6412,12 +5754,12 @@ export const questions = [
   "form": "B",
   "itemType": "phonics_pattern",
   "itemKey": "oy",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word names the picture?",
-  "question": "Which word names the picture?",
-  "spokenPrompt": "Which word names the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Boy. Which printed word matches the recording?",
   "choices": [
    "boy",
    "toy",
@@ -6453,32 +5795,29 @@ export const questions = [
    "joy": "D-PATTERN-TRAP",
    "day": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
-  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "constructClaim": "spoken_to_real_word_vowel_team_recognition",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "boy",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.B.oy.v5",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/language/variants/plurals/boy-boys-01.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "boy",
-  "stimulusMediaId": "boy",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6488,13 +5827,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all choices are real words from the taught vowel-team family",
-  "imagePath": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
-  "resolvedImageAssetKey": "boy",
-  "imageAlt": "boy"
+  "notes": "all choices are real words from the taught vowel-team family; the target is heard, never pictured"
  },
  {
   "id": "lp3.vowel_teams.l2.C.oy.v6",
@@ -6513,12 +5846,12 @@ export const questions = [
   "form": "C",
   "itemType": "phonics_pattern",
   "itemKey": "oy",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word names the picture?",
-  "question": "Which word names the picture?",
-  "spokenPrompt": "Which word names the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Toy. Which printed word matches the recording?",
   "choices": [
    "oil",
    "toy",
@@ -6554,32 +5887,29 @@ export const questions = [
    "boy": "D-PATTERN-TRAP",
    "joy": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
-  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "constructClaim": "spoken_to_real_word_vowel_team_recognition",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "toy",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.C.oy.v6",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/language/variants/plurals/toy-toys-01.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "toy",
-  "stimulusMediaId": "toy",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6589,13 +5919,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all choices are real words from the taught vowel-team family",
-  "imagePath": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
-  "resolvedImageAssetKey": "toy",
-  "imageAlt": "toy"
+  "notes": "all choices are real words from the taught vowel-team family; the target is heard, never pictured"
  },
  {
   "id": "lp3.vowel_teams.l2.A.ew.v1",
@@ -6617,9 +5941,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: scr__",
-  "question": "Finish: scr__",
-  "spokenPrompt": "screw. Which letters finish the word screw?",
+  "prompt": "Which two letters complete scr__?",
+  "question": "Which two letters complete scr__?",
+  "spokenPrompt": "Screw. Which two letters complete the word?",
   "choices": [
    "ew",
    "oo",
@@ -6655,7 +5979,7 @@ export const questions = [
    "ue": "D-PATTERN-TRAP",
    "ow": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -6665,21 +5989,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "screw",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.A.ew.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/screw.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "screw",
-  "stimulusMediaId": "screw",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6689,13 +6008,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/screw.webp",
-  "imageUrl": "/images/assessment/blends/screw.webp",
-  "targetImage": "/images/assessment/blends/screw.webp",
-  "targetImagePath": "/images/assessment/blends/screw.webp",
-  "resolvedImageAssetKey": "screw",
-  "imageAlt": "screw"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.B.ew.v2",
@@ -6717,9 +6030,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: ch__",
-  "question": "Finish: ch__",
-  "spokenPrompt": "chew. Which letters finish the word chew?",
+  "prompt": "Which two letters complete ch__?",
+  "question": "Which two letters complete ch__?",
+  "spokenPrompt": "Chew. Which two letters complete the word?",
   "choices": [
    "aw",
    "ew",
@@ -6755,7 +6068,7 @@ export const questions = [
    "ue": "D-PATTERN-TRAP",
    "aw": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -6765,21 +6078,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "chew",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.B.ew.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/chew.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "chew",
-  "stimulusMediaId": "chew",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6789,13 +6097,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/chew.webp",
-  "imageUrl": "/images/assessment/long-vowels/chew.webp",
-  "targetImage": "/images/assessment/long-vowels/chew.webp",
-  "targetImagePath": "/images/assessment/long-vowels/chew.webp",
-  "resolvedImageAssetKey": "chew",
-  "imageAlt": "chew"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.C.ew.v3",
@@ -6817,9 +6119,9 @@ export const questions = [
   "formatType": "CPS",
   "templateType": "CPS",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same sound as moon?",
-  "question": "Which word has the same sound as moon?",
-  "spokenPrompt": "moon. Which word has the same middle sound as moon?",
+  "prompt": "Which word has the same vowel sound?",
+  "question": "Which word has the same vowel sound?",
+  "spokenPrompt": "Moon. Which word has the same vowel sound?",
   "choices": [
    "bag",
    "dog",
@@ -6855,31 +6157,28 @@ export const questions = [
    "bag": "D-VOWEL",
    "dog": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "moon",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.C.ew.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/long-vowels/moon.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/long-vowels/moon.webp",
-  "stimulusMediaId": "/images/assessment/long-vowels/moon.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6889,13 +6188,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/moon.webp",
-  "imageUrl": "/images/assessment/long-vowels/moon.webp",
-  "targetImage": "/images/assessment/long-vowels/moon.webp",
-  "targetImagePath": "/images/assessment/long-vowels/moon.webp",
-  "resolvedImageAssetKey": "/images/assessment/long-vowels/moon.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.A.ew.v4",
@@ -6917,9 +6210,9 @@ export const questions = [
   "formatType": "CPS",
   "templateType": "CPS",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same sound as zoo?",
-  "question": "Which word has the same sound as zoo?",
-  "spokenPrompt": "zoo. Which word has the same middle sound as zoo?",
+  "prompt": "Which word has the same vowel sound?",
+  "question": "Which word has the same vowel sound?",
+  "spokenPrompt": "Zoo. Which word has the same vowel sound?",
   "choices": [
    "ram",
    "flew",
@@ -6955,31 +6248,28 @@ export const questions = [
    "fled": "D-PATTERN-TRAP",
    "sock": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "zoo",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.A.ew.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/language/variants/plurals/zoo-zoos-01.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
-  "stimulusMediaId": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6989,13 +6279,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
-  "resolvedImageAssetKey": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.B.ew.v5",
@@ -7014,12 +6298,12 @@ export const questions = [
   "form": "B",
   "itemType": "phonics_pattern",
   "itemKey": "ew",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word names the picture?",
-  "question": "Which word names the picture?",
-  "spokenPrompt": "Which word names the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "New. Which printed word matches the recording?",
   "choices": [
    "flew",
    "grew",
@@ -7055,32 +6339,29 @@ export const questions = [
    "flew": "D-PATTERN-TRAP",
    "grew": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
-  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "constructClaim": "spoken_to_real_word_vowel_team_recognition",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "new",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.B.ew.v5",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/hfw/new.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "new",
-  "stimulusMediaId": "new",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7090,13 +6371,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all choices are real words from the taught vowel-team family",
-  "imagePath": "/images/assessment/hfw/new.webp",
-  "imageUrl": "/images/assessment/hfw/new.webp",
-  "targetImage": "/images/assessment/hfw/new.webp",
-  "targetImagePath": "/images/assessment/hfw/new.webp",
-  "resolvedImageAssetKey": "new",
-  "imageAlt": "new"
+  "notes": "all choices are real words from the taught vowel-team family; the target is heard, never pictured"
  },
  {
   "id": "lp3.vowel_teams.l2.C.ew.v6",
@@ -7115,12 +6390,12 @@ export const questions = [
   "form": "C",
   "itemType": "phonics_pattern",
   "itemKey": "ew",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word names the picture?",
-  "question": "Which word names the picture?",
-  "spokenPrompt": "Which word names the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Flew. Which printed word matches the recording?",
   "choices": [
    "new",
    "chew",
@@ -7156,32 +6431,29 @@ export const questions = [
    "new": "D-PATTERN-TRAP",
    "chew": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
-  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "constructClaim": "spoken_to_real_word_vowel_team_recognition",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "flew",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.C.ew.v6",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/generated/concepts/flew.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "flew",
-  "stimulusMediaId": "flew",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7191,13 +6463,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all choices are real words from the taught vowel-team family",
-  "imagePath": "/images/assessment/generated/concepts/flew.webp",
-  "imageUrl": "/images/assessment/generated/concepts/flew.webp",
-  "targetImage": "/images/assessment/generated/concepts/flew.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/flew.webp",
-  "resolvedImageAssetKey": "flew",
-  "imageAlt": "flew"
+  "notes": "all choices are real words from the taught vowel-team family; the target is heard, never pictured"
  },
  {
   "id": "lp3.vowel_teams.l2.A.aw.v1",
@@ -7219,9 +6485,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: dr__",
-  "question": "Finish: dr__",
-  "spokenPrompt": "draw. Which letters finish the word draw?",
+  "prompt": "Which two letters complete dr__?",
+  "question": "Which two letters complete dr__?",
+  "spokenPrompt": "Draw. Which two letters complete the word?",
   "choices": [
    "ow",
    "oa",
@@ -7257,7 +6523,7 @@ export const questions = [
    "ow": "D-PATTERN-TRAP",
    "oa": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -7267,21 +6533,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "draw",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.A.aw.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/draw.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "draw",
-  "stimulusMediaId": "draw",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7291,13 +6552,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "drew is real — the draw image pins the target",
-  "imagePath": "/images/assessment/blends/draw.webp",
-  "imageUrl": "/images/assessment/blends/draw.webp",
-  "targetImage": "/images/assessment/blends/draw.webp",
-  "targetImagePath": "/images/assessment/blends/draw.webp",
-  "resolvedImageAssetKey": "draw",
-  "imageAlt": "draw"
+  "notes": "drew is real — the heard word pins the target"
  },
  {
   "id": "lp3.vowel_teams.l2.B.aw.v2",
@@ -7319,9 +6574,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: y__n",
-  "question": "Finish: y__n",
-  "spokenPrompt": "yawn. Which letters finish the word yawn?",
+  "prompt": "Which two letters complete y__n?",
+  "question": "Which two letters complete y__n?",
+  "spokenPrompt": "Yawn. Which two letters complete the word?",
   "choices": [
    "ew",
    "oo",
@@ -7357,7 +6612,7 @@ export const questions = [
    "oo": "D-PATTERN-TRAP",
    "oa": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
@@ -7367,21 +6622,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "yawn",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.B.aw.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/generated/initial-sounds-l2/yawn.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "yawn",
-  "stimulusMediaId": "yawn",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7391,13 +6641,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "yewn, yoon and yoan are non-words",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
-  "resolvedImageAssetKey": "yawn",
-  "imageAlt": "yawn"
+  "notes": "yewn, yoon and yoan are non-words"
  },
  {
   "id": "lp3.vowel_teams.l2.C.aw.v3",
@@ -7419,9 +6663,9 @@ export const questions = [
   "formatType": "CPS",
   "templateType": "CPS",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same sound as ball?",
-  "question": "Which word has the same sound as ball?",
-  "spokenPrompt": "ball. Which word has the same middle sound as ball?",
+  "prompt": "Which word has the same vowel sound?",
+  "question": "Which word has the same vowel sound?",
+  "spokenPrompt": "Ball. Which word has the same vowel sound?",
   "choices": [
    "saw",
    "sat",
@@ -7457,31 +6701,28 @@ export const questions = [
    "pin": "D-VOWEL",
    "mug": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "ball",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.C.aw.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/ball-8bec04.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/ball-8bec04.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/ball-8bec04.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7491,13 +6732,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/targets/ball-8bec04.webp",
-  "imageUrl": "/images/assessment/release-support/targets/ball-8bec04.webp",
-  "targetImage": "/images/assessment/release-support/targets/ball-8bec04.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/ball-8bec04.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/ball-8bec04.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.A.aw.v4",
@@ -7519,9 +6754,9 @@ export const questions = [
   "formatType": "CPS",
   "templateType": "CPS",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same sound as tall?",
-  "question": "Which word has the same sound as tall?",
-  "spokenPrompt": "tall. Which word has the same middle sound as tall?",
+  "prompt": "Which word has the same vowel sound?",
+  "question": "Which word has the same vowel sound?",
+  "spokenPrompt": "Tall. Which word has the same vowel sound?",
   "choices": [
    "pan",
    "bed",
@@ -7557,31 +6792,28 @@ export const questions = [
    "pan": "D-PATTERN-TRAP",
    "bed": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "tall",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.A.aw.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/rhyming/variants/all/tall-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "stimulusMediaId": "/images/assessment/rhyming/variants/all/tall-02.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7591,13 +6823,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "resolvedImageAssetKey": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.B.aw.v5",
@@ -7616,12 +6842,12 @@ export const questions = [
   "form": "B",
   "itemType": "phonics_pattern",
   "itemKey": "aw",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word names the picture?",
-  "question": "Which word names the picture?",
-  "spokenPrompt": "Which word names the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Draw. Which printed word matches the recording?",
   "choices": [
    "draw",
    "saw",
@@ -7657,32 +6883,29 @@ export const questions = [
    "straw": "D-PATTERN-TRAP",
    "yawn": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
-  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "constructClaim": "spoken_to_real_word_vowel_team_recognition",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "draw",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.B.aw.v5",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/draw.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "draw",
-  "stimulusMediaId": "draw",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7692,13 +6915,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all choices are real words from the taught vowel-team family",
-  "imagePath": "/images/assessment/blends/draw.webp",
-  "imageUrl": "/images/assessment/blends/draw.webp",
-  "targetImage": "/images/assessment/blends/draw.webp",
-  "targetImagePath": "/images/assessment/blends/draw.webp",
-  "resolvedImageAssetKey": "draw",
-  "imageAlt": "draw"
+  "notes": "all choices are real words from the taught vowel-team family; the target is heard, never pictured"
  },
  {
   "id": "lp3.vowel_teams.l2.C.aw.v6",
@@ -7717,12 +6934,12 @@ export const questions = [
   "form": "C",
   "itemType": "phonics_pattern",
   "itemKey": "aw",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word names the picture?",
-  "question": "Which word names the picture?",
-  "spokenPrompt": "Which word names the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Yawn. Which printed word matches the recording?",
   "choices": [
    "paw",
    "yawn",
@@ -7758,32 +6975,29 @@ export const questions = [
    "draw": "D-PATTERN-TRAP",
    "saw": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
-  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "constructClaim": "spoken_to_real_word_vowel_team_recognition",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "yawn",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.C.aw.v6",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/generated/initial-sounds-l2/yawn.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "yawn",
-  "stimulusMediaId": "yawn",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7793,13 +7007,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all choices are real words from the taught vowel-team family",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
-  "resolvedImageAssetKey": "yawn",
-  "imageAlt": "yawn"
+  "notes": "all choices are real words from the taught vowel-team family; the target is heard, never pictured"
  },
  {
   "id": "lp3.vowel_teams.l1.R.ai.v7r",
@@ -7821,9 +7029,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: t__l",
-  "question": "Finish: t__l",
-  "spokenPrompt": "tail. Which letters finish the word tail?",
+  "prompt": "Which two letters complete t__l?",
+  "question": "Which two letters complete t__l?",
+  "spokenPrompt": "Tail. Which two letters complete the word?",
   "choices": [
    "ee",
    "oa",
@@ -7859,7 +7067,7 @@ export const questions = [
    "oa": "D-PATTERN-TRAP",
    "ay": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
@@ -7869,21 +7077,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "tail",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.R.ai.v7r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "tail",
-  "stimulusMediaId": "tail",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7893,13 +7096,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "tayl, teel and toal are non-words",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp",
-  "resolvedImageAssetKey": "tail",
-  "imageAlt": "tail"
+  "notes": "tayl, teel and toal are non-words"
  },
  {
   "id": "lp3.vowel_teams.l1.R.oa.v7r",
@@ -7921,9 +7118,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: t__st",
-  "question": "Finish: t__st",
-  "spokenPrompt": "toast. Which letters finish the word toast?",
+  "prompt": "Which two letters complete t__st?",
+  "question": "Which two letters complete t__st?",
+  "spokenPrompt": "Toast. Which two letters complete the word?",
   "choices": [
    "ee",
    "ai",
@@ -7959,7 +7156,7 @@ export const questions = [
    "ai": "D-PATTERN-TRAP",
    "oo": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
@@ -7969,21 +7166,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "toast",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.R.oa.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/toast-2d885a.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/toast-2d885a.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/toast-2d885a.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7993,13 +7185,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/targets/toast-2d885a.webp",
-  "imageUrl": "/images/assessment/release-support/targets/toast-2d885a.webp",
-  "targetImage": "/images/assessment/release-support/targets/toast-2d885a.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/toast-2d885a.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/toast-2d885a.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.R.ea.v7r",
@@ -8068,21 +7254,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.R.ea.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/long-vowels/beach.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/long-vowels/beach.webp",
-  "stimulusMediaId": "/images/assessment/long-vowels/beach.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8092,13 +7273,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/beach.webp",
-  "imageUrl": "/images/assessment/long-vowels/beach.webp",
-  "targetImage": "/images/assessment/long-vowels/beach.webp",
-  "targetImagePath": "/images/assessment/long-vowels/beach.webp",
-  "resolvedImageAssetKey": "/images/assessment/long-vowels/beach.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.R.oo.v7r",
@@ -8120,9 +7295,9 @@ export const questions = [
   "formatType": "CPS",
   "templateType": "CPS",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same sound as flew?",
-  "question": "Which word has the same sound as flew?",
-  "spokenPrompt": "flew. Which word has the same middle sound as flew?",
+  "prompt": "Which word has the same vowel sound?",
+  "question": "Which word has the same vowel sound?",
+  "spokenPrompt": "Flew. Which word has the same vowel sound?",
   "choices": [
    "book",
    "pig",
@@ -8158,31 +7333,28 @@ export const questions = [
    "pig": "D-VOWEL",
    "jam": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "flew",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.R.oo.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/generated/concepts/flew.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/generated/concepts/flew.webp",
-  "stimulusMediaId": "/images/assessment/generated/concepts/flew.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8192,13 +7364,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/flew.webp",
-  "imageUrl": "/images/assessment/generated/concepts/flew.webp",
-  "targetImage": "/images/assessment/generated/concepts/flew.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/flew.webp",
-  "resolvedImageAssetKey": "/images/assessment/generated/concepts/flew.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.R.ai.v8r",
@@ -8217,12 +7383,12 @@ export const questions = [
   "form": "R",
   "itemType": "phonics_pattern",
   "itemKey": "ai",
-  "formatType": "PICTURE_TO_PRINT_MATCH",
-  "templateType": "PICTURE_TO_PRINT_MATCH",
-  "questionType": "multiple_choice",
-  "prompt": "Which word names the picture?",
-  "question": "Which word names the picture?",
-  "spokenPrompt": "Which word names the picture?",
+  "formatType": "LISTEN_FIND_WORD",
+  "templateType": "LISTEN_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Rain. Which printed word matches the recording?",
   "choices": [
    "paint",
    "rain",
@@ -8258,32 +7424,29 @@ export const questions = [
    "train": "D-PATTERN-TRAP",
    "paint": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
-  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "constructClaim": "spoken_to_real_word_vowel_team_recognition",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "rain",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.R.ai.v8r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/rain.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "rain",
-  "stimulusMediaId": "rain",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8293,13 +7456,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all choices are real words from the taught vowel-team family",
-  "imagePath": "/images/assessment/long-vowels/rain.webp",
-  "imageUrl": "/images/assessment/long-vowels/rain.webp",
-  "targetImage": "/images/assessment/long-vowels/rain.webp",
-  "targetImagePath": "/images/assessment/long-vowels/rain.webp",
-  "resolvedImageAssetKey": "rain",
-  "imageAlt": "rain"
+  "notes": "all choices are real words from the taught vowel-team family; the target is heard, never pictured"
  },
  {
   "id": "lp3.vowel_teams.l2.R.ow.v7r",
@@ -8368,21 +7525,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.R.ow.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/blends/brown.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/blends/brown.webp",
-  "stimulusMediaId": "/images/assessment/blends/brown.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8392,13 +7544,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
-  "imagePath": "/images/assessment/blends/brown.webp",
-  "imageUrl": "/images/assessment/blends/brown.webp",
-  "targetImage": "/images/assessment/blends/brown.webp",
-  "targetImagePath": "/images/assessment/blends/brown.webp",
-  "resolvedImageAssetKey": "/images/assessment/blends/brown.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
  },
  {
   "id": "lp3.vowel_teams.l1.R.oa.v8r",
@@ -8420,9 +7566,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: r__d",
-  "question": "Finish: r__d",
-  "spokenPrompt": "road. Which letters finish the word road?",
+  "prompt": "Which two letters complete r__d?",
+  "question": "Which two letters complete r__d?",
+  "spokenPrompt": "Road. Which two letters complete the word?",
   "choices": [
    "ai",
    "igh",
@@ -8458,7 +7604,7 @@ export const questions = [
    "ee": "D-PATTERN-TRAP",
    "ai": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
@@ -8468,21 +7614,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "road",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l1.R.oa.v8r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/release-media/road-9aba0184.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "road",
-  "stimulusMediaId": "road",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8492,13 +7633,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "reed and raid are real — the road image pins the target",
-  "imagePath": "/images/assessment/release-media/road-9aba0184.webp",
-  "imageUrl": "/images/assessment/release-media/road-9aba0184.webp",
-  "targetImage": "/images/assessment/release-media/road-9aba0184.webp",
-  "targetImagePath": "/images/assessment/release-media/road-9aba0184.webp",
-  "resolvedImageAssetKey": "road",
-  "imageAlt": "road"
+  "notes": "reed and raid are real — the heard word pins the target"
  },
  {
   "id": "lp3.vowel_teams.l2.R.oi.v7r",
@@ -8520,9 +7655,9 @@ export const questions = [
   "formatType": "CPS",
   "templateType": "CPS",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same sound as joy?",
-  "question": "Which word has the same sound as joy?",
-  "spokenPrompt": "joy. Which word has the same middle sound as joy?",
+  "prompt": "Which word has the same vowel sound?",
+  "question": "Which word has the same vowel sound?",
+  "spokenPrompt": "Joy. Which word has the same vowel sound?",
   "choices": [
    "sun",
    "boil",
@@ -8558,31 +7693,28 @@ export const questions = [
    "bell": "D-PATTERN-TRAP",
    "pot": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "joy",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.R.oi.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/generated/concepts/joy.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/generated/concepts/joy.webp",
-  "stimulusMediaId": "/images/assessment/generated/concepts/joy.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8592,13 +7724,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/joy.webp",
-  "imageUrl": "/images/assessment/generated/concepts/joy.webp",
-  "targetImage": "/images/assessment/generated/concepts/joy.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/joy.webp",
-  "resolvedImageAssetKey": "/images/assessment/generated/concepts/joy.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.R.ew.v7r",
@@ -8620,9 +7746,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: n__",
-  "question": "Finish: n__",
-  "spokenPrompt": "new. Which letters finish the word new?",
+  "prompt": "Which two letters complete n__?",
+  "question": "Which two letters complete n__?",
+  "spokenPrompt": "New. Which two letters complete the word?",
   "choices": [
    "ow",
    "oy",
@@ -8658,7 +7784,7 @@ export const questions = [
    "oo": "D-PATTERN-TRAP",
    "ow": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
@@ -8668,21 +7794,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "new",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.R.ew.v7r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/hfw/new.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "new",
-  "stimulusMediaId": "new",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8692,13 +7813,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "now is real — the new word card pins the target",
-  "imagePath": "/images/assessment/hfw/new.webp",
-  "imageUrl": "/images/assessment/hfw/new.webp",
-  "targetImage": "/images/assessment/hfw/new.webp",
-  "targetImagePath": "/images/assessment/hfw/new.webp",
-  "resolvedImageAssetKey": "new",
-  "imageAlt": "new"
+  "notes": "now is real — the new word card pins the target"
  },
  {
   "id": "lp3.vowel_teams.l2.R.aw.v7r",
@@ -8720,9 +7835,9 @@ export const questions = [
   "formatType": "CPS",
   "templateType": "CPS",
   "questionType": "multiple_choice",
-  "prompt": "Which word has the same sound as ball?",
-  "question": "Which word has the same sound as ball?",
-  "spokenPrompt": "ball. Which word has the same middle sound as ball?",
+  "prompt": "Which word has the same vowel sound?",
+  "question": "Which word has the same vowel sound?",
+  "spokenPrompt": "Ball. Which word has the same vowel sound?",
   "choices": [
    "strap",
    "bin",
@@ -8758,31 +7873,28 @@ export const questions = [
    "strap": "D-PATTERN-TRAP",
    "bin": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "ball",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.R.aw.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/ball-8bec04.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/ball-8bec04.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/ball-8bec04.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8792,13 +7904,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/targets/ball-8bec04.webp",
-  "imageUrl": "/images/assessment/release-support/targets/ball-8bec04.webp",
-  "targetImage": "/images/assessment/release-support/targets/ball-8bec04.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/ball-8bec04.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/ball-8bec04.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.R.oo.v8r",
@@ -8867,21 +7973,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.R.oo.v8r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/good-fc1931.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/good-fc1931.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/good-fc1931.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8891,13 +7992,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
-  "imagePath": "/images/assessment/release-support/targets/good-fc1931.webp",
-  "imageUrl": "/images/assessment/release-support/targets/good-fc1931.webp",
-  "targetImage": "/images/assessment/release-support/targets/good-fc1931.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/good-fc1931.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/good-fc1931.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
  },
  {
   "id": "lp3.vowel_teams.l2.R.aw.v8r",
@@ -8919,9 +8014,9 @@ export const questions = [
   "formatType": "LONG_VOWEL_TEAM_COMPLETE",
   "templateType": "LONG_VOWEL_TEAM_COMPLETE",
   "questionType": "multiple_choice",
-  "prompt": "Finish: cr__l",
-  "question": "Finish: cr__l",
-  "spokenPrompt": "crawl. Which letters finish the word crawl?",
+  "prompt": "Which two letters complete cr__l?",
+  "question": "Which two letters complete cr__l?",
+  "spokenPrompt": "Crawl. Which two letters complete the word?",
   "choices": [
    "oo",
    "aw",
@@ -8957,7 +8052,7 @@ export const questions = [
    "ee": "D-PATTERN-TRAP",
    "oo": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
@@ -8967,21 +8062,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "crawl",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.vowel_teams.l2.R.aw.v8r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/crawl-3b8eaa.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/crawl-3b8eaa.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/crawl-3b8eaa.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8991,12 +8081,6 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "crowl, creel and crool are non-words",
-  "imagePath": "/images/assessment/release-support/targets/crawl-3b8eaa.webp",
-  "imageUrl": "/images/assessment/release-support/targets/crawl-3b8eaa.webp",
-  "targetImage": "/images/assessment/release-support/targets/crawl-3b8eaa.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/crawl-3b8eaa.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/crawl-3b8eaa.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "crowl, creel and crool are non-words"
  }
 ];

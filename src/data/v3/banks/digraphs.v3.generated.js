@@ -21,13 +21,13 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts like chair?",
-  "question": "Which one starts like chair?",
-  "spokenPrompt": "Chair. Which one starts with the same sound as chair?",
+  "prompt": "Which word has the same starting sound?",
+  "question": "Which word has the same starting sound?",
+  "spokenPrompt": "Chair. Which word has the same starting sound?",
   "choices": [
    "whale",
    "thorn",
-   "sock",
+   "clock",
    "cheese"
   ],
   "answerOptions": [
@@ -42,9 +42,9 @@ export const questions = [
     "text": "thorn"
    },
    {
-    "value": "sock",
-    "label": "sock",
-    "text": "sock"
+    "value": "clock",
+    "label": "clock",
+    "text": "clock"
    },
    {
     "value": "cheese",
@@ -56,7 +56,7 @@ export const questions = [
   "correctAnswer": "cheese",
   "distractorRationales": {
    "thorn": "D-PATTERN-TRAP",
-   "sock": "D-ONSET",
+   "clock": "D-ONSET",
    "whale": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
@@ -66,10 +66,11 @@ export const questions = [
   "retentionOnly": false,
   "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "chair",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -80,8 +81,8 @@ export const questions = [
    "paths": [
     "/images/assessment/digraphs/whale.webp",
     "/images/assessment/digraphs/thorn.webp",
-    "/images/assessment/digraphs/sock.webp",
-    "/images/assessment/digraphs/cheese.webp"
+    "/images/assessment/objective-words/clock.webp",
+    "/images/assessment/objective-words/cheese.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -117,21 +118,21 @@ export const questions = [
     "imageAlt": "thorn"
    },
    {
-    "id": "lp3.digraphs.l1.A.ch.v1_card_sock",
-    "word": "sock",
-    "value": "sock",
-    "label": "sock",
-    "image": "/images/assessment/digraphs/sock.webp",
-    "imagePath": "/images/assessment/digraphs/sock.webp",
-    "imageAlt": "sock"
+    "id": "lp3.digraphs.l1.A.ch.v1_card_clock",
+    "word": "clock",
+    "value": "clock",
+    "label": "clock",
+    "image": "/images/assessment/objective-words/clock.webp",
+    "imagePath": "/images/assessment/objective-words/clock.webp",
+    "imageAlt": "clock"
    },
    {
     "id": "lp3.digraphs.l1.A.ch.v1_card_cheese",
     "word": "cheese",
     "value": "cheese",
     "label": "cheese",
-    "image": "/images/assessment/digraphs/cheese.webp",
-    "imagePath": "/images/assessment/digraphs/cheese.webp",
+    "image": "/images/assessment/objective-words/cheese.webp",
+    "imagePath": "/images/assessment/objective-words/cheese.webp",
     "imageAlt": "cheese"
    }
   ]
@@ -156,13 +157,13 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts with the same sound as chair?",
-  "question": "Which one starts with the same sound as chair?",
-  "spokenPrompt": "Chair. Which one starts with the same sound as chair?",
+  "prompt": "Which word has the same starting sound?",
+  "question": "Which word has the same starting sound?",
+  "spokenPrompt": "Chair. Which word has the same starting sound?",
   "choices": [
    "shell",
    "cake",
-   "chip",
+   "chick",
    "wheel"
   ],
   "answerOptions": [
@@ -177,9 +178,9 @@ export const questions = [
     "text": "cake"
    },
    {
-    "value": "chip",
-    "label": "chip",
-    "text": "chip"
+    "value": "chick",
+    "label": "chick",
+    "text": "chick"
    },
    {
     "value": "wheel",
@@ -187,8 +188,8 @@ export const questions = [
     "text": "wheel"
    }
   ],
-  "answer": "chip",
-  "correctAnswer": "chip",
+  "answer": "chick",
+  "correctAnswer": "chick",
   "distractorRationales": {
    "shell": "D-PATTERN-TRAP",
    "cake": "D-ONSET",
@@ -201,10 +202,11 @@ export const questions = [
   "retentionOnly": false,
   "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "chair",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -214,9 +216,9 @@ export const questions = [
    "role": "answer-cards",
    "paths": [
     "/images/assessment/digraphs/shell.webp",
-    "/images/assessment/long-vowels/cake.webp",
-    "/images/assessment/digraphs/chip.webp",
-    "/images/assessment/digraphs/wheel.webp"
+    "/images/assessment/objective-words/cake.webp",
+    "/images/assessment/digraphs/chick.webp",
+    "/images/assessment/objective-words/wheel.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -247,26 +249,26 @@ export const questions = [
     "word": "cake",
     "value": "cake",
     "label": "cake",
-    "image": "/images/assessment/long-vowels/cake.webp",
-    "imagePath": "/images/assessment/long-vowels/cake.webp",
+    "image": "/images/assessment/objective-words/cake.webp",
+    "imagePath": "/images/assessment/objective-words/cake.webp",
     "imageAlt": "cake"
    },
    {
-    "id": "lp3.digraphs.l1.B.ch.v2_card_chip",
-    "word": "chip",
-    "value": "chip",
-    "label": "chip",
-    "image": "/images/assessment/digraphs/chip.webp",
-    "imagePath": "/images/assessment/digraphs/chip.webp",
-    "imageAlt": "chip"
+    "id": "lp3.digraphs.l1.B.ch.v2_card_chick",
+    "word": "chick",
+    "value": "chick",
+    "label": "chick",
+    "image": "/images/assessment/digraphs/chick.webp",
+    "imagePath": "/images/assessment/digraphs/chick.webp",
+    "imageAlt": "chick"
    },
    {
     "id": "lp3.digraphs.l1.B.ch.v2_card_wheel",
     "word": "wheel",
     "value": "wheel",
     "label": "wheel",
-    "image": "/images/assessment/digraphs/wheel.webp",
-    "imagePath": "/images/assessment/digraphs/wheel.webp",
+    "image": "/images/assessment/objective-words/wheel.webp",
+    "imagePath": "/images/assessment/objective-words/wheel.webp",
     "imageAlt": "wheel"
    }
   ]
@@ -291,9 +293,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: __ain",
-  "question": "Finish the word: __ain",
-  "spokenPrompt": "chain. Finish the word chain.",
+  "prompt": "Select the missing letters for __ain.",
+  "question": "Select the missing letters for __ain.",
+  "spokenPrompt": "Chain. Choose the missing letters.",
   "choices": [
    "wh",
    "ch",
@@ -329,7 +331,7 @@ export const questions = [
    "wh": "D-PATTERN-TRAP",
    "sh": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -340,21 +342,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "chain",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l1.C.ch.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/chain.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "chain",
-  "stimulusMediaId": "chain",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -364,13 +361,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "chain: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/chain.webp",
-  "imageUrl": "/images/assessment/digraphs/chain.webp",
-  "targetImage": "/images/assessment/digraphs/chain.webp",
-  "targetImagePath": "/images/assessment/digraphs/chain.webp",
-  "resolvedImageAssetKey": "chain",
-  "imageAlt": "chain"
+  "notes": "chain: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l1.A.ch.v4",
@@ -392,9 +383,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: __erry",
-  "question": "Finish the word: __erry",
-  "spokenPrompt": "cherry. Finish the word cherry.",
+  "prompt": "Select the missing letters for __erry.",
+  "question": "Select the missing letters for __erry.",
+  "spokenPrompt": "Cherry. Choose the missing letters.",
   "choices": [
    "ch",
    "sh",
@@ -430,7 +421,7 @@ export const questions = [
    "wh": "D-PATTERN-TRAP",
    "ph": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -441,21 +432,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "cherry",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l1.A.ch.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/cherry.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "cherry",
-  "stimulusMediaId": "cherry",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -465,13 +451,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cherry: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/cherry.webp",
-  "imageUrl": "/images/assessment/digraphs/cherry.webp",
-  "targetImage": "/images/assessment/digraphs/cherry.webp",
-  "targetImagePath": "/images/assessment/digraphs/cherry.webp",
-  "resolvedImageAssetKey": "cherry",
-  "imageAlt": "cherry"
+  "notes": "cherry: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l2.A.ch.v1",
@@ -493,9 +473,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: ben__",
-  "question": "Finish the word: ben__",
-  "spokenPrompt": "bench. Finish the word bench.",
+  "prompt": "Select the missing letters for ben__.",
+  "question": "Select the missing letters for ben__.",
+  "spokenPrompt": "Bench. Choose the missing letters.",
   "choices": [
    "th",
    "ck",
@@ -531,7 +511,7 @@ export const questions = [
    "sh": "D-PATTERN-TRAP",
    "th": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -542,21 +522,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "bench",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l2.A.ch.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/bench.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "bench",
-  "stimulusMediaId": "bench",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -566,13 +541,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "bench: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/bench.webp",
-  "imageUrl": "/images/assessment/digraphs/bench.webp",
-  "targetImage": "/images/assessment/digraphs/bench.webp",
-  "targetImagePath": "/images/assessment/digraphs/bench.webp",
-  "resolvedImageAssetKey": "bench",
-  "imageAlt": "bench"
+  "notes": "bench: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l2.B.ch.v2",
@@ -594,9 +563,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: wat__",
-  "question": "Finish the word: wat__",
-  "spokenPrompt": "watch. Finish the word watch.",
+  "prompt": "Select the missing letters for wat__.",
+  "question": "Select the missing letters for wat__.",
+  "spokenPrompt": "Watch. Choose the missing letters.",
   "choices": [
    "sh",
    "th",
@@ -632,7 +601,7 @@ export const questions = [
    "sh": "D-PATTERN-TRAP",
    "th": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -643,21 +612,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "watch",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l2.B.ch.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/watch.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "watch",
-  "stimulusMediaId": "watch",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -667,13 +631,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "watch: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/watch.webp",
-  "imageUrl": "/images/assessment/digraphs/watch.webp",
-  "targetImage": "/images/assessment/digraphs/watch.webp",
-  "targetImagePath": "/images/assessment/digraphs/watch.webp",
-  "resolvedImageAssetKey": "watch",
-  "imageAlt": "watch"
+  "notes": "watch: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l2.C.ch.v3",
@@ -695,14 +653,14 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one ends like lunch?",
-  "question": "Which one ends like lunch?",
-  "spokenPrompt": "Lunch. Which one ends with the same sound as lunch?",
+  "prompt": "Which word has the same final sound?",
+  "question": "Which word has the same final sound?",
+  "spokenPrompt": "Lunch. Which word has the same final sound?",
   "choices": [
    "watch",
    "wheel",
-   "moth",
-   "sock"
+   "tooth",
+   "clock"
   ],
   "answerOptions": [
    {
@@ -716,22 +674,22 @@ export const questions = [
     "text": "wheel"
    },
    {
-    "value": "moth",
-    "label": "moth",
-    "text": "moth"
+    "value": "tooth",
+    "label": "tooth",
+    "text": "tooth"
    },
    {
-    "value": "sock",
-    "label": "sock",
-    "text": "sock"
+    "value": "clock",
+    "label": "clock",
+    "text": "clock"
    }
   ],
   "answer": "watch",
   "correctAnswer": "watch",
   "distractorRationales": {
-   "sock": "D-PATTERN-TRAP",
+   "clock": "D-PATTERN-TRAP",
    "wheel": "D-POSITION",
-   "moth": "D-PATTERN-TRAP"
+   "tooth": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
@@ -740,10 +698,11 @@ export const questions = [
   "retentionOnly": false,
   "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "lunch",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -752,10 +711,10 @@ export const questions = [
    "itemId": "lp3.digraphs.l2.C.ch.v3",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/digraphs/watch.webp",
-    "/images/assessment/digraphs/wheel.webp",
-    "/images/assessment/digraphs/moth.webp",
-    "/images/assessment/digraphs/sock.webp"
+    "/images/assessment/objective-words/watch.webp",
+    "/images/assessment/objective-words/wheel.webp",
+    "/images/assessment/objective-words/tooth.webp",
+    "/images/assessment/objective-words/clock.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -770,15 +729,15 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "wheel ties the which-overlap; moth/sock are rival final sounds",
+  "notes": "wheel ties the prompt overlap; tooth/clock are rival final sounds",
   "imageCards": [
    {
     "id": "lp3.digraphs.l2.C.ch.v3_card_watch",
     "word": "watch",
     "value": "watch",
     "label": "watch",
-    "image": "/images/assessment/digraphs/watch.webp",
-    "imagePath": "/images/assessment/digraphs/watch.webp",
+    "image": "/images/assessment/objective-words/watch.webp",
+    "imagePath": "/images/assessment/objective-words/watch.webp",
     "imageAlt": "watch"
    },
    {
@@ -786,27 +745,27 @@ export const questions = [
     "word": "wheel",
     "value": "wheel",
     "label": "wheel",
-    "image": "/images/assessment/digraphs/wheel.webp",
-    "imagePath": "/images/assessment/digraphs/wheel.webp",
+    "image": "/images/assessment/objective-words/wheel.webp",
+    "imagePath": "/images/assessment/objective-words/wheel.webp",
     "imageAlt": "wheel"
    },
    {
-    "id": "lp3.digraphs.l2.C.ch.v3_card_moth",
-    "word": "moth",
-    "value": "moth",
-    "label": "moth",
-    "image": "/images/assessment/digraphs/moth.webp",
-    "imagePath": "/images/assessment/digraphs/moth.webp",
-    "imageAlt": "moth"
+    "id": "lp3.digraphs.l2.C.ch.v3_card_tooth",
+    "word": "tooth",
+    "value": "tooth",
+    "label": "tooth",
+    "image": "/images/assessment/objective-words/tooth.webp",
+    "imagePath": "/images/assessment/objective-words/tooth.webp",
+    "imageAlt": "tooth"
    },
    {
-    "id": "lp3.digraphs.l2.C.ch.v3_card_sock",
-    "word": "sock",
-    "value": "sock",
-    "label": "sock",
-    "image": "/images/assessment/digraphs/sock.webp",
-    "imagePath": "/images/assessment/digraphs/sock.webp",
-    "imageAlt": "sock"
+    "id": "lp3.digraphs.l2.C.ch.v3_card_clock",
+    "word": "clock",
+    "value": "clock",
+    "label": "clock",
+    "image": "/images/assessment/objective-words/clock.webp",
+    "imagePath": "/images/assessment/objective-words/clock.webp",
+    "imageAlt": "clock"
    }
   ]
  },
@@ -830,20 +789,20 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one ends with the same sound as watch?",
-  "question": "Which one ends with the same sound as watch?",
-  "spokenPrompt": "Watch. Which one ends with the same sound as watch?",
+  "prompt": "Which word has the same final sound?",
+  "question": "Which word has the same final sound?",
+  "spokenPrompt": "Watch. Which word has the same final sound?",
   "choices": [
-   "whisk",
+   "wheel",
    "tooth",
-   "rock",
+   "clock",
    "bench"
   ],
   "answerOptions": [
    {
-    "value": "whisk",
-    "label": "whisk",
-    "text": "whisk"
+    "value": "wheel",
+    "label": "wheel",
+    "text": "wheel"
    },
    {
     "value": "tooth",
@@ -851,9 +810,9 @@ export const questions = [
     "text": "tooth"
    },
    {
-    "value": "rock",
-    "label": "rock",
-    "text": "rock"
+    "value": "clock",
+    "label": "clock",
+    "text": "clock"
    },
    {
     "value": "bench",
@@ -864,9 +823,9 @@ export const questions = [
   "answer": "bench",
   "correctAnswer": "bench",
   "distractorRationales": {
-   "whisk": "D-POSITION",
+   "wheel": "D-POSITION",
    "tooth": "D-PATTERN-TRAP",
-   "rock": "D-PATTERN-TRAP"
+   "clock": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
@@ -875,10 +834,11 @@ export const questions = [
   "retentionOnly": false,
   "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "watch",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -887,10 +847,10 @@ export const questions = [
    "itemId": "lp3.digraphs.l2.A.ch.v4",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/digraphs/whisk.webp",
-    "/images/assessment/digraphs/tooth.webp",
-    "/images/assessment/digraphs/rock.webp",
-    "/images/assessment/digraphs/bench.webp"
+    "/images/assessment/objective-words/wheel.webp",
+    "/images/assessment/objective-words/tooth.webp",
+    "/images/assessment/objective-words/clock.webp",
+    "/images/assessment/objective-words/bench.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -908,39 +868,39 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.digraphs.l2.A.ch.v4_card_whisk",
-    "word": "whisk",
-    "value": "whisk",
-    "label": "whisk",
-    "image": "/images/assessment/digraphs/whisk.webp",
-    "imagePath": "/images/assessment/digraphs/whisk.webp",
-    "imageAlt": "whisk"
+    "id": "lp3.digraphs.l2.A.ch.v4_card_wheel",
+    "word": "wheel",
+    "value": "wheel",
+    "label": "wheel",
+    "image": "/images/assessment/objective-words/wheel.webp",
+    "imagePath": "/images/assessment/objective-words/wheel.webp",
+    "imageAlt": "wheel"
    },
    {
     "id": "lp3.digraphs.l2.A.ch.v4_card_tooth",
     "word": "tooth",
     "value": "tooth",
     "label": "tooth",
-    "image": "/images/assessment/digraphs/tooth.webp",
-    "imagePath": "/images/assessment/digraphs/tooth.webp",
+    "image": "/images/assessment/objective-words/tooth.webp",
+    "imagePath": "/images/assessment/objective-words/tooth.webp",
     "imageAlt": "tooth"
    },
    {
-    "id": "lp3.digraphs.l2.A.ch.v4_card_rock",
-    "word": "rock",
-    "value": "rock",
-    "label": "rock",
-    "image": "/images/assessment/digraphs/rock.webp",
-    "imagePath": "/images/assessment/digraphs/rock.webp",
-    "imageAlt": "rock"
+    "id": "lp3.digraphs.l2.A.ch.v4_card_clock",
+    "word": "clock",
+    "value": "clock",
+    "label": "clock",
+    "image": "/images/assessment/objective-words/clock.webp",
+    "imagePath": "/images/assessment/objective-words/clock.webp",
+    "imageAlt": "clock"
    },
    {
     "id": "lp3.digraphs.l2.A.ch.v4_card_bench",
     "word": "bench",
     "value": "bench",
     "label": "bench",
-    "image": "/images/assessment/digraphs/bench.webp",
-    "imagePath": "/images/assessment/digraphs/bench.webp",
+    "image": "/images/assessment/objective-words/bench.webp",
+    "imagePath": "/images/assessment/objective-words/bench.webp",
     "imageAlt": "bench"
    }
   ]
@@ -965,14 +925,14 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts like shell?",
-  "question": "Which one starts like shell?",
-  "spokenPrompt": "Shell. Which one starts with the same sound as shell?",
+  "prompt": "Which word has the same starting sound?",
+  "question": "Which word has the same starting sound?",
+  "spokenPrompt": "Shell. Which word has the same starting sound?",
   "choices": [
    "sun",
    "ship",
    "chick",
-   "thumb"
+   "thorn"
   ],
   "answerOptions": [
    {
@@ -991,15 +951,15 @@ export const questions = [
     "text": "chick"
    },
    {
-    "value": "thumb",
-    "label": "thumb",
-    "text": "thumb"
+    "value": "thorn",
+    "label": "thorn",
+    "text": "thorn"
    }
   ],
   "answer": "ship",
   "correctAnswer": "ship",
   "distractorRationales": {
-   "thumb": "D-PATTERN-TRAP",
+   "thorn": "D-PATTERN-TRAP",
    "sun": "D-ONSET",
    "chick": "D-PATTERN-TRAP"
   },
@@ -1010,10 +970,11 @@ export const questions = [
   "retentionOnly": false,
   "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "shell",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -1023,9 +984,9 @@ export const questions = [
    "role": "answer-cards",
    "paths": [
     "/images/assessment/rhyming/variants/sun/sun-02.webp",
-    "/images/assessment/digraphs/ship.webp",
+    "/images/assessment/objective-words/ship.webp",
     "/images/assessment/digraphs/chick.webp",
-    "/images/assessment/digraphs/thumb.webp"
+    "/images/assessment/digraphs/thorn.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -1056,8 +1017,8 @@ export const questions = [
     "word": "ship",
     "value": "ship",
     "label": "ship",
-    "image": "/images/assessment/digraphs/ship.webp",
-    "imagePath": "/images/assessment/digraphs/ship.webp",
+    "image": "/images/assessment/objective-words/ship.webp",
+    "imagePath": "/images/assessment/objective-words/ship.webp",
     "imageAlt": "ship"
    },
    {
@@ -1070,13 +1031,13 @@ export const questions = [
     "imageAlt": "chick"
    },
    {
-    "id": "lp3.digraphs.l1.A.sh.v1_card_thumb",
-    "word": "thumb",
-    "value": "thumb",
-    "label": "thumb",
-    "image": "/images/assessment/digraphs/thumb.webp",
-    "imagePath": "/images/assessment/digraphs/thumb.webp",
-    "imageAlt": "thumb"
+    "id": "lp3.digraphs.l1.A.sh.v1_card_thorn",
+    "word": "thorn",
+    "value": "thorn",
+    "label": "thorn",
+    "image": "/images/assessment/digraphs/thorn.webp",
+    "imagePath": "/images/assessment/digraphs/thorn.webp",
+    "imageAlt": "thorn"
    }
   ]
  },
@@ -1100,12 +1061,12 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts with the same sound as shell?",
-  "question": "Which one starts with the same sound as shell?",
-  "spokenPrompt": "Shell. Which one starts with the same sound as shell?",
+  "prompt": "Which word has the same starting sound?",
+  "question": "Which word has the same starting sound?",
+  "spokenPrompt": "Shell. Which word has the same starting sound?",
   "choices": [
    "chain",
-   "whisk",
+   "whale",
    "thorn",
    "shoe"
   ],
@@ -1116,9 +1077,9 @@ export const questions = [
     "text": "chain"
    },
    {
-    "value": "whisk",
-    "label": "whisk",
-    "text": "whisk"
+    "value": "whale",
+    "label": "whale",
+    "text": "whale"
    },
    {
     "value": "thorn",
@@ -1134,7 +1095,7 @@ export const questions = [
   "answer": "shoe",
   "correctAnswer": "shoe",
   "distractorRationales": {
-   "whisk": "D-PATTERN-TRAP",
+   "whale": "D-PATTERN-TRAP",
    "thorn": "D-PATTERN-TRAP",
    "chain": "D-PATTERN-TRAP"
   },
@@ -1145,10 +1106,11 @@ export const questions = [
   "retentionOnly": false,
   "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "shell",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -1158,7 +1120,7 @@ export const questions = [
    "role": "answer-cards",
    "paths": [
     "/images/assessment/digraphs/chain.webp",
-    "/images/assessment/digraphs/whisk.webp",
+    "/images/assessment/digraphs/whale.webp",
     "/images/assessment/digraphs/thorn.webp",
     "/images/assessment/digraphs/shoe.webp"
    ],
@@ -1187,13 +1149,13 @@ export const questions = [
     "imageAlt": "chain"
    },
    {
-    "id": "lp3.digraphs.l1.B.sh.v2_card_whisk",
-    "word": "whisk",
-    "value": "whisk",
-    "label": "whisk",
-    "image": "/images/assessment/digraphs/whisk.webp",
-    "imagePath": "/images/assessment/digraphs/whisk.webp",
-    "imageAlt": "whisk"
+    "id": "lp3.digraphs.l1.B.sh.v2_card_whale",
+    "word": "whale",
+    "value": "whale",
+    "label": "whale",
+    "image": "/images/assessment/digraphs/whale.webp",
+    "imagePath": "/images/assessment/digraphs/whale.webp",
+    "imageAlt": "whale"
    },
    {
     "id": "lp3.digraphs.l1.B.sh.v2_card_thorn",
@@ -1235,9 +1197,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: __ip",
-  "question": "Finish the word: __ip",
-  "spokenPrompt": "ship. Finish the word ship.",
+  "prompt": "Choose the missing letters for __ip.",
+  "question": "Choose the missing letters for __ip.",
+  "spokenPrompt": "Ship. Choose the missing letters.",
   "choices": [
    "wh",
    "th",
@@ -1273,7 +1235,7 @@ export const questions = [
    "th": "D-PATTERN-TRAP",
    "ch": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -1284,21 +1246,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "ship",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l1.C.sh.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/ship.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "ship",
-  "stimulusMediaId": "ship",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1308,13 +1265,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "ship: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/ship.webp",
-  "imageUrl": "/images/assessment/digraphs/ship.webp",
-  "targetImage": "/images/assessment/digraphs/ship.webp",
-  "targetImagePath": "/images/assessment/digraphs/ship.webp",
-  "resolvedImageAssetKey": "ship",
-  "imageAlt": "ship"
+  "notes": "ship: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l1.A.sh.v4",
@@ -1336,9 +1287,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: __irt",
-  "question": "Finish the word: __irt",
-  "spokenPrompt": "shirt. Finish the word shirt.",
+  "prompt": "Choose the missing letters for __irt.",
+  "question": "Choose the missing letters for __irt.",
+  "spokenPrompt": "Shirt. Choose the missing letters.",
   "choices": [
    "th",
    "wh",
@@ -1374,7 +1325,7 @@ export const questions = [
    "th": "D-PATTERN-TRAP",
    "wh": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -1385,21 +1336,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "shirt",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l1.A.sh.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/shirt.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "shirt",
-  "stimulusMediaId": "shirt",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1409,13 +1355,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "shirt: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/shirt.webp",
-  "imageUrl": "/images/assessment/digraphs/shirt.webp",
-  "targetImage": "/images/assessment/digraphs/shirt.webp",
-  "targetImagePath": "/images/assessment/digraphs/shirt.webp",
-  "resolvedImageAssetKey": "shirt",
-  "imageAlt": "shirt"
+  "notes": "shirt: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l2.A.sh.v1",
@@ -1437,9 +1377,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: fi__",
-  "question": "Finish the word: fi__",
-  "spokenPrompt": "fish. Finish the word fish.",
+  "prompt": "Choose the missing letters for fi__.",
+  "question": "Choose the missing letters for fi__.",
+  "spokenPrompt": "Fish. Choose the missing letters.",
   "choices": [
    "sh",
    "ch",
@@ -1475,7 +1415,7 @@ export const questions = [
    "ch": "D-PATTERN-TRAP",
    "th": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -1486,21 +1426,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "fish",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l2.A.sh.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/fish.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "fish",
-  "stimulusMediaId": "fish",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1510,13 +1445,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "fish: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/fish.webp",
-  "imageUrl": "/images/assessment/digraphs/fish.webp",
-  "targetImage": "/images/assessment/digraphs/fish.webp",
-  "targetImagePath": "/images/assessment/digraphs/fish.webp",
-  "resolvedImageAssetKey": "fish",
-  "imageAlt": "fish"
+  "notes": "fish: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l2.B.sh.v2",
@@ -1538,9 +1467,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: bru__",
-  "question": "Finish the word: bru__",
-  "spokenPrompt": "brush. Finish the word brush.",
+  "prompt": "Choose the missing letters for bru__.",
+  "question": "Choose the missing letters for bru__.",
+  "spokenPrompt": "Brush. Choose the missing letters.",
   "choices": [
    "sh",
    "ch",
@@ -1576,7 +1505,7 @@ export const questions = [
    "ch": "D-PATTERN-TRAP",
    "ck": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -1587,21 +1516,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "brush",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l2.B.sh.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/brush.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "brush",
-  "stimulusMediaId": "brush",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1611,13 +1535,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "brush: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/brush.webp",
-  "imageUrl": "/images/assessment/digraphs/brush.webp",
-  "targetImage": "/images/assessment/digraphs/brush.webp",
-  "targetImagePath": "/images/assessment/digraphs/brush.webp",
-  "resolvedImageAssetKey": "brush",
-  "imageAlt": "brush"
+  "notes": "brush: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l2.C.sh.v3",
@@ -1639,9 +1557,9 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one ends like fish?",
-  "question": "Which one ends like fish?",
-  "spokenPrompt": "Fish. Which one ends with the same sound as fish?",
+  "prompt": "Which word has the same final sound?",
+  "question": "Which word has the same final sound?",
+  "spokenPrompt": "Fish. Which word has the same final sound?",
   "choices": [
    "lock",
    "brush",
@@ -1684,10 +1602,11 @@ export const questions = [
   "retentionOnly": false,
   "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "fish",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -1697,7 +1616,7 @@ export const questions = [
    "role": "answer-cards",
    "paths": [
     "/images/assessment/digraphs/lock.webp",
-    "/images/assessment/digraphs/brush.webp",
+    "/images/assessment/objective-words/brush.webp",
     "/images/assessment/digraphs/chick.webp",
     "/images/assessment/digraphs/thorn.webp"
    ],
@@ -1730,8 +1649,8 @@ export const questions = [
     "word": "brush",
     "value": "brush",
     "label": "brush",
-    "image": "/images/assessment/digraphs/brush.webp",
-    "imagePath": "/images/assessment/digraphs/brush.webp",
+    "image": "/images/assessment/objective-words/brush.webp",
+    "imagePath": "/images/assessment/objective-words/brush.webp",
     "imageAlt": "brush"
    },
    {
@@ -1774,14 +1693,14 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one ends with the same sound as brush?",
-  "question": "Which one ends with the same sound as brush?",
-  "spokenPrompt": "Brush. Which one ends with the same sound as brush?",
+  "prompt": "Which word has the same final sound?",
+  "question": "Which word has the same final sound?",
+  "spokenPrompt": "Brush. Which word has the same final sound?",
   "choices": [
    "wheel",
-   "dish",
-   "chip",
-   "moth"
+   "fish",
+   "chick",
+   "tooth"
   ],
   "answerOptions": [
    {
@@ -1790,26 +1709,26 @@ export const questions = [
     "text": "wheel"
    },
    {
-    "value": "dish",
-    "label": "dish",
-    "text": "dish"
+    "value": "fish",
+    "label": "fish",
+    "text": "fish"
    },
    {
-    "value": "chip",
-    "label": "chip",
-    "text": "chip"
+    "value": "chick",
+    "label": "chick",
+    "text": "chick"
    },
    {
-    "value": "moth",
-    "label": "moth",
-    "text": "moth"
+    "value": "tooth",
+    "label": "tooth",
+    "text": "tooth"
    }
   ],
-  "answer": "dish",
-  "correctAnswer": "dish",
+  "answer": "fish",
+  "correctAnswer": "fish",
   "distractorRationales": {
-   "chip": "D-PATTERN-TRAP",
-   "moth": "D-PATTERN-TRAP",
+   "chick": "D-PATTERN-TRAP",
+   "tooth": "D-PATTERN-TRAP",
    "wheel": "D-POSITION"
   },
   "mediaTier": "image-required",
@@ -1819,10 +1738,11 @@ export const questions = [
   "retentionOnly": false,
   "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "brush",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -1831,10 +1751,10 @@ export const questions = [
    "itemId": "lp3.digraphs.l2.A.sh.v4",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/digraphs/wheel.webp",
-    "/images/assessment/digraphs/dish.webp",
-    "/images/assessment/digraphs/chip.webp",
-    "/images/assessment/digraphs/moth.webp"
+    "/images/assessment/objective-words/wheel.webp",
+    "/images/assessment/digraphs/fish.webp",
+    "/images/assessment/digraphs/chick.webp",
+    "/images/assessment/objective-words/tooth.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -1856,36 +1776,36 @@ export const questions = [
     "word": "wheel",
     "value": "wheel",
     "label": "wheel",
-    "image": "/images/assessment/digraphs/wheel.webp",
-    "imagePath": "/images/assessment/digraphs/wheel.webp",
+    "image": "/images/assessment/objective-words/wheel.webp",
+    "imagePath": "/images/assessment/objective-words/wheel.webp",
     "imageAlt": "wheel"
    },
    {
-    "id": "lp3.digraphs.l2.A.sh.v4_card_dish",
-    "word": "dish",
-    "value": "dish",
-    "label": "dish",
-    "image": "/images/assessment/digraphs/dish.webp",
-    "imagePath": "/images/assessment/digraphs/dish.webp",
-    "imageAlt": "dish"
+    "id": "lp3.digraphs.l2.A.sh.v4_card_fish",
+    "word": "fish",
+    "value": "fish",
+    "label": "fish",
+    "image": "/images/assessment/digraphs/fish.webp",
+    "imagePath": "/images/assessment/digraphs/fish.webp",
+    "imageAlt": "fish"
    },
    {
-    "id": "lp3.digraphs.l2.A.sh.v4_card_chip",
-    "word": "chip",
-    "value": "chip",
-    "label": "chip",
-    "image": "/images/assessment/digraphs/chip.webp",
-    "imagePath": "/images/assessment/digraphs/chip.webp",
-    "imageAlt": "chip"
+    "id": "lp3.digraphs.l2.A.sh.v4_card_chick",
+    "word": "chick",
+    "value": "chick",
+    "label": "chick",
+    "image": "/images/assessment/digraphs/chick.webp",
+    "imagePath": "/images/assessment/digraphs/chick.webp",
+    "imageAlt": "chick"
    },
    {
-    "id": "lp3.digraphs.l2.A.sh.v4_card_moth",
-    "word": "moth",
-    "value": "moth",
-    "label": "moth",
-    "image": "/images/assessment/digraphs/moth.webp",
-    "imagePath": "/images/assessment/digraphs/moth.webp",
-    "imageAlt": "moth"
+    "id": "lp3.digraphs.l2.A.sh.v4_card_tooth",
+    "word": "tooth",
+    "value": "tooth",
+    "label": "tooth",
+    "image": "/images/assessment/objective-words/tooth.webp",
+    "imagePath": "/images/assessment/objective-words/tooth.webp",
+    "imageAlt": "tooth"
    }
   ]
  },
@@ -1909,20 +1829,20 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts like thumb?",
-  "question": "Which one starts like thumb?",
-  "spokenPrompt": "Thumb. Which one starts with the same sound as thumb?",
+  "prompt": "Which word has the same starting sound?",
+  "question": "Which word has the same starting sound?",
+  "spokenPrompt": "Thumb. Which word has the same starting sound?",
   "choices": [
-   "chip",
+   "chick",
    "shell",
-   "tooth",
-   "three"
+   "tie",
+   "thorn"
   ],
   "answerOptions": [
    {
-    "value": "chip",
-    "label": "chip",
-    "text": "chip"
+    "value": "chick",
+    "label": "chick",
+    "text": "chick"
    },
    {
     "value": "shell",
@@ -1930,21 +1850,21 @@ export const questions = [
     "text": "shell"
    },
    {
-    "value": "tooth",
-    "label": "tooth",
-    "text": "tooth"
+    "value": "tie",
+    "label": "tie",
+    "text": "tie"
    },
    {
-    "value": "three",
-    "label": "three",
-    "text": "three"
+    "value": "thorn",
+    "label": "thorn",
+    "text": "thorn"
    }
   ],
-  "answer": "three",
-  "correctAnswer": "three",
+  "answer": "thorn",
+  "correctAnswer": "thorn",
   "distractorRationales": {
-   "tooth": "D-POSITION",
-   "chip": "D-PATTERN-TRAP",
+   "tie": "D-ONSET",
+   "chick": "D-PATTERN-TRAP",
    "shell": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
@@ -1954,10 +1874,11 @@ export const questions = [
   "retentionOnly": false,
   "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "thumb",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -1966,10 +1887,10 @@ export const questions = [
    "itemId": "lp3.digraphs.l1.A.th.v1",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/digraphs/chip.webp",
+    "/images/assessment/digraphs/chick.webp",
     "/images/assessment/digraphs/shell.webp",
-    "/images/assessment/digraphs/tooth.webp",
-    "/images/assessment/digraphs/three.webp"
+    "/images/assessment/objective-words/tie.webp",
+    "/images/assessment/digraphs/thorn.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -1984,16 +1905,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "tooth STARTS with t — th is at its end, the classic position error",
+  "notes": "tie begins with plain /t/, the classic th-versus-t error",
   "imageCards": [
    {
-    "id": "lp3.digraphs.l1.A.th.v1_card_chip",
-    "word": "chip",
-    "value": "chip",
-    "label": "chip",
-    "image": "/images/assessment/digraphs/chip.webp",
-    "imagePath": "/images/assessment/digraphs/chip.webp",
-    "imageAlt": "chip"
+    "id": "lp3.digraphs.l1.A.th.v1_card_chick",
+    "word": "chick",
+    "value": "chick",
+    "label": "chick",
+    "image": "/images/assessment/digraphs/chick.webp",
+    "imagePath": "/images/assessment/digraphs/chick.webp",
+    "imageAlt": "chick"
    },
    {
     "id": "lp3.digraphs.l1.A.th.v1_card_shell",
@@ -2005,22 +1926,22 @@ export const questions = [
     "imageAlt": "shell"
    },
    {
-    "id": "lp3.digraphs.l1.A.th.v1_card_tooth",
-    "word": "tooth",
-    "value": "tooth",
-    "label": "tooth",
-    "image": "/images/assessment/digraphs/tooth.webp",
-    "imagePath": "/images/assessment/digraphs/tooth.webp",
-    "imageAlt": "tooth"
+    "id": "lp3.digraphs.l1.A.th.v1_card_tie",
+    "word": "tie",
+    "value": "tie",
+    "label": "tie",
+    "image": "/images/assessment/objective-words/tie.webp",
+    "imagePath": "/images/assessment/objective-words/tie.webp",
+    "imageAlt": "tie"
    },
    {
-    "id": "lp3.digraphs.l1.A.th.v1_card_three",
-    "word": "three",
-    "value": "three",
-    "label": "three",
-    "image": "/images/assessment/digraphs/three.webp",
-    "imagePath": "/images/assessment/digraphs/three.webp",
-    "imageAlt": "three"
+    "id": "lp3.digraphs.l1.A.th.v1_card_thorn",
+    "word": "thorn",
+    "value": "thorn",
+    "label": "thorn",
+    "image": "/images/assessment/digraphs/thorn.webp",
+    "imagePath": "/images/assessment/digraphs/thorn.webp",
+    "imageAlt": "thorn"
    }
   ]
  },
@@ -2044,25 +1965,25 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts with the same sound as thumb?",
-  "question": "Which one starts with the same sound as thumb?",
-  "spokenPrompt": "Thumb. Which one starts with the same sound as thumb?",
+  "prompt": "Which word has the same starting sound?",
+  "question": "Which word has the same starting sound?",
+  "spokenPrompt": "Thumb. Which word has the same starting sound?",
   "choices": [
-   "thread",
-   "cherry",
+   "thorn",
+   "chick",
    "shoe",
    "tree"
   ],
   "answerOptions": [
    {
-    "value": "thread",
-    "label": "thread",
-    "text": "thread"
+    "value": "thorn",
+    "label": "thorn",
+    "text": "thorn"
    },
    {
-    "value": "cherry",
-    "label": "cherry",
-    "text": "cherry"
+    "value": "chick",
+    "label": "chick",
+    "text": "chick"
    },
    {
     "value": "shoe",
@@ -2075,11 +1996,11 @@ export const questions = [
     "text": "tree"
    }
   ],
-  "answer": "thread",
-  "correctAnswer": "thread",
+  "answer": "thorn",
+  "correctAnswer": "thorn",
   "distractorRationales": {
    "tree": "D-ONSET",
-   "cherry": "D-PATTERN-TRAP",
+   "chick": "D-PATTERN-TRAP",
    "shoe": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
@@ -2089,10 +2010,11 @@ export const questions = [
   "retentionOnly": false,
   "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "thumb",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -2101,8 +2023,8 @@ export const questions = [
    "itemId": "lp3.digraphs.l1.B.th.v2",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/digraphs/thread.webp",
-    "/images/assessment/digraphs/cherry.webp",
+    "/images/assessment/digraphs/thorn.webp",
+    "/images/assessment/digraphs/chick.webp",
     "/images/assessment/digraphs/shoe.webp",
     "/images/assessment/long-vowels/tree.webp"
    ],
@@ -2122,22 +2044,22 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.digraphs.l1.B.th.v2_card_thread",
-    "word": "thread",
-    "value": "thread",
-    "label": "thread",
-    "image": "/images/assessment/digraphs/thread.webp",
-    "imagePath": "/images/assessment/digraphs/thread.webp",
-    "imageAlt": "thread"
+    "id": "lp3.digraphs.l1.B.th.v2_card_thorn",
+    "word": "thorn",
+    "value": "thorn",
+    "label": "thorn",
+    "image": "/images/assessment/digraphs/thorn.webp",
+    "imagePath": "/images/assessment/digraphs/thorn.webp",
+    "imageAlt": "thorn"
    },
    {
-    "id": "lp3.digraphs.l1.B.th.v2_card_cherry",
-    "word": "cherry",
-    "value": "cherry",
-    "label": "cherry",
-    "image": "/images/assessment/digraphs/cherry.webp",
-    "imagePath": "/images/assessment/digraphs/cherry.webp",
-    "imageAlt": "cherry"
+    "id": "lp3.digraphs.l1.B.th.v2_card_chick",
+    "word": "chick",
+    "value": "chick",
+    "label": "chick",
+    "image": "/images/assessment/digraphs/chick.webp",
+    "imagePath": "/images/assessment/digraphs/chick.webp",
+    "imageAlt": "chick"
    },
    {
     "id": "lp3.digraphs.l1.B.th.v2_card_shoe",
@@ -2179,9 +2101,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: __umb",
-  "question": "Finish the word: __umb",
-  "spokenPrompt": "thumb. Finish the word thumb.",
+  "prompt": "Choose the missing letters for __umb.",
+  "question": "Choose the missing letters for __umb.",
+  "spokenPrompt": "Thumb. Choose the missing letters.",
   "choices": [
    "ch",
    "sh",
@@ -2217,7 +2139,7 @@ export const questions = [
    "ch": "D-PATTERN-TRAP",
    "sh": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -2228,21 +2150,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "thumb",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l1.C.th.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/thumb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "thumb",
-  "stimulusMediaId": "thumb",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2252,13 +2169,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "thumb: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/thumb.webp",
-  "imageUrl": "/images/assessment/digraphs/thumb.webp",
-  "targetImage": "/images/assessment/digraphs/thumb.webp",
-  "targetImagePath": "/images/assessment/digraphs/thumb.webp",
-  "resolvedImageAssetKey": "thumb",
-  "imageAlt": "thumb"
+  "notes": "thumb: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l1.A.th.v4",
@@ -2280,9 +2191,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: __orn",
-  "question": "Finish the word: __orn",
-  "spokenPrompt": "thorn. Finish the word thorn.",
+  "prompt": "Choose the missing letters for __orn.",
+  "question": "Choose the missing letters for __orn.",
+  "spokenPrompt": "Thorn. Choose the missing letters.",
   "choices": [
    "th",
    "sh",
@@ -2318,7 +2229,7 @@ export const questions = [
    "ch": "D-PATTERN-TRAP",
    "ph": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -2329,21 +2240,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "thorn",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l1.A.th.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/thorn.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "thorn",
-  "stimulusMediaId": "thorn",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2353,13 +2259,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "thorn: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/thorn.webp",
-  "imageUrl": "/images/assessment/digraphs/thorn.webp",
-  "targetImage": "/images/assessment/digraphs/thorn.webp",
-  "targetImagePath": "/images/assessment/digraphs/thorn.webp",
-  "resolvedImageAssetKey": "thorn",
-  "imageAlt": "thorn"
+  "notes": "thorn: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l2.A.th.v1",
@@ -2381,9 +2281,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: too__",
-  "question": "Finish the word: too__",
-  "spokenPrompt": "tooth. Finish the word tooth.",
+  "prompt": "Choose the missing letters for too__.",
+  "question": "Choose the missing letters for too__.",
+  "spokenPrompt": "Tooth. Choose the missing letters.",
   "choices": [
    "ch",
    "ck",
@@ -2419,7 +2319,7 @@ export const questions = [
    "ck": "D-PATTERN-TRAP",
    "sh": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -2430,21 +2330,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "tooth",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l2.A.th.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/tooth.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "tooth",
-  "stimulusMediaId": "tooth",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2454,13 +2349,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "tooth: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/tooth.webp",
-  "imageUrl": "/images/assessment/digraphs/tooth.webp",
-  "targetImage": "/images/assessment/digraphs/tooth.webp",
-  "targetImagePath": "/images/assessment/digraphs/tooth.webp",
-  "resolvedImageAssetKey": "tooth",
-  "imageAlt": "tooth"
+  "notes": "tooth: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l2.B.th.v2",
@@ -2482,9 +2371,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: ba__",
-  "question": "Finish the word: ba__",
-  "spokenPrompt": "bath. Finish the word bath.",
+  "prompt": "Choose the missing letters for ba__.",
+  "question": "Choose the missing letters for ba__.",
+  "spokenPrompt": "Bath. Choose the missing letters.",
   "choices": [
    "ch",
    "th",
@@ -2520,7 +2409,7 @@ export const questions = [
    "ch": "D-PATTERN-TRAP",
    "sh": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -2531,21 +2420,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "bath",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l2.B.th.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/bath.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "bath",
-  "stimulusMediaId": "bath",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2555,13 +2439,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "bath: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/bath.webp",
-  "imageUrl": "/images/assessment/digraphs/bath.webp",
-  "targetImage": "/images/assessment/digraphs/bath.webp",
-  "targetImagePath": "/images/assessment/digraphs/bath.webp",
-  "resolvedImageAssetKey": "bath",
-  "imageAlt": "bath"
+  "notes": "bath: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l2.C.th.v3",
@@ -2583,13 +2461,13 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one ends like bath?",
-  "question": "Which one ends like bath?",
-  "spokenPrompt": "Bath. Which one ends with the same sound as bath?",
+  "prompt": "Which word has the same final sound?",
+  "question": "Which word has the same final sound?",
+  "spokenPrompt": "Moth. Which word has the same final sound?",
   "choices": [
    "shirt",
    "lock",
-   "moth",
+   "tooth",
    "chick"
   ],
   "answerOptions": [
@@ -2604,9 +2482,9 @@ export const questions = [
     "text": "lock"
    },
    {
-    "value": "moth",
-    "label": "moth",
-    "text": "moth"
+    "value": "tooth",
+    "label": "tooth",
+    "text": "tooth"
    },
    {
     "value": "chick",
@@ -2614,8 +2492,8 @@ export const questions = [
     "text": "chick"
    }
   ],
-  "answer": "moth",
-  "correctAnswer": "moth",
+  "answer": "tooth",
+  "correctAnswer": "tooth",
   "distractorRationales": {
    "shirt": "D-POSITION",
    "lock": "D-PATTERN-TRAP",
@@ -2628,10 +2506,11 @@ export const questions = [
   "retentionOnly": false,
   "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "moth",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -2642,7 +2521,7 @@ export const questions = [
    "paths": [
     "/images/assessment/digraphs/shirt.webp",
     "/images/assessment/digraphs/lock.webp",
-    "/images/assessment/digraphs/moth.webp",
+    "/images/assessment/objective-words/tooth.webp",
     "/images/assessment/digraphs/chick.webp"
    ],
    "alt": "Picture choices for this literacy question",
@@ -2679,13 +2558,13 @@ export const questions = [
     "imageAlt": "lock"
    },
    {
-    "id": "lp3.digraphs.l2.C.th.v3_card_moth",
-    "word": "moth",
-    "value": "moth",
-    "label": "moth",
-    "image": "/images/assessment/digraphs/moth.webp",
-    "imagePath": "/images/assessment/digraphs/moth.webp",
-    "imageAlt": "moth"
+    "id": "lp3.digraphs.l2.C.th.v3_card_tooth",
+    "word": "tooth",
+    "value": "tooth",
+    "label": "tooth",
+    "image": "/images/assessment/objective-words/tooth.webp",
+    "imagePath": "/images/assessment/objective-words/tooth.webp",
+    "imageAlt": "tooth"
    },
    {
     "id": "lp3.digraphs.l2.C.th.v3_card_chick",
@@ -2718,43 +2597,43 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one ends with the same sound as tooth?",
-  "question": "Which one ends with the same sound as tooth?",
-  "spokenPrompt": "Tooth. Which one ends with the same sound as tooth?",
+  "prompt": "Which word has the same final sound?",
+  "question": "Which word has the same final sound?",
+  "spokenPrompt": "Bath. Which word has the same final sound?",
   "choices": [
-   "chip",
-   "whisk",
-   "sock",
-   "bath"
+   "chick",
+   "wheel",
+   "clock",
+   "tooth"
   ],
   "answerOptions": [
    {
-    "value": "chip",
-    "label": "chip",
-    "text": "chip"
+    "value": "chick",
+    "label": "chick",
+    "text": "chick"
    },
    {
-    "value": "whisk",
-    "label": "whisk",
-    "text": "whisk"
+    "value": "wheel",
+    "label": "wheel",
+    "text": "wheel"
    },
    {
-    "value": "sock",
-    "label": "sock",
-    "text": "sock"
+    "value": "clock",
+    "label": "clock",
+    "text": "clock"
    },
    {
-    "value": "bath",
-    "label": "bath",
-    "text": "bath"
+    "value": "tooth",
+    "label": "tooth",
+    "text": "tooth"
    }
   ],
-  "answer": "bath",
-  "correctAnswer": "bath",
+  "answer": "tooth",
+  "correctAnswer": "tooth",
   "distractorRationales": {
-   "chip": "D-PATTERN-TRAP",
-   "whisk": "D-POSITION",
-   "sock": "D-PATTERN-TRAP"
+   "chick": "D-PATTERN-TRAP",
+   "wheel": "D-POSITION",
+   "clock": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
@@ -2763,10 +2642,11 @@ export const questions = [
   "retentionOnly": false,
   "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "bath",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -2775,10 +2655,10 @@ export const questions = [
    "itemId": "lp3.digraphs.l2.A.th.v4",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/digraphs/chip.webp",
-    "/images/assessment/digraphs/whisk.webp",
-    "/images/assessment/digraphs/sock.webp",
-    "/images/assessment/digraphs/bath.webp"
+    "/images/assessment/digraphs/chick.webp",
+    "/images/assessment/objective-words/wheel.webp",
+    "/images/assessment/objective-words/clock.webp",
+    "/images/assessment/objective-words/tooth.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -2796,40 +2676,40 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.digraphs.l2.A.th.v4_card_chip",
-    "word": "chip",
-    "value": "chip",
-    "label": "chip",
-    "image": "/images/assessment/digraphs/chip.webp",
-    "imagePath": "/images/assessment/digraphs/chip.webp",
-    "imageAlt": "chip"
+    "id": "lp3.digraphs.l2.A.th.v4_card_chick",
+    "word": "chick",
+    "value": "chick",
+    "label": "chick",
+    "image": "/images/assessment/digraphs/chick.webp",
+    "imagePath": "/images/assessment/digraphs/chick.webp",
+    "imageAlt": "chick"
    },
    {
-    "id": "lp3.digraphs.l2.A.th.v4_card_whisk",
-    "word": "whisk",
-    "value": "whisk",
-    "label": "whisk",
-    "image": "/images/assessment/digraphs/whisk.webp",
-    "imagePath": "/images/assessment/digraphs/whisk.webp",
-    "imageAlt": "whisk"
+    "id": "lp3.digraphs.l2.A.th.v4_card_wheel",
+    "word": "wheel",
+    "value": "wheel",
+    "label": "wheel",
+    "image": "/images/assessment/objective-words/wheel.webp",
+    "imagePath": "/images/assessment/objective-words/wheel.webp",
+    "imageAlt": "wheel"
    },
    {
-    "id": "lp3.digraphs.l2.A.th.v4_card_sock",
-    "word": "sock",
-    "value": "sock",
-    "label": "sock",
-    "image": "/images/assessment/digraphs/sock.webp",
-    "imagePath": "/images/assessment/digraphs/sock.webp",
-    "imageAlt": "sock"
+    "id": "lp3.digraphs.l2.A.th.v4_card_clock",
+    "word": "clock",
+    "value": "clock",
+    "label": "clock",
+    "image": "/images/assessment/objective-words/clock.webp",
+    "imagePath": "/images/assessment/objective-words/clock.webp",
+    "imageAlt": "clock"
    },
    {
-    "id": "lp3.digraphs.l2.A.th.v4_card_bath",
-    "word": "bath",
-    "value": "bath",
-    "label": "bath",
-    "image": "/images/assessment/digraphs/bath.webp",
-    "imagePath": "/images/assessment/digraphs/bath.webp",
-    "imageAlt": "bath"
+    "id": "lp3.digraphs.l2.A.th.v4_card_tooth",
+    "word": "tooth",
+    "value": "tooth",
+    "label": "tooth",
+    "image": "/images/assessment/objective-words/tooth.webp",
+    "imagePath": "/images/assessment/objective-words/tooth.webp",
+    "imageAlt": "tooth"
    }
   ]
  },
@@ -2853,20 +2733,20 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts like whale?",
-  "question": "Which one starts like whale?",
-  "spokenPrompt": "Whale. Which one starts with the same sound as whale?",
+  "prompt": "Which word has the same starting sound?",
+  "question": "Which word has the same starting sound?",
+  "spokenPrompt": "Whale. Which word has the same starting sound?",
   "choices": [
-   "watch",
+   "thorn",
    "wheel",
    "chick",
    "shell"
   ],
   "answerOptions": [
    {
-    "value": "watch",
-    "label": "watch",
-    "text": "watch"
+    "value": "thorn",
+    "label": "thorn",
+    "text": "thorn"
    },
    {
     "value": "wheel",
@@ -2888,7 +2768,7 @@ export const questions = [
   "correctAnswer": "wheel",
   "distractorRationales": {
    "shell": "D-PATTERN-TRAP",
-   "watch": "D-ONSET",
+   "thorn": "D-PATTERN-TRAP",
    "chick": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
@@ -2898,10 +2778,11 @@ export const questions = [
   "retentionOnly": false,
   "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "whale",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -2910,8 +2791,8 @@ export const questions = [
    "itemId": "lp3.digraphs.l1.A.wh.v1",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/digraphs/watch.webp",
-    "/images/assessment/digraphs/wheel.webp",
+    "/images/assessment/digraphs/thorn.webp",
+    "/images/assessment/objective-words/wheel.webp",
     "/images/assessment/digraphs/chick.webp",
     "/images/assessment/digraphs/shell.webp"
    ],
@@ -2931,21 +2812,21 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.digraphs.l1.A.wh.v1_card_watch",
-    "word": "watch",
-    "value": "watch",
-    "label": "watch",
-    "image": "/images/assessment/digraphs/watch.webp",
-    "imagePath": "/images/assessment/digraphs/watch.webp",
-    "imageAlt": "watch"
+    "id": "lp3.digraphs.l1.A.wh.v1_card_thorn",
+    "word": "thorn",
+    "value": "thorn",
+    "label": "thorn",
+    "image": "/images/assessment/digraphs/thorn.webp",
+    "imagePath": "/images/assessment/digraphs/thorn.webp",
+    "imageAlt": "thorn"
    },
    {
     "id": "lp3.digraphs.l1.A.wh.v1_card_wheel",
     "word": "wheel",
     "value": "wheel",
     "label": "wheel",
-    "image": "/images/assessment/digraphs/wheel.webp",
-    "imagePath": "/images/assessment/digraphs/wheel.webp",
+    "image": "/images/assessment/objective-words/wheel.webp",
+    "imagePath": "/images/assessment/objective-words/wheel.webp",
     "imageAlt": "wheel"
    },
    {
@@ -2988,25 +2869,25 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts with the same sound as whale?",
-  "question": "Which one starts with the same sound as whale?",
-  "spokenPrompt": "Whale. Which one starts with the same sound as whale?",
+  "prompt": "Which word has the same starting sound?",
+  "question": "Which word has the same starting sound?",
+  "spokenPrompt": "Whale. Which word has the same starting sound?",
   "choices": [
-   "wasp",
-   "whisk",
+   "tiger",
+   "watch",
    "cheese",
    "sheep"
   ],
   "answerOptions": [
    {
-    "value": "wasp",
-    "label": "wasp",
-    "text": "wasp"
+    "value": "tiger",
+    "label": "tiger",
+    "text": "tiger"
    },
    {
-    "value": "whisk",
-    "label": "whisk",
-    "text": "whisk"
+    "value": "watch",
+    "label": "watch",
+    "text": "watch"
    },
    {
     "value": "cheese",
@@ -3019,11 +2900,11 @@ export const questions = [
     "text": "sheep"
    }
   ],
-  "answer": "whisk",
-  "correctAnswer": "whisk",
+  "answer": "watch",
+  "correctAnswer": "watch",
   "distractorRationales": {
    "sheep": "D-PATTERN-TRAP",
-   "wasp": "D-ONSET",
+   "tiger": "D-ONSET",
    "cheese": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
@@ -3033,10 +2914,11 @@ export const questions = [
   "retentionOnly": false,
   "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "whale",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -3045,9 +2927,9 @@ export const questions = [
    "itemId": "lp3.digraphs.l1.B.wh.v2",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/blends/wasp.webp",
-    "/images/assessment/digraphs/whisk.webp",
-    "/images/assessment/digraphs/cheese.webp",
+    "/images/assessment/objective-words/tiger.webp",
+    "/images/assessment/objective-words/watch.webp",
+    "/images/assessment/objective-words/cheese.webp",
     "/images/assessment/digraphs/sheep.webp"
    ],
    "alt": "Picture choices for this literacy question",
@@ -3066,30 +2948,30 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.digraphs.l1.B.wh.v2_card_wasp",
-    "word": "wasp",
-    "value": "wasp",
-    "label": "wasp",
-    "image": "/images/assessment/blends/wasp.webp",
-    "imagePath": "/images/assessment/blends/wasp.webp",
-    "imageAlt": "wasp"
+    "id": "lp3.digraphs.l1.B.wh.v2_card_tiger",
+    "word": "tiger",
+    "value": "tiger",
+    "label": "tiger",
+    "image": "/images/assessment/objective-words/tiger.webp",
+    "imagePath": "/images/assessment/objective-words/tiger.webp",
+    "imageAlt": "tiger"
    },
    {
-    "id": "lp3.digraphs.l1.B.wh.v2_card_whisk",
-    "word": "whisk",
-    "value": "whisk",
-    "label": "whisk",
-    "image": "/images/assessment/digraphs/whisk.webp",
-    "imagePath": "/images/assessment/digraphs/whisk.webp",
-    "imageAlt": "whisk"
+    "id": "lp3.digraphs.l1.B.wh.v2_card_watch",
+    "word": "watch",
+    "value": "watch",
+    "label": "watch",
+    "image": "/images/assessment/objective-words/watch.webp",
+    "imagePath": "/images/assessment/objective-words/watch.webp",
+    "imageAlt": "watch"
    },
    {
     "id": "lp3.digraphs.l1.B.wh.v2_card_cheese",
     "word": "cheese",
     "value": "cheese",
     "label": "cheese",
-    "image": "/images/assessment/digraphs/cheese.webp",
-    "imagePath": "/images/assessment/digraphs/cheese.webp",
+    "image": "/images/assessment/objective-words/cheese.webp",
+    "imagePath": "/images/assessment/objective-words/cheese.webp",
     "imageAlt": "cheese"
    },
    {
@@ -3123,9 +3005,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: __eel",
-  "question": "Finish the word: __eel",
-  "spokenPrompt": "wheel. Finish the word wheel.",
+  "prompt": "Choose the missing letters for __eel.",
+  "question": "Choose the missing letters for __eel.",
+  "spokenPrompt": "Wheel. Choose the missing letters.",
   "choices": [
    "wh",
    "sh",
@@ -3161,7 +3043,7 @@ export const questions = [
    "th": "D-PATTERN-TRAP",
    "sh": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -3172,21 +3054,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "wheel",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l1.C.wh.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/wheel.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "wheel",
-  "stimulusMediaId": "wheel",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3196,13 +3073,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "wheel: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/wheel.webp",
-  "imageUrl": "/images/assessment/digraphs/wheel.webp",
-  "targetImage": "/images/assessment/digraphs/wheel.webp",
-  "targetImagePath": "/images/assessment/digraphs/wheel.webp",
-  "resolvedImageAssetKey": "wheel",
-  "imageAlt": "wheel"
+  "notes": "wheel: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l1.A.wh.v4",
@@ -3224,9 +3095,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: __istle",
-  "question": "Finish the word: __istle",
-  "spokenPrompt": "whistle. Finish the word whistle.",
+  "prompt": "Choose the missing letters for __istle.",
+  "question": "Choose the missing letters for __istle.",
+  "spokenPrompt": "Whistle. Choose the missing letters.",
   "choices": [
    "sh",
    "ch",
@@ -3262,7 +3133,7 @@ export const questions = [
    "sh": "D-PATTERN-TRAP",
    "ch": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -3273,21 +3144,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "whistle",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l1.A.wh.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/whistle.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "whistle",
-  "stimulusMediaId": "whistle",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3297,13 +3163,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "whistle: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/whistle.webp",
-  "imageUrl": "/images/assessment/digraphs/whistle.webp",
-  "targetImage": "/images/assessment/digraphs/whistle.webp",
-  "targetImagePath": "/images/assessment/digraphs/whistle.webp",
-  "resolvedImageAssetKey": "whistle",
-  "imageAlt": "whistle"
+  "notes": "whistle: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l2.A.wh.v1",
@@ -3325,9 +3185,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: __eelbarrow",
-  "question": "Finish the word: __eelbarrow",
-  "spokenPrompt": "wheelbarrow. Finish the word wheelbarrow.",
+  "prompt": "Choose the missing letters for __eelbarrow.",
+  "question": "Choose the missing letters for __eelbarrow.",
+  "spokenPrompt": "Wheelbarrow. Choose the missing letters.",
   "choices": [
    "wh",
    "sh",
@@ -3363,7 +3223,7 @@ export const questions = [
    "sh": "D-PATTERN-TRAP",
    "ch": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -3374,21 +3234,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "wheelbarrow",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l2.A.wh.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/wheelbarrow.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "wheelbarrow",
-  "stimulusMediaId": "wheelbarrow",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3398,13 +3253,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "wheelbarrow: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/wheelbarrow.webp",
-  "imageUrl": "/images/assessment/digraphs/wheelbarrow.webp",
-  "targetImage": "/images/assessment/digraphs/wheelbarrow.webp",
-  "targetImagePath": "/images/assessment/digraphs/wheelbarrow.webp",
-  "resolvedImageAssetKey": "wheelbarrow",
-  "imageAlt": "wheelbarrow"
+  "notes": "wheelbarrow: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l2.B.wh.v2",
@@ -3426,9 +3275,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: __isker",
-  "question": "Finish the word: __isker",
-  "spokenPrompt": "whisker. Finish the word whisker.",
+  "prompt": "Choose the missing letters for __isker.",
+  "question": "Choose the missing letters for __isker.",
+  "spokenPrompt": "Whisker. Choose the missing letters.",
   "choices": [
    "sh",
    "ph",
@@ -3464,7 +3313,7 @@ export const questions = [
    "th": "D-PATTERN-TRAP",
    "sh": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -3475,21 +3324,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "whisker",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l2.B.wh.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/whisker.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "whisker",
-  "stimulusMediaId": "whisker",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3499,13 +3343,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "whisker: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/whisker.webp",
-  "imageUrl": "/images/assessment/digraphs/whisker.webp",
-  "targetImage": "/images/assessment/digraphs/whisker.webp",
-  "targetImagePath": "/images/assessment/digraphs/whisker.webp",
-  "resolvedImageAssetKey": "whisker",
-  "imageAlt": "whisker"
+  "notes": "whisker: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l2.C.wh.v3",
@@ -3527,14 +3365,14 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts like whistle?",
-  "question": "Which one starts like whistle?",
-  "spokenPrompt": "Whistle. Which one starts with the same sound as whistle?",
+  "prompt": "Which word has the same starting sound?",
+  "question": "Which word has the same starting sound?",
+  "spokenPrompt": "Whistle. Which word has the same starting sound?",
   "choices": [
    "chick",
-   "thread",
+   "thorn",
    "shark",
-   "whirlpool"
+   "whale"
   ],
   "answerOptions": [
    {
@@ -3543,9 +3381,9 @@ export const questions = [
     "text": "chick"
    },
    {
-    "value": "thread",
-    "label": "thread",
-    "text": "thread"
+    "value": "thorn",
+    "label": "thorn",
+    "text": "thorn"
    },
    {
     "value": "shark",
@@ -3553,17 +3391,17 @@ export const questions = [
     "text": "shark"
    },
    {
-    "value": "whirlpool",
-    "label": "whirlpool",
-    "text": "whirlpool"
+    "value": "whale",
+    "label": "whale",
+    "text": "whale"
    }
   ],
-  "answer": "whirlpool",
-  "correctAnswer": "whirlpool",
+  "answer": "whale",
+  "correctAnswer": "whale",
   "distractorRationales": {
    "shark": "D-PATTERN-TRAP",
    "chick": "D-PATTERN-TRAP",
-   "thread": "D-PATTERN-TRAP"
+   "thorn": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -3572,10 +3410,11 @@ export const questions = [
   "retentionOnly": false,
   "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "whistle",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -3585,9 +3424,9 @@ export const questions = [
    "role": "answer-cards",
    "paths": [
     "/images/assessment/digraphs/chick.webp",
-    "/images/assessment/digraphs/thread.webp",
+    "/images/assessment/digraphs/thorn.webp",
     "/images/assessment/digraphs/shark.webp",
-    "/images/assessment/digraphs/whirlpool.webp"
+    "/images/assessment/digraphs/whale.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -3614,13 +3453,13 @@ export const questions = [
     "imageAlt": "chick"
    },
    {
-    "id": "lp3.digraphs.l2.C.wh.v3_card_thread",
-    "word": "thread",
-    "value": "thread",
-    "label": "thread",
-    "image": "/images/assessment/digraphs/thread.webp",
-    "imagePath": "/images/assessment/digraphs/thread.webp",
-    "imageAlt": "thread"
+    "id": "lp3.digraphs.l2.C.wh.v3_card_thorn",
+    "word": "thorn",
+    "value": "thorn",
+    "label": "thorn",
+    "image": "/images/assessment/digraphs/thorn.webp",
+    "imagePath": "/images/assessment/digraphs/thorn.webp",
+    "imageAlt": "thorn"
    },
    {
     "id": "lp3.digraphs.l2.C.wh.v3_card_shark",
@@ -3632,13 +3471,13 @@ export const questions = [
     "imageAlt": "shark"
    },
    {
-    "id": "lp3.digraphs.l2.C.wh.v3_card_whirlpool",
-    "word": "whirlpool",
-    "value": "whirlpool",
-    "label": "whirlpool",
-    "image": "/images/assessment/digraphs/whirlpool.webp",
-    "imagePath": "/images/assessment/digraphs/whirlpool.webp",
-    "imageAlt": "whirlpool"
+    "id": "lp3.digraphs.l2.C.wh.v3_card_whale",
+    "word": "whale",
+    "value": "whale",
+    "label": "whale",
+    "image": "/images/assessment/digraphs/whale.webp",
+    "imagePath": "/images/assessment/digraphs/whale.webp",
+    "imageAlt": "whale"
    }
   ]
  },
@@ -3662,12 +3501,12 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Listen: whale. Find the one that starts the same.",
-  "question": "Listen: whale. Find the one that starts the same.",
-  "spokenPrompt": "Whale. Find the one that starts the same as whale.",
+  "prompt": "Which word has the same starting sound?",
+  "question": "Which word has the same starting sound?",
+  "spokenPrompt": "Whale. Which word has the same starting sound?",
   "choices": [
    "shell",
-   "wheat",
+   "web",
    "thorn",
    "cheese"
   ],
@@ -3678,9 +3517,9 @@ export const questions = [
     "text": "shell"
    },
    {
-    "value": "wheat",
-    "label": "wheat",
-    "text": "wheat"
+    "value": "web",
+    "label": "web",
+    "text": "web"
    },
    {
     "value": "thorn",
@@ -3693,8 +3532,8 @@ export const questions = [
     "text": "cheese"
    }
   ],
-  "answer": "wheat",
-  "correctAnswer": "wheat",
+  "answer": "web",
+  "correctAnswer": "web",
   "distractorRationales": {
    "thorn": "D-PATTERN-TRAP",
    "cheese": "D-PATTERN-TRAP",
@@ -3707,10 +3546,11 @@ export const questions = [
   "retentionOnly": false,
   "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "whale",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -3720,9 +3560,9 @@ export const questions = [
    "role": "answer-cards",
    "paths": [
     "/images/assessment/digraphs/shell.webp",
-    "/images/assessment/digraphs/wheat.webp",
+    "/images/assessment/objective-words/web.webp",
     "/images/assessment/digraphs/thorn.webp",
-    "/images/assessment/digraphs/cheese.webp"
+    "/images/assessment/objective-words/cheese.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -3749,13 +3589,13 @@ export const questions = [
     "imageAlt": "shell"
    },
    {
-    "id": "lp3.digraphs.l2.A.wh.v4_card_wheat",
-    "word": "wheat",
-    "value": "wheat",
-    "label": "wheat",
-    "image": "/images/assessment/digraphs/wheat.webp",
-    "imagePath": "/images/assessment/digraphs/wheat.webp",
-    "imageAlt": "wheat"
+    "id": "lp3.digraphs.l2.A.wh.v4_card_web",
+    "word": "web",
+    "value": "web",
+    "label": "web",
+    "image": "/images/assessment/objective-words/web.webp",
+    "imagePath": "/images/assessment/objective-words/web.webp",
+    "imageAlt": "web"
    },
    {
     "id": "lp3.digraphs.l2.A.wh.v4_card_thorn",
@@ -3771,8 +3611,8 @@ export const questions = [
     "word": "cheese",
     "value": "cheese",
     "label": "cheese",
-    "image": "/images/assessment/digraphs/cheese.webp",
-    "imagePath": "/images/assessment/digraphs/cheese.webp",
+    "image": "/images/assessment/objective-words/cheese.webp",
+    "imagePath": "/images/assessment/objective-words/cheese.webp",
     "imageAlt": "cheese"
    }
   ]
@@ -3797,14 +3637,14 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts like phone?",
-  "question": "Which one starts like phone?",
-  "spokenPrompt": "Phone. Which one starts with the same sound as phone?",
+  "prompt": "Which word has the same starting sound?",
+  "question": "Which word has the same starting sound?",
+  "spokenPrompt": "Photo. Which word has the same starting sound?",
   "choices": [
    "chick",
    "shell",
    "thorn",
-   "photo"
+   "fan"
   ],
   "answerOptions": [
    {
@@ -3823,13 +3663,13 @@ export const questions = [
     "text": "thorn"
    },
    {
-    "value": "photo",
-    "label": "photo",
-    "text": "photo"
+    "value": "fan",
+    "label": "fan",
+    "text": "fan"
    }
   ],
-  "answer": "photo",
-  "correctAnswer": "photo",
+  "answer": "fan",
+  "correctAnswer": "fan",
   "distractorRationales": {
    "thorn": "D-PATTERN-TRAP",
    "chick": "D-PATTERN-TRAP",
@@ -3842,10 +3682,11 @@ export const questions = [
   "retentionOnly": false,
   "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "photo",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -3857,7 +3698,7 @@ export const questions = [
     "/images/assessment/digraphs/chick.webp",
     "/images/assessment/digraphs/shell.webp",
     "/images/assessment/digraphs/thorn.webp",
-    "/images/assessment/digraphs/photo.webp"
+    "/images/assessment/objective-words/fan.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -3872,7 +3713,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
+  "notes": "the spoken ph anchor is matched to a directly nameable /f/ picture; spelling evidence is carried by the completion items",
   "imageCards": [
    {
     "id": "lp3.digraphs.l1.A.ph.v1_card_chick",
@@ -3902,13 +3743,13 @@ export const questions = [
     "imageAlt": "thorn"
    },
    {
-    "id": "lp3.digraphs.l1.A.ph.v1_card_photo",
-    "word": "photo",
-    "value": "photo",
-    "label": "photo",
-    "image": "/images/assessment/digraphs/photo.webp",
-    "imagePath": "/images/assessment/digraphs/photo.webp",
-    "imageAlt": "photo"
+    "id": "lp3.digraphs.l1.A.ph.v1_card_fan",
+    "word": "fan",
+    "value": "fan",
+    "label": "fan",
+    "image": "/images/assessment/objective-words/fan.webp",
+    "imagePath": "/images/assessment/objective-words/fan.webp",
+    "imageAlt": "fan"
    }
   ]
  },
@@ -3932,14 +3773,14 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts with the same sound as phone?",
-  "question": "Which one starts with the same sound as phone?",
-  "spokenPrompt": "Phone. Which one starts with the same sound as phone?",
+  "prompt": "Which word has the same starting sound?",
+  "question": "Which word has the same starting sound?",
+  "spokenPrompt": "Phone. Which word has the same starting sound?",
   "choices": [
    "sheep",
-   "three",
-   "pheasant",
-   "chip"
+   "thorn",
+   "fox",
+   "chick"
   ],
   "answerOptions": [
    {
@@ -3948,26 +3789,26 @@ export const questions = [
     "text": "sheep"
    },
    {
-    "value": "three",
-    "label": "three",
-    "text": "three"
+    "value": "thorn",
+    "label": "thorn",
+    "text": "thorn"
    },
    {
-    "value": "pheasant",
-    "label": "pheasant",
-    "text": "pheasant"
+    "value": "fox",
+    "label": "fox",
+    "text": "fox"
    },
    {
-    "value": "chip",
-    "label": "chip",
-    "text": "chip"
+    "value": "chick",
+    "label": "chick",
+    "text": "chick"
    }
   ],
-  "answer": "pheasant",
-  "correctAnswer": "pheasant",
+  "answer": "fox",
+  "correctAnswer": "fox",
   "distractorRationales": {
-   "three": "D-PATTERN-TRAP",
-   "chip": "D-PATTERN-TRAP",
+   "thorn": "D-PATTERN-TRAP",
+   "chick": "D-PATTERN-TRAP",
    "sheep": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
@@ -3977,10 +3818,11 @@ export const questions = [
   "retentionOnly": false,
   "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "phone",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -3990,9 +3832,9 @@ export const questions = [
    "role": "answer-cards",
    "paths": [
     "/images/assessment/digraphs/sheep.webp",
-    "/images/assessment/digraphs/three.webp",
-    "/images/assessment/digraphs/pheasant.webp",
-    "/images/assessment/digraphs/chip.webp"
+    "/images/assessment/digraphs/thorn.webp",
+    "/images/assessment/objective-words/fox.webp",
+    "/images/assessment/digraphs/chick.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -4007,7 +3849,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
+  "notes": "fox is a directly nameable /f/ card; the hidden label does not ask a child to identify a pheasant species",
   "imageCards": [
    {
     "id": "lp3.digraphs.l1.B.ph.v2_card_sheep",
@@ -4019,31 +3861,31 @@ export const questions = [
     "imageAlt": "sheep"
    },
    {
-    "id": "lp3.digraphs.l1.B.ph.v2_card_three",
-    "word": "three",
-    "value": "three",
-    "label": "three",
-    "image": "/images/assessment/digraphs/three.webp",
-    "imagePath": "/images/assessment/digraphs/three.webp",
-    "imageAlt": "three"
+    "id": "lp3.digraphs.l1.B.ph.v2_card_thorn",
+    "word": "thorn",
+    "value": "thorn",
+    "label": "thorn",
+    "image": "/images/assessment/digraphs/thorn.webp",
+    "imagePath": "/images/assessment/digraphs/thorn.webp",
+    "imageAlt": "thorn"
    },
    {
-    "id": "lp3.digraphs.l1.B.ph.v2_card_pheasant",
-    "word": "pheasant",
-    "value": "pheasant",
-    "label": "pheasant",
-    "image": "/images/assessment/digraphs/pheasant.webp",
-    "imagePath": "/images/assessment/digraphs/pheasant.webp",
-    "imageAlt": "pheasant"
+    "id": "lp3.digraphs.l1.B.ph.v2_card_fox",
+    "word": "fox",
+    "value": "fox",
+    "label": "fox",
+    "image": "/images/assessment/objective-words/fox.webp",
+    "imagePath": "/images/assessment/objective-words/fox.webp",
+    "imageAlt": "fox"
    },
    {
-    "id": "lp3.digraphs.l1.B.ph.v2_card_chip",
-    "word": "chip",
-    "value": "chip",
-    "label": "chip",
-    "image": "/images/assessment/digraphs/chip.webp",
-    "imagePath": "/images/assessment/digraphs/chip.webp",
-    "imageAlt": "chip"
+    "id": "lp3.digraphs.l1.B.ph.v2_card_chick",
+    "word": "chick",
+    "value": "chick",
+    "label": "chick",
+    "image": "/images/assessment/digraphs/chick.webp",
+    "imagePath": "/images/assessment/digraphs/chick.webp",
+    "imageAlt": "chick"
    }
   ]
  },
@@ -4067,9 +3909,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: __one",
-  "question": "Finish the word: __one",
-  "spokenPrompt": "phone. Finish the word phone.",
+  "prompt": "Choose the missing letters for __one.",
+  "question": "Choose the missing letters for __one.",
+  "spokenPrompt": "Phone. Choose the missing letters.",
   "choices": [
    "th",
    "ph",
@@ -4105,7 +3947,7 @@ export const questions = [
    "wh": "D-PATTERN-TRAP",
    "sh": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -4116,21 +3958,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "phone",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l1.C.ph.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/phone.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "phone",
-  "stimulusMediaId": "phone",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4140,13 +3977,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "phone: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/phone.webp",
-  "imageUrl": "/images/assessment/digraphs/phone.webp",
-  "targetImage": "/images/assessment/digraphs/phone.webp",
-  "targetImagePath": "/images/assessment/digraphs/phone.webp",
-  "resolvedImageAssetKey": "phone",
-  "imageAlt": "phone"
+  "notes": "phone: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l1.A.ph.v4",
@@ -4168,9 +3999,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: __oto",
-  "question": "Finish the word: __oto",
-  "spokenPrompt": "photo. Finish the word photo.",
+  "prompt": "Choose the missing letters for __oto.",
+  "question": "Choose the missing letters for __oto.",
+  "spokenPrompt": "Photo. Choose the missing letters.",
   "choices": [
    "ph",
    "sh",
@@ -4206,7 +4037,7 @@ export const questions = [
    "ch": "D-PATTERN-TRAP",
    "wh": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -4217,21 +4048,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "photo",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l1.A.ph.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/photo.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "photo",
-  "stimulusMediaId": "photo",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4241,13 +4067,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "photo: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/photo.webp",
-  "imageUrl": "/images/assessment/digraphs/photo.webp",
-  "targetImage": "/images/assessment/digraphs/photo.webp",
-  "targetImagePath": "/images/assessment/digraphs/photo.webp",
-  "resolvedImageAssetKey": "photo",
-  "imageAlt": "photo"
+  "notes": "photo: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l2.A.ph.v1",
@@ -4269,9 +4089,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: dol__in",
-  "question": "Finish the word: dol__in",
-  "spokenPrompt": "dolphin. Finish the word dolphin.",
+  "prompt": "Choose the missing letters for dol__in.",
+  "question": "Choose the missing letters for dol__in.",
+  "spokenPrompt": "Dolphin. Choose the missing letters.",
   "choices": [
    "ch",
    "th",
@@ -4307,7 +4127,7 @@ export const questions = [
    "th": "D-PATTERN-TRAP",
    "sh": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "medial",
   "hadPTD": true,
   "nonGating": false,
@@ -4318,21 +4138,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "dolphin",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l2.A.ph.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/dolphin.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "dolphin",
-  "stimulusMediaId": "dolphin",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4342,13 +4157,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "dolphin: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/dolphin.webp",
-  "imageUrl": "/images/assessment/digraphs/dolphin.webp",
-  "targetImage": "/images/assessment/digraphs/dolphin.webp",
-  "targetImagePath": "/images/assessment/digraphs/dolphin.webp",
-  "resolvedImageAssetKey": "dolphin",
-  "imageAlt": "dolphin"
+  "notes": "dolphin: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l2.B.ph.v2",
@@ -4370,9 +4179,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: ele__ant",
-  "question": "Finish the word: ele__ant",
-  "spokenPrompt": "elephant. Finish the word elephant.",
+  "prompt": "Choose the missing letters for ele__ant.",
+  "question": "Choose the missing letters for ele__ant.",
+  "spokenPrompt": "Elephant. Choose the missing letters.",
   "choices": [
    "sh",
    "wh",
@@ -4408,7 +4217,7 @@ export const questions = [
    "th": "D-PATTERN-TRAP",
    "sh": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "medial",
   "hadPTD": true,
   "nonGating": false,
@@ -4419,21 +4228,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "elephant",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l2.B.ph.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/elephant.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "elephant",
-  "stimulusMediaId": "elephant",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4443,13 +4247,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "elephant: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/elephant.webp",
-  "imageUrl": "/images/assessment/digraphs/elephant.webp",
-  "targetImage": "/images/assessment/digraphs/elephant.webp",
-  "targetImagePath": "/images/assessment/digraphs/elephant.webp",
-  "resolvedImageAssetKey": "elephant",
-  "imageAlt": "elephant"
+  "notes": "elephant: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l2.C.ph.v3",
@@ -4471,9 +4269,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: gra__",
-  "question": "Finish the word: gra__",
-  "spokenPrompt": "graph. Finish the word graph.",
+  "prompt": "Choose the missing letters for gra__.",
+  "question": "Choose the missing letters for gra__.",
+  "spokenPrompt": "Graph. Choose the missing letters.",
   "choices": [
    "ph",
    "sh",
@@ -4509,7 +4307,7 @@ export const questions = [
    "th": "D-PATTERN-TRAP",
    "sh": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -4520,21 +4318,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "graph",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l2.C.ph.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/graph.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "graph",
-  "stimulusMediaId": "graph",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4544,13 +4337,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "graph is the rare real final-ph child word — bonus final exposure for an exempt unit",
-  "imagePath": "/images/assessment/digraphs/graph.webp",
-  "imageUrl": "/images/assessment/digraphs/graph.webp",
-  "targetImage": "/images/assessment/digraphs/graph.webp",
-  "targetImagePath": "/images/assessment/digraphs/graph.webp",
-  "resolvedImageAssetKey": "graph",
-  "imageAlt": "graph"
+  "notes": "graph is the rare real final-ph child word — bonus final exposure for an exempt unit"
  },
  {
   "id": "lp3.digraphs.l2.A.ph.v4",
@@ -4572,12 +4359,12 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts like photo?",
-  "question": "Which one starts like photo?",
-  "spokenPrompt": "Photo. Which one starts with the same sound as photo?",
+  "prompt": "Which word has the same starting sound?",
+  "question": "Which word has the same starting sound?",
+  "spokenPrompt": "Photo. Which word has the same starting sound?",
   "choices": [
    "chick",
-   "cherry",
+   "cheese",
    "shark",
    "phone"
   ],
@@ -4588,9 +4375,9 @@ export const questions = [
     "text": "chick"
    },
    {
-    "value": "cherry",
-    "label": "cherry",
-    "text": "cherry"
+    "value": "cheese",
+    "label": "cheese",
+    "text": "cheese"
    },
    {
     "value": "shark",
@@ -4607,7 +4394,7 @@ export const questions = [
   "correctAnswer": "phone",
   "distractorRationales": {
    "chick": "D-PATTERN-TRAP",
-   "cherry": "D-PATTERN-TRAP",
+   "cheese": "D-PATTERN-TRAP",
    "shark": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
@@ -4617,10 +4404,11 @@ export const questions = [
   "retentionOnly": false,
   "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "photo",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -4630,7 +4418,7 @@ export const questions = [
    "role": "answer-cards",
    "paths": [
     "/images/assessment/digraphs/chick.webp",
-    "/images/assessment/digraphs/cherry.webp",
+    "/images/assessment/objective-words/cheese.webp",
     "/images/assessment/digraphs/shark.webp",
     "/images/assessment/digraphs/phone.webp"
    ],
@@ -4659,13 +4447,13 @@ export const questions = [
     "imageAlt": "chick"
    },
    {
-    "id": "lp3.digraphs.l2.A.ph.v4_card_cherry",
-    "word": "cherry",
-    "value": "cherry",
-    "label": "cherry",
-    "image": "/images/assessment/digraphs/cherry.webp",
-    "imagePath": "/images/assessment/digraphs/cherry.webp",
-    "imageAlt": "cherry"
+    "id": "lp3.digraphs.l2.A.ph.v4_card_cheese",
+    "word": "cheese",
+    "value": "cheese",
+    "label": "cheese",
+    "image": "/images/assessment/objective-words/cheese.webp",
+    "imagePath": "/images/assessment/objective-words/cheese.webp",
+    "imageAlt": "cheese"
    },
    {
     "id": "lp3.digraphs.l2.A.ph.v4_card_shark",
@@ -4707,9 +4495,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: du__",
-  "question": "Finish the word: du__",
-  "spokenPrompt": "duck. Finish the word duck.",
+  "prompt": "Choose the missing letters for du__.",
+  "question": "Choose the missing letters for du__.",
+  "spokenPrompt": "Duck. Choose the missing letters.",
   "choices": [
    "th",
    "ck",
@@ -4745,7 +4533,7 @@ export const questions = [
    "sh": "D-PATTERN-TRAP",
    "th": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -4756,21 +4544,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "duck",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l1.A.ck.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/duck.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "duck",
-  "stimulusMediaId": "duck",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4780,13 +4563,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "duck: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/duck.webp",
-  "imageUrl": "/images/assessment/digraphs/duck.webp",
-  "targetImage": "/images/assessment/digraphs/duck.webp",
-  "targetImagePath": "/images/assessment/digraphs/duck.webp",
-  "resolvedImageAssetKey": "duck",
-  "imageAlt": "duck"
+  "notes": "duck: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l1.B.ck.v2",
@@ -4808,9 +4585,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: so__",
-  "question": "Finish the word: so__",
-  "spokenPrompt": "sock. Finish the word sock.",
+  "prompt": "Choose the missing letters for so__.",
+  "question": "Choose the missing letters for so__.",
+  "spokenPrompt": "Sock. Choose the missing letters.",
   "choices": [
    "sh",
    "ch",
@@ -4846,7 +4623,7 @@ export const questions = [
    "ch": "D-PATTERN-TRAP",
    "th": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -4857,21 +4634,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "sock",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l1.B.ck.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/sock.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "sock",
-  "stimulusMediaId": "sock",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4881,13 +4653,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "sock: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/sock.webp",
-  "imageUrl": "/images/assessment/digraphs/sock.webp",
-  "targetImage": "/images/assessment/digraphs/sock.webp",
-  "targetImagePath": "/images/assessment/digraphs/sock.webp",
-  "resolvedImageAssetKey": "sock",
-  "imageAlt": "sock"
+  "notes": "sock: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l1.C.ck.v3",
@@ -4909,20 +4675,20 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one ends like duck?",
-  "question": "Which one ends like duck?",
-  "spokenPrompt": "Duck. Which one ends with the same sound as duck?",
+  "prompt": "Which word has the same final sound?",
+  "question": "Which word has the same final sound?",
+  "spokenPrompt": "Duck. Which word has the same final sound?",
   "choices": [
-   "moth",
+   "tooth",
    "shell",
-   "rock",
-   "chip"
+   "clock",
+   "ship"
   ],
   "answerOptions": [
    {
-    "value": "moth",
-    "label": "moth",
-    "text": "moth"
+    "value": "tooth",
+    "label": "tooth",
+    "text": "tooth"
    },
    {
     "value": "shell",
@@ -4930,21 +4696,21 @@ export const questions = [
     "text": "shell"
    },
    {
-    "value": "rock",
-    "label": "rock",
-    "text": "rock"
+    "value": "clock",
+    "label": "clock",
+    "text": "clock"
    },
    {
-    "value": "chip",
-    "label": "chip",
-    "text": "chip"
+    "value": "ship",
+    "label": "ship",
+    "text": "ship"
    }
   ],
-  "answer": "rock",
-  "correctAnswer": "rock",
+  "answer": "clock",
+  "correctAnswer": "clock",
   "distractorRationales": {
-   "chip": "D-PATTERN-TRAP",
-   "moth": "D-PATTERN-TRAP",
+   "ship": "D-PATTERN-TRAP",
+   "tooth": "D-PATTERN-TRAP",
    "shell": "D-POSITION"
   },
   "mediaTier": "image-required",
@@ -4954,10 +4720,11 @@ export const questions = [
   "retentionOnly": false,
   "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "duck",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -4966,10 +4733,10 @@ export const questions = [
    "itemId": "lp3.digraphs.l1.C.ck.v3",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/digraphs/moth.webp",
+    "/images/assessment/objective-words/tooth.webp",
     "/images/assessment/digraphs/shell.webp",
-    "/images/assessment/digraphs/rock.webp",
-    "/images/assessment/digraphs/chip.webp"
+    "/images/assessment/objective-words/clock.webp",
+    "/images/assessment/objective-words/ship.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -4984,16 +4751,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "chip ties the which-overlap; -ock keys are avoided when the anchor is -ock",
+  "notes": "the concrete clock card carries final /k/; the other cards end /p/, /th/, and /l/",
   "imageCards": [
    {
-    "id": "lp3.digraphs.l1.C.ck.v3_card_moth",
-    "word": "moth",
-    "value": "moth",
-    "label": "moth",
-    "image": "/images/assessment/digraphs/moth.webp",
-    "imagePath": "/images/assessment/digraphs/moth.webp",
-    "imageAlt": "moth"
+    "id": "lp3.digraphs.l1.C.ck.v3_card_tooth",
+    "word": "tooth",
+    "value": "tooth",
+    "label": "tooth",
+    "image": "/images/assessment/objective-words/tooth.webp",
+    "imagePath": "/images/assessment/objective-words/tooth.webp",
+    "imageAlt": "tooth"
    },
    {
     "id": "lp3.digraphs.l1.C.ck.v3_card_shell",
@@ -5005,22 +4772,22 @@ export const questions = [
     "imageAlt": "shell"
    },
    {
-    "id": "lp3.digraphs.l1.C.ck.v3_card_rock",
-    "word": "rock",
-    "value": "rock",
-    "label": "rock",
-    "image": "/images/assessment/digraphs/rock.webp",
-    "imagePath": "/images/assessment/digraphs/rock.webp",
-    "imageAlt": "rock"
+    "id": "lp3.digraphs.l1.C.ck.v3_card_clock",
+    "word": "clock",
+    "value": "clock",
+    "label": "clock",
+    "image": "/images/assessment/objective-words/clock.webp",
+    "imagePath": "/images/assessment/objective-words/clock.webp",
+    "imageAlt": "clock"
    },
    {
-    "id": "lp3.digraphs.l1.C.ck.v3_card_chip",
-    "word": "chip",
-    "value": "chip",
-    "label": "chip",
-    "image": "/images/assessment/digraphs/chip.webp",
-    "imagePath": "/images/assessment/digraphs/chip.webp",
-    "imageAlt": "chip"
+    "id": "lp3.digraphs.l1.C.ck.v3_card_ship",
+    "word": "ship",
+    "value": "ship",
+    "label": "ship",
+    "image": "/images/assessment/objective-words/ship.webp",
+    "imagePath": "/images/assessment/objective-words/ship.webp",
+    "imageAlt": "ship"
    }
   ]
  },
@@ -5044,25 +4811,25 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one ends with the same sound as rock?",
-  "question": "Which one ends with the same sound as rock?",
-  "spokenPrompt": "Rock. Which one ends with the same sound as rock?",
+  "prompt": "Which word has the same final sound?",
+  "question": "Which word has the same final sound?",
+  "spokenPrompt": "Rock. Which word has the same final sound?",
   "choices": [
-   "dish",
-   "thread",
+   "fish",
+   "tooth",
    "brick",
-   "chip"
+   "ship"
   ],
   "answerOptions": [
    {
-    "value": "dish",
-    "label": "dish",
-    "text": "dish"
+    "value": "fish",
+    "label": "fish",
+    "text": "fish"
    },
    {
-    "value": "thread",
-    "label": "thread",
-    "text": "thread"
+    "value": "tooth",
+    "label": "tooth",
+    "text": "tooth"
    },
    {
     "value": "brick",
@@ -5070,17 +4837,17 @@ export const questions = [
     "text": "brick"
    },
    {
-    "value": "chip",
-    "label": "chip",
-    "text": "chip"
+    "value": "ship",
+    "label": "ship",
+    "text": "ship"
    }
   ],
   "answer": "brick",
   "correctAnswer": "brick",
   "distractorRationales": {
-   "dish": "D-PATTERN-TRAP",
-   "thread": "D-POSITION",
-   "chip": "D-PATTERN-TRAP"
+   "fish": "D-PATTERN-TRAP",
+   "tooth": "D-POSITION",
+   "ship": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
@@ -5089,10 +4856,11 @@ export const questions = [
   "retentionOnly": false,
   "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "rock",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -5101,10 +4869,10 @@ export const questions = [
    "itemId": "lp3.digraphs.l1.A.ck.v4",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/digraphs/dish.webp",
-    "/images/assessment/digraphs/thread.webp",
-    "/images/assessment/digraphs/brick.webp",
-    "/images/assessment/digraphs/chip.webp"
+    "/images/assessment/digraphs/fish.webp",
+    "/images/assessment/objective-words/tooth.webp",
+    "/images/assessment/objective-words/brick.webp",
+    "/images/assessment/objective-words/ship.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -5122,40 +4890,40 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.digraphs.l1.A.ck.v4_card_dish",
-    "word": "dish",
-    "value": "dish",
-    "label": "dish",
-    "image": "/images/assessment/digraphs/dish.webp",
-    "imagePath": "/images/assessment/digraphs/dish.webp",
-    "imageAlt": "dish"
+    "id": "lp3.digraphs.l1.A.ck.v4_card_fish",
+    "word": "fish",
+    "value": "fish",
+    "label": "fish",
+    "image": "/images/assessment/digraphs/fish.webp",
+    "imagePath": "/images/assessment/digraphs/fish.webp",
+    "imageAlt": "fish"
    },
    {
-    "id": "lp3.digraphs.l1.A.ck.v4_card_thread",
-    "word": "thread",
-    "value": "thread",
-    "label": "thread",
-    "image": "/images/assessment/digraphs/thread.webp",
-    "imagePath": "/images/assessment/digraphs/thread.webp",
-    "imageAlt": "thread"
+    "id": "lp3.digraphs.l1.A.ck.v4_card_tooth",
+    "word": "tooth",
+    "value": "tooth",
+    "label": "tooth",
+    "image": "/images/assessment/objective-words/tooth.webp",
+    "imagePath": "/images/assessment/objective-words/tooth.webp",
+    "imageAlt": "tooth"
    },
    {
     "id": "lp3.digraphs.l1.A.ck.v4_card_brick",
     "word": "brick",
     "value": "brick",
     "label": "brick",
-    "image": "/images/assessment/digraphs/brick.webp",
-    "imagePath": "/images/assessment/digraphs/brick.webp",
+    "image": "/images/assessment/objective-words/brick.webp",
+    "imagePath": "/images/assessment/objective-words/brick.webp",
     "imageAlt": "brick"
    },
    {
-    "id": "lp3.digraphs.l1.A.ck.v4_card_chip",
-    "word": "chip",
-    "value": "chip",
-    "label": "chip",
-    "image": "/images/assessment/digraphs/chip.webp",
-    "imagePath": "/images/assessment/digraphs/chip.webp",
-    "imageAlt": "chip"
+    "id": "lp3.digraphs.l1.A.ck.v4_card_ship",
+    "word": "ship",
+    "value": "ship",
+    "label": "ship",
+    "image": "/images/assessment/objective-words/ship.webp",
+    "imagePath": "/images/assessment/objective-words/ship.webp",
+    "imageAlt": "ship"
    }
   ]
  },
@@ -5179,9 +4947,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: bri__",
-  "question": "Finish the word: bri__",
-  "spokenPrompt": "brick. Finish the word brick.",
+  "prompt": "Choose the missing letters for bri__.",
+  "question": "Choose the missing letters for bri__.",
+  "spokenPrompt": "Brick. Choose the missing letters.",
   "choices": [
    "ck",
    "sh",
@@ -5217,7 +4985,7 @@ export const questions = [
    "ch": "D-PATTERN-TRAP",
    "th": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -5228,21 +4996,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "brick",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l2.A.ck.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/brick.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "brick",
-  "stimulusMediaId": "brick",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5252,13 +5015,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "brick: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/brick.webp",
-  "imageUrl": "/images/assessment/digraphs/brick.webp",
-  "targetImage": "/images/assessment/digraphs/brick.webp",
-  "targetImagePath": "/images/assessment/digraphs/brick.webp",
-  "resolvedImageAssetKey": "brick",
-  "imageAlt": "brick"
+  "notes": "brick: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l2.B.ck.v2",
@@ -5280,9 +5037,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: clo__",
-  "question": "Finish the word: clo__",
-  "spokenPrompt": "clock. Finish the word clock.",
+  "prompt": "Choose the missing letters for clo__.",
+  "question": "Choose the missing letters for clo__.",
+  "spokenPrompt": "Clock. Choose the missing letters.",
   "choices": [
    "ck",
    "sh",
@@ -5318,7 +5075,7 @@ export const questions = [
    "th": "D-PATTERN-TRAP",
    "ch": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -5329,21 +5086,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "clock",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l2.B.ck.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/clock.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "clock",
-  "stimulusMediaId": "clock",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5353,13 +5105,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "clock: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/clock.webp",
-  "imageUrl": "/images/assessment/digraphs/clock.webp",
-  "targetImage": "/images/assessment/digraphs/clock.webp",
-  "targetImagePath": "/images/assessment/digraphs/clock.webp",
-  "resolvedImageAssetKey": "clock",
-  "imageAlt": "clock"
+  "notes": "clock: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l2.C.ck.v3",
@@ -5381,9 +5127,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: ne__",
-  "question": "Finish the word: ne__",
-  "spokenPrompt": "neck. Finish the word neck.",
+  "prompt": "Choose the missing letters for ne__.",
+  "question": "Choose the missing letters for ne__.",
+  "spokenPrompt": "Neck. Choose the missing letters.",
   "choices": [
    "th",
    "ck",
@@ -5419,7 +5165,7 @@ export const questions = [
    "ch": "D-PATTERN-TRAP",
    "th": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -5430,21 +5176,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "neck",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l2.C.ck.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/neck.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "neck",
-  "stimulusMediaId": "neck",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5454,13 +5195,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "neck: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/neck.webp",
-  "imageUrl": "/images/assessment/digraphs/neck.webp",
-  "targetImage": "/images/assessment/digraphs/neck.webp",
-  "targetImagePath": "/images/assessment/digraphs/neck.webp",
-  "resolvedImageAssetKey": "neck",
-  "imageAlt": "neck"
+  "notes": "neck: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l2.A.ck.v4",
@@ -5482,14 +5217,14 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one ends like neck?",
-  "question": "Which one ends like neck?",
-  "spokenPrompt": "Neck. Which one ends with the same sound as neck?",
+  "prompt": "Which word has the same final sound?",
+  "question": "Which word has the same final sound?",
+  "spokenPrompt": "Neck. Which word has the same final sound?",
   "choices": [
    "whale",
-   "stick",
-   "chip",
-   "moth"
+   "brick",
+   "ship",
+   "tooth"
   ],
   "answerOptions": [
    {
@@ -5498,27 +5233,27 @@ export const questions = [
     "text": "whale"
    },
    {
-    "value": "stick",
-    "label": "stick",
-    "text": "stick"
+    "value": "brick",
+    "label": "brick",
+    "text": "brick"
    },
    {
-    "value": "chip",
-    "label": "chip",
-    "text": "chip"
+    "value": "ship",
+    "label": "ship",
+    "text": "ship"
    },
    {
-    "value": "moth",
-    "label": "moth",
-    "text": "moth"
+    "value": "tooth",
+    "label": "tooth",
+    "text": "tooth"
    }
   ],
-  "answer": "stick",
-  "correctAnswer": "stick",
+  "answer": "brick",
+  "correctAnswer": "brick",
   "distractorRationales": {
    "whale": "D-POSITION",
-   "chip": "D-PATTERN-TRAP",
-   "moth": "D-PATTERN-TRAP"
+   "ship": "D-PATTERN-TRAP",
+   "tooth": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
@@ -5527,10 +5262,11 @@ export const questions = [
   "retentionOnly": false,
   "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "neck",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -5540,9 +5276,9 @@ export const questions = [
    "role": "answer-cards",
    "paths": [
     "/images/assessment/digraphs/whale.webp",
-    "/images/assessment/digraphs/stick.webp",
-    "/images/assessment/digraphs/chip.webp",
-    "/images/assessment/digraphs/moth.webp"
+    "/images/assessment/objective-words/brick.webp",
+    "/images/assessment/objective-words/ship.webp",
+    "/images/assessment/objective-words/tooth.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -5569,31 +5305,31 @@ export const questions = [
     "imageAlt": "whale"
    },
    {
-    "id": "lp3.digraphs.l2.A.ck.v4_card_stick",
-    "word": "stick",
-    "value": "stick",
-    "label": "stick",
-    "image": "/images/assessment/digraphs/stick.webp",
-    "imagePath": "/images/assessment/digraphs/stick.webp",
-    "imageAlt": "stick"
+    "id": "lp3.digraphs.l2.A.ck.v4_card_brick",
+    "word": "brick",
+    "value": "brick",
+    "label": "brick",
+    "image": "/images/assessment/objective-words/brick.webp",
+    "imagePath": "/images/assessment/objective-words/brick.webp",
+    "imageAlt": "brick"
    },
    {
-    "id": "lp3.digraphs.l2.A.ck.v4_card_chip",
-    "word": "chip",
-    "value": "chip",
-    "label": "chip",
-    "image": "/images/assessment/digraphs/chip.webp",
-    "imagePath": "/images/assessment/digraphs/chip.webp",
-    "imageAlt": "chip"
+    "id": "lp3.digraphs.l2.A.ck.v4_card_ship",
+    "word": "ship",
+    "value": "ship",
+    "label": "ship",
+    "image": "/images/assessment/objective-words/ship.webp",
+    "imagePath": "/images/assessment/objective-words/ship.webp",
+    "imageAlt": "ship"
    },
    {
-    "id": "lp3.digraphs.l2.A.ck.v4_card_moth",
-    "word": "moth",
-    "value": "moth",
-    "label": "moth",
-    "image": "/images/assessment/digraphs/moth.webp",
-    "imagePath": "/images/assessment/digraphs/moth.webp",
-    "imageAlt": "moth"
+    "id": "lp3.digraphs.l2.A.ck.v4_card_tooth",
+    "word": "tooth",
+    "value": "tooth",
+    "label": "tooth",
+    "image": "/images/assessment/objective-words/tooth.webp",
+    "imagePath": "/images/assessment/objective-words/tooth.webp",
+    "imageAlt": "tooth"
    }
   ]
  },
@@ -5617,9 +5353,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: __ip",
-  "question": "Finish the word: __ip",
-  "spokenPrompt": "chip. Finish the word chip.",
+  "prompt": "Select the missing letters for __ip.",
+  "question": "Select the missing letters for __ip.",
+  "spokenPrompt": "Chip. Choose the missing letters.",
   "choices": [
    "wh",
    "th",
@@ -5655,7 +5391,7 @@ export const questions = [
    "wh": "D-PATTERN-TRAP",
    "th": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -5666,21 +5402,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "chip",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l1.R.ch.v7r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/chip.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "chip",
-  "stimulusMediaId": "chip",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5690,13 +5421,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "same blank as ship's item, different picture — a true minimal pair across sittings",
-  "imagePath": "/images/assessment/digraphs/chip.webp",
-  "imageUrl": "/images/assessment/digraphs/chip.webp",
-  "targetImage": "/images/assessment/digraphs/chip.webp",
-  "targetImagePath": "/images/assessment/digraphs/chip.webp",
-  "resolvedImageAssetKey": "chip",
-  "imageAlt": "chip"
+  "notes": "same blank as ship's item, different picture — a true minimal pair across sittings"
  },
  {
   "id": "lp3.digraphs.l2.R.ch.v8r",
@@ -5718,9 +5443,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: lun__",
-  "question": "Finish the word: lun__",
-  "spokenPrompt": "lunch. Finish the word lunch.",
+  "prompt": "Select the missing letters for lun__.",
+  "question": "Select the missing letters for lun__.",
+  "spokenPrompt": "Lunch. Choose the missing letters.",
   "choices": [
    "sh",
    "th",
@@ -5756,7 +5481,7 @@ export const questions = [
    "th": "D-PATTERN-TRAP",
    "ck": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -5767,21 +5492,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "lunch",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l2.R.ch.v8r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/lunch.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "lunch",
-  "stimulusMediaId": "lunch",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5791,13 +5511,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "lunch: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/lunch.webp",
-  "imageUrl": "/images/assessment/digraphs/lunch.webp",
-  "targetImage": "/images/assessment/digraphs/lunch.webp",
-  "targetImagePath": "/images/assessment/digraphs/lunch.webp",
-  "resolvedImageAssetKey": "lunch",
-  "imageAlt": "lunch"
+  "notes": "lunch: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l1.R.sh.v7r",
@@ -5819,12 +5533,12 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts like shell?",
-  "question": "Which one starts like shell?",
-  "spokenPrompt": "Shell. Which one starts with the same sound as shell?",
+  "prompt": "Which word has the same starting sound?",
+  "question": "Which word has the same starting sound?",
+  "spokenPrompt": "Shell. Which word has the same starting sound?",
   "choices": [
    "chain",
-   "whisk",
+   "whale",
    "tooth",
    "sheep"
   ],
@@ -5835,9 +5549,9 @@ export const questions = [
     "text": "chain"
    },
    {
-    "value": "whisk",
-    "label": "whisk",
-    "text": "whisk"
+    "value": "whale",
+    "label": "whale",
+    "text": "whale"
    },
    {
     "value": "tooth",
@@ -5854,7 +5568,7 @@ export const questions = [
   "correctAnswer": "sheep",
   "distractorRationales": {
    "chain": "D-PATTERN-TRAP",
-   "whisk": "D-PATTERN-TRAP",
+   "whale": "D-PATTERN-TRAP",
    "tooth": "D-POSITION"
   },
   "mediaTier": "image-required",
@@ -5864,10 +5578,11 @@ export const questions = [
   "retentionOnly": true,
   "evidenceModality": "audio+image",
   "evidenceRole": "retention",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "shell",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -5877,8 +5592,8 @@ export const questions = [
    "role": "answer-cards",
    "paths": [
     "/images/assessment/digraphs/chain.webp",
-    "/images/assessment/digraphs/whisk.webp",
-    "/images/assessment/digraphs/tooth.webp",
+    "/images/assessment/digraphs/whale.webp",
+    "/images/assessment/objective-words/tooth.webp",
     "/images/assessment/digraphs/sheep.webp"
    ],
    "alt": "Picture choices for this literacy question",
@@ -5906,21 +5621,21 @@ export const questions = [
     "imageAlt": "chain"
    },
    {
-    "id": "lp3.digraphs.l1.R.sh.v7r_card_whisk",
-    "word": "whisk",
-    "value": "whisk",
-    "label": "whisk",
-    "image": "/images/assessment/digraphs/whisk.webp",
-    "imagePath": "/images/assessment/digraphs/whisk.webp",
-    "imageAlt": "whisk"
+    "id": "lp3.digraphs.l1.R.sh.v7r_card_whale",
+    "word": "whale",
+    "value": "whale",
+    "label": "whale",
+    "image": "/images/assessment/digraphs/whale.webp",
+    "imagePath": "/images/assessment/digraphs/whale.webp",
+    "imageAlt": "whale"
    },
    {
     "id": "lp3.digraphs.l1.R.sh.v7r_card_tooth",
     "word": "tooth",
     "value": "tooth",
     "label": "tooth",
-    "image": "/images/assessment/digraphs/tooth.webp",
-    "imagePath": "/images/assessment/digraphs/tooth.webp",
+    "image": "/images/assessment/objective-words/tooth.webp",
+    "imagePath": "/images/assessment/objective-words/tooth.webp",
     "imageAlt": "tooth"
    },
    {
@@ -5954,9 +5669,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: di__",
-  "question": "Finish the word: di__",
-  "spokenPrompt": "dish. Finish the word dish.",
+  "prompt": "Choose the missing letters for di__.",
+  "question": "Choose the missing letters for di__.",
+  "spokenPrompt": "Dish. Choose the missing letters.",
   "choices": [
    "sh",
    "ch",
@@ -5992,7 +5707,7 @@ export const questions = [
    "th": "D-PATTERN-TRAP",
    "ck": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -6003,21 +5718,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "dish",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l2.R.sh.v8r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/dish.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "dish",
-  "stimulusMediaId": "dish",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6027,13 +5737,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "dish: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/dish.webp",
-  "imageUrl": "/images/assessment/digraphs/dish.webp",
-  "targetImage": "/images/assessment/digraphs/dish.webp",
-  "targetImagePath": "/images/assessment/digraphs/dish.webp",
-  "resolvedImageAssetKey": "dish",
-  "imageAlt": "dish"
+  "notes": "dish: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l1.R.th.v7r",
@@ -6055,9 +5759,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: __ree",
-  "question": "Finish the word: __ree",
-  "spokenPrompt": "three. Finish the word three.",
+  "prompt": "Choose the missing letters for __ree.",
+  "question": "Choose the missing letters for __ree.",
+  "spokenPrompt": "Three. Choose the missing letters.",
   "choices": [
    "th",
    "ch",
@@ -6093,7 +5797,7 @@ export const questions = [
    "wh": "D-PATTERN-TRAP",
    "ch": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -6104,21 +5808,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "three",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l1.R.th.v7r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/three.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "three",
-  "stimulusMediaId": "three",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6128,13 +5827,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "three: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/three.webp",
-  "imageUrl": "/images/assessment/digraphs/three.webp",
-  "targetImage": "/images/assessment/digraphs/three.webp",
-  "targetImagePath": "/images/assessment/digraphs/three.webp",
-  "resolvedImageAssetKey": "three",
-  "imageAlt": "three"
+  "notes": "three: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l2.R.th.v8r",
@@ -6156,9 +5849,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: mo__",
-  "question": "Finish the word: mo__",
-  "spokenPrompt": "moth. Finish the word moth.",
+  "prompt": "Choose the missing letters for mo__.",
+  "question": "Choose the missing letters for mo__.",
+  "spokenPrompt": "Moth. Choose the missing letters.",
   "choices": [
    "ck",
    "th",
@@ -6194,7 +5887,7 @@ export const questions = [
    "ck": "D-PATTERN-TRAP",
    "sh": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -6205,21 +5898,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "moth",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l2.R.th.v8r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/moth.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "moth",
-  "stimulusMediaId": "moth",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6229,13 +5917,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "moth: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/moth.webp",
-  "imageUrl": "/images/assessment/digraphs/moth.webp",
-  "targetImage": "/images/assessment/digraphs/moth.webp",
-  "targetImagePath": "/images/assessment/digraphs/moth.webp",
-  "resolvedImageAssetKey": "moth",
-  "imageAlt": "moth"
+  "notes": "moth: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l1.R.wh.v7r",
@@ -6257,9 +5939,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: __eat",
-  "question": "Finish the word: __eat",
-  "spokenPrompt": "wheat. Finish the word wheat.",
+  "prompt": "Choose the missing letters for __eat.",
+  "question": "Choose the missing letters for __eat.",
+  "spokenPrompt": "Wheat. Choose the missing letters.",
   "choices": [
    "th",
    "wh",
@@ -6295,7 +5977,7 @@ export const questions = [
    "sh": "D-PATTERN-TRAP",
    "th": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -6306,21 +5988,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "wheat",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l1.R.wh.v7r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/wheat.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "wheat",
-  "stimulusMediaId": "wheat",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6330,13 +6007,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "wheat: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/wheat.webp",
-  "imageUrl": "/images/assessment/digraphs/wheat.webp",
-  "targetImage": "/images/assessment/digraphs/wheat.webp",
-  "targetImagePath": "/images/assessment/digraphs/wheat.webp",
-  "resolvedImageAssetKey": "wheat",
-  "imageAlt": "wheat"
+  "notes": "wheat: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l2.R.wh.v8r",
@@ -6358,13 +6029,13 @@ export const questions = [
   "formatType": "DIGRAPH_IMAGE_CHOICE",
   "templateType": "DIGRAPH_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Listen: whale. Find the one that starts the same.",
-  "question": "Listen: whale. Find the one that starts the same.",
-  "spokenPrompt": "Whale. Find the one that starts the same as whale.",
+  "prompt": "Which word has the same starting sound?",
+  "question": "Which word has the same starting sound?",
+  "spokenPrompt": "Whisker. Which word has the same starting sound?",
   "choices": [
    "cheese",
    "ship",
-   "white",
+   "wheel",
    "thorn"
   ],
   "answerOptions": [
@@ -6379,9 +6050,9 @@ export const questions = [
     "text": "ship"
    },
    {
-    "value": "white",
-    "label": "white",
-    "text": "white"
+    "value": "wheel",
+    "label": "wheel",
+    "text": "wheel"
    },
    {
     "value": "thorn",
@@ -6389,8 +6060,8 @@ export const questions = [
     "text": "thorn"
    }
   ],
-  "answer": "white",
-  "correctAnswer": "white",
+  "answer": "wheel",
+  "correctAnswer": "wheel",
   "distractorRationales": {
    "thorn": "D-PATTERN-TRAP",
    "cheese": "D-PATTERN-TRAP",
@@ -6403,10 +6074,11 @@ export const questions = [
   "retentionOnly": true,
   "evidenceModality": "audio+image",
   "evidenceRole": "retention",
-  "constructClaim": "recognize_shared_digraph_pattern",
+  "constructClaim": "digraph_sound_discrimination",
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "targetWord": "whisker",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -6415,9 +6087,9 @@ export const questions = [
    "itemId": "lp3.digraphs.l2.R.wh.v8r",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/digraphs/cheese.webp",
-    "/images/assessment/digraphs/ship.webp",
-    "/images/assessment/digraphs/white.webp",
+    "/images/assessment/objective-words/cheese.webp",
+    "/images/assessment/objective-words/ship.webp",
+    "/images/assessment/objective-words/wheel.webp",
     "/images/assessment/digraphs/thorn.webp"
    ],
    "alt": "Picture choices for this literacy question",
@@ -6440,8 +6112,8 @@ export const questions = [
     "word": "cheese",
     "value": "cheese",
     "label": "cheese",
-    "image": "/images/assessment/digraphs/cheese.webp",
-    "imagePath": "/images/assessment/digraphs/cheese.webp",
+    "image": "/images/assessment/objective-words/cheese.webp",
+    "imagePath": "/images/assessment/objective-words/cheese.webp",
     "imageAlt": "cheese"
    },
    {
@@ -6449,18 +6121,18 @@ export const questions = [
     "word": "ship",
     "value": "ship",
     "label": "ship",
-    "image": "/images/assessment/digraphs/ship.webp",
-    "imagePath": "/images/assessment/digraphs/ship.webp",
+    "image": "/images/assessment/objective-words/ship.webp",
+    "imagePath": "/images/assessment/objective-words/ship.webp",
     "imageAlt": "ship"
    },
    {
-    "id": "lp3.digraphs.l2.R.wh.v8r_card_white",
-    "word": "white",
-    "value": "white",
-    "label": "white",
-    "image": "/images/assessment/digraphs/white.webp",
-    "imagePath": "/images/assessment/digraphs/white.webp",
-    "imageAlt": "white"
+    "id": "lp3.digraphs.l2.R.wh.v8r_card_wheel",
+    "word": "wheel",
+    "value": "wheel",
+    "label": "wheel",
+    "image": "/images/assessment/objective-words/wheel.webp",
+    "imagePath": "/images/assessment/objective-words/wheel.webp",
+    "imageAlt": "wheel"
    },
    {
     "id": "lp3.digraphs.l2.R.wh.v8r_card_thorn",
@@ -6493,9 +6165,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: head__ones",
-  "question": "Finish the word: head__ones",
-  "spokenPrompt": "headphones. Finish the word headphones.",
+  "prompt": "Choose the missing letters for head__ones.",
+  "question": "Choose the missing letters for head__ones.",
+  "spokenPrompt": "Headphones. Choose the missing letters.",
   "choices": [
    "ch",
    "th",
@@ -6531,7 +6203,7 @@ export const questions = [
    "th": "D-PATTERN-TRAP",
    "sh": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "medial",
   "hadPTD": true,
   "nonGating": false,
@@ -6542,21 +6214,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "headphones",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l1.R.ph.v7r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/headphones.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "headphones",
-  "stimulusMediaId": "headphones",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6566,13 +6233,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "headphones: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/headphones.webp",
-  "imageUrl": "/images/assessment/digraphs/headphones.webp",
-  "targetImage": "/images/assessment/digraphs/headphones.webp",
-  "targetImagePath": "/images/assessment/digraphs/headphones.webp",
-  "resolvedImageAssetKey": "headphones",
-  "imageAlt": "headphones"
+  "notes": "headphones: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l2.R.ph.v8r",
@@ -6594,9 +6255,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: micro__one",
-  "question": "Finish the word: micro__one",
-  "spokenPrompt": "microphone. Finish the word microphone.",
+  "prompt": "Choose the missing letters for micro__one.",
+  "question": "Choose the missing letters for micro__one.",
+  "spokenPrompt": "Microphone. Choose the missing letters.",
   "choices": [
    "sh",
    "wh",
@@ -6632,7 +6293,7 @@ export const questions = [
    "th": "D-PATTERN-TRAP",
    "sh": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "medial",
   "hadPTD": true,
   "nonGating": false,
@@ -6643,21 +6304,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "microphone",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l2.R.ph.v8r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/microphone.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "microphone",
-  "stimulusMediaId": "microphone",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6667,13 +6323,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "microphone: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/microphone.webp",
-  "imageUrl": "/images/assessment/digraphs/microphone.webp",
-  "targetImage": "/images/assessment/digraphs/microphone.webp",
-  "targetImagePath": "/images/assessment/digraphs/microphone.webp",
-  "resolvedImageAssetKey": "microphone",
-  "imageAlt": "microphone"
+  "notes": "microphone: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l1.R.ck.v7r",
@@ -6695,9 +6345,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: tru__",
-  "question": "Finish the word: tru__",
-  "spokenPrompt": "truck. Finish the word truck.",
+  "prompt": "Choose the missing letters for tru__.",
+  "question": "Choose the missing letters for tru__.",
+  "spokenPrompt": "Truck. Choose the missing letters.",
   "choices": [
    "ch",
    "sh",
@@ -6733,7 +6383,7 @@ export const questions = [
    "sh": "D-PATTERN-TRAP",
    "th": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -6744,21 +6394,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "truck",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l1.R.ck.v7r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/truck.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "truck",
-  "stimulusMediaId": "truck",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6768,13 +6413,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "truck: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/truck.webp",
-  "imageUrl": "/images/assessment/digraphs/truck.webp",
-  "targetImage": "/images/assessment/digraphs/truck.webp",
-  "targetImagePath": "/images/assessment/digraphs/truck.webp",
-  "resolvedImageAssetKey": "truck",
-  "imageAlt": "truck"
+  "notes": "truck: the blank hides the digraph, so nothing leaks in print"
  },
  {
   "id": "lp3.digraphs.l2.R.ck.v8r",
@@ -6796,9 +6435,9 @@ export const questions = [
   "formatType": "DIGRAPH_COMPLETE_WORD",
   "templateType": "DIGRAPH_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish the word: sti__",
-  "question": "Finish the word: sti__",
-  "spokenPrompt": "stick. Finish the word stick.",
+  "prompt": "Choose the missing letters for sti__.",
+  "question": "Choose the missing letters for sti__.",
+  "spokenPrompt": "Stick. Choose the missing letters.",
   "choices": [
    "ck",
    "sh",
@@ -6834,7 +6473,7 @@ export const questions = [
    "ch": "D-PATTERN-TRAP",
    "th": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -6845,21 +6484,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "stick",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.digraphs.l2.R.ck.v8r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/stick.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "stick",
-  "stimulusMediaId": "stick",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6869,12 +6503,6 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "stick: the blank hides the digraph, so nothing leaks in print",
-  "imagePath": "/images/assessment/digraphs/stick.webp",
-  "imageUrl": "/images/assessment/digraphs/stick.webp",
-  "targetImage": "/images/assessment/digraphs/stick.webp",
-  "targetImagePath": "/images/assessment/digraphs/stick.webp",
-  "resolvedImageAssetKey": "stick",
-  "imageAlt": "stick"
+  "notes": "stick: the blank hides the digraph, so nothing leaks in print"
  }
 ];

@@ -25,7 +25,7 @@ test("antonym and synonym distractors stay plausible and relation-focused", () =
 test("the reported concrete examples no longer expose the key through a random option", () => {
   assert.deepEqual(
     new Set(byId("lp3.antonyms_synonyms.l1.A.antonym_concrete.v1").choices),
-    new Set(["cold", "boiling", "wet", "warm"])
+    new Set(["heated", "cold", "scorching", "warm"])
   );
   assert.deepEqual(
     new Set(byId("lp3.antonyms_synonyms.l1.B.antonym_concrete.v2").choices),

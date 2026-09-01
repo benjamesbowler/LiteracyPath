@@ -4,7 +4,7 @@
 // L1: 8 single-consonant finals (b d g l m n p t) — phonological, image-backed.
 // L2: 10 pattern finals (sh th ll ng nd nk st sk ft lt) — orthographic endings.
 // Formats: ENDING_SOUND (blank completion — the ending is hidden in print, so
-// nothing leaks), FINAL_SOUND_PAIR_SELECT ("ends like ⟨anchor⟩" over image
+// nothing leaks), FINAL_SOUND_PAIR_SELECT (same-final-sound matching over image
 // cards at L1 / printed words at L2 where card art is thin — v3 single-select),
 // ENDING_SOUND_WORD_MATCH (L1 printed-word match).
 // Craft rules:
@@ -24,23 +24,25 @@ import { makeImageResolver } from "../lib.mjs";
 
 const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
+const sentenceCase = value => value ? `${value[0].toUpperCase()}${value.slice(1)}` : value;
 
 const resolver = makeImageResolver(["digraphs", "blends", "long-vowels", "hfw"]);
 
-// ENDING_SOUND: blanked word, choices are letters/patterns. The printed prompt
-// is deliberately terse: "ending", "finishes" and "the" contain ng/nd/sh/th, so
-// a wordier frame would hand pattern keys to any letter-chunk scanner. The full
-// instruction lives in the spoken line (instruction audio ships via
-// current production-audio coverage for every item).
+// ENDING_SOUND: blanked word, choices are letters/patterns. The wording names
+// whether the child is choosing one final letter or a multi-letter ending.
 const es = (u, lvl, ph, v, word, blanked, choices, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "ENDING_SOUND",
-  prompt: `Complete: ${blanked}`,
+  prompt: lvl === 2
+    ? `Which letter pair completes ${blanked}?`
+    : `Which letter completes ${blanked}?`,
   spoken: lvl === 2
-    ? `${word}. Which two ending letters finish the word ${word}?`
-    : `${word}. Which ending sound finishes the word ${word}?`,
+    ? `${sentenceCase(word)}. Which two ending letters complete the word?`
+    : `${sentenceCase(word)}. Which letter matches the final sound?`,
   choices: choices.map((c, i) => (i === 0 ? K(c) : P(c, rationales[i - 1]))),
-  media: resolver(word) ? "image-optional" : "text",
-  img: resolver(word) ? word : undefined,
+  // L2 is an orthographic pattern task: the printed blank is the evidence.
+  // Decorative pictures add naming load without measuring the target skill.
+  media: lvl === 2 ? "text" : resolver(word) ? "image-optional" : "text",
+  img: lvl === 2 ? undefined : resolver(word) ? word : undefined,
   target: word,
   pos: "final",
   note
@@ -49,12 +51,12 @@ const es = (u, lvl, ph, v, word, blanked, choices, rationales, note = "") => ({
 // FINAL_SOUND_PAIR_SELECT with image cards (L1).
 const pc = (u, lvl, ph, v, anchor, cards, keyWord, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "FINAL_SOUND_PAIR_SELECT",
-  prompt: lvl === 2
-    ? `Which one ends with the same two letters as ${anchor}?`
-    : `Which one ends like ${anchor}?`,
+  // The L1 anchor is heard, not printed, so its final grapheme cannot reveal
+  // the answer. L2 uses the printed-word helper below.
+  prompt: "Which word has the same final sound?",
   spoken: lvl === 2
-    ? `${anchor}. Which one ends with the same two letters as ${anchor}?`
-    : `${anchor}. Which one ends with the same sound as ${anchor}?`,
+    ? `${sentenceCase(anchor)}. Which word has the same two ending letters?`
+    : `${sentenceCase(anchor)}. Which word has the same final sound?`,
   cards,
   choices: cards.map(w => (w === keyWord ? K(w) : P(w, rationales[w]))),
   media: "image-required",
@@ -70,11 +72,11 @@ const pc = (u, lvl, ph, v, anchor, cards, keyWord, rationales, note = "") => ({
 const pw = (u, lvl, ph, v, anchor, words, keyWord, rationales, framing = "print", note = "") => ({
   u, lvl, ph, v, fmt: "FINAL_SOUND_PAIR_SELECT",
   prompt: framing === "print"
-    ? `Which word ends with the same letters as ${anchor}?`
-    : `Which word ends like ${anchor}?`,
+    ? `Which word has the same two ending letters as ${anchor}?`
+    : `Which word has the same final sound as ${anchor}?`,
   spoken: framing === "print"
-    ? `${anchor}. Which word ends with the same two letters as ${anchor}?`
-    : `${anchor}. Which word ends like ${anchor}?`,
+    ? `${sentenceCase(anchor)}. Which word has the same two ending letters?`
+    : `${sentenceCase(anchor)}. Which word has the same final sound?`,
   choices: words.map(w => (w === keyWord ? K(w) : P(w, rationales[w]))),
   media: "text",
   pos: "final",
@@ -85,8 +87,8 @@ const pw = (u, lvl, ph, v, anchor, words, keyWord, rationales, framing = "print"
 // ENDING_SOUND_WORD_MATCH: printed words, ends-like anchor (L1 only).
 const wm = (u, lvl, ph, v, anchor, words, keyWord, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "ENDING_SOUND_WORD_MATCH",
-  prompt: `Which word ends like ${anchor}?`,
-  spoken: `${anchor}. Which word ends with the same sound as ${anchor}?`,
+  prompt: "Which word has the same final sound?",
+  spoken: `${sentenceCase(anchor)}. Which word has the same final sound?`,
   choices: words.map(w => (w === keyWord ? K(w) : P(w, rationales[w]))),
   media: resolver(anchor) ? "image-optional" : "text",
   img: resolver(anchor) ? anchor : undefined,
@@ -105,9 +107,9 @@ export default {
     es("b", 1, 1, 1, "web", "we__", ["b", "p", "w", "q"],
       ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"],
       "p is the voicing partner; w is the word's own first sound"),
-    pc("b", 1, 1, 2, "web", ["tub", "cup", "bike", "dog"], "tub",
-      { cup: "D-RIME-NEAR", bike: "D-POSITION", dog: "D-RIME-NEAR" },
-      "cup ends the voiceless partner /p/; bike STARTS with b — the position trap"),
+    pc("b", 1, 1, 2, "web", ["tub", "cup", "bed", "dog"], "tub",
+      { cup: "D-RIME-NEAR", bed: "D-POSITION", dog: "D-RIME-NEAR" },
+      "cup ends the voiceless partner /p/; bed STARTS with b — the position trap"),
     wm("b", 1, 1, 3, "web", ["cub", "cap", "bus", "dog"], "cub",
       { cap: "D-RIME-NEAR", bus: "D-POSITION", dog: "D-RIME-NEAR" }),
     wm("b", 1, 1, 4, "tub", ["bib", "cup", "ball", "sun"], "bib",
@@ -117,13 +119,14 @@ export default {
     es("d", 1, 1, 1, "bed", "be__", ["d", "t", "b", "q"],
       ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"],
       "t is the voicing partner; b is the word's own first sound"),
-    pc("d", 1, 1, 2, "mud", ["red", "cat", "dog", "sun"], "red",
+    pc("d", 1, 1, 2, "bed", ["lid", "cat", "dog", "sun"], "lid",
       { cat: "D-RIME-NEAR", dog: "D-POSITION", sun: "D-RIME-NEAR" },
       "cat ends the voiceless partner /t/; dog STARTS with d — the position trap"),
-    wm("d", 1, 1, 3, "red", ["mud", "cat", "dog", "sun"], "mud",
+    wm("d", 1, 1, 3, "lid", ["mud", "cat", "dog", "sun"], "mud",
       { cat: "D-RIME-NEAR", dog: "D-POSITION", sun: "D-RIME-NEAR" }),
-    wm("d", 1, 1, 4, "bed", ["lid", "lip", "dog", "sun"], "lid",
-      { lip: "D-RIME-NEAR", dog: "D-POSITION", sun: "D-RIME-NEAR" }),
+    es("d", 1, 1, 4, "lid", "li__", ["d", "t", "l", "q"],
+      ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"],
+      "t is the voicing partner; l is the word's own first sound"),
 
     // ---- g
     es("g", 1, 1, 1, "dog", "do__", ["g", "k", "d", "q"],
@@ -145,9 +148,9 @@ export default {
     pc("l", 1, 1, 2, "wheel", ["bell", "moon", "lamp", "cat"], "bell",
       { moon: "D-RIME-NEAR", lamp: "D-POSITION", cat: "D-RIME-NEAR" },
       "lamp STARTS with l — the position trap; moon and cat end with different common sounds"),
-    es("l", 1, 1, 3, "tail", "tai__", ["l", "r", "t", "i"],
+    es("l", 1, 1, 3, "bell", "bel__", ["l", "r", "b", "i"],
       ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"],
-      "r is the liquid neighbour; t is the word's own first sound"),
+      "r is the liquid neighbour; b is the word's own first sound; the isolated bell removes the tail/tale composite"),
     wm("l", 1, 1, 4, "wheel", ["pool", "moon", "lamp", "cat"], "pool",
       { moon: "D-RIME-NEAR", lamp: "D-POSITION", cat: "D-RIME-NEAR" }),
 
@@ -156,14 +159,14 @@ export default {
     es("m", 1, 2, 1, "jam", "ja__", ["m", "n", "j", "w"],
       ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"],
       "n is the nasal partner; j is the word's own first sound"),
-    pc("m", 1, 2, 2, "jam", ["ham", "hen", "map", "dog"], "ham",
-      { hen: "D-RIME-NEAR", map: "D-POSITION", dog: "D-RIME-NEAR" },
-      "hen ends the nasal neighbour /n/; map STARTS with m — the position trap"),
-    wm("m", 1, 2, 3, "ham", ["gum", "hen", "map", "dog"], "gum",
-      { hen: "D-RIME-NEAR", map: "D-POSITION", dog: "D-RIME-NEAR" }),
-    es("m", 1, 2, 4, "ram", "ra__", ["m", "n", "r", "w"],
+    pc("m", 1, 2, 2, "jam", ["ham", "net", "map", "dog"], "ham",
+      { net: "D-RIME-NEAR", map: "D-POSITION", dog: "D-RIME-NEAR" },
+      "net ends the nasal neighbour /n/; map STARTS with m — the position trap"),
+    wm("m", 1, 2, 3, "ham", ["gum", "net", "map", "dog"], "gum",
+      { net: "D-RIME-NEAR", map: "D-POSITION", dog: "D-RIME-NEAR" }),
+    es("m", 1, 2, 4, "ham", "ha__", ["m", "n", "h", "w"],
       ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"],
-      "n is the nasal partner; r is the word's own first sound"),
+      "n is the nasal partner; h is the word's own first sound"),
 
     // ---- n
     es("n", 1, 2, 1, "sun", "su__", ["n", "m", "s", "h"],
@@ -182,10 +185,10 @@ export default {
     es("p", 1, 2, 1, "map", "ma__", ["p", "b", "m", "d"],
       ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"],
       "b is the voicing partner; m is the word's own first sound"),
-    pc("p", 1, 2, 2, "mop", ["cap", "crab", "pig", "sun"], "cap",
+    pc("p", 1, 2, 2, "map", ["mop", "crab", "pig", "sun"], "mop",
       { crab: "D-RIME-NEAR", pig: "D-POSITION", sun: "D-RIME-NEAR" },
-      "crab ends the voiced partner /b/; pig STARTS with p — the position trap"),
-    wm("p", 1, 2, 3, "cap", ["cup", "crab", "pig", "sun"], "cup",
+      "crab ends the voiced partner /b/; pig STARTS with p — the position trap; mop is directly nameable"),
+    wm("p", 1, 2, 3, "mop", ["cup", "crab", "pig", "sun"], "cup",
       { crab: "D-RIME-NEAR", pig: "D-POSITION", sun: "D-RIME-NEAR" }),
     es("p", 1, 2, 4, "mop", "mo__", ["p", "b", "m", "q"],
       ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"],
@@ -195,11 +198,11 @@ export default {
     es("t", 1, 2, 1, "cat", "ca__", ["t", "d", "c", "f"],
       ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"],
       "d is the voicing partner; c is the word's own first sound"),
-    pc("t", 1, 2, 2, "wet", ["hat", "bed", "toe", "sun"], "hat",
-      { bed: "D-RIME-NEAR", toe: "D-POSITION", sun: "D-RIME-NEAR" },
-      "bed ends the voiced partner /d/; toe STARTS with t — the position trap"),
-    wm("t", 1, 2, 3, "hat", ["net", "bed", "toe", "sun"], "net",
-      { bed: "D-RIME-NEAR", toe: "D-POSITION", sun: "D-RIME-NEAR" }),
+    pc("t", 1, 2, 2, "cat", ["hat", "bed", "tiger", "sun"], "hat",
+      { bed: "D-RIME-NEAR", tiger: "D-POSITION", sun: "D-RIME-NEAR" },
+      "bed ends the voiced partner /d/; tiger STARTS with t — the position trap"),
+    wm("t", 1, 2, 3, "hat", ["net", "bed", "tiger", "sun"], "net",
+      { bed: "D-RIME-NEAR", tiger: "D-POSITION", sun: "D-RIME-NEAR" }),
     es("t", 1, 2, 4, "wet", "we__", ["t", "d", "w", "f"],
       ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"],
       "d is the voicing partner; w is the word's own first sound"),
@@ -209,8 +212,9 @@ export default {
     es("sh", 2, 1, 1, "fish", "fi__", ["sh", "ch", "s", "f"],
       ["D-PATTERN-TRAP", "D-DEVELOPMENTAL", "D-POSITION"],
       "s is the sh-reduction error; f is the word's first sound; image pins the target"),
-    pc("sh", 2, 1, 2, "wish", ["fish", "whisk", "wasp", "glass"], "fish",
+    pw("sh", 2, 1, 2, "wish", ["fish", "whisk", "wasp", "glass"], "fish",
       { whisk: "D-PATTERN-TRAP", wasp: "D-POSITION", glass: "D-RIME-NEAR" },
+      "print",
       "whisk shares wish's letters so scanning ties; wasp starts like the anchor; glass ends bare /s/"),
     es("sh", 2, 1, 3, "brush", "bru__", ["sh", "ch", "th", "b"],
       ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-POSITION"]),
@@ -221,8 +225,9 @@ export default {
     es("th", 2, 1, 1, "moth", "mo__", ["th", "sh", "f", "m"],
       ["D-PATTERN-TRAP", "D-DEVELOPMENTAL", "D-POSITION"],
       "f is the /θ/→/f/ fronting error; image pins the target"),
-    pc("th", 2, 1, 2, "bath", ["moth", "boat", "ring", "toe"], "moth",
+    pw("th", 2, 1, 2, "bath", ["moth", "boat", "ring", "toe"], "moth",
       { boat: "D-POSITION", ring: "D-PATTERN-TRAP", toe: "D-DEVELOPMENTAL" },
+      "print",
       "boat starts like the anchor, ends bare /t/, and ties the bath at-overlap; toe is the drop-the-th error"),
     es("th", 2, 1, 3, "bath", "ba__", ["th", "f", "b", "ft"],
       ["D-DEVELOPMENTAL", "D-POSITION", "D-PATTERN-TRAP"],
@@ -248,8 +253,9 @@ export default {
     es("ng", 2, 1, 1, "ring", "ri__", ["ng", "n", "nk", "r"],
       ["D-DEVELOPMENTAL", "D-PATTERN-TRAP", "D-POSITION"],
       "n is the ng-reduction; nk forms rink but the ring image pins the target"),
-    pc("ng", 2, 1, 2, "song", ["ring", "pin", "sock", "rock"], "ring",
+    pw("ng", 2, 1, 2, "song", ["ring", "pin", "sock", "rock"], "ring",
       { pin: "D-DEVELOPMENTAL", sock: "D-POSITION", rock: "D-RIME-NEAR" },
+      "print",
       "anchor avoids the -ing chunk a rhyming anchor would hand to scanners; pin is the n-reduction; sock starts like the anchor and ties its so-overlap"),
     es("ng", 2, 1, 3, "king", "ki__", ["ng", "n", "th", "k"],
       ["D-DEVELOPMENTAL", "D-DEVELOPMENTAL", "D-POSITION"],
@@ -291,8 +297,9 @@ export default {
     es("st", 2, 2, 1, "nest", "ne__", ["st", "sk", "ss", "n"],
       ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-POSITION"],
       "ne+sk/ss/n are non-words (net stays out); image pins the target"),
-    pc("st", 2, 2, 2, "list", ["nest", "desk", "dish", "lemon"], "nest",
+    pw("st", 2, 2, 2, "list", ["nest", "desk", "dish", "lemon"], "nest",
       { desk: "D-PATTERN-TRAP", dish: "D-PATTERN-TRAP", lemon: "D-RIME-NEAR" },
+      "print",
       "No distractor ends in bare t; desk and dish provide neighboring endings."),
     es("st", 2, 2, 3, "vest", "ve__", ["st", "sk", "ft", "v"],
       ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-POSITION"],
@@ -348,14 +355,14 @@ export default {
       { cap: "D-RIME-NEAR", ball: "D-POSITION", mud: "D-RIME-NEAR" }),
     wm("d", 1, 1, 5, "mud", ["bed", "cat", "dog", "rug"], "bed",
       { cat: "D-RIME-NEAR", dog: "D-POSITION", rug: "D-RIME-NEAR" }),
-    es("m", 1, 1, 5, "gum", "gu__", ["m", "n", "g", "w"],
+    es("m", 1, 1, 5, "drum", "dru__", ["m", "n", "d", "w"],
       ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"],
-      "n is the nasal neighbour; g is the word's own first sound"),
+      "n is the nasal neighbour; d is the word's own first sound"),
     es("t", 1, 2, 5, "hat", "ha__", ["t", "d", "h", "f"],
       ["D-RIME-NEAR", "D-POSITION", "D-VISUAL-NEIGHBOR"],
       "d is the voicing partner; h is the word's own first sound"),
-    pc("n", 1, 2, 5, "ten", ["pin", "ram", "net", "bug"], "pin",
-      { ram: "D-RIME-NEAR", net: "D-POSITION", bug: "D-RIME-NEAR" }),
+    pc("n", 1, 2, 5, "ten", ["pin", "ham", "net", "bug"], "pin",
+      { ham: "D-RIME-NEAR", net: "D-POSITION", bug: "D-RIME-NEAR" }),
     es("sh", 2, 1, 5, "dish", "di__", ["sh", "ch", "th", "d"],
       ["D-PATTERN-TRAP", "D-PATTERN-TRAP", "D-POSITION"]),
     es("ng", 2, 1, 5, "sting", "sti__", ["ng", "n", "nd", "s"],

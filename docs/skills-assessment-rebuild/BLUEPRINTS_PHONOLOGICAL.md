@@ -2,7 +2,7 @@
 
 **Standard.** Per-skill authoring specs. Read MASTERY_SYSTEM.md (rules) and AUTHORING_STANDARDS.md (item craft) first; this file only states what is specific to each skill. Counts marked *(bank)* are minimums the gates enforce.
 
-Shared for this family: itemTypes already in use (`initial_sound`, `final_sound`, `rhyming_family`) are kept so existing ledger rows survive. Sitting = 10. All three skills carry the **"print-pattern evidence"** qualifier until the audio tier ships (MASTERY_SYSTEM §7); every item below is written audio-first-ready (spokenPrompt present, no printed giveaway) so the later media pass adds recordings without rewriting content.
+Shared for this family: itemTypes already in use (`initial_sound`, `final_sound`, `rhyming_family`) are kept so existing ledger rows survive. Sitting = 10. Spoken anchors and hidden-label answer cards use approved production word audio now; print is shown only when the construct legitimately assesses print. Browser speech is not primary assessment evidence.
 
 ---
 
@@ -14,7 +14,7 @@ Shared for this family: itemTypes already in use (`initial_sound`, `final_sound`
 
 **Levels.** L1: CVC/CCVC concrete imageable words, single clear onset (sun, map, dog). L2: longer/multisyllable imageable words with the same single-onset task (sunflower, mountain) plus onset-neighbor distractor pressure (s/z, b/p, m/n).
 
-**Formats.** Visual tier: `FIRST_SOUND` (spoken/printed word plus an objectively nameable picture → 4 letter choices) and `INITIAL_SOUND_PAIR_SELECT` (which picture starts like ⟨anchor⟩). Audio tier: use spoken-word-only `FIRST_SOUND` when a still image would force children to guess a relational, occupational, or otherwise ambiguous label. Keep the existing letter-coverage selector machinery (initialSoundSelector) — it already tracks per-letter mastery; it plugs into the new reducer.
+**Formats.** `FIRST_SOUND` presents an objectively nameable picture or an exact spoken target, then asks which letter matches the first sound. `INITIAL_SOUND_PAIR_SELECT` hears an unprinted anchor, shows four hidden-label image cards with word audio, and asks, **“Which word has the same starting sound?”** Keep the existing letter-coverage selector machinery (initialSoundSelector) — it already tracks per-letter mastery; it plugs into the new reducer.
 
 **Bank.** Per level: 24 units × 3 variants = **72** (forms A/B/C = one variant of every unit each) + form R. Every image-card word must be independently nameable by a child; positional, relational, occupational, and category-only pictures are not accepted as hidden-label word evidence.
 
@@ -22,8 +22,8 @@ Shared for this family: itemTypes already in use (`initial_sound`, `final_sound`
 
 **Exemplar (L2, unit "m").**
 ```json
-{"id":"lp3.initial_sounds.l2.B.m.v2","itemKey":"m","formatType":"FIRST_SOUND","mediaTier":"image-optional",
- "prompt":"Which letter makes the first sound in mountain?","spokenPrompt":"Mountain. What sound does mountain start with?",
+{"id":"lp3.initial_sounds.l2.A.m.v1","itemKey":"m","formatType":"FIRST_SOUND","mediaTier":"image-optional",
+ "prompt":"Which letter matches the first sound?","spokenPrompt":"Mountain. Which letter matches the first sound?",
  "choices":[{"text":"m","isKey":true,"rationale":"KEY"},{"text":"n","isKey":false,"rationale":"D-ONSET"},
             {"text":"w","isKey":false,"rationale":"D-VISUAL-NEIGHBOR"},{"text":"t","isKey":false,"rationale":"D-POSITION"}],
  "answer":"m","notes":"m/n nasal discrimination at length; t = final-sound error"}
@@ -39,7 +39,7 @@ Shared for this family: itemTypes already in use (`initial_sound`, `final_sound`
 
 **Units.** L1: 8 single-consonant finals `b d g l m n p t` (keep the forbidden-list guard — no /k//s//r//f/ ambiguity at L1). L2: 10 finals `sh th ll ng nd nk st sk ft lt`. Rule family **D-small** (≤10 units): 3 correct · 2 items · 2 days · latest correct.
 
-**Formats.** Text tier: `ENDING_SOUND` (word+image → 4 letter/pattern choices), `FINAL_SOUND_PAIR_SELECT` (which picture ends like ⟨anchor⟩), `ENDING_SOUND_WORD_MATCH` (L1 only). Each unit's 3 form-variants must span ≥2 of these (this is what makes the §3.1 two-format requirement reachable — currently 14/26 units are single-format).
+**Formats.** `ENDING_SOUND` asks which letter or printed ending matches the final sound of an objectively pictured or spoken word. `FINAL_SOUND_PAIR_SELECT` hears the unprinted anchor and asks, **“Which word has the same final sound?”** over hidden-label, audio-backed cards. `ENDING_SOUND_WORD_MATCH` provides the supported L1 printed comparison. Each unit's form variants must span at least two formats.
 
 **Bank.** L1: 8 × 4 = 32 + R. L2: 10 × 4 = 40 + R. Total ≤ 86. (4 variants per unit, not 3: D-small requires 4 attempts over 2+ distinct items with zero repeats in the pass budget — a 3-item pool forces a repeat; same arithmetic that sized digraphs at 4.) **Current published is 366 — prune ~75%**, keeping the best lint-passing items (final-sound bank quality is decent; volume is the problem, plus the configured-vs-published scope mismatch the audit flagged: published keys must exactly match the 8+10 inventories, nothing else).
 
@@ -62,11 +62,10 @@ Shared for this family: itemTypes already in use (`initial_sound`, `final_sound`
 
 **Construct, restated.** L1: **hear** that two words rhyme (phonological). L2: work with rhyme in print — recognize written rhyme families and generalize to less-imageable words (orthographic, a legitimately different construct, named honestly).
 
-**Units.** L1: the 21 CVC rime families already configured (`at an ap am ag ad ed en et eg ig in ip it og op ot ug un up ut`). L2: the 24 configured harder families (`ing ang ong ink ock ack ick ill all ell ash ish uck ake ame ide ight oat eep ouse ird urn ar or` — keep the ank/unk media holdout). Rule family **D-large** at L1 (21 units), **D-large** at L2.
+**Units.** L1: 21 simple short-vowel rime families (`at an ap am ag ub ed en et eg ig in ip ock og op ot ug un up ut`). Level 1 `ock` remains an audio-first phonological rime: its written `ck` is hidden, so it does not introduce an orthographic shortcut. L2: the 24 configured harder families (`ing ang ong ink ock ack ick ill all ell ash ish uck ake ame ide ight oat eep ouse ird urn ar or` — keep the ank/unk media holdout). Evidence keys are level-qualified, so L1 and L2 `ock` remain separate mastery units. Rule family **D-large** at L1 (21 units), **D-large** at L2.
 
 **Formats.**
-- L1 text tier (interim until audio): `RHYME_MATCH_PICTURE` — spoken-style prompt text ("Which one rhymes with **cat**?"), target word shown, **4 picture choices with NO printed labels**. The checked-in imageability whitelist contains only concrete words whose current assets pass the media gate.
-- L1 audio tier (deferred, specced now): same items with recorded target + choice audio and replay buttons; prompt audio un-suppressed.
+- L1: `RHYME_MATCH_PICTURE` — the unprinted anchor and all hidden-label answer cards have approved production word audio. The visible instruction asks which word rhymes; the imageability whitelist contains only concrete, directly nameable words whose current assets pass the media gate.
 - L2 text tier: `READ_FIND_RHYME` (printed words, labels intentional — the orthographic construct) and `RHYME_ODD_ONE_OUT` (4 printed words, one doesn't rhyme). Print giveaway is legal here BY DESIGN — but distractors must include a `D-PATTERN-TRAP` (visual rime, different sound: *cow/snow*-class, *ear/bear*) so chunk-matching alone still fails SIM-SCANNER.
 
 **Bank.** L1: 21 × 3 = 63 + R 16. L2: 24 × 3 = 72 + R 16. Total ≤ 167. **Prune 656 → ~167** (75% cut). Rebuild items fresh; the 222-duplicate legacy pool is not worth salvaging item-by-item.

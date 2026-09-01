@@ -20,10 +20,10 @@ export const questions = [
   "itemKey": "first_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "The cat jumped on the box, curled into a ball, and fell asleep. Put the three pictures in story order.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "The cat jumped on the box, curled into a ball, and fell asleep. Which order matches the story?",
   "passage": "The cat jumped on the box, curled into a ball, and fell asleep.",
   "cell": "first_event",
   "choices": [
@@ -61,29 +61,24 @@ export const questions = [
    "jumped on the box → fell asleep → curled into a ball": "D-SEQUENCE-END",
    "fell asleep → curled into a ball → jumped on the box": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.A.first_event.v1",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/cat-jumps-on-box.webp",
-    "/images/assessment/generated/sequencing/cat-curls-on-box.webp",
-    "/images/assessment/generated/sequencing/cat-sleeps-on-box.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -96,38 +91,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.A.first_event.v1_sequence_1",
-    "value": "jumped on the box",
-    "label": "jumped on the box",
-    "image": "/images/assessment/generated/sequencing/cat-jumps-on-box.webp",
-    "imagePath": "/images/assessment/generated/sequencing/cat-jumps-on-box.webp",
-    "alt": "Story step: jumped on the box"
-   },
-   {
-    "id": "lp3.sequencing.l1.A.first_event.v1_sequence_2",
-    "value": "curled into a ball",
-    "label": "curled into a ball",
-    "image": "/images/assessment/generated/sequencing/cat-curls-on-box.webp",
-    "imagePath": "/images/assessment/generated/sequencing/cat-curls-on-box.webp",
-    "alt": "Story step: curled into a ball"
-   },
-   {
-    "id": "lp3.sequencing.l1.A.first_event.v1_sequence_3",
-    "value": "fell asleep",
-    "label": "fell asleep",
-    "image": "/images/assessment/generated/sequencing/cat-sleeps-on-box.webp",
-    "imagePath": "/images/assessment/generated/sequencing/cat-sleeps-on-box.webp",
-    "alt": "Story step: fell asleep"
-   }
-  ],
-  "correctSequence": [
-   "jumped on the box",
-   "curled into a ball",
-   "fell asleep"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.B.first_event.v2",
@@ -148,10 +112,10 @@ export const questions = [
   "itemKey": "first_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "Mia put a seed in soil, watered it, and saw a green shoot. Put the three pictures in story order.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "Mia put a seed in soil, watered it, and saw a green shoot. Which order matches the story?",
   "passage": "Mia put a seed in soil, watered it, and saw a green shoot.",
   "cell": "first_event",
   "choices": [
@@ -189,29 +153,24 @@ export const questions = [
    "saw a green shoot → watered the soil → put in the seed": "D-SEQUENCE-REVERSE",
    "watered the soil → put in the seed → saw a green shoot": "D-SEQUENCE-START"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.B.first_event.v2",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/child-plants-seed.webp",
-    "/images/assessment/generated/sequencing/child-waters-seed.webp",
-    "/images/assessment/generated/sequencing/seed-grows-shoot.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -224,38 +183,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.B.first_event.v2_sequence_1",
-    "value": "put in the seed",
-    "label": "put in the seed",
-    "image": "/images/assessment/generated/sequencing/child-plants-seed.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-plants-seed.webp",
-    "alt": "Story step: put in the seed"
-   },
-   {
-    "id": "lp3.sequencing.l1.B.first_event.v2_sequence_2",
-    "value": "watered the soil",
-    "label": "watered the soil",
-    "image": "/images/assessment/generated/sequencing/child-waters-seed.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-waters-seed.webp",
-    "alt": "Story step: watered the soil"
-   },
-   {
-    "id": "lp3.sequencing.l1.B.first_event.v2_sequence_3",
-    "value": "saw a green shoot",
-    "label": "saw a green shoot",
-    "image": "/images/assessment/generated/sequencing/seed-grows-shoot.webp",
-    "imagePath": "/images/assessment/generated/sequencing/seed-grows-shoot.webp",
-    "alt": "Story step: saw a green shoot"
-   }
-  ],
-  "correctSequence": [
-   "put in the seed",
-   "watered the soil",
-   "saw a green shoot"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.C.first_event.v3",
@@ -276,10 +204,10 @@ export const questions = [
   "itemKey": "first_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "Ben wet his hands, rubbed in soap, and rinsed the bubbles away. Put the three pictures in story order.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "Ben wet his hands, rubbed in soap, and rinsed the bubbles away. Which order matches the story?",
   "passage": "Ben wet his hands, rubbed in soap, and rinsed the bubbles away.",
   "cell": "first_event",
   "choices": [
@@ -317,29 +245,24 @@ export const questions = [
    "wet his hands → rinsed his hands → rubbed in soap": "D-SEQUENCE-END",
    "rinsed his hands → rubbed in soap → wet his hands": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.C.first_event.v3",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/child-wets-hands.webp",
-    "/images/assessment/generated/sequencing/child-soaps-hands.webp",
-    "/images/assessment/generated/sequencing/child-rinses-hands.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -352,38 +275,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.C.first_event.v3_sequence_1",
-    "value": "wet his hands",
-    "label": "wet his hands",
-    "image": "/images/assessment/generated/sequencing/child-wets-hands.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-wets-hands.webp",
-    "alt": "Story step: wet his hands"
-   },
-   {
-    "id": "lp3.sequencing.l1.C.first_event.v3_sequence_2",
-    "value": "rubbed in soap",
-    "label": "rubbed in soap",
-    "image": "/images/assessment/generated/sequencing/child-soaps-hands.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-soaps-hands.webp",
-    "alt": "Story step: rubbed in soap"
-   },
-   {
-    "id": "lp3.sequencing.l1.C.first_event.v3_sequence_3",
-    "value": "rinsed his hands",
-    "label": "rinsed his hands",
-    "image": "/images/assessment/generated/sequencing/child-rinses-hands.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-rinses-hands.webp",
-    "alt": "Story step: rinsed his hands"
-   }
-  ],
-  "correctSequence": [
-   "wet his hands",
-   "rubbed in soap",
-   "rinsed his hands"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.A.first_event.v4",
@@ -404,70 +296,65 @@ export const questions = [
   "itemKey": "first_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "Zara put on her shirt, pulled on her trousers, and tied her shoes. Put the three pictures in story order.",
-  "passage": "Zara put on her shirt, pulled on her trousers, and tied her shoes.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the actions?",
+  "question": "Which order matches the actions?",
+  "spokenPrompt": "Zara pulled on one sock. Then she put on its shoe. Last, she tied the laces. Which order matches the actions?",
+  "passage": "Zara pulled on one sock. Then she put on its shoe. Last, she tied the laces.",
   "cell": "first_event",
   "choices": [
-   "put on her shirt → put on her trousers → tied her shoes",
-   "put on her trousers → put on her shirt → tied her shoes",
-   "put on her shirt → tied her shoes → put on her trousers",
-   "tied her shoes → put on her trousers → put on her shirt"
+   "pulled on a sock → put on the shoe → tied the laces",
+   "put on the shoe → pulled on a sock → tied the laces",
+   "pulled on a sock → tied the laces → put on the shoe",
+   "tied the laces → put on the shoe → pulled on a sock"
   ],
   "answerOptions": [
    {
-    "value": "put on her shirt → put on her trousers → tied her shoes",
-    "label": "put on her shirt → put on her trousers → tied her shoes",
-    "text": "put on her shirt → put on her trousers → tied her shoes"
+    "value": "pulled on a sock → put on the shoe → tied the laces",
+    "label": "pulled on a sock → put on the shoe → tied the laces",
+    "text": "pulled on a sock → put on the shoe → tied the laces"
    },
    {
-    "value": "put on her trousers → put on her shirt → tied her shoes",
-    "label": "put on her trousers → put on her shirt → tied her shoes",
-    "text": "put on her trousers → put on her shirt → tied her shoes"
+    "value": "put on the shoe → pulled on a sock → tied the laces",
+    "label": "put on the shoe → pulled on a sock → tied the laces",
+    "text": "put on the shoe → pulled on a sock → tied the laces"
    },
    {
-    "value": "put on her shirt → tied her shoes → put on her trousers",
-    "label": "put on her shirt → tied her shoes → put on her trousers",
-    "text": "put on her shirt → tied her shoes → put on her trousers"
+    "value": "pulled on a sock → tied the laces → put on the shoe",
+    "label": "pulled on a sock → tied the laces → put on the shoe",
+    "text": "pulled on a sock → tied the laces → put on the shoe"
    },
    {
-    "value": "tied her shoes → put on her trousers → put on her shirt",
-    "label": "tied her shoes → put on her trousers → put on her shirt",
-    "text": "tied her shoes → put on her trousers → put on her shirt"
+    "value": "tied the laces → put on the shoe → pulled on a sock",
+    "label": "tied the laces → put on the shoe → pulled on a sock",
+    "text": "tied the laces → put on the shoe → pulled on a sock"
    }
   ],
-  "answer": "put on her shirt → put on her trousers → tied her shoes",
-  "correctAnswer": "put on her shirt → put on her trousers → tied her shoes",
+  "answer": "pulled on a sock → put on the shoe → tied the laces",
+  "correctAnswer": "pulled on a sock → put on the shoe → tied the laces",
   "distractorRationales": {
-   "tied her shoes → put on her trousers → put on her shirt": "D-SEQUENCE-REVERSE",
-   "put on her trousers → put on her shirt → tied her shoes": "D-SEQUENCE-START",
-   "put on her shirt → tied her shoes → put on her trousers": "D-SEQUENCE-END"
+   "tied the laces → put on the shoe → pulled on a sock": "D-SEQUENCE-REVERSE",
+   "put on the shoe → pulled on a sock → tied the laces": "D-SEQUENCE-START",
+   "pulled on a sock → tied the laces → put on the shoe": "D-SEQUENCE-END"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.A.first_event.v4",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/child-puts-on-shirt.webp",
-    "/images/assessment/generated/sequencing/child-puts-on-trousers.webp",
-    "/images/assessment/generated/sequencing/child-ties-shoes.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -480,38 +367,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.A.first_event.v4_sequence_1",
-    "value": "put on her shirt",
-    "label": "put on her shirt",
-    "image": "/images/assessment/generated/sequencing/child-puts-on-shirt.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-puts-on-shirt.webp",
-    "alt": "Story step: put on her shirt"
-   },
-   {
-    "id": "lp3.sequencing.l1.A.first_event.v4_sequence_2",
-    "value": "put on her trousers",
-    "label": "put on her trousers",
-    "image": "/images/assessment/generated/sequencing/child-puts-on-trousers.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-puts-on-trousers.webp",
-    "alt": "Story step: put on her trousers"
-   },
-   {
-    "id": "lp3.sequencing.l1.A.first_event.v4_sequence_3",
-    "value": "tied her shoes",
-    "label": "tied her shoes",
-    "image": "/images/assessment/generated/sequencing/child-ties-shoes.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-ties-shoes.webp",
-    "alt": "Story step: tied her shoes"
-   }
-  ],
-  "correctSequence": [
-   "put on her shirt",
-   "put on her trousers",
-   "tied her shoes"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.B.first_event.v5",
@@ -532,10 +388,10 @@ export const questions = [
   "itemKey": "first_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "Dad put bread in the toaster, waited for it to pop, and spread butter. Put the three pictures in story order.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "Dad put bread in the toaster, waited for it to pop, and spread butter. Which order matches the story?",
   "passage": "Dad put bread in the toaster, waited for it to pop, and spread butter.",
   "cell": "first_event",
   "choices": [
@@ -573,29 +429,24 @@ export const questions = [
    "toast popped up → put bread in → spread the butter": "D-SEQUENCE-START",
    "put bread in → spread the butter → toast popped up": "D-SEQUENCE-END"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.B.first_event.v5",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/bread-enters-toaster.webp",
-    "/images/assessment/generated/sequencing/toast-pops-up.webp",
-    "/images/assessment/generated/sequencing/butter-spread-on-toast.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -608,38 +459,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.B.first_event.v5_sequence_1",
-    "value": "put bread in",
-    "label": "put bread in",
-    "image": "/images/assessment/generated/sequencing/bread-enters-toaster.webp",
-    "imagePath": "/images/assessment/generated/sequencing/bread-enters-toaster.webp",
-    "alt": "Story step: put bread in"
-   },
-   {
-    "id": "lp3.sequencing.l1.B.first_event.v5_sequence_2",
-    "value": "toast popped up",
-    "label": "toast popped up",
-    "image": "/images/assessment/generated/sequencing/toast-pops-up.webp",
-    "imagePath": "/images/assessment/generated/sequencing/toast-pops-up.webp",
-    "alt": "Story step: toast popped up"
-   },
-   {
-    "id": "lp3.sequencing.l1.B.first_event.v5_sequence_3",
-    "value": "spread the butter",
-    "label": "spread the butter",
-    "image": "/images/assessment/generated/sequencing/butter-spread-on-toast.webp",
-    "imagePath": "/images/assessment/generated/sequencing/butter-spread-on-toast.webp",
-    "alt": "Story step: spread the butter"
-   }
-  ],
-  "correctSequence": [
-   "put bread in",
-   "toast popped up",
-   "spread the butter"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.C.first_event.v6",
@@ -660,10 +480,10 @@ export const questions = [
   "itemKey": "first_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "Noah threw the ball, the dog chased it, and the dog brought it back. Put the three pictures in story order.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "Noah threw the ball, the dog chased it, and the dog brought it back. Which order matches the story?",
   "passage": "Noah threw the ball, the dog chased it, and the dog brought it back.",
   "cell": "first_event",
   "choices": [
@@ -701,29 +521,24 @@ export const questions = [
    "dog chased it → threw the ball → dog brought it back": "D-SEQUENCE-START",
    "threw the ball → dog brought it back → dog chased it": "D-SEQUENCE-END"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.C.first_event.v6",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/child-throws-ball.webp",
-    "/images/assessment/generated/sequencing/dog-chases-ball.webp",
-    "/images/assessment/generated/sequencing/dog-returns-ball.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -736,38 +551,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.C.first_event.v6_sequence_1",
-    "value": "threw the ball",
-    "label": "threw the ball",
-    "image": "/images/assessment/generated/sequencing/child-throws-ball.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-throws-ball.webp",
-    "alt": "Story step: threw the ball"
-   },
-   {
-    "id": "lp3.sequencing.l1.C.first_event.v6_sequence_2",
-    "value": "dog chased it",
-    "label": "dog chased it",
-    "image": "/images/assessment/generated/sequencing/dog-chases-ball.webp",
-    "imagePath": "/images/assessment/generated/sequencing/dog-chases-ball.webp",
-    "alt": "Story step: dog chased it"
-   },
-   {
-    "id": "lp3.sequencing.l1.C.first_event.v6_sequence_3",
-    "value": "dog brought it back",
-    "label": "dog brought it back",
-    "image": "/images/assessment/generated/sequencing/dog-returns-ball.webp",
-    "imagePath": "/images/assessment/generated/sequencing/dog-returns-ball.webp",
-    "alt": "Story step: dog brought it back"
-   }
-  ],
-  "correctSequence": [
-   "threw the ball",
-   "dog chased it",
-   "dog brought it back"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.A.first_event.v7",
@@ -788,70 +572,65 @@ export const questions = [
   "itemKey": "first_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "Lina drew a circle, added sun rays, and coloured the sun yellow. Put the three pictures in story order.",
-  "passage": "Lina drew a circle, added sun rays, and coloured the sun yellow.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the actions?",
+  "question": "Which order matches the actions?",
+  "spokenPrompt": "Lina drew a circle. Then she added sun rays. Last, she colored the sun yellow. Which order matches the actions?",
+  "passage": "Lina drew a circle. Then she added sun rays. Last, she colored the sun yellow.",
   "cell": "first_event",
   "choices": [
-   "coloured the sun → added the rays → drew a circle",
-   "drew a circle → added the rays → coloured the sun",
-   "added the rays → drew a circle → coloured the sun",
-   "drew a circle → coloured the sun → added the rays"
+   "colored the sun → added the rays → drew a circle",
+   "drew a circle → added the rays → colored the sun",
+   "added the rays → drew a circle → colored the sun",
+   "drew a circle → colored the sun → added the rays"
   ],
   "answerOptions": [
    {
-    "value": "coloured the sun → added the rays → drew a circle",
-    "label": "coloured the sun → added the rays → drew a circle",
-    "text": "coloured the sun → added the rays → drew a circle"
+    "value": "colored the sun → added the rays → drew a circle",
+    "label": "colored the sun → added the rays → drew a circle",
+    "text": "colored the sun → added the rays → drew a circle"
    },
    {
-    "value": "drew a circle → added the rays → coloured the sun",
-    "label": "drew a circle → added the rays → coloured the sun",
-    "text": "drew a circle → added the rays → coloured the sun"
+    "value": "drew a circle → added the rays → colored the sun",
+    "label": "drew a circle → added the rays → colored the sun",
+    "text": "drew a circle → added the rays → colored the sun"
    },
    {
-    "value": "added the rays → drew a circle → coloured the sun",
-    "label": "added the rays → drew a circle → coloured the sun",
-    "text": "added the rays → drew a circle → coloured the sun"
+    "value": "added the rays → drew a circle → colored the sun",
+    "label": "added the rays → drew a circle → colored the sun",
+    "text": "added the rays → drew a circle → colored the sun"
    },
    {
-    "value": "drew a circle → coloured the sun → added the rays",
-    "label": "drew a circle → coloured the sun → added the rays",
-    "text": "drew a circle → coloured the sun → added the rays"
+    "value": "drew a circle → colored the sun → added the rays",
+    "label": "drew a circle → colored the sun → added the rays",
+    "text": "drew a circle → colored the sun → added the rays"
    }
   ],
-  "answer": "drew a circle → added the rays → coloured the sun",
-  "correctAnswer": "drew a circle → added the rays → coloured the sun",
+  "answer": "drew a circle → added the rays → colored the sun",
+  "correctAnswer": "drew a circle → added the rays → colored the sun",
   "distractorRationales": {
-   "drew a circle → coloured the sun → added the rays": "D-SEQUENCE-END",
-   "coloured the sun → added the rays → drew a circle": "D-SEQUENCE-REVERSE",
-   "added the rays → drew a circle → coloured the sun": "D-SEQUENCE-START"
+   "drew a circle → colored the sun → added the rays": "D-SEQUENCE-END",
+   "colored the sun → added the rays → drew a circle": "D-SEQUENCE-REVERSE",
+   "added the rays → drew a circle → colored the sun": "D-SEQUENCE-START"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.A.first_event.v7",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/child-draws-circle.webp",
-    "/images/assessment/generated/sequencing/child-adds-sun-rays.webp",
-    "/images/assessment/generated/sequencing/child-colours-sun.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -864,38 +643,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.A.first_event.v7_sequence_1",
-    "value": "drew a circle",
-    "label": "drew a circle",
-    "image": "/images/assessment/generated/sequencing/child-draws-circle.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-draws-circle.webp",
-    "alt": "Story step: drew a circle"
-   },
-   {
-    "id": "lp3.sequencing.l1.A.first_event.v7_sequence_2",
-    "value": "added the rays",
-    "label": "added the rays",
-    "image": "/images/assessment/generated/sequencing/child-adds-sun-rays.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-adds-sun-rays.webp",
-    "alt": "Story step: added the rays"
-   },
-   {
-    "id": "lp3.sequencing.l1.A.first_event.v7_sequence_3",
-    "value": "coloured the sun",
-    "label": "coloured the sun",
-    "image": "/images/assessment/generated/sequencing/child-colours-sun.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-colours-sun.webp",
-    "alt": "Story step: coloured the sun"
-   }
-  ],
-  "correctSequence": [
-   "drew a circle",
-   "added the rays",
-   "coloured the sun"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.B.first_event.v8",
@@ -916,10 +664,10 @@ export const questions = [
   "itemKey": "first_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "Omar set down blocks, stacked a tower, and smiled at the top. Put the three pictures in story order.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "Omar set down blocks, stacked a tower, and smiled at the top. Which order matches the story?",
   "passage": "Omar set down blocks, stacked a tower, and smiled at the top.",
   "cell": "first_event",
   "choices": [
@@ -957,29 +705,24 @@ export const questions = [
    "set down blocks → smiled at the tower → stacked the tower": "D-SEQUENCE-END",
    "smiled at the tower → stacked the tower → set down blocks": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.B.first_event.v8",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/child-sets-blocks.webp",
-    "/images/assessment/generated/sequencing/child-stacks-tower.webp",
-    "/images/assessment/generated/sequencing/child-smiles-at-tower.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -992,38 +735,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.B.first_event.v8_sequence_1",
-    "value": "set down blocks",
-    "label": "set down blocks",
-    "image": "/images/assessment/generated/sequencing/child-sets-blocks.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-sets-blocks.webp",
-    "alt": "Story step: set down blocks"
-   },
-   {
-    "id": "lp3.sequencing.l1.B.first_event.v8_sequence_2",
-    "value": "stacked the tower",
-    "label": "stacked the tower",
-    "image": "/images/assessment/generated/sequencing/child-stacks-tower.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-stacks-tower.webp",
-    "alt": "Story step: stacked the tower"
-   },
-   {
-    "id": "lp3.sequencing.l1.B.first_event.v8_sequence_3",
-    "value": "smiled at the tower",
-    "label": "smiled at the tower",
-    "image": "/images/assessment/generated/sequencing/child-smiles-at-tower.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-smiles-at-tower.webp",
-    "alt": "Story step: smiled at the tower"
-   }
-  ],
-  "correctSequence": [
-   "set down blocks",
-   "stacked the tower",
-   "smiled at the tower"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.A.middle_event.v1",
@@ -1044,10 +756,10 @@ export const questions = [
   "itemKey": "middle_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "Ava laid down bread, added cheese, and closed the sandwich. Put the three pictures in story order.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "Ava laid down bread, added cheese, and closed the sandwich. Which order matches the story?",
   "passage": "Ava laid down bread, added cheese, and closed the sandwich.",
   "cell": "middle_event",
   "choices": [
@@ -1085,29 +797,24 @@ export const questions = [
    "laid down bread → closed the sandwich → added the cheese": "D-SEQUENCE-END",
    "closed the sandwich → added the cheese → laid down bread": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.A.middle_event.v1",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/bread-on-plate.webp",
-    "/images/assessment/generated/sequencing/cheese-on-bread.webp",
-    "/images/assessment/generated/sequencing/closed-sandwich.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1120,38 +827,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.A.middle_event.v1_sequence_1",
-    "value": "laid down bread",
-    "label": "laid down bread",
-    "image": "/images/assessment/generated/sequencing/bread-on-plate.webp",
-    "imagePath": "/images/assessment/generated/sequencing/bread-on-plate.webp",
-    "alt": "Story step: laid down bread"
-   },
-   {
-    "id": "lp3.sequencing.l1.A.middle_event.v1_sequence_2",
-    "value": "added the cheese",
-    "label": "added the cheese",
-    "image": "/images/assessment/generated/sequencing/cheese-on-bread.webp",
-    "imagePath": "/images/assessment/generated/sequencing/cheese-on-bread.webp",
-    "alt": "Story step: added the cheese"
-   },
-   {
-    "id": "lp3.sequencing.l1.A.middle_event.v1_sequence_3",
-    "value": "closed the sandwich",
-    "label": "closed the sandwich",
-    "image": "/images/assessment/generated/sequencing/closed-sandwich.webp",
-    "imagePath": "/images/assessment/generated/sequencing/closed-sandwich.webp",
-    "alt": "Story step: closed the sandwich"
-   }
-  ],
-  "correctSequence": [
-   "laid down bread",
-   "added the cheese",
-   "closed the sandwich"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.B.middle_event.v2",
@@ -1172,11 +848,11 @@ export const questions = [
   "itemKey": "middle_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "Rain began. Eli put on boots, opened an umbrella, and walked outside. Put the three pictures in story order.",
-  "passage": "Rain began. Eli put on boots, opened an umbrella, and walked outside.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the actions?",
+  "question": "Which order matches the actions?",
+  "spokenPrompt": "Rain began. Eli put on his boots. Then he opened an umbrella. Last, he walked outside. Which order matches the actions?",
+  "passage": "Rain began. Eli put on his boots. Then he opened an umbrella. Last, he walked outside.",
   "cell": "middle_event",
   "choices": [
    "walked outside → opened an umbrella → put on boots",
@@ -1213,29 +889,24 @@ export const questions = [
    "put on boots → walked outside → opened an umbrella": "D-SEQUENCE-END",
    "walked outside → opened an umbrella → put on boots": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.B.middle_event.v2",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/child-puts-on-rain-boots.webp",
-    "/images/assessment/generated/sequencing/child-opens-umbrella.webp",
-    "/images/assessment/generated/sequencing/child-walks-in-rain.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1248,38 +919,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.B.middle_event.v2_sequence_1",
-    "value": "put on boots",
-    "label": "put on boots",
-    "image": "/images/assessment/generated/sequencing/child-puts-on-rain-boots.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-puts-on-rain-boots.webp",
-    "alt": "Story step: put on boots"
-   },
-   {
-    "id": "lp3.sequencing.l1.B.middle_event.v2_sequence_2",
-    "value": "opened an umbrella",
-    "label": "opened an umbrella",
-    "image": "/images/assessment/generated/sequencing/child-opens-umbrella.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-opens-umbrella.webp",
-    "alt": "Story step: opened an umbrella"
-   },
-   {
-    "id": "lp3.sequencing.l1.B.middle_event.v2_sequence_3",
-    "value": "walked outside",
-    "label": "walked outside",
-    "image": "/images/assessment/generated/sequencing/child-walks-in-rain.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-walks-in-rain.webp",
-    "alt": "Story step: walked outside"
-   }
-  ],
-  "correctSequence": [
-   "put on boots",
-   "opened an umbrella",
-   "walked outside"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.C.middle_event.v3",
@@ -1300,10 +940,10 @@ export const questions = [
   "itemKey": "middle_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "The girl opened her book, read one page, and put in a bookmark. Put the three pictures in story order.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "The girl opened her book, read one page, and put in a bookmark. Which order matches the story?",
   "passage": "The girl opened her book, read one page, and put in a bookmark.",
   "cell": "middle_event",
   "choices": [
@@ -1341,29 +981,24 @@ export const questions = [
    "opened the book → put in a bookmark → read the page": "D-SEQUENCE-END",
    "put in a bookmark → read the page → opened the book": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.C.middle_event.v3",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/child-opens-book.webp",
-    "/images/assessment/generated/sequencing/child-reads-page.webp",
-    "/images/assessment/generated/sequencing/child-adds-bookmark.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1376,38 +1011,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.C.middle_event.v3_sequence_1",
-    "value": "opened the book",
-    "label": "opened the book",
-    "image": "/images/assessment/generated/sequencing/child-opens-book.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-opens-book.webp",
-    "alt": "Story step: opened the book"
-   },
-   {
-    "id": "lp3.sequencing.l1.C.middle_event.v3_sequence_2",
-    "value": "read the page",
-    "label": "read the page",
-    "image": "/images/assessment/generated/sequencing/child-reads-page.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-reads-page.webp",
-    "alt": "Story step: read the page"
-   },
-   {
-    "id": "lp3.sequencing.l1.C.middle_event.v3_sequence_3",
-    "value": "put in a bookmark",
-    "label": "put in a bookmark",
-    "image": "/images/assessment/generated/sequencing/child-adds-bookmark.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-adds-bookmark.webp",
-    "alt": "Story step: put in a bookmark"
-   }
-  ],
-  "correctSequence": [
-   "opened the book",
-   "read the page",
-   "put in a bookmark"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.A.middle_event.v4",
@@ -1428,10 +1032,10 @@ export const questions = [
   "itemKey": "middle_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "Kai filled a cup, drank the water, and put the cup in the sink. Put the three pictures in story order.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "Kai filled a cup, drank the water, and put the cup in the sink. Which order matches the story?",
   "passage": "Kai filled a cup, drank the water, and put the cup in the sink.",
   "cell": "middle_event",
   "choices": [
@@ -1469,29 +1073,24 @@ export const questions = [
    "put cup in sink → drank the water → filled the cup": "D-SEQUENCE-REVERSE",
    "drank the water → filled the cup → put cup in sink": "D-SEQUENCE-START"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.A.middle_event.v4",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/child-fills-cup.webp",
-    "/images/assessment/generated/sequencing/child-drinks-water.webp",
-    "/images/assessment/generated/sequencing/child-puts-cup-in-sink.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1504,38 +1103,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.A.middle_event.v4_sequence_1",
-    "value": "filled the cup",
-    "label": "filled the cup",
-    "image": "/images/assessment/generated/sequencing/child-fills-cup.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-fills-cup.webp",
-    "alt": "Story step: filled the cup"
-   },
-   {
-    "id": "lp3.sequencing.l1.A.middle_event.v4_sequence_2",
-    "value": "drank the water",
-    "label": "drank the water",
-    "image": "/images/assessment/generated/sequencing/child-drinks-water.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-drinks-water.webp",
-    "alt": "Story step: drank the water"
-   },
-   {
-    "id": "lp3.sequencing.l1.A.middle_event.v4_sequence_3",
-    "value": "put cup in sink",
-    "label": "put cup in sink",
-    "image": "/images/assessment/generated/sequencing/child-puts-cup-in-sink.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-puts-cup-in-sink.webp",
-    "alt": "Story step: put cup in sink"
-   }
-  ],
-  "correctSequence": [
-   "filled the cup",
-   "drank the water",
-   "put cup in sink"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.B.middle_event.v5",
@@ -1556,11 +1124,11 @@ export const questions = [
   "itemKey": "middle_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "Mum cracked an egg, whisked it, and cooked it in the pan. Put the three pictures in story order.",
-  "passage": "Mum cracked an egg, whisked it, and cooked it in the pan.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "Mom cracked an egg, whisked it, and cooked it in the pan. Which order matches the story?",
+  "passage": "Mom cracked an egg, whisked it, and cooked it in the pan.",
   "cell": "middle_event",
   "choices": [
    "cracked the egg → cooked the egg → whisked the egg",
@@ -1597,29 +1165,24 @@ export const questions = [
    "cracked the egg → cooked the egg → whisked the egg": "D-SEQUENCE-END",
    "cooked the egg → whisked the egg → cracked the egg": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.B.middle_event.v5",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/adult-cracks-egg.webp",
-    "/images/assessment/generated/sequencing/adult-whisks-egg.webp",
-    "/images/assessment/generated/sequencing/egg-cooks-in-pan.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1632,38 +1195,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.B.middle_event.v5_sequence_1",
-    "value": "cracked the egg",
-    "label": "cracked the egg",
-    "image": "/images/assessment/generated/sequencing/adult-cracks-egg.webp",
-    "imagePath": "/images/assessment/generated/sequencing/adult-cracks-egg.webp",
-    "alt": "Story step: cracked the egg"
-   },
-   {
-    "id": "lp3.sequencing.l1.B.middle_event.v5_sequence_2",
-    "value": "whisked the egg",
-    "label": "whisked the egg",
-    "image": "/images/assessment/generated/sequencing/adult-whisks-egg.webp",
-    "imagePath": "/images/assessment/generated/sequencing/adult-whisks-egg.webp",
-    "alt": "Story step: whisked the egg"
-   },
-   {
-    "id": "lp3.sequencing.l1.B.middle_event.v5_sequence_3",
-    "value": "cooked the egg",
-    "label": "cooked the egg",
-    "image": "/images/assessment/generated/sequencing/egg-cooks-in-pan.webp",
-    "imagePath": "/images/assessment/generated/sequencing/egg-cooks-in-pan.webp",
-    "alt": "Story step: cooked the egg"
-   }
-  ],
-  "correctSequence": [
-   "cracked the egg",
-   "whisked the egg",
-   "cooked the egg"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.C.middle_event.v6",
@@ -1684,10 +1216,10 @@ export const questions = [
   "itemKey": "middle_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "The boy kicked the ball, it hit the goal, and his team cheered. Put the three pictures in story order.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "The boy kicked the ball, it hit the goal, and his team cheered. Which order matches the story?",
   "passage": "The boy kicked the ball, it hit the goal, and his team cheered.",
   "cell": "middle_event",
   "choices": [
@@ -1725,29 +1257,24 @@ export const questions = [
    "team cheered → ball went in goal → kicked the ball": "D-SEQUENCE-REVERSE",
    "ball went in goal → kicked the ball → team cheered": "D-SEQUENCE-START"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.C.middle_event.v6",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/child-kicks-football.webp",
-    "/images/assessment/generated/sequencing/football-enters-goal.webp",
-    "/images/assessment/generated/sequencing/children-cheer-goal.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1760,38 +1287,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.C.middle_event.v6_sequence_1",
-    "value": "kicked the ball",
-    "label": "kicked the ball",
-    "image": "/images/assessment/generated/sequencing/child-kicks-football.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-kicks-football.webp",
-    "alt": "Story step: kicked the ball"
-   },
-   {
-    "id": "lp3.sequencing.l1.C.middle_event.v6_sequence_2",
-    "value": "ball went in goal",
-    "label": "ball went in goal",
-    "image": "/images/assessment/generated/sequencing/football-enters-goal.webp",
-    "imagePath": "/images/assessment/generated/sequencing/football-enters-goal.webp",
-    "alt": "Story step: ball went in goal"
-   },
-   {
-    "id": "lp3.sequencing.l1.C.middle_event.v6_sequence_3",
-    "value": "team cheered",
-    "label": "team cheered",
-    "image": "/images/assessment/generated/sequencing/children-cheer-goal.webp",
-    "imagePath": "/images/assessment/generated/sequencing/children-cheer-goal.webp",
-    "alt": "Story step: team cheered"
-   }
-  ],
-  "correctSequence": [
-   "kicked the ball",
-   "ball went in goal",
-   "team cheered"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.A.middle_event.v7",
@@ -1812,70 +1308,65 @@ export const questions = [
   "itemKey": "middle_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "Nia brushed the dog, clipped on its lead, and took it for a walk. Put the three pictures in story order.",
-  "passage": "Nia brushed the dog, clipped on its lead, and took it for a walk.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the actions?",
+  "question": "Which order matches the actions?",
+  "spokenPrompt": "Nia washed the muddy dog. Then she dried its fur. Last, she brushed the fur smooth. Which order matches the actions?",
+  "passage": "Nia washed the muddy dog. Then she dried its fur. Last, she brushed the fur smooth.",
   "cell": "middle_event",
   "choices": [
-   "brushed the dog → clipped on the lead → walked the dog",
-   "clipped on the lead → brushed the dog → walked the dog",
-   "brushed the dog → walked the dog → clipped on the lead",
-   "walked the dog → clipped on the lead → brushed the dog"
+   "washed the dog → dried its fur → brushed the fur smooth",
+   "dried its fur → washed the dog → brushed the fur smooth",
+   "washed the dog → brushed the fur smooth → dried its fur",
+   "brushed the fur smooth → dried its fur → washed the dog"
   ],
   "answerOptions": [
    {
-    "value": "brushed the dog → clipped on the lead → walked the dog",
-    "label": "brushed the dog → clipped on the lead → walked the dog",
-    "text": "brushed the dog → clipped on the lead → walked the dog"
+    "value": "washed the dog → dried its fur → brushed the fur smooth",
+    "label": "washed the dog → dried its fur → brushed the fur smooth",
+    "text": "washed the dog → dried its fur → brushed the fur smooth"
    },
    {
-    "value": "clipped on the lead → brushed the dog → walked the dog",
-    "label": "clipped on the lead → brushed the dog → walked the dog",
-    "text": "clipped on the lead → brushed the dog → walked the dog"
+    "value": "dried its fur → washed the dog → brushed the fur smooth",
+    "label": "dried its fur → washed the dog → brushed the fur smooth",
+    "text": "dried its fur → washed the dog → brushed the fur smooth"
    },
    {
-    "value": "brushed the dog → walked the dog → clipped on the lead",
-    "label": "brushed the dog → walked the dog → clipped on the lead",
-    "text": "brushed the dog → walked the dog → clipped on the lead"
+    "value": "washed the dog → brushed the fur smooth → dried its fur",
+    "label": "washed the dog → brushed the fur smooth → dried its fur",
+    "text": "washed the dog → brushed the fur smooth → dried its fur"
    },
    {
-    "value": "walked the dog → clipped on the lead → brushed the dog",
-    "label": "walked the dog → clipped on the lead → brushed the dog",
-    "text": "walked the dog → clipped on the lead → brushed the dog"
+    "value": "brushed the fur smooth → dried its fur → washed the dog",
+    "label": "brushed the fur smooth → dried its fur → washed the dog",
+    "text": "brushed the fur smooth → dried its fur → washed the dog"
    }
   ],
-  "answer": "brushed the dog → clipped on the lead → walked the dog",
-  "correctAnswer": "brushed the dog → clipped on the lead → walked the dog",
+  "answer": "washed the dog → dried its fur → brushed the fur smooth",
+  "correctAnswer": "washed the dog → dried its fur → brushed the fur smooth",
   "distractorRationales": {
-   "walked the dog → clipped on the lead → brushed the dog": "D-SEQUENCE-REVERSE",
-   "clipped on the lead → brushed the dog → walked the dog": "D-SEQUENCE-START",
-   "brushed the dog → walked the dog → clipped on the lead": "D-SEQUENCE-END"
+   "brushed the fur smooth → dried its fur → washed the dog": "D-SEQUENCE-REVERSE",
+   "dried its fur → washed the dog → brushed the fur smooth": "D-SEQUENCE-START",
+   "washed the dog → brushed the fur smooth → dried its fur": "D-SEQUENCE-END"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.A.middle_event.v7",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/child-brushes-dog.webp",
-    "/images/assessment/generated/sequencing/child-clips-dog-lead.webp",
-    "/images/assessment/generated/sequencing/child-walks-dog.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -1888,38 +1379,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.A.middle_event.v7_sequence_1",
-    "value": "brushed the dog",
-    "label": "brushed the dog",
-    "image": "/images/assessment/generated/sequencing/child-brushes-dog.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-brushes-dog.webp",
-    "alt": "Story step: brushed the dog"
-   },
-   {
-    "id": "lp3.sequencing.l1.A.middle_event.v7_sequence_2",
-    "value": "clipped on the lead",
-    "label": "clipped on the lead",
-    "image": "/images/assessment/generated/sequencing/child-clips-dog-lead.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-clips-dog-lead.webp",
-    "alt": "Story step: clipped on the lead"
-   },
-   {
-    "id": "lp3.sequencing.l1.A.middle_event.v7_sequence_3",
-    "value": "walked the dog",
-    "label": "walked the dog",
-    "image": "/images/assessment/generated/sequencing/child-walks-dog.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-walks-dog.webp",
-    "alt": "Story step: walked the dog"
-   }
-  ],
-  "correctSequence": [
-   "brushed the dog",
-   "clipped on the lead",
-   "walked the dog"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.B.middle_event.v8",
@@ -1940,10 +1400,10 @@ export const questions = [
   "itemKey": "middle_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "The baker mixed dough, shaped a loaf, and put it in the oven. Put the three pictures in story order.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "The baker mixed dough, shaped a loaf, and put it in the oven. Which order matches the story?",
   "passage": "The baker mixed dough, shaped a loaf, and put it in the oven.",
   "cell": "middle_event",
   "choices": [
@@ -1981,29 +1441,24 @@ export const questions = [
    "shaped the loaf → mixed the dough → put loaf in oven": "D-SEQUENCE-START",
    "mixed the dough → put loaf in oven → shaped the loaf": "D-SEQUENCE-END"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.B.middle_event.v8",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/baker-mixes-dough.webp",
-    "/images/assessment/generated/sequencing/baker-shapes-loaf.webp",
-    "/images/assessment/generated/sequencing/baker-puts-loaf-in-oven.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2016,38 +1471,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.B.middle_event.v8_sequence_1",
-    "value": "mixed the dough",
-    "label": "mixed the dough",
-    "image": "/images/assessment/generated/sequencing/baker-mixes-dough.webp",
-    "imagePath": "/images/assessment/generated/sequencing/baker-mixes-dough.webp",
-    "alt": "Story step: mixed the dough"
-   },
-   {
-    "id": "lp3.sequencing.l1.B.middle_event.v8_sequence_2",
-    "value": "shaped the loaf",
-    "label": "shaped the loaf",
-    "image": "/images/assessment/generated/sequencing/baker-shapes-loaf.webp",
-    "imagePath": "/images/assessment/generated/sequencing/baker-shapes-loaf.webp",
-    "alt": "Story step: shaped the loaf"
-   },
-   {
-    "id": "lp3.sequencing.l1.B.middle_event.v8_sequence_3",
-    "value": "put loaf in oven",
-    "label": "put loaf in oven",
-    "image": "/images/assessment/generated/sequencing/baker-puts-loaf-in-oven.webp",
-    "imagePath": "/images/assessment/generated/sequencing/baker-puts-loaf-in-oven.webp",
-    "alt": "Story step: put loaf in oven"
-   }
-  ],
-  "correctSequence": [
-   "mixed the dough",
-   "shaped the loaf",
-   "put loaf in oven"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.A.last_event.v1",
@@ -2068,70 +1492,65 @@ export const questions = [
   "itemKey": "last_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "Sam brushed his teeth, put on pyjamas, and climbed into bed. Put the three pictures in story order.",
-  "passage": "Sam brushed his teeth, put on pyjamas, and climbed into bed.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the actions?",
+  "question": "Which order matches the actions?",
+  "spokenPrompt": "Sam put toothpaste on his brush. Then he brushed his teeth. Last, he rinsed his mouth. Which order matches the actions?",
+  "passage": "Sam put toothpaste on his brush. Then he brushed his teeth. Last, he rinsed his mouth.",
   "cell": "last_event",
   "choices": [
-   "climbed into bed → put on pyjamas → brushed his teeth",
-   "brushed his teeth → put on pyjamas → climbed into bed",
-   "put on pyjamas → brushed his teeth → climbed into bed",
-   "brushed his teeth → climbed into bed → put on pyjamas"
+   "rinsed his mouth → brushed his teeth → added toothpaste",
+   "added toothpaste → brushed his teeth → rinsed his mouth",
+   "brushed his teeth → added toothpaste → rinsed his mouth",
+   "added toothpaste → rinsed his mouth → brushed his teeth"
   ],
   "answerOptions": [
    {
-    "value": "climbed into bed → put on pyjamas → brushed his teeth",
-    "label": "climbed into bed → put on pyjamas → brushed his teeth",
-    "text": "climbed into bed → put on pyjamas → brushed his teeth"
+    "value": "rinsed his mouth → brushed his teeth → added toothpaste",
+    "label": "rinsed his mouth → brushed his teeth → added toothpaste",
+    "text": "rinsed his mouth → brushed his teeth → added toothpaste"
    },
    {
-    "value": "brushed his teeth → put on pyjamas → climbed into bed",
-    "label": "brushed his teeth → put on pyjamas → climbed into bed",
-    "text": "brushed his teeth → put on pyjamas → climbed into bed"
+    "value": "added toothpaste → brushed his teeth → rinsed his mouth",
+    "label": "added toothpaste → brushed his teeth → rinsed his mouth",
+    "text": "added toothpaste → brushed his teeth → rinsed his mouth"
    },
    {
-    "value": "put on pyjamas → brushed his teeth → climbed into bed",
-    "label": "put on pyjamas → brushed his teeth → climbed into bed",
-    "text": "put on pyjamas → brushed his teeth → climbed into bed"
+    "value": "brushed his teeth → added toothpaste → rinsed his mouth",
+    "label": "brushed his teeth → added toothpaste → rinsed his mouth",
+    "text": "brushed his teeth → added toothpaste → rinsed his mouth"
    },
    {
-    "value": "brushed his teeth → climbed into bed → put on pyjamas",
-    "label": "brushed his teeth → climbed into bed → put on pyjamas",
-    "text": "brushed his teeth → climbed into bed → put on pyjamas"
+    "value": "added toothpaste → rinsed his mouth → brushed his teeth",
+    "label": "added toothpaste → rinsed his mouth → brushed his teeth",
+    "text": "added toothpaste → rinsed his mouth → brushed his teeth"
    }
   ],
-  "answer": "brushed his teeth → put on pyjamas → climbed into bed",
-  "correctAnswer": "brushed his teeth → put on pyjamas → climbed into bed",
+  "answer": "added toothpaste → brushed his teeth → rinsed his mouth",
+  "correctAnswer": "added toothpaste → brushed his teeth → rinsed his mouth",
   "distractorRationales": {
-   "brushed his teeth → climbed into bed → put on pyjamas": "D-SEQUENCE-END",
-   "climbed into bed → put on pyjamas → brushed his teeth": "D-SEQUENCE-REVERSE",
-   "put on pyjamas → brushed his teeth → climbed into bed": "D-SEQUENCE-START"
+   "added toothpaste → rinsed his mouth → brushed his teeth": "D-SEQUENCE-END",
+   "rinsed his mouth → brushed his teeth → added toothpaste": "D-SEQUENCE-REVERSE",
+   "brushed his teeth → added toothpaste → rinsed his mouth": "D-SEQUENCE-START"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.A.last_event.v1",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/child-brushes-teeth.webp",
-    "/images/assessment/generated/sequencing/child-puts-on-pyjamas.webp",
-    "/images/assessment/generated/sequencing/child-climbs-into-bed.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2144,38 +1563,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.A.last_event.v1_sequence_1",
-    "value": "brushed his teeth",
-    "label": "brushed his teeth",
-    "image": "/images/assessment/generated/sequencing/child-brushes-teeth.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-brushes-teeth.webp",
-    "alt": "Story step: brushed his teeth"
-   },
-   {
-    "id": "lp3.sequencing.l1.A.last_event.v1_sequence_2",
-    "value": "put on pyjamas",
-    "label": "put on pyjamas",
-    "image": "/images/assessment/generated/sequencing/child-puts-on-pyjamas.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-puts-on-pyjamas.webp",
-    "alt": "Story step: put on pyjamas"
-   },
-   {
-    "id": "lp3.sequencing.l1.A.last_event.v1_sequence_3",
-    "value": "climbed into bed",
-    "label": "climbed into bed",
-    "image": "/images/assessment/generated/sequencing/child-climbs-into-bed.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-climbs-into-bed.webp",
-    "alt": "Story step: climbed into bed"
-   }
-  ],
-  "correctSequence": [
-   "brushed his teeth",
-   "put on pyjamas",
-   "climbed into bed"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.B.last_event.v2",
@@ -2196,10 +1584,10 @@ export const questions = [
   "itemKey": "last_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "The child found paper, folded a plane, and flew it across the room. Put the three pictures in story order.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "The child found paper, folded a plane, and flew it across the room. Which order matches the story?",
   "passage": "The child found paper, folded a plane, and flew it across the room.",
   "cell": "last_event",
   "choices": [
@@ -2237,29 +1625,24 @@ export const questions = [
    "flew the plane → folded a plane → found the paper": "D-SEQUENCE-REVERSE",
    "folded a plane → found the paper → flew the plane": "D-SEQUENCE-START"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.B.last_event.v2",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/child-finds-paper.webp",
-    "/images/assessment/generated/sequencing/child-folds-paper-plane.webp",
-    "/images/assessment/generated/sequencing/child-flies-paper-plane.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2272,38 +1655,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.B.last_event.v2_sequence_1",
-    "value": "found the paper",
-    "label": "found the paper",
-    "image": "/images/assessment/generated/sequencing/child-finds-paper.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-finds-paper.webp",
-    "alt": "Story step: found the paper"
-   },
-   {
-    "id": "lp3.sequencing.l1.B.last_event.v2_sequence_2",
-    "value": "folded a plane",
-    "label": "folded a plane",
-    "image": "/images/assessment/generated/sequencing/child-folds-paper-plane.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-folds-paper-plane.webp",
-    "alt": "Story step: folded a plane"
-   },
-   {
-    "id": "lp3.sequencing.l1.B.last_event.v2_sequence_3",
-    "value": "flew the plane",
-    "label": "flew the plane",
-    "image": "/images/assessment/generated/sequencing/child-flies-paper-plane.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-flies-paper-plane.webp",
-    "alt": "Story step: flew the plane"
-   }
-  ],
-  "correctSequence": [
-   "found the paper",
-   "folded a plane",
-   "flew the plane"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.C.last_event.v3",
@@ -2324,10 +1676,10 @@ export const questions = [
   "itemKey": "last_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "Ivy picked an apple, washed it, and took a bite. Put the three pictures in story order.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "Ivy picked an apple, washed it, and took a bite. Which order matches the story?",
   "passage": "Ivy picked an apple, washed it, and took a bite.",
   "cell": "last_event",
   "choices": [
@@ -2365,29 +1717,24 @@ export const questions = [
    "bit the apple → washed the apple → picked the apple": "D-SEQUENCE-REVERSE",
    "washed the apple → picked the apple → bit the apple": "D-SEQUENCE-START"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.C.last_event.v3",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/child-picks-apple.webp",
-    "/images/assessment/generated/sequencing/child-washes-apple.webp",
-    "/images/assessment/generated/sequencing/child-bites-apple.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2400,38 +1747,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.C.last_event.v3_sequence_1",
-    "value": "picked the apple",
-    "label": "picked the apple",
-    "image": "/images/assessment/generated/sequencing/child-picks-apple.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-picks-apple.webp",
-    "alt": "Story step: picked the apple"
-   },
-   {
-    "id": "lp3.sequencing.l1.C.last_event.v3_sequence_2",
-    "value": "washed the apple",
-    "label": "washed the apple",
-    "image": "/images/assessment/generated/sequencing/child-washes-apple.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-washes-apple.webp",
-    "alt": "Story step: washed the apple"
-   },
-   {
-    "id": "lp3.sequencing.l1.C.last_event.v3_sequence_3",
-    "value": "bit the apple",
-    "label": "bit the apple",
-    "image": "/images/assessment/generated/sequencing/child-bites-apple.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-bites-apple.webp",
-    "alt": "Story step: bit the apple"
-   }
-  ],
-  "correctSequence": [
-   "picked the apple",
-   "washed the apple",
-   "bit the apple"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.A.last_event.v4",
@@ -2452,10 +1768,10 @@ export const questions = [
   "itemKey": "last_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "The boy built a snowball, added a head, and gave the snowman a hat. Put the three pictures in story order.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "The boy built a snowball, added a head, and gave the snowman a hat. Which order matches the story?",
   "passage": "The boy built a snowball, added a head, and gave the snowman a hat.",
   "cell": "last_event",
   "choices": [
@@ -2493,29 +1809,24 @@ export const questions = [
    "made a snowball → added the hat → added the head": "D-SEQUENCE-END",
    "added the hat → added the head → made a snowball": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.A.last_event.v4",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/child-rolls-snowball.webp",
-    "/images/assessment/generated/sequencing/child-builds-snowman-head.webp",
-    "/images/assessment/generated/sequencing/child-adds-snowman-hat.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2528,38 +1839,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.A.last_event.v4_sequence_1",
-    "value": "made a snowball",
-    "label": "made a snowball",
-    "image": "/images/assessment/generated/sequencing/child-rolls-snowball.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-rolls-snowball.webp",
-    "alt": "Story step: made a snowball"
-   },
-   {
-    "id": "lp3.sequencing.l1.A.last_event.v4_sequence_2",
-    "value": "added the head",
-    "label": "added the head",
-    "image": "/images/assessment/generated/sequencing/child-builds-snowman-head.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-builds-snowman-head.webp",
-    "alt": "Story step: added the head"
-   },
-   {
-    "id": "lp3.sequencing.l1.A.last_event.v4_sequence_3",
-    "value": "added the hat",
-    "label": "added the hat",
-    "image": "/images/assessment/generated/sequencing/child-adds-snowman-hat.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-adds-snowman-hat.webp",
-    "alt": "Story step: added the hat"
-   }
-  ],
-  "correctSequence": [
-   "made a snowball",
-   "added the head",
-   "added the hat"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.B.last_event.v5",
@@ -2580,10 +1860,10 @@ export const questions = [
   "itemKey": "last_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "Ana wrapped the gift, tied a bow, and gave it to her friend. Put the three pictures in story order.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "Ana wrapped the gift, tied a bow, and gave it to her friend. Which order matches the story?",
   "passage": "Ana wrapped the gift, tied a bow, and gave it to her friend.",
   "cell": "last_event",
   "choices": [
@@ -2621,29 +1901,24 @@ export const questions = [
    "tied the bow → wrapped the gift → gave the gift": "D-SEQUENCE-START",
    "wrapped the gift → gave the gift → tied the bow": "D-SEQUENCE-END"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.B.last_event.v5",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/child-wraps-gift.webp",
-    "/images/assessment/generated/sequencing/child-ties-gift-bow.webp",
-    "/images/assessment/generated/sequencing/child-gives-gift.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2656,38 +1931,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.B.last_event.v5_sequence_1",
-    "value": "wrapped the gift",
-    "label": "wrapped the gift",
-    "image": "/images/assessment/generated/sequencing/child-wraps-gift.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-wraps-gift.webp",
-    "alt": "Story step: wrapped the gift"
-   },
-   {
-    "id": "lp3.sequencing.l1.B.last_event.v5_sequence_2",
-    "value": "tied the bow",
-    "label": "tied the bow",
-    "image": "/images/assessment/generated/sequencing/child-ties-gift-bow.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-ties-gift-bow.webp",
-    "alt": "Story step: tied the bow"
-   },
-   {
-    "id": "lp3.sequencing.l1.B.last_event.v5_sequence_3",
-    "value": "gave the gift",
-    "label": "gave the gift",
-    "image": "/images/assessment/generated/sequencing/child-gives-gift.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-gives-gift.webp",
-    "alt": "Story step: gave the gift"
-   }
-  ],
-  "correctSequence": [
-   "wrapped the gift",
-   "tied the bow",
-   "gave the gift"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.C.last_event.v6",
@@ -2708,10 +1952,10 @@ export const questions = [
   "itemKey": "last_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "The class dug a hole, planted the tree, and watered its roots. Put the three pictures in story order.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "The class dug a hole, planted the tree, and watered its roots. Which order matches the story?",
   "passage": "The class dug a hole, planted the tree, and watered its roots.",
   "cell": "last_event",
   "choices": [
@@ -2749,29 +1993,24 @@ export const questions = [
    "dug the hole → watered the roots → planted the tree": "D-SEQUENCE-END",
    "watered the roots → planted the tree → dug the hole": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.C.last_event.v6",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/children-dig-hole.webp",
-    "/images/assessment/generated/sequencing/children-plant-tree.webp",
-    "/images/assessment/generated/sequencing/children-water-tree.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2784,38 +2023,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.C.last_event.v6_sequence_1",
-    "value": "dug the hole",
-    "label": "dug the hole",
-    "image": "/images/assessment/generated/sequencing/children-dig-hole.webp",
-    "imagePath": "/images/assessment/generated/sequencing/children-dig-hole.webp",
-    "alt": "Story step: dug the hole"
-   },
-   {
-    "id": "lp3.sequencing.l1.C.last_event.v6_sequence_2",
-    "value": "planted the tree",
-    "label": "planted the tree",
-    "image": "/images/assessment/generated/sequencing/children-plant-tree.webp",
-    "imagePath": "/images/assessment/generated/sequencing/children-plant-tree.webp",
-    "alt": "Story step: planted the tree"
-   },
-   {
-    "id": "lp3.sequencing.l1.C.last_event.v6_sequence_3",
-    "value": "watered the roots",
-    "label": "watered the roots",
-    "image": "/images/assessment/generated/sequencing/children-water-tree.webp",
-    "imagePath": "/images/assessment/generated/sequencing/children-water-tree.webp",
-    "alt": "Story step: watered the roots"
-   }
-  ],
-  "correctSequence": [
-   "dug the hole",
-   "planted the tree",
-   "watered the roots"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.A.last_event.v7",
@@ -2836,70 +2044,65 @@ export const questions = [
   "itemKey": "last_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "Leo put rubbish in a bag, tied it shut, and placed it in the bin. Put the three pictures in story order.",
-  "passage": "Leo put rubbish in a bag, tied it shut, and placed it in the bin.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "Leo put trash in a bag, tied it shut, and placed it in the trash can. Which order matches the story?",
+  "passage": "Leo put trash in a bag, tied it shut, and placed it in the trash can.",
   "cell": "last_event",
   "choices": [
-   "tied the bag → filled the bag → put bag in bin",
-   "filled the bag → put bag in bin → tied the bag",
-   "put bag in bin → tied the bag → filled the bag",
-   "filled the bag → tied the bag → put bag in bin"
+   "tied the bag → filled the bag → put bag in trash can",
+   "filled the bag → put bag in trash can → tied the bag",
+   "put bag in trash can → tied the bag → filled the bag",
+   "filled the bag → tied the bag → put bag in trash can"
   ],
   "answerOptions": [
    {
-    "value": "tied the bag → filled the bag → put bag in bin",
-    "label": "tied the bag → filled the bag → put bag in bin",
-    "text": "tied the bag → filled the bag → put bag in bin"
+    "value": "tied the bag → filled the bag → put bag in trash can",
+    "label": "tied the bag → filled the bag → put bag in trash can",
+    "text": "tied the bag → filled the bag → put bag in trash can"
    },
    {
-    "value": "filled the bag → put bag in bin → tied the bag",
-    "label": "filled the bag → put bag in bin → tied the bag",
-    "text": "filled the bag → put bag in bin → tied the bag"
+    "value": "filled the bag → put bag in trash can → tied the bag",
+    "label": "filled the bag → put bag in trash can → tied the bag",
+    "text": "filled the bag → put bag in trash can → tied the bag"
    },
    {
-    "value": "put bag in bin → tied the bag → filled the bag",
-    "label": "put bag in bin → tied the bag → filled the bag",
-    "text": "put bag in bin → tied the bag → filled the bag"
+    "value": "put bag in trash can → tied the bag → filled the bag",
+    "label": "put bag in trash can → tied the bag → filled the bag",
+    "text": "put bag in trash can → tied the bag → filled the bag"
    },
    {
-    "value": "filled the bag → tied the bag → put bag in bin",
-    "label": "filled the bag → tied the bag → put bag in bin",
-    "text": "filled the bag → tied the bag → put bag in bin"
+    "value": "filled the bag → tied the bag → put bag in trash can",
+    "label": "filled the bag → tied the bag → put bag in trash can",
+    "text": "filled the bag → tied the bag → put bag in trash can"
    }
   ],
-  "answer": "filled the bag → tied the bag → put bag in bin",
-  "correctAnswer": "filled the bag → tied the bag → put bag in bin",
+  "answer": "filled the bag → tied the bag → put bag in trash can",
+  "correctAnswer": "filled the bag → tied the bag → put bag in trash can",
   "distractorRationales": {
-   "tied the bag → filled the bag → put bag in bin": "D-SEQUENCE-START",
-   "filled the bag → put bag in bin → tied the bag": "D-SEQUENCE-END",
-   "put bag in bin → tied the bag → filled the bag": "D-SEQUENCE-REVERSE"
+   "tied the bag → filled the bag → put bag in trash can": "D-SEQUENCE-START",
+   "filled the bag → put bag in trash can → tied the bag": "D-SEQUENCE-END",
+   "put bag in trash can → tied the bag → filled the bag": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.A.last_event.v7",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/child-fills-rubbish-bag.webp",
-    "/images/assessment/generated/sequencing/child-ties-rubbish-bag.webp",
-    "/images/assessment/generated/sequencing/child-puts-bag-in-bin.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -2912,38 +2115,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.A.last_event.v7_sequence_1",
-    "value": "filled the bag",
-    "label": "filled the bag",
-    "image": "/images/assessment/generated/sequencing/child-fills-rubbish-bag.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-fills-rubbish-bag.webp",
-    "alt": "Story step: filled the bag"
-   },
-   {
-    "id": "lp3.sequencing.l1.A.last_event.v7_sequence_2",
-    "value": "tied the bag",
-    "label": "tied the bag",
-    "image": "/images/assessment/generated/sequencing/child-ties-rubbish-bag.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-ties-rubbish-bag.webp",
-    "alt": "Story step: tied the bag"
-   },
-   {
-    "id": "lp3.sequencing.l1.A.last_event.v7_sequence_3",
-    "value": "put bag in bin",
-    "label": "put bag in bin",
-    "image": "/images/assessment/generated/sequencing/child-puts-bag-in-bin.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-puts-bag-in-bin.webp",
-    "alt": "Story step: put bag in bin"
-   }
-  ],
-  "correctSequence": [
-   "filled the bag",
-   "tied the bag",
-   "put bag in bin"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.B.last_event.v8",
@@ -2964,10 +2136,10 @@ export const questions = [
   "itemKey": "last_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "The bus stopped, the doors opened, and the children stepped off. Put the three pictures in story order.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "The bus stopped, the doors opened, and the children stepped off. Which order matches the story?",
   "passage": "The bus stopped, the doors opened, and the children stepped off.",
   "cell": "last_event",
   "choices": [
@@ -3005,29 +2177,24 @@ export const questions = [
    "bus stopped → children stepped off → doors opened": "D-SEQUENCE-END",
    "children stepped off → doors opened → bus stopped": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "mastery",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.B.last_event.v8",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/school-bus-stops.webp",
-    "/images/assessment/generated/sequencing/school-bus-doors-open.webp",
-    "/images/assessment/generated/sequencing/children-leave-school-bus.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -3040,38 +2207,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.B.last_event.v8_sequence_1",
-    "value": "bus stopped",
-    "label": "bus stopped",
-    "image": "/images/assessment/generated/sequencing/school-bus-stops.webp",
-    "imagePath": "/images/assessment/generated/sequencing/school-bus-stops.webp",
-    "alt": "Story step: bus stopped"
-   },
-   {
-    "id": "lp3.sequencing.l1.B.last_event.v8_sequence_2",
-    "value": "doors opened",
-    "label": "doors opened",
-    "image": "/images/assessment/generated/sequencing/school-bus-doors-open.webp",
-    "imagePath": "/images/assessment/generated/sequencing/school-bus-doors-open.webp",
-    "alt": "Story step: doors opened"
-   },
-   {
-    "id": "lp3.sequencing.l1.B.last_event.v8_sequence_3",
-    "value": "children stepped off",
-    "label": "children stepped off",
-    "image": "/images/assessment/generated/sequencing/children-leave-school-bus.webp",
-    "imagePath": "/images/assessment/generated/sequencing/children-leave-school-bus.webp",
-    "alt": "Story step: children stepped off"
-   }
-  ],
-  "correctSequence": [
-   "bus stopped",
-   "doors opened",
-   "children stepped off"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.R.first_event.v9r",
@@ -3092,70 +2228,65 @@ export const questions = [
   "itemKey": "first_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "Rae picked up a pencil, drew a star, and coloured it red. Put the three pictures in story order.",
-  "passage": "Rae picked up a pencil, drew a star, and coloured it red.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "Rae picked up a pencil, drew a star, and colored it red. Which order matches the story?",
+  "passage": "Rae picked up a pencil, drew a star, and colored it red.",
   "cell": "first_event",
   "choices": [
-   "picked up pencil → coloured it red → drew the star",
-   "coloured it red → drew the star → picked up pencil",
-   "picked up pencil → drew the star → coloured it red",
-   "drew the star → picked up pencil → coloured it red"
+   "picked up pencil → colored it red → drew the star",
+   "colored it red → drew the star → picked up pencil",
+   "picked up pencil → drew the star → colored it red",
+   "drew the star → picked up pencil → colored it red"
   ],
   "answerOptions": [
    {
-    "value": "picked up pencil → coloured it red → drew the star",
-    "label": "picked up pencil → coloured it red → drew the star",
-    "text": "picked up pencil → coloured it red → drew the star"
+    "value": "picked up pencil → colored it red → drew the star",
+    "label": "picked up pencil → colored it red → drew the star",
+    "text": "picked up pencil → colored it red → drew the star"
    },
    {
-    "value": "coloured it red → drew the star → picked up pencil",
-    "label": "coloured it red → drew the star → picked up pencil",
-    "text": "coloured it red → drew the star → picked up pencil"
+    "value": "colored it red → drew the star → picked up pencil",
+    "label": "colored it red → drew the star → picked up pencil",
+    "text": "colored it red → drew the star → picked up pencil"
    },
    {
-    "value": "picked up pencil → drew the star → coloured it red",
-    "label": "picked up pencil → drew the star → coloured it red",
-    "text": "picked up pencil → drew the star → coloured it red"
+    "value": "picked up pencil → drew the star → colored it red",
+    "label": "picked up pencil → drew the star → colored it red",
+    "text": "picked up pencil → drew the star → colored it red"
    },
    {
-    "value": "drew the star → picked up pencil → coloured it red",
-    "label": "drew the star → picked up pencil → coloured it red",
-    "text": "drew the star → picked up pencil → coloured it red"
+    "value": "drew the star → picked up pencil → colored it red",
+    "label": "drew the star → picked up pencil → colored it red",
+    "text": "drew the star → picked up pencil → colored it red"
    }
   ],
-  "answer": "picked up pencil → drew the star → coloured it red",
-  "correctAnswer": "picked up pencil → drew the star → coloured it red",
+  "answer": "picked up pencil → drew the star → colored it red",
+  "correctAnswer": "picked up pencil → drew the star → colored it red",
   "distractorRationales": {
-   "coloured it red → drew the star → picked up pencil": "D-SEQUENCE-REVERSE",
-   "drew the star → picked up pencil → coloured it red": "D-SEQUENCE-START",
-   "picked up pencil → coloured it red → drew the star": "D-SEQUENCE-END"
+   "colored it red → drew the star → picked up pencil": "D-SEQUENCE-REVERSE",
+   "drew the star → picked up pencil → colored it red": "D-SEQUENCE-START",
+   "picked up pencil → colored it red → drew the star": "D-SEQUENCE-END"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "retention",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.R.first_event.v9r",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/child-picks-up-pencil.webp",
-    "/images/assessment/generated/sequencing/child-draws-star.webp",
-    "/images/assessment/generated/sequencing/child-colours-red-star.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -3168,38 +2299,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.R.first_event.v9r_sequence_1",
-    "value": "picked up pencil",
-    "label": "picked up pencil",
-    "image": "/images/assessment/generated/sequencing/child-picks-up-pencil.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-picks-up-pencil.webp",
-    "alt": "Story step: picked up pencil"
-   },
-   {
-    "id": "lp3.sequencing.l1.R.first_event.v9r_sequence_2",
-    "value": "drew the star",
-    "label": "drew the star",
-    "image": "/images/assessment/generated/sequencing/child-draws-star.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-draws-star.webp",
-    "alt": "Story step: drew the star"
-   },
-   {
-    "id": "lp3.sequencing.l1.R.first_event.v9r_sequence_3",
-    "value": "coloured it red",
-    "label": "coloured it red",
-    "image": "/images/assessment/generated/sequencing/child-colours-red-star.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-colours-red-star.webp",
-    "alt": "Story step: coloured it red"
-   }
-  ],
-  "correctSequence": [
-   "picked up pencil",
-   "drew the star",
-   "coloured it red"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.R.middle_event.v9r",
@@ -3220,10 +2320,10 @@ export const questions = [
   "itemKey": "middle_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "Max opened the gate, led the pony through, and shut the gate. Put the three pictures in story order.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "Max opened the gate, led the pony through, and shut the gate. Which order matches the story?",
   "passage": "Max opened the gate, led the pony through, and shut the gate.",
   "cell": "middle_event",
   "choices": [
@@ -3261,29 +2361,24 @@ export const questions = [
    "shut the gate → led pony through → opened the gate": "D-SEQUENCE-REVERSE",
    "led pony through → opened the gate → shut the gate": "D-SEQUENCE-START"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "retention",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.R.middle_event.v9r",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/child-opens-gate.webp",
-    "/images/assessment/generated/sequencing/child-leads-pony.webp",
-    "/images/assessment/generated/sequencing/child-shuts-gate.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -3296,38 +2391,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.R.middle_event.v9r_sequence_1",
-    "value": "opened the gate",
-    "label": "opened the gate",
-    "image": "/images/assessment/generated/sequencing/child-opens-gate.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-opens-gate.webp",
-    "alt": "Story step: opened the gate"
-   },
-   {
-    "id": "lp3.sequencing.l1.R.middle_event.v9r_sequence_2",
-    "value": "led pony through",
-    "label": "led pony through",
-    "image": "/images/assessment/generated/sequencing/child-leads-pony.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-leads-pony.webp",
-    "alt": "Story step: led pony through"
-   },
-   {
-    "id": "lp3.sequencing.l1.R.middle_event.v9r_sequence_3",
-    "value": "shut the gate",
-    "label": "shut the gate",
-    "image": "/images/assessment/generated/sequencing/child-shuts-gate.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-shuts-gate.webp",
-    "alt": "Story step: shut the gate"
-   }
-  ],
-  "correctSequence": [
-   "opened the gate",
-   "led pony through",
-   "shut the gate"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.R.last_event.v9r",
@@ -3348,10 +2412,10 @@ export const questions = [
   "itemKey": "last_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "The frog sat, jumped into the pond, and swam away. Put the three pictures in story order.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "The frog sat, jumped into the pond, and swam away. Which order matches the story?",
   "passage": "The frog sat, jumped into the pond, and swam away.",
   "cell": "last_event",
   "choices": [
@@ -3389,29 +2453,24 @@ export const questions = [
    "frog jumped → frog sat → frog swam away": "D-SEQUENCE-START",
    "frog sat → frog swam away → frog jumped": "D-SEQUENCE-END"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "retention",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.R.last_event.v9r",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/frog-sits-by-pond.webp",
-    "/images/assessment/generated/sequencing/frog-jumps-into-pond.webp",
-    "/images/assessment/generated/sequencing/frog-swims-away.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -3424,38 +2483,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.R.last_event.v9r_sequence_1",
-    "value": "frog sat",
-    "label": "frog sat",
-    "image": "/images/assessment/generated/sequencing/frog-sits-by-pond.webp",
-    "imagePath": "/images/assessment/generated/sequencing/frog-sits-by-pond.webp",
-    "alt": "Story step: frog sat"
-   },
-   {
-    "id": "lp3.sequencing.l1.R.last_event.v9r_sequence_2",
-    "value": "frog jumped",
-    "label": "frog jumped",
-    "image": "/images/assessment/generated/sequencing/frog-jumps-into-pond.webp",
-    "imagePath": "/images/assessment/generated/sequencing/frog-jumps-into-pond.webp",
-    "alt": "Story step: frog jumped"
-   },
-   {
-    "id": "lp3.sequencing.l1.R.last_event.v9r_sequence_3",
-    "value": "frog swam away",
-    "label": "frog swam away",
-    "image": "/images/assessment/generated/sequencing/frog-swims-away.webp",
-    "imagePath": "/images/assessment/generated/sequencing/frog-swims-away.webp",
-    "alt": "Story step: frog swam away"
-   }
-  ],
-  "correctSequence": [
-   "frog sat",
-   "frog jumped",
-   "frog swam away"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.R.first_event.v10r",
@@ -3476,10 +2504,10 @@ export const questions = [
   "itemKey": "first_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "Jo poured cereal, added milk, and ate breakfast. Put the three pictures in story order.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "Jo poured cereal, added milk, and ate breakfast. Which order matches the story?",
   "passage": "Jo poured cereal, added milk, and ate breakfast.",
   "cell": "first_event",
   "choices": [
@@ -3517,29 +2545,24 @@ export const questions = [
    "poured cereal → ate breakfast → added milk": "D-SEQUENCE-END",
    "ate breakfast → added milk → poured cereal": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "retention",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.R.first_event.v10r",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/child-pours-cereal.webp",
-    "/images/assessment/generated/sequencing/child-adds-milk.webp",
-    "/images/assessment/generated/sequencing/child-eats-cereal.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -3552,38 +2575,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.R.first_event.v10r_sequence_1",
-    "value": "poured cereal",
-    "label": "poured cereal",
-    "image": "/images/assessment/generated/sequencing/child-pours-cereal.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-pours-cereal.webp",
-    "alt": "Story step: poured cereal"
-   },
-   {
-    "id": "lp3.sequencing.l1.R.first_event.v10r_sequence_2",
-    "value": "added milk",
-    "label": "added milk",
-    "image": "/images/assessment/generated/sequencing/child-adds-milk.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-adds-milk.webp",
-    "alt": "Story step: added milk"
-   },
-   {
-    "id": "lp3.sequencing.l1.R.first_event.v10r_sequence_3",
-    "value": "ate breakfast",
-    "label": "ate breakfast",
-    "image": "/images/assessment/generated/sequencing/child-eats-cereal.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-eats-cereal.webp",
-    "alt": "Story step: ate breakfast"
-   }
-  ],
-  "correctSequence": [
-   "poured cereal",
-   "added milk",
-   "ate breakfast"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.R.middle_event.v10r",
@@ -3604,70 +2596,65 @@ export const questions = [
   "itemKey": "middle_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "The child zipped a coat, put on a hat, and went into the snow. Put the three pictures in story order.",
-  "passage": "The child zipped a coat, put on a hat, and went into the snow.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the actions?",
+  "question": "Which order matches the actions?",
+  "spokenPrompt": "The child zipped a coat. Then the child put on a hat. Last, the child went into the snow. Which order matches the actions?",
+  "passage": "The child zipped a coat. Then the child put on a hat. Last, the child went into the snow.",
   "cell": "middle_event",
   "choices": [
-   "zipped the coat → went into snow → put on the hat",
-   "went into snow → put on the hat → zipped the coat",
-   "zipped the coat → put on the hat → went into snow",
-   "put on the hat → zipped the coat → went into snow"
+   "zipped the coat → went into the snow → put on the hat",
+   "went into the snow → put on the hat → zipped the coat",
+   "zipped the coat → put on the hat → went into the snow",
+   "put on the hat → zipped the coat → went into the snow"
   ],
   "answerOptions": [
    {
-    "value": "zipped the coat → went into snow → put on the hat",
-    "label": "zipped the coat → went into snow → put on the hat",
-    "text": "zipped the coat → went into snow → put on the hat"
+    "value": "zipped the coat → went into the snow → put on the hat",
+    "label": "zipped the coat → went into the snow → put on the hat",
+    "text": "zipped the coat → went into the snow → put on the hat"
    },
    {
-    "value": "went into snow → put on the hat → zipped the coat",
-    "label": "went into snow → put on the hat → zipped the coat",
-    "text": "went into snow → put on the hat → zipped the coat"
+    "value": "went into the snow → put on the hat → zipped the coat",
+    "label": "went into the snow → put on the hat → zipped the coat",
+    "text": "went into the snow → put on the hat → zipped the coat"
    },
    {
-    "value": "zipped the coat → put on the hat → went into snow",
-    "label": "zipped the coat → put on the hat → went into snow",
-    "text": "zipped the coat → put on the hat → went into snow"
+    "value": "zipped the coat → put on the hat → went into the snow",
+    "label": "zipped the coat → put on the hat → went into the snow",
+    "text": "zipped the coat → put on the hat → went into the snow"
    },
    {
-    "value": "put on the hat → zipped the coat → went into snow",
-    "label": "put on the hat → zipped the coat → went into snow",
-    "text": "put on the hat → zipped the coat → went into snow"
+    "value": "put on the hat → zipped the coat → went into the snow",
+    "label": "put on the hat → zipped the coat → went into the snow",
+    "text": "put on the hat → zipped the coat → went into the snow"
    }
   ],
-  "answer": "zipped the coat → put on the hat → went into snow",
-  "correctAnswer": "zipped the coat → put on the hat → went into snow",
+  "answer": "zipped the coat → put on the hat → went into the snow",
+  "correctAnswer": "zipped the coat → put on the hat → went into the snow",
   "distractorRationales": {
-   "zipped the coat → went into snow → put on the hat": "D-SEQUENCE-END",
-   "went into snow → put on the hat → zipped the coat": "D-SEQUENCE-REVERSE",
-   "put on the hat → zipped the coat → went into snow": "D-SEQUENCE-START"
+   "zipped the coat → went into the snow → put on the hat": "D-SEQUENCE-END",
+   "went into the snow → put on the hat → zipped the coat": "D-SEQUENCE-REVERSE",
+   "put on the hat → zipped the coat → went into the snow": "D-SEQUENCE-START"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "retention",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.R.middle_event.v10r",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/child-zips-coat.webp",
-    "/images/assessment/generated/sequencing/child-puts-on-winter-hat.webp",
-    "/images/assessment/generated/sequencing/child-walks-into-snow.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -3680,38 +2667,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.R.middle_event.v10r_sequence_1",
-    "value": "zipped the coat",
-    "label": "zipped the coat",
-    "image": "/images/assessment/generated/sequencing/child-zips-coat.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-zips-coat.webp",
-    "alt": "Story step: zipped the coat"
-   },
-   {
-    "id": "lp3.sequencing.l1.R.middle_event.v10r_sequence_2",
-    "value": "put on the hat",
-    "label": "put on the hat",
-    "image": "/images/assessment/generated/sequencing/child-puts-on-winter-hat.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-puts-on-winter-hat.webp",
-    "alt": "Story step: put on the hat"
-   },
-   {
-    "id": "lp3.sequencing.l1.R.middle_event.v10r_sequence_3",
-    "value": "went into snow",
-    "label": "went into snow",
-    "image": "/images/assessment/generated/sequencing/child-walks-into-snow.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-walks-into-snow.webp",
-    "alt": "Story step: went into snow"
-   }
-  ],
-  "correctSequence": [
-   "zipped the coat",
-   "put on the hat",
-   "went into snow"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l1.R.last_event.v10r",
@@ -3732,10 +2688,10 @@ export const questions = [
   "itemKey": "last_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "picture_sequence_order",
-  "prompt": "Put the three pictures in story order.",
-  "question": "Put the three pictures in story order.",
-  "spokenPrompt": "Mia washed a plate, dried it, and put it on the shelf. Put the three pictures in story order.",
+  "questionType": "multiple_choice",
+  "prompt": "Which order matches the story?",
+  "question": "Which order matches the story?",
+  "spokenPrompt": "Mia washed a plate, dried it, and put it on the shelf. Which order matches the story?",
   "passage": "Mia washed a plate, dried it, and put it on the shelf.",
   "cell": "last_event",
   "choices": [
@@ -3773,29 +2729,24 @@ export const questions = [
    "washed the plate → put plate on shelf → dried the plate": "D-SEQUENCE-END",
    "put plate on shelf → dried the plate → washed the plate": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "evidenceModality": "audio+image",
+  "evidenceModality": "audio+text",
   "evidenceRole": "retention",
-  "constructClaim": "heard_story_event_order",
-  "hideWrittenLabels": true,
-  "displayPassageDuringResponse": false,
+  "constructClaim": "story_event_order",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l1.R.last_event.v10r",
-   "role": "sequence",
-   "paths": [
-    "/images/assessment/generated/sequencing/child-washes-plate.webp",
-    "/images/assessment/generated/sequencing/child-dries-plate.webp",
-    "/images/assessment/generated/sequencing/child-puts-plate-on-shelf.webp"
-   ],
-   "alt": "Picture cards to put in story order",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
@@ -3808,38 +2759,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "sequenceCards": [
-   {
-    "id": "lp3.sequencing.l1.R.last_event.v10r_sequence_1",
-    "value": "washed the plate",
-    "label": "washed the plate",
-    "image": "/images/assessment/generated/sequencing/child-washes-plate.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-washes-plate.webp",
-    "alt": "Story step: washed the plate"
-   },
-   {
-    "id": "lp3.sequencing.l1.R.last_event.v10r_sequence_2",
-    "value": "dried the plate",
-    "label": "dried the plate",
-    "image": "/images/assessment/generated/sequencing/child-dries-plate.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-dries-plate.webp",
-    "alt": "Story step: dried the plate"
-   },
-   {
-    "id": "lp3.sequencing.l1.R.last_event.v10r_sequence_3",
-    "value": "put plate on shelf",
-    "label": "put plate on shelf",
-    "image": "/images/assessment/generated/sequencing/child-puts-plate-on-shelf.webp",
-    "imagePath": "/images/assessment/generated/sequencing/child-puts-plate-on-shelf.webp",
-    "alt": "Story step: put plate on shelf"
-   }
-  ],
-  "correctSequence": [
-   "washed the plate",
-   "dried the plate",
-   "put plate on shelf"
-  ]
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.A.before_after_relation.v1",
@@ -3864,12 +2784,12 @@ export const questions = [
   "prompt": "What happened right BEFORE the jars were filled?",
   "question": "What happened right BEFORE the jars were filled?",
   "spokenPrompt": "What happened right BEFORE the jars were filled?",
-  "passage": "Jam morning ran to Gran's strict order: berries picked before the sun got hot, then washed, then boiled with sugar until the kitchen windows wept steam. Only when a drop wrinkled on a cold saucer did the jars get filled, and the labels went on last, once the glass had cooled.",
+  "passage": "Jam morning followed Grandma's strict order: berries picked before the sun got hot, then washed, then boiled with sugar until steam covered the kitchen windows. Only when a test drop wrinkled on a cold plate did the jars get filled, and the labels went on last, once the glass had cooled.",
   "cell": "before_after_relation",
   "choices": [
    "the labels went on",
    "the jars were bought",
-   "the jam passed the cold-saucer test",
+   "the jam passed the cold-plate test",
    "the berries were picked"
   ],
   "answerOptions": [
@@ -3884,9 +2804,9 @@ export const questions = [
     "text": "the jars were bought"
    },
    {
-    "value": "the jam passed the cold-saucer test",
-    "label": "the jam passed the cold-saucer test",
-    "text": "the jam passed the cold-saucer test"
+    "value": "the jam passed the cold-plate test",
+    "label": "the jam passed the cold-plate test",
+    "text": "the jam passed the cold-plate test"
    },
    {
     "value": "the berries were picked",
@@ -3894,8 +2814,8 @@ export const questions = [
     "text": "the berries were picked"
    }
   ],
-  "answer": "the jam passed the cold-saucer test",
-  "correctAnswer": "the jam passed the cold-saucer test",
+  "answer": "the jam passed the cold-plate test",
+  "correctAnswer": "the jam passed the cold-plate test",
   "distractorRationales": {
    "the berries were picked": "D-SEQUENCE-SWAP",
    "the labels went on": "D-SEQUENCE-SWAP",
@@ -3910,21 +2830,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.A.before_after_relation.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3934,13 +2849,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.B.before_after_relation.v2",
@@ -4011,21 +2920,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.B.before_after_relation.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4035,13 +2939,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.C.before_after_relation.v3",
@@ -4112,21 +3010,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.C.before_after_relation.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4136,13 +3029,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.A.before_after_relation.v4",
@@ -4167,7 +3054,7 @@ export const questions = [
   "prompt": "What did the class do right BEFORE lunch?",
   "question": "What did the class do right BEFORE lunch?",
   "spokenPrompt": "What did the class do right BEFORE lunch?",
-  "passage": "The museum trip ran like clockwork. Coats and bags went into the big lockers first. The dinosaur hall came before lunch, because Mr Idris knew nobody could concentrate after seeing the gift shop. Lunch happened in the echoing basement room. The gift shop came last — five pounds, one bag, no swaps.",
+  "passage": "The museum trip ran like clockwork. Coats and bags went into the big lockers first. The dinosaur hall came before lunch, because Mr. Idris knew nobody could concentrate after seeing the gift shop. Lunch happened in the echoing basement room. The gift shop came last — five dollars, one bag, no trades.",
   "cell": "before_after_relation",
   "choices": [
    "put bags in the lockers",
@@ -4213,21 +3100,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.A.before_after_relation.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4237,13 +3119,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.B.before_after_relation.v5",
@@ -4314,21 +3190,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.B.before_after_relation.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4338,13 +3209,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.C.before_after_relation.v6",
@@ -4415,21 +3280,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.C.before_after_relation.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4439,13 +3299,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.A.before_after_relation.v7",
@@ -4470,7 +3324,7 @@ export const questions = [
   "prompt": "What was the shadow like just AFTER twelve?",
   "question": "What was the shadow like just AFTER twelve?",
   "spokenPrompt": "What was the shadow like just AFTER twelve?",
-  "passage": "The shadow experiment lasted from breakfast to tea. At nine, Asha chalked round her friend's shadow — long and thin, stretching to the fence. Just after twelve she drew it again: a squat puddle right at his feet. At three the shadow had crept out the other side, and by five it touched the hedge, longer than ever.",
+  "passage": "The shadow experiment lasted from breakfast to late afternoon. At nine, Asha traced her friend's shadow, long and thin, stretching to the fence. Just after twelve she drew it again, short and close to his feet. At three the shadow reached the other side, and by five it touched the hedge, longer than ever.",
   "cell": "before_after_relation",
   "choices": [
    "short and close to his feet",
@@ -4516,21 +3370,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.A.before_after_relation.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4540,13 +3389,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.B.before_after_relation.v8",
@@ -4571,11 +3414,11 @@ export const questions = [
   "prompt": "What happened right BEFORE the books went back?",
   "question": "What happened right BEFORE the books went back?",
   "spokenPrompt": "What happened right BEFORE the books went back?",
-  "passage": "Moving the bookcase needed planning. Every book came off the shelves before anything else — Dad had learned that lesson the hard way. The empty case walked across the room on little waddles. Then the carpet fluff where it had stood got its first hoover in years. Only after that did the books go back, in Robi's brand-new rainbow order.",
+  "passage": "Moving the bookcase needed planning. Every book came off the shelves before anything else. The empty case moved across the room a little at a time. Then Dad vacuumed the dusty carpet where it had stood. Only after that did the books go back in Robi's new rainbow order.",
   "cell": "before_after_relation",
   "choices": [
    "new shelves were built",
-   "the old spot was hoovered",
+   "the old spot was vacuumed",
    "the books came off the shelves",
    "the case waddled across the room"
   ],
@@ -4586,9 +3429,9 @@ export const questions = [
     "text": "new shelves were built"
    },
    {
-    "value": "the old spot was hoovered",
-    "label": "the old spot was hoovered",
-    "text": "the old spot was hoovered"
+    "value": "the old spot was vacuumed",
+    "label": "the old spot was vacuumed",
+    "text": "the old spot was vacuumed"
    },
    {
     "value": "the books came off the shelves",
@@ -4601,8 +3444,8 @@ export const questions = [
     "text": "the case waddled across the room"
    }
   ],
-  "answer": "the old spot was hoovered",
-  "correctAnswer": "the old spot was hoovered",
+  "answer": "the old spot was vacuumed",
+  "correctAnswer": "the old spot was vacuumed",
   "distractorRationales": {
    "the books came off the shelves": "D-SEQUENCE-SWAP",
    "the case waddled across the room": "D-SEQUENCE-SWAP",
@@ -4617,21 +3460,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.B.before_after_relation.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4641,13 +3479,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.A.implied_order.v1",
@@ -4672,11 +3504,11 @@ export const questions = [
   "prompt": "Which of these must have happened FIRST, before everything else?",
   "question": "Which of these must have happened FIRST, before everything else?",
   "spokenPrompt": "Which of these must have happened FIRST, before everything else?",
-  "passage": "Noor licked the last of the icing from her fingers. The kitchen still smelled of warm sponge, and two greasy tins soaked in the sink. On the table sat the finished cake, iced and cherried, next to the recipe book still open at page nine.",
+  "passage": "Noor licked the last icing from her fingers. The kitchen still smelled of warm cake, and two baking pans soaked in the sink. On the table sat the finished cake with icing and a cherry, next to the open recipe book.",
   "cell": "implied_order",
   "choices": [
    "the tins went into the sink",
-   "the sponge was baked in the tins",
+   "the cake was baked in the pans",
    "the icing was licked off fingers",
    "the cherry went on top"
   ],
@@ -4687,9 +3519,9 @@ export const questions = [
     "text": "the tins went into the sink"
    },
    {
-    "value": "the sponge was baked in the tins",
-    "label": "the sponge was baked in the tins",
-    "text": "the sponge was baked in the tins"
+    "value": "the cake was baked in the pans",
+    "label": "the cake was baked in the pans",
+    "text": "the cake was baked in the pans"
    },
    {
     "value": "the icing was licked off fingers",
@@ -4702,8 +3534,8 @@ export const questions = [
     "text": "the cherry went on top"
    }
   ],
-  "answer": "the sponge was baked in the tins",
-  "correctAnswer": "the sponge was baked in the tins",
+  "answer": "the cake was baked in the pans",
+  "correctAnswer": "the cake was baked in the pans",
   "distractorRationales": {
    "the icing was licked off fingers": "D-SEQUENCE-SWAP",
    "the cherry went on top": "D-SEQUENCE-SWAP",
@@ -4718,21 +3550,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.A.implied_order.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4742,13 +3569,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "events told out of order; reader reconstructs bake → ice → cherry → wash → lick",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "events told out of order; reader reconstructs bake → ice → cherry → wash → lick"
  },
  {
   "id": "lp3.sequencing.l2.B.implied_order.v2",
@@ -4773,19 +3594,19 @@ export const questions = [
   "prompt": "Which of these happened LAST, after all the rest?",
   "question": "Which of these happened LAST, after all the rest?",
   "spokenPrompt": "Which of these happened LAST, after all the rest?",
-  "passage": "The sledge stood dripping in the hall. Three pairs of soaked gloves lay on the radiator, and a carrot with a bite-shaped dent waited by the back door. Out in the garden, a lopsided white figure wore Dad's second-best scarf.",
+  "passage": "The sled stood dripping in the entryway. Three pairs of soaked gloves lay on a drying rack, and a carrot with a bite-shaped dent waited by the back door. Out in the garden, a lopsided snowman wore Dad's second-best scarf.",
   "cell": "implied_order",
   "choices": [
-   "the sledging on the hill happened",
+   "the sled ride on the hill happened",
    "snow began to fall",
    "the wet things were brought in to dry",
    "the lopsided snowman was built in the garden"
   ],
   "answerOptions": [
    {
-    "value": "the sledging on the hill happened",
-    "label": "the sledging on the hill happened",
-    "text": "the sledging on the hill happened"
+    "value": "the sled ride on the hill happened",
+    "label": "the sled ride on the hill happened",
+    "text": "the sled ride on the hill happened"
    },
    {
     "value": "snow began to fall",
@@ -4808,7 +3629,7 @@ export const questions = [
   "distractorRationales": {
    "snow began to fall": "D-SEQUENCE-SWAP",
    "the lopsided snowman was built in the garden": "D-SEQUENCE-SWAP",
-   "the sledging on the hill happened": "D-SEQUENCE-SWAP"
+   "the sled ride on the hill happened": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4819,21 +3640,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.B.implied_order.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4843,13 +3659,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.C.implied_order.v3",
@@ -4871,27 +3681,27 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these must have happened FIRST?",
-  "question": "Which of these must have happened FIRST?",
-  "spokenPrompt": "Which of these must have happened FIRST?",
-  "passage": "By the gate stood a wheelbarrow of weeds, still green. The flower bed's soil lay dark and freshly turned, and a tray of empty little pots had been stacked by the shed. In the bed itself, twelve small marigolds stood in a crisp new row, looking slightly surprised.",
+  "prompt": "What had to happen BEFORE the marigolds were planted?",
+  "question": "What had to happen BEFORE the marigolds were planted?",
+  "spokenPrompt": "What had to happen BEFORE the marigolds were planted?",
+  "passage": "A wheelbarrow of fresh weeds stood by the gate. The flower bed's soil was dark and freshly turned. Twelve small marigolds now filled the spaces where the weeds had grown, and a watering can stood beside the new row.",
   "cell": "implied_order",
   "choices": [
-   "the empty pots were stacked",
-   "the barrow was emptied",
+   "the new row was admired",
+   "the wheelbarrow was painted",
    "the weeds were pulled out",
-   "the marigolds were planted"
+   "the marigolds were watered"
   ],
   "answerOptions": [
    {
-    "value": "the empty pots were stacked",
-    "label": "the empty pots were stacked",
-    "text": "the empty pots were stacked"
+    "value": "the new row was admired",
+    "label": "the new row was admired",
+    "text": "the new row was admired"
    },
    {
-    "value": "the barrow was emptied",
-    "label": "the barrow was emptied",
-    "text": "the barrow was emptied"
+    "value": "the wheelbarrow was painted",
+    "label": "the wheelbarrow was painted",
+    "text": "the wheelbarrow was painted"
    },
    {
     "value": "the weeds were pulled out",
@@ -4899,17 +3709,17 @@ export const questions = [
     "text": "the weeds were pulled out"
    },
    {
-    "value": "the marigolds were planted",
-    "label": "the marigolds were planted",
-    "text": "the marigolds were planted"
+    "value": "the marigolds were watered",
+    "label": "the marigolds were watered",
+    "text": "the marigolds were watered"
    }
   ],
   "answer": "the weeds were pulled out",
   "correctAnswer": "the weeds were pulled out",
   "distractorRationales": {
-   "the marigolds were planted": "D-SEQUENCE-SWAP",
-   "the empty pots were stacked": "D-SEQUENCE-SWAP",
-   "the barrow was emptied": "D-PLAUSIBLE-UNSUPPORTED"
+   "the marigolds were watered": "D-SEQUENCE-SWAP",
+   "the new row was admired": "D-SEQUENCE-SWAP",
+   "the wheelbarrow was painted": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4920,21 +3730,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.C.implied_order.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4944,13 +3749,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.A.implied_order.v4",
@@ -5021,21 +3820,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.A.implied_order.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5045,13 +3839,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.B.implied_order.v5",
@@ -5073,45 +3861,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these happened FIRST?",
-  "question": "Which of these happened FIRST?",
-  "spokenPrompt": "Which of these happened FIRST?",
-  "passage": "The parcel for Aunt Zainab was ready at last: taped, addressed, and heavy with marmalade jars wrapped in yesterday's crossword pages. Bubble wrap scraps littered the floor, the sellotape had surrendered its final inch, and the address label — third attempt — finally spelled 'Fentiman Road' right.",
+  "prompt": "What must have happened BEFORE the box was taped shut?",
+  "question": "What must have happened BEFORE the box was taped shut?",
+  "spokenPrompt": "What must have happened BEFORE the box was taped shut?",
+  "passage": "Aunt Zainab's package was ready at last. Tape sealed every box flap, and a neat address label covered the first two mistakes. Inside, jars of jam sat in thick newspaper, with no room to move.",
   "cell": "implied_order",
   "choices": [
-   "the box was taped shut",
-   "the third label was written",
-   "the parcel was posted",
-   "the jars were wrapped in newspaper"
+   "the package was carried to the mail counter",
+   "the tape was cut open again",
+   "the jam was served at breakfast",
+   "the wrapped jars were placed inside"
   ],
   "answerOptions": [
    {
-    "value": "the box was taped shut",
-    "label": "the box was taped shut",
-    "text": "the box was taped shut"
+    "value": "the package was carried to the mail counter",
+    "label": "the package was carried to the mail counter",
+    "text": "the package was carried to the mail counter"
    },
    {
-    "value": "the third label was written",
-    "label": "the third label was written",
-    "text": "the third label was written"
+    "value": "the tape was cut open again",
+    "label": "the tape was cut open again",
+    "text": "the tape was cut open again"
    },
    {
-    "value": "the parcel was posted",
-    "label": "the parcel was posted",
-    "text": "the parcel was posted"
+    "value": "the jam was served at breakfast",
+    "label": "the jam was served at breakfast",
+    "text": "the jam was served at breakfast"
    },
    {
-    "value": "the jars were wrapped in newspaper",
-    "label": "the jars were wrapped in newspaper",
-    "text": "the jars were wrapped in newspaper"
+    "value": "the wrapped jars were placed inside",
+    "label": "the wrapped jars were placed inside",
+    "text": "the wrapped jars were placed inside"
    }
   ],
-  "answer": "the jars were wrapped in newspaper",
-  "correctAnswer": "the jars were wrapped in newspaper",
+  "answer": "the wrapped jars were placed inside",
+  "correctAnswer": "the wrapped jars were placed inside",
   "distractorRationales": {
-   "the third label was written": "D-SEQUENCE-SWAP",
-   "the parcel was posted": "D-PLAUSIBLE-UNSUPPORTED",
-   "the box was taped shut": "D-SEQUENCE-SWAP"
+   "the tape was cut open again": "D-SEQUENCE-SWAP",
+   "the jam was served at breakfast": "D-PLAUSIBLE-UNSUPPORTED",
+   "the package was carried to the mail counter": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5122,21 +3910,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.B.implied_order.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5146,13 +3929,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.C.implied_order.v6",
@@ -5177,7 +3954,7 @@ export const questions = [
   "prompt": "Which of these came FIRST, long before tonight?",
   "question": "Which of these came FIRST, long before tonight?",
   "spokenPrompt": "Which of these came FIRST, long before tonight?",
-  "passage": "Curtain call. Flowers rained onto the stage as the cast bowed in their painted cardboard armour. In the wings, the prompt book sat closed on its stool at last, and backstage a whole term's worth of rehearsal notes filled the bin — three drafts of the script, the audition list, the first clumsy set sketches.",
+  "passage": "Curtain call. Flowers landed on the stage as the cast bowed in painted cardboard armor. In the wings, the prompt book sat closed on its stool at last, and backstage a whole semester's rehearsal notes filled the trash can — three drafts of the script, the audition list, and the first rough set sketches.",
   "cell": "implied_order",
   "choices": [
    "the cast took their bows",
@@ -5223,21 +4000,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.C.implied_order.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5247,13 +4019,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.A.implied_order.v7",
@@ -5324,21 +4090,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.A.implied_order.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5348,13 +4109,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.B.implied_order.v8",
@@ -5425,21 +4180,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.B.implied_order.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5449,13 +4199,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.A.process_order.v1",
@@ -5480,19 +4224,19 @@ export const questions = [
   "prompt": "What happens right AFTER the box is emptied?",
   "question": "What happens right AFTER the box is emptied?",
   "spokenPrompt": "What happens right AFTER the box is emptied?",
-  "passage": "A letter's journey has stages. It is posted into the box on the corner. A postal worker empties the box into a big sack. At the sorting office, machines read the postcode and fling it into the right tray. A van carries the tray across the country, and a walking postie brings the letter the last few steps to the right door.",
+  "passage": "A letter's journey has stages. It is placed in the mail box on the corner. A postal worker empties the box into a big sack. At the sorting center, machines read the ZIP code and place it in the right tray. A truck carries the tray across the country, and a mail carrier brings the letter to the right door.",
   "cell": "process_order",
   "choices": [
-   "the letter is sorted by postcode",
+   "the letter is sorted by ZIP code",
    "the letter is posted in the box",
-   "the postie brings it to the door",
+   "the mail carrier brings it to the door",
    "the letter is written"
   ],
   "answerOptions": [
    {
-    "value": "the letter is sorted by postcode",
-    "label": "the letter is sorted by postcode",
-    "text": "the letter is sorted by postcode"
+    "value": "the letter is sorted by ZIP code",
+    "label": "the letter is sorted by ZIP code",
+    "text": "the letter is sorted by ZIP code"
    },
    {
     "value": "the letter is posted in the box",
@@ -5500,9 +4244,9 @@ export const questions = [
     "text": "the letter is posted in the box"
    },
    {
-    "value": "the postie brings it to the door",
-    "label": "the postie brings it to the door",
-    "text": "the postie brings it to the door"
+    "value": "the mail carrier brings it to the door",
+    "label": "the mail carrier brings it to the door",
+    "text": "the mail carrier brings it to the door"
    },
    {
     "value": "the letter is written",
@@ -5510,10 +4254,10 @@ export const questions = [
     "text": "the letter is written"
    }
   ],
-  "answer": "the letter is sorted by postcode",
-  "correctAnswer": "the letter is sorted by postcode",
+  "answer": "the letter is sorted by ZIP code",
+  "correctAnswer": "the letter is sorted by ZIP code",
   "distractorRationales": {
-   "the postie brings it to the door": "D-SEQUENCE-SWAP",
+   "the mail carrier brings it to the door": "D-SEQUENCE-SWAP",
    "the letter is written": "D-SEQUENCE-SWAP",
    "the letter is posted in the box": "D-SEQUENCE-SWAP"
   },
@@ -5526,21 +4270,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.A.process_order.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5550,13 +4289,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.B.process_order.v2",
@@ -5581,19 +4314,19 @@ export const questions = [
   "prompt": "What happens right BEFORE the beans are roasted?",
   "question": "What happens right BEFORE the beans are roasted?",
   "spokenPrompt": "What happens right BEFORE the beans are roasted?",
-  "passage": "From cocoa pod to chocolate bar takes many steps. Farmers cut the pods and scoop out the beans. The beans dry in the sun for days. Roasting wakes up their flavour. Then grinding turns them into a thick brown paste, and only after sugar and milk join in does the paste set into the bars on the shop shelf.",
+  "passage": "From cocoa pod to chocolate bar takes many steps. Farmers cut the pods and scoop out the beans. The beans dry in the sun for days. Roasting develops their flavor. Then grinding turns them into a thick brown paste. After sugar and milk are added, the paste sets into bars.",
   "cell": "process_order",
   "choices": [
-   "the bars reach the shops",
+   "the bars reach the stores",
    "they dry in the sun",
    "they are ground to paste",
    "sugar and milk join in"
   ],
   "answerOptions": [
    {
-    "value": "the bars reach the shops",
-    "label": "the bars reach the shops",
-    "text": "the bars reach the shops"
+    "value": "the bars reach the stores",
+    "label": "the bars reach the stores",
+    "text": "the bars reach the stores"
    },
    {
     "value": "they dry in the sun",
@@ -5616,7 +4349,7 @@ export const questions = [
   "distractorRationales": {
    "they are ground to paste": "D-SEQUENCE-SWAP",
    "sugar and milk join in": "D-SEQUENCE-SWAP",
-   "the bars reach the shops": "D-SEQUENCE-SWAP"
+   "the bars reach the stores": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5627,21 +4360,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.B.process_order.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5651,13 +4379,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.C.process_order.v3",
@@ -5679,27 +4401,27 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What happens right AFTER the glass is smashed into crumbs?",
-  "question": "What happens right AFTER the glass is smashed into crumbs?",
-  "spokenPrompt": "What happens right AFTER the glass is smashed into crumbs?",
-  "passage": "Recycled glass goes round in a loop. Bottles from the kerbside boxes travel to the plant. There they are sorted by colour and smashed into sparkling crumbs. A furnace melts the crumbs into glowing liquid. The liquid is blown or pressed into brand-new bottles — which, with luck, come back in the kerbside boxes to start again.",
+  "prompt": "What happens right AFTER the glass is smashed into small pieces?",
+  "question": "What happens right AFTER the glass is smashed into small pieces?",
+  "spokenPrompt": "What happens right AFTER the glass is smashed into small pieces?",
+  "passage": "Recycled glass goes around in a loop. Bottles from curbside bins travel to the plant. There they are sorted by color and smashed into small pieces. A furnace melts the pieces into glowing liquid. The liquid is blown or pressed into new bottles, which can return to curbside bins to start again.",
   "cell": "process_order",
   "choices": [
-   "the furnace melts the crumbs",
-   "bottles are collected from kerbsides",
+   "the furnace melts the small pieces",
+   "bottles are collected from curbside bins",
    "new bottles are blown",
-   "the bottles are sorted by colour"
+   "the bottles are sorted by color"
   ],
   "answerOptions": [
    {
-    "value": "the furnace melts the crumbs",
-    "label": "the furnace melts the crumbs",
-    "text": "the furnace melts the crumbs"
+    "value": "the furnace melts the small pieces",
+    "label": "the furnace melts the small pieces",
+    "text": "the furnace melts the small pieces"
    },
    {
-    "value": "bottles are collected from kerbsides",
-    "label": "bottles are collected from kerbsides",
-    "text": "bottles are collected from kerbsides"
+    "value": "bottles are collected from curbside bins",
+    "label": "bottles are collected from curbside bins",
+    "text": "bottles are collected from curbside bins"
    },
    {
     "value": "new bottles are blown",
@@ -5707,17 +4429,17 @@ export const questions = [
     "text": "new bottles are blown"
    },
    {
-    "value": "the bottles are sorted by colour",
-    "label": "the bottles are sorted by colour",
-    "text": "the bottles are sorted by colour"
+    "value": "the bottles are sorted by color",
+    "label": "the bottles are sorted by color",
+    "text": "the bottles are sorted by color"
    }
   ],
-  "answer": "the furnace melts the crumbs",
-  "correctAnswer": "the furnace melts the crumbs",
+  "answer": "the furnace melts the small pieces",
+  "correctAnswer": "the furnace melts the small pieces",
   "distractorRationales": {
    "new bottles are blown": "D-SEQUENCE-SWAP",
-   "the bottles are sorted by colour": "D-SEQUENCE-SWAP",
-   "bottles are collected from kerbsides": "D-SEQUENCE-SWAP"
+   "the bottles are sorted by color": "D-SEQUENCE-SWAP",
+   "bottles are collected from curbside bins": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5728,21 +4450,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.C.process_order.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5752,13 +4469,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.A.process_order.v4",
@@ -5786,16 +4497,16 @@ export const questions = [
   "passage": "A tooth's visit from the tooth fairy follows steps, Ari explained seriously. The tooth wobbles for days. It comes out — usually in an apple or a laugh. It goes under the pillow at bedtime. In the morning, a coin has taken its place. The tooth itself, Ari suspected, joins a very large collection somewhere.",
   "cell": "process_order",
   "choices": [
-   "the dentist is telephoned",
+   "the dentist is called",
    "a coin appears by morning",
    "the tooth starts to wobble",
    "the tooth comes out"
   ],
   "answerOptions": [
    {
-    "value": "the dentist is telephoned",
-    "label": "the dentist is telephoned",
-    "text": "the dentist is telephoned"
+    "value": "the dentist is called",
+    "label": "the dentist is called",
+    "text": "the dentist is called"
    },
    {
     "value": "a coin appears by morning",
@@ -5818,7 +4529,7 @@ export const questions = [
   "distractorRationales": {
    "the tooth starts to wobble": "D-SEQUENCE-SWAP",
    "the tooth comes out": "D-SEQUENCE-SWAP",
-   "the dentist is telephoned": "D-PLAUSIBLE-UNSUPPORTED"
+   "the dentist is called": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5829,21 +4540,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.A.process_order.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5853,13 +4559,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.B.process_order.v5",
@@ -5884,19 +4584,19 @@ export const questions = [
   "prompt": "What do the bees do right BEFORE capping the cell?",
   "question": "What do the bees do right BEFORE capping the cell?",
   "spokenPrompt": "What do the bees do right BEFORE capping the cell?",
-  "passage": "Honey is a relay race. Bees drink nectar from flowers and carry it home. House bees pass it mouth to mouth, thickening it as it goes. The thickened nectar is packed into wax cells. Bees fan it with their wings until enough water has gone. Only then is the cell capped with wax, honey sealed inside like a tiny jar.",
+  "passage": "Making honey happens in stages. Bees drink nectar from flowers and carry it home. Other bees pass the nectar from bee to bee, thickening it. The nectar is packed into wax cells. Bees fan it until enough water has gone. Only then is each cell capped with wax.",
   "cell": "process_order",
   "choices": [
-   "pass it mouth to mouth",
+   "pass it from bee to bee",
    "break the wax open",
    "fan the nectar with their wings",
    "drink nectar from flowers"
   ],
   "answerOptions": [
    {
-    "value": "pass it mouth to mouth",
-    "label": "pass it mouth to mouth",
-    "text": "pass it mouth to mouth"
+    "value": "pass it from bee to bee",
+    "label": "pass it from bee to bee",
+    "text": "pass it from bee to bee"
    },
    {
     "value": "break the wax open",
@@ -5918,7 +4618,7 @@ export const questions = [
   "correctAnswer": "fan the nectar with their wings",
   "distractorRationales": {
    "drink nectar from flowers": "D-SEQUENCE-SWAP",
-   "pass it mouth to mouth": "D-SEQUENCE-SWAP",
+   "pass it from bee to bee": "D-SEQUENCE-SWAP",
    "break the wax open": "D-OPPOSITE"
   },
   "mediaTier": "text",
@@ -5930,21 +4630,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.B.process_order.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5954,13 +4649,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.C.process_order.v6",
@@ -5982,16 +4671,16 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What happens right AFTER the crew reach the station?",
-  "question": "What happens right AFTER the crew reach the station?",
-  "spokenPrompt": "What happens right AFTER the crew reach the station?",
-  "passage": "The lifeboat launch runs on drilled order. Pagers beep in kitchens and workshops across the town. Crew drop everything and run to the station. Kit goes on in ninety seconds — boots, suit, lifejacket. The doors roll up, the boat thunders down the slipway, and only out past the harbour wall does anyone have breath to ask where they are going.",
+  "prompt": "What happens right AFTER the crew members reach the station?",
+  "question": "What happens right AFTER the crew members reach the station?",
+  "spokenPrompt": "What happens right AFTER the crew members reach the station?",
+  "passage": "The rescue boat launch follows a practiced order. Alerts sound across the town. Crew members stop what they are doing and run to the station. They put on boots, suits, and life jackets. The doors open, the boat moves down the ramp, and the crew receives directions on the water.",
   "cell": "process_order",
   "choices": [
    "they ask where they are going",
-   "they put on their kit",
-   "the pagers beep",
-   "the boat goes down the slipway"
+   "they put on their safety gear",
+   "the alerts sound",
+   "the boat goes down the ramp"
   ],
   "answerOptions": [
    {
@@ -6000,26 +4689,26 @@ export const questions = [
     "text": "they ask where they are going"
    },
    {
-    "value": "they put on their kit",
-    "label": "they put on their kit",
-    "text": "they put on their kit"
+    "value": "they put on their safety gear",
+    "label": "they put on their safety gear",
+    "text": "they put on their safety gear"
    },
    {
-    "value": "the pagers beep",
-    "label": "the pagers beep",
-    "text": "the pagers beep"
+    "value": "the alerts sound",
+    "label": "the alerts sound",
+    "text": "the alerts sound"
    },
    {
-    "value": "the boat goes down the slipway",
-    "label": "the boat goes down the slipway",
-    "text": "the boat goes down the slipway"
+    "value": "the boat goes down the ramp",
+    "label": "the boat goes down the ramp",
+    "text": "the boat goes down the ramp"
    }
   ],
-  "answer": "they put on their kit",
-  "correctAnswer": "they put on their kit",
+  "answer": "they put on their safety gear",
+  "correctAnswer": "they put on their safety gear",
   "distractorRationales": {
-   "the pagers beep": "D-SEQUENCE-SWAP",
-   "the boat goes down the slipway": "D-SEQUENCE-SWAP",
+   "the alerts sound": "D-SEQUENCE-SWAP",
+   "the boat goes down the ramp": "D-SEQUENCE-SWAP",
    "they ask where they are going": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
@@ -6031,21 +4720,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.C.process_order.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6055,13 +4739,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.A.process_order.v7",
@@ -6132,21 +4810,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.A.process_order.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6156,13 +4829,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.B.process_order.v8",
@@ -6187,7 +4854,7 @@ export const questions = [
   "prompt": "What happens right BEFORE the vegetables are pulled?",
   "question": "What happens right BEFORE the vegetables are pulled?",
   "spokenPrompt": "What happens right BEFORE the vegetables are pulled?",
-  "passage": "School soup follows the garden calendar. Seeds are sown in trays in early spring. Seedlings move to the vegetable patch after the frosts. All term the watering rota keeps them alive — mostly. In autumn the vegetables are pulled, scrubbed, and chopped, and the whole school eats a soup that took half a year to make.",
+  "passage": "School soup follows the garden calendar. Seeds are planted in trays in early spring. Seedlings move to the garden after the last frost. All season the watering schedule keeps them alive. In autumn the vegetables are pulled, scrubbed, and chopped, and the whole school eats the soup.",
   "cell": "process_order",
   "choices": [
    "the seeds are sown in trays",
@@ -6233,21 +4900,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.B.process_order.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6257,13 +4919,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.R.before_after_relation.v9r",
@@ -6285,10 +4941,10 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What happened right BEFORE the marble crossed?",
-  "question": "What happened right BEFORE the marble crossed?",
-  "spokenPrompt": "What happened right BEFORE the marble crossed?",
-  "passage": "The bridge of books rose across the classroom floor all week. Monday: two towers, one at each side. Tuesday: the towers grew waist-high. Wednesday: the first careful plank of atlases went across the gap. Thursday: the marble made its maiden crossing. Friday, by head teacher's decree, the whole marvellous thing went back on the shelves.",
+  "prompt": "What happened right BEFORE the marble made its first crossing?",
+  "question": "What happened right BEFORE the marble made its first crossing?",
+  "spokenPrompt": "What happened right BEFORE the marble made its first crossing?",
+  "passage": "The bridge of books rose across the classroom floor all week. Monday: two towers, one at each side. Tuesday: the towers grew waist-high. Wednesday: the first careful row of atlases went across the gap. Thursday: the marble made its first crossing. Friday, the principal asked for every book to go back on the shelves.",
   "cell": "before_after_relation",
   "choices": [
    "the two towers were started",
@@ -6334,21 +4990,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.R.before_after_relation.v9r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v9r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v9r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6358,13 +5009,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v9r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v9r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v9r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v9r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v9r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.R.before_after_relation.v10r",
@@ -6386,16 +5031,16 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "When was the garden checked for hedgehogs?",
-  "question": "When was the garden checked for hedgehogs?",
-  "spokenPrompt": "When was the garden checked for hedgehogs?",
-  "passage": "Bonfire night ran on a strict timetable. The garden was checked for hedgehogs while it was still light — always first, always in daylight. Sparklers came out at six, one each, held at arm's length. The bonfire was lit at seven. And the rockets waited until full dark, because Dad said stars deserve a black sky.",
+  "prompt": "When were the blankets checked?",
+  "question": "When were the blankets checked?",
+  "spokenPrompt": "When were the blankets checked?",
+  "passage": "Outdoor movie night ran on a strict timetable. The blankets were checked while it was still light, always first. Snacks came out at six. The movie began at seven. Star watching waited until full dark.",
   "cell": "before_after_relation",
   "choices": [
    "at the start, before sunset",
-   "after the bonfire was lit",
-   "during the rockets",
-   "at six with the sparklers"
+   "after the movie began",
+   "during star watching",
+   "at six with the snacks"
   ],
   "answerOptions": [
    {
@@ -6404,27 +5049,27 @@ export const questions = [
     "text": "at the start, before sunset"
    },
    {
-    "value": "after the bonfire was lit",
-    "label": "after the bonfire was lit",
-    "text": "after the bonfire was lit"
+    "value": "after the movie began",
+    "label": "after the movie began",
+    "text": "after the movie began"
    },
    {
-    "value": "during the rockets",
-    "label": "during the rockets",
-    "text": "during the rockets"
+    "value": "during star watching",
+    "label": "during star watching",
+    "text": "during star watching"
    },
    {
-    "value": "at six with the sparklers",
-    "label": "at six with the sparklers",
-    "text": "at six with the sparklers"
+    "value": "at six with the snacks",
+    "label": "at six with the snacks",
+    "text": "at six with the snacks"
    }
   ],
   "answer": "at the start, before sunset",
   "correctAnswer": "at the start, before sunset",
   "distractorRationales": {
-   "after the bonfire was lit": "D-SEQUENCE-SWAP",
-   "during the rockets": "D-SEQUENCE-SWAP",
-   "at six with the sparklers": "D-SEQUENCE-SWAP"
+   "after the movie began": "D-SEQUENCE-SWAP",
+   "during star watching": "D-SEQUENCE-SWAP",
+   "at six with the snacks": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6435,21 +5080,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.R.before_after_relation.v10r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v10r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v10r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6459,13 +5099,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v10r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v10r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v10r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v10r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v10r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.R.implied_order.v10r",
@@ -6536,21 +5170,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.R.implied_order.v10r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v10r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v10r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6560,13 +5189,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v10r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v10r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v10r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v10r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v10r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.R.implied_order.v11r",
@@ -6591,12 +5214,12 @@ export const questions = [
   "prompt": "Which of these happened FIRST, before the rest?",
   "question": "Which of these happened FIRST, before the rest?",
   "spokenPrompt": "Which of these happened FIRST, before the rest?",
-  "passage": "The concert was over. On the piano stood a jar of garden flowers and a thank-you card signed by the whole street. The borrowed chairs were going back next door two at a time, and in the kitchen, the tea urn — hero of the interval — steamed gently through its final cups.",
+  "passage": "The community concert was over. On the piano stood a jar of garden flowers and a thank-you card signed by the whole street. The borrowed chairs were going back next door two at a time, and the drink dispenser in the kitchen held its final cups.",
   "cell": "implied_order",
   "choices": [
    "the chairs went back two at a time",
    "the flowers wilted",
-   "the neighbours lent their chairs",
+   "the neighbors lent their chairs",
    "the thank-you card was signed"
   ],
   "answerOptions": [
@@ -6611,9 +5234,9 @@ export const questions = [
     "text": "the flowers wilted"
    },
    {
-    "value": "the neighbours lent their chairs",
-    "label": "the neighbours lent their chairs",
-    "text": "the neighbours lent their chairs"
+    "value": "the neighbors lent their chairs",
+    "label": "the neighbors lent their chairs",
+    "text": "the neighbors lent their chairs"
    },
    {
     "value": "the thank-you card was signed",
@@ -6621,8 +5244,8 @@ export const questions = [
     "text": "the thank-you card was signed"
    }
   ],
-  "answer": "the neighbours lent their chairs",
-  "correctAnswer": "the neighbours lent their chairs",
+  "answer": "the neighbors lent their chairs",
+  "correctAnswer": "the neighbors lent their chairs",
   "distractorRationales": {
    "the thank-you card was signed": "D-SEQUENCE-SWAP",
    "the chairs went back two at a time": "D-SEQUENCE-SWAP",
@@ -6637,21 +5260,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.R.implied_order.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6661,13 +5279,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.R.process_order.v9r",
@@ -6692,13 +5304,13 @@ export const questions = [
   "prompt": "What happens right AFTER the fleece is washed?",
   "question": "What happens right AFTER the fleece is washed?",
   "spokenPrompt": "What happens right AFTER the fleece is washed?",
-  "passage": "Wool has a long journey to a jumper. The sheep is sheared in early summer — a quick, tickly haircut. The fleece is washed until the water runs clear. Carding combs untangle every fibre the same way. The spinning wheel twists the fibres into one long thread, and the knitting needles do the rest, loop by loop.",
+  "passage": "Wool has a long journey to a sweater. The sheep is sheared in early summer. The fleece is washed until the water runs clear. Carding combs untangle every fiber the same way. The spinning wheel twists the fibers into one long thread, and the knitting needles shape it loop by loop.",
   "cell": "process_order",
   "choices": [
    "the sheep is sheared in early summer",
    "the thread is knitted",
-   "the jumper is worn",
-   "carding combs untangle the fibres"
+   "the sweater is worn",
+   "carding combs untangle the fibers"
   ],
   "answerOptions": [
    {
@@ -6712,22 +5324,22 @@ export const questions = [
     "text": "the thread is knitted"
    },
    {
-    "value": "the jumper is worn",
-    "label": "the jumper is worn",
-    "text": "the jumper is worn"
+    "value": "the sweater is worn",
+    "label": "the sweater is worn",
+    "text": "the sweater is worn"
    },
    {
-    "value": "carding combs untangle the fibres",
-    "label": "carding combs untangle the fibres",
-    "text": "carding combs untangle the fibres"
+    "value": "carding combs untangle the fibers",
+    "label": "carding combs untangle the fibers",
+    "text": "carding combs untangle the fibers"
    }
   ],
-  "answer": "carding combs untangle the fibres",
-  "correctAnswer": "carding combs untangle the fibres",
+  "answer": "carding combs untangle the fibers",
+  "correctAnswer": "carding combs untangle the fibers",
   "distractorRationales": {
    "the sheep is sheared in early summer": "D-SEQUENCE-SWAP",
    "the thread is knitted": "D-SEQUENCE-SWAP",
-   "the jumper is worn": "D-SEQUENCE-SWAP"
+   "the sweater is worn": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6738,21 +5350,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.R.process_order.v9r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v9r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v9r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6762,13 +5369,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v9r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v9r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v9r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v9r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v9r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.R.process_order.v10r",
@@ -6790,10 +5391,10 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What happens right BEFORE the outdoor pen?",
-  "question": "What happens right BEFORE the outdoor pen?",
-  "spokenPrompt": "What happens right BEFORE the outdoor pen?",
-  "passage": "A rescued hedgehog moves through the wildlife centre in stages. New arrivals are weighed and checked the moment they come in. Poorly ones stay warm in the quiet room until they feed by themselves. Then comes the outdoor pen, to practise being wild again. Release night is last — back to the exact hedge where each one was found.",
+  "prompt": "What happens right BEFORE the hedgehog moves to the outdoor pen?",
+  "question": "What happens right BEFORE the hedgehog moves to the outdoor pen?",
+  "spokenPrompt": "What happens right BEFORE the hedgehog moves to the outdoor pen?",
+  "passage": "A rescued hedgehog moves through the wildlife center in stages. New arrivals are weighed and checked when they come in. Sick ones stay warm in a quiet room until they feed by themselves. Then comes the outdoor pen, to practice being wild again. Release night is last, back to the hedge where each one was found.",
   "cell": "process_order",
   "choices": [
    "feeding by themselves in the quiet room",
@@ -6839,21 +5440,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.R.process_order.v10r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v10r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v10r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6863,13 +5459,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v10r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v10r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v10r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v10r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v10r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.R.before_after_relation.v11r",
@@ -6894,7 +5484,7 @@ export const questions = [
   "prompt": "What happened right AFTER the glove was put on the wall?",
   "question": "What happened right AFTER the glove was put on the wall?",
   "spokenPrompt": "What happened right AFTER the glove was put on the wall?",
-  "passage": "The lost glove's week went like this. Monday it fell at the bus stop. Tuesday someone balanced it on the wall, in case its owner came back. Wednesday it wore a dusting of frost. Thursday Priya recognised it from the bus window. And on Friday, glove and girl went home together at last.",
+  "passage": "The lost glove's week went like this. Monday it fell at the bus stop. Tuesday someone balanced it on the wall, in case its owner came back. Wednesday it wore a dusting of frost. Thursday Priya recognized it from the bus window. And on Friday, glove and girl went home together at last.",
   "cell": "before_after_relation",
   "choices": [
    "it was posted to the school",
@@ -6940,21 +5530,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.R.before_after_relation.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6964,13 +5549,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.R.process_order.v11r",
@@ -6992,22 +5571,22 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What happens right AFTER the cars get their red light?",
-  "question": "What happens right AFTER the cars get their red light?",
-  "spokenPrompt": "What happens right AFTER the cars get their red light?",
-  "passage": "The pedestrian crossing does its dance in strict order. The button is pressed, and the little light says WAIT. Traffic gets its amber warning, then red. Only then does the green walking man appear, with his beeps. When he starts to blink, finish crossing — and then the cars get their turn again.",
+  "prompt": "What happens right AFTER the traffic light turns red?",
+  "question": "What happens right AFTER the traffic light turns red?",
+  "spokenPrompt": "What happens right AFTER the traffic light turns red?",
+  "passage": "The pedestrian signal follows a strict order. The button is pressed, and the small light says WAIT. Traffic gets a yellow warning, then red. Only then does the white walking symbol appear. When it starts to blink, people finish crossing, and then the cars get their turn again.",
   "cell": "process_order",
   "choices": [
-   "the amber warning shows",
+   "the yellow warning shows",
    "the WAIT light switches on",
-   "the green man and the beeps arrive",
+   "the white walking symbol appears",
    "the button is pressed"
   ],
   "answerOptions": [
    {
-    "value": "the amber warning shows",
-    "label": "the amber warning shows",
-    "text": "the amber warning shows"
+    "value": "the yellow warning shows",
+    "label": "the yellow warning shows",
+    "text": "the yellow warning shows"
    },
    {
     "value": "the WAIT light switches on",
@@ -7015,9 +5594,9 @@ export const questions = [
     "text": "the WAIT light switches on"
    },
    {
-    "value": "the green man and the beeps arrive",
-    "label": "the green man and the beeps arrive",
-    "text": "the green man and the beeps arrive"
+    "value": "the white walking symbol appears",
+    "label": "the white walking symbol appears",
+    "text": "the white walking symbol appears"
    },
    {
     "value": "the button is pressed",
@@ -7025,10 +5604,10 @@ export const questions = [
     "text": "the button is pressed"
    }
   ],
-  "answer": "the green man and the beeps arrive",
-  "correctAnswer": "the green man and the beeps arrive",
+  "answer": "the white walking symbol appears",
+  "correctAnswer": "the white walking symbol appears",
   "distractorRationales": {
-   "the amber warning shows": "D-SEQUENCE-SWAP",
+   "the yellow warning shows": "D-SEQUENCE-SWAP",
    "the WAIT light switches on": "D-SEQUENCE-SWAP",
    "the button is pressed": "D-SEQUENCE-SWAP"
   },
@@ -7041,21 +5620,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.sequencing.l2.R.process_order.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7065,12 +5639,6 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  }
 ];

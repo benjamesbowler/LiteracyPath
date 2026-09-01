@@ -3,9 +3,10 @@
 // variants each). L1: beginning blends. L2: harder beginnings + final blends
 // (decode-the-cluster framing; Final Sounds keeps isolate-the-sound framing).
 // Formats:
-//   BLEND_COMPLETE_WORD — the blank hides the blend, image (or unique-real
-//     completion when no image exists) pins the target. Closed-set.
-//   BLEND_IMAGE_CHOICE — "Which one starts like ⟨anchor⟩?" picture cards; a
+//   BLEND_COMPLETE_WORD — the child hears the target word and supplies the
+//     missing blend. Audio pins the word, avoiding an unnecessary picture-
+//     naming demand in a spelling-pattern assessment. Closed-set.
+//   BLEND_IMAGE_CHOICE — same-blend matching over picture cards; a
 //     rhyme-of-anchor or shared-chunk card always ties the scanner.
 //   MPD — picture → printed near-words. Every set carries the cluster
 //     REDUCTION word where a real one exists (lock for block, fog for frog,
@@ -16,20 +17,23 @@ import { makeImageResolver } from "../lib.mjs";
 
 const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
+const sentenceCase = value => value ? `${value[0].toUpperCase()}${value.slice(1)}` : value;
 
 const resolver = makeImageResolver(["blends", "digraphs", "long-vowels", "hfw", "cvc", "rhyming"]);
 
 // BLEND_COMPLETE_WORD.
-// Prompt is "Finish:" not "Complete:" — the word "complete" contains the pl
-// and mp letter-chunks, which would hand those unit keys to a letter scanner.
+// Keep the visible instruction free of the assessed blend. In particular,
+// "complete" contains pl and mp, so it cannot be used as a shared prompt.
 const cw = (u, lvl, ph, v, word, blanked, patterns, note = "") => ({
   u, lvl, ph, v, fmt: "BLEND_COMPLETE_WORD",
-  prompt: `Finish: ${blanked}`,
-  spoken: `${word}. Which letters finish the word ${word}?`,
+  prompt: `Choose the missing letters for ${blanked}.`,
+  spoken: `${sentenceCase(word)}. Choose the missing letters.`,
   choices: patterns.map((p, i) => (i === 0 ? K(p) : P(p, "D-PATTERN-TRAP"))),
-  media: resolver(word) ? "image-required" : "text",
-  img: resolver(word) ? word : undefined,
+  media: "audio-required",
   target: word,
+  audioRole: "target_word",
+  evidenceModality: "audio+print",
+  constructClaim: "map_spoken_word_to_blend_spelling",
   pos: u.length === 2 && ["nd", "nt", "mp", "nk", "lt", "ft"].includes(u) ? "final" : "initial",
   note
 });
@@ -37,21 +41,40 @@ const cw = (u, lvl, ph, v, word, blanked, patterns, note = "") => ({
 // BLEND_IMAGE_CHOICE.
 const ic = (u, lvl, ph, v, anchor, cards, keyWord, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "BLEND_IMAGE_CHOICE",
-  prompt: `Which one starts like ${anchor}?`,
-  spoken: `${anchor}. Which one starts with the same sounds as ${anchor}?`,
+  prompt: "Which word begins with the same blend?",
+  spoken: `${sentenceCase(anchor)}. Which word begins with the same blend?`,
   cards,
   choices: cards.map(w => (w === keyWord ? K(w) : P(w, rationales[w]))),
   media: "image-required",
+  evidenceModality: "audio+image",
+  constructClaim: "spoken_blend_discrimination",
+  hideWrittenLabels: true,
   pos: "initial",
   target: anchor,
+  note
+});
+
+// Audio target -> printed near-words. Keep the established MPD format key so
+// item identity, blueprint coverage, and evidence history remain stable while
+// removing a subjective action/relationship picture from the scoring path.
+const apd = (u, lvl, ph, v, word, words, rationales, note = "") => ({
+  u, lvl, ph, v, fmt: "MPD", questionType: "listen_and_find_word",
+  prompt: "Which printed word matches the recording?",
+  spoken: `${sentenceCase(word)}. Which printed word matches the recording?`,
+  choices: words.map(w => (w === word ? K(w) : P(w, rationales[w]))),
+  media: "audio-required",
+  target: word,
+  audioRole: "target_word",
+  evidenceModality: "audio+print",
+  constructClaim: "map_spoken_word_to_blend_spelling",
   note
 });
 
 // MPD: picture → printed near-words.
 const mpd = (u, lvl, ph, v, word, words, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "MPD",
-  prompt: "Which word goes with the picture?",
-  spoken: `Which word goes with the picture?`,
+  prompt: "Which word names the picture?",
+  spoken: "Which word names the picture?",
   choices: words.map(w => (w === word ? K(w) : P(w, rationales[w]))),
   media: "image-required",
   img: word,
@@ -66,12 +89,12 @@ export default {
   items: [
     // ================= L1 phase 1: bl cl fl pl sl br =================
     cw("bl", 1, 1, 1, "block", "__ock", ["bl", "cl", "fl", "st"]),
-    ic("bl", 1, 1, 2, "blue", ["block", "glue", "drum", "star"], "block",
+    apd("bl", 1, 1, 2, "blue", ["blue", "glue", "drum", "star"],
       { glue: "D-PATTERN-TRAP", drum: "D-PATTERN-TRAP", star: "D-PATTERN-TRAP" },
-      "glue rhymes with the anchor — it ties the scanner and tempts the rhyme-matcher"),
-    mpd("bl", 1, 1, 3, "block", ["block", "lock", "black", "clock"],
+      "audio pins the colour word without asking a child to infer an attribute from a picture"),
+    apd("bl", 1, 1, 3, "block", ["block", "lock", "black", "clock"],
       { lock: "D-ONSET", black: "D-PATTERN-TRAP", clock: "D-RIME-NEAR" },
-      "lock is the b-dropped reduction — THE blend error"),
+      "audio pins the intended word and avoids an arbitrary block-versus-cube naming judgement; lock is the b-dropped reduction"),
     cw("bl", 1, 1, 4, "blue", "__ue", ["bl", "cl", "fl", "gl"],
       "glue is real — the blue image pins the target"),
     cw("cl", 1, 1, 1, "clap", "__ap", ["cl", "fl", "sl", "tr"]),
@@ -82,17 +105,17 @@ export default {
       { lock: "D-ONSET", click: "D-PATTERN-TRAP", sock: "D-RIME-NEAR" }),
     cw("cl", 1, 1, 4, "cloth", "__oth", ["cl", "bl", "sl", "br"]),
     cw("fl", 1, 1, 1, "flag", "__ag", ["fl", "bl", "cr", "st"]),
-    ic("fl", 1, 1, 2, "flower", ["flag", "frog", "crown", "leaf"], "flag",
-      { frog: "D-PATTERN-TRAP", crown: "D-PATTERN-TRAP", leaf: "D-ONSET" },
+    ic("fl", 1, 1, 2, "flower", ["flag", "frog", "crown", "lamp"], "flag",
+      { frog: "D-PATTERN-TRAP", crown: "D-PATTERN-TRAP", lamp: "D-ONSET" },
       "crown carries the anchor's ow letters — the scanner tie"),
     mpd("fl", 1, 1, 3, "flag", ["flag", "lag", "flap", "bag"],
       { lag: "D-ONSET", flap: "D-PATTERN-TRAP", bag: "D-RIME-NEAR" }),
     cw("fl", 1, 1, 4, "flute", "__ute", ["fl", "cl", "br", "gr"]),
     cw("pl", 1, 1, 1, "plug", "__ug", ["pl", "bl", "sl", "dr"]),
-    ic("pl", 1, 1, 2, "play", ["plug", "lamp", "glue", "drum"], "plug",
-      { lamp: "D-ONSET", glue: "D-PATTERN-TRAP", drum: "D-PATTERN-TRAP" },
-      "anchor avoids plum/plug's shared plu-chunk; lamp ties the play la-overlap"),
-    mpd("pl", 1, 1, 3, "plug", ["plug", "lug", "plum", "rug"],
+    apd("pl", 1, 1, 2, "plate", ["plate", "late", "plant", "gate"],
+      { late: "D-ONSET", plant: "D-PATTERN-TRAP", gate: "D-RIME-NEAR" },
+      "audio and print remove the plane-versus-airplane naming dependency; late is the p-dropped reduction"),
+    apd("pl", 1, 1, 3, "plug", ["plug", "lug", "plum", "rug"],
       { lug: "D-ONSET", plum: "D-PATTERN-TRAP", rug: "D-RIME-NEAR" }),
     cw("pl", 1, 1, 4, "plant", "__ant", ["pl", "gr", "sl", "fr"],
       "grant is real — the plant image pins the target"),
@@ -100,12 +123,12 @@ export default {
     ic("sl", 1, 1, 2, "slip", ["sled", "ship", "spoon", "lamp"], "sled",
       { ship: "D-RIME-NEAR", spoon: "D-PATTERN-TRAP", lamp: "D-ONSET" },
       "ship shares the anchor's ip — the scanner tie and the rhyme trap"),
-    mpd("sl", 1, 1, 3, "sled", ["sled", "led", "slid", "red"],
+    apd("sl", 1, 1, 3, "sled", ["sled", "led", "slid", "red"],
       { led: "D-ONSET", slid: "D-PATTERN-TRAP", red: "D-RIME-NEAR" }),
     cw("sl", 1, 1, 4, "slide", "__ide", ["sl", "gl", "br", "cr"]),
     cw("br", 1, 1, 1, "bread", "__ead", ["br", "dr", "cr", "tr"]),
-    ic("br", 1, 1, 2, "brown", ["bread", "crown", "block", "rat"], "bread",
-      { crown: "D-RIME-NEAR", block: "D-PATTERN-TRAP", rat: "D-ONSET" },
+    ic("br", 1, 1, 2, "brown", ["bread", "crown", "glass", "rat"], "bread",
+      { crown: "D-RIME-NEAR", glass: "D-PATTERN-TRAP", rat: "D-ONSET" },
       "crown rhymes with the anchor and out-chunks the key — the scanner falls for it"),
     mpd("br", 1, 1, 3, "bread", ["bread", "red", "brown", "bed"],
       { red: "D-ONSET", brown: "D-PATTERN-TRAP", bed: "D-RIME-NEAR" },
@@ -114,9 +137,9 @@ export default {
 
     // ================= L1 phase 2: cr dr fr gr st sw =================
     cw("cr", 1, 2, 1, "crab", "__ab", ["cr", "gr", "dr", "st"]),
-    ic("cr", 1, 2, 2, "crown", ["crab", "brown", "clock", "rock"], "crab",
-      { brown: "D-RIME-NEAR", clock: "D-PATTERN-TRAP", rock: "D-ONSET" },
-      "brown rhymes with the anchor; rock is the c-dropped reduction"),
+    ic("cr", 1, 2, 2, "crown", ["crab", "bread", "clock", "rat"], "crab",
+      { bread: "D-PATTERN-TRAP", clock: "D-PATTERN-TRAP", rat: "D-ONSET" },
+      "bread supplies a rival r-blend; rat is the c-dropped reduction"),
     mpd("cr", 1, 2, 3, "crab", ["crab", "cab", "crib", "grab"],
       { cab: "D-ONSET", crib: "D-PATTERN-TRAP", grab: "D-RIME-NEAR" },
       "cab is the r-dropped reduction"),
@@ -126,9 +149,9 @@ export default {
     ic("dr", 1, 2, 2, "dress", ["drum", "vest", "crab", "rat"], "drum",
       { vest: "D-RIME-NEAR", crab: "D-PATTERN-TRAP", rat: "D-ONSET" },
       "vest shares the anchor's es letters — the scanner tie"),
-    mpd("dr", 1, 2, 3, "draw", ["draw", "raw", "drum", "paw"],
+    apd("dr", 1, 2, 3, "draw", ["draw", "raw", "drum", "paw"],
       { raw: "D-ONSET", drum: "D-PATTERN-TRAP", paw: "D-RIME-NEAR" },
-      "raw is the d-dropped reduction"),
+      "audio pins draw without asking a child to infer an action from a still picture"),
     cw("dr", 1, 2, 4, "draw", "__aw", ["dr", "cr", "st", "cl"],
       "claw is real — the draw image pins the target"),
     cw("fr", 1, 2, 1, "frog", "__og", ["fr", "fl", "dr", "cl"],
@@ -144,33 +167,33 @@ export default {
     ic("gr", 1, 2, 2, "green", ["grapes", "sheep", "brick", "rat"], "grapes",
       { sheep: "D-RIME-NEAR", brick: "D-PATTERN-TRAP", rat: "D-ONSET" },
       "sheep carries the anchor's ee — the scanner tie"),
-    mpd("gr", 1, 2, 3, "ground", ["ground", "round", "grand", "sound"],
+    apd("gr", 1, 2, 3, "ground", ["ground", "round", "grand", "sound"],
       { round: "D-ONSET", grand: "D-PATTERN-TRAP", sound: "D-RIME-NEAR" },
-      "round is the g-dropped reduction"),
+      "audio removes the relational ground-scene naming demand; round remains the g-dropped reduction"),
     cw("gr", 1, 2, 4, "green", "__een", ["gr", "br", "cr", "sc"]),
     cw("st", 1, 2, 1, "star", "__ar", ["st", "sc", "sp", "tr"]),
-    ic("st", 1, 2, 2, "star", ["stop", "car", "spoon", "tap"], "stop",
-      { car: "D-RIME-NEAR", spoon: "D-PATTERN-TRAP", tap: "D-ONSET" },
-      "the word starts contains star, so star can never be a key in this frame; car rhymes with the anchor and ties its ar-chunk"),
+    ic("st", 1, 2, 2, "stone", ["star", "cone", "spoon", "tie"], "star",
+      { cone: "D-RIME-NEAR", spoon: "D-PATTERN-TRAP", tie: "D-ONSET" },
+      "the spoken stone anchor leads to an objectively nameable star card"),
     mpd("st", 1, 2, 3, "star", ["star", "tar", "scar", "car"],
       { tar: "D-ONSET", scar: "D-PATTERN-TRAP", car: "D-RIME-NEAR" },
       "tar is the s-dropped reduction"),
     cw("st", 1, 2, 4, "stop", "__op", ["st", "sh", "dr", "cr"],
       "shop, drop and crop are real — the stop image pins the target"),
     cw("sw", 1, 2, 1, "swim", "__im", ["sw", "st", "sl", "br"]),
-    ic("sw", 1, 2, 2, "sweet", ["swim", "feet", "star", "wasp"], "swim",
+    ic("sw", 1, 2, 2, "sweet", ["swing", "feet", "star", "wasp"], "swing",
       { feet: "D-RIME-NEAR", star: "D-PATTERN-TRAP", wasp: "D-ONSET" },
-      "feet rhymes with the anchor and out-chunks the key; wasp is the s-dropped w-start"),
-    mpd("sw", 1, 2, 3, "swim", ["swim", "win", "swam", "dim"],
+      "feet rhymes with the anchor; the empty swing is an objectively nameable concrete card"),
+    apd("sw", 1, 2, 3, "swim", ["swim", "win", "swam", "dim"],
       { win: "D-DEVELOPMENTAL", swam: "D-PATTERN-TRAP", dim: "D-RIME-NEAR" }),
     cw("sw", 1, 2, 4, "swing", "__ing", ["sw", "gr", "cr", "sn"],
       "no swing image — but sning, gring and cring are non-words, so the completion is pinned"),
 
     // ================= L2 phase 1: sc sk sm sn sp tr =================
     cw("sc", 2, 1, 1, "scarf", "__arf", ["sc", "sk", "sm", "st"]),
-    mpd("sc", 2, 1, 2, "scarf", ["scarf", "scar", "card", "sharp"],
+    apd("sc", 2, 1, 2, "scarf", ["scarf", "scar", "card", "sharp"],
       { scar: "D-DEVELOPMENTAL", card: "D-RIME-NEAR", sharp: "D-PATTERN-TRAP" },
-      "scar is the f-dropped ending error"),
+      "audio pins scarf without asking a child to distinguish folded fabric from a towel; scar is the f-dropped ending error"),
     cw("sc", 2, 1, 3, "scooter", "__ooter", ["sc", "sm", "sn", "tr"],
       "no scooter image — smooter, snooter and trooter are non-words"),
     cw("sc", 2, 1, 4, "score", "__ore", ["sc", "sn", "sm", "dr"],
@@ -184,9 +207,9 @@ export default {
     cw("sk", 2, 1, 4, "skin", "__in", ["sk", "sc", "sm", "sn"],
       "no skin image — scin and smin are non-words; snin too"),
     cw("sm", 2, 1, 1, "smile", "__ile", ["sm", "sn", "sw", "sc"]),
-    mpd("sm", 2, 1, 2, "smile", ["smile", "mile", "smell", "tile"],
+    apd("sm", 2, 1, 2, "smile", ["smile", "mile", "smell", "tile"],
       { mile: "D-ONSET", smell: "D-PATTERN-TRAP", tile: "D-RIME-NEAR" },
-      "mile is the s-dropped reduction"),
+      "audio replaces subjective facial-expression evidence; mile remains the s-dropped reduction"),
     cw("sm", 2, 1, 3, "smell", "__ell", ["sm", "sn", "sc", "gr"],
       "no smell image — snell, scell and grell are non-words (spell and swell stay out)"),
     cw("sm", 2, 1, 4, "smoke", "__oke", ["sm", "sn", "sc", "gl"],
@@ -211,9 +234,9 @@ export default {
       "no spot image — smot, skot and glot are non-words (slot and trot stay out)"),
     cw("tr", 2, 1, 1, "truck", "__uck", ["tr", "dr", "st", "cl"],
       "cluck is real — the truck image pins the target"),
-    mpd("tr", 2, 1, 2, "truck", ["truck", "tuck", "track", "duck"],
+    apd("tr", 2, 1, 2, "truck", ["truck", "tuck", "track", "duck"],
       { tuck: "D-ONSET", track: "D-PATTERN-TRAP", duck: "D-RIME-NEAR" },
-      "tuck is the r-dropped reduction"),
+      "the recording pins truck without requiring a child to choose truck rather than lorry; tuck is the r-dropped reduction"),
     cw("tr", 2, 1, 3, "train", "__ain", ["tr", "dr", "gr", "br"],
       "drain, grain and brain are all real — the train image pins the target"),
     cw("tr", 2, 1, 4, "tray", "__ay", ["tr", "sm", "sk", "gl"],
@@ -221,9 +244,9 @@ export default {
 
     // ================= L2 phase 2: nd nt mp nk lt ft (final blends) =================
     cw("nd", 2, 2, 1, "hand", "ha__", ["nd", "nt", "mp", "nk"]),
-    mpd("nd", 2, 2, 2, "hand", ["hand", "had", "ham", "band"],
+    apd("nd", 2, 2, 2, "hand", ["hand", "had", "ham", "band"],
       { had: "D-ONSET", ham: "D-ONSET", band: "D-RIME-NEAR" },
-      "had and ham drop the cluster two different ways"),
+      "audio removes the body-part crop judgement; had and ham drop the cluster two different ways"),
     cw("nd", 2, 2, 3, "pond", "po__", ["nd", "nt", "nk", "lt"],
       "no pond image — pont, ponk and polt are non-words"),
     cw("nd", 2, 2, 4, "sand", "sa__", ["nd", "mp", "nt", "sk"],
@@ -279,11 +302,11 @@ export default {
       "crush, flush and plush are real — the brush image pins the target"),
     cw("br", 1, 1, 6, "broom", "__oom", ["br", "gl", "dr", "sp"],
       "gloom is real — the broom image pins the target"),
-    mpd("cl", 1, 1, 5, "clap", ["clap", "lap", "clip", "cap"],
+    apd("cl", 1, 1, 5, "clap", ["clap", "lap", "clip", "cap"],
       { lap: "D-ONSET", clip: "D-PATTERN-TRAP", cap: "D-RIME-NEAR" }),
-    mpd("sp", 2, 1, 5, "spring", ["spring", "ring", "string", "sing"],
+    apd("sp", 2, 1, 5, "spring", ["spring", "ring", "string", "sing"],
       { ring: "D-ONSET", string: "D-PATTERN-TRAP", sing: "D-RIME-NEAR" },
-      "ring is the sp-dropped reduction"),
+      "audio disambiguates the polysemous word spring; ring is the sp-dropped reduction"),
     ic("pl", 1, 1, 5, "plate", ["plant", "gate", "frog", "lamp"], "plant",
       { gate: "D-RIME-NEAR", frog: "D-PATTERN-TRAP", lamp: "D-ONSET" },
       "gate rhymes with the anchor — the scanner tie"),
@@ -293,9 +316,9 @@ export default {
       "no raft image — rand, ralt and rasc are non-words for this age (ramp and rant stay out)"),
     cw("nd", 2, 2, 5, "stand", "sta__", ["nd", "ft", "lt", "sc"],
       "no stand image — staft, stalt and stasc are non-words (stamp stays out)"),
-    mpd("st", 1, 2, 5, "stop", ["stop", "top", "shop", "step"],
+    apd("st", 1, 2, 5, "stop", ["stop", "top", "shop", "step"],
       { top: "D-ONSET", shop: "D-RIME-NEAR", step: "D-PATTERN-TRAP" },
-      "top is the s-dropped reduction"),
+      "audio replaces an action/sign interpretation; top is the s-dropped reduction"),
     ic("cl", 1, 1, 6, "clown", ["cloud", "crown", "lamp", "drum"], "cloud",
       { crown: "D-RIME-NEAR", lamp: "D-ONSET", drum: "D-PATTERN-TRAP" },
       "crown rhymes with the anchor and out-chunks the key")

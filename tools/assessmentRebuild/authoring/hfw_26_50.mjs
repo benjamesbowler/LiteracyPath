@@ -5,19 +5,31 @@
 //   - said/each/which carry the classic irregular spellings; the L2 letter
 //     banks always include the tempting phonetic letters (said → sed's e,
 //     one → wun's w, what → wot's o).
-//   - The in-band wh-inventory is exactly {how,what,when,which}, so wh-frames
-//     carry one that/if/this intruder to keep option sets unique, and frames
-//     pin the single right wh-word by meaning (a tag like "— at two or
-//     three?" pins when over how).
+//   - The in-band wh-inventory is exactly {how,what,when,which}; complete
+//     sentences and distractor sets leave one defensible wh-word rather than
+//     relying on an unstated scene.
 // Spec: docs/skills-assessment-rebuild/BLUEPRINTS_HFW.md.
 
 const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
+const avoidsTarget = (text, target) => !String(text).toLowerCase().split(/[^a-z']+/).includes(String(target).toLowerCase());
+const clozePrompt = target => {
+  const primary = "Listen to the sentence. Which printed word fills the blank?";
+  return avoidsTarget(primary, target)
+    ? primary
+    : "Hear this sentence. What printed word fills its blank?";
+};
+const buildPrompt = (target, sentence) => {
+  const primary = `Listen, then build the missing word: ${sentence}`;
+  return avoidsTarget(primary, target)
+    ? primary
+    : `Hear this sentence. Build its missing word: ${sentence}`;
+};
 
 const cz = (u, lvl, ph, v, sentence, words, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "HFW_SENTENCE_CLOZE",
-  prompt: sentence,
-  spoken: `Which word finishes the sentence? ${sentence.replace("___", "hmm")}`,
+  prompt: clozePrompt(u),
+  spoken: `Listen to the whole sentence. ${sentence.replace("___", u)} Which printed word fills the blank?`,
   sentence,
   choices: words.map((w, i) => (i === 0 ? K(w) : P(w, rationales[i - 1]))),
   media: "text",
@@ -27,8 +39,12 @@ const cz = (u, lvl, ph, v, sentence, words, rationales, note = "") => ({
 
 const rf = (u, lvl, ph, v, words, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "HFW_AUDIO_FIND_WORD", questionType: "listen_and_find_word",
-  prompt: "Tap sound. Pick its match.",
-  spoken: "Tap sound. Pick its match.",
+  prompt: u === "which"
+    ? "What printed word matches this recording?"
+    : u === "this"
+      ? "Which printed word matches the recording?"
+      : "Which printed word matches this recording?",
+  spoken: "Listen. Which printed word matches the recording?",
   choices: words.map((w, i) => (i === 0 ? K(w) : P(w, rationales[i - 1]))),
   media: "audio-required",
   target: u,
@@ -40,26 +56,26 @@ const rf = (u, lvl, ph, v, words, rationales, note = "") => ({
 
 const sp = (u, lvl, ph, v, sentence, tiles, note = "") => ({
   u, lvl, ph, v, fmt: "HFW_SENTENCE_SPELL_CONTEXT",
-  prompt: `Build the missing word: ${sentence}`,
-  spoken: `Build the missing word. ${sentence.replace("___", "hmm")}`,
+  prompt: buildPrompt(u, sentence),
+  spoken: `Listen to the whole sentence. ${sentence.replace("___", u)} Build the missing word.`,
   sentence,
   sentenceText: sentence.replace("___", u),
   choices: [K(u)],
   letterTiles: tiles,
-  media: "text",
+  media: "audio-required",
   target: u,
   note
 });
 
 const lb = (u, lvl, ph, v, sentence, tiles, note = "") => ({
   u, lvl, ph, v, fmt: "HFW_LETTER_BUILD",
-  prompt: `Build the missing word: ${sentence}`,
-  spoken: `Build the missing word. ${sentence.replace("___", "hmm")}`,
+  prompt: buildPrompt(u, sentence),
+  spoken: `Listen to the whole sentence. ${sentence.replace("___", u)} Build the missing word.`,
   sentence,
   sentenceText: sentence.replace("___", u),
   choices: [K(u)],
   letterTiles: tiles,
-  media: "text",
+  media: "audio-required",
   target: u,
   note
 });
@@ -74,101 +90,82 @@ export default {
   skillName: "High-Frequency Words 26–50",
   items: [
     // ============ L1 phase 1: all an but by can do each had how if not one or ============
-    cz("all", 1, 1, 1, "She fed ___ of the cats.", ["all", "one", "each", "both"], [FS, FS, FS]),
-    cz("all", 1, 1, 2, "He drank ___ the milk. The jug is empty!", ["all", "some", "one", "most"], [FS, DV, FS],
-      "the empty jug pins all; some and most parse but contradict it"),
+    cz("all", 1, 1, 1, "She fed ___ the cats; none stayed hungry.", ["all", "each", "one", "an"], [DV, DV, DV]),
+    cz("all", 1, 1, 2, "Rain filled ___ the jars right to the top.", ["all", "each", "one", "his"], [DV, DV, DV]),
     rf("all", 1, 1, 3, ["all", "ball", "tall", "doll"], [VN, VN, VN]),
-    cz("an", 1, 1, 1, "I ate ___ egg.", ["an", "a", "the", "one"], [DV, FS, FS],
-      "a egg — THE a/an error"),
-    cz("an", 1, 1, 2, "She saw ___ owl at dusk.", ["an", "a", "the", "that"], [DV, FS, FS]),
+    cz("an", 1, 1, 1, "Sam wants ___ egg.", ["an", "a", "of", "they"], [DV, DV, DV]),
+    cz("an", 1, 1, 2, "Mia needs ___ orange.", ["an", "a", "in", "he"], [DV, DV, DV]),
     rf("an", 1, 1, 3, ["an", "and", "on", "in"], [VN, VN, VN]),
-    cz("but", 1, 1, 1, "I ran fast, ___ I missed the bus.", ["but", "and", "or", "if"], [FS, FS, FS]),
-    cz("but", 1, 1, 2, "The sun is out, ___ it is cold.", ["but", "and", "when", "or"], [FS, FS, FS]),
+    cz("but", 1, 1, 1, "The sun shone. ___ rain fell anyway.", ["but", "if", "when", "as"], [FS, FS, FS]),
+    cz("but", 1, 1, 2, "Mia ran fast. ___ she missed the bus.", ["but", "if", "as", "that"], [FS, FS, FS]),
     rf("but", 1, 1, 3, ["but", "bat", "bus", "cut"], [VN, VN, VN]),
-    cz("by", 1, 1, 1, "The nest is ___ the gate.", ["by", "at", "on", "in"], [FS, FS, FS]),
-    cz("by", 1, 1, 2, "We sat ___ the pond.", ["by", "on", "with", "at"], [FS, DV, FS]),
+    cz("by", 1, 1, 1, "Ben won the race ___ one step.", ["by", "at", "on", "in"], [FS, FS, FS]),
+    cz("by", 1, 1, 2, "The jar missed the shelf ___ an inch.", ["by", "from", "at", "with"], [FS, FS, FS]),
     rf("by", 1, 1, 3, ["by", "my", "buy", "be"], [VN, HM, VN]),
-    cz("can", 1, 1, 1, "___ you hop like a frog?", ["can", "do", "are", "were"], [FS, DV, DV]),
-    cz("can", 1, 1, 2, "The twins ___ swim fast.", ["can", "had", "are", "said"], [DV, DV, DV],
-      "do stays out — the twins do swim fast would be a second key"),
+    cz("can", 1, 1, 1, "Mia learned to swim; now she ___ swim.", ["can", "is", "have", "was"], [DV, DV, DV]),
+    cz("can", 1, 1, 2, "The twins learned the song; they ___ sing it.", ["can", "are", "is", "had"], [DV, DV, DV]),
     rf("can", 1, 1, 3, ["can", "cat", "cap", "ran"], [VN, VN, VN]),
-    cz("do", 1, 1, 1, "___ you like plums?", ["do", "can", "had", "is"], [FS, DV, DV]),
-    cz("do", 1, 1, 2, "What ___ cows eat?", ["do", "can", "are", "had"], [FS, DV, DV]),
+    cz("do", 1, 1, 1, "___ you feed the hens every day?", ["do", "have", "is", "had"], [DV, DV, DV]),
+    cz("do", 1, 1, 2, "What ___ cows eat each morning?", ["do", "are", "have", "was"], [DV, DV, DV]),
     rf("do", 1, 1, 3, ["do", "to", "go", "dot"], [VN, VN, VN]),
-    cz("each", 1, 1, 1, "___ kid got a badge.", ["each", "one", "all", "the"], [FS, DV, FS],
-      "all kid — the agreement slip children make"),
-    cz("each", 1, 1, 2, "Put a cup at ___ desk.", ["each", "one", "all", "that"], [FS, DV, FS]),
+    cz("each", 1, 1, 1, "Four cards get one sticker ___.", ["each", "all", "the", "that"], [DV, DV, DV]),
+    cz("each", 1, 1, 2, "Give the three pups one treat ___.", ["each", "all", "one", "that"], [DV, DV, DV]),
     rf("each", 1, 1, 3, ["each", "ear", "eat", "teach"], [VN, VN, VN]),
-    cz("had", 1, 1, 1, "Last week we ___ a picnic.", ["had", "have", "has", "do"], [FS, DV, DV],
-      "last week pins the past tense; have is the tense slip"),
-    cz("had", 1, 1, 2, "Gran ___ six cats long ago.", ["had", "has", "have", "was"], [FS, DV, DV]),
+    cz("had", 1, 1, 1, "Yesterday we ___ a kite; today we do not.", ["had", "have", "said", "were"], [DV, FS, FS]),
+    cz("had", 1, 1, 2, "Long ago, Gran ___ six cats at home.", ["had", "have", "was", "said"], [DV, FS, FS]),
     rf("had", 1, 1, 3, ["had", "has", "hat", "bad"], [VN, VN, VN]),
-    cz("how", 1, 1, 1, "___ do you make jam?", ["how", "what", "when", "which"], [FS, FS, FS]),
-    cz("how", 1, 1, 2, "Tell me ___ the trick works.", ["how", "when", "what", "if"], [FS, DV, FS]),
+    cz("how", 1, 1, 1, "___ do you make jam, step by step?", ["how", "what", "which", "that"], [FS, FS, DV]),
+    cz("how", 1, 1, 2, "___ can it work—by magnets or string?", ["how", "what", "which", "if"], [FS, FS, DV]),
     rf("how", 1, 1, 3, ["how", "who", "now", "cow"], [VN, VN, VN]),
-    cz("if", 1, 1, 1, "Ask me ___ you get stuck.", ["if", "when", "and", "but"], [FS, FS, FS]),
-    cz("if", 1, 1, 2, "___ it rains, we stay in.", ["if", "when", "but", "as"], [FS, DV, DV]),
+    cz("if", 1, 1, 1, "We stay in only ___ it rains.", ["if", "and", "but", "that"], [FS, FS, FS]),
+    cz("if", 1, 1, 2, "Ask me ___ you need help.", ["if", "for", "of", "to"], [FS, FS, FS]),
     rf("if", 1, 1, 3, ["if", "is", "it", "in"], [VN, VN, VN]),
-    cz("not", 1, 1, 1, "The sums are ___ hard — they are easy!", ["not", "all", "that", "very"], [DV, FS, FS],
-      "the easy tag pins not"),
-    cz("not", 1, 1, 2, "That is ___ my hat!", ["not", "now", "all", "for"], [VN, DV, FS],
-      "now is the not/now slip"),
+    cz("not", 1, 1, 1, "The sums are easy, so they are ___ hard.", ["not", "all", "that", "one"], [FS, FS, DV]),
+    cz("not", 1, 1, 2, "Mia owns this hat; it is ___ mine.", ["not", "his", "their", "your"], [FS, FS, FS]),
     rf("not", 1, 1, 3, ["not", "now", "nut", "hot"], [VN, VN, VN]),
-    cz("one", 1, 1, 1, "I have just ___ wish.", ["one", "a", "an", "each"], [FS, DV, DV]),
-    cz("one", 1, 1, 2, "___ duck swam off; two stayed.", ["one", "a", "each", "all"], [FS, FS, DV]),
+    cz("one", 1, 1, 1, "From three buns, exactly ___ is left.", ["one", "all", "each", "not"], [DV, FS, DV]),
+    cz("one", 1, 1, 2, "Mia had two mittens; exactly ___ is missing.", ["one", "all", "an", "the"], [DV, DV, DV]),
     rf("one", 1, 1, 3, ["one", "on", "own", "once"], [VN, VN, VN]),
-    cz("or", 1, 1, 1, "Do you want jam ___ ham?", ["or", "and", "but", "not"], [FS, DV, FS]),
-    cz("or", 1, 1, 2, "Is the cup full ___ empty?", ["or", "and", "as", "if"], [FS, DV, DV]),
+    cz("or", 1, 1, 1, "Choose one filling: jam ___ ham.", ["or", "and", "but", "if"], [FS, FS, FS]),
+    cz("or", 1, 1, 2, "Pick one colour: red ___ blue.", ["or", "and", "as", "with"], [FS, FS, FS]),
     rf("or", 1, 1, 3, ["or", "of", "for", "on"], [VN, VN, VN]),
 
     // ============ L1 phase 2: said she their there use we were what when which words your ============
-    cz("said", 1, 2, 1, "Mum ___ we can camp!", ["said", "says", "sad", "saw"], [FS, VN, VN],
-      "sad is the said/sad slip; saw parses and reverses the meaning"),
-    cz("said", 1, 2, 2, "Dad ___ yes at last.", ["said", "says", "sad", "had"], [FS, VN, DV]),
+    cz("said", 1, 2, 1, "Yesterday Mum ___, ‘We can camp.’", ["said", "had", "was", "were"], [FS, FS, DV]),
+    cz("said", 1, 2, 2, "Dad ___, ‘Yes,’ when I asked.", ["said", "had", "can", "is"], [FS, FS, FS]),
     rf("said", 1, 2, 3, ["said", "sad", "says", "sand"], [VN, VN, VN]),
-    cz("she", 1, 2, 1, "My aunt naps when ___ can.", ["she", "he", "we", "it"], [FS, DV, FS],
-      "the aunt pins she"),
-    cz("she", 1, 2, 2, "Gran hums as ___ bakes.", ["she", "he", "it", "they"], [FS, FS, DV]),
+    cz("she", 1, 2, 1, "My aunt arrived alone. ___ carried her own bag.", ["she", "he", "we", "it"], [FS, FS, FS]),
+    cz("she", 1, 2, 2, "Gran entered alone. ___ shut the door behind her.", ["she", "he", "I", "it"], [FS, FS, FS]),
     rf("she", 1, 2, 3, ["she", "he", "see", "sheep"], [VN, VN, VN]),
-    cz("their", 1, 2, 1, "The twins lost ___ kite.", ["their", "there", "they", "his"], [HM, DV, FS],
-      "there is the homophone; they is the they/their slip; his misses the plural"),
-    cz("their", 1, 2, 2, "The cubs drank ___ milk.", ["their", "there", "the", "they"], [HM, FS, DV]),
+    cz("their", 1, 2, 1, "The twins flew ___ own kite.", ["their", "there", "they", "the"], [HM, DV, DV]),
+    cz("their", 1, 2, 2, "The cubs slept in ___ own den.", ["their", "there", "they", "this"], [HM, DV, DV]),
     rf("their", 1, 2, 3, ["their", "there", "they", "then"], [HM, VN, VN]),
-    cz("there", 1, 2, 1, "Look — the bus is over ___!", ["there", "their", "that", "the"], [HM, DV, DV]),
-    cz("there", 1, 2, 2, "We got ___ just in time.", ["there", "their", "that", "then"], [HM, FS, VN],
-      "got their — the classic reversal; then is the there/then slip"),
+    cz("there", 1, 2, 1, "We walked to the pond and rested ___.", ["there", "their", "they", "your"], [HM, DV, DV]),
+    cz("there", 1, 2, 2, "Leave your shoes by the door, right ___.", ["there", "their", "they", "that"], [HM, DV, DV]),
     rf("there", 1, 2, 3, ["there", "their", "then", "three"], [HM, VN, VN]),
-    cz("use", 1, 2, 1, "___ the key to open the box.", ["use", "have", "do", "can"], [DV, DV, DV]),
-    cz("use", 1, 2, 2, "We ___ mud to make bricks.", ["use", "are", "do", "can"], [DV, DV, DV],
-      "had stays out — we had mud would be true too"),
+    cz("use", 1, 2, 1, "Every day, we ___ soap to wash.", ["use", "said", "were", "do"], [FS, FS, FS]),
+    cz("use", 1, 2, 2, "Now we ___ brushes to paint.", ["use", "do", "are", "said"], [FS, FS, FS]),
     rf("use", 1, 2, 3, ["use", "us", "fuse", "up"], [VN, VN, VN]),
-    cz("we", 1, 2, 1, "Sis and I hid. ___ both grinned.", ["we", "they", "she", "you"], [FS, DV, FS],
-      "the speaker is in the pair, so we is the only true reference"),
-    cz("we", 1, 2, 2, "Dad and I fish. ___ catch cod!", ["we", "they", "he", "you"], [FS, FS, FS],
-      "catch cod, not get wet — wet contains we and would gift the key a chunk"),
+    cz("we", 1, 2, 1, "Mia and I arrived. ___ carried the bags together.", ["we", "they", "she", "he"], [FS, FS, FS]),
+    cz("we", 1, 2, 2, "Dad and I cooked together. ___ made the meal.", ["we", "they", "he", "you"], [FS, FS, FS]),
     rf("we", 1, 2, 3, ["we", "me", "be", "wet"], [VN, VN, VN]),
-    cz("were", 1, 2, 1, "The shops ___ shut at ten.", ["were", "was", "are", "is"], [DV, FS, DV],
-      "the shops was — the agreement slip; are misses the tense"),
-    cz("were", 1, 2, 2, "You ___ so brave at the vet!", ["were", "was", "are", "be"], [DV, FS, DV],
-      "you was — THE developmental error"),
+    cz("were", 1, 2, 1, "Yesterday, the shops ___ shut; today they are open.", ["were", "are", "was", "is"], [FS, DV, DV]),
+    cz("were", 1, 2, 2, "At the vet yesterday, you ___ very brave.", ["were", "was", "are", "be"], [DV, FS, DV]),
     rf("were", 1, 2, 3, ["were", "where", "we", "her"], [VN, VN, VN]),
-    cz("what", 1, 2, 1, "___ is in the big box?", ["what", "which", "when", "that"], [FS, DV, DV]),
-    cz("what", 1, 2, 2, "Guess ___ I made for you!", ["what", "which", "when", "if"], [FS, DV, DV]),
+    cz("what", 1, 2, 1, "___ a huge splash the rock made!", ["what", "when", "how", "which"], [FS, FS, FS]),
+    cz("what", 1, 2, 2, "___ fun we had at the park!", ["what", "when", "which", "if"], [FS, FS, DV]),
     rf("what", 1, 2, 3, ["what", "that", "when", "hat"], [VN, VN, VN]),
-    cz("when", 1, 2, 1, "___ does the show start?", ["when", "how", "what", "that"], [FS, DV, DV],
-      "the two-or-three tag pins when over how"),
-    cz("when", 1, 2, 2, "I clap ___ you sing.", ["when", "if", "as", "and"], [FS, FS, DV]),
+    cz("when", 1, 2, 1, "___ is lunch: at two or three?", ["when", "as", "if", "by"], [DV, DV, DV]),
+    cz("when", 1, 2, 2, "Ring the bell ___ the race begins.", ["when", "but", "or", "that"], [FS, FS, FS]),
     rf("when", 1, 2, 3, ["when", "then", "hen", "what"], [VN, VN, VN]),
-    cz("which", 1, 2, 1, "___ hat is yours — red or blue?", ["which", "what", "that", "this"], [FS, DV, DV]),
-    cz("which", 1, 2, 2, "Tell me ___ pup you like best.", ["which", "what", "each", "that"], [FS, FS, DV]),
+    cz("which", 1, 2, 1, "___ hat do you want: red or blue?", ["which", "when", "if", "that"], [FS, FS, DV]),
+    cz("which", 1, 2, 2, "___ path is shorter: left or right?", ["which", "how", "when", "if"], [FS, FS, DV]),
     rf("which", 1, 2, 3, ["which", "witch", "with", "wish"], [HM, VN, VN]),
-    cz("words", 1, 2, 1, "We read six new ___ today.", ["words", "word", "works", "wands"], [DV, VN, VN],
-      "six new word — the plural slip"),
-    cz("words", 1, 2, 2, "Big ___ can be fun to spell.", ["words", "word", "works", "worms"], [DV, VN, VN]),
+    cz("words", 1, 2, 1, "Mia wrote five ___ on the card.", ["words", "all", "each", "one"], [DV, DV, DV]),
+    cz("words", 1, 2, 2, "Ten letters form three ___ on this page.", ["words", "all", "each", "that"], [DV, DV, DV]),
     rf("words", 1, 2, 3, ["words", "word", "works", "birds"], [VN, VN, VN]),
-    cz("your", 1, 2, 1, "Is this ___ scarf?", ["your", "you", "his", "the"], [DV, FS, FS],
-      "is this you scarf — the you/your slip"),
-    cz("your", 1, 2, 2, "Pack ___ bags for camp.", ["your", "you", "the", "their"], [DV, FS, FS]),
+    cz("your", 1, 2, 1, "Mia, tie ___ own shoes.", ["your", "you", "the", "that"], [DV, DV, DV]),
+    cz("your", 1, 2, 2, "Ben, bring ___ own lunch.", ["your", "you", "this", "an"], [DV, DV, DV]),
     rf("your", 1, 2, 3, ["your", "you", "our", "out"], [VN, VN, VN]),
 
     // ============ L2 phase 1 (spell): all … or ============
@@ -243,11 +240,10 @@ export default {
     lb("your", 2, 2, 2, "Bring ___ kit on Monday.", ["y", "o", "u", "r", "e"]),
 
     // ============ Retention reserve (form R) ============
-    cz("said", 1, 2, 7, "The coach ___ to rest up.", ["said", "says", "saw", "had"], [FS, VN, DV]),
-    cz("their", 1, 2, 7, "The ants built ___ nest fast.", ["their", "there", "the", "his"], [HM, FS, FS]),
-    cz("were", 1, 2, 7, "The buns ___ still warm.", ["were", "was", "are", "had"], [DV, FS, DV]),
-    cz("one", 1, 1, 7, "Just ___ bun is left.", ["one", "an", "each", "all"], [DV, FS, DV],
-      "only would gift the key its on-chunk"),
+    cz("said", 1, 2, 7, "The coach ___, ‘Rest now.’", ["said", "had", "was", "can"], [FS, FS, FS]),
+    cz("their", 1, 2, 7, "The ants built ___ own nest.", ["their", "there", "they", "a"], [HM, DV, DV]),
+    cz("were", 1, 2, 7, "The buns ___ warm yesterday; now they are cold.", ["were", "was", "are", "had"], [DV, FS, DV]),
+    cz("one", 1, 1, 7, "Exactly ___ of five buns remains.", ["one", "the", "an", "this"], [DV, DV, DV]),
     rf("which", 1, 2, 7, ["which", "witch", "wish", "when"], [HM, VN, VN], "", "point"),
     rf("all", 1, 1, 7, ["all", "tall", "ball", "ill"], [VN, VN, VN], "", "point"),
     sp("there", 2, 2, 7, "Sit ___ by the window.", ["t", "h", "e", "r", "e", "i"]),

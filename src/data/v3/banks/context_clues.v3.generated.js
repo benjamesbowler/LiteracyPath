@@ -24,7 +24,7 @@ export const questions = [
   "prompt": "In this passage, what does \"drowsy\" mean?",
   "question": "In this passage, what does \"drowsy\" mean?",
   "spokenPrompt": "In this passage, what does \"drowsy\" mean?",
-  "passage": "By eight o'clock Tara was drowsy — so sleepy that her eyes kept sliding shut in the middle of her favourite programme.",
+  "passage": "By eight o'clock Tara was drowsy — so sleepy that her eyes kept sliding shut in the middle of her favorite program.",
   "cell": "definition_clue",
   "choices": [
    "quite angry",
@@ -72,21 +72,16 @@ export const questions = [
   "copyExempt": "direct-definition-clue",
   "targetWord": "drowsy",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.A.definition_clue.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -96,13 +91,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.B.definition_clue.v2",
@@ -127,7 +116,7 @@ export const questions = [
   "prompt": "In this passage, what does \"fragile\" mean?",
   "question": "In this passage, what does \"fragile\" mean?",
   "spokenPrompt": "In this passage, what does \"fragile\" mean?",
-  "passage": "The vase was fragile, which means it could break very easily, so Mum carried it across the room with two careful hands.",
+  "passage": "The vase was fragile, which means it could break very easily, so Mom carried it across the room with two careful hands.",
   "cell": "definition_clue",
   "choices": [
    "easily broken",
@@ -175,21 +164,16 @@ export const questions = [
   "copyExempt": "direct-definition-clue",
   "targetWord": "fragile",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.B.definition_clue.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -199,13 +183,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.C.definition_clue.v3",
@@ -233,16 +211,16 @@ export const questions = [
   "passage": "Our new tent is sturdy — strongly made and hard to knock over. Even the wild wind on the hilltop could not flatten it.",
   "cell": "definition_clue",
   "choices": [
-   "bright and colourful",
+   "bright and colorful",
    "weak and floppy",
    "brand new",
    "strong and well made"
   ],
   "answerOptions": [
    {
-    "value": "bright and colourful",
-    "label": "bright and colourful",
-    "text": "bright and colourful"
+    "value": "bright and colorful",
+    "label": "bright and colorful",
+    "text": "bright and colorful"
    },
    {
     "value": "weak and floppy",
@@ -265,7 +243,7 @@ export const questions = [
   "distractorRationales": {
    "weak and floppy": "D-OPPOSITE",
    "brand new": "D-TOPIC-ADJACENT",
-   "bright and colourful": "D-PLAUSIBLE-UNSUPPORTED"
+   "bright and colorful": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -278,21 +256,16 @@ export const questions = [
   "copyExempt": "direct-definition-clue",
   "targetWord": "sturdy",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.C.definition_clue.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -302,13 +275,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.A.definition_clue.v4",
@@ -381,21 +348,16 @@ export const questions = [
   "copyExempt": "direct-definition-clue",
   "targetWord": "murmur",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.A.definition_clue.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -405,13 +367,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.B.definition_clue.v5",
@@ -484,21 +440,16 @@ export const questions = [
   "copyExempt": "direct-definition-clue",
   "targetWord": "jagged",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.B.definition_clue.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -508,13 +459,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.C.definition_clue.v6",
@@ -587,21 +532,16 @@ export const questions = [
   "copyExempt": "direct-definition-clue",
   "targetWord": "hollow",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.C.definition_clue.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -611,13 +551,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.A.definition_clue.v7",
@@ -690,21 +624,16 @@ export const questions = [
   "copyExempt": "direct-definition-clue",
   "targetWord": "chilly",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.A.definition_clue.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -714,13 +643,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.B.definition_clue.v8",
@@ -745,7 +668,7 @@ export const questions = [
   "prompt": "In this passage, what does \"mend\" mean?",
   "question": "In this passage, what does \"mend\" mean?",
   "spokenPrompt": "In this passage, what does \"mend\" mean?",
-  "passage": "To mend something is to fix it. Grandpa mended the torn net with a needle and green string, and by tea time it was good as new.",
+  "passage": "To mend something is to fix it. Grandpa mended the torn net with a needle and green string, and by dinnertime it was good as new.",
   "cell": "definition_clue",
   "choices": [
    "to paint something",
@@ -793,21 +716,16 @@ export const questions = [
   "copyExempt": "direct-definition-clue",
   "targetWord": "mend",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.B.definition_clue.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -817,13 +735,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.A.example_clue.v1",
@@ -895,21 +807,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "feast",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.A.example_clue.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -919,13 +826,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.B.example_clue.v2",
@@ -997,21 +898,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "clutter",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.B.example_clue.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1021,13 +917,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.C.example_clue.v3",
@@ -1099,21 +989,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "enormous",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.C.example_clue.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1123,13 +1008,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.A.example_clue.v4",
@@ -1201,21 +1080,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "gleaming",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.A.example_clue.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1225,13 +1099,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.B.example_clue.v5",
@@ -1303,21 +1171,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "timid",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.B.example_clue.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1327,13 +1190,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.C.example_clue.v6",
@@ -1358,7 +1215,7 @@ export const questions = [
   "prompt": "In this passage, what does \"swift\" mean?",
   "question": "In this passage, what does \"swift\" mean?",
   "spokenPrompt": "In this passage, what does \"swift\" mean?",
-  "passage": "Swift things flashed past the window all journey: racing motorbikes, a hawk stooping after a sparrow, and express trains that were gone almost before you saw them.",
+  "passage": "Swift things flashed past the window throughout the journey: racing motorcycles, a hawk swooping after a sparrow, and express trains that were gone almost before you saw them.",
   "cell": "example_clue",
   "choices": [
    "very loud",
@@ -1405,21 +1262,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "swift",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.C.example_clue.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1429,13 +1281,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.A.example_clue.v7",
@@ -1507,21 +1353,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "ancient",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.A.example_clue.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1531,13 +1372,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.B.example_clue.v8",
@@ -1568,7 +1403,7 @@ export const questions = [
    "torn to bits",
    "wet through",
    "dry and crisp",
-   "warm and cosy"
+   "warm and cozy"
   ],
   "answerOptions": [
    {
@@ -1587,9 +1422,9 @@ export const questions = [
     "text": "dry and crisp"
    },
    {
-    "value": "warm and cosy",
-    "label": "warm and cosy",
-    "text": "warm and cosy"
+    "value": "warm and cozy",
+    "label": "warm and cozy",
+    "text": "warm and cozy"
    }
   ],
   "answer": "wet through",
@@ -1597,7 +1432,7 @@ export const questions = [
   "distractorRationales": {
    "torn to bits": "D-PLAUSIBLE-UNSUPPORTED",
    "dry and crisp": "D-OPPOSITE",
-   "warm and cosy": "D-TOPIC-ADJACENT"
+   "warm and cozy": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1609,21 +1444,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "soggy",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.B.example_clue.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1633,13 +1463,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.A.action_clue.v1",
@@ -1711,21 +1535,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "gobbled",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.A.action_clue.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1735,13 +1554,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.B.action_clue.v2",
@@ -1766,7 +1579,7 @@ export const questions = [
   "prompt": "In this passage, what does \"glided\" mean?",
   "question": "In this passage, what does \"glided\" mean?",
   "spokenPrompt": "In this passage, what does \"glided\" mean?",
-  "passage": "The swans glided across the lake. Their bodies slid along smooth as paper boats, without one splash, while their feet paddled secretly below.",
+  "passage": "The swans glided across the lake. Their bodies barely disturbed the water, making no splash, while their feet paddled secretly below.",
   "cell": "action_clue",
   "choices": [
    "sank slowly",
@@ -1813,21 +1626,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "glided",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.B.action_clue.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1837,13 +1645,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.C.action_clue.v3",
@@ -1871,16 +1673,16 @@ export const questions = [
   "passage": "The squirrel scampered along the fence — quick light steps, a leap, more quick steps — and was up the oak tree before Milo could point.",
   "cell": "action_clue",
   "choices": [
-   "slept in the sun",
+   "climbed into a tree",
    "crawled very slowly",
    "dug a deep hole",
    "darted along"
   ],
   "answerOptions": [
    {
-    "value": "slept in the sun",
-    "label": "slept in the sun",
-    "text": "slept in the sun"
+    "value": "climbed into a tree",
+    "label": "climbed into a tree",
+    "text": "climbed into a tree"
    },
    {
     "value": "crawled very slowly",
@@ -1901,7 +1703,7 @@ export const questions = [
   "answer": "darted along",
   "correctAnswer": "darted along",
   "distractorRationales": {
-   "slept in the sun": "D-OPPOSITE",
+   "climbed into a tree": "D-TOPIC-ADJACENT",
    "crawled very slowly": "D-OPPOSITE",
    "dug a deep hole": "D-PLAUSIBLE-UNSUPPORTED"
   },
@@ -1915,21 +1717,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "scampered",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.C.action_clue.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1939,13 +1736,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.A.action_clue.v4",
@@ -1970,7 +1761,7 @@ export const questions = [
   "prompt": "In this passage, what does \"pleaded\" mean?",
   "question": "In this passage, what does \"pleaded\" mean?",
   "spokenPrompt": "In this passage, what does \"pleaded\" mean?",
-  "passage": "'Please, please, PLEASE can we keep him?' Sol pleaded, hands pressed together, following Mum from room to room with enormous hopeful eyes.",
+  "passage": "'Please, please, PLEASE can we keep him?' Sol pleaded, hands pressed together, following Mom from room to room with enormous hopeful eyes.",
   "cell": "action_clue",
   "choices": [
    "begged with all his heart",
@@ -2017,21 +1808,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "pleaded",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.A.action_clue.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2041,13 +1827,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.B.action_clue.v5",
@@ -2077,7 +1857,7 @@ export const questions = [
   "choices": [
    "purred happily",
    "stretched out flat",
-   "fell fast asleep",
+   "hid under the bed",
    "shook with fear"
   ],
   "answerOptions": [
@@ -2092,9 +1872,9 @@ export const questions = [
     "text": "stretched out flat"
    },
    {
-    "value": "fell fast asleep",
-    "label": "fell fast asleep",
-    "text": "fell fast asleep"
+    "value": "hid under the bed",
+    "label": "hid under the bed",
+    "text": "hid under the bed"
    },
    {
     "value": "shook with fear",
@@ -2106,7 +1886,7 @@ export const questions = [
   "correctAnswer": "shook with fear",
   "distractorRationales": {
    "stretched out flat": "D-PLAUSIBLE-UNSUPPORTED",
-   "fell fast asleep": "D-OPPOSITE",
+   "hid under the bed": "D-DETAIL-AS-MAIN",
    "purred happily": "D-OPPOSITE"
   },
   "mediaTier": "text",
@@ -2119,21 +1899,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "trembled",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.B.action_clue.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2143,13 +1918,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.C.action_clue.v6",
@@ -2174,13 +1943,13 @@ export const questions = [
   "prompt": "In this passage, what does \"grumbled\" mean?",
   "question": "In this passage, what does \"grumbled\" mean?",
   "spokenPrompt": "In this passage, what does \"grumbled\" mean?",
-  "passage": "Grandpa grumbled all the way up the hill — a low, cross mutter about his knees, the weather, and whoever had invented hills in the first place.",
+  "passage": "Grandpa grumbled all the way up the hill — a low, angry mutter about his knees, the weather, and whoever had invented hills in the first place.",
   "cell": "action_clue",
   "choices": [
    "complained in a low voice",
    "sang a cheerful song",
    "climbed very fast",
-   "waved at neighbours"
+   "waved at neighbors"
   ],
   "answerOptions": [
    {
@@ -2199,16 +1968,16 @@ export const questions = [
     "text": "climbed very fast"
    },
    {
-    "value": "waved at neighbours",
-    "label": "waved at neighbours",
-    "text": "waved at neighbours"
+    "value": "waved at neighbors",
+    "label": "waved at neighbors",
+    "text": "waved at neighbors"
    }
   ],
   "answer": "complained in a low voice",
   "correctAnswer": "complained in a low voice",
   "distractorRationales": {
    "climbed very fast": "D-PLAUSIBLE-UNSUPPORTED",
-   "waved at neighbours": "D-PLAUSIBLE-UNSUPPORTED",
+   "waved at neighbors": "D-PLAUSIBLE-UNSUPPORTED",
    "sang a cheerful song": "D-OPPOSITE"
   },
   "mediaTier": "text",
@@ -2221,21 +1990,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "grumbled",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.C.action_clue.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2245,13 +2009,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.A.action_clue.v7",
@@ -2323,21 +2081,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "drifted",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.A.action_clue.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2347,13 +2100,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.B.action_clue.v8",
@@ -2378,7 +2125,7 @@ export const questions = [
   "prompt": "In this passage, what does \"gazed\" mean?",
   "question": "In this passage, what does \"gazed\" mean?",
   "spokenPrompt": "In this passage, what does \"gazed\" mean?",
-  "passage": "Baby Yara gazed at the mobile above her cot — eyes wide, mouth open, watching the slow silver fish go round and round for a whole quiet hour.",
+  "passage": "Baby Yara gazed at the fish mobile above her crib — eyes wide, mouth open, watching the slow silver fish go round and round for a whole quiet hour.",
   "cell": "action_clue",
   "choices": [
    "looked for a long time",
@@ -2425,21 +2172,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "gazed",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.B.action_clue.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2449,13 +2191,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.A.synonym_clue.v1",
@@ -2527,21 +2263,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "dazzling",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.A.synonym_clue.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2551,13 +2282,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.B.synonym_clue.v2",
@@ -2582,11 +2307,11 @@ export const questions = [
   "prompt": "In this passage, what does \"weary\" mean?",
   "question": "In this passage, what does \"weary\" mean?",
   "spokenPrompt": "In this passage, what does \"weary\" mean?",
-  "passage": "After the mountain walk, the hikers were weary. Exhausted, worn out, done in — they dropped their packs at the hut door and nobody spoke for ten minutes.",
+  "passage": "After the mountain walk, the hikers were weary. Exhausted, worn out, completely tired — they dropped their packs at the hut door and nobody spoke for ten minutes.",
   "cell": "synonym_clue",
   "choices": [
    "lost on the path",
-   "completely tired out",
+   "having no energy left",
    "full of energy",
    "very thirsty"
   ],
@@ -2597,9 +2322,9 @@ export const questions = [
     "text": "lost on the path"
    },
    {
-    "value": "completely tired out",
-    "label": "completely tired out",
-    "text": "completely tired out"
+    "value": "having no energy left",
+    "label": "having no energy left",
+    "text": "having no energy left"
    },
    {
     "value": "full of energy",
@@ -2612,8 +2337,8 @@ export const questions = [
     "text": "very thirsty"
    }
   ],
-  "answer": "completely tired out",
-  "correctAnswer": "completely tired out",
+  "answer": "having no energy left",
+  "correctAnswer": "having no energy left",
   "distractorRationales": {
    "lost on the path": "D-PLAUSIBLE-UNSUPPORTED",
    "full of energy": "D-OPPOSITE",
@@ -2629,21 +2354,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "weary",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.B.synonym_clue.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2653,13 +2373,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.C.synonym_clue.v3",
@@ -2731,21 +2445,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "commotion",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.C.synonym_clue.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2755,13 +2464,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.A.synonym_clue.v4",
@@ -2833,21 +2536,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "drenched",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.A.synonym_clue.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2857,13 +2555,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.B.synonym_clue.v5",
@@ -2935,21 +2627,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "nibbled",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.B.synonym_clue.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2959,13 +2646,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.C.synonym_clue.v6",
@@ -3037,21 +2718,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "spotless",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.C.synonym_clue.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3061,13 +2737,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.A.synonym_clue.v7",
@@ -3139,21 +2809,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "soared",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.A.synonym_clue.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3163,13 +2828,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.B.synonym_clue.v8",
@@ -3194,13 +2853,13 @@ export const questions = [
   "prompt": "In this passage, what does \"bitter\" mean?",
   "question": "In this passage, what does \"bitter\" mean?",
   "spokenPrompt": "In this passage, what does \"bitter\" mean?",
-  "passage": "The soup was bitter — sharp and sour on the tongue, nothing like the sweet tomato soup from the tin — and Jonah's whole face folded up at the first spoonful.",
+  "passage": "The soup was bitter — harsh and not at all sweet, though it was not sour like lemon juice — and Jonah's whole face folded up at the first spoonful.",
   "cell": "synonym_clue",
   "choices": [
    "sweet as honey",
+   "sharp and sour like lemon",
    "too hot to eat",
-   "thick and lumpy",
-   "an unpleasant flavour"
+   "a harsh, unsweet taste"
   ],
   "answerOptions": [
    {
@@ -3209,27 +2868,27 @@ export const questions = [
     "text": "sweet as honey"
    },
    {
+    "value": "sharp and sour like lemon",
+    "label": "sharp and sour like lemon",
+    "text": "sharp and sour like lemon"
+   },
+   {
     "value": "too hot to eat",
     "label": "too hot to eat",
     "text": "too hot to eat"
    },
    {
-    "value": "thick and lumpy",
-    "label": "thick and lumpy",
-    "text": "thick and lumpy"
-   },
-   {
-    "value": "an unpleasant flavour",
-    "label": "an unpleasant flavour",
-    "text": "an unpleasant flavour"
+    "value": "a harsh, unsweet taste",
+    "label": "a harsh, unsweet taste",
+    "text": "a harsh, unsweet taste"
    }
   ],
-  "answer": "an unpleasant flavour",
-  "correctAnswer": "an unpleasant flavour",
+  "answer": "a harsh, unsweet taste",
+  "correctAnswer": "a harsh, unsweet taste",
   "distractorRationales": {
    "sweet as honey": "D-OPPOSITE",
-   "too hot to eat": "D-PLAUSIBLE-UNSUPPORTED",
-   "thick and lumpy": "D-PLAUSIBLE-UNSUPPORTED"
+   "sharp and sour like lemon": "D-PLAUSIBLE-UNSUPPORTED",
+   "too hot to eat": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3241,21 +2900,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "bitter",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.B.synonym_clue.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3265,13 +2919,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.A.antonym_contrast_clue.v1",
@@ -3343,21 +2991,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "bashful",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.A.antonym_contrast_clue.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3367,13 +3010,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.B.antonym_contrast_clue.v2",
@@ -3445,21 +3082,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "rickety",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.B.antonym_contrast_clue.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3469,13 +3101,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.C.antonym_contrast_clue.v3",
@@ -3547,21 +3173,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "bare",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.C.antonym_contrast_clue.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3571,13 +3192,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.A.antonym_contrast_clue.v4",
@@ -3599,27 +3214,27 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "In this passage, what does \"nippy\" mean?",
-  "question": "In this passage, what does \"nippy\" mean?",
-  "spokenPrompt": "In this passage, what does \"nippy\" mean?",
-  "passage": "Everyone expected the head teacher's office to be warm, but it was nippy in there — so much so that she kept a blanket on her chair while the corridor outside stayed toasty.",
+  "prompt": "In this passage, what does \"frigid\" mean?",
+  "question": "In this passage, what does \"frigid\" mean?",
+  "spokenPrompt": "In this passage, what does \"frigid\" mean?",
+  "passage": "Everyone expected the principal's office to be warm, but it was frigid in there — so cold that she kept a blanket on her chair while the hallway outside stayed warm.",
   "cell": "antonym_contrast_clue",
   "choices": [
-   "uncomfortably cold",
-   "cosily warm",
+   "extremely cold",
+   "comfortably warm",
    "strangely quiet",
    "very tidy"
   ],
   "answerOptions": [
    {
-    "value": "uncomfortably cold",
-    "label": "uncomfortably cold",
-    "text": "uncomfortably cold"
+    "value": "extremely cold",
+    "label": "extremely cold",
+    "text": "extremely cold"
    },
    {
-    "value": "cosily warm",
-    "label": "cosily warm",
-    "text": "cosily warm"
+    "value": "comfortably warm",
+    "label": "comfortably warm",
+    "text": "comfortably warm"
    },
    {
     "value": "strangely quiet",
@@ -3632,12 +3247,12 @@ export const questions = [
     "text": "very tidy"
    }
   ],
-  "answer": "uncomfortably cold",
-  "correctAnswer": "uncomfortably cold",
+  "answer": "extremely cold",
+  "correctAnswer": "extremely cold",
   "distractorRationales": {
    "strangely quiet": "D-PLAUSIBLE-UNSUPPORTED",
    "very tidy": "D-PLAUSIBLE-UNSUPPORTED",
-   "cosily warm": "D-OPPOSITE"
+   "comfortably warm": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3647,23 +3262,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "nippy",
+  "targetWord": "frigid",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.A.antonym_contrast_clue.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3673,13 +3283,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.B.antonym_contrast_clue.v5",
@@ -3704,7 +3308,7 @@ export const questions = [
   "prompt": "In this passage, what does \"brisk\" mean?",
   "question": "In this passage, what does \"brisk\" mean?",
   "spokenPrompt": "In this passage, what does \"brisk\" mean?",
-  "passage": "Dad walks at a stroll on Sundays, but on school mornings his pace is brisk — quick enough that Ida has to trot every few steps just to stay level.",
+  "passage": "Dad strolls on Sundays, but on school mornings his pace is brisk — quick enough that Ida has to trot every few steps just to stay level.",
   "cell": "antonym_contrast_clue",
   "choices": [
    "lost and confused",
@@ -3751,21 +3355,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "brisk",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.B.antonym_contrast_clue.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3775,13 +3374,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.C.antonym_contrast_clue.v6",
@@ -3806,7 +3399,7 @@ export const questions = [
   "prompt": "In this passage, what does \"mutter\" mean?",
   "question": "In this passage, what does \"mutter\" mean?",
   "spokenPrompt": "In this passage, what does \"mutter\" mean?",
-  "passage": "The twins could not have sounded more different: Ade spoke up clearly for the whole hall to hear, while Bola preferred to mutter, so that only her own collar caught the words.",
+  "passage": "The twins could not have sounded more different: Ade spoke up clearly for the whole hall to hear, while Bola preferred to mutter so softly that only she could hear the words.",
   "cell": "antonym_contrast_clue",
   "choices": [
    "stay silent",
@@ -3853,21 +3446,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "mutter",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.C.antonym_contrast_clue.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3877,13 +3465,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.A.antonym_contrast_clue.v7",
@@ -3908,7 +3490,7 @@ export const questions = [
   "prompt": "In this passage, what does \"lively\" mean?",
   "question": "In this passage, what does \"lively\" mean?",
   "spokenPrompt": "In this passage, what does \"lively\" mean?",
-  "passage": "By day the harbour was lively, but at midnight it fell still: not one engine, not one voice, only rope against mast and the slow breathing of the sea.",
+  "passage": "By day the harbor was lively, but at midnight it fell still: not one engine, not one voice, only rope against mast and the slow breathing of the sea.",
   "cell": "antonym_contrast_clue",
   "choices": [
    "closed for winter",
@@ -3955,21 +3537,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "lively",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.A.antonym_contrast_clue.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3979,13 +3556,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.B.antonym_contrast_clue.v8",
@@ -4057,21 +3628,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "dim",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.B.antonym_contrast_clue.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4081,13 +3647,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.A.inference_clue.v1",
@@ -4159,21 +3719,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "vanish",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.A.inference_clue.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4183,13 +3738,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.B.inference_clue.v2",
@@ -4261,21 +3810,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "slumber",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.B.inference_clue.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4285,13 +3829,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.C.inference_clue.v3",
@@ -4320,7 +3858,7 @@ export const questions = [
   "cell": "inference_clue",
   "choices": [
    "a kind of pie",
-   "a cold draught",
+   "a cold draft",
    "a smell in the air",
    "a loud timer"
   ],
@@ -4331,9 +3869,9 @@ export const questions = [
     "text": "a kind of pie"
    },
    {
-    "value": "a cold draught",
-    "label": "a cold draught",
-    "text": "a cold draught"
+    "value": "a cold draft",
+    "label": "a cold draft",
+    "text": "a cold draft"
    },
    {
     "value": "a smell in the air",
@@ -4351,7 +3889,7 @@ export const questions = [
   "distractorRationales": {
    "a loud timer": "D-PLAUSIBLE-UNSUPPORTED",
    "a kind of pie": "D-TOPIC-ADJACENT",
-   "a cold draught": "D-PLAUSIBLE-UNSUPPORTED"
+   "a cold draft": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4363,21 +3901,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "scent",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.C.inference_clue.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4387,13 +3920,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.A.inference_clue.v4",
@@ -4465,21 +3992,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "repaid",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.A.inference_clue.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4489,13 +4011,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.B.inference_clue.v5",
@@ -4567,21 +4083,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "peered",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.B.inference_clue.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4591,13 +4102,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.C.inference_clue.v6",
@@ -4622,7 +4127,7 @@ export const questions = [
   "prompt": "In this passage, what does \"bobbed\" mean?",
   "question": "In this passage, what does \"bobbed\" mean?",
   "spokenPrompt": "In this passage, what does \"bobbed\" mean?",
-  "passage": "The old rowing boat bobbed by the jetty — up with each small wave, down again after it, gentle as a cork, never drifting from its rope.",
+  "passage": "The old rowboat bobbed by the dock — up with each small wave, down again after it, gentle as a cork, never drifting from its rope.",
   "cell": "inference_clue",
   "choices": [
    "sank to the bottom",
@@ -4669,21 +4174,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "bobbed",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.C.inference_clue.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4693,13 +4193,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.A.inference_clue.v7",
@@ -4771,21 +4265,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "patched",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.A.inference_clue.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4795,13 +4284,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.B.inference_clue.v8",
@@ -4826,19 +4309,19 @@ export const questions = [
   "prompt": "In this passage, what does \"dashed\" mean?",
   "question": "In this passage, what does \"dashed\" mean?",
   "spokenPrompt": "In this passage, what does \"dashed\" mean?",
-  "passage": "At the first drops, everyone dashed for the bandstand — coats over heads, pushchairs bumping, ice creams abandoned — and reached its roof just as the sky truly opened.",
+  "passage": "At the first drops, everyone dashed for the park shelter — coats over heads, strollers bumping, ice cream cones abandoned — and reached its roof just as the sky truly opened.",
   "cell": "inference_clue",
   "choices": [
-   "queued politely",
+   "walked slowly",
    "ran very quickly",
    "strolled slowly",
    "danced in circles"
   ],
   "answerOptions": [
    {
-    "value": "queued politely",
-    "label": "queued politely",
-    "text": "queued politely"
+    "value": "walked slowly",
+    "label": "walked slowly",
+    "text": "walked slowly"
    },
    {
     "value": "ran very quickly",
@@ -4859,7 +4342,7 @@ export const questions = [
   "answer": "ran very quickly",
   "correctAnswer": "ran very quickly",
   "distractorRationales": {
-   "queued politely": "D-PLAUSIBLE-UNSUPPORTED",
+   "walked slowly": "D-PLAUSIBLE-UNSUPPORTED",
    "strolled slowly": "D-OPPOSITE",
    "danced in circles": "D-PLAUSIBLE-UNSUPPORTED"
   },
@@ -4873,21 +4356,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "dashed",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.B.inference_clue.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4897,13 +4375,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.C.definition_clue.v9",
@@ -4976,21 +4448,16 @@ export const questions = [
   "copyExempt": "direct-definition-clue",
   "targetWord": "snug",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.C.definition_clue.v9",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v9.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v9.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5000,13 +4467,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v9.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v9.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v9.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v9.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v9.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.A.definition_clue.v10",
@@ -5079,21 +4540,16 @@ export const questions = [
   "copyExempt": "direct-definition-clue",
   "targetWord": "faint",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.A.definition_clue.v10",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v10.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v10.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5103,13 +4559,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v10.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v10.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v10.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v10.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v10.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.C.example_clue.v9",
@@ -5181,21 +4631,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "gigantic",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.C.example_clue.v9",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v9.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v9.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5205,13 +4650,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v9.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v9.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v9.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v9.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v9.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.A.example_clue.v10",
@@ -5236,19 +4675,19 @@ export const questions = [
   "prompt": "In this passage, what does \"delicate\" mean?",
   "question": "In this passage, what does \"delicate\" mean?",
   "spokenPrompt": "In this passage, what does \"delicate\" mean?",
-  "passage": "Everything delicate went on the top shelf: the paper lanterns, Gran's thin china cups, the sugar swan from the wedding, and the model ship made of matchsticks.",
+  "passage": "Everything delicate went on the top shelf: the paper lanterns, Grandma's thin glass cups, a model airplane made of paper, and a tiny clay bird.",
   "cell": "example_clue",
   "choices": [
-   "tough as old boots",
+   "hard to damage",
    "very expensive",
    "high up",
    "easily damaged"
   ],
   "answerOptions": [
    {
-    "value": "tough as old boots",
-    "label": "tough as old boots",
-    "text": "tough as old boots"
+    "value": "hard to damage",
+    "label": "hard to damage",
+    "text": "hard to damage"
    },
    {
     "value": "very expensive",
@@ -5270,7 +4709,7 @@ export const questions = [
   "correctAnswer": "easily damaged",
   "distractorRationales": {
    "high up": "D-TOPIC-ADJACENT",
-   "tough as old boots": "D-OPPOSITE",
+   "hard to damage": "D-OPPOSITE",
    "very expensive": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
@@ -5283,21 +4722,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "delicate",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.A.example_clue.v10",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v10.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v10.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5307,13 +4741,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v10.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v10.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v10.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v10.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v10.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.R.action_clue.v9r",
@@ -5385,21 +4813,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "grumpy",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.R.action_clue.v9r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v9r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v9r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5409,13 +4832,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v9r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v9r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v9r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v9r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v9r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.R.action_clue.v10r",
@@ -5446,7 +4863,7 @@ export const questions = [
    "hissed a warning",
    "moved suddenly and fast",
    "slept in the sun",
-   "changed its colour"
+   "changed its color"
   ],
   "answerOptions": [
    {
@@ -5465,16 +4882,16 @@ export const questions = [
     "text": "slept in the sun"
    },
    {
-    "value": "changed its colour",
-    "label": "changed its colour",
-    "text": "changed its colour"
+    "value": "changed its color",
+    "label": "changed its color",
+    "text": "changed its color"
    }
   ],
   "answer": "moved suddenly and fast",
   "correctAnswer": "moved suddenly and fast",
   "distractorRationales": {
    "slept in the sun": "D-OPPOSITE",
-   "changed its colour": "D-TOPIC-ADJACENT",
+   "changed its color": "D-TOPIC-ADJACENT",
    "hissed a warning": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
@@ -5487,21 +4904,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "darted",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.R.action_clue.v10r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v10r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v10r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5511,13 +4923,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v10r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v10r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v10r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v10r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v10r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.R.definition_clue.v11r",
@@ -5542,7 +4948,7 @@ export const questions = [
   "prompt": "In this passage, what does \"elderly\" mean?",
   "question": "In this passage, what does \"elderly\" mean?",
   "spokenPrompt": "In this passage, what does \"elderly\" mean?",
-  "passage": "Elderly means old, especially for a person. The elderly man at number nine has lived on our street longer than every other neighbour put together.",
+  "passage": "Elderly means old, especially for a person. The elderly man at number nine has lived on our street longer than anyone else.",
   "cell": "definition_clue",
   "choices": [
    "new to the street",
@@ -5590,21 +4996,16 @@ export const questions = [
   "copyExempt": "direct-definition-clue",
   "targetWord": "elderly",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.R.definition_clue.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-r-definition-clue-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-definition-clue-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-definition-clue-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5614,13 +5015,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-definition-clue-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-definition-clue-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-definition-clue-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-definition-clue-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-definition-clue-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l1.R.example_clue.v11r",
@@ -5645,7 +5040,7 @@ export const questions = [
   "prompt": "In this passage, what does \"jumble\" mean?",
   "question": "In this passage, what does \"jumble\" mean?",
   "spokenPrompt": "In this passage, what does \"jumble\" mean?",
-  "passage": "The junk drawer was a jumble: rubber bands round old keys, a torch tangled in string, batteries mixed with buttons, and somewhere underneath, the missing bicycle bell.",
+  "passage": "The junk drawer was a jumble: rubber bands around old keys, a flashlight tangled in string, batteries mixed with buttons, and somewhere underneath, the missing bicycle bell.",
   "cell": "example_clue",
   "choices": [
    "a tidy line",
@@ -5692,21 +5087,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "jumble",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l1.R.example_clue.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l1-r-example-clue-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-example-clue-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-example-clue-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5716,13 +5106,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-example-clue-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-example-clue-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-example-clue-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-example-clue-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-example-clue-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.C.synonym_clue.v9",
@@ -5794,21 +5178,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "famished",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.C.synonym_clue.v9",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v9.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v9.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5818,13 +5197,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v9.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v9.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v9.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v9.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v9.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.A.synonym_clue.v10",
@@ -5849,7 +5222,7 @@ export const questions = [
   "prompt": "In this passage, what does \"baffled\" mean?",
   "question": "In this passage, what does \"baffled\" mean?",
   "spokenPrompt": "In this passage, what does \"baffled\" mean?",
-  "passage": "The riddle baffled the whole family. It puzzled Dad, confused Gran, and stumped even Priya, who does the crossword in pen.",
+  "passage": "The riddle baffled the whole family. It puzzled Dad, confused Grandma, and stumped even Priya, who does the crossword in pen.",
   "cell": "synonym_clue",
   "choices": [
    "was solved at once",
@@ -5896,21 +5269,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "baffled",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.A.synonym_clue.v10",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v10.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v10.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5920,13 +5288,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v10.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v10.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v10.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v10.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v10.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.C.antonym_contrast_clue.v9",
@@ -5998,21 +5360,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "placid",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.C.antonym_contrast_clue.v9",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v9.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v9.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6022,13 +5379,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v9.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v9.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v9.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v9.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v9.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.A.antonym_contrast_clue.v10",
@@ -6100,21 +5451,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "cunning",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.A.antonym_contrast_clue.v10",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v10.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v10.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6124,13 +5470,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v10.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v10.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v10.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v10.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v10.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.R.inference_clue.v9r",
@@ -6202,21 +5542,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "cumbersome",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.R.inference_clue.v9r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v9r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v9r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6226,13 +5561,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v9r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v9r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v9r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v9r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v9r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.R.inference_clue.v10r",
@@ -6257,7 +5586,7 @@ export const questions = [
   "prompt": "In this passage, what does \"rancid\" mean?",
   "question": "In this passage, what does \"rancid\" mean?",
   "spokenPrompt": "In this passage, what does \"rancid\" mean?",
-  "passage": "One sniff of the milk made Asha wince and hold the bottle at arm's length. It had turned rancid days ago, somewhere at the warm back of the van.",
+  "passage": "One sniff of the butter made Asha wince and hold the dish at arm's length. It had turned rancid after being left in a warm place for days.",
   "cell": "inference_clue",
   "choices": [
    "frozen solid",
@@ -6304,21 +5633,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "rancid",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.R.inference_clue.v10r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v10r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v10r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6328,13 +5652,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v10r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v10r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v10r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v10r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v10r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.R.synonym_clue.v11r",
@@ -6406,21 +5724,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "loyal",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.R.synonym_clue.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-r-synonym-clue-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-synonym-clue-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-synonym-clue-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6430,13 +5743,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-synonym-clue-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-synonym-clue-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-synonym-clue-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-synonym-clue-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-synonym-clue-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.context_clues.l2.R.inference_clue.v11r",
@@ -6508,21 +5815,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "beamed",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.context_clues.l2.R.inference_clue.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6532,12 +5834,6 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  }
 ];

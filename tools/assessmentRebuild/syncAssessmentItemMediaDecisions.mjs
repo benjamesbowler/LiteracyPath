@@ -4,7 +4,7 @@
 //   node tools/assessmentRebuild/syncAssessmentItemMediaDecisions.mjs --skill antonyms_synonyms
 //
 // This does not approve new art. Every resulting path must already have a
-// direct visual decision in assessmentImageStyleDecisions.generated.js.
+// direct visual decision in the composite assessmentImageStyleDecisions.js.
 
 import fs from "node:fs";
 import path from "node:path";
@@ -18,7 +18,7 @@ import {
   syncItemMediaDecision
 } from "./lib.mjs";
 import { skillBlueprints } from "../../src/content/blueprints/skillBlueprints.js";
-import { ASSESSMENT_IMAGE_STYLE_DECISIONS } from "../../src/content/assessments/v3/assessmentImageStyleDecisions.generated.js";
+import { ASSESSMENT_IMAGE_STYLE_DECISIONS } from "../../src/content/assessments/v3/assessmentImageStyleDecisions.js";
 import { ASSESSMENT_ITEM_MEDIA_DECISIONS } from "../../src/content/assessments/v3/assessmentItemMediaDecisions.generated.js";
 
 const args = process.argv.slice(2);

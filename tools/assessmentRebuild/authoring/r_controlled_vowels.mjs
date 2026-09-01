@@ -7,8 +7,9 @@
 //   R_CONTROLLED_PATTERN — blank hides the pattern; image or unique-real
 //     completion pins the word (stir/form/short are real, so their frames
 //     carry images). Closed-set.
-//   PICTURE_AUDIO_TO_PATTERN (L1) — picture → pattern choice, word spoken
-//     not printed.
+//   PICTURE_AUDIO_TO_PATTERN (legacy format name, L1) — heard word → pattern
+//     choice. The picture was removed because the word audio is the direct
+//     evidence and object naming adds an unrelated source of error.
 //   CPS (L2) — cross-family select; /ɜr/ items use only ar/or (or plain
 //     short-vowel) distractors, since er=ir=ur share one sound and a sibling
 //     spelling would be a second key.
@@ -18,42 +19,51 @@ import { makeImageResolver } from "../lib.mjs";
 
 const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
+const sentenceCase = value => value ? `${value[0].toUpperCase()}${value.slice(1)}` : value;
 
 const resolver = makeImageResolver(["long-vowels", "blends", "digraphs", "hfw", "cvc", "rhyming"]);
 
 const SIB = new Set(["er", "ir", "ur"]);
 
-const rcp = (u, lvl, ph, v, word, blanked, patterns, note = "") => ({
+const rcp = (u, lvl, ph, v, word, blanked, patterns, note = "", promptLead = "Listen to the word first") => ({
   u, lvl, ph, v, fmt: "R_CONTROLLED_PATTERN",
-  prompt: `Finish: ${blanked}`,
-  spoken: `${word}. Which letters finish the word ${word}?`,
+  prompt: `${promptLead}. Which two letters complete ${blanked}?`,
+  spoken: `${sentenceCase(word)}. Which letters complete the word?`,
   choices: patterns.map((p, i) => (i === 0 ? K(p)
     : P(p, SIB.has(u) && SIB.has(p) ? "D-PATTERN-TRAP" : (SIB.has(p) || SIB.has(u) ? "D-PATTERN-TRAP" : "D-VOWEL")))),
-  media: resolver(word) ? "image-required" : "text",
-  img: resolver(word) ? word : undefined,
+  // The spoken target plus the printed blank fully specifies this spelling
+  // task; an extra picture only adds a naming variable.
+  media: "audio-required",
   target: word,
   note
 });
 
 const patp = (u, lvl, ph, v, word, patterns, note = "") => ({
   u, lvl, ph, v, fmt: "PICTURE_AUDIO_TO_PATTERN",
-  prompt: "Which letters make the sound you hear in this picture's word?",
-  spoken: `${word}. Which letters make the r sound in ${word}?`,
+  prompt: "Which letters spell the r-controlled part in the word you hear?",
+  spoken: `${sentenceCase(word)}. Which letters spell the r-controlled part in this word?`,
   choices: patterns.map((p, i) => (i === 0 ? K(p) : P(p, "D-PATTERN-TRAP"))),
-  media: "image-required",
-  img: word,
+  media: "audio-required",
   target: word,
-  note: note || "the word is spoken and pictured, never printed"
+  audioRole: "target_word",
+  evidenceModality: "audio+print",
+  note: note || "the complete word is heard, never printed or inferred from a picture"
 });
 
-const cps = (u, lvl, ph, v, soundName, words, keyWord, rationales, note = "") => ({
-  u, lvl, ph, v, fmt: "CPS",
-  prompt: `Which word has the ${soundName} sound?`,
-  spoken: `Which word has the ${soundName} sound?`,
-  choices: words.map(w => (w === keyWord ? K(w) : P(w, rationales[w]))),
-  media: "text",
-  note
-});
+const cps = (u, lvl, ph, v, soundName, words, keyWord, rationales, note = "") => {
+  const anchor = soundName.match(/as in ([^)]+)/i)?.[1] || soundName;
+  return {
+    u, lvl, ph, v, fmt: "CPS",
+    prompt: "Which word has the same vowel sound?",
+    spoken: `${sentenceCase(anchor)}. Which word has the same vowel sound?`,
+    choices: words.map(w => (w === keyWord ? K(w) : P(w, rationales[w]))),
+    media: "audio-required",
+    target: anchor,
+    audioRole: "target_word",
+    evidenceModality: "audio+print",
+    note
+  };
+};
 
 export default {
   skillId: "r_controlled_vowels",
@@ -64,9 +74,9 @@ export default {
     rcp("ar", 1, 1, 1, "car", "c__", ["ar", "or", "er", "ir"],
       "cor, cer and cir are non-words"),
     rcp("ar", 1, 1, 2, "star", "st__", ["ar", "or", "ir", "ur"],
-      "stir is real — the star image pins the target"),
+      "stir is real — the heard word pins the target"),
     rcp("ar", 1, 1, 3, "farm", "f__m", ["ar", "or", "ir", "er"],
-      "form and firm are real — the farm image pins the target"),
+      "form and firm are real — the heard word pins the target"),
     patp("ar", 1, 1, 4, "shark", ["ar", "or", "er", "ur"]),
     patp("ar", 1, 1, 5, "yarn", ["ar", "or", "ir", "er"]),
     patp("ar", 1, 1, 6, "park", ["ar", "or", "ur", "ir"]),
@@ -102,8 +112,9 @@ export default {
       "spart, spert and spirt are non-words"),
     rcp("or", 2, 1, 3, "fort", "f__t", ["or", "ar", "er", "ur"],
       "fart is crude and stays out; fert and furt are non-words — ar is excluded from this set"),
-    cps("or", 2, 1, 4, "or (as in corn)", ["storm", "star", "pin", "bug"], "storm",
-      { star: "D-PATTERN-TRAP", pin: "D-VOWEL", bug: "D-VOWEL" }),
+    cps("or", 2, 1, 4, "or (as in corn)", ["storm", "star", "word", "bug"], "storm",
+      { star: "D-PATTERN-TRAP", word: "D-PATTERN-TRAP", bug: "D-VOWEL" },
+      "word carries the or letters with the /er/ sound and prevents prompt-overlap guessing"),
     cps("or", 2, 1, 5, "or (as in corn)", ["sport", "word", "hard", "pin"], "sport",
       { word: "D-PATTERN-TRAP", hard: "D-PATTERN-TRAP", pin: "D-VOWEL" },
       "word has or without the sound and out-chunks everything; horn-type keys stay out because corn contains orn"),
@@ -122,8 +133,8 @@ export default {
       "the unstressed final er — tiger, not a CVC word"),
     patp("er", 1, 2, 5, "flower", ["er", "ar", "or", "ir"]),
     patp("er", 1, 2, 6, "spider", ["er", "or", "ar", "ur"]),
-    rcp("er", 2, 2, 1, "her", "h__ (she did it — it belongs to ___)", ["er", "ir", "ur", "or"],
-      "the blueprint exemplar: the sentence frame pins her against hir/hur"),
+    rcp("er", 2, 2, 1, "her", "h__", ["er", "ir", "ur", "or"],
+      "the spoken word pins her against hir, hur and hor"),
     rcp("er", 2, 2, 2, "letter", "lett__", ["er", "ir", "ur", "ar"],
       "letter's double t locks the spelling family; lettir, lettur and lettar are non-words"),
     rcp("er", 2, 2, 3, "winter", "wint__", ["er", "ir", "ur", "or"],
@@ -140,11 +151,11 @@ export default {
 
     // ================= ir (phase 2) =================
     rcp("ir", 1, 2, 1, "bird", "b__d", ["ir", "er", "ur", "ar"],
-      "berd and burd are non-words; bard is real but the bird image pins the target"),
+      "berd and burd are non-words; bard is real but the heard word pins the target"),
     rcp("ir", 1, 2, 2, "girl", "g__l", ["ir", "ur", "er", "ar"],
       "gurl, gerl and garl are non-words"),
     rcp("ir", 1, 2, 3, "shirt", "sh__t", ["ir", "ur", "er", "or"],
-      "short is real — the shirt image pins the target"),
+      "short is real — the heard word pins the target"),
     patp("ir", 1, 2, 4, "bird", ["ir", "ar", "or", "er"]),
     patp("ir", 1, 2, 5, "girl", ["ir", "or", "ar", "ur"]),
     patp("ir", 1, 2, 6, "shirt", ["ir", "ar", "or", "er"]),
@@ -196,18 +207,18 @@ export default {
       "harn, hern and hirn are non-words"),
     patp("ar", 1, 1, 8, "car", ["ar", "or", "er", "ir"]),
     patp("or", 1, 1, 8, "storm", ["or", "ar", "ur", "er"]),
-    rcp("ir", 2, 2, 7, "first", "fir__", ["st", "nd", "th", "ft"],
-      "firnd, firth and firft are non-words — first is the unique real completion"),
-    rcp("ur", 2, 2, 7, "nurse", "nur__", ["se", "ce", "s", "ss"],
-      "nurce, nurs and nurss are rival spellings — developmental traps"),
+    rcp("ir", 2, 2, 7, "first", "f__st", ["ir", "ur", "er", "or"],
+      "the blank now assesses the keyed ir spelling in first", "Listen again"),
+    rcp("ur", 2, 2, 7, "nurse", "n__se", ["ur", "er", "ir", "or"],
+      "the blank now assesses the keyed ur spelling in nurse", "Listen again"),
     cps("ir", 2, 2, 8, "ir (as in bird)", ["first", "fire", "fort", "fan"], "first",
       { fire: "D-PATTERN-TRAP", fort: "D-PATTERN-TRAP", fan: "D-VOWEL" }),
     cps("ar", 2, 1, 8, "ar (as in car)", ["yarn", "warm", "win", "yak"], "yarn",
       { warm: "D-PATTERN-TRAP", win: "D-VOWEL", yak: "D-VOWEL" }),
     rcp("er", 1, 2, 7, "sister", "sist__", ["er", "ir", "ur", "ar"],
       "sistir, sistur and sistar are non-words"),
-    rcp("ur", 1, 2, 8, "fur", "f__", ["ur", "ir", "er", "oa"],
-      "fir and fer — fir is a real tree, so the fur image pins the target; foa is a non-word"),
+    rcp("ur", 1, 2, 8, "purse", "p__se", ["ur", "ir", "er", "oa"],
+      "pirse, perse and poase are not conventional spellings"),
   ].map(item => {
     if (item.v >= 7) item.retention = true;
     return item;

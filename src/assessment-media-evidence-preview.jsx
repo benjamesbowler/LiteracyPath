@@ -19,7 +19,7 @@ const REQUESTED_SKILL = PREVIEW_PARAMS.get("skill") || "";
 const REQUESTED_ITEM_ID = PREVIEW_PARAMS.get("item") || "";
 
 const COMPACT_VISUAL_GRID_QUESTION = {
-  id: "lp3.initial_sounds.l1.C.j.v3",
+  id: "preview.initial_sounds.rat.v1",
   skillId: "initial_sounds",
   assessmentSkillId: "initial_sounds",
   skill: "Initial Sounds",
@@ -28,45 +28,45 @@ const COMPACT_VISUAL_GRID_QUESTION = {
   difficulty: 1,
   questionType: "visual_card_choice",
   formatType: "INITIAL_SOUND_PAIR_SELECT",
-  question: "Which one starts like jug?",
-  prompt: "Which one starts like jug?",
-  spokenPrompt: "jug. Which one starts with the same sound as jug?",
-  targetWord: "jug",
-  answer: "jet",
-  correctAnswer: "jet",
-  choices: ["drum", "yarn", "mug", "jet"],
+  question: "Which word has the same starting sound?",
+  prompt: "Which word has the same starting sound?",
+  spokenPrompt: "Rat. Which word has the same starting sound?",
+  targetWord: "rat",
+  answer: "rose",
+  correctAnswer: "rose",
+  choices: ["rose", "map", "tent", "web"],
   imageCards: [
     {
-      id: "lp3.initial_sounds.l1.C.j.v3_card_drum",
-      word: "drum",
-      value: "drum",
-      label: "drum",
-      image: "/images/assessment/blends/drum.webp",
-      imageAlt: "drum"
+      id: "preview.initial_sounds.rat.v1_card_rose",
+      word: "rose",
+      value: "rose",
+      label: "rose",
+      image: "/images/assessment/objective-words/rose.webp",
+      imageAlt: "rose"
     },
     {
-      id: "lp3.initial_sounds.l1.C.j.v3_card_yarn",
-      word: "yarn",
-      value: "yarn",
-      label: "yarn",
-      image: "/images/child-mode/initial-sounds/yarn.png",
-      imageAlt: "yarn"
+      id: "preview.initial_sounds.rat.v1_card_map",
+      word: "map",
+      value: "map",
+      label: "map",
+      image: "/images/assessment/objective-words/map.webp",
+      imageAlt: "map"
     },
     {
-      id: "lp3.initial_sounds.l1.C.j.v3_card_mug",
-      word: "mug",
-      value: "mug",
-      label: "mug",
-      image: "/images/assessment/rhyming/variants/mug/mug-02.webp",
-      imageAlt: "mug"
+      id: "preview.initial_sounds.rat.v1_card_tent",
+      word: "tent",
+      value: "tent",
+      label: "tent",
+      image: "/images/assessment/objective-words/tent.webp",
+      imageAlt: "tent"
     },
     {
-      id: "lp3.initial_sounds.l1.C.j.v3_card_jet",
-      word: "jet",
-      value: "jet",
-      label: "jet",
-      image: "/images/assessment/rhyming/variants/et/jet-02.webp",
-      imageAlt: "jet"
+      id: "preview.initial_sounds.rat.v1_card_web",
+      word: "web",
+      value: "web",
+      label: "web",
+      image: "/images/assessment/objective-words/web.webp",
+      imageAlt: "web"
     }
   ]
 };

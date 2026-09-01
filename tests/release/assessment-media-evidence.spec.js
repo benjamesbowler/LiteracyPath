@@ -10,6 +10,82 @@ function blockingViolations(result) {
     }));
 }
 
+async function expectGeneratedPictureQuestion(page, {
+  itemId,
+  prompt,
+  skillId,
+  words
+}) {
+  const pageErrors = [];
+  page.on("pageerror", error => pageErrors.push(error.message));
+  const expectedPaths = words
+    .map(word => `/images/assessment/objective-words/${word}.webp`)
+    .sort();
+
+  for (const viewport of [
+    { height: 768, width: 1024 },
+    { height: 1024, width: 768 }
+  ]) {
+    await page.setViewportSize(viewport);
+    await page.goto(
+      `/preview/assessment-media-evidence.html?skill=${skillId}&item=${encodeURIComponent(itemId)}`
+    );
+
+    const preview = page.locator('[data-preview-scenario="generated-v3-item"]');
+    const question = page.locator(`[data-assessment-question-id="${itemId}"]`);
+    const cards = question.locator(".visual-assessment-card");
+    const images = cards.locator('img[data-assessment-media-kind="evidence"]');
+    const audioButtons = cards.locator(".initial-sound-card-audio");
+
+    await expect(preview).toBeVisible();
+    await expect(question).toBeVisible();
+    await expect(page.getByText(prompt, { exact: true })).toBeVisible();
+    await expect(cards).toHaveCount(4);
+    await expect(images).toHaveCount(4);
+    await expect(audioButtons).toHaveCount(4);
+    await expect(cards.locator("strong")).toHaveCount(0);
+    for (const word of words) {
+      await expect(page.getByRole("button", { name: `Hear ${word}`, exact: true })).toBeInViewport();
+    }
+
+    await expect.poll(async () => images.evaluateAll(elements => (
+      elements.every(image => image.complete && image.naturalWidth === 768 && image.naturalHeight === 768)
+    ))).toBe(true);
+    const paths = await images.evaluateAll(elements => elements
+      .map(image => new URL(image.src).pathname)
+      .sort());
+    expect(paths).toEqual(expectedPaths);
+
+    const geometry = await question.evaluate(element => {
+      const questionRect = element.getBoundingClientRect();
+      const controls = [...element.querySelectorAll(".initial-sound-card-audio")]
+        .map(control => control.getBoundingClientRect());
+      const imageRects = [...element.querySelectorAll('img[data-assessment-media-kind="evidence"]')]
+        .map(image => image.getBoundingClientRect());
+      return {
+        controlsInsideQuestion: controls.every(rect => (
+          rect.top >= questionRect.top - 1
+          && rect.bottom <= questionRect.bottom + 1
+        )),
+        documentOverflowX: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+        documentOverflowY: document.documentElement.scrollHeight - document.documentElement.clientHeight,
+        imagesLargeEnough: imageRects.every(rect => rect.width >= 96 && rect.height >= 96),
+        questionOverflowY: element.scrollHeight - element.clientHeight
+      };
+    });
+
+    expect(geometry).toEqual({
+      controlsInsideQuestion: true,
+      documentOverflowX: 0,
+      documentOverflowY: 0,
+      imagesLargeEnough: true,
+      questionOverflowY: 0
+    });
+  }
+
+  expect(pageErrors).toEqual([]);
+}
+
 test("A3.10 failed answer evidence is removed, refilled, and never scored", async ({ page }) => {
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));
@@ -48,52 +124,21 @@ test("A3.10 failed answer evidence is removed, refilled, and never scored", asyn
   expect(pageErrors).toEqual([]);
 });
 
-test("compact laptop assessment keeps every picture audio control visible", async ({ page }) => {
-  await page.setViewportSize({ width: 1440, height: 720 });
-  await page.goto("/preview/assessment-media-evidence.html?scenario=compact-visual-grid");
-
-  const preview = page.locator('[data-preview-scenario="compact-visual-grid"]');
-  const question = page.locator('[data-assessment-question-id="lp3.initial_sounds.l1.C.j.v3"]');
-  const cards = question.locator(".visual-assessment-card");
-  const audioButtons = cards.locator(".initial-sound-card-audio");
-
-  await expect(preview).toBeVisible();
-  await expect(question).toBeVisible();
-  await expect(cards).toHaveCount(4);
-  await expect(audioButtons).toHaveCount(4);
-  await expect(page.getByRole("button", { name: "Hear drum", exact: true })).toBeInViewport();
-  await expect(page.getByRole("button", { name: "Hear yarn", exact: true })).toBeInViewport();
-  await expect(page.getByRole("button", { name: "Hear mug", exact: true })).toBeInViewport();
-  await expect(page.getByRole("button", { name: "Hear jet", exact: true })).toBeInViewport();
-
-  const geometry = await question.evaluate(element => {
-    const grid = element.querySelector(".visual-card-grid");
-    const questionRect = element.getBoundingClientRect();
-    const columns = grid
-      ? getComputedStyle(grid).gridTemplateColumns
-        .split(" ")
-        .filter(track => Number.parseFloat(track) > 1)
-      : [];
-    const controls = [...element.querySelectorAll(".initial-sound-card-audio")]
-      .map(control => control.getBoundingClientRect());
-    return {
-      columns: columns.length,
-      documentOverflowX: document.documentElement.scrollWidth - document.documentElement.clientWidth,
-      documentOverflowY: document.documentElement.scrollHeight - document.documentElement.clientHeight,
-      questionOverflowY: element.scrollHeight - element.clientHeight,
-      controlsInsideQuestion: controls.every(rect => (
-        rect.top >= questionRect.top - 1
-        && rect.bottom <= questionRect.bottom + 1
-      ))
-    };
+test("iPad viewports keep the corrected tooth initial-sound evidence visible", async ({ page }) => {
+  await expectGeneratedPictureQuestion(page, {
+    itemId: "lp3.initial_sounds.l2.C.t.v3",
+    prompt: "Which word has the same starting sound?",
+    skillId: "initial_sounds",
+    words: ["fan", "tie", "dog", "duck"]
   });
+});
 
-  expect(geometry).toEqual({
-    columns: 4,
-    documentOverflowX: 0,
-    documentOverflowY: 0,
-    questionOverflowY: 0,
-    controlsInsideQuestion: true
+test("iPad viewports keep the corrected tooth digraph evidence visible", async ({ page }) => {
+  await expectGeneratedPictureQuestion(page, {
+    itemId: "lp3.digraphs.l2.C.ch.v3",
+    prompt: "Which word has the same final sound?",
+    skillId: "digraphs",
+    words: ["watch", "wheel", "tooth", "clock"]
   });
 });
 

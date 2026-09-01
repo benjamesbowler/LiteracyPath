@@ -374,11 +374,9 @@ export function isShortVowelWordCategoryQuestion(question = {}) {
 export function isListenChooseVowelQuestion(question = {}) {
   const skillId = String(question.skillId || question.skill || question.skillName || "").toLowerCase();
   const format = String(question.formatType || question.templateType || "").toUpperCase();
-  const prompt = String(question.prompt || question.question || "").toLowerCase();
   return (
     (skillId === "cvc_short_vowels" || skillId === "short_vowel_discrimination" || skillId.includes("short vowel")) &&
-    format === "LISTEN_CHOOSE_VOWEL" &&
-    prompt.includes("which vowel sound do you hear")
+    format === "LISTEN_CHOOSE_VOWEL"
   );
 }
 
@@ -625,6 +623,20 @@ export function isWordRecognitionQuestion(question) {
 }
 
 export function getAnchorWord(question) {
+  const formatType = String(question?.formatType || question?.templateType || "").toUpperCase();
+  if ([
+    "INITIAL_SOUND_PAIR_SELECT",
+    "FINAL_SOUND_PAIR_SELECT",
+    "RHYME_PAIR_SELECT",
+    "RHYME_MATCH_PICTURE",
+    "LISTEN_FIND_RHYME",
+    "DIGRAPH_IMAGE_CHOICE",
+    "BLEND_IMAGE_CHOICE"
+  ].includes(formatType)) {
+    const authoredAnchor = normalize(question?.targetWord || question?.audioText);
+    if (authoredAnchor) return authoredAnchor;
+  }
+
   const text = normalize([question?.question, question?.prompt, question?.spokenPrompt].join(" "));
   const match =
     text.match(/\b(?:starts the same as|ends the same as|starts like|ends like|has the same middle sound as|same sound in the middle as) ([a-z]+)\b/);

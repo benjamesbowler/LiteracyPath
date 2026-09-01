@@ -167,8 +167,8 @@ export const skillBlueprints = Object.freeze(Object.fromEntries([
       2: { 1: cvcShortVowelExpectedItemKeys, 2: cvcShortVowelExpectedItemKeys }
     },
     formatsByLevel: {
-      1: ["LISTEN_CHOOSE_VOWEL", "PICTURE_TO_PRINT_MATCH"],
-      2: ["LISTEN_CHOOSE_VOWEL", "PICTURE_TO_PRINT_MATCH", "SHORT_VOWEL_IMAGE_GROUP_SELECT"]
+      1: ["LISTEN_CHOOSE_VOWEL", "LISTEN_FIND_WORD"],
+      2: ["LISTEN_CHOOSE_VOWEL", "LISTEN_FIND_WORD", "SHORT_VOWEL_IMAGE_GROUP_SELECT"]
     },
     variantsPerUnit: { 1: 6, 2: 6 },
     passBudgetSittings: 4
@@ -272,8 +272,8 @@ export const skillBlueprints = Object.freeze(Object.fromEntries([
       2: { 1: ["oo", "ow", "ou"], 2: ["oi", "oy", "ew", "aw"] }
     },
     formatsByLevel: {
-      1: ["LONG_VOWEL_TEAM_COMPLETE", "CPS", "PTD", "PICTURE_TO_PRINT_MATCH"],
-      2: ["LONG_VOWEL_TEAM_COMPLETE", "CPS", "PTD", "PICTURE_TO_PRINT_MATCH"]
+      1: ["LONG_VOWEL_TEAM_COMPLETE", "CPS", "PTD", "LISTEN_FIND_WORD"],
+      2: ["LONG_VOWEL_TEAM_COMPLETE", "CPS", "PTD", "LISTEN_FIND_WORD"]
     },
     variantsPerUnit: { 1: 6, 2: 6 },
     passBudgetSittings: 4
@@ -428,7 +428,7 @@ export const skillBlueprints = Object.freeze(Object.fromEntries([
       2: { 1: ["antonym_precise", "synonym_shade"], 2: ["antonym_in_context", "synonym_in_context"] }
     },
     formatsByLevel: {
-      1: ["LANGUAGE_PAIR_TEXT_CHOICE", "GRAMMAR_IMAGE_CHOICE"],
+      1: ["LANGUAGE_PAIR_TEXT_CHOICE", "WORD_RELATION_TEXT_CHOICE"],
       2: ["LANGUAGE_PAIR_TEXT_CHOICE", "WORD_IN_SENTENCE_SWAP"]
     },
     variantsPerUnit: { 1: 6, 2: 6 },

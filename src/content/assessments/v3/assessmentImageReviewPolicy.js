@@ -6,9 +6,12 @@
 // pixels. A repaired path must match its reviewed replacement hash, and no
 // active image may match any rejected hash.
 
-export const ASSESSMENT_IMAGE_REVIEW_EVIDENCE_VERSION = "direct-pixel-review-2026-08-14-v4";
+import { ASSESSMENT_MEDIA_AUDIT_REJECTED_HASHES } from "./assessmentMediaAuditRejectedHashes.generated.js";
+import { OBJECTIVE_ASSESSMENT_IMAGE_REJECTIONS } from "./objectiveAssessmentImageStyleDecisions.generated.js";
 
-export const ASSESSMENT_REJECTED_IMAGE_HASHES = Object.freeze({
+export const ASSESSMENT_IMAGE_REVIEW_EVIDENCE_VERSION = "direct-pixel-review-2026-09-01-v9";
+
+const LEGACY_ASSESSMENT_REJECTED_IMAGE_HASHES = Object.freeze({
   "75eed63a59ad9cb8ae469d6d3938cf9c21dcf2fb4241443d366ec4d54462f8e9": {
     path: "/images/assessment/blends/block.webp",
     reason: "wood-grain texture and rendered three-dimensional material"
@@ -52,7 +55,72 @@ export const ASSESSMENT_REJECTED_IMAGE_HASHES = Object.freeze({
   "398eaa7d18456bddcc43ccaa0e2c069a3c5a86251e24249374004c223b37aece": {
     path: "/images/assessment/rhyming/variants/ad/sad-02.webp",
     reason: "unrelated top strip from a neighbouring image cell"
+  },
+  "01385d7324807f18822331da15fd5f9d94073aa29b5c0c1b8113491042263afc": {
+    path: "/images/assessment/rhyming/variants/am/ham-02.webp",
+    reason: "crop-contaminated legacy panel with unrelated neighbouring imagery"
+  },
+  "780f5382eb6f3be4bb9c396d9d742891e606ac3e4fadc80734c031c85ef6865c": {
+    path: "/images/assessment/rhyming/variants/am/ram-02.webp",
+    reason: "crop-contaminated legacy panel with unrelated neighbouring imagery"
+  },
+  "9f4006f08a3bceb029295d54e066b1d47f029f669b681d83813a3a579161832e": {
+    path: "/images/assessment/rhyming/variants/an/pan-02.webp",
+    reason: "crop-contaminated legacy panel with unrelated neighbouring imagery"
+  },
+  "1c78681f3b391f0815d67b19e30226ebb3bae8da83c380087be4996cd97fd4b0": {
+    path: "/images/assessment/rhyming/variants/ap/nap-02.webp",
+    reason: "crop-contaminated legacy panel with unrelated neighbouring imagery"
+  },
+  "06d2ccc2e4bdc423ac5ba111a9d42c2c02689ce04b81372f7283d52560d3f2db": {
+    path: "/images/assessment/rhyming/variants/ap/tap-02.webp",
+    reason: "crop-contaminated legacy panel with unrelated neighbouring imagery"
+  },
+  "805ab10fc9b3c8e93849750841b9619816f863b41296e36167f0349dffc20e47": {
+    path: "/images/assessment/rhyming/variants/at/cat-02.webp",
+    reason: "crop-contaminated legacy panel with unrelated neighbouring imagery"
+  },
+  "1cbdc5aa2121896bd94781d01923c49ac3b1f673f55ed7ea1f4926deb3b34e28": {
+    path: "/images/assessment/rhyming/variants/at/mat-02.webp",
+    reason: "crop-contaminated legacy panel with unrelated neighbouring imagery"
+  },
+  "3a73b2cca234916a610f7e63089bc8c82ade7ad972302ab238bce99f4f669fd3": {
+    path: "/images/assessment/rhyming/variants/cup/cup-02.webp",
+    reason: "crop-contaminated legacy panel with unrelated neighbouring imagery"
+  },
+  "7bdd1a9dab69dad0e05880d2f06037052b47c15b05c709b68dc04bd8364c42c6": {
+    path: "/images/assessment/rhyming/variants/ed/red-02.webp",
+    reason: "crop-contaminated legacy panel with unrelated neighbouring imagery"
+  },
+  "4ab711c3ecd09cfc05b688f6966965d738f6fe82770e63a8fea92e67c0fe1350": {
+    path: "/images/assessment/rhyming/variants/hut/hut-02.webp",
+    reason: "crop-contaminated legacy panel with unrelated neighbouring imagery"
+  },
+  "8677bf9c3197c0d0d0a6942cf978fd0b909945b5b9a3b71f4f4d66fb1e1aca5d": {
+    path: "/images/assessment/rhyming/variants/ig/dig-02.webp",
+    reason: "crop-contaminated legacy panel with unrelated neighbouring imagery"
+  },
+  "e4ca6cf9ce521c3f7d228899541d4a643d661c6a03f485b76af053bdb2d1c771": {
+    path: "/images/assessment/release-media/zebra-35caf16d.webp",
+    reason: "right-edge strip from a neighbouring image cell"
   }
+});
+
+const OBJECTIVE_ASSESSMENT_REJECTED_IMAGE_HASHES = Object.freeze(
+  Object.fromEntries(Object.values(OBJECTIVE_ASSESSMENT_IMAGE_REJECTIONS).map(rejection => [
+    rejection.sha256,
+    {
+      path: rejection.path,
+      reason: rejection.rejectionReason,
+      reviewVersion: rejection.reviewVersion
+    }
+  ]))
+);
+
+export const ASSESSMENT_REJECTED_IMAGE_HASHES = Object.freeze({
+  ...LEGACY_ASSESSMENT_REJECTED_IMAGE_HASHES,
+  ...ASSESSMENT_MEDIA_AUDIT_REJECTED_HASHES,
+  ...OBJECTIVE_ASSESSMENT_REJECTED_IMAGE_HASHES
 });
 
 export const ASSESSMENT_REVIEWED_REPLACEMENT_HASHES = Object.freeze({

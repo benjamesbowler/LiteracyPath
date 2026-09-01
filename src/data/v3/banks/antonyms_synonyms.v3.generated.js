@@ -18,23 +18,23 @@ export const questions = [
   "form": "A",
   "itemType": "word_relation",
   "itemKey": "antonym_concrete",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
   "prompt": "What is the opposite of hot?",
   "question": "What is the opposite of hot?",
   "spokenPrompt": "What is the opposite of hot?",
   "choices": [
-   "warm",
+   "heated",
    "cold",
-   "boiling",
-   "wet"
+   "scorching",
+   "warm"
   ],
   "answerOptions": [
    {
-    "value": "warm",
-    "label": "warm",
-    "text": "warm"
+    "value": "heated",
+    "label": "heated",
+    "text": "heated"
    },
    {
     "value": "cold",
@@ -42,24 +42,24 @@ export const questions = [
     "text": "cold"
    },
    {
-    "value": "boiling",
-    "label": "boiling",
-    "text": "boiling"
+    "value": "scorching",
+    "label": "scorching",
+    "text": "scorching"
    },
    {
-    "value": "wet",
-    "label": "wet",
-    "text": "wet"
+    "value": "warm",
+    "label": "warm",
+    "text": "warm"
    }
   ],
   "answer": "cold",
   "correctAnswer": "cold",
   "distractorRationales": {
-   "warm": "D-SAME-DOMAIN",
-   "boiling": "D-OPPOSITE",
-   "wet": "D-TOPIC-ADJACENT"
+   "heated": "D-SAME-DOMAIN",
+   "scorching": "D-OPPOSITE",
+   "warm": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -67,27 +67,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "hot",
   "v3AuthoredMedia": {
-   "target": true,
-   "cards": true
+   "target": false,
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.A.antonym_concrete.v1",
-   "role": "answer-cards",
-   "paths": [
-    "/images/assessment/rhyming/variants/ot/hot-02.webp",
-    "/images/assessment/generated/concepts/warm.webp",
-    "/images/assessment/language/variants/antonyms-synonyms/cold-chilly-01.webp",
-    "/images/assessment/generated/concepts/boiling.webp",
-    "/images/assessment/rhyming/variants/et/wet-02.webp"
-   ],
-   "alt": "Picture choices for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options"
   },
-  "requiredImageAssetKey": "hot",
-  "stimulusMediaId": "hot",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -97,51 +87,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.antonyms_synonyms.l1.A.antonym_concrete.v1_card_warm",
-    "word": "warm",
-    "value": "warm",
-    "label": "warm",
-    "image": "/images/assessment/generated/concepts/warm.webp",
-    "imagePath": "/images/assessment/generated/concepts/warm.webp",
-    "imageAlt": "Picture showing warm"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.A.antonym_concrete.v1_card_cold",
-    "word": "cold",
-    "value": "cold",
-    "label": "cold",
-    "image": "/images/assessment/language/variants/antonyms-synonyms/cold-chilly-01.webp",
-    "imagePath": "/images/assessment/language/variants/antonyms-synonyms/cold-chilly-01.webp",
-    "imageAlt": "Picture showing cold"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.A.antonym_concrete.v1_card_boiling",
-    "word": "boiling",
-    "value": "boiling",
-    "label": "boiling",
-    "image": "/images/assessment/generated/concepts/boiling.webp",
-    "imagePath": "/images/assessment/generated/concepts/boiling.webp",
-    "imageAlt": "Picture showing boiling"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.A.antonym_concrete.v1_card_wet",
-    "word": "wet",
-    "value": "wet",
-    "label": "wet",
-    "image": "/images/assessment/rhyming/variants/et/wet-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/et/wet-02.webp",
-    "imageAlt": "Picture showing wet"
-   }
-  ],
-  "imagePath": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-  "resolvedImageAssetKey": "hot",
-  "imageAlt": "hot"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l1.B.antonym_concrete.v2",
@@ -160,9 +106,9 @@ export const questions = [
   "form": "B",
   "itemType": "word_relation",
   "itemKey": "antonym_concrete",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
   "prompt": "What is the opposite of big?",
   "question": "What is the opposite of big?",
   "spokenPrompt": "What is the opposite of big?",
@@ -201,7 +147,7 @@ export const questions = [
    "huge": "D-OPPOSITE",
    "tall": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -209,27 +155,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "big",
   "v3AuthoredMedia": {
-   "target": true,
-   "cards": true
+   "target": false,
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.B.antonym_concrete.v2",
-   "role": "answer-cards",
-   "paths": [
-    "/images/assessment/hfw/big.webp",
-    "/images/assessment/language/variants/antonyms-synonyms/small-little-01.webp",
-    "/images/assessment/long-vowels/huge.webp",
-    "/images/assessment/rhyming/variants/all/tall-02.webp",
-    "/images/assessment/language/variants/homophones-homonyms/hi-high-01.webp"
-   ],
-   "alt": "Picture choices for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options"
   },
-  "requiredImageAssetKey": "big",
-  "stimulusMediaId": "big",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -239,51 +175,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.antonyms_synonyms.l1.B.antonym_concrete.v2_card_small",
-    "word": "small",
-    "value": "small",
-    "label": "small",
-    "image": "/images/assessment/language/variants/antonyms-synonyms/small-little-01.webp",
-    "imagePath": "/images/assessment/language/variants/antonyms-synonyms/small-little-01.webp",
-    "imageAlt": "Picture showing small"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.B.antonym_concrete.v2_card_huge",
-    "word": "huge",
-    "value": "huge",
-    "label": "huge",
-    "image": "/images/assessment/long-vowels/huge.webp",
-    "imagePath": "/images/assessment/long-vowels/huge.webp",
-    "imageAlt": "Picture showing huge"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.B.antonym_concrete.v2_card_tall",
-    "word": "tall",
-    "value": "tall",
-    "label": "tall",
-    "image": "/images/assessment/rhyming/variants/all/tall-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/all/tall-02.webp",
-    "imageAlt": "Picture showing tall"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.B.antonym_concrete.v2_card_high",
-    "word": "high",
-    "value": "high",
-    "label": "high",
-    "image": "/images/assessment/language/variants/homophones-homonyms/hi-high-01.webp",
-    "imagePath": "/images/assessment/language/variants/homophones-homonyms/hi-high-01.webp",
-    "imageAlt": "Picture showing high"
-   }
-  ],
-  "imagePath": "/images/assessment/hfw/big.webp",
-  "imageUrl": "/images/assessment/hfw/big.webp",
-  "targetImage": "/images/assessment/hfw/big.webp",
-  "targetImagePath": "/images/assessment/hfw/big.webp",
-  "resolvedImageAssetKey": "big",
-  "imageAlt": "big"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l1.C.antonym_concrete.v3",
@@ -302,9 +194,9 @@ export const questions = [
   "form": "C",
   "itemType": "word_relation",
   "itemKey": "antonym_concrete",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
   "prompt": "What is the opposite of up?",
   "question": "What is the opposite of up?",
   "spokenPrompt": "What is the opposite of up?",
@@ -343,7 +235,7 @@ export const questions = [
    "high": "D-OPPOSITE",
    "under": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -351,27 +243,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "up",
   "v3AuthoredMedia": {
-   "target": true,
-   "cards": true
+   "target": false,
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.C.antonym_concrete.v3",
-   "role": "answer-cards",
-   "paths": [
-    "/images/assessment/hfw/up.webp",
-    "/images/assessment/language/variants/homophones-homonyms/hi-high-01.webp",
-    "/images/assessment/release-media/under-4ba8f260.webp",
-    "/images/assessment/rhyming/variants/op/top-02.webp",
-    "/images/assessment/hfw/down.webp"
-   ],
-   "alt": "Picture choices for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options"
   },
-  "requiredImageAssetKey": "up",
-  "stimulusMediaId": "up",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -381,51 +263,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.antonyms_synonyms.l1.C.antonym_concrete.v3_card_high",
-    "word": "high",
-    "value": "high",
-    "label": "high",
-    "image": "/images/assessment/language/variants/homophones-homonyms/hi-high-01.webp",
-    "imagePath": "/images/assessment/language/variants/homophones-homonyms/hi-high-01.webp",
-    "imageAlt": "Picture showing high"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.C.antonym_concrete.v3_card_under",
-    "word": "under",
-    "value": "under",
-    "label": "under",
-    "image": "/images/assessment/release-media/under-4ba8f260.webp",
-    "imagePath": "/images/assessment/release-media/under-4ba8f260.webp",
-    "imageAlt": "Picture showing under"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.C.antonym_concrete.v3_card_top",
-    "word": "top",
-    "value": "top",
-    "label": "top",
-    "image": "/images/assessment/rhyming/variants/op/top-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/op/top-02.webp",
-    "imageAlt": "Picture showing top"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.C.antonym_concrete.v3_card_down",
-    "word": "down",
-    "value": "down",
-    "label": "down",
-    "image": "/images/assessment/hfw/down.webp",
-    "imagePath": "/images/assessment/hfw/down.webp",
-    "imageAlt": "Picture showing down"
-   }
-  ],
-  "imagePath": "/images/assessment/hfw/up.webp",
-  "imageUrl": "/images/assessment/hfw/up.webp",
-  "targetImage": "/images/assessment/hfw/up.webp",
-  "targetImagePath": "/images/assessment/hfw/up.webp",
-  "resolvedImageAssetKey": "up",
-  "imageAlt": "up"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l1.A.antonym_concrete.v4",
@@ -485,7 +323,7 @@ export const questions = [
    "damp": "D-TOPIC-ADJACENT",
    "dripping": "D-SAME-DOMAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -493,23 +331,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "wet",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.A.antonym_concrete.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/et/wet-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "wet",
-  "stimulusMediaId": "wet",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -519,13 +351,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/et/wet-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/et/wet-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/et/wet-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/et/wet-02.webp",
-  "resolvedImageAssetKey": "wet",
-  "imageAlt": "wet"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l1.B.antonym_concrete.v5",
@@ -547,9 +373,9 @@ export const questions = [
   "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
   "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "The picture shows something hot. Pick the opposite of hot.",
-  "question": "The picture shows something hot. Pick the opposite of hot.",
-  "spokenPrompt": "The picture shows something hot. Pick the opposite of hot.",
+  "prompt": "Which word is the opposite of hot?",
+  "question": "Which word is the opposite of hot?",
+  "spokenPrompt": "Which word is the opposite of hot?",
   "choices": [
    "steaming",
    "cold",
@@ -585,7 +411,7 @@ export const questions = [
    "steaming": "D-SAME-DOMAIN",
    "boiling": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -593,23 +419,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "hot",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.B.antonym_concrete.v5",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/ot/hot-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "hot",
-  "stimulusMediaId": "hot",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -619,13 +439,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cold is the only temperature opposite; the remaining words all reinforce heat",
-  "imagePath": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-  "resolvedImageAssetKey": "hot",
-  "imageAlt": "hot"
+  "notes": "cold is the only temperature opposite; the remaining words all reinforce heat"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.C.antonym_concrete.v6",
@@ -647,9 +461,9 @@ export const questions = [
   "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
   "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "The whale in the picture is big. Pick the opposite of big.",
-  "question": "The whale in the picture is big. Pick the opposite of big.",
-  "spokenPrompt": "The whale in the picture is big. Pick the opposite of big.",
+  "prompt": "Which word is the opposite of big?",
+  "question": "Which word is the opposite of big?",
+  "spokenPrompt": "Which word is the opposite of big?",
   "choices": [
    "small",
    "huge",
@@ -685,7 +499,7 @@ export const questions = [
    "wide": "D-TOPIC-ADJACENT",
    "tall": "D-SAME-DOMAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -693,23 +507,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "whale",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.C.antonym_concrete.v6",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/whale.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "whale",
-  "stimulusMediaId": "whale",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -719,13 +527,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/whale.webp",
-  "imageUrl": "/images/assessment/digraphs/whale.webp",
-  "targetImage": "/images/assessment/digraphs/whale.webp",
-  "targetImagePath": "/images/assessment/digraphs/whale.webp",
-  "resolvedImageAssetKey": "whale",
-  "imageAlt": "whale"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l1.A.synonym_concrete.v1",
@@ -744,9 +546,9 @@ export const questions = [
   "form": "A",
   "itemType": "word_relation",
   "itemKey": "synonym_concrete",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
   "prompt": "Which word means about the same as happy?",
   "question": "Which word means about the same as happy?",
   "spokenPrompt": "Which word means about the same as happy?",
@@ -785,7 +587,7 @@ export const questions = [
    "proud": "D-TOPIC-ADJACENT",
    "sleepy": "D-SAME-DOMAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -793,27 +595,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "happy",
   "v3AuthoredMedia": {
-   "target": true,
-   "cards": true
+   "target": false,
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.A.synonym_concrete.v1",
-   "role": "answer-cards",
-   "paths": [
-    "/images/assessment/generated/concepts/happy.webp",
-    "/images/assessment/rhyming/variants/ad/sad-02.webp",
-    "/images/assessment/generated/concepts/proud.webp",
-    "/images/assessment/language/variants/adjectives/sleepy-01.webp",
-    "/images/assessment/language/variants/antonyms-synonyms/glad-upset-01.webp"
-   ],
-   "alt": "Picture choices for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options"
   },
-  "requiredImageAssetKey": "happy",
-  "stimulusMediaId": "happy",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -823,51 +615,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.antonyms_synonyms.l1.A.synonym_concrete.v1_card_sad",
-    "word": "sad",
-    "value": "sad",
-    "label": "sad",
-    "image": "/images/assessment/rhyming/variants/ad/sad-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ad/sad-02.webp",
-    "imageAlt": "Picture showing sad"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.A.synonym_concrete.v1_card_proud",
-    "word": "proud",
-    "value": "proud",
-    "label": "proud",
-    "image": "/images/assessment/generated/concepts/proud.webp",
-    "imagePath": "/images/assessment/generated/concepts/proud.webp",
-    "imageAlt": "Picture showing proud"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.A.synonym_concrete.v1_card_sleepy",
-    "word": "sleepy",
-    "value": "sleepy",
-    "label": "sleepy",
-    "image": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
-    "imagePath": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
-    "imageAlt": "Picture showing sleepy"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.A.synonym_concrete.v1_card_glad",
-    "word": "glad",
-    "value": "glad",
-    "label": "glad",
-    "image": "/images/assessment/language/variants/antonyms-synonyms/glad-upset-01.webp",
-    "imagePath": "/images/assessment/language/variants/antonyms-synonyms/glad-upset-01.webp",
-    "imageAlt": "Picture showing glad"
-   }
-  ],
-  "imagePath": "/images/assessment/generated/concepts/happy.webp",
-  "imageUrl": "/images/assessment/generated/concepts/happy.webp",
-  "targetImage": "/images/assessment/generated/concepts/happy.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/happy.webp",
-  "resolvedImageAssetKey": "happy",
-  "imageAlt": "happy"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l1.B.synonym_concrete.v2",
@@ -886,28 +634,28 @@ export const questions = [
   "form": "B",
   "itemType": "word_relation",
   "itemKey": "synonym_concrete",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
   "prompt": "Which word means about the same as shout?",
   "question": "Which word means about the same as shout?",
   "spokenPrompt": "Which word means about the same as shout?",
   "choices": [
+   "talk",
    "sing",
-   "bark",
    "yell",
-   "talk"
+   "whisper"
   ],
   "answerOptions": [
+   {
+    "value": "talk",
+    "label": "talk",
+    "text": "talk"
+   },
    {
     "value": "sing",
     "label": "sing",
     "text": "sing"
-   },
-   {
-    "value": "bark",
-    "label": "bark",
-    "text": "bark"
    },
    {
     "value": "yell",
@@ -915,19 +663,19 @@ export const questions = [
     "text": "yell"
    },
    {
-    "value": "talk",
-    "label": "talk",
-    "text": "talk"
+    "value": "whisper",
+    "label": "whisper",
+    "text": "whisper"
    }
   ],
   "answer": "yell",
   "correctAnswer": "yell",
   "distractorRationales": {
-   "talk": "D-OPPOSITE",
-   "sing": "D-TOPIC-ADJACENT",
-   "bark": "D-SAME-DOMAIN"
+   "whisper": "D-OPPOSITE",
+   "talk": "D-TOPIC-ADJACENT",
+   "sing": "D-SAME-DOMAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -935,27 +683,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "shout",
   "v3AuthoredMedia": {
-   "target": true,
-   "cards": true
+   "target": false,
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.B.synonym_concrete.v2",
-   "role": "answer-cards",
-   "paths": [
-    "/images/assessment/generated/concepts/shout.webp",
-    "/images/assessment/generated/concepts/sing.webp",
-    "/images/assessment/generated/concepts/bark.webp",
-    "/images/assessment/generated/concepts/yell.webp",
-    "/images/assessment/generated/concepts/talk.webp"
-   ],
-   "alt": "Picture choices for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options"
   },
-  "requiredImageAssetKey": "shout",
-  "stimulusMediaId": "shout",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -965,51 +703,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.antonyms_synonyms.l1.B.synonym_concrete.v2_card_sing",
-    "word": "sing",
-    "value": "sing",
-    "label": "sing",
-    "image": "/images/assessment/generated/concepts/sing.webp",
-    "imagePath": "/images/assessment/generated/concepts/sing.webp",
-    "imageAlt": "Picture showing sing"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.B.synonym_concrete.v2_card_bark",
-    "word": "bark",
-    "value": "bark",
-    "label": "bark",
-    "image": "/images/assessment/generated/concepts/bark.webp",
-    "imagePath": "/images/assessment/generated/concepts/bark.webp",
-    "imageAlt": "Picture showing bark"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.B.synonym_concrete.v2_card_yell",
-    "word": "yell",
-    "value": "yell",
-    "label": "yell",
-    "image": "/images/assessment/generated/concepts/yell.webp",
-    "imagePath": "/images/assessment/generated/concepts/yell.webp",
-    "imageAlt": "Picture showing yell"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.B.synonym_concrete.v2_card_talk",
-    "word": "talk",
-    "value": "talk",
-    "label": "talk",
-    "image": "/images/assessment/generated/concepts/talk.webp",
-    "imagePath": "/images/assessment/generated/concepts/talk.webp",
-    "imageAlt": "Picture showing talk"
-   }
-  ],
-  "imagePath": "/images/assessment/generated/concepts/shout.webp",
-  "imageUrl": "/images/assessment/generated/concepts/shout.webp",
-  "targetImage": "/images/assessment/generated/concepts/shout.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/shout.webp",
-  "resolvedImageAssetKey": "shout",
-  "imageAlt": "shout"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l1.C.synonym_concrete.v3",
@@ -1035,16 +729,16 @@ export const questions = [
   "question": "Which word means about the same as little?",
   "spokenPrompt": "Which word means about the same as little?",
   "choices": [
-   "short",
+   "wide",
    "small",
    "huge",
    "thin"
   ],
   "answerOptions": [
    {
-    "value": "short",
-    "label": "short",
-    "text": "short"
+    "value": "wide",
+    "label": "wide",
+    "text": "wide"
    },
    {
     "value": "small",
@@ -1067,7 +761,7 @@ export const questions = [
   "distractorRationales": {
    "huge": "D-OPPOSITE",
    "thin": "D-TOPIC-ADJACENT",
-   "short": "D-SAME-DOMAIN"
+   "wide": "D-SAME-DOMAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1078,21 +772,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.C.synonym_concrete.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l1-c-synonym-concrete-v3.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l1-c-synonym-concrete-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l1-c-synonym-concrete-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1102,13 +791,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l1-c-synonym-concrete-v3.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l1-c-synonym-concrete-v3.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l1-c-synonym-concrete-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l1-c-synonym-concrete-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l1-c-synonym-concrete-v3.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l1.A.synonym_concrete.v4",
@@ -1168,7 +851,7 @@ export const questions = [
    "finish": "D-OPPOSITE",
    "continue": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1176,23 +859,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "begin",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.A.synonym_concrete.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/generated/concepts/begin.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "begin",
-  "stimulusMediaId": "begin",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1202,13 +879,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "finish is the true opposite; continue and pause are plausible event-stage near-misses",
-  "imagePath": "/images/assessment/generated/concepts/begin.webp",
-  "imageUrl": "/images/assessment/generated/concepts/begin.webp",
-  "targetImage": "/images/assessment/generated/concepts/begin.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/begin.webp",
-  "resolvedImageAssetKey": "begin",
-  "imageAlt": "begin"
+  "notes": "finish is the true opposite; continue and pause are plausible event-stage near-misses"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.B.synonym_concrete.v5",
@@ -1230,9 +901,9 @@ export const questions = [
   "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
   "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "The picture shows the sea. Which word is closest to 'sea'?",
-  "question": "The picture shows the sea. Which word is closest to 'sea'?",
-  "spokenPrompt": "The picture shows the sea. Which word is closest to 'sea'?",
+  "prompt": "Which word is another name for sea?",
+  "question": "Which word is another name for sea?",
+  "spokenPrompt": "Which word is another name for sea?",
   "choices": [
    "land",
    "beach",
@@ -1268,7 +939,7 @@ export const questions = [
    "beach": "D-TOPIC-ADJACENT",
    "lake": "D-SAME-DOMAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1276,23 +947,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "sea",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.B.synonym_concrete.v5",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/language/variants/homophones-homonyms/see-sea-01.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "sea",
-  "stimulusMediaId": "sea",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1302,13 +967,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "ocean alone is a synonym; land contrasts with sea while beach and lake stay in the same domain",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/see-sea-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/see-sea-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/see-sea-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/see-sea-01.webp",
-  "resolvedImageAssetKey": "sea",
-  "imageAlt": "sea"
+  "notes": "ocean alone is a synonym; land contrasts with sea while beach and lake stay in the same domain"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.C.synonym_concrete.v6",
@@ -1368,7 +1027,7 @@ export const questions = [
    "dry": "D-OPPOSITE",
    "cold": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1376,23 +1035,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "rain",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.C.synonym_concrete.v6",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/rain.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "rain",
-  "stimulusMediaId": "rain",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1402,13 +1055,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/rain.webp",
-  "imageUrl": "/images/assessment/long-vowels/rain.webp",
-  "targetImage": "/images/assessment/long-vowels/rain.webp",
-  "targetImagePath": "/images/assessment/long-vowels/rain.webp",
-  "resolvedImageAssetKey": "rain",
-  "imageAlt": "rain"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l1.A.antonym_picture.v1",
@@ -1427,17 +1074,17 @@ export const questions = [
   "form": "A",
   "itemType": "word_relation",
   "itemKey": "antonym_picture",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "The arrow points up. Pick the opposite of up.",
-  "question": "The arrow points up. Pick the opposite of up.",
-  "spokenPrompt": "The arrow points up. Pick the opposite of up.",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word is the opposite of up?",
+  "question": "Which word is the opposite of up?",
+  "spokenPrompt": "Which word is the opposite of up?",
   "choices": [
    "top",
    "down",
    "high",
-   "low"
+   "above"
   ],
   "answerOptions": [
    {
@@ -1456,19 +1103,19 @@ export const questions = [
     "text": "high"
    },
    {
-    "value": "low",
-    "label": "low",
-    "text": "low"
+    "value": "above",
+    "label": "above",
+    "text": "above"
    }
   ],
   "answer": "down",
   "correctAnswer": "down",
   "distractorRationales": {
-   "low": "D-TOPIC-ADJACENT",
+   "above": "D-TOPIC-ADJACENT",
    "top": "D-SAME-DOMAIN",
    "high": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1476,27 +1123,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "up",
   "v3AuthoredMedia": {
-   "target": true,
-   "cards": true
+   "target": false,
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.A.antonym_picture.v1",
-   "role": "answer-cards",
-   "paths": [
-    "/images/assessment/hfw/up.webp",
-    "/images/assessment/rhyming/variants/op/top-02.webp",
-    "/images/assessment/hfw/down.webp",
-    "/images/assessment/language/variants/homophones-homonyms/hi-high-01.webp",
-    "/images/assessment/generated/concepts/low.webp"
-   ],
-   "alt": "Picture choices for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options"
   },
-  "requiredImageAssetKey": "up",
-  "stimulusMediaId": "up",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1506,51 +1143,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "arrow gifts ow to down; opposite gifts op to top — tie",
-  "imageCards": [
-   {
-    "id": "lp3.antonyms_synonyms.l1.A.antonym_picture.v1_card_top",
-    "word": "top",
-    "value": "top",
-    "label": "top",
-    "image": "/images/assessment/rhyming/variants/op/top-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/op/top-02.webp",
-    "imageAlt": "Picture showing top"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.A.antonym_picture.v1_card_down",
-    "word": "down",
-    "value": "down",
-    "label": "down",
-    "image": "/images/assessment/hfw/down.webp",
-    "imagePath": "/images/assessment/hfw/down.webp",
-    "imageAlt": "Picture showing down"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.A.antonym_picture.v1_card_high",
-    "word": "high",
-    "value": "high",
-    "label": "high",
-    "image": "/images/assessment/language/variants/homophones-homonyms/hi-high-01.webp",
-    "imagePath": "/images/assessment/language/variants/homophones-homonyms/hi-high-01.webp",
-    "imageAlt": "Picture showing high"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.A.antonym_picture.v1_card_low",
-    "word": "low",
-    "value": "low",
-    "label": "low",
-    "image": "/images/assessment/generated/concepts/low.webp",
-    "imagePath": "/images/assessment/generated/concepts/low.webp",
-    "imageAlt": "Picture showing low"
-   }
-  ],
-  "imagePath": "/images/assessment/hfw/up.webp",
-  "imageUrl": "/images/assessment/hfw/up.webp",
-  "targetImage": "/images/assessment/hfw/up.webp",
-  "targetImagePath": "/images/assessment/hfw/up.webp",
-  "resolvedImageAssetKey": "up",
-  "imageAlt": "up"
+  "notes": "arrow gifts ow to down; opposite gifts op to top — tie"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.B.antonym_picture.v2",
@@ -1569,17 +1162,17 @@ export const questions = [
   "form": "B",
   "itemType": "word_relation",
   "itemKey": "antonym_picture",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "It is night in the picture. Pick the opposite of night.",
-  "question": "It is night in the picture. Pick the opposite of night.",
-  "spokenPrompt": "It is night in the picture. Pick the opposite of night.",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word is the opposite of night?",
+  "question": "Which word is the opposite of night?",
+  "spokenPrompt": "Which word is the opposite of night?",
   "choices": [
    "day",
    "dark",
    "moon",
-   "sun"
+   "midnight"
   ],
   "answerOptions": [
    {
@@ -1598,9 +1191,9 @@ export const questions = [
     "text": "moon"
    },
    {
-    "value": "sun",
-    "label": "sun",
-    "text": "sun"
+    "value": "midnight",
+    "label": "midnight",
+    "text": "midnight"
    }
   ],
   "answer": "day",
@@ -1608,9 +1201,9 @@ export const questions = [
   "distractorRationales": {
    "dark": "D-OPPOSITE",
    "moon": "D-TOPIC-ADJACENT",
-   "sun": "D-SAME-DOMAIN"
+   "midnight": "D-SAME-DOMAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1618,27 +1211,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "night",
   "v3AuthoredMedia": {
-   "target": true,
-   "cards": true
+   "target": false,
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.B.antonym_picture.v2",
-   "role": "answer-cards",
-   "paths": [
-    "/images/assessment/long-vowels/night.webp",
-    "/images/assessment/language/variants/plurals/day-days-01.webp",
-    "/images/assessment/generated/concepts/dark.webp",
-    "/images/assessment/long-vowels/moon.webp",
-    "/images/assessment/rhyming/variants/sun/sun-02.webp"
-   ],
-   "alt": "Picture choices for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options"
   },
-  "requiredImageAssetKey": "night",
-  "stimulusMediaId": "night",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1648,51 +1231,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.antonyms_synonyms.l1.B.antonym_picture.v2_card_day",
-    "word": "day",
-    "value": "day",
-    "label": "day",
-    "image": "/images/assessment/language/variants/plurals/day-days-01.webp",
-    "imagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
-    "imageAlt": "Picture showing day"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.B.antonym_picture.v2_card_dark",
-    "word": "dark",
-    "value": "dark",
-    "label": "dark",
-    "image": "/images/assessment/generated/concepts/dark.webp",
-    "imagePath": "/images/assessment/generated/concepts/dark.webp",
-    "imageAlt": "Picture showing dark"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.B.antonym_picture.v2_card_moon",
-    "word": "moon",
-    "value": "moon",
-    "label": "moon",
-    "image": "/images/assessment/long-vowels/moon.webp",
-    "imagePath": "/images/assessment/long-vowels/moon.webp",
-    "imageAlt": "Picture showing moon"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.B.antonym_picture.v2_card_sun",
-    "word": "sun",
-    "value": "sun",
-    "label": "sun",
-    "image": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-    "imageAlt": "Picture showing sun"
-   }
-  ],
-  "imagePath": "/images/assessment/long-vowels/night.webp",
-  "imageUrl": "/images/assessment/long-vowels/night.webp",
-  "targetImage": "/images/assessment/long-vowels/night.webp",
-  "targetImagePath": "/images/assessment/long-vowels/night.webp",
-  "resolvedImageAssetKey": "night",
-  "imageAlt": "night"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l1.C.antonym_picture.v3",
@@ -1711,12 +1250,12 @@ export const questions = [
   "form": "C",
   "itemType": "word_relation",
   "itemKey": "antonym_picture",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "The shoes in the picture are new. Pick the opposite of new.",
-  "question": "The shoes in the picture are new. Pick the opposite of new.",
-  "spokenPrompt": "The shoes in the picture are new. Pick the opposite of new.",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word is the opposite of new?",
+  "question": "Which word is the opposite of new?",
+  "spokenPrompt": "Which word is the opposite of new?",
   "choices": [
    "fresh",
    "shiny",
@@ -1752,7 +1291,7 @@ export const questions = [
    "clean": "D-SAME-DOMAIN",
    "fresh": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1760,27 +1299,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "new",
   "v3AuthoredMedia": {
-   "target": true,
-   "cards": true
+   "target": false,
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.C.antonym_picture.v3",
-   "role": "answer-cards",
-   "paths": [
-    "/images/assessment/hfw/new.webp",
-    "/images/assessment/language/variants/antonyms-synonyms/fresh-stale-01.webp",
-    "/images/assessment/generated/concepts/shiny.webp",
-    "/images/assessment/generated/concepts/clean.webp",
-    "/images/assessment/hfw/old.webp"
-   ],
-   "alt": "Picture choices for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options"
   },
-  "requiredImageAssetKey": "new",
-  "stimulusMediaId": "new",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1790,51 +1319,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "shoes gifts sh to fresh and shiny — a tied distractor pair",
-  "imageCards": [
-   {
-    "id": "lp3.antonyms_synonyms.l1.C.antonym_picture.v3_card_fresh",
-    "word": "fresh",
-    "value": "fresh",
-    "label": "fresh",
-    "image": "/images/assessment/language/variants/antonyms-synonyms/fresh-stale-01.webp",
-    "imagePath": "/images/assessment/language/variants/antonyms-synonyms/fresh-stale-01.webp",
-    "imageAlt": "Picture showing fresh"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.C.antonym_picture.v3_card_shiny",
-    "word": "shiny",
-    "value": "shiny",
-    "label": "shiny",
-    "image": "/images/assessment/generated/concepts/shiny.webp",
-    "imagePath": "/images/assessment/generated/concepts/shiny.webp",
-    "imageAlt": "Picture showing shiny"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.C.antonym_picture.v3_card_clean",
-    "word": "clean",
-    "value": "clean",
-    "label": "clean",
-    "image": "/images/assessment/generated/concepts/clean.webp",
-    "imagePath": "/images/assessment/generated/concepts/clean.webp",
-    "imageAlt": "Picture showing clean"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.C.antonym_picture.v3_card_old",
-    "word": "old",
-    "value": "old",
-    "label": "old",
-    "image": "/images/assessment/hfw/old.webp",
-    "imagePath": "/images/assessment/hfw/old.webp",
-    "imageAlt": "Picture showing old"
-   }
-  ],
-  "imagePath": "/images/assessment/hfw/new.webp",
-  "imageUrl": "/images/assessment/hfw/new.webp",
-  "targetImage": "/images/assessment/hfw/new.webp",
-  "targetImagePath": "/images/assessment/hfw/new.webp",
-  "resolvedImageAssetKey": "new",
-  "imageAlt": "new"
+  "notes": "shoes gifts sh to fresh and shiny — a tied distractor pair"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.A.antonym_picture.v4",
@@ -1856,20 +1341,20 @@ export const questions = [
   "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
   "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "The door in the picture is open. Pick the opposite of open.",
-  "question": "The door in the picture is open. Pick the opposite of open.",
-  "spokenPrompt": "The door in the picture is open. Pick the opposite of open.",
+  "prompt": "Which word is the opposite of open?",
+  "question": "Which word is the opposite of open?",
+  "spokenPrompt": "Which word is the opposite of open?",
   "choices": [
-   "locked",
+   "unlocked",
    "empty",
    "shut",
    "wide"
   ],
   "answerOptions": [
    {
-    "value": "locked",
-    "label": "locked",
-    "text": "locked"
+    "value": "unlocked",
+    "label": "unlocked",
+    "text": "unlocked"
    },
    {
     "value": "empty",
@@ -1891,10 +1376,10 @@ export const questions = [
   "correctAnswer": "shut",
   "distractorRationales": {
    "wide": "D-OPPOSITE",
-   "locked": "D-TOPIC-ADJACENT",
+   "unlocked": "D-TOPIC-ADJACENT",
    "empty": "D-SAME-DOMAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1902,23 +1387,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "open",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.A.antonym_picture.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/hfw/open.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "open",
-  "stimulusMediaId": "open",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1928,13 +1407,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/open.webp",
-  "imageUrl": "/images/assessment/hfw/open.webp",
-  "targetImage": "/images/assessment/hfw/open.webp",
-  "targetImagePath": "/images/assessment/hfw/open.webp",
-  "resolvedImageAssetKey": "open",
-  "imageAlt": "open"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l1.B.antonym_picture.v5",
@@ -1994,7 +1467,7 @@ export const questions = [
    "bright": "D-OPPOSITE",
    "noon": "D-SAME-DOMAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2002,23 +1475,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "day",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.B.antonym_picture.v5",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/language/variants/plurals/day-days-01.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "day",
-  "stimulusMediaId": "day",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2028,13 +1495,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "word gifts or to morning — a distractor tops, never the key",
-  "imagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/day-days-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/day-days-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
-  "resolvedImageAssetKey": "day",
-  "imageAlt": "day"
+  "notes": "word gifts or to morning — a distractor tops, never the key"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.C.antonym_picture.v6",
@@ -2094,7 +1555,7 @@ export const questions = [
    "long": "D-TOPIC-ADJACENT",
    "high": "D-SAME-DOMAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2102,23 +1563,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "tall",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.C.antonym_picture.v6",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/all/tall-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "tall",
-  "stimulusMediaId": "tall",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2128,13 +1583,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "short alone reverses height; giant, long, and high remain plausible size words",
-  "imagePath": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "resolvedImageAssetKey": "tall",
-  "imageAlt": "tall"
+  "notes": "short alone reverses height; giant, long, and high remain plausible size words"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.A.synonym_picture.v1",
@@ -2153,9 +1602,9 @@ export const questions = [
   "form": "A",
   "itemType": "word_relation",
   "itemKey": "synonym_picture",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
   "prompt": "The sun is bright. Which word is closest to 'bright'?",
   "question": "The sun is bright. Which word is closest to 'bright'?",
   "spokenPrompt": "The sun is bright. Which word is closest to 'bright'?",
@@ -2194,7 +1643,7 @@ export const questions = [
    "dark": "D-OPPOSITE",
    "hot": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2202,27 +1651,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "sun",
   "v3AuthoredMedia": {
-   "target": true,
-   "cards": true
+   "target": false,
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.A.synonym_picture.v1",
-   "role": "answer-cards",
-   "paths": [
-    "/images/assessment/rhyming/variants/sun/sun-02.webp",
-    "/images/assessment/generated/concepts/dark.webp",
-    "/images/assessment/rhyming/variants/ot/hot-02.webp",
-    "/images/assessment/digraphs/white.webp",
-    "/images/assessment/generated/concepts/shiny.webp"
-   ],
-   "alt": "Picture choices for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options"
   },
-  "requiredImageAssetKey": "sun",
-  "stimulusMediaId": "sun",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2232,51 +1671,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "which gifts hi to shiny — white carries it too and ties",
-  "imageCards": [
-   {
-    "id": "lp3.antonyms_synonyms.l1.A.synonym_picture.v1_card_dark",
-    "word": "dark",
-    "value": "dark",
-    "label": "dark",
-    "image": "/images/assessment/generated/concepts/dark.webp",
-    "imagePath": "/images/assessment/generated/concepts/dark.webp",
-    "imageAlt": "Picture showing dark"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.A.synonym_picture.v1_card_hot",
-    "word": "hot",
-    "value": "hot",
-    "label": "hot",
-    "image": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-    "imageAlt": "Picture showing hot"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.A.synonym_picture.v1_card_white",
-    "word": "white",
-    "value": "white",
-    "label": "white",
-    "image": "/images/assessment/digraphs/white.webp",
-    "imagePath": "/images/assessment/digraphs/white.webp",
-    "imageAlt": "Picture showing white"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.A.synonym_picture.v1_card_shiny",
-    "word": "shiny",
-    "value": "shiny",
-    "label": "shiny",
-    "image": "/images/assessment/generated/concepts/shiny.webp",
-    "imagePath": "/images/assessment/generated/concepts/shiny.webp",
-    "imageAlt": "Picture showing shiny"
-   }
-  ],
-  "imagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-  "resolvedImageAssetKey": "sun",
-  "imageAlt": "sun"
+  "notes": "which gifts hi to shiny — white carries it too and ties"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.B.synonym_picture.v2",
@@ -2295,9 +1690,9 @@ export const questions = [
   "form": "B",
   "itemType": "word_relation",
   "itemKey": "synonym_picture",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
   "prompt": "The rock is hard. Which word is closest to 'hard'?",
   "question": "The rock is hard. Which word is closest to 'hard'?",
   "spokenPrompt": "The rock is hard. Which word is closest to 'hard'?",
@@ -2336,7 +1731,7 @@ export const questions = [
    "heavy": "D-TOPIC-ADJACENT",
    "hot": "D-SAME-DOMAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2344,27 +1739,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "rock",
   "v3AuthoredMedia": {
-   "target": true,
-   "cards": true
+   "target": false,
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.B.synonym_picture.v2",
-   "role": "answer-cards",
-   "paths": [
-    "/images/assessment/digraphs/rock.webp",
-    "/images/assessment/generated/concepts/heavy.webp",
-    "/images/assessment/rhyming/variants/ot/hot-02.webp",
-    "/images/assessment/generated/concepts/solid.webp",
-    "/images/assessment/generated/concepts/soft.webp"
-   ],
-   "alt": "Picture choices for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options"
   },
-  "requiredImageAssetKey": "rock",
-  "stimulusMediaId": "rock",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2374,51 +1759,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.antonyms_synonyms.l1.B.synonym_picture.v2_card_heavy",
-    "word": "heavy",
-    "value": "heavy",
-    "label": "heavy",
-    "image": "/images/assessment/generated/concepts/heavy.webp",
-    "imagePath": "/images/assessment/generated/concepts/heavy.webp",
-    "imageAlt": "Picture showing heavy"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.B.synonym_picture.v2_card_hot",
-    "word": "hot",
-    "value": "hot",
-    "label": "hot",
-    "image": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-    "imageAlt": "Picture showing hot"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.B.synonym_picture.v2_card_solid",
-    "word": "solid",
-    "value": "solid",
-    "label": "solid",
-    "image": "/images/assessment/generated/concepts/solid.webp",
-    "imagePath": "/images/assessment/generated/concepts/solid.webp",
-    "imageAlt": "Picture showing solid"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.B.synonym_picture.v2_card_soft",
-    "word": "soft",
-    "value": "soft",
-    "label": "soft",
-    "image": "/images/assessment/generated/concepts/soft.webp",
-    "imagePath": "/images/assessment/generated/concepts/soft.webp",
-    "imageAlt": "Picture showing soft"
-   }
-  ],
-  "imagePath": "/images/assessment/digraphs/rock.webp",
-  "imageUrl": "/images/assessment/digraphs/rock.webp",
-  "targetImage": "/images/assessment/digraphs/rock.webp",
-  "targetImagePath": "/images/assessment/digraphs/rock.webp",
-  "resolvedImageAssetKey": "rock",
-  "imageAlt": "rock"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l1.C.synonym_picture.v3",
@@ -2437,9 +1778,9 @@ export const questions = [
   "form": "C",
   "itemType": "word_relation",
   "itemKey": "synonym_picture",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
   "prompt": "Snow is cold. Which word is closest to 'cold'?",
   "question": "Snow is cold. Which word is closest to 'cold'?",
   "spokenPrompt": "Snow is cold. Which word is closest to 'cold'?",
@@ -2478,7 +1819,7 @@ export const questions = [
    "warm": "D-OPPOSITE",
    "white": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2486,27 +1827,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "snow",
   "v3AuthoredMedia": {
-   "target": true,
-   "cards": true
+   "target": false,
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.C.synonym_picture.v3",
-   "role": "answer-cards",
-   "paths": [
-    "/images/assessment/long-vowels/snow.webp",
-    "/images/assessment/rhyming/variants/et/wet-02.webp",
-    "/images/assessment/language/variants/antonyms-synonyms/cold-chilly-01.webp",
-    "/images/assessment/generated/concepts/warm.webp",
-    "/images/assessment/digraphs/white.webp"
-   ],
-   "alt": "Picture choices for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options"
   },
-  "requiredImageAssetKey": "snow",
-  "stimulusMediaId": "snow",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2516,51 +1847,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "which gifts ch to chilly and hi to white — tie",
-  "imageCards": [
-   {
-    "id": "lp3.antonyms_synonyms.l1.C.synonym_picture.v3_card_wet",
-    "word": "wet",
-    "value": "wet",
-    "label": "wet",
-    "image": "/images/assessment/rhyming/variants/et/wet-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/et/wet-02.webp",
-    "imageAlt": "Picture showing wet"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.C.synonym_picture.v3_card_chilly",
-    "word": "chilly",
-    "value": "chilly",
-    "label": "chilly",
-    "image": "/images/assessment/language/variants/antonyms-synonyms/cold-chilly-01.webp",
-    "imagePath": "/images/assessment/language/variants/antonyms-synonyms/cold-chilly-01.webp",
-    "imageAlt": "Picture showing chilly"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.C.synonym_picture.v3_card_warm",
-    "word": "warm",
-    "value": "warm",
-    "label": "warm",
-    "image": "/images/assessment/generated/concepts/warm.webp",
-    "imagePath": "/images/assessment/generated/concepts/warm.webp",
-    "imageAlt": "Picture showing warm"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.C.synonym_picture.v3_card_white",
-    "word": "white",
-    "value": "white",
-    "label": "white",
-    "image": "/images/assessment/digraphs/white.webp",
-    "imagePath": "/images/assessment/digraphs/white.webp",
-    "imageAlt": "Picture showing white"
-   }
-  ],
-  "imagePath": "/images/assessment/long-vowels/snow.webp",
-  "imageUrl": "/images/assessment/long-vowels/snow.webp",
-  "targetImage": "/images/assessment/long-vowels/snow.webp",
-  "targetImagePath": "/images/assessment/long-vowels/snow.webp",
-  "resolvedImageAssetKey": "snow",
-  "imageAlt": "snow"
+  "notes": "which gifts ch to chilly and hi to white — tie"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.A.synonym_picture.v4",
@@ -2589,7 +1876,7 @@ export const questions = [
    "small",
    "giant",
    "thin",
-   "short"
+   "wide"
   ],
   "answerOptions": [
    {
@@ -2608,9 +1895,9 @@ export const questions = [
     "text": "thin"
    },
    {
-    "value": "short",
-    "label": "short",
-    "text": "short"
+    "value": "wide",
+    "label": "wide",
+    "text": "wide"
    }
   ],
   "answer": "small",
@@ -2618,9 +1905,9 @@ export const questions = [
   "distractorRationales": {
    "giant": "D-OPPOSITE",
    "thin": "D-TOPIC-ADJACENT",
-   "short": "D-SAME-DOMAIN"
+   "wide": "D-SAME-DOMAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2628,23 +1915,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "ant",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.A.synonym_picture.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/release-media/ant-800d67c2.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "ant",
-  "stimulusMediaId": "ant",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2654,13 +1935,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "ant gifts an to giant; which gifts hi to thin — tied distractors",
-  "imagePath": "/images/assessment/release-media/ant-800d67c2.webp",
-  "imageUrl": "/images/assessment/release-media/ant-800d67c2.webp",
-  "targetImage": "/images/assessment/release-media/ant-800d67c2.webp",
-  "targetImagePath": "/images/assessment/release-media/ant-800d67c2.webp",
-  "resolvedImageAssetKey": "ant",
-  "imageAlt": "ant"
+  "notes": "ant gifts an to giant; which gifts hi to thin — tied distractors"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.B.synonym_picture.v5",
@@ -2682,9 +1957,9 @@ export const questions = [
   "formatType": "LANGUAGE_PAIR_TEXT_CHOICE",
   "templateType": "LANGUAGE_PAIR_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Pick a synonym for quick.",
-  "question": "Pick a synonym for quick.",
-  "spokenPrompt": "Pick a synonym for quick.",
+  "prompt": "Which word means about the same as quick?",
+  "question": "Which word means about the same as quick?",
+  "spokenPrompt": "Which word means about the same as quick?",
   "choices": [
    "slow",
    "steady",
@@ -2720,7 +1995,7 @@ export const questions = [
    "steady": "D-TOPIC-ADJACENT",
    "early": "D-SAME-DOMAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2728,23 +2003,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "quick",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.B.synonym_picture.v5",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/generated/concepts/quick.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "quick",
-  "stimulusMediaId": "quick",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2754,13 +2023,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "closest gifts st to fast — steady carries st too and ties",
-  "imagePath": "/images/assessment/generated/concepts/quick.webp",
-  "imageUrl": "/images/assessment/generated/concepts/quick.webp",
-  "targetImage": "/images/assessment/generated/concepts/quick.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/quick.webp",
-  "resolvedImageAssetKey": "quick",
-  "imageAlt": "quick"
+  "notes": "closest gifts st to fast — steady carries st too and ties"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.C.synonym_picture.v6",
@@ -2820,7 +2083,7 @@ export const questions = [
    "cozy": "D-TOPIC-ADJACENT",
    "calm": "D-SAME-DOMAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2828,23 +2091,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "sleepy",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.C.synonym_picture.v6",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/language/variants/adjectives/sleepy-01.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "sleepy",
-  "stimulusMediaId": "sleepy",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2854,13 +2111,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
-  "resolvedImageAssetKey": "sleepy",
-  "imageAlt": "sleepy"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l2.A.antonym_precise.v1",
@@ -2929,21 +2180,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.A.antonym_precise.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-precise-v1.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-precise-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-precise-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2953,13 +2199,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-precise-v1.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-precise-v1.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-precise-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-precise-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-precise-v1.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l2.B.antonym_precise.v2",
@@ -2987,8 +2227,8 @@ export const questions = [
   "choices": [
    "chilly",
    "boiling",
-   "icy",
-   "cold"
+   "freezing cold",
+   "icy"
   ],
   "answerOptions": [
    {
@@ -3002,22 +2242,22 @@ export const questions = [
     "text": "boiling"
    },
    {
+    "value": "freezing cold",
+    "label": "freezing cold",
+    "text": "freezing cold"
+   },
+   {
     "value": "icy",
     "label": "icy",
     "text": "icy"
-   },
-   {
-    "value": "cold",
-    "label": "cold",
-    "text": "cold"
    }
   ],
   "answer": "boiling",
   "correctAnswer": "boiling",
   "distractorRationales": {
-   "cold": "D-OPPOSITE",
+   "icy": "D-OPPOSITE",
    "chilly": "D-SAME-DOMAIN",
-   "icy": "D-TOPIC-ADJACENT"
+   "freezing cold": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3028,21 +2268,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.B.antonym_precise.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-precise-v2.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-precise-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-precise-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3052,13 +2287,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "boiling is the only hot extreme; icy and cold reinforce freezing",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-precise-v2.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-precise-v2.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-precise-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-precise-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-precise-v2.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "boiling is the only hot extreme; icy and cold reinforce freezing"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.C.antonym_precise.v3",
@@ -3127,21 +2356,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.C.antonym_precise.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-precise-v3.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-precise-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-precise-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3151,13 +2375,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-precise-v3.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-precise-v3.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-precise-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-precise-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-precise-v3.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l2.A.antonym_precise.v4",
@@ -3226,21 +2444,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.A.antonym_precise.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-precise-v4.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-precise-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-precise-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3250,13 +2463,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "silent is the only choice about an absence of sound",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-precise-v4.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-precise-v4.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-precise-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-precise-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-precise-v4.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "silent is the only choice about an absence of sound"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.B.antonym_precise.v5",
@@ -3278,9 +2485,9 @@ export const questions = [
   "formatType": "WORD_IN_SENTENCE_SWAP",
   "templateType": "WORD_IN_SENTENCE_SWAP",
   "questionType": "multiple_choice",
-  "prompt": "The kitten is tame. The tiger is ___.",
-  "question": "The kitten is tame. The tiger is ___.",
-  "spokenPrompt": "Which word fits the swap? The kitten is tame. The tiger is ….",
+  "prompt": "Which opposite word fits: The kitten is tame. The tiger is ___.",
+  "question": "Which opposite word fits: The kitten is tame. The tiger is ___.",
+  "spokenPrompt": "Which opposite word fits? The kitten is tame. The tiger is ….",
   "sentence": "The kitten is tame. The tiger is ___.",
   "choices": [
    "soft",
@@ -3327,21 +2534,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The kitten is tame. The tiger is ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.B.antonym_precise.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-precise-v5.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-precise-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-precise-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3351,13 +2553,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-precise-v5.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-precise-v5.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-precise-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-precise-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-precise-v5.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l2.C.antonym_precise.v6",
@@ -3379,14 +2575,14 @@ export const questions = [
   "formatType": "WORD_IN_SENTENCE_SWAP",
   "templateType": "WORD_IN_SENTENCE_SWAP",
   "questionType": "multiple_choice",
-  "prompt": "This puzzle is simple. Its opposite is ___.",
-  "question": "This puzzle is simple. Its opposite is ___.",
-  "spokenPrompt": "Which word fits the swap? This puzzle is simple. Its opposite is ….",
+  "prompt": "Which opposite word fits: This puzzle is simple. Its opposite is ___.",
+  "question": "Which opposite word fits: This puzzle is simple. Its opposite is ___.",
+  "spokenPrompt": "Which opposite word fits? This puzzle is simple. Its opposite is ….",
   "sentence": "This puzzle is simple. Its opposite is ___.",
   "choices": [
    "easy",
    "long",
-   "colourful",
+   "colorful",
    "tricky"
   ],
   "answerOptions": [
@@ -3401,9 +2597,9 @@ export const questions = [
     "text": "long"
    },
    {
-    "value": "colourful",
-    "label": "colourful",
-    "text": "colourful"
+    "value": "colorful",
+    "label": "colorful",
+    "text": "colorful"
    },
    {
     "value": "tricky",
@@ -3414,7 +2610,7 @@ export const questions = [
   "answer": "tricky",
   "correctAnswer": "tricky",
   "distractorRationales": {
-   "colourful": "D-SAME-DOMAIN",
+   "colorful": "D-SAME-DOMAIN",
    "easy": "D-OPPOSITE",
    "long": "D-TOPIC-ADJACENT"
   },
@@ -3428,21 +2624,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "This puzzle is simple. Its opposite is ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.C.antonym_precise.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-precise-v6.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-precise-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-precise-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3452,13 +2643,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-precise-v6.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-precise-v6.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-precise-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-precise-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-precise-v6.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l2.A.synonym_shade.v1",
@@ -3527,21 +2712,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.A.synonym_shade.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-shade-v1.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-shade-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-shade-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3551,13 +2731,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "chuckle alone names the same small laugh; no broader laugh synonym competes",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-shade-v1.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-shade-v1.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-shade-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-shade-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-shade-v1.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "chuckle alone names the same small laugh; no broader laugh synonym competes"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.B.synonym_shade.v2",
@@ -3626,21 +2800,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.B.synonym_shade.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/long-vowels/huge.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/long-vowels/huge.webp",
-  "stimulusMediaId": "/images/assessment/long-vowels/huge.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3650,13 +2819,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "enormous is the only same-meaning size word",
-  "imagePath": "/images/assessment/long-vowels/huge.webp",
-  "imageUrl": "/images/assessment/long-vowels/huge.webp",
-  "targetImage": "/images/assessment/long-vowels/huge.webp",
-  "targetImagePath": "/images/assessment/long-vowels/huge.webp",
-  "resolvedImageAssetKey": "/images/assessment/long-vowels/huge.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "enormous is the only same-meaning size word"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.C.synonym_shade.v3",
@@ -3725,21 +2888,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.C.synonym_shade.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-shade-v3.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-shade-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-shade-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3749,13 +2907,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "dash is the only fast-running match",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-shade-v3.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-shade-v3.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-shade-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-shade-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-shade-v3.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "dash is the only fast-running match"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.A.synonym_shade.v4",
@@ -3824,21 +2976,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.A.synonym_shade.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-shade-v4.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-shade-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-shade-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3848,13 +2995,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "smile alone matches the facial expression; laugh remains a related but distinct response",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-shade-v4.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-shade-v4.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-shade-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-shade-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-shade-v4.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "smile alone matches the facial expression; laugh remains a related but distinct response"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.B.synonym_shade.v5",
@@ -3876,10 +3017,10 @@ export const questions = [
   "formatType": "WORD_IN_SENTENCE_SWAP",
   "templateType": "WORD_IN_SENTENCE_SWAP",
   "questionType": "multiple_choice",
-  "prompt": "The mouse is not just small. It is ___.",
-  "question": "The mouse is not just small. It is ___.",
-  "spokenPrompt": "Which word fits the swap? The mouse is not just small. It is ….",
-  "sentence": "The mouse is not just small. It is ___.",
+  "prompt": "Which more precise word fits: The mouse fit inside a teacup. It was ___.",
+  "question": "Which more precise word fits: The mouse fit inside a teacup. It was ___.",
+  "spokenPrompt": "Which more precise word fits? The mouse fit inside a teacup. It was ….",
+  "sentence": "The mouse fit inside a teacup. It was ___.",
   "choices": [
    "tiny",
    "big",
@@ -3923,23 +3064,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The mouse is not just small. It is ___.",
+  "sentenceText": "The mouse fit inside a teacup. It was ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.B.synonym_shade.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-shade-v5.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-shade-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-shade-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3949,13 +3085,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "mouse gifts ou to round — a distractor tops; tiny is the step beyond small the frame demands",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-shade-v5.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-shade-v5.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-shade-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-shade-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-shade-v5.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "mouse gifts ou to round — a distractor tops; tiny is the step beyond small the frame demands"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.C.synonym_shade.v6",
@@ -3977,9 +3107,9 @@ export const questions = [
   "formatType": "WORD_IN_SENTENCE_SWAP",
   "templateType": "WORD_IN_SENTENCE_SWAP",
   "questionType": "multiple_choice",
-  "prompt": "Not just cold — the pond was ___ this morning.",
-  "question": "Not just cold — the pond was ___ this morning.",
-  "spokenPrompt": "Which word fits the swap? Not just cold — the pond was … this morning.",
+  "prompt": "Which more precise word fits: Not just cold — the pond was ___ this morning.",
+  "question": "Which more precise word fits: Not just cold — the pond was ___ this morning.",
+  "spokenPrompt": "Which more precise word fits? Not just cold — the pond was … this morning.",
   "sentence": "Not just cold — the pond was ___ this morning.",
   "choices": [
    "wet",
@@ -4026,21 +3156,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "Not just cold — the pond was ___ this morning.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.C.synonym_shade.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-shade-v6.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-shade-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-shade-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4050,13 +3175,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cool is weaker than cold, not stronger; was gifts wa to warm, a distractor tops",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-shade-v6.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-shade-v6.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-shade-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-shade-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-shade-v6.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "cool is weaker than cold, not stronger; was gifts wa to warm, a distractor tops"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.A.antonym_in_context.v1",
@@ -4078,9 +3197,9 @@ export const questions = [
   "formatType": "WORD_IN_SENTENCE_SWAP",
   "templateType": "WORD_IN_SENTENCE_SWAP",
   "questionType": "multiple_choice",
-  "prompt": "The morning was noisy. The night was ___.",
-  "question": "The morning was noisy. The night was ___.",
-  "spokenPrompt": "Which word fits the swap? The morning was noisy. The night was ….",
+  "prompt": "Which opposite word fits: The morning was noisy. The night was ___.",
+  "question": "Which opposite word fits: The morning was noisy. The night was ___.",
+  "spokenPrompt": "Which opposite word fits? The morning was noisy. The night was ….",
   "sentence": "The morning was noisy. The night was ___.",
   "choices": [
    "quiet",
@@ -4127,21 +3246,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The morning was noisy. The night was ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.A.antonym_in_context.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-in-context-v1.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-in-context-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-in-context-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4151,13 +3265,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-in-context-v1.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-in-context-v1.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-in-context-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-in-context-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-in-context-v1.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l2.B.antonym_in_context.v2",
@@ -4179,9 +3287,9 @@ export const questions = [
   "formatType": "WORD_IN_SENTENCE_SWAP",
   "templateType": "WORD_IN_SENTENCE_SWAP",
   "questionType": "multiple_choice",
-  "prompt": "This bag is heavy. That bag is ___.",
-  "question": "This bag is heavy. That bag is ___.",
-  "spokenPrompt": "Which word fits the swap? This bag is heavy. That bag is ….",
+  "prompt": "Which opposite word fits: This bag is heavy. That bag is ___.",
+  "question": "Which opposite word fits: This bag is heavy. That bag is ___.",
+  "spokenPrompt": "Which opposite word fits? This bag is heavy. That bag is ….",
   "sentence": "This bag is heavy. That bag is ___.",
   "choices": [
    "empty",
@@ -4228,21 +3336,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "This bag is heavy. That bag is ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.B.antonym_in_context.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/generated/concepts/heavy.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/generated/concepts/heavy.webp",
-  "stimulusMediaId": "/images/assessment/generated/concepts/heavy.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4252,13 +3355,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/heavy.webp",
-  "imageUrl": "/images/assessment/generated/concepts/heavy.webp",
-  "targetImage": "/images/assessment/generated/concepts/heavy.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/heavy.webp",
-  "resolvedImageAssetKey": "/images/assessment/generated/concepts/heavy.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l2.C.antonym_in_context.v3",
@@ -4280,9 +3377,9 @@ export const questions = [
   "formatType": "WORD_IN_SENTENCE_SWAP",
   "templateType": "WORD_IN_SENTENCE_SWAP",
   "questionType": "multiple_choice",
-  "prompt": "The turtle is slow. The hare is ___.",
-  "question": "The turtle is slow. The hare is ___.",
-  "spokenPrompt": "Which word fits the swap? The turtle is slow. The hare is ….",
+  "prompt": "Which opposite word fits: The turtle is slow. The hare is ___.",
+  "question": "Which opposite word fits: The turtle is slow. The hare is ___.",
+  "spokenPrompt": "Which opposite word fits? The turtle is slow. The hare is ….",
   "sentence": "The turtle is slow. The hare is ___.",
   "choices": [
    "late",
@@ -4329,21 +3426,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The turtle is slow. The hare is ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.C.antonym_in_context.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-in-context-v3.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-in-context-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-in-context-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4353,13 +3445,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "slow gifts sl to sleepy; opposite gifts te to late — tied distractors",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-in-context-v3.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-in-context-v3.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-in-context-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-in-context-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-in-context-v3.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "slow gifts sl to sleepy; opposite gifts te to late — tied distractors"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.A.antonym_in_context.v4",
@@ -4381,9 +3467,9 @@ export const questions = [
   "formatType": "WORD_IN_SENTENCE_SWAP",
   "templateType": "WORD_IN_SENTENCE_SWAP",
   "questionType": "multiple_choice",
-  "prompt": "My hands were dirty. Now they are ___.",
-  "question": "My hands were dirty. Now they are ___.",
-  "spokenPrompt": "Which word fits the swap? My hands were dirty. Now they are ….",
+  "prompt": "Which opposite word fits: My hands were dirty. Now they are ___.",
+  "question": "Which opposite word fits: My hands were dirty. Now they are ___.",
+  "spokenPrompt": "Which opposite word fits? My hands were dirty. Now they are ….",
   "sentence": "My hands were dirty. Now they are ___.",
   "choices": [
    "wet",
@@ -4430,21 +3516,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "My hands were dirty. Now they are ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.A.antonym_in_context.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-in-context-v4.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-in-context-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-in-context-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4454,13 +3535,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-in-context-v4.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-in-context-v4.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-in-context-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-in-context-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-antonym-in-context-v4.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l2.B.antonym_in_context.v5",
@@ -4529,21 +3604,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.B.antonym_in_context.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-in-context-v5.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-in-context-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-in-context-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4553,13 +3623,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "opposite gifts si to beside — a distractor tops, never the key",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-in-context-v5.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-in-context-v5.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-in-context-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-in-context-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-antonym-in-context-v5.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "opposite gifts si to beside — a distractor tops, never the key"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.C.antonym_in_context.v6",
@@ -4628,21 +3692,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.C.antonym_in_context.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-in-context-v6.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-in-context-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-in-context-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4652,13 +3711,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "late alone reverses timing; soon, first, and yesterday remain time words",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-in-context-v6.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-in-context-v6.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-in-context-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-in-context-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-antonym-in-context-v6.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "late alone reverses timing; soon, first, and yesterday remain time words"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.A.synonym_in_context.v1",
@@ -4680,9 +3733,9 @@ export const questions = [
   "formatType": "WORD_IN_SENTENCE_SWAP",
   "templateType": "WORD_IN_SENTENCE_SWAP",
   "questionType": "multiple_choice",
-  "prompt": "Dad fixed the gate. In the same way, he ___ the fence.",
-  "question": "Dad fixed the gate. In the same way, he ___ the fence.",
-  "spokenPrompt": "Which word fits the swap? Dad fixed the gate. In the same way, he … the fence.",
+  "prompt": "Which same-meaning word fits: Dad fixed the gate. In the same way, he ___ the fence.",
+  "question": "Which same-meaning word fits: Dad fixed the gate. In the same way, he ___ the fence.",
+  "spokenPrompt": "Which same-meaning word fits? Dad fixed the gate. In the same way, he … the fence.",
   "sentence": "Dad fixed the gate. In the same way, he ___ the fence.",
   "choices": [
    "painted",
@@ -4729,21 +3782,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "Dad fixed the gate. In the same way, he ___ the fence.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.A.synonym_in_context.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-in-context-v1.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-in-context-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-in-context-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4753,13 +3801,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "fixed gifts ed to mended and painted — tie",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-in-context-v1.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-in-context-v1.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-in-context-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-in-context-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-in-context-v1.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "fixed gifts ed to mended and painted — tie"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.B.synonym_in_context.v2",
@@ -4781,10 +3823,10 @@ export const questions = [
   "formatType": "WORD_IN_SENTENCE_SWAP",
   "templateType": "WORD_IN_SENTENCE_SWAP",
   "questionType": "multiple_choice",
-  "prompt": "The soup was tasty. Its twin word is ___.",
-  "question": "The soup was tasty. Its twin word is ___.",
-  "spokenPrompt": "Which word fits the swap? The soup was tasty. Its twin word is ….",
-  "sentence": "The soup was tasty. Its twin word is ___.",
+  "prompt": "Which same-meaning word fits: The soup was tasty, or ___.",
+  "question": "Which same-meaning word fits: The soup was tasty, or ___.",
+  "spokenPrompt": "Which same-meaning word fits? The soup was tasty, or ….",
+  "sentence": "The soup was tasty, or ___.",
   "choices": [
    "awful",
    "warm",
@@ -4828,23 +3870,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The soup was tasty. Its twin word is ___.",
+  "sentenceText": "The soup was tasty, or ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.B.synonym_in_context.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-in-context-v2.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-in-context-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-in-context-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4854,13 +3891,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "delicious alone matches tasty; awful contrasts while warm and salty are related food qualities",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-in-context-v2.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-in-context-v2.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-in-context-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-in-context-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-in-context-v2.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "delicious alone matches tasty; awful contrasts while warm and salty are related food qualities"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.C.synonym_in_context.v3",
@@ -4882,10 +3913,10 @@ export const questions = [
   "formatType": "WORD_IN_SENTENCE_SWAP",
   "templateType": "WORD_IN_SENTENCE_SWAP",
   "questionType": "multiple_choice",
-  "prompt": "We shouted with joy. Joy's twin word is ___.",
-  "question": "We shouted with joy. Joy's twin word is ___.",
-  "spokenPrompt": "Which word fits the swap? We shouted with joy. Joy's twin word is ….",
-  "sentence": "We shouted with joy. Joy's twin word is ___.",
+  "prompt": "Which same-meaning word fits: We shouted with joy — with ___.",
+  "question": "Which same-meaning word fits: We shouted with joy — with ___.",
+  "spokenPrompt": "Which same-meaning word fits? We shouted with joy — with ….",
+  "sentence": "We shouted with joy — with ___.",
   "choices": [
    "glee",
    "fear",
@@ -4929,23 +3960,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "We shouted with joy. Joy's twin word is ___.",
+  "sentenceText": "We shouted with joy — with ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.C.synonym_in_context.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-in-context-v3.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-in-context-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-in-context-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4955,13 +3981,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-in-context-v3.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-in-context-v3.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-in-context-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-in-context-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-in-context-v3.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l2.A.synonym_in_context.v4",
@@ -4983,10 +4003,10 @@ export const questions = [
   "formatType": "WORD_IN_SENTENCE_SWAP",
   "templateType": "WORD_IN_SENTENCE_SWAP",
   "questionType": "multiple_choice",
-  "prompt": "The path was narrow. Its twin word is ___.",
-  "question": "The path was narrow. Its twin word is ___.",
-  "spokenPrompt": "Which word fits the swap? The path was narrow. Its twin word is ….",
-  "sentence": "The path was narrow. Its twin word is ___.",
+  "prompt": "Which same-meaning word fits: The ribbon was narrow, or ___.",
+  "question": "Which same-meaning word fits: The ribbon was narrow, or ___.",
+  "spokenPrompt": "Which same-meaning word fits? The ribbon was narrow, or ….",
+  "sentence": "The ribbon was narrow, or ___.",
   "choices": [
    "wide",
    "long",
@@ -5030,23 +4050,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The path was narrow. Its twin word is ___.",
+  "sentenceText": "The ribbon was narrow, or ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.A.synonym_in_context.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-in-context-v4.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-in-context-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-in-context-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5056,13 +4071,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "path gifts th to thin — smooth carries th too and ties",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-in-context-v4.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-in-context-v4.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-in-context-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-in-context-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-a-synonym-in-context-v4.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "Thin is the only same-meaning description of the ribbon's width."
  },
  {
   "id": "lp3.antonyms_synonyms.l2.B.synonym_in_context.v5",
@@ -5088,16 +4097,16 @@ export const questions = [
   "question": "Which word is closest to 'angry'?",
   "spokenPrompt": "Which word is closest to 'angry'?",
   "choices": [
-   "cross",
+   "mad",
    "calm",
    "sad",
    "lost"
   ],
   "answerOptions": [
    {
-    "value": "cross",
-    "label": "cross",
-    "text": "cross"
+    "value": "mad",
+    "label": "mad",
+    "text": "mad"
    },
    {
     "value": "calm",
@@ -5115,8 +4124,8 @@ export const questions = [
     "text": "lost"
    }
   ],
-  "answer": "cross",
-  "correctAnswer": "cross",
+  "answer": "mad",
+  "correctAnswer": "mad",
   "distractorRationales": {
    "calm": "D-OPPOSITE",
    "sad": "D-TOPIC-ADJACENT",
@@ -5131,21 +4140,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.B.synonym_in_context.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-in-context-v5.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-in-context-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-in-context-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5155,13 +4159,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "closest gifts os to cross — lost carries os too and ties",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-in-context-v5.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-in-context-v5.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-in-context-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-in-context-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-b-synonym-in-context-v5.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l2.C.synonym_in_context.v6",
@@ -5230,21 +4228,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.C.synonym_in_context.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-in-context-v6.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-in-context-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-in-context-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5254,13 +4247,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "friend gifts en to enemy; which gifts ch to teacher — tied distractors",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-in-context-v6.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-in-context-v6.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-in-context-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-in-context-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-c-synonym-in-context-v6.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "friend gifts en to enemy; which gifts ch to teacher — tied distractors"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.R.antonym_concrete.v7r",
@@ -5279,9 +4266,9 @@ export const questions = [
   "form": "R",
   "itemType": "word_relation",
   "itemKey": "antonym_concrete",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
   "prompt": "What is the opposite of high?",
   "question": "What is the opposite of high?",
   "spokenPrompt": "What is the opposite of high?",
@@ -5320,7 +4307,7 @@ export const questions = [
    "top": "D-SAME-DOMAIN",
    "up": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -5328,27 +4315,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "high",
   "v3AuthoredMedia": {
-   "target": true,
-   "cards": true
+   "target": false,
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.R.antonym_concrete.v7r",
-   "role": "answer-cards",
-   "paths": [
-    "/images/assessment/language/variants/homophones-homonyms/hi-high-01.webp",
-    "/images/assessment/generated/concepts/low.webp",
-    "/images/assessment/hfw/up.webp",
-    "/images/assessment/rhyming/variants/all/tall-02.webp",
-    "/images/assessment/rhyming/variants/op/top-02.webp"
-   ],
-   "alt": "Picture choices for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options"
   },
-  "requiredImageAssetKey": "high",
-  "stimulusMediaId": "high",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5358,51 +4335,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.antonym_concrete.v7r_card_low",
-    "word": "low",
-    "value": "low",
-    "label": "low",
-    "image": "/images/assessment/generated/concepts/low.webp",
-    "imagePath": "/images/assessment/generated/concepts/low.webp",
-    "imageAlt": "Picture showing low"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.antonym_concrete.v7r_card_up",
-    "word": "up",
-    "value": "up",
-    "label": "up",
-    "image": "/images/assessment/hfw/up.webp",
-    "imagePath": "/images/assessment/hfw/up.webp",
-    "imageAlt": "Picture showing up"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.antonym_concrete.v7r_card_tall",
-    "word": "tall",
-    "value": "tall",
-    "label": "tall",
-    "image": "/images/assessment/rhyming/variants/all/tall-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/all/tall-02.webp",
-    "imageAlt": "Picture showing tall"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.antonym_concrete.v7r_card_top",
-    "word": "top",
-    "value": "top",
-    "label": "top",
-    "image": "/images/assessment/rhyming/variants/op/top-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/op/top-02.webp",
-    "imageAlt": "Picture showing top"
-   }
-  ],
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/hi-high-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/hi-high-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/hi-high-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/hi-high-01.webp",
-  "resolvedImageAssetKey": "high",
-  "imageAlt": "high"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l1.R.antonym_concrete.v8r",
@@ -5421,9 +4354,9 @@ export const questions = [
   "form": "R",
   "itemType": "word_relation",
   "itemKey": "antonym_concrete",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
   "prompt": "The boots are old. Pick the opposite of old.",
   "question": "The boots are old. Pick the opposite of old.",
   "spokenPrompt": "The boots are old. Pick the opposite of old.",
@@ -5462,7 +4395,7 @@ export const questions = [
    "clean": "D-TOPIC-ADJACENT",
    "shiny": "D-SAME-DOMAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -5470,27 +4403,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "old",
   "v3AuthoredMedia": {
-   "target": true,
-   "cards": true
+   "target": false,
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.R.antonym_concrete.v8r",
-   "role": "answer-cards",
-   "paths": [
-    "/images/assessment/hfw/old.webp",
-    "/images/assessment/generated/concepts/shiny.webp",
-    "/images/assessment/hfw/new.webp",
-    "/images/assessment/generated/concepts/worn.webp",
-    "/images/assessment/generated/concepts/clean.webp"
-   ],
-   "alt": "Picture choices for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options"
   },
-  "requiredImageAssetKey": "old",
-  "stimulusMediaId": "old",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5500,51 +4423,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.antonym_concrete.v8r_card_shiny",
-    "word": "shiny",
-    "value": "shiny",
-    "label": "shiny",
-    "image": "/images/assessment/generated/concepts/shiny.webp",
-    "imagePath": "/images/assessment/generated/concepts/shiny.webp",
-    "imageAlt": "Picture showing shiny"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.antonym_concrete.v8r_card_new",
-    "word": "new",
-    "value": "new",
-    "label": "new",
-    "image": "/images/assessment/hfw/new.webp",
-    "imagePath": "/images/assessment/hfw/new.webp",
-    "imageAlt": "Picture showing new"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.antonym_concrete.v8r_card_worn",
-    "word": "worn",
-    "value": "worn",
-    "label": "worn",
-    "image": "/images/assessment/generated/concepts/worn.webp",
-    "imagePath": "/images/assessment/generated/concepts/worn.webp",
-    "imageAlt": "Picture showing worn"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.antonym_concrete.v8r_card_clean",
-    "word": "clean",
-    "value": "clean",
-    "label": "clean",
-    "image": "/images/assessment/generated/concepts/clean.webp",
-    "imagePath": "/images/assessment/generated/concepts/clean.webp",
-    "imageAlt": "Picture showing clean"
-   }
-  ],
-  "imagePath": "/images/assessment/hfw/old.webp",
-  "imageUrl": "/images/assessment/hfw/old.webp",
-  "targetImage": "/images/assessment/hfw/old.webp",
-  "targetImagePath": "/images/assessment/hfw/old.webp",
-  "resolvedImageAssetKey": "old",
-  "imageAlt": "old"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l1.R.synonym_concrete.v7r",
@@ -5563,12 +4442,12 @@ export const questions = [
   "form": "R",
   "itemType": "word_relation",
   "itemKey": "synonym_concrete",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Pick a synonym for jump.",
-  "question": "Pick a synonym for jump.",
-  "spokenPrompt": "Pick a synonym for jump.",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "What word is closest to jump?",
+  "question": "What word is closest to jump?",
+  "spokenPrompt": "What word is closest to jump?",
   "choices": [
    "run",
    "slide",
@@ -5604,7 +4483,7 @@ export const questions = [
    "fall": "D-OPPOSITE",
    "run": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -5612,27 +4491,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "jump",
   "v3AuthoredMedia": {
-   "target": true,
-   "cards": true
+   "target": false,
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.R.synonym_concrete.v7r",
-   "role": "answer-cards",
-   "paths": [
-    "/images/assessment/generated/concepts/jump.webp",
-    "/images/assessment/rhyming/variants/run/run-02.webp",
-    "/images/assessment/long-vowels/slide.webp",
-    "/images/assessment/generated/concepts/leap.webp",
-    "/images/assessment/rhyming/variants/all/fall-02.webp"
-   ],
-   "alt": "Picture choices for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options"
   },
-  "requiredImageAssetKey": "jump",
-  "stimulusMediaId": "jump",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5642,51 +4511,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.synonym_concrete.v7r_card_run",
-    "word": "run",
-    "value": "run",
-    "label": "run",
-    "image": "/images/assessment/rhyming/variants/run/run-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/run/run-02.webp",
-    "imageAlt": "Picture showing run"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.synonym_concrete.v7r_card_slide",
-    "word": "slide",
-    "value": "slide",
-    "label": "slide",
-    "image": "/images/assessment/long-vowels/slide.webp",
-    "imagePath": "/images/assessment/long-vowels/slide.webp",
-    "imageAlt": "Picture showing slide"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.synonym_concrete.v7r_card_leap",
-    "word": "leap",
-    "value": "leap",
-    "label": "leap",
-    "image": "/images/assessment/generated/concepts/leap.webp",
-    "imagePath": "/images/assessment/generated/concepts/leap.webp",
-    "imageAlt": "Picture showing leap"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.synonym_concrete.v7r_card_fall",
-    "word": "fall",
-    "value": "fall",
-    "label": "fall",
-    "image": "/images/assessment/rhyming/variants/all/fall-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/all/fall-02.webp",
-    "imageAlt": "Picture showing fall"
-   }
-  ],
-  "imagePath": "/images/assessment/generated/concepts/jump.webp",
-  "imageUrl": "/images/assessment/generated/concepts/jump.webp",
-  "targetImage": "/images/assessment/generated/concepts/jump.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/jump.webp",
-  "resolvedImageAssetKey": "jump",
-  "imageAlt": "jump"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l1.R.synonym_concrete.v8r",
@@ -5705,19 +4530,24 @@ export const questions = [
   "form": "R",
   "itemType": "word_relation",
   "itemKey": "synonym_concrete",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Pick a synonym for yell.",
-  "question": "Pick a synonym for yell.",
-  "spokenPrompt": "Pick a synonym for yell.",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "Which word means about the same as yell?",
+  "question": "Which word means about the same as yell?",
+  "spokenPrompt": "Which word means about the same as yell?",
   "choices": [
+   "whisper",
    "talk",
    "sing",
-   "bark",
    "shout"
   ],
   "answerOptions": [
+   {
+    "value": "whisper",
+    "label": "whisper",
+    "text": "whisper"
+   },
    {
     "value": "talk",
     "label": "talk",
@@ -5729,11 +4559,6 @@ export const questions = [
     "text": "sing"
    },
    {
-    "value": "bark",
-    "label": "bark",
-    "text": "bark"
-   },
-   {
     "value": "shout",
     "label": "shout",
     "text": "shout"
@@ -5742,11 +4567,11 @@ export const questions = [
   "answer": "shout",
   "correctAnswer": "shout",
   "distractorRationales": {
-   "talk": "D-OPPOSITE",
-   "sing": "D-TOPIC-ADJACENT",
-   "bark": "D-SAME-DOMAIN"
+   "whisper": "D-OPPOSITE",
+   "talk": "D-TOPIC-ADJACENT",
+   "sing": "D-SAME-DOMAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -5754,27 +4579,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "yell",
   "v3AuthoredMedia": {
-   "target": true,
-   "cards": true
+   "target": false,
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.R.synonym_concrete.v8r",
-   "role": "answer-cards",
-   "paths": [
-    "/images/assessment/generated/concepts/yell.webp",
-    "/images/assessment/generated/concepts/talk.webp",
-    "/images/assessment/generated/concepts/sing.webp",
-    "/images/assessment/generated/concepts/bark.webp",
-    "/images/assessment/generated/concepts/shout.webp"
-   ],
-   "alt": "Picture choices for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options"
   },
-  "requiredImageAssetKey": "yell",
-  "stimulusMediaId": "yell",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5784,51 +4599,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.synonym_concrete.v8r_card_talk",
-    "word": "talk",
-    "value": "talk",
-    "label": "talk",
-    "image": "/images/assessment/generated/concepts/talk.webp",
-    "imagePath": "/images/assessment/generated/concepts/talk.webp",
-    "imageAlt": "Picture showing talk"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.synonym_concrete.v8r_card_sing",
-    "word": "sing",
-    "value": "sing",
-    "label": "sing",
-    "image": "/images/assessment/generated/concepts/sing.webp",
-    "imagePath": "/images/assessment/generated/concepts/sing.webp",
-    "imageAlt": "Picture showing sing"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.synonym_concrete.v8r_card_bark",
-    "word": "bark",
-    "value": "bark",
-    "label": "bark",
-    "image": "/images/assessment/generated/concepts/bark.webp",
-    "imagePath": "/images/assessment/generated/concepts/bark.webp",
-    "imageAlt": "Picture showing bark"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.synonym_concrete.v8r_card_shout",
-    "word": "shout",
-    "value": "shout",
-    "label": "shout",
-    "image": "/images/assessment/generated/concepts/shout.webp",
-    "imagePath": "/images/assessment/generated/concepts/shout.webp",
-    "imageAlt": "Picture showing shout"
-   }
-  ],
-  "imagePath": "/images/assessment/generated/concepts/yell.webp",
-  "imageUrl": "/images/assessment/generated/concepts/yell.webp",
-  "targetImage": "/images/assessment/generated/concepts/yell.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/yell.webp",
-  "resolvedImageAssetKey": "yell",
-  "imageAlt": "yell"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l1.R.antonym_picture.v7r",
@@ -5847,9 +4618,9 @@ export const questions = [
   "form": "R",
   "itemType": "word_relation",
   "itemKey": "antonym_picture",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
   "prompt": "The arrow points down. Pick the opposite of down.",
   "question": "The arrow points down. Pick the opposite of down.",
   "spokenPrompt": "The arrow points down. Pick the opposite of down.",
@@ -5888,7 +4659,7 @@ export const questions = [
    "low": "D-OPPOSITE",
    "under": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -5896,27 +4667,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "down",
   "v3AuthoredMedia": {
-   "target": true,
-   "cards": true
+   "target": false,
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.R.antonym_picture.v7r",
-   "role": "answer-cards",
-   "paths": [
-    "/images/assessment/hfw/down.webp",
-    "/images/assessment/hfw/up.webp",
-    "/images/assessment/generated/concepts/low.webp",
-    "/images/assessment/release-media/under-4ba8f260.webp",
-    "/images/assessment/rhyming/variants/op/top-02.webp"
-   ],
-   "alt": "Picture choices for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options"
   },
-  "requiredImageAssetKey": "down",
-  "stimulusMediaId": "down",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5926,51 +4687,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "arrow and down gift ow to low — a distractor tops",
-  "imageCards": [
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.antonym_picture.v7r_card_up",
-    "word": "up",
-    "value": "up",
-    "label": "up",
-    "image": "/images/assessment/hfw/up.webp",
-    "imagePath": "/images/assessment/hfw/up.webp",
-    "imageAlt": "Picture showing up"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.antonym_picture.v7r_card_low",
-    "word": "low",
-    "value": "low",
-    "label": "low",
-    "image": "/images/assessment/generated/concepts/low.webp",
-    "imagePath": "/images/assessment/generated/concepts/low.webp",
-    "imageAlt": "Picture showing low"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.antonym_picture.v7r_card_under",
-    "word": "under",
-    "value": "under",
-    "label": "under",
-    "image": "/images/assessment/release-media/under-4ba8f260.webp",
-    "imagePath": "/images/assessment/release-media/under-4ba8f260.webp",
-    "imageAlt": "Picture showing under"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.antonym_picture.v7r_card_top",
-    "word": "top",
-    "value": "top",
-    "label": "top",
-    "image": "/images/assessment/rhyming/variants/op/top-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/op/top-02.webp",
-    "imageAlt": "Picture showing top"
-   }
-  ],
-  "imagePath": "/images/assessment/hfw/down.webp",
-  "imageUrl": "/images/assessment/hfw/down.webp",
-  "targetImage": "/images/assessment/hfw/down.webp",
-  "targetImagePath": "/images/assessment/hfw/down.webp",
-  "resolvedImageAssetKey": "down",
-  "imageAlt": "down"
+  "notes": "arrow and down gift ow to low — a distractor tops"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.R.synonym_picture.v7r",
@@ -5989,48 +4706,48 @@ export const questions = [
   "form": "R",
   "itemType": "word_relation",
   "itemKey": "synonym_picture",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "The moon glows. Which is closest to 'glow'?",
-  "question": "The moon glows. Which is closest to 'glow'?",
-  "spokenPrompt": "The moon glows. Which is closest to 'glow'?",
+  "formatType": "WORD_RELATION_TEXT_CHOICE",
+  "templateType": "WORD_RELATION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "The lamp glows. Which word means about the same as glows?",
+  "question": "The lamp glows. Which word means about the same as glows?",
+  "spokenPrompt": "The lamp glows. Which word means about the same as glows?",
   "choices": [
-   "burn",
-   "shine",
-   "fade",
-   "rise"
+   "warms",
+   "shines",
+   "dims",
+   "flickers"
   ],
   "answerOptions": [
    {
-    "value": "burn",
-    "label": "burn",
-    "text": "burn"
+    "value": "warms",
+    "label": "warms",
+    "text": "warms"
    },
    {
-    "value": "shine",
-    "label": "shine",
-    "text": "shine"
+    "value": "shines",
+    "label": "shines",
+    "text": "shines"
    },
    {
-    "value": "fade",
-    "label": "fade",
-    "text": "fade"
+    "value": "dims",
+    "label": "dims",
+    "text": "dims"
    },
    {
-    "value": "rise",
-    "label": "rise",
-    "text": "rise"
+    "value": "flickers",
+    "label": "flickers",
+    "text": "flickers"
    }
   ],
-  "answer": "shine",
-  "correctAnswer": "shine",
+  "answer": "shines",
+  "correctAnswer": "shines",
   "distractorRationales": {
-   "fade": "D-OPPOSITE",
-   "rise": "D-TOPIC-ADJACENT",
-   "burn": "D-SAME-DOMAIN"
+   "dims": "D-OPPOSITE",
+   "flickers": "D-TOPIC-ADJACENT",
+   "warms": "D-SAME-DOMAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -6038,27 +4755,17 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "moon",
   "v3AuthoredMedia": {
-   "target": true,
-   "cards": true
+   "target": false,
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l1.R.synonym_picture.v7r",
-   "role": "answer-cards",
-   "paths": [
-    "/images/assessment/long-vowels/moon.webp",
-    "/images/assessment/rhyming/variants/burn/burn-02.webp",
-    "/images/assessment/generated/concepts/shine.webp",
-    "/images/assessment/generated/concepts/fade.webp",
-    "/images/assessment/generated/concepts/rise.webp"
-   ],
-   "alt": "Picture choices for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options"
   },
-  "requiredImageAssetKey": "moon",
-  "stimulusMediaId": "moon",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6068,51 +4775,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "which gifts hi to shine; is gifts is to rise — tie",
-  "imageCards": [
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.synonym_picture.v7r_card_burn",
-    "word": "burn",
-    "value": "burn",
-    "label": "burn",
-    "image": "/images/assessment/rhyming/variants/burn/burn-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/burn/burn-02.webp",
-    "imageAlt": "Picture showing burn"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.synonym_picture.v7r_card_shine",
-    "word": "shine",
-    "value": "shine",
-    "label": "shine",
-    "image": "/images/assessment/generated/concepts/shine.webp",
-    "imagePath": "/images/assessment/generated/concepts/shine.webp",
-    "imageAlt": "Picture showing shine"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.synonym_picture.v7r_card_fade",
-    "word": "fade",
-    "value": "fade",
-    "label": "fade",
-    "image": "/images/assessment/generated/concepts/fade.webp",
-    "imagePath": "/images/assessment/generated/concepts/fade.webp",
-    "imageAlt": "Picture showing fade"
-   },
-   {
-    "id": "lp3.antonyms_synonyms.l1.R.synonym_picture.v7r_card_rise",
-    "word": "rise",
-    "value": "rise",
-    "label": "rise",
-    "image": "/images/assessment/generated/concepts/rise.webp",
-    "imagePath": "/images/assessment/generated/concepts/rise.webp",
-    "imageAlt": "Picture showing rise"
-   }
-  ],
-  "imagePath": "/images/assessment/long-vowels/moon.webp",
-  "imageUrl": "/images/assessment/long-vowels/moon.webp",
-  "targetImage": "/images/assessment/long-vowels/moon.webp",
-  "targetImagePath": "/images/assessment/long-vowels/moon.webp",
-  "resolvedImageAssetKey": "moon",
-  "imageAlt": "moon"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l2.R.antonym_precise.v7r",
@@ -6181,21 +4844,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.R.antonym_precise.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-antonym-precise-v7r.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-antonym-precise-v7r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-antonym-precise-v7r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6205,13 +4863,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "leave alone reverses arrival; come, stay, and enter remain plausible movement-state words",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-antonym-precise-v7r.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-antonym-precise-v7r.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-antonym-precise-v7r.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-antonym-precise-v7r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-antonym-precise-v7r.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "leave alone reverses arrival; come, stay, and enter remain plausible movement-state words"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.R.antonym_precise.v8r",
@@ -6280,21 +4932,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.R.antonym_precise.v8r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-antonym-precise-v8r.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-antonym-precise-v8r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-antonym-precise-v8r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6304,13 +4951,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "sunrise gifts sun to the key — sunlight carries sun too and ties",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-antonym-precise-v8r.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-antonym-precise-v8r.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-antonym-precise-v8r.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-antonym-precise-v8r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-antonym-precise-v8r.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "sunrise gifts sun to the key — sunlight carries sun too and ties"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.R.synonym_shade.v7r",
@@ -6379,21 +5020,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.R.synonym_shade.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-shade-v7r.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-shade-v7r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-shade-v7r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6403,13 +5039,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "drenched is the only equally wet meaning",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-shade-v7r.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-shade-v7r.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-shade-v7r.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-shade-v7r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-shade-v7r.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "drenched is the only equally wet meaning"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.R.synonym_shade.v8r",
@@ -6478,21 +5108,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.R.synonym_shade.v8r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-shade-v8r.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-shade-v8r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-shade-v8r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6502,13 +5127,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "clean is the only same-meaning choice",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-shade-v8r.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-shade-v8r.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-shade-v8r.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-shade-v8r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-shade-v8r.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "clean is the only same-meaning choice"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.R.antonym_in_context.v7r",
@@ -6530,9 +5149,9 @@ export const questions = [
   "formatType": "WORD_IN_SENTENCE_SWAP",
   "templateType": "WORD_IN_SENTENCE_SWAP",
   "questionType": "multiple_choice",
-  "prompt": "The oven is hot. The fridge is ___.",
-  "question": "The oven is hot. The fridge is ___.",
-  "spokenPrompt": "Which word fits the swap? The oven is hot. The fridge is ….",
+  "prompt": "Which opposite word fits: The oven is hot. The fridge is ___.",
+  "question": "Which opposite word fits: The oven is hot. The fridge is ___.",
+  "spokenPrompt": "Which opposite word fits? The oven is hot. The fridge is ….",
   "sentence": "The oven is hot. The fridge is ___.",
   "choices": [
    "empty",
@@ -6579,21 +5198,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The oven is hot. The fridge is ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.R.antonym_in_context.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/rhyming/variants/ot/hot-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-  "stimulusMediaId": "/images/assessment/rhyming/variants/ot/hot-02.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6603,13 +5217,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-  "resolvedImageAssetKey": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l2.R.synonym_in_context.v7r",
@@ -6631,9 +5239,9 @@ export const questions = [
   "formatType": "WORD_IN_SENTENCE_SWAP",
   "templateType": "WORD_IN_SENTENCE_SWAP",
   "questionType": "multiple_choice",
-  "prompt": "The old map was torn. It was ___.",
-  "question": "The old map was torn. It was ___.",
-  "spokenPrompt": "Which word fits the swap? The old map was torn. It was ….",
+  "prompt": "Which same-meaning word fits: The old map was torn. It was ___.",
+  "question": "Which same-meaning word fits: The old map was torn. It was ___.",
+  "spokenPrompt": "Which same-meaning word fits? The old map was torn. It was ….",
   "sentence": "The old map was torn. It was ___.",
   "choices": [
    "folded",
@@ -6680,21 +5288,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The old map was torn. It was ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.antonyms_synonyms.l2.R.synonym_in_context.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-in-context-v7r.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-in-context-v7r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-in-context-v7r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6704,12 +5307,6 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "old gifts ol to folded — a distractor tops, never the key",
-  "imagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-in-context-v7r.webp",
-  "imageUrl": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-in-context-v7r.webp",
-  "targetImage": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-in-context-v7r.webp",
-  "targetImagePath": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-in-context-v7r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-antonyms-synonyms-l2-r-synonym-in-context-v7r.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "old gifts ol to folded — a distractor tops, never the key"
  }
 ];

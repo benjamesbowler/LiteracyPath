@@ -21,9 +21,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ock",
-  "question": "Finish: __ock",
-  "spokenPrompt": "block. Which letters finish the word block?",
+  "prompt": "Choose the missing letters for __ock.",
+  "question": "Choose the missing letters for __ock.",
+  "spokenPrompt": "Block. Choose the missing letters.",
   "choices": [
    "st",
    "bl",
@@ -59,32 +59,30 @@ export const questions = [
    "cl": "D-PATTERN-TRAP",
    "fl": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "block",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.bl.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/block.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "block",
-  "stimulusMediaId": "block",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -94,13 +92,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/block.webp",
-  "imageUrl": "/images/assessment/blends/block.webp",
-  "targetImage": "/images/assessment/blends/block.webp",
-  "targetImagePath": "/images/assessment/blends/block.webp",
-  "resolvedImageAssetKey": "block",
-  "imageAlt": "block"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l1.B.bl.v2",
@@ -119,23 +111,23 @@ export const questions = [
   "form": "B",
   "itemType": "phonics_pattern",
   "itemKey": "bl",
-  "formatType": "BLEND_IMAGE_CHOICE",
-  "templateType": "BLEND_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one starts like blue?",
-  "question": "Which one starts like blue?",
-  "spokenPrompt": "blue. Which one starts with the same sounds as blue?",
+  "formatType": "MPD",
+  "templateType": "MPD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Blue. Which printed word matches the recording?",
   "choices": [
-   "block",
+   "blue",
    "glue",
    "drum",
    "star"
   ],
   "answerOptions": [
    {
-    "value": "block",
-    "label": "block",
-    "text": "block"
+    "value": "blue",
+    "label": "blue",
+    "text": "blue"
    },
    {
     "value": "glue",
@@ -153,37 +145,33 @@ export const questions = [
     "text": "star"
    }
   ],
-  "answer": "block",
-  "correctAnswer": "block",
+  "answer": "blue",
+  "correctAnswer": "blue",
   "distractorRationales": {
    "star": "D-PATTERN-TRAP",
    "glue": "D-PATTERN-TRAP",
    "drum": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
-  "phonicsPosition": "initial",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "blue",
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.B.bl.v2",
-   "role": "answer-cards",
-   "paths": [
-    "/images/assessment/blends/block.webp",
-    "/images/assessment/blends/glue.webp",
-    "/images/assessment/blends/drum.webp",
-    "/images/assessment/rhyming/variants/ar/star-02.webp"
-   ],
-   "alt": "Picture choices for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options"
   },
@@ -196,45 +184,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "glue rhymes with the anchor — it ties the scanner and tempts the rhyme-matcher",
-  "imageCards": [
-   {
-    "id": "lp3.blends.l1.B.bl.v2_card_block",
-    "word": "block",
-    "value": "block",
-    "label": "block",
-    "image": "/images/assessment/blends/block.webp",
-    "imagePath": "/images/assessment/blends/block.webp",
-    "imageAlt": "block"
-   },
-   {
-    "id": "lp3.blends.l1.B.bl.v2_card_glue",
-    "word": "glue",
-    "value": "glue",
-    "label": "glue",
-    "image": "/images/assessment/blends/glue.webp",
-    "imagePath": "/images/assessment/blends/glue.webp",
-    "imageAlt": "glue"
-   },
-   {
-    "id": "lp3.blends.l1.B.bl.v2_card_drum",
-    "word": "drum",
-    "value": "drum",
-    "label": "drum",
-    "image": "/images/assessment/blends/drum.webp",
-    "imagePath": "/images/assessment/blends/drum.webp",
-    "imageAlt": "drum"
-   },
-   {
-    "id": "lp3.blends.l1.B.bl.v2_card_star",
-    "word": "star",
-    "value": "star",
-    "label": "star",
-    "image": "/images/assessment/rhyming/variants/ar/star-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ar/star-02.webp",
-    "imageAlt": "star"
-   }
-  ]
+  "notes": "audio pins the colour word without asking a child to infer an attribute from a picture"
  },
  {
   "id": "lp3.blends.l1.C.bl.v3",
@@ -255,10 +205,10 @@ export const questions = [
   "itemKey": "bl",
   "formatType": "MPD",
   "templateType": "MPD",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Block. Which printed word matches the recording?",
   "choices": [
    "lock",
    "black",
@@ -294,31 +244,29 @@ export const questions = [
    "lock": "D-ONSET",
    "black": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "block",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.C.bl.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/block.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "block",
-  "stimulusMediaId": "block",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -328,13 +276,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "lock is the b-dropped reduction — THE blend error",
-  "imagePath": "/images/assessment/blends/block.webp",
-  "imageUrl": "/images/assessment/blends/block.webp",
-  "targetImage": "/images/assessment/blends/block.webp",
-  "targetImagePath": "/images/assessment/blends/block.webp",
-  "resolvedImageAssetKey": "block",
-  "imageAlt": "block"
+  "notes": "audio pins the intended word and avoids an arbitrary block-versus-cube naming judgement; lock is the b-dropped reduction"
  },
  {
   "id": "lp3.blends.l1.A.bl.v4",
@@ -356,9 +298,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ue",
-  "question": "Finish: __ue",
-  "spokenPrompt": "blue. Which letters finish the word blue?",
+  "prompt": "Choose the missing letters for __ue.",
+  "question": "Choose the missing letters for __ue.",
+  "spokenPrompt": "Blue. Choose the missing letters.",
   "choices": [
    "fl",
    "gl",
@@ -394,32 +336,30 @@ export const questions = [
    "fl": "D-PATTERN-TRAP",
    "gl": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "blue",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.bl.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/blue.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "blue",
-  "stimulusMediaId": "blue",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -429,13 +369,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "glue is real — the blue image pins the target",
-  "imagePath": "/images/assessment/blends/blue.webp",
-  "imageUrl": "/images/assessment/blends/blue.webp",
-  "targetImage": "/images/assessment/blends/blue.webp",
-  "targetImagePath": "/images/assessment/blends/blue.webp",
-  "resolvedImageAssetKey": "blue",
-  "imageAlt": "blue"
+  "notes": "glue is real — the blue image pins the target"
  },
  {
   "id": "lp3.blends.l1.A.cl.v1",
@@ -457,9 +391,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ap",
-  "question": "Finish: __ap",
-  "spokenPrompt": "clap. Which letters finish the word clap?",
+  "prompt": "Choose the missing letters for __ap.",
+  "question": "Choose the missing letters for __ap.",
+  "spokenPrompt": "Clap. Choose the missing letters.",
   "choices": [
    "fl",
    "sl",
@@ -495,32 +429,30 @@ export const questions = [
    "sl": "D-PATTERN-TRAP",
    "tr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "clap",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.cl.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/clap.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "clap",
-  "stimulusMediaId": "clap",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -530,13 +462,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/clap.webp",
-  "imageUrl": "/images/assessment/blends/clap.webp",
-  "targetImage": "/images/assessment/blends/clap.webp",
-  "targetImagePath": "/images/assessment/blends/clap.webp",
-  "resolvedImageAssetKey": "clap",
-  "imageAlt": "clap"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l1.B.cl.v2",
@@ -558,9 +484,9 @@ export const questions = [
   "formatType": "BLEND_IMAGE_CHOICE",
   "templateType": "BLEND_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts like clap?",
-  "question": "Which one starts like clap?",
-  "spokenPrompt": "clap. Which one starts with the same sounds as clap?",
+  "prompt": "Which word begins with the same blend?",
+  "question": "Which word begins with the same blend?",
+  "spokenPrompt": "Clap. Which word begins with the same blend?",
   "choices": [
    "map",
    "clock",
@@ -601,8 +527,10 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "hideWrittenLabels": false,
+  "constructClaim": "spoken_blend_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "targetWord": "clap",
@@ -614,9 +542,9 @@ export const questions = [
    "itemId": "lp3.blends.l1.B.cl.v2",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/rhyming/variants/ap/map-02.webp",
-    "/images/assessment/blends/clock.webp",
-    "/images/assessment/blends/lamp.webp",
+    "/images/assessment/objective-words/map.webp",
+    "/images/assessment/objective-words/clock.webp",
+    "/images/assessment/objective-words/lamp.webp",
     "/images/assessment/blends/crab.webp"
    ],
    "alt": "Picture choices for this literacy question",
@@ -639,8 +567,8 @@ export const questions = [
     "word": "map",
     "value": "map",
     "label": "map",
-    "image": "/images/assessment/rhyming/variants/ap/map-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ap/map-02.webp",
+    "image": "/images/assessment/objective-words/map.webp",
+    "imagePath": "/images/assessment/objective-words/map.webp",
     "imageAlt": "map"
    },
    {
@@ -648,8 +576,8 @@ export const questions = [
     "word": "clock",
     "value": "clock",
     "label": "clock",
-    "image": "/images/assessment/blends/clock.webp",
-    "imagePath": "/images/assessment/blends/clock.webp",
+    "image": "/images/assessment/objective-words/clock.webp",
+    "imagePath": "/images/assessment/objective-words/clock.webp",
     "imageAlt": "clock"
    },
    {
@@ -657,8 +585,8 @@ export const questions = [
     "word": "lamp",
     "value": "lamp",
     "label": "lamp",
-    "image": "/images/assessment/blends/lamp.webp",
-    "imagePath": "/images/assessment/blends/lamp.webp",
+    "image": "/images/assessment/objective-words/lamp.webp",
+    "imagePath": "/images/assessment/objective-words/lamp.webp",
     "imageAlt": "lamp"
    },
    {
@@ -692,9 +620,9 @@ export const questions = [
   "formatType": "MPD",
   "templateType": "MPD",
   "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
    "clock",
    "lock",
@@ -747,7 +675,7 @@ export const questions = [
    "itemId": "lp3.blends.l1.C.cl.v3",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/blends/clock.webp"
+    "/images/assessment/objective-words/clock.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
@@ -765,10 +693,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/assessment/blends/clock.webp",
-  "imageUrl": "/images/assessment/blends/clock.webp",
-  "targetImage": "/images/assessment/blends/clock.webp",
-  "targetImagePath": "/images/assessment/blends/clock.webp",
+  "imagePath": "/images/assessment/objective-words/clock.webp",
+  "imageUrl": "/images/assessment/objective-words/clock.webp",
+  "targetImage": "/images/assessment/objective-words/clock.webp",
+  "targetImagePath": "/images/assessment/objective-words/clock.webp",
   "resolvedImageAssetKey": "clock",
   "imageAlt": "clock"
  },
@@ -792,9 +720,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __oth",
-  "question": "Finish: __oth",
-  "spokenPrompt": "cloth. Which letters finish the word cloth?",
+  "prompt": "Choose the missing letters for __oth.",
+  "question": "Choose the missing letters for __oth.",
+  "spokenPrompt": "Cloth. Choose the missing letters.",
   "choices": [
    "cl",
    "bl",
@@ -830,32 +758,30 @@ export const questions = [
    "bl": "D-PATTERN-TRAP",
    "sl": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "cloth",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.cl.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/cloth.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "cloth",
-  "stimulusMediaId": "cloth",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -865,13 +791,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/cloth.webp",
-  "imageUrl": "/images/assessment/digraphs/cloth.webp",
-  "targetImage": "/images/assessment/digraphs/cloth.webp",
-  "targetImagePath": "/images/assessment/digraphs/cloth.webp",
-  "resolvedImageAssetKey": "cloth",
-  "imageAlt": "cloth"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l1.A.fl.v1",
@@ -893,9 +813,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ag",
-  "question": "Finish: __ag",
-  "spokenPrompt": "flag. Which letters finish the word flag?",
+  "prompt": "Choose the missing letters for __ag.",
+  "question": "Choose the missing letters for __ag.",
+  "spokenPrompt": "Flag. Choose the missing letters.",
   "choices": [
    "st",
    "fl",
@@ -931,32 +851,30 @@ export const questions = [
    "bl": "D-PATTERN-TRAP",
    "cr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "flag",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.fl.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/flag.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "flag",
-  "stimulusMediaId": "flag",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -966,13 +884,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/flag.webp",
-  "imageUrl": "/images/assessment/blends/flag.webp",
-  "targetImage": "/images/assessment/blends/flag.webp",
-  "targetImagePath": "/images/assessment/blends/flag.webp",
-  "resolvedImageAssetKey": "flag",
-  "imageAlt": "flag"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l1.B.fl.v2",
@@ -994,12 +906,12 @@ export const questions = [
   "formatType": "BLEND_IMAGE_CHOICE",
   "templateType": "BLEND_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts like flower?",
-  "question": "Which one starts like flower?",
-  "spokenPrompt": "flower. Which one starts with the same sounds as flower?",
+  "prompt": "Which word begins with the same blend?",
+  "question": "Which word begins with the same blend?",
+  "spokenPrompt": "Flower. Which word begins with the same blend?",
   "choices": [
    "crown",
-   "leaf",
+   "lamp",
    "flag",
    "frog"
   ],
@@ -1010,9 +922,9 @@ export const questions = [
     "text": "crown"
    },
    {
-    "value": "leaf",
-    "label": "leaf",
-    "text": "leaf"
+    "value": "lamp",
+    "label": "lamp",
+    "text": "lamp"
    },
    {
     "value": "flag",
@@ -1028,7 +940,7 @@ export const questions = [
   "answer": "flag",
   "correctAnswer": "flag",
   "distractorRationales": {
-   "leaf": "D-ONSET",
+   "lamp": "D-ONSET",
    "frog": "D-PATTERN-TRAP",
    "crown": "D-PATTERN-TRAP"
   },
@@ -1037,8 +949,10 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "hideWrittenLabels": false,
+  "constructClaim": "spoken_blend_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "targetWord": "flower",
@@ -1050,8 +964,8 @@ export const questions = [
    "itemId": "lp3.blends.l1.B.fl.v2",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/blends/crown.webp",
-    "/images/assessment/long-vowels/leaf.webp",
+    "/images/assessment/objective-words/crown.webp",
+    "/images/assessment/objective-words/lamp.webp",
     "/images/assessment/blends/flag.webp",
     "/images/assessment/blends/frog.webp"
    ],
@@ -1075,18 +989,18 @@ export const questions = [
     "word": "crown",
     "value": "crown",
     "label": "crown",
-    "image": "/images/assessment/blends/crown.webp",
-    "imagePath": "/images/assessment/blends/crown.webp",
+    "image": "/images/assessment/objective-words/crown.webp",
+    "imagePath": "/images/assessment/objective-words/crown.webp",
     "imageAlt": "crown"
    },
    {
-    "id": "lp3.blends.l1.B.fl.v2_card_leaf",
-    "word": "leaf",
-    "value": "leaf",
-    "label": "leaf",
-    "image": "/images/assessment/long-vowels/leaf.webp",
-    "imagePath": "/images/assessment/long-vowels/leaf.webp",
-    "imageAlt": "leaf"
+    "id": "lp3.blends.l1.B.fl.v2_card_lamp",
+    "word": "lamp",
+    "value": "lamp",
+    "label": "lamp",
+    "image": "/images/assessment/objective-words/lamp.webp",
+    "imagePath": "/images/assessment/objective-words/lamp.webp",
+    "imageAlt": "lamp"
    },
    {
     "id": "lp3.blends.l1.B.fl.v2_card_flag",
@@ -1128,9 +1042,9 @@ export const questions = [
   "formatType": "MPD",
   "templateType": "MPD",
   "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
    "bag",
    "flag",
@@ -1228,9 +1142,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ute",
-  "question": "Finish: __ute",
-  "spokenPrompt": "flute. Which letters finish the word flute?",
+  "prompt": "Choose the missing letters for __ute.",
+  "question": "Choose the missing letters for __ute.",
+  "spokenPrompt": "Flute. Choose the missing letters.",
   "choices": [
    "br",
    "gr",
@@ -1266,32 +1180,30 @@ export const questions = [
    "br": "D-PATTERN-TRAP",
    "gr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "flute",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.fl.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/flute.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "flute",
-  "stimulusMediaId": "flute",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1301,13 +1213,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/flute.webp",
-  "imageUrl": "/images/assessment/long-vowels/flute.webp",
-  "targetImage": "/images/assessment/long-vowels/flute.webp",
-  "targetImagePath": "/images/assessment/long-vowels/flute.webp",
-  "resolvedImageAssetKey": "flute",
-  "imageAlt": "flute"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l1.A.pl.v1",
@@ -1329,9 +1235,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ug",
-  "question": "Finish: __ug",
-  "spokenPrompt": "plug. Which letters finish the word plug?",
+  "prompt": "Choose the missing letters for __ug.",
+  "question": "Choose the missing letters for __ug.",
+  "spokenPrompt": "Plug. Choose the missing letters.",
   "choices": [
    "bl",
    "sl",
@@ -1367,32 +1273,30 @@ export const questions = [
    "sl": "D-PATTERN-TRAP",
    "dr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "plug",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.pl.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/plug.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "plug",
-  "stimulusMediaId": "plug",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1402,13 +1306,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/plug.webp",
-  "imageUrl": "/images/assessment/blends/plug.webp",
-  "targetImage": "/images/assessment/blends/plug.webp",
-  "targetImagePath": "/images/assessment/blends/plug.webp",
-  "resolvedImageAssetKey": "plug",
-  "imageAlt": "plug"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l1.B.pl.v2",
@@ -1427,71 +1325,67 @@ export const questions = [
   "form": "B",
   "itemType": "phonics_pattern",
   "itemKey": "pl",
-  "formatType": "BLEND_IMAGE_CHOICE",
-  "templateType": "BLEND_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one starts like play?",
-  "question": "Which one starts like play?",
-  "spokenPrompt": "play. Which one starts with the same sounds as play?",
+  "formatType": "MPD",
+  "templateType": "MPD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Plate. Which printed word matches the recording?",
   "choices": [
-   "lamp",
-   "glue",
-   "drum",
-   "plug"
+   "late",
+   "plant",
+   "gate",
+   "plate"
   ],
   "answerOptions": [
    {
-    "value": "lamp",
-    "label": "lamp",
-    "text": "lamp"
+    "value": "late",
+    "label": "late",
+    "text": "late"
    },
    {
-    "value": "glue",
-    "label": "glue",
-    "text": "glue"
+    "value": "plant",
+    "label": "plant",
+    "text": "plant"
    },
    {
-    "value": "drum",
-    "label": "drum",
-    "text": "drum"
+    "value": "gate",
+    "label": "gate",
+    "text": "gate"
    },
    {
-    "value": "plug",
-    "label": "plug",
-    "text": "plug"
+    "value": "plate",
+    "label": "plate",
+    "text": "plate"
    }
   ],
-  "answer": "plug",
-  "correctAnswer": "plug",
+  "answer": "plate",
+  "correctAnswer": "plate",
   "distractorRationales": {
-   "lamp": "D-ONSET",
-   "glue": "D-PATTERN-TRAP",
-   "drum": "D-PATTERN-TRAP"
+   "late": "D-ONSET",
+   "plant": "D-PATTERN-TRAP",
+   "gate": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
-  "phonicsPosition": "initial",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "play",
+  "audioRole": "target_word",
+  "targetWord": "plate",
   "v3AuthoredMedia": {
    "target": false,
-   "cards": true
+   "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.B.pl.v2",
-   "role": "answer-cards",
-   "paths": [
-    "/images/assessment/blends/lamp.webp",
-    "/images/assessment/blends/glue.webp",
-    "/images/assessment/blends/drum.webp",
-    "/images/assessment/blends/plug.webp"
-   ],
-   "alt": "Picture choices for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-scoring-options"
   },
@@ -1504,45 +1398,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "anchor avoids plum/plug's shared plu-chunk; lamp ties the play la-overlap",
-  "imageCards": [
-   {
-    "id": "lp3.blends.l1.B.pl.v2_card_lamp",
-    "word": "lamp",
-    "value": "lamp",
-    "label": "lamp",
-    "image": "/images/assessment/blends/lamp.webp",
-    "imagePath": "/images/assessment/blends/lamp.webp",
-    "imageAlt": "lamp"
-   },
-   {
-    "id": "lp3.blends.l1.B.pl.v2_card_glue",
-    "word": "glue",
-    "value": "glue",
-    "label": "glue",
-    "image": "/images/assessment/blends/glue.webp",
-    "imagePath": "/images/assessment/blends/glue.webp",
-    "imageAlt": "glue"
-   },
-   {
-    "id": "lp3.blends.l1.B.pl.v2_card_drum",
-    "word": "drum",
-    "value": "drum",
-    "label": "drum",
-    "image": "/images/assessment/blends/drum.webp",
-    "imagePath": "/images/assessment/blends/drum.webp",
-    "imageAlt": "drum"
-   },
-   {
-    "id": "lp3.blends.l1.B.pl.v2_card_plug",
-    "word": "plug",
-    "value": "plug",
-    "label": "plug",
-    "image": "/images/assessment/blends/plug.webp",
-    "imagePath": "/images/assessment/blends/plug.webp",
-    "imageAlt": "plug"
-   }
-  ]
+  "notes": "audio and print remove the plane-versus-airplane naming dependency; late is the p-dropped reduction"
  },
  {
   "id": "lp3.blends.l1.C.pl.v3",
@@ -1563,10 +1419,10 @@ export const questions = [
   "itemKey": "pl",
   "formatType": "MPD",
   "templateType": "MPD",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Plug. Which printed word matches the recording?",
   "choices": [
    "plum",
    "rug",
@@ -1602,31 +1458,29 @@ export const questions = [
    "plum": "D-PATTERN-TRAP",
    "rug": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "plug",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.C.pl.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/plug.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "plug",
-  "stimulusMediaId": "plug",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1636,13 +1490,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/plug.webp",
-  "imageUrl": "/images/assessment/blends/plug.webp",
-  "targetImage": "/images/assessment/blends/plug.webp",
-  "targetImagePath": "/images/assessment/blends/plug.webp",
-  "resolvedImageAssetKey": "plug",
-  "imageAlt": "plug"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l1.A.pl.v4",
@@ -1664,9 +1512,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ant",
-  "question": "Finish: __ant",
-  "spokenPrompt": "plant. Which letters finish the word plant?",
+  "prompt": "Choose the missing letters for __ant.",
+  "question": "Choose the missing letters for __ant.",
+  "spokenPrompt": "Plant. Choose the missing letters.",
   "choices": [
    "pl",
    "gr",
@@ -1702,32 +1550,30 @@ export const questions = [
    "fr": "D-PATTERN-TRAP",
    "gr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "plant",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.pl.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/plant.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "plant",
-  "stimulusMediaId": "plant",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1737,13 +1583,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "grant is real — the plant image pins the target",
-  "imagePath": "/images/assessment/blends/plant.webp",
-  "imageUrl": "/images/assessment/blends/plant.webp",
-  "targetImage": "/images/assessment/blends/plant.webp",
-  "targetImagePath": "/images/assessment/blends/plant.webp",
-  "resolvedImageAssetKey": "plant",
-  "imageAlt": "plant"
+  "notes": "grant is real — the plant image pins the target"
  },
  {
   "id": "lp3.blends.l1.A.sl.v1",
@@ -1765,9 +1605,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ed",
-  "question": "Finish: __ed",
-  "spokenPrompt": "sled. Which letters finish the word sled?",
+  "prompt": "Choose the missing letters for __ed.",
+  "question": "Choose the missing letters for __ed.",
+  "spokenPrompt": "Sled. Choose the missing letters.",
   "choices": [
    "st",
    "sl",
@@ -1803,32 +1643,30 @@ export const questions = [
    "br": "D-PATTERN-TRAP",
    "st": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "sled",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.sl.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/sled.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "sled",
-  "stimulusMediaId": "sled",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1838,13 +1676,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/sled.webp",
-  "imageUrl": "/images/assessment/blends/sled.webp",
-  "targetImage": "/images/assessment/blends/sled.webp",
-  "targetImagePath": "/images/assessment/blends/sled.webp",
-  "resolvedImageAssetKey": "sled",
-  "imageAlt": "sled"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l1.B.sl.v2",
@@ -1866,9 +1698,9 @@ export const questions = [
   "formatType": "BLEND_IMAGE_CHOICE",
   "templateType": "BLEND_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts like slip?",
-  "question": "Which one starts like slip?",
-  "spokenPrompt": "slip. Which one starts with the same sounds as slip?",
+  "prompt": "Which word begins with the same blend?",
+  "question": "Which word begins with the same blend?",
+  "spokenPrompt": "Slip. Which word begins with the same blend?",
   "choices": [
    "sled",
    "ship",
@@ -1909,8 +1741,10 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "hideWrittenLabels": false,
+  "constructClaim": "spoken_blend_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "targetWord": "slip",
@@ -1922,10 +1756,10 @@ export const questions = [
    "itemId": "lp3.blends.l1.B.sl.v2",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/blends/sled.webp",
-    "/images/assessment/digraphs/ship.webp",
-    "/images/assessment/blends/spoon.webp",
-    "/images/assessment/blends/lamp.webp"
+    "/images/assessment/objective-words/sled.webp",
+    "/images/assessment/objective-words/ship.webp",
+    "/images/assessment/objective-words/spoon.webp",
+    "/images/assessment/objective-words/lamp.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -1947,8 +1781,8 @@ export const questions = [
     "word": "sled",
     "value": "sled",
     "label": "sled",
-    "image": "/images/assessment/blends/sled.webp",
-    "imagePath": "/images/assessment/blends/sled.webp",
+    "image": "/images/assessment/objective-words/sled.webp",
+    "imagePath": "/images/assessment/objective-words/sled.webp",
     "imageAlt": "sled"
    },
    {
@@ -1956,8 +1790,8 @@ export const questions = [
     "word": "ship",
     "value": "ship",
     "label": "ship",
-    "image": "/images/assessment/digraphs/ship.webp",
-    "imagePath": "/images/assessment/digraphs/ship.webp",
+    "image": "/images/assessment/objective-words/ship.webp",
+    "imagePath": "/images/assessment/objective-words/ship.webp",
     "imageAlt": "ship"
    },
    {
@@ -1965,8 +1799,8 @@ export const questions = [
     "word": "spoon",
     "value": "spoon",
     "label": "spoon",
-    "image": "/images/assessment/blends/spoon.webp",
-    "imagePath": "/images/assessment/blends/spoon.webp",
+    "image": "/images/assessment/objective-words/spoon.webp",
+    "imagePath": "/images/assessment/objective-words/spoon.webp",
     "imageAlt": "spoon"
    },
    {
@@ -1974,8 +1808,8 @@ export const questions = [
     "word": "lamp",
     "value": "lamp",
     "label": "lamp",
-    "image": "/images/assessment/blends/lamp.webp",
-    "imagePath": "/images/assessment/blends/lamp.webp",
+    "image": "/images/assessment/objective-words/lamp.webp",
+    "imagePath": "/images/assessment/objective-words/lamp.webp",
     "imageAlt": "lamp"
    }
   ]
@@ -1999,10 +1833,10 @@ export const questions = [
   "itemKey": "sl",
   "formatType": "MPD",
   "templateType": "MPD",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Sled. Which printed word matches the recording?",
   "choices": [
    "led",
    "slid",
@@ -2038,31 +1872,29 @@ export const questions = [
    "slid": "D-PATTERN-TRAP",
    "red": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "sled",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.C.sl.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/sled.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "sled",
-  "stimulusMediaId": "sled",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2072,13 +1904,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/sled.webp",
-  "imageUrl": "/images/assessment/blends/sled.webp",
-  "targetImage": "/images/assessment/blends/sled.webp",
-  "targetImagePath": "/images/assessment/blends/sled.webp",
-  "resolvedImageAssetKey": "sled",
-  "imageAlt": "sled"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l1.A.sl.v4",
@@ -2100,9 +1926,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ide",
-  "question": "Finish: __ide",
-  "spokenPrompt": "slide. Which letters finish the word slide?",
+  "prompt": "Choose the missing letters for __ide.",
+  "question": "Choose the missing letters for __ide.",
+  "spokenPrompt": "Slide. Choose the missing letters.",
   "choices": [
    "br",
    "cr",
@@ -2138,32 +1964,30 @@ export const questions = [
    "gl": "D-PATTERN-TRAP",
    "br": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "slide",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.sl.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/slide.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "slide",
-  "stimulusMediaId": "slide",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2173,13 +1997,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/slide.webp",
-  "imageUrl": "/images/assessment/blends/slide.webp",
-  "targetImage": "/images/assessment/blends/slide.webp",
-  "targetImagePath": "/images/assessment/blends/slide.webp",
-  "resolvedImageAssetKey": "slide",
-  "imageAlt": "slide"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l1.A.br.v1",
@@ -2201,9 +2019,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ead",
-  "question": "Finish: __ead",
-  "spokenPrompt": "bread. Which letters finish the word bread?",
+  "prompt": "Choose the missing letters for __ead.",
+  "question": "Choose the missing letters for __ead.",
+  "spokenPrompt": "Bread. Choose the missing letters.",
   "choices": [
    "dr",
    "cr",
@@ -2239,32 +2057,30 @@ export const questions = [
    "cr": "D-PATTERN-TRAP",
    "tr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "bread",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.br.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/bread.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "bread",
-  "stimulusMediaId": "bread",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2274,13 +2090,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/bread.webp",
-  "imageUrl": "/images/assessment/blends/bread.webp",
-  "targetImage": "/images/assessment/blends/bread.webp",
-  "targetImagePath": "/images/assessment/blends/bread.webp",
-  "resolvedImageAssetKey": "bread",
-  "imageAlt": "bread"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l1.B.br.v2",
@@ -2302,14 +2112,14 @@ export const questions = [
   "formatType": "BLEND_IMAGE_CHOICE",
   "templateType": "BLEND_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts like brown?",
-  "question": "Which one starts like brown?",
-  "spokenPrompt": "brown. Which one starts with the same sounds as brown?",
+  "prompt": "Which word begins with the same blend?",
+  "question": "Which word begins with the same blend?",
+  "spokenPrompt": "Brown. Which word begins with the same blend?",
   "choices": [
    "rat",
    "bread",
    "crown",
-   "block"
+   "glass"
   ],
   "answerOptions": [
    {
@@ -2328,16 +2138,16 @@ export const questions = [
     "text": "crown"
    },
    {
-    "value": "block",
-    "label": "block",
-    "text": "block"
+    "value": "glass",
+    "label": "glass",
+    "text": "glass"
    }
   ],
   "answer": "bread",
   "correctAnswer": "bread",
   "distractorRationales": {
    "crown": "D-RIME-NEAR",
-   "block": "D-PATTERN-TRAP",
+   "glass": "D-PATTERN-TRAP",
    "rat": "D-ONSET"
   },
   "mediaTier": "image-required",
@@ -2345,8 +2155,10 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "hideWrittenLabels": false,
+  "constructClaim": "spoken_blend_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "targetWord": "brown",
@@ -2358,10 +2170,10 @@ export const questions = [
    "itemId": "lp3.blends.l1.B.br.v2",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/rhyming/variants/at/rat-02.webp",
-    "/images/assessment/blends/bread.webp",
-    "/images/assessment/blends/crown.webp",
-    "/images/assessment/blends/block.webp"
+    "/images/assessment/objective-words/rat.webp",
+    "/images/assessment/objective-words/bread.webp",
+    "/images/assessment/objective-words/crown.webp",
+    "/images/assessment/objective-words/glass.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -2383,8 +2195,8 @@ export const questions = [
     "word": "rat",
     "value": "rat",
     "label": "rat",
-    "image": "/images/assessment/rhyming/variants/at/rat-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/at/rat-02.webp",
+    "image": "/images/assessment/objective-words/rat.webp",
+    "imagePath": "/images/assessment/objective-words/rat.webp",
     "imageAlt": "rat"
    },
    {
@@ -2392,8 +2204,8 @@ export const questions = [
     "word": "bread",
     "value": "bread",
     "label": "bread",
-    "image": "/images/assessment/blends/bread.webp",
-    "imagePath": "/images/assessment/blends/bread.webp",
+    "image": "/images/assessment/objective-words/bread.webp",
+    "imagePath": "/images/assessment/objective-words/bread.webp",
     "imageAlt": "bread"
    },
    {
@@ -2401,18 +2213,18 @@ export const questions = [
     "word": "crown",
     "value": "crown",
     "label": "crown",
-    "image": "/images/assessment/blends/crown.webp",
-    "imagePath": "/images/assessment/blends/crown.webp",
+    "image": "/images/assessment/objective-words/crown.webp",
+    "imagePath": "/images/assessment/objective-words/crown.webp",
     "imageAlt": "crown"
    },
    {
-    "id": "lp3.blends.l1.B.br.v2_card_block",
-    "word": "block",
-    "value": "block",
-    "label": "block",
-    "image": "/images/assessment/blends/block.webp",
-    "imagePath": "/images/assessment/blends/block.webp",
-    "imageAlt": "block"
+    "id": "lp3.blends.l1.B.br.v2_card_glass",
+    "word": "glass",
+    "value": "glass",
+    "label": "glass",
+    "image": "/images/assessment/objective-words/glass.webp",
+    "imagePath": "/images/assessment/objective-words/glass.webp",
+    "imageAlt": "glass"
    }
   ]
  },
@@ -2436,9 +2248,9 @@ export const questions = [
   "formatType": "MPD",
   "templateType": "MPD",
   "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
    "bread",
    "red",
@@ -2491,7 +2303,7 @@ export const questions = [
    "itemId": "lp3.blends.l1.C.br.v3",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/blends/bread.webp"
+    "/images/assessment/objective-words/bread.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
@@ -2509,10 +2321,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "red is the b-dropped reduction",
-  "imagePath": "/images/assessment/blends/bread.webp",
-  "imageUrl": "/images/assessment/blends/bread.webp",
-  "targetImage": "/images/assessment/blends/bread.webp",
-  "targetImagePath": "/images/assessment/blends/bread.webp",
+  "imagePath": "/images/assessment/objective-words/bread.webp",
+  "imageUrl": "/images/assessment/objective-words/bread.webp",
+  "targetImage": "/images/assessment/objective-words/bread.webp",
+  "targetImagePath": "/images/assessment/objective-words/bread.webp",
   "resolvedImageAssetKey": "bread",
   "imageAlt": "bread"
  },
@@ -2536,9 +2348,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ick",
-  "question": "Finish: __ick",
-  "spokenPrompt": "brick. Which letters finish the word brick?",
+  "prompt": "Choose the missing letters for __ick.",
+  "question": "Choose the missing letters for __ick.",
+  "spokenPrompt": "Brick. Choose the missing letters.",
   "choices": [
    "br",
    "tr",
@@ -2574,32 +2386,30 @@ export const questions = [
    "cl": "D-PATTERN-TRAP",
    "tr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "brick",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.br.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/brick.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "brick",
-  "stimulusMediaId": "brick",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2609,13 +2419,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/brick.webp",
-  "imageUrl": "/images/assessment/digraphs/brick.webp",
-  "targetImage": "/images/assessment/digraphs/brick.webp",
-  "targetImagePath": "/images/assessment/digraphs/brick.webp",
-  "resolvedImageAssetKey": "brick",
-  "imageAlt": "brick"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l1.A.cr.v1",
@@ -2637,9 +2441,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ab",
-  "question": "Finish: __ab",
-  "spokenPrompt": "crab. Which letters finish the word crab?",
+  "prompt": "Choose the missing letters for __ab.",
+  "question": "Choose the missing letters for __ab.",
+  "spokenPrompt": "Crab. Choose the missing letters.",
   "choices": [
    "st",
    "cr",
@@ -2675,32 +2479,30 @@ export const questions = [
    "st": "D-PATTERN-TRAP",
    "gr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "crab",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.cr.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/crab.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "crab",
-  "stimulusMediaId": "crab",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2710,13 +2512,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/crab.webp",
-  "imageUrl": "/images/assessment/blends/crab.webp",
-  "targetImage": "/images/assessment/blends/crab.webp",
-  "targetImagePath": "/images/assessment/blends/crab.webp",
-  "resolvedImageAssetKey": "crab",
-  "imageAlt": "crab"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l1.B.cr.v2",
@@ -2738,14 +2534,14 @@ export const questions = [
   "formatType": "BLEND_IMAGE_CHOICE",
   "templateType": "BLEND_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts like crown?",
-  "question": "Which one starts like crown?",
-  "spokenPrompt": "crown. Which one starts with the same sounds as crown?",
+  "prompt": "Which word begins with the same blend?",
+  "question": "Which word begins with the same blend?",
+  "spokenPrompt": "Crown. Which word begins with the same blend?",
   "choices": [
    "clock",
-   "rock",
+   "rat",
    "crab",
-   "brown"
+   "bread"
   ],
   "answerOptions": [
    {
@@ -2754,9 +2550,9 @@ export const questions = [
     "text": "clock"
    },
    {
-    "value": "rock",
-    "label": "rock",
-    "text": "rock"
+    "value": "rat",
+    "label": "rat",
+    "text": "rat"
    },
    {
     "value": "crab",
@@ -2764,25 +2560,27 @@ export const questions = [
     "text": "crab"
    },
    {
-    "value": "brown",
-    "label": "brown",
-    "text": "brown"
+    "value": "bread",
+    "label": "bread",
+    "text": "bread"
    }
   ],
   "answer": "crab",
   "correctAnswer": "crab",
   "distractorRationales": {
    "clock": "D-PATTERN-TRAP",
-   "rock": "D-ONSET",
-   "brown": "D-RIME-NEAR"
+   "rat": "D-ONSET",
+   "bread": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "hideWrittenLabels": false,
+  "constructClaim": "spoken_blend_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "targetWord": "crown",
@@ -2794,10 +2592,10 @@ export const questions = [
    "itemId": "lp3.blends.l1.B.cr.v2",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/blends/clock.webp",
-    "/images/assessment/digraphs/rock.webp",
+    "/images/assessment/objective-words/clock.webp",
+    "/images/assessment/objective-words/rat.webp",
     "/images/assessment/blends/crab.webp",
-    "/images/assessment/blends/brown.webp"
+    "/images/assessment/objective-words/bread.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -2812,25 +2610,25 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "brown rhymes with the anchor; rock is the c-dropped reduction",
+  "notes": "bread supplies a rival r-blend; rat is the c-dropped reduction",
   "imageCards": [
    {
     "id": "lp3.blends.l1.B.cr.v2_card_clock",
     "word": "clock",
     "value": "clock",
     "label": "clock",
-    "image": "/images/assessment/blends/clock.webp",
-    "imagePath": "/images/assessment/blends/clock.webp",
+    "image": "/images/assessment/objective-words/clock.webp",
+    "imagePath": "/images/assessment/objective-words/clock.webp",
     "imageAlt": "clock"
    },
    {
-    "id": "lp3.blends.l1.B.cr.v2_card_rock",
-    "word": "rock",
-    "value": "rock",
-    "label": "rock",
-    "image": "/images/assessment/digraphs/rock.webp",
-    "imagePath": "/images/assessment/digraphs/rock.webp",
-    "imageAlt": "rock"
+    "id": "lp3.blends.l1.B.cr.v2_card_rat",
+    "word": "rat",
+    "value": "rat",
+    "label": "rat",
+    "image": "/images/assessment/objective-words/rat.webp",
+    "imagePath": "/images/assessment/objective-words/rat.webp",
+    "imageAlt": "rat"
    },
    {
     "id": "lp3.blends.l1.B.cr.v2_card_crab",
@@ -2842,13 +2640,13 @@ export const questions = [
     "imageAlt": "crab"
    },
    {
-    "id": "lp3.blends.l1.B.cr.v2_card_brown",
-    "word": "brown",
-    "value": "brown",
-    "label": "brown",
-    "image": "/images/assessment/blends/brown.webp",
-    "imagePath": "/images/assessment/blends/brown.webp",
-    "imageAlt": "brown"
+    "id": "lp3.blends.l1.B.cr.v2_card_bread",
+    "word": "bread",
+    "value": "bread",
+    "label": "bread",
+    "image": "/images/assessment/objective-words/bread.webp",
+    "imagePath": "/images/assessment/objective-words/bread.webp",
+    "imageAlt": "bread"
    }
   ]
  },
@@ -2872,9 +2670,9 @@ export const questions = [
   "formatType": "MPD",
   "templateType": "MPD",
   "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
    "grab",
    "crab",
@@ -2972,9 +2770,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __own",
-  "question": "Finish: __own",
-  "spokenPrompt": "crown. Which letters finish the word crown?",
+  "prompt": "Choose the missing letters for __own.",
+  "question": "Choose the missing letters for __own.",
+  "spokenPrompt": "Crown. Choose the missing letters.",
   "choices": [
    "fr",
    "dr",
@@ -3010,32 +2808,30 @@ export const questions = [
    "fr": "D-PATTERN-TRAP",
    "dr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "crown",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.cr.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/crown.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "crown",
-  "stimulusMediaId": "crown",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3045,13 +2841,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "brown and drown are real — the crown image pins the target",
-  "imagePath": "/images/assessment/blends/crown.webp",
-  "imageUrl": "/images/assessment/blends/crown.webp",
-  "targetImage": "/images/assessment/blends/crown.webp",
-  "targetImagePath": "/images/assessment/blends/crown.webp",
-  "resolvedImageAssetKey": "crown",
-  "imageAlt": "crown"
+  "notes": "brown and drown are real — the crown image pins the target"
  },
  {
   "id": "lp3.blends.l1.A.dr.v1",
@@ -3073,9 +2863,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __um",
-  "question": "Finish: __um",
-  "spokenPrompt": "drum. Which letters finish the word drum?",
+  "prompt": "Choose the missing letters for __um.",
+  "question": "Choose the missing letters for __um.",
+  "spokenPrompt": "Drum. Choose the missing letters.",
   "choices": [
    "br",
    "pl",
@@ -3111,32 +2901,30 @@ export const questions = [
    "br": "D-PATTERN-TRAP",
    "pl": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "drum",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.dr.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/drum.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "drum",
-  "stimulusMediaId": "drum",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3146,13 +2934,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/drum.webp",
-  "imageUrl": "/images/assessment/blends/drum.webp",
-  "targetImage": "/images/assessment/blends/drum.webp",
-  "targetImagePath": "/images/assessment/blends/drum.webp",
-  "resolvedImageAssetKey": "drum",
-  "imageAlt": "drum"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l1.B.dr.v2",
@@ -3174,9 +2956,9 @@ export const questions = [
   "formatType": "BLEND_IMAGE_CHOICE",
   "templateType": "BLEND_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts like dress?",
-  "question": "Which one starts like dress?",
-  "spokenPrompt": "dress. Which one starts with the same sounds as dress?",
+  "prompt": "Which word begins with the same blend?",
+  "question": "Which word begins with the same blend?",
+  "spokenPrompt": "Dress. Which word begins with the same blend?",
   "choices": [
    "vest",
    "crab",
@@ -3217,8 +2999,10 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "hideWrittenLabels": false,
+  "constructClaim": "spoken_blend_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "targetWord": "dress",
@@ -3232,7 +3016,7 @@ export const questions = [
    "paths": [
     "/images/assessment/release-media/vest-9a368716.webp",
     "/images/assessment/blends/crab.webp",
-    "/images/assessment/rhyming/variants/at/rat-02.webp",
+    "/images/assessment/objective-words/rat.webp",
     "/images/assessment/blends/drum.webp"
    ],
    "alt": "Picture choices for this literacy question",
@@ -3273,8 +3057,8 @@ export const questions = [
     "word": "rat",
     "value": "rat",
     "label": "rat",
-    "image": "/images/assessment/rhyming/variants/at/rat-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/at/rat-02.webp",
+    "image": "/images/assessment/objective-words/rat.webp",
+    "imagePath": "/images/assessment/objective-words/rat.webp",
     "imageAlt": "rat"
    },
    {
@@ -3307,10 +3091,10 @@ export const questions = [
   "itemKey": "dr",
   "formatType": "MPD",
   "templateType": "MPD",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Draw. Which printed word matches the recording?",
   "choices": [
    "drum",
    "paw",
@@ -3346,31 +3130,29 @@ export const questions = [
    "raw": "D-ONSET",
    "drum": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "draw",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.C.dr.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/draw.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "draw",
-  "stimulusMediaId": "draw",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3380,13 +3162,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "raw is the d-dropped reduction",
-  "imagePath": "/images/assessment/blends/draw.webp",
-  "imageUrl": "/images/assessment/blends/draw.webp",
-  "targetImage": "/images/assessment/blends/draw.webp",
-  "targetImagePath": "/images/assessment/blends/draw.webp",
-  "resolvedImageAssetKey": "draw",
-  "imageAlt": "draw"
+  "notes": "audio pins draw without asking a child to infer an action from a still picture"
  },
  {
   "id": "lp3.blends.l1.A.dr.v4",
@@ -3408,9 +3184,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __aw",
-  "question": "Finish: __aw",
-  "spokenPrompt": "draw. Which letters finish the word draw?",
+  "prompt": "Choose the missing letters for __aw.",
+  "question": "Choose the missing letters for __aw.",
+  "spokenPrompt": "Draw. Choose the missing letters.",
   "choices": [
    "dr",
    "cr",
@@ -3446,32 +3222,30 @@ export const questions = [
    "st": "D-PATTERN-TRAP",
    "cl": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "draw",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.dr.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/draw.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "draw",
-  "stimulusMediaId": "draw",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3481,13 +3255,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "claw is real — the draw image pins the target",
-  "imagePath": "/images/assessment/blends/draw.webp",
-  "imageUrl": "/images/assessment/blends/draw.webp",
-  "targetImage": "/images/assessment/blends/draw.webp",
-  "targetImagePath": "/images/assessment/blends/draw.webp",
-  "resolvedImageAssetKey": "draw",
-  "imageAlt": "draw"
+  "notes": "claw is real — the draw image pins the target"
  },
  {
   "id": "lp3.blends.l1.A.fr.v1",
@@ -3509,9 +3277,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __og",
-  "question": "Finish: __og",
-  "spokenPrompt": "frog. Which letters finish the word frog?",
+  "prompt": "Choose the missing letters for __og.",
+  "question": "Choose the missing letters for __og.",
+  "spokenPrompt": "Frog. Choose the missing letters.",
   "choices": [
    "cl",
    "fr",
@@ -3547,32 +3315,30 @@ export const questions = [
    "dr": "D-PATTERN-TRAP",
    "cl": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "frog",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.fr.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/frog.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "frog",
-  "stimulusMediaId": "frog",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3582,13 +3348,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "clog is real — the frog image pins the target",
-  "imagePath": "/images/assessment/blends/frog.webp",
-  "imageUrl": "/images/assessment/blends/frog.webp",
-  "targetImage": "/images/assessment/blends/frog.webp",
-  "targetImagePath": "/images/assessment/blends/frog.webp",
-  "resolvedImageAssetKey": "frog",
-  "imageAlt": "frog"
+  "notes": "clog is real — the frog image pins the target"
  },
  {
   "id": "lp3.blends.l1.B.fr.v2",
@@ -3610,9 +3370,9 @@ export const questions = [
   "formatType": "BLEND_IMAGE_CHOICE",
   "templateType": "BLEND_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts like fruit?",
-  "question": "Which one starts like fruit?",
-  "spokenPrompt": "fruit. Which one starts with the same sounds as fruit?",
+  "prompt": "Which word begins with the same blend?",
+  "question": "Which word begins with the same blend?",
+  "spokenPrompt": "Fruit. Which word begins with the same blend?",
   "choices": [
    "frog",
    "flag",
@@ -3653,8 +3413,10 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "hideWrittenLabels": false,
+  "constructClaim": "spoken_blend_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "targetWord": "fruit",
@@ -3744,9 +3506,9 @@ export const questions = [
   "formatType": "MPD",
   "templateType": "MPD",
   "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
    "fog",
    "frown",
@@ -3844,9 +3606,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __uit",
-  "question": "Finish: __uit",
-  "spokenPrompt": "fruit. Which letters finish the word fruit?",
+  "prompt": "Choose the missing letters for __uit.",
+  "question": "Choose the missing letters for __uit.",
+  "spokenPrompt": "Fruit. Choose the missing letters.",
   "choices": [
    "br",
    "tr",
@@ -3882,32 +3644,30 @@ export const questions = [
    "tr": "D-PATTERN-TRAP",
    "gr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "fruit",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.fr.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/fruit.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "fruit",
-  "stimulusMediaId": "fruit",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3917,13 +3677,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/fruit.webp",
-  "imageUrl": "/images/assessment/blends/fruit.webp",
-  "targetImage": "/images/assessment/blends/fruit.webp",
-  "targetImagePath": "/images/assessment/blends/fruit.webp",
-  "resolvedImageAssetKey": "fruit",
-  "imageAlt": "fruit"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l1.A.gr.v1",
@@ -3945,9 +3699,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __apes",
-  "question": "Finish: __apes",
-  "spokenPrompt": "grapes. Which letters finish the word grapes?",
+  "prompt": "Choose the missing letters for __apes.",
+  "question": "Choose the missing letters for __apes.",
+  "spokenPrompt": "Grapes. Choose the missing letters.",
   "choices": [
    "dr",
    "cr",
@@ -3983,32 +3737,30 @@ export const questions = [
    "tr": "D-PATTERN-TRAP",
    "dr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "grapes",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.gr.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/grapes.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "grapes",
-  "stimulusMediaId": "grapes",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4018,13 +3770,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/grapes.webp",
-  "imageUrl": "/images/assessment/blends/grapes.webp",
-  "targetImage": "/images/assessment/blends/grapes.webp",
-  "targetImagePath": "/images/assessment/blends/grapes.webp",
-  "resolvedImageAssetKey": "grapes",
-  "imageAlt": "grapes"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l1.B.gr.v2",
@@ -4046,9 +3792,9 @@ export const questions = [
   "formatType": "BLEND_IMAGE_CHOICE",
   "templateType": "BLEND_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts like green?",
-  "question": "Which one starts like green?",
-  "spokenPrompt": "green. Which one starts with the same sounds as green?",
+  "prompt": "Which word begins with the same blend?",
+  "question": "Which word begins with the same blend?",
+  "spokenPrompt": "Green. Which word begins with the same blend?",
   "choices": [
    "rat",
    "grapes",
@@ -4089,8 +3835,10 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "hideWrittenLabels": false,
+  "constructClaim": "spoken_blend_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "targetWord": "green",
@@ -4102,10 +3850,10 @@ export const questions = [
    "itemId": "lp3.blends.l1.B.gr.v2",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/rhyming/variants/at/rat-02.webp",
+    "/images/assessment/objective-words/rat.webp",
     "/images/assessment/blends/grapes.webp",
     "/images/assessment/digraphs/sheep.webp",
-    "/images/assessment/digraphs/brick.webp"
+    "/images/assessment/objective-words/brick.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -4127,8 +3875,8 @@ export const questions = [
     "word": "rat",
     "value": "rat",
     "label": "rat",
-    "image": "/images/assessment/rhyming/variants/at/rat-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/at/rat-02.webp",
+    "image": "/images/assessment/objective-words/rat.webp",
+    "imagePath": "/images/assessment/objective-words/rat.webp",
     "imageAlt": "rat"
    },
    {
@@ -4154,8 +3902,8 @@ export const questions = [
     "word": "brick",
     "value": "brick",
     "label": "brick",
-    "image": "/images/assessment/digraphs/brick.webp",
-    "imagePath": "/images/assessment/digraphs/brick.webp",
+    "image": "/images/assessment/objective-words/brick.webp",
+    "imagePath": "/images/assessment/objective-words/brick.webp",
     "imageAlt": "brick"
    }
   ]
@@ -4179,10 +3927,10 @@ export const questions = [
   "itemKey": "gr",
   "formatType": "MPD",
   "templateType": "MPD",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Ground. Which printed word matches the recording?",
   "choices": [
    "ground",
    "round",
@@ -4218,31 +3966,29 @@ export const questions = [
    "sound": "D-RIME-NEAR",
    "round": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "ground",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.C.gr.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/release-media/ground-1843e900.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "ground",
-  "stimulusMediaId": "ground",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4252,13 +3998,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "round is the g-dropped reduction",
-  "imagePath": "/images/assessment/release-media/ground-1843e900.webp",
-  "imageUrl": "/images/assessment/release-media/ground-1843e900.webp",
-  "targetImage": "/images/assessment/release-media/ground-1843e900.webp",
-  "targetImagePath": "/images/assessment/release-media/ground-1843e900.webp",
-  "resolvedImageAssetKey": "ground",
-  "imageAlt": "ground"
+  "notes": "audio removes the relational ground-scene naming demand; round remains the g-dropped reduction"
  },
  {
   "id": "lp3.blends.l1.A.gr.v4",
@@ -4280,9 +4020,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __een",
-  "question": "Finish: __een",
-  "spokenPrompt": "green. Which letters finish the word green?",
+  "prompt": "Choose the missing letters for __een.",
+  "question": "Choose the missing letters for __een.",
+  "spokenPrompt": "Green. Choose the missing letters.",
   "choices": [
    "gr",
    "br",
@@ -4318,32 +4058,30 @@ export const questions = [
    "cr": "D-PATTERN-TRAP",
    "sc": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "green",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.gr.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/green.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "green",
-  "stimulusMediaId": "green",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4353,13 +4091,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/green.webp",
-  "imageUrl": "/images/assessment/blends/green.webp",
-  "targetImage": "/images/assessment/blends/green.webp",
-  "targetImagePath": "/images/assessment/blends/green.webp",
-  "resolvedImageAssetKey": "green",
-  "imageAlt": "green"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l1.A.st.v1",
@@ -4381,9 +4113,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ar",
-  "question": "Finish: __ar",
-  "spokenPrompt": "star. Which letters finish the word star?",
+  "prompt": "Choose the missing letters for __ar.",
+  "question": "Choose the missing letters for __ar.",
+  "spokenPrompt": "Star. Choose the missing letters.",
   "choices": [
    "tr",
    "st",
@@ -4419,32 +4151,30 @@ export const questions = [
    "sp": "D-PATTERN-TRAP",
    "tr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "star",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.st.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/ar/star-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "star",
-  "stimulusMediaId": "star",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4454,13 +4184,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ar/star-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ar/star-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ar/star-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ar/star-02.webp",
-  "resolvedImageAssetKey": "star",
-  "imageAlt": "star"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l1.B.st.v2",
@@ -4482,14 +4206,14 @@ export const questions = [
   "formatType": "BLEND_IMAGE_CHOICE",
   "templateType": "BLEND_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts like star?",
-  "question": "Which one starts like star?",
-  "spokenPrompt": "star. Which one starts with the same sounds as star?",
+  "prompt": "Which word begins with the same blend?",
+  "question": "Which word begins with the same blend?",
+  "spokenPrompt": "Stone. Which word begins with the same blend?",
   "choices": [
    "spoon",
-   "tap",
-   "stop",
-   "car"
+   "tie",
+   "star",
+   "cone"
   ],
   "answerOptions": [
    {
@@ -4498,38 +4222,40 @@ export const questions = [
     "text": "spoon"
    },
    {
-    "value": "tap",
-    "label": "tap",
-    "text": "tap"
+    "value": "tie",
+    "label": "tie",
+    "text": "tie"
    },
    {
-    "value": "stop",
-    "label": "stop",
-    "text": "stop"
+    "value": "star",
+    "label": "star",
+    "text": "star"
    },
    {
-    "value": "car",
-    "label": "car",
-    "text": "car"
+    "value": "cone",
+    "label": "cone",
+    "text": "cone"
    }
   ],
-  "answer": "stop",
-  "correctAnswer": "stop",
+  "answer": "star",
+  "correctAnswer": "star",
   "distractorRationales": {
-   "car": "D-RIME-NEAR",
+   "cone": "D-RIME-NEAR",
    "spoon": "D-PATTERN-TRAP",
-   "tap": "D-ONSET"
+   "tie": "D-ONSET"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "hideWrittenLabels": false,
+  "constructClaim": "spoken_blend_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "star",
+  "targetWord": "stone",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -4538,10 +4264,10 @@ export const questions = [
    "itemId": "lp3.blends.l1.B.st.v2",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/blends/spoon.webp",
-    "/images/assessment/rhyming/variants/ap/tap-02.webp",
-    "/images/assessment/blends/stop.webp",
-    "/images/assessment/rhyming/variants/ar/car-02.webp"
+    "/images/assessment/objective-words/spoon.webp",
+    "/images/assessment/objective-words/tie.webp",
+    "/images/assessment/rhyming/variants/ar/star-02.webp",
+    "/images/assessment/objective-words/cone.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -4556,43 +4282,43 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the word starts contains star, so star can never be a key in this frame; car rhymes with the anchor and ties its ar-chunk",
+  "notes": "the spoken stone anchor leads to an objectively nameable star card",
   "imageCards": [
    {
     "id": "lp3.blends.l1.B.st.v2_card_spoon",
     "word": "spoon",
     "value": "spoon",
     "label": "spoon",
-    "image": "/images/assessment/blends/spoon.webp",
-    "imagePath": "/images/assessment/blends/spoon.webp",
+    "image": "/images/assessment/objective-words/spoon.webp",
+    "imagePath": "/images/assessment/objective-words/spoon.webp",
     "imageAlt": "spoon"
    },
    {
-    "id": "lp3.blends.l1.B.st.v2_card_tap",
-    "word": "tap",
-    "value": "tap",
-    "label": "tap",
-    "image": "/images/assessment/rhyming/variants/ap/tap-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ap/tap-02.webp",
-    "imageAlt": "tap"
+    "id": "lp3.blends.l1.B.st.v2_card_tie",
+    "word": "tie",
+    "value": "tie",
+    "label": "tie",
+    "image": "/images/assessment/objective-words/tie.webp",
+    "imagePath": "/images/assessment/objective-words/tie.webp",
+    "imageAlt": "tie"
    },
    {
-    "id": "lp3.blends.l1.B.st.v2_card_stop",
-    "word": "stop",
-    "value": "stop",
-    "label": "stop",
-    "image": "/images/assessment/blends/stop.webp",
-    "imagePath": "/images/assessment/blends/stop.webp",
-    "imageAlt": "stop"
+    "id": "lp3.blends.l1.B.st.v2_card_star",
+    "word": "star",
+    "value": "star",
+    "label": "star",
+    "image": "/images/assessment/rhyming/variants/ar/star-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ar/star-02.webp",
+    "imageAlt": "star"
    },
    {
-    "id": "lp3.blends.l1.B.st.v2_card_car",
-    "word": "car",
-    "value": "car",
-    "label": "car",
-    "image": "/images/assessment/rhyming/variants/ar/car-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ar/car-02.webp",
-    "imageAlt": "car"
+    "id": "lp3.blends.l1.B.st.v2_card_cone",
+    "word": "cone",
+    "value": "cone",
+    "label": "cone",
+    "image": "/images/assessment/objective-words/cone.webp",
+    "imagePath": "/images/assessment/objective-words/cone.webp",
+    "imageAlt": "cone"
    }
   ]
  },
@@ -4616,9 +4342,9 @@ export const questions = [
   "formatType": "MPD",
   "templateType": "MPD",
   "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
    "car",
    "star",
@@ -4716,9 +4442,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __op",
-  "question": "Finish: __op",
-  "spokenPrompt": "stop. Which letters finish the word stop?",
+  "prompt": "Choose the missing letters for __op.",
+  "question": "Choose the missing letters for __op.",
+  "spokenPrompt": "Stop. Choose the missing letters.",
   "choices": [
    "dr",
    "cr",
@@ -4754,32 +4480,30 @@ export const questions = [
    "sh": "D-PATTERN-TRAP",
    "dr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "stop",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.st.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/stop.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "stop",
-  "stimulusMediaId": "stop",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4789,13 +4513,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "shop, drop and crop are real — the stop image pins the target",
-  "imagePath": "/images/assessment/blends/stop.webp",
-  "imageUrl": "/images/assessment/blends/stop.webp",
-  "targetImage": "/images/assessment/blends/stop.webp",
-  "targetImagePath": "/images/assessment/blends/stop.webp",
-  "resolvedImageAssetKey": "stop",
-  "imageAlt": "stop"
+  "notes": "shop, drop and crop are real — the stop image pins the target"
  },
  {
   "id": "lp3.blends.l1.A.sw.v1",
@@ -4817,9 +4535,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __im",
-  "question": "Finish: __im",
-  "spokenPrompt": "swim. Which letters finish the word swim?",
+  "prompt": "Choose the missing letters for __im.",
+  "question": "Choose the missing letters for __im.",
+  "spokenPrompt": "Swim. Choose the missing letters.",
   "choices": [
    "st",
    "sl",
@@ -4855,32 +4573,30 @@ export const questions = [
    "st": "D-PATTERN-TRAP",
    "sl": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "swim",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.sw.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/swim.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "swim",
-  "stimulusMediaId": "swim",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4890,13 +4606,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/swim.webp",
-  "imageUrl": "/images/assessment/blends/swim.webp",
-  "targetImage": "/images/assessment/blends/swim.webp",
-  "targetImagePath": "/images/assessment/blends/swim.webp",
-  "resolvedImageAssetKey": "swim",
-  "imageAlt": "swim"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l1.B.sw.v2",
@@ -4918,14 +4628,14 @@ export const questions = [
   "formatType": "BLEND_IMAGE_CHOICE",
   "templateType": "BLEND_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts like sweet?",
-  "question": "Which one starts like sweet?",
-  "spokenPrompt": "sweet. Which one starts with the same sounds as sweet?",
+  "prompt": "Which word begins with the same blend?",
+  "question": "Which word begins with the same blend?",
+  "spokenPrompt": "Sweet. Which word begins with the same blend?",
   "choices": [
    "feet",
    "star",
    "wasp",
-   "swim"
+   "swing"
   ],
   "answerOptions": [
    {
@@ -4944,13 +4654,13 @@ export const questions = [
     "text": "wasp"
    },
    {
-    "value": "swim",
-    "label": "swim",
-    "text": "swim"
+    "value": "swing",
+    "label": "swing",
+    "text": "swing"
    }
   ],
-  "answer": "swim",
-  "correctAnswer": "swim",
+  "answer": "swing",
+  "correctAnswer": "swing",
   "distractorRationales": {
    "wasp": "D-ONSET",
    "feet": "D-RIME-NEAR",
@@ -4961,8 +4671,10 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+image",
   "evidenceRole": "mastery",
-  "hideWrittenLabels": false,
+  "constructClaim": "spoken_blend_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "targetWord": "sweet",
@@ -4976,8 +4688,8 @@ export const questions = [
    "paths": [
     "/images/assessment/release-media/feet-16298da4.webp",
     "/images/assessment/rhyming/variants/ar/star-02.webp",
-    "/images/assessment/blends/wasp.webp",
-    "/images/assessment/blends/swim.webp"
+    "/images/assessment/objective-words/wasp.webp",
+    "/images/assessment/rhyming/variants/ing/swing-02.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -4992,7 +4704,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "feet rhymes with the anchor and out-chunks the key; wasp is the s-dropped w-start",
+  "notes": "feet rhymes with the anchor; the empty swing is an objectively nameable concrete card",
   "imageCards": [
    {
     "id": "lp3.blends.l1.B.sw.v2_card_feet",
@@ -5017,18 +4729,18 @@ export const questions = [
     "word": "wasp",
     "value": "wasp",
     "label": "wasp",
-    "image": "/images/assessment/blends/wasp.webp",
-    "imagePath": "/images/assessment/blends/wasp.webp",
+    "image": "/images/assessment/objective-words/wasp.webp",
+    "imagePath": "/images/assessment/objective-words/wasp.webp",
     "imageAlt": "wasp"
    },
    {
-    "id": "lp3.blends.l1.B.sw.v2_card_swim",
-    "word": "swim",
-    "value": "swim",
-    "label": "swim",
-    "image": "/images/assessment/blends/swim.webp",
-    "imagePath": "/images/assessment/blends/swim.webp",
-    "imageAlt": "swim"
+    "id": "lp3.blends.l1.B.sw.v2_card_swing",
+    "word": "swing",
+    "value": "swing",
+    "label": "swing",
+    "image": "/images/assessment/rhyming/variants/ing/swing-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ing/swing-02.webp",
+    "imageAlt": "swing"
    }
   ]
  },
@@ -5051,10 +4763,10 @@ export const questions = [
   "itemKey": "sw",
   "formatType": "MPD",
   "templateType": "MPD",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Swim. Which printed word matches the recording?",
   "choices": [
    "swam",
    "dim",
@@ -5090,31 +4802,29 @@ export const questions = [
    "win": "D-DEVELOPMENTAL",
    "swam": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "swim",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.C.sw.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/swim.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "swim",
-  "stimulusMediaId": "swim",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5124,13 +4834,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/swim.webp",
-  "imageUrl": "/images/assessment/blends/swim.webp",
-  "targetImage": "/images/assessment/blends/swim.webp",
-  "targetImagePath": "/images/assessment/blends/swim.webp",
-  "resolvedImageAssetKey": "swim",
-  "imageAlt": "swim"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l1.A.sw.v4",
@@ -5152,9 +4856,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ing",
-  "question": "Finish: __ing",
-  "spokenPrompt": "swing. Which letters finish the word swing?",
+  "prompt": "Choose the missing letters for __ing.",
+  "question": "Choose the missing letters for __ing.",
+  "spokenPrompt": "Swing. Choose the missing letters.",
   "choices": [
    "sw",
    "gr",
@@ -5190,32 +4894,30 @@ export const questions = [
    "cr": "D-PATTERN-TRAP",
    "sn": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "swing",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.A.sw.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/rhyming/variants/ing/swing-02.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "swing",
-  "stimulusMediaId": "swing",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5225,13 +4927,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no swing image — but sning, gring and cring are non-words, so the completion is pinned",
-  "imagePath": "/images/assessment/rhyming/variants/ing/swing-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ing/swing-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ing/swing-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ing/swing-02.webp",
-  "resolvedImageAssetKey": "swing",
-  "imageAlt": "swing"
+  "notes": "no swing image — but sning, gring and cring are non-words, so the completion is pinned"
  },
  {
   "id": "lp3.blends.l2.A.sc.v1",
@@ -5253,9 +4949,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __arf",
-  "question": "Finish: __arf",
-  "spokenPrompt": "scarf. Which letters finish the word scarf?",
+  "prompt": "Choose the missing letters for __arf.",
+  "question": "Choose the missing letters for __arf.",
+  "spokenPrompt": "Scarf. Choose the missing letters.",
   "choices": [
    "sc",
    "sk",
@@ -5291,32 +4987,30 @@ export const questions = [
    "st": "D-PATTERN-TRAP",
    "sk": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "scarf",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.sc.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/scarf.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "scarf",
-  "stimulusMediaId": "scarf",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5326,13 +5020,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/scarf.webp",
-  "imageUrl": "/images/assessment/blends/scarf.webp",
-  "targetImage": "/images/assessment/blends/scarf.webp",
-  "targetImagePath": "/images/assessment/blends/scarf.webp",
-  "resolvedImageAssetKey": "scarf",
-  "imageAlt": "scarf"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l2.B.sc.v2",
@@ -5353,10 +5041,10 @@ export const questions = [
   "itemKey": "sc",
   "formatType": "MPD",
   "templateType": "MPD",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Scarf. Which printed word matches the recording?",
   "choices": [
    "sharp",
    "scarf",
@@ -5392,31 +5080,29 @@ export const questions = [
    "sharp": "D-PATTERN-TRAP",
    "scar": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "scarf",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.B.sc.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/scarf.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "scarf",
-  "stimulusMediaId": "scarf",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5426,13 +5112,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "scar is the f-dropped ending error",
-  "imagePath": "/images/assessment/blends/scarf.webp",
-  "imageUrl": "/images/assessment/blends/scarf.webp",
-  "targetImage": "/images/assessment/blends/scarf.webp",
-  "targetImagePath": "/images/assessment/blends/scarf.webp",
-  "resolvedImageAssetKey": "scarf",
-  "imageAlt": "scarf"
+  "notes": "audio pins scarf without asking a child to distinguish folded fabric from a towel; scar is the f-dropped ending error"
  },
  {
   "id": "lp3.blends.l2.C.sc.v3",
@@ -5454,9 +5134,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ooter",
-  "question": "Finish: __ooter",
-  "spokenPrompt": "scooter. Which letters finish the word scooter?",
+  "prompt": "Choose the missing letters for __ooter.",
+  "question": "Choose the missing letters for __ooter.",
+  "spokenPrompt": "Scooter. Choose the missing letters.",
   "choices": [
    "sn",
    "tr",
@@ -5492,32 +5172,30 @@ export const questions = [
    "tr": "D-PATTERN-TRAP",
    "sm": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "scooter",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.C.sc.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/scooter-26f3cd.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/scooter-26f3cd.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/scooter-26f3cd.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5527,13 +5205,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no scooter image — smooter, snooter and trooter are non-words",
-  "imagePath": "/images/assessment/release-support/targets/scooter-26f3cd.webp",
-  "imageUrl": "/images/assessment/release-support/targets/scooter-26f3cd.webp",
-  "targetImage": "/images/assessment/release-support/targets/scooter-26f3cd.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/scooter-26f3cd.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/scooter-26f3cd.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "no scooter image — smooter, snooter and trooter are non-words"
  },
  {
   "id": "lp3.blends.l2.A.sc.v4",
@@ -5555,9 +5227,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ore",
-  "question": "Finish: __ore",
-  "spokenPrompt": "score. Which letters finish the word score?",
+  "prompt": "Choose the missing letters for __ore.",
+  "question": "Choose the missing letters for __ore.",
+  "spokenPrompt": "Score. Choose the missing letters.",
   "choices": [
    "dr",
    "sc",
@@ -5593,32 +5265,30 @@ export const questions = [
    "sm": "D-PATTERN-TRAP",
    "dr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "score",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.sc.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/score-75ebcb.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/score-75ebcb.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/score-75ebcb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5628,13 +5298,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no score image — snore is deliberately absent from the set; smore and drore are non-words",
-  "imagePath": "/images/assessment/release-support/targets/score-75ebcb.webp",
-  "imageUrl": "/images/assessment/release-support/targets/score-75ebcb.webp",
-  "targetImage": "/images/assessment/release-support/targets/score-75ebcb.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/score-75ebcb.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/score-75ebcb.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "no score image — snore is deliberately absent from the set; smore and drore are non-words"
  },
  {
   "id": "lp3.blends.l2.A.sk.v1",
@@ -5656,9 +5320,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ateboard",
-  "question": "Finish: __ateboard",
-  "spokenPrompt": "skateboard. Which letters finish the word skateboard?",
+  "prompt": "Choose the missing letters for __ateboard.",
+  "question": "Choose the missing letters for __ateboard.",
+  "spokenPrompt": "Skateboard. Choose the missing letters.",
   "choices": [
    "sp",
    "st",
@@ -5694,32 +5358,30 @@ export const questions = [
    "st": "D-PATTERN-TRAP",
    "sc": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "skateboard",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.sk.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/skateboard.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "skateboard",
-  "stimulusMediaId": "skateboard",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5729,13 +5391,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/skateboard.webp",
-  "imageUrl": "/images/assessment/blends/skateboard.webp",
-  "targetImage": "/images/assessment/blends/skateboard.webp",
-  "targetImagePath": "/images/assessment/blends/skateboard.webp",
-  "resolvedImageAssetKey": "skateboard",
-  "imageAlt": "skateboard"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l2.B.sk.v2",
@@ -5757,9 +5413,9 @@ export const questions = [
   "formatType": "MPD",
   "templateType": "MPD",
   "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
    "surfboard",
    "scoreboard",
@@ -5857,9 +5513,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ip",
-  "question": "Finish: __ip",
-  "spokenPrompt": "skip. Which letters finish the word skip?",
+  "prompt": "Choose the missing letters for __ip.",
+  "question": "Choose the missing letters for __ip.",
+  "spokenPrompt": "Skip. Choose the missing letters.",
   "choices": [
    "sc",
    "sm",
@@ -5895,32 +5551,30 @@ export const questions = [
    "sp": "D-PATTERN-TRAP",
    "sc": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "skip",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.C.sk.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/generated/concepts/skip.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "skip",
-  "stimulusMediaId": "skip",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5930,13 +5584,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no skip image — scip, smip and spip are non-words",
-  "imagePath": "/images/assessment/generated/concepts/skip.webp",
-  "imageUrl": "/images/assessment/generated/concepts/skip.webp",
-  "targetImage": "/images/assessment/generated/concepts/skip.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/skip.webp",
-  "resolvedImageAssetKey": "skip",
-  "imageAlt": "skip"
+  "notes": "no skip image — scip, smip and spip are non-words"
  },
  {
   "id": "lp3.blends.l2.A.sk.v4",
@@ -5958,9 +5606,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __in",
-  "question": "Finish: __in",
-  "spokenPrompt": "skin. Which letters finish the word skin?",
+  "prompt": "Choose the missing letters for __in.",
+  "question": "Choose the missing letters for __in.",
+  "spokenPrompt": "Skin. Choose the missing letters.",
   "choices": [
    "sc",
    "sm",
@@ -5996,32 +5644,30 @@ export const questions = [
    "sm": "D-PATTERN-TRAP",
    "sn": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "skin",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.sk.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/skin-d0cb2a.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/skin-d0cb2a.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/skin-d0cb2a.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6031,13 +5677,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no skin image — scin and smin are non-words; snin too",
-  "imagePath": "/images/assessment/release-support/targets/skin-d0cb2a.webp",
-  "imageUrl": "/images/assessment/release-support/targets/skin-d0cb2a.webp",
-  "targetImage": "/images/assessment/release-support/targets/skin-d0cb2a.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/skin-d0cb2a.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/skin-d0cb2a.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "no skin image — scin and smin are non-words; snin too"
  },
  {
   "id": "lp3.blends.l2.A.sm.v1",
@@ -6059,9 +5699,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ile",
-  "question": "Finish: __ile",
-  "spokenPrompt": "smile. Which letters finish the word smile?",
+  "prompt": "Choose the missing letters for __ile.",
+  "question": "Choose the missing letters for __ile.",
+  "spokenPrompt": "Smile. Choose the missing letters.",
   "choices": [
    "sm",
    "sn",
@@ -6097,32 +5737,30 @@ export const questions = [
    "sw": "D-PATTERN-TRAP",
    "sc": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "smile",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.sm.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/smile.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "smile",
-  "stimulusMediaId": "smile",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6132,13 +5770,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/smile.webp",
-  "imageUrl": "/images/assessment/blends/smile.webp",
-  "targetImage": "/images/assessment/blends/smile.webp",
-  "targetImagePath": "/images/assessment/blends/smile.webp",
-  "resolvedImageAssetKey": "smile",
-  "imageAlt": "smile"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l2.B.sm.v2",
@@ -6159,10 +5791,10 @@ export const questions = [
   "itemKey": "sm",
   "formatType": "MPD",
   "templateType": "MPD",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Smile. Which printed word matches the recording?",
   "choices": [
    "mile",
    "smell",
@@ -6198,31 +5830,29 @@ export const questions = [
    "smell": "D-PATTERN-TRAP",
    "tile": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "smile",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.B.sm.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/smile.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "smile",
-  "stimulusMediaId": "smile",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6232,13 +5862,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "mile is the s-dropped reduction",
-  "imagePath": "/images/assessment/blends/smile.webp",
-  "imageUrl": "/images/assessment/blends/smile.webp",
-  "targetImage": "/images/assessment/blends/smile.webp",
-  "targetImagePath": "/images/assessment/blends/smile.webp",
-  "resolvedImageAssetKey": "smile",
-  "imageAlt": "smile"
+  "notes": "audio replaces subjective facial-expression evidence; mile remains the s-dropped reduction"
  },
  {
   "id": "lp3.blends.l2.C.sm.v3",
@@ -6260,9 +5884,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ell",
-  "question": "Finish: __ell",
-  "spokenPrompt": "smell. Which letters finish the word smell?",
+  "prompt": "Choose the missing letters for __ell.",
+  "question": "Choose the missing letters for __ell.",
+  "spokenPrompt": "Smell. Choose the missing letters.",
   "choices": [
    "sm",
    "sn",
@@ -6298,32 +5922,30 @@ export const questions = [
    "sc": "D-PATTERN-TRAP",
    "gr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "smell",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.C.sm.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/smell-410acf.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/smell-410acf.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/smell-410acf.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6333,13 +5955,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no smell image — snell, scell and grell are non-words (spell and swell stay out)",
-  "imagePath": "/images/assessment/release-support/targets/smell-410acf.webp",
-  "imageUrl": "/images/assessment/release-support/targets/smell-410acf.webp",
-  "targetImage": "/images/assessment/release-support/targets/smell-410acf.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/smell-410acf.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/smell-410acf.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "no smell image — snell, scell and grell are non-words (spell and swell stay out)"
  },
  {
   "id": "lp3.blends.l2.A.sm.v4",
@@ -6361,9 +5977,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __oke",
-  "question": "Finish: __oke",
-  "spokenPrompt": "smoke. Which letters finish the word smoke?",
+  "prompt": "Choose the missing letters for __oke.",
+  "question": "Choose the missing letters for __oke.",
+  "spokenPrompt": "Smoke. Choose the missing letters.",
   "choices": [
    "gl",
    "sm",
@@ -6399,32 +6015,30 @@ export const questions = [
    "sn": "D-PATTERN-TRAP",
    "sc": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "smoke",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.sm.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/smoke-5cb1e6.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/smoke-5cb1e6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/smoke-5cb1e6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6434,13 +6048,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no smoke image — snoke, scoke and gloke are non-words",
-  "imagePath": "/images/assessment/release-support/targets/smoke-5cb1e6.webp",
-  "imageUrl": "/images/assessment/release-support/targets/smoke-5cb1e6.webp",
-  "targetImage": "/images/assessment/release-support/targets/smoke-5cb1e6.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/smoke-5cb1e6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/smoke-5cb1e6.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "no smoke image — snoke, scoke and gloke are non-words"
  },
  {
   "id": "lp3.blends.l2.A.sn.v1",
@@ -6462,9 +6070,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ake",
-  "question": "Finish: __ake",
-  "spokenPrompt": "snake. Which letters finish the word snake?",
+  "prompt": "Choose the missing letters for __ake.",
+  "question": "Choose the missing letters for __ake.",
+  "spokenPrompt": "Snake. Choose the missing letters.",
   "choices": [
    "sc",
    "cl",
@@ -6500,32 +6108,30 @@ export const questions = [
    "sm": "D-PATTERN-TRAP",
    "sc": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "snake",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.sn.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/snake.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "snake",
-  "stimulusMediaId": "snake",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6535,13 +6141,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "smake, scake and clake are non-words; the snake image pins it anyway",
-  "imagePath": "/images/assessment/blends/snake.webp",
-  "imageUrl": "/images/assessment/blends/snake.webp",
-  "targetImage": "/images/assessment/blends/snake.webp",
-  "targetImagePath": "/images/assessment/blends/snake.webp",
-  "resolvedImageAssetKey": "snake",
-  "imageAlt": "snake"
+  "notes": "smake, scake and clake are non-words; the snake image pins it anyway"
  },
  {
   "id": "lp3.blends.l2.B.sn.v2",
@@ -6563,9 +6163,9 @@ export const questions = [
   "formatType": "MPD",
   "templateType": "MPD",
   "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
    "snake",
    "snack",
@@ -6618,7 +6218,7 @@ export const questions = [
    "itemId": "lp3.blends.l2.B.sn.v2",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/blends/snake.webp"
+    "/images/assessment/objective-words/snake.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
@@ -6636,10 +6236,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "snack is the classic snake/snack near-word",
-  "imagePath": "/images/assessment/blends/snake.webp",
-  "imageUrl": "/images/assessment/blends/snake.webp",
-  "targetImage": "/images/assessment/blends/snake.webp",
-  "targetImagePath": "/images/assessment/blends/snake.webp",
+  "imagePath": "/images/assessment/objective-words/snake.webp",
+  "imageUrl": "/images/assessment/objective-words/snake.webp",
+  "targetImage": "/images/assessment/objective-words/snake.webp",
+  "targetImagePath": "/images/assessment/objective-words/snake.webp",
   "resolvedImageAssetKey": "snake",
   "imageAlt": "snake"
  },
@@ -6663,9 +6263,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ail",
-  "question": "Finish: __ail",
-  "spokenPrompt": "snail. Which letters finish the word snail?",
+  "prompt": "Choose the missing letters for __ail.",
+  "question": "Choose the missing letters for __ail.",
+  "spokenPrompt": "Snail. Choose the missing letters.",
   "choices": [
    "sw",
    "sn",
@@ -6701,32 +6301,30 @@ export const questions = [
    "sm": "D-PATTERN-TRAP",
    "sc": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "snail",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.C.sn.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/snail-9054cc.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/snail-9054cc.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/snail-9054cc.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6736,13 +6334,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no snail image — smail, scail and swail are non-words (trail stays out)",
-  "imagePath": "/images/assessment/release-support/targets/snail-9054cc.webp",
-  "imageUrl": "/images/assessment/release-support/targets/snail-9054cc.webp",
-  "targetImage": "/images/assessment/release-support/targets/snail-9054cc.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/snail-9054cc.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/snail-9054cc.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "no snail image — smail, scail and swail are non-words (trail stays out)"
  },
  {
   "id": "lp3.blends.l2.A.sn.v4",
@@ -6764,9 +6356,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ow",
-  "question": "Finish: __ow",
-  "spokenPrompt": "snow. Which letters finish the word snow?",
+  "prompt": "Choose the missing letters for __ow.",
+  "question": "Choose the missing letters for __ow.",
+  "spokenPrompt": "Snow. Choose the missing letters.",
   "choices": [
    "sm",
    "sk",
@@ -6802,32 +6394,30 @@ export const questions = [
    "sk": "D-PATTERN-TRAP",
    "dr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "snow",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.sn.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/snow.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "snow",
-  "stimulusMediaId": "snow",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6837,13 +6427,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no snow image — smow, skow and drow are non-words (glow and crow stay out)",
-  "imagePath": "/images/assessment/long-vowels/snow.webp",
-  "imageUrl": "/images/assessment/long-vowels/snow.webp",
-  "targetImage": "/images/assessment/long-vowels/snow.webp",
-  "targetImagePath": "/images/assessment/long-vowels/snow.webp",
-  "resolvedImageAssetKey": "snow",
-  "imageAlt": "snow"
+  "notes": "no snow image — smow, skow and drow are non-words (glow and crow stay out)"
  },
  {
   "id": "lp3.blends.l2.A.sp.v1",
@@ -6865,9 +6449,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __oon",
-  "question": "Finish: __oon",
-  "spokenPrompt": "spoon. Which letters finish the word spoon?",
+  "prompt": "Choose the missing letters for __oon.",
+  "question": "Choose the missing letters for __oon.",
+  "spokenPrompt": "Spoon. Choose the missing letters.",
   "choices": [
    "sp",
    "sm",
@@ -6903,32 +6487,30 @@ export const questions = [
    "sn": "D-PATTERN-TRAP",
    "sc": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "spoon",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.sp.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/spoon.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "spoon",
-  "stimulusMediaId": "spoon",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6938,13 +6520,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "smoon, snoon and scoon are non-words; the spoon image pins it anyway",
-  "imagePath": "/images/assessment/blends/spoon.webp",
-  "imageUrl": "/images/assessment/blends/spoon.webp",
-  "targetImage": "/images/assessment/blends/spoon.webp",
-  "targetImagePath": "/images/assessment/blends/spoon.webp",
-  "resolvedImageAssetKey": "spoon",
-  "imageAlt": "spoon"
+  "notes": "smoon, snoon and scoon are non-words; the spoon image pins it anyway"
  },
  {
   "id": "lp3.blends.l2.B.sp.v2",
@@ -6966,9 +6542,9 @@ export const questions = [
   "formatType": "MPD",
   "templateType": "MPD",
   "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
    "spin",
    "spoon",
@@ -7021,7 +6597,7 @@ export const questions = [
    "itemId": "lp3.blends.l2.B.sp.v2",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/blends/spoon.webp"
+    "/images/assessment/objective-words/spoon.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
@@ -7039,10 +6615,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "soon is the p-dropped reduction",
-  "imagePath": "/images/assessment/blends/spoon.webp",
-  "imageUrl": "/images/assessment/blends/spoon.webp",
-  "targetImage": "/images/assessment/blends/spoon.webp",
-  "targetImagePath": "/images/assessment/blends/spoon.webp",
+  "imagePath": "/images/assessment/objective-words/spoon.webp",
+  "imageUrl": "/images/assessment/objective-words/spoon.webp",
+  "targetImage": "/images/assessment/objective-words/spoon.webp",
+  "targetImagePath": "/images/assessment/objective-words/spoon.webp",
   "resolvedImageAssetKey": "spoon",
   "imageAlt": "spoon"
  },
@@ -7066,9 +6642,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ort",
-  "question": "Finish: __ort",
-  "spokenPrompt": "sport. Which letters finish the word sport?",
+  "prompt": "Choose the missing letters for __ort.",
+  "question": "Choose the missing letters for __ort.",
+  "spokenPrompt": "Sport. Choose the missing letters.",
   "choices": [
    "sm",
    "sc",
@@ -7104,32 +6680,30 @@ export const questions = [
    "sm": "D-PATTERN-TRAP",
    "sc": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "sport",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.C.sp.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/sport-8ab6a8.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/sport-8ab6a8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/sport-8ab6a8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7139,13 +6713,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no sport image — snort is deliberately absent; smort and scort are non-words",
-  "imagePath": "/images/assessment/release-support/targets/sport-8ab6a8.webp",
-  "imageUrl": "/images/assessment/release-support/targets/sport-8ab6a8.webp",
-  "targetImage": "/images/assessment/release-support/targets/sport-8ab6a8.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/sport-8ab6a8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/sport-8ab6a8.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "no sport image — snort is deliberately absent; smort and scort are non-words"
  },
  {
   "id": "lp3.blends.l2.A.sp.v4",
@@ -7167,9 +6735,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ot",
-  "question": "Finish: __ot",
-  "spokenPrompt": "spot. Which letters finish the word spot?",
+  "prompt": "Choose the missing letters for __ot.",
+  "question": "Choose the missing letters for __ot.",
+  "spokenPrompt": "Spot. Choose the missing letters.",
   "choices": [
    "gl",
    "sp",
@@ -7205,32 +6773,30 @@ export const questions = [
    "gl": "D-PATTERN-TRAP",
    "sm": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "spot",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.sp.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/spot-9f4b52.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/spot-9f4b52.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/spot-9f4b52.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7240,13 +6806,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no spot image — smot, skot and glot are non-words (slot and trot stay out)",
-  "imagePath": "/images/assessment/release-support/targets/spot-9f4b52.webp",
-  "imageUrl": "/images/assessment/release-support/targets/spot-9f4b52.webp",
-  "targetImage": "/images/assessment/release-support/targets/spot-9f4b52.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/spot-9f4b52.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/spot-9f4b52.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "no spot image — smot, skot and glot are non-words (slot and trot stay out)"
  },
  {
   "id": "lp3.blends.l2.A.tr.v1",
@@ -7268,9 +6828,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __uck",
-  "question": "Finish: __uck",
-  "spokenPrompt": "truck. Which letters finish the word truck?",
+  "prompt": "Choose the missing letters for __uck.",
+  "question": "Choose the missing letters for __uck.",
+  "spokenPrompt": "Truck. Choose the missing letters.",
   "choices": [
    "st",
    "cl",
@@ -7306,32 +6866,30 @@ export const questions = [
    "cl": "D-PATTERN-TRAP",
    "dr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "truck",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.tr.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/truck.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "truck",
-  "stimulusMediaId": "truck",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7341,13 +6899,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cluck is real — the truck image pins the target",
-  "imagePath": "/images/assessment/blends/truck.webp",
-  "imageUrl": "/images/assessment/blends/truck.webp",
-  "targetImage": "/images/assessment/blends/truck.webp",
-  "targetImagePath": "/images/assessment/blends/truck.webp",
-  "resolvedImageAssetKey": "truck",
-  "imageAlt": "truck"
+  "notes": "cluck is real — the truck image pins the target"
  },
  {
   "id": "lp3.blends.l2.B.tr.v2",
@@ -7368,10 +6920,10 @@ export const questions = [
   "itemKey": "tr",
   "formatType": "MPD",
   "templateType": "MPD",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Truck. Which printed word matches the recording?",
   "choices": [
    "track",
    "duck",
@@ -7407,31 +6959,29 @@ export const questions = [
    "duck": "D-RIME-NEAR",
    "tuck": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "truck",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.B.tr.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/truck.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "truck",
-  "stimulusMediaId": "truck",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7441,13 +6991,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "tuck is the r-dropped reduction",
-  "imagePath": "/images/assessment/blends/truck.webp",
-  "imageUrl": "/images/assessment/blends/truck.webp",
-  "targetImage": "/images/assessment/blends/truck.webp",
-  "targetImagePath": "/images/assessment/blends/truck.webp",
-  "resolvedImageAssetKey": "truck",
-  "imageAlt": "truck"
+  "notes": "the recording pins truck without requiring a child to choose truck rather than lorry; tuck is the r-dropped reduction"
  },
  {
   "id": "lp3.blends.l2.C.tr.v3",
@@ -7469,9 +7013,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ain",
-  "question": "Finish: __ain",
-  "spokenPrompt": "train. Which letters finish the word train?",
+  "prompt": "Choose the missing letters for __ain.",
+  "question": "Choose the missing letters for __ain.",
+  "spokenPrompt": "Train. Choose the missing letters.",
   "choices": [
    "dr",
    "gr",
@@ -7507,32 +7051,30 @@ export const questions = [
    "br": "D-PATTERN-TRAP",
    "dr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "train",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.C.tr.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/train.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "train",
-  "stimulusMediaId": "train",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7542,13 +7084,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "drain, grain and brain are all real — the train image pins the target",
-  "imagePath": "/images/assessment/blends/train.webp",
-  "imageUrl": "/images/assessment/blends/train.webp",
-  "targetImage": "/images/assessment/blends/train.webp",
-  "targetImagePath": "/images/assessment/blends/train.webp",
-  "resolvedImageAssetKey": "train",
-  "imageAlt": "train"
+  "notes": "drain, grain and brain are all real — the train image pins the target"
  },
  {
   "id": "lp3.blends.l2.A.tr.v4",
@@ -7570,9 +7106,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ay",
-  "question": "Finish: __ay",
-  "spokenPrompt": "tray. Which letters finish the word tray?",
+  "prompt": "Choose the missing letters for __ay.",
+  "question": "Choose the missing letters for __ay.",
+  "spokenPrompt": "Tray. Choose the missing letters.",
   "choices": [
    "sm",
    "sk",
@@ -7608,32 +7144,30 @@ export const questions = [
    "sk": "D-PATTERN-TRAP",
    "gl": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "tray",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.tr.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/long-vowels/tray.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "tray",
-  "stimulusMediaId": "tray",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7643,13 +7177,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no tray image — smay, skay and glay are non-words (gray, play and clay stay out)",
-  "imagePath": "/images/assessment/long-vowels/tray.webp",
-  "imageUrl": "/images/assessment/long-vowels/tray.webp",
-  "targetImage": "/images/assessment/long-vowels/tray.webp",
-  "targetImagePath": "/images/assessment/long-vowels/tray.webp",
-  "resolvedImageAssetKey": "tray",
-  "imageAlt": "tray"
+  "notes": "no tray image — smay, skay and glay are non-words (gray, play and clay stay out)"
  },
  {
   "id": "lp3.blends.l2.A.nd.v1",
@@ -7671,9 +7199,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: ha__",
-  "question": "Finish: ha__",
-  "spokenPrompt": "hand. Which letters finish the word hand?",
+  "prompt": "Choose the missing letters for ha__.",
+  "question": "Choose the missing letters for ha__.",
+  "spokenPrompt": "Hand. Choose the missing letters.",
   "choices": [
    "nd",
    "nt",
@@ -7709,32 +7237,30 @@ export const questions = [
    "nk": "D-PATTERN-TRAP",
    "nt": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "hand",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.nd.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/hand.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "hand",
-  "stimulusMediaId": "hand",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7744,13 +7270,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/hand.webp",
-  "imageUrl": "/images/assessment/blends/hand.webp",
-  "targetImage": "/images/assessment/blends/hand.webp",
-  "targetImagePath": "/images/assessment/blends/hand.webp",
-  "resolvedImageAssetKey": "hand",
-  "imageAlt": "hand"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l2.B.nd.v2",
@@ -7771,10 +7291,10 @@ export const questions = [
   "itemKey": "nd",
   "formatType": "MPD",
   "templateType": "MPD",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Hand. Which printed word matches the recording?",
   "choices": [
    "had",
    "ham",
@@ -7810,31 +7330,29 @@ export const questions = [
    "band": "D-RIME-NEAR",
    "had": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "hand",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.B.nd.v2",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/hand.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "hand",
-  "stimulusMediaId": "hand",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7844,13 +7362,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "had and ham drop the cluster two different ways",
-  "imagePath": "/images/assessment/blends/hand.webp",
-  "imageUrl": "/images/assessment/blends/hand.webp",
-  "targetImage": "/images/assessment/blends/hand.webp",
-  "targetImagePath": "/images/assessment/blends/hand.webp",
-  "resolvedImageAssetKey": "hand",
-  "imageAlt": "hand"
+  "notes": "audio removes the body-part crop judgement; had and ham drop the cluster two different ways"
  },
  {
   "id": "lp3.blends.l2.C.nd.v3",
@@ -7872,9 +7384,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: po__",
-  "question": "Finish: po__",
-  "spokenPrompt": "pond. Which letters finish the word pond?",
+  "prompt": "Choose the missing letters for po__.",
+  "question": "Choose the missing letters for po__.",
+  "spokenPrompt": "Pond. Choose the missing letters.",
   "choices": [
    "nd",
    "nt",
@@ -7910,32 +7422,30 @@ export const questions = [
    "lt": "D-PATTERN-TRAP",
    "nt": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "pond",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.C.nd.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/generated/concepts/pond.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "pond",
-  "stimulusMediaId": "pond",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7945,13 +7455,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no pond image — pont, ponk and polt are non-words",
-  "imagePath": "/images/assessment/generated/concepts/pond.webp",
-  "imageUrl": "/images/assessment/generated/concepts/pond.webp",
-  "targetImage": "/images/assessment/generated/concepts/pond.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/pond.webp",
-  "resolvedImageAssetKey": "pond",
-  "imageAlt": "pond"
+  "notes": "no pond image — pont, ponk and polt are non-words"
  },
  {
   "id": "lp3.blends.l2.A.nd.v4",
@@ -7973,9 +7477,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: sa__",
-  "question": "Finish: sa__",
-  "spokenPrompt": "sand. Which letters finish the word sand?",
+  "prompt": "Choose the missing letters for sa__.",
+  "question": "Choose the missing letters for sa__.",
+  "spokenPrompt": "Sand. Choose the missing letters.",
   "choices": [
    "sk",
    "nd",
@@ -8011,32 +7515,30 @@ export const questions = [
    "nt": "D-PATTERN-TRAP",
    "sk": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "sand",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.nd.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/sand-42625b.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/sand-42625b.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/sand-42625b.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8046,13 +7548,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no sand image — samp, sant and sask are non-words (salt stays out)",
-  "imagePath": "/images/assessment/release-support/targets/sand-42625b.webp",
-  "imageUrl": "/images/assessment/release-support/targets/sand-42625b.webp",
-  "targetImage": "/images/assessment/release-support/targets/sand-42625b.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/sand-42625b.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/sand-42625b.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "no sand image — samp, sant and sask are non-words (salt stays out)"
  },
  {
   "id": "lp3.blends.l2.A.nt.v1",
@@ -8074,9 +7570,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: te__",
-  "question": "Finish: te__",
-  "spokenPrompt": "tent. Which letters finish the word tent?",
+  "prompt": "Choose the missing letters for te__.",
+  "question": "Choose the missing letters for te__.",
+  "spokenPrompt": "Tent. Choose the missing letters.",
   "choices": [
    "mp",
    "nk",
@@ -8112,32 +7608,30 @@ export const questions = [
    "nk": "D-PATTERN-TRAP",
    "nd": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "tent",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.nt.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/tent.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "tent",
-  "stimulusMediaId": "tent",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8147,13 +7641,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "tend is real — the tent image pins the target",
-  "imagePath": "/images/assessment/blends/tent.webp",
-  "imageUrl": "/images/assessment/blends/tent.webp",
-  "targetImage": "/images/assessment/blends/tent.webp",
-  "targetImagePath": "/images/assessment/blends/tent.webp",
-  "resolvedImageAssetKey": "tent",
-  "imageAlt": "tent"
+  "notes": "tend is real — the tent image pins the target"
  },
  {
   "id": "lp3.blends.l2.B.nt.v2",
@@ -8175,9 +7663,9 @@ export const questions = [
   "formatType": "MPD",
   "templateType": "MPD",
   "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
    "tent",
    "ten",
@@ -8230,7 +7718,7 @@ export const questions = [
    "itemId": "lp3.blends.l2.B.nt.v2",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/blends/tent.webp"
+    "/images/assessment/objective-words/tent.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
@@ -8248,10 +7736,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "ten is the t-dropped reduction",
-  "imagePath": "/images/assessment/blends/tent.webp",
-  "imageUrl": "/images/assessment/blends/tent.webp",
-  "targetImage": "/images/assessment/blends/tent.webp",
-  "targetImagePath": "/images/assessment/blends/tent.webp",
+  "imagePath": "/images/assessment/objective-words/tent.webp",
+  "imageUrl": "/images/assessment/objective-words/tent.webp",
+  "targetImage": "/images/assessment/objective-words/tent.webp",
+  "targetImagePath": "/images/assessment/objective-words/tent.webp",
   "resolvedImageAssetKey": "tent",
   "imageAlt": "tent"
  },
@@ -8275,9 +7763,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: pri__",
-  "question": "Finish: pri__",
-  "spokenPrompt": "print. Which letters finish the word print?",
+  "prompt": "Choose the missing letters for pri__.",
+  "question": "Choose the missing letters for pri__.",
+  "spokenPrompt": "Print. Choose the missing letters.",
   "choices": [
    "ft",
    "nt",
@@ -8313,32 +7801,30 @@ export const questions = [
    "ft": "D-PATTERN-TRAP",
    "nd": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "print",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.C.nt.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/print-6d0d58.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/print-6d0d58.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/print-6d0d58.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8348,13 +7834,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no print image — prind, prink and prift are non-words",
-  "imagePath": "/images/assessment/release-support/targets/print-6d0d58.webp",
-  "imageUrl": "/images/assessment/release-support/targets/print-6d0d58.webp",
-  "targetImage": "/images/assessment/release-support/targets/print-6d0d58.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/print-6d0d58.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/print-6d0d58.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "no print image — prind, prink and prift are non-words"
  },
  {
   "id": "lp3.blends.l2.A.nt.v4",
@@ -8376,9 +7856,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: pai__",
-  "question": "Finish: pai__",
-  "spokenPrompt": "paint. Which letters finish the word paint?",
+  "prompt": "Choose the missing letters for pai__.",
+  "question": "Choose the missing letters for pai__.",
+  "spokenPrompt": "Paint. Choose the missing letters.",
   "choices": [
    "nd",
    "nk",
@@ -8414,32 +7894,30 @@ export const questions = [
    "nk": "D-PATTERN-TRAP",
    "mp": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "paint",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.nt.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/paint-039f7b.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/paint-039f7b.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/paint-039f7b.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8449,13 +7927,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "paind, paink and paimp are non-words",
-  "imagePath": "/images/assessment/release-support/targets/paint-039f7b.webp",
-  "imageUrl": "/images/assessment/release-support/targets/paint-039f7b.webp",
-  "targetImage": "/images/assessment/release-support/targets/paint-039f7b.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/paint-039f7b.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/paint-039f7b.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "paind, paink and paimp are non-words"
  },
  {
   "id": "lp3.blends.l2.A.mp.v1",
@@ -8477,9 +7949,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: la__",
-  "question": "Finish: la__",
-  "spokenPrompt": "lamp. Which letters finish the word lamp?",
+  "prompt": "Choose the missing letters for la__.",
+  "question": "Choose the missing letters for la__.",
+  "spokenPrompt": "Lamp. Choose the missing letters.",
   "choices": [
    "mp",
    "nd",
@@ -8515,32 +7987,30 @@ export const questions = [
    "nd": "D-PATTERN-TRAP",
    "nt": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "lamp",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.mp.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/lamp.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "lamp",
-  "stimulusMediaId": "lamp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8550,13 +8020,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "land is real — the lamp image pins the target",
-  "imagePath": "/images/assessment/blends/lamp.webp",
-  "imageUrl": "/images/assessment/blends/lamp.webp",
-  "targetImage": "/images/assessment/blends/lamp.webp",
-  "targetImagePath": "/images/assessment/blends/lamp.webp",
-  "resolvedImageAssetKey": "lamp",
-  "imageAlt": "lamp"
+  "notes": "land is real — the lamp image pins the target"
  },
  {
   "id": "lp3.blends.l2.B.mp.v2",
@@ -8578,9 +8042,9 @@ export const questions = [
   "formatType": "MPD",
   "templateType": "MPD",
   "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
    "camp",
    "lamp",
@@ -8633,7 +8097,7 @@ export const questions = [
    "itemId": "lp3.blends.l2.B.mp.v2",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/blends/lamp.webp"
+    "/images/assessment/objective-words/lamp.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
@@ -8651,10 +8115,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "lap is the m-dropped reduction",
-  "imagePath": "/images/assessment/blends/lamp.webp",
-  "imageUrl": "/images/assessment/blends/lamp.webp",
-  "targetImage": "/images/assessment/blends/lamp.webp",
-  "targetImagePath": "/images/assessment/blends/lamp.webp",
+  "imagePath": "/images/assessment/objective-words/lamp.webp",
+  "imageUrl": "/images/assessment/objective-words/lamp.webp",
+  "targetImage": "/images/assessment/objective-words/lamp.webp",
+  "targetImagePath": "/images/assessment/objective-words/lamp.webp",
   "resolvedImageAssetKey": "lamp",
   "imageAlt": "lamp"
  },
@@ -8678,9 +8142,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: ju__",
-  "question": "Finish: ju__",
-  "spokenPrompt": "jump. Which letters finish the word jump?",
+  "prompt": "Choose the missing letters for ju__.",
+  "question": "Choose the missing letters for ju__.",
+  "spokenPrompt": "Jump. Choose the missing letters.",
   "choices": [
    "nt",
    "lt",
@@ -8716,32 +8180,30 @@ export const questions = [
    "nd": "D-PATTERN-TRAP",
    "nt": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "jump",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.C.mp.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/generated/concepts/jump.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "jump",
-  "stimulusMediaId": "jump",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8751,13 +8213,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no jump image — jund, junt and jult are non-words (just and junk stay out)",
-  "imagePath": "/images/assessment/generated/concepts/jump.webp",
-  "imageUrl": "/images/assessment/generated/concepts/jump.webp",
-  "targetImage": "/images/assessment/generated/concepts/jump.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/jump.webp",
-  "resolvedImageAssetKey": "jump",
-  "imageAlt": "jump"
+  "notes": "no jump image — jund, junt and jult are non-words (just and junk stay out)"
  },
  {
   "id": "lp3.blends.l2.A.mp.v4",
@@ -8779,9 +8235,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: ca__",
-  "question": "Finish: ca__",
-  "spokenPrompt": "camp. Which letters finish the word camp?",
+  "prompt": "Choose the missing letters for ca__.",
+  "question": "Choose the missing letters for ca__.",
+  "spokenPrompt": "Camp. Choose the missing letters.",
   "choices": [
    "sk",
    "mp",
@@ -8817,32 +8273,30 @@ export const questions = [
    "lt": "D-PATTERN-TRAP",
    "sk": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "camp",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.mp.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/camp-fac37b.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/camp-fac37b.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/camp-fac37b.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8852,13 +8306,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no camp image — cand, calt and cask are non-words (cant stays out)",
-  "imagePath": "/images/assessment/release-support/targets/camp-fac37b.webp",
-  "imageUrl": "/images/assessment/release-support/targets/camp-fac37b.webp",
-  "targetImage": "/images/assessment/release-support/targets/camp-fac37b.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/camp-fac37b.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/camp-fac37b.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "no camp image — cand, calt and cask are non-words (cant stays out)"
  },
  {
   "id": "lp3.blends.l2.A.nk.v1",
@@ -8880,9 +8328,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: i__",
-  "question": "Finish: i__",
-  "spokenPrompt": "ink. Which letters finish the word ink?",
+  "prompt": "Choose the missing letters for i__.",
+  "question": "Choose the missing letters for i__.",
+  "spokenPrompt": "Ink. Choose the missing letters.",
   "choices": [
    "nt",
    "ft",
@@ -8918,32 +8366,30 @@ export const questions = [
    "nt": "D-PATTERN-TRAP",
    "ft": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "ink",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.nk.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/release-media/ink-1dc530ca.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "ink",
-  "stimulusMediaId": "ink",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8953,13 +8399,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "ind, int and ift are non-words; the ink image pins it anyway",
-  "imagePath": "/images/assessment/release-media/ink-1dc530ca.webp",
-  "imageUrl": "/images/assessment/release-media/ink-1dc530ca.webp",
-  "targetImage": "/images/assessment/release-media/ink-1dc530ca.webp",
-  "targetImagePath": "/images/assessment/release-media/ink-1dc530ca.webp",
-  "resolvedImageAssetKey": "ink",
-  "imageAlt": "ink"
+  "notes": "ind, int and ift are non-words; the ink image pins it anyway"
  },
  {
   "id": "lp3.blends.l2.B.nk.v2",
@@ -8981,9 +8421,9 @@ export const questions = [
   "formatType": "MPD",
   "templateType": "MPD",
   "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
    "inch",
    "pink",
@@ -9036,7 +8476,7 @@ export const questions = [
    "itemId": "lp3.blends.l2.B.nk.v2",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/release-media/ink-1dc530ca.webp"
+    "/images/assessment/objective-words/ink.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
@@ -9054,10 +8494,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "in is the k-dropped reduction; inch swaps the cluster",
-  "imagePath": "/images/assessment/release-media/ink-1dc530ca.webp",
-  "imageUrl": "/images/assessment/release-media/ink-1dc530ca.webp",
-  "targetImage": "/images/assessment/release-media/ink-1dc530ca.webp",
-  "targetImagePath": "/images/assessment/release-media/ink-1dc530ca.webp",
+  "imagePath": "/images/assessment/objective-words/ink.webp",
+  "imageUrl": "/images/assessment/objective-words/ink.webp",
+  "targetImage": "/images/assessment/objective-words/ink.webp",
+  "targetImagePath": "/images/assessment/objective-words/ink.webp",
   "resolvedImageAssetKey": "ink",
   "imageAlt": "ink"
  },
@@ -9081,9 +8521,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: thi__",
-  "question": "Finish: thi__",
-  "spokenPrompt": "think. Which letters finish the word think?",
+  "prompt": "Choose the missing letters for thi__.",
+  "question": "Choose the missing letters for thi__.",
+  "spokenPrompt": "Think. Choose the missing letters.",
   "choices": [
    "nd",
    "nt",
@@ -9119,32 +8559,30 @@ export const questions = [
    "nt": "D-PATTERN-TRAP",
    "ft": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "think",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.C.nk.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/generated/concepts/think.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "think",
-  "stimulusMediaId": "think",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9154,13 +8592,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no think image — thind, thint and thift are non-words",
-  "imagePath": "/images/assessment/generated/concepts/think.webp",
-  "imageUrl": "/images/assessment/generated/concepts/think.webp",
-  "targetImage": "/images/assessment/generated/concepts/think.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/think.webp",
-  "resolvedImageAssetKey": "think",
-  "imageAlt": "think"
+  "notes": "no think image — thind, thint and thift are non-words"
  },
  {
   "id": "lp3.blends.l2.A.nk.v4",
@@ -9182,9 +8614,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: ba__",
-  "question": "Finish: ba__",
-  "spokenPrompt": "bank. Which letters finish the word bank?",
+  "prompt": "Choose the missing letters for ba__.",
+  "question": "Choose the missing letters for ba__.",
+  "spokenPrompt": "Bank. Choose the missing letters.",
   "choices": [
    "lt",
    "ft",
@@ -9220,32 +8652,30 @@ export const questions = [
    "sc": "D-PATTERN-TRAP",
    "lt": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "bank",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.nk.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/bank-bdd240.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/bank-bdd240.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/bank-bdd240.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9255,13 +8685,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no bank image — balt, baft and basc are non-words (band and bath stay out)",
-  "imagePath": "/images/assessment/release-support/targets/bank-bdd240.webp",
-  "imageUrl": "/images/assessment/release-support/targets/bank-bdd240.webp",
-  "targetImage": "/images/assessment/release-support/targets/bank-bdd240.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/bank-bdd240.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/bank-bdd240.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "no bank image — balt, baft and basc are non-words (band and bath stay out)"
  },
  {
   "id": "lp3.blends.l2.A.lt.v1",
@@ -9283,9 +8707,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: be__",
-  "question": "Finish: be__",
-  "spokenPrompt": "belt. Which letters finish the word belt?",
+  "prompt": "Choose the missing letters for be__.",
+  "question": "Choose the missing letters for be__.",
+  "spokenPrompt": "Belt. Choose the missing letters.",
   "choices": [
    "lt",
    "nd",
@@ -9321,32 +8745,30 @@ export const questions = [
    "nt": "D-PATTERN-TRAP",
    "mp": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "belt",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.lt.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/belt.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "belt",
-  "stimulusMediaId": "belt",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9356,13 +8778,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "bend and bent are real — the belt image pins the target",
-  "imagePath": "/images/assessment/blends/belt.webp",
-  "imageUrl": "/images/assessment/blends/belt.webp",
-  "targetImage": "/images/assessment/blends/belt.webp",
-  "targetImagePath": "/images/assessment/blends/belt.webp",
-  "resolvedImageAssetKey": "belt",
-  "imageAlt": "belt"
+  "notes": "bend and bent are real — the belt image pins the target"
  },
  {
   "id": "lp3.blends.l2.B.lt.v2",
@@ -9384,9 +8800,9 @@ export const questions = [
   "formatType": "MPD",
   "templateType": "MPD",
   "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
    "bet",
    "bell",
@@ -9484,9 +8900,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: qui__",
-  "question": "Finish: qui__",
-  "spokenPrompt": "quilt. Which letters finish the word quilt?",
+  "prompt": "Choose the missing letters for qui__.",
+  "question": "Choose the missing letters for qui__.",
+  "spokenPrompt": "Quilt. Choose the missing letters.",
   "choices": [
    "lt",
    "nt",
@@ -9522,32 +8938,30 @@ export const questions = [
    "nd": "D-PATTERN-TRAP",
    "mp": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "quilt",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.C.lt.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/release-media/quilt-1a01a2fd.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "quilt",
-  "stimulusMediaId": "quilt",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9557,13 +8971,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "quint, quind and quimp are non-words; the quilt image pins it anyway",
-  "imagePath": "/images/assessment/release-media/quilt-1a01a2fd.webp",
-  "imageUrl": "/images/assessment/release-media/quilt-1a01a2fd.webp",
-  "targetImage": "/images/assessment/release-media/quilt-1a01a2fd.webp",
-  "targetImagePath": "/images/assessment/release-media/quilt-1a01a2fd.webp",
-  "resolvedImageAssetKey": "quilt",
-  "imageAlt": "quilt"
+  "notes": "quint, quind and quimp are non-words; the quilt image pins it anyway"
  },
  {
   "id": "lp3.blends.l2.A.lt.v4",
@@ -9585,9 +8993,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: ti__",
-  "question": "Finish: ti__",
-  "spokenPrompt": "tilt. Which letters finish the word tilt?",
+  "prompt": "Choose the missing letters for ti__.",
+  "question": "Choose the missing letters for ti__.",
+  "spokenPrompt": "Tilt. Choose the missing letters.",
   "choices": [
    "ft",
    "lt",
@@ -9623,32 +9031,30 @@ export const questions = [
    "nd": "D-PATTERN-TRAP",
    "nk": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "tilt",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.lt.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/tilt-fc9879.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/tilt-fc9879.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/tilt-fc9879.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9658,13 +9064,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no tilt image — tind, tink and tift are non-words (tint stays out)",
-  "imagePath": "/images/assessment/release-support/targets/tilt-fc9879.webp",
-  "imageUrl": "/images/assessment/release-support/targets/tilt-fc9879.webp",
-  "targetImage": "/images/assessment/release-support/targets/tilt-fc9879.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/tilt-fc9879.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/tilt-fc9879.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "no tilt image — tind, tink and tift are non-words (tint stays out)"
  },
  {
   "id": "lp3.blends.l2.A.ft.v1",
@@ -9686,9 +9086,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: gi__",
-  "question": "Finish: gi__",
-  "spokenPrompt": "gift. Which letters finish the word gift?",
+  "prompt": "Choose the missing letters for gi__.",
+  "question": "Choose the missing letters for gi__.",
+  "spokenPrompt": "Gift. Choose the missing letters.",
   "choices": [
    "nd",
    "nk",
@@ -9724,32 +9124,30 @@ export const questions = [
    "nk": "D-PATTERN-TRAP",
    "nt": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "gift",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.ft.v1",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/gift.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "gift",
-  "stimulusMediaId": "gift",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9759,13 +9157,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "gint, gind and gink are non-words; the gift image pins it anyway",
-  "imagePath": "/images/assessment/blends/gift.webp",
-  "imageUrl": "/images/assessment/blends/gift.webp",
-  "targetImage": "/images/assessment/blends/gift.webp",
-  "targetImagePath": "/images/assessment/blends/gift.webp",
-  "resolvedImageAssetKey": "gift",
-  "imageAlt": "gift"
+  "notes": "gint, gind and gink are non-words; the gift image pins it anyway"
  },
  {
   "id": "lp3.blends.l2.B.ft.v2",
@@ -9787,9 +9179,9 @@ export const questions = [
   "formatType": "MPD",
   "templateType": "MPD",
   "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
    "gift",
    "lift",
@@ -9842,7 +9234,7 @@ export const questions = [
    "itemId": "lp3.blends.l2.B.ft.v2",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/blends/gift.webp"
+    "/images/assessment/objective-words/gift.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
@@ -9860,10 +9252,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "give is the gift's own verb — semantic pull with the wrong ending",
-  "imagePath": "/images/assessment/blends/gift.webp",
-  "imageUrl": "/images/assessment/blends/gift.webp",
-  "targetImage": "/images/assessment/blends/gift.webp",
-  "targetImagePath": "/images/assessment/blends/gift.webp",
+  "imagePath": "/images/assessment/objective-words/gift.webp",
+  "imageUrl": "/images/assessment/objective-words/gift.webp",
+  "targetImage": "/images/assessment/objective-words/gift.webp",
+  "targetImagePath": "/images/assessment/objective-words/gift.webp",
   "resolvedImageAssetKey": "gift",
   "imageAlt": "gift"
  },
@@ -9887,9 +9279,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: le__",
-  "question": "Finish: le__",
-  "spokenPrompt": "left. Which letters finish the word left?",
+  "prompt": "Choose the missing letters for le__.",
+  "question": "Choose the missing letters for le__.",
+  "spokenPrompt": "Left. Choose the missing letters.",
   "choices": [
    "lt",
    "ft",
@@ -9925,32 +9317,30 @@ export const questions = [
    "lt": "D-PATTERN-TRAP",
    "sk": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "left",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.C.ft.v3",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/generated/concepts/left.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "left",
-  "stimulusMediaId": "left",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9960,13 +9350,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no left image — lesk, lemp and lelt are non-words (lent and lend stay out)",
-  "imagePath": "/images/assessment/generated/concepts/left.webp",
-  "imageUrl": "/images/assessment/generated/concepts/left.webp",
-  "targetImage": "/images/assessment/generated/concepts/left.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/left.webp",
-  "resolvedImageAssetKey": "left",
-  "imageAlt": "left"
+  "notes": "no left image — lesk, lemp and lelt are non-words (lent and lend stay out)"
  },
  {
   "id": "lp3.blends.l2.A.ft.v4",
@@ -9988,9 +9372,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: so__",
-  "question": "Finish: so__",
-  "spokenPrompt": "soft. Which letters finish the word soft?",
+  "prompt": "Choose the missing letters for so__.",
+  "question": "Choose the missing letters for so__.",
+  "spokenPrompt": "Soft. Choose the missing letters.",
   "choices": [
    "nd",
    "lt",
@@ -10026,32 +9410,30 @@ export const questions = [
    "lt": "D-PATTERN-TRAP",
    "mp": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "evidenceModality": "audio+print",
   "evidenceRole": "mastery",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "soft",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.A.ft.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/generated/concepts/soft.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "soft",
-  "stimulusMediaId": "soft",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10061,13 +9443,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no soft image — sond, solt and somp are non-words",
-  "imagePath": "/images/assessment/generated/concepts/soft.webp",
-  "imageUrl": "/images/assessment/generated/concepts/soft.webp",
-  "targetImage": "/images/assessment/generated/concepts/soft.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/soft.webp",
-  "resolvedImageAssetKey": "soft",
-  "imageAlt": "soft"
+  "notes": "no soft image — sond, solt and somp are non-words"
  },
  {
   "id": "lp3.blends.l1.R.br.v5r",
@@ -10089,9 +9465,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ush",
-  "question": "Finish: __ush",
-  "spokenPrompt": "brush. Which letters finish the word brush?",
+  "prompt": "Choose the missing letters for __ush.",
+  "question": "Choose the missing letters for __ush.",
+  "spokenPrompt": "Brush. Choose the missing letters.",
   "choices": [
    "br",
    "cr",
@@ -10127,32 +9503,30 @@ export const questions = [
    "pl": "D-PATTERN-TRAP",
    "cr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "brush",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.R.br.v5r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/brush.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "brush",
-  "stimulusMediaId": "brush",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10162,13 +9536,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "crush, flush and plush are real — the brush image pins the target",
-  "imagePath": "/images/assessment/digraphs/brush.webp",
-  "imageUrl": "/images/assessment/digraphs/brush.webp",
-  "targetImage": "/images/assessment/digraphs/brush.webp",
-  "targetImagePath": "/images/assessment/digraphs/brush.webp",
-  "resolvedImageAssetKey": "brush",
-  "imageAlt": "brush"
+  "notes": "crush, flush and plush are real — the brush image pins the target"
  },
  {
   "id": "lp3.blends.l1.R.br.v6r",
@@ -10190,9 +9558,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __oom",
-  "question": "Finish: __oom",
-  "spokenPrompt": "broom. Which letters finish the word broom?",
+  "prompt": "Choose the missing letters for __oom.",
+  "question": "Choose the missing letters for __oom.",
+  "spokenPrompt": "Broom. Choose the missing letters.",
   "choices": [
    "sp",
    "br",
@@ -10228,32 +9596,30 @@ export const questions = [
    "dr": "D-PATTERN-TRAP",
    "sp": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "broom",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.R.br.v6r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/broom.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "broom",
-  "stimulusMediaId": "broom",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10263,13 +9629,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "gloom is real — the broom image pins the target",
-  "imagePath": "/images/assessment/blends/broom.webp",
-  "imageUrl": "/images/assessment/blends/broom.webp",
-  "targetImage": "/images/assessment/blends/broom.webp",
-  "targetImagePath": "/images/assessment/blends/broom.webp",
-  "resolvedImageAssetKey": "broom",
-  "imageAlt": "broom"
+  "notes": "gloom is real — the broom image pins the target"
  },
  {
   "id": "lp3.blends.l1.R.cl.v5r",
@@ -10290,10 +9650,10 @@ export const questions = [
   "itemKey": "cl",
   "formatType": "MPD",
   "templateType": "MPD",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Clap. Which printed word matches the recording?",
   "choices": [
    "clip",
    "cap",
@@ -10329,31 +9689,29 @@ export const questions = [
    "clip": "D-PATTERN-TRAP",
    "cap": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "clap",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.R.cl.v5r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/clap.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "clap",
-  "stimulusMediaId": "clap",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10363,13 +9721,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/clap.webp",
-  "imageUrl": "/images/assessment/blends/clap.webp",
-  "targetImage": "/images/assessment/blends/clap.webp",
-  "targetImagePath": "/images/assessment/blends/clap.webp",
-  "resolvedImageAssetKey": "clap",
-  "imageAlt": "clap"
+  "notes": ""
  },
  {
   "id": "lp3.blends.l2.R.sp.v5r",
@@ -10390,10 +9742,10 @@ export const questions = [
   "itemKey": "sp",
   "formatType": "MPD",
   "templateType": "MPD",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Spring. Which printed word matches the recording?",
   "choices": [
    "sing",
    "spring",
@@ -10429,31 +9781,29 @@ export const questions = [
    "sing": "D-RIME-NEAR",
    "ring": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "spring",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.R.sp.v5r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/spring.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "spring",
-  "stimulusMediaId": "spring",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10463,13 +9813,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "ring is the sp-dropped reduction",
-  "imagePath": "/images/assessment/blends/spring.webp",
-  "imageUrl": "/images/assessment/blends/spring.webp",
-  "targetImage": "/images/assessment/blends/spring.webp",
-  "targetImagePath": "/images/assessment/blends/spring.webp",
-  "resolvedImageAssetKey": "spring",
-  "imageAlt": "spring"
+  "notes": "audio disambiguates the polysemous word spring; ring is the sp-dropped reduction"
  },
  {
   "id": "lp3.blends.l1.R.pl.v5r",
@@ -10491,9 +9835,9 @@ export const questions = [
   "formatType": "BLEND_IMAGE_CHOICE",
   "templateType": "BLEND_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts like plate?",
-  "question": "Which one starts like plate?",
-  "spokenPrompt": "plate. Which one starts with the same sounds as plate?",
+  "prompt": "Which word begins with the same blend?",
+  "question": "Which word begins with the same blend?",
+  "spokenPrompt": "Plate. Which word begins with the same blend?",
   "choices": [
    "gate",
    "frog",
@@ -10534,8 +9878,10 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+image",
   "evidenceRole": "retention",
-  "hideWrittenLabels": false,
+  "constructClaim": "spoken_blend_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "targetWord": "plate",
@@ -10547,9 +9893,9 @@ export const questions = [
    "itemId": "lp3.blends.l1.R.pl.v5r",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/long-vowels/gate.webp",
+    "/images/assessment/objective-words/gate.webp",
     "/images/assessment/blends/frog.webp",
-    "/images/assessment/blends/lamp.webp",
+    "/images/assessment/objective-words/lamp.webp",
     "/images/assessment/blends/plant.webp"
    ],
    "alt": "Picture choices for this literacy question",
@@ -10572,8 +9918,8 @@ export const questions = [
     "word": "gate",
     "value": "gate",
     "label": "gate",
-    "image": "/images/assessment/long-vowels/gate.webp",
-    "imagePath": "/images/assessment/long-vowels/gate.webp",
+    "image": "/images/assessment/objective-words/gate.webp",
+    "imagePath": "/images/assessment/objective-words/gate.webp",
     "imageAlt": "gate"
    },
    {
@@ -10590,8 +9936,8 @@ export const questions = [
     "word": "lamp",
     "value": "lamp",
     "label": "lamp",
-    "image": "/images/assessment/blends/lamp.webp",
-    "imagePath": "/images/assessment/blends/lamp.webp",
+    "image": "/images/assessment/objective-words/lamp.webp",
+    "imagePath": "/images/assessment/objective-words/lamp.webp",
     "imageAlt": "lamp"
    },
    {
@@ -10625,9 +9971,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: __ack",
-  "question": "Finish: __ack",
-  "spokenPrompt": "snack. Which letters finish the word snack?",
+  "prompt": "Choose the missing letters for __ack.",
+  "question": "Choose the missing letters for __ack.",
+  "spokenPrompt": "Snack. Choose the missing letters.",
   "choices": [
    "sw",
    "gl",
@@ -10663,32 +10009,30 @@ export const questions = [
    "sw": "D-PATTERN-TRAP",
    "gl": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "snack",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.R.sn.v5r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/snack-1ba61a.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/snack-1ba61a.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/snack-1ba61a.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10698,13 +10042,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no snack image — scack, swack and glack are non-words (smack stays out)",
-  "imagePath": "/images/assessment/release-support/targets/snack-1ba61a.webp",
-  "imageUrl": "/images/assessment/release-support/targets/snack-1ba61a.webp",
-  "targetImage": "/images/assessment/release-support/targets/snack-1ba61a.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/snack-1ba61a.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/snack-1ba61a.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "no snack image — scack, swack and glack are non-words (smack stays out)"
  },
  {
   "id": "lp3.blends.l2.R.ft.v5r",
@@ -10726,9 +10064,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: ra__",
-  "question": "Finish: ra__",
-  "spokenPrompt": "raft. Which letters finish the word raft?",
+  "prompt": "Choose the missing letters for ra__.",
+  "question": "Choose the missing letters for ra__.",
+  "spokenPrompt": "Raft. Choose the missing letters.",
   "choices": [
    "nd",
    "lt",
@@ -10764,32 +10102,30 @@ export const questions = [
    "nd": "D-PATTERN-TRAP",
    "lt": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "raft",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.R.ft.v5r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/generated/concepts/raft.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "raft",
-  "stimulusMediaId": "raft",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10799,13 +10135,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no raft image — rand, ralt and rasc are non-words for this age (ramp and rant stay out)",
-  "imagePath": "/images/assessment/generated/concepts/raft.webp",
-  "imageUrl": "/images/assessment/generated/concepts/raft.webp",
-  "targetImage": "/images/assessment/generated/concepts/raft.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/raft.webp",
-  "resolvedImageAssetKey": "raft",
-  "imageAlt": "raft"
+  "notes": "no raft image — rand, ralt and rasc are non-words for this age (ramp and rant stay out)"
  },
  {
   "id": "lp3.blends.l2.R.nd.v5r",
@@ -10827,9 +10157,9 @@ export const questions = [
   "formatType": "BLEND_COMPLETE_WORD",
   "templateType": "BLEND_COMPLETE_WORD",
   "questionType": "multiple_choice",
-  "prompt": "Finish: sta__",
-  "question": "Finish: sta__",
-  "spokenPrompt": "stand. Which letters finish the word stand?",
+  "prompt": "Choose the missing letters for sta__.",
+  "question": "Choose the missing letters for sta__.",
+  "spokenPrompt": "Stand. Choose the missing letters.",
   "choices": [
    "nd",
    "ft",
@@ -10865,32 +10195,30 @@ export const questions = [
    "ft": "D-PATTERN-TRAP",
    "lt": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "stand",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l2.R.nd.v5r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/stand-569ebd.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/stand-569ebd.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/stand-569ebd.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10900,13 +10228,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no stand image — staft, stalt and stasc are non-words (stamp stays out)",
-  "imagePath": "/images/assessment/release-support/targets/stand-569ebd.webp",
-  "imageUrl": "/images/assessment/release-support/targets/stand-569ebd.webp",
-  "targetImage": "/images/assessment/release-support/targets/stand-569ebd.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/stand-569ebd.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/stand-569ebd.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "no stand image — staft, stalt and stasc are non-words (stamp stays out)"
  },
  {
   "id": "lp3.blends.l1.R.st.v5r",
@@ -10927,10 +10249,10 @@ export const questions = [
   "itemKey": "st",
   "formatType": "MPD",
   "templateType": "MPD",
-  "questionType": "multiple_choice",
-  "prompt": "Which word goes with the picture?",
-  "question": "Which word goes with the picture?",
-  "spokenPrompt": "Which word goes with the picture?",
+  "questionType": "listen_and_find_word",
+  "prompt": "Which printed word matches the recording?",
+  "question": "Which printed word matches the recording?",
+  "spokenPrompt": "Stop. Which printed word matches the recording?",
   "choices": [
    "stop",
    "top",
@@ -10966,31 +10288,29 @@ export const questions = [
    "shop": "D-RIME-NEAR",
    "step": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "audio-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+print",
   "evidenceRole": "retention",
+  "constructClaim": "map_spoken_word_to_blend_spelling",
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "stop",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.blends.l1.R.st.v5r",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/blends/stop.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "stop",
-  "stimulusMediaId": "stop",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -11000,13 +10320,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "top is the s-dropped reduction",
-  "imagePath": "/images/assessment/blends/stop.webp",
-  "imageUrl": "/images/assessment/blends/stop.webp",
-  "targetImage": "/images/assessment/blends/stop.webp",
-  "targetImagePath": "/images/assessment/blends/stop.webp",
-  "resolvedImageAssetKey": "stop",
-  "imageAlt": "stop"
+  "notes": "audio replaces an action/sign interpretation; top is the s-dropped reduction"
  },
  {
   "id": "lp3.blends.l1.R.cl.v6r",
@@ -11028,9 +10342,9 @@ export const questions = [
   "formatType": "BLEND_IMAGE_CHOICE",
   "templateType": "BLEND_IMAGE_CHOICE",
   "questionType": "visual_card_choice",
-  "prompt": "Which one starts like clown?",
-  "question": "Which one starts like clown?",
-  "spokenPrompt": "clown. Which one starts with the same sounds as clown?",
+  "prompt": "Which word begins with the same blend?",
+  "question": "Which word begins with the same blend?",
+  "spokenPrompt": "Clown. Which word begins with the same blend?",
   "choices": [
    "drum",
    "cloud",
@@ -11071,8 +10385,10 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "evidenceModality": "audio+image",
   "evidenceRole": "retention",
-  "hideWrittenLabels": false,
+  "constructClaim": "spoken_blend_discrimination",
+  "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "targetWord": "clown",
@@ -11086,8 +10402,8 @@ export const questions = [
    "paths": [
     "/images/assessment/blends/drum.webp",
     "/images/assessment/release-media/cloud-86182099.webp",
-    "/images/assessment/blends/crown.webp",
-    "/images/assessment/blends/lamp.webp"
+    "/images/assessment/objective-words/crown.webp",
+    "/images/assessment/objective-words/lamp.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -11127,8 +10443,8 @@ export const questions = [
     "word": "crown",
     "value": "crown",
     "label": "crown",
-    "image": "/images/assessment/blends/crown.webp",
-    "imagePath": "/images/assessment/blends/crown.webp",
+    "image": "/images/assessment/objective-words/crown.webp",
+    "imagePath": "/images/assessment/objective-words/crown.webp",
     "imageAlt": "crown"
    },
    {
@@ -11136,8 +10452,8 @@ export const questions = [
     "word": "lamp",
     "value": "lamp",
     "label": "lamp",
-    "image": "/images/assessment/blends/lamp.webp",
-    "imagePath": "/images/assessment/blends/lamp.webp",
+    "image": "/images/assessment/objective-words/lamp.webp",
+    "imagePath": "/images/assessment/objective-words/lamp.webp",
     "imageAlt": "lamp"
    }
   ]

@@ -24,12 +24,12 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Jory borrowed Ann's comic and left it out in the rain. The pages wrinkled like crisps. He wanted to hide it under his bed. Instead he showed Ann, said sorry, and spent his pocket money on a new copy. Ann was sad about the comic — but glad he had told the truth.",
+  "passage": "Jory borrowed Ann's comic and left it out in the rain. The pages wrinkled and stuck together. He wanted to hide it under his bed. Instead he showed Ann, said sorry, and spent his saved money on a new copy. Ann was sad about the comic — but glad he had told the truth.",
   "cell": "lesson_mistake_fixed",
   "choices": [
    "a comic was left out in the rain",
    "never lend anything to anyone",
-   "comics cost pocket money",
+   "comics can cost saved money",
    "owning up to a mistake is better than hiding it"
   ],
   "answerOptions": [
@@ -44,9 +44,9 @@ export const questions = [
     "text": "never lend anything to anyone"
    },
    {
-    "value": "comics cost pocket money",
-    "label": "comics cost pocket money",
-    "text": "comics cost pocket money"
+    "value": "comics can cost saved money",
+    "label": "comics can cost saved money",
+    "text": "comics can cost saved money"
    },
    {
     "value": "owning up to a mistake is better than hiding it",
@@ -59,7 +59,7 @@ export const questions = [
   "distractorRationales": {
    "a comic was left out in the rain": "D-DETAIL-AS-MAIN",
    "never lend anything to anyone": "D-OPPOSITE",
-   "comics cost pocket money": "D-TOPIC-ADJACENT"
+   "comics can cost saved money": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -70,21 +70,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -94,13 +89,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_mistake_fixed.v2",
@@ -125,13 +114,13 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Bel's first batch of biscuits came out black as coal. She nearly threw her apron in the bin. Instead she read the recipe again and found her mistake — the oven had been far too hot. The second batch came out golden, and the kitchen smelled like a hug.",
+  "passage": "Bel's first batch of cookies came out black as coal. She nearly threw her apron in the trash. Instead she read the recipe again and found her mistake — the oven had been far too hot. The second batch came out golden, and the kitchen smelled wonderful.",
   "cell": "lesson_mistake_fixed",
   "choices": [
    "baking always goes wrong",
    "ovens can be hot",
    "a mistake can teach you how to do better",
-   "the first biscuits burned black"
+   "the first cookies burned black"
   ],
   "answerOptions": [
    {
@@ -150,15 +139,15 @@ export const questions = [
     "text": "a mistake can teach you how to do better"
    },
    {
-    "value": "the first biscuits burned black",
-    "label": "the first biscuits burned black",
-    "text": "the first biscuits burned black"
+    "value": "the first cookies burned black",
+    "label": "the first cookies burned black",
+    "text": "the first cookies burned black"
    }
   ],
   "answer": "a mistake can teach you how to do better",
   "correctAnswer": "a mistake can teach you how to do better",
   "distractorRationales": {
-   "the first biscuits burned black": "D-DETAIL-AS-MAIN",
+   "the first cookies burned black": "D-DETAIL-AS-MAIN",
    "baking always goes wrong": "D-OPPOSITE",
    "ovens can be hot": "D-TOPIC-ADJACENT"
   },
@@ -171,21 +160,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_mistake_fixed.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -195,13 +179,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.C.lesson_mistake_fixed.v3",
@@ -230,7 +208,7 @@ export const questions = [
   "cell": "lesson_mistake_fixed",
   "choices": [
    "tape can fix many things",
-   "a secret mistake feels heavier than a told one",
+   "telling the truth about a mistake makes it easier to fix",
    "a blue crayon got snapped",
    "crayons should never be shared"
   ],
@@ -241,9 +219,9 @@ export const questions = [
     "text": "tape can fix many things"
    },
    {
-    "value": "a secret mistake feels heavier than a told one",
-    "label": "a secret mistake feels heavier than a told one",
-    "text": "a secret mistake feels heavier than a told one"
+    "value": "telling the truth about a mistake makes it easier to fix",
+    "label": "telling the truth about a mistake makes it easier to fix",
+    "text": "telling the truth about a mistake makes it easier to fix"
    },
    {
     "value": "a blue crayon got snapped",
@@ -256,8 +234,8 @@ export const questions = [
     "text": "crayons should never be shared"
    }
   ],
-  "answer": "a secret mistake feels heavier than a told one",
-  "correctAnswer": "a secret mistake feels heavier than a told one",
+  "answer": "telling the truth about a mistake makes it easier to fix",
+  "correctAnswer": "telling the truth about a mistake makes it easier to fix",
   "distractorRationales": {
    "a blue crayon got snapped": "D-DETAIL-AS-MAIN",
    "crayons should never be shared": "D-OPPOSITE",
@@ -272,21 +250,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_mistake_fixed.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -296,13 +269,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v4",
@@ -327,12 +294,12 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Ravi got off the bus one stop early to avoid sitting next to a new boy. The walk was long, his bag was heavy, and he still met the new boy at the school gate — who grinned and carried the bag the last stretch. The next day they sat together.",
+  "passage": "Ravi moved to another bus seat to avoid sitting next to a new boy. At the school gate, Ravi's bag strap broke and his books spilled. The new boy gathered every book and helped carry the bag inside. The next day Ravi chose the seat beside him.",
   "cell": "lesson_mistake_fixed",
   "choices": [
    "do not judge someone before you know them",
-   "Ravi's bag was heavy",
-   "always get off the bus early",
+   "Ravi's bag strap broke",
+   "always sit away from someone new",
    "school gates are meeting places"
   ],
   "answerOptions": [
@@ -342,14 +309,14 @@ export const questions = [
     "text": "do not judge someone before you know them"
    },
    {
-    "value": "Ravi's bag was heavy",
-    "label": "Ravi's bag was heavy",
-    "text": "Ravi's bag was heavy"
+    "value": "Ravi's bag strap broke",
+    "label": "Ravi's bag strap broke",
+    "text": "Ravi's bag strap broke"
    },
    {
-    "value": "always get off the bus early",
-    "label": "always get off the bus early",
-    "text": "always get off the bus early"
+    "value": "always sit away from someone new",
+    "label": "always sit away from someone new",
+    "text": "always sit away from someone new"
    },
    {
     "value": "school gates are meeting places",
@@ -360,9 +327,9 @@ export const questions = [
   "answer": "do not judge someone before you know them",
   "correctAnswer": "do not judge someone before you know them",
   "distractorRationales": {
-   "always get off the bus early": "D-OPPOSITE",
+   "always sit away from someone new": "D-OPPOSITE",
    "school gates are meeting places": "D-TOPIC-ADJACENT",
-   "Ravi's bag was heavy": "D-DETAIL-AS-MAIN"
+   "Ravi's bag strap broke": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -373,21 +340,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -397,13 +359,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_mistake_fixed.v5",
@@ -474,21 +430,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_mistake_fixed.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -498,13 +449,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.C.lesson_mistake_fixed.v6",
@@ -529,11 +474,11 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Min fed the class goldfish twice, then once more, because it always looked hungry. The tank turned cloudy and the fish went slow and sad. The pet-shop lady explained: too much food is its own kind of unkindness. Min learned to feed a pinch, no more, and the water cleared.",
+  "passage": "Min fed the class goldfish twice, then once more, because it always looked hungry. The tank turned cloudy and the fish went slow and sad. A pet store worker explained: too much food can hurt a fish. Min learned to feed only the measured amount, and the water cleared.",
   "cell": "lesson_mistake_fixed",
   "choices": [
    "goldfish should not be fed",
-   "pet shops know about fish",
+   "pet stores sell fish food",
    "too much of a good thing can do harm",
    "the tank water turned cloudy"
   ],
@@ -544,9 +489,9 @@ export const questions = [
     "text": "goldfish should not be fed"
    },
    {
-    "value": "pet shops know about fish",
-    "label": "pet shops know about fish",
-    "text": "pet shops know about fish"
+    "value": "pet stores sell fish food",
+    "label": "pet stores sell fish food",
+    "text": "pet stores sell fish food"
    },
    {
     "value": "too much of a good thing can do harm",
@@ -563,7 +508,7 @@ export const questions = [
   "correctAnswer": "too much of a good thing can do harm",
   "distractorRationales": {
    "goldfish should not be fed": "D-OPPOSITE",
-   "pet shops know about fish": "D-TOPIC-ADJACENT",
+   "pet stores sell fish food": "D-TOPIC-ADJACENT",
    "the tank water turned cloudy": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
@@ -575,21 +520,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_mistake_fixed.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -599,13 +539,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v7",
@@ -630,7 +564,7 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "In the quiet library, Posy whispered a joke, then a story, then a song. The librarian did not scold. She just pointed at the reading corner, where a small boy had lost his place three times. Posy saw his cross little face — and understood without one word being said.",
+  "passage": "In the quiet library, Posy whispered a joke, then a story, then a song. The librarian did not scold. She just pointed at the reading corner, where a small boy had lost his place three times. Posy saw his angry face — and understood without one word being said.",
   "cell": "lesson_mistake_fixed",
   "choices": [
    "librarians point at corners",
@@ -676,21 +610,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -700,13 +629,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_mistake_fixed.v8",
@@ -731,12 +654,12 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Dara promised to water next-door's plum tree during the holiday, then forgot for a whole hot week. The leaves curled. She watered it every evening after that, twice on the hottest days, and by the end of summer the tree stood green again — and Dara never made a promise carelessly again.",
+  "passage": "Dara promised to water her neighbor's plum tree during school break, then forgot for a whole hot week. The leaves curled. She followed the watering directions every day after that, and by the end of summer the tree stood green again — and Dara never made a promise carelessly again.",
   "cell": "lesson_mistake_fixed",
   "choices": [
    "a promise matters even when it is hard to keep",
    "the plum leaves curled up",
-   "never help your neighbours",
+   "never help your neighbors",
    "summer weeks can be hot"
   ],
   "answerOptions": [
@@ -751,9 +674,9 @@ export const questions = [
     "text": "the plum leaves curled up"
    },
    {
-    "value": "never help your neighbours",
-    "label": "never help your neighbours",
-    "text": "never help your neighbours"
+    "value": "never help your neighbors",
+    "label": "never help your neighbors",
+    "text": "never help your neighbors"
    },
    {
     "value": "summer weeks can be hot",
@@ -766,7 +689,7 @@ export const questions = [
   "distractorRationales": {
    "summer weeks can be hot": "D-TOPIC-ADJACENT",
    "the plum leaves curled up": "D-DETAIL-AS-MAIN",
-   "never help your neighbours": "D-OPPOSITE"
+   "never help your neighbors": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -777,21 +700,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_mistake_fixed.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -801,13 +719,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v1",
@@ -878,21 +790,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -902,13 +809,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_kindness_returned.v2",
@@ -979,21 +880,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_kindness_returned.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1003,13 +899,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.C.lesson_kindness_returned.v3",
@@ -1080,21 +970,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_kindness_returned.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1104,13 +989,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v4",
@@ -1135,12 +1014,12 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "At the fair, Nia's last coin rolled under the lost-and-found table. The boy behind the table crawled in the dust to fetch it, and Nia used it to buy two toffee apples — one for herself, and one for a dusty, grinning boy.",
+  "passage": "At the fair, Nia's last coin rolled under the lost-and-found table. The boy behind the table crawled in the dust to fetch it, and Nia used it to buy two candy apples — one for herself, and one for a dusty, grinning boy.",
   "cell": "lesson_kindness_returned",
   "choices": [
    "a coin rolled under a table",
-   "keep both toffee apples",
-   "fairs sell toffee apples",
+   "keep both candy apples",
+   "fairs sell candy apples",
    "sharing doubles a good moment"
   ],
   "answerOptions": [
@@ -1150,14 +1029,14 @@ export const questions = [
     "text": "a coin rolled under a table"
    },
    {
-    "value": "keep both toffee apples",
-    "label": "keep both toffee apples",
-    "text": "keep both toffee apples"
+    "value": "keep both candy apples",
+    "label": "keep both candy apples",
+    "text": "keep both candy apples"
    },
    {
-    "value": "fairs sell toffee apples",
-    "label": "fairs sell toffee apples",
-    "text": "fairs sell toffee apples"
+    "value": "fairs sell candy apples",
+    "label": "fairs sell candy apples",
+    "text": "fairs sell candy apples"
    },
    {
     "value": "sharing doubles a good moment",
@@ -1168,8 +1047,8 @@ export const questions = [
   "answer": "sharing doubles a good moment",
   "correctAnswer": "sharing doubles a good moment",
   "distractorRationales": {
-   "keep both toffee apples": "D-OPPOSITE",
-   "fairs sell toffee apples": "D-TOPIC-ADJACENT",
+   "keep both candy apples": "D-OPPOSITE",
+   "fairs sell candy apples": "D-TOPIC-ADJACENT",
    "a coin rolled under a table": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
@@ -1181,21 +1060,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1205,13 +1079,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_kindness_returned.v5",
@@ -1282,21 +1150,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_kindness_returned.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1306,13 +1169,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.C.lesson_kindness_returned.v6",
@@ -1383,21 +1240,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_kindness_returned.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1407,13 +1259,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v7",
@@ -1438,13 +1284,13 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Jude found a splinter of glass on the slide and spent his whole break carefully clearing every piece, missing the football game. Nobody noticed — he thought. On Friday, a note appeared in his tray: 'Thank you from the little ones. You didn't know we saw.'",
+  "passage": "Jude saw broken glass on the slide. He stood beside it to warn the younger children and called an adult, missing the soccer game while the slide was made safe. Nobody noticed — he thought. On Friday, a note appeared in his cubby: 'Thank you from the little ones. You didn't know we saw.'",
   "cell": "lesson_kindness_returned",
   "choices": [
    "quiet good deeds are still seen",
    "there was glass on the slide",
-   "football matters more than safety",
-   "notes go in trays"
+   "soccer matters more than safety",
+   "notes can go in cubbies"
   ],
   "answerOptions": [
    {
@@ -1458,22 +1304,22 @@ export const questions = [
     "text": "there was glass on the slide"
    },
    {
-    "value": "football matters more than safety",
-    "label": "football matters more than safety",
-    "text": "football matters more than safety"
+    "value": "soccer matters more than safety",
+    "label": "soccer matters more than safety",
+    "text": "soccer matters more than safety"
    },
    {
-    "value": "notes go in trays",
-    "label": "notes go in trays",
-    "text": "notes go in trays"
+    "value": "notes can go in cubbies",
+    "label": "notes can go in cubbies",
+    "text": "notes can go in cubbies"
    }
   ],
   "answer": "quiet good deeds are still seen",
   "correctAnswer": "quiet good deeds are still seen",
   "distractorRationales": {
-   "notes go in trays": "D-TOPIC-ADJACENT",
+   "notes can go in cubbies": "D-TOPIC-ADJACENT",
    "there was glass on the slide": "D-DETAIL-AS-MAIN",
-   "football matters more than safety": "D-OPPOSITE"
+   "soccer matters more than safety": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1484,21 +1330,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1508,13 +1349,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_kindness_returned.v8",
@@ -1539,12 +1374,12 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "One skipping rope, eleven children. Quarrels every break — until Fern started counting everyone in: two turns each, jumpers become turners, turners become jumpers. The rope never rested, the queue sang the counting song, and break time stopped ending in tears.",
+  "passage": "One jump rope, eleven children. Quarrels every recess — until Fern started counting everyone in: two turns each, jumpers become turners, turners become jumpers. The rope never rested, the line sang the counting song, and recess stopped ending in tears.",
   "cell": "lesson_kindness_returned",
   "choices": [
    "eleven children wanted one rope",
    "the strongest should keep the rope",
-   "skipping has counting songs",
+   "jumping rope has counting songs",
    "fair sharing lets everyone enjoy more"
   ],
   "answerOptions": [
@@ -1559,9 +1394,9 @@ export const questions = [
     "text": "the strongest should keep the rope"
    },
    {
-    "value": "skipping has counting songs",
-    "label": "skipping has counting songs",
-    "text": "skipping has counting songs"
+    "value": "jumping rope has counting songs",
+    "label": "jumping rope has counting songs",
+    "text": "jumping rope has counting songs"
    },
    {
     "value": "fair sharing lets everyone enjoy more",
@@ -1572,7 +1407,7 @@ export const questions = [
   "answer": "fair sharing lets everyone enjoy more",
   "correctAnswer": "fair sharing lets everyone enjoy more",
   "distractorRationales": {
-   "skipping has counting songs": "D-TOPIC-ADJACENT",
+   "jumping rope has counting songs": "D-TOPIC-ADJACENT",
    "eleven children wanted one rope": "D-DETAIL-AS-MAIN",
    "the strongest should keep the rope": "D-OPPOSITE"
   },
@@ -1585,21 +1420,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_kindness_returned.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1609,13 +1439,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v1",
@@ -1686,21 +1510,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1710,13 +1529,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_effort_pays.v2",
@@ -1787,21 +1600,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_effort_pays.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1811,13 +1619,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v3",
@@ -1842,7 +1644,7 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Tam wanted to fold one hundred paper cranes like the ones in the library book. By crane twenty his folds were crooked; by fifty, his thumbs ached. He folded on the bus, at breakfast, in the bath queue. Crane one hundred sat perfectly on his windowsill before his birthday.",
+  "passage": "Tam wanted to fold one hundred paper cranes like the ones in the library book. By crane twenty his folds were crooked; by fifty, his thumbs ached. He folded on the bus, at breakfast, and after school. Crane one hundred sat perfectly on his windowsill before his birthday.",
   "cell": "lesson_effort_pays",
   "choices": [
    "libraries have craft books",
@@ -1888,21 +1690,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1912,13 +1709,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v4",
@@ -1943,13 +1734,13 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Nobody wanted goalkeeper, so quiet Emil took the gloves. He practised alone against the garage wall all season — thud, catch, thud, catch. In the last match, with the score level, Emil flew sideways and tipped the ball over the bar, and his name was the loudest word on the pitch.",
+  "passage": "Nobody wanted to be goalkeeper, so quiet Emil took the gloves. He practiced alone against the garage wall all season — thud, catch, thud, catch. In the last game, with the score tied, Emil dove sideways and caught the final shot, and his name was the loudest word on the field.",
   "cell": "lesson_effort_pays",
   "choices": [
    "goalkeepers never matter",
-   "matches can end level",
+   "games can end with a tied score",
    "practice done quietly still shines in the end",
-   "Emil practised against a garage"
+   "Emil practiced against a garage wall"
   ],
   "answerOptions": [
    {
@@ -1958,9 +1749,9 @@ export const questions = [
     "text": "goalkeepers never matter"
    },
    {
-    "value": "matches can end level",
-    "label": "matches can end level",
-    "text": "matches can end level"
+    "value": "games can end with a tied score",
+    "label": "games can end with a tied score",
+    "text": "games can end with a tied score"
    },
    {
     "value": "practice done quietly still shines in the end",
@@ -1968,17 +1759,17 @@ export const questions = [
     "text": "practice done quietly still shines in the end"
    },
    {
-    "value": "Emil practised against a garage",
-    "label": "Emil practised against a garage",
-    "text": "Emil practised against a garage"
+    "value": "Emil practiced against a garage wall",
+    "label": "Emil practiced against a garage wall",
+    "text": "Emil practiced against a garage wall"
    }
   ],
   "answer": "practice done quietly still shines in the end",
   "correctAnswer": "practice done quietly still shines in the end",
   "distractorRationales": {
-   "Emil practised against a garage": "D-DETAIL-AS-MAIN",
+   "Emil practiced against a garage wall": "D-DETAIL-AS-MAIN",
    "goalkeepers never matter": "D-OPPOSITE",
-   "matches can end level": "D-TOPIC-ADJACENT"
+   "games can end with a tied score": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1989,21 +1780,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2013,13 +1799,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_effort_pays.v5",
@@ -2044,19 +1824,19 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "The first snow would not stick, and Ceri checked the window a hundred times. Gran said watching would not hurry the sky, so Ceri stopped watching and got ready instead: gloves dried, sledge waxed, carrot saved. When the deep snow finally came, she was first — and readiest — on the hill.",
+  "passage": "The first snow would not stick, and Ceri checked the window a hundred times. Grandma said watching would not hurry the sky, so Ceri stopped watching and got ready instead: gloves dried, sled waxed, carrot saved. When the deep snow finally came, she was first — and readiest — on the hill.",
   "cell": "lesson_effort_pays",
   "choices": [
-   "sledges go on hills",
+   "sleds go on hills",
    "use waiting time to get ready",
    "the first snow would not stick",
    "watching the sky brings snow"
   ],
   "answerOptions": [
    {
-    "value": "sledges go on hills",
-    "label": "sledges go on hills",
-    "text": "sledges go on hills"
+    "value": "sleds go on hills",
+    "label": "sleds go on hills",
+    "text": "sleds go on hills"
    },
    {
     "value": "use waiting time to get ready",
@@ -2077,7 +1857,7 @@ export const questions = [
   "answer": "use waiting time to get ready",
   "correctAnswer": "use waiting time to get ready",
   "distractorRationales": {
-   "sledges go on hills": "D-TOPIC-ADJACENT",
+   "sleds go on hills": "D-TOPIC-ADJACENT",
    "the first snow would not stick": "D-DETAIL-AS-MAIN",
    "watching the sky brings snow": "D-OPPOSITE"
   },
@@ -2090,21 +1870,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_effort_pays.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2114,13 +1889,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v6",
@@ -2145,13 +1914,13 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "The jigsaw's last corner piece was missing, and everyone gave up — except Ash, who liked finishing things. He searched the sofa, the stairs, the dog's basket, and finally the turn-up of Grandad's trouser leg. The picture on the table was complete because one person would not stop looking.",
+  "passage": "The jigsaw puzzle's last corner piece was missing, and everyone gave up — except Ash, who liked finishing things. He searched the sofa, the stairs, the dog's bed, and finally the folded edge of a rug. The picture on the table was complete because one person would not stop looking.",
   "cell": "lesson_effort_pays",
   "choices": [
    "lost pieces stay lost",
-   "dogs sleep in baskets",
+   "dogs sleep in beds",
    "finishing takes one person who will not quit",
-   "the piece was in a trouser turn-up"
+   "the piece was under the folded edge of a rug"
   ],
   "answerOptions": [
    {
@@ -2160,9 +1929,9 @@ export const questions = [
     "text": "lost pieces stay lost"
    },
    {
-    "value": "dogs sleep in baskets",
-    "label": "dogs sleep in baskets",
-    "text": "dogs sleep in baskets"
+    "value": "dogs sleep in beds",
+    "label": "dogs sleep in beds",
+    "text": "dogs sleep in beds"
    },
    {
     "value": "finishing takes one person who will not quit",
@@ -2170,17 +1939,17 @@ export const questions = [
     "text": "finishing takes one person who will not quit"
    },
    {
-    "value": "the piece was in a trouser turn-up",
-    "label": "the piece was in a trouser turn-up",
-    "text": "the piece was in a trouser turn-up"
+    "value": "the piece was under the folded edge of a rug",
+    "label": "the piece was under the folded edge of a rug",
+    "text": "the piece was under the folded edge of a rug"
    }
   ],
   "answer": "finishing takes one person who will not quit",
   "correctAnswer": "finishing takes one person who will not quit",
   "distractorRationales": {
-   "the piece was in a trouser turn-up": "D-DETAIL-AS-MAIN",
+   "the piece was under the folded edge of a rug": "D-DETAIL-AS-MAIN",
    "lost pieces stay lost": "D-OPPOSITE",
-   "dogs sleep in baskets": "D-TOPIC-ADJACENT"
+   "dogs sleep in beds": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2191,21 +1960,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2215,13 +1979,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v7",
@@ -2246,19 +2004,19 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Grandpa's watch ran five minutes slow, and he liked it that way — but the mending of it became Suvi's winter project. Springs, screws, a magnifying glass, three failed tries, one bent tool. When the watch finally ticked true, Grandpa wore it proudly... set five minutes slow again, for old times' sake.",
+  "passage": "Grandpa's old watch had stopped, so repairing it became Suvi's winter project. She studied the gears, sorted the tiny screws, and tried three careful adjustments. When the watch finally ticked the right time, Grandpa wore it proudly every day.",
   "cell": "lesson_effort_pays",
   "choices": [
-   "the watch ran five minutes slow",
+   "the watch had stopped",
    "old watches cannot be fixed",
    "winter is for projects",
-   "hard work is worth it even for small things"
+   "careful effort can bring an old thing back to use"
   ],
   "answerOptions": [
    {
-    "value": "the watch ran five minutes slow",
-    "label": "the watch ran five minutes slow",
-    "text": "the watch ran five minutes slow"
+    "value": "the watch had stopped",
+    "label": "the watch had stopped",
+    "text": "the watch had stopped"
    },
    {
     "value": "old watches cannot be fixed",
@@ -2271,15 +2029,15 @@ export const questions = [
     "text": "winter is for projects"
    },
    {
-    "value": "hard work is worth it even for small things",
-    "label": "hard work is worth it even for small things",
-    "text": "hard work is worth it even for small things"
+    "value": "careful effort can bring an old thing back to use",
+    "label": "careful effort can bring an old thing back to use",
+    "text": "careful effort can bring an old thing back to use"
    }
   ],
-  "answer": "hard work is worth it even for small things",
-  "correctAnswer": "hard work is worth it even for small things",
+  "answer": "careful effort can bring an old thing back to use",
+  "correctAnswer": "careful effort can bring an old thing back to use",
   "distractorRationales": {
-   "the watch ran five minutes slow": "D-DETAIL-AS-MAIN",
+   "the watch had stopped": "D-DETAIL-AS-MAIN",
    "old watches cannot be fixed": "D-OPPOSITE",
    "winter is for projects": "D-TOPIC-ADJACENT"
   },
@@ -2292,21 +2050,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2316,13 +2069,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_effort_pays.v8",
@@ -2347,42 +2094,42 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "The school's litter-picking robot kept jamming, and Class 5 kept unjamming it — new wheels from a skateboard, a brush from the lost kit box, tape, more tape. The head teacher said buy a new one. Class 5 said their patched robot, wobbling proudly down the corridor, was already the best one in the world.",
+  "passage": "A fifth-grade class built a robot to pick up paper scraps, but it kept jamming. They tested it, found one problem at a time, widened the wheels, and moved the brush. After many fixes, the robot rolled down the hallway and collected every scrap without stopping.",
   "cell": "lesson_effort_pays",
   "choices": [
-   "broken things belong in bins",
-   "schools have corridors",
-   "caring for something makes it precious",
-   "the robot got skateboard wheels"
+   "stop trying when a project jams",
+   "schools have hallways",
+   "testing and fixing one problem at a time can make an idea work",
+   "the class widened the robot's wheels"
   ],
   "answerOptions": [
    {
-    "value": "broken things belong in bins",
-    "label": "broken things belong in bins",
-    "text": "broken things belong in bins"
+    "value": "stop trying when a project jams",
+    "label": "stop trying when a project jams",
+    "text": "stop trying when a project jams"
    },
    {
-    "value": "schools have corridors",
-    "label": "schools have corridors",
-    "text": "schools have corridors"
+    "value": "schools have hallways",
+    "label": "schools have hallways",
+    "text": "schools have hallways"
    },
    {
-    "value": "caring for something makes it precious",
-    "label": "caring for something makes it precious",
-    "text": "caring for something makes it precious"
+    "value": "testing and fixing one problem at a time can make an idea work",
+    "label": "testing and fixing one problem at a time can make an idea work",
+    "text": "testing and fixing one problem at a time can make an idea work"
    },
    {
-    "value": "the robot got skateboard wheels",
-    "label": "the robot got skateboard wheels",
-    "text": "the robot got skateboard wheels"
+    "value": "the class widened the robot's wheels",
+    "label": "the class widened the robot's wheels",
+    "text": "the class widened the robot's wheels"
    }
   ],
-  "answer": "caring for something makes it precious",
-  "correctAnswer": "caring for something makes it precious",
+  "answer": "testing and fixing one problem at a time can make an idea work",
+  "correctAnswer": "testing and fixing one problem at a time can make an idea work",
   "distractorRationales": {
-   "the robot got skateboard wheels": "D-DETAIL-AS-MAIN",
-   "broken things belong in bins": "D-OPPOSITE",
-   "schools have corridors": "D-TOPIC-ADJACENT"
+   "the class widened the robot's wheels": "D-DETAIL-AS-MAIN",
+   "stop trying when a project jams": "D-OPPOSITE",
+   "schools have hallways": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2393,21 +2140,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_effort_pays.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2417,13 +2159,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v1",
@@ -2445,45 +2181,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Two lessons seem possible. Which one does the story support MOST?",
-  "question": "Two lessons seem possible. Which one does the story support MOST?",
-  "spokenPrompt": "Two lessons seem possible. Which one does the story support MOST?",
-  "passage": "Two ladders leaned on the orchard wall: Jo's new silver one and the old wooden one Jo's mum had climbed as a girl. Jo always chose the silver ladder — until the day it slid on wet grass and the wooden one, with its worn, deep-gripped rungs, carried her safely up to the highest apples. That autumn Jo oiled the old ladder's joints herself, and the silver one waited under a sheet.",
+  "prompt": "Which lesson is best supported by the story?",
+  "question": "Which lesson is best supported by the story?",
+  "spokenPrompt": "Which lesson is best supported by the story?",
+  "passage": "Two watering cans sat by the garden: Jo's shiny new one and the old dented one her mom had used as a girl. Jo always chose the shiny can — until she noticed its wide spout soaked the path but missed the roots. The old can's long spout placed water exactly where each plant needed it. After that, Jo cared for both cans but reached for the dented one each morning.",
   "cell": "theme_among_rivals",
   "choices": [
-   "picking apples is dangerous",
-   "a ladder slid on the wet grass",
-   "old things earn trust that shiny things have not",
-   "never buy anything new when something old still works"
+   "new things always work badly",
+   "the old can had a long spout",
+   "judge a tool by how well it works, not by how shiny it looks",
+   "family memories can make old things worth caring for"
   ],
   "answerOptions": [
    {
-    "value": "picking apples is dangerous",
-    "label": "picking apples is dangerous",
-    "text": "picking apples is dangerous"
+    "value": "new things always work badly",
+    "label": "new things always work badly",
+    "text": "new things always work badly"
    },
    {
-    "value": "a ladder slid on the wet grass",
-    "label": "a ladder slid on the wet grass",
-    "text": "a ladder slid on the wet grass"
+    "value": "the old can had a long spout",
+    "label": "the old can had a long spout",
+    "text": "the old can had a long spout"
    },
    {
-    "value": "old things earn trust that shiny things have not",
-    "label": "old things earn trust that shiny things have not",
-    "text": "old things earn trust that shiny things have not"
+    "value": "judge a tool by how well it works, not by how shiny it looks",
+    "label": "judge a tool by how well it works, not by how shiny it looks",
+    "text": "judge a tool by how well it works, not by how shiny it looks"
    },
    {
-    "value": "never buy anything new when something old still works",
-    "label": "never buy anything new when something old still works",
-    "text": "never buy anything new when something old still works"
+    "value": "family memories can make old things worth caring for",
+    "label": "family memories can make old things worth caring for",
+    "text": "family memories can make old things worth caring for"
    }
   ],
-  "answer": "old things earn trust that shiny things have not",
-  "correctAnswer": "old things earn trust that shiny things have not",
+  "answer": "judge a tool by how well it works, not by how shiny it looks",
+  "correctAnswer": "judge a tool by how well it works, not by how shiny it looks",
   "distractorRationales": {
-   "never buy anything new when something old still works": "D-OPPOSITE",
-   "picking apples is dangerous": "D-TOPIC-ADJACENT",
-   "a ladder slid on the wet grass": "D-DETAIL-AS-MAIN"
+   "family memories can make old things worth caring for": "D-PLAUSIBLE-UNSUPPORTED",
+   "new things always work badly": "D-OPPOSITE",
+   "the old can had a long spout": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2494,21 +2230,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2518,13 +2249,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rival reading 'new things are bad' is too strong; evidence supports earned trust",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "rival family-memory lesson is worthy but Jo changes her choice only after comparing how the cans work"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.theme_among_rivals.v2",
@@ -2546,45 +2271,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Two lessons seem possible. Which one does the story support MOST?",
-  "question": "Two lessons seem possible. Which one does the story support MOST?",
-  "spokenPrompt": "Two lessons seem possible. Which one does the story support MOST?",
-  "passage": "Yusuf practised the trumpet loudly and often, and told everyone about the concert. His sister Amal practised the harp quietly behind a closed door, and told no one. At the concert Yusuf played brilliantly and bowed twice. Amal played one simple tune so beautifully that the hall forgot to clap for a moment. On the way home, Yusuf asked, for the first time, if she would teach him the quiet way of practising.",
+  "prompt": "Which lesson is best supported by the story?",
+  "question": "Which lesson is best supported by the story?",
+  "spokenPrompt": "Which lesson is best supported by the story?",
+  "passage": "Yusuf told everyone that his loud trumpet solo would be the concert's best part. His sister Amal said little and practiced the harp behind a closed door. Yusuf played well and bowed twice. Then Amal's gentle tune held the whole hall silent before the applause began. On the way home, Yusuf asked how she had made quiet music hold such a big room.",
   "cell": "theme_among_rivals",
   "choices": [
-   "trumpets are better than harps",
-   "never tell anyone about a concert",
-   "the hall forgot to clap once",
-   "quiet skill can speak louder than showing off"
+   "regular practice helps a performer improve",
+   "loud music can never be beautiful",
+   "the hall stayed silent before applauding",
+   "something quiet can still have a powerful effect"
   ],
   "answerOptions": [
    {
-    "value": "trumpets are better than harps",
-    "label": "trumpets are better than harps",
-    "text": "trumpets are better than harps"
+    "value": "regular practice helps a performer improve",
+    "label": "regular practice helps a performer improve",
+    "text": "regular practice helps a performer improve"
    },
    {
-    "value": "never tell anyone about a concert",
-    "label": "never tell anyone about a concert",
-    "text": "never tell anyone about a concert"
+    "value": "loud music can never be beautiful",
+    "label": "loud music can never be beautiful",
+    "text": "loud music can never be beautiful"
    },
    {
-    "value": "the hall forgot to clap once",
-    "label": "the hall forgot to clap once",
-    "text": "the hall forgot to clap once"
+    "value": "the hall stayed silent before applauding",
+    "label": "the hall stayed silent before applauding",
+    "text": "the hall stayed silent before applauding"
    },
    {
-    "value": "quiet skill can speak louder than showing off",
-    "label": "quiet skill can speak louder than showing off",
-    "text": "quiet skill can speak louder than showing off"
+    "value": "something quiet can still have a powerful effect",
+    "label": "something quiet can still have a powerful effect",
+    "text": "something quiet can still have a powerful effect"
    }
   ],
-  "answer": "quiet skill can speak louder than showing off",
-  "correctAnswer": "quiet skill can speak louder than showing off",
+  "answer": "something quiet can still have a powerful effect",
+  "correctAnswer": "something quiet can still have a powerful effect",
   "distractorRationales": {
-   "trumpets are better than harps": "D-TOPIC-ADJACENT",
-   "never tell anyone about a concert": "D-OPPOSITE",
-   "the hall forgot to clap once": "D-DETAIL-AS-MAIN"
+   "regular practice helps a performer improve": "D-PLAUSIBLE-UNSUPPORTED",
+   "loud music can never be beautiful": "D-OPPOSITE",
+   "the hall stayed silent before applauding": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2595,21 +2320,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.B.theme_among_rivals.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2619,13 +2339,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.C.theme_among_rivals.v3",
@@ -2647,16 +2361,16 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which lesson fits best?",
-  "question": "Which lesson fits best?",
-  "spokenPrompt": "Which lesson fits best?",
-  "passage": "The night-light argument ran all week: Dad said seven-year-olds do not need one, and Milo said the dark had shapes in it. The compromise was a torch on the pillow, 'for emergencies'. Milo used it the first night, held it the second, and by Friday it lay under the bed, forgotten — because knowing he COULD switch it on had quietly shrunk every shape in the dark.",
+  "prompt": "Which lesson is best supported by the story?",
+  "question": "Which lesson is best supported by the story?",
+  "spokenPrompt": "Which lesson is best supported by the story?",
+  "passage": "Milo and Dad disagreed about the night-light. Dad thought darkness would help Milo sleep, but Milo was frightened by shapes in the room. They agreed to keep a flashlight beside the bed. Milo used it the first night, held it the second, and by Friday left it untouched — because knowing he could switch it on made the dark feel manageable.",
   "cell": "theme_among_rivals",
   "choices": [
    "knowing help is near can build courage",
-   "darkness is truly dangerous",
-   "torches belong on pillows",
-   "fathers are always right"
+   "a fair compromise can settle a family disagreement",
+   "feeling afraid means you cannot be brave",
+   "a flashlight sat beside the bed"
   ],
   "answerOptions": [
    {
@@ -2665,27 +2379,27 @@ export const questions = [
     "text": "knowing help is near can build courage"
    },
    {
-    "value": "darkness is truly dangerous",
-    "label": "darkness is truly dangerous",
-    "text": "darkness is truly dangerous"
+    "value": "a fair compromise can settle a family disagreement",
+    "label": "a fair compromise can settle a family disagreement",
+    "text": "a fair compromise can settle a family disagreement"
    },
    {
-    "value": "torches belong on pillows",
-    "label": "torches belong on pillows",
-    "text": "torches belong on pillows"
+    "value": "feeling afraid means you cannot be brave",
+    "label": "feeling afraid means you cannot be brave",
+    "text": "feeling afraid means you cannot be brave"
    },
    {
-    "value": "fathers are always right",
-    "label": "fathers are always right",
-    "text": "fathers are always right"
+    "value": "a flashlight sat beside the bed",
+    "label": "a flashlight sat beside the bed",
+    "text": "a flashlight sat beside the bed"
    }
   ],
   "answer": "knowing help is near can build courage",
   "correctAnswer": "knowing help is near can build courage",
   "distractorRationales": {
-   "darkness is truly dangerous": "D-OPPOSITE",
-   "torches belong on pillows": "D-DETAIL-AS-MAIN",
-   "fathers are always right": "D-PLAUSIBLE-UNSUPPORTED"
+   "a fair compromise can settle a family disagreement": "D-PLAUSIBLE-UNSUPPORTED",
+   "feeling afraid means you cannot be brave": "D-OPPOSITE",
+   "a flashlight sat beside the bed": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2696,21 +2410,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.C.theme_among_rivals.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2720,13 +2429,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v4",
@@ -2748,32 +2451,32 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Two lessons seem possible. Which one does the story support MOST?",
-  "question": "Two lessons seem possible. Which one does the story support MOST?",
-  "spokenPrompt": "Two lessons seem possible. Which one does the story support MOST?",
-  "passage": "Priya found the spelling list for Friday's test lying by the photocopier — every word, a day early. She looked at it a long moment, then posted it back under the staffroom door. Her score on Friday was seven out of ten, her ordinary score. But when Mr Field told the class someone had returned the list unread, Priya sat a little taller than any ten out of ten had ever made her sit.",
+  "prompt": "Which lesson is best supported by the story?",
+  "question": "Which lesson is best supported by the story?",
+  "spokenPrompt": "Which lesson is best supported by the story?",
+  "passage": "Priya found the answer list for Friday's spelling test lying by the copier — every word, a day early. She looked at it a long moment, then slid it under the school office door. Her score on Friday was seven out of ten, her usual score. But when Mr. Field told the class someone had returned the list unread, Priya felt prouder than any unfair perfect score could have made her feel.",
   "cell": "theme_among_rivals",
   "choices": [
-   "always aim for ten out of ten",
-   "spelling tests do not matter",
-   "a list lay by the photocopier",
+   "hard work can improve a test score",
+   "a high score matters more than honesty",
+   "an answer list lay by the copier",
    "being honest feels better than winning unfairly"
   ],
   "answerOptions": [
    {
-    "value": "always aim for ten out of ten",
-    "label": "always aim for ten out of ten",
-    "text": "always aim for ten out of ten"
+    "value": "hard work can improve a test score",
+    "label": "hard work can improve a test score",
+    "text": "hard work can improve a test score"
    },
    {
-    "value": "spelling tests do not matter",
-    "label": "spelling tests do not matter",
-    "text": "spelling tests do not matter"
+    "value": "a high score matters more than honesty",
+    "label": "a high score matters more than honesty",
+    "text": "a high score matters more than honesty"
    },
    {
-    "value": "a list lay by the photocopier",
-    "label": "a list lay by the photocopier",
-    "text": "a list lay by the photocopier"
+    "value": "an answer list lay by the copier",
+    "label": "an answer list lay by the copier",
+    "text": "an answer list lay by the copier"
    },
    {
     "value": "being honest feels better than winning unfairly",
@@ -2784,9 +2487,9 @@ export const questions = [
   "answer": "being honest feels better than winning unfairly",
   "correctAnswer": "being honest feels better than winning unfairly",
   "distractorRationales": {
-   "a list lay by the photocopier": "D-DETAIL-AS-MAIN",
-   "always aim for ten out of ten": "D-PLAUSIBLE-UNSUPPORTED",
-   "spelling tests do not matter": "D-OPPOSITE"
+   "an answer list lay by the copier": "D-DETAIL-AS-MAIN",
+   "hard work can improve a test score": "D-PLAUSIBLE-UNSUPPORTED",
+   "a high score matters more than honesty": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2797,21 +2500,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2821,13 +2519,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.theme_among_rivals.v5",
@@ -2849,45 +2541,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which lesson fits best?",
-  "question": "Which lesson fits best?",
-  "spokenPrompt": "Which lesson fits best?",
-  "passage": "When the storm knocked the nest from the hedge, Etta wanted to carry the eggs indoors at once, to save them with blankets and a lamp. Her grandmother stopped her: 'The mother is watching from the fence. Help small, not big.' They wedged the nest back, moved away, and watched the mother return. All three chicks hatched in the hedge, wild and loud, needing nobody's lamp.",
+  "prompt": "Which lesson is best supported by the story?",
+  "question": "Which lesson is best supported by the story?",
+  "spokenPrompt": "Which lesson is best supported by the story?",
+  "passage": "Etta found a young feathered bird hopping under the hedge after a storm. She wanted to carry it indoors, but her grandmother called a wildlife rescue line first. They were told to keep pets away and watch from a distance. Soon the parent bird returned with food, and the young bird followed it deeper into the hedge.",
   "cell": "theme_among_rivals",
   "choices": [
-   "the gentlest useful action can be best",
-   "never touch anything outdoors",
-   "storms knock down nests",
-   "lamps can keep eggs warm"
+   "the best help can support without taking over",
+   "quick action is always the best way to protect an animal",
+   "wild animals should become household pets",
+   "the parent bird returned with food"
   ],
   "answerOptions": [
    {
-    "value": "the gentlest useful action can be best",
-    "label": "the gentlest useful action can be best",
-    "text": "the gentlest useful action can be best"
+    "value": "the best help can support without taking over",
+    "label": "the best help can support without taking over",
+    "text": "the best help can support without taking over"
    },
    {
-    "value": "never touch anything outdoors",
-    "label": "never touch anything outdoors",
-    "text": "never touch anything outdoors"
+    "value": "quick action is always the best way to protect an animal",
+    "label": "quick action is always the best way to protect an animal",
+    "text": "quick action is always the best way to protect an animal"
    },
    {
-    "value": "storms knock down nests",
-    "label": "storms knock down nests",
-    "text": "storms knock down nests"
+    "value": "wild animals should become household pets",
+    "label": "wild animals should become household pets",
+    "text": "wild animals should become household pets"
    },
    {
-    "value": "lamps can keep eggs warm",
-    "label": "lamps can keep eggs warm",
-    "text": "lamps can keep eggs warm"
+    "value": "the parent bird returned with food",
+    "label": "the parent bird returned with food",
+    "text": "the parent bird returned with food"
    }
   ],
-  "answer": "the gentlest useful action can be best",
-  "correctAnswer": "the gentlest useful action can be best",
+  "answer": "the best help can support without taking over",
+  "correctAnswer": "the best help can support without taking over",
   "distractorRationales": {
-   "never touch anything outdoors": "D-OPPOSITE",
-   "storms knock down nests": "D-DETAIL-AS-MAIN",
-   "lamps can keep eggs warm": "D-TOPIC-ADJACENT"
+   "quick action is always the best way to protect an animal": "D-PLAUSIBLE-UNSUPPORTED",
+   "wild animals should become household pets": "D-OPPOSITE",
+   "the parent bird returned with food": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2898,21 +2590,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.B.theme_among_rivals.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2922,13 +2609,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rival 'always rescue dramatically' vs supported 'restrain and trust nature'",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "the rescue line directs a small, informed action; taking the bird indoors is explicitly rejected"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.C.theme_among_rivals.v6",
@@ -2950,16 +2631,16 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Two lessons seem possible. Which one does the story support MOST?",
-  "question": "Two lessons seem possible. Which one does the story support MOST?",
-  "spokenPrompt": "Two lessons seem possible. Which one does the story support MOST?",
-  "passage": "The junior bake-off allowed one entry each. Zeke's jam roll collapsed an hour before judging, and he stood in the wreckage of sponge, out of time and out of hope. Nell looked at her own perfect lemon cake, then cut it in half, plated the halves separately, and told the judges the second entry was Zeke's idea as much as hers. They did not win. Neither of them ever called it a loss.",
+  "prompt": "Which lesson is best supported by the story?",
+  "question": "Which lesson is best supported by the story?",
+  "spokenPrompt": "Which lesson is best supported by the story?",
+  "passage": "The junior bake-off allowed one entry each. Zeke's jam roll collapsed just before judging, and he stood over the broken cake, out of time and hope. Nell knew her lemon cake might win, but helping Zeke would mean missing judging. She withdrew her entry and helped him turn the broken roll into dessert cups for the visitors. They won no prize, but every cup was eaten, and they left laughing together.",
   "cell": "theme_among_rivals",
   "choices": [
    "a jam roll collapsed before judging",
    "friendship can matter more than prizes",
-   "never enter a bake-off",
-   "lemon cakes beat jam rolls"
+   "creative reuse can turn a mistake into something useful",
+   "winning matters more than helping a friend"
   ],
   "answerOptions": [
    {
@@ -2973,22 +2654,22 @@ export const questions = [
     "text": "friendship can matter more than prizes"
    },
    {
-    "value": "never enter a bake-off",
-    "label": "never enter a bake-off",
-    "text": "never enter a bake-off"
+    "value": "creative reuse can turn a mistake into something useful",
+    "label": "creative reuse can turn a mistake into something useful",
+    "text": "creative reuse can turn a mistake into something useful"
    },
    {
-    "value": "lemon cakes beat jam rolls",
-    "label": "lemon cakes beat jam rolls",
-    "text": "lemon cakes beat jam rolls"
+    "value": "winning matters more than helping a friend",
+    "label": "winning matters more than helping a friend",
+    "text": "winning matters more than helping a friend"
    }
   ],
   "answer": "friendship can matter more than prizes",
   "correctAnswer": "friendship can matter more than prizes",
   "distractorRationales": {
    "a jam roll collapsed before judging": "D-DETAIL-AS-MAIN",
-   "never enter a bake-off": "D-OPPOSITE",
-   "lemon cakes beat jam rolls": "D-TOPIC-ADJACENT"
+   "creative reuse can turn a mistake into something useful": "D-PLAUSIBLE-UNSUPPORTED",
+   "winning matters more than helping a friend": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2999,21 +2680,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.C.theme_among_rivals.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3023,13 +2699,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v7",
@@ -3051,45 +2721,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which lesson fits best?",
-  "question": "Which lesson fits best?",
-  "spokenPrompt": "Which lesson fits best?",
-  "passage": "Every evening, Kofi's echo game in the stairwell — HELLO... hello... hello — annoyed the third floor. Mrs Adjei came down, and everyone waited for the telling-off. Instead she taught him the trick her own father taught her: the softer you call, the closer the echo leans in to listen. After that, the stairwell heard whisper-games, and the third floor heard nothing at all.",
+  "prompt": "Which lesson is best supported by the story?",
+  "question": "Which lesson is best supported by the story?",
+  "spokenPrompt": "Which lesson is best supported by the story?",
+  "passage": "Every evening, Kofi's echo game in the stairwell — HELLO... hello... hello — annoyed the third floor. Mrs. Adjei came down, and everyone expected her to scold him. Instead she taught him the trick her own father taught her: the softer you call, the closer the echo leans in to listen. After that, Kofi played quiet echo games, and the third floor heard nothing at all.",
   "cell": "theme_among_rivals",
   "choices": [
-   "gentle words teach better than anger",
-   "echoes live in stairwells",
-   "games should be banned indoors",
-   "third floors are grumpy"
+   "calm guidance can solve a problem better than scolding",
+   "quiet games are a good choice in shared indoor spaces",
+   "anger is the only way to change behavior",
+   "Kofi played an echo game"
   ],
   "answerOptions": [
    {
-    "value": "gentle words teach better than anger",
-    "label": "gentle words teach better than anger",
-    "text": "gentle words teach better than anger"
+    "value": "calm guidance can solve a problem better than scolding",
+    "label": "calm guidance can solve a problem better than scolding",
+    "text": "calm guidance can solve a problem better than scolding"
    },
    {
-    "value": "echoes live in stairwells",
-    "label": "echoes live in stairwells",
-    "text": "echoes live in stairwells"
+    "value": "quiet games are a good choice in shared indoor spaces",
+    "label": "quiet games are a good choice in shared indoor spaces",
+    "text": "quiet games are a good choice in shared indoor spaces"
    },
    {
-    "value": "games should be banned indoors",
-    "label": "games should be banned indoors",
-    "text": "games should be banned indoors"
+    "value": "anger is the only way to change behavior",
+    "label": "anger is the only way to change behavior",
+    "text": "anger is the only way to change behavior"
    },
    {
-    "value": "third floors are grumpy",
-    "label": "third floors are grumpy",
-    "text": "third floors are grumpy"
+    "value": "Kofi played an echo game",
+    "label": "Kofi played an echo game",
+    "text": "Kofi played an echo game"
    }
   ],
-  "answer": "gentle words teach better than anger",
-  "correctAnswer": "gentle words teach better than anger",
+  "answer": "calm guidance can solve a problem better than scolding",
+  "correctAnswer": "calm guidance can solve a problem better than scolding",
   "distractorRationales": {
-   "games should be banned indoors": "D-OPPOSITE",
-   "third floors are grumpy": "D-PLAUSIBLE-UNSUPPORTED",
-   "echoes live in stairwells": "D-DETAIL-AS-MAIN"
+   "anger is the only way to change behavior": "D-OPPOSITE",
+   "Kofi played an echo game": "D-DETAIL-AS-MAIN",
+   "quiet games are a good choice in shared indoor spaces": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3100,21 +2770,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3124,13 +2789,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.theme_among_rivals.v8",
@@ -3152,16 +2811,16 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Two lessons seem possible. Which one does the story support MOST?",
-  "question": "Two lessons seem possible. Which one does the story support MOST?",
-  "spokenPrompt": "Two lessons seem possible. Which one does the story support MOST?",
-  "passage": "The class voted to spend the prize money on a party. Robin alone voted for new goal nets, and lost, nineteen to one. At the party, Robin neither sulked in the corner nor pretended the nets had been a silly idea. He handed out cake, laughed at the games — and in spring, when the nets budget came round again, nineteen hands remembered his good grace and went up with his.",
+  "prompt": "Which lesson is best supported by the story?",
+  "question": "Which lesson is best supported by the story?",
+  "spokenPrompt": "Which lesson is best supported by the story?",
+  "passage": "The class voted to spend the prize money on a party. Robin alone voted for new goal nets, and lost, nineteen to one. At the party, Robin neither sulked in the corner nor pretended the nets had been a silly idea. He handed out cake, laughed at the games — and in spring, when the nets budget came up again, nineteen hands remembered his good grace and went up with his.",
   "cell": "theme_among_rivals",
   "choices": [
    "the vote was nineteen to one",
-   "lose well now; gain friends later",
-   "parties are better than nets",
-   "never vote against the class"
+   "respecting a fair decision can earn other people's respect",
+   "speaking up for an unpopular idea can lead to change",
+   "losing a vote means your idea has no value"
   ],
   "answerOptions": [
    {
@@ -3170,27 +2829,27 @@ export const questions = [
     "text": "the vote was nineteen to one"
    },
    {
-    "value": "lose well now; gain friends later",
-    "label": "lose well now; gain friends later",
-    "text": "lose well now; gain friends later"
+    "value": "respecting a fair decision can earn other people's respect",
+    "label": "respecting a fair decision can earn other people's respect",
+    "text": "respecting a fair decision can earn other people's respect"
    },
    {
-    "value": "parties are better than nets",
-    "label": "parties are better than nets",
-    "text": "parties are better than nets"
+    "value": "speaking up for an unpopular idea can lead to change",
+    "label": "speaking up for an unpopular idea can lead to change",
+    "text": "speaking up for an unpopular idea can lead to change"
    },
    {
-    "value": "never vote against the class",
-    "label": "never vote against the class",
-    "text": "never vote against the class"
+    "value": "losing a vote means your idea has no value",
+    "label": "losing a vote means your idea has no value",
+    "text": "losing a vote means your idea has no value"
    }
   ],
-  "answer": "lose well now; gain friends later",
-  "correctAnswer": "lose well now; gain friends later",
+  "answer": "respecting a fair decision can earn other people's respect",
+  "correctAnswer": "respecting a fair decision can earn other people's respect",
   "distractorRationales": {
-   "never vote against the class": "D-OPPOSITE",
+   "losing a vote means your idea has no value": "D-OPPOSITE",
    "the vote was nineteen to one": "D-DETAIL-AS-MAIN",
-   "parties are better than nets": "D-TOPIC-ADJACENT"
+   "speaking up for an unpopular idea can lead to change": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3201,21 +2860,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.B.theme_among_rivals.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3225,13 +2879,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v1",
@@ -3253,15 +2901,15 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these is the THEME — not just what happened?",
-  "question": "Which of these is the THEME — not just what happened?",
-  "spokenPrompt": "Which of these is the THEME — not just what happened?",
-  "passage": "Sana's telescope was the envy of the street, and she guarded it jealously — until the comet week, when she discovered that a wonder seen alone goes quiet quickly. She chalked VIEWINGS, FREE on the pavement. Neighbours queued past bedtime, gasping in turn, and Sana found that the comet grew more amazing every time someone new cried out at it.",
+  "prompt": "Which option states the theme rather than a plot event?",
+  "question": "Which option states the theme rather than a plot event?",
+  "spokenPrompt": "Which option states the theme rather than a plot event?",
+  "passage": "Sana's telescope was the envy of the street, and she guarded it jealously — until the comet week, when she discovered that a wonder seen alone went quiet quickly. She chalked VIEWINGS, FREE on the sidewalk. Neighbors lined up past bedtime, gasping in turn, and Sana found that the comet felt more amazing every time someone new cried out at it.",
   "cell": "theme_vs_plot",
   "choices": [
    "a girl owned a telescope",
    "wonders grow when they are shared",
-   "Sana chalked a sign and neighbours queued",
+   "Sana chalked a sign and neighbors lined up",
    "a comet passed during one week"
   ],
   "answerOptions": [
@@ -3276,9 +2924,9 @@ export const questions = [
     "text": "wonders grow when they are shared"
    },
    {
-    "value": "Sana chalked a sign and neighbours queued",
-    "label": "Sana chalked a sign and neighbours queued",
-    "text": "Sana chalked a sign and neighbours queued"
+    "value": "Sana chalked a sign and neighbors lined up",
+    "label": "Sana chalked a sign and neighbors lined up",
+    "text": "Sana chalked a sign and neighbors lined up"
    },
    {
     "value": "a comet passed during one week",
@@ -3290,7 +2938,7 @@ export const questions = [
   "correctAnswer": "wonders grow when they are shared",
   "distractorRationales": {
    "a girl owned a telescope": "D-DETAIL-AS-MAIN",
-   "Sana chalked a sign and neighbours queued": "D-DETAIL-AS-MAIN",
+   "Sana chalked a sign and neighbors lined up": "D-DETAIL-AS-MAIN",
    "a comet passed during one week": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
@@ -3302,21 +2950,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3326,13 +2969,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "theme vs three plot restatements — the defining discrimination",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "theme vs three plot restatements — the defining discrimination"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.theme_vs_plot.v2",
@@ -3354,9 +2991,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these is the THEME — not just what happened?",
-  "question": "Which of these is the THEME — not just what happened?",
-  "spokenPrompt": "Which of these is the THEME — not just what happened?",
+  "prompt": "Which option states the theme rather than a plot event?",
+  "question": "Which option states the theme rather than a plot event?",
+  "spokenPrompt": "Which option states the theme rather than a plot event?",
   "passage": "The wrong bus stop turned out to be the right one. Dropped a street early by a rain-blind driver, Marisol sheltered in a doorway that happened to belong to the town's tiny museum — free on Thursdays. She spent the hour among ship models and whale bones she had never known existed, and afterwards she sometimes got off early on purpose, just to see what else the town was hiding.",
   "cell": "theme_vs_plot",
   "choices": [
@@ -3403,21 +3040,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.B.theme_vs_plot.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3427,13 +3059,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v3",
@@ -3455,45 +3081,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these is the THEME — not just what happened?",
-  "question": "Which of these is the THEME — not just what happened?",
-  "spokenPrompt": "Which of these is the THEME — not just what happened?",
-  "passage": "Every apology Tom had ever given was a mumbled 'sorry' with his eyes on his shoes. But breaking Gran's teapot — the one from her wedding — mumbled words felt too small. He wrote a letter instead: what he did, why it was careless, what he would save up to mend. Gran kept the taped-together teapot on the shelf. The letter she kept in her purse, for years.",
+  "prompt": "Which option states the theme rather than a plot event?",
+  "question": "Which option states the theme rather than a plot event?",
+  "spokenPrompt": "Which option states the theme rather than a plot event?",
+  "passage": "Every apology Tom had ever given was a mumbled 'sorry' with his eyes on his shoes. But after breaking Grandma's teapot — the one from her wedding — mumbled words felt too small. He wrote a letter instead: what he did, why it was careless, and how he would help replace it. Grandma kept the repaired teapot on the shelf. The letter she kept in her purse for years.",
   "cell": "theme_vs_plot",
   "choices": [
-   "the teapot was taped back together",
-   "Gran kept a letter in her purse",
-   "a true apology names the wrong and mends it",
-   "Tom broke his gran's teapot"
+   "the teapot was repaired",
+   "Grandma kept a letter in her purse",
+   "a sincere apology explains the wrong and tries to repair it",
+   "Tom broke his grandma's teapot"
   ],
   "answerOptions": [
    {
-    "value": "the teapot was taped back together",
-    "label": "the teapot was taped back together",
-    "text": "the teapot was taped back together"
+    "value": "the teapot was repaired",
+    "label": "the teapot was repaired",
+    "text": "the teapot was repaired"
    },
    {
-    "value": "Gran kept a letter in her purse",
-    "label": "Gran kept a letter in her purse",
-    "text": "Gran kept a letter in her purse"
+    "value": "Grandma kept a letter in her purse",
+    "label": "Grandma kept a letter in her purse",
+    "text": "Grandma kept a letter in her purse"
    },
    {
-    "value": "a true apology names the wrong and mends it",
-    "label": "a true apology names the wrong and mends it",
-    "text": "a true apology names the wrong and mends it"
+    "value": "a sincere apology explains the wrong and tries to repair it",
+    "label": "a sincere apology explains the wrong and tries to repair it",
+    "text": "a sincere apology explains the wrong and tries to repair it"
    },
    {
-    "value": "Tom broke his gran's teapot",
-    "label": "Tom broke his gran's teapot",
-    "text": "Tom broke his gran's teapot"
+    "value": "Tom broke his grandma's teapot",
+    "label": "Tom broke his grandma's teapot",
+    "text": "Tom broke his grandma's teapot"
    }
   ],
-  "answer": "a true apology names the wrong and mends it",
-  "correctAnswer": "a true apology names the wrong and mends it",
+  "answer": "a sincere apology explains the wrong and tries to repair it",
+  "correctAnswer": "a sincere apology explains the wrong and tries to repair it",
   "distractorRationales": {
-   "Gran kept a letter in her purse": "D-DETAIL-AS-MAIN",
-   "Tom broke his gran's teapot": "D-DETAIL-AS-MAIN",
-   "the teapot was taped back together": "D-DETAIL-AS-MAIN"
+   "Grandma kept a letter in her purse": "D-DETAIL-AS-MAIN",
+   "Tom broke his grandma's teapot": "D-DETAIL-AS-MAIN",
+   "the teapot was repaired": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3504,21 +3130,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3528,13 +3149,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v4",
@@ -3556,22 +3171,22 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these is the THEME — not just what happened?",
-  "question": "Which of these is the THEME — not just what happened?",
-  "spokenPrompt": "Which of these is the THEME — not just what happened?",
-  "passage": "The lighthouse keeper kept a list of every ship that passed safely in the night. Nobody asked him to; the ships never knew. When he retired after forty years, the harbourmaster read the list's last page aloud — four thousand names — and the whole quay stood silent, understanding at last what steady, unseen work had been holding their sea-road open.",
+  "prompt": "Which option states the theme rather than a plot event?",
+  "question": "Which option states the theme rather than a plot event?",
+  "spokenPrompt": "Which option states the theme rather than a plot event?",
+  "passage": "The lighthouse keeper kept a list of every ship that passed safely in the night. Nobody asked him to; the ships never knew. When he retired after forty years, the harbor master read the list's last page aloud — four thousand names — and everyone on the dock stood silent, understanding at last how his steady work had helped keep the route safe.",
   "cell": "theme_vs_plot",
   "choices": [
-   "the harbourmaster read a list aloud",
+   "the harbor master read a list aloud",
    "the keeper retired after forty years",
-   "steady unseen work holds the world together",
+   "unseen service can still be valuable",
    "a keeper wrote down ships' names"
   ],
   "answerOptions": [
    {
-    "value": "the harbourmaster read a list aloud",
-    "label": "the harbourmaster read a list aloud",
-    "text": "the harbourmaster read a list aloud"
+    "value": "the harbor master read a list aloud",
+    "label": "the harbor master read a list aloud",
+    "text": "the harbor master read a list aloud"
    },
    {
     "value": "the keeper retired after forty years",
@@ -3579,9 +3194,9 @@ export const questions = [
     "text": "the keeper retired after forty years"
    },
    {
-    "value": "steady unseen work holds the world together",
-    "label": "steady unseen work holds the world together",
-    "text": "steady unseen work holds the world together"
+    "value": "unseen service can still be valuable",
+    "label": "unseen service can still be valuable",
+    "text": "unseen service can still be valuable"
    },
    {
     "value": "a keeper wrote down ships' names",
@@ -3589,11 +3204,11 @@ export const questions = [
     "text": "a keeper wrote down ships' names"
    }
   ],
-  "answer": "steady unseen work holds the world together",
-  "correctAnswer": "steady unseen work holds the world together",
+  "answer": "unseen service can still be valuable",
+  "correctAnswer": "unseen service can still be valuable",
   "distractorRationales": {
    "a keeper wrote down ships' names": "D-DETAIL-AS-MAIN",
-   "the harbourmaster read a list aloud": "D-DETAIL-AS-MAIN",
+   "the harbor master read a list aloud": "D-DETAIL-AS-MAIN",
    "the keeper retired after forty years": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
@@ -3605,21 +3220,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3629,13 +3239,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.theme_vs_plot.v5",
@@ -3657,9 +3261,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these is the THEME — not just what happened?",
-  "question": "Which of these is the THEME — not just what happened?",
-  "spokenPrompt": "Which of these is the THEME — not just what happened?",
+  "prompt": "Which option states the theme rather than a plot event?",
+  "question": "Which option states the theme rather than a plot event?",
+  "spokenPrompt": "Which option states the theme rather than a plot event?",
   "passage": "At the lantern festival, the prize always went to the biggest lantern — until the year of the great wind. One by one the giant paper palaces guttered and tore, while Amaya's stubby little lantern, built low and snug around its flame, bobbed on through the dark like a heartbeat. It crossed the finish line alone, the only light left on the river.",
   "cell": "theme_vs_plot",
   "choices": [
@@ -3706,21 +3310,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.B.theme_vs_plot.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3730,13 +3329,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v6",
@@ -3758,9 +3351,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these is the THEME — not just what happened?",
-  "question": "Which of these is the THEME — not just what happened?",
-  "spokenPrompt": "Which of these is the THEME — not just what happened?",
+  "prompt": "Which option states the theme rather than a plot event?",
+  "question": "Which option states the theme rather than a plot event?",
+  "spokenPrompt": "Which option states the theme rather than a plot event?",
   "passage": "Priw the goldfish ate everything first — flakes meant for three fish vanished into one round mouth. He grew grand and golden while Tup and Lin thinned behind the pump. Then came the week the family forgot the flakes. Priw, who had never learned to hunt the tank's green threads, drifted hungry — and it was quick little Tup and Lin who nosed him toward the water-weed and showed him how.",
   "cell": "theme_vs_plot",
   "choices": [
@@ -3807,21 +3400,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3831,13 +3419,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v7",
@@ -3859,32 +3441,32 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these is the THEME — not just what happened?",
-  "question": "Which of these is the THEME — not just what happened?",
-  "spokenPrompt": "Which of these is the THEME — not just what happened?",
-  "passage": "Mud season ruined every shoe in the village school, and the cloakroom filled with squelching and complaints. Little Ede said nothing. Each break, she simply lined the worst boots by the radiator and turned them as they dried. Nobody knew for weeks. When the head finally caught her at it and asked why, Ede shrugged: warm boots made people kinder all afternoon, and she liked the school kinder.",
+  "prompt": "Which option states the theme rather than a plot event?",
+  "question": "Which option states the theme rather than a plot event?",
+  "spokenPrompt": "Which option states the theme rather than a plot event?",
+  "passage": "Mud season soaked shoes all over the school, and the boot room filled with complaints. Ede said nothing. Each recess, she simply placed the wettest boots on the drying rack and turned them as they dried. Nobody knew for weeks. When the principal finally saw her and asked why, Ede said dry boots made people kinder all afternoon, and she liked the school kinder.",
   "cell": "theme_vs_plot",
   "choices": [
-   "mud season ruined the shoes",
-   "boots were dried by a radiator",
-   "the head caught Ede one day",
+   "mud season soaked the shoes",
+   "boots were placed on a drying rack",
+   "the principal saw Ede one day",
    "small quiet care can change a whole place"
   ],
   "answerOptions": [
    {
-    "value": "mud season ruined the shoes",
-    "label": "mud season ruined the shoes",
-    "text": "mud season ruined the shoes"
+    "value": "mud season soaked the shoes",
+    "label": "mud season soaked the shoes",
+    "text": "mud season soaked the shoes"
    },
    {
-    "value": "boots were dried by a radiator",
-    "label": "boots were dried by a radiator",
-    "text": "boots were dried by a radiator"
+    "value": "boots were placed on a drying rack",
+    "label": "boots were placed on a drying rack",
+    "text": "boots were placed on a drying rack"
    },
    {
-    "value": "the head caught Ede one day",
-    "label": "the head caught Ede one day",
-    "text": "the head caught Ede one day"
+    "value": "the principal saw Ede one day",
+    "label": "the principal saw Ede one day",
+    "text": "the principal saw Ede one day"
    },
    {
     "value": "small quiet care can change a whole place",
@@ -3895,9 +3477,9 @@ export const questions = [
   "answer": "small quiet care can change a whole place",
   "correctAnswer": "small quiet care can change a whole place",
   "distractorRationales": {
-   "mud season ruined the shoes": "D-DETAIL-AS-MAIN",
-   "boots were dried by a radiator": "D-DETAIL-AS-MAIN",
-   "the head caught Ede one day": "D-DETAIL-AS-MAIN"
+   "mud season soaked the shoes": "D-DETAIL-AS-MAIN",
+   "boots were placed on a drying rack": "D-DETAIL-AS-MAIN",
+   "the principal saw Ede one day": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3908,21 +3490,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3932,13 +3509,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.theme_vs_plot.v8",
@@ -3960,9 +3531,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these is the THEME — not just what happened?",
-  "question": "Which of these is the THEME — not just what happened?",
-  "spokenPrompt": "Which of these is the THEME — not just what happened?",
+  "prompt": "Which option states the theme rather than a plot event?",
+  "question": "Which option states the theme rather than a plot event?",
+  "spokenPrompt": "Which option states the theme rather than a plot event?",
   "passage": "The twins divided the attic with a chalk line the day they stopped sharing: her books that side, his models this side. The line worked perfectly. It kept out borrowing, and mess, and quarrels — and stories read aloud, and glue passed at the right moment, and company on rainy days. By October the attic was the tidiest, quietest, loneliest room in the house, and the chalk was the first thing they washed away together.",
   "cell": "theme_vs_plot",
   "choices": [
@@ -4009,21 +3580,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.B.theme_vs_plot.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4033,13 +3599,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.apply_theme.v1",
@@ -4067,16 +3627,16 @@ export const questions = [
   "passage": "Remember Pip, who watered a seed that showed nothing for five weeks and grew the garden's tallest sunflower? Keep Pip's lesson in mind.",
   "cell": "apply_theme",
   "choices": [
-   "Ines keeps practising her times tables that will not stick, until one day they do",
+   "Ines keeps practicing her times tables that will not stick, until one day they do",
    "Ines plants a sunflower seed in a pot on her own windowsill at home",
    "Ines gives up learning the violin after one single squeaky week of lessons",
-   "Ines waters her plant once and forgets it"
+   "Ines buys a violin after seeing a concert"
   ],
   "answerOptions": [
    {
-    "value": "Ines keeps practising her times tables that will not stick, until one day they do",
-    "label": "Ines keeps practising her times tables that will not stick, until one day they do",
-    "text": "Ines keeps practising her times tables that will not stick, until one day they do"
+    "value": "Ines keeps practicing her times tables that will not stick, until one day they do",
+    "label": "Ines keeps practicing her times tables that will not stick, until one day they do",
+    "text": "Ines keeps practicing her times tables that will not stick, until one day they do"
    },
    {
     "value": "Ines plants a sunflower seed in a pot on her own windowsill at home",
@@ -4089,16 +3649,16 @@ export const questions = [
     "text": "Ines gives up learning the violin after one single squeaky week of lessons"
    },
    {
-    "value": "Ines waters her plant once and forgets it",
-    "label": "Ines waters her plant once and forgets it",
-    "text": "Ines waters her plant once and forgets it"
+    "value": "Ines buys a violin after seeing a concert",
+    "label": "Ines buys a violin after seeing a concert",
+    "text": "Ines buys a violin after seeing a concert"
    }
   ],
-  "answer": "Ines keeps practising her times tables that will not stick, until one day they do",
-  "correctAnswer": "Ines keeps practising her times tables that will not stick, until one day they do",
+  "answer": "Ines keeps practicing her times tables that will not stick, until one day they do",
+  "correctAnswer": "Ines keeps practicing her times tables that will not stick, until one day they do",
   "distractorRationales": {
    "Ines gives up learning the violin after one single squeaky week of lessons": "D-OPPOSITE",
-   "Ines waters her plant once and forgets it": "D-OPPOSITE",
+   "Ines buys a violin after seeing a concert": "D-TOPIC-ADJACENT",
    "Ines plants a sunflower seed in a pot on her own windowsill at home": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
@@ -4110,21 +3670,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.A.apply_theme.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4134,13 +3689,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "transfer: same lesson, different domain — the sunflower option is the surface trap",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "transfer: same lesson, different domain — the sunflower option is the surface trap"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.apply_theme.v2",
@@ -4168,16 +3717,16 @@ export const questions = [
   "passage": "Remember Jory, who ruined Ann's comic in the rain and chose telling the truth over hiding it. Keep that lesson in mind.",
   "cell": "apply_theme",
   "choices": [
-   "Cam saves his pocket money for weeks to buy a brand-new comic",
+   "Cam saves his allowance for weeks to buy a brand-new comic",
    "Cam scratches Dad's bike and leaves a note owning up before Dad sees",
    "Cam reads comics carefully indoors",
    "Cam hides the mug he broke behind the cereal boxes where nobody looks"
   ],
   "answerOptions": [
    {
-    "value": "Cam saves his pocket money for weeks to buy a brand-new comic",
-    "label": "Cam saves his pocket money for weeks to buy a brand-new comic",
-    "text": "Cam saves his pocket money for weeks to buy a brand-new comic"
+    "value": "Cam saves his allowance for weeks to buy a brand-new comic",
+    "label": "Cam saves his allowance for weeks to buy a brand-new comic",
+    "text": "Cam saves his allowance for weeks to buy a brand-new comic"
    },
    {
     "value": "Cam scratches Dad's bike and leaves a note owning up before Dad sees",
@@ -4200,7 +3749,7 @@ export const questions = [
   "distractorRationales": {
    "Cam reads comics carefully indoors": "D-TOPIC-ADJACENT",
    "Cam hides the mug he broke behind the cereal boxes where nobody looks": "D-OPPOSITE",
-   "Cam saves his pocket money for weeks to buy a brand-new comic": "D-TOPIC-ADJACENT"
+   "Cam saves his allowance for weeks to buy a brand-new comic": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4211,21 +3760,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.B.apply_theme.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4235,13 +3779,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.C.apply_theme.v3",
@@ -4266,19 +3804,19 @@ export const questions = [
   "prompt": "Which new situation shows the SAME lesson?",
   "question": "Which new situation shows the SAME lesson?",
   "spokenPrompt": "Which new situation shows the SAME lesson?",
-  "passage": "Remember Etta and the fallen nest: her grandmother taught her to 'help small, not big', wedging the nest back and letting the mother bird do the rest. Keep that lesson in mind.",
+  "passage": "Remember Etta and the young bird: she kept pets away and watched from a distance so its parent could return. Keep that lesson in mind.",
   "cell": "apply_theme",
   "choices": [
-   "Ray stays with a lost toddler and calls a guard",
+   "Ray stays with a lost toddler and calls a security guard",
    "Ray builds every bird in the garden a wooden house",
    "Ray carries a fallen chick home to raise it himself in a shoebox by his bed",
    "Ray watches an egg hatch on television"
   ],
   "answerOptions": [
    {
-    "value": "Ray stays with a lost toddler and calls a guard",
-    "label": "Ray stays with a lost toddler and calls a guard",
-    "text": "Ray stays with a lost toddler and calls a guard"
+    "value": "Ray stays with a lost toddler and calls a security guard",
+    "label": "Ray stays with a lost toddler and calls a security guard",
+    "text": "Ray stays with a lost toddler and calls a security guard"
    },
    {
     "value": "Ray builds every bird in the garden a wooden house",
@@ -4296,8 +3834,8 @@ export const questions = [
     "text": "Ray watches an egg hatch on television"
    }
   ],
-  "answer": "Ray stays with a lost toddler and calls a guard",
-  "correctAnswer": "Ray stays with a lost toddler and calls a guard",
+  "answer": "Ray stays with a lost toddler and calls a security guard",
+  "correctAnswer": "Ray stays with a lost toddler and calls a security guard",
   "distractorRationales": {
    "Ray carries a fallen chick home to raise it himself in a shoebox by his bed": "D-OPPOSITE",
    "Ray watches an egg hatch on television": "D-TOPIC-ADJACENT",
@@ -4312,21 +3850,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.C.apply_theme.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4336,13 +3869,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.apply_theme.v4",
@@ -4371,7 +3898,7 @@ export const questions = [
   "cell": "apply_theme",
   "choices": [
    "a keeper who paints his lighthouse red",
-   "the caretaker who salts the school steps before anyone arrives, every icy morning, unthanked",
+   "the custodian who salts the school steps before anyone arrives every icy morning",
    "a singer who performs on television so that millions can applaud her name",
    "a sailor who names his boat after a lighthouse"
   ],
@@ -4382,9 +3909,9 @@ export const questions = [
     "text": "a keeper who paints his lighthouse red"
    },
    {
-    "value": "the caretaker who salts the school steps before anyone arrives, every icy morning, unthanked",
-    "label": "the caretaker who salts the school steps before anyone arrives, every icy morning, unthanked",
-    "text": "the caretaker who salts the school steps before anyone arrives, every icy morning, unthanked"
+    "value": "the custodian who salts the school steps before anyone arrives every icy morning",
+    "label": "the custodian who salts the school steps before anyone arrives every icy morning",
+    "text": "the custodian who salts the school steps before anyone arrives every icy morning"
    },
    {
     "value": "a singer who performs on television so that millions can applaud her name",
@@ -4397,8 +3924,8 @@ export const questions = [
     "text": "a sailor who names his boat after a lighthouse"
    }
   ],
-  "answer": "the caretaker who salts the school steps before anyone arrives, every icy morning, unthanked",
-  "correctAnswer": "the caretaker who salts the school steps before anyone arrives, every icy morning, unthanked",
+  "answer": "the custodian who salts the school steps before anyone arrives every icy morning",
+  "correctAnswer": "the custodian who salts the school steps before anyone arrives every icy morning",
   "distractorRationales": {
    "a singer who performs on television so that millions can applaud her name": "D-OPPOSITE",
    "a sailor who names his boat after a lighthouse": "D-TOPIC-ADJACENT",
@@ -4413,21 +3940,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.A.apply_theme.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4437,13 +3959,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.apply_theme.v5",
@@ -4468,19 +3984,19 @@ export const questions = [
   "prompt": "Which new situation shows the SAME lesson?",
   "question": "Which new situation shows the SAME lesson?",
   "spokenPrompt": "Which new situation shows the SAME lesson?",
-  "passage": "Remember Nell at the bake-off, who cut her perfect cake in half so her friend still had an entry, and never called it a loss. Keep that lesson in mind.",
+  "passage": "Remember Nell at the bake-off, who withdrew her own cake to help Zeke after his cake collapsed. Keep that lesson in mind.",
   "cell": "apply_theme",
   "choices": [
-   "On sports day, Vic guards his bag of sweets so that nobody else gets a single one",
+   "On field day, Vic guards his bag of candy so that nobody else gets a single piece",
    "Vic enters two contests in one day",
-   "On sports day, Vic stops mid-race to pull up a fallen runner, finishing last together",
+   "On field day, Vic stops mid-race to help a fallen runner, finishing last together",
    "Vic bakes a lemon cake for the fair"
   ],
   "answerOptions": [
    {
-    "value": "On sports day, Vic guards his bag of sweets so that nobody else gets a single one",
-    "label": "On sports day, Vic guards his bag of sweets so that nobody else gets a single one",
-    "text": "On sports day, Vic guards his bag of sweets so that nobody else gets a single one"
+    "value": "On field day, Vic guards his bag of candy so that nobody else gets a single piece",
+    "label": "On field day, Vic guards his bag of candy so that nobody else gets a single piece",
+    "text": "On field day, Vic guards his bag of candy so that nobody else gets a single piece"
    },
    {
     "value": "Vic enters two contests in one day",
@@ -4488,9 +4004,9 @@ export const questions = [
     "text": "Vic enters two contests in one day"
    },
    {
-    "value": "On sports day, Vic stops mid-race to pull up a fallen runner, finishing last together",
-    "label": "On sports day, Vic stops mid-race to pull up a fallen runner, finishing last together",
-    "text": "On sports day, Vic stops mid-race to pull up a fallen runner, finishing last together"
+    "value": "On field day, Vic stops mid-race to help a fallen runner, finishing last together",
+    "label": "On field day, Vic stops mid-race to help a fallen runner, finishing last together",
+    "text": "On field day, Vic stops mid-race to help a fallen runner, finishing last together"
    },
    {
     "value": "Vic bakes a lemon cake for the fair",
@@ -4498,11 +4014,11 @@ export const questions = [
     "text": "Vic bakes a lemon cake for the fair"
    }
   ],
-  "answer": "On sports day, Vic stops mid-race to pull up a fallen runner, finishing last together",
-  "correctAnswer": "On sports day, Vic stops mid-race to pull up a fallen runner, finishing last together",
+  "answer": "On field day, Vic stops mid-race to help a fallen runner, finishing last together",
+  "correctAnswer": "On field day, Vic stops mid-race to help a fallen runner, finishing last together",
   "distractorRationales": {
    "Vic bakes a lemon cake for the fair": "D-TOPIC-ADJACENT",
-   "On sports day, Vic guards his bag of sweets so that nobody else gets a single one": "D-OPPOSITE",
+   "On field day, Vic guards his bag of candy so that nobody else gets a single piece": "D-OPPOSITE",
    "Vic enters two contests in one day": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
@@ -4514,21 +4030,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.B.apply_theme.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4538,13 +4049,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.C.apply_theme.v6",
@@ -4573,7 +4078,7 @@ export const questions = [
   "cell": "apply_theme",
   "choices": [
    "Jo enters the festival every single year",
-   "Jo writes three strong sentences instead of an unfinished epic",
+   "Jo finishes a clear three-paragraph report",
    "Jo starts building the biggest, grandest sandcastle the beach has ever seen",
    "Jo carries a lantern on the camping trip"
   ],
@@ -4584,9 +4089,9 @@ export const questions = [
     "text": "Jo enters the festival every single year"
    },
    {
-    "value": "Jo writes three strong sentences instead of an unfinished epic",
-    "label": "Jo writes three strong sentences instead of an unfinished epic",
-    "text": "Jo writes three strong sentences instead of an unfinished epic"
+    "value": "Jo finishes a clear three-paragraph report",
+    "label": "Jo finishes a clear three-paragraph report",
+    "text": "Jo finishes a clear three-paragraph report"
    },
    {
     "value": "Jo starts building the biggest, grandest sandcastle the beach has ever seen",
@@ -4599,8 +4104,8 @@ export const questions = [
     "text": "Jo carries a lantern on the camping trip"
    }
   ],
-  "answer": "Jo writes three strong sentences instead of an unfinished epic",
-  "correctAnswer": "Jo writes three strong sentences instead of an unfinished epic",
+  "answer": "Jo finishes a clear three-paragraph report",
+  "correctAnswer": "Jo finishes a clear three-paragraph report",
   "distractorRationales": {
    "Jo starts building the biggest, grandest sandcastle the beach has ever seen": "D-OPPOSITE",
    "Jo carries a lantern on the camping trip": "D-TOPIC-ADJACENT",
@@ -4615,21 +4120,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.C.apply_theme.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4639,13 +4139,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.apply_theme.v7",
@@ -4670,7 +4164,7 @@ export const questions = [
   "prompt": "Which new situation shows the SAME lesson?",
   "question": "Which new situation shows the SAME lesson?",
   "spokenPrompt": "Which new situation shows the SAME lesson?",
-  "passage": "Remember Priya and the spelling list she posted back under the staffroom door unread, and how seven honest marks felt taller than ten unfair ones. Keep that lesson in mind.",
+  "passage": "Remember Priya and the answer list she slid under the school office door unread, and how seven honest points felt better than ten unfair ones. Keep that lesson in mind.",
   "cell": "apply_theme",
   "choices": [
    "Dev peeks at his sister's cards when she leaves the room, and wins the game",
@@ -4716,21 +4210,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.A.apply_theme.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4740,13 +4229,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.apply_theme.v8",
@@ -4817,21 +4300,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.B.apply_theme.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4841,13 +4319,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.C.lesson_mistake_fixed.v9",
@@ -4918,21 +4390,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_mistake_fixed.v9",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v9.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v9.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4942,13 +4409,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v9.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v9.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v9.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v9.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v9.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v10",
@@ -4973,29 +4434,29 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "On the coldest morning, Ffion cleared frost from her neighbour's windscreen along with her mum's, just because she was out there anyway with the scraper. All winter after that, on bin day, Ffion's family bins came back up the drive before they were even awake — wheeled by a neighbour who was out there anyway.",
+  "passage": "On the coldest morning, Ffion cleared frost from her neighbor's windshield along with her mom's, just because she was out there anyway with the scraper. All winter after that, on trash day, Ffion's family cans came back up the driveway before they were even awake — wheeled by a neighbor who was out there anyway.",
   "cell": "lesson_kindness_returned",
   "choices": [
-   "neighbourly kindness circles back around",
-   "a windscreen had frost on it",
-   "bins should stay by the road",
+   "kindness between neighbors can come back around",
+   "a windshield had frost on it",
+   "trash cans should stay by the road",
    "winter mornings are cold"
   ],
   "answerOptions": [
    {
-    "value": "neighbourly kindness circles back around",
-    "label": "neighbourly kindness circles back around",
-    "text": "neighbourly kindness circles back around"
+    "value": "kindness between neighbors can come back around",
+    "label": "kindness between neighbors can come back around",
+    "text": "kindness between neighbors can come back around"
    },
    {
-    "value": "a windscreen had frost on it",
-    "label": "a windscreen had frost on it",
-    "text": "a windscreen had frost on it"
+    "value": "a windshield had frost on it",
+    "label": "a windshield had frost on it",
+    "text": "a windshield had frost on it"
    },
    {
-    "value": "bins should stay by the road",
-    "label": "bins should stay by the road",
-    "text": "bins should stay by the road"
+    "value": "trash cans should stay by the road",
+    "label": "trash cans should stay by the road",
+    "text": "trash cans should stay by the road"
    },
    {
     "value": "winter mornings are cold",
@@ -5003,12 +4464,12 @@ export const questions = [
     "text": "winter mornings are cold"
    }
   ],
-  "answer": "neighbourly kindness circles back around",
-  "correctAnswer": "neighbourly kindness circles back around",
+  "answer": "kindness between neighbors can come back around",
+  "correctAnswer": "kindness between neighbors can come back around",
   "distractorRationales": {
    "winter mornings are cold": "D-DETAIL-AS-MAIN",
-   "a windscreen had frost on it": "D-DETAIL-AS-MAIN",
-   "bins should stay by the road": "D-TOPIC-ADJACENT"
+   "a windshield had frost on it": "D-DETAIL-AS-MAIN",
+   "trash cans should stay by the road": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5019,21 +4480,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v10",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v10.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v10.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5043,13 +4499,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v10.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v10.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v10.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v10.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v10.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v9",
@@ -5074,7 +4524,7 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Rosa could not swim a stroke in June. She would not go in past her waist. All summer she practised floating, then kicking, then one arm, then the other. On the last beach day, she swam out to the yellow buoy and back — not fast, not far, but every metre of it hers.",
+  "passage": "Rosa could not swim a stroke in June. She would not go in past her waist. All summer she practiced floating, then kicking, then one arm, then the other. On the last beach day, she swam out to the yellow buoy and back — not fast, not far, but every meter of it hers.",
   "cell": "lesson_effort_pays",
   "choices": [
    "step-by-step effort builds real skill",
@@ -5120,21 +4570,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v9",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v9.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v9.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5144,13 +4589,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v9.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v9.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v9.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v9.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v9.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v10",
@@ -5175,19 +4614,19 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Ben teased Ollie about his taped glasses, and the laugh he expected never came — only a horrible quiet. Sorry felt impossible to say, so Ben did it the slow way: a saved seat, a defending word at football, and at last the words themselves. 'Took you long enough,' said Ollie — and shoved up to make room.",
+  "passage": "Ben teased Ollie about his taped glasses, and the laugh he expected never came — only a horrible quiet. Sorry felt impossible to say, so Ben did it the slow way: a saved seat, a defending word at soccer, and at last the words themselves. 'Took you long enough,' said Ollie — and moved over to make room.",
   "cell": "lesson_mistake_fixed",
   "choices": [
-   "football happens at lunch",
+   "soccer happens at lunch",
    "a wrong can be mended, even slowly",
    "Ollie's glasses were taped",
    "teasing makes people laugh"
   ],
   "answerOptions": [
    {
-    "value": "football happens at lunch",
-    "label": "football happens at lunch",
-    "text": "football happens at lunch"
+    "value": "soccer happens at lunch",
+    "label": "soccer happens at lunch",
+    "text": "soccer happens at lunch"
    },
    {
     "value": "a wrong can be mended, even slowly",
@@ -5208,7 +4647,7 @@ export const questions = [
   "answer": "a wrong can be mended, even slowly",
   "correctAnswer": "a wrong can be mended, even slowly",
   "distractorRationales": {
-   "football happens at lunch": "D-TOPIC-ADJACENT",
+   "soccer happens at lunch": "D-TOPIC-ADJACENT",
    "Ollie's glasses were taped": "D-DETAIL-AS-MAIN",
    "teasing makes people laugh": "D-OPPOSITE"
   },
@@ -5221,21 +4660,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v10",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v10.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v10.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5245,13 +4679,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v10.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v10.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v10.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v10.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v10.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.R.lesson_kindness_returned.v11r",
@@ -5276,24 +4704,24 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "The lunch queue crush always squeezed out little Yani, last and smallest. Big Aron noticed, and simply stood behind him each day like a friendly wall. Years later — Aron on crutches after his accident, the corridor crowded — it was a much taller Yani who walked behind him, all the way, like a friendly wall.",
+  "passage": "The crowded lunch line always squeezed out little Yani, last and smallest. Big Aron noticed and simply stood behind him each day like a friendly wall. Years later — Aron on crutches after an accident, the hallway crowded — it was a much taller Yani who walked behind him, all the way, like a friendly wall.",
   "cell": "lesson_kindness_returned",
   "choices": [
-   "small children should queue elsewhere",
-   "corridors get crowded",
+   "small children should line up elsewhere",
+   "hallways get crowded",
    "protection given is remembered and returned",
-   "the lunch queue had a crush"
+   "the lunch line was crowded"
   ],
   "answerOptions": [
    {
-    "value": "small children should queue elsewhere",
-    "label": "small children should queue elsewhere",
-    "text": "small children should queue elsewhere"
+    "value": "small children should line up elsewhere",
+    "label": "small children should line up elsewhere",
+    "text": "small children should line up elsewhere"
    },
    {
-    "value": "corridors get crowded",
-    "label": "corridors get crowded",
-    "text": "corridors get crowded"
+    "value": "hallways get crowded",
+    "label": "hallways get crowded",
+    "text": "hallways get crowded"
    },
    {
     "value": "protection given is remembered and returned",
@@ -5301,17 +4729,17 @@ export const questions = [
     "text": "protection given is remembered and returned"
    },
    {
-    "value": "the lunch queue had a crush",
-    "label": "the lunch queue had a crush",
-    "text": "the lunch queue had a crush"
+    "value": "the lunch line was crowded",
+    "label": "the lunch line was crowded",
+    "text": "the lunch line was crowded"
    }
   ],
   "answer": "protection given is remembered and returned",
   "correctAnswer": "protection given is remembered and returned",
   "distractorRationales": {
-   "corridors get crowded": "D-TOPIC-ADJACENT",
-   "the lunch queue had a crush": "D-DETAIL-AS-MAIN",
-   "small children should queue elsewhere": "D-OPPOSITE"
+   "hallways get crowded": "D-TOPIC-ADJACENT",
+   "the lunch line was crowded": "D-DETAIL-AS-MAIN",
+   "small children should line up elsewhere": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5322,21 +4750,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.R.lesson_kindness_returned.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5346,13 +4769,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.R.lesson_effort_pays.v11r",
@@ -5377,13 +4794,13 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "The recorder squeaked for everyone, but for Dot it SCREECHED. Her family bought earplugs; the dog left the room. Dot practised in the shed, ten minutes a day, no more, no matter what. By the spring concert, the screech had worn away like a rough edge, and the shed concerts had quietly become rather good.",
+  "passage": "The recorder squeaked for everyone, but for Dot it SCREECHED. Her family bought earplugs; the dog left the room. Dot practiced in the garage, ten minutes a day, no more, no matter what. By the spring concert, the screech was gone, and her daily practice had produced clear, steady notes.",
   "cell": "lesson_effort_pays",
   "choices": [
    "the dog left the room",
    "recorders are hopeless instruments",
-   "sheds are for practising",
-   "a little practice every day wears problems smooth"
+   "garages are for practicing",
+   "a little practice every day can build a skill"
   ],
   "answerOptions": [
    {
@@ -5397,22 +4814,22 @@ export const questions = [
     "text": "recorders are hopeless instruments"
    },
    {
-    "value": "sheds are for practising",
-    "label": "sheds are for practising",
-    "text": "sheds are for practising"
+    "value": "garages are for practicing",
+    "label": "garages are for practicing",
+    "text": "garages are for practicing"
    },
    {
-    "value": "a little practice every day wears problems smooth",
-    "label": "a little practice every day wears problems smooth",
-    "text": "a little practice every day wears problems smooth"
+    "value": "a little practice every day can build a skill",
+    "label": "a little practice every day can build a skill",
+    "text": "a little practice every day can build a skill"
    }
   ],
-  "answer": "a little practice every day wears problems smooth",
-  "correctAnswer": "a little practice every day wears problems smooth",
+  "answer": "a little practice every day can build a skill",
+  "correctAnswer": "a little practice every day can build a skill",
   "distractorRationales": {
    "the dog left the room": "D-DETAIL-AS-MAIN",
    "recorders are hopeless instruments": "D-OPPOSITE",
-   "sheds are for practising": "D-TOPIC-ADJACENT"
+   "garages are for practicing": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5423,21 +4840,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.R.lesson_effort_pays.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-effort-pays-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-effort-pays-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-effort-pays-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5447,13 +4859,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-effort-pays-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-effort-pays-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-effort-pays-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-effort-pays-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-effort-pays-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.R.lesson_mistake_fixed.v11r",
@@ -5524,21 +4930,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.R.lesson_mistake_fixed.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-mistake-fixed-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-mistake-fixed-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-mistake-fixed-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5548,13 +4949,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-mistake-fixed-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-mistake-fixed-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-mistake-fixed-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-mistake-fixed-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-mistake-fixed-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.R.lesson_kindness_returned.v12r",
@@ -5579,19 +4974,19 @@ export const questions = [
   "prompt": "What lesson does this story teach?",
   "question": "What lesson does this story teach?",
   "spokenPrompt": "What lesson does this story teach?",
-  "passage": "Half Moon Lane flooded, and the corner shop stood in brown water. Mrs Vo had given credit, sweets, and kind words for twenty years. By noon, without one phone call, the lane filled with neighbours in wellies, carrying and mopping — and by evening the shop's OPEN sign was the driest thing on the street.",
+  "passage": "Half Moon Lane flooded, and the corner store stood in brown water. Mrs. Vo had given credit, candy, and kind words for twenty years. By noon, without one phone call, the street filled with neighbors in rain boots, carrying and mopping — and by evening the store's OPEN sign was the driest thing on the street.",
   "cell": "lesson_kindness_returned",
   "choices": [
-   "floods happen on lanes",
+   "floods can cover streets",
    "long kindness may be repaid quickly",
-   "a foot of water entered the shop",
-   "shops should not give credit"
+   "brown water entered the store",
+   "stores should not give credit"
   ],
   "answerOptions": [
    {
-    "value": "floods happen on lanes",
-    "label": "floods happen on lanes",
-    "text": "floods happen on lanes"
+    "value": "floods can cover streets",
+    "label": "floods can cover streets",
+    "text": "floods can cover streets"
    },
    {
     "value": "long kindness may be repaid quickly",
@@ -5599,22 +4994,22 @@ export const questions = [
     "text": "long kindness may be repaid quickly"
    },
    {
-    "value": "a foot of water entered the shop",
-    "label": "a foot of water entered the shop",
-    "text": "a foot of water entered the shop"
+    "value": "brown water entered the store",
+    "label": "brown water entered the store",
+    "text": "brown water entered the store"
    },
    {
-    "value": "shops should not give credit",
-    "label": "shops should not give credit",
-    "text": "shops should not give credit"
+    "value": "stores should not give credit",
+    "label": "stores should not give credit",
+    "text": "stores should not give credit"
    }
   ],
   "answer": "long kindness may be repaid quickly",
   "correctAnswer": "long kindness may be repaid quickly",
   "distractorRationales": {
-   "a foot of water entered the shop": "D-DETAIL-AS-MAIN",
-   "shops should not give credit": "D-OPPOSITE",
-   "floods happen on lanes": "D-TOPIC-ADJACENT"
+   "brown water entered the store": "D-DETAIL-AS-MAIN",
+   "stores should not give credit": "D-OPPOSITE",
+   "floods can cover streets": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5625,21 +5020,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l1.R.lesson_kindness_returned.v12r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v12r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v12r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v12r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5649,13 +5039,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v12r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v12r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v12r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v12r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v12r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.C.theme_among_rivals.v9",
@@ -5677,45 +5061,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Two lessons seem possible. Which one does the story support MOST?",
-  "question": "Two lessons seem possible. Which one does the story support MOST?",
-  "spokenPrompt": "Two lessons seem possible. Which one does the story support MOST?",
-  "passage": "The chess club's best player, Ines, could beat anyone — and said so, often. The club shrank to three. New teacher Ms Drew asked Ines to spend one term coaching instead of winning. It itched at first, losing on purpose to show a trick. But by summer the club filled two classrooms, and when a small coached beginner finally beat her fair and square, Ines was surprised to find she had never enjoyed chess more.",
+  "prompt": "Which lesson is best supported by the story?",
+  "question": "Which lesson is best supported by the story?",
+  "spokenPrompt": "Which lesson is best supported by the story?",
+  "passage": "The chess club's best player, Ines, could beat anyone — and said so often. The club shrank to three. A new teacher, Ms. Drew, asked Ines to spend one term coaching. At first Ines missed playing every game, but she set up practice boards, explained her moves, and helped beginners finish whole matches. By summer the club filled two classrooms. When one coached beginner finally beat her fairly, Ines was surprised to find she had never enjoyed chess more.",
   "cell": "theme_among_rivals",
   "choices": [
-   "never let anyone win",
-   "beginners ruin clubs",
-   "lifting others can beat winning alone",
-   "chess clubs need two classrooms"
+   "skilled players should keep their ideas secret",
+   "the club filled two classrooms",
+   "teaching others can make success larger than winning alone",
+   "competition can help beginners improve"
   ],
   "answerOptions": [
    {
-    "value": "never let anyone win",
-    "label": "never let anyone win",
-    "text": "never let anyone win"
+    "value": "skilled players should keep their ideas secret",
+    "label": "skilled players should keep their ideas secret",
+    "text": "skilled players should keep their ideas secret"
    },
    {
-    "value": "beginners ruin clubs",
-    "label": "beginners ruin clubs",
-    "text": "beginners ruin clubs"
+    "value": "the club filled two classrooms",
+    "label": "the club filled two classrooms",
+    "text": "the club filled two classrooms"
    },
    {
-    "value": "lifting others can beat winning alone",
-    "label": "lifting others can beat winning alone",
-    "text": "lifting others can beat winning alone"
+    "value": "teaching others can make success larger than winning alone",
+    "label": "teaching others can make success larger than winning alone",
+    "text": "teaching others can make success larger than winning alone"
    },
    {
-    "value": "chess clubs need two classrooms",
-    "label": "chess clubs need two classrooms",
-    "text": "chess clubs need two classrooms"
+    "value": "competition can help beginners improve",
+    "label": "competition can help beginners improve",
+    "text": "competition can help beginners improve"
    }
   ],
-  "answer": "lifting others can beat winning alone",
-  "correctAnswer": "lifting others can beat winning alone",
+  "answer": "teaching others can make success larger than winning alone",
+  "correctAnswer": "teaching others can make success larger than winning alone",
   "distractorRationales": {
-   "never let anyone win": "D-OPPOSITE",
-   "beginners ruin clubs": "D-OPPOSITE",
-   "chess clubs need two classrooms": "D-DETAIL-AS-MAIN"
+   "skilled players should keep their ideas secret": "D-OPPOSITE",
+   "the club filled two classrooms": "D-DETAIL-AS-MAIN",
+   "competition can help beginners improve": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5726,21 +5110,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.C.theme_among_rivals.v9",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v9.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v9.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5750,13 +5129,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v9.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v9.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v9.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v9.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v9.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v10",
@@ -5778,45 +5151,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which lesson fits best?",
-  "question": "Which lesson fits best?",
-  "spokenPrompt": "Which lesson fits best?",
-  "passage": "Papa's garden was chaos — beans in with roses, pumpkins wandering the path — and next door's garden was ruler-straight rows. Next door teased; Papa just picked. When blight took the whole street's tomatoes, it hopped easily down next door's tidy tomato rows but got lost in Papa's jumble, where marigolds and garlic broke its path. That autumn, next door's rows had two new residents: marigolds, and a little wandering pumpkin.",
+  "prompt": "Which lesson is best supported by the story?",
+  "question": "Which lesson is best supported by the story?",
+  "spokenPrompt": "Which lesson is best supported by the story?",
+  "passage": "Papa's workshop looked messy beside the neighbor's neat rows of tools. Papa kept open baskets labeled BIKE, PAINT, and GARDEN, so each basket mixed tools of different shapes and sizes. When a bicycle chain broke, he lifted the BIKE basket and had the wrench, oil, and rag together in seconds. The neighbor stopped teasing and made a task basket of her own.",
   "cell": "theme_among_rivals",
   "choices": [
-   "blight took the street's tomatoes",
-   "neat rows are always wrong",
-   "pumpkins wander paths",
-   "there is hidden wisdom in ways that look untidy"
+   "taking care of tools shows respect for shared things",
+   "organized systems make work harder",
+   "the bike basket held oil and a rag",
+   "a useful system can work well even when it does not look neat"
   ],
   "answerOptions": [
    {
-    "value": "blight took the street's tomatoes",
-    "label": "blight took the street's tomatoes",
-    "text": "blight took the street's tomatoes"
+    "value": "taking care of tools shows respect for shared things",
+    "label": "taking care of tools shows respect for shared things",
+    "text": "taking care of tools shows respect for shared things"
    },
    {
-    "value": "neat rows are always wrong",
-    "label": "neat rows are always wrong",
-    "text": "neat rows are always wrong"
+    "value": "organized systems make work harder",
+    "label": "organized systems make work harder",
+    "text": "organized systems make work harder"
    },
    {
-    "value": "pumpkins wander paths",
-    "label": "pumpkins wander paths",
-    "text": "pumpkins wander paths"
+    "value": "the bike basket held oil and a rag",
+    "label": "the bike basket held oil and a rag",
+    "text": "the bike basket held oil and a rag"
    },
    {
-    "value": "there is hidden wisdom in ways that look untidy",
-    "label": "there is hidden wisdom in ways that look untidy",
-    "text": "there is hidden wisdom in ways that look untidy"
+    "value": "a useful system can work well even when it does not look neat",
+    "label": "a useful system can work well even when it does not look neat",
+    "text": "a useful system can work well even when it does not look neat"
    }
   ],
-  "answer": "there is hidden wisdom in ways that look untidy",
-  "correctAnswer": "there is hidden wisdom in ways that look untidy",
+  "answer": "a useful system can work well even when it does not look neat",
+  "correctAnswer": "a useful system can work well even when it does not look neat",
   "distractorRationales": {
-   "blight took the street's tomatoes": "D-DETAIL-AS-MAIN",
-   "neat rows are always wrong": "D-OPPOSITE",
-   "pumpkins wander paths": "D-DETAIL-AS-MAIN"
+   "taking care of tools shows respect for shared things": "D-PLAUSIBLE-UNSUPPORTED",
+   "organized systems make work harder": "D-OPPOSITE",
+   "the bike basket held oil and a rag": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5827,21 +5200,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v10",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v10.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v10.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5851,13 +5219,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v10.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v10.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v10.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v10.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v10.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v9",
@@ -5879,16 +5241,16 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these is the THEME — not just what happened?",
-  "question": "Which of these is the THEME — not just what happened?",
-  "spokenPrompt": "Which of these is the THEME — not just what happened?",
-  "passage": "The school play needed a horse, and the horse costume needed two children who could move as one. Rehearsals were disaster — front legs turning left, back legs right, the audience of teachers crying with laughter. So Fen and Alba practised everything together for a month: walking home, queueing, even yawning. On the night, the horse trotted, reared, and bowed — and two very different girls came out of one costume as best friends.",
+  "prompt": "Which option states the theme rather than a plot event?",
+  "question": "Which option states the theme rather than a plot event?",
+  "spokenPrompt": "Which option states the theme rather than a plot event?",
+  "passage": "The school play needed a horse, and the horse costume needed two children who could move as one. Rehearsals were a disaster — front legs turning left, back legs right, the teachers crying with laughter. So Fen and Alba practiced everything together for a month: walking home, lining up, even yawning. On the night, the horse trotted, reared, and bowed — and two very different girls came out of one costume as best friends.",
   "cell": "theme_vs_plot",
   "choices": [
    "a play needed a horse costume",
    "rehearsals went badly at first",
    "the horse bowed on the night",
-   "working as one can join people for good"
+   "cooperation can build friendship"
   ],
   "answerOptions": [
    {
@@ -5907,13 +5269,13 @@ export const questions = [
     "text": "the horse bowed on the night"
    },
    {
-    "value": "working as one can join people for good",
-    "label": "working as one can join people for good",
-    "text": "working as one can join people for good"
+    "value": "cooperation can build friendship",
+    "label": "cooperation can build friendship",
+    "text": "cooperation can build friendship"
    }
   ],
-  "answer": "working as one can join people for good",
-  "correctAnswer": "working as one can join people for good",
+  "answer": "cooperation can build friendship",
+  "correctAnswer": "cooperation can build friendship",
   "distractorRationales": {
    "a play needed a horse costume": "D-DETAIL-AS-MAIN",
    "rehearsals went badly at first": "D-DETAIL-AS-MAIN",
@@ -5928,21 +5290,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v9",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v9.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v9.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5952,13 +5309,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v9.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v9.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v9.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v9.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v9.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v10",
@@ -5980,15 +5331,15 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these is the THEME — not just what happened?",
-  "question": "Which of these is the THEME — not just what happened?",
-  "spokenPrompt": "Which of these is the THEME — not just what happened?",
-  "passage": "Great-Aunt Bess left Callum her 'treasure', and the whole family imagined jewellery. The box held a trowel, seed packets, and a notebook: fifty years of what she had planted, for whom, and why — a tree for every new baby on the street, roses for every wedding. Callum was disappointed for exactly one spring. Then the first of HIS trees blossomed outside the maternity window, and he understood what kind of rich his aunt had been.",
+  "prompt": "Which option states the theme rather than a plot event?",
+  "question": "Which option states the theme rather than a plot event?",
+  "spokenPrompt": "Which option states the theme rather than a plot event?",
+  "passage": "Great-Aunt Bess left Callum her 'treasure', and the whole family imagined jewelry. The box held a trowel, seed packets, and a notebook: fifty years of what she had planted, for whom, and why — a tree for every new baby on the street, roses for every wedding. Callum was disappointed for exactly one spring. Then the first tree he planted blossomed outside the hospital's family courtyard, and he understood what kind of rich his aunt had been.",
   "cell": "theme_vs_plot",
   "choices": [
    "a life spent giving is its own treasure",
    "a box held a trowel and seeds",
-   "the family expected jewellery",
+   "the family expected jewelry",
    "a tree blossomed in spring"
   ],
   "answerOptions": [
@@ -6003,9 +5354,9 @@ export const questions = [
     "text": "a box held a trowel and seeds"
    },
    {
-    "value": "the family expected jewellery",
-    "label": "the family expected jewellery",
-    "text": "the family expected jewellery"
+    "value": "the family expected jewelry",
+    "label": "the family expected jewelry",
+    "text": "the family expected jewelry"
    },
    {
     "value": "a tree blossomed in spring",
@@ -6017,7 +5368,7 @@ export const questions = [
   "correctAnswer": "a life spent giving is its own treasure",
   "distractorRationales": {
    "a box held a trowel and seeds": "D-DETAIL-AS-MAIN",
-   "the family expected jewellery": "D-DETAIL-AS-MAIN",
+   "the family expected jewelry": "D-DETAIL-AS-MAIN",
    "a tree blossomed in spring": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
@@ -6029,21 +5380,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v10",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v10.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v10.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6053,13 +5399,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v10.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v10.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v10.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v10.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v10.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.R.apply_theme.v9r",
@@ -6087,16 +5427,16 @@ export const questions = [
   "passage": "Remember Wolf and the dented globe — how confessing took ten seconds and carrying the secret had felt like a marble in his shoe. Keep that lesson in mind.",
   "cell": "apply_theme",
   "choices": [
-   "Tess polishes the class globe till it shines",
+   "Tess polishes the class globe until it shines",
    "Tess quietly slides the juice-stained book to the very bottom of the returns pile",
    "Tess reads with juice far away from books",
-   "Tess tells the librarian TODAY about the juice she spilled on page nine"
+   "Tess tells the librarian today about the juice she spilled on page nine"
   ],
   "answerOptions": [
    {
-    "value": "Tess polishes the class globe till it shines",
-    "label": "Tess polishes the class globe till it shines",
-    "text": "Tess polishes the class globe till it shines"
+    "value": "Tess polishes the class globe until it shines",
+    "label": "Tess polishes the class globe until it shines",
+    "text": "Tess polishes the class globe until it shines"
    },
    {
     "value": "Tess quietly slides the juice-stained book to the very bottom of the returns pile",
@@ -6109,15 +5449,15 @@ export const questions = [
     "text": "Tess reads with juice far away from books"
    },
    {
-    "value": "Tess tells the librarian TODAY about the juice she spilled on page nine",
-    "label": "Tess tells the librarian TODAY about the juice she spilled on page nine",
-    "text": "Tess tells the librarian TODAY about the juice she spilled on page nine"
+    "value": "Tess tells the librarian today about the juice she spilled on page nine",
+    "label": "Tess tells the librarian today about the juice she spilled on page nine",
+    "text": "Tess tells the librarian today about the juice she spilled on page nine"
    }
   ],
-  "answer": "Tess tells the librarian TODAY about the juice she spilled on page nine",
-  "correctAnswer": "Tess tells the librarian TODAY about the juice she spilled on page nine",
+  "answer": "Tess tells the librarian today about the juice she spilled on page nine",
+  "correctAnswer": "Tess tells the librarian today about the juice she spilled on page nine",
   "distractorRationales": {
-   "Tess polishes the class globe till it shines": "D-TOPIC-ADJACENT",
+   "Tess polishes the class globe until it shines": "D-TOPIC-ADJACENT",
    "Tess quietly slides the juice-stained book to the very bottom of the returns pile": "D-OPPOSITE",
    "Tess reads with juice far away from books": "D-TOPIC-ADJACENT"
   },
@@ -6130,21 +5470,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.R.apply_theme.v9r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v9r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v9r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6154,13 +5489,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v9r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v9r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v9r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v9r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v9r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.R.apply_theme.v10r",
@@ -6185,19 +5514,19 @@ export const questions = [
   "prompt": "Which new situation shows the SAME lesson?",
   "question": "Which new situation shows the SAME lesson?",
   "spokenPrompt": "Which new situation shows the SAME lesson?",
-  "passage": "Remember Ede drying the village school's boots by the radiator — small quiet care that made a whole school kinder. Keep that lesson in mind.",
+  "passage": "Remember Ede placing wet boots on the school's drying rack — small quiet care that made a whole school kinder. Keep that lesson in mind.",
   "cell": "apply_theme",
   "choices": [
-   "Ojas sharpens the class pencil pot every morning before anyone notices",
+   "Ojas quietly sharpens the class pencils",
    "Ojas wins the school kindness certificate on stage",
-   "Ojas dries his own boots by the radiator and leaves everyone else's dripping",
+   "Ojas dries only his own boots and leaves everyone else's dripping",
    "Ojas buys new boots for himself"
   ],
   "answerOptions": [
    {
-    "value": "Ojas sharpens the class pencil pot every morning before anyone notices",
-    "label": "Ojas sharpens the class pencil pot every morning before anyone notices",
-    "text": "Ojas sharpens the class pencil pot every morning before anyone notices"
+    "value": "Ojas quietly sharpens the class pencils",
+    "label": "Ojas quietly sharpens the class pencils",
+    "text": "Ojas quietly sharpens the class pencils"
    },
    {
     "value": "Ojas wins the school kindness certificate on stage",
@@ -6205,9 +5534,9 @@ export const questions = [
     "text": "Ojas wins the school kindness certificate on stage"
    },
    {
-    "value": "Ojas dries his own boots by the radiator and leaves everyone else's dripping",
-    "label": "Ojas dries his own boots by the radiator and leaves everyone else's dripping",
-    "text": "Ojas dries his own boots by the radiator and leaves everyone else's dripping"
+    "value": "Ojas dries only his own boots and leaves everyone else's dripping",
+    "label": "Ojas dries only his own boots and leaves everyone else's dripping",
+    "text": "Ojas dries only his own boots and leaves everyone else's dripping"
    },
    {
     "value": "Ojas buys new boots for himself",
@@ -6215,12 +5544,12 @@ export const questions = [
     "text": "Ojas buys new boots for himself"
    }
   ],
-  "answer": "Ojas sharpens the class pencil pot every morning before anyone notices",
-  "correctAnswer": "Ojas sharpens the class pencil pot every morning before anyone notices",
+  "answer": "Ojas quietly sharpens the class pencils",
+  "correctAnswer": "Ojas quietly sharpens the class pencils",
   "distractorRationales": {
    "Ojas buys new boots for himself": "D-TOPIC-ADJACENT",
    "Ojas wins the school kindness certificate on stage": "D-TOPIC-ADJACENT",
-   "Ojas dries his own boots by the radiator and leaves everyone else's dripping": "D-OPPOSITE"
+   "Ojas dries only his own boots and leaves everyone else's dripping": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6231,21 +5560,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.R.apply_theme.v10r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v10r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v10r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6255,13 +5579,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v10r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v10r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v10r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v10r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v10r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.R.theme_among_rivals.v11r",
@@ -6283,32 +5601,32 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which lesson fits best?",
-  "question": "Which lesson fits best?",
-  "spokenPrompt": "Which lesson fits best?",
-  "passage": "The sponsored silence raised money for the library, and chatterbox Vin was everyone's favourite joke entry. He lasted the whole day — but the surprise was what he heard in his own silence: Priw's chair squeaking for a cushion, quiet Lom's brilliant mutterings over a story, the lonely hum of the boy by the window. Vin never became a quiet boy. But he became a boy who sometimes chose to listen, and three people's days got better when he did.",
+  "prompt": "Which lesson is best supported by the story?",
+  "question": "Which lesson is best supported by the story?",
+  "spokenPrompt": "Which lesson is best supported by the story?",
+  "passage": "The school's quiet-hour challenge raised money for the library, and Vin, who loved to talk, was expected to find it hardest. He completed the challenge, but the surprise was what he noticed: Priw's chair squeaking because he needed a cushion, Lom quietly sharing a clever story idea, and a lonely boy by the window. Afterward Vin found Priw a cushion, asked Lom about the idea, and invited the lonely boy to join him.",
   "cell": "theme_among_rivals",
   "choices": [
-   "libraries need cushions",
-   "listening shows you what talking drowns out",
-   "a sponsored silence raised money",
+   "the challenge raised money for the library",
+   "listening helps you notice what other people need",
+   "finishing a difficult challenge can earn respect",
    "talking is always wrong"
   ],
   "answerOptions": [
    {
-    "value": "libraries need cushions",
-    "label": "libraries need cushions",
-    "text": "libraries need cushions"
+    "value": "the challenge raised money for the library",
+    "label": "the challenge raised money for the library",
+    "text": "the challenge raised money for the library"
    },
    {
-    "value": "listening shows you what talking drowns out",
-    "label": "listening shows you what talking drowns out",
-    "text": "listening shows you what talking drowns out"
+    "value": "listening helps you notice what other people need",
+    "label": "listening helps you notice what other people need",
+    "text": "listening helps you notice what other people need"
    },
    {
-    "value": "a sponsored silence raised money",
-    "label": "a sponsored silence raised money",
-    "text": "a sponsored silence raised money"
+    "value": "finishing a difficult challenge can earn respect",
+    "label": "finishing a difficult challenge can earn respect",
+    "text": "finishing a difficult challenge can earn respect"
    },
    {
     "value": "talking is always wrong",
@@ -6316,12 +5634,12 @@ export const questions = [
     "text": "talking is always wrong"
    }
   ],
-  "answer": "listening shows you what talking drowns out",
-  "correctAnswer": "listening shows you what talking drowns out",
+  "answer": "listening helps you notice what other people need",
+  "correctAnswer": "listening helps you notice what other people need",
   "distractorRationales": {
    "talking is always wrong": "D-OPPOSITE",
-   "libraries need cushions": "D-TOPIC-ADJACENT",
-   "a sponsored silence raised money": "D-DETAIL-AS-MAIN"
+   "the challenge raised money for the library": "D-DETAIL-AS-MAIN",
+   "finishing a difficult challenge can earn respect": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6332,21 +5650,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.R.theme_among_rivals.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-theme-among-rivals-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-theme-among-rivals-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-theme-among-rivals-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6356,13 +5669,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-theme-among-rivals-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-theme-among-rivals-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-theme-among-rivals-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-theme-among-rivals-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-theme-among-rivals-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.R.apply_theme.v11r",
@@ -6433,21 +5740,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.theme_higher_comprehension.l2.R.apply_theme.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6457,12 +5759,6 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  }
 ];

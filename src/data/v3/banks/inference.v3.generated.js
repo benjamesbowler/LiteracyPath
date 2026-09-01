@@ -70,21 +70,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.A.feeling_from_evidence.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -94,13 +89,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "wiping hands + re-checking music kills every rival reading",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "wiping hands + re-checking music kills every rival reading"
  },
  {
   "id": "lp3.inference.l1.B.feeling_from_evidence.v2",
@@ -125,19 +114,19 @@ export const questions = [
   "prompt": "How does Lena feel at the end?",
   "question": "How does Lena feel at the end?",
   "spokenPrompt": "How does Lena feel at the end?",
-  "passage": "Lena's cat had been at the vet all day. When Mum's phone finally rang, Lena froze. Mum listened, then smiled and gave a thumbs up. Lena let out a long breath and flopped onto the sofa like a rag doll.",
+  "passage": "Lena's cat had been at the vet all day. When Mom's phone finally rang, Lena froze. Mom listened, then smiled and gave a thumbs up. Lena let out a long breath and relaxed against the sofa.",
   "cell": "feeling_from_evidence",
   "choices": [
-   "cross",
+   "angry",
    "relieved",
    "worried",
    "jealous"
   ],
   "answerOptions": [
    {
-    "value": "cross",
-    "label": "cross",
-    "text": "cross"
+    "value": "angry",
+    "label": "angry",
+    "text": "angry"
    },
    {
     "value": "relieved",
@@ -160,7 +149,7 @@ export const questions = [
   "distractorRationales": {
    "worried": "D-SEQUENCE-SWAP",
    "jealous": "D-PLAUSIBLE-UNSUPPORTED",
-   "cross": "D-OPPOSITE"
+   "angry": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -171,21 +160,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.B.feeling_from_evidence.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -195,13 +179,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "worried is TRUE earlier — the long breath and flop mark the change; classic before/after trap",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "worried is TRUE earlier — the long breath and flop mark the change; classic before/after trap"
  },
  {
   "id": "lp3.inference.l1.C.feeling_from_evidence.v3",
@@ -272,21 +250,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.C.feeling_from_evidence.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -296,13 +269,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "punching the air kills 'ashamed', the tempting reading of finishing last",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "punching the air kills 'ashamed', the tempting reading of finishing last"
  },
  {
   "id": "lp3.inference.l1.A.feeling_from_evidence.v4",
@@ -327,7 +294,7 @@ export const questions = [
   "prompt": "How does Ivo most likely feel?",
   "question": "How does Ivo most likely feel?",
   "spokenPrompt": "How does Ivo most likely feel?",
-  "passage": "At the new school gate, Ivo held Dad's hand a little too hard. He watched the other children stream past, laughing in twos and threes. He did not know a single name. He practised saying 'hello' very quietly to himself.",
+  "passage": "At the new school gate, Ivo held Dad's hand a little too hard. He watched the other children stream past, laughing in small groups. He did not know a single name. He practiced saying 'hello' very quietly to himself.",
   "cell": "feeling_from_evidence",
   "choices": [
    "tired",
@@ -373,21 +340,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.A.feeling_from_evidence.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -397,13 +359,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the too-hard grip and whispered practice are the clues",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "the too-hard grip and whispered practice are the clues"
  },
  {
   "id": "lp3.inference.l1.B.feeling_from_evidence.v5",
@@ -474,21 +430,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.B.feeling_from_evidence.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -498,13 +449,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "wobbling lip + wiped eye; 'thrilled' tempts because fairs are fun",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "wobbling lip + wiped eye; 'thrilled' tempts because fairs are fun"
  },
  {
   "id": "lp3.inference.l1.C.feeling_from_evidence.v6",
@@ -575,21 +520,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.C.feeling_from_evidence.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -599,13 +539,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "nervous fits BEFORE results; the wink and straight back mark after",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "nervous fits BEFORE results; the wink and straight back mark after"
  },
  {
   "id": "lp3.inference.l1.A.feeling_from_evidence.v7",
@@ -627,15 +561,15 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "How does Noor feel in the dark?",
-  "question": "How does Noor feel in the dark?",
-  "spokenPrompt": "How does Noor feel in the dark?",
-  "passage": "The tour guide switched off the lights inside the cave. The dark was thicker than any night. Noor squeezed her torch but did not turn it on. 'One minute of true dark,' the guide had promised. Noor counted slowly and kept both feet very still.",
+  "prompt": "How does Noor most likely feel while she waits?",
+  "question": "How does Noor most likely feel while she waits?",
+  "spokenPrompt": "How does Noor most likely feel while she waits?",
+  "passage": "The tour guide switched off the lights inside the cave. The dark was thicker than any night. Noor squeezed her flashlight but did not turn it on. 'One minute of true dark,' the guide had promised. Noor counted slowly and kept both feet very still.",
   "cell": "feeling_from_evidence",
   "choices": [
    "bored",
-   "silly",
-   "brave",
+   "completely calm",
+   "nervous but in control",
    "terrified and running"
   ],
   "answerOptions": [
@@ -645,14 +579,14 @@ export const questions = [
     "text": "bored"
    },
    {
-    "value": "silly",
-    "label": "silly",
-    "text": "silly"
+    "value": "completely calm",
+    "label": "completely calm",
+    "text": "completely calm"
    },
    {
-    "value": "brave",
-    "label": "brave",
-    "text": "brave"
+    "value": "nervous but in control",
+    "label": "nervous but in control",
+    "text": "nervous but in control"
    },
    {
     "value": "terrified and running",
@@ -660,12 +594,12 @@ export const questions = [
     "text": "terrified and running"
    }
   ],
-  "answer": "brave",
-  "correctAnswer": "brave",
+  "answer": "nervous but in control",
+  "correctAnswer": "nervous but in control",
   "distractorRationales": {
    "terrified and running": "D-OPPOSITE",
    "bored": "D-PLAUSIBLE-UNSUPPORTED",
-   "silly": "D-PLAUSIBLE-UNSUPPORTED"
+   "completely calm": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -676,21 +610,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.A.feeling_from_evidence.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -700,13 +629,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "she is scared-ish but holds still and counts — the point is managed fear",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "the tight grip shows nerves; counting and staying still show control"
  },
  {
   "id": "lp3.inference.l1.B.feeling_from_evidence.v8",
@@ -777,21 +700,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.B.feeling_from_evidence.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -801,13 +719,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "slow clap + empty hands; delighted is the surface reading of a party",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "slow clap + empty hands; delighted is the surface reading of a party"
  },
  {
   "id": "lp3.inference.l1.A.where_am_i.v1",
@@ -878,21 +790,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.A.where_am_i.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -902,13 +809,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "smell + glass counter + floury apron",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "smell + glass counter + floury apron"
  },
  {
   "id": "lp3.inference.l1.B.where_am_i.v2",
@@ -933,12 +834,12 @@ export const questions = [
   "prompt": "Where is Mara?",
   "question": "Where is Mara?",
   "spokenPrompt": "Where is Mara?",
-  "passage": "Mara pulled her armbands tight. The air smelled of chlorine, and shouts echoed off the high ceiling. Somewhere a whistle blew, and the big clock on the wall had only one long red hand.",
+  "passage": "Mara tightened her swim goggles. The air smelled of chlorine, and shouts echoed off the high ceiling. Somewhere a whistle blew, and swimmers splashed through marked lanes.",
   "cell": "where_am_i",
   "choices": [
    "a swimming pool",
-   "a football pitch",
-   "a cinema",
+   "a soccer field",
+   "a movie theater",
    "a farm"
   ],
   "answerOptions": [
@@ -948,14 +849,14 @@ export const questions = [
     "text": "a swimming pool"
    },
    {
-    "value": "a football pitch",
-    "label": "a football pitch",
-    "text": "a football pitch"
+    "value": "a soccer field",
+    "label": "a soccer field",
+    "text": "a soccer field"
    },
    {
-    "value": "a cinema",
-    "label": "a cinema",
-    "text": "a cinema"
+    "value": "a movie theater",
+    "label": "a movie theater",
+    "text": "a movie theater"
    },
    {
     "value": "a farm",
@@ -966,9 +867,9 @@ export const questions = [
   "answer": "a swimming pool",
   "correctAnswer": "a swimming pool",
   "distractorRationales": {
-   "a cinema": "D-PLAUSIBLE-UNSUPPORTED",
+   "a movie theater": "D-PLAUSIBLE-UNSUPPORTED",
    "a farm": "D-OPPOSITE",
-   "a football pitch": "D-TOPIC-ADJACENT"
+   "a soccer field": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -979,21 +880,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.B.where_am_i.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1003,13 +899,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "whistle tempts football; chlorine and armbands decide",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "a whistle also fits soccer; chlorine, goggles, and marked swim lanes decide"
  },
  {
   "id": "lp3.inference.l1.C.where_am_i.v3",
@@ -1034,11 +924,11 @@ export const questions = [
   "prompt": "Where does this take place?",
   "question": "Where does this take place?",
   "spokenPrompt": "Where does this take place?",
-  "passage": "Hush hung over the long tables. Pages turned with tiny whispers. A trolley of books rolled softly past, and a lady stamped a date inside a cover. 'Two weeks,' she mouthed, almost silently.",
+  "passage": "Hush hung over the long tables. Pages turned with tiny whispers. A cart of books rolled softly past, and a librarian stamped a date inside a cover. 'Two weeks,' she mouthed, almost silently.",
   "cell": "where_am_i",
   "choices": [
    "a library",
-   "a bookshop",
+   "a bookstore",
    "a playground",
    "a kitchen"
   ],
@@ -1049,9 +939,9 @@ export const questions = [
     "text": "a library"
    },
    {
-    "value": "a bookshop",
-    "label": "a bookshop",
-    "text": "a bookshop"
+    "value": "a bookstore",
+    "label": "a bookstore",
+    "text": "a bookstore"
    },
    {
     "value": "a playground",
@@ -1069,7 +959,7 @@ export const questions = [
   "distractorRationales": {
    "a playground": "D-OPPOSITE",
    "a kitchen": "D-PLAUSIBLE-UNSUPPORTED",
-   "a bookshop": "D-TOPIC-ADJACENT"
+   "a bookstore": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1080,21 +970,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.C.where_am_i.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1104,13 +989,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "bookshop is the near-miss; the date stamp and borrowing decide",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "bookstore is the near-miss; the date stamp and borrowing decide"
  },
  {
   "id": "lp3.inference.l1.A.where_am_i.v4",
@@ -1139,7 +1018,7 @@ export const questions = [
   "cell": "where_am_i",
   "choices": [
    "a stable",
-   "a pet shop",
+   "a pet store",
    "a classroom",
    "a beach"
   ],
@@ -1150,9 +1029,9 @@ export const questions = [
     "text": "a stable"
    },
    {
-    "value": "a pet shop",
-    "label": "a pet shop",
-    "text": "a pet shop"
+    "value": "a pet store",
+    "label": "a pet store",
+    "text": "a pet store"
    },
    {
     "value": "a classroom",
@@ -1168,7 +1047,7 @@ export const questions = [
   "answer": "a stable",
   "correctAnswer": "a stable",
   "distractorRationales": {
-   "a pet shop": "D-TOPIC-ADJACENT",
+   "a pet store": "D-TOPIC-ADJACENT",
    "a classroom": "D-OPPOSITE",
    "a beach": "D-PLAUSIBLE-UNSUPPORTED"
   },
@@ -1181,21 +1060,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.A.where_am_i.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1205,13 +1079,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "straw + huge warm animal + brush",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "straw + huge warm animal + brush"
  },
  {
   "id": "lp3.inference.l1.B.where_am_i.v5",
@@ -1236,19 +1104,19 @@ export const questions = [
   "prompt": "Where does this take place?",
   "question": "Where does this take place?",
   "spokenPrompt": "Where does this take place?",
-  "passage": "The floor hummed under their feet. Fields slid past the window, faster and faster. A voice from the ceiling said the next stop was in ten minutes, and a trolley of snacks squeaked up the aisle.",
+  "passage": "The floor hummed under their feet. Fields slid past the window, faster and faster. A voice from the ceiling said the next stop was in ten minutes, and a snack cart squeaked up the aisle.",
   "cell": "where_am_i",
   "choices": [
-   "a lift",
+   "an elevator",
    "a train",
    "a bus",
    "a boat"
   ],
   "answerOptions": [
    {
-    "value": "a lift",
-    "label": "a lift",
-    "text": "a lift"
+    "value": "an elevator",
+    "label": "an elevator",
+    "text": "an elevator"
    },
    {
     "value": "a train",
@@ -1269,7 +1137,7 @@ export const questions = [
   "answer": "a train",
   "correctAnswer": "a train",
   "distractorRationales": {
-   "a lift": "D-OPPOSITE",
+   "an elevator": "D-OPPOSITE",
    "a bus": "D-TOPIC-ADJACENT",
    "a boat": "D-PLAUSIBLE-UNSUPPORTED"
   },
@@ -1282,21 +1150,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.B.where_am_i.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1306,13 +1169,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "bus is close; announced stops + aisle trolley + sliding fields decide",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "a bus is close; announced stops, an aisle cart, and sliding fields decide"
  },
  {
   "id": "lp3.inference.l1.C.where_am_i.v6",
@@ -1342,7 +1199,7 @@ export const questions = [
   "choices": [
    "a cave",
    "an aquarium",
-   "a cinema",
+   "a movie theater",
    "a museum of paintings"
   ],
   "answerOptions": [
@@ -1357,9 +1214,9 @@ export const questions = [
     "text": "an aquarium"
    },
    {
-    "value": "a cinema",
-    "label": "a cinema",
-    "text": "a cinema"
+    "value": "a movie theater",
+    "label": "a movie theater",
+    "text": "a movie theater"
    },
    {
     "value": "a museum of paintings",
@@ -1370,7 +1227,7 @@ export const questions = [
   "answer": "an aquarium",
   "correctAnswer": "an aquarium",
   "distractorRationales": {
-   "a cinema": "D-TOPIC-ADJACENT",
+   "a movie theater": "D-TOPIC-ADJACENT",
    "a museum of paintings": "D-PLAUSIBLE-UNSUPPORTED",
    "a cave": "D-PLAUSIBLE-UNSUPPORTED"
   },
@@ -1383,21 +1240,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.C.where_am_i.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1407,13 +1259,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cinema shares dark + glow; the glass and gliding shapes decide",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "a movie theater shares darkness and glow; the glass and gliding shapes decide"
  },
  {
   "id": "lp3.inference.l1.A.where_am_i.v7",
@@ -1442,9 +1288,9 @@ export const questions = [
   "cell": "where_am_i",
   "choices": [
    "the school library",
-   "the school dinner hall",
+   "the school cafeteria",
    "his kitchen at home",
-   "a sweet shop"
+   "a candy store"
   ],
   "answerOptions": [
    {
@@ -1453,9 +1299,9 @@ export const questions = [
     "text": "the school library"
    },
    {
-    "value": "the school dinner hall",
-    "label": "the school dinner hall",
-    "text": "the school dinner hall"
+    "value": "the school cafeteria",
+    "label": "the school cafeteria",
+    "text": "the school cafeteria"
    },
    {
     "value": "his kitchen at home",
@@ -1463,16 +1309,16 @@ export const questions = [
     "text": "his kitchen at home"
    },
    {
-    "value": "a sweet shop",
-    "label": "a sweet shop",
-    "text": "a sweet shop"
+    "value": "a candy store",
+    "label": "a candy store",
+    "text": "a candy store"
    }
   ],
-  "answer": "the school dinner hall",
-  "correctAnswer": "the school dinner hall",
+  "answer": "the school cafeteria",
+  "correctAnswer": "the school cafeteria",
   "distractorRationales": {
    "his kitchen at home": "D-TOPIC-ADJACENT",
-   "a sweet shop": "D-PLAUSIBLE-UNSUPPORTED",
+   "a candy store": "D-PLAUSIBLE-UNSUPPORTED",
    "the school library": "D-OPPOSITE"
   },
   "mediaTier": "text",
@@ -1484,21 +1330,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.A.where_am_i.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1508,13 +1349,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "tray rails + choosing peas + finding a seat",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "tray rails + choosing peas + finding a seat"
  },
  {
   "id": "lp3.inference.l1.B.where_am_i.v8",
@@ -1539,13 +1374,13 @@ export const questions = [
   "prompt": "Where does this take place?",
   "question": "Where does this take place?",
   "spokenPrompt": "Where does this take place?",
-  "passage": "Gulls screamed overhead. Wind tugged the flags on the sandcastles. Somewhere an ice-cream van sang its tinkling song, and Dad rubbed cream on Zoe's nose, saying the sun was strong today.",
+  "passage": "Gulls called overhead. Wind tugged the flags on the sandcastles. Somewhere an ice cream truck played its tune, and Dad rubbed sunscreen on Zoe's nose because the sun was strong.",
   "cell": "where_am_i",
   "choices": [
    "a forest",
-   "a car park",
+   "a parking lot",
    "the beach",
-   "a funfair"
+   "an amusement park"
   ],
   "answerOptions": [
    {
@@ -1554,9 +1389,9 @@ export const questions = [
     "text": "a forest"
    },
    {
-    "value": "a car park",
-    "label": "a car park",
-    "text": "a car park"
+    "value": "a parking lot",
+    "label": "a parking lot",
+    "text": "a parking lot"
    },
    {
     "value": "the beach",
@@ -1564,17 +1399,17 @@ export const questions = [
     "text": "the beach"
    },
    {
-    "value": "a funfair",
-    "label": "a funfair",
-    "text": "a funfair"
+    "value": "an amusement park",
+    "label": "an amusement park",
+    "text": "an amusement park"
    }
   ],
   "answer": "the beach",
   "correctAnswer": "the beach",
   "distractorRationales": {
-   "a funfair": "D-TOPIC-ADJACENT",
+   "an amusement park": "D-TOPIC-ADJACENT",
    "a forest": "D-OPPOSITE",
-   "a car park": "D-PLAUSIBLE-UNSUPPORTED"
+   "a parking lot": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1585,21 +1420,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.B.where_am_i.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1609,13 +1439,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "van music tempts funfair; gulls + sandcastles + sun cream decide",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "truck music tempts an amusement park; gulls, sandcastles, and sunscreen decide"
  },
  {
   "id": "lp3.inference.l1.A.what_happens_next.v1",
@@ -1640,7 +1464,7 @@ export const questions = [
   "prompt": "What will most likely happen next?",
   "question": "What will most likely happen next?",
   "spokenPrompt": "What will most likely happen next?",
-  "passage": "Black clouds rolled over the park. The wind flipped the picnic blanket corner over the sandwiches. Far away, thunder grumbled. Mum started packing the food back into the basket, fast.",
+  "passage": "Black clouds rolled over the park. The wind flipped the picnic blanket corner over the sandwiches. Far away, thunder grumbled. Mom started packing the food back into the basket, fast.",
   "cell": "what_happens_next",
   "choices": [
    "the family will go swimming",
@@ -1686,21 +1510,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.A.what_happens_next.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1710,13 +1529,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "packing fast + thunder = leaving; barbecue reverses the evidence",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "packing fast + thunder = leaving; barbecue reverses the evidence"
  },
  {
   "id": "lp3.inference.l1.B.what_happens_next.v2",
@@ -1787,21 +1600,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.B.what_happens_next.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1811,13 +1619,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "dog shampoo is the deciding detail against 'his own bath'",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "dog shampoo is the deciding detail against 'his own bath'"
  },
  {
   "id": "lp3.inference.l1.C.what_happens_next.v3",
@@ -1842,12 +1644,12 @@ export const questions = [
   "prompt": "What will most likely happen next?",
   "question": "What will most likely happen next?",
   "spokenPrompt": "What will most likely happen next?",
-  "passage": "The smell of toast turned sharp and smoky. A thin grey wisp curled out of the toaster. Dad sniffed twice, dropped his newspaper, and ran for the kitchen.",
+  "passage": "The smell of toast turned sharp and smoky. A thin gray wisp curled out of the toaster. Dad sniffed twice, dropped his newspaper, and ran for the kitchen.",
   "cell": "what_happens_next",
   "choices": [
    "Dad will eat the toast happily",
    "Dad will read another page",
-   "Dad will pop out the burnt toast",
+   "Dad will stop the burning breakfast",
    "Dad will water the plants"
   ],
   "answerOptions": [
@@ -1862,9 +1664,9 @@ export const questions = [
     "text": "Dad will read another page"
    },
    {
-    "value": "Dad will pop out the burnt toast",
-    "label": "Dad will pop out the burnt toast",
-    "text": "Dad will pop out the burnt toast"
+    "value": "Dad will stop the burning breakfast",
+    "label": "Dad will stop the burning breakfast",
+    "text": "Dad will stop the burning breakfast"
    },
    {
     "value": "Dad will water the plants",
@@ -1872,8 +1674,8 @@ export const questions = [
     "text": "Dad will water the plants"
    }
   ],
-  "answer": "Dad will pop out the burnt toast",
-  "correctAnswer": "Dad will pop out the burnt toast",
+  "answer": "Dad will stop the burning breakfast",
+  "correctAnswer": "Dad will stop the burning breakfast",
   "distractorRationales": {
    "Dad will eat the toast happily": "D-OPPOSITE",
    "Dad will read another page": "D-SEQUENCE-SWAP",
@@ -1888,21 +1690,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.C.what_happens_next.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1912,13 +1709,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "reading the paper is what he was doing BEFORE — the swap trap",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "reading the paper is what he was doing BEFORE — the swap trap"
  },
  {
   "id": "lp3.inference.l1.A.what_happens_next.v4",
@@ -1943,19 +1734,19 @@ export const questions = [
   "prompt": "What will most likely happen next?",
   "question": "What will most likely happen next?",
   "spokenPrompt": "What will most likely happen next?",
-  "passage": "Aya counted her pocket money twice. She put on her coat and took the empty honey jar from the shelf. 'Back soon,' she called, 'we need more for the pancakes!'",
+  "passage": "Aya counted her money twice. She put on her coat and checked the shopping note. 'Back soon,' she called. 'We need honey for the pancakes!'",
   "cell": "what_happens_next",
   "choices": [
-   "Aya will throw the jar away",
+   "Aya will throw the shopping note away",
    "Aya will make her bed",
    "Aya will eat the pancakes now",
    "Aya will go and buy honey"
   ],
   "answerOptions": [
    {
-    "value": "Aya will throw the jar away",
-    "label": "Aya will throw the jar away",
-    "text": "Aya will throw the jar away"
+    "value": "Aya will throw the shopping note away",
+    "label": "Aya will throw the shopping note away",
+    "text": "Aya will throw the shopping note away"
    },
    {
     "value": "Aya will make her bed",
@@ -1976,7 +1767,7 @@ export const questions = [
   "answer": "Aya will go and buy honey",
   "correctAnswer": "Aya will go and buy honey",
   "distractorRationales": {
-   "Aya will throw the jar away": "D-OPPOSITE",
+   "Aya will throw the shopping note away": "D-OPPOSITE",
    "Aya will make her bed": "D-PLAUSIBLE-UNSUPPORTED",
    "Aya will eat the pancakes now": "D-SEQUENCE-SWAP"
   },
@@ -1989,21 +1780,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.A.what_happens_next.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2013,13 +1799,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "money + empty jar + 'we need more' point one way",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "money + shopping note + 'we need honey' point one way"
  },
  {
   "id": "lp3.inference.l1.B.what_happens_next.v5",
@@ -2044,12 +1824,12 @@ export const questions = [
   "prompt": "What will most likely happen next?",
   "question": "What will most likely happen next?",
   "spokenPrompt": "What will most likely happen next?",
-  "passage": "The torch blinked, went dim, then died. Raj shook it, but the dark stayed. He remembered the drawer in the kitchen where the little round batteries lived, and he felt his way toward the stairs.",
+  "passage": "The flashlight blinked, went dim, then died. Raj shook it, but the dark stayed. He remembered the drawer in the kitchen where the batteries were kept, and he felt his way toward the stairs.",
   "cell": "what_happens_next",
   "choices": [
    "Raj will get new batteries",
-   "Raj will throw the torch in the bin",
-   "Raj will shine the torch again at once",
+   "Raj will throw the flashlight in the trash",
+   "Raj will shine the flashlight again at once",
    "Raj will go outside to play"
   ],
   "answerOptions": [
@@ -2059,14 +1839,14 @@ export const questions = [
     "text": "Raj will get new batteries"
    },
    {
-    "value": "Raj will throw the torch in the bin",
-    "label": "Raj will throw the torch in the bin",
-    "text": "Raj will throw the torch in the bin"
+    "value": "Raj will throw the flashlight in the trash",
+    "label": "Raj will throw the flashlight in the trash",
+    "text": "Raj will throw the flashlight in the trash"
    },
    {
-    "value": "Raj will shine the torch again at once",
-    "label": "Raj will shine the torch again at once",
-    "text": "Raj will shine the torch again at once"
+    "value": "Raj will shine the flashlight again at once",
+    "label": "Raj will shine the flashlight again at once",
+    "text": "Raj will shine the flashlight again at once"
    },
    {
     "value": "Raj will go outside to play",
@@ -2077,8 +1857,8 @@ export const questions = [
   "answer": "Raj will get new batteries",
   "correctAnswer": "Raj will get new batteries",
   "distractorRationales": {
-   "Raj will throw the torch in the bin": "D-PLAUSIBLE-UNSUPPORTED",
-   "Raj will shine the torch again at once": "D-OPPOSITE",
+   "Raj will throw the flashlight in the trash": "D-PLAUSIBLE-UNSUPPORTED",
+   "Raj will shine the flashlight again at once": "D-OPPOSITE",
    "Raj will go outside to play": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
@@ -2090,21 +1870,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.B.what_happens_next.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2114,13 +1889,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "remembering the battery drawer is the plan",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "remembering the battery drawer is the plan"
  },
  {
   "id": "lp3.inference.l1.C.what_happens_next.v6",
@@ -2145,11 +1914,11 @@ export const questions = [
   "prompt": "What will most likely happen next?",
   "question": "What will most likely happen next?",
   "spokenPrompt": "What will most likely happen next?",
-  "passage": "Nell's baby brother finally fell asleep in his cot. Mum tiptoed out backwards. Just then, Nell's music box began to plink loudly in her pocket. Mum spun round with wide eyes.",
+  "passage": "Nell's baby brother finally fell asleep in his crib. Mom tiptoed out. Just then, Nell's music box began to play loudly in her pocket. Mom turned around with wide eyes.",
   "cell": "what_happens_next",
   "choices": [
    "Nell will turn the music up",
-   "Nell will start singing along",
+   "Nell will set the music box on the table",
    "Nell will open the window",
    "Nell will rush to switch off the music"
   ],
@@ -2160,9 +1929,9 @@ export const questions = [
     "text": "Nell will turn the music up"
    },
    {
-    "value": "Nell will start singing along",
-    "label": "Nell will start singing along",
-    "text": "Nell will start singing along"
+    "value": "Nell will set the music box on the table",
+    "label": "Nell will set the music box on the table",
+    "text": "Nell will set the music box on the table"
    },
    {
     "value": "Nell will open the window",
@@ -2179,7 +1948,7 @@ export const questions = [
   "correctAnswer": "Nell will rush to switch off the music",
   "distractorRationales": {
    "Nell will turn the music up": "D-OPPOSITE",
-   "Nell will start singing along": "D-OPPOSITE",
+   "Nell will set the music box on the table": "D-PLAUSIBLE-UNSUPPORTED",
    "Nell will open the window": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
@@ -2191,21 +1960,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.C.what_happens_next.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2215,13 +1979,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "sleeping baby + wide eyes = silence needed",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "sleeping baby + wide eyes = silence needed"
  },
  {
   "id": "lp3.inference.l1.A.what_happens_next.v7",
@@ -2246,42 +2004,42 @@ export const questions = [
   "prompt": "What will most likely happen next?",
   "question": "What will most likely happen next?",
   "spokenPrompt": "What will most likely happen next?",
-  "passage": "Frost had turned the path to glass overnight. Grandad tested it with one boot and slid an arm's length. 'Not today,' he said, looking at the gritting sand by the gate.",
+  "passage": "Frost had covered the path with ice overnight. Grandpa tested it with one boot and slid. 'Not today,' he said, looking at the bag of salt by the gate.",
   "cell": "what_happens_next",
   "choices": [
-   "Grandad will spread sand on the icy path",
-   "Grandad will run down the path",
-   "Grandad will plant flowers",
-   "Grandad will wash the windows"
+   "Grandpa will spread salt on the icy path",
+   "Grandpa will run down the path",
+   "Grandpa will plant flowers",
+   "Grandpa will wash the windows"
   ],
   "answerOptions": [
    {
-    "value": "Grandad will spread sand on the icy path",
-    "label": "Grandad will spread sand on the icy path",
-    "text": "Grandad will spread sand on the icy path"
+    "value": "Grandpa will spread salt on the icy path",
+    "label": "Grandpa will spread salt on the icy path",
+    "text": "Grandpa will spread salt on the icy path"
    },
    {
-    "value": "Grandad will run down the path",
-    "label": "Grandad will run down the path",
-    "text": "Grandad will run down the path"
+    "value": "Grandpa will run down the path",
+    "label": "Grandpa will run down the path",
+    "text": "Grandpa will run down the path"
    },
    {
-    "value": "Grandad will plant flowers",
-    "label": "Grandad will plant flowers",
-    "text": "Grandad will plant flowers"
+    "value": "Grandpa will plant flowers",
+    "label": "Grandpa will plant flowers",
+    "text": "Grandpa will plant flowers"
    },
    {
-    "value": "Grandad will wash the windows",
-    "label": "Grandad will wash the windows",
-    "text": "Grandad will wash the windows"
+    "value": "Grandpa will wash the windows",
+    "label": "Grandpa will wash the windows",
+    "text": "Grandpa will wash the windows"
    }
   ],
-  "answer": "Grandad will spread sand on the icy path",
-  "correctAnswer": "Grandad will spread sand on the icy path",
+  "answer": "Grandpa will spread salt on the icy path",
+  "correctAnswer": "Grandpa will spread salt on the icy path",
   "distractorRationales": {
-   "Grandad will run down the path": "D-OPPOSITE",
-   "Grandad will plant flowers": "D-PLAUSIBLE-UNSUPPORTED",
-   "Grandad will wash the windows": "D-PLAUSIBLE-UNSUPPORTED"
+   "Grandpa will run down the path": "D-OPPOSITE",
+   "Grandpa will plant flowers": "D-PLAUSIBLE-UNSUPPORTED",
+   "Grandpa will wash the windows": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2292,21 +2050,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.A.what_happens_next.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2316,13 +2069,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the glance at the gritting sand sets the plan",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "the glance at the salt sets the plan"
  },
  {
   "id": "lp3.inference.l1.B.what_happens_next.v8",
@@ -2350,16 +2097,16 @@ export const questions = [
   "passage": "The jam sandwich was gone. Only crumbs led away across the kitchen floor, and the cat flap was still swinging gently. Outside, a magpie sat on the fence with something red and sticky on its beak.",
   "cell": "what_happens_next",
   "choices": [
-   "the postman ate it",
+   "the mail carrier ate it",
    "a bird took it",
-   "Mum tidied it away",
+   "Mom put it away",
    "it is still on the plate"
   ],
   "answerOptions": [
    {
-    "value": "the postman ate it",
-    "label": "the postman ate it",
-    "text": "the postman ate it"
+    "value": "the mail carrier ate it",
+    "label": "the mail carrier ate it",
+    "text": "the mail carrier ate it"
    },
    {
     "value": "a bird took it",
@@ -2367,9 +2114,9 @@ export const questions = [
     "text": "a bird took it"
    },
    {
-    "value": "Mum tidied it away",
-    "label": "Mum tidied it away",
-    "text": "Mum tidied it away"
+    "value": "Mom put it away",
+    "label": "Mom put it away",
+    "text": "Mom put it away"
    },
    {
     "value": "it is still on the plate",
@@ -2381,8 +2128,8 @@ export const questions = [
   "correctAnswer": "a bird took it",
   "distractorRationales": {
    "it is still on the plate": "D-OPPOSITE",
-   "the postman ate it": "D-PLAUSIBLE-UNSUPPORTED",
-   "Mum tidied it away": "D-PLAUSIBLE-UNSUPPORTED"
+   "the mail carrier ate it": "D-PLAUSIBLE-UNSUPPORTED",
+   "Mom put it away": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2393,21 +2140,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.B.what_happens_next.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2417,13 +2159,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "crumb trail + swinging flap + sticky beak",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "crumb trail + swinging flap + sticky beak"
  },
  {
   "id": "lp3.inference.l2.A.why_did_they.v1",
@@ -2445,22 +2181,22 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Why did Ma change the plans?",
-  "question": "Why did Ma change the plans?",
-  "spokenPrompt": "Why did Ma change the plans?",
-  "passage": "Ma put two umbrellas by the door instead of one. She checked the window again, then rolled up the picnic rug and slid it back on top of the cupboard. 'We'll do the indoor museum instead,' she said, 'and take the bus, not walk.'",
+  "prompt": "Why did Mom change the plans?",
+  "question": "Why did Mom change the plans?",
+  "spokenPrompt": "Why did Mom change the plans?",
+  "passage": "Mom put two umbrellas by the door instead of one. She checked the window again, then rolled up the picnic blanket and slid it back on top of the cabinet. 'We'll do the indoor museum instead,' she said, 'and take the bus, not walk.'",
   "cell": "why_did_they",
   "choices": [
-   "she had lost the picnic rug",
+   "she had lost the picnic blanket",
    "she could tell rain was coming",
    "she was tired of picnics forever",
    "the museum was free that day"
   ],
   "answerOptions": [
    {
-    "value": "she had lost the picnic rug",
-    "label": "she had lost the picnic rug",
-    "text": "she had lost the picnic rug"
+    "value": "she had lost the picnic blanket",
+    "label": "she had lost the picnic blanket",
+    "text": "she had lost the picnic blanket"
    },
    {
     "value": "she could tell rain was coming",
@@ -2481,9 +2217,9 @@ export const questions = [
   "answer": "she could tell rain was coming",
   "correctAnswer": "she could tell rain was coming",
   "distractorRationales": {
-   "she was tired of picnics forever": "D-OPPOSITE",
+   "she was tired of picnics forever": "D-PLAUSIBLE-UNSUPPORTED",
    "the museum was free that day": "D-PLAUSIBLE-UNSUPPORTED",
-   "she had lost the picnic rug": "D-OPPOSITE"
+   "she had lost the picnic blanket": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2494,21 +2230,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.A.why_did_they.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2518,13 +2249,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "two umbrellas + window checks; the rug is put AWAY, not lost",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "two umbrellas + window checks; the blanket is put away, not lost"
  },
  {
   "id": "lp3.inference.l2.B.why_did_they.v2",
@@ -2595,21 +2320,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.B.why_did_they.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2619,13 +2339,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "'without a word' and looking away kill the showing-off reading",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "'without a word' and looking away kill the showing-off reading"
  },
  {
   "id": "lp3.inference.l2.C.why_did_they.v3",
@@ -2650,12 +2364,12 @@ export const questions = [
   "prompt": "Why did Pia walk instead of ride?",
   "question": "Why did Pia walk instead of ride?",
   "spokenPrompt": "Why did Pia walk instead of ride?",
-  "passage": "Pia usually raced her scooter down Hill Lane. Today she got off at the top and walked it down slowly, holding the brake lever the whole way. Halfway down, she stepped carefully around a patch where the council had painted a wet, shining square of new tar.",
+  "passage": "Pia usually raced her scooter down Hill Lane. Today she got off at the top and walked it down slowly, holding the brake lever the whole way. Halfway down, she stepped carefully around a patch where city workers had spread wet, shining asphalt.",
   "cell": "why_did_they",
   "choices": [
    "her scooter was stolen",
    "she was bored of scooting",
-   "she wanted to be late for tea",
+   "she wanted to be late for dinner",
    "the lane was not safe to ride today"
   ],
   "answerOptions": [
@@ -2670,9 +2384,9 @@ export const questions = [
     "text": "she was bored of scooting"
    },
    {
-    "value": "she wanted to be late for tea",
-    "label": "she wanted to be late for tea",
-    "text": "she wanted to be late for tea"
+    "value": "she wanted to be late for dinner",
+    "label": "she wanted to be late for dinner",
+    "text": "she wanted to be late for dinner"
    },
    {
     "value": "the lane was not safe to ride today",
@@ -2685,7 +2399,7 @@ export const questions = [
   "distractorRationales": {
    "her scooter was stolen": "D-OPPOSITE",
    "she was bored of scooting": "D-PLAUSIBLE-UNSUPPORTED",
-   "she wanted to be late for tea": "D-PLAUSIBLE-UNSUPPORTED"
+   "she wanted to be late for dinner": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2696,21 +2410,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.C.why_did_they.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2720,13 +2429,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "she still HAS the scooter; the wet tar is the mechanism",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "she still has the scooter; the wet asphalt is the mechanism"
  },
  {
   "id": "lp3.inference.l2.A.why_did_they.v4",
@@ -2748,14 +2451,14 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Why did Gran go to the hallway?",
-  "question": "Why did Gran go to the hallway?",
-  "spokenPrompt": "Why did Gran go to the hallway?",
-  "passage": "Gran turned the television right down when the phone rang. She carried the phone to the quiet hallway and shut the kitchen door behind her. 'Yes, doctor, I can hear you clearly now,' she said.",
+  "prompt": "Why did Grandma go to the hallway?",
+  "question": "Why did Grandma go to the hallway?",
+  "spokenPrompt": "Why did Grandma go to the hallway?",
+  "passage": "Grandma turned the television down when the phone rang. She carried the phone to the quiet hallway and shut the kitchen door behind her. 'Yes, doctor, I can hear you clearly now,' she said.",
   "cell": "why_did_they",
   "choices": [
    "the kitchen was too cold",
-   "she was hiding from Grandad",
+   "she was hiding from Grandpa",
    "she needed quiet to hear the call",
    "she wanted to watch television"
   ],
@@ -2766,9 +2469,9 @@ export const questions = [
     "text": "the kitchen was too cold"
    },
    {
-    "value": "she was hiding from Grandad",
-    "label": "she was hiding from Grandad",
-    "text": "she was hiding from Grandad"
+    "value": "she was hiding from Grandpa",
+    "label": "she was hiding from Grandpa",
+    "text": "she was hiding from Grandpa"
    },
    {
     "value": "she needed quiet to hear the call",
@@ -2784,7 +2487,7 @@ export const questions = [
   "answer": "she needed quiet to hear the call",
   "correctAnswer": "she needed quiet to hear the call",
   "distractorRationales": {
-   "she was hiding from Grandad": "D-PLAUSIBLE-UNSUPPORTED",
+   "she was hiding from Grandpa": "D-PLAUSIBLE-UNSUPPORTED",
    "she wanted to watch television": "D-OPPOSITE",
    "the kitchen was too cold": "D-PLAUSIBLE-UNSUPPORTED"
   },
@@ -2797,21 +2500,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.A.why_did_they.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2821,13 +2519,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "'I can hear you clearly now' confirms the mechanism",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "'I can hear you clearly now' confirms the mechanism"
  },
  {
   "id": "lp3.inference.l2.B.why_did_they.v5",
@@ -2852,13 +2544,13 @@ export const questions = [
   "prompt": "Why did the coach move Jonah?",
   "question": "Why did the coach move Jonah?",
   "spokenPrompt": "Why did the coach move Jonah?",
-  "passage": "Coach Adams moved Jonah from striker to goalkeeper for the final. Some parents muttered. But in training all week, Jonah had tipped every single shot over the bar, even the hard low ones. When the final whistle blew, Jonah had kept the only clean sheet of the season.",
+  "passage": "Coach Adams moved Jonah from forward to goalkeeper for the final game. Some parents were unsure. But in practice all week, Jonah had stopped every shot, diving low and reaching high. When the final whistle blew, the other team had not scored once.",
   "cell": "why_did_they",
   "choices": [
    "the parents asked for the change",
-   "Jonah had shown he was brilliant in goal",
+   "Jonah had shown he was skilled as goalkeeper",
    "Jonah was too slow to run",
-   "the coach wanted the team to lose"
+   "the usual goalkeeper had missed the game"
   ],
   "answerOptions": [
    {
@@ -2867,9 +2559,9 @@ export const questions = [
     "text": "the parents asked for the change"
    },
    {
-    "value": "Jonah had shown he was brilliant in goal",
-    "label": "Jonah had shown he was brilliant in goal",
-    "text": "Jonah had shown he was brilliant in goal"
+    "value": "Jonah had shown he was skilled as goalkeeper",
+    "label": "Jonah had shown he was skilled as goalkeeper",
+    "text": "Jonah had shown he was skilled as goalkeeper"
    },
    {
     "value": "Jonah was too slow to run",
@@ -2877,16 +2569,16 @@ export const questions = [
     "text": "Jonah was too slow to run"
    },
    {
-    "value": "the coach wanted the team to lose",
-    "label": "the coach wanted the team to lose",
-    "text": "the coach wanted the team to lose"
+    "value": "the usual goalkeeper had missed the game",
+    "label": "the usual goalkeeper had missed the game",
+    "text": "the usual goalkeeper had missed the game"
    }
   ],
-  "answer": "Jonah had shown he was brilliant in goal",
-  "correctAnswer": "Jonah had shown he was brilliant in goal",
+  "answer": "Jonah had shown he was skilled as goalkeeper",
+  "correctAnswer": "Jonah had shown he was skilled as goalkeeper",
   "distractorRationales": {
    "Jonah was too slow to run": "D-PLAUSIBLE-UNSUPPORTED",
-   "the coach wanted the team to lose": "D-OPPOSITE",
+   "the usual goalkeeper had missed the game": "D-PLAUSIBLE-UNSUPPORTED",
    "the parents asked for the change": "D-OPPOSITE"
   },
   "mediaTier": "text",
@@ -2898,21 +2590,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.B.why_did_they.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2922,13 +2609,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the training detail is the evidence; parents actually muttered AGAINST it",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "the practice detail is the evidence; the parents were unsure about the change"
  },
  {
   "id": "lp3.inference.l2.C.why_did_they.v6",
@@ -2953,11 +2634,11 @@ export const questions = [
   "prompt": "Why does Auntie Fern use sealed jars?",
   "question": "Why does Auntie Fern use sealed jars?",
   "spokenPrompt": "Why does Auntie Fern use sealed jars?",
-  "passage": "Auntie Fern always kept her seed packets in old jam jars with the lids screwed tight. 'One flood in this shed was enough,' she would say, tapping a jar. On the top shelf, a faded brown tide mark still ran along the wooden wall.",
+  "passage": "Auntie Fern always kept her seed packets in old glass jars with the lids screwed tight. 'One flood in this workshop was enough,' she would say, tapping a jar. On the top shelf, a faded brown water mark still ran along the wooden wall.",
   "cell": "why_did_they",
   "choices": [
    "a flood once ruined her seeds",
-   "she likes collecting jam",
+   "she likes collecting jars",
    "the jars look pretty on the shelf",
    "seeds grow better inside glass"
   ],
@@ -2968,9 +2649,9 @@ export const questions = [
     "text": "a flood once ruined her seeds"
    },
    {
-    "value": "she likes collecting jam",
-    "label": "she likes collecting jam",
-    "text": "she likes collecting jam"
+    "value": "she likes collecting jars",
+    "label": "she likes collecting jars",
+    "text": "she likes collecting jars"
    },
    {
     "value": "the jars look pretty on the shelf",
@@ -2987,7 +2668,7 @@ export const questions = [
   "correctAnswer": "a flood once ruined her seeds",
   "distractorRationales": {
    "seeds grow better inside glass": "D-PLAUSIBLE-UNSUPPORTED",
-   "she likes collecting jam": "D-TOPIC-ADJACENT",
+   "she likes collecting jars": "D-TOPIC-ADJACENT",
    "the jars look pretty on the shelf": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
@@ -2999,21 +2680,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.C.why_did_they.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3023,13 +2699,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the tide mark corroborates her one-line explanation",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "the tide mark corroborates her one-line explanation"
  },
  {
   "id": "lp3.inference.l2.A.why_did_they.v7",
@@ -3100,21 +2770,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.A.why_did_they.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3124,13 +2789,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "first-time-alone frames both choices; nothing supports the rivals",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "first-time-alone frames both choices; nothing supports the rivals"
  },
  {
   "id": "lp3.inference.l2.B.why_did_they.v8",
@@ -3155,7 +2814,7 @@ export const questions = [
   "prompt": "Why did Mr Okafor keep moving the ladder?",
   "question": "Why did Mr Okafor keep moving the ladder?",
   "spokenPrompt": "Why did Mr Okafor keep moving the ladder?",
-  "passage": "Mr Okafor propped his ladder against the wall, then moved it twice before climbing. Each time he pushed the feet a little farther from the wall and pressed down on a rung with his boot. Only when the ladder did not wobble at all did he pick up his paintbrush.",
+  "passage": "Mr. Okafor propped his ladder against the wall, then moved it twice before climbing. Each time he pushed the feet a little farther from the wall and pressed down on a rung with his boot. Only when the ladder did not wobble at all did he pick up his paintbrush.",
   "cell": "why_did_they",
   "choices": [
    "he was trying to break the ladder",
@@ -3201,21 +2860,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.B.why_did_they.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3225,13 +2879,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the wobble test is the mechanism; the brush comes AFTER by design",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "the wobble test is the mechanism; the brush comes AFTER by design"
  },
  {
   "id": "lp3.inference.l2.A.what_went_unsaid.v1",
@@ -3256,12 +2904,12 @@ export const questions = [
   "prompt": "What must have happened before Jess came in?",
   "question": "What must have happened before Jess came in?",
   "spokenPrompt": "What must have happened before Jess came in?",
-  "passage": "When Jess came in from the garden, a dripping umbrella already stood open in the bath. Two coats hung heavy on the radiator, and Mum was stuffing newspaper into a pair of dark, shining boots.",
+  "passage": "When Jess came in from the garden, a dripping umbrella already stood open in the bathtub. Two coats hung on a drying rack, and Mom was stuffing newspaper into a pair of dark, wet boots.",
   "cell": "what_went_unsaid",
   "choices": [
    "someone had been out in heavy rain",
    "the family had been at the beach",
-   "Mum had bought new boots",
+   "Mom had bought new boots",
    "the bath had overflowed"
   ],
   "answerOptions": [
@@ -3276,9 +2924,9 @@ export const questions = [
     "text": "the family had been at the beach"
    },
    {
-    "value": "Mum had bought new boots",
-    "label": "Mum had bought new boots",
-    "text": "Mum had bought new boots"
+    "value": "Mom had bought new boots",
+    "label": "Mom had bought new boots",
+    "text": "Mom had bought new boots"
    },
    {
     "value": "the bath had overflowed",
@@ -3290,7 +2938,7 @@ export const questions = [
   "correctAnswer": "someone had been out in heavy rain",
   "distractorRationales": {
    "the family had been at the beach": "D-PLAUSIBLE-UNSUPPORTED",
-   "Mum had bought new boots": "D-PLAUSIBLE-UNSUPPORTED",
+   "Mom had bought new boots": "D-PLAUSIBLE-UNSUPPORTED",
    "the bath had overflowed": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
@@ -3302,21 +2950,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.A.what_went_unsaid.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3326,13 +2969,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "three water clues point outdoors; overflow explains only one of them",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "three water clues point outdoors; overflow explains only one of them"
  },
  {
   "id": "lp3.inference.l2.B.what_went_unsaid.v2",
@@ -3361,7 +2998,7 @@ export const questions = [
   "cell": "what_went_unsaid",
   "choices": [
    "a child fed the hamster at dawn",
-   "the caretaker cleaned the cage",
+   "the custodian cleaned the cage",
    "the hamster slept all night",
    "the hamster was busy while everyone was away"
   ],
@@ -3372,9 +3009,9 @@ export const questions = [
     "text": "a child fed the hamster at dawn"
    },
    {
-    "value": "the caretaker cleaned the cage",
-    "label": "the caretaker cleaned the cage",
-    "text": "the caretaker cleaned the cage"
+    "value": "the custodian cleaned the cage",
+    "label": "the custodian cleaned the cage",
+    "text": "the custodian cleaned the cage"
    },
    {
     "value": "the hamster slept all night",
@@ -3391,7 +3028,7 @@ export const questions = [
   "correctAnswer": "the hamster was busy while everyone was away",
   "distractorRationales": {
    "a child fed the hamster at dawn": "D-PLAUSIBLE-UNSUPPORTED",
-   "the caretaker cleaned the cage": "D-OPPOSITE",
+   "the custodian cleaned the cage": "D-PLAUSIBLE-UNSUPPORTED",
    "the hamster slept all night": "D-OPPOSITE"
   },
   "mediaTier": "text",
@@ -3403,21 +3040,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.B.what_went_unsaid.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3427,13 +3059,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "spinning wheel + eaten food + built doorway",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "spinning wheel + eaten food + built doorway"
  },
  {
   "id": "lp3.inference.l2.C.what_went_unsaid.v3",
@@ -3458,11 +3084,11 @@ export const questions = [
   "prompt": "What went wrong while they were out?",
   "question": "What went wrong while they were out?",
   "spokenPrompt": "What went wrong while they were out?",
-  "passage": "Dad met them at the door wearing one oven glove and a guilty smile. The kitchen window was wide open in the cold, a tea towel was flapping over the smoke alarm, and a very dark cake sat in the bin.",
+  "passage": "Dad met them at the door wearing one oven mitt and a guilty smile. The kitchen window was wide open in the cold, a dish towel was flapping below the smoke alarm, and a very dark cake sat in the trash.",
   "cell": "what_went_unsaid",
   "choices": [
    "the oven had never worked",
-   "Dad burnt the cake he was baking",
+   "Dad burned the cake he was baking",
    "Dad forgot to bake anything",
    "burglars had opened the window"
   ],
@@ -3473,9 +3099,9 @@ export const questions = [
     "text": "the oven had never worked"
    },
    {
-    "value": "Dad burnt the cake he was baking",
-    "label": "Dad burnt the cake he was baking",
-    "text": "Dad burnt the cake he was baking"
+    "value": "Dad burned the cake he was baking",
+    "label": "Dad burned the cake he was baking",
+    "text": "Dad burned the cake he was baking"
    },
    {
     "value": "Dad forgot to bake anything",
@@ -3488,8 +3114,8 @@ export const questions = [
     "text": "burglars had opened the window"
    }
   ],
-  "answer": "Dad burnt the cake he was baking",
-  "correctAnswer": "Dad burnt the cake he was baking",
+  "answer": "Dad burned the cake he was baking",
+  "correctAnswer": "Dad burned the cake he was baking",
   "distractorRationales": {
    "Dad forgot to bake anything": "D-OPPOSITE",
    "burglars had opened the window": "D-PLAUSIBLE-UNSUPPORTED",
@@ -3504,21 +3130,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.C.what_went_unsaid.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3528,13 +3149,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "each clue is smoke management; the binned cake completes it",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "each clue is smoke management; the cake in the trash completes it"
  },
  {
   "id": "lp3.inference.l2.A.what_went_unsaid.v4",
@@ -3559,11 +3174,11 @@ export const questions = [
   "prompt": "What had happened at home?",
   "question": "What had happened at home?",
   "spokenPrompt": "What had happened at home?",
-  "passage": "Marta's recorder case felt strangely light on the walk to school. When the music teacher asked everyone to play, Marta opened the case and found only a folded note from her little brother: 'Borrowed it for my pirate band. Sorry!'",
+  "passage": "Marta's recorder case felt strangely light on the walk to school. At music time she opened it and found it empty. That morning, recorder music had come from her little brother's room while he called his toy pirates to attention.",
   "cell": "what_went_unsaid",
   "choices": [
    "Marta forgot she owned a recorder",
-   "her brother had taken the recorder without asking",
+   "her brother had taken the recorder to play with",
    "Marta had sold her recorder",
    "the teacher had collected the recorders"
   ],
@@ -3574,9 +3189,9 @@ export const questions = [
     "text": "Marta forgot she owned a recorder"
    },
    {
-    "value": "her brother had taken the recorder without asking",
-    "label": "her brother had taken the recorder without asking",
-    "text": "her brother had taken the recorder without asking"
+    "value": "her brother had taken the recorder to play with",
+    "label": "her brother had taken the recorder to play with",
+    "text": "her brother had taken the recorder to play with"
    },
    {
     "value": "Marta had sold her recorder",
@@ -3589,11 +3204,11 @@ export const questions = [
     "text": "the teacher had collected the recorders"
    }
   ],
-  "answer": "her brother had taken the recorder without asking",
-  "correctAnswer": "her brother had taken the recorder without asking",
+  "answer": "her brother had taken the recorder to play with",
+  "correctAnswer": "her brother had taken the recorder to play with",
   "distractorRationales": {
    "the teacher had collected the recorders": "D-OPPOSITE",
-   "Marta forgot she owned a recorder": "D-OPPOSITE",
+   "Marta forgot she owned a recorder": "D-PLAUSIBLE-UNSUPPORTED",
    "Marta had sold her recorder": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
@@ -3605,21 +3220,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.A.what_went_unsaid.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3629,13 +3239,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the note states it; the light case was the early clue",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "the empty case and recorder music from her brother's room imply the event without stating it"
  },
  {
   "id": "lp3.inference.l2.B.what_went_unsaid.v5",
@@ -3666,7 +3270,7 @@ export const questions = [
    "the girl next door",
    "Grandpa, though he swore he never touched him",
    "the wind",
-   "nobody — it never moved"
+   "a gardener moved it while working"
   ],
   "answerOptions": [
    {
@@ -3685,9 +3289,9 @@ export const questions = [
     "text": "the wind"
    },
    {
-    "value": "nobody — it never moved",
-    "label": "nobody — it never moved",
-    "text": "nobody — it never moved"
+    "value": "a gardener moved it while working",
+    "label": "a gardener moved it while working",
+    "text": "a gardener moved it while working"
    }
   ],
   "answer": "the girl next door",
@@ -3695,7 +3299,7 @@ export const questions = [
   "distractorRationales": {
    "Grandpa, though he swore he never touched him": "D-OPPOSITE",
    "the wind": "D-PLAUSIBLE-UNSUPPORTED",
-   "nobody — it never moved": "D-OPPOSITE"
+   "a gardener moved it while working": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3706,21 +3310,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.B.what_went_unsaid.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3730,13 +3329,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the matching scarf is the fingerprint",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "the matching scarf is the fingerprint"
  },
  {
   "id": "lp3.inference.l2.C.what_went_unsaid.v6",
@@ -3807,21 +3400,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.C.what_went_unsaid.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3831,13 +3419,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "bent metal + wide prints rule out the small and the bodiless",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "bent metal + wide prints rule out the small and the bodiless"
  },
  {
   "id": "lp3.inference.l2.A.what_went_unsaid.v7",
@@ -3859,16 +3441,16 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What had Mum been doing?",
-  "question": "What had Mum been doing?",
-  "spokenPrompt": "What had Mum been doing?",
-  "passage": "The whole flat smelled of paint, though the walls were the same colour as ever. Newspaper was taped inside the bath tub, and tiny silver spots freckled Mum's glasses. On the balcony, Ela's old bicycle stood drying — suddenly, gloriously silver from wheel to wheel.",
+  "prompt": "What had Mom been doing?",
+  "question": "What had Mom been doing?",
+  "spokenPrompt": "What had Mom been doing?",
+  "passage": "The whole apartment smelled of paint, though the walls were the same color as ever. Newspaper covered the balcony floor, and tiny silver spots dotted Mom's glasses. Ela's old bicycle stood there drying, newly silver from wheel to wheel.",
   "cell": "what_went_unsaid",
   "choices": [
    "cleaning her glasses",
    "buying a brand-new bicycle",
    "spray-painting Ela's bicycle as a surprise",
-   "painting the bathroom walls a new colour"
+   "painting the apartment walls a new color"
   ],
   "answerOptions": [
    {
@@ -3887,16 +3469,16 @@ export const questions = [
     "text": "spray-painting Ela's bicycle as a surprise"
    },
    {
-    "value": "painting the bathroom walls a new colour",
-    "label": "painting the bathroom walls a new colour",
-    "text": "painting the bathroom walls a new colour"
+    "value": "painting the apartment walls a new color",
+    "label": "painting the apartment walls a new color",
+    "text": "painting the apartment walls a new color"
    }
   ],
   "answer": "spray-painting Ela's bicycle as a surprise",
   "correctAnswer": "spray-painting Ela's bicycle as a surprise",
   "distractorRationales": {
    "buying a brand-new bicycle": "D-PLAUSIBLE-UNSUPPORTED",
-   "painting the bathroom walls a new colour": "D-TOPIC-ADJACENT",
+   "painting the apartment walls a new color": "D-TOPIC-ADJACENT",
    "cleaning her glasses": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
@@ -3908,21 +3490,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.A.what_went_unsaid.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3932,13 +3509,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "same-colour walls kills the wall reading; silver spots + silver bike join up",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "same-color walls eliminate the wall reading; silver spots and silver bike join up"
  },
  {
   "id": "lp3.inference.l2.B.what_went_unsaid.v8",
@@ -3963,7 +3534,7 @@ export const questions = [
   "prompt": "What must have happened while they were out?",
   "question": "What must have happened while they were out?",
   "spokenPrompt": "What must have happened while they were out?",
-  "passage": "When the lights came back on, the ice-cream tub on the counter was soft as soup, and the freezer drawers stood in puddles. The oven clock blinked 00:00, 00:00, 00:00, and every radio in the house had forgotten its stations.",
+  "passage": "When the lights came back on, the ice cream tub on the counter was soft as soup, and the freezer drawers stood in puddles. The oven clock blinked 00:00, and every radio in the house had forgotten its stations.",
   "cell": "what_went_unsaid",
   "choices": [
    "a burglar reset the clocks",
@@ -4009,21 +3580,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.B.what_went_unsaid.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4033,13 +3599,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "blinking clocks + forgetful radios only fit a power cut, not an open freezer",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "blinking clocks + forgetful radios only fit a power outage, not an open freezer"
  },
  {
   "id": "lp3.inference.l2.A.evidence_pick.v1",
@@ -4061,9 +3621,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which words from the story show how Tilly REALLY feels?",
-  "question": "Which words from the story show how Tilly REALLY feels?",
-  "spokenPrompt": "Which words from the story show how Tilly REALLY feels?",
+  "prompt": "Which detail best shows that Tilly is disappointed?",
+  "question": "Which detail best shows that Tilly is disappointed?",
+  "spokenPrompt": "Which detail best shows that Tilly is disappointed?",
   "passage": "Tilly said she did not mind missing the trip. She said it twice, in a bright voice. But all through art she drew the same picture: a little bus on a long road, with a girl waving from the window seat.",
   "cell": "evidence_pick",
   "choices": [
@@ -4099,7 +3659,7 @@ export const questions = [
   "distractorRationales": {
    "she said twice, in a bright voice, that she did not mind missing it": "D-OPPOSITE",
    "it was time for art": "D-DETAIL-AS-MAIN",
-   "her voice was bright": "D-OPPOSITE"
+   "her voice was bright": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4110,21 +3670,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.A.evidence_pick.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4134,13 +3689,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the drawing contradicts the words — evidence beats statements",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "the drawing contradicts the words — evidence beats statements"
  },
  {
   "id": "lp3.inference.l2.B.evidence_pick.v2",
@@ -4162,22 +3711,22 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which words show that Ba wanted THAT dog?",
-  "question": "Which words show that Ba wanted THAT dog?",
-  "spokenPrompt": "Which words show that Ba wanted THAT dog?",
-  "passage": "'Any dog would do,' said Ba, shrugging at the shelter. Then a grey terrier pressed its nose to the bars. Ba knelt down for a long time. On the way home he asked, twice, whether terriers like long walks, and he kept the shelter's leaflet in his top pocket all week.",
+  "prompt": "Which detail best shows that Ba wanted that terrier?",
+  "question": "Which detail best shows that Ba wanted that terrier?",
+  "spokenPrompt": "Which detail best shows that Ba wanted that terrier?",
+  "passage": "'Any dog would do,' said Ba, shrugging at the shelter. Then a gray terrier pressed its nose to the bars. Ba knelt down for a long time. On the way home he asked twice whether terriers like long walks, and he kept the shelter's flyer in his pocket all week.",
   "cell": "evidence_pick",
   "choices": [
-   "the terrier was grey",
+   "the terrier was gray",
    "they went home",
-   "he kept the shelter's leaflet all week",
+   "he kept the shelter's flyer all week",
    "he shrugged at the shelter and said any dog would do"
   ],
   "answerOptions": [
    {
-    "value": "the terrier was grey",
-    "label": "the terrier was grey",
-    "text": "the terrier was grey"
+    "value": "the terrier was gray",
+    "label": "the terrier was gray",
+    "text": "the terrier was gray"
    },
    {
     "value": "they went home",
@@ -4185,9 +3734,9 @@ export const questions = [
     "text": "they went home"
    },
    {
-    "value": "he kept the shelter's leaflet all week",
-    "label": "he kept the shelter's leaflet all week",
-    "text": "he kept the shelter's leaflet all week"
+    "value": "he kept the shelter's flyer all week",
+    "label": "he kept the shelter's flyer all week",
+    "text": "he kept the shelter's flyer all week"
    },
    {
     "value": "he shrugged at the shelter and said any dog would do",
@@ -4195,10 +3744,10 @@ export const questions = [
     "text": "he shrugged at the shelter and said any dog would do"
    }
   ],
-  "answer": "he kept the shelter's leaflet all week",
-  "correctAnswer": "he kept the shelter's leaflet all week",
+  "answer": "he kept the shelter's flyer all week",
+  "correctAnswer": "he kept the shelter's flyer all week",
   "distractorRationales": {
-   "the terrier was grey": "D-DETAIL-AS-MAIN",
+   "the terrier was gray": "D-DETAIL-AS-MAIN",
    "they went home": "D-DETAIL-AS-MAIN",
    "he shrugged at the shelter and said any dog would do": "D-OPPOSITE"
   },
@@ -4211,21 +3760,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.B.evidence_pick.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4235,13 +3779,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "shrug words vs pocket evidence",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "shrug words vs pocket evidence"
  },
  {
   "id": "lp3.inference.l2.C.evidence_pick.v3",
@@ -4266,7 +3804,7 @@ export const questions = [
   "prompt": "Which clue points to Femi?",
   "question": "Which clue points to Femi?",
   "spokenPrompt": "Which clue points to Femi?",
-  "passage": "Nobody saw who tidied the book corner. But Miss Diaz noticed that the shelves were sorted by colour, exactly like Femi sorts his pencil tin, and that the beanbag was patted into a neat square, just the way Femi leaves his chair cushion after lunch.",
+  "passage": "Nobody saw who tidied the book corner. But Miss Diaz noticed that the shelves were sorted by color, exactly like Femi sorts his pencil case, and that the beanbag was patted into a neat square, just the way Femi leaves his chair cushion after lunch.",
   "cell": "evidence_pick",
   "choices": [
    "nobody saw who tidied the book corner shelves",
@@ -4312,21 +3850,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.C.evidence_pick.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4336,13 +3869,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "matching habits are the fingerprint",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "matching habits are the fingerprint"
  },
  {
   "id": "lp3.inference.l2.A.evidence_pick.v4",
@@ -4364,15 +3891,15 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which words show the win DID matter to Harri?",
-  "question": "Which words show the win DID matter to Harri?",
-  "spokenPrompt": "Which words show the win DID matter to Harri?",
-  "passage": "Harri claimed the win did not matter. Yet the medal hung over his bed, polished every Sunday. The race photograph moved from the drawer, to the shelf, to a frame on the wall. And whenever visitors came, somehow the talk always found its way to that rainy sports day.",
+  "prompt": "Which detail best shows that the win mattered to Harri?",
+  "question": "Which detail best shows that the win mattered to Harri?",
+  "spokenPrompt": "Which detail best shows that the win mattered to Harri?",
+  "passage": "Harri claimed the win did not matter. Yet the medal hung over his bed, polished every Sunday. The race photograph moved from the drawer, to the shelf, to a frame on the wall. And whenever visitors came, somehow the talk always found its way to that rainy field day.",
   "cell": "evidence_pick",
   "choices": [
    "the medal was polished every Sunday",
    "Harri claimed the win did not matter at all",
-   "sports day was rainy",
+   "field day was rainy",
    "visitors came to the house"
   ],
   "answerOptions": [
@@ -4387,9 +3914,9 @@ export const questions = [
     "text": "Harri claimed the win did not matter at all"
    },
    {
-    "value": "sports day was rainy",
-    "label": "sports day was rainy",
-    "text": "sports day was rainy"
+    "value": "field day was rainy",
+    "label": "field day was rainy",
+    "text": "field day was rainy"
    },
    {
     "value": "visitors came to the house",
@@ -4402,7 +3929,7 @@ export const questions = [
   "distractorRationales": {
    "visitors came to the house": "D-DETAIL-AS-MAIN",
    "Harri claimed the win did not matter at all": "D-OPPOSITE",
-   "sports day was rainy": "D-DETAIL-AS-MAIN"
+   "field day was rainy": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4413,21 +3940,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.A.evidence_pick.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4437,13 +3959,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "actions over words again — the polishing habit",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "actions over words again — the polishing habit"
  },
  {
   "id": "lp3.inference.l2.B.evidence_pick.v5",
@@ -4465,9 +3981,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which words show the new boy HAD played chess?",
-  "question": "Which words show the new boy HAD played chess?",
-  "spokenPrompt": "Which words show the new boy HAD played chess?",
+  "prompt": "Which detail best shows that the new boy had played chess?",
+  "question": "Which detail best shows that the new boy had played chess?",
+  "spokenPrompt": "Which detail best shows that the new boy had played chess?",
   "passage": "The new boy said he had never played chess before. Then he set up every piece without looking at the box lid. He moved his knight in that funny L-shape straight away, and when Mr Salt's queen crept forward, the new boy smiled a small, knowing smile.",
   "cell": "evidence_pick",
   "choices": [
@@ -4514,21 +4030,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.B.evidence_pick.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4538,13 +4049,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "setup knowledge is the giveaway",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "setup knowledge is the giveaway"
  },
  {
   "id": "lp3.inference.l2.C.evidence_pick.v6",
@@ -4566,22 +4071,22 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which words show Mum was actually asleep?",
-  "question": "Which words show Mum was actually asleep?",
-  "spokenPrompt": "Which words show Mum was actually asleep?",
-  "passage": "Mum insisted she was wide awake for the film. Halfway through, her mug tipped gently in her hand, and Leo caught it. By the big ending, her head had found the cushion, and the credits rolled to the sound of long, slow breathing.",
+  "prompt": "Which detail best shows that Mom fell asleep?",
+  "question": "Which detail best shows that Mom fell asleep?",
+  "spokenPrompt": "Which detail best shows that Mom fell asleep?",
+  "passage": "Mom insisted she was wide awake for the movie. Halfway through, her mug tipped gently in her hand, and Leo caught it. By the big ending, her head rested on the cushion, and the credits rolled to the sound of long, slow breathing.",
   "cell": "evidence_pick",
   "choices": [
-   "the credits rolled to long, slow breathing",
+   "her breathing was slow when the film finished",
    "she insisted she was wide awake for the whole film",
    "they watched a film",
    "Leo sat beside her"
   ],
   "answerOptions": [
    {
-    "value": "the credits rolled to long, slow breathing",
-    "label": "the credits rolled to long, slow breathing",
-    "text": "the credits rolled to long, slow breathing"
+    "value": "her breathing was slow when the film finished",
+    "label": "her breathing was slow when the film finished",
+    "text": "her breathing was slow when the film finished"
    },
    {
     "value": "she insisted she was wide awake for the whole film",
@@ -4599,8 +4104,8 @@ export const questions = [
     "text": "Leo sat beside her"
    }
   ],
-  "answer": "the credits rolled to long, slow breathing",
-  "correctAnswer": "the credits rolled to long, slow breathing",
+  "answer": "her breathing was slow when the film finished",
+  "correctAnswer": "her breathing was slow when the film finished",
   "distractorRationales": {
    "Leo sat beside her": "D-PLAUSIBLE-UNSUPPORTED",
    "she insisted she was wide awake for the whole film": "D-OPPOSITE",
@@ -4615,21 +4120,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.C.evidence_pick.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4639,13 +4139,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the breathing detail settles it",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "the breathing detail settles it"
  },
  {
   "id": "lp3.inference.l2.A.evidence_pick.v7",
@@ -4667,16 +4161,16 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which words show the caretaker loves the cat?",
-  "question": "Which words show the caretaker loves the cat?",
-  "spokenPrompt": "Which words show the caretaker loves the cat?",
-  "passage": "The caretaker grumbled that the school cat was 'nothing but a nuisance'. But the nuisance had a cushion in the boiler room, a bowl marked C-A-T in the caretaker's own careful letters, and on cold mornings, the first warm lap it looked for was his.",
+  "prompt": "Which detail best shows that the custodian cares for the cat?",
+  "question": "Which detail best shows that the custodian cares for the cat?",
+  "spokenPrompt": "Which detail best shows that the custodian cares for the cat?",
+  "passage": "The custodian grumbled that the school cat was 'nothing but a nuisance.' But the cat had a cushion in the utility room, a bowl marked C-A-T in the custodian's own careful letters, and on cold mornings, the first warm lap it looked for was his.",
   "cell": "evidence_pick",
   "choices": [
    "mornings were cold",
    "a bowl marked C-A-T in his own careful letters",
    "he grumbled that the cat was nothing but a nuisance",
-   "the school had a boiler room"
+   "the school had a utility room"
   ],
   "answerOptions": [
    {
@@ -4695,15 +4189,15 @@ export const questions = [
     "text": "he grumbled that the cat was nothing but a nuisance"
    },
    {
-    "value": "the school had a boiler room",
-    "label": "the school had a boiler room",
-    "text": "the school had a boiler room"
+    "value": "the school had a utility room",
+    "label": "the school had a utility room",
+    "text": "the school had a utility room"
    }
   ],
   "answer": "a bowl marked C-A-T in his own careful letters",
   "correctAnswer": "a bowl marked C-A-T in his own careful letters",
   "distractorRationales": {
-   "the school had a boiler room": "D-DETAIL-AS-MAIN",
+   "the school had a utility room": "D-DETAIL-AS-MAIN",
    "mornings were cold": "D-DETAIL-AS-MAIN",
    "he grumbled that the cat was nothing but a nuisance": "D-OPPOSITE"
   },
@@ -4716,21 +4210,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.A.evidence_pick.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4740,13 +4229,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the hand-lettered bowl is devotion in evidence form",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "the hand-lettered bowl is devotion in evidence form"
  },
  {
   "id": "lp3.inference.l2.B.evidence_pick.v8",
@@ -4768,16 +4251,16 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which words show Priti WAS scared of the thunder?",
-  "question": "Which words show Priti WAS scared of the thunder?",
-  "spokenPrompt": "Which words show Priti WAS scared of the thunder?",
-  "passage": "Priti told everyone the thunder did not scare her one bit. Still, at the first rumble she turned her music up very loud. At the second, she remembered an urgent reason to visit the kitchen, where Gran was. At the third, she decided the safest place to read was under her blanket with a torch.",
+  "prompt": "Which detail best shows that Priti was scared of the thunder?",
+  "question": "Which detail best shows that Priti was scared of the thunder?",
+  "spokenPrompt": "Which detail best shows that Priti was scared of the thunder?",
+  "passage": "Priti told everyone the thunder did not scare her one bit. Still, at the first rumble she turned her music up very loud. At the second, she found a reason to visit the kitchen, where Grandma was. At the third, she decided the safest place to read was under her blanket with a flashlight.",
   "cell": "evidence_pick",
   "choices": [
    "she hid away to read under a blanket",
    "she told everyone the thunder did not scare her one bit",
    "she owned some music",
-   "Gran was in the kitchen"
+   "Grandma was in the kitchen"
   ],
   "answerOptions": [
    {
@@ -4796,9 +4279,9 @@ export const questions = [
     "text": "she owned some music"
    },
    {
-    "value": "Gran was in the kitchen",
-    "label": "Gran was in the kitchen",
-    "text": "Gran was in the kitchen"
+    "value": "Grandma was in the kitchen",
+    "label": "Grandma was in the kitchen",
+    "text": "Grandma was in the kitchen"
    }
   ],
   "answer": "she hid away to read under a blanket",
@@ -4806,7 +4289,7 @@ export const questions = [
   "distractorRationales": {
    "she told everyone the thunder did not scare her one bit": "D-OPPOSITE",
    "she owned some music": "D-DETAIL-AS-MAIN",
-   "Gran was in the kitchen": "D-DETAIL-AS-MAIN"
+   "Grandma was in the kitchen": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4817,21 +4300,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.B.evidence_pick.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4841,13 +4319,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "escalating avoidance behaviours are the evidence chain",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "escalating avoidance behaviours are the evidence chain"
  },
  {
   "id": "lp3.inference.l1.C.feeling_from_evidence.v9",
@@ -4918,21 +4390,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.C.feeling_from_evidence.v9",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v9.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v9.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4942,13 +4409,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v9.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v9.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v9.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v9.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v9.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.A.feeling_from_evidence.v10",
@@ -4973,24 +4434,24 @@ export const questions = [
   "prompt": "How does Wren most likely feel?",
   "question": "How does Wren most likely feel?",
   "spokenPrompt": "How does Wren most likely feel?",
-  "passage": "Wren had saved her pocket money for six weeks. At the till, the shopkeeper counted her coins slowly and slid the paint set across the counter. Wren carried the bag with both hands all the way home, checking inside at every corner.",
+  "passage": "Wren had saved her money for six weeks. At the register, the cashier counted her coins slowly and slid the paint set across the counter. Wren carried the bag with both hands all the way home, checking inside at every corner.",
   "cell": "feeling_from_evidence",
   "choices": [
-   "bored by painting",
-   "proud and careful with her prize",
+   "worried about losing her coins",
+   "proud",
    "sorry she bought it",
-   "frightened of the shop"
+   "frightened of the store"
   ],
   "answerOptions": [
    {
-    "value": "bored by painting",
-    "label": "bored by painting",
-    "text": "bored by painting"
+    "value": "worried about losing her coins",
+    "label": "worried about losing her coins",
+    "text": "worried about losing her coins"
    },
    {
-    "value": "proud and careful with her prize",
-    "label": "proud and careful with her prize",
-    "text": "proud and careful with her prize"
+    "value": "proud",
+    "label": "proud",
+    "text": "proud"
    },
    {
     "value": "sorry she bought it",
@@ -4998,17 +4459,17 @@ export const questions = [
     "text": "sorry she bought it"
    },
    {
-    "value": "frightened of the shop",
-    "label": "frightened of the shop",
-    "text": "frightened of the shop"
+    "value": "frightened of the store",
+    "label": "frightened of the store",
+    "text": "frightened of the store"
    }
   ],
-  "answer": "proud and careful with her prize",
-  "correctAnswer": "proud and careful with her prize",
+  "answer": "proud",
+  "correctAnswer": "proud",
   "distractorRationales": {
    "sorry she bought it": "D-OPPOSITE",
-   "frightened of the shop": "D-PLAUSIBLE-UNSUPPORTED",
-   "bored by painting": "D-OPPOSITE"
+   "frightened of the store": "D-PLAUSIBLE-UNSUPPORTED",
+   "worried about losing her coins": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5019,21 +4480,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.A.feeling_from_evidence.v10",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v10.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v10.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5043,13 +4499,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v10.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v10.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v10.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v10.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v10.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.C.where_am_i.v9",
@@ -5078,8 +4528,8 @@ export const questions = [
   "cell": "where_am_i",
   "choices": [
    "a stadium",
-   "a cinema",
-   "a theatre with actors on stage",
+   "a movie theater",
+   "a live theater with actors on stage",
    "her bedroom"
   ],
   "answerOptions": [
@@ -5089,14 +4539,14 @@ export const questions = [
     "text": "a stadium"
    },
    {
-    "value": "a cinema",
-    "label": "a cinema",
-    "text": "a cinema"
+    "value": "a movie theater",
+    "label": "a movie theater",
+    "text": "a movie theater"
    },
    {
-    "value": "a theatre with actors on stage",
-    "label": "a theatre with actors on stage",
-    "text": "a theatre with actors on stage"
+    "value": "a live theater with actors on stage",
+    "label": "a live theater with actors on stage",
+    "text": "a live theater with actors on stage"
    },
    {
     "value": "her bedroom",
@@ -5104,10 +4554,10 @@ export const questions = [
     "text": "her bedroom"
    }
   ],
-  "answer": "a cinema",
-  "correctAnswer": "a cinema",
+  "answer": "a movie theater",
+  "correctAnswer": "a movie theater",
   "distractorRationales": {
-   "a theatre with actors on stage": "D-TOPIC-ADJACENT",
+   "a live theater with actors on stage": "D-TOPIC-ADJACENT",
    "her bedroom": "D-PLAUSIBLE-UNSUPPORTED",
    "a stadium": "D-PLAUSIBLE-UNSUPPORTED"
   },
@@ -5120,21 +4570,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.C.where_am_i.v9",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v9.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v9.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5144,13 +4589,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v9.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v9.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v9.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v9.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v9.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.A.where_am_i.v10",
@@ -5175,12 +4614,12 @@ export const questions = [
   "prompt": "Where are they?",
   "question": "Where are they?",
   "spokenPrompt": "Where are they?",
-  "passage": "Everything here had a price sticker and a wobbling tower of tins. A voice announced that spilled grapes were being cleaned on aisle four. Mum ticked the last thing off her list and steered the rattling trolley toward the shortest queue.",
+  "passage": "Everything here had a price sticker and a tall stack of cans. A voice announced that spilled grapes were being cleaned on aisle four. Mom checked the last thing off her list and steered the rattling cart toward the shortest line.",
   "cell": "where_am_i",
   "choices": [
    "a kitchen",
    "a garage",
-   "a supermarket",
+   "a grocery store",
    "a street market"
   ],
   "answerOptions": [
@@ -5195,9 +4634,9 @@ export const questions = [
     "text": "a garage"
    },
    {
-    "value": "a supermarket",
-    "label": "a supermarket",
-    "text": "a supermarket"
+    "value": "a grocery store",
+    "label": "a grocery store",
+    "text": "a grocery store"
    },
    {
     "value": "a street market",
@@ -5205,8 +4644,8 @@ export const questions = [
     "text": "a street market"
    }
   ],
-  "answer": "a supermarket",
-  "correctAnswer": "a supermarket",
+  "answer": "a grocery store",
+  "correctAnswer": "a grocery store",
   "distractorRationales": {
    "a kitchen": "D-PLAUSIBLE-UNSUPPORTED",
    "a garage": "D-OPPOSITE",
@@ -5221,21 +4660,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.A.where_am_i.v10",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v10.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v10.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5245,13 +4679,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v10.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v10.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v10.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v10.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v10.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.R.what_happens_next.v9r",
@@ -5322,21 +4750,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.R.what_happens_next.v9r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v9r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v9r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5346,13 +4769,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v9r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v9r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v9r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v9r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v9r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.R.what_happens_next.v10r",
@@ -5377,7 +4794,7 @@ export const questions = [
   "prompt": "What will Josh most likely do?",
   "question": "What will Josh most likely do?",
   "spokenPrompt": "What will Josh most likely do?",
-  "passage": "Snow had fallen all night, thick and perfect. Two carrots, a scarf, and a bag of coal buttons waited by the back door. Josh pulled on his mittens and pushed the door open into the white garden.",
+  "passage": "Snow had fallen all night, thick and perfect. Two carrots, a scarf, and a bag of black buttons waited by the back door. Josh pulled on his mittens and pushed the door open into the white yard.",
   "cell": "what_happens_next",
   "choices": [
    "go back to bed",
@@ -5423,21 +4840,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.R.what_happens_next.v10r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v10r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v10r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5447,13 +4859,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v10r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v10r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v10r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v10r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v10r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.R.feeling_from_evidence.v11r",
@@ -5478,11 +4884,11 @@ export const questions = [
   "prompt": "How did Ola feel about the slide by the end?",
   "question": "How did Ola feel about the slide by the end?",
   "spokenPrompt": "How did Ola feel about the slide by the end?",
-  "passage": "It was Ola's turn on the tall slide at last. From the top, the ground looked very far away. She gripped the rail, sang her favourite song under her breath, and let go. At the bottom she shouted, 'AGAIN!'",
+  "passage": "It was Ola's turn on the tall slide at last. From the top, the ground looked very far away. She gripped the rail, sang her favorite song under her breath, and let go. At the bottom she shouted, 'AGAIN!'",
   "cell": "feeling_from_evidence",
   "choices": [
    "too scared to try again",
-   "cross with the queue",
+   "angry about the line",
    "bored",
    "excited"
   ],
@@ -5493,9 +4899,9 @@ export const questions = [
     "text": "too scared to try again"
    },
    {
-    "value": "cross with the queue",
-    "label": "cross with the queue",
-    "text": "cross with the queue"
+    "value": "angry about the line",
+    "label": "angry about the line",
+    "text": "angry about the line"
    },
    {
     "value": "bored",
@@ -5513,7 +4919,7 @@ export const questions = [
   "distractorRationales": {
    "bored": "D-OPPOSITE",
    "too scared to try again": "D-SEQUENCE-SWAP",
-   "cross with the queue": "D-PLAUSIBLE-UNSUPPORTED"
+   "angry about the line": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5524,21 +4930,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.R.feeling_from_evidence.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-r-feeling-from-evidence-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-r-feeling-from-evidence-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-r-feeling-from-evidence-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5548,13 +4949,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-r-feeling-from-evidence-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-r-feeling-from-evidence-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-r-feeling-from-evidence-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-r-feeling-from-evidence-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-r-feeling-from-evidence-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l1.R.where_am_i.v11r",
@@ -5579,7 +4974,7 @@ export const questions = [
   "prompt": "Where does this take place?",
   "question": "Where does this take place?",
   "spokenPrompt": "Where does this take place?",
-  "passage": "White coats hurried past on soft shoes. A machine somewhere beeped a steady, patient beep. Gran sat up in the high bed and grinned at the grapes they had brought her.",
+  "passage": "White coats hurried past on soft shoes. A machine somewhere beeped a steady, patient beep. Grandma sat up in the high bed and smiled at the grapes they had brought her.",
   "cell": "where_am_i",
   "choices": [
    "a hospital",
@@ -5625,21 +5020,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l1.R.where_am_i.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l1-r-where-am-i-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-r-where-am-i-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-r-where-am-i-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5649,13 +5039,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-r-where-am-i-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-r-where-am-i-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-r-where-am-i-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-r-where-am-i-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-r-where-am-i-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.C.why_did_they.v9",
@@ -5680,13 +5064,13 @@ export const questions = [
   "prompt": "Why did Ade hide the dinosaur?",
   "question": "Why did Ade hide the dinosaur?",
   "spokenPrompt": "Why did Ade hide the dinosaur?",
-  "passage": "Half an hour before the guests arrived, Ade hid his favourite dinosaur under his pillow. His baby cousins were coming, and last time, the smallest one had chewed the tail of his second-favourite dinosaur into a soggy stump.",
+  "passage": "Half an hour before the guests arrived, Ade hid his favorite dinosaur under his pillow. His baby cousins were coming, and last time, the smallest one had chewed the tail of his second-favorite dinosaur into a soggy stump.",
   "cell": "why_did_they",
   "choices": [
    "he wanted to sleep with it",
    "to keep it safe from his little cousins",
    "he was tired of dinosaurs",
-   "his mum told him to tidy his whole room"
+   "his mom told him to clean his whole room"
   ],
   "answerOptions": [
    {
@@ -5705,15 +5089,15 @@ export const questions = [
     "text": "he was tired of dinosaurs"
    },
    {
-    "value": "his mum told him to tidy his whole room",
-    "label": "his mum told him to tidy his whole room",
-    "text": "his mum told him to tidy his whole room"
+    "value": "his mom told him to clean his whole room",
+    "label": "his mom told him to clean his whole room",
+    "text": "his mom told him to clean his whole room"
    }
   ],
   "answer": "to keep it safe from his little cousins",
   "correctAnswer": "to keep it safe from his little cousins",
   "distractorRationales": {
-   "his mum told him to tidy his whole room": "D-PLAUSIBLE-UNSUPPORTED",
+   "his mom told him to clean his whole room": "D-PLAUSIBLE-UNSUPPORTED",
    "he wanted to sleep with it": "D-PLAUSIBLE-UNSUPPORTED",
    "he was tired of dinosaurs": "D-OPPOSITE"
   },
@@ -5726,21 +5110,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.C.why_did_they.v9",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v9.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v9.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5750,13 +5129,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v9.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v9.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v9.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v9.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v9.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.A.why_did_they.v10",
@@ -5781,7 +5154,7 @@ export const questions = [
   "prompt": "Why did the owner most likely make these changes?",
   "question": "Why did the owner most likely make these changes?",
   "spokenPrompt": "Why did the owner most likely make these changes?",
-  "passage": "The cafe owner started opening one hour earlier, at six. She put out a basket of day-old rolls marked 'help yourself' and left the outside light on in the dark mornings. The bin men, the postwoman, and the night-shift nurses began to wave through the window like old friends.",
+  "passage": "The cafe owner started opening one hour earlier, at six. She put out a basket of day-old rolls marked 'help yourself' and left the outside light on in the dark mornings. Sanitation workers, the mail carrier, and night-shift nurses began to wave through the window like old friends.",
   "cell": "why_did_they",
   "choices": [
    "because she could not sleep",
@@ -5827,21 +5200,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.A.why_did_they.v10",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v10.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v10.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5851,13 +5219,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v10.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v10.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v10.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v10.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v10.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.C.what_went_unsaid.v9",
@@ -5928,21 +5290,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.C.what_went_unsaid.v9",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v9.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v9.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5952,13 +5309,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v9.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v9.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v9.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v9.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v9.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.A.what_went_unsaid.v10",
@@ -5983,7 +5334,7 @@ export const questions = [
   "prompt": "What is Dad most likely hiding?",
   "question": "What is Dad most likely hiding?",
   "spokenPrompt": "What is Dad most likely hiding?",
-  "passage": "Dad came home from the allotment whistling, which he never did. His muddy bag, usually flat, bulged in one huge round shape. He hid it behind his back through the whole kitchen, then said, far too casually, 'So... is the village show still on Saturday?'",
+  "passage": "Dad came home from the community garden whistling, which he never did. His muddy bag, usually flat, bulged in one huge round shape. He hid it behind his back through the kitchen, then asked, far too casually, 'Is the community fair still on Saturday?'",
   "cell": "what_went_unsaid",
   "choices": [
    "his usual flat and empty muddy bag",
@@ -6029,21 +5380,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.A.what_went_unsaid.v10",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v10.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v10.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6053,13 +5399,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v10.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v10.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v10.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v10.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v10.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.R.evidence_pick.v9r",
@@ -6081,15 +5421,15 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which words show Sol truly cared about the lambs?",
-  "question": "Which words show Sol truly cared about the lambs?",
-  "spokenPrompt": "Which words show Sol truly cared about the lambs?",
-  "passage": "Sol said the baby lambs were 'fine, whatever'. But he was first up in the cold every morning to warm their bottles. He gave up Saturday football when the smallest lamb was poorly, and he kept a photo of it standing up for the first time.",
+  "prompt": "Which detail best shows that Sol cared about the lambs?",
+  "question": "Which detail best shows that Sol cared about the lambs?",
+  "spokenPrompt": "Which detail best shows that Sol cared about the lambs?",
+  "passage": "Sol said the baby lambs were 'fine, whatever.' But he was first up in the cold every morning to warm their bottles. He gave up Saturday soccer when the smallest lamb was sick, and he kept a photo of it standing up for the first time.",
   "cell": "evidence_pick",
   "choices": [
    "he was first up every morning to warm their bottles",
    "he said the baby lambs were fine, whatever",
-   "there was football on Saturday",
+   "there was soccer on Saturday",
    "mornings were cold"
   ],
   "answerOptions": [
@@ -6104,9 +5444,9 @@ export const questions = [
     "text": "he said the baby lambs were fine, whatever"
    },
    {
-    "value": "there was football on Saturday",
-    "label": "there was football on Saturday",
-    "text": "there was football on Saturday"
+    "value": "there was soccer on Saturday",
+    "label": "there was soccer on Saturday",
+    "text": "there was soccer on Saturday"
    },
    {
     "value": "mornings were cold",
@@ -6119,7 +5459,7 @@ export const questions = [
   "distractorRationales": {
    "mornings were cold": "D-DETAIL-AS-MAIN",
    "he said the baby lambs were fine, whatever": "D-OPPOSITE",
-   "there was football on Saturday": "D-DETAIL-AS-MAIN"
+   "there was soccer on Saturday": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6130,21 +5470,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.R.evidence_pick.v9r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v9r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v9r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6154,13 +5489,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v9r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v9r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v9r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v9r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v9r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.R.evidence_pick.v10r",
@@ -6182,45 +5511,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which words show there probably WAS a mouse?",
-  "question": "Which words show there probably WAS a mouse?",
-  "spokenPrompt": "Which words show there probably WAS a mouse?",
-  "passage": "The head teacher announced that the school definitely, absolutely did not have a mouse. Meanwhile, the caretaker was seen carrying a tiny humane trap and a jar of peanut butter toward the store room, and the cook had moved every open sack of flour onto the highest shelf.",
+  "prompt": "Which detail shows someone expected to catch a mouse?",
+  "question": "Which detail shows someone expected to catch a mouse?",
+  "spokenPrompt": "Which detail shows someone expected to catch a mouse?",
+  "passage": "The principal announced that the school definitely did not have a mouse. Meanwhile, the custodian carried a humane trap and a jar of peanut butter toward the storage room. In the kitchen, the cook continued rolling bread dough below the flour shelf.",
   "cell": "evidence_pick",
   "choices": [
-   "the cook moved every open sack of flour up high",
-   "a humane trap and peanut butter went to the store room",
-   "the head said the school absolutely had no mouse",
-   "the school had a store room"
+   "the cook rolled bread dough",
+   "the caretaker brought bait and catching equipment",
+   "the principal said the school had no mouse",
+   "the school had a storage room"
   ],
   "answerOptions": [
    {
-    "value": "the cook moved every open sack of flour up high",
-    "label": "the cook moved every open sack of flour up high",
-    "text": "the cook moved every open sack of flour up high"
+    "value": "the cook rolled bread dough",
+    "label": "the cook rolled bread dough",
+    "text": "the cook rolled bread dough"
    },
    {
-    "value": "a humane trap and peanut butter went to the store room",
-    "label": "a humane trap and peanut butter went to the store room",
-    "text": "a humane trap and peanut butter went to the store room"
+    "value": "the caretaker brought bait and catching equipment",
+    "label": "the caretaker brought bait and catching equipment",
+    "text": "the caretaker brought bait and catching equipment"
    },
    {
-    "value": "the head said the school absolutely had no mouse",
-    "label": "the head said the school absolutely had no mouse",
-    "text": "the head said the school absolutely had no mouse"
+    "value": "the principal said the school had no mouse",
+    "label": "the principal said the school had no mouse",
+    "text": "the principal said the school had no mouse"
    },
    {
-    "value": "the school had a store room",
-    "label": "the school had a store room",
-    "text": "the school had a store room"
+    "value": "the school had a storage room",
+    "label": "the school had a storage room",
+    "text": "the school had a storage room"
    }
   ],
-  "answer": "a humane trap and peanut butter went to the store room",
-  "correctAnswer": "a humane trap and peanut butter went to the store room",
+  "answer": "the caretaker brought bait and catching equipment",
+  "correctAnswer": "the caretaker brought bait and catching equipment",
   "distractorRationales": {
-   "the head said the school absolutely had no mouse": "D-OPPOSITE",
-   "the school had a store room": "D-DETAIL-AS-MAIN",
-   "the cook moved every open sack of flour up high": "D-DETAIL-AS-MAIN"
+   "the principal said the school had no mouse": "D-OPPOSITE",
+   "the school had a storage room": "D-DETAIL-AS-MAIN",
+   "the cook rolled bread dough": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6231,21 +5560,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.R.evidence_pick.v10r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v10r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v10r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6255,13 +5579,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v10r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v10r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v10r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v10r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v10r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.R.why_did_they.v11r",
@@ -6286,7 +5604,7 @@ export const questions = [
   "prompt": "Why did Nina wrap the book?",
   "question": "Why did Nina wrap the book?",
   "spokenPrompt": "Why did Nina wrap the book?",
-  "passage": "Nina wrapped her library book in a plastic bag before putting it in her rucksack, even though the sky was blue. Her water bottle had leaked once before, all over her spelling homework, and the librarian's eyebrows were famous across three year groups.",
+  "passage": "Nina wrapped her library book in a plastic bag before putting it in her backpack, even though the sky was blue. Her water bottle had leaked once before and soaked her spelling homework. The librarian had reminded the class that books must stay dry.",
   "cell": "why_did_they",
   "choices": [
    "to hide the book from her friends",
@@ -6332,21 +5650,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.R.why_did_they.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-r-why-did-they-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-r-why-did-they-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-r-why-did-they-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6356,13 +5669,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-r-why-did-they-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-r-why-did-they-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-r-why-did-they-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-r-why-did-they-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-r-why-did-they-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.inference.l2.R.what_went_unsaid.v11r",
@@ -6387,19 +5694,19 @@ export const questions = [
   "prompt": "What makes the plants lean?",
   "question": "What makes the plants lean?",
   "spokenPrompt": "What makes the plants lean?",
-  "passage": "Every plant on the windowsill leaned the same way, like dancers frozen mid-bow. The cactus alone stood up straight. Gran turned each pot half a circle, and by the next week, the leaners were bowing toward the window all over again.",
+  "passage": "Every plant on the windowsill leaned toward the same side. The cactus alone stood straight. Grandma turned each pot halfway around, and by the next week, the other plants were leaning toward the window again.",
   "cell": "what_went_unsaid",
   "choices": [
-   "Gran turning the pots knocks each plant sideways",
+   "Grandma turning the pots knocks each plant sideways",
    "the wind pushes them",
    "the pots are broken",
    "they grow toward the light from the window"
   ],
   "answerOptions": [
    {
-    "value": "Gran turning the pots knocks each plant sideways",
-    "label": "Gran turning the pots knocks each plant sideways",
-    "text": "Gran turning the pots knocks each plant sideways"
+    "value": "Grandma turning the pots knocks each plant sideways",
+    "label": "Grandma turning the pots knocks each plant sideways",
+    "text": "Grandma turning the pots knocks each plant sideways"
    },
    {
     "value": "the wind pushes them",
@@ -6421,7 +5728,7 @@ export const questions = [
   "correctAnswer": "they grow toward the light from the window",
   "distractorRationales": {
    "the pots are broken": "D-PLAUSIBLE-UNSUPPORTED",
-   "Gran turning the pots knocks each plant sideways": "D-OPPOSITE",
+   "Grandma turning the pots knocks each plant sideways": "D-OPPOSITE",
    "the wind pushes them": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
@@ -6433,21 +5740,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.inference.l2.R.what_went_unsaid.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-inference-l2-r-what-went-unsaid-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-r-what-went-unsaid-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-r-what-went-unsaid-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6457,12 +5759,6 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-r-what-went-unsaid-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-r-what-went-unsaid-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-r-what-went-unsaid-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-r-what-went-unsaid-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-r-what-went-unsaid-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  }
 ];

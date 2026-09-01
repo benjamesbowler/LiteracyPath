@@ -713,6 +713,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [1, 3, 9, 10]
   },
   {
+    id: "assessment-audio-audibility",
+    label: "All active assessment audio resolves to decodable, audible Leda recordings",
+    command: ["npm", "run", "check:assessment-audio-audibility"],
+    areas: [1, 3, 4, 9, 10]
+  },
+  {
     id: "media-review-release",
     label: "Media is accepted under continuous review while reported defects remain quarantined",
     command: ["npm", "run", "check:media-review-beta"],

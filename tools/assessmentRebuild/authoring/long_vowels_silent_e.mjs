@@ -9,14 +9,16 @@ import { makeImageResolver } from "../lib.mjs";
 const P = (t, r) => ({ t, r });                      // distractor
 const K = t => ({ t, r: "KEY", k: true });          // key
 const PATTERNS = { a: "a_e", i: "i_e", o: "o_e", u: "u_e", e: "e_e" };
+const sentenceCase = value => value ? `${value[0].toUpperCase()}${value.slice(1)}` : value;
 
 // Pattern-choice item: picture + blanked word → choose the VCe pattern.
-const pat = (u, lvl, ph, v, img, blanked, spokenWord, distractors, extra = {}) => ({
-  u, lvl, ph, v, fmt: "LONG_VOWEL_SILENT_E_PATTERN", img,
-  prompt: `Look at the picture. Which pattern finishes the word: ${blanked}?`,
-  spoken: `${spokenWord}. Which pattern finishes the word ${spokenWord}?`,
+const pat = (u, lvl, ph, v, _img, blanked, spokenWord, distractors, extra = {}) => ({
+  u, lvl, ph, v, fmt: "LONG_VOWEL_SILENT_E_PATTERN",
+  prompt: `Which vowel pattern completes ${blanked}?`,
+  spoken: `${sentenceCase(spokenWord)}. Which vowel pattern completes the word?`,
   choices: [K(PATTERNS[u[0]]), ...distractors.map(d => P(PATTERNS[d] || d, d === "trap" ? "D-PATTERN-TRAP" : "D-VOWEL"))],
-  media: "image-required",
+  media: "audio-required",
+  target: spokenWord,
   note: `encode ${spokenWord} as ${PATTERNS[u[0]]}`,
   ...extra
 });
@@ -45,7 +47,7 @@ const strip = (u, lvl, ph, v, made, base, distractors) => ({
 const cps = (u, lvl, ph, v, vowel, key, distractors) => ({
   u, lvl, ph, v, fmt: "CPS", cross: `long_${vowel}`,
   prompt: `Which word has the long ${vowel} sound?`,
-  spoken: `Which word has the long ${vowel} sound, the ${vowel} that says its own name?`,
+  spoken: `Which word has a long ${vowel} sound?`,
   choices: [K(key), ...distractors],
   media: "text",
   note: `long-${vowel} CPS; short-vowel trap shares letters, not sound`
@@ -116,12 +118,13 @@ export default {
     strip("o_e", 2, 2, 3, "hope", "hop", [P("hope", "D-PATTERN-TRAP"), P("hip", "D-VOWEL"), P("hen", "D-VOWEL")]),
     strip("o_e", 2, 2, 4, "robe", "rob", [P("robe", "D-PATTERN-TRAP"), P("rub", "D-VOWEL"), P("red", "D-VOWEL")]),
     {
-      u: "o_e", lvl: 2, ph: 2, v: 5, fmt: "LONG_VOWEL_SILENT_E_PATTERN", img: "cone",
-      prompt: "Look at the picture. Which pattern finishes the word: c_n_?",
-      spoken: "Cone. Which pattern finishes the word cone?",
+      u: "o_e", lvl: 2, ph: 2, v: 5, fmt: "LONG_VOWEL_SILENT_E_PATTERN",
+      prompt: "Which vowel pattern completes c_n_?",
+      spoken: "Cone. Which vowel pattern completes the word?",
       choices: [K("o_e"), P("a_e", "D-PATTERN-TRAP"), P("u_e", "D-VOWEL"), P("i_e", "D-VOWEL")],
-      media: "image-required",
-      note: "hard item: c_n_ + a_e spells cane, a real competing word — the picture decides"
+      media: "audio-required",
+      target: "cone",
+      note: "hard item: c_n_ + a_e spells cane, a real competing word — the spoken target decides"
     },
     pat("o_e", 2, 2, 6, "note", "n_t_", "note", ["u", "a", "i"]),
 

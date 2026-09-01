@@ -24,7 +24,7 @@ export const questions = [
   "prompt": "What happened BECAUSE the nights were so cold?",
   "question": "What happened BECAUSE the nights were so cold?",
   "spokenPrompt": "What happened BECAUSE the nights were so cold?",
-  "passage": "All week the nights were freezing cold. By Saturday, the park pond wore a lid of grey ice. The ducks stood on top of it, looking puzzled, and slid about on flat orange feet.",
+  "passage": "All week the nights were freezing cold. By Saturday, gray ice covered the park pond. The ducks stood on top of it and slid on their flat orange feet.",
   "cell": "find_effect",
   "choices": [
    "the pond froze over",
@@ -70,21 +70,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.A.find_effect.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -94,13 +89,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.B.find_effect.v2",
@@ -171,21 +160,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.B.find_effect.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -195,13 +179,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.C.find_effect.v3",
@@ -223,27 +201,27 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What happened after Gran oiled the hinge?",
-  "question": "What happened after Gran oiled the hinge?",
-  "spokenPrompt": "What happened after Gran oiled the hinge?",
-  "passage": "Gran put three drops of oil on the door hinge. She swung the door back and forth to work the oil in. After that, the door opened without its awful screech, and the baby could nap in peace.",
+  "prompt": "What happened BECAUSE Grandma oiled the hinge?",
+  "question": "What happened BECAUSE Grandma oiled the hinge?",
+  "spokenPrompt": "What happened BECAUSE Grandma oiled the hinge?",
+  "passage": "Grandma put three drops of oil on the door hinge. She swung the door back and forth to work the oil in. After that, the door opened without its awful screech, and the baby could nap in peace.",
   "cell": "find_effect",
   "choices": [
-   "Gran bought a new door",
-   "the baby woke up crying",
+   "Grandma bought a new door",
+   "the baby slept in a different room",
    "the door stopped screeching",
    "the door screeched louder"
   ],
   "answerOptions": [
    {
-    "value": "Gran bought a new door",
-    "label": "Gran bought a new door",
-    "text": "Gran bought a new door"
+    "value": "Grandma bought a new door",
+    "label": "Grandma bought a new door",
+    "text": "Grandma bought a new door"
    },
    {
-    "value": "the baby woke up crying",
-    "label": "the baby woke up crying",
-    "text": "the baby woke up crying"
+    "value": "the baby slept in a different room",
+    "label": "the baby slept in a different room",
+    "text": "the baby slept in a different room"
    },
    {
     "value": "the door stopped screeching",
@@ -259,9 +237,9 @@ export const questions = [
   "answer": "the door stopped screeching",
   "correctAnswer": "the door stopped screeching",
   "distractorRationales": {
-   "the baby woke up crying": "D-OPPOSITE",
+   "the baby slept in a different room": "D-PLAUSIBLE-UNSUPPORTED",
    "the door screeched louder": "D-OPPOSITE",
-   "Gran bought a new door": "D-PLAUSIBLE-UNSUPPORTED"
+   "Grandma bought a new door": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -272,21 +250,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.C.find_effect.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -296,13 +269,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.A.find_effect.v4",
@@ -327,7 +294,7 @@ export const questions = [
   "prompt": "What happened because the plant had no water?",
   "question": "What happened because the plant had no water?",
   "spokenPrompt": "What happened because the plant had no water?",
-  "passage": "Nobody watered the classroom plant over half term. When the children came back, its leaves hung down like tired flags, and the soil in the pot was hard and pale.",
+  "passage": "Nobody watered the classroom plant during the school break. When the children came back, its leaves drooped, and the soil in the pot was hard and pale.",
   "cell": "find_effect",
   "choices": [
    "its flowers turned blue",
@@ -373,21 +340,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.A.find_effect.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -397,13 +359,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.B.find_effect.v5",
@@ -474,21 +430,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.B.find_effect.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -498,13 +449,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.C.find_effect.v6",
@@ -529,11 +474,11 @@ export const questions = [
   "prompt": "What happened because Leah rubbed the balloon?",
   "question": "What happened because Leah rubbed the balloon?",
   "spokenPrompt": "What happened because Leah rubbed the balloon?",
-  "passage": "Leah rubbed the balloon on her jumper ten times. Then she held it just above her head. Her hair rose up toward the balloon in thin strands, as if it wanted to follow it around the room.",
+  "passage": "Leah rubbed the balloon on her sweater ten times. Then she held it just above her head. Her hair rose up toward the balloon in thin strands.",
   "cell": "find_effect",
   "choices": [
    "the balloon popped",
-   "her jumper changed colour",
+   "her sweater changed color",
    "she held it above her head",
    "her hair stuck up toward it"
   ],
@@ -544,9 +489,9 @@ export const questions = [
     "text": "the balloon popped"
    },
    {
-    "value": "her jumper changed colour",
-    "label": "her jumper changed colour",
-    "text": "her jumper changed colour"
+    "value": "her sweater changed color",
+    "label": "her sweater changed color",
+    "text": "her sweater changed color"
    },
    {
     "value": "she held it above her head",
@@ -563,7 +508,7 @@ export const questions = [
   "correctAnswer": "her hair stuck up toward it",
   "distractorRationales": {
    "the balloon popped": "D-PLAUSIBLE-UNSUPPORTED",
-   "her jumper changed colour": "D-PLAUSIBLE-UNSUPPORTED",
+   "her sweater changed color": "D-PLAUSIBLE-UNSUPPORTED",
    "she held it above her head": "D-CAUSE-REVERSE"
   },
   "mediaTier": "text",
@@ -575,21 +520,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.C.find_effect.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -599,13 +539,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.A.find_effect.v7",
@@ -630,7 +564,7 @@ export const questions = [
   "prompt": "What happened because of the deep snow?",
   "question": "What happened because of the deep snow?",
   "spokenPrompt": "What happened because of the deep snow?",
-  "passage": "Snow fell all night without stopping. By morning it lay deeper than Papa's boots. The radio read a list of closed schools, and Amini's school was third on the list.",
+  "passage": "Snow fell all night without stopping. By morning it lay deeper than Papa's boots. A radio announcer read a list of closed schools, and Amini's school was third on the list.",
   "cell": "find_effect",
   "choices": [
    "Papa lost his boots",
@@ -676,21 +610,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.A.find_effect.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -700,13 +629,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.B.find_effect.v8",
@@ -764,7 +687,7 @@ export const questions = [
   "answer": "popcorn jumped out of the pot",
   "correctAnswer": "popcorn jumped out of the pot",
   "distractorRationales": {
-   "Omar pressed the lid on": "D-OPPOSITE",
+   "Omar pressed the lid on": "D-SEQUENCE-SWAP",
    "the corn would not pop": "D-OPPOSITE",
    "the pot went cold": "D-PLAUSIBLE-UNSUPPORTED"
   },
@@ -777,21 +700,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.B.find_effect.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -801,13 +719,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.A.find_cause.v1",
@@ -878,21 +790,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.A.find_cause.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -902,13 +809,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.B.find_cause.v2",
@@ -930,22 +831,22 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "How did Bruno know someone was coming?",
-  "question": "How did Bruno know someone was coming?",
-  "spokenPrompt": "How did Bruno know someone was coming?",
-  "passage": "Bruno barked before anyone knocked. Two seconds later, the doorbell rang, and the delivery man stood on the step. Bruno's ears had heard the gate creak long before any human did.",
+  "prompt": "Why did Bruno bark before the knock?",
+  "question": "Why did Bruno bark before the knock?",
+  "spokenPrompt": "Why did Bruno bark before the knock?",
+  "passage": "Bruno barked before anyone knocked. Two seconds later, the doorbell rang, and a delivery worker stood on the step. Bruno had heard the gate creak long before any person did.",
   "cell": "find_cause",
   "choices": [
-   "his ears noticed movement at the entrance",
+   "he noticed a noise outside first",
    "he saw the doorbell ring",
    "he smelled the dinner",
-   "the delivery man called his name"
+   "the delivery worker called his name"
   ],
   "answerOptions": [
    {
-    "value": "his ears noticed movement at the entrance",
-    "label": "his ears noticed movement at the entrance",
-    "text": "his ears noticed movement at the entrance"
+    "value": "he noticed a noise outside first",
+    "label": "he noticed a noise outside first",
+    "text": "he noticed a noise outside first"
    },
    {
     "value": "he saw the doorbell ring",
@@ -958,15 +859,15 @@ export const questions = [
     "text": "he smelled the dinner"
    },
    {
-    "value": "the delivery man called his name",
-    "label": "the delivery man called his name",
-    "text": "the delivery man called his name"
+    "value": "the delivery worker called his name",
+    "label": "the delivery worker called his name",
+    "text": "the delivery worker called his name"
    }
   ],
-  "answer": "his ears noticed movement at the entrance",
-  "correctAnswer": "his ears noticed movement at the entrance",
+  "answer": "he noticed a noise outside first",
+  "correctAnswer": "he noticed a noise outside first",
   "distractorRationales": {
-   "the delivery man called his name": "D-PLAUSIBLE-UNSUPPORTED",
+   "the delivery worker called his name": "D-PLAUSIBLE-UNSUPPORTED",
    "he saw the doorbell ring": "D-SEQUENCE-SWAP",
    "he smelled the dinner": "D-PLAUSIBLE-UNSUPPORTED"
   },
@@ -979,21 +880,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.B.find_cause.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1003,13 +899,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.C.find_cause.v3",
@@ -1080,21 +970,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.C.find_cause.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1104,13 +989,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.A.find_cause.v4",
@@ -1135,7 +1014,7 @@ export const questions = [
   "prompt": "Why was the ice cream dripping?",
   "question": "Why was the ice cream dripping?",
   "spokenPrompt": "Why was the ice cream dripping?",
-  "passage": "By the end of the walk, Milly was carrying her ice cream cone at a slant, licking fast. Sweet white drips raced down her fingers and dotted the pavement behind her like a trail.",
+  "passage": "The afternoon sun felt warm. By the end of the walk, Milly was carrying her ice cream cone at a slant and licking fast. White drips ran down her fingers and dotted the sidewalk.",
   "cell": "find_cause",
   "choices": [
    "the warm day was melting it",
@@ -1181,21 +1060,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.A.find_cause.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1205,13 +1079,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "licking fast is the RESPONSE to melting, not the cause of drips",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "licking fast is the RESPONSE to melting, not the cause of drips"
  },
  {
   "id": "lp3.cause_effect.l1.B.find_cause.v5",
@@ -1282,21 +1150,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.B.find_cause.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1306,13 +1169,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.C.find_cause.v6",
@@ -1383,21 +1240,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.C.find_cause.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1407,13 +1259,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.A.find_cause.v7",
@@ -1438,7 +1284,7 @@ export const questions = [
   "prompt": "Why did the castle turn into a smooth hill?",
   "question": "Why did the castle turn into a smooth hill?",
   "spokenPrompt": "Why did the castle turn into a smooth hill?",
-  "passage": "At the beach, Rosa built her sandcastle close to the shining wet sand. She worked on it all afternoon. By teatime, the sea had crept up the beach, and her castle softened into a smooth little hill.",
+  "passage": "At the beach, Rosa built her sandcastle close to the shining wet sand. She worked on it all afternoon. By late afternoon, the sea had moved up the beach, and her castle softened into a smooth little hill.",
   "cell": "find_cause",
   "choices": [
    "a dog dug it up",
@@ -1484,21 +1330,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.A.find_cause.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1508,13 +1349,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.B.find_cause.v8",
@@ -1539,7 +1374,7 @@ export const questions = [
   "prompt": "Why did one pair of curtains go pale?",
   "question": "Why did one pair of curtains go pale?",
   "spokenPrompt": "Why did one pair of curtains go pale?",
-  "passage": "All the curtains in the front room used to be deep blue. The pair by the big sunny window are now pale, almost grey, while the pair in the shady corner still look brand new.",
+  "passage": "All the curtains in the front room used to be deep blue. The pair by the big sunny window are now pale, almost gray, while the pair in the shady corner still look brand new.",
   "cell": "find_cause",
   "choices": [
    "the shady corner protected them",
@@ -1585,21 +1420,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.B.find_cause.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1609,13 +1439,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.A.because_sentence.v1",
@@ -1637,9 +1461,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Choose the sentence that says it best.",
-  "question": "Choose the sentence that says it best.",
-  "spokenPrompt": "Choose the sentence that says it best.",
+  "prompt": "Which sentence correctly explains the cause and effect?",
+  "question": "Which sentence correctly explains the cause and effect?",
+  "spokenPrompt": "Which sentence correctly explains the cause and effect?",
   "passage": "The moth circled the porch light for the tenth time. Round and round it went, tapping the warm glass, ignoring the whole dark garden behind it.",
   "cell": "because_sentence",
   "choices": [
@@ -1686,21 +1510,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.A.because_sentence.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1710,13 +1529,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.B.because_sentence.v2",
@@ -1738,10 +1551,10 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Choose the sentence that says it best.",
-  "question": "Choose the sentence that says it best.",
-  "spokenPrompt": "Choose the sentence that says it best.",
-  "passage": "Pia's shoes had fitted at the start of summer. Now her toes pressed the ends, and by home time her feet ached. Mum measured her feet and laughed: a whole size bigger.",
+  "prompt": "Which sentence correctly explains the cause and effect?",
+  "question": "Which sentence correctly explains the cause and effect?",
+  "spokenPrompt": "Which sentence correctly explains the cause and effect?",
+  "passage": "Pia's shoes had fitted at the start of summer. Now her toes pressed the ends, and by home time her feet ached. Mom measured her feet: a whole size bigger.",
   "cell": "because_sentence",
   "choices": [
    "Pia's feet grew because her shoes hurt.",
@@ -1787,21 +1600,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.B.because_sentence.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1811,13 +1619,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.C.because_sentence.v3",
@@ -1839,9 +1641,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Choose the sentence that says it best.",
-  "question": "Choose the sentence that says it best.",
-  "spokenPrompt": "Choose the sentence that says it best.",
+  "prompt": "Which sentence correctly explains the cause and effect?",
+  "question": "Which sentence correctly explains the cause and effect?",
+  "spokenPrompt": "Which sentence correctly explains the cause and effect?",
   "passage": "Nobody wrapped the bread after breakfast. It sat on the board all day and all night. By morning the slices were hard at the edges and curled up like little rooftops.",
   "cell": "because_sentence",
   "choices": [
@@ -1888,21 +1690,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.C.because_sentence.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1912,13 +1709,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.A.because_sentence.v4",
@@ -1940,10 +1731,10 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Choose the sentence that says it best.",
-  "question": "Choose the sentence that says it best.",
-  "spokenPrompt": "Choose the sentence that says it best.",
-  "passage": "The little ramp was set up on the rug. Kip let go of the marble at the top. It rolled faster and faster, shot off the end, and did not stop until it clicked against the skirting board.",
+  "prompt": "Which sentence correctly explains the cause and effect?",
+  "question": "Which sentence correctly explains the cause and effect?",
+  "spokenPrompt": "Which sentence correctly explains the cause and effect?",
+  "passage": "The little ramp was set up on the rug. Kip let go of the marble at the top. It rolled faster and faster, shot off the end, and did not stop until it clicked against the baseboard.",
   "cell": "because_sentence",
   "choices": [
    "The ramp sloped because the marble rolled.",
@@ -1989,21 +1780,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.A.because_sentence.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2013,13 +1799,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.B.because_sentence.v5",
@@ -2041,9 +1821,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Choose the sentence that says it best.",
-  "question": "Choose the sentence that says it best.",
-  "spokenPrompt": "Choose the sentence that says it best.",
+  "prompt": "Which sentence correctly explains the cause and effect?",
+  "question": "Which sentence correctly explains the cause and effect?",
+  "spokenPrompt": "Which sentence correctly explains the cause and effect?",
   "passage": "It rained hard all morning. When it stopped, the path through the grass was dotted with worms, dozens of them, stretched out on the wet stones.",
   "cell": "because_sentence",
   "choices": [
@@ -2090,21 +1870,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.B.because_sentence.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2114,13 +1889,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.C.because_sentence.v6",
@@ -2142,22 +1911,22 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Choose the sentence that says it best.",
-  "question": "Choose the sentence that says it best.",
-  "spokenPrompt": "Choose the sentence that says it best.",
-  "passage": "Ivy laughed first, at nothing much at all. Then her brother caught it, then Dad, then even Grandma behind her newspaper. Soon the whole room was laughing and nobody could say why.",
+  "prompt": "Which sentence correctly explains the cause and effect?",
+  "question": "Which sentence correctly explains the cause and effect?",
+  "spokenPrompt": "Which sentence correctly explains the cause and effect?",
+  "passage": "The dog walked into the room wearing Dad's hat. Ivy laughed first. Then her brother, Dad, and Grandma all saw the dog and began laughing too.",
   "cell": "because_sentence",
   "choices": [
-   "Ivy laughed because the family was laughing.",
+   "The dog wore the hat because the family laughed.",
    "The family laughed because the newspaper was funny.",
    "Grandma stopped laughing because of Dad.",
-   "The family laughed because laughing spreads."
+   "The family laughed because the dog wore Dad's hat."
   ],
   "answerOptions": [
    {
-    "value": "Ivy laughed because the family was laughing.",
-    "label": "Ivy laughed because the family was laughing.",
-    "text": "Ivy laughed because the family was laughing."
+    "value": "The dog wore the hat because the family laughed.",
+    "label": "The dog wore the hat because the family laughed.",
+    "text": "The dog wore the hat because the family laughed."
    },
    {
     "value": "The family laughed because the newspaper was funny.",
@@ -2170,15 +1939,15 @@ export const questions = [
     "text": "Grandma stopped laughing because of Dad."
    },
    {
-    "value": "The family laughed because laughing spreads.",
-    "label": "The family laughed because laughing spreads.",
-    "text": "The family laughed because laughing spreads."
+    "value": "The family laughed because the dog wore Dad's hat.",
+    "label": "The family laughed because the dog wore Dad's hat.",
+    "text": "The family laughed because the dog wore Dad's hat."
    }
   ],
-  "answer": "The family laughed because laughing spreads.",
-  "correctAnswer": "The family laughed because laughing spreads.",
+  "answer": "The family laughed because the dog wore Dad's hat.",
+  "correctAnswer": "The family laughed because the dog wore Dad's hat.",
   "distractorRationales": {
-   "Ivy laughed because the family was laughing.": "D-SEQUENCE-SWAP",
+   "The dog wore the hat because the family laughed.": "D-CAUSE-REVERSE",
    "The family laughed because the newspaper was funny.": "D-PLAUSIBLE-UNSUPPORTED",
    "Grandma stopped laughing because of Dad.": "D-OPPOSITE"
   },
@@ -2191,21 +1960,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.C.because_sentence.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2215,13 +1979,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.A.because_sentence.v7",
@@ -2243,22 +2001,22 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Choose the sentence that says it best.",
-  "question": "Choose the sentence that says it best.",
-  "spokenPrompt": "Choose the sentence that says it best.",
+  "prompt": "Which sentence correctly explains the cause and effect?",
+  "question": "Which sentence correctly explains the cause and effect?",
+  "spokenPrompt": "Which sentence correctly explains the cause and effect?",
   "passage": "The candle flame stood tall and still until Dad opened the hallway door. Then it bent sideways, flickered wildly, and almost went out before the door clicked shut again.",
   "cell": "because_sentence",
   "choices": [
-   "The flame flickered because the door let in a draught.",
+   "The flame flickered because the door let in a draft.",
    "The door opened because the flame flickered.",
    "The flame flickered because the wax was old.",
    "The flame grew taller because of the wind."
   ],
   "answerOptions": [
    {
-    "value": "The flame flickered because the door let in a draught.",
-    "label": "The flame flickered because the door let in a draught.",
-    "text": "The flame flickered because the door let in a draught."
+    "value": "The flame flickered because the door let in a draft.",
+    "label": "The flame flickered because the door let in a draft.",
+    "text": "The flame flickered because the door let in a draft."
    },
    {
     "value": "The door opened because the flame flickered.",
@@ -2276,8 +2034,8 @@ export const questions = [
     "text": "The flame grew taller because of the wind."
    }
   ],
-  "answer": "The flame flickered because the door let in a draught.",
-  "correctAnswer": "The flame flickered because the door let in a draught.",
+  "answer": "The flame flickered because the door let in a draft.",
+  "correctAnswer": "The flame flickered because the door let in a draft.",
   "distractorRationales": {
    "The door opened because the flame flickered.": "D-CAUSE-REVERSE",
    "The flame flickered because the wax was old.": "D-PLAUSIBLE-UNSUPPORTED",
@@ -2292,21 +2050,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.A.because_sentence.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2316,13 +2069,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.B.because_sentence.v8",
@@ -2344,22 +2091,22 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Choose the sentence that says it best.",
-  "question": "Choose the sentence that says it best.",
-  "spokenPrompt": "Choose the sentence that says it best.",
+  "prompt": "Which sentence correctly explains the cause and effect?",
+  "question": "Which sentence correctly explains the cause and effect?",
+  "spokenPrompt": "Which sentence correctly explains the cause and effect?",
   "passage": "Warm milk, a dim lamp, one last story. Halfway through the second page, Suki's eyes closed all by themselves, and Papa tiptoed out with the book still open in his hand.",
   "cell": "because_sentence",
   "choices": [
-   "Suki stayed awake because of the milk.",
+   "Papa used the lamp because the milk was warm.",
    "The bedtime routine relaxed Suki until she slept.",
    "Papa read the story because Suki fell asleep.",
    "Suki fell asleep because the story was scary."
   ],
   "answerOptions": [
    {
-    "value": "Suki stayed awake because of the milk.",
-    "label": "Suki stayed awake because of the milk.",
-    "text": "Suki stayed awake because of the milk."
+    "value": "Papa used the lamp because the milk was warm.",
+    "label": "Papa used the lamp because the milk was warm.",
+    "text": "Papa used the lamp because the milk was warm."
    },
    {
     "value": "The bedtime routine relaxed Suki until she slept.",
@@ -2382,7 +2129,7 @@ export const questions = [
   "distractorRationales": {
    "Papa read the story because Suki fell asleep.": "D-CAUSE-REVERSE",
    "Suki fell asleep because the story was scary.": "D-OPPOSITE",
-   "Suki stayed awake because of the milk.": "D-OPPOSITE"
+   "Papa used the lamp because the milk was warm.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2393,21 +2140,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.B.because_sentence.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2417,13 +2159,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.A.chain.v1",
@@ -2494,21 +2230,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.A.chain.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2518,13 +2249,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "middle-link question: jam → wasp → jump → elbow → flour",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "middle-link question: jam → wasp → jump → elbow → flour"
  },
  {
   "id": "lp3.cause_effect.l2.B.chain.v2",
@@ -2595,21 +2320,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.B.chain.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2619,13 +2339,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.C.chain.v3",
@@ -2696,21 +2410,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.C.chain.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2720,13 +2429,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.A.chain.v4",
@@ -2751,12 +2454,12 @@ export const questions = [
   "prompt": "Why did so many balls land in the tomatoes?",
   "question": "Why did so many balls land in the tomatoes?",
   "spokenPrompt": "Why did so many balls land in the tomatoes?",
-  "passage": "The football pitch flooded on Friday, so Saturday's match moved to the school yard. The yard's hard ground made the ball bounce twice as high, and twice-as-high bounces sailed over the fence, which is how Mr Njoku's tomatoes met seven footballs in one afternoon.",
+  "passage": "The soccer field flooded on Friday, so Saturday's game moved to the school yard. The yard's hard ground made the ball bounce twice as high, and those high bounces sailed over the fence, which is how Mr. Njoku's tomatoes met seven soccer balls in one afternoon.",
   "cell": "chain",
   "choices": [
    "Mr Njoku threw them back",
    "the tomatoes attracted the balls",
-   "the firm ground sent each bounce over the fence",
+   "the yard caused unusually high rebounds",
    "the pitch flooded on Friday"
   ],
   "answerOptions": [
@@ -2771,9 +2474,9 @@ export const questions = [
     "text": "the tomatoes attracted the balls"
    },
    {
-    "value": "the firm ground sent each bounce over the fence",
-    "label": "the firm ground sent each bounce over the fence",
-    "text": "the firm ground sent each bounce over the fence"
+    "value": "the yard caused unusually high rebounds",
+    "label": "the yard caused unusually high rebounds",
+    "text": "the yard caused unusually high rebounds"
    },
    {
     "value": "the pitch flooded on Friday",
@@ -2781,8 +2484,8 @@ export const questions = [
     "text": "the pitch flooded on Friday"
    }
   ],
-  "answer": "the firm ground sent each bounce over the fence",
-  "correctAnswer": "the firm ground sent each bounce over the fence",
+  "answer": "the yard caused unusually high rebounds",
+  "correctAnswer": "the yard caused unusually high rebounds",
   "distractorRationales": {
    "the tomatoes attracted the balls": "D-CAUSE-REVERSE",
    "the pitch flooded on Friday": "D-SEQUENCE-SWAP",
@@ -2797,21 +2500,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.A.chain.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2821,13 +2519,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "flood is the FIRST link, not the operative cause of the over-fence bounces",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "flood is the FIRST link, not the operative cause of the over-fence bounces"
  },
  {
   "id": "lp3.cause_effect.l2.B.chain.v5",
@@ -2852,7 +2544,7 @@ export const questions = [
   "prompt": "What happened RIGHT BEFORE the pea bags froze together?",
   "question": "What happened RIGHT BEFORE the pea bags froze together?",
   "spokenPrompt": "What happened RIGHT BEFORE the pea bags froze together?",
-  "passage": "Someone propped the freezer door open with a yoghurt pot during the party. Overnight the ice cream softened to milkshake. In the morning, the melting tub dripped through the shelf onto the peas, gluing the bags together in one frosty block.",
+  "passage": "Someone propped the freezer door open with a yogurt cup during the party. Overnight the ice cream softened to milkshake. In the morning, the melting tub dripped through the shelf onto the peas, freezing the bags together in one block.",
   "cell": "chain",
   "choices": [
    "someone bought more peas",
@@ -2898,21 +2590,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.B.chain.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2922,13 +2609,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.C.chain.v6",
@@ -2950,22 +2631,22 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Why was Priya nearly late?",
-  "question": "Why was Priya nearly late?",
-  "spokenPrompt": "Why was Priya nearly late?",
-  "passage": "The lift was crowded, and somebody's rucksack pressed every button at once. The lift began stopping at every single floor. All the stopping made Priya late to the dentist upstairs, and her name was called just as she burst out of the lift doors, breathing hard.",
+  "prompt": "Why was Priya late?",
+  "question": "Why was Priya late?",
+  "spokenPrompt": "Why was Priya late?",
+  "passage": "The elevator was crowded, and somebody's backpack pressed every button at once. The elevator began stopping at every floor. All the stopping made Priya late to the dentist upstairs, and her name was called just as she hurried out of the elevator.",
   "cell": "chain",
   "choices": [
-   "the lift stopped at every floor",
+   "the elevator stopped at every floor",
    "her name was called early",
    "she pressed every button",
    "she burst out of the doors"
   ],
   "answerOptions": [
    {
-    "value": "the lift stopped at every floor",
-    "label": "the lift stopped at every floor",
-    "text": "the lift stopped at every floor"
+    "value": "the elevator stopped at every floor",
+    "label": "the elevator stopped at every floor",
+    "text": "the elevator stopped at every floor"
    },
    {
     "value": "her name was called early",
@@ -2983,8 +2664,8 @@ export const questions = [
     "text": "she burst out of the doors"
    }
   ],
-  "answer": "the lift stopped at every floor",
-  "correctAnswer": "the lift stopped at every floor",
+  "answer": "the elevator stopped at every floor",
+  "correctAnswer": "the elevator stopped at every floor",
   "distractorRationales": {
    "she burst out of the doors": "D-CAUSE-REVERSE",
    "her name was called early": "D-PLAUSIBLE-UNSUPPORTED",
@@ -2999,21 +2680,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.C.chain.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3023,13 +2699,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.A.chain.v7",
@@ -3054,19 +2724,19 @@ export const questions = [
   "prompt": "Why did the string wrap around the flagpole?",
   "question": "Why did the string wrap around the flagpole?",
   "spokenPrompt": "Why did the string wrap around the flagpole?",
-  "passage": "A strong gust snapped the kite's thin tail. Without its tail, the kite began spinning instead of gliding. The spinning wound the string around the flagpole three times, and that is where the kite stayed, rattling like a trapped bird, until the caretaker fetched his ladder.",
+  "passage": "A strong gust snapped the kite's thin tail. Without its tail, the kite began spinning instead of gliding. The spinning wound the string around the flagpole three times, and that is where the kite stayed, rattling like a trapped bird, until the custodian fetched his ladder.",
   "cell": "chain",
   "choices": [
-   "the caretaker wound it there",
+   "the custodian wound it there",
    "the kite rattled like a bird",
    "the string was too short",
    "the tailless kite went into a spin"
   ],
   "answerOptions": [
    {
-    "value": "the caretaker wound it there",
-    "label": "the caretaker wound it there",
-    "text": "the caretaker wound it there"
+    "value": "the custodian wound it there",
+    "label": "the custodian wound it there",
+    "text": "the custodian wound it there"
    },
    {
     "value": "the kite rattled like a bird",
@@ -3089,7 +2759,7 @@ export const questions = [
   "distractorRationales": {
    "the kite rattled like a bird": "D-CAUSE-REVERSE",
    "the string was too short": "D-PLAUSIBLE-UNSUPPORTED",
-   "the caretaker wound it there": "D-PLAUSIBLE-UNSUPPORTED"
+   "the custodian wound it there": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3100,21 +2770,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.A.chain.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3124,13 +2789,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.B.chain.v8",
@@ -3155,12 +2814,12 @@ export const questions = [
   "prompt": "What happened RIGHT BEFORE Amir washed the mirror properly?",
   "question": "What happened RIGHT BEFORE Amir washed the mirror properly?",
   "spokenPrompt": "What happened RIGHT BEFORE Amir washed the mirror properly?",
-  "passage": "The bathroom mirror steamed up during Amir's hot shower. He wiped it with a towel, which left fine fluff all over the glass. When the mirror dried, the fluff showed worse than the steam had, so he washed the mirror properly, which is how one hot shower led to cleaning the whole bathroom.",
+  "passage": "The bathroom mirror steamed up during Amir's hot shower. He wiped it with a towel, which left fine lint all over the glass. When the mirror dried, the lint showed clearly, so he washed the mirror properly.",
   "cell": "chain",
   "choices": [
    "he cleaned the whole bathroom",
    "the towel fell in the bath",
-   "the first wipe left visible fibres behind",
+   "the first wipe left visible lint behind",
    "the shower steamed the mirror"
   ],
   "answerOptions": [
@@ -3175,9 +2834,9 @@ export const questions = [
     "text": "the towel fell in the bath"
    },
    {
-    "value": "the first wipe left visible fibres behind",
-    "label": "the first wipe left visible fibres behind",
-    "text": "the first wipe left visible fibres behind"
+    "value": "the first wipe left visible lint behind",
+    "label": "the first wipe left visible lint behind",
+    "text": "the first wipe left visible lint behind"
    },
    {
     "value": "the shower steamed the mirror",
@@ -3185,8 +2844,8 @@ export const questions = [
     "text": "the shower steamed the mirror"
    }
   ],
-  "answer": "the first wipe left visible fibres behind",
-  "correctAnswer": "the first wipe left visible fibres behind",
+  "answer": "the first wipe left visible lint behind",
+  "correctAnswer": "the first wipe left visible lint behind",
   "distractorRationales": {
    "the shower steamed the mirror": "D-SEQUENCE-SWAP",
    "he cleaned the whole bathroom": "D-SEQUENCE-SWAP",
@@ -3201,21 +2860,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.B.chain.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3225,13 +2879,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.A.multiple_causes.v1",
@@ -3256,12 +2904,12 @@ export const questions = [
   "prompt": "Which of these was NOT a reason the fair did well?",
   "question": "Which of these was NOT a reason the fair did well?",
   "spokenPrompt": "Which of these was NOT a reason the fair did well?",
-  "passage": "The school fair made more money than ever this year. The weather was warm and dry, so crowds stayed all afternoon. The new baking stall sold out twice. And because the fair fell on payday weekend, purses were a little fuller than usual.",
+  "passage": "The school fair made more money than ever this year. The weather was warm and dry, so crowds stayed all afternoon. The new bake-sale booth sold out twice. And because the fair fell on payday weekend, purses were a little fuller than usual.",
   "cell": "multiple_causes",
   "choices": [
    "the fair sold out of tickets early",
    "the warm, dry weather",
-   "the popular baking stall",
+   "the popular bake-sale booth",
    "payday weekend"
   ],
   "answerOptions": [
@@ -3276,9 +2924,9 @@ export const questions = [
     "text": "the warm, dry weather"
    },
    {
-    "value": "the popular baking stall",
-    "label": "the popular baking stall",
-    "text": "the popular baking stall"
+    "value": "the popular bake-sale booth",
+    "label": "the popular bake-sale booth",
+    "text": "the popular bake-sale booth"
    },
    {
     "value": "payday weekend",
@@ -3290,7 +2938,7 @@ export const questions = [
   "correctAnswer": "the fair sold out of tickets early",
   "distractorRationales": {
    "the warm, dry weather": "D-DETAIL-AS-MAIN",
-   "the popular baking stall": "D-DETAIL-AS-MAIN",
+   "the popular bake-sale booth": "D-DETAIL-AS-MAIN",
    "payday weekend": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
@@ -3302,21 +2950,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.A.multiple_causes.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3326,13 +2969,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "NOT-a-cause format: three real causes, one invented",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "NOT-a-cause format: three real causes, one invented"
  },
  {
   "id": "lp3.cause_effect.l2.B.multiple_causes.v2",
@@ -3403,21 +3040,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.B.multiple_causes.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3427,13 +3059,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.C.multiple_causes.v3",
@@ -3458,7 +3084,7 @@ export const questions = [
   "prompt": "Which of these was NOT a cause of the cactus dying?",
   "question": "Which of these was NOT a cause of the cactus dying?",
   "spokenPrompt": "Which of these was NOT a cause of the cactus dying?",
-  "passage": "The cactus on the windowsill turned soft and brown. Grandpa had watered it every single day, though a cactus wants water rarely. The pot had no hole, so the water sat around its roots. And the cold glass at night chilled it again and again.",
+  "passage": "The cactus on the windowsill turned soft and brown. Grandpa had watered it every single day, though a cactus needs water only occasionally. The pot had no hole, so the water sat around its roots. And the cold glass at night chilled it again and again.",
   "cell": "multiple_causes",
   "choices": [
    "cold nights by the glass",
@@ -3504,21 +3130,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.C.multiple_causes.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3528,13 +3149,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the invented option is the intuitive-but-backwards cause",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "the invented option is the intuitive-but-backwards cause"
  },
  {
   "id": "lp3.cause_effect.l2.A.multiple_causes.v4",
@@ -3605,21 +3220,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.A.multiple_causes.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3629,13 +3239,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.B.multiple_causes.v5",
@@ -3660,11 +3264,11 @@ export const questions = [
   "prompt": "Which of these was NOT a cause of the snap?",
   "question": "Which of these was NOT a cause of the snap?",
   "spokenPrompt": "Which of these was NOT a cause of the snap?",
-  "passage": "The old rope swing finally snapped on Sunday. Years of rain and sun had chewed at the fibres. The knot rubbed the same branch groove every swing. And that afternoon, for the first time, two riders had squeezed on together.",
+  "passage": "The old rope swing finally snapped on Sunday. Years of rain and sun had worn the fibers. The knot rubbed the same branch groove every swing. And that afternoon, for the first time, two riders had squeezed on together.",
   "cell": "multiple_causes",
   "choices": [
    "someone cut the rope with scissors",
-   "years of weather wearing the fibres",
+   "years of weather wearing the fibers",
    "the knot rubbing the branch",
    "two riders at once"
   ],
@@ -3675,9 +3279,9 @@ export const questions = [
     "text": "someone cut the rope with scissors"
    },
    {
-    "value": "years of weather wearing the fibres",
-    "label": "years of weather wearing the fibres",
-    "text": "years of weather wearing the fibres"
+    "value": "years of weather wearing the fibers",
+    "label": "years of weather wearing the fibers",
+    "text": "years of weather wearing the fibers"
    },
    {
     "value": "the knot rubbing the branch",
@@ -3694,7 +3298,7 @@ export const questions = [
   "correctAnswer": "someone cut the rope with scissors",
   "distractorRationales": {
    "two riders at once": "D-DETAIL-AS-MAIN",
-   "years of weather wearing the fibres": "D-DETAIL-AS-MAIN",
+   "years of weather wearing the fibers": "D-DETAIL-AS-MAIN",
    "the knot rubbing the branch": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
@@ -3706,21 +3310,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.B.multiple_causes.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3730,13 +3329,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.C.multiple_causes.v6",
@@ -3758,10 +3351,10 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these was NOT a reason for the long queue?",
-  "question": "Which of these was NOT a reason for the long queue?",
-  "spokenPrompt": "Which of these was NOT a reason for the long queue?",
-  "passage": "The bakery queue stretched round the corner on Saturday. A food show had filmed there on Tuesday, and clips were everywhere. The rival bakery across town was shut for repairs. And Saturday was the first day of the famous plum tarts.",
+  "prompt": "Which of these was NOT a reason for the long line?",
+  "question": "Which of these was NOT a reason for the long line?",
+  "spokenPrompt": "Which of these was NOT a reason for the long line?",
+  "passage": "The bakery line stretched around the corner on Saturday. A food show had filmed there on Tuesday, and clips were everywhere. The rival bakery across town was closed for repairs. Saturday was also the first day of the famous plum tarts.",
   "cell": "multiple_causes",
   "choices": [
    "the rival bakery being shut",
@@ -3807,21 +3400,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.C.multiple_causes.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3831,13 +3419,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.A.multiple_causes.v7",
@@ -3862,19 +3444,19 @@ export const questions = [
   "prompt": "Which of these was NOT a reason the ring went unheard?",
   "question": "Which of these was NOT a reason the ring went unheard?",
   "spokenPrompt": "Which of these was NOT a reason the ring went unheard?",
-  "passage": "Nobody heard the phone ring at lunch. The blender was roaring through a smoothie. The radio was on for the cricket. And the phone itself was buried somewhere under the sofa cushions, ringing into the springs.",
+  "passage": "Nobody heard the phone ring at lunch. The blender was roaring through a smoothie. The radio was playing loud music. The phone itself was buried under the sofa cushions.",
   "cell": "multiple_causes",
   "choices": [
-   "the radio playing cricket",
+   "the radio playing loud music",
    "the phone buried in the sofa",
    "the phone was switched off",
    "the roaring blender"
   ],
   "answerOptions": [
    {
-    "value": "the radio playing cricket",
-    "label": "the radio playing cricket",
-    "text": "the radio playing cricket"
+    "value": "the radio playing loud music",
+    "label": "the radio playing loud music",
+    "text": "the radio playing loud music"
    },
    {
     "value": "the phone buried in the sofa",
@@ -3895,7 +3477,7 @@ export const questions = [
   "answer": "the phone was switched off",
   "correctAnswer": "the phone was switched off",
   "distractorRationales": {
-   "the radio playing cricket": "D-DETAIL-AS-MAIN",
+   "the radio playing loud music": "D-DETAIL-AS-MAIN",
    "the phone buried in the sofa": "D-DETAIL-AS-MAIN",
    "the roaring blender": "D-DETAIL-AS-MAIN"
   },
@@ -3908,21 +3490,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.A.multiple_causes.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3932,13 +3509,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.B.multiple_causes.v8",
@@ -4009,21 +3580,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.B.multiple_causes.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4033,13 +3599,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.A.reversal_trap.v1",
@@ -4061,14 +3621,14 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What REALLY made children and cat end up together?",
-  "question": "What REALLY made children and cat end up together?",
-  "spokenPrompt": "What REALLY made children and cat end up together?",
-  "passage": "Wherever the school cat sat, children gathered. New visitors sometimes thought the children attracted the cat. The dinner ladies knew better: the cat chose the sunniest spot first, and the children simply followed him to it.",
+  "prompt": "What caused the children and the cat to gather in the same place?",
+  "question": "What caused the children and the cat to gather in the same place?",
+  "spokenPrompt": "What caused the children and the cat to gather in the same place?",
+  "passage": "Wherever the school cat sat, children gathered. New visitors sometimes thought the children attracted the cat. The cafeteria staff knew better: the cat chose the sunniest spot first, and the children simply followed him to it.",
   "cell": "reversal_trap",
   "choices": [
    "the children picked a spot and the cat followed",
-   "the dinner ladies called them together",
+   "the cafeteria staff called them together",
    "the sun followed the children",
    "the cat picked a spot and children followed"
   ],
@@ -4079,9 +3639,9 @@ export const questions = [
     "text": "the children picked a spot and the cat followed"
    },
    {
-    "value": "the dinner ladies called them together",
-    "label": "the dinner ladies called them together",
-    "text": "the dinner ladies called them together"
+    "value": "the cafeteria staff called them together",
+    "label": "the cafeteria staff called them together",
+    "text": "the cafeteria staff called them together"
    },
    {
     "value": "the sun followed the children",
@@ -4099,7 +3659,7 @@ export const questions = [
   "distractorRationales": {
    "the sun followed the children": "D-CAUSE-REVERSE",
    "the children picked a spot and the cat followed": "D-CAUSE-REVERSE",
-   "the dinner ladies called them together": "D-PLAUSIBLE-UNSUPPORTED"
+   "the cafeteria staff called them together": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4110,21 +3670,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.A.reversal_trap.v1",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v1.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4134,13 +3689,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v1.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v1.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v1.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v1.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.B.reversal_trap.v2",
@@ -4165,7 +3714,7 @@ export const questions = [
   "prompt": "What does the passage suggest REALLY made Jo fast?",
   "question": "What does the passage suggest REALLY made Jo fast?",
   "spokenPrompt": "What does the passage suggest REALLY made Jo fast?",
-  "passage": "On sports day, Jo wore her lucky red socks and won three races. 'The socks make me fast,' she told everyone. Her coach smiled and pointed at the training chart on the wall: every square of the last two months was ticked.",
+  "passage": "On field day, Jo wore her lucky red socks and won three races. 'The socks make me fast,' she told everyone. Her coach smiled and pointed at the training chart on the wall: every square of the last two months was marked.",
   "cell": "reversal_trap",
   "choices": [
    "winning three races",
@@ -4211,21 +3760,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.B.reversal_trap.v2",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v2.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v2.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4235,13 +3779,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v2.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v2.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v2.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v2.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v2.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.C.reversal_trap.v3",
@@ -4312,21 +3850,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.C.reversal_trap.v3",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v3.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v3.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4336,13 +3869,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v3.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v3.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v3.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v3.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v3.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.A.reversal_trap.v4",
@@ -4413,21 +3940,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.A.reversal_trap.v4",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v4.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4437,13 +3959,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "two-way causation — the honest answer is the loop itself",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v4.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v4.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v4.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v4.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "two-way causation — the honest answer is the loop itself"
  },
  {
   "id": "lp3.cause_effect.l2.B.reversal_trap.v5",
@@ -4468,11 +3984,11 @@ export const questions = [
   "prompt": "Why do umbrellas and rain arrive together?",
   "question": "Why do umbrellas and rain arrive together?",
   "spokenPrompt": "Why do umbrellas and rain arrive together?",
-  "passage": "Umbrellas do not bring the rain, Gran says, though on our street it can look that way: the moment umbrellas bloom along the pavement, down it comes. Of course, everyone opens them because the first drops have already begun to fall.",
+  "passage": "Umbrellas do not bring the rain, Grandma says, though it can look that way: the moment umbrellas open along the sidewalk, rain appears. Of course, everyone opens them because the first drops have already begun to fall.",
   "cell": "reversal_trap",
   "choices": [
    "open umbrellas pull down the rain",
-   "Gran signals the street",
+   "Grandma signals the street",
    "the pavement attracts clouds",
    "first drops make people open umbrellas"
   ],
@@ -4483,9 +3999,9 @@ export const questions = [
     "text": "open umbrellas pull down the rain"
    },
    {
-    "value": "Gran signals the street",
-    "label": "Gran signals the street",
-    "text": "Gran signals the street"
+    "value": "Grandma signals the street",
+    "label": "Grandma signals the street",
+    "text": "Grandma signals the street"
    },
    {
     "value": "the pavement attracts clouds",
@@ -4502,7 +4018,7 @@ export const questions = [
   "correctAnswer": "first drops make people open umbrellas",
   "distractorRationales": {
    "open umbrellas pull down the rain": "D-CAUSE-REVERSE",
-   "Gran signals the street": "D-PLAUSIBLE-UNSUPPORTED",
+   "Grandma signals the street": "D-PLAUSIBLE-UNSUPPORTED",
    "the pavement attracts clouds": "D-CAUSE-REVERSE"
   },
   "mediaTier": "text",
@@ -4514,21 +4030,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.B.reversal_trap.v5",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v5.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v5.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4538,13 +4049,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v5.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v5.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v5.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v5.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v5.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.C.reversal_trap.v6",
@@ -4569,13 +4074,13 @@ export const questions = [
   "prompt": "What REALLY explains Tam's four o'clock hunger?",
   "question": "What REALLY explains Tam's four o'clock hunger?",
   "spokenPrompt": "What REALLY explains Tam's four o'clock hunger?",
-  "passage": "Whenever the ice-cream van's tune started, Tam's tummy rumbled. Tam decided the tune made him hungry. Mum laughed: the van always came at four o'clock — exactly the hour a boy who skipped his lunchtime peas gets hungry anyway.",
+  "passage": "Whenever the ice cream truck's tune started, Tam's stomach rumbled. Tam decided the tune made him hungry. Mom pointed out that the truck always came at four o'clock, hours after the very small lunch he had eaten.",
   "cell": "reversal_trap",
   "choices": [
    "hours had passed since his small lunch",
    "the van's tune made him hungry",
    "his rumbling tummy called the van",
-   "Mum's laughing reminded him"
+   "Mom's reminder made him hungry"
   ],
   "answerOptions": [
    {
@@ -4594,9 +4099,9 @@ export const questions = [
     "text": "his rumbling tummy called the van"
    },
    {
-    "value": "Mum's laughing reminded him",
-    "label": "Mum's laughing reminded him",
-    "text": "Mum's laughing reminded him"
+    "value": "Mom's reminder made him hungry",
+    "label": "Mom's reminder made him hungry",
+    "text": "Mom's reminder made him hungry"
    }
   ],
   "answer": "hours had passed since his small lunch",
@@ -4604,7 +4109,7 @@ export const questions = [
   "distractorRationales": {
    "the van's tune made him hungry": "D-CAUSE-REVERSE",
    "his rumbling tummy called the van": "D-CAUSE-REVERSE",
-   "Mum's laughing reminded him": "D-PLAUSIBLE-UNSUPPORTED"
+   "Mom's reminder made him hungry": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4615,21 +4120,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.C.reversal_trap.v6",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v6.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4639,13 +4139,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v6.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v6.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v6.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v6.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.A.reversal_trap.v7",
@@ -4670,7 +4164,7 @@ export const questions = [
   "prompt": "Which explanation does the passage support?",
   "question": "Which explanation does the passage support?",
   "spokenPrompt": "Which explanation does the passage support?",
-  "passage": "The rooster crowed, and the sun came up. It happened every single morning, in that order. The farmer liked to joke that his rooster raised the sun. The vet put it differently: the first grey light wakes the rooster, and the crowing follows.",
+  "passage": "The rooster crowed, and the sun came up. It happened every morning, in that order. The farmer joked that his rooster raised the sun. The vet explained that the first gray light wakes the rooster, and the crowing follows.",
   "cell": "reversal_trap",
   "choices": [
    "the vet taught the rooster to crow",
@@ -4716,21 +4210,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.A.reversal_trap.v7",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v7.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v7.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4740,13 +4229,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v7.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v7.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v7.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v7.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v7.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.B.reversal_trap.v8",
@@ -4768,10 +4251,10 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What is the right way round, according to the poster?",
-  "question": "What is the right way round, according to the poster?",
-  "spokenPrompt": "What is the right way round, according to the poster?",
-  "passage": "Firefighters arrive at big fires, and small fires have no firefighters at all. Looking only at that, you might decide firefighters make fires bigger. Ana's project poster explained it the right way round: the bigger the fire already is, the more firefighters get sent to it.",
+  "prompt": "According to the poster, which event caused the other?",
+  "question": "According to the poster, which event caused the other?",
+  "spokenPrompt": "According to the poster, which event caused the other?",
+  "passage": "Large fires usually need more firefighters than small fires. Looking only at that, you might decide firefighters make fires bigger. Ana's project poster explained the cause: the bigger the fire already is, the more firefighters get sent to it.",
   "cell": "reversal_trap",
   "choices": [
    "big fires bring many firefighters",
@@ -4817,21 +4300,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.B.reversal_trap.v8",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v8.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v8.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4841,13 +4319,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v8.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v8.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v8.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v8.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v8.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.R.find_effect.v9r",
@@ -4918,21 +4390,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.R.find_effect.v9r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v9r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v9r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4942,13 +4409,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v9r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v9r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v9r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v9r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v9r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.R.find_effect.v10r",
@@ -4970,15 +4431,15 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What did the long cold do to the torch?",
-  "question": "What did the long cold do to the torch?",
-  "spokenPrompt": "What did the long cold do to the torch?",
-  "passage": "The torch had sat in the freezing shed all winter. When Ben clicked it on for the camp-out, the beam glowed dull orange for a minute and then gave up completely.",
+  "prompt": "What happened because the flashlight stayed on all night?",
+  "question": "What happened because the flashlight stayed on all night?",
+  "spokenPrompt": "What happened because the flashlight stayed on all night?",
+  "passage": "Ben forgot to switch off the flashlight in the workshop. It shone all night. When he picked it up for the campout, the beam glowed dimly for a minute and then went out.",
   "cell": "find_effect",
   "choices": [
    "it made the beam brighter",
    "it started the camp-out",
-   "it drained the batteries",
+   "its batteries ran down",
    "it cracked the glass"
   ],
   "answerOptions": [
@@ -4993,9 +4454,9 @@ export const questions = [
     "text": "it started the camp-out"
    },
    {
-    "value": "it drained the batteries",
-    "label": "it drained the batteries",
-    "text": "it drained the batteries"
+    "value": "its batteries ran down",
+    "label": "its batteries ran down",
+    "text": "its batteries ran down"
    },
    {
     "value": "it cracked the glass",
@@ -5003,8 +4464,8 @@ export const questions = [
     "text": "it cracked the glass"
    }
   ],
-  "answer": "it drained the batteries",
-  "correctAnswer": "it drained the batteries",
+  "answer": "its batteries ran down",
+  "correctAnswer": "its batteries ran down",
   "distractorRationales": {
    "it made the beam brighter": "D-OPPOSITE",
    "it started the camp-out": "D-CAUSE-REVERSE",
@@ -5019,21 +4480,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.R.find_effect.v10r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v10r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v10r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5043,13 +4499,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v10r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v10r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v10r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v10r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v10r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.R.find_cause.v9r",
@@ -5074,12 +4524,12 @@ export const questions = [
   "prompt": "Why was Auntie Bel sneezing?",
   "question": "Why was Auntie Bel sneezing?",
   "spokenPrompt": "Why was Auntie Bel sneezing?",
-  "passage": "Auntie Bel sneezed six times before she even said hello. Her eyes were pink and watery. On her lap, completely comfortable, sat the neighbour's fluffy white cat.",
+  "passage": "Auntie Bel sneezed six times before she even said hello. Her eyes were pink and watery. On her lap sat the neighbor's fluffy white cat.",
   "cell": "find_cause",
   "choices": [
    "she had caught a cold saying hello",
    "her watery eyes made her sneeze",
-   "the neighbour was dusty",
+   "the neighbor was dusty",
    "the cat's fur set off her allergy"
   ],
   "answerOptions": [
@@ -5094,9 +4544,9 @@ export const questions = [
     "text": "her watery eyes made her sneeze"
    },
    {
-    "value": "the neighbour was dusty",
-    "label": "the neighbour was dusty",
-    "text": "the neighbour was dusty"
+    "value": "the neighbor was dusty",
+    "label": "the neighbor was dusty",
+    "text": "the neighbor was dusty"
    },
    {
     "value": "the cat's fur set off her allergy",
@@ -5109,7 +4559,7 @@ export const questions = [
   "distractorRationales": {
    "she had caught a cold saying hello": "D-PLAUSIBLE-UNSUPPORTED",
    "her watery eyes made her sneeze": "D-CAUSE-REVERSE",
-   "the neighbour was dusty": "D-PLAUSIBLE-UNSUPPORTED"
+   "the neighbor was dusty": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5120,21 +4570,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.R.find_cause.v9r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v9r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v9r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5144,13 +4589,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v9r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v9r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v9r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v9r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v9r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.R.find_cause.v10r",
@@ -5172,22 +4611,22 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Why did the strawberries grow fur?",
-  "question": "Why did the strawberries grow fur?",
-  "spokenPrompt": "Why did the strawberries grow fur?",
-  "passage": "The strawberries were forgotten at the back of the fridge for two weeks. When Val found the box, a soft grey fur had crept over every berry.",
+  "prompt": "Why was mold covering the strawberries?",
+  "question": "Why was mold covering the strawberries?",
+  "spokenPrompt": "Why was mold covering the strawberries?",
+  "passage": "The strawberries were forgotten at the back of the fridge for two weeks. When Val found the box, soft gray mold covered every berry.",
   "cell": "find_cause",
   "choices": [
-   "mould grew on them over the weeks",
+   "they had spoiled after sitting unused for weeks",
    "the fridge froze them",
    "Val found the box",
    "a mouse slept on them"
   ],
   "answerOptions": [
    {
-    "value": "mould grew on them over the weeks",
-    "label": "mould grew on them over the weeks",
-    "text": "mould grew on them over the weeks"
+    "value": "they had spoiled after sitting unused for weeks",
+    "label": "they had spoiled after sitting unused for weeks",
+    "text": "they had spoiled after sitting unused for weeks"
    },
    {
     "value": "the fridge froze them",
@@ -5205,8 +4644,8 @@ export const questions = [
     "text": "a mouse slept on them"
    }
   ],
-  "answer": "mould grew on them over the weeks",
-  "correctAnswer": "mould grew on them over the weeks",
+  "answer": "they had spoiled after sitting unused for weeks",
+  "correctAnswer": "they had spoiled after sitting unused for weeks",
   "distractorRationales": {
    "the fridge froze them": "D-PLAUSIBLE-UNSUPPORTED",
    "Val found the box": "D-CAUSE-REVERSE",
@@ -5221,21 +4660,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.R.find_cause.v10r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v10r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v10r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5245,13 +4679,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v10r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v10r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v10r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v10r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v10r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.R.because_sentence.v9r",
@@ -5273,10 +4701,10 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Choose the sentence that says it best.",
-  "question": "Choose the sentence that says it best.",
-  "spokenPrompt": "Choose the sentence that says it best.",
-  "passage": "The plug chain had slipped off its hook into the water. Nobody noticed while the bath emptied itself, glug by glug, until only a cold puddle was left around Otto's toes.",
+  "prompt": "Which sentence correctly explains the cause and effect?",
+  "question": "Which sentence correctly explains the cause and effect?",
+  "spokenPrompt": "Which sentence correctly explains the cause and effect?",
+  "passage": "Otto kicked the bathtub plug loose while stretching his legs. Nobody noticed while the water drained away until only a cold puddle was left around his toes.",
   "cell": "because_sentence",
   "choices": [
    "The bath stayed full because of the chain.",
@@ -5322,21 +4750,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.R.because_sentence.v9r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v9r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v9r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5346,13 +4769,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v9r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v9r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v9r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v9r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v9r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.R.because_sentence.v10r",
@@ -5374,45 +4791,45 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Choose the sentence that says it best.",
-  "question": "Choose the sentence that says it best.",
-  "spokenPrompt": "Choose the sentence that says it best.",
-  "passage": "Nia's birthday balloon slipped out of her hand indoors. It sailed straight up and bumped softly against the ceiling, where it stayed all week, just out of reach of the broom.",
+  "prompt": "Which sentence correctly explains the cause and effect?",
+  "question": "Which sentence correctly explains the cause and effect?",
+  "spokenPrompt": "Which sentence correctly explains the cause and effect?",
+  "passage": "The fan switched on while Nia held her birthday balloon. Moving air pushed the balloon across the room until it caught against the curtain.",
   "cell": "because_sentence",
   "choices": [
-   "The balloon rose because Nia held it tight.",
-   "The broom kept the balloon up.",
-   "Light gas carried the balloon upward.",
-   "The ceiling pulled the balloon up."
+   "The balloon moved because Nia held it tight.",
+   "The curtain switched on the fan.",
+   "The balloon moved because the fan pushed air.",
+   "The fan turned because the balloon moved."
   ],
   "answerOptions": [
    {
-    "value": "The balloon rose because Nia held it tight.",
-    "label": "The balloon rose because Nia held it tight.",
-    "text": "The balloon rose because Nia held it tight."
+    "value": "The balloon moved because Nia held it tight.",
+    "label": "The balloon moved because Nia held it tight.",
+    "text": "The balloon moved because Nia held it tight."
    },
    {
-    "value": "The broom kept the balloon up.",
-    "label": "The broom kept the balloon up.",
-    "text": "The broom kept the balloon up."
+    "value": "The curtain switched on the fan.",
+    "label": "The curtain switched on the fan.",
+    "text": "The curtain switched on the fan."
    },
    {
-    "value": "Light gas carried the balloon upward.",
-    "label": "Light gas carried the balloon upward.",
-    "text": "Light gas carried the balloon upward."
+    "value": "The balloon moved because the fan pushed air.",
+    "label": "The balloon moved because the fan pushed air.",
+    "text": "The balloon moved because the fan pushed air."
    },
    {
-    "value": "The ceiling pulled the balloon up.",
-    "label": "The ceiling pulled the balloon up.",
-    "text": "The ceiling pulled the balloon up."
+    "value": "The fan turned because the balloon moved.",
+    "label": "The fan turned because the balloon moved.",
+    "text": "The fan turned because the balloon moved."
    }
   ],
-  "answer": "Light gas carried the balloon upward.",
-  "correctAnswer": "Light gas carried the balloon upward.",
+  "answer": "The balloon moved because the fan pushed air.",
+  "correctAnswer": "The balloon moved because the fan pushed air.",
   "distractorRationales": {
-   "The ceiling pulled the balloon up.": "D-PLAUSIBLE-UNSUPPORTED",
-   "The balloon rose because Nia held it tight.": "D-OPPOSITE",
-   "The broom kept the balloon up.": "D-CAUSE-REVERSE"
+   "The fan turned because the balloon moved.": "D-CAUSE-REVERSE",
+   "The balloon moved because Nia held it tight.": "D-OPPOSITE",
+   "The curtain switched on the fan.": "D-CAUSE-REVERSE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5423,21 +4840,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.R.because_sentence.v10r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v10r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v10r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5447,13 +4859,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v10r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v10r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v10r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v10r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v10r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.R.find_effect.v11r",
@@ -5478,19 +4884,19 @@ export const questions = [
   "prompt": "What happened because the seagull swooped?",
   "question": "What happened because the seagull swooped?",
   "spokenPrompt": "What happened because the seagull swooped?",
-  "passage": "A seagull spotted Pia's chip bag the moment she sat on the sea wall. It swooped once, low and bold, and a heartbeat later the biggest chip was travelling down the beach at wing-speed.",
+  "passage": "A seagull spotted Pia's box of fries the moment she sat by the beach. It swooped once, and a moment later the biggest fry was traveling down the beach in its beak.",
   "cell": "find_effect",
   "choices": [
-   "Pia sat on the wall",
+   "Pia sat by the beach",
    "the bag blew away",
    "the tide came in",
    "it stole a chip"
   ],
   "answerOptions": [
    {
-    "value": "Pia sat on the wall",
-    "label": "Pia sat on the wall",
-    "text": "Pia sat on the wall"
+    "value": "Pia sat by the beach",
+    "label": "Pia sat by the beach",
+    "text": "Pia sat by the beach"
    },
    {
     "value": "the bag blew away",
@@ -5512,7 +4918,7 @@ export const questions = [
   "correctAnswer": "it stole a chip",
   "distractorRationales": {
    "the tide came in": "D-PLAUSIBLE-UNSUPPORTED",
-   "Pia sat on the wall": "D-CAUSE-REVERSE",
+   "Pia sat by the beach": "D-CAUSE-REVERSE",
    "the bag blew away": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
@@ -5524,21 +4930,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.R.find_effect.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5548,13 +4949,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l1.R.find_cause.v11r",
@@ -5576,10 +4971,10 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Why did the trolley squeak?",
-  "question": "Why did the trolley squeak?",
-  "spokenPrompt": "Why did the trolley squeak?",
-  "passage": "The trolley sang a squeaky song all round the supermarket — eee-aww, eee-aww. Dad crouched by the front wheel and found a flattened piece of chewing gum stuck right around it.",
+  "prompt": "Why did the cart squeak?",
+  "question": "Why did the cart squeak?",
+  "spokenPrompt": "Why did the cart squeak?",
+  "passage": "The shopping cart squeaked all around the grocery store. Dad crouched by the front wheel and found a flattened piece of chewing gum stuck around it.",
   "cell": "find_cause",
   "choices": [
    "something sticky jammed the wheel",
@@ -5625,21 +5020,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l1.R.find_cause.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5649,13 +5039,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.R.chain.v9r",
@@ -5726,21 +5110,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.R.chain.v9r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v9r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v9r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5750,13 +5129,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v9r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v9r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v9r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v9r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v9r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.R.chain.v10r",
@@ -5827,21 +5200,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.R.chain.v10r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v10r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v10r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5851,13 +5219,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the open tin is the first link; the operative cause of repainting is the lumpy coat",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v10r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v10r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v10r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v10r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v10r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": "the open tin is the first link; the operative cause of repainting is the lumpy coat"
  },
  {
   "id": "lp3.cause_effect.l2.R.multiple_causes.v9r",
@@ -5879,14 +5241,14 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which of these was NOT a reason the washing dried slowly?",
-  "question": "Which of these was NOT a reason the washing dried slowly?",
-  "spokenPrompt": "Which of these was NOT a reason the washing dried slowly?",
-  "passage": "The washing took all day to dry. The morning was misty and damp. The line hung in the shadiest corner of the yard. And Mum had wrung nothing out, pegging everything up still dripping.",
+  "prompt": "Which of these was NOT a reason the laundry dried slowly?",
+  "question": "Which of these was NOT a reason the laundry dried slowly?",
+  "spokenPrompt": "Which of these was NOT a reason the laundry dried slowly?",
+  "passage": "The laundry took all day to dry. The morning was misty and damp. The line hung in the shadiest corner of the yard. Mom had hung everything up while it was still dripping.",
   "cell": "multiple_causes",
   "choices": [
    "the shady corner",
-   "clothes pegged up dripping",
+   "clothes hung up dripping",
    "a hot wind blew all day",
    "the damp, misty morning"
   ],
@@ -5897,9 +5259,9 @@ export const questions = [
     "text": "the shady corner"
    },
    {
-    "value": "clothes pegged up dripping",
-    "label": "clothes pegged up dripping",
-    "text": "clothes pegged up dripping"
+    "value": "clothes hung up dripping",
+    "label": "clothes hung up dripping",
+    "text": "clothes hung up dripping"
    },
    {
     "value": "a hot wind blew all day",
@@ -5915,7 +5277,7 @@ export const questions = [
   "answer": "a hot wind blew all day",
   "correctAnswer": "a hot wind blew all day",
   "distractorRationales": {
-   "clothes pegged up dripping": "D-DETAIL-AS-MAIN",
+   "clothes hung up dripping": "D-DETAIL-AS-MAIN",
    "the damp, misty morning": "D-DETAIL-AS-MAIN",
    "the shady corner": "D-DETAIL-AS-MAIN"
   },
@@ -5928,21 +5290,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.R.multiple_causes.v9r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v9r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v9r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5952,13 +5309,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v9r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v9r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v9r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v9r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v9r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.R.multiple_causes.v10r",
@@ -5983,12 +5334,12 @@ export const questions = [
   "prompt": "Which of these was NOT a cause of the escape?",
   "question": "Which of these was NOT a cause of the escape?",
   "spokenPrompt": "Which of these was NOT a cause of the escape?",
-  "passage": "The school hamster escaped in the night. His cage door had a weak latch that never quite clicked. The caretaker had moved the cage next to the shelf, making a perfect bridge. And carrot night meant the door had been opened one extra time.",
+  "passage": "The school hamster escaped in the night. His cage door had a weak latch that never quite clicked. The custodian had moved the cage next to the shelf, making a bridge. Feeding time meant the door had been opened one extra time.",
   "cell": "multiple_causes",
   "choices": [
    "the weak latch",
    "the shelf right beside the cage",
-   "the extra carrot-night opening",
+   "the extra feeding-time opening",
    "a child took him home"
   ],
   "answerOptions": [
@@ -6003,9 +5354,9 @@ export const questions = [
     "text": "the shelf right beside the cage"
    },
    {
-    "value": "the extra carrot-night opening",
-    "label": "the extra carrot-night opening",
-    "text": "the extra carrot-night opening"
+    "value": "the extra feeding-time opening",
+    "label": "the extra feeding-time opening",
+    "text": "the extra feeding-time opening"
    },
    {
     "value": "a child took him home",
@@ -6018,7 +5369,7 @@ export const questions = [
   "distractorRationales": {
    "the weak latch": "D-DETAIL-AS-MAIN",
    "the shelf right beside the cage": "D-DETAIL-AS-MAIN",
-   "the extra carrot-night opening": "D-DETAIL-AS-MAIN"
+   "the extra feeding-time opening": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6029,21 +5380,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.R.multiple_causes.v10r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v10r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v10r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6053,13 +5399,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v10r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v10r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v10r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v10r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v10r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.R.reversal_trap.v9r",
@@ -6084,7 +5424,7 @@ export const questions = [
   "prompt": "What REALLY links ice cream and sunburn?",
   "question": "What REALLY links ice cream and sunburn?",
   "spokenPrompt": "What REALLY links ice cream and sunburn?",
-  "passage": "Ice-cream sales and sunburn both jump in July. One silly newspaper joked that ice cream causes sunburn. Class 4 worked out the truth for their science wall: hot sunny weather causes BOTH — more cones eaten, more skin burned.",
+  "passage": "Ice cream sales and sunburn both increase in July. One newspaper joked that ice cream causes sunburn. A fourth-grade class worked out the truth for their science display: hot sunny weather causes both more ice cream sales and more sunburn.",
   "cell": "reversal_trap",
   "choices": [
    "hot sun causes both at once",
@@ -6130,21 +5470,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.R.reversal_trap.v9r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v9r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v9r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6154,13 +5489,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v9r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v9r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v9r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v9r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v9r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.R.reversal_trap.v10r",
@@ -6185,12 +5514,12 @@ export const questions = [
   "prompt": "What REALLY explains the lights and the yawns?",
   "question": "What REALLY explains the lights and the yawns?",
   "spokenPrompt": "What REALLY explains the lights and the yawns?",
-  "passage": "Grandad noticed that the streetlights always came on just as he yawned his first evening yawn. 'My yawns switch them on,' he liked to say. Actually both had the same cause: the sky growing dark — dark enough for lights, late enough for yawns.",
+  "passage": "Grandpa noticed that the streetlights always came on just as he yawned his first evening yawn. 'My yawns switch them on,' he liked to say. Actually both had the same cause: the sky growing dark, dark enough for lights and late enough for yawns.",
   "cell": "reversal_trap",
   "choices": [
    "the switch is in his chair",
    "evening darkness triggers both",
-   "Grandad's yawns switch on the lights",
+   "Grandpa's yawns switch on the lights",
    "the streetlights make him yawn"
   ],
   "answerOptions": [
@@ -6205,9 +5534,9 @@ export const questions = [
     "text": "evening darkness triggers both"
    },
    {
-    "value": "Grandad's yawns switch on the lights",
-    "label": "Grandad's yawns switch on the lights",
-    "text": "Grandad's yawns switch on the lights"
+    "value": "Grandpa's yawns switch on the lights",
+    "label": "Grandpa's yawns switch on the lights",
+    "text": "Grandpa's yawns switch on the lights"
    },
    {
     "value": "the streetlights make him yawn",
@@ -6220,7 +5549,7 @@ export const questions = [
   "distractorRationales": {
    "the streetlights make him yawn": "D-CAUSE-REVERSE",
    "the switch is in his chair": "D-PLAUSIBLE-UNSUPPORTED",
-   "Grandad's yawns switch on the lights": "D-CAUSE-REVERSE"
+   "Grandpa's yawns switch on the lights": "D-CAUSE-REVERSE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6231,21 +5560,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.R.reversal_trap.v10r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v10r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v10r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6255,13 +5579,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v10r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v10r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v10r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v10r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v10r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.R.chain.v11r",
@@ -6286,7 +5604,7 @@ export const questions = [
   "prompt": "Why did the group walk in a loop?",
   "question": "Why did the group walk in a loop?",
   "spokenPrompt": "Why did the group walk in a loop?",
-  "passage": "The magnet in Theo's pocket sat right next to his compass on the hike. The needle swung to point at the magnet instead of north. Trusting the needle, the group turned left at the fork, and the left path took them in a long loop back to their own starting stile.",
+  "passage": "The magnet in Theo's pocket sat right next to his compass on the hike. The needle swung to point at the magnet instead of north. Trusting the needle, the group turned left at the fork, and the left path took them in a long loop back to their starting trail gate.",
   "cell": "chain",
   "choices": [
    "they turned left at the fork",
@@ -6332,21 +5650,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.R.chain.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6356,13 +5669,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  },
  {
   "id": "lp3.cause_effect.l2.R.multiple_causes.v11r",
@@ -6433,21 +5740,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.cause_effect.l2.R.multiple_causes.v11r",
-   "role": "neutral-support",
-   "paths": [
-    "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v11r.webp"
-   ],
-   "alt": "Answer-neutral illustration of the passage setting",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved-empty-setting"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v11r.webp",
-  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6457,12 +5759,6 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v11r.webp",
-  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v11r.webp",
-  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v11r.webp",
-  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v11r.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v11r.webp",
-  "imageAlt": "Answer-neutral illustration of the passage setting"
+  "notes": ""
  }
 ];

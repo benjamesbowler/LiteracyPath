@@ -1086,11 +1086,9 @@ function isShortVowelWordChoiceQuestion(question = {}) {
 function isListenChooseVowelQuestion(question = {}) {
   const skillId = String(question?.skillId || "").toLowerCase();
   const format = String(question?.formatType || question?.templateType || "").toUpperCase();
-  const prompt = String(question?.prompt || question?.question || "").toLowerCase();
   return (
     (skillId === "cvc_short_vowels" || skillId === "short_vowel_discrimination") &&
-    format === "LISTEN_CHOOSE_VOWEL" &&
-    prompt.includes("which vowel sound do you hear")
+    format === "LISTEN_CHOOSE_VOWEL"
   );
 }
 

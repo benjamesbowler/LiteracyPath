@@ -79,6 +79,16 @@ test("the release gate applies continuous pass-by-exception media review", () =>
   assert.match(mediaGate?.label || "", /accepted under continuous review/);
 });
 
+test("the canonical release blocks missing or inaudible assessment audio", () => {
+  const audioGate = RELEASE_GATES.find(gate => gate.id === "assessment-audio-audibility");
+
+  assert.deepEqual(
+    audioGate?.command,
+    ["npm", "run", "check:assessment-audio-audibility"]
+  );
+  assert.equal(audioGate?.planned, undefined);
+});
+
 test("the permanent integrity gate runs the one current v3 assessment gate", () => {
   const integritySource = readFileSync(
     new URL("../../tools/assessmentRebuild/gate.mjs", import.meta.url),

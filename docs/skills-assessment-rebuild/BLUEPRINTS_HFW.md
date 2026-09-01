@@ -27,14 +27,14 @@ Current evidence keys are the canonical HFW words themselves. Historical per-que
 **The cloze quality bar** (this is where the current bank fails — 50 duplicate sentence groups per band, grammar-giveaway distractor sets):
 
 1. Sentence frames are original per item (O-1/O-2 lints run on sentences).
-2. Every distractor **parses grammatically in the frame** (`L-CLOZE-FIT`): for "___ dog ran fast." the set is The/A/My/One-class (all determiners), never is/for/said fillers the child can eliminate by grammar alone. SIM-SCANNER strategy 2 is the proof.
+2. Distractors use the same grammatical slot wherever the cumulative approved HFW inventory supplies three viable alternatives (`L-CLOZE-FIT`). Band 1 has a documented closed-inventory exception: its approved verbs, articles, and pronouns cannot always supply a four-option set in which every form agrees. In those cases, use only developmentally plausible agreement/form errors, label them `D-DEVELOPMENTAL`, and keep the sentence short and natural. Never import arbitrary non-HFW fillers or switch to a metalinguistic definition merely to make four options parse.
 3. All four options come from the same or earlier band (no future-band words; no non-HFW content words as fillers).
 4. Function-word meaning is carried by the sentence, not the option ("She **said** hello." vs "She **saw** hello." — the distractor must make the sentence wrong, not impossible).
 5. Frames use only decodable-or-earlier-band supporting words so the child's decoding load doesn't gate word recognition.
 
 **Bank per band.** L1: 25 words × 3 = **75** (forms A/B/C complete). L2: 25 × 2 = **50** (forms A/B). R: 16 mixed. = 141/band, 564 total (current 588 published all replaced). Reuse: `hfwCuratedSentences.generated.js` (770KB of vetted sentence material) may be mined as raw sentence candidates, but every reused sentence still passes the full lint set as if new.
 
-**Distractors.** `D-FUNCTION-SWAP` (same POS, wrong meaning — mandatory ×2), `D-VISUAL-NEIGHBOR` (was/saw, of/for, the/they — the real confusions, from the band lists), `D-HOMOPHONE` where the band supplies one (to/two, there/their in bands 1–2).
+**Distractors.** `D-FUNCTION-SWAP` (same POS, wrong meaning — aim for ×2 whenever the cumulative HFW inventory permits it), `D-DEVELOPMENTAL` for the explicit Band 1 agreement/form exception above, `D-VISUAL-NEIGHBOR` (was/saw, of/for, the/they — the real confusions, from the band lists), and `D-HOMOPHONE` where the band supplies one (to/two, there/their in bands 1–2).
 
 **Exemplars (band 1, unit "was").**
 ```json

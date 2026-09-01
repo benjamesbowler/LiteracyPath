@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 
 import {
+  createAssessmentSessionMediaUsage,
   markQuestionMediaUsage,
   resolveQuestionMediaDynamically,
   validateResolvedQuestionMedia
@@ -10,7 +11,7 @@ import { getAssessmentMediaByPath } from "../../src/data/assessmentMediaRegistry
 import { loadAssessmentSkillBank } from "../../src/data/loadAssessmentSkillBank.js";
 import { getLedaWordAudioPath } from "../../src/data/ledaProductionAudio.js";
 import { ASSESSMENT_ITEM_MEDIA_DECISIONS } from "../../src/content/assessments/v3/assessmentItemMediaDecisions.generated.js";
-import { ASSESSMENT_IMAGE_STYLE_DECISIONS } from "../../src/content/assessments/v3/assessmentImageStyleDecisions.generated.js";
+import { ASSESSMENT_IMAGE_STYLE_DECISIONS } from "../../src/content/assessments/v3/assessmentImageStyleDecisions.js";
 
 const instructionAudio = "/audio/child-mode/clean-human/phrases/listen-and-find.mp3";
 
@@ -230,17 +231,44 @@ test("current production audio assets are indexed for assessment use", () => {
   assert.equal(hfwAudio?.normalizedWord, "oil");
 });
 
-test("published v3 HFW scenes are preserved instead of stripped by the legacy HFW policy", async () => {
-  const questions = await loadAssessmentSkillBank("hfw_1_25");
-  const question = questions.find(row => row.imagePath);
-  assert.ok(question);
-  const expectedPath = ASSESSMENT_ITEM_MEDIA_DECISIONS[question.id].paths[0];
+test("a v3 text-only HFW decision stays image-free while approved audio remains usable", () => {
+  const itemId = "lp3.hfw_1_25.l1.A.the.v1";
+  const decision = ASSESSMENT_ITEM_MEDIA_DECISIONS[itemId];
+  assert.deepEqual(decision, {
+    itemId,
+    role: "text-only",
+    paths: [],
+    constructReview: "approved",
+    answerNeutral: "not-applicable-target-evidence"
+  });
 
-  const resolved = resolveQuestionMediaDynamically(question, { skillId: "hfw_1_25" });
+  const usage = createAssessmentSessionMediaUsage();
+  const audioPath = getLedaWordAudioPath("the");
+  const resolved = resolveQuestionMediaDynamically({
+    id: itemId,
+    bankStandardVersion: 3,
+    skillId: "hfw_1_25",
+    level: 1,
+    phase: 1,
+    mediaTier: "audio-required",
+    targetWord: "the",
+    answer: "the",
+    correctAnswer: "the",
+    choices: ["the", "to", "we", "he"],
+    audioPath,
+    v3AuthoredMedia: { target: false, cards: false }
+  }, {
+    skillId: "hfw_1_25",
+    sessionUsage: usage
+  });
 
-  assert.equal(resolved.imagePath, expectedPath);
-  assert.equal(resolved.targetImage, expectedPath);
-  assert.equal(resolved.assessmentMediaResolution.imageRole, "construct-support");
+  assert.equal(resolved.imagePath, undefined);
+  assert.equal(resolved.targetImage, undefined);
+  assert.equal(resolved.assessmentMediaResolution.imageRole, "text-only");
+  assert.deepEqual(resolved.assessmentMediaResolution.imagePaths, []);
+  assert.deepEqual(resolved.assessmentMediaResolution.warnings, []);
+  assert.equal(resolved.assessmentMediaResolution.audioPath, audioPath);
+  assert.equal(usage.imagePaths.size, 0);
   assert.deepEqual(validateResolvedQuestionMedia(resolved), []);
 });
 

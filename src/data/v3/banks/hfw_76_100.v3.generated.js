@@ -21,15 +21,15 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Where have you ___ all day?",
-  "question": "Where have you ___ all day?",
-  "spokenPrompt": "Which word finishes the sentence? Where have you … all day?",
-  "sentence": "Where have you ___ all day?",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. The gate has been open all day. Which printed word fills the …?",
+  "sentence": "The gate has ___ open all day.",
   "choices": [
    "been",
-   "be",
-   "being",
-   "was"
+   "called",
+   "made",
+   "said"
   ],
   "answerOptions": [
    {
@@ -38,27 +38,27 @@ export const questions = [
     "text": "been"
    },
    {
-    "value": "be",
-    "label": "be",
-    "text": "be"
+    "value": "called",
+    "label": "called",
+    "text": "called"
    },
    {
-    "value": "being",
-    "label": "being",
-    "text": "being"
+    "value": "made",
+    "label": "made",
+    "text": "made"
    },
    {
-    "value": "was",
-    "label": "was",
-    "text": "was"
+    "value": "said",
+    "label": "said",
+    "text": "said"
    }
   ],
   "answer": "been",
   "correctAnswer": "been",
   "distractorRationales": {
-   "be": "D-DEVELOPMENTAL",
-   "being": "D-DEVELOPMENTAL",
-   "was": "D-DEVELOPMENTAL"
+   "called": "D-FUNCTION-SWAP",
+   "made": "D-FUNCTION-SWAP",
+   "said": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -68,24 +68,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Where have you ___ all day?",
+  "sentenceText": "The gate has ___ open all day.",
   "targetWord": "been",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.been.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/been.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/been.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/been.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -95,13 +90,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "where have you be — the participle slip",
-  "imagePath": "/images/assessment/release-support/hfw/been.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/been.webp",
-  "targetImage": "/images/assessment/release-support/hfw/been.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/been.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/been.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the state needs the copular past participle, not another past-participle verb"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.been.v2",
@@ -123,15 +112,15 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "The pups have ___ fed.",
-  "question": "The pups have ___ fed.",
-  "spokenPrompt": "Which word finishes the sentence? The pups have … fed.",
-  "sentence": "The pups have ___ fed.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. The paint has been wet since lunch. Which printed word fills the …?",
+  "sentence": "The paint has ___ wet since lunch.",
   "choices": [
    "had",
    "been",
-   "be",
-   "being"
+   "made",
+   "called"
   ],
   "answerOptions": [
    {
@@ -145,22 +134,22 @@ export const questions = [
     "text": "been"
    },
    {
-    "value": "be",
-    "label": "be",
-    "text": "be"
+    "value": "made",
+    "label": "made",
+    "text": "made"
    },
    {
-    "value": "being",
-    "label": "being",
-    "text": "being"
+    "value": "called",
+    "label": "called",
+    "text": "called"
    }
   ],
   "answer": "been",
   "correctAnswer": "been",
   "distractorRationales": {
-   "be": "D-DEVELOPMENTAL",
-   "being": "D-DEVELOPMENTAL",
-   "had": "D-DEVELOPMENTAL"
+   "made": "D-FUNCTION-SWAP",
+   "called": "D-FUNCTION-SWAP",
+   "had": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -170,24 +159,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The pups have ___ fed.",
+  "sentenceText": "The paint has ___ wet since lunch.",
   "targetWord": "been",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.been.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/been.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/been.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/been.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -197,13 +181,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/been.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/been.webp",
-  "targetImage": "/images/assessment/release-support/hfw/been.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/been.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/been.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the state needs the copular past participle, not another past-participle verb"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.been.v3",
@@ -225,9 +203,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "seen",
    "be",
@@ -276,21 +254,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "been",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.been.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/been.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/been.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/been.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -300,13 +273,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/been.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/been.webp",
-  "targetImage": "/images/assessment/release-support/hfw/been.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/been.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/been.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.called.v1",
@@ -328,21 +295,21 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Gran ___ us in for tea.",
-  "question": "Gran ___ us in for tea.",
-  "spokenPrompt": "Which word finishes the sentence? Gran … us in for tea.",
-  "sentence": "Gran ___ us in for tea.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Mum called me, so my phone rang. Which printed word fills the …?",
+  "sentence": "Mum ___ me, so my phone rang.",
   "choices": [
-   "come",
+   "had",
    "called",
-   "call",
-   "calls"
+   "said",
+   "made"
   ],
   "answerOptions": [
    {
-    "value": "come",
-    "label": "come",
-    "text": "come"
+    "value": "had",
+    "label": "had",
+    "text": "had"
    },
    {
     "value": "called",
@@ -350,22 +317,22 @@ export const questions = [
     "text": "called"
    },
    {
-    "value": "call",
-    "label": "call",
-    "text": "call"
+    "value": "said",
+    "label": "said",
+    "text": "said"
    },
    {
-    "value": "calls",
-    "label": "calls",
-    "text": "calls"
+    "value": "made",
+    "label": "made",
+    "text": "made"
    }
   ],
   "answer": "called",
   "correctAnswer": "called",
   "distractorRationales": {
-   "call": "D-DEVELOPMENTAL",
-   "calls": "D-DEVELOPMENTAL",
-   "come": "D-FUNCTION-SWAP"
+   "said": "D-FUNCTION-SWAP",
+   "made": "D-FUNCTION-SWAP",
+   "had": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -375,24 +342,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Gran ___ us in for tea.",
+  "sentenceText": "Mum ___ me, so my phone rang.",
   "targetWord": "called",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.called.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/called.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/called.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/called.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -402,13 +364,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "gran call us — the tense slip",
-  "imagePath": "/images/assessment/release-support/hfw/called.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/called.webp",
-  "targetImage": "/images/assessment/release-support/hfw/called.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/called.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/called.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the ringing phone identifies the contact action"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.called.v2",
@@ -430,26 +386,26 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Our cat is ___ Pickle.",
-  "question": "Our cat is ___ Pickle.",
-  "spokenPrompt": "Which word finishes the sentence? Our cat is … Pickle.",
-  "sentence": "Our cat is ___ Pickle.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Pip is our new puppy. We called him Pip. Which printed word fills the …?",
+  "sentence": "Pip is our new puppy. We ___ him Pip.",
   "choices": [
-   "named",
-   "made",
+   "had",
+   "said",
    "called",
-   "call"
+   "did"
   ],
   "answerOptions": [
    {
-    "value": "named",
-    "label": "named",
-    "text": "named"
+    "value": "had",
+    "label": "had",
+    "text": "had"
    },
    {
-    "value": "made",
-    "label": "made",
-    "text": "made"
+    "value": "said",
+    "label": "said",
+    "text": "said"
    },
    {
     "value": "called",
@@ -457,17 +413,17 @@ export const questions = [
     "text": "called"
    },
    {
-    "value": "call",
-    "label": "call",
-    "text": "call"
+    "value": "did",
+    "label": "did",
+    "text": "did"
    }
   ],
   "answer": "called",
   "correctAnswer": "called",
   "distractorRationales": {
-   "call": "D-DEVELOPMENTAL",
-   "named": "D-FUNCTION-SWAP",
-   "made": "D-FUNCTION-SWAP"
+   "did": "D-FUNCTION-SWAP",
+   "had": "D-FUNCTION-SWAP",
+   "said": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -477,24 +433,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Our cat is ___ Pickle.",
+  "sentenceText": "Pip is our new puppy. We ___ him Pip.",
   "targetWord": "called",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.called.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/called.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/called.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/called.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -504,13 +455,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/called.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/called.webp",
-  "targetImage": "/images/assessment/release-support/hfw/called.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/called.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/called.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the sentence uses called in its naming sense"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.called.v3",
@@ -532,9 +477,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "call",
    "cold",
@@ -583,21 +528,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "called",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.called.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/called.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/called.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/called.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -607,13 +547,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/called.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/called.webp",
-  "targetImage": "/images/assessment/release-support/hfw/called.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/called.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/called.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.come.v1",
@@ -635,26 +569,26 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "___ and warm up by the fire.",
-  "question": "___ and warm up by the fire.",
-  "spokenPrompt": "Which word finishes the sentence? … and warm up by the fire.",
-  "sentence": "___ and warm up by the fire.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. We are inside waiting for you. Please come. Which printed word fills the …?",
+  "sentence": "We are inside waiting for you. Please ___.",
   "choices": [
-   "go",
    "look",
+   "write",
    "come",
-   "came"
+   "sit"
   ],
   "answerOptions": [
-   {
-    "value": "go",
-    "label": "go",
-    "text": "go"
-   },
    {
     "value": "look",
     "label": "look",
     "text": "look"
+   },
+   {
+    "value": "write",
+    "label": "write",
+    "text": "write"
    },
    {
     "value": "come",
@@ -662,17 +596,17 @@ export const questions = [
     "text": "come"
    },
    {
-    "value": "came",
-    "label": "came",
-    "text": "came"
+    "value": "sit",
+    "label": "sit",
+    "text": "sit"
    }
   ],
   "answer": "come",
   "correctAnswer": "come",
   "distractorRationales": {
-   "go": "D-FUNCTION-SWAP",
    "look": "D-FUNCTION-SWAP",
-   "came": "D-DEVELOPMENTAL"
+   "write": "D-FUNCTION-SWAP",
+   "sit": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -682,24 +616,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "___ and warm up by the fire.",
+  "sentenceText": "We are inside waiting for you. Please ___.",
   "targetWord": "come",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.come.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/come.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/come.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/come.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -709,13 +638,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/come.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/come.webp",
-  "targetImage": "/images/assessment/release-support/hfw/come.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/come.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/come.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the waiting speakers ask the listener to come to them"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.come.v2",
@@ -737,31 +660,31 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Foxes ___ out after dark.",
-  "question": "Foxes ___ out after dark.",
-  "spokenPrompt": "Which word finishes the sentence? Foxes … out after dark.",
-  "sentence": "Foxes ___ out after dark.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Please come inside; we are waiting for you. Which printed word fills the …?",
+  "sentence": "Please ___ inside; we are waiting for you.",
   "choices": [
-   "came",
-   "go",
-   "get",
+   "find",
+   "make",
+   "write",
    "come"
   ],
   "answerOptions": [
    {
-    "value": "came",
-    "label": "came",
-    "text": "came"
+    "value": "find",
+    "label": "find",
+    "text": "find"
    },
    {
-    "value": "go",
-    "label": "go",
-    "text": "go"
+    "value": "make",
+    "label": "make",
+    "text": "make"
    },
    {
-    "value": "get",
-    "label": "get",
-    "text": "get"
+    "value": "write",
+    "label": "write",
+    "text": "write"
    },
    {
     "value": "come",
@@ -772,9 +695,9 @@ export const questions = [
   "answer": "come",
   "correctAnswer": "come",
   "distractorRationales": {
-   "go": "D-FUNCTION-SWAP",
-   "get": "D-FUNCTION-SWAP",
-   "came": "D-DEVELOPMENTAL"
+   "make": "D-FUNCTION-SWAP",
+   "write": "D-FUNCTION-SWAP",
+   "find": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -784,24 +707,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Foxes ___ out after dark.",
+  "sentenceText": "Please ___ inside; we are waiting for you.",
   "targetWord": "come",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.come.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/come.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/come.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/come.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -811,13 +729,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/come.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/come.webp",
-  "targetImage": "/images/assessment/release-support/hfw/come.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/come.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/come.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "come is the only intransitive motion verb that fits"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.come.v3",
@@ -839,9 +751,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "come",
    "came",
@@ -890,21 +802,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "come",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.come.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/come.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/come.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/come.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -914,13 +821,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/come.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/come.webp",
-  "targetImage": "/images/assessment/release-support/hfw/come.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/come.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/come.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.could.v1",
@@ -942,31 +843,31 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "___ you pass the jam?",
-  "question": "___ you pass the jam?",
-  "spokenPrompt": "Which word finishes the sentence? … you pass the jam?",
-  "sentence": "___ you pass the jam?",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. With a stool, I could reach the shelf yesterday. Which printed word fills the …?",
+  "sentence": "With a stool, I ___ reach the shelf yesterday.",
   "choices": [
-   "can",
-   "did",
-   "was",
+   "may",
+   "will",
+   "has",
    "could"
   ],
   "answerOptions": [
    {
-    "value": "can",
-    "label": "can",
-    "text": "can"
+    "value": "may",
+    "label": "may",
+    "text": "may"
    },
    {
-    "value": "did",
-    "label": "did",
-    "text": "did"
+    "value": "will",
+    "label": "will",
+    "text": "will"
    },
    {
-    "value": "was",
-    "label": "was",
-    "text": "was"
+    "value": "has",
+    "label": "has",
+    "text": "has"
    },
    {
     "value": "could",
@@ -977,9 +878,9 @@ export const questions = [
   "answer": "could",
   "correctAnswer": "could",
   "distractorRationales": {
-   "was": "D-DEVELOPMENTAL",
-   "can": "D-FUNCTION-SWAP",
-   "did": "D-FUNCTION-SWAP"
+   "has": "D-DEVELOPMENTAL",
+   "may": "D-FUNCTION-SWAP",
+   "will": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -989,24 +890,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "___ you pass the jam?",
+  "sentenceText": "With a stool, I ___ reach the shelf yesterday.",
   "targetWord": "could",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.could.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/could.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/could.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/could.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1016,13 +912,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/could.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/could.webp",
-  "targetImage": "/images/assessment/release-support/hfw/could.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/could.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/could.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "yesterday pins past ability; has is an unavoidable auxiliary-form error"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.could.v2",
@@ -1044,15 +934,15 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Long ago, Gran ___ skate fast.",
-  "question": "Long ago, Gran ___ skate fast.",
-  "spokenPrompt": "Which word finishes the sentence? Long ago, Gran … skate fast.",
-  "sentence": "Long ago, Gran ___ skate fast.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Yesterday, fog cleared; we could see the road. Which printed word fills the …?",
+  "sentence": "Yesterday, fog cleared; we ___ see the road.",
   "choices": [
    "could",
-   "can",
-   "did",
-   "will"
+   "has",
+   "is",
+   "were"
   ],
   "answerOptions": [
    {
@@ -1061,27 +951,27 @@ export const questions = [
     "text": "could"
    },
    {
-    "value": "can",
-    "label": "can",
-    "text": "can"
+    "value": "has",
+    "label": "has",
+    "text": "has"
    },
    {
-    "value": "did",
-    "label": "did",
-    "text": "did"
+    "value": "is",
+    "label": "is",
+    "text": "is"
    },
    {
-    "value": "will",
-    "label": "will",
-    "text": "will"
+    "value": "were",
+    "label": "were",
+    "text": "were"
    }
   ],
   "answer": "could",
   "correctAnswer": "could",
   "distractorRationales": {
-   "can": "D-DEVELOPMENTAL",
-   "did": "D-DEVELOPMENTAL",
-   "will": "D-DEVELOPMENTAL"
+   "has": "D-DEVELOPMENTAL",
+   "is": "D-DEVELOPMENTAL",
+   "were": "D-DEVELOPMENTAL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1091,24 +981,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Long ago, Gran ___ skate fast.",
+  "sentenceText": "Yesterday, fog cleared; we ___ see the road.",
   "targetWord": "could",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.could.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/could.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/could.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/could.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1118,13 +1003,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "long ago pins the past could",
-  "imagePath": "/images/assessment/release-support/hfw/could.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/could.webp",
-  "targetImage": "/images/assessment/release-support/hfw/could.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/could.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/could.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the cumulative inventory has no other unambiguous past-ability modal, so the fillers are auxiliary-form errors"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.could.v3",
@@ -1146,9 +1025,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "cloud",
    "could",
@@ -1197,21 +1076,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "could",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.could.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/could.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/could.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/could.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1221,13 +1095,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/could.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/could.webp",
-  "targetImage": "/images/assessment/release-support/hfw/could.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/could.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/could.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.day.v1",
@@ -1249,14 +1117,14 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "What ___ is the fair on?",
-  "question": "What ___ is the fair on?",
-  "spokenPrompt": "Which word finishes the sentence? What … is the fair on?",
-  "sentence": "What ___ is the fair on?",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. We played outside all day. Which printed word fills the …?",
+  "sentence": "We played outside all ___.",
   "choices": [
    "day",
-   "date",
-   "time",
+   "words",
+   "part",
    "way"
   ],
   "answerOptions": [
@@ -1266,14 +1134,14 @@ export const questions = [
     "text": "day"
    },
    {
-    "value": "date",
-    "label": "date",
-    "text": "date"
+    "value": "words",
+    "label": "words",
+    "text": "words"
    },
    {
-    "value": "time",
-    "label": "time",
-    "text": "time"
+    "value": "part",
+    "label": "part",
+    "text": "part"
    },
    {
     "value": "way",
@@ -1284,9 +1152,9 @@ export const questions = [
   "answer": "day",
   "correctAnswer": "day",
   "distractorRationales": {
-   "time": "D-FUNCTION-SWAP",
-   "way": "D-VISUAL-NEIGHBOR",
-   "date": "D-VISUAL-NEIGHBOR"
+   "part": "D-FUNCTION-SWAP",
+   "way": "D-FUNCTION-SWAP",
+   "words": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1296,24 +1164,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "What ___ is the fair on?",
+  "sentenceText": "We played outside all ___.",
   "targetWord": "day",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.day.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/day.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/day.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/day.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1323,13 +1186,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "weekday names all contain day and would gift the key a 3-chunk; date ties via what",
-  "imagePath": "/images/assessment/release-support/hfw/day.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/day.webp",
-  "targetImage": "/images/assessment/release-support/hfw/day.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/day.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/day.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "all day is the natural duration phrase"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.day.v2",
@@ -1351,21 +1208,21 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "What a windy ___ for kites!",
-  "question": "What a windy ___ for kites!",
-  "spokenPrompt": "Which word finishes the sentence? What a windy … for kites!",
-  "sentence": "What a windy ___ for kites!",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Each day, Dad walks the dog before school. Which printed word fills the …?",
+  "sentence": "Each ___, Dad walks the dog before school.",
   "choices": [
-   "week",
+   "number",
    "day",
-   "time",
+   "part",
    "way"
   ],
   "answerOptions": [
    {
-    "value": "week",
-    "label": "week",
-    "text": "week"
+    "value": "number",
+    "label": "number",
+    "text": "number"
    },
    {
     "value": "day",
@@ -1373,9 +1230,9 @@ export const questions = [
     "text": "day"
    },
    {
-    "value": "time",
-    "label": "time",
-    "text": "time"
+    "value": "part",
+    "label": "part",
+    "text": "part"
    },
    {
     "value": "way",
@@ -1386,9 +1243,9 @@ export const questions = [
   "answer": "day",
   "correctAnswer": "day",
   "distractorRationales": {
-   "time": "D-FUNCTION-SWAP",
-   "way": "D-VISUAL-NEIGHBOR",
-   "week": "D-FUNCTION-SWAP"
+   "part": "D-FUNCTION-SWAP",
+   "way": "D-FUNCTION-SWAP",
+   "number": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1398,24 +1255,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "What a windy ___ for kites!",
+  "sentenceText": "Each ___, Dad walks the dog before school.",
   "targetWord": "day",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.day.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/day.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/day.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/day.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1425,13 +1277,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/day.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/day.webp",
-  "targetImage": "/images/assessment/release-support/hfw/day.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/day.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/day.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the repeated daily routine pins day"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.day.v3",
@@ -1453,9 +1299,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "way",
    "dad",
@@ -1504,21 +1350,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "day",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.day.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/day.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/day.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/day.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1528,13 +1369,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/day.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/day.webp",
-  "targetImage": "/images/assessment/release-support/hfw/day.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/day.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/day.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.did.v1",
@@ -1556,15 +1391,15 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "___ you lock the gate?",
-  "question": "___ you lock the gate?",
-  "spokenPrompt": "Which word finishes the sentence? … you lock the gate?",
-  "sentence": "___ you lock the gate?",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Mia did her best in the race. Which printed word fills the …?",
+  "sentence": "Mia ___ her best in the race.",
   "choices": [
    "was",
    "did",
-   "do",
-   "does"
+   "made",
+   "called"
   ],
   "answerOptions": [
    {
@@ -1578,22 +1413,22 @@ export const questions = [
     "text": "did"
    },
    {
-    "value": "do",
-    "label": "do",
-    "text": "do"
+    "value": "made",
+    "label": "made",
+    "text": "made"
    },
    {
-    "value": "does",
-    "label": "does",
-    "text": "does"
+    "value": "called",
+    "label": "called",
+    "text": "called"
    }
   ],
   "answer": "did",
   "correctAnswer": "did",
   "distractorRationales": {
-   "was": "D-DEVELOPMENTAL",
-   "do": "D-DEVELOPMENTAL",
-   "does": "D-DEVELOPMENTAL"
+   "was": "D-FUNCTION-SWAP",
+   "made": "D-FUNCTION-SWAP",
+   "called": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1603,24 +1438,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "___ you lock the gate?",
+  "sentenceText": "Mia ___ her best in the race.",
   "targetWord": "did",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.did.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/did.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/did.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/did.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1630,13 +1460,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "do you lock — the tense slip when asking about the past",
-  "imagePath": "/images/assessment/release-support/hfw/did.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/did.webp",
-  "targetImage": "/images/assessment/release-support/hfw/did.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/did.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/did.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "did her best is the fixed natural phrase"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.did.v2",
@@ -1658,26 +1482,26 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "We ___ our best at the quiz.",
-  "question": "We ___ our best at the quiz.",
-  "spokenPrompt": "Which word finishes the sentence? We … our best at the quiz.",
-  "sentence": "We ___ our best at the quiz.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. We did our best to help. Which printed word fills the …?",
+  "sentence": "We ___ our best to help.",
   "choices": [
-   "done",
    "made",
+   "had",
    "did",
-   "do"
+   "said"
   ],
   "answerOptions": [
-   {
-    "value": "done",
-    "label": "done",
-    "text": "done"
-   },
    {
     "value": "made",
     "label": "made",
     "text": "made"
+   },
+   {
+    "value": "had",
+    "label": "had",
+    "text": "had"
    },
    {
     "value": "did",
@@ -1685,17 +1509,17 @@ export const questions = [
     "text": "did"
    },
    {
-    "value": "do",
-    "label": "do",
-    "text": "do"
+    "value": "said",
+    "label": "said",
+    "text": "said"
    }
   ],
   "answer": "did",
   "correctAnswer": "did",
   "distractorRationales": {
-   "do": "D-DEVELOPMENTAL",
-   "done": "D-DEVELOPMENTAL",
-   "made": "D-FUNCTION-SWAP"
+   "said": "D-FUNCTION-SWAP",
+   "made": "D-FUNCTION-SWAP",
+   "had": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1705,24 +1529,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "We ___ our best at the quiz.",
+  "sentenceText": "We ___ our best to help.",
   "targetWord": "did",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.did.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/did.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/did.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/did.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1732,13 +1551,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/did.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/did.webp",
-  "targetImage": "/images/assessment/release-support/hfw/did.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/did.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/did.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "did is the only verb that completes the phrase"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.did.v3",
@@ -1760,9 +1573,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "dad",
    "bid",
@@ -1811,21 +1624,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "did",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.did.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/did.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/did.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/did.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1835,13 +1643,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/did.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/did.webp",
-  "targetImage": "/images/assessment/release-support/hfw/did.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/did.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/did.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.down.v1",
@@ -1863,26 +1665,26 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "The otter slid ___ the bank.",
-  "question": "The otter slid ___ the bank.",
-  "spokenPrompt": "Which word finishes the sentence? The otter slid … the bank.",
-  "sentence": "The otter slid ___ the bank.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. The ball rolled down from top to bottom. Which printed word fills the …?",
+  "sentence": "The ball rolled ___ from top to bottom.",
   "choices": [
-   "under",
-   "off",
+   "with",
+   "at",
    "down",
-   "up"
+   "of"
   ],
   "answerOptions": [
    {
-    "value": "under",
-    "label": "under",
-    "text": "under"
+    "value": "with",
+    "label": "with",
+    "text": "with"
    },
    {
-    "value": "off",
-    "label": "off",
-    "text": "off"
+    "value": "at",
+    "label": "at",
+    "text": "at"
    },
    {
     "value": "down",
@@ -1890,17 +1692,17 @@ export const questions = [
     "text": "down"
    },
    {
-    "value": "up",
-    "label": "up",
-    "text": "up"
+    "value": "of",
+    "label": "of",
+    "text": "of"
    }
   ],
   "answer": "down",
   "correctAnswer": "down",
   "distractorRationales": {
-   "under": "D-FUNCTION-SWAP",
-   "off": "D-FUNCTION-SWAP",
-   "up": "D-FUNCTION-SWAP"
+   "with": "D-DEVELOPMENTAL",
+   "at": "D-DEVELOPMENTAL",
+   "of": "D-DEVELOPMENTAL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1910,24 +1712,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The otter slid ___ the bank.",
+  "sentenceText": "The ball rolled ___ from top to bottom.",
   "targetWord": "down",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.down.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/down.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/down.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/down.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1937,13 +1734,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/down.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/down.webp",
-  "targetImage": "/images/assessment/release-support/hfw/down.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/down.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/down.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "top to bottom pins down; the closed inventory leaves unavoidable preposition-form errors"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.down.v2",
@@ -1965,14 +1756,14 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Write it ___ so you remember.",
-  "question": "Write it ___ so you remember.",
-  "spokenPrompt": "Which word finishes the sentence? Write it … so you remember.",
-  "sentence": "Write it ___ so you remember.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. The lift went from ten down to one. Which printed word fills the …?",
+  "sentence": "The lift went from ten ___ to one.",
   "choices": [
    "up",
-   "out",
-   "off",
+   "about",
+   "by",
    "down"
   ],
   "answerOptions": [
@@ -1982,14 +1773,14 @@ export const questions = [
     "text": "up"
    },
    {
-    "value": "out",
-    "label": "out",
-    "text": "out"
+    "value": "about",
+    "label": "about",
+    "text": "about"
    },
    {
-    "value": "off",
-    "label": "off",
-    "text": "off"
+    "value": "by",
+    "label": "by",
+    "text": "by"
    },
    {
     "value": "down",
@@ -2000,9 +1791,9 @@ export const questions = [
   "answer": "down",
   "correctAnswer": "down",
   "distractorRationales": {
-   "out": "D-DEVELOPMENTAL",
-   "off": "D-DEVELOPMENTAL",
-   "up": "D-DEVELOPMENTAL"
+   "about": "D-FUNCTION-SWAP",
+   "by": "D-FUNCTION-SWAP",
+   "up": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2012,24 +1803,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Write it ___ so you remember.",
+  "sentenceText": "The lift went from ten ___ to one.",
   "targetWord": "down",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.down.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/down.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/down.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/down.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2039,13 +1825,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/down.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/down.webp",
-  "targetImage": "/images/assessment/release-support/hfw/down.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/down.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/down.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the descending floor numbers pin down"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.down.v3",
@@ -2067,9 +1847,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "down",
    "dawn",
@@ -2118,21 +1898,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "down",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.down.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/down.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/down.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/down.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2142,13 +1917,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/down.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/down.webp",
-  "targetImage": "/images/assessment/release-support/hfw/down.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/down.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/down.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.find.v1",
@@ -2170,31 +1939,31 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Can you ___ the hidden key?",
-  "question": "Can you ___ the hidden key?",
-  "spokenPrompt": "Which word finishes the sentence? Can you … the hidden key?",
-  "sentence": "Can you ___ the hidden key?",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Please find my hat. I lost it. Which printed word fills the …?",
+  "sentence": "Please ___ my hat. I lost it.",
   "choices": [
-   "found",
    "look",
-   "see",
+   "use",
+   "write",
    "find"
   ],
   "answerOptions": [
-   {
-    "value": "found",
-    "label": "found",
-    "text": "found"
-   },
    {
     "value": "look",
     "label": "look",
     "text": "look"
    },
    {
-    "value": "see",
-    "label": "see",
-    "text": "see"
+    "value": "use",
+    "label": "use",
+    "text": "use"
+   },
+   {
+    "value": "write",
+    "label": "write",
+    "text": "write"
    },
    {
     "value": "find",
@@ -2205,9 +1974,9 @@ export const questions = [
   "answer": "find",
   "correctAnswer": "find",
   "distractorRationales": {
-   "see": "D-FUNCTION-SWAP",
-   "found": "D-DEVELOPMENTAL",
-   "look": "D-DEVELOPMENTAL"
+   "write": "D-FUNCTION-SWAP",
+   "look": "D-FUNCTION-SWAP",
+   "use": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2217,24 +1986,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Can you ___ the hidden key?",
+  "sentenceText": "Please ___ my hat. I lost it.",
   "targetWord": "find",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.find.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/find.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/find.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/find.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2244,13 +2008,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "found is the tense slip; look needs for",
-  "imagePath": "/images/assessment/release-support/hfw/find.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/find.webp",
-  "targetImage": "/images/assessment/release-support/hfw/find.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/find.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/find.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the lost object needs to be found"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.find.v2",
@@ -2272,15 +2030,15 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Bats ___ moths at night.",
-  "question": "Bats ___ moths at night.",
-  "spokenPrompt": "Which word finishes the sentence? Bats … moths at night.",
-  "sentence": "Bats ___ moths at night.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. We must find the ball we lost. Which printed word fills the …?",
+  "sentence": "We must ___ the ball we lost.",
   "choices": [
    "find",
-   "found",
    "look",
-   "get"
+   "sit",
+   "use"
   ],
   "answerOptions": [
    {
@@ -2289,27 +2047,27 @@ export const questions = [
     "text": "find"
    },
    {
-    "value": "found",
-    "label": "found",
-    "text": "found"
-   },
-   {
     "value": "look",
     "label": "look",
     "text": "look"
    },
    {
-    "value": "get",
-    "label": "get",
-    "text": "get"
+    "value": "sit",
+    "label": "sit",
+    "text": "sit"
+   },
+   {
+    "value": "use",
+    "label": "use",
+    "text": "use"
    }
   ],
   "answer": "find",
   "correctAnswer": "find",
   "distractorRationales": {
-   "get": "D-FUNCTION-SWAP",
-   "found": "D-DEVELOPMENTAL",
-   "look": "D-DEVELOPMENTAL"
+   "use": "D-FUNCTION-SWAP",
+   "look": "D-FUNCTION-SWAP",
+   "sit": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2319,24 +2077,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Bats ___ moths at night.",
+  "sentenceText": "We must ___ the ball we lost.",
   "targetWord": "find",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.find.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/find.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/find.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/find.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2346,13 +2099,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "at night, not in the dark — the word in would gift the key a chunk",
-  "imagePath": "/images/assessment/release-support/hfw/find.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/find.webp",
-  "targetImage": "/images/assessment/release-support/hfw/find.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/find.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/find.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "find is the only transitive search verb in the set"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.find.v3",
@@ -2374,9 +2121,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "kind",
    "find",
@@ -2425,21 +2172,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "find",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.find.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/find.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/find.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/find.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2449,13 +2191,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/find.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/find.webp",
-  "targetImage": "/images/assessment/release-support/hfw/find.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/find.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/find.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.first.v1",
@@ -2477,15 +2213,15 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Tie the knot ___, then pull.",
-  "question": "Tie the knot ___, then pull.",
-  "spokenPrompt": "Which word finishes the sentence? Tie the knot …, then pull.",
-  "sentence": "Tie the knot ___, then pull.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Lia won because she was the first runner. Which printed word fills the …?",
+  "sentence": "Lia won because she was the ___ runner.",
   "choices": [
    "first",
-   "last",
-   "then",
-   "next"
+   "other",
+   "long",
+   "many"
   ],
   "answerOptions": [
    {
@@ -2494,27 +2230,27 @@ export const questions = [
     "text": "first"
    },
    {
-    "value": "last",
-    "label": "last",
-    "text": "last"
+    "value": "other",
+    "label": "other",
+    "text": "other"
    },
    {
-    "value": "then",
-    "label": "then",
-    "text": "then"
+    "value": "long",
+    "label": "long",
+    "text": "long"
    },
    {
-    "value": "next",
-    "label": "next",
-    "text": "next"
+    "value": "many",
+    "label": "many",
+    "text": "many"
    }
   ],
   "answer": "first",
   "correctAnswer": "first",
   "distractorRationales": {
-   "then": "D-FUNCTION-SWAP",
-   "next": "D-FUNCTION-SWAP",
-   "last": "D-FUNCTION-SWAP"
+   "long": "D-FUNCTION-SWAP",
+   "many": "D-DEVELOPMENTAL",
+   "other": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2524,24 +2260,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Tie the knot ___, then pull.",
+  "sentenceText": "Lia won because she was the ___ runner.",
   "targetWord": "first",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.first.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/first.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/first.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/first.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2551,13 +2282,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/first.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/first.webp",
-  "targetImage": "/images/assessment/release-support/hfw/first.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/first.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/first.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "winning pins the runner's rank; many is an unavoidable number-form error"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.first.v2",
@@ -2579,21 +2304,21 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Ana came ___ in the race.",
-  "question": "Ana came ___ in the race.",
-  "spokenPrompt": "Which word finishes the sentence? Ana came … in the race.",
-  "sentence": "Ana came ___ in the race.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. The red team won because it finished first. Which printed word fills the …?",
+  "sentence": "The red team won because it finished ___.",
   "choices": [
-   "second",
+   "up",
    "first",
-   "last",
-   "then"
+   "down",
+   "out"
   ],
   "answerOptions": [
    {
-    "value": "second",
-    "label": "second",
-    "text": "second"
+    "value": "up",
+    "label": "up",
+    "text": "up"
    },
    {
     "value": "first",
@@ -2601,22 +2326,22 @@ export const questions = [
     "text": "first"
    },
    {
-    "value": "last",
-    "label": "last",
-    "text": "last"
+    "value": "down",
+    "label": "down",
+    "text": "down"
    },
    {
-    "value": "then",
-    "label": "then",
-    "text": "then"
+    "value": "out",
+    "label": "out",
+    "text": "out"
    }
   ],
   "answer": "first",
   "correctAnswer": "first",
   "distractorRationales": {
-   "last": "D-FUNCTION-SWAP",
-   "then": "D-DEVELOPMENTAL",
-   "second": "D-FUNCTION-SWAP"
+   "down": "D-FUNCTION-SWAP",
+   "out": "D-FUNCTION-SWAP",
+   "up": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2626,24 +2351,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Ana came ___ in the race.",
+  "sentenceText": "The red team won because it finished ___.",
   "targetWord": "first",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.first.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/first.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/first.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/first.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2653,13 +2373,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/first.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/first.webp",
-  "targetImage": "/images/assessment/release-support/hfw/first.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/first.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/first.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "winning pins the finishing rank"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.first.v3",
@@ -2681,9 +2395,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "fast",
    "frost",
@@ -2732,21 +2446,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "first",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.first.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/first.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/first.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/first.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2756,13 +2465,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/first.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/first.webp",
-  "targetImage": "/images/assessment/release-support/hfw/first.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/first.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/first.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.get.v1",
@@ -2784,15 +2487,15 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Please ___ my coat from the peg.",
-  "question": "Please ___ my coat from the peg.",
-  "spokenPrompt": "Which word finishes the sentence? Please … my coat from the peg.",
-  "sentence": "Please ___ my coat from the peg.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. My boots get wet in puddles. Which printed word fills the …?",
+  "sentence": "My boots ___ wet in puddles.",
   "choices": [
    "make",
    "get",
-   "got",
-   "go"
+   "come",
+   "find"
   ],
   "answerOptions": [
    {
@@ -2806,21 +2509,21 @@ export const questions = [
     "text": "get"
    },
    {
-    "value": "got",
-    "label": "got",
-    "text": "got"
+    "value": "come",
+    "label": "come",
+    "text": "come"
    },
    {
-    "value": "go",
-    "label": "go",
-    "text": "go"
+    "value": "find",
+    "label": "find",
+    "text": "find"
    }
   ],
   "answer": "get",
   "correctAnswer": "get",
   "distractorRationales": {
-   "got": "D-DEVELOPMENTAL",
-   "go": "D-FUNCTION-SWAP",
+   "come": "D-FUNCTION-SWAP",
+   "find": "D-FUNCTION-SWAP",
    "make": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
@@ -2831,24 +2534,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Please ___ my coat from the peg.",
+  "sentenceText": "My boots ___ wet in puddles.",
   "targetWord": "get",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.get.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/get.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/get.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/get.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2858,13 +2556,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/get.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/get.webp",
-  "targetImage": "/images/assessment/release-support/hfw/get.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/get.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/get.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "get marks the change of state"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.get.v2",
@@ -2886,26 +2578,26 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Ducks ___ muddy and stay happy.",
-  "question": "Ducks ___ muddy and stay happy.",
-  "spokenPrompt": "Which word finishes the sentence? Ducks … muddy and stay happy.",
-  "sentence": "Ducks ___ muddy and stay happy.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. The ducks get muddy in the rain. Which printed word fills the …?",
+  "sentence": "The ducks ___ muddy in the rain.",
   "choices": [
-   "go",
-   "have",
+   "find",
+   "use",
    "get",
-   "got"
+   "go"
   ],
   "answerOptions": [
    {
-    "value": "go",
-    "label": "go",
-    "text": "go"
+    "value": "find",
+    "label": "find",
+    "text": "find"
    },
    {
-    "value": "have",
-    "label": "have",
-    "text": "have"
+    "value": "use",
+    "label": "use",
+    "text": "use"
    },
    {
     "value": "get",
@@ -2913,17 +2605,17 @@ export const questions = [
     "text": "get"
    },
    {
-    "value": "got",
-    "label": "got",
-    "text": "got"
+    "value": "go",
+    "label": "go",
+    "text": "go"
    }
   ],
   "answer": "get",
   "correctAnswer": "get",
   "distractorRationales": {
-   "go": "D-FUNCTION-SWAP",
-   "have": "D-FUNCTION-SWAP",
-   "got": "D-DEVELOPMENTAL"
+   "find": "D-FUNCTION-SWAP",
+   "use": "D-FUNCTION-SWAP",
+   "go": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2933,24 +2625,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Ducks ___ muddy and stay happy.",
+  "sentenceText": "The ducks ___ muddy in the rain.",
   "targetWord": "get",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.get.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/get.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/get.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/get.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2960,13 +2647,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "muddy, not wet — wet contains et and would gift the key a chunk",
-  "imagePath": "/images/assessment/release-support/hfw/get.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/get.webp",
-  "targetImage": "/images/assessment/release-support/hfw/get.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/get.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/get.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "get marks the change from clean to muddy"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.get.v3",
@@ -2988,9 +2669,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "got",
    "wet",
@@ -3039,21 +2720,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "get",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.get.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/get.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/get.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/get.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3063,13 +2739,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/get.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/get.webp",
-  "targetImage": "/images/assessment/release-support/hfw/get.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/get.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/get.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.long.v1",
@@ -3091,26 +2761,26 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "A snake is ___ and thin.",
-  "question": "A snake is ___ and thin.",
-  "spokenPrompt": "Which word finishes the sentence? A snake is … and thin.",
-  "sentence": "A snake is ___ and thin.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. The ten-metre rope was too long for the bag. Which printed word fills the …?",
+  "sentence": "The ten-metre rope was too ___ for the bag.",
   "choices": [
-   "wide",
-   "big",
+   "more",
+   "other",
    "long",
-   "tall"
+   "many"
   ],
   "answerOptions": [
    {
-    "value": "wide",
-    "label": "wide",
-    "text": "wide"
+    "value": "more",
+    "label": "more",
+    "text": "more"
    },
    {
-    "value": "big",
-    "label": "big",
-    "text": "big"
+    "value": "other",
+    "label": "other",
+    "text": "other"
    },
    {
     "value": "long",
@@ -3118,17 +2788,17 @@ export const questions = [
     "text": "long"
    },
    {
-    "value": "tall",
-    "label": "tall",
-    "text": "tall"
+    "value": "many",
+    "label": "many",
+    "text": "many"
    }
   ],
   "answer": "long",
   "correctAnswer": "long",
   "distractorRationales": {
-   "tall": "D-FUNCTION-SWAP",
-   "wide": "D-FUNCTION-SWAP",
-   "big": "D-FUNCTION-SWAP"
+   "many": "D-DEVELOPMENTAL",
+   "more": "D-DEVELOPMENTAL",
+   "other": "D-DEVELOPMENTAL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3138,24 +2808,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "A snake is ___ and thin.",
+  "sentenceText": "The ten-metre rope was too ___ for the bag.",
   "targetWord": "long",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.long.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/long.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/long.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/long.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3165,13 +2830,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/long.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/long.webp",
-  "targetImage": "/images/assessment/release-support/hfw/long.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/long.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/long.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the inventory lacks alternative gradable adjectives, so the fillers are developmental form errors"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.long.v2",
@@ -3193,31 +2852,31 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "How ___ is the train ride?",
-  "question": "How ___ is the train ride?",
-  "spokenPrompt": "Which word finishes the sentence? How … is the train ride?",
-  "sentence": "How ___ is the train ride?",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Her hair reached her knees; it was very long. Which printed word fills the …?",
+  "sentence": "Her hair reached her knees; it was very ___.",
   "choices": [
-   "far",
-   "tall",
-   "late",
+   "more",
+   "other",
+   "all",
    "long"
   ],
   "answerOptions": [
    {
-    "value": "far",
-    "label": "far",
-    "text": "far"
+    "value": "more",
+    "label": "more",
+    "text": "more"
    },
    {
-    "value": "tall",
-    "label": "tall",
-    "text": "tall"
+    "value": "other",
+    "label": "other",
+    "text": "other"
    },
    {
-    "value": "late",
-    "label": "late",
-    "text": "late"
+    "value": "all",
+    "label": "all",
+    "text": "all"
    },
    {
     "value": "long",
@@ -3228,9 +2887,9 @@ export const questions = [
   "answer": "long",
   "correctAnswer": "long",
   "distractorRationales": {
-   "far": "D-FUNCTION-SWAP",
-   "tall": "D-FUNCTION-SWAP",
-   "late": "D-FUNCTION-SWAP"
+   "more": "D-DEVELOPMENTAL",
+   "other": "D-DEVELOPMENTAL",
+   "all": "D-DEVELOPMENTAL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3240,24 +2899,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "How ___ is the train ride?",
+  "sentenceText": "Her hair reached her knees; it was very ___.",
   "targetWord": "long",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.long.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/long.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/long.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/long.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3267,13 +2921,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/long.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/long.webp",
-  "targetImage": "/images/assessment/release-support/hfw/long.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/long.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/long.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the inventory lacks alternative gradable adjectives, so the fillers are developmental form errors"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.long.v3",
@@ -3295,9 +2943,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "long",
    "song",
@@ -3346,21 +2994,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "long",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.long.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/long.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/long.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/long.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3370,13 +3013,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/long.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/long.webp",
-  "targetImage": "/images/assessment/release-support/hfw/long.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/long.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/long.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.made.v1",
@@ -3398,31 +3035,31 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Gramps ___ this stool himself.",
-  "question": "Gramps ___ this stool himself.",
-  "spokenPrompt": "Which word finishes the sentence? Gramps … this stool himself.",
-  "sentence": "Gramps ___ this stool himself.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. We made a kite from paper. Which printed word fills the …?",
+  "sentence": "We ___ a kite from paper.",
   "choices": [
-   "make",
-   "did",
-   "got",
+   "called",
+   "said",
+   "were",
    "made"
   ],
   "answerOptions": [
    {
-    "value": "make",
-    "label": "make",
-    "text": "make"
+    "value": "called",
+    "label": "called",
+    "text": "called"
    },
    {
-    "value": "did",
-    "label": "did",
-    "text": "did"
+    "value": "said",
+    "label": "said",
+    "text": "said"
    },
    {
-    "value": "got",
-    "label": "got",
-    "text": "got"
+    "value": "were",
+    "label": "were",
+    "text": "were"
    },
    {
     "value": "made",
@@ -3433,9 +3070,9 @@ export const questions = [
   "answer": "made",
   "correctAnswer": "made",
   "distractorRationales": {
-   "make": "D-DEVELOPMENTAL",
-   "did": "D-FUNCTION-SWAP",
-   "got": "D-FUNCTION-SWAP"
+   "called": "D-FUNCTION-SWAP",
+   "said": "D-FUNCTION-SWAP",
+   "were": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3445,24 +3082,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Gramps ___ this stool himself.",
+  "sentenceText": "We ___ a kite from paper.",
   "targetWord": "made",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.made.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/made.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/made.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/made.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3472,13 +3104,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "gramps make — the tense slip",
-  "imagePath": "/images/assessment/release-support/hfw/made.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/made.webp",
-  "targetImage": "/images/assessment/release-support/hfw/made.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/made.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/made.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "from paper identifies creating the kite"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.made.v2",
@@ -3500,15 +3126,15 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "The chef ___ soup from scraps.",
-  "question": "The chef ___ soup from scraps.",
-  "spokenPrompt": "Which word finishes the sentence? The chef … soup from scraps.",
-  "sentence": "The chef ___ soup from scraps.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. The children made a snowman from three balls. Which printed word fills the …?",
+  "sentence": "The children ___ a snowman from three balls.",
   "choices": [
    "made",
-   "make",
-   "did",
-   "had"
+   "called",
+   "said",
+   "was"
   ],
   "answerOptions": [
    {
@@ -3517,27 +3143,27 @@ export const questions = [
     "text": "made"
    },
    {
-    "value": "make",
-    "label": "make",
-    "text": "make"
+    "value": "called",
+    "label": "called",
+    "text": "called"
    },
    {
-    "value": "did",
-    "label": "did",
-    "text": "did"
+    "value": "said",
+    "label": "said",
+    "text": "said"
    },
    {
-    "value": "had",
-    "label": "had",
-    "text": "had"
+    "value": "was",
+    "label": "was",
+    "text": "was"
    }
   ],
   "answer": "made",
   "correctAnswer": "made",
   "distractorRationales": {
-   "make": "D-DEVELOPMENTAL",
-   "did": "D-FUNCTION-SWAP",
-   "had": "D-FUNCTION-SWAP"
+   "called": "D-FUNCTION-SWAP",
+   "said": "D-FUNCTION-SWAP",
+   "was": "D-DEVELOPMENTAL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3547,24 +3173,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The chef ___ soup from scraps.",
+  "sentenceText": "The children ___ a snowman from three balls.",
   "targetWord": "made",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.made.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/made.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/made.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/made.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3574,13 +3195,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/made.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/made.webp",
-  "targetImage": "/images/assessment/release-support/hfw/made.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/made.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/made.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "from three balls identifies creating the snowman"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.made.v3",
@@ -3602,9 +3217,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "maze",
    "made",
@@ -3653,21 +3268,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "made",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.made.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/made.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/made.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/made.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3677,13 +3287,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/made.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/made.webp",
-  "targetImage": "/images/assessment/release-support/hfw/made.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/made.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/made.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.may.v1",
@@ -3705,15 +3309,15 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "There is a chance it ___ rain.",
-  "question": "There is a chance it ___ rain.",
-  "spokenPrompt": "Which word finishes the sentence? There is a chance it … rain.",
-  "sentence": "There is a chance it ___ rain.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. We are unsure; Mia may have missed the bus. Which printed word fills the …?",
+  "sentence": "We are unsure; Mia ___ have missed the bus.",
   "choices": [
    "may",
-   "did",
    "has",
-   "was"
+   "is",
+   "are"
   ],
   "answerOptions": [
    {
@@ -3722,27 +3326,27 @@ export const questions = [
     "text": "may"
    },
    {
-    "value": "did",
-    "label": "did",
-    "text": "did"
-   },
-   {
     "value": "has",
     "label": "has",
     "text": "has"
    },
    {
-    "value": "was",
-    "label": "was",
-    "text": "was"
+    "value": "is",
+    "label": "is",
+    "text": "is"
+   },
+   {
+    "value": "are",
+    "label": "are",
+    "text": "are"
    }
   ],
   "answer": "may",
   "correctAnswer": "may",
   "distractorRationales": {
-   "was": "D-FUNCTION-SWAP",
-   "did": "D-FUNCTION-SWAP",
-   "has": "D-FUNCTION-SWAP"
+   "are": "D-DEVELOPMENTAL",
+   "has": "D-DEVELOPMENTAL",
+   "is": "D-DEVELOPMENTAL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3752,24 +3356,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "There is a chance it ___ rain.",
+  "sentenceText": "We are unsure; Mia ___ have missed the bus.",
   "targetWord": "may",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.may.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/may.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/may.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/may.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3779,13 +3378,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "chance pins may as possibility; the distractors do not complete the frame",
-  "imagePath": "/images/assessment/release-support/hfw/may.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/may.webp",
-  "targetImage": "/images/assessment/release-support/hfw/may.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/may.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/may.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "other cumulative modals allow rival readings, so the fillers are unavoidable auxiliary-form errors"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.may.v2",
@@ -3807,21 +3400,21 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "It ___ snow before dawn.",
-  "question": "It ___ snow before dawn.",
-  "spokenPrompt": "Which word finishes the sentence? It … snow before dawn.",
-  "sentence": "It ___ snow before dawn.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. We are unsure; Dad may have left already. Which printed word fills the …?",
+  "sentence": "We are unsure; Dad ___ have left already.",
   "choices": [
-   "did",
+   "were",
    "may",
-   "will",
-   "can"
+   "has",
+   "was"
   ],
   "answerOptions": [
    {
-    "value": "did",
-    "label": "did",
-    "text": "did"
+    "value": "were",
+    "label": "were",
+    "text": "were"
    },
    {
     "value": "may",
@@ -3829,22 +3422,22 @@ export const questions = [
     "text": "may"
    },
    {
-    "value": "will",
-    "label": "will",
-    "text": "will"
+    "value": "has",
+    "label": "has",
+    "text": "has"
    },
    {
-    "value": "can",
-    "label": "can",
-    "text": "can"
+    "value": "was",
+    "label": "was",
+    "text": "was"
    }
   ],
   "answer": "may",
   "correctAnswer": "may",
   "distractorRationales": {
-   "will": "D-FUNCTION-SWAP",
-   "can": "D-DEVELOPMENTAL",
-   "did": "D-DEVELOPMENTAL"
+   "has": "D-DEVELOPMENTAL",
+   "was": "D-DEVELOPMENTAL",
+   "were": "D-DEVELOPMENTAL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3854,24 +3447,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "It ___ snow before dawn.",
+  "sentenceText": "We are unsure; Dad ___ have left already.",
   "targetWord": "may",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.may.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/may.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/may.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/may.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3881,13 +3469,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "before dawn, not they say — say contains ay and would gift the key a chunk",
-  "imagePath": "/images/assessment/release-support/hfw/may.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/may.webp",
-  "targetImage": "/images/assessment/release-support/hfw/may.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/may.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/may.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "other cumulative modals allow rival readings, so the fillers are unavoidable auxiliary-form errors"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.may.v3",
@@ -3909,9 +3491,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "way",
    "man",
@@ -3960,21 +3542,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "may",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.may.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/may.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/may.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/may.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3984,13 +3561,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/may.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/may.webp",
-  "targetImage": "/images/assessment/release-support/hfw/may.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/may.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/may.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.my.v1",
@@ -4012,21 +3583,21 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "This is ___ bike, not yours.",
-  "question": "This is ___ bike, not yours.",
-  "spokenPrompt": "Which word finishes the sentence? This is … bike, not yours.",
-  "sentence": "This is ___ bike, not yours.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. I own these shoes; they are my shoes. Which printed word fills the …?",
+  "sentence": "I own these shoes; they are ___ shoes.",
   "choices": [
-   "your",
+   "their",
    "my",
-   "mine",
-   "me"
+   "your",
+   "his"
   ],
   "answerOptions": [
    {
-    "value": "your",
-    "label": "your",
-    "text": "your"
+    "value": "their",
+    "label": "their",
+    "text": "their"
    },
    {
     "value": "my",
@@ -4034,22 +3605,22 @@ export const questions = [
     "text": "my"
    },
    {
-    "value": "mine",
-    "label": "mine",
-    "text": "mine"
+    "value": "your",
+    "label": "your",
+    "text": "your"
    },
    {
-    "value": "me",
-    "label": "me",
-    "text": "me"
+    "value": "his",
+    "label": "his",
+    "text": "his"
    }
   ],
   "answer": "my",
   "correctAnswer": "my",
   "distractorRationales": {
-   "mine": "D-DEVELOPMENTAL",
-   "me": "D-DEVELOPMENTAL",
-   "your": "D-FUNCTION-SWAP"
+   "your": "D-FUNCTION-SWAP",
+   "his": "D-FUNCTION-SWAP",
+   "their": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4059,24 +3630,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "This is ___ bike, not yours.",
+  "sentenceText": "I own these shoes; they are ___ shoes.",
   "targetWord": "my",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.my.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/my.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/my.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/my.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4086,13 +3652,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "my is the only possessive form that can sit before bike",
-  "imagePath": "/images/assessment/release-support/hfw/my.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/my.webp",
-  "targetImage": "/images/assessment/release-support/hfw/my.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/my.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/my.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the stated first-person ownership pins my"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.my.v2",
@@ -4114,26 +3674,26 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "I lost ___ left glove.",
-  "question": "I lost ___ left glove.",
-  "spokenPrompt": "Which word finishes the sentence? I lost … left glove.",
-  "sentence": "I lost ___ left glove.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. This bag belongs to me; it is my bag. Which printed word fills the …?",
+  "sentence": "This bag belongs to me; it is ___ bag.",
   "choices": [
-   "mine",
-   "the",
+   "her",
+   "their",
    "my",
-   "me"
+   "your"
   ],
   "answerOptions": [
    {
-    "value": "mine",
-    "label": "mine",
-    "text": "mine"
+    "value": "her",
+    "label": "her",
+    "text": "her"
    },
    {
-    "value": "the",
-    "label": "the",
-    "text": "the"
+    "value": "their",
+    "label": "their",
+    "text": "their"
    },
    {
     "value": "my",
@@ -4141,17 +3701,17 @@ export const questions = [
     "text": "my"
    },
    {
-    "value": "me",
-    "label": "me",
-    "text": "me"
+    "value": "your",
+    "label": "your",
+    "text": "your"
    }
   ],
   "answer": "my",
   "correctAnswer": "my",
   "distractorRationales": {
-   "me": "D-DEVELOPMENTAL",
-   "mine": "D-DEVELOPMENTAL",
-   "the": "D-FUNCTION-SWAP"
+   "your": "D-FUNCTION-SWAP",
+   "her": "D-FUNCTION-SWAP",
+   "their": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4161,24 +3721,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "I lost ___ left glove.",
+  "sentenceText": "This bag belongs to me; it is ___ bag.",
   "targetWord": "my",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.my.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/my.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/my.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/my.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4188,13 +3743,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/my.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/my.webp",
-  "targetImage": "/images/assessment/release-support/hfw/my.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/my.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/my.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the stated first-person ownership pins my"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.my.v3",
@@ -4216,9 +3765,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "me",
    "may",
@@ -4267,21 +3816,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "my",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.my.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/my.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/my.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/my.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4291,13 +3835,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/my.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/my.webp",
-  "targetImage": "/images/assessment/release-support/hfw/my.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/my.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/my.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.no.v1",
@@ -4319,26 +3857,26 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "There are ___ plums left.",
-  "question": "There are ___ plums left.",
-  "spokenPrompt": "Which word finishes the sentence? There are … plums left.",
-  "sentence": "There are ___ plums left.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. The empty box had no toys in it. Which printed word fills the …?",
+  "sentence": "The empty box had ___ toys in it.",
   "choices": [
-   "none",
-   "any",
+   "many",
+   "two",
    "no",
-   "not"
+   "some"
   ],
   "answerOptions": [
    {
-    "value": "none",
-    "label": "none",
-    "text": "none"
+    "value": "many",
+    "label": "many",
+    "text": "many"
    },
    {
-    "value": "any",
-    "label": "any",
-    "text": "any"
+    "value": "two",
+    "label": "two",
+    "text": "two"
    },
    {
     "value": "no",
@@ -4346,17 +3884,17 @@ export const questions = [
     "text": "no"
    },
    {
-    "value": "not",
-    "label": "not",
-    "text": "not"
+    "value": "some",
+    "label": "some",
+    "text": "some"
    }
   ],
   "answer": "no",
   "correctAnswer": "no",
   "distractorRationales": {
-   "any": "D-DEVELOPMENTAL",
-   "not": "D-DEVELOPMENTAL",
-   "none": "D-DEVELOPMENTAL"
+   "two": "D-FUNCTION-SWAP",
+   "some": "D-FUNCTION-SWAP",
+   "many": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4366,24 +3904,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "There are ___ plums left.",
+  "sentenceText": "The empty box had ___ toys in it.",
   "targetWord": "no",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.no.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/no.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/no.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/no.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4393,13 +3926,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "there are not plums — the no/not swap",
-  "imagePath": "/images/assessment/release-support/hfw/no.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/no.webp",
-  "targetImage": "/images/assessment/release-support/hfw/no.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/no.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/no.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "empty makes the quantity unambiguous"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.no.v2",
@@ -4421,31 +3948,31 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "___ dogs on the sand, says the sign.",
-  "question": "___ dogs on the sand, says the sign.",
-  "spokenPrompt": "Which word finishes the sentence? … dogs on the sand, says the sign.",
-  "sentence": "___ dogs on the sand, says the sign.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Every apple was eaten, so no apples were left. Which printed word fills the …?",
+  "sentence": "Every apple was eaten, so ___ apples were left.",
   "choices": [
-   "not",
-   "none",
-   "never",
+   "all",
+   "some",
+   "two",
    "no"
   ],
   "answerOptions": [
    {
-    "value": "not",
-    "label": "not",
-    "text": "not"
+    "value": "all",
+    "label": "all",
+    "text": "all"
    },
    {
-    "value": "none",
-    "label": "none",
-    "text": "none"
+    "value": "some",
+    "label": "some",
+    "text": "some"
    },
    {
-    "value": "never",
-    "label": "never",
-    "text": "never"
+    "value": "two",
+    "label": "two",
+    "text": "two"
    },
    {
     "value": "no",
@@ -4456,9 +3983,9 @@ export const questions = [
   "answer": "no",
   "correctAnswer": "no",
   "distractorRationales": {
-   "never": "D-FUNCTION-SWAP",
-   "not": "D-DEVELOPMENTAL",
-   "none": "D-DEVELOPMENTAL"
+   "two": "D-FUNCTION-SWAP",
+   "all": "D-FUNCTION-SWAP",
+   "some": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4468,24 +3995,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "___ dogs on the sand, says the sign.",
+  "sentenceText": "Every apple was eaten, so ___ apples were left.",
   "targetWord": "no",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.no.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/no.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/no.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/no.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4495,13 +4017,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/no.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/no.webp",
-  "targetImage": "/images/assessment/release-support/hfw/no.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/no.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/no.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the completed eating event leaves none"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.no.v3",
@@ -4523,9 +4039,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "no",
    "on",
@@ -4574,21 +4090,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "no",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.no.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/no.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/no.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/no.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4598,13 +4109,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/no.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/no.webp",
-  "targetImage": "/images/assessment/release-support/hfw/no.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/no.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/no.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.now.v1",
@@ -4626,31 +4131,31 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "The glue is dry ___.",
-  "question": "The glue is dry ___.",
-  "spokenPrompt": "Which word finishes the sentence? The glue is dry ….",
-  "sentence": "The glue is dry ___.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. The paint was wet before but is dry now. Which printed word fills the …?",
+  "sentence": "The paint was wet before but is dry ___.",
   "choices": [
-   "not",
-   "no",
-   "new",
+   "then",
+   "first",
+   "down",
    "now"
   ],
   "answerOptions": [
    {
-    "value": "not",
-    "label": "not",
-    "text": "not"
+    "value": "then",
+    "label": "then",
+    "text": "then"
    },
    {
-    "value": "no",
-    "label": "no",
-    "text": "no"
+    "value": "first",
+    "label": "first",
+    "text": "first"
    },
    {
-    "value": "new",
-    "label": "new",
-    "text": "new"
+    "value": "down",
+    "label": "down",
+    "text": "down"
    },
    {
     "value": "now",
@@ -4661,9 +4166,9 @@ export const questions = [
   "answer": "now",
   "correctAnswer": "now",
   "distractorRationales": {
-   "not": "D-VISUAL-NEIGHBOR",
-   "no": "D-VISUAL-NEIGHBOR",
-   "new": "D-VISUAL-NEIGHBOR"
+   "then": "D-FUNCTION-SWAP",
+   "first": "D-FUNCTION-SWAP",
+   "down": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4673,24 +4178,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The glue is dry ___.",
+  "sentenceText": "The paint was wet before but is dry ___.",
   "targetWord": "now",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.now.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/now.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/now.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/now.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4700,13 +4200,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/now.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/now.webp",
-  "targetImage": "/images/assessment/release-support/hfw/now.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/now.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/now.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the contrast with before pins the present time"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.now.v2",
@@ -4728,15 +4222,15 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "___ it is my turn!",
-  "question": "___ it is my turn!",
-  "spokenPrompt": "Which word finishes the sentence? … it is my turn!",
-  "sentence": "___ it is my turn!",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. The baby slept before, but is awake now. Which printed word fills the …?",
+  "sentence": "The baby slept before, but is awake ___.",
   "choices": [
    "now",
-   "no",
-   "new",
-   "then"
+   "first",
+   "up",
+   "out"
   ],
   "answerOptions": [
    {
@@ -4745,27 +4239,27 @@ export const questions = [
     "text": "now"
    },
    {
-    "value": "no",
-    "label": "no",
-    "text": "no"
+    "value": "first",
+    "label": "first",
+    "text": "first"
    },
    {
-    "value": "new",
-    "label": "new",
-    "text": "new"
+    "value": "up",
+    "label": "up",
+    "text": "up"
    },
    {
-    "value": "then",
-    "label": "then",
-    "text": "then"
+    "value": "out",
+    "label": "out",
+    "text": "out"
    }
   ],
   "answer": "now",
   "correctAnswer": "now",
   "distractorRationales": {
-   "new": "D-VISUAL-NEIGHBOR",
-   "then": "D-FUNCTION-SWAP",
-   "no": "D-VISUAL-NEIGHBOR"
+   "up": "D-FUNCTION-SWAP",
+   "out": "D-FUNCTION-SWAP",
+   "first": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4775,24 +4269,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "___ it is my turn!",
+  "sentenceText": "The baby slept before, but is awake ___.",
   "targetWord": "now",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.now.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/now.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/now.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/now.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4802,13 +4291,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/now.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/now.webp",
-  "targetImage": "/images/assessment/release-support/hfw/now.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/now.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/now.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the contrast with before pins the present time"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.now.v3",
@@ -4830,9 +4313,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "own",
    "now",
@@ -4881,21 +4364,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "now",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.now.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/now.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/now.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/now.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4905,13 +4383,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/now.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/now.webp",
-  "targetImage": "/images/assessment/release-support/hfw/now.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/now.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/now.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.number.v1",
@@ -4933,15 +4405,15 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Pick a ___ from one to ten.",
-  "question": "Pick a ___ from one to ten.",
-  "spokenPrompt": "Which word finishes the sentence? Pick a … from one to ten.",
-  "sentence": "Pick a ___ from one to ten.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Write your phone number here. Which printed word fills the …?",
+  "sentence": "Write your phone ___ here.",
   "choices": [
    "number",
-   "letter",
-   "word",
-   "name"
+   "words",
+   "part",
+   "way"
   ],
   "answerOptions": [
    {
@@ -4950,27 +4422,27 @@ export const questions = [
     "text": "number"
    },
    {
-    "value": "letter",
-    "label": "letter",
-    "text": "letter"
+    "value": "words",
+    "label": "words",
+    "text": "words"
    },
    {
-    "value": "word",
-    "label": "word",
-    "text": "word"
+    "value": "part",
+    "label": "part",
+    "text": "part"
    },
    {
-    "value": "name",
-    "label": "name",
-    "text": "name"
+    "value": "way",
+    "label": "way",
+    "text": "way"
    }
   ],
   "answer": "number",
   "correctAnswer": "number",
   "distractorRationales": {
-   "letter": "D-FUNCTION-SWAP",
-   "word": "D-FUNCTION-SWAP",
-   "name": "D-FUNCTION-SWAP"
+   "words": "D-FUNCTION-SWAP",
+   "part": "D-FUNCTION-SWAP",
+   "way": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4980,24 +4452,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Pick a ___ from one to ten.",
+  "sentenceText": "Write your phone ___ here.",
   "targetWord": "number",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.number.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/number.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/number.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/number.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5007,13 +4474,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/number.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/number.webp",
-  "targetImage": "/images/assessment/release-support/hfw/number.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/number.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/number.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "phone number is the natural noun phrase"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.number.v2",
@@ -5035,21 +4496,21 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "What ___ is your house?",
-  "question": "What ___ is your house?",
-  "spokenPrompt": "Which word finishes the sentence? What … is your house?",
-  "sentence": "What ___ is your house?",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Seven is my lucky number. Which printed word fills the …?",
+  "sentence": "Seven is my lucky ___.",
   "choices": [
-   "sign",
+   "people",
    "number",
-   "name",
-   "letter"
+   "words",
+   "oil"
   ],
   "answerOptions": [
    {
-    "value": "sign",
-    "label": "sign",
-    "text": "sign"
+    "value": "people",
+    "label": "people",
+    "text": "people"
    },
    {
     "value": "number",
@@ -5057,22 +4518,22 @@ export const questions = [
     "text": "number"
    },
    {
-    "value": "name",
-    "label": "name",
-    "text": "name"
+    "value": "words",
+    "label": "words",
+    "text": "words"
    },
    {
-    "value": "letter",
-    "label": "letter",
-    "text": "letter"
+    "value": "oil",
+    "label": "oil",
+    "text": "oil"
    }
   ],
   "answer": "number",
   "correctAnswer": "number",
   "distractorRationales": {
-   "name": "D-FUNCTION-SWAP",
-   "letter": "D-FUNCTION-SWAP",
-   "sign": "D-FUNCTION-SWAP"
+   "words": "D-FUNCTION-SWAP",
+   "oil": "D-FUNCTION-SWAP",
+   "people": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5082,24 +4543,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "What ___ is your house?",
+  "sentenceText": "Seven is my lucky ___.",
   "targetWord": "number",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.number.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/number.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/number.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/number.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5109,13 +4565,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/number.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/number.webp",
-  "targetImage": "/images/assessment/release-support/hfw/number.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/number.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/number.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "seven identifies a number"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.number.v3",
@@ -5137,9 +4587,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "nimble",
    "numbers",
@@ -5188,21 +4638,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "number",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.number.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/number.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/number.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/number.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5212,13 +4657,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/number.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/number.webp",
-  "targetImage": "/images/assessment/release-support/hfw/number.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/number.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/number.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.oil.v1",
@@ -5240,21 +4679,21 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Dad put ___ on the squeaky hinge.",
-  "question": "Dad put ___ on the squeaky hinge.",
-  "spokenPrompt": "Which word finishes the sentence? Dad put … on the squeaky hinge.",
-  "sentence": "Dad put ___ on the squeaky hinge.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. The chain squeaked until Dad added oil. Which printed word fills the …?",
+  "sentence": "The chain squeaked until Dad added ___.",
   "choices": [
-   "jam",
+   "time",
    "oil",
-   "water",
-   "glue"
+   "words",
+   "people"
   ],
   "answerOptions": [
    {
-    "value": "jam",
-    "label": "jam",
-    "text": "jam"
+    "value": "time",
+    "label": "time",
+    "text": "time"
    },
    {
     "value": "oil",
@@ -5262,22 +4701,22 @@ export const questions = [
     "text": "oil"
    },
    {
-    "value": "water",
-    "label": "water",
-    "text": "water"
+    "value": "words",
+    "label": "words",
+    "text": "words"
    },
    {
-    "value": "glue",
-    "label": "glue",
-    "text": "glue"
+    "value": "people",
+    "label": "people",
+    "text": "people"
    }
   ],
   "answer": "oil",
   "correctAnswer": "oil",
   "distractorRationales": {
-   "water": "D-FUNCTION-SWAP",
-   "glue": "D-FUNCTION-SWAP",
-   "jam": "D-FUNCTION-SWAP"
+   "words": "D-FUNCTION-SWAP",
+   "people": "D-FUNCTION-SWAP",
+   "time": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5287,24 +4726,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Dad put ___ on the squeaky hinge.",
+  "sentenceText": "The chain squeaked until Dad added ___.",
   "targetWord": "oil",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.oil.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/oil.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/oil.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/oil.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5314,13 +4748,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/oil.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/oil.webp",
-  "targetImage": "/images/assessment/release-support/hfw/oil.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/oil.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/oil.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "ending the chain's squeak pins oil"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.oil.v2",
@@ -5342,26 +4770,26 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "___ and water will not mix.",
-  "question": "___ and water will not mix.",
-  "spokenPrompt": "Which word finishes the sentence? … and water will not mix.",
-  "sentence": "___ and water will not mix.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. The cook spread the oil over the dry pan. Which printed word fills the …?",
+  "sentence": "The cook spread the ___ over the dry pan.",
   "choices": [
-   "mud",
-   "salt",
+   "number",
+   "day",
    "oil",
-   "milk"
+   "words"
   ],
   "answerOptions": [
    {
-    "value": "mud",
-    "label": "mud",
-    "text": "mud"
+    "value": "number",
+    "label": "number",
+    "text": "number"
    },
    {
-    "value": "salt",
-    "label": "salt",
-    "text": "salt"
+    "value": "day",
+    "label": "day",
+    "text": "day"
    },
    {
     "value": "oil",
@@ -5369,17 +4797,17 @@ export const questions = [
     "text": "oil"
    },
    {
-    "value": "milk",
-    "label": "milk",
-    "text": "milk"
+    "value": "words",
+    "label": "words",
+    "text": "words"
    }
   ],
   "answer": "oil",
   "correctAnswer": "oil",
   "distractorRationales": {
-   "mud": "D-FUNCTION-SWAP",
-   "salt": "D-FUNCTION-SWAP",
-   "milk": "D-FUNCTION-SWAP"
+   "number": "D-FUNCTION-SWAP",
+   "day": "D-FUNCTION-SWAP",
+   "words": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5389,24 +4817,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "___ and water will not mix.",
+  "sentenceText": "The cook spread the ___ over the dry pan.",
   "targetWord": "oil",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.oil.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/oil.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/oil.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/oil.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5416,13 +4839,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/oil.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/oil.webp",
-  "targetImage": "/images/assessment/release-support/hfw/oil.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/oil.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/oil.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "coating a dry pan before cooking pins oil"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.oil.v3",
@@ -5444,9 +4861,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "boil",
    "soil",
@@ -5495,21 +4912,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "oil",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.oil.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/oil.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/oil.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/oil.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5519,13 +4931,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/oil.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/oil.webp",
-  "targetImage": "/images/assessment/release-support/hfw/oil.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/oil.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/oil.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.part.v1",
@@ -5547,26 +4953,26 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "The best ___ of camp was the raft.",
-  "question": "The best ___ of camp was the raft.",
-  "spokenPrompt": "Which word finishes the sentence? The best … of camp was the raft.",
-  "sentence": "The best ___ of camp was the raft.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Mia played the part of the queen. Which printed word fills the …?",
+  "sentence": "Mia played the ___ of the queen.",
   "choices": [
-   "kind",
-   "way",
+   "time",
+   "number",
    "part",
-   "bit"
+   "way"
   ],
   "answerOptions": [
    {
-    "value": "kind",
-    "label": "kind",
-    "text": "kind"
+    "value": "time",
+    "label": "time",
+    "text": "time"
    },
    {
-    "value": "way",
-    "label": "way",
-    "text": "way"
+    "value": "number",
+    "label": "number",
+    "text": "number"
    },
    {
     "value": "part",
@@ -5574,17 +4980,17 @@ export const questions = [
     "text": "part"
    },
    {
-    "value": "bit",
-    "label": "bit",
-    "text": "bit"
+    "value": "way",
+    "label": "way",
+    "text": "way"
    }
   ],
   "answer": "part",
   "correctAnswer": "part",
   "distractorRationales": {
-   "bit": "D-FUNCTION-SWAP",
-   "kind": "D-FUNCTION-SWAP",
-   "way": "D-FUNCTION-SWAP"
+   "way": "D-FUNCTION-SWAP",
+   "time": "D-FUNCTION-SWAP",
+   "number": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5594,24 +5000,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The best ___ of camp was the raft.",
+  "sentenceText": "Mia played the ___ of the queen.",
   "targetWord": "part",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.part.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/part.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/part.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/part.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5621,13 +5022,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/part.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/part.webp",
-  "targetImage": "/images/assessment/release-support/hfw/part.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/part.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/part.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "played the part is the natural acting phrase"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.part.v2",
@@ -5649,31 +5044,31 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Each ___ of the model snaps in.",
-  "question": "Each ___ of the model snaps in.",
-  "spokenPrompt": "Which word finishes the sentence? Each … of the model snaps in.",
-  "sentence": "Each ___ of the model snaps in.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. This wheel is part of the bike. Which printed word fills the …?",
+  "sentence": "This wheel is ___ of the bike.",
   "choices": [
-   "piece",
-   "side",
    "way",
+   "day",
+   "water",
    "part"
   ],
   "answerOptions": [
    {
-    "value": "piece",
-    "label": "piece",
-    "text": "piece"
-   },
-   {
-    "value": "side",
-    "label": "side",
-    "text": "side"
-   },
-   {
     "value": "way",
     "label": "way",
     "text": "way"
+   },
+   {
+    "value": "day",
+    "label": "day",
+    "text": "day"
+   },
+   {
+    "value": "water",
+    "label": "water",
+    "text": "water"
    },
    {
     "value": "part",
@@ -5684,9 +5079,9 @@ export const questions = [
   "answer": "part",
   "correctAnswer": "part",
   "distractorRationales": {
-   "piece": "D-FUNCTION-SWAP",
-   "side": "D-FUNCTION-SWAP",
-   "way": "D-FUNCTION-SWAP"
+   "way": "D-FUNCTION-SWAP",
+   "day": "D-FUNCTION-SWAP",
+   "water": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5696,24 +5091,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Each ___ of the model snaps in.",
+  "sentenceText": "This wheel is ___ of the bike.",
   "targetWord": "part",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.part.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/part.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/part.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/part.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5723,13 +5113,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/part.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/part.webp",
-  "targetImage": "/images/assessment/release-support/hfw/part.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/part.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/part.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the component relationship pins part"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.part.v3",
@@ -5751,9 +5135,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "part",
    "park",
@@ -5802,21 +5186,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "part",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.part.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/part.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/part.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/part.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5826,13 +5205,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/part.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/part.webp",
-  "targetImage": "/images/assessment/release-support/hfw/part.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/part.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/part.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.people.v1",
@@ -5854,31 +5227,31 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "The hall was full of ___.",
-  "question": "The hall was full of ___.",
-  "spokenPrompt": "Which word finishes the sentence? The hall was full of ….",
-  "sentence": "The hall was full of ___.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Many people waited for the bus. Which printed word fills the …?",
+  "sentence": "Many ___ waited for the bus.",
   "choices": [
-   "person",
-   "peoples",
-   "kids",
+   "words",
+   "water",
+   "oil",
    "people"
   ],
   "answerOptions": [
    {
-    "value": "person",
-    "label": "person",
-    "text": "person"
+    "value": "words",
+    "label": "words",
+    "text": "words"
    },
    {
-    "value": "peoples",
-    "label": "peoples",
-    "text": "peoples"
+    "value": "water",
+    "label": "water",
+    "text": "water"
    },
    {
-    "value": "kids",
-    "label": "kids",
-    "text": "kids"
+    "value": "oil",
+    "label": "oil",
+    "text": "oil"
    },
    {
     "value": "people",
@@ -5889,9 +5262,9 @@ export const questions = [
   "answer": "people",
   "correctAnswer": "people",
   "distractorRationales": {
-   "kids": "D-FUNCTION-SWAP",
-   "person": "D-DEVELOPMENTAL",
-   "peoples": "D-DEVELOPMENTAL"
+   "oil": "D-FUNCTION-SWAP",
+   "words": "D-FUNCTION-SWAP",
+   "water": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5901,24 +5274,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The hall was full of ___.",
+  "sentenceText": "Many ___ waited for the bus.",
   "targetWord": "people",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.people.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/people.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/people.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/people.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5928,13 +5296,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "person and peoples are the number slips",
-  "imagePath": "/images/assessment/release-support/hfw/people.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/people.webp",
-  "targetImage": "/images/assessment/release-support/hfw/people.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/people.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/people.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "only people can wait for a bus"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.people.v2",
@@ -5956,15 +5318,15 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "___ waved from the bridge.",
-  "question": "___ waved from the bridge.",
-  "spokenPrompt": "Which word finishes the sentence? … waved from the bridge.",
-  "sentence": "___ waved from the bridge.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. The hall was full of people who sang. Which printed word fills the …?",
+  "sentence": "The hall was full of ___ who sang.",
   "choices": [
    "people",
-   "person",
-   "crowds",
-   "peoples"
+   "words",
+   "number",
+   "part"
   ],
   "answerOptions": [
    {
@@ -5973,27 +5335,27 @@ export const questions = [
     "text": "people"
    },
    {
-    "value": "person",
-    "label": "person",
-    "text": "person"
+    "value": "words",
+    "label": "words",
+    "text": "words"
    },
    {
-    "value": "crowds",
-    "label": "crowds",
-    "text": "crowds"
+    "value": "number",
+    "label": "number",
+    "text": "number"
    },
    {
-    "value": "peoples",
-    "label": "peoples",
-    "text": "peoples"
+    "value": "part",
+    "label": "part",
+    "text": "part"
    }
   ],
   "answer": "people",
   "correctAnswer": "people",
   "distractorRationales": {
-   "peoples": "D-DEVELOPMENTAL",
-   "person": "D-DEVELOPMENTAL",
-   "crowds": "D-FUNCTION-SWAP"
+   "part": "D-FUNCTION-SWAP",
+   "words": "D-FUNCTION-SWAP",
+   "number": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6003,24 +5365,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "___ waved from the bridge.",
+  "sentenceText": "The hall was full of ___ who sang.",
   "targetWord": "people",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.people.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/people.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/people.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/people.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6030,13 +5387,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/people.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/people.webp",
-  "targetImage": "/images/assessment/release-support/hfw/people.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/people.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/people.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "who sang requires a human plural noun"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.people.v3",
@@ -6058,9 +5409,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "puddle",
    "people",
@@ -6109,21 +5460,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "people",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.people.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/people.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/people.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/people.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6133,13 +5479,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/people.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/people.webp",
-  "targetImage": "/images/assessment/release-support/hfw/people.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/people.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/people.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.sit.v1",
@@ -6161,15 +5501,15 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Come ___ by me at lunch.",
-  "question": "Come ___ by me at lunch.",
-  "spokenPrompt": "Which word finishes the sentence? Come … by me at lunch.",
-  "sentence": "Come ___ by me at lunch.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Please sit still on this chair. Which printed word fills the …?",
+  "sentence": "Please ___ still on this chair.",
   "choices": [
    "sit",
-   "sat",
-   "set",
-   "stand"
+   "find",
+   "make",
+   "write"
   ],
   "answerOptions": [
    {
@@ -6178,27 +5518,27 @@ export const questions = [
     "text": "sit"
    },
    {
-    "value": "sat",
-    "label": "sat",
-    "text": "sat"
+    "value": "find",
+    "label": "find",
+    "text": "find"
    },
    {
-    "value": "set",
-    "label": "set",
-    "text": "set"
+    "value": "make",
+    "label": "make",
+    "text": "make"
    },
    {
-    "value": "stand",
-    "label": "stand",
-    "text": "stand"
+    "value": "write",
+    "label": "write",
+    "text": "write"
    }
   ],
   "answer": "sit",
   "correctAnswer": "sit",
   "distractorRationales": {
-   "sat": "D-DEVELOPMENTAL",
-   "set": "D-VISUAL-NEIGHBOR",
-   "stand": "D-FUNCTION-SWAP"
+   "find": "D-FUNCTION-SWAP",
+   "make": "D-FUNCTION-SWAP",
+   "write": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6208,24 +5548,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Come ___ by me at lunch.",
+  "sentenceText": "Please ___ still on this chair.",
   "targetWord": "sit",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.sit.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/sit.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/sit.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/sit.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6235,13 +5570,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "sat and set are the sit/sat/set triple",
-  "imagePath": "/images/assessment/release-support/hfw/sit.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/sit.webp",
-  "targetImage": "/images/assessment/release-support/hfw/sit.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/sit.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/sit.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "sit is the only intransitive posture verb"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.sit.v2",
@@ -6263,21 +5592,21 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Hens ___ on their eggs.",
-  "question": "Hens ___ on their eggs.",
-  "spokenPrompt": "Which word finishes the sentence? Hens … on their eggs.",
-  "sentence": "Hens ___ on their eggs.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. The children sit on the mat for story time. Which printed word fills the …?",
+  "sentence": "The children ___ on the mat for story time.",
   "choices": [
-   "lay",
+   "make",
    "sit",
-   "sat",
-   "set"
+   "find",
+   "use"
   ],
   "answerOptions": [
    {
-    "value": "lay",
-    "label": "lay",
-    "text": "lay"
+    "value": "make",
+    "label": "make",
+    "text": "make"
    },
    {
     "value": "sit",
@@ -6285,22 +5614,22 @@ export const questions = [
     "text": "sit"
    },
    {
-    "value": "sat",
-    "label": "sat",
-    "text": "sat"
+    "value": "find",
+    "label": "find",
+    "text": "find"
    },
    {
-    "value": "set",
-    "label": "set",
-    "text": "set"
+    "value": "use",
+    "label": "use",
+    "text": "use"
    }
   ],
   "answer": "sit",
   "correctAnswer": "sit",
   "distractorRationales": {
-   "set": "D-VISUAL-NEIGHBOR",
-   "lay": "D-FUNCTION-SWAP",
-   "sat": "D-DEVELOPMENTAL"
+   "use": "D-FUNCTION-SWAP",
+   "make": "D-FUNCTION-SWAP",
+   "find": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6310,24 +5639,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Hens ___ on their eggs.",
+  "sentenceText": "The children ___ on the mat for story time.",
   "targetWord": "sit",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.sit.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/sit.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/sit.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/sit.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6337,13 +5661,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/sit.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/sit.webp",
-  "targetImage": "/images/assessment/release-support/hfw/sit.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/sit.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/sit.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the mat and story-time context pin sit"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.sit.v3",
@@ -6365,9 +5683,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "set",
    "silt",
@@ -6416,21 +5734,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "sit",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.sit.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/sit.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/sit.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/sit.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6440,13 +5753,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/sit.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/sit.webp",
-  "targetImage": "/images/assessment/release-support/hfw/sit.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/sit.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/sit.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.than.v1",
@@ -6468,21 +5775,21 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "A whale is bigger ___ a bus.",
-  "question": "A whale is bigger ___ a bus.",
-  "spokenPrompt": "Which word finishes the sentence? A whale is bigger … a bus.",
-  "sentence": "A whale is bigger ___ a bus.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Sam ran farther than I did. Which printed word fills the …?",
+  "sentence": "Sam ran farther ___ I did.",
   "choices": [
-   "as",
+   "from",
    "than",
-   "then",
-   "that"
+   "as",
+   "with"
   ],
   "answerOptions": [
    {
-    "value": "as",
-    "label": "as",
-    "text": "as"
+    "value": "from",
+    "label": "from",
+    "text": "from"
    },
    {
     "value": "than",
@@ -6490,22 +5797,22 @@ export const questions = [
     "text": "than"
    },
    {
-    "value": "then",
-    "label": "then",
-    "text": "then"
+    "value": "as",
+    "label": "as",
+    "text": "as"
    },
    {
-    "value": "that",
-    "label": "that",
-    "text": "that"
+    "value": "with",
+    "label": "with",
+    "text": "with"
    }
   ],
   "answer": "than",
   "correctAnswer": "than",
   "distractorRationales": {
+   "from": "D-DEVELOPMENTAL",
    "as": "D-DEVELOPMENTAL",
-   "then": "D-VISUAL-NEIGHBOR",
-   "that": "D-DEVELOPMENTAL"
+   "with": "D-DEVELOPMENTAL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6515,24 +5822,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "A whale is bigger ___ a bus.",
+  "sentenceText": "Sam ran farther ___ I did.",
   "targetWord": "than",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.than.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/than.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/than.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/than.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6542,13 +5844,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "then is THE than/then error",
-  "imagePath": "/images/assessment/release-support/hfw/than.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/than.webp",
-  "targetImage": "/images/assessment/release-support/hfw/than.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/than.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/than.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the comparative clause requires than; the other fillers create form errors"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.than.v2",
@@ -6570,26 +5866,26 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "I would rather walk ___ wait.",
-  "question": "I would rather walk ___ wait.",
-  "spokenPrompt": "Which word finishes the sentence? I would rather walk … wait.",
-  "sentence": "I would rather walk ___ wait.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. This box weighs more than the red box does. Which printed word fills the …?",
+  "sentence": "This box weighs more ___ the red box does.",
   "choices": [
-   "that",
-   "and",
+   "by",
+   "from",
    "than",
-   "then"
+   "as"
   ],
   "answerOptions": [
    {
-    "value": "that",
-    "label": "that",
-    "text": "that"
+    "value": "by",
+    "label": "by",
+    "text": "by"
    },
    {
-    "value": "and",
-    "label": "and",
-    "text": "and"
+    "value": "from",
+    "label": "from",
+    "text": "from"
    },
    {
     "value": "than",
@@ -6597,17 +5893,17 @@ export const questions = [
     "text": "than"
    },
    {
-    "value": "then",
-    "label": "then",
-    "text": "then"
+    "value": "as",
+    "label": "as",
+    "text": "as"
    }
   ],
   "answer": "than",
   "correctAnswer": "than",
   "distractorRationales": {
-   "and": "D-DEVELOPMENTAL",
-   "then": "D-VISUAL-NEIGHBOR",
-   "that": "D-DEVELOPMENTAL"
+   "from": "D-DEVELOPMENTAL",
+   "as": "D-DEVELOPMENTAL",
+   "by": "D-DEVELOPMENTAL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6617,24 +5913,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "I would rather walk ___ wait.",
+  "sentenceText": "This box weighs more ___ the red box does.",
   "targetWord": "than",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.than.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/than.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/than.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/than.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6644,13 +5935,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/than.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/than.webp",
-  "targetImage": "/images/assessment/release-support/hfw/than.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/than.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/than.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the comparative clause requires than; the other fillers create form errors"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.than.v3",
@@ -6672,9 +5957,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "then",
    "that",
@@ -6723,21 +6008,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "than",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.than.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/than.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/than.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/than.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6747,13 +6027,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/than.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/than.webp",
-  "targetImage": "/images/assessment/release-support/hfw/than.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/than.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/than.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.water.v1",
@@ -6775,26 +6049,26 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Plants need sun and ___.",
-  "question": "Plants need sun and ___.",
-  "spokenPrompt": "Which word finishes the sentence? Plants need sun and ….",
-  "sentence": "Plants need sun and ___.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. I was thirsty, so I drank some water. Which printed word fills the …?",
+  "sentence": "I was thirsty, so I drank some ___.",
   "choices": [
-   "sand",
-   "oil",
+   "words",
+   "number",
    "water",
-   "wind"
+   "oil"
   ],
   "answerOptions": [
    {
-    "value": "sand",
-    "label": "sand",
-    "text": "sand"
+    "value": "words",
+    "label": "words",
+    "text": "words"
    },
    {
-    "value": "oil",
-    "label": "oil",
-    "text": "oil"
+    "value": "number",
+    "label": "number",
+    "text": "number"
    },
    {
     "value": "water",
@@ -6802,17 +6076,17 @@ export const questions = [
     "text": "water"
    },
    {
-    "value": "wind",
-    "label": "wind",
-    "text": "wind"
+    "value": "oil",
+    "label": "oil",
+    "text": "oil"
    }
   ],
   "answer": "water",
   "correctAnswer": "water",
   "distractorRationales": {
-   "wind": "D-FUNCTION-SWAP",
-   "sand": "D-FUNCTION-SWAP",
-   "oil": "D-FUNCTION-SWAP"
+   "oil": "D-FUNCTION-SWAP",
+   "words": "D-FUNCTION-SWAP",
+   "number": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6822,24 +6096,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Plants need sun and ___.",
+  "sentenceText": "I was thirsty, so I drank some ___.",
   "targetWord": "water",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.water.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/water.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/water.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/water.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6849,13 +6118,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/water.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/water.webp",
-  "targetImage": "/images/assessment/release-support/hfw/water.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/water.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/water.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "thirst and drinking make water functional"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.water.v2",
@@ -6877,31 +6140,31 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "The ___ in the pool is cold.",
-  "question": "The ___ in the pool is cold.",
-  "spokenPrompt": "Which word finishes the sentence? The … in the pool is cold.",
-  "sentence": "The ___ in the pool is cold.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. The plants need water every day. Which printed word fills the …?",
+  "sentence": "The plants need ___ every day.",
   "choices": [
-   "air",
-   "sand",
-   "mud",
+   "oil",
+   "part",
+   "words",
    "water"
   ],
   "answerOptions": [
    {
-    "value": "air",
-    "label": "air",
-    "text": "air"
+    "value": "oil",
+    "label": "oil",
+    "text": "oil"
    },
    {
-    "value": "sand",
-    "label": "sand",
-    "text": "sand"
+    "value": "part",
+    "label": "part",
+    "text": "part"
    },
    {
-    "value": "mud",
-    "label": "mud",
-    "text": "mud"
+    "value": "words",
+    "label": "words",
+    "text": "words"
    },
    {
     "value": "water",
@@ -6912,9 +6175,9 @@ export const questions = [
   "answer": "water",
   "correctAnswer": "water",
   "distractorRationales": {
-   "mud": "D-FUNCTION-SWAP",
-   "air": "D-FUNCTION-SWAP",
-   "sand": "D-FUNCTION-SWAP"
+   "words": "D-FUNCTION-SWAP",
+   "oil": "D-FUNCTION-SWAP",
+   "part": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6924,24 +6187,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The ___ in the pool is cold.",
+  "sentenceText": "The plants need ___ every day.",
   "targetWord": "water",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.water.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/water.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/water.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/water.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6951,13 +6209,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cold, not warm — warm contains wa and would gift the key a chunk",
-  "imagePath": "/images/assessment/release-support/hfw/water.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/water.webp",
-  "targetImage": "/images/assessment/release-support/hfw/water.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/water.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/water.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "daily plant care pins water"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.water.v3",
@@ -6979,9 +6231,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "water",
    "waiter",
@@ -7030,21 +6282,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "water",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.water.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/water.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/water.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/water.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7054,13 +6301,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/water.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/water.webp",
-  "targetImage": "/images/assessment/release-support/hfw/water.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/water.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/water.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.way.v1",
@@ -7082,31 +6323,31 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Is this the ___ to the beach?",
-  "question": "Is this the ___ to the beach?",
-  "spokenPrompt": "Which word finishes the sentence? Is this the … to the beach?",
-  "sentence": "Is this the ___ to the beach?",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Show me the way home. Which printed word fills the …?",
+  "sentence": "Show me the ___ home.",
   "choices": [
-   "road",
-   "day",
-   "path",
+   "time",
+   "part",
+   "water",
    "way"
   ],
   "answerOptions": [
    {
-    "value": "road",
-    "label": "road",
-    "text": "road"
+    "value": "time",
+    "label": "time",
+    "text": "time"
    },
    {
-    "value": "day",
-    "label": "day",
-    "text": "day"
+    "value": "part",
+    "label": "part",
+    "text": "part"
    },
    {
-    "value": "path",
-    "label": "path",
-    "text": "path"
+    "value": "water",
+    "label": "water",
+    "text": "water"
    },
    {
     "value": "way",
@@ -7117,9 +6358,9 @@ export const questions = [
   "answer": "way",
   "correctAnswer": "way",
   "distractorRationales": {
-   "road": "D-FUNCTION-SWAP",
-   "day": "D-VISUAL-NEIGHBOR",
-   "path": "D-FUNCTION-SWAP"
+   "time": "D-FUNCTION-SWAP",
+   "part": "D-FUNCTION-SWAP",
+   "water": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7129,24 +6370,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Is this the ___ to the beach?",
+  "sentenceText": "Show me the ___ home.",
   "targetWord": "way",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.way.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/way.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/way.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/way.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7156,13 +6392,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/way.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/way.webp",
-  "targetImage": "/images/assessment/release-support/hfw/way.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/way.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/way.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "home makes way a route"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.way.v2",
@@ -7184,15 +6414,15 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Show me the ___ you fold it.",
-  "question": "Show me the ___ you fold it.",
-  "spokenPrompt": "Which word finishes the sentence? Show me the … you fold it.",
-  "sentence": "Show me the ___ you fold it.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Which way leads to the beach? Which printed word fills the …?",
+  "sentence": "Which ___ leads to the beach?",
   "choices": [
    "way",
    "day",
-   "how",
-   "path"
+   "time",
+   "number"
   ],
   "answerOptions": [
    {
@@ -7206,22 +6436,22 @@ export const questions = [
     "text": "day"
    },
    {
-    "value": "how",
-    "label": "how",
-    "text": "how"
+    "value": "time",
+    "label": "time",
+    "text": "time"
    },
    {
-    "value": "path",
-    "label": "path",
-    "text": "path"
+    "value": "number",
+    "label": "number",
+    "text": "number"
    }
   ],
   "answer": "way",
   "correctAnswer": "way",
   "distractorRationales": {
-   "path": "D-FUNCTION-SWAP",
-   "day": "D-VISUAL-NEIGHBOR",
-   "how": "D-DEVELOPMENTAL"
+   "number": "D-FUNCTION-SWAP",
+   "day": "D-FUNCTION-SWAP",
+   "time": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7231,24 +6461,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Show me the ___ you fold it.",
+  "sentenceText": "Which ___ leads to the beach?",
   "targetWord": "way",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.way.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/way.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/way.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/way.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7258,13 +6483,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/way.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/way.webp",
-  "targetImage": "/images/assessment/release-support/hfw/way.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/way.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/way.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "a route is the only thing in the set that can lead to a destination"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.way.v3",
@@ -7286,9 +6505,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "wax",
    "way",
@@ -7337,21 +6556,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "way",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.way.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/way.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/way.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/way.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7361,13 +6575,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/way.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/way.webp",
-  "targetImage": "/images/assessment/release-support/hfw/way.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/way.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/way.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.A.who.v1",
@@ -7389,10 +6597,10 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "___ left the tap running?",
-  "question": "___ left the tap running?",
-  "spokenPrompt": "Which word finishes the sentence? … left the tap running?",
-  "sentence": "___ left the tap running?",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Someone knocked. Tell me who it was. Which printed word fills the …?",
+  "sentence": "Someone knocked. Tell me ___ it was.",
   "choices": [
    "who",
    "how",
@@ -7436,24 +6644,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "___ left the tap running?",
+  "sentenceText": "Someone knocked. Tell me ___ it was.",
   "targetWord": "who",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.A.who.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/who.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/who.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/who.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7463,13 +6666,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "who asks for the person; how, what, and when ask for different information",
-  "imagePath": "/images/assessment/release-support/hfw/who.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/who.webp",
-  "targetImage": "/images/assessment/release-support/hfw/who.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/who.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/who.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "someone pins a person's identity"
  },
  {
   "id": "lp3.hfw_76_100.l1.B.who.v2",
@@ -7491,21 +6688,21 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Guess ___ won the raffle!",
-  "question": "Guess ___ won the raffle!",
-  "spokenPrompt": "Which word finishes the sentence? Guess … won the raffle!",
-  "sentence": "Guess ___ won the raffle!",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Someone won the race. Tell me who it was. Which printed word fills the …?",
+  "sentence": "Someone won the race. Tell me ___ it was.",
   "choices": [
-   "which",
+   "there",
    "who",
    "how",
    "what"
   ],
   "answerOptions": [
    {
-    "value": "which",
-    "label": "which",
-    "text": "which"
+    "value": "there",
+    "label": "there",
+    "text": "there"
    },
    {
     "value": "who",
@@ -7527,7 +6724,7 @@ export const questions = [
   "correctAnswer": "who",
   "distractorRationales": {
    "what": "D-FUNCTION-SWAP",
-   "which": "D-FUNCTION-SWAP",
+   "there": "D-FUNCTION-SWAP",
    "how": "D-VISUAL-NEIGHBOR"
   },
   "mediaTier": "text",
@@ -7538,24 +6735,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Guess ___ won the raffle!",
+  "sentenceText": "Someone won the race. Tell me ___ it was.",
   "targetWord": "who",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.B.who.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/who.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/who.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/who.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7565,13 +6757,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/who.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/who.webp",
-  "targetImage": "/images/assessment/release-support/hfw/who.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/who.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/who.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "someone pins a person's identity"
  },
  {
   "id": "lp3.hfw_76_100.l1.C.who.v3",
@@ -7593,9 +6779,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "with",
    "what",
@@ -7644,21 +6830,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "who",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.C.who.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/who.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/who.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/who.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7668,13 +6849,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/who.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/who.webp",
-  "targetImage": "/images/assessment/release-support/hfw/who.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/who.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/who.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.been.v1",
@@ -7696,9 +6871,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Have you ___ to the fair?",
-  "question": "Build the missing word: Have you ___ to the fair?",
-  "spokenPrompt": "Build the missing word. Have you … to the fair?",
+  "prompt": "Listen, then build the missing word: Have you ___ to the fair?",
+  "question": "Listen, then build the missing word: Have you ___ to the fair?",
+  "spokenPrompt": "Listen to the whole sentence. Have you been to the fair? Build the missing word.",
   "sentence": "Have you ___ to the fair?",
   "choices": [
    "been"
@@ -7713,7 +6888,7 @@ export const questions = [
   "answer": "been",
   "correctAnswer": "been",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7738,21 +6913,16 @@ export const questions = [
   "sentenceText": "Have you been to the fair?",
   "targetWord": "been",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.been.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/been.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/been.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/been.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7762,13 +6932,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "bean's pattern tempts; the double e is the work",
-  "imagePath": "/images/assessment/release-support/hfw/been.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/been.webp",
-  "targetImage": "/images/assessment/release-support/hfw/been.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/been.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/been.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "bean's pattern tempts; the double e is the work"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.been.v2",
@@ -7790,9 +6954,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: The barn has ___ painted.",
-  "question": "Build the missing word: The barn has ___ painted.",
-  "spokenPrompt": "Build the missing word. The barn has … painted.",
+  "prompt": "Listen, then build the missing word: The barn has ___ painted.",
+  "question": "Listen, then build the missing word: The barn has ___ painted.",
+  "spokenPrompt": "Listen to the whole sentence. The barn has been painted. Build the missing word.",
   "sentence": "The barn has ___ painted.",
   "choices": [
    "been"
@@ -7807,7 +6971,7 @@ export const questions = [
   "answer": "been",
   "correctAnswer": "been",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7832,21 +6996,16 @@ export const questions = [
   "sentenceText": "The barn has been painted.",
   "targetWord": "been",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.been.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/been.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/been.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/been.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7856,13 +7015,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/been.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/been.webp",
-  "targetImage": "/images/assessment/release-support/hfw/been.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/been.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/been.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.called.v1",
@@ -7884,9 +7037,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: The pup is ___ Biscuit.",
-  "question": "Build the missing word: The pup is ___ Biscuit.",
-  "spokenPrompt": "Build the missing word. The pup is … Biscuit.",
+  "prompt": "Listen, then build the missing word: The pup is ___ Biscuit.",
+  "question": "Listen, then build the missing word: The pup is ___ Biscuit.",
+  "spokenPrompt": "Listen to the whole sentence. The pup is called Biscuit. Build the missing word.",
   "sentence": "The pup is ___ Biscuit.",
   "choices": [
    "called"
@@ -7901,7 +7054,7 @@ export const questions = [
   "answer": "called",
   "correctAnswer": "called",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7930,21 +7083,16 @@ export const questions = [
   "sentenceText": "The pup is called Biscuit.",
   "targetWord": "called",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.called.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/called.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/called.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/called.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7954,13 +7102,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "kalled and single-l tempt",
-  "imagePath": "/images/assessment/release-support/hfw/called.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/called.webp",
-  "targetImage": "/images/assessment/release-support/hfw/called.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/called.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/called.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "kalled and single-l tempt"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.called.v2",
@@ -7982,9 +7124,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Mum ___ the vet at once.",
-  "question": "Build the missing word: Mum ___ the vet at once.",
-  "spokenPrompt": "Build the missing word. Mum … the vet at once.",
+  "prompt": "Listen, then build the missing word: Mum ___ the vet at once.",
+  "question": "Listen, then build the missing word: Mum ___ the vet at once.",
+  "spokenPrompt": "Listen to the whole sentence. Mum called the vet at once. Build the missing word.",
   "sentence": "Mum ___ the vet at once.",
   "choices": [
    "called"
@@ -7999,7 +7141,7 @@ export const questions = [
   "answer": "called",
   "correctAnswer": "called",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8028,21 +7170,16 @@ export const questions = [
   "sentenceText": "Mum called the vet at once.",
   "targetWord": "called",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.called.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/called.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/called.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/called.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8052,13 +7189,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/called.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/called.webp",
-  "targetImage": "/images/assessment/release-support/hfw/called.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/called.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/called.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.come.v1",
@@ -8080,9 +7211,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: ___ and see the chicks!",
-  "question": "Build the missing word: ___ and see the chicks!",
-  "spokenPrompt": "Build the missing word. … and see the chicks!",
+  "prompt": "Listen, then build the missing word: ___ and see the chicks!",
+  "question": "Listen, then build the missing word: ___ and see the chicks!",
+  "spokenPrompt": "Listen to the whole sentence. come and see the chicks! Build the missing word.",
   "sentence": "___ and see the chicks!",
   "choices": [
    "come"
@@ -8097,7 +7228,7 @@ export const questions = [
   "answer": "come",
   "correctAnswer": "come",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8122,21 +7253,16 @@ export const questions = [
   "sentenceText": "come and see the chicks!",
   "targetWord": "come",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.come.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/come.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/come.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/come.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8146,13 +7272,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cum — the u is present; the silent e is the work",
-  "imagePath": "/images/assessment/release-support/hfw/come.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/come.webp",
-  "targetImage": "/images/assessment/release-support/hfw/come.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/come.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/come.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "cum — the u is present; the silent e is the work"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.come.v2",
@@ -8174,9 +7294,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Storms ___ fast at sea.",
-  "question": "Build the missing word: Storms ___ fast at sea.",
-  "spokenPrompt": "Build the missing word. Storms … fast at sea.",
+  "prompt": "Listen, then build the missing word: Storms ___ fast at sea.",
+  "question": "Listen, then build the missing word: Storms ___ fast at sea.",
+  "spokenPrompt": "Listen to the whole sentence. Storms come fast at sea. Build the missing word.",
   "sentence": "Storms ___ fast at sea.",
   "choices": [
    "come"
@@ -8191,7 +7311,7 @@ export const questions = [
   "answer": "come",
   "correctAnswer": "come",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8216,21 +7336,16 @@ export const questions = [
   "sentenceText": "Storms come fast at sea.",
   "targetWord": "come",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.come.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/come.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/come.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/come.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8240,13 +7355,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/come.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/come.webp",
-  "targetImage": "/images/assessment/release-support/hfw/come.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/come.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/come.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.could.v1",
@@ -8268,9 +7377,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: ___ we camp by the lake?",
-  "question": "Build the missing word: ___ we camp by the lake?",
-  "spokenPrompt": "Build the missing word. … we camp by the lake?",
+  "prompt": "Listen, then build the missing word: ___ we camp by the lake?",
+  "question": "Listen, then build the missing word: ___ we camp by the lake?",
+  "spokenPrompt": "Listen to the whole sentence. could we camp by the lake? Build the missing word.",
   "sentence": "___ we camp by the lake?",
   "choices": [
    "could"
@@ -8285,7 +7394,7 @@ export const questions = [
   "answer": "could",
   "correctAnswer": "could",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8312,21 +7421,16 @@ export const questions = [
   "sentenceText": "could we camp by the lake?",
   "targetWord": "could",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.could.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/could.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/could.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/could.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8336,13 +7440,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cud — the silent oul cluster is the work",
-  "imagePath": "/images/assessment/release-support/hfw/could.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/could.webp",
-  "targetImage": "/images/assessment/release-support/hfw/could.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/could.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/could.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "cud — the silent oul cluster is the work"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.could.v2",
@@ -8364,9 +7462,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Owls ___ hear a pin drop.",
-  "question": "Build the missing word: Owls ___ hear a pin drop.",
-  "spokenPrompt": "Build the missing word. Owls … hear a pin drop.",
+  "prompt": "Listen, then build the missing word: Owls ___ hear a pin drop.",
+  "question": "Listen, then build the missing word: Owls ___ hear a pin drop.",
+  "spokenPrompt": "Listen to the whole sentence. Owls could hear a pin drop. Build the missing word.",
   "sentence": "Owls ___ hear a pin drop.",
   "choices": [
    "could"
@@ -8381,7 +7479,7 @@ export const questions = [
   "answer": "could",
   "correctAnswer": "could",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8408,21 +7506,16 @@ export const questions = [
   "sentenceText": "Owls could hear a pin drop.",
   "targetWord": "could",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.could.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/could.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/could.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/could.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8432,13 +7525,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/could.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/could.webp",
-  "targetImage": "/images/assessment/release-support/hfw/could.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/could.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/could.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.day.v1",
@@ -8460,9 +7547,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Sports ___ is on Friday.",
-  "question": "Build the missing word: Sports ___ is on Friday.",
-  "spokenPrompt": "Build the missing word. Sports … is on Friday.",
+  "prompt": "Listen, then build the missing word: Sports ___ is on Friday.",
+  "question": "Listen, then build the missing word: Sports ___ is on Friday.",
+  "spokenPrompt": "Listen to the whole sentence. Sports day is on Friday. Build the missing word.",
   "sentence": "Sports ___ is on Friday.",
   "choices": [
    "day"
@@ -8477,7 +7564,7 @@ export const questions = [
   "answer": "day",
   "correctAnswer": "day",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8500,21 +7587,16 @@ export const questions = [
   "sentenceText": "Sports day is on Friday.",
   "targetWord": "day",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.day.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/day.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/day.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/day.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8524,13 +7606,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "dae — the e tempts",
-  "imagePath": "/images/assessment/release-support/hfw/day.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/day.webp",
-  "targetImage": "/images/assessment/release-support/hfw/day.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/day.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/day.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "dae — the e tempts"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.day.v2",
@@ -8552,9 +7628,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: What a fine ___ for a hike!",
-  "question": "Build the missing word: What a fine ___ for a hike!",
-  "spokenPrompt": "Build the missing word. What a fine … for a hike!",
+  "prompt": "Listen, then build the missing word: What a fine ___ for a hike!",
+  "question": "Listen, then build the missing word: What a fine ___ for a hike!",
+  "spokenPrompt": "Listen to the whole sentence. What a fine day for a hike! Build the missing word.",
   "sentence": "What a fine ___ for a hike!",
   "choices": [
    "day"
@@ -8569,7 +7645,7 @@ export const questions = [
   "answer": "day",
   "correctAnswer": "day",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8592,21 +7668,16 @@ export const questions = [
   "sentenceText": "What a fine day for a hike!",
   "targetWord": "day",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.day.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/day.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/day.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/day.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8616,13 +7687,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/day.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/day.webp",
-  "targetImage": "/images/assessment/release-support/hfw/day.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/day.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/day.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.did.v1",
@@ -8644,9 +7709,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: ___ the alarm ring?",
-  "question": "Build the missing word: ___ the alarm ring?",
-  "spokenPrompt": "Build the missing word. … the alarm ring?",
+  "prompt": "Listen, then build the missing word: ___ the alarm ring?",
+  "question": "Listen, then build the missing word: ___ the alarm ring?",
+  "spokenPrompt": "Listen to the whole sentence. did the alarm ring? Build the missing word.",
   "sentence": "___ the alarm ring?",
   "choices": [
    "did"
@@ -8661,7 +7726,7 @@ export const questions = [
   "answer": "did",
   "correctAnswer": "did",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8684,21 +7749,16 @@ export const questions = [
   "sentenceText": "did the alarm ring?",
   "targetWord": "did",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.did.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/did.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/did.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/did.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8708,13 +7768,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "ded tempts",
-  "imagePath": "/images/assessment/release-support/hfw/did.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/did.webp",
-  "targetImage": "/images/assessment/release-support/hfw/did.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/did.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/did.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "ded tempts"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.did.v2",
@@ -8736,9 +7790,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: You ___ a fine job.",
-  "question": "Build the missing word: You ___ a fine job.",
-  "spokenPrompt": "Build the missing word. You … a fine job.",
+  "prompt": "Listen, then build the missing word: You ___ a fine job.",
+  "question": "Listen, then build the missing word: You ___ a fine job.",
+  "spokenPrompt": "Listen to the whole sentence. You did a fine job. Build the missing word.",
   "sentence": "You ___ a fine job.",
   "choices": [
    "did"
@@ -8753,7 +7807,7 @@ export const questions = [
   "answer": "did",
   "correctAnswer": "did",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8776,21 +7830,16 @@ export const questions = [
   "sentenceText": "You did a fine job.",
   "targetWord": "did",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.did.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/did.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/did.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/did.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8800,13 +7849,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/did.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/did.webp",
-  "targetImage": "/images/assessment/release-support/hfw/did.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/did.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/did.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.down.v1",
@@ -8828,9 +7871,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Roll the barrel ___ the ramp.",
-  "question": "Build the missing word: Roll the barrel ___ the ramp.",
-  "spokenPrompt": "Build the missing word. Roll the barrel … the ramp.",
+  "prompt": "Listen, then build the missing word: Roll the barrel ___ the ramp.",
+  "question": "Listen, then build the missing word: Roll the barrel ___ the ramp.",
+  "spokenPrompt": "Listen to the whole sentence. Roll the barrel down the ramp. Build the missing word.",
   "sentence": "Roll the barrel ___ the ramp.",
   "choices": [
    "down"
@@ -8845,7 +7888,7 @@ export const questions = [
   "answer": "down",
   "correctAnswer": "down",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8870,21 +7913,16 @@ export const questions = [
   "sentenceText": "Roll the barrel down the ramp.",
   "targetWord": "down",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.down.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/down.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/down.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/down.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8894,13 +7932,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "doun — the u is present and tempting",
-  "imagePath": "/images/assessment/release-support/hfw/down.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/down.webp",
-  "targetImage": "/images/assessment/release-support/hfw/down.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/down.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/down.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "doun — the u is present and tempting"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.down.v2",
@@ -8922,9 +7954,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: The sun went ___ at eight.",
-  "question": "Build the missing word: The sun went ___ at eight.",
-  "spokenPrompt": "Build the missing word. The sun went … at eight.",
+  "prompt": "Listen, then build the missing word: The sun went ___ at eight.",
+  "question": "Listen, then build the missing word: The sun went ___ at eight.",
+  "spokenPrompt": "Listen to the whole sentence. The sun went down at eight. Build the missing word.",
   "sentence": "The sun went ___ at eight.",
   "choices": [
    "down"
@@ -8939,7 +7971,7 @@ export const questions = [
   "answer": "down",
   "correctAnswer": "down",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8964,21 +7996,16 @@ export const questions = [
   "sentenceText": "The sun went down at eight.",
   "targetWord": "down",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.down.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/down.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/down.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/down.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8988,13 +8015,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/down.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/down.webp",
-  "targetImage": "/images/assessment/release-support/hfw/down.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/down.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/down.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.find.v1",
@@ -9016,9 +8037,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Help me ___ my keys.",
-  "question": "Build the missing word: Help me ___ my keys.",
-  "spokenPrompt": "Build the missing word. Help me … my keys.",
+  "prompt": "Listen, then build the missing word: Help me ___ my keys.",
+  "question": "Listen, then build the missing word: Help me ___ my keys.",
+  "spokenPrompt": "Listen to the whole sentence. Help me find my keys. Build the missing word.",
   "sentence": "Help me ___ my keys.",
   "choices": [
    "find"
@@ -9033,7 +8054,7 @@ export const questions = [
   "answer": "find",
   "correctAnswer": "find",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9058,21 +8079,16 @@ export const questions = [
   "sentenceText": "Help me find my keys.",
   "targetWord": "find",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.find.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/find.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/find.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/find.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9082,13 +8098,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "fined's e is present — the bare ind is the work",
-  "imagePath": "/images/assessment/release-support/hfw/find.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/find.webp",
-  "targetImage": "/images/assessment/release-support/hfw/find.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/find.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/find.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "fined's e is present — the bare ind is the work"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.find.v2",
@@ -9110,9 +8120,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Crows ___ shiny things.",
-  "question": "Build the missing word: Crows ___ shiny things.",
-  "spokenPrompt": "Build the missing word. Crows … shiny things.",
+  "prompt": "Listen, then build the missing word: Crows ___ shiny things.",
+  "question": "Listen, then build the missing word: Crows ___ shiny things.",
+  "spokenPrompt": "Listen to the whole sentence. Crows find shiny things. Build the missing word.",
   "sentence": "Crows ___ shiny things.",
   "choices": [
    "find"
@@ -9127,7 +8137,7 @@ export const questions = [
   "answer": "find",
   "correctAnswer": "find",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9152,21 +8162,16 @@ export const questions = [
   "sentenceText": "Crows find shiny things.",
   "targetWord": "find",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.find.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/find.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/find.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/find.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9176,13 +8181,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/find.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/find.webp",
-  "targetImage": "/images/assessment/release-support/hfw/find.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/find.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/find.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.first.v1",
@@ -9204,9 +8203,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Ladders ___, then paint.",
-  "question": "Build the missing word: Ladders ___, then paint.",
-  "spokenPrompt": "Build the missing word. Ladders …, then paint.",
+  "prompt": "Listen, then build the missing word: Ladders ___, then paint.",
+  "question": "Listen, then build the missing word: Ladders ___, then paint.",
+  "spokenPrompt": "Listen to the whole sentence. Ladders first, then paint. Build the missing word.",
   "sentence": "Ladders ___, then paint.",
   "choices": [
    "first"
@@ -9221,7 +8220,7 @@ export const questions = [
   "answer": "first",
   "correctAnswer": "first",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9248,21 +8247,16 @@ export const questions = [
   "sentenceText": "Ladders first, then paint.",
   "targetWord": "first",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.first.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/first.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/first.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/first.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9272,13 +8266,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "furst — the u is present and tempting",
-  "imagePath": "/images/assessment/release-support/hfw/first.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/first.webp",
-  "targetImage": "/images/assessment/release-support/hfw/first.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/first.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/first.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "furst — the u is present and tempting"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.first.v2",
@@ -9300,9 +8288,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Who came ___ in the quiz?",
-  "question": "Build the missing word: Who came ___ in the quiz?",
-  "spokenPrompt": "Build the missing word. Who came … in the quiz?",
+  "prompt": "Listen, then build the missing word: Who came ___ in the quiz?",
+  "question": "Listen, then build the missing word: Who came ___ in the quiz?",
+  "spokenPrompt": "Listen to the whole sentence. Who came first in the quiz? Build the missing word.",
   "sentence": "Who came ___ in the quiz?",
   "choices": [
    "first"
@@ -9317,7 +8305,7 @@ export const questions = [
   "answer": "first",
   "correctAnswer": "first",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9344,21 +8332,16 @@ export const questions = [
   "sentenceText": "Who came first in the quiz?",
   "targetWord": "first",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.first.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/first.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/first.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/first.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9368,13 +8351,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/first.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/first.webp",
-  "targetImage": "/images/assessment/release-support/hfw/first.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/first.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/first.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.get.v1",
@@ -9396,9 +8373,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: ___ your boots — it snowed!",
-  "question": "Build the missing word: ___ your boots — it snowed!",
-  "spokenPrompt": "Build the missing word. … your boots — it snowed!",
+  "prompt": "Listen, then build the missing word: ___ your boots — it snowed!",
+  "question": "Listen, then build the missing word: ___ your boots — it snowed!",
+  "spokenPrompt": "Listen to the whole sentence. get your boots — it snowed! Build the missing word.",
   "sentence": "___ your boots — it snowed!",
   "choices": [
    "get"
@@ -9413,7 +8390,7 @@ export const questions = [
   "answer": "get",
   "correctAnswer": "get",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9436,21 +8413,16 @@ export const questions = [
   "sentenceText": "get your boots — it snowed!",
   "targetWord": "get",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.get.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/get.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/get.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/get.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9460,13 +8432,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "git tempts",
-  "imagePath": "/images/assessment/release-support/hfw/get.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/get.webp",
-  "targetImage": "/images/assessment/release-support/hfw/get.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/get.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/get.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "git tempts"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.get.v2",
@@ -9488,9 +8454,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: We ___ eggs from the coop.",
-  "question": "Build the missing word: We ___ eggs from the coop.",
-  "spokenPrompt": "Build the missing word. We … eggs from the coop.",
+  "prompt": "Listen, then build the missing word: We ___ eggs from the coop.",
+  "question": "Listen, then build the missing word: We ___ eggs from the coop.",
+  "spokenPrompt": "Listen to the whole sentence. We get eggs from the coop. Build the missing word.",
   "sentence": "We ___ eggs from the coop.",
   "choices": [
    "get"
@@ -9505,7 +8471,7 @@ export const questions = [
   "answer": "get",
   "correctAnswer": "get",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9528,21 +8494,16 @@ export const questions = [
   "sentenceText": "We get eggs from the coop.",
   "targetWord": "get",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.get.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/get.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/get.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/get.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9552,13 +8513,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/get.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/get.webp",
-  "targetImage": "/images/assessment/release-support/hfw/get.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/get.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/get.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.long.v1",
@@ -9580,9 +8535,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Giraffes have ___ necks.",
-  "question": "Build the missing word: Giraffes have ___ necks.",
-  "spokenPrompt": "Build the missing word. Giraffes have … necks.",
+  "prompt": "Listen, then build the missing word: Giraffes have ___ necks.",
+  "question": "Listen, then build the missing word: Giraffes have ___ necks.",
+  "spokenPrompt": "Listen to the whole sentence. Giraffes have long necks. Build the missing word.",
   "sentence": "Giraffes have ___ necks.",
   "choices": [
    "long"
@@ -9597,7 +8552,7 @@ export const questions = [
   "answer": "long",
   "correctAnswer": "long",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9622,21 +8577,16 @@ export const questions = [
   "sentenceText": "Giraffes have long necks.",
   "targetWord": "long",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.long.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/long.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/long.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/long.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9646,13 +8596,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "lung's u is present",
-  "imagePath": "/images/assessment/release-support/hfw/long.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/long.webp",
-  "targetImage": "/images/assessment/release-support/hfw/long.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/long.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/long.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "lung's u is present"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.long.v2",
@@ -9674,9 +8618,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: The queue was so ___!",
-  "question": "Build the missing word: The queue was so ___!",
-  "spokenPrompt": "Build the missing word. The queue was so …!",
+  "prompt": "Listen, then build the missing word: The queue was so ___!",
+  "question": "Listen, then build the missing word: The queue was so ___!",
+  "spokenPrompt": "Listen to the whole sentence. The queue was so long! Build the missing word.",
   "sentence": "The queue was so ___!",
   "choices": [
    "long"
@@ -9691,7 +8635,7 @@ export const questions = [
   "answer": "long",
   "correctAnswer": "long",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9716,21 +8660,16 @@ export const questions = [
   "sentenceText": "The queue was so long!",
   "targetWord": "long",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.long.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/long.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/long.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/long.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9740,13 +8679,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/long.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/long.webp",
-  "targetImage": "/images/assessment/release-support/hfw/long.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/long.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/long.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.made.v1",
@@ -9768,9 +8701,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: We ___ jam tarts today.",
-  "question": "Build the missing word: We ___ jam tarts today.",
-  "spokenPrompt": "Build the missing word. We … jam tarts today.",
+  "prompt": "Listen, then build the missing word: We ___ jam tarts today.",
+  "question": "Listen, then build the missing word: We ___ jam tarts today.",
+  "spokenPrompt": "Listen to the whole sentence. We made jam tarts today. Build the missing word.",
   "sentence": "We ___ jam tarts today.",
   "choices": [
    "made"
@@ -9785,7 +8718,7 @@ export const questions = [
   "answer": "made",
   "correctAnswer": "made",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9810,21 +8743,16 @@ export const questions = [
   "sentenceText": "We made jam tarts today.",
   "targetWord": "made",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.made.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/made.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/made.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/made.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9834,13 +8762,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "mad without the silent e is the tempting build",
-  "imagePath": "/images/assessment/release-support/hfw/made.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/made.webp",
-  "targetImage": "/images/assessment/release-support/hfw/made.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/made.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/made.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "mad without the silent e is the tempting build"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.made.v2",
@@ -9862,9 +8784,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Ants ___ a nest by the step.",
-  "question": "Build the missing word: Ants ___ a nest by the step.",
-  "spokenPrompt": "Build the missing word. Ants … a nest by the step.",
+  "prompt": "Listen, then build the missing word: Ants ___ a nest by the step.",
+  "question": "Listen, then build the missing word: Ants ___ a nest by the step.",
+  "spokenPrompt": "Listen to the whole sentence. Ants made a nest by the step. Build the missing word.",
   "sentence": "Ants ___ a nest by the step.",
   "choices": [
    "made"
@@ -9879,7 +8801,7 @@ export const questions = [
   "answer": "made",
   "correctAnswer": "made",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9904,21 +8826,16 @@ export const questions = [
   "sentenceText": "Ants made a nest by the step.",
   "targetWord": "made",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.made.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/made.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/made.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/made.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9928,13 +8845,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/made.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/made.webp",
-  "targetImage": "/images/assessment/release-support/hfw/made.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/made.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/made.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.may.v1",
@@ -9956,9 +8867,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: ___ I ring the bell?",
-  "question": "Build the missing word: ___ I ring the bell?",
-  "spokenPrompt": "Build the missing word. … I ring the bell?",
+  "prompt": "Listen, then build the missing word: ___ I ring the bell?",
+  "question": "Listen, then build the missing word: ___ I ring the bell?",
+  "spokenPrompt": "Listen to the whole sentence. may I ring the bell? Build the missing word.",
   "sentence": "___ I ring the bell?",
   "choices": [
    "may"
@@ -9973,7 +8884,7 @@ export const questions = [
   "answer": "may",
   "correctAnswer": "may",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9996,21 +8907,16 @@ export const questions = [
   "sentenceText": "may I ring the bell?",
   "targetWord": "may",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.may.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/may.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/may.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/may.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10020,13 +8926,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "mae tempts",
-  "imagePath": "/images/assessment/release-support/hfw/may.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/may.webp",
-  "targetImage": "/images/assessment/release-support/hfw/may.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/may.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/may.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "mae tempts"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.may.v2",
@@ -10048,9 +8948,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: It ___ thunder later.",
-  "question": "Build the missing word: It ___ thunder later.",
-  "spokenPrompt": "Build the missing word. It … thunder later.",
+  "prompt": "Listen, then build the missing word: It ___ thunder later.",
+  "question": "Listen, then build the missing word: It ___ thunder later.",
+  "spokenPrompt": "Listen to the whole sentence. It may thunder later. Build the missing word.",
   "sentence": "It ___ thunder later.",
   "choices": [
    "may"
@@ -10065,7 +8965,7 @@ export const questions = [
   "answer": "may",
   "correctAnswer": "may",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10088,21 +8988,16 @@ export const questions = [
   "sentenceText": "It may thunder later.",
   "targetWord": "may",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.may.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/may.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/may.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/may.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10112,13 +9007,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/may.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/may.webp",
-  "targetImage": "/images/assessment/release-support/hfw/may.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/may.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/may.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.my.v1",
@@ -10140,9 +9029,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Where is ___ other mitten?",
-  "question": "Build the missing word: Where is ___ other mitten?",
-  "spokenPrompt": "Build the missing word. Where is … other mitten?",
+  "prompt": "Listen, then build the missing word: Where is ___ other mitten?",
+  "question": "Listen, then build the missing word: Where is ___ other mitten?",
+  "spokenPrompt": "Listen to the whole sentence. Where is my other mitten? Build the missing word.",
   "sentence": "Where is ___ other mitten?",
   "choices": [
    "my"
@@ -10157,7 +9046,7 @@ export const questions = [
   "answer": "my",
   "correctAnswer": "my",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10180,21 +9069,16 @@ export const questions = [
   "sentenceText": "Where is my other mitten?",
   "targetWord": "my",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.my.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/my.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/my.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/my.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10204,13 +9088,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "mi — the i is present and tempting",
-  "imagePath": "/images/assessment/release-support/hfw/my.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/my.webp",
-  "targetImage": "/images/assessment/release-support/hfw/my.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/my.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/my.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "mi — the i is present and tempting"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.my.v2",
@@ -10232,9 +9110,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: ___ turn on the swing!",
-  "question": "Build the missing word: ___ turn on the swing!",
-  "spokenPrompt": "Build the missing word. … turn on the swing!",
+  "prompt": "Listen, then build the missing word: ___ turn on the swing!",
+  "question": "Listen, then build the missing word: ___ turn on the swing!",
+  "spokenPrompt": "Listen to the whole sentence. my turn on the swing! Build the missing word.",
   "sentence": "___ turn on the swing!",
   "choices": [
    "my"
@@ -10249,7 +9127,7 @@ export const questions = [
   "answer": "my",
   "correctAnswer": "my",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10272,21 +9150,16 @@ export const questions = [
   "sentenceText": "my turn on the swing!",
   "targetWord": "my",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.my.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/my.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/my.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/my.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10296,13 +9169,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/my.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/my.webp",
-  "targetImage": "/images/assessment/release-support/hfw/my.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/my.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/my.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.no.v1",
@@ -10324,9 +9191,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: There is ___ milk left.",
-  "question": "Build the missing word: There is ___ milk left.",
-  "spokenPrompt": "Build the missing word. There is … milk left.",
+  "prompt": "Listen, then build the missing word: There is ___ milk left.",
+  "question": "Listen, then build the missing word: There is ___ milk left.",
+  "spokenPrompt": "Listen to the whole sentence. There is no milk left. Build the missing word.",
   "sentence": "There is ___ milk left.",
   "choices": [
    "no"
@@ -10341,7 +9208,7 @@ export const questions = [
   "answer": "no",
   "correctAnswer": "no",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10364,21 +9231,16 @@ export const questions = [
   "sentenceText": "There is no milk left.",
   "targetWord": "no",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.no.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/no.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/no.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/no.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10388,13 +9250,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "know's pattern lurks — the bare no is the work",
-  "imagePath": "/images/assessment/release-support/hfw/no.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/no.webp",
-  "targetImage": "/images/assessment/release-support/hfw/no.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/no.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/no.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "know's pattern lurks — the bare no is the work"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.no.v2",
@@ -10416,9 +9272,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: ___ two snowflakes match.",
-  "question": "Build the missing word: ___ two snowflakes match.",
-  "spokenPrompt": "Build the missing word. … two snowflakes match.",
+  "prompt": "Listen, then build the missing word: ___ two snowflakes match.",
+  "question": "Listen, then build the missing word: ___ two snowflakes match.",
+  "spokenPrompt": "Listen to the whole sentence. no two snowflakes match. Build the missing word.",
   "sentence": "___ two snowflakes match.",
   "choices": [
    "no"
@@ -10433,7 +9289,7 @@ export const questions = [
   "answer": "no",
   "correctAnswer": "no",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10456,21 +9312,16 @@ export const questions = [
   "sentenceText": "no two snowflakes match.",
   "targetWord": "no",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.no.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/no.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/no.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/no.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10480,13 +9331,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/no.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/no.webp",
-  "targetImage": "/images/assessment/release-support/hfw/no.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/no.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/no.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.now.v1",
@@ -10508,9 +9353,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: The paint is dry ___.",
-  "question": "Build the missing word: The paint is dry ___.",
-  "spokenPrompt": "Build the missing word. The paint is dry ….",
+  "prompt": "Listen, then build the missing word: The paint is dry ___.",
+  "question": "Listen, then build the missing word: The paint is dry ___.",
+  "spokenPrompt": "Listen to the whole sentence. The paint is dry now. Build the missing word.",
   "sentence": "The paint is dry ___.",
   "choices": [
    "now"
@@ -10525,7 +9370,7 @@ export const questions = [
   "answer": "now",
   "correctAnswer": "now",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10548,21 +9393,16 @@ export const questions = [
   "sentenceText": "The paint is dry now.",
   "targetWord": "now",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.now.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/now.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/now.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/now.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10572,13 +9412,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "nou — the u is present and tempting",
-  "imagePath": "/images/assessment/release-support/hfw/now.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/now.webp",
-  "targetImage": "/images/assessment/release-support/hfw/now.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/now.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/now.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "nou — the u is present and tempting"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.now.v2",
@@ -10600,9 +9434,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: ___ add the flour slowly.",
-  "question": "Build the missing word: ___ add the flour slowly.",
-  "spokenPrompt": "Build the missing word. … add the flour slowly.",
+  "prompt": "Listen, then build the missing word: ___ add the flour slowly.",
+  "question": "Listen, then build the missing word: ___ add the flour slowly.",
+  "spokenPrompt": "Listen to the whole sentence. now add the flour slowly. Build the missing word.",
   "sentence": "___ add the flour slowly.",
   "choices": [
    "now"
@@ -10617,7 +9451,7 @@ export const questions = [
   "answer": "now",
   "correctAnswer": "now",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10640,21 +9474,16 @@ export const questions = [
   "sentenceText": "now add the flour slowly.",
   "targetWord": "now",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.now.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/now.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/now.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/now.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10664,13 +9493,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/now.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/now.webp",
-  "targetImage": "/images/assessment/release-support/hfw/now.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/now.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/now.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.number.v1",
@@ -10692,9 +9515,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Ring this ___ if lost.",
-  "question": "Build the missing word: Ring this ___ if lost.",
-  "spokenPrompt": "Build the missing word. Ring this … if lost.",
+  "prompt": "Listen, then build the missing word: Ring this ___ if lost.",
+  "question": "Listen, then build the missing word: Ring this ___ if lost.",
+  "spokenPrompt": "Listen to the whole sentence. Ring this number if lost. Build the missing word.",
   "sentence": "Ring this ___ if lost.",
   "choices": [
    "number"
@@ -10709,7 +9532,7 @@ export const questions = [
   "answer": "number",
   "correctAnswer": "number",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10738,21 +9561,16 @@ export const questions = [
   "sentenceText": "Ring this number if lost.",
   "targetWord": "number",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.number.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/number.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/number.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/number.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10762,13 +9580,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the silent-ish b is the work",
-  "imagePath": "/images/assessment/release-support/hfw/number.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/number.webp",
-  "targetImage": "/images/assessment/release-support/hfw/number.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/number.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/number.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the silent-ish b is the work"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.number.v2",
@@ -10790,9 +9602,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Seven is my lucky ___.",
-  "question": "Build the missing word: Seven is my lucky ___.",
-  "spokenPrompt": "Build the missing word. Seven is my lucky ….",
+  "prompt": "Listen, then build the missing word: Seven is my lucky ___.",
+  "question": "Listen, then build the missing word: Seven is my lucky ___.",
+  "spokenPrompt": "Listen to the whole sentence. Seven is my lucky number. Build the missing word.",
   "sentence": "Seven is my lucky ___.",
   "choices": [
    "number"
@@ -10807,7 +9619,7 @@ export const questions = [
   "answer": "number",
   "correctAnswer": "number",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10836,21 +9648,16 @@ export const questions = [
   "sentenceText": "Seven is my lucky number.",
   "targetWord": "number",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.number.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/number.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/number.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/number.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10860,13 +9667,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/number.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/number.webp",
-  "targetImage": "/images/assessment/release-support/hfw/number.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/number.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/number.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.oil.v1",
@@ -10888,9 +9689,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Bike chains need ___.",
-  "question": "Build the missing word: Bike chains need ___.",
-  "spokenPrompt": "Build the missing word. Bike chains need ….",
+  "prompt": "Listen, then build the missing word: Bike chains need ___.",
+  "question": "Listen, then build the missing word: Bike chains need ___.",
+  "spokenPrompt": "Listen to the whole sentence. Bike chains need oil. Build the missing word.",
   "sentence": "Bike chains need ___.",
   "choices": [
    "oil"
@@ -10905,7 +9706,7 @@ export const questions = [
   "answer": "oil",
   "correctAnswer": "oil",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10928,21 +9729,16 @@ export const questions = [
   "sentenceText": "Bike chains need oil.",
   "targetWord": "oil",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.oil.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/oil.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/oil.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/oil.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10952,13 +9748,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "oyl — the y is present and tempting",
-  "imagePath": "/images/assessment/release-support/hfw/oil.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/oil.webp",
-  "targetImage": "/images/assessment/release-support/hfw/oil.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/oil.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/oil.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "oyl — the y is present and tempting"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.oil.v2",
@@ -10980,9 +9770,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: ___ the wheels, please.",
-  "question": "Build the missing word: ___ the wheels, please.",
-  "spokenPrompt": "Build the missing word. … the wheels, please.",
+  "prompt": "Listen, then build the missing word: ___ the wheels, please.",
+  "question": "Listen, then build the missing word: ___ the wheels, please.",
+  "spokenPrompt": "Listen to the whole sentence. oil the wheels, please. Build the missing word.",
   "sentence": "___ the wheels, please.",
   "choices": [
    "oil"
@@ -10997,7 +9787,7 @@ export const questions = [
   "answer": "oil",
   "correctAnswer": "oil",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11020,21 +9810,16 @@ export const questions = [
   "sentenceText": "oil the wheels, please.",
   "targetWord": "oil",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.oil.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/oil.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/oil.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/oil.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -11044,13 +9829,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/oil.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/oil.webp",
-  "targetImage": "/images/assessment/release-support/hfw/oil.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/oil.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/oil.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.part.v1",
@@ -11072,9 +9851,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: This ___ clips on last.",
-  "question": "Build the missing word: This ___ clips on last.",
-  "spokenPrompt": "Build the missing word. This … clips on last.",
+  "prompt": "Listen, then build the missing word: This ___ clips on last.",
+  "question": "Listen, then build the missing word: This ___ clips on last.",
+  "spokenPrompt": "Listen to the whole sentence. This part clips on last. Build the missing word.",
   "sentence": "This ___ clips on last.",
   "choices": [
    "part"
@@ -11089,7 +9868,7 @@ export const questions = [
   "answer": "part",
   "correctAnswer": "part",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11114,21 +9893,16 @@ export const questions = [
   "sentenceText": "This part clips on last.",
   "targetWord": "part",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.part.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/part.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/part.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/part.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -11138,13 +9912,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/part.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/part.webp",
-  "targetImage": "/images/assessment/release-support/hfw/part.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/part.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/part.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.B.part.v2",
@@ -11166,9 +9934,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Play your ___ in the show.",
-  "question": "Build the missing word: Play your ___ in the show.",
-  "spokenPrompt": "Build the missing word. Play your … in the show.",
+  "prompt": "Listen, then build the missing word: Play your ___ in the show.",
+  "question": "Listen, then build the missing word: Play your ___ in the show.",
+  "spokenPrompt": "Listen to the whole sentence. Play your part in the show. Build the missing word.",
   "sentence": "Play your ___ in the show.",
   "choices": [
    "part"
@@ -11183,7 +9951,7 @@ export const questions = [
   "answer": "part",
   "correctAnswer": "part",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11208,21 +9976,16 @@ export const questions = [
   "sentenceText": "Play your part in the show.",
   "targetWord": "part",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.part.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/part.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/part.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/part.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -11232,13 +9995,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/part.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/part.webp",
-  "targetImage": "/images/assessment/release-support/hfw/part.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/part.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/part.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.people.v1",
@@ -11260,9 +10017,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Six ___ fit in the lift.",
-  "question": "Build the missing word: Six ___ fit in the lift.",
-  "spokenPrompt": "Build the missing word. Six … fit in the lift.",
+  "prompt": "Listen, then build the missing word: Six ___ fit in the lift.",
+  "question": "Listen, then build the missing word: Six ___ fit in the lift.",
+  "spokenPrompt": "Listen to the whole sentence. Six people fit in the lift. Build the missing word.",
   "sentence": "Six ___ fit in the lift.",
   "choices": [
    "people"
@@ -11277,7 +10034,7 @@ export const questions = [
   "answer": "people",
   "correctAnswer": "people",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11306,21 +10063,16 @@ export const questions = [
   "sentenceText": "Six people fit in the lift.",
   "targetWord": "people",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.people.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/people.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/people.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/people.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -11330,13 +10082,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "peeple tempts — the eo order is the work",
-  "imagePath": "/images/assessment/release-support/hfw/people.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/people.webp",
-  "targetImage": "/images/assessment/release-support/hfw/people.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/people.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/people.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "peeple tempts — the eo order is the work"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.people.v2",
@@ -11358,9 +10104,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Kind ___ share the bench.",
-  "question": "Build the missing word: Kind ___ share the bench.",
-  "spokenPrompt": "Build the missing word. Kind … share the bench.",
+  "prompt": "Listen, then build the missing word: Kind ___ share the bench.",
+  "question": "Listen, then build the missing word: Kind ___ share the bench.",
+  "spokenPrompt": "Listen to the whole sentence. Kind people share the bench. Build the missing word.",
   "sentence": "Kind ___ share the bench.",
   "choices": [
    "people"
@@ -11375,7 +10121,7 @@ export const questions = [
   "answer": "people",
   "correctAnswer": "people",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11404,21 +10150,16 @@ export const questions = [
   "sentenceText": "Kind people share the bench.",
   "targetWord": "people",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.people.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/people.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/people.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/people.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -11428,13 +10169,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/people.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/people.webp",
-  "targetImage": "/images/assessment/release-support/hfw/people.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/people.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/people.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.sit.v1",
@@ -11456,9 +10191,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: ___ still for the photo.",
-  "question": "Build the missing word: ___ still for the photo.",
-  "spokenPrompt": "Build the missing word. … still for the photo.",
+  "prompt": "Listen, then build the missing word: ___ still for the photo.",
+  "question": "Listen, then build the missing word: ___ still for the photo.",
+  "spokenPrompt": "Listen to the whole sentence. sit still for the photo. Build the missing word.",
   "sentence": "___ still for the photo.",
   "choices": [
    "sit"
@@ -11473,7 +10208,7 @@ export const questions = [
   "answer": "sit",
   "correctAnswer": "sit",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11496,21 +10231,16 @@ export const questions = [
   "sentenceText": "sit still for the photo.",
   "targetWord": "sit",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.sit.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/sit.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/sit.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/sit.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -11520,13 +10250,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "set's e is present",
-  "imagePath": "/images/assessment/release-support/hfw/sit.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/sit.webp",
-  "targetImage": "/images/assessment/release-support/hfw/sit.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/sit.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/sit.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "set's e is present"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.sit.v2",
@@ -11548,9 +10272,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Cats ___ where they please.",
-  "question": "Build the missing word: Cats ___ where they please.",
-  "spokenPrompt": "Build the missing word. Cats … where they please.",
+  "prompt": "Listen, then build the missing word: Cats ___ where they please.",
+  "question": "Listen, then build the missing word: Cats ___ where they please.",
+  "spokenPrompt": "Listen to the whole sentence. Cats sit where they please. Build the missing word.",
   "sentence": "Cats ___ where they please.",
   "choices": [
    "sit"
@@ -11565,7 +10289,7 @@ export const questions = [
   "answer": "sit",
   "correctAnswer": "sit",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11588,21 +10312,16 @@ export const questions = [
   "sentenceText": "Cats sit where they please.",
   "targetWord": "sit",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.sit.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/sit.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/sit.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/sit.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -11612,13 +10331,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/sit.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/sit.webp",
-  "targetImage": "/images/assessment/release-support/hfw/sit.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/sit.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/sit.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.than.v1",
@@ -11640,9 +10353,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Silk is softer ___ wool.",
-  "question": "Build the missing word: Silk is softer ___ wool.",
-  "spokenPrompt": "Build the missing word. Silk is softer … wool.",
+  "prompt": "Listen, then build the missing word: Silk is softer ___ wool.",
+  "question": "Listen, then build the missing word: Silk is softer ___ wool.",
+  "spokenPrompt": "Listen to the whole sentence. Silk is softer than wool. Build the missing word.",
   "sentence": "Silk is softer ___ wool.",
   "choices": [
    "than"
@@ -11657,7 +10370,7 @@ export const questions = [
   "answer": "than",
   "correctAnswer": "than",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11682,21 +10395,16 @@ export const questions = [
   "sentenceText": "Silk is softer than wool.",
   "targetWord": "than",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.than.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/than.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/than.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/than.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -11706,13 +10414,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "then's e is present — the a is the work",
-  "imagePath": "/images/assessment/release-support/hfw/than.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/than.webp",
-  "targetImage": "/images/assessment/release-support/hfw/than.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/than.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/than.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "then's e is present — the a is the work"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.than.v2",
@@ -11734,9 +10436,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Ice is colder ___ snow.",
-  "question": "Build the missing word: Ice is colder ___ snow.",
-  "spokenPrompt": "Build the missing word. Ice is colder … snow.",
+  "prompt": "Listen, then build the missing word: Ice is colder ___ snow.",
+  "question": "Listen, then build the missing word: Ice is colder ___ snow.",
+  "spokenPrompt": "Listen to the whole sentence. Ice is colder than snow. Build the missing word.",
   "sentence": "Ice is colder ___ snow.",
   "choices": [
    "than"
@@ -11751,7 +10453,7 @@ export const questions = [
   "answer": "than",
   "correctAnswer": "than",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11776,21 +10478,16 @@ export const questions = [
   "sentenceText": "Ice is colder than snow.",
   "targetWord": "than",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.than.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/than.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/than.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/than.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -11800,13 +10497,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/than.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/than.webp",
-  "targetImage": "/images/assessment/release-support/hfw/than.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/than.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/than.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.water.v1",
@@ -11828,9 +10519,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Fill the trough with ___.",
-  "question": "Build the missing word: Fill the trough with ___.",
-  "spokenPrompt": "Build the missing word. Fill the trough with ….",
+  "prompt": "Listen, then build the missing word: Fill the trough with ___.",
+  "question": "Listen, then build the missing word: Fill the trough with ___.",
+  "spokenPrompt": "Listen to the whole sentence. Fill the trough with water. Build the missing word.",
   "sentence": "Fill the trough with ___.",
   "choices": [
    "water"
@@ -11845,7 +10536,7 @@ export const questions = [
   "answer": "water",
   "correctAnswer": "water",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11872,21 +10563,16 @@ export const questions = [
   "sentenceText": "Fill the trough with water.",
   "targetWord": "water",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.water.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/water.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/water.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/water.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -11896,13 +10582,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "wotter tempts — the a is the work",
-  "imagePath": "/images/assessment/release-support/hfw/water.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/water.webp",
-  "targetImage": "/images/assessment/release-support/hfw/water.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/water.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/water.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "wotter tempts — the a is the work"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.water.v2",
@@ -11924,9 +10604,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: The ___ froze overnight.",
-  "question": "Build the missing word: The ___ froze overnight.",
-  "spokenPrompt": "Build the missing word. The … froze overnight.",
+  "prompt": "Listen, then build the missing word: The ___ froze overnight.",
+  "question": "Listen, then build the missing word: The ___ froze overnight.",
+  "spokenPrompt": "Listen to the whole sentence. The water froze overnight. Build the missing word.",
   "sentence": "The ___ froze overnight.",
   "choices": [
    "water"
@@ -11941,7 +10621,7 @@ export const questions = [
   "answer": "water",
   "correctAnswer": "water",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11968,21 +10648,16 @@ export const questions = [
   "sentenceText": "The water froze overnight.",
   "targetWord": "water",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.water.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/water.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/water.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/water.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -11992,13 +10667,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/water.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/water.webp",
-  "targetImage": "/images/assessment/release-support/hfw/water.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/water.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/water.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.way.v1",
@@ -12020,9 +10689,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: This ___ to the exit.",
-  "question": "Build the missing word: This ___ to the exit.",
-  "spokenPrompt": "Build the missing word. This … to the exit.",
+  "prompt": "Listen, then build the missing word: This ___ to the exit.",
+  "question": "Listen, then build the missing word: This ___ to the exit.",
+  "spokenPrompt": "Listen to the whole sentence. This way to the exit. Build the missing word.",
   "sentence": "This ___ to the exit.",
   "choices": [
    "way"
@@ -12037,7 +10706,7 @@ export const questions = [
   "answer": "way",
   "correctAnswer": "way",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12060,21 +10729,16 @@ export const questions = [
   "sentenceText": "This way to the exit.",
   "targetWord": "way",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.way.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/way.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/way.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/way.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -12084,13 +10748,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "wae tempts",
-  "imagePath": "/images/assessment/release-support/hfw/way.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/way.webp",
-  "targetImage": "/images/assessment/release-support/hfw/way.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/way.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/way.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "wae tempts"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.way.v2",
@@ -12112,9 +10770,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: A compass shows the ___.",
-  "question": "Build the missing word: A compass shows the ___.",
-  "spokenPrompt": "Build the missing word. A compass shows the ….",
+  "prompt": "Listen, then build the missing word: A compass shows the ___.",
+  "question": "Listen, then build the missing word: A compass shows the ___.",
+  "spokenPrompt": "Listen to the whole sentence. A compass shows the way. Build the missing word.",
   "sentence": "A compass shows the ___.",
   "choices": [
    "way"
@@ -12129,7 +10787,7 @@ export const questions = [
   "answer": "way",
   "correctAnswer": "way",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12152,21 +10810,16 @@ export const questions = [
   "sentenceText": "A compass shows the way.",
   "targetWord": "way",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.way.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/way.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/way.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/way.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -12176,13 +10829,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/way.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/way.webp",
-  "targetImage": "/images/assessment/release-support/hfw/way.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/way.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/way.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.A.who.v1",
@@ -12204,9 +10851,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: ___ ate the last plum?",
-  "question": "Build the missing word: ___ ate the last plum?",
-  "spokenPrompt": "Build the missing word. … ate the last plum?",
+  "prompt": "Listen, then build the missing word: ___ ate the last plum?",
+  "question": "Listen, then build the missing word: ___ ate the last plum?",
+  "spokenPrompt": "Listen to the whole sentence. who ate the last plum? Build the missing word.",
   "sentence": "___ ate the last plum?",
   "choices": [
    "who"
@@ -12221,7 +10868,7 @@ export const questions = [
   "answer": "who",
   "correctAnswer": "who",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12244,21 +10891,16 @@ export const questions = [
   "sentenceText": "who ate the last plum?",
   "targetWord": "who",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.A.who.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/who.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/who.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/who.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -12268,13 +10910,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "hoo — the silent w order is the work",
-  "imagePath": "/images/assessment/release-support/hfw/who.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/who.webp",
-  "targetImage": "/images/assessment/release-support/hfw/who.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/who.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/who.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "hoo — the silent w order is the work"
  },
  {
   "id": "lp3.hfw_76_100.l2.B.who.v2",
@@ -12296,9 +10932,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Ask ___ owns the scooter.",
-  "question": "Build the missing word: Ask ___ owns the scooter.",
-  "spokenPrompt": "Build the missing word. Ask … owns the scooter.",
+  "prompt": "Listen, then build the missing word: Ask ___ owns the scooter.",
+  "question": "Listen, then build the missing word: Ask ___ owns the scooter.",
+  "spokenPrompt": "Listen to the whole sentence. Ask who owns the scooter. Build the missing word.",
   "sentence": "Ask ___ owns the scooter.",
   "choices": [
    "who"
@@ -12313,7 +10949,7 @@ export const questions = [
   "answer": "who",
   "correctAnswer": "who",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12336,21 +10972,16 @@ export const questions = [
   "sentenceText": "Ask who owns the scooter.",
   "targetWord": "who",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.B.who.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/who.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/who.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/who.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -12360,13 +10991,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/who.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/who.webp",
-  "targetImage": "/images/assessment/release-support/hfw/who.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/who.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/who.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.R.could.v7r",
@@ -12388,21 +11013,21 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "I wish I ___ fly like a hawk.",
-  "question": "I wish I ___ fly like a hawk.",
-  "spokenPrompt": "Which word finishes the sentence? I wish I … fly like a hawk.",
-  "sentence": "I wish I ___ fly like a hawk.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Last night, the gate opened; we could leave then. Which printed word fills the …?",
+  "sentence": "Last night, the gate opened; we ___ leave then.",
   "choices": [
-   "did",
+   "was",
    "could",
-   "can",
-   "would"
+   "has",
+   "is"
   ],
   "answerOptions": [
    {
-    "value": "did",
-    "label": "did",
-    "text": "did"
+    "value": "was",
+    "label": "was",
+    "text": "was"
    },
    {
     "value": "could",
@@ -12410,22 +11035,22 @@ export const questions = [
     "text": "could"
    },
    {
-    "value": "can",
-    "label": "can",
-    "text": "can"
+    "value": "has",
+    "label": "has",
+    "text": "has"
    },
    {
-    "value": "would",
-    "label": "would",
-    "text": "would"
+    "value": "is",
+    "label": "is",
+    "text": "is"
    }
   ],
   "answer": "could",
   "correctAnswer": "could",
   "distractorRationales": {
-   "can": "D-DEVELOPMENTAL",
-   "would": "D-FUNCTION-SWAP",
-   "did": "D-DEVELOPMENTAL"
+   "has": "D-DEVELOPMENTAL",
+   "is": "D-DEVELOPMENTAL",
+   "was": "D-DEVELOPMENTAL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -12435,24 +11060,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "I wish I ___ fly like a hawk.",
+  "sentenceText": "Last night, the gate opened; we ___ leave then.",
   "targetWord": "could",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.R.could.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/could.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/could.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/could.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -12462,13 +11082,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/could.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/could.webp",
-  "targetImage": "/images/assessment/release-support/hfw/could.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/could.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/could.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the cumulative inventory has no other unambiguous past-ability modal, so the fillers are auxiliary-form errors"
  },
  {
   "id": "lp3.hfw_76_100.l1.R.been.v7r",
@@ -12490,26 +11104,26 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "The post has already ___.",
-  "question": "The post has already ___.",
-  "spokenPrompt": "Which word finishes the sentence? The post has already ….",
-  "sentence": "The post has already ___.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. It has been a long day. Which printed word fills the …?",
+  "sentence": "It has ___ a long day.",
   "choices": [
-   "being",
-   "come",
+   "is",
+   "were",
    "been",
    "be"
   ],
   "answerOptions": [
    {
-    "value": "being",
-    "label": "being",
-    "text": "being"
+    "value": "is",
+    "label": "is",
+    "text": "is"
    },
    {
-    "value": "come",
-    "label": "come",
-    "text": "come"
+    "value": "were",
+    "label": "were",
+    "text": "were"
    },
    {
     "value": "been",
@@ -12525,9 +11139,9 @@ export const questions = [
   "answer": "been",
   "correctAnswer": "been",
   "distractorRationales": {
-   "come": "D-FUNCTION-SWAP",
+   "were": "D-DEVELOPMENTAL",
    "be": "D-DEVELOPMENTAL",
-   "being": "D-DEVELOPMENTAL"
+   "is": "D-DEVELOPMENTAL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -12537,24 +11151,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The post has already ___.",
+  "sentenceText": "It has ___ a long day.",
   "targetWord": "been",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.R.been.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/been.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/been.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/been.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -12564,13 +11173,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/been.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/been.webp",
-  "targetImage": "/images/assessment/release-support/hfw/been.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/been.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/been.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "has requires the past-participle form"
  },
  {
   "id": "lp3.hfw_76_100.l2.R.could.v7r",
@@ -12592,9 +11195,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: We ___ hear the sea from camp.",
-  "question": "Build the missing word: We ___ hear the sea from camp.",
-  "spokenPrompt": "Build the missing word. We … hear the sea from camp.",
+  "prompt": "Listen, then build the missing word: We ___ hear the sea from camp.",
+  "question": "Listen, then build the missing word: We ___ hear the sea from camp.",
+  "spokenPrompt": "Listen to the whole sentence. We could hear the sea from camp. Build the missing word.",
   "sentence": "We ___ hear the sea from camp.",
   "choices": [
    "could"
@@ -12609,7 +11212,7 @@ export const questions = [
   "answer": "could",
   "correctAnswer": "could",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -12636,21 +11239,16 @@ export const questions = [
   "sentenceText": "We could hear the sea from camp.",
   "targetWord": "could",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.R.could.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/could.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/could.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/could.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -12660,13 +11258,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/could.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/could.webp",
-  "targetImage": "/images/assessment/release-support/hfw/could.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/could.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/could.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.R.been.v7r",
@@ -12688,9 +11280,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: It has ___ ages!",
-  "question": "Build the missing word: It has ___ ages!",
-  "spokenPrompt": "Build the missing word. It has … ages!",
+  "prompt": "Listen, then build the missing word: It has ___ ages!",
+  "question": "Listen, then build the missing word: It has ___ ages!",
+  "spokenPrompt": "Listen to the whole sentence. It has been ages! Build the missing word.",
   "sentence": "It has ___ ages!",
   "choices": [
    "been"
@@ -12705,7 +11297,7 @@ export const questions = [
   "answer": "been",
   "correctAnswer": "been",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -12730,21 +11322,16 @@ export const questions = [
   "sentenceText": "It has been ages!",
   "targetWord": "been",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.R.been.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/been.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/been.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/been.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -12754,13 +11341,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/been.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/been.webp",
-  "targetImage": "/images/assessment/release-support/hfw/been.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/been.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/been.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.R.who.v7r",
@@ -12782,14 +11363,14 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "___ knows the answer?",
-  "question": "___ knows the answer?",
-  "spokenPrompt": "Which word finishes the sentence? … knows the answer?",
-  "sentence": "___ knows the answer?",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Someone has the key. who has it? Which printed word fills the …?",
+  "sentence": "Someone has the key. ___ has it?",
   "choices": [
    "how",
    "when",
-   "which",
+   "there",
    "who"
   ],
   "answerOptions": [
@@ -12804,9 +11385,9 @@ export const questions = [
     "text": "when"
    },
    {
-    "value": "which",
-    "label": "which",
-    "text": "which"
+    "value": "there",
+    "label": "there",
+    "text": "there"
    },
    {
     "value": "who",
@@ -12819,7 +11400,7 @@ export const questions = [
   "distractorRationales": {
    "how": "D-VISUAL-NEIGHBOR",
    "when": "D-FUNCTION-SWAP",
-   "which": "D-FUNCTION-SWAP"
+   "there": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -12829,24 +11410,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "___ knows the answer?",
+  "sentenceText": "Someone has the key. ___ has it?",
   "targetWord": "who",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.R.who.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/who.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/who.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/who.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -12856,13 +11432,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/who.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/who.webp",
-  "targetImage": "/images/assessment/release-support/hfw/who.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/who.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/who.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "someone pins a person's identity"
  },
  {
   "id": "lp3.hfw_76_100.l1.R.than.v7r",
@@ -12884,15 +11454,15 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "Feathers weigh less ___ stones.",
-  "question": "Feathers weigh less ___ stones.",
-  "spokenPrompt": "Which word finishes the sentence? Feathers weigh less … stones.",
-  "sentence": "Feathers weigh less ___ stones.",
+  "prompt": "Listen to the sentence. Which printed word fills the blank?",
+  "question": "Listen to the sentence. Which printed word fills the blank?",
+  "spokenPrompt": "Listen to the whole sentence. Feathers are lighter than stones. Which printed word fills the …?",
+  "sentence": "Feathers are lighter ___ stones.",
   "choices": [
    "than",
-   "then",
    "as",
-   "and"
+   "from",
+   "about"
   ],
   "answerOptions": [
    {
@@ -12901,27 +11471,27 @@ export const questions = [
     "text": "than"
    },
    {
-    "value": "then",
-    "label": "then",
-    "text": "then"
-   },
-   {
     "value": "as",
     "label": "as",
     "text": "as"
    },
    {
-    "value": "and",
-    "label": "and",
-    "text": "and"
+    "value": "from",
+    "label": "from",
+    "text": "from"
+   },
+   {
+    "value": "about",
+    "label": "about",
+    "text": "about"
    }
   ],
   "answer": "than",
   "correctAnswer": "than",
   "distractorRationales": {
-   "as": "D-DEVELOPMENTAL",
-   "and": "D-DEVELOPMENTAL",
-   "then": "D-VISUAL-NEIGHBOR"
+   "from": "D-DEVELOPMENTAL",
+   "about": "D-DEVELOPMENTAL",
+   "as": "D-DEVELOPMENTAL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -12931,24 +11501,19 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Feathers weigh less ___ stones.",
+  "sentenceText": "Feathers are lighter ___ stones.",
   "targetWord": "than",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.R.than.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/than.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/than.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/than.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -12958,13 +11523,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/than.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/than.webp",
-  "targetImage": "/images/assessment/release-support/hfw/than.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/than.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/than.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the comparative frame requires than; the other fillers create form errors"
  },
  {
   "id": "lp3.hfw_76_100.l1.R.people.v7r",
@@ -12986,9 +11545,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "pebble",
    "people",
@@ -13037,21 +11596,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "people",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.R.people.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/people.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/people.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/people.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -13061,13 +11615,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/people.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/people.webp",
-  "targetImage": "/images/assessment/release-support/hfw/people.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/people.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/people.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l1.R.water.v7r",
@@ -13089,9 +11637,9 @@ export const questions = [
   "formatType": "HFW_AUDIO_FIND_WORD",
   "templateType": "HFW_AUDIO_FIND_WORD",
   "questionType": "listen_and_find_word",
-  "prompt": "Tap sound. Pick its match.",
-  "question": "Tap sound. Pick its match.",
-  "spokenPrompt": "Tap sound. Pick its match.",
+  "prompt": "Which printed word matches this recording?",
+  "question": "Which printed word matches this recording?",
+  "spokenPrompt": "Listen. Which printed word matches the recording?",
   "choices": [
    "waiter",
    "wander",
@@ -13140,21 +11688,16 @@ export const questions = [
   "audioRole": "target_word",
   "targetWord": "water",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l1.R.water.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/water.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/water.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/water.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -13164,13 +11707,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/water.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/water.webp",
-  "targetImage": "/images/assessment/release-support/hfw/water.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/water.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/water.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.R.number.v7r",
@@ -13192,9 +11729,9 @@ export const questions = [
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Pick an odd ___.",
-  "question": "Build the missing word: Pick an odd ___.",
-  "spokenPrompt": "Build the missing word. Pick an odd ….",
+  "prompt": "Listen, then build the missing word: Pick an odd ___.",
+  "question": "Listen, then build the missing word: Pick an odd ___.",
+  "spokenPrompt": "Listen to the whole sentence. Pick an odd number. Build the missing word.",
   "sentence": "Pick an odd ___.",
   "choices": [
    "number"
@@ -13209,7 +11746,7 @@ export const questions = [
   "answer": "number",
   "correctAnswer": "number",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -13238,21 +11775,16 @@ export const questions = [
   "sentenceText": "Pick an odd number.",
   "targetWord": "number",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.R.number.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/number.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/number.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/number.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -13262,13 +11794,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/number.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/number.webp",
-  "targetImage": "/images/assessment/release-support/hfw/number.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/number.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/number.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_76_100.l2.R.water.v7r",
@@ -13290,9 +11816,9 @@ export const questions = [
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
   "questionType": "multiple_choice",
-  "prompt": "Build the missing word: Save ___ — take short showers.",
-  "question": "Build the missing word: Save ___ — take short showers.",
-  "spokenPrompt": "Build the missing word. Save … — take short showers.",
+  "prompt": "Listen, then build the missing word: Save ___ — take short showers.",
+  "question": "Listen, then build the missing word: Save ___ — take short showers.",
+  "spokenPrompt": "Listen to the whole sentence. Save water — take short showers. Build the missing word.",
   "sentence": "Save ___ — take short showers.",
   "choices": [
    "water"
@@ -13307,7 +11833,7 @@ export const questions = [
   "answer": "water",
   "correctAnswer": "water",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -13334,21 +11860,16 @@ export const questions = [
   "sentenceText": "Save water — take short showers.",
   "targetWord": "water",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.hfw_76_100.l2.R.water.v7r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/hfw/water.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/hfw/water.webp",
-  "stimulusMediaId": "/images/assessment/release-support/hfw/water.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -13358,12 +11879,6 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/hfw/water.webp",
-  "imageUrl": "/images/assessment/release-support/hfw/water.webp",
-  "targetImage": "/images/assessment/release-support/hfw/water.webp",
-  "targetImagePath": "/images/assessment/release-support/hfw/water.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/water.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  }
 ];

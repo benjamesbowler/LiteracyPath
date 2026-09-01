@@ -21,9 +21,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "We ___ across the pool.",
-  "question": "We ___ across the pool.",
-  "spokenPrompt": "Which doing word finishes the sentence? We … across the pool.",
+  "prompt": "Which doing word fits: We ___ across the pool.",
+  "question": "Which doing word fits: We ___ across the pool.",
+  "spokenPrompt": "Which doing word fits? We … across the pool.",
   "sentence": "We ___ across the pool.",
   "choices": [
    "lamp",
@@ -70,21 +70,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "We ___ across the pool.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.A.verb_action_body.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-action-body.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -94,13 +89,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.verbs.l1.B.verb_action_body.v2",
@@ -122,9 +111,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The rabbit can ___ over a log.",
-  "question": "The rabbit can ___ over a log.",
-  "spokenPrompt": "Which doing word finishes the sentence? The rabbit can … over a log.",
+  "prompt": "Which doing word fits: The rabbit can ___ over a log.",
+  "question": "Which doing word fits: The rabbit can ___ over a log.",
+  "spokenPrompt": "Which doing word fits? The rabbit can … over a log.",
   "sentence": "The rabbit can ___ over a log.",
   "choices": [
    "hop",
@@ -171,21 +160,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The rabbit can ___ over a log.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.B.verb_action_body.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-action-body.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -195,13 +179,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.verbs.l1.C.verb_action_body.v3",
@@ -223,9 +201,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "We ___ when the song ends.",
-  "question": "We ___ when the song ends.",
-  "spokenPrompt": "Which doing word finishes the sentence? We … when the song ends.",
+  "prompt": "Which doing word fits: We ___ when the song ends.",
+  "question": "Which doing word fits: We ___ when the song ends.",
+  "spokenPrompt": "Which doing word fits? We … when the song ends.",
   "sentence": "We ___ when the song ends.",
   "choices": [
    "drum",
@@ -272,21 +250,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "We ___ when the song ends.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.C.verb_action_body.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-action-body.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -296,13 +269,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the drum is the trap — you PLAY it, but the card names a thing",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "the drum is the trap — you PLAY it, but the card names a thing"
  },
  {
   "id": "lp3.verbs.l1.A.verb_action_body.v4",
@@ -324,9 +291,10 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word?",
-  "question": "Which word is a doing word?",
-  "spokenPrompt": "Which word is a doing word?",
+  "prompt": "Which doing word fits: We ___ over a puddle.",
+  "question": "Which doing word fits: We ___ over a puddle.",
+  "spokenPrompt": "Which doing word fits? We … over a puddle.",
+  "sentence": "We ___ over a puddle.",
   "choices": [
    "red",
    "hat",
@@ -370,22 +338,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "sentenceText": "We ___ over a puddle.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.A.verb_action_body.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-action-body.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -395,13 +359,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.B.verb_action_body.v5",
@@ -423,9 +381,10 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word?",
-  "question": "Which word is a doing word?",
-  "spokenPrompt": "Which word is a doing word?",
+  "prompt": "Which doing word fits: We ___ around the track.",
+  "question": "Which doing word fits: We ___ around the track.",
+  "spokenPrompt": "Which doing word fits? We … around the track.",
+  "sentence": "We ___ around the track.",
   "choices": [
    "bun",
    "run",
@@ -469,22 +428,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "sentenceText": "We ___ around the track.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.B.verb_action_body.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-action-body.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -494,13 +449,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "a rhyming panel — only the grammar separates them",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "a rhyming panel — only the grammar separates them"
  },
  {
   "id": "lp3.verbs.l1.C.verb_action_body.v6",
@@ -522,12 +471,13 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word?",
-  "question": "Which word is a doing word?",
-  "spokenPrompt": "Which word is a doing word?",
+  "prompt": "Which doing word fits: I ___ the ball toward the goal.",
+  "question": "Which doing word fits: I ___ the ball toward the goal.",
+  "spokenPrompt": "Which doing word fits? I … the ball toward the goal.",
+  "sentence": "I ___ the ball toward the goal.",
   "choices": [
    "kick",
-   "sock",
+   "shoe",
    "leg",
    "shin"
   ],
@@ -538,9 +488,9 @@ export const questions = [
     "text": "kick"
    },
    {
-    "value": "sock",
-    "label": "sock",
-    "text": "sock"
+    "value": "shoe",
+    "label": "shoe",
+    "text": "shoe"
    },
    {
     "value": "leg",
@@ -557,7 +507,7 @@ export const questions = [
   "correctAnswer": "kick",
   "distractorRationales": {
    "shin": "D-FUNCTION-SWAP",
-   "sock": "D-FUNCTION-SWAP",
+   "shoe": "D-FUNCTION-SWAP",
    "leg": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
@@ -568,22 +518,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "sentenceText": "I ___ the ball toward the goal.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.C.verb_action_body.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-action-body.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -593,13 +539,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.A.verb_action_body.v7",
@@ -621,9 +561,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The dog can ___ in the soil.",
-  "question": "The dog can ___ in the soil.",
-  "spokenPrompt": "Which doing word finishes the sentence? The dog can … in the soil.",
+  "prompt": "Which doing word fits: The dog can ___ in the soil.",
+  "question": "Which doing word fits: The dog can ___ in the soil.",
+  "spokenPrompt": "Which doing word fits? The dog can … in the soil.",
   "sentence": "The dog can ___ in the soil.",
   "choices": [
    "bag",
@@ -670,21 +610,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The dog can ___ in the soil.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.A.verb_action_body.v7",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-action-body.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -694,13 +629,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.verbs.l1.B.verb_action_body.v8",
@@ -722,9 +651,10 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word?",
-  "question": "Which word is a doing word?",
-  "spokenPrompt": "Which word is a doing word?",
+  "prompt": "Which doing word fits: We ___ down the path.",
+  "question": "Which doing word fits: We ___ down the path.",
+  "spokenPrompt": "Which doing word fits? We … down the path.",
+  "sentence": "We ___ down the path.",
   "choices": [
    "shoe",
    "path",
@@ -768,22 +698,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "sentenceText": "We ___ down the path.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.B.verb_action_body.v8",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-action-body.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -793,13 +719,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.A.verb_action_object.v1",
@@ -821,9 +741,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Please ___ a boat on the paper.",
-  "question": "Please ___ a boat on the paper.",
-  "spokenPrompt": "Which doing word finishes the sentence? Please … a boat on the paper.",
+  "prompt": "Which doing word fits: Please ___ a boat on the paper.",
+  "question": "Which doing word fits: Please ___ a boat on the paper.",
+  "spokenPrompt": "Which doing word fits? Please … a boat on the paper.",
   "sentence": "Please ___ a boat on the paper.",
   "choices": [
    "draw",
@@ -870,21 +790,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "Please ___ a boat on the paper.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.A.verb_action_object.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-action-object.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -894,13 +809,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.verbs.l1.B.verb_action_object.v2",
@@ -922,9 +831,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Please ___ the switch once.",
-  "question": "Please ___ the switch once.",
-  "spokenPrompt": "Which doing word finishes the sentence? Please … the switch once.",
+  "prompt": "Which doing word fits: Please ___ the switch once.",
+  "question": "Which doing word fits: Please ___ the switch once.",
+  "spokenPrompt": "Which doing word fits? Please … the switch once.",
   "sentence": "Please ___ the switch once.",
   "choices": [
    "brick",
@@ -971,21 +880,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "Please ___ the switch once.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.B.verb_action_object.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-action-object.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -995,13 +899,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.verbs.l1.C.verb_action_object.v3",
@@ -1023,21 +921,21 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "We ___ our food before swallowing.",
-  "question": "We ___ our food before swallowing.",
-  "spokenPrompt": "Which doing word finishes the sentence? We … our food before swallowing.",
+  "prompt": "Which doing word fits: We ___ our food before swallowing.",
+  "question": "Which doing word fits: We ___ our food before swallowing.",
+  "spokenPrompt": "Which doing word fits? We … our food before swallowing.",
   "sentence": "We ___ our food before swallowing.",
   "choices": [
-   "bread",
+   "apple",
    "chew",
    "meat",
-   "dish"
+   "bread"
   ],
   "answerOptions": [
    {
-    "value": "bread",
-    "label": "bread",
-    "text": "bread"
+    "value": "apple",
+    "label": "apple",
+    "text": "apple"
    },
    {
     "value": "chew",
@@ -1050,17 +948,17 @@ export const questions = [
     "text": "meat"
    },
    {
-    "value": "dish",
-    "label": "dish",
-    "text": "dish"
+    "value": "bread",
+    "label": "bread",
+    "text": "bread"
    }
   ],
   "answer": "chew",
   "correctAnswer": "chew",
   "distractorRationales": {
    "meat": "D-FUNCTION-SWAP",
-   "dish": "D-FUNCTION-SWAP",
-   "bread": "D-FUNCTION-SWAP"
+   "bread": "D-FUNCTION-SWAP",
+   "apple": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1072,21 +970,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "We ___ our food before swallowing.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.C.verb_action_object.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-action-object.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1096,13 +989,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all three thing-cards are chewable — the action card still wins",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.verbs.l1.A.verb_action_object.v4",
@@ -1124,9 +1011,10 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word?",
-  "question": "Which word is a doing word?",
-  "spokenPrompt": "Which word is a doing word?",
+  "prompt": "Which doing word fits: Please ___ the paper in half.",
+  "question": "Which doing word fits: Please ___ the paper in half.",
+  "spokenPrompt": "Which doing word fits? Please … the paper in half.",
+  "sentence": "Please ___ the paper in half.",
   "choices": [
    "cot",
    "cut",
@@ -1170,22 +1058,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "sentenceText": "Please ___ the paper in half.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.A.verb_action_object.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-action-object.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1195,13 +1079,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.B.verb_action_object.v5",
@@ -1223,14 +1101,15 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word?",
-  "question": "Which word is a doing word?",
-  "spokenPrompt": "Which word is a doing word?",
+  "prompt": "Which doing word fits: Please ___ the milk into the cup.",
+  "question": "Which doing word fits: Please ___ the milk into the cup.",
+  "spokenPrompt": "Which doing word fits? Please … the milk into the cup.",
+  "sentence": "Please ___ the milk into the cup.",
   "choices": [
    "pour",
-   "jug",
-   "milk",
-   "mug"
+   "cold",
+   "white",
+   "warm"
   ],
   "answerOptions": [
    {
@@ -1239,27 +1118,27 @@ export const questions = [
     "text": "pour"
    },
    {
-    "value": "jug",
-    "label": "jug",
-    "text": "jug"
+    "value": "cold",
+    "label": "cold",
+    "text": "cold"
    },
    {
-    "value": "milk",
-    "label": "milk",
-    "text": "milk"
+    "value": "white",
+    "label": "white",
+    "text": "white"
    },
    {
-    "value": "mug",
-    "label": "mug",
-    "text": "mug"
+    "value": "warm",
+    "label": "warm",
+    "text": "warm"
    }
   ],
   "answer": "pour",
   "correctAnswer": "pour",
   "distractorRationales": {
-   "jug": "D-FUNCTION-SWAP",
-   "milk": "D-FUNCTION-SWAP",
-   "mug": "D-FUNCTION-SWAP"
+   "cold": "D-FUNCTION-SWAP",
+   "white": "D-FUNCTION-SWAP",
+   "warm": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1269,22 +1148,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "sentenceText": "Please ___ the milk into the cup.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.B.verb_action_object.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-action-object.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1294,13 +1169,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.C.verb_action_object.v6",
@@ -1322,9 +1191,10 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word?",
-  "question": "Which word is a doing word?",
-  "spokenPrompt": "Which word is a doing word?",
+  "prompt": "Which doing word fits: Please ___ the card in half.",
+  "question": "Which doing word fits: Please ___ the card in half.",
+  "spokenPrompt": "Which doing word fits? Please … the card in half.",
+  "sentence": "Please ___ the card in half.",
   "choices": [
    "sock",
    "flag",
@@ -1368,22 +1238,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "sentenceText": "Please ___ the card in half.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.C.verb_action_object.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-action-object.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1393,13 +1259,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.A.verb_action_object.v7",
@@ -1421,26 +1281,26 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Please ___ the soup with care.",
-  "question": "Please ___ the soup with care.",
-  "spokenPrompt": "Which doing word finishes the sentence? Please … the soup with care.",
+  "prompt": "Which doing word fits: Please ___ the soup with care.",
+  "question": "Which doing word fits: Please ___ the soup with care.",
+  "spokenPrompt": "Which doing word fits? Please … the soup with care.",
   "sentence": "Please ___ the soup with care.",
   "choices": [
-   "lid",
-   "moon",
+   "quietly",
+   "hot",
    "stir",
-   "pot"
+   "careful"
   ],
   "answerOptions": [
    {
-    "value": "lid",
-    "label": "lid",
-    "text": "lid"
+    "value": "quietly",
+    "label": "quietly",
+    "text": "quietly"
    },
    {
-    "value": "moon",
-    "label": "moon",
-    "text": "moon"
+    "value": "hot",
+    "label": "hot",
+    "text": "hot"
    },
    {
     "value": "stir",
@@ -1448,17 +1308,17 @@ export const questions = [
     "text": "stir"
    },
    {
-    "value": "pot",
-    "label": "pot",
-    "text": "pot"
+    "value": "careful",
+    "label": "careful",
+    "text": "careful"
    }
   ],
   "answer": "stir",
   "correctAnswer": "stir",
   "distractorRationales": {
-   "moon": "D-FUNCTION-SWAP",
-   "pot": "D-FUNCTION-SWAP",
-   "lid": "D-FUNCTION-SWAP"
+   "hot": "D-FUNCTION-SWAP",
+   "careful": "D-FUNCTION-SWAP",
+   "quietly": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1470,21 +1330,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "Please ___ the soup with care.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.A.verb_action_object.v7",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-action-object.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1494,13 +1349,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.verbs.l1.B.verb_action_object.v8",
@@ -1522,9 +1371,10 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word?",
-  "question": "Which word is a doing word?",
-  "spokenPrompt": "Which word is a doing word?",
+  "prompt": "Which doing word fits: Please ___ the heavy rug.",
+  "question": "Which doing word fits: Please ___ the heavy rug.",
+  "spokenPrompt": "Which doing word fits? Please … the heavy rug.",
+  "sentence": "Please ___ the heavy rug.",
   "choices": [
    "rug",
    "lift",
@@ -1568,22 +1418,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "sentenceText": "Please ___ the heavy rug.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.B.verb_action_object.v8",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-action-object.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1593,13 +1439,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.A.verb_everyday.v1",
@@ -1621,21 +1461,21 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "We ___ lunch at noon.",
-  "question": "We ___ lunch at noon.",
-  "spokenPrompt": "Which doing word finishes the sentence? We … lunch at noon.",
+  "prompt": "Which doing word fits: We ___ lunch at noon.",
+  "question": "Which doing word fits: We ___ lunch at noon.",
+  "spokenPrompt": "Which doing word fits? We … lunch at noon.",
   "sentence": "We ___ lunch at noon.",
   "choices": [
-   "plate",
+   "hungry",
    "cake",
    "corn",
    "eat"
   ],
   "answerOptions": [
    {
-    "value": "plate",
-    "label": "plate",
-    "text": "plate"
+    "value": "hungry",
+    "label": "hungry",
+    "text": "hungry"
    },
    {
     "value": "cake",
@@ -1656,7 +1496,7 @@ export const questions = [
   "answer": "eat",
   "correctAnswer": "eat",
   "distractorRationales": {
-   "plate": "D-FUNCTION-SWAP",
+   "hungry": "D-FUNCTION-SWAP",
    "cake": "D-FUNCTION-SWAP",
    "corn": "D-FUNCTION-SWAP"
   },
@@ -1670,21 +1510,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "We ___ lunch at noon.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.A.verb_everyday.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-everyday.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1694,13 +1529,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.verbs.l1.B.verb_everyday.v2",
@@ -1722,10 +1551,10 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Babies ___ in their cots.",
-  "question": "Babies ___ in their cots.",
-  "spokenPrompt": "Which doing word finishes the sentence? Babies … in their cots.",
-  "sentence": "Babies ___ in their cots.",
+  "prompt": "Which doing word fits: Babies ___ in their cribs.",
+  "question": "Which doing word fits: Babies ___ in their cribs.",
+  "spokenPrompt": "Which doing word fits? Babies … in their cribs.",
+  "sentence": "Babies ___ in their cribs.",
   "choices": [
    "lamp",
    "quilt",
@@ -1769,23 +1598,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Babies ___ in their cots.",
+  "sentenceText": "Babies ___ in their cribs.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.B.verb_everyday.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-everyday.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1795,13 +1619,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.verbs.l1.C.verb_everyday.v3",
@@ -1823,9 +1641,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "We ___ a book after lunch.",
-  "question": "We ___ a book after lunch.",
-  "spokenPrompt": "Which doing word finishes the sentence? We … a book after lunch.",
+  "prompt": "Which doing word fits: We ___ a book after lunch.",
+  "question": "Which doing word fits: We ___ a book after lunch.",
+  "spokenPrompt": "Which doing word fits? We … a book after lunch.",
   "sentence": "We ___ a book after lunch.",
   "choices": [
    "book",
@@ -1872,21 +1690,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "We ___ a book after lunch.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.C.verb_everyday.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-everyday.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1896,13 +1709,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.verbs.l1.A.verb_everyday.v4",
@@ -1924,9 +1731,10 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word?",
-  "question": "Which word is a doing word?",
-  "spokenPrompt": "Which word is a doing word?",
+  "prompt": "Which doing word fits: We ___ a song together.",
+  "question": "Which doing word fits: We ___ a song together.",
+  "spokenPrompt": "Which doing word fits? We … a song together.",
+  "sentence": "We ___ a song together.",
   "choices": [
    "sing",
    "song",
@@ -1970,22 +1778,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "sentenceText": "We ___ a song together.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.A.verb_everyday.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-everyday.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1995,13 +1799,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.B.verb_everyday.v5",
@@ -2023,20 +1821,21 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word?",
-  "question": "Which word is a doing word?",
-  "spokenPrompt": "Which word is a doing word?",
+  "prompt": "Which doing word fits: We ___ our hands before lunch.",
+  "question": "Which doing word fits: We ___ our hands before lunch.",
+  "spokenPrompt": "Which doing word fits? We … our hands before lunch.",
+  "sentence": "We ___ our hands before lunch.",
   "choices": [
-   "soap",
+   "sink",
    "tub",
    "hat",
    "wash"
   ],
   "answerOptions": [
    {
-    "value": "soap",
-    "label": "soap",
-    "text": "soap"
+    "value": "sink",
+    "label": "sink",
+    "text": "sink"
    },
    {
     "value": "tub",
@@ -2058,7 +1857,7 @@ export const questions = [
   "correctAnswer": "wash",
   "distractorRationales": {
    "hat": "D-FUNCTION-SWAP",
-   "soap": "D-FUNCTION-SWAP",
+   "sink": "D-FUNCTION-SWAP",
    "tub": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
@@ -2069,22 +1868,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "sentenceText": "We ___ our hands before lunch.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.B.verb_everyday.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-everyday.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2094,13 +1889,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.C.verb_everyday.v6",
@@ -2122,9 +1911,10 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word?",
-  "question": "Which word is a doing word?",
-  "spokenPrompt": "Which word is a doing word?",
+  "prompt": "Which doing word fits: Babies ___ after lunch.",
+  "question": "Which doing word fits: Babies ___ after lunch.",
+  "spokenPrompt": "Which doing word fits? Babies … after lunch.",
+  "sentence": "Babies ___ after lunch.",
   "choices": [
    "nap",
    "cot",
@@ -2168,22 +1958,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "sentenceText": "Babies ___ after lunch.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.C.verb_everyday.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-everyday.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2193,13 +1979,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.A.verb_everyday.v7",
@@ -2221,9 +2001,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "We ___ water when we are thirsty.",
-  "question": "We ___ water when we are thirsty.",
-  "spokenPrompt": "Which doing word finishes the sentence? We … water when we are thirsty.",
+  "prompt": "Which doing word fits: We ___ water when we are thirsty.",
+  "question": "Which doing word fits: We ___ water when we are thirsty.",
+  "spokenPrompt": "Which doing word fits? We … water when we are thirsty.",
   "sentence": "We ___ water when we are thirsty.",
   "choices": [
    "jug",
@@ -2270,21 +2050,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "We ___ water when we are thirsty.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.A.verb_everyday.v7",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-everyday.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2294,13 +2069,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "pin ties the in/doing overlap",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "pin ties the in/doing overlap"
  },
  {
   "id": "lp3.verbs.l1.B.verb_everyday.v8",
@@ -2322,9 +2091,10 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word?",
-  "question": "Which word is a doing word?",
-  "spokenPrompt": "Which word is a doing word?",
+  "prompt": "Which doing word fits: We ___ our teeth each morning.",
+  "question": "Which doing word fits: We ___ our teeth each morning.",
+  "spokenPrompt": "Which doing word fits? We … our teeth each morning.",
+  "sentence": "We ___ our teeth each morning.",
   "choices": [
    "brush",
    "teeth",
@@ -2368,22 +2138,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "sentenceText": "We ___ our teeth each morning.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.B.verb_everyday.v8",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-everyday.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2393,13 +2159,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no second action word competes with brush",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "no second action word competes with brush"
  },
  {
   "id": "lp3.verbs.l2.A.verb_in_sentence.v1",
@@ -2421,15 +2181,15 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "We ___ the raft to the dock.",
-  "question": "We ___ the raft to the dock.",
-  "spokenPrompt": "Which doing word finishes the sentence? We … the raft to the dock.",
-  "sentence": "We ___ the raft to the dock.",
+  "prompt": "Which doing word fits: We ___ the raft toward the dock.",
+  "question": "Which doing word fits: We ___ the raft toward the dock.",
+  "spokenPrompt": "Which doing word fits? We … the raft toward the dock.",
+  "sentence": "We ___ the raft toward the dock.",
   "choices": [
    "pull",
    "rope",
    "wet",
-   "dock"
+   "tight"
   ],
   "answerOptions": [
    {
@@ -2448,15 +2208,15 @@ export const questions = [
     "text": "wet"
    },
    {
-    "value": "dock",
-    "label": "dock",
-    "text": "dock"
+    "value": "tight",
+    "label": "tight",
+    "text": "tight"
    }
   ],
   "answer": "pull",
   "correctAnswer": "pull",
   "distractorRationales": {
-   "dock": "D-FUNCTION-SWAP",
+   "tight": "D-FUNCTION-SWAP",
    "rope": "D-FUNCTION-SWAP",
    "wet": "D-FUNCTION-SWAP"
   },
@@ -2468,23 +2228,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "We ___ the raft to the dock.",
+  "sentenceText": "We ___ the raft toward the dock.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.A.verb_in_sentence.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2494,13 +2249,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "only pull can DO anything here — rope/wet/dock cannot fill a doing slot",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.B.verb_in_sentence.v2",
@@ -2522,9 +2271,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The twins ___ over the puddle.",
-  "question": "The twins ___ over the puddle.",
-  "spokenPrompt": "Which doing word finishes the sentence? The twins … over the puddle.",
+  "prompt": "Which doing word fits: The twins ___ over the puddle.",
+  "question": "Which doing word fits: The twins ___ over the puddle.",
+  "spokenPrompt": "Which doing word fits? The twins … over the puddle.",
   "sentence": "The twins ___ over the puddle.",
   "choices": [
    "wide",
@@ -2571,21 +2320,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The twins ___ over the puddle.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.B.verb_in_sentence.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2595,13 +2339,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.C.verb_in_sentence.v3",
@@ -2623,9 +2361,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Please ___ the door quietly.",
-  "question": "Please ___ the door quietly.",
-  "spokenPrompt": "Which doing word finishes the sentence? Please … the door quietly.",
+  "prompt": "Which doing word fits: Please ___ the door quietly.",
+  "question": "Which doing word fits: Please ___ the door quietly.",
+  "spokenPrompt": "Which doing word fits? Please … the door quietly.",
   "sentence": "Please ___ the door quietly.",
   "choices": [
    "hinge",
@@ -2672,21 +2410,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "Please ___ the door quietly.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.C.verb_in_sentence.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2696,13 +2429,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.A.verb_in_sentence.v4",
@@ -2724,21 +2451,21 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Owls ___ after dark.",
-  "question": "Owls ___ after dark.",
-  "spokenPrompt": "Which doing word finishes the sentence? Owls … after dark.",
+  "prompt": "Which doing word fits: Owls ___ after dark.",
+  "question": "Which doing word fits: Owls ___ after dark.",
+  "spokenPrompt": "Which doing word fits? Owls … after dark.",
   "sentence": "Owls ___ after dark.",
   "choices": [
-   "wing",
+   "feathers",
    "hunt",
    "moon",
    "sky"
   ],
   "answerOptions": [
    {
-    "value": "wing",
-    "label": "wing",
-    "text": "wing"
+    "value": "feathers",
+    "label": "feathers",
+    "text": "feathers"
    },
    {
     "value": "hunt",
@@ -2761,7 +2488,7 @@ export const questions = [
   "distractorRationales": {
    "moon": "D-FUNCTION-SWAP",
    "sky": "D-FUNCTION-SWAP",
-   "wing": "D-FUNCTION-SWAP"
+   "feathers": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2773,21 +2500,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "Owls ___ after dark.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.A.verb_in_sentence.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2797,13 +2519,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "after dark, not sunset — sunset contains un and would gift the key a chunk",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "after dark, not sunset — sunset contains un and would gift the key a chunk"
  },
  {
   "id": "lp3.verbs.l2.B.verb_in_sentence.v5",
@@ -2872,21 +2588,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.B.verb_in_sentence.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2896,13 +2607,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "dinner matches chased letter-for-letter in length, so the longest-word shortcut ties",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "dinner matches chased letter-for-letter in length, so the longest-word shortcut ties"
  },
  {
   "id": "lp3.verbs.l2.C.verb_in_sentence.v6",
@@ -2924,20 +2629,20 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which word in this sentence is the doing word? \"Gran knits thick socks.\"",
-  "question": "Which word in this sentence is the doing word? \"Gran knits thick socks.\"",
-  "spokenPrompt": "Which word in this sentence is the doing word? \"Gran knits thick socks.\"",
+  "prompt": "Which word in this sentence is the doing word? \"Grandma knits thick socks.\"",
+  "question": "Which word in this sentence is the doing word? \"Grandma knits thick socks.\"",
+  "spokenPrompt": "Which word in this sentence is the doing word? \"Grandma knits thick socks.\"",
   "choices": [
-   "Gran",
+   "Grandma",
    "socks",
    "thick",
    "knits"
   ],
   "answerOptions": [
    {
-    "value": "Gran",
-    "label": "Gran",
-    "text": "Gran"
+    "value": "Grandma",
+    "label": "Grandma",
+    "text": "Grandma"
    },
    {
     "value": "socks",
@@ -2958,7 +2663,7 @@ export const questions = [
   "answer": "knits",
   "correctAnswer": "knits",
   "distractorRationales": {
-   "Gran": "D-FUNCTION-SWAP",
+   "Grandma": "D-FUNCTION-SWAP",
    "socks": "D-FUNCTION-SWAP",
    "thick": "D-FUNCTION-SWAP"
   },
@@ -2971,21 +2676,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.C.verb_in_sentence.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2995,13 +2695,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.A.verb_in_sentence.v7",
@@ -3023,26 +2717,26 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Crabs ___ across the sand.",
-  "question": "Crabs ___ across the sand.",
-  "spokenPrompt": "Which doing word finishes the sentence? Crabs … across the sand.",
-  "sentence": "Crabs ___ across the sand.",
+  "prompt": "Which doing word fits: Crabs ___ slowly across the sand.",
+  "question": "Which doing word fits: Crabs ___ slowly across the sand.",
+  "spokenPrompt": "Which doing word fits? Crabs … slowly across the sand.",
+  "sentence": "Crabs ___ slowly across the sand.",
   "choices": [
-   "shell",
-   "salt",
+   "sideways",
+   "shore",
    "creep",
-   "claw"
+   "shells"
   ],
   "answerOptions": [
    {
-    "value": "shell",
-    "label": "shell",
-    "text": "shell"
+    "value": "sideways",
+    "label": "sideways",
+    "text": "sideways"
    },
    {
-    "value": "salt",
-    "label": "salt",
-    "text": "salt"
+    "value": "shore",
+    "label": "shore",
+    "text": "shore"
    },
    {
     "value": "creep",
@@ -3050,17 +2744,17 @@ export const questions = [
     "text": "creep"
    },
    {
-    "value": "claw",
-    "label": "claw",
-    "text": "claw"
+    "value": "shells",
+    "label": "shells",
+    "text": "shells"
    }
   ],
   "answer": "creep",
   "correctAnswer": "creep",
   "distractorRationales": {
-   "claw": "D-FUNCTION-SWAP",
-   "shell": "D-FUNCTION-SWAP",
-   "salt": "D-FUNCTION-SWAP"
+   "shells": "D-FUNCTION-SWAP",
+   "sideways": "D-FUNCTION-SWAP",
+   "shore": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3070,23 +2764,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "Crabs ___ across the sand.",
+  "sentenceText": "Crabs ___ slowly across the sand.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.A.verb_in_sentence.v7",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3096,13 +2785,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.B.verb_in_sentence.v8",
@@ -3124,31 +2807,31 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "We ___ the seeds each morning.",
-  "question": "We ___ the seeds each morning.",
-  "spokenPrompt": "Which doing word finishes the sentence? We … the seeds each morning.",
+  "prompt": "Which doing word fits: We ___ the seeds each morning.",
+  "question": "Which doing word fits: We ___ the seeds each morning.",
+  "spokenPrompt": "Which doing word fits? We … the seeds each morning.",
   "sentence": "We ___ the seeds each morning.",
   "choices": [
-   "soil",
-   "green",
-   "pot",
+   "bucket",
+   "sunshine",
+   "roots",
    "water"
   ],
   "answerOptions": [
    {
-    "value": "soil",
-    "label": "soil",
-    "text": "soil"
+    "value": "bucket",
+    "label": "bucket",
+    "text": "bucket"
    },
    {
-    "value": "green",
-    "label": "green",
-    "text": "green"
+    "value": "sunshine",
+    "label": "sunshine",
+    "text": "sunshine"
    },
    {
-    "value": "pot",
-    "label": "pot",
-    "text": "pot"
+    "value": "roots",
+    "label": "roots",
+    "text": "roots"
    },
    {
     "value": "water",
@@ -3159,9 +2842,9 @@ export const questions = [
   "answer": "water",
   "correctAnswer": "water",
   "distractorRationales": {
-   "soil": "D-FUNCTION-SWAP",
-   "green": "D-FUNCTION-SWAP",
-   "pot": "D-FUNCTION-SWAP"
+   "bucket": "D-FUNCTION-SWAP",
+   "sunshine": "D-FUNCTION-SWAP",
+   "roots": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3173,21 +2856,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "We ___ the seeds each morning.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.B.verb_in_sentence.v8",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3197,13 +2875,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "water the verb — the noun reading has no slot here",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.A.verb_vs_noun.v1",
@@ -3225,30 +2897,30 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word, not a naming word?",
-  "question": "Which word is a doing word, not a naming word?",
-  "spokenPrompt": "Which word is a doing word, not a naming word?",
+  "prompt": "Which word is the doing word in ‘We sing songs together’?",
+  "question": "Which word is the doing word in ‘We sing songs together’?",
+  "spokenPrompt": "Which word is the doing word in ‘We sing songs together’?",
   "choices": [
-   "song",
-   "singer",
-   "band",
+   "we",
+   "songs",
+   "together",
    "sing"
   ],
   "answerOptions": [
    {
-    "value": "song",
-    "label": "song",
-    "text": "song"
+    "value": "we",
+    "label": "we",
+    "text": "we"
    },
    {
-    "value": "singer",
-    "label": "singer",
-    "text": "singer"
+    "value": "songs",
+    "label": "songs",
+    "text": "songs"
    },
    {
-    "value": "band",
-    "label": "band",
-    "text": "band"
+    "value": "together",
+    "label": "together",
+    "text": "together"
    },
    {
     "value": "sing",
@@ -3259,9 +2931,9 @@ export const questions = [
   "answer": "sing",
   "correctAnswer": "sing",
   "distractorRationales": {
-   "song": "D-FUNCTION-SWAP",
-   "singer": "D-FUNCTION-SWAP",
-   "band": "D-FUNCTION-SWAP"
+   "we": "D-FUNCTION-SWAP",
+   "songs": "D-FUNCTION-SWAP",
+   "together": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3272,21 +2944,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.A.verb_vs_noun.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-vs-noun.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3296,13 +2963,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the whole word family in one set — only sing does",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.B.verb_vs_noun.v2",
@@ -3324,14 +2985,14 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word, not a naming word?",
-  "question": "Which word is a doing word, not a naming word?",
-  "spokenPrompt": "Which word is a doing word, not a naming word?",
+  "prompt": "Which word is the doing word in ‘The baker can bake bread’?",
+  "question": "Which word is the doing word in ‘The baker can bake bread’?",
+  "spokenPrompt": "Which word is the doing word in ‘The baker can bake bread’?",
   "choices": [
    "bake",
    "baker",
    "bread",
-   "pan"
+   "can"
   ],
   "answerOptions": [
    {
@@ -3350,9 +3011,9 @@ export const questions = [
     "text": "bread"
    },
    {
-    "value": "pan",
-    "label": "pan",
-    "text": "pan"
+    "value": "can",
+    "label": "can",
+    "text": "can"
    }
   ],
   "answer": "bake",
@@ -3360,7 +3021,7 @@ export const questions = [
   "distractorRationales": {
    "baker": "D-FUNCTION-SWAP",
    "bread": "D-FUNCTION-SWAP",
-   "pan": "D-FUNCTION-SWAP"
+   "can": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3371,21 +3032,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.B.verb_vs_noun.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-vs-noun.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3395,13 +3051,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.C.verb_vs_noun.v3",
@@ -3423,14 +3073,14 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word, not a naming word?",
-  "question": "Which word is a doing word, not a naming word?",
-  "spokenPrompt": "Which word is a doing word, not a naming word?",
+  "prompt": "Which word is the doing word in ‘Teachers teach our class’?",
+  "question": "Which word is the doing word in ‘Teachers teach our class’?",
+  "spokenPrompt": "Which word is the doing word in ‘Teachers teach our class’?",
   "choices": [
    "teach",
-   "teacher",
+   "teachers",
    "class",
-   "desk"
+   "our"
   ],
   "answerOptions": [
    {
@@ -3439,9 +3089,9 @@ export const questions = [
     "text": "teach"
    },
    {
-    "value": "teacher",
-    "label": "teacher",
-    "text": "teacher"
+    "value": "teachers",
+    "label": "teachers",
+    "text": "teachers"
    },
    {
     "value": "class",
@@ -3449,17 +3099,17 @@ export const questions = [
     "text": "class"
    },
    {
-    "value": "desk",
-    "label": "desk",
-    "text": "desk"
+    "value": "our",
+    "label": "our",
+    "text": "our"
    }
   ],
   "answer": "teach",
   "correctAnswer": "teach",
   "distractorRationales": {
-   "teacher": "D-FUNCTION-SWAP",
+   "teachers": "D-FUNCTION-SWAP",
    "class": "D-FUNCTION-SWAP",
-   "desk": "D-FUNCTION-SWAP"
+   "our": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3470,21 +3120,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.C.verb_vs_noun.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-vs-noun.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3494,13 +3139,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.A.verb_vs_noun.v4",
@@ -3522,26 +3161,26 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ swims fifty laps a day.",
-  "question": "The ___ swims fifty laps a day.",
-  "spokenPrompt": "Which doing word finishes the sentence? The … swims fifty laps a day.",
-  "sentence": "The ___ swims fifty laps a day.",
+  "prompt": "Which doing word fits: The athlete can ___ fifty laps a day.",
+  "question": "Which doing word fits: The athlete can ___ fifty laps a day.",
+  "spokenPrompt": "Which doing word fits? The athlete can … fifty laps a day.",
+  "sentence": "The athlete can ___ fifty laps a day.",
   "choices": [
-   "swimmer",
    "swim",
+   "swimmer",
    "swims",
    "swam"
   ],
   "answerOptions": [
    {
-    "value": "swimmer",
-    "label": "swimmer",
-    "text": "swimmer"
-   },
-   {
     "value": "swim",
     "label": "swim",
     "text": "swim"
+   },
+   {
+    "value": "swimmer",
+    "label": "swimmer",
+    "text": "swimmer"
    },
    {
     "value": "swims",
@@ -3554,11 +3193,11 @@ export const questions = [
     "text": "swam"
    }
   ],
-  "answer": "swimmer",
-  "correctAnswer": "swimmer",
+  "answer": "swim",
+  "correctAnswer": "swim",
   "distractorRationales": {
    "swam": "D-FUNCTION-SWAP",
-   "swim": "D-FUNCTION-SWAP",
+   "swimmer": "D-FUNCTION-SWAP",
    "swims": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
@@ -3569,23 +3208,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The ___ swims fifty laps a day.",
+  "sentenceText": "The athlete can ___ fifty laps a day.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.A.verb_vs_noun.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-vs-noun.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3595,13 +3229,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the verb family competes — only the naming word follows The",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.B.verb_vs_noun.v5",
@@ -3623,20 +3251,20 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word, not a naming word?",
-  "question": "Which word is a doing word, not a naming word?",
-  "spokenPrompt": "Which word is a doing word, not a naming word?",
+  "prompt": "Which word is the doing word in ‘We climbed the mountain slowly’?",
+  "question": "Which word is the doing word in ‘We climbed the mountain slowly’?",
+  "spokenPrompt": "Which word is the doing word in ‘We climbed the mountain slowly’?",
   "choices": [
-   "rope",
+   "slowly",
    "climbed",
-   "hill",
-   "boots"
+   "we",
+   "mountain"
   ],
   "answerOptions": [
    {
-    "value": "rope",
-    "label": "rope",
-    "text": "rope"
+    "value": "slowly",
+    "label": "slowly",
+    "text": "slowly"
    },
    {
     "value": "climbed",
@@ -3644,22 +3272,22 @@ export const questions = [
     "text": "climbed"
    },
    {
-    "value": "hill",
-    "label": "hill",
-    "text": "hill"
+    "value": "we",
+    "label": "we",
+    "text": "we"
    },
    {
-    "value": "boots",
-    "label": "boots",
-    "text": "boots"
+    "value": "mountain",
+    "label": "mountain",
+    "text": "mountain"
    }
   ],
   "answer": "climbed",
   "correctAnswer": "climbed",
   "distractorRationales": {
-   "hill": "D-FUNCTION-SWAP",
-   "boots": "D-FUNCTION-SWAP",
-   "rope": "D-FUNCTION-SWAP"
+   "we": "D-FUNCTION-SWAP",
+   "mountain": "D-FUNCTION-SWAP",
+   "slowly": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3670,21 +3298,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.B.verb_vs_noun.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-vs-noun.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3694,13 +3317,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.C.verb_vs_noun.v6",
@@ -3722,20 +3339,20 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word, not a naming word?",
-  "question": "Which word is a doing word, not a naming word?",
-  "spokenPrompt": "Which word is a doing word, not a naming word?",
+  "prompt": "Which word is the doing word in ‘Mia swept the dusty floor’?",
+  "question": "Which word is the doing word in ‘Mia swept the dusty floor’?",
+  "spokenPrompt": "Which word is the doing word in ‘Mia swept the dusty floor’?",
   "choices": [
-   "floor",
+   "dusty",
    "swept",
-   "broom",
-   "dust"
+   "Mia",
+   "floor"
   ],
   "answerOptions": [
    {
-    "value": "floor",
-    "label": "floor",
-    "text": "floor"
+    "value": "dusty",
+    "label": "dusty",
+    "text": "dusty"
    },
    {
     "value": "swept",
@@ -3743,22 +3360,22 @@ export const questions = [
     "text": "swept"
    },
    {
-    "value": "broom",
-    "label": "broom",
-    "text": "broom"
+    "value": "Mia",
+    "label": "Mia",
+    "text": "Mia"
    },
    {
-    "value": "dust",
-    "label": "dust",
-    "text": "dust"
+    "value": "floor",
+    "label": "floor",
+    "text": "floor"
    }
   ],
   "answer": "swept",
   "correctAnswer": "swept",
   "distractorRationales": {
-   "floor": "D-FUNCTION-SWAP",
-   "broom": "D-FUNCTION-SWAP",
-   "dust": "D-FUNCTION-SWAP"
+   "dusty": "D-FUNCTION-SWAP",
+   "Mia": "D-FUNCTION-SWAP",
+   "floor": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3769,21 +3386,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.C.verb_vs_noun.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-vs-noun.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3793,13 +3405,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.A.verb_vs_noun.v7",
@@ -3821,14 +3427,14 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ twirled across the stage.",
-  "question": "The ___ twirled across the stage.",
-  "spokenPrompt": "Which doing word finishes the sentence? The … twirled across the stage.",
-  "sentence": "The ___ twirled across the stage.",
+  "prompt": "Which doing word fits: The dancer can ___ across the stage.",
+  "question": "Which doing word fits: The dancer can ___ across the stage.",
+  "spokenPrompt": "Which doing word fits? The dancer can … across the stage.",
+  "sentence": "The dancer can ___ across the stage.",
   "choices": [
    "dancing",
+   "dance",
    "dancer",
-   "dances",
    "danced"
   ],
   "answerOptions": [
@@ -3838,14 +3444,14 @@ export const questions = [
     "text": "dancing"
    },
    {
+    "value": "dance",
+    "label": "dance",
+    "text": "dance"
+   },
+   {
     "value": "dancer",
     "label": "dancer",
     "text": "dancer"
-   },
-   {
-    "value": "dances",
-    "label": "dances",
-    "text": "dances"
    },
    {
     "value": "danced",
@@ -3853,12 +3459,12 @@ export const questions = [
     "text": "danced"
    }
   ],
-  "answer": "dancer",
-  "correctAnswer": "dancer",
+  "answer": "dance",
+  "correctAnswer": "dance",
   "distractorRationales": {
    "danced": "D-FUNCTION-SWAP",
    "dancing": "D-FUNCTION-SWAP",
-   "dances": "D-FUNCTION-SWAP"
+   "dancer": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3868,23 +3474,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The ___ twirled across the stage.",
+  "sentenceText": "The dancer can ___ across the stage.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.A.verb_vs_noun.v7",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-vs-noun.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3894,13 +3495,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.B.verb_vs_noun.v8",
@@ -3922,25 +3517,25 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word, not a naming word?",
-  "question": "Which word is a doing word, not a naming word?",
-  "spokenPrompt": "Which word is a doing word, not a naming word?",
+  "prompt": "Which word is the doing word in ‘Mia painted the bedroom wall’?",
+  "question": "Which word is the doing word in ‘Mia painted the bedroom wall’?",
+  "spokenPrompt": "Which word is the doing word in ‘Mia painted the bedroom wall’?",
   "choices": [
+   "bedroom",
    "wall",
-   "colour",
    "painted",
-   "painter"
+   "Mia"
   ],
   "answerOptions": [
+   {
+    "value": "bedroom",
+    "label": "bedroom",
+    "text": "bedroom"
+   },
    {
     "value": "wall",
     "label": "wall",
     "text": "wall"
-   },
-   {
-    "value": "colour",
-    "label": "colour",
-    "text": "colour"
    },
    {
     "value": "painted",
@@ -3948,17 +3543,17 @@ export const questions = [
     "text": "painted"
    },
    {
-    "value": "painter",
-    "label": "painter",
-    "text": "painter"
+    "value": "Mia",
+    "label": "Mia",
+    "text": "Mia"
    }
   ],
   "answer": "painted",
   "correctAnswer": "painted",
   "distractorRationales": {
+   "bedroom": "D-FUNCTION-SWAP",
    "wall": "D-FUNCTION-SWAP",
-   "colour": "D-FUNCTION-SWAP",
-   "painter": "D-FUNCTION-SWAP"
+   "Mia": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3969,21 +3564,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.B.verb_vs_noun.v8",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-vs-noun.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3993,13 +3583,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the past-tense form is unambiguously the action",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.A.verb_precision.v1",
@@ -4021,9 +3605,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The frog ___ over the log in one big spring.",
-  "question": "The frog ___ over the log in one big spring.",
-  "spokenPrompt": "Which doing word finishes the sentence? The frog … over the log in one big spring.",
+  "prompt": "Which doing word fits best: The frog ___ over the log in one big spring.",
+  "question": "Which doing word fits best: The frog ___ over the log in one big spring.",
+  "spokenPrompt": "Which doing word fits best? The frog … over the log in one big spring.",
   "sentence": "The frog ___ over the log in one big spring.",
   "choices": [
    "slept",
@@ -4070,21 +3654,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The frog ___ over the log in one big spring.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.A.verb_precision.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-precision.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4094,13 +3673,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all four are grammatical — one big spring pins jumped",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "all four are grammatical — one big spring pins jumped"
  },
  {
   "id": "lp3.verbs.l2.B.verb_precision.v2",
@@ -4122,9 +3695,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The soup ___ in the pot until bubbles rose.",
-  "question": "The soup ___ in the pot until bubbles rose.",
-  "spokenPrompt": "Which doing word finishes the sentence? The soup … in the pot until bubbles rose.",
+  "prompt": "Which doing word fits best: The soup ___ in the pot until bubbles rose.",
+  "question": "Which doing word fits best: The soup ___ in the pot until bubbles rose.",
+  "spokenPrompt": "Which doing word fits best? The soup … in the pot until bubbles rose.",
   "sentence": "The soup ___ in the pot until bubbles rose.",
   "choices": [
    "froze",
@@ -4171,21 +3744,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The soup ___ in the pot until bubbles rose.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.B.verb_precision.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-precision.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4195,13 +3763,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "bubbles pin boiled",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "bubbles pin boiled"
  },
  {
   "id": "lp3.verbs.l2.C.verb_precision.v3",
@@ -4270,21 +3832,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.C.verb_precision.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-precision.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4294,13 +3851,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all four are water words — only one matches drop by drop; drain ties the dr/drop overlap",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "all four are water words — only one matches drop by drop; drain ties the dr/drop overlap"
  },
  {
   "id": "lp3.verbs.l2.A.verb_precision.v4",
@@ -4322,9 +3873,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "She ___ the note in half and half again.",
-  "question": "She ___ the note in half and half again.",
-  "spokenPrompt": "Which doing word finishes the sentence? She … the note in half and half again.",
+  "prompt": "Which doing word fits best: She ___ the note in half and half again.",
+  "question": "Which doing word fits best: She ___ the note in half and half again.",
+  "spokenPrompt": "Which doing word fits best? She … the note in half and half again.",
   "sentence": "She ___ the note in half and half again.",
   "choices": [
    "read",
@@ -4371,21 +3922,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "She ___ the note in half and half again.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.A.verb_precision.v4",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-precision.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4395,13 +3941,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "in half and half again pins folded",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "in half and half again pins folded"
  },
  {
   "id": "lp3.verbs.l2.B.verb_precision.v5",
@@ -4423,10 +3963,10 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The snail ___ along, leaving a silver line.",
-  "question": "The snail ___ along, leaving a silver line.",
-  "spokenPrompt": "Which doing word finishes the sentence? The snail … along, leaving a silver line.",
-  "sentence": "The snail ___ along, leaving a silver line.",
+  "prompt": "Which doing word fits best: The snail ___ slowly, leaving a silver line.",
+  "question": "Which doing word fits best: The snail ___ slowly, leaving a silver line.",
+  "spokenPrompt": "Which doing word fits best? The snail … slowly, leaving a silver line.",
+  "sentence": "The snail ___ slowly, leaving a silver line.",
   "choices": [
    "crawled",
    "raced",
@@ -4470,23 +4010,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The snail ___ along, leaving a silver line.",
+  "sentenceText": "The snail ___ slowly, leaving a silver line.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.B.verb_precision.v5",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-precision.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4496,13 +4031,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.C.verb_precision.v6",
@@ -4524,10 +4053,10 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "He ___ the balloon until it nearly burst.",
-  "question": "He ___ the balloon until it nearly burst.",
-  "spokenPrompt": "Which doing word finishes the sentence? He … the balloon until it nearly burst.",
-  "sentence": "He ___ the balloon until it nearly burst.",
+  "prompt": "Which doing word fits best: He ___ up the balloon until it nearly burst.",
+  "question": "Which doing word fits best: He ___ up the balloon until it nearly burst.",
+  "spokenPrompt": "Which doing word fits best? He … up the balloon until it nearly burst.",
+  "sentence": "He ___ up the balloon until it nearly burst.",
   "choices": [
    "tied",
    "popped",
@@ -4571,23 +4100,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "He ___ the balloon until it nearly burst.",
+  "sentenceText": "He ___ up the balloon until it nearly burst.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.C.verb_precision.v6",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-precision.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4597,13 +4121,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "nearly burst pins blew — popped would mean it DID burst",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "nearly burst pins blew — popped would mean it DID burst"
  },
  {
   "id": "lp3.verbs.l2.A.verb_precision.v7",
@@ -4672,21 +4190,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.A.verb_precision.v7",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-precision.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4696,13 +4209,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.B.verb_precision.v8",
@@ -4724,9 +4231,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Dad ___ the squeaky wheel with oil.",
-  "question": "Dad ___ the squeaky wheel with oil.",
-  "spokenPrompt": "Which doing word finishes the sentence? Dad … the squeaky wheel with oil.",
+  "prompt": "Which doing word fits best: Dad ___ the squeaky wheel with oil.",
+  "question": "Which doing word fits best: Dad ___ the squeaky wheel with oil.",
+  "spokenPrompt": "Which doing word fits best? Dad … the squeaky wheel with oil.",
   "sentence": "Dad ___ the squeaky wheel with oil.",
   "choices": [
    "kicked",
@@ -4773,21 +4280,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "Dad ___ the squeaky wheel with oil.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.B.verb_precision.v8",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-precision.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4797,13 +4299,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.R.verb_action_body.v9r",
@@ -4825,9 +4321,10 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word?",
-  "question": "Which word is a doing word?",
-  "spokenPrompt": "Which word is a doing word?",
+  "prompt": "Which doing word fits: We ___ before a race.",
+  "question": "Which doing word fits: We ___ before a race.",
+  "spokenPrompt": "Which doing word fits? We … before a race.",
+  "sentence": "We ___ before a race.",
   "choices": [
    "stretch",
    "arm",
@@ -4871,22 +4368,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "sentenceText": "We ___ before a race.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.R.verb_action_body.v9r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-action-body.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4896,13 +4389,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "chin ties the ch/which overlap",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "chin ties the ch/which overlap"
  },
  {
   "id": "lp3.verbs.l1.R.verb_action_object.v9r",
@@ -4924,9 +4411,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Please ___ the carrots into pieces.",
-  "question": "Please ___ the carrots into pieces.",
-  "spokenPrompt": "Which doing word finishes the sentence? Please … the carrots into pieces.",
+  "prompt": "Which doing word fits: Please ___ the carrots into pieces.",
+  "question": "Which doing word fits: Please ___ the carrots into pieces.",
+  "spokenPrompt": "Which doing word fits? Please … the carrots into pieces.",
   "sentence": "Please ___ the carrots into pieces.",
   "choices": [
    "belt",
@@ -4973,21 +4460,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "Please ___ the carrots into pieces.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.R.verb_action_object.v9r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-action-object.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4997,13 +4479,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.verbs.l1.R.verb_everyday.v9r",
@@ -5025,9 +4501,10 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word?",
-  "question": "Which word is a doing word?",
-  "spokenPrompt": "Which word is a doing word?",
+  "prompt": "Which doing word fits: We ___ when we feel tired.",
+  "question": "Which doing word fits: We ___ when we feel tired.",
+  "spokenPrompt": "Which doing word fits? We … when we feel tired.",
+  "sentence": "We ___ when we feel tired.",
   "choices": [
    "clock",
    "moon",
@@ -5071,22 +4548,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "sentenceText": "We ___ when we feel tired.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.R.verb_everyday.v9r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-everyday.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5096,13 +4569,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.R.verb_in_sentence.v9r",
@@ -5124,14 +4591,14 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Bees ___ from rose to rose.",
-  "question": "Bees ___ from rose to rose.",
-  "spokenPrompt": "Which doing word finishes the sentence? Bees … from rose to rose.",
+  "prompt": "Which doing word fits: Bees ___ from rose to rose.",
+  "question": "Which doing word fits: Bees ___ from rose to rose.",
+  "spokenPrompt": "Which doing word fits? Bees … from rose to rose.",
   "sentence": "Bees ___ from rose to rose.",
   "choices": [
    "hive",
    "drift",
-   "wing",
+   "wings",
    "sweet"
   ],
   "answerOptions": [
@@ -5146,9 +4613,9 @@ export const questions = [
     "text": "drift"
    },
    {
-    "value": "wing",
-    "label": "wing",
-    "text": "wing"
+    "value": "wings",
+    "label": "wings",
+    "text": "wings"
    },
    {
     "value": "sweet",
@@ -5159,7 +4626,7 @@ export const questions = [
   "answer": "drift",
   "correctAnswer": "drift",
   "distractorRationales": {
-   "wing": "D-FUNCTION-SWAP",
+   "wings": "D-FUNCTION-SWAP",
    "sweet": "D-FUNCTION-SWAP",
    "hive": "D-FUNCTION-SWAP"
   },
@@ -5173,21 +4640,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "Bees ___ from rose to rose.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.R.verb_in_sentence.v9r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5197,13 +4659,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.R.verb_vs_noun.v9r",
@@ -5225,25 +4681,25 @@ export const questions = [
   "formatType": "GRAMMAR_CONTRAST",
   "templateType": "GRAMMAR_CONTRAST",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word, not a naming word?",
-  "question": "Which word is a doing word, not a naming word?",
-  "spokenPrompt": "Which word is a doing word, not a naming word?",
+  "prompt": "Which word is the doing word in ‘We dance to the music’?",
+  "question": "Which word is the doing word in ‘We dance to the music’?",
+  "spokenPrompt": "Which word is the doing word in ‘We dance to the music’?",
   "choices": [
-   "stage",
    "music",
+   "to",
    "dance",
-   "dancer"
+   "we"
   ],
   "answerOptions": [
-   {
-    "value": "stage",
-    "label": "stage",
-    "text": "stage"
-   },
    {
     "value": "music",
     "label": "music",
     "text": "music"
+   },
+   {
+    "value": "to",
+    "label": "to",
+    "text": "to"
    },
    {
     "value": "dance",
@@ -5251,17 +4707,17 @@ export const questions = [
     "text": "dance"
    },
    {
-    "value": "dancer",
-    "label": "dancer",
-    "text": "dancer"
+    "value": "we",
+    "label": "we",
+    "text": "we"
    }
   ],
   "answer": "dance",
   "correctAnswer": "dance",
   "distractorRationales": {
-   "dancer": "D-FUNCTION-SWAP",
-   "stage": "D-FUNCTION-SWAP",
-   "music": "D-FUNCTION-SWAP"
+   "we": "D-FUNCTION-SWAP",
+   "music": "D-FUNCTION-SWAP",
+   "to": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5272,21 +4728,16 @@ export const questions = [
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.R.verb_vs_noun.v9r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-vs-noun.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5296,13 +4747,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.R.verb_precision.v9r",
@@ -5324,9 +4769,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The ice ___ slowly in the warm sun.",
-  "question": "The ice ___ slowly in the warm sun.",
-  "spokenPrompt": "Which doing word finishes the sentence? The ice … slowly in the warm sun.",
+  "prompt": "Which doing word fits best: The ice ___ slowly in the warm sun.",
+  "question": "Which doing word fits best: The ice ___ slowly in the warm sun.",
+  "spokenPrompt": "Which doing word fits best? The ice … slowly in the warm sun.",
   "sentence": "The ice ___ slowly in the warm sun.",
   "choices": [
    "grew",
@@ -5373,21 +4818,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "The ice ___ slowly in the warm sun.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.R.verb_precision.v9r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-precision.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5397,13 +4837,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.R.verb_action_object.v10r",
@@ -5425,9 +4859,10 @@ export const questions = [
   "formatType": "GRAMMAR_WORD_CHOICE",
   "templateType": "GRAMMAR_WORD_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word is a doing word?",
-  "question": "Which word is a doing word?",
-  "spokenPrompt": "Which word is a doing word?",
+  "prompt": "Which doing word fits: We ___ the gift with ribbon.",
+  "question": "Which doing word fits: We ___ the gift with ribbon.",
+  "spokenPrompt": "Which doing word fits? We … the gift with ribbon.",
+  "sentence": "We ___ the gift with ribbon.",
   "choices": [
    "hat",
    "cup",
@@ -5471,22 +4906,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
+  "sentenceText": "We ___ the gift with ribbon.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.R.verb_action_object.v10r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-action-object.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5496,13 +4927,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.R.verb_everyday.v10r",
@@ -5524,9 +4949,9 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "We ___ to school each morning.",
-  "question": "We ___ to school each morning.",
-  "spokenPrompt": "Which doing word finishes the sentence? We … to school each morning.",
+  "prompt": "Which doing word fits: We ___ to school each morning.",
+  "question": "Which doing word fits: We ___ to school each morning.",
+  "spokenPrompt": "Which doing word fits? We … to school each morning.",
   "sentence": "We ___ to school each morning.",
   "choices": [
    "walk",
@@ -5573,21 +4998,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "sentenceText": "We ___ to school each morning.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l1.R.verb_everyday.v10r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-everyday.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5597,13 +5017,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "language context, not a category-revealing picture, provides the evidence",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "language context, not a category-revealing picture, provides the evidence"
  },
  {
   "id": "lp3.verbs.l2.R.verb_in_sentence.v10r",
@@ -5625,10 +5039,10 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The wind ___ the washing dry.",
-  "question": "The wind ___ the washing dry.",
-  "spokenPrompt": "Which doing word finishes the sentence? The wind … the washing dry.",
-  "sentence": "The wind ___ the washing dry.",
+  "prompt": "Which doing word fits: The wind ___ the clothes dry.",
+  "question": "Which doing word fits: The wind ___ the clothes dry.",
+  "spokenPrompt": "Which doing word fits? The wind … the clothes dry.",
+  "sentence": "The wind ___ the clothes dry.",
   "choices": [
    "blows",
    "peg",
@@ -5672,23 +5086,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The wind ___ the washing dry.",
+  "sentenceText": "The wind ___ the clothes dry.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.R.verb_in_sentence.v10r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-in-sentence.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5698,13 +5107,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.R.verb_precision.v10r",
@@ -5726,10 +5129,10 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The baby ___ at every funny face.",
-  "question": "The baby ___ at every funny face.",
-  "spokenPrompt": "Which doing word finishes the sentence? The baby … at every funny face.",
-  "sentence": "The baby ___ at every funny face.",
+  "prompt": "Which doing word fits best: The baby ___ happily at every funny face.",
+  "question": "Which doing word fits best: The baby ___ happily at every funny face.",
+  "spokenPrompt": "Which doing word fits best? The baby … happily at every funny face.",
+  "sentence": "The baby ___ happily at every funny face.",
   "choices": [
    "frowned",
    "giggled",
@@ -5773,23 +5176,18 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "sentenceText": "The baby ___ at every funny face.",
+  "sentenceText": "The baby ___ happily at every funny face.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.verbs.l2.R.verb_precision.v10r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/language/verbs-verb-precision.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5799,12 +5197,6 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "imageUrl": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "targetImage": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": ""
  }
 ];

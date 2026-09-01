@@ -36,7 +36,7 @@ Shared: itemType `short_vowel` / `phonics_pattern` kept. Sitting = 10. Every wor
 
 **Units.** Same 5 vowels. Family **D-small**. Keep this bank's shape — it is the audit's "strongest early phonics logic" (5/5 units, 2 formats). Work = prune 299 → ~60 (5 × 6 per level), kill the 23 duplicate groups, re-lint, add `D-VOWEL` near-pair pressure at L2 (e/i, o/u confusions get 2 slots), tag formal-feedback removal (system-wide anyway).
 
-**Formats.** `LISTEN_CHOOSE_VOWEL` (tier: audio-required — runs now with on-screen word+image interim per MASTERY_SYSTEM §7), `PICTURE_TO_PRINT_MATCH`, plus new text-tier `SHORT_VOWEL_IMAGE_GROUP_SELECT` (which picture has the same middle sound as ⟨anchor⟩ — anchors from instructional standards: cat/bed/pig/pot/sun).
+**Formats.** `LISTEN_CHOOSE_VOWEL` is audio-required and image-free: the child hears the target word and chooses the letter spelling its middle vowel sound. `LISTEN_FIND_WORD` maps an exact recording to one printed minimal-pair word. `SHORT_VOWEL_IMAGE_GROUP_SELECT` asks which pictured word has the named short vowel; its hidden labels are supported by exact card-word audio.
 
 ---
 
@@ -46,7 +46,7 @@ Shared: itemType `short_vowel` / `phonics_pattern` kept. Sitting = 10. Every wor
 
 **Units — curated down.** L1: 12 beginning blends `bl cl fl pl sl br cr dr fr gr st sw` (drop the long tail; 38 units at 3 attempts each is an unpassable level). L2: 6 beginning (`sc sk sm sn sp tr`) + 6 final (`st nd nt mp nk lt` — final blends belong here, coordinated with Final Sounds L2 which keeps its own sound-isolation framing; the same letters can appear in both skills because the tasks differ: isolate-the-sound vs decode-the-cluster). Family **D-small** per level (12 units).
 
-**Formats.** Text tier: `BLEND_COMPLETE_WORD` (__og + image → bl/cl/fr/gr), `BLEND_IMAGE_CHOICE` (which picture starts with /bl/ — spoken-ready), new `BLEND_ODD_ONE_OUT` (L2: flag, flip, frog, fog — which does not start with a blend). Audio tier: segmentation (`BLEND_SOUNDS`) upgrades.
+**Formats.** `BLEND_COMPLETE_WORD` hears the complete target and supplies the missing letters, so spelling evidence never depends on naming a picture. `BLEND_IMAGE_CHOICE` uses hidden-label, directly nameable cards for same-blend sound discrimination. `MPD` asks which printed word names one concrete picture. Subjective actions and scenes are converted to audio + print.
 
 **Bank.** L1: 12 × 4 = 48 + R. L2: 12 × 4 = 48 + R. (4 variants per unit: D-small needs 4 no-repeat attempts — the digraphs/final_sounds arithmetic.) Words: real, decodable, imageable (blue, clock, flag, plum, sled, brush, crab, drum, frog, green, star, swim seed L1 — extend in-lexicon).
 
@@ -62,7 +62,7 @@ Shared: itemType `short_vowel` / `phonics_pattern` kept. Sitting = 10. Every wor
 
 **Levels.** L1 initial position, anchor-word prompts; L2 final/medial position + digraph-vs-blend contrast.
 
-**Formats.** Text tier: `DIGRAPH_IMAGE_CHOICE` reworded — "Which picture starts like **shell**?" (anchor word, never naming the pattern), `DIGRAPH_COMPLETE_WORD` (fi__ + image → sh/ch/th/ck). Audio tier: spoken-anchor upgrades.
+**Formats.** `DIGRAPH_IMAGE_CHOICE` asks “Which word has the same first/final sound?”; the anchor is heard and labels stay hidden. This format is recorded as sound discrimination, not proof that a child knows whether /w/, /f/, or /k/ is spelled `wh`, `ph`, or `ck`. Every unit also uses `DIGRAPH_COMPLETE_WORD`, where the target is heard and the printed blank supplies direct spelling evidence without a picture-naming demand.
 
 **Bank.** Per level: 6 × 4 (2 formats × 2 variants, ≥1 final-position among them) = **24** + R 12. Current 120 → ~72.
 
@@ -92,7 +92,7 @@ Shared: itemType `short_vowel` / `phonics_pattern` kept. Sitting = 10. Every wor
 
 **Units.** L1 (stable, one-sound teams): `ai ay ee ea oa igh` (6). L2 (variable/diphthong): `oo ow ou oi oy ew aw` (7). Family **D-small**. PTD required at L2 per instructional standards (`hadPTDExposure` becomes a blueprint-declared format slot, not an inference).
 
-**Formats.** Text tier: `LONG_VOWEL_TEAM_COMPLETE` (r__n + image → ai/ay/ee/oa), `CPS` cross-pattern select ("Which word has the long a sound? rain / bed / ship / frog" — the instructional-standards CPS exemplar, now actually published), `VOWEL_TEAM_SORT` (L2: which word does NOT say /oo/: moon, book — the two-sounds-of-oo contrast). Audio tier: anchor-word audio upgrades.
+**Formats.** Audio/text tier: `LONG_VOWEL_TEAM_COMPLETE` (the target word is heard and the printed blank hides the team), `LISTEN_FIND_WORD` (heard target → four real printed spellings), `CPS` cross-pattern select ("Which word has the long a sound? rain / bed / ship / frog"), and `PTD` at L2 for genuine two-sound contrasts. Subjective picture naming is not accepted as vowel-team evidence.
 
 **Bank.** L1: 6 × 6 = 36 + R 12. L2: 7 × 6 = 42 + R 12. Total 102 (current 141 replaced). Position rules: `ay/oy/aw` word-final examples, `ai/oa` medial — encode in lexicon entries; `L-LEX` enforces (this kills `birthday→ay`-in-the-wrong-skill and misplaced-team errors at once).
 
@@ -106,7 +106,7 @@ Shared: itemType `short_vowel` / `phonics_pattern` kept. Sitting = 10. Every wor
 
 **Units.** 5: `ar or er ir ur`. Family **D-small**. L1 recognition in familiar words (car, star, corn, fork, her, bird, girl, turn, hurt); L2: er/ir/ur discrimination (the three-way /ɜr/ spelling choice — mandatory `D-PATTERN-TRAP` sibling spellings ×2 per item) + ar/or contrast.
 
-**Work.** Use 60 construct-sized items (5 × 6 per level + R) with named formats (`R_CONTROLLED_PATTERN`, `CPS`). Dialect notes live in the checked-in lexicon and are enforced by the same release gate. Distractors use plausible, pronounceable sound-based alternatives.
+**Work.** Use 60 construct-sized items (5 × 6 per level + R) with `R_CONTROLLED_PATTERN`, heard-word spelling choice, and `CPS`. The complete target or cross-spelling anchor is required audio; the child is asked which letters spell the r-controlled part in that named word, rather than being offered several valid spellings for an unnamed /er/ sound. Subjective picture naming is not scoring evidence. Dialect notes live in the checked-in lexicon and are enforced by the same release gate.
 
 **Exemplar (L2, unit er).**
 ```json

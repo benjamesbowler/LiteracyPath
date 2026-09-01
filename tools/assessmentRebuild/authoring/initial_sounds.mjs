@@ -4,7 +4,8 @@
 //   FIRST_SOUND — word (+image when a real asset exists) → 4 single-letter
 //     choices. Letter choices are scanner-null by construction (no ≥2-letter
 //     chunks), so every item's difficulty lives in the letter set itself.
-//   INITIAL_SOUND_PAIR_SELECT — "Which one starts like ⟨anchor⟩?" over 4 image
+//   INITIAL_SOUND_PAIR_SELECT — "Which word has the same starting sound as
+//     ⟨anchor⟩?" over 4 image
 //     cards (v3 semantics: single-select; the legacy tap-two enrichment keys on
 //     questionType and never touches these).
 // Letter-set craft rules applied to every FIRST_SOUND item:
@@ -23,14 +24,17 @@ import { makeImageResolver } from "../lib.mjs";
 
 const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
+const sentenceCase = value => `${String(value || "").charAt(0).toUpperCase()}${String(value || "").slice(1)}`;
 
 const resolver = makeImageResolver(["digraphs", "blends", "long-vowels", "hfw"]);
 
 // FIRST_SOUND: word in prompt, image attached when the asset exists.
 const fs = (u, lvl, ph, v, word, letters, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "FIRST_SOUND",
-  prompt: `Which letter makes the first sound in ${word}?`,
-  spoken: `${word}. Which letter makes the first sound in ${word}?`,
+  // Do not print the target word: doing so reveals its first grapheme and lets
+  // a child answer without isolating the sound from the picture/audio.
+  prompt: "Which letter matches the first sound?",
+  spoken: `${sentenceCase(word)}. Which letter matches the first sound?`,
   choices: letters.map((l, i) => (i === 0 ? K(l) : P(l, rationales[i - 1]))),
   media: resolver(word) ? "image-optional" : "text",
   img: resolver(word) ? word : undefined,
@@ -38,15 +42,12 @@ const fs = (u, lvl, ph, v, word, letters, rationales, note = "") => ({
   note
 });
 
-// Some familiar spoken targets are not objectively nameable from one still
-// picture. Keep those listening items audio-only rather than teaching a child
-// to guess the intended label from an ambiguous scene.
+// Some spoken targets are valid but cannot be elicited from a still picture
+// without showing a subjective relationship or action. Keep those audio-only.
 const afs = (u, lvl, ph, v, word, letters, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "FIRST_SOUND",
-  prompt: v === 2
-    ? "Listen to the word. Which letter makes the first sound?"
-    : "Listen. Which letter makes the first sound?",
-  spoken: `${word}. Which letter makes the first sound in ${word}?`,
+  prompt: "Which letter matches the first sound?",
+  spoken: `${sentenceCase(word)}. Which letter matches the first sound?`,
   choices: letters.map((l, i) => (i === 0 ? K(l) : P(l, rationales[i - 1]))),
   media: "audio-required",
   target: word,
@@ -54,14 +55,14 @@ const afs = (u, lvl, ph, v, word, letters, rationales, note = "") => ({
 });
 
 // INITIAL_SOUND_PAIR_SELECT: anchor in prompt, 4 image cards, single select.
-// frame "listen" drops the word "like" from the printed prompt — used when a
-// card would otherwise out-chunk the rest on the like/kite letter overlap.
-const ps = (u, lvl, ph, v, anchor, cards, keyWord, rationales, note = "", frame = "which") => ({
+// All variants use one direct assessment-grade stem; scanner pressure belongs
+// in the answer set, not in inconsistent or conversational wording.
+const ps = (u, lvl, ph, v, anchor, cards, keyWord, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "INITIAL_SOUND_PAIR_SELECT",
-  prompt: frame === "listen"
-    ? `Listen: ${anchor}. Find the one that starts the same.`
-    : `Which one starts like ${anchor}?`,
-  spoken: `${anchor}. Which one starts with the same sound as ${anchor}?`,
+  // The anchor is heard, not printed. Printing it would expose the initial
+  // grapheme and let a child bypass phoneme isolation.
+  prompt: "Which word has the same starting sound?",
+  spoken: `${sentenceCase(anchor)}. Which word has the same starting sound?`,
   cards,
   choices: cards.map(w => (w === keyWord ? K(w) : P(w, rationales[w]))),
   media: "image-required",
@@ -85,33 +86,31 @@ export default {
     // ---------------- a (phase 1)
     fs("a", 1, 1, 1, "apple", ["a", "e", "o", "l"], VOW),
     fs("a", 1, 1, 2, "ant", ["a", "e", "o", "t"], VOW),
-    ps("a", 1, 1, 3, "ant", ["apple", "egg", "igloo", "ox"], "apple",
-      { egg: "D-VOWEL", igloo: "D-VOWEL", ox: "D-VOWEL" }),
+    ps("a", 1, 1, 3, "ant", ["apple", "egg", "igloo", "umbrella"], "apple",
+      { egg: "D-VOWEL", igloo: "D-VOWEL", umbrella: "D-VOWEL" }),
     fs("a", 2, 1, 1, "astronaut", ["a", "u", "o", "t"], VOW),
     fs("a", 2, 1, 2, "alligator", ["a", "e", "i", "r"], VOW),
-    ps("a", 2, 1, 3, "apple", ["ant", "elephant", "insect", "umbrella"], "ant",
-      { elephant: "D-VOWEL", insect: "D-VOWEL", umbrella: "D-VOWEL" }),
+    ps("a", 2, 1, 3, "apple", ["ant", "egg", "igloo", "umbrella"], "ant",
+      { egg: "D-VOWEL", igloo: "D-VOWEL", umbrella: "D-VOWEL" }),
 
     // ---------------- b (phase 1)
     fs("b", 1, 1, 1, "boat", ["b", "p", "d", "t"], ONV),
     fs("b", 1, 1, 2, "bike", ["b", "p", "d", "k"], ONV),
     ps("b", 1, 1, 3, "boat", ["bike", "pig", "web", "duck"], "bike",
       { pig: "D-ONSET", web: "D-POSITION", duck: "D-SEMANTIC" },
-      "web ends with /b/ — the position trap; duck shares the water scene",
-      "listen"),
+      "web ends with /b/ — the position trap; duck shares the water scene"),
     fs("b", 2, 1, 1, "banana", ["b", "p", "d", "a"], ONV),
     fs("b", 2, 1, 2, "butterfly", ["b", "p", "d", "y"], ONV),
-    ps("b", 2, 1, 3, "bread", ["bike", "pen", "pot", "dish"], "bike",
-      { pen: "D-ONSET", pot: "D-ONSET", dish: "D-ONSET" },
-      "all-neighbour card set: b against p/p/d voicing-place pressure",
-      "listen"),
+    ps("b", 2, 1, 3, "bread", ["bike", "pen", "pot", "dog"], "bike",
+      { pen: "D-ONSET", pot: "D-ONSET", dog: "D-ONSET" },
+      "all-neighbour card set: b against p/p/d voicing-place pressure"),
 
     // ---------------- c (phase 1) — k never appears (it spells /k/ too)
     fs("c", 1, 1, 1, "corn", ["c", "g", "o", "n"], ONV),
     fs("c", 1, 1, 2, "cap", ["c", "g", "o", "p"], ONV),
-    ps("c", 1, 1, 3, "cake", ["corn", "goat", "sock", "moon"], "corn",
-      { goat: "D-ONSET", sock: "D-POSITION", moon: "D-VISUAL-NEIGHBOR" },
-      "sock ends /k/; moon is round like the cake — no card starts /k/"),
+    ps("c", 1, 1, 3, "cake", ["corn", "goat", "duck", "moon"], "corn",
+      { goat: "D-ONSET", duck: "D-POSITION", moon: "D-VISUAL-NEIGHBOR" },
+      "duck ends /k/; moon is round like the cake — no card starts /k/"),
     fs("c", 2, 1, 1, "caterpillar", ["c", "g", "o", "r"], ONV),
     fs("c", 2, 1, 2, "camera", ["c", "g", "e", "a"], ONV),
     ps("c", 2, 1, 3, "cap", ["cone", "gate", "goat", "phone"], "cone",
@@ -126,102 +125,103 @@ export default {
       "bread ends /d/; the bone belongs to the dog but starts /b/"),
     fs("d", 2, 1, 1, "dinosaur", ["d", "t", "b", "r"], ONV),
     fs("d", 2, 1, 2, "dolphin", ["d", "t", "b", "n"], ONV),
-    ps("d", 2, 1, 3, "drum", ["dish", "tent", "tie", "toe"], "dish",
-      { tent: "D-ONSET", tie: "D-ONSET", toe: "D-ONSET" },
+    ps("d", 2, 1, 3, "drum", ["dog", "tent", "tie", "tiger"], "dog",
+      { tent: "D-ONSET", tie: "D-ONSET", tiger: "D-ONSET" },
       "voicing panel: /d/ key against three /t/ starters"),
 
     // ---------------- e (phase 1)
     fs("e", 1, 1, 1, "egg", ["e", "i", "c", "g"], VOW),
-    fs("e", 1, 1, 2, "envelope", ["e", "i", "c", "p"], VOW),
-    ps("e", 1, 1, 3, "egg", ["envelope", "apple", "ink", "octopus"], "envelope",
-      { apple: "D-VOWEL", ink: "D-VOWEL", octopus: "D-VOWEL" }),
-    fs("e", 2, 1, 1, "elephant", ["e", "i", "c", "t"], VOW),
+    afs("e", 1, 1, 2, "engine", ["e", "i", "c", "n"], VOW),
+    ps("e", 1, 1, 3, "egg", ["elbow", "apple", "igloo", "octopus"], "elbow",
+      { apple: "D-VOWEL", igloo: "D-VOWEL", octopus: "D-VOWEL" }),
+    afs("e", 2, 1, 1, "elephant", ["e", "i", "c", "t"], VOW,
+      "audio names elephant directly; the clipped legacy illustration is not scoring evidence"),
     fs("e", 2, 1, 2, "elbow", ["e", "i", "c", "w"], VOW),
-    ps("e", 2, 1, 3, "envelope", ["elephant", "ant", "igloo", "umbrella"], "elephant",
-      { ant: "D-VOWEL", igloo: "D-VOWEL", umbrella: "D-VOWEL" }),
+    ps("e", 2, 1, 3, "engine", ["egg", "ant", "igloo", "octopus"], "egg",
+      { ant: "D-VOWEL", igloo: "D-VOWEL", octopus: "D-VOWEL" }),
 
     // ---------------- f (phase 1)
     fs("f", 1, 1, 1, "fan", ["f", "v", "t", "n"], ONV),
     fs("f", 1, 1, 2, "fox", ["f", "v", "t", "x"], ONV),
-    ps("f", 1, 1, 3, "fish", ["fan", "van", "leaf", "boat"], "fan",
-      { van: "D-ONSET", leaf: "D-POSITION", boat: "D-SEMANTIC" },
-      "leaf ends /f/; van is the f/v voicing trap"),
+    ps("f", 1, 1, 3, "fish", ["fan", "van", "vase", "boat"], "fan",
+      { van: "D-ONSET", vase: "D-ONSET", boat: "D-SEMANTIC" },
+      "van and vase supply the f/v voicing trap; boat shares the water domain"),
     fs("f", 2, 1, 1, "feather", ["f", "v", "t", "r"], ONV),
     fs("f", 2, 1, 2, "flamingo", ["f", "v", "t", "o"], ONV),
-    ps("f", 2, 1, 3, "fan", ["fish", "van", "volcano", "vase"], "fish",
-      { van: "D-ONSET", volcano: "D-ONSET", vase: "D-ONSET" },
+    ps("f", 2, 1, 3, "fan", ["fish", "van", "vase", "volcano"], "fish",
+      { van: "D-ONSET", vase: "D-ONSET", volcano: "D-ONSET" },
       "voicing panel: /f/ key against three /v/ starters"),
 
     // ---------------- g (phase 1) — hard-g words only, so j stays legal where used
     fs("g", 1, 1, 1, "goat", ["g", "k", "q", "t"], ONV),
     fs("g", 1, 1, 2, "gate", ["g", "c", "q", "t"], ONV),
-    ps("g", 1, 1, 3, "goat", ["gate", "cake", "pig", "farm"], "gate",
-      { cake: "D-ONSET", pig: "D-POSITION", farm: "D-SEMANTIC" },
+    ps("g", 1, 1, 3, "goat", ["gate", "cake", "pig", "fish"], "gate",
+      { cake: "D-ONSET", pig: "D-POSITION", fish: "D-SEMANTIC" },
       "pig ends /g/; cake is the k/g voicing trap"),
     fs("g", 2, 1, 1, "guitar", ["g", "k", "j", "r"], ONV),
     fs("g", 2, 1, 2, "gorilla", ["g", "c", "q", "a"], ONV),
-    ps("g", 2, 1, 3, "gate", ["gum", "cake", "key", "corn"], "gum",
+    ps("g", 2, 1, 3, "gate", ["glass", "cake", "key", "corn"], "glass",
       { cake: "D-ONSET", key: "D-ONSET", corn: "D-ONSET" },
       "voicing panel: /g/ key against three /k/ starters"),
 
     // ---------------- h (phase 1)
     fs("h", 1, 1, 1, "hat", ["h", "f", "n", "t"], ONV),
-    fs("h", 1, 1, 2, "hen", ["h", "f", "b", "n"], ONV),
-    ps("h", 1, 1, 3, "hat", ["hen", "fan", "cap", "rat"], "hen",
-      { fan: "D-ONSET", cap: "D-SEMANTIC", rat: "D-RIME-NEAR" },
-      "cap is the other thing you wear; rat rhymes with the anchor"),
+    fs("h", 1, 1, 2, "house", ["h", "f", "b", "e"], ONV),
+    ps("h", 1, 1, 3, "hat", ["house", "fan", "cap", "net"], "house",
+      { fan: "D-ONSET", cap: "D-SEMANTIC", net: "D-RIME-NEAR" },
+      "cap is the other thing you wear; net shares the short vowel"),
     fs("h", 2, 1, 1, "helicopter", ["h", "f", "n", "r"], ONV),
     fs("h", 2, 1, 2, "hedgehog", ["h", "f", "b", "g"], ONV),
-    ps("h", 2, 1, 3, "hen", ["ham", "fan", "fish", "fin"], "ham",
-      { fan: "D-ONSET", fish: "D-ONSET", fin: "D-ONSET" },
+    ps("h", 2, 1, 3, "hen", ["house", "fan", "fish", "fork"], "house",
+      { fan: "D-ONSET", fish: "D-ONSET", fork: "D-ONSET" },
       "breathy panel: /h/ key against three /f/ starters"),
 
     // ---------------- i (phase 1)
     fs("i", 1, 1, 1, "igloo", ["i", "e", "l", "o"], VOW),
-    fs("i", 1, 1, 2, "ink", ["i", "e", "l", "k"], VOW),
-    ps("i", 1, 1, 3, "ink", ["igloo", "egg", "apple", "umbrella"], "igloo",
-      { egg: "D-VOWEL", apple: "D-VOWEL", umbrella: "D-VOWEL" }),
-    fs("i", 2, 1, 1, "insect", ["i", "e", "j", "t"], VOW),
-    fs("i", 2, 1, 2, "instrument", ["i", "e", "l", "t"], VOW),
-    ps("i", 2, 1, 3, "igloo", ["insect", "elephant", "ox", "ant"], "insect",
-      { elephant: "D-VOWEL", ox: "D-VOWEL", ant: "D-VOWEL" }),
+    afs("i", 1, 1, 2, "ink", ["i", "e", "l", "k"], VOW,
+      "audio carries the liquid word; a bottle picture cannot objectively reveal that its contents are ink"),
+    ps("i", 1, 1, 3, "ink", ["igloo", "egg", "apple", "octopus"], "igloo",
+      { egg: "D-VOWEL", apple: "D-VOWEL", octopus: "D-VOWEL" }),
+    afs("i", 2, 1, 1, "inside", ["i", "e", "j", "d"], VOW),
+    afs("i", 2, 1, 2, "insect", ["i", "e", "l", "t"], VOW),
+    ps("i", 2, 1, 3, "inside", ["igloo", "egg", "apple", "orange"], "igloo",
+      { egg: "D-VOWEL", apple: "D-VOWEL", orange: "D-VOWEL" }),
 
     // ---------------- j (phase 1) — g never appears (it can spell /dʒ/)
-    fs("j", 1, 1, 1, "jet", ["j", "y", "i", "t"], ["D-DEVELOPMENTAL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
-    fs("j", 1, 1, 2, "jam", ["j", "y", "i", "m"], ["D-DEVELOPMENTAL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
-    ps("j", 1, 1, 3, "jug", ["jet", "drum", "chick", "mug"], "jet",
+    afs("j", 1, 1, 1, "jet", ["j", "y", "i", "t"], ["D-DEVELOPMENTAL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
+    afs("j", 1, 1, 2, "jam", ["j", "y", "i", "m"], ["D-DEVELOPMENTAL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
+    ps("j", 1, 1, 3, "jet", ["jellyfish", "drum", "chick", "mug"], "jellyfish",
       { drum: "D-ONSET", chick: "D-ONSET", mug: "D-RIME-NEAR" },
-      "chick begins with the voiceless /tʃ/ neighbour; mug rhymes with the anchor"),
+      "chick begins with the voiceless /tʃ/ neighbour; mug shares the short vowel"),
     fs("j", 2, 1, 1, "jacket", ["j", "d", "i", "t"], ["D-ONSET", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
     fs("j", 2, 1, 2, "jellyfish", ["j", "y", "d", "h"], ["D-DEVELOPMENTAL", "D-ONSET", "D-POSITION"]),
-    ps("j", 2, 1, 3, "jet", ["jam", "chick", "ship", "drum"], "jam",
+    ps("j", 2, 1, 3, "jet", ["jellyfish", "chick", "ship", "drum"], "jellyfish",
       { chick: "D-ONSET", ship: "D-ONSET", drum: "D-ONSET" },
       "affricate panel: /dʒ/ against familiar /tʃ/, /ʃ/, and /d/ starters"),
 
     // ---------------- k (phase 1) — c never appears as a distractor for /k/ keys? c spells /k/, so keep c out
-    fs("k", 1, 1, 1, "kite", ["k", "g", "h", "t"], ONV),
+    fs("k", 1, 1, 1, "key", ["k", "g", "h", "y"], ONV),
     fs("k", 1, 1, 2, "king", ["k", "q", "h", "g"], ["D-VISUAL-NEIGHBOR", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
     ps("k", 1, 1, 3, "kite", ["key", "goat", "duck", "bike"], "key",
       { goat: "D-ONSET", duck: "D-POSITION", bike: "D-RIME-NEAR" },
       "duck ends /k/; bike shares the i_e rime AND ends /k/ — it also ties the like/kite letter overlap so scanning cannot win"),
     fs("k", 2, 1, 1, "kangaroo", ["k", "g", "h", "o"], ONV),
     fs("k", 2, 1, 2, "kettle", ["k", "g", "h", "l"], ONV),
-    ps("k", 2, 1, 3, "king", ["key", "goat", "gate", "gum"], "key",
-      { goat: "D-ONSET", gate: "D-ONSET", gum: "D-ONSET" },
-      "voicing panel: /k/ key against three /g/ starters",
-      "listen"),
+    ps("k", 2, 1, 3, "king", ["key", "goat", "gate", "glass"], "key",
+      { goat: "D-ONSET", gate: "D-ONSET", glass: "D-ONSET" },
+      "voicing panel: /k/ key against three /g/ starters"),
 
     // ---------------- l (phase 1)
     fs("l", 1, 1, 1, "lamp", ["l", "r", "i", "p"], ONV),
     fs("l", 1, 1, 2, "leg", ["l", "r", "i", "g"], ONV),
-    ps("l", 1, 1, 3, "lamp", ["lion", "rug", "wheel", "map"], "lion",
-      { rug: "D-ONSET", wheel: "D-POSITION", map: "D-RIME-NEAR" },
+    ps("l", 1, 1, 3, "lamp", ["lion", "ring", "wheel", "map"], "lion",
+      { ring: "D-ONSET", wheel: "D-POSITION", map: "D-RIME-NEAR" },
       "wheel ends /l/; map shares the anchor's -amp/-ap ending feel"),
     fs("l", 2, 1, 1, "lemon", ["l", "r", "i", "n"], ONV),
     fs("l", 2, 1, 2, "lion", ["l", "r", "t", "n"], ONV),
-    ps("l", 2, 1, 3, "lion", ["leaf", "rose", "ring", "rug"], "leaf",
-      { rose: "D-ONSET", ring: "D-ONSET", rug: "D-ONSET" },
-      "liquid panel: /l/ key against three /r/ starters"),
+    ps("l", 2, 1, 3, "lion", ["lamp", "ring", "rocket", "wheel"], "lamp",
+      { ring: "D-ONSET", rocket: "D-ONSET", wheel: "D-POSITION" },
+      "liquid pressure comes from ring and rocket; wheel ends with /l/"),
 
     // ---------------- m (phase 1)
     fs("m", 1, 1, 1, "map", ["m", "n", "w", "p"], ONV),
@@ -231,38 +231,37 @@ export default {
       "drum ends /m/; spoon rhymes with the anchor"),
     fs("m", 2, 1, 1, "mountain", ["m", "n", "w", "t"], ONV),
     fs("m", 2, 1, 2, "microphone", ["m", "n", "w", "o"], ONV),
-    ps("m", 2, 1, 3, "mug", ["moon", "nose", "net", "nut"], "moon",
-      { nose: "D-ONSET", net: "D-ONSET", nut: "D-ONSET" },
+    ps("m", 2, 1, 3, "mug", ["moon", "nest", "net", "nut"], "moon",
+      { nest: "D-ONSET", net: "D-ONSET", nut: "D-ONSET" },
       "nasal panel: /m/ key against three /n/ starters"),
 
     // ---------------- n (phase 2)
     fs("n", 1, 2, 1, "net", ["n", "m", "u", "t"], ONV),
-    fs("n", 1, 2, 2, "nose", ["n", "m", "u", "z"], ONV),
-    ps("n", 1, 2, 3, "net", ["nest", "map", "pin", "jet"], "nest",
-      { map: "D-ONSET", pin: "D-POSITION", jet: "D-RIME-NEAR" },
-      "pin ends /n/; jet rhymes with the anchor"),
+    fs("n", 1, 2, 2, "nut", ["n", "d", "u", "t"], ONV,
+      "d shares the alveolar tongue placement; u is the visual neighbour; t is the final-sound trap"),
+    ps("n", 1, 2, 3, "net", ["nut", "map", "pin", "bed"], "nut",
+      { map: "D-ONSET", pin: "D-POSITION", bed: "D-RIME-NEAR" },
+      "pin ends /n/; bed shares the short vowel but ends with /d/"),
     fs("n", 2, 2, 1, "necklace", ["n", "m", "u", "s"], ONV),
     fs("n", 2, 2, 2, "newspaper", ["n", "m", "u", "r"], ONV),
-    ps("n", 2, 2, 3, "nut", ["nest", "moon", "map", "mop"], "nest",
+    ps("n", 2, 2, 3, "nut", ["net", "moon", "map", "mop"], "net",
       { moon: "D-ONSET", map: "D-ONSET", mop: "D-ONSET" },
       "nasal panel: /n/ key against three /m/ starters"),
 
-    // ---------------- o (phase 2) — keep the basic set concrete and familiar
-    fs("o", 1, 2, 1, "ox", ["o", "u", "c", "x"], VOW),
-    fs("o", 1, 2, 2, "octopus", ["o", "u", "c", "s"], VOW),
-    ps("o", 1, 2, 3, "orange", ["ox", "apple", "umbrella", "egg"], "ox",
-      { apple: "D-VOWEL", umbrella: "D-VOWEL", egg: "D-VOWEL" }),
-    afs("o", 2, 2, 1, "orange", ["o", "u", "c", "j"], VOW),
-    afs("o", 2, 2, 2, "on", ["o", "e", "u", "n"], VOW),
-    ps("o", 2, 2, 3, "ox", ["octopus", "umbrella", "ink", "elephant"], "octopus",
-      { umbrella: "D-VOWEL", ink: "D-VOWEL", elephant: "D-VOWEL" }),
+    // ---------------- o (phase 2)
+    fs("o", 1, 2, 1, "octopus", ["o", "u", "c", "s"], VOW),
+    afs("o", 1, 2, 2, "on", ["o", "u", "c", "n"], VOW),
+    afs("o", 1, 2, 3, "off", ["o", "u", "a", "f"], VOW),
+    afs("o", 2, 2, 1, "octopus", ["o", "u", "e", "s"], VOW),
+    afs("o", 2, 2, 2, "orange", ["o", "a", "u", "e"], VOW),
+    afs("o", 2, 2, 3, "ox", ["o", "a", "u", "x"], VOW),
 
     // ---------------- p (phase 2)
     fs("p", 1, 2, 1, "pig", ["p", "b", "q", "g"], ONV),
     fs("p", 1, 2, 2, "pen", ["p", "b", "q", "n"], ONV),
-    ps("p", 1, 2, 3, "pig", ["pen", "boat", "map", "dig"], "pen",
-      { boat: "D-ONSET", map: "D-POSITION", dig: "D-RIME-NEAR" },
-      "map ends /p/; dig rhymes with the anchor"),
+    ps("p", 1, 2, 3, "pig", ["pen", "boat", "map", "lid"], "pen",
+      { boat: "D-ONSET", map: "D-POSITION", lid: "D-RIME-NEAR" },
+      "map ends /p/; lid shares the short /i/ but ends differently"),
     fs("p", 2, 2, 1, "penguin", ["p", "b", "d", "n"], ONV),
     fs("p", 2, 2, 2, "pumpkin", ["p", "b", "q", "k"], ONV),
     ps("p", 2, 2, 3, "pen", ["pin", "bike", "boat", "bell"], "pin",
@@ -270,75 +269,72 @@ export default {
       "voicing panel: /p/ key against three /b/ starters"),
 
     // ---------------- r (phase 2)
-    fs("r", 1, 2, 1, "rug", ["r", "w", "n", "g"], ONV),
+    afs("r", 1, 2, 1, "run", ["r", "w", "u", "n"], ONV),
     fs("r", 1, 2, 2, "ring", ["r", "l", "n", "g"], ONV),
-    ps("r", 1, 2, 3, "ring", ["rose", "wheel", "deer", "king"], "rose",
+    ps("r", 1, 2, 3, "ring", ["rocket", "wheel", "deer", "king"], "rocket",
       { wheel: "D-ONSET", deer: "D-POSITION", king: "D-RIME-NEAR" },
       "deer ends /r/; king rhymes with the anchor"),
     fs("r", 2, 2, 1, "rainbow", ["r", "w", "l", "o"], ONV),
     fs("r", 2, 2, 2, "rocket", ["r", "w", "l", "t"], ONV),
-    ps("r", 2, 2, 3, "rug", ["ring", "wheel", "web", "wasp"], "ring",
-      { wheel: "D-ONSET", web: "D-ONSET", wasp: "D-ONSET" },
+    ps("r", 2, 2, 3, "rocket", ["ring", "wheel", "web", "van"], "ring",
+      { wheel: "D-ONSET", web: "D-ONSET", van: "D-VISUAL-NEIGHBOR" },
       "glide panel: /r/ key against three /w/ starters — the wabbit error"),
 
     // ---------------- s (phase 2) — c never appears (it can spell /s/)
     fs("s", 1, 2, 1, "sun", ["s", "z", "e", "n"], ONV),
-    fs("s", 1, 2, 2, "sock", ["s", "z", "e", "k"], ONV),
-    ps("s", 1, 2, 3, "sun", ["sock", "zip", "glass", "run"], "sock",
-      { zip: "D-ONSET", glass: "D-POSITION", run: "D-RIME-NEAR" },
-      "glass ends /s/; run rhymes with the anchor"),
+    fs("s", 1, 2, 2, "seal", ["s", "z", "e", "l"], ONV),
+    ps("s", 1, 2, 3, "sun", ["seal", "zebra", "glass", "mug"], "seal",
+      { zebra: "D-ONSET", glass: "D-POSITION", mug: "D-RIME-NEAR" },
+      "glass ends /s/; mug shares the short vowel but not the rime"),
     fs("s", 2, 2, 1, "sunflower", ["s", "z", "e", "r"], ONV),
     fs("s", 2, 2, 2, "sandwich", ["s", "z", "e", "h"], ONV),
-    ps("s", 2, 2, 3, "sock", ["sun", "zip", "zoo", "zebra"], "sun",
-      { zip: "D-ONSET", zoo: "D-ONSET", zebra: "D-ONSET" },
-      "voicing panel: /s/ key against three /z/ starters"),
+    ps("s", 2, 2, 3, "sock", ["sun", "zebra", "van", "ship"], "sun",
+      { zebra: "D-ONSET", van: "D-VISUAL-NEIGHBOR", ship: "D-PATTERN-TRAP" },
+      "zebra supplies the /z/ voicing trap; ship is a familiar s-family spelling trap"),
 
     // ---------------- t (phase 2)
     fs("t", 1, 2, 1, "tent", ["t", "d", "f", "n"], ONV),
-    fs("t", 1, 2, 2, "toe", ["t", "d", "f", "o"], ONV),
-    ps("t", 1, 2, 3, "tent", ["toe", "dog", "hat", "net"], "toe",
+    afs("t", 1, 2, 2, "tap", ["t", "d", "f", "p"], ONV),
+    ps("t", 1, 2, 3, "tent", ["tiger", "dog", "hat", "net"], "tiger",
       { dog: "D-ONSET", hat: "D-POSITION", net: "D-RIME-NEAR" },
       "hat ends /t/; net shares the anchor's -et ending"),
     fs("t", 2, 2, 1, "tiger", ["t", "d", "f", "r"], ONV),
     fs("t", 2, 2, 2, "tomato", ["t", "d", "l", "o"], ONV),
-    ps("t", 2, 2, 3, "tooth", ["tie", "dog", "duck", "dish"], "tie",
-      { dog: "D-ONSET", duck: "D-ONSET", dish: "D-ONSET" },
+    ps("t", 2, 2, 3, "tooth", ["tie", "dog", "duck", "fan"], "tie",
+      { dog: "D-ONSET", duck: "D-ONSET", fan: "D-VISUAL-NEIGHBOR" },
       "voicing panel: /t/ key against three /d/ starters"),
 
     // ---------------- u (phase 2)
     fs("u", 1, 2, 1, "umbrella", ["u", "o", "n", "a"], VOW),
-    afs("u", 1, 2, 2, "up", ["u", "o", "n", "p"],
-      ["D-VOWEL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
-    afs("u", 1, 2, 3, "under", ["u", "o", "n", "r"],
-      ["D-VOWEL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
+    afs("u", 1, 2, 2, "up", ["u", "o", "n", "p"], VOW),
+    afs("u", 1, 2, 3, "under", ["u", "o", "a", "r"], VOW),
     afs("u", 2, 2, 1, "uncle", ["u", "o", "n", "l"],
       ["D-VOWEL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
-    afs("u", 2, 2, 2, "upset", ["u", "o", "e", "t"], VOW),
-    afs("u", 2, 2, 3, "upstairs", ["u", "o", "v", "s"],
-      ["D-VOWEL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
+    afs("u", 2, 2, 2, "upstairs", ["u", "o", "v", "s"], VOW),
+    afs("u", 2, 2, 3, "upset", ["u", "o", "e", "t"], VOW),
 
     // ---------------- v (phase 2)
     fs("v", 1, 2, 1, "van", ["v", "f", "y", "n"], ONV),
     fs("v", 1, 2, 2, "vase", ["v", "f", "y", "s"], ONV),
-    ps("v", 1, 2, 3, "van", ["vest", "fan", "web", "man"], "vest",
-      { fan: "D-ONSET", web: "D-VISUAL-NEIGHBOR", man: "D-RIME-NEAR" },
-      "fan is the f/v voicing trap AND rhymes with the anchor; man rhymes too"),
+    ps("v", 1, 2, 3, "van", ["vase", "fan", "web", "pan"], "vase",
+      { fan: "D-ONSET", web: "D-VISUAL-NEIGHBOR", pan: "D-RIME-NEAR" },
+      "fan is the f/v voicing trap; pan rhymes with the anchor"),
     fs("v", 2, 2, 1, "volcano", ["v", "f", "y", "o"], ONV),
     fs("v", 2, 2, 2, "vulture", ["v", "f", "w", "r"], ONV),
-    ps("v", 2, 2, 3, "vet", ["van", "fan", "fish", "fin"], "van",
-      { fan: "D-ONSET", fish: "D-ONSET", fin: "D-ONSET" },
+    ps("v", 2, 2, 3, "vase", ["van", "fan", "fish", "fork"], "van",
+      { fan: "D-ONSET", fish: "D-ONSET", fork: "D-ONSET" },
       "voicing panel: /v/ key against three /f/ starters; van/fan is a true minimal pair"),
 
     // ---------------- w (phase 2)
     fs("w", 1, 2, 1, "web", ["w", "v", "m", "b"], ONV),
-    fs("w", 1, 2, 2, "worm", ["w", "v", "u", "m"], ONV),
-    ps("w", 1, 2, 3, "web", ["worm", "vase", "mop", "net"], "worm",
+    fs("w", 1, 2, 2, "wasp", ["w", "v", "u", "p"], ONV),
+    ps("w", 1, 2, 3, "web", ["window", "vase", "mop", "net"], "window",
       { vase: "D-ONSET", mop: "D-VISUAL-NEIGHBOR", net: "D-SEMANTIC" },
       "a net looks and works like a web — semantic pull with a different onset"),
     fs("w", 2, 2, 1, "watermelon", ["w", "v", "m", "n"], ONV),
     fs("w", 2, 2, 2, "window", ["w", "v", "u", "o"], ONV),
-    ps("w", 2, 2, 3, "wasp", ["wheel", "vest", "van", "vase"], "wheel",
-      { vest: "D-ONSET", van: "D-ONSET", vase: "D-ONSET" },
+    ps("w", 2, 2, 3, "wasp", ["wheel", "vase", "van", "volcano"], "wheel",
+      { vase: "D-ONSET", van: "D-ONSET", volcano: "D-ONSET" },
       "glide panel: /w/ key against three /v/ starters"),
 
     // ---------------- y (phase 2)
@@ -351,33 +347,37 @@ export default {
     afs("y", 2, 2, 3, "yard", ["y", "w", "v", "d"], ONV),
 
     // ---------------- z (phase 2)
-    fs("z", 1, 2, 1, "zip", ["z", "s", "n", "p"], ONV),
-    fs("z", 1, 2, 2, "zoo", ["z", "s", "n", "o"], ONV),
-    ps("z", 1, 2, 3, "zip", ["zoo", "sock", "rose", "ship"], "zoo",
-      { sock: "D-ONSET", rose: "D-POSITION", ship: "D-RIME-NEAR" },
-      "rose ends /z/; ship rhymes with the anchor"),
-    fs("z", 2, 2, 1, "zebra", ["z", "s", "n", "a"], ONV),
-    fs("z", 2, 2, 2, "zigzag", ["z", "s", "n", "g"], ONV),
-    ps("z", 2, 2, 3, "zoo", ["zebra", "sun", "sock", "sheep"], "zebra",
-      { sun: "D-ONSET", sock: "D-ONSET", sheep: "D-ONSET" },
+    fs("z", 1, 2, 1, "zipper", ["z", "s", "n", "r"], ONV),
+    fs("z", 1, 2, 2, "zebra", ["z", "s", "n", "a"], ONV),
+    ps("z", 1, 2, 3, "zoo", ["zebra", "seal", "rose", "ship"], "zebra",
+      { seal: "D-ONSET", rose: "D-POSITION", ship: "D-RIME-NEAR" },
+      "rose ends /z/; ship shares the short-i vowel"),
+    afs("z", 2, 2, 1, "zigzag", ["z", "s", "n", "g"], ONV),
+    afs("z", 2, 2, 2, "zero", ["z", "s", "n", "o"], ONV),
+    ps("z", 2, 2, 3, "zero", ["zebra", "sun", "seal", "sheep"], "zebra",
+      { sun: "D-ONSET", seal: "D-ONSET", sheep: "D-ONSET" },
       "voicing panel: /z/ key against three /s/ starters"),
 
     // ---------------- Retention reserve (form R)
     fs("a", 2, 1, 7, "ambulance", ["a", "e", "o", "s"], VOW),
-    fs("e", 2, 1, 7, "engine", ["e", "i", "c", "n"], VOW),
+    afs("e", 2, 1, 7, "empty", ["e", "i", "c", "y"], VOW),
     fs("m", 1, 1, 7, "mat", ["m", "n", "h", "t"], ONV),
-    fs("s", 2, 2, 7, "sandcastle", ["s", "z", "e", "l"], ONV),
-    fs("t", 2, 2, 7, "table", ["t", "d", "f", "l"], ONV),
+    fs("s", 2, 2, 7, "sandcastle", ["s", "z", "f", "l"],
+      ["D-ONSET", "D-ONSET", "D-POSITION"],
+      "z is the voicing neighbour, f is another continuous fricative, and l is the final-sound trap"),
+    fs("t", 2, 2, 7, "train", ["t", "d", "p", "n"],
+      ["D-ONSET", "D-ONSET", "D-POSITION"],
+      "d is the voicing neighbour, p is another voiceless stop, and n is the final-sound trap"),
     ps("b", 1, 1, 7, "bike", ["bell", "pig", "dog", "web"], "bell",
       { pig: "D-ONSET", dog: "D-ONSET", web: "D-POSITION" }),
-    ps("g", 2, 1, 7, "goat", ["gift", "kite", "king", "key"], "gift",
-      { kite: "D-ONSET", king: "D-ONSET", key: "D-ONSET" }),
+    ps("g", 2, 1, 7, "goat", ["gate", "cap", "king", "key"], "gate",
+      { cap: "D-ONSET", king: "D-ONSET", key: "D-ONSET" }),
     ps("n", 1, 2, 7, "nose", ["net", "mug", "moon", "mat"], "net",
       { mug: "D-ONSET", moon: "D-ONSET", mat: "D-ONSET" }),
-    ps("r", 2, 2, 7, "rose", ["ram", "wasp", "wheel", "web"], "ram",
-      { wasp: "D-ONSET", wheel: "D-ONSET", web: "D-ONSET" }),
-    ps("w", 1, 2, 7, "wheel", ["wasp", "vest", "van", "moon"], "wasp",
-      { vest: "D-ONSET", van: "D-ONSET", moon: "D-VISUAL-NEIGHBOR" })
+    ps("r", 2, 2, 7, "rocket", ["rat", "van", "wheel", "web"], "rat",
+      { van: "D-VISUAL-NEIGHBOR", wheel: "D-ONSET", web: "D-ONSET" }),
+    ps("w", 1, 2, 7, "web", ["window", "vase", "van", "moon"], "window",
+      { vase: "D-ONSET", van: "D-ONSET", moon: "D-VISUAL-NEIGHBOR" })
   ].map(item => {
     if (item.v >= 7) item.retention = true;
     return item;

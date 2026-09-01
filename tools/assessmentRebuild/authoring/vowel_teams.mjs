@@ -9,8 +9,8 @@
 //     carrying a same-letters short-vowel trap (plan for play, got for goat).
 //     Keys never contain ound/ong chunks (the prompt words sound/long would
 //     hand them to a scanner); a chunk-tied distractor rides where needed.
-//   PICTURE_TO_PRINT_MATCH — a controlled picture pins one target and all four
-//     options are real words from the same taught spelling family.
+//   LISTEN_FIND_WORD — the heard target pins one word and all four options are
+//     real words from the same taught spelling family.
 //   PTD — two-sounds odd-one-out for genuinely variable vowel teams.
 // Spec: docs/skills-assessment-rebuild/BLUEPRINTS_PHONICS.md §13.
 
@@ -18,19 +18,22 @@ import { makeImageResolver } from "../lib.mjs";
 
 const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
+const sentenceCase = value => value ? `${value[0].toUpperCase()}${value.slice(1)}` : value;
 
 const resolver = makeImageResolver(["long-vowels", "blends", "digraphs", "hfw", "cvc", "rhyming"]);
 
-const cw = (u, lvl, ph, v, word, blanked, patterns, note = "") => ({
-  u, lvl, ph, v, fmt: "LONG_VOWEL_TEAM_COMPLETE",
-  prompt: `Finish: ${blanked}`,
-  spoken: `${word}. Which letters finish the word ${word}?`,
-  choices: patterns.map((p, i) => (i === 0 ? K(p) : P(p, "D-PATTERN-TRAP"))),
-  media: resolver(word) ? "image-required" : "text",
-  img: resolver(word) ? word : undefined,
-  target: word,
-  note
-});
+const cw = (u, lvl, ph, v, word, blanked, patterns, note = "") => {
+  const letterCount = u === "igh" ? "three" : "two";
+  return {
+    u, lvl, ph, v, fmt: "LONG_VOWEL_TEAM_COMPLETE",
+    prompt: `Which ${letterCount} letters complete ${blanked}?`,
+    spoken: `${sentenceCase(word)}. Which ${letterCount} letters complete the word?`,
+    choices: patterns.map((p, i) => (i === 0 ? K(p) : P(p, "D-PATTERN-TRAP"))),
+    media: "audio-required",
+    target: word,
+    note
+  };
+};
 
 const cps = (u, lvl, ph, v, soundName, words, keyWord, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "CPS",
@@ -46,24 +49,27 @@ const cps = (u, lvl, ph, v, soundName, words, keyWord, rationales, note = "") =>
 // letter scanner, and matching the sound across spellings IS the L2 construct.
 const cpsX = (u, lvl, ph, v, anchor, words, keyWord, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "CPS",
-  prompt: `Which word has the same sound as ${anchor}?`,
-  spoken: `${anchor}. Which word has the same middle sound as ${anchor}?`,
+  prompt: "Which word has the same vowel sound?",
+  spoken: `${sentenceCase(anchor)}. Which word has the same vowel sound?`,
   choices: words.map(w => (w === keyWord ? K(w) : P(w, rationales[w]))),
-  media: "text",
+  media: "audio-required",
   target: anchor,
+  audioRole: "target_word",
+  evidenceModality: "audio+print",
   note
 });
 
 const ptdSpell = (u, lvl, ph, v, word, realWords, note = "") => ({
-  u, lvl, ph, v, fmt: "PICTURE_TO_PRINT_MATCH",
-  prompt: "Which word names the picture?",
-  spoken: "Which word names the picture?",
+  u, lvl, ph, v, fmt: "LISTEN_FIND_WORD", questionType: "listen_and_find_word",
+  prompt: "Which printed word matches the recording?",
+  spoken: `${sentenceCase(word)}. Which printed word matches the recording?`,
   choices: [K(word), ...realWords.map(candidate => P(candidate, "D-PATTERN-TRAP"))],
-  media: "image-required",
-  img: word,
+  media: "audio-required",
   target: word,
-  constructClaim: "picture_to_real_word_vowel_team_recognition",
-  note: note || "all choices are real words from the taught vowel-team family"
+  audioRole: "target_word",
+  evidenceModality: "audio+print",
+  constructClaim: "spoken_to_real_word_vowel_team_recognition",
+  note: note || "all choices are real words from the taught vowel-team family; the target is heard, never pictured"
 });
 
 // Two-sounds odd-one-out (L2).
@@ -117,8 +123,8 @@ export default {
 
     // ================= L1 phase 2: ea oa igh =================
     cw("ea", 1, 2, 1, "leaf", "l__f", ["ea", "ee", "ai", "oa"]),
-    cw("ea", 1, 2, 2, "meat", "m__t", ["ea", "ee", "ai", "oa"],
-      "meet is real — the meat image pins the target"),
+    cw("ea", 1, 2, 2, "peach", "p__ch", ["ea", "ee", "ai", "oa"],
+      "the heard word pins the conventional spelling; the alternatives are not words"),
     cps("ea", 1, 2, 3, "long e", ["leaf", "leg", "fish", "drum"], "leaf",
       { leg: "D-PATTERN-TRAP", fish: "D-VOWEL", drum: "D-VOWEL" }),
     ptdOdd("ea", 1, 2, 4, "long e", ["bread", "meat", "leaf", "beach"], "bread",
@@ -126,7 +132,7 @@ export default {
     ptdOdd("ea", 1, 2, 5, "long e", ["dead", "sea", "beach", "peach"], "dead", "", "short e"),
     ptdSpell("ea", 1, 2, 6, "beach", ["leaf", "meat", "sea"]),
     cw("oa", 1, 2, 1, "boat", "b__t", ["oa", "ee", "ai", "igh"],
-      "beet and bait are real — the boat image pins the target"),
+      "beet and bait are real — the heard word pins the target"),
     cw("oa", 1, 2, 2, "goat", "g__t", ["oa", "ea", "ai", "ee"]),
     cps("oa", 1, 2, 3, "long o", ["goat", "got", "pin", "hen"], "goat",
       { got: "D-PATTERN-TRAP", pin: "D-VOWEL", hen: "D-VOWEL" },
@@ -147,7 +153,7 @@ export default {
 
     // ================= L2 phase 1: oo ow ou oi =================
     cw("oo", 2, 1, 1, "moon", "m__n", ["oo", "ew", "oa", "ou"],
-      "moan is real — the moon image pins the target"),
+      "moan is real — the heard word pins the target"),
     cw("oo", 2, 1, 2, "spoon", "sp__n", ["oo", "ew", "oa", "ai"]),
     cpsX("oo", 2, 1, 3, "blue", ["broom", "book", "bed", "pig"], "broom",
       { book: "D-PATTERN-TRAP", bed: "D-VOWEL", pig: "D-VOWEL" },
@@ -188,7 +194,7 @@ export default {
 
     // ================= L2 phase 2: oy ew aw =================
     cw("oy", 2, 2, 1, "boy", "b__", ["oy", "oi", "ai", "ay"],
-      "bay is real — the boy image pins the target; boi is the position error"),
+      "bay is real — the heard word pins the target; boi is the position error"),
     cw("oy", 2, 2, 2, "joy", "j__", ["oy", "oi", "ai", "ee"],
       "joi, jai and jee are non-words"),
     cpsX("oy", 2, 2, 3, "coin", ["toy", "top", "net", "rug"], "toy",
@@ -206,7 +212,7 @@ export default {
     ptdSpell("ew", 2, 2, 5, "new", ["chew", "flew", "grew"]),
     ptdSpell("ew", 2, 2, 6, "flew", ["new", "chew", "blue"]),
     cw("aw", 2, 2, 1, "draw", "dr__", ["aw", "ew", "ow", "oa"],
-      "drew is real — the draw image pins the target"),
+      "drew is real — the heard word pins the target"),
     cw("aw", 2, 2, 2, "yawn", "y__n", ["aw", "ew", "oo", "oa"],
       "yewn, yoon and yoan are non-words"),
     cpsX("aw", 2, 2, 3, "ball", ["saw", "sat", "pin", "mug"], "saw",
@@ -227,7 +233,7 @@ export default {
     ptdSpell("ai", 1, 1, 8, "rain", ["chain", "train", "paint"]),
     ptdOdd("ow", 2, 1, 7, "ow (as in snow)", ["brown", "grow", "show", "slow"], "brown"),
     cw("oa", 1, 2, 8, "road", "r__d", ["oa", "ee", "ai", "igh"],
-      "reed and raid are real — the road image pins the target"),
+      "reed and raid are real — the heard word pins the target"),
     cpsX("oi", 2, 1, 7, "joy", ["boil", "bell", "pot", "sun"], "boil",
       { bell: "D-PATTERN-TRAP", pot: "D-VOWEL", sun: "D-VOWEL" }),
     cw("ew", 2, 2, 7, "new", "n__", ["ew", "oo", "ow", "oy"],

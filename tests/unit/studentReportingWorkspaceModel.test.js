@@ -1404,6 +1404,7 @@ test("EL 3 to 6 cards and evidence obey the selected benchmark grade and window"
 });
 
 test("Skills Check card uses the newest terminal attempt while item evidence keeps current independent attempts", () => {
+  const now = new Date("2026-08-02T00:00:00.000Z");
   const makeCheckpoint = ({ attemptId, completedAt, responseStatus, passed }) => attempt({
     attemptId,
     completedAt,
@@ -1432,7 +1433,8 @@ test("Skills Check card uses the newest terminal attempt while item evidence kee
   });
   const failedLatest = buildStudentReportingWorkspaceModel({
     student,
-    assessmentHistory: [oldPass, latestFail]
+    assessmentHistory: [oldPass, latestFail],
+    now
   });
   const failedSkill = failedLatest.skillsCheck.skills[0];
   const failedItem = failedLatest.skillsCheck.items.find(row => row.concept.key === "m");
@@ -1463,7 +1465,8 @@ test("Skills Check card uses the newest terminal attempt while item evidence kee
   });
   const passedLatest = buildStudentReportingWorkspaceModel({
     student,
-    assessmentHistory: [latestFail, latestPass]
+    assessmentHistory: [latestFail, latestPass],
+    now
   });
   assert.equal(
     passedLatest.skillsCheck.skills[0].currentStatus.id,

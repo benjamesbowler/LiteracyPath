@@ -2,9 +2,9 @@
 // Construct: HEAR/identify the medial short vowel — distinct from
 // cvc_short_vowels (decode/build). 5 units, D-small, 6 variants per level.
 // Formats:
-//   LISTEN_CHOOSE_VOWEL — image only, the word is NEVER printed: the child
-//     names the picture and identifies the middle vowel. Closed-set letters,
-//     scanner-null. Spoken line carries the word for the audio tier.
+//   LISTEN_CHOOSE_VOWEL — the target word is heard and NEVER printed: the
+//     child identifies its middle vowel. Closed-set letters, scanner-null;
+//     no picture-name uncertainty contaminates the listening construct.
 //   PICTURE_TO_PRINT_MATCH — image → 4 printed words, vowel-varied sets that
 //     never duplicate cvc_short_vowels' sets within this bank.
 //   SHORT_VOWEL_IMAGE_GROUP_SELECT (L2) — 4 picture cards, pick the one whose
@@ -17,30 +17,32 @@ import { makeImageResolver } from "../lib.mjs";
 
 const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
+const sentenceCase = value => value ? `${value[0].toUpperCase()}${value.slice(1)}` : value;
 
 const resolver = makeImageResolver(["cvc", "vowels", "rhyming", "digraphs", "blends", "long-vowels", "hfw"]);
 
-// LISTEN_CHOOSE_VOWEL: image only, vowel letter choices.
+// LISTEN_CHOOSE_VOWEL: heard word, vowel letter choices. Removing the picture
+// prevents object-name uncertainty from contaminating a listening construct.
 const lcv = (u, lvl, ph, v, word, vowels, note = "") => ({
   u, lvl, ph, v, fmt: "LISTEN_CHOOSE_VOWEL",
-  prompt: "Which vowel do you hear in the middle?",
-  spoken: `${word}. Which vowel do you hear in the middle of ${word}?`,
+  prompt: "Which letter spells the middle vowel sound?",
+  spoken: `${sentenceCase(word)}. Which letter spells the middle vowel sound?`,
   choices: vowels.map((l, i) => (i === 0 ? K(l) : P(l, "D-VOWEL"))),
-  media: "image-required",
-  img: word,
+  media: "audio-required",
   target: word,
-  note: note || "the word is never printed — the picture carries it"
+  note: note || "the word is heard and never printed"
 });
 
-// PICTURE_TO_PRINT_MATCH: image → minimal-pair printed words.
+// Heard target → minimal-pair printed words.
 const pp = (u, lvl, ph, v, word, words, rationales = {}, note = "") => ({
-  u, lvl, ph, v, fmt: "PICTURE_TO_PRINT_MATCH",
-  prompt: "Which word goes with the picture?",
-  spoken: "Which word goes with the picture?",
+  u, lvl, ph, v, fmt: "LISTEN_FIND_WORD", questionType: "listen_and_find_word",
+  prompt: "Which printed word matches the recording?",
+  spoken: `${sentenceCase(word)}. Which printed word matches the recording?`,
   choices: words.map(w => (w === word ? K(w) : P(w, rationales[w] || "D-VOWEL"))),
-  media: "image-required",
-  img: word,
+  media: "audio-required",
   target: word,
+  audioRole: "target_word",
+  evidenceModality: "audio+print",
   note
 });
 
@@ -49,11 +51,14 @@ const pp = (u, lvl, ph, v, word, words, rationales = {}, note = "") => ({
 // card (fin, pin) for a letter matcher. The spoken line keeps the full phrase.
 const gs = (u, lvl, ph, v, vowelName, cards, keyWord, note = "") => ({
   u, lvl, ph, v, fmt: "SHORT_VOWEL_IMAGE_GROUP_SELECT",
-  prompt: `Which picture has the short ${vowelName} sound?`,
-  spoken: `Which picture's word has the short ${vowelName} sound in the middle?`,
+  prompt: `Which pictured word has the short ${vowelName} sound?`,
+  spoken: `Which pictured word has the short ${vowelName} sound in the middle?`,
   cards,
   choices: cards.map(w => (w === keyWord ? K(w) : P(w, "D-VOWEL"))),
   media: "image-required",
+  evidenceModality: "audio+image",
+  constructClaim: "short_vowel_picture_word_discrimination",
+  hideWrittenLabels: true,
   note
 });
 
@@ -78,7 +83,7 @@ export default {
       { flip: "D-VOWEL", flop: "D-VOWEL", flap: "D-VISUAL-NEIGHBOR" },
       "flag/flap differ by one letter; flip/flop swap the vowel"),
     gs("short_a", 2, 1, 5, "a", ["bag", "bed", "pig", "dog"], "bag"),
-    gs("short_a", 2, 1, 6, "a", ["ram", "net", "pin", "mop"], "ram"),
+    gs("short_a", 2, 1, 6, "a", ["ham", "net", "pin", "mop"], "ham"),
 
     // ================= short_e =================
     lcv("short_e", 1, 1, 1, "web", ["e", "a", "i", "o"]),
@@ -96,7 +101,7 @@ export default {
       { bolt: "D-VOWEL", built: "D-VOWEL", bell: "D-DEVELOPMENTAL" },
       "bell drops the final t — cluster reduction"),
     gs("short_e", 2, 1, 5, "e", ["bed", "bag", "pig", "sun"], "bed"),
-    gs("short_e", 2, 1, 6, "e", ["ten", "tap", "tub", "dog"], "ten"),
+    gs("short_e", 2, 1, 6, "e", ["ten", "cap", "tub", "dog"], "ten"),
 
     // ================= short_i =================
     lcv("short_i", 1, 1, 1, "bin", ["i", "e", "a", "u"]),
@@ -116,8 +121,9 @@ export default {
     pp("short_i", 2, 1, 4, "brick", ["brick", "black", "block", "click"],
       { black: "D-VOWEL", block: "D-VOWEL", click: "D-VISUAL-NEIGHBOR" },
       "click ties the ic/which overlap"),
-    gs("short_i", 2, 1, 5, "i", ["fin", "fan", "log", "cup"], "fin"),
-    gs("short_i", 2, 1, 6, "i", ["dig", "dog", "bag", "sun"], "dig"),
+    gs("short_i", 2, 1, 5, "i", ["brick", "fan", "log", "cup"], "brick",
+      "a concrete brick target replaces the less distinctive fin card"),
+    gs("short_i", 2, 1, 6, "i", ["pig", "dog", "bag", "sun"], "pig"),
 
     // ================= short_o =================
     lcv("short_o", 1, 2, 1, "fox", ["o", "a", "u", "e"]),
@@ -154,7 +160,7 @@ export default {
       { plan: "D-VOWEL", plot: "D-VOWEL", plum: "D-VISUAL-NEIGHBOR" }),
     pp("short_u", 2, 2, 4, "truck", ["truck", "track", "trick", "trunk"],
       { track: "D-VOWEL", trick: "D-VOWEL", trunk: "D-VISUAL-NEIGHBOR" }),
-    gs("short_u", 2, 2, 5, "u", ["bug", "bag", "dot", "pen"], "bug"),
+    gs("short_u", 2, 2, 5, "u", ["bug", "bag", "pot", "pen"], "bug"),
     gs("short_u", 2, 2, 6, "u", ["mug", "mat", "pig", "hen"], "mug"),
 
     // ================= Retention reserve (form R) =================

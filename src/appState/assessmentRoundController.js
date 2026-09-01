@@ -805,6 +805,20 @@ export function createAssessmentRoundController(context) {
       })
       : normalizedQuestion;
 
+    const mediaValidationIssues = assessmentMediaPickerRef.current?.validateResolvedQuestionMedia
+      ? assessmentMediaPickerRef.current.validateResolvedQuestionMedia(mediaResolvedQuestion)
+      : [];
+    if (mediaValidationIssues.length > 0) {
+      const failedQuestionId = String(mediaResolvedQuestion.id || normalizedQuestion.id || "");
+      if (failedQuestionId) failedAssessmentMediaRef.current.failedQuestionIds.add(failedQuestionId);
+      debugAssessmentCoverage("assessment question blocked by runtime media validation", {
+        questionId: failedQuestionId,
+        skillId: mediaResolvedQuestion.skillId || stage?.id || fallbackSkillId,
+        issues: mediaValidationIssues
+      });
+      return null;
+    }
+
     const preparedChoices = Array.isArray(mediaResolvedQuestion.choices)
       ? (isPairSelectionQuestion(mediaResolvedQuestion) ? mediaResolvedQuestion.choices : shuffleArray(mediaResolvedQuestion.choices))
       : mediaResolvedQuestion.choices;
@@ -898,7 +912,14 @@ export function createAssessmentRoundController(context) {
         return;
       }
 
-      const preparedReviewQuestion = prepareQuestion(reviewPool[0], true);
+      const preparedReviewQuestion = reviewPool
+        .map(question => prepareQuestion(question, true))
+        .find(Boolean);
+      if (!preparedReviewQuestion) {
+        setMessage("No media-valid targeted review questions are available yet.");
+        setAssessmentTransitioning(false);
+        return;
+      }
       preloadAssessmentQuestionWindow([preparedReviewQuestion, ...reviewPool.slice(1, 3)]);
       setCurrentQuestion(preparedReviewQuestion);
       setAssessmentTransitioning(false);
@@ -934,6 +955,10 @@ export function createAssessmentRoundController(context) {
       });
 
       const preparedInitialSoundQuestion = prepareQuestion(picked);
+      if (!preparedInitialSoundQuestion) {
+        pickQuestion(mode, activeStageIndex);
+        return;
+      }
       preloadAssessmentQuestionWindow([
         preparedInitialSoundQuestion,
         ...initialSoundRoundQueueRef.current.slice(0, 2)
@@ -994,6 +1019,10 @@ export function createAssessmentRoundController(context) {
     });
 
     const preparedQuestion = prepareQuestion(picked);
+    if (!preparedQuestion) {
+      pickQuestion(mode, activeStageIndex);
+      return;
+    }
     preloadAssessmentQuestionWindow([
       preparedQuestion,
       ...prioritized.filter(question => question.id !== picked.id).slice(0, 2)
