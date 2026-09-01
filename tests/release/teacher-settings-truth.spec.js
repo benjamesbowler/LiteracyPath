@@ -104,14 +104,21 @@ test("a failed saved-school lookup cannot become an editable blank school", asyn
   })).toHaveCount(0);
 
   await settings.getByRole("button", { name: "Try again", exact: true }).click();
+  await expect(settings.getByRole("heading", {
+    name: "Current school",
+    exact: true
+  })).toBeVisible();
+  await expect(settings.getByText("Literacy Guide Audit School", {
+    exact: true
+  })).toBeVisible();
   await expect(settings.getByRole("textbox", {
     name: "School name",
     exact: true
-  })).toHaveValue("LiteracyPath Audit School");
+  })).toHaveCount(0);
   await expect(settings.getByRole("button", {
     name: "Save school information",
     exact: true
-  })).toBeEnabled();
+  })).toHaveCount(0);
 
   expect(browserErrors).toEqual([]);
 });

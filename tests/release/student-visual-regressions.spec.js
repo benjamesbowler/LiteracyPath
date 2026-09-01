@@ -165,7 +165,7 @@ test("the whole arcade fits a common child laptop viewport", async ({ page }) =>
   await page.goto("/preview/child-surfaces.html?surface=arcade");
 
   const grid = page.locator(".lg-game-tilegrid");
-  const tiles = await expectCompleteArcadeCatalogue(grid);
+  await expectCompleteArcadeCatalogue(grid);
 
   const geometry = await page.evaluate(() => {
     const rect = selector => document.querySelector(selector).getBoundingClientRect();
