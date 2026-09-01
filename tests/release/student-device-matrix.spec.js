@@ -930,6 +930,59 @@ async function expectCreatorInstructionClearOfHeaderControls(surface, state) {
   ).toEqual([]);
 }
 
+async function expectCreatorTabLabelsClear(tabs, state) {
+  const geometry = await tabs.evaluateAll(nodes => {
+    const toBox = rect => ({
+      left: rect.left,
+      top: rect.top,
+      right: rect.right,
+      bottom: rect.bottom
+    });
+    const contains = (container, box) => box.left >= container.left - 1
+      && box.top >= container.top - 1
+      && box.right <= container.right + 1
+      && box.bottom <= container.bottom + 1;
+    const labels = nodes.map(node => {
+      const tab = toBox(node.getBoundingClientRect());
+      const range = document.createRange();
+      range.selectNodeContents(node);
+      const textBoxes = [...range.getClientRects()]
+        .filter(box => box.width >= 1 && box.height >= 1)
+        .map(toBox);
+      const text = textBoxes.length > 0
+        ? {
+            left: Math.min(...textBoxes.map(box => box.left)),
+            top: Math.min(...textBoxes.map(box => box.top)),
+            right: Math.max(...textBoxes.map(box => box.right)),
+            bottom: Math.max(...textBoxes.map(box => box.bottom))
+          }
+        : null;
+      return {
+        label: node.textContent.trim(),
+        tab,
+        text,
+        textBoxes,
+        contained: textBoxes.length > 0 && textBoxes.every(box => contains(tab, box))
+      };
+    });
+    return labels.map((label, index) => ({
+      ...label,
+      gapToNext: index < labels.length - 1 && label.text && labels[index + 1].text
+        ? labels[index + 1].text.left - label.text.right
+        : null
+    }));
+  });
+  expect(geometry, `${state} exposes all five creator tab labels`).toHaveLength(5);
+  expect(
+    geometry.filter(label => !label.contained),
+    `${state} keeps every tab label inside its own control: ${JSON.stringify(geometry)}`
+  ).toEqual([]);
+  expect(
+    geometry.filter(label => label.gapToNext !== null && label.gapToNext < 2),
+    `${state} keeps adjacent tab labels visually separate: ${JSON.stringify(geometry)}`
+  ).toEqual([]);
+}
+
 async function expectLibraryHeaderControlsClear(surface, state) {
   const geometry = await surface.evaluate(element => {
     const controls = [...element.querySelectorAll(".kg-books-head button")]
@@ -2242,6 +2295,15 @@ test("A3.6 Sound Seekers compact creator contains option labels and locked rewar
     tabBoxes.every(box => box.width >= 56 && box.height >= 56),
     `compact creator keeps 56px-square tabs: ${JSON.stringify(tabBoxes)}`
   ).toBe(true);
+  await expectCreatorTabLabelsClear(tabs, "Sound Seekers compact creator tabs");
+  await page.addStyleTag({
+    content: `
+      [data-child-surface="sound-seekers"] .q-creator .q-tab {
+        font-family: ui-monospace, monospace !important;
+      }
+    `
+  });
+  await expectCreatorTabLabelsClear(tabs, "Sound Seekers wider-font creator tabs");
 
   const outfitsTab = creator.getByRole("tab", { name: "Outfits", exact: true });
   await outfitsTab.click();
