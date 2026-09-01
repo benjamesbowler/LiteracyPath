@@ -675,6 +675,27 @@
   object-fit: contain;
 }
 
+.phonics-img-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.phonics-img-frame > img {
+  display: block;
+  visibility: hidden;
+}
+
+.phonics-img-frame > img.is-loaded {
+  visibility: visible;
+}
+
+.phonics-img-frame > .phonics-img-placeholder {
+  position: absolute;
+  inset: 0;
+}
+
 .phonics-img-placeholder {
   width: 100%;
   height: 100%;

@@ -534,17 +534,21 @@ function buildStoryRounds(cycle) {
 function buildTraceRounds(cycle) {
   const rounds = focusEntries(cycle)
     .filter(entry => entry.spelling.length <= 2)
-    .map(entry => ({
-      type: "trace",
-      audio: graphemeAudioPath(entry.spelling),
-      speechFallback: entry.spelling,
-      prompt: "Trace the letter with your finger.",
-      display: "",
-      letter: entry.spelling.length === 1
-        ? `${entry.spelling.toUpperCase()}${entry.spelling}`
-        : entry.spelling,
-      choiceStyle: "trace"
-    }));
+    .flatMap(entry => {
+      const letterForms = entry.spelling.length === 1
+        ? [entry.spelling.toUpperCase(), entry.spelling.toLowerCase()]
+        : [entry.spelling];
+
+      return letterForms.map(letterForm => ({
+        type: "trace",
+        audio: graphemeAudioPath(entry.spelling),
+        speechFallback: entry.spelling,
+        prompt: "Trace the letter with your finger.",
+        display: "",
+        letter: letterForm,
+        choiceStyle: "trace"
+      }));
+    });
   return rounds.length ? rounds : buildLetterRounds(cycle);
 }
 

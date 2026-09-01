@@ -67,13 +67,7 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
   }, [tiles]);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0, x: -100 }}
-      transition={{ duration: 0.4 }}
-      className="phonics-step phonics-step-match kg-child-flow__content"
-    >
+    <div className="phonics-step phonics-step-match kg-child-flow__content">
       <motion.div className="phonics-step-heading" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}>
         <h2>{lesson.matchPrompt || `Find all the words that start with ${lesson.letter}!`}</h2>
       </motion.div>
@@ -84,7 +78,7 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
         <span aria-hidden="true">★</span>
       </motion.div>
 
-      <motion.div className="phonics-match-grid" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <div className="phonics-match-grid">
         {tiles.map(tile => {
           const tileKey = getTileKey(tile);
 
@@ -100,7 +94,7 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
             </div>
           );
         })}
-      </motion.div>
+      </div>
 
       <AnimatePresence mode="wait">
         {!isComplete ? (
@@ -120,7 +114,7 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
           Shuffle Again
         </motion.button>
       </motion.div>
-    </motion.div>
+    </div>
   );
 });
 

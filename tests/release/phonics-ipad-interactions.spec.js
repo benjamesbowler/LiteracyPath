@@ -38,7 +38,64 @@ test.beforeEach(async ({ page }, testInfo) => {
   await page.setViewportSize(IPAD_LANDSCAPE);
 });
 
+test("Letter Sounds keeps the same lesson and cards mounted through full screen", async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(HTMLElement.prototype, "requestFullscreen", {
+      configurable: true,
+      value: async function requestFullscreen() {}
+    });
+  });
+  await page.goto("/");
+  await page.getByRole("button", { name: "Try for free" }).click();
+  await page.getByRole("button", { name: "Start playing" }).click();
+  await page.locator("button").filter({ hasText: "Sounds and writing" }).click();
+  await page.getByRole("button", { name: "Letter A", exact: true }).click();
+  await page.getByRole("button", { name: "Skip", exact: true }).click();
+
+  const next = page.getByRole("button", { name: "Next Step", exact: true });
+  const accessibleTrace = page.getByRole("button", { name: /^Trace stroke/ });
+  for (let index = 0; index < 20 && !(await next.isVisible()); index += 1) {
+    if (await accessibleTrace.isVisible()) await accessibleTrace.click();
+    await page.waitForTimeout(100);
+  }
+  await expect(next).toBeVisible();
+  await next.click();
+
+  const cards = page.locator(".phonics-listen-card");
+  await expect(cards).toHaveCount(4);
+  await expect(page.locator(".phonics-is-for")).toHaveText("A is for...");
+  await page.evaluate(() => {
+    window.__letterCardsBeforeFullscreen = [
+      ...document.querySelectorAll(".phonics-listen-card")
+    ];
+  });
+
+  const fullscreen = page.locator(".learn-fullscreen-toggle");
+  await expect(fullscreen).toHaveAttribute("aria-label", "Enter full screen");
+  await expect(fullscreen).toBeHidden();
+  await fullscreen.evaluate(button => button.click());
+
+  await expect(cards).toHaveCount(4);
+  await expect(page.locator(".phonics-is-for")).toHaveText("A is for...");
+  expect(await page.evaluate(() => (
+    window.__letterCardsBeforeFullscreen.every(card => card.isConnected)
+  ))).toBe(true);
+
+  await expect(fullscreen).toHaveAttribute("aria-label", "Exit full screen");
+  await fullscreen.evaluate(button => button.click());
+  await expect(cards).toHaveCount(4);
+  expect(await page.evaluate(() => (
+    window.__letterCardsBeforeFullscreen.every(card => card.isConnected)
+  ))).toBe(true);
+});
+
 test("Letter Sounds word cards stay visible while their pictures are loaded", async ({ page }) => {
+  await page.route("**/*", async route => {
+    if (route.request().resourceType() === "image") {
+      await new Promise(resolve => setTimeout(resolve, 400));
+    }
+    await route.continue();
+  });
   await page.goto("/preview/child-surfaces.html?surface=phonics&step=2");
   await page.getByRole("button", { name: "Letter A", exact: true }).click();
 
@@ -52,10 +109,18 @@ test("Letter Sounds word cards stay visible while their pictures are loaded", as
       const cards = [...document.querySelectorAll(".phonics-listen-card")];
       samples.push(cards.map(card => {
         const image = card.querySelector("img");
+        let effectiveOpacity = 1;
+        for (let element = card; element; element = element.parentElement) {
+          effectiveOpacity *= Number.parseFloat(getComputedStyle(element).opacity) || 0;
+        }
         return {
-          opacity: Number.parseFloat(getComputedStyle(card).opacity),
+          effectiveOpacity,
           imageComplete: Boolean(image?.complete),
-          naturalWidth: image?.naturalWidth || 0
+          naturalWidth: image?.naturalWidth || 0,
+          stableVisual: Boolean(
+            (image?.complete && image?.naturalWidth > 0)
+            || card.querySelector(".phonics-img-placeholder")
+          )
         };
       }));
       await new Promise(resolve => setTimeout(resolve, 40));
@@ -65,11 +130,64 @@ test("Letter Sounds word cards stay visible while their pictures are loaded", as
 
   expect(evidence.length).toBeGreaterThan(20);
   expect(evidence.every(sample => sample.length === 4)).toBe(true);
-  expect(evidence.flat().every(card => card.opacity >= 0.99)).toBe(true);
-  await expect(cards.locator("img")).toHaveCount(4);
+  expect(evidence.flat().every(card => card.effectiveOpacity >= 0.99)).toBe(true);
+  expect(evidence.flat().every(card => card.stableVisual)).toBe(true);
+  const images = cards.locator("img");
+  await expect(images).toHaveCount(4);
   await expect.poll(async () => cards.locator("img").evaluateAll(images => (
     images.every(image => image.complete && image.naturalWidth > 0)
   ))).toBe(true);
+});
+
+test("CVC keeps a placeholder visible while the next word picture loads", async ({ page }) => {
+  let releaseBatImage = () => {};
+  const batImageGate = new Promise(resolve => {
+    releaseBatImage = resolve;
+  });
+  await page.route("**/images/child-mode/cvc/bat.png", async route => {
+    await batImageGate;
+    await route.continue();
+  });
+
+  await page.goto(
+    "/preview/child-surfaces.html?surface=phonics&island=words&unlockWords=1&step=1",
+    { waitUntil: "domcontentloaded" }
+  );
+  const pickerThumbnails = page.locator(".cvc-family-thumb img");
+  await expect(pickerThumbnails.first()).toBeAttached();
+  expect(await pickerThumbnails.evaluateAll(images => images.every(image => (
+    image.loading === "lazy"
+    && image.decoding === "async"
+    && image.fetchPriority === "auto"
+  )))).toBe(true);
+  await page.getByRole("button", { name: "at word nest", exact: true }).click();
+
+  const pictureButton = page.getByRole("button", { name: "Hear cat", exact: true });
+  await expect(pictureButton.locator("img")).toHaveAttribute("alt", "cat");
+  await page.getByRole("button", { name: "Sound out the word", exact: true }).click();
+  const nextWord = page.getByRole("button", { name: "Next Word", exact: true });
+  await expect(nextWord).toBeVisible({ timeout: 5_000 });
+  await nextWord.click();
+
+  const nextPictureButton = page.getByRole("button", { name: "Hear bat", exact: true });
+  await expect(nextPictureButton).toBeVisible();
+  expect(await nextPictureButton.evaluate(button => {
+    const image = button.querySelector("img");
+    return {
+      imageReady: Boolean(image?.complete && image?.naturalWidth > 0),
+      placeholderVisible: Boolean(button.querySelector(".phonics-img-placeholder"))
+    };
+  })).toEqual({
+    imageReady: false,
+    placeholderVisible: true
+  });
+
+  releaseBatImage();
+  await expect.poll(async () => nextPictureButton.locator("img").evaluate(image => (
+    image.complete && image.naturalWidth > 0
+  ))).toBe(true);
+  await expect(nextPictureButton.locator("img")).toHaveClass("is-loaded");
+  await expect(nextPictureButton.locator(".phonics-img-placeholder")).toHaveCount(0);
 });
 
 test("Letter Sounds matching cards keep their image and result faces separated", async ({ page }) => {
@@ -84,7 +202,13 @@ test("Letter Sounds matching cards keep their image and result faces separated",
     const startedAt = performance.now();
     while (performance.now() - startedAt < 1_200) {
       samples.push([...document.querySelectorAll(".phonics-match-grid > div")]
-        .map(card => Number.parseFloat(getComputedStyle(card).opacity)));
+        .map(card => {
+          let effectiveOpacity = 1;
+          for (let element = card; element; element = element.parentElement) {
+            effectiveOpacity *= Number.parseFloat(getComputedStyle(element).opacity) || 0;
+          }
+          return effectiveOpacity;
+        }));
       await new Promise(resolve => setTimeout(resolve, 40));
     }
     return samples;

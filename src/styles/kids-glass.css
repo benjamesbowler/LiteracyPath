@@ -263,6 +263,14 @@
   overflow: hidden;
 }
 
+/* Full screen changes the shell's chrome, never the identity of the activity
+   mounted inside it. Keeping the same stage and main nodes prevents Safari
+   from rebuilding lesson images and resetting the child's current step. */
+.kg-viewport--immersive .kg-stage .kg-header,
+.kg-viewport--immersive .kg-stage .kg-tabbar {
+  display: none;
+}
+
 /* THE SCROLL HATCH — deliberate, not broken.
  *
  * Screens that predate the canvas were written to own a full, scrolling
@@ -1182,7 +1190,11 @@
   min-height: 0;
 }
 
-.kg-stage .learn-fullscreen-toggle {
+/* A signed-in child is already inside the viewport-fitted glass stage. The
+   legacy fixed full-screen control otherwise lands under the Grown-ups button
+   on iPad and can also trigger a destructive shell transition. Teacher preview
+   remains outside .kg-stage and keeps its own full-screen control. */
+.student-mode-app .kg-stage .student-surface-frame .learn-fullscreen-toggle {
   display: none;
 }
 

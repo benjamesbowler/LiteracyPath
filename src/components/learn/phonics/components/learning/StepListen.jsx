@@ -24,7 +24,7 @@ const WordCard = memo(function WordCard({ word }) {
       type="button"
     >
       <span className="phonics-word-image-wrap">
-        <WordImage src={word.image} word={word.word} />
+        <WordImage src={word.image} word={word.word} priority />
       </span>
       <span className="phonics-word-label">{word.word}</span>
       {canHear && (
@@ -45,13 +45,7 @@ const StepListen = memo(function StepListen({ lesson, onComplete }) {
   }, [playPhonic]);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0, x: -100 }}
-      transition={{ duration: 0.4 }}
-      className="phonics-step phonics-step-listen kg-child-flow__content"
-    >
+    <div className="phonics-step phonics-step-listen kg-child-flow__content">
       <motion.div className="phonics-big-letter" initial={{ opacity: 0, scale: 0.3 }} animate={{ opacity: 1, scale: 1 }}>
         {lesson.letter}
       </motion.div>
@@ -95,7 +89,7 @@ const StepListen = memo(function StepListen({ lesson, onComplete }) {
         <AudioButton src={lesson.phonicAudio} fallbackText={lesson.phonicSound} size={64} />
         <PhonicsButton onClick={onComplete}>Next Step</PhonicsButton>
       </motion.div>
-    </motion.div>
+    </div>
   );
 });
 

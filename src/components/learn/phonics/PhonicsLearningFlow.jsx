@@ -47,15 +47,15 @@ export function PhonicsLearningFlow({ letter, initialStep = 1, onBack, onComplet
         )}
 
         {currentStep === 2 && (
-          <motion.div key="step2" className="phonics-flow-step kg-child-flow__step" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }}>
+          <div key="step2" className="phonics-flow-step kg-child-flow__step">
             <StepListen lesson={lesson} onComplete={handleStep2Complete} />
-          </motion.div>
+          </div>
         )}
 
         {currentStep === 3 && (
-          <motion.div key="step3" className="phonics-flow-step kg-child-flow__step" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }}>
+          <div key="step3" className="phonics-flow-step kg-child-flow__step">
             <StepMatch lesson={lesson} onComplete={handleStep3Complete} />
-          </motion.div>
+          </div>
         )}
       </AnimatePresence>
 

@@ -77,7 +77,7 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
             type="button"
             aria-label={`Hear ${currentWord.word}`}
           >
-            <WordImage src={currentWord.image} word={currentWord.word} />
+            <WordImage src={currentWord.image} word={currentWord.word} priority />
           </motion.button>
         </AnimatePresence>
       </div>

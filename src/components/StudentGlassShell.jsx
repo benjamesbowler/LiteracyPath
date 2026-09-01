@@ -173,6 +173,7 @@ export default function StudentGlassShell({
   tabs = STUDENT_TAB_BAR,
   showWallet = true,
   contentScrolls = false,
+  immersive = false,
   children
 }) {
   const stageRef = useRef(null);
@@ -233,7 +234,7 @@ export default function StudentGlassShell({
   };
 
   return (
-    <div className="kg-viewport lp-rail-shell">
+    <div className={`kg-viewport lp-rail-shell${immersive ? " kg-viewport--immersive" : ""}`}>
       <div className="kg-stage" ref={stageRef}>
         <div className="kg-ambient" aria-hidden="true" />
 

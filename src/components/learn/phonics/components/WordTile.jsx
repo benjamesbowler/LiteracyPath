@@ -33,7 +33,7 @@ const WordTile = memo(function WordTile({
       >
         <span className="phonics-word-tile-face phonics-word-tile-front">
           <span className="phonics-word-image-wrap">
-            <WordImage src={image} word={word} />
+            <WordImage src={image} word={word} priority />
           </span>
           <span className="phonics-word-label">{word}</span>
         </span>

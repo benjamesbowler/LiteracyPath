@@ -10,10 +10,90 @@ async function openFirstLetterTrace(page) {
   await page.getByRole("button", { name: /you are here/i }).click();
   await page.getByRole("button", { name: /Letter Trace/i }).click();
 
-  await expect(page.getByRole("heading", { name: "1 of 2" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "1 of 4" })).toBeVisible();
   await expect(page.locator(TRACE_CANVAS)).toBeVisible();
   await expect(page.getByRole("button", { name: "Check my letter" })).toBeDisabled();
 }
+
+test("Adventure Map traces one letter form at a time and owns the iPad gesture", async ({
+  page
+}, testInfo) => {
+  test.skip(testInfo.project.name !== "mobile", "This gate requires trusted touch input.");
+  await page.setViewportSize({ width: 1024, height: 768 });
+  await page.goto("/preview/child-surfaces.html?surface=adventure-map&quest=cycle-1&station=trace");
+
+  const canvas = page.locator(TRACE_CANVAS);
+  const traceBoundary = page.locator(".sbq-trace-stage");
+  await expect(page.getByRole("heading", { name: "1 of 4" })).toBeVisible();
+  await expect(canvas).toHaveAttribute("aria-label", "Trace the letter A");
+  await expect(page.locator(TRACE_TARGET)).toHaveCount(3);
+
+  expect(await traceBoundary.evaluate(element => {
+    const styles = getComputedStyle(element);
+    return {
+      overscrollBehavior: styles.overscrollBehavior,
+      touchAction: styles.touchAction,
+      userSelect: styles.userSelect
+    };
+  })).toEqual({
+    overscrollBehavior: "none",
+    touchAction: "none",
+    userSelect: "none"
+  });
+
+  await canvas.evaluate(element => {
+    window.__adventureTraceGestureEvidence = {
+      pointerEvents: [],
+      scrollEvents: [],
+      touchMoves: []
+    };
+    for (const type of ["pointerdown", "pointermove", "pointerup", "pointercancel"]) {
+      element.addEventListener(type, event => {
+        window.__adventureTraceGestureEvidence.pointerEvents.push({
+          defaultPrevented: event.defaultPrevented,
+          isTrusted: event.isTrusted,
+          pointerType: event.pointerType,
+          type
+        });
+      });
+    }
+    document.addEventListener("touchmove", event => {
+      window.__adventureTraceGestureEvidence.touchMoves.push({
+        defaultPrevented: event.defaultPrevented,
+        isTrusted: event.isTrusted
+      });
+    }, { passive: false });
+    for (const target of [document, window, visualViewport].filter(Boolean)) {
+      target.addEventListener("scroll", () => {
+        window.__adventureTraceGestureEvidence.scrollEvents.push({
+          windowX: window.scrollX,
+          windowY: window.scrollY,
+          viewportX: visualViewport?.pageLeft || 0,
+          viewportY: visualViewport?.pageTop || 0
+        });
+      }, { passive: true });
+    }
+  });
+
+  const targetStrokes = await renderedTargetStrokes(page);
+  const beforeScroll = await page.evaluate(() => ({ x: window.scrollX, y: window.scrollY }));
+  const driver = inputDriver(page, testInfo.project.name);
+  try {
+    await driver.draw([targetStrokes[0]]);
+  } finally {
+    await driver.close();
+  }
+
+  const afterScroll = await page.evaluate(() => ({ x: window.scrollX, y: window.scrollY }));
+  const evidence = await page.evaluate(() => window.__adventureTraceGestureEvidence);
+  expect(afterScroll).toEqual(beforeScroll);
+  expect(evidence.scrollEvents).toEqual([]);
+  expect(evidence.pointerEvents.some(event => event.type === "pointercancel")).toBe(false);
+  expect(evidence.pointerEvents.filter(event => event.type === "pointermove").length).toBeGreaterThan(4);
+  expect(evidence.pointerEvents.every(event => event.isTrusted)).toBe(true);
+  expect(evidence.touchMoves.length).toBeGreaterThan(4);
+  expect(evidence.touchMoves.every(event => event.isTrusted && event.defaultPrevented)).toBe(true);
+});
 
 /**
  * Sample the actual rendered target paths in screen coordinates. The release
@@ -94,7 +174,7 @@ async function expectRejected(page) {
   await expect(page.getByRole("button", { name: "Check my letter" })).toBeEnabled();
   await page.getByRole("button", { name: "Check my letter" }).click();
   await expect(page.locator(TRACE_STATUS)).toHaveText("Follow the grey letter.");
-  await expect(page.getByRole("heading", { name: "1 of 2" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "1 of 4" })).toBeVisible();
   await expect(page.getByText("That looks like the letter!", { exact: true })).toHaveCount(0);
 }
 
@@ -128,7 +208,7 @@ test("Letter Trace requires ordered formation through real mouse or touch input"
   test.setTimeout(60_000);
   await openFirstLetterTrace(page);
   let targetStrokes = await renderedTargetStrokes(page);
-  expect(targetStrokes.length).toBeGreaterThanOrEqual(4);
+  expect(targetStrokes.length).toBeGreaterThanOrEqual(3);
 
   const driver = inputDriver(page, testInfo.project.name);
   try {
@@ -187,7 +267,7 @@ test("Letter Trace requires ordered formation through real mouse or touch input"
     expect(pointerEvidence.every(event => event.isTrusted)).toBe(true);
     await page.getByRole("button", { name: "Check my letter" }).click();
     await expect(page.locator(TRACE_STATUS)).toHaveText("That looks like the letter!");
-    await expect(page.getByRole("heading", { name: "2 of 2" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "2 of 4" })).toBeVisible();
   } finally {
     await driver.close();
   }

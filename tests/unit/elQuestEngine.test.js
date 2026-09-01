@@ -90,6 +90,26 @@ test("Word Build rounds only use clean 2-5 letter words", () => {
   }
 });
 
+test("Letter Trace teaches uppercase and lowercase as separate rounds", () => {
+  const rounds = buildStationRounds(cycle1, "trace");
+
+  assert.deepEqual(
+    rounds.map(round => round.letter),
+    ["A", "a", "M", "m"]
+  );
+  assert.ok(
+    rounds.every(round => round.letter.length === 1),
+    "a child should never have to follow two letter formations on one canvas"
+  );
+
+  const cycle15 = elSkillsBlockCycles.find(cycle => cycle.id === "cycle-15");
+  assert.deepEqual(
+    buildStationRounds(cycle15, "trace").map(round => round.letter),
+    ["sh", "ch", "th"],
+    "a multi-letter grapheme stays together because it represents one sound"
+  );
+});
+
 test("every STATION has an id and a title", () => {
   for (const s of STATIONS) {
     assert.ok(s.id && s.title);

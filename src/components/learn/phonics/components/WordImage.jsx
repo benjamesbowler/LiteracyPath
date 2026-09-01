@@ -1,8 +1,11 @@
 import { useState } from "react";
 
-export function WordImage({ src, word, className = "" }) {
-  const [failed, setFailed] = useState(false);
+export function WordImage({ src, word, className = "", priority = false }) {
+  const [failedSrc, setFailedSrc] = useState("");
+  const [loadedSrc, setLoadedSrc] = useState("");
   const initial = (word || "?")[0].toUpperCase();
+  const failed = Boolean(src && failedSrc === src);
+  const loaded = Boolean(src && loadedSrc === src);
 
   if (failed || !src) {
     return (
@@ -13,14 +16,23 @@ export function WordImage({ src, word, className = "" }) {
   }
 
   return (
-    <img
-      src={src}
-      alt={word}
-      className={className}
-      onError={() => setFailed(true)}
-      loading="lazy"
-      decoding="async"
-      draggable={false}
-    />
+    <span className={`phonics-img-frame ${className}`}>
+      <img
+        src={src}
+        alt={word}
+        className={loaded ? "is-loaded" : ""}
+        onLoad={() => setLoadedSrc(src)}
+        onError={() => setFailedSrc(src)}
+        loading={priority ? "eager" : "lazy"}
+        decoding={priority ? "sync" : "async"}
+        fetchPriority={priority ? "high" : "auto"}
+        draggable={false}
+      />
+      {!loaded && (
+        <span className="phonics-img-placeholder" aria-hidden="true">
+          <span className="phonics-img-placeholder-letter">{initial}</span>
+        </span>
+      )}
+    </span>
   );
 }

@@ -137,7 +137,7 @@ const StepBuildWord = memo(function StepBuildWord({ family, onComplete }) {
           type="button"
           aria-label={`Hear ${currentWord.word}`}
         >
-          <WordImage src={currentWord.image} word={currentWord.word} />
+          <WordImage src={currentWord.image} word={currentWord.word} priority />
         </motion.button>
       </div>
 

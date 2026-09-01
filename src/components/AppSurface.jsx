@@ -1193,7 +1193,7 @@ export function AppSurface({ surface }) {
   // explicit exception rather than the legacy default: the child experience
   // must fit the screen at laptop and tablet sizes.
   const withStudentRail = (activeId, content, { contentScrolls = false } = {}) => {
-    if (!isStudentMode || learnFullscreen) return content;
+    if (!isStudentMode) return content;
     return (
       <StudentGlassShell
         studentName={studentName}
@@ -1218,6 +1218,7 @@ export function AppSurface({ surface }) {
           />
         ) : null}
         contentScrolls={contentScrolls}
+        immersive={learnFullscreen}
       >
         {content}
       </StudentGlassShell>

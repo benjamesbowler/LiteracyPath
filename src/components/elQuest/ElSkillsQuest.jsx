@@ -167,6 +167,7 @@ function TraceRound({ round, onResult }) {
   const currentStrokeRef = useRef([]);
   const drawnStrokesRef = useRef([]);
   const lastPointRef = useRef(null);
+  const activePointerIdRef = useRef(null);
   const [pointCount, setPointCount] = useState(0);
   const [traceMessage, setTraceMessage] = useState(CHILD_COPY.tracing.prompt);
   const [demoKey, setDemoKey] = useState(0);
@@ -184,6 +185,21 @@ function TraceRound({ round, onResult }) {
       scale
     };
   }, [chars.length]);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return undefined;
+    const keepTraceGestureInsideCanvas = event => {
+      if (event.cancelable) event.preventDefault();
+    };
+    const listenerOptions = { passive: false };
+    canvas.addEventListener("touchstart", keepTraceGestureInsideCanvas, listenerOptions);
+    canvas.addEventListener("touchmove", keepTraceGestureInsideCanvas, listenerOptions);
+    return () => {
+      canvas.removeEventListener("touchstart", keepTraceGestureInsideCanvas, listenerOptions);
+      canvas.removeEventListener("touchmove", keepTraceGestureInsideCanvas, listenerOptions);
+    };
+  }, []);
 
   function pointFrom(event) {
     const canvas = canvasRef.current;
@@ -215,20 +231,41 @@ function TraceRound({ round, onResult }) {
   }
 
   function beginStroke(event) {
+    if (activePointerIdRef.current !== null) return;
+    event.preventDefault();
+    activePointerIdRef.current = event.pointerId;
     drawing.current = true;
     lastPointRef.current = null;
     currentStrokeRef.current = [];
-    event.currentTarget.setPointerCapture(event.pointerId);
+    event.currentTarget.setPointerCapture?.(event.pointerId);
     drawPoint(pointFrom(event));
   }
 
   function paint(event) {
-    if (!drawing.current) return;
+    if (!drawing.current || activePointerIdRef.current !== event.pointerId) return;
+    event.preventDefault();
     drawPoint(pointFrom(event));
   }
 
-  function endStroke() {
+  function finishStroke(event) {
+    if (activePointerIdRef.current !== event.pointerId) return;
+    event.preventDefault();
+    if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+    activePointerIdRef.current = null;
     if (!drawing.current) return;
+    drawing.current = false;
+    lastPointRef.current = null;
+    if (currentStrokeRef.current.length) {
+      drawnStrokesRef.current.push(currentStrokeRef.current);
+    }
+    currentStrokeRef.current = [];
+  }
+
+  function abandonStroke(event) {
+    if (activePointerIdRef.current !== event.pointerId) return;
+    activePointerIdRef.current = null;
     drawing.current = false;
     lastPointRef.current = null;
     if (currentStrokeRef.current.length) {
@@ -241,6 +278,7 @@ function TraceRound({ round, onResult }) {
     const canvas = canvasRef.current;
     canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
     drawing.current = false;
+    activePointerIdRef.current = null;
     currentStrokeRef.current = [];
     drawnStrokesRef.current = [];
     lastPointRef.current = null;
@@ -316,8 +354,9 @@ function TraceRound({ round, onResult }) {
           aria-label={`Trace the letter ${round.letter}`}
           onPointerDown={beginStroke}
           onPointerMove={paint}
-          onPointerUp={endStroke}
-          onPointerCancel={endStroke}
+          onPointerUp={finishStroke}
+          onPointerCancel={finishStroke}
+          onLostPointerCapture={abandonStroke}
         />
       </div>
       <p className="sbq-trace-message" role="status">{traceMessage}</p>
