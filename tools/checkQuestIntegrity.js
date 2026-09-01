@@ -10,6 +10,7 @@
 // but they are printed every time so they can't be quietly forgotten.
 
 import fs from "node:fs";
+import { createHash } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -32,6 +33,7 @@ const {
   assertShippingPronunciationLexicon
 } = await import(path.join(ROOT, "src/features/soundSeekers/content/pronunciationLexicon.js"));
 const { assertPronunciationsMatchReference } = await import(path.join(ROOT, "tools/soundSeekersPronunciationAudit.mjs"));
+const { SOUND_SEEKERS_INSTRUCTIONS } = await import(path.join(ROOT, "src/features/soundSeekers/content/instructionContracts.js"));
 
 const errors = [];
 const warnings = [];
@@ -112,6 +114,42 @@ const reachablePronunciationWords = new Set(QUEST_STOPS.flatMap(stop => [
 ]).map(word => word.toLowerCase()));
 for (const word of reachablePronunciationWords) {
   if (!getPronunciation(word)) fail(`pronunciation lexicon: reachable word "${word}" has no explicit record`);
+}
+
+// ── 1c. Every instruction recording has current, hash-locked provenance ────
+const instructionSourcePath = path.join(ROOT, "public/audio/quest-v2/instructions/SOURCE.md");
+let instructionSource = null;
+try {
+  const sourceText = fs.readFileSync(instructionSourcePath, "utf8");
+  const sourceMatch = /```json\n([\s\S]*?)\n```/u.exec(sourceText);
+  if (!sourceMatch) throw new Error("machine-readable JSON block is missing");
+  instructionSource = JSON.parse(sourceMatch[1]);
+  if (!Array.isArray(instructionSource.assets)) throw new Error("assets array is missing");
+} catch (error) {
+  fail(`instruction audio provenance: ${error.message}`);
+}
+if (instructionSource) {
+  for (const contract of Object.values(SOUND_SEEKERS_INSTRUCTIONS).filter(item => !item.silenceIsIntentional)) {
+    const asset = instructionSource.assets.find(item => item?.instructionId === contract.instructionId);
+    if (!asset) {
+      fail(`instruction audio: ${contract.instructionId} is missing provenance`);
+      continue;
+    }
+    if (asset.childText !== contract.childText) fail(`instruction audio: ${contract.instructionId} has stale child text`);
+    if (!String(asset.generatedAt || "").trim() || !String(asset.voice || "").trim() || !String(asset.model || "").trim()) {
+      fail(`instruction audio: ${contract.instructionId} is unprovenanced`);
+    }
+    if (!Number.isFinite(Number(asset.durationSeconds)) || Number(asset.durationSeconds) <= 0) {
+      fail(`instruction audio: ${contract.instructionId} has zero duration`);
+    }
+    const publicPath = String(asset.path || "");
+    const absolutePath = path.join(ROOT, "public", publicPath.replace(/^\//u, ""));
+    if (!publicPath.startsWith("/audio/quest-v2/instructions/") || !fs.existsSync(absolutePath)) {
+      fail(`instruction audio: ${contract.instructionId} recording is missing`);
+    } else if (!/^[a-f0-9]{64}$/u.test(String(asset.sha256 || "")) || createHash("sha256").update(fs.readFileSync(absolutePath)).digest("hex") !== asset.sha256) {
+      fail(`instruction audio: ${contract.instructionId} hash does not match provenance`);
+    }
+  }
 }
 
 // ── 2. Audio: every taught sound resolves to a file that EXISTS on disk ─────

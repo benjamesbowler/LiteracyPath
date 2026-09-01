@@ -19,6 +19,16 @@ export function getWordMeaning(meaningId) {
   return WORD_MEANINGS[String(meaningId || "").trim()] || null;
 }
 
+export function collectPronunciationAudioBlockers(content = SOUND_SEEKERS_WORDS) {
+  return (Array.isArray(content) ? content : []).flatMap(record => (record?.units || [])
+    .filter(unit => unit?.releaseBlockingStatus === PRONUNCIATION_AUDIO_BLOCKER)
+    .map(unit => Object.freeze({
+      word: record.word,
+      grapheme: unit.grapheme,
+      soundKey: unit.soundKey
+    })));
+}
+
 function assertMeaning(record) {
   const meaning = getWordMeaning(record.meaningId);
   if (!meaning) throw new Error(`${record.id}: missing meaning ${record.meaningId || "(none)"}`);
@@ -108,9 +118,8 @@ export function assertShippingPronunciationLexicon(content, { release = false } 
   const seenIds = new Set();
   for (const record of content) assertRecord(record, seenIds);
   if (release) {
-    const blockers = content.flatMap(record => record.units
-      .filter(unit => unit.releaseBlockingStatus === PRONUNCIATION_AUDIO_BLOCKER)
-      .map(unit => `${record.id}:${unit.grapheme}:${unit.soundKey}`));
+    const blockers = collectPronunciationAudioBlockers(content)
+      .map(unit => `${unit.word}:${unit.grapheme}:${unit.soundKey}`);
     if (blockers.length) {
       throw new Error(`pronunciation release blockers (${blockers.length}): ${blockers.join(", ")}`);
     }

@@ -60,6 +60,13 @@ export function getPreferredPhonemeAudioPath(value, options = {}) {
     .find(filePath => AUDIO_PHONEME_PATHS.has(filePath) && !isKnownBadAudioPath(filePath)) || "";
 }
 
+// Sound Seekers calls this name at content boundaries. It remains fail-closed:
+// unreviewed contextual candidates cannot become shipping cues merely by
+// appearing in an artifacts directory.
+export function getPhonemeAudio(value, options = {}) {
+  return getPreferredPhonemeAudioPath(value, options);
+}
+
 export function hasPreferredPhonemeAudio(value, options = {}) {
   return Boolean(getPreferredPhonemeAudioPath(value, options));
 }
