@@ -52,6 +52,47 @@ test("previously taught targets do not replay their full introduction", () => {
   assert.deepEqual(sequence.items.map(item => item.targetId), ["ff", "ll", "ss", "zz"]);
 });
 
+test("the teach checkpoint is an absolute stop cursor and never double-skips taught targets", () => {
+  const resumed = createTeachSequence(
+    stop("s7"),
+    ["j", "z"],
+    { teachIndex: 2, teachTargetId: "ff" }
+  );
+
+  assert.deepEqual(resumed.items.map(item => [item.teachIndex, item.targetId]), [
+    [2, "ff"],
+    [3, "ll"],
+    [4, "ss"],
+    [5, "zz"]
+  ]);
+  assert.equal(resumed.teachIndex, 2);
+  assert.equal(resumed.teachTargetId, "ff");
+  assert.equal(resumed.currentItem.targetId, "ff");
+
+  const afterFf = reduceTeachSequence(resumed, { type: "complete-teach" });
+  assert.equal(afterFf.teachIndex, 3);
+  assert.equal(afterFf.teachTargetId, "ll");
+  assert.equal(afterFf.currentItem.targetId, "ll");
+
+  const restored = reduceTeachSequence(afterFf, {
+    type: "restore",
+    checkpoint: { teachIndex: 3, teachTargetId: "ll" }
+  });
+  assert.deepEqual(restored, afterFf);
+});
+
+test("an optional checkpoint target mismatch fails closed at the first remaining teach item", () => {
+  const sequence = createTeachSequence(
+    stop("s7"),
+    ["j", "z"],
+    { teachIndex: 2, teachTargetId: "ss" }
+  );
+
+  assert.equal(sequence.teachIndex, 2);
+  assert.equal(sequence.teachTargetId, "ff");
+  assert.equal(sequence.currentItem.targetId, "ff");
+});
+
 test("all stop targets use child-safe labels and exact unscored teaching contracts", () => {
   const allItems = QUEST_STOPS.flatMap(questStop => createTeachSequence(questStop, []).items);
   assert.equal(allItems.length, 103);

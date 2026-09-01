@@ -45,6 +45,8 @@ test("instruction text, action, and evidence domain describe the same child acti
   assert.doesNotThrow(() => assertInstructionMatchesChallenge(
     getInstructionContract("word-forge-place-tile"),
     {
+      instructionId: "word-forge-place-tile",
+      powerId: SOUND_POWER_IDS.WORD_FORGE,
       expectedAction: "place_grapheme_tile",
       recordsDomain: EVIDENCE_DOMAINS.WORD_SEGMENTATION_ENCODING,
       requiresAudio: true
@@ -52,7 +54,12 @@ test("instruction text, action, and evidence domain describe the same child acti
   ));
   assert.throws(() => assertInstructionMatchesChallenge(
     getInstructionContract("word-forge-place-tile"),
-    { expectedAction: "choose_story_action", recordsDomain: EVIDENCE_DOMAINS.CONNECTED_TEXT_TRANSFER }
+    {
+      instructionId: "word-forge-place-tile",
+      powerId: SOUND_POWER_IDS.WORD_FORGE,
+      expectedAction: "choose_story_action",
+      recordsDomain: EVIDENCE_DOMAINS.CONNECTED_TEXT_TRANSFER
+    }
   ), /action/i);
 });
 
@@ -64,7 +71,7 @@ test("all six Sound Powers declare teach, replay, and a decision contract withou
     for (const phase of ["teach", "replay"]) {
       assert.ok(contracts.find(item => item.powerId === powerId && item.phase === phase), `${powerId}-${phase}`);
     }
-    assert.equal(contracts.filter(item => item.powerId === powerId && item.phase === "decision").length, 1);
+    assert.ok(contracts.some(item => item.powerId === powerId && item.phase === "decision"), `${powerId}-decision`);
   }
   for (const contract of contracts) {
     assert.doesNotMatch(contract.childText, /\b[a-z]+_[a-z]+\b/u, contract.instructionId);
@@ -94,16 +101,107 @@ test("only exact scored decisions carry their canonical evidence domain", () => 
   assert.deepEqual(
     Object.values(SOUND_SEEKERS_INSTRUCTIONS)
       .filter(item => item.phase === "decision")
-      .map(item => [item.powerId, item.recordsDomain]),
+      .map(item => [item.instructionId, item.powerId, item.expectedAction, item.recordsDomain]),
     [
-      [SOUND_POWER_IDS.ECHO_SEARCH, EVIDENCE_DOMAINS.PHONEME_TO_GRAPHEME],
-      [SOUND_POWER_IDS.CONTRAST_SORT, EVIDENCE_DOMAINS.GRAPHEME_TO_PHONEME],
-      [SOUND_POWER_IDS.WORD_FORGE, EVIDENCE_DOMAINS.WORD_SEGMENTATION_ENCODING],
-      [SOUND_POWER_IDS.BLEND_BRIDGE, EVIDENCE_DOMAINS.WORD_DECODING],
-      [SOUND_POWER_IDS.MEMORY_DELIVERY, EVIDENCE_DOMAINS.HEART_WORD_MAPPING],
-      [SOUND_POWER_IDS.STORY_POWER, EVIDENCE_DOMAINS.CONNECTED_TEXT_TRANSFER]
+      ["echo-search-find-source", SOUND_POWER_IDS.ECHO_SEARCH, "reveal_matching_grapheme", EVIDENCE_DOMAINS.PHONEME_TO_GRAPHEME],
+      ["contrast-sort-place-sound", SOUND_POWER_IDS.CONTRAST_SORT, "place_sound_token", EVIDENCE_DOMAINS.GRAPHEME_TO_PHONEME],
+      ["contrast-sort-place-decoded-word", SOUND_POWER_IDS.CONTRAST_SORT, "place_decoded_word_token", EVIDENCE_DOMAINS.WORD_DECODING],
+      ["contrast-sort-place-heart-word", SOUND_POWER_IDS.CONTRAST_SORT, "place_heart_word_token", EVIDENCE_DOMAINS.HEART_WORD_MAPPING],
+      ["word-forge-place-tile", SOUND_POWER_IDS.WORD_FORGE, "place_grapheme_tile", EVIDENCE_DOMAINS.WORD_SEGMENTATION_ENCODING],
+      ["blend-bridge-choose-meaning", SOUND_POWER_IDS.BLEND_BRIDGE, "choose_blended_meaning", EVIDENCE_DOMAINS.WORD_DECODING],
+      ["blend-bridge-choose-novel-meaning", SOUND_POWER_IDS.BLEND_BRIDGE, "choose_novel_decoded_meaning", EVIDENCE_DOMAINS.NOVEL_DECODING],
+      ["memory-delivery-deliver-sound", SOUND_POWER_IDS.MEMORY_DELIVERY, "deliver_sound_cue", EVIDENCE_DOMAINS.PHONEME_TO_GRAPHEME],
+      ["memory-delivery-deliver-decoded-word", SOUND_POWER_IDS.MEMORY_DELIVERY, "deliver_decoded_word_cue", EVIDENCE_DOMAINS.WORD_DECODING],
+      ["memory-delivery-deliver-heart-word", SOUND_POWER_IDS.MEMORY_DELIVERY, "deliver_heart_word_cue", EVIDENCE_DOMAINS.HEART_WORD_MAPPING],
+      ["memory-delivery-follow-decoded-instruction", SOUND_POWER_IDS.MEMORY_DELIVERY, "follow_decoded_instruction", EVIDENCE_DOMAINS.CONNECTED_TEXT_TRANSFER],
+      ["story-power-choose-story-action", SOUND_POWER_IDS.STORY_POWER, "choose_story_action", EVIDENCE_DOMAINS.CONNECTED_TEXT_TRANSFER]
     ]
   );
+});
+
+test("the authored boss transfer has one exact Blend Bridge novel-decoding contract", () => {
+  const contract = getInstructionContract("blend-bridge-choose-novel-meaning");
+  assert.deepEqual(contract, {
+    instructionId: "blend-bridge-choose-novel-meaning",
+    powerId: SOUND_POWER_IDS.BLEND_BRIDGE,
+    phase: "decision",
+    childText: "Blend the new word. Choose its picture.",
+    childAudio: "quest/instructions/blend-bridge-choose-novel-meaning",
+    cue: "grapheme_sequence",
+    expectedAction: "choose_novel_decoded_meaning",
+    recordsDomain: EVIDENCE_DOMAINS.NOVEL_DECODING,
+    silenceIsIntentional: false
+  });
+  assert.equal(assertInstructionMatchesChallenge(contract, {
+    instructionId: contract.instructionId,
+    powerId: contract.powerId,
+    expectedAction: contract.expectedAction,
+    recordsDomain: contract.recordsDomain,
+    requiresAudio: true
+  }), true);
+  assert.throws(() => assertInstructionMatchesChallenge(
+    getInstructionContract("blend-bridge-choose-meaning"),
+    {
+      instructionId: "blend-bridge-choose-novel-meaning",
+      powerId: SOUND_POWER_IDS.BLEND_BRIDGE,
+      expectedAction: "choose_novel_decoded_meaning",
+      recordsDomain: EVIDENCE_DOMAINS.NOVEL_DECODING,
+      requiresAudio: true
+    }
+  ), /instruction|action|records domain/iu);
+});
+
+test("every Contrast Sort and Memory Delivery decision variant matches only its exact challenge", () => {
+  const variants = Object.values(SOUND_SEEKERS_INSTRUCTIONS)
+    .filter(contract => contract.phase === "decision")
+    .filter(contract => [SOUND_POWER_IDS.CONTRAST_SORT, SOUND_POWER_IDS.MEMORY_DELIVERY].includes(contract.powerId));
+  assert.equal(variants.length, 7);
+
+  for (const contract of variants) {
+    const challenge = {
+      instructionId: contract.instructionId,
+      powerId: contract.powerId,
+      expectedAction: contract.expectedAction,
+      recordsDomain: contract.recordsDomain,
+      requiresAudio: true
+    };
+    assert.equal(assertInstructionMatchesChallenge(contract, challenge), true, contract.instructionId);
+    assert.throws(
+      () => assertInstructionMatchesChallenge(contract, { ...challenge, recordsDomain: EVIDENCE_DOMAINS.NOVEL_DECODING }),
+      /records domain/i,
+      `${contract.instructionId} must not launder evidence into another domain`
+    );
+    assert.throws(
+      () => assertInstructionMatchesChallenge(contract, { ...challenge, expectedAction: "collect_reward" }),
+      /action/i,
+      `${contract.instructionId} must not authorize another action`
+    );
+    assert.throws(
+      () => assertInstructionMatchesChallenge(contract, { ...challenge, instructionId: "word-forge-place-tile" }),
+      /instruction/i,
+      `${contract.instructionId} must not borrow another instruction id`
+    );
+    assert.throws(
+      () => assertInstructionMatchesChallenge(contract, { ...challenge, powerId: SOUND_POWER_IDS.STORY_POWER }),
+      /power/i,
+      `${contract.instructionId} must not cross powers`
+    );
+  }
+});
+
+test("decision matching rejects incomplete challenge contracts instead of guessing a domain", () => {
+  const contract = getInstructionContract("contrast-sort-place-sound");
+  for (const missing of ["instructionId", "powerId", "expectedAction", "recordsDomain"]) {
+    const challenge = {
+      instructionId: contract?.instructionId,
+      powerId: contract?.powerId,
+      expectedAction: contract?.expectedAction,
+      recordsDomain: contract?.recordsDomain,
+      requiresAudio: true
+    };
+    delete challenge[missing];
+    assert.throws(() => assertInstructionMatchesChallenge(contract, challenge), new RegExp(missing.replace(/[A-Z]/gu, letter => ` ${letter.toLowerCase()}`), "iu"));
+  }
 });
 
 test("Word Forge and Blend Bridge use early-reader language, not internal phonics jargon", () => {

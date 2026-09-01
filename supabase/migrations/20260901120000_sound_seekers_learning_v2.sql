@@ -4,11 +4,11 @@
 
 create or replace function public.lp_quest_union_v2_evidence(a jsonb, b jsonb)
 returns jsonb language sql immutable as $$
-  with raw(event, source_order) as (
-    select value, 0
+  with raw(event) as (
+    select value
       from jsonb_array_elements(coalesce(case when jsonb_typeof(a) = 'array' then a end, '[]'::jsonb))
     union all
-    select value, 1
+    select value
       from jsonb_array_elements(coalesce(case when jsonb_typeof(b) = 'array' then b end, '[]'::jsonb))
   ), valid as (
     select event || jsonb_build_object(
@@ -20,18 +20,47 @@ returns jsonb language sql immutable as $$
            ) as event,
            btrim(event ->> 'id') as id,
            case when jsonb_typeof(event -> 'at') = 'number' then (event ->> 'at')::numeric else 0 end as at_number,
-           case when jsonb_typeof(event -> 'at') = 'string' and btrim(event ->> 'at') <> '' then btrim(event ->> 'at') end as at_text,
-           source_order
+           case when jsonb_typeof(event -> 'at') = 'string' and btrim(event ->> 'at') <> '' then btrim(event ->> 'at') end as at_text
       from raw
      where jsonb_typeof(event) = 'object'
        and coalesce(btrim(event ->> 'id'), '') <> ''
-  ), deduplicated as (
-    select distinct on (id) event, id, at_number, at_text
+  ), grouped as (
+    select id,
+           count(distinct event) as payload_count,
+           coalesce(bool_or(
+             event ->> 'evidenceKind' = 'conflict'
+             and event -> 'conflicted' = 'true'::jsonb
+           ), false) as already_conflicted,
+           (jsonb_agg(event) -> 0) as one_event,
+           (jsonb_agg(
+             event -> 'at'
+             order by case when at_text is null then 0 else 1 end desc,
+                      at_number desc,
+                      at_text desc nulls last
+           ) -> 0) as latest_at
       from valid
-     order by id, source_order
+     group by id
+  ), resolved as (
+    select case when already_conflicted or payload_count > 1
+             then jsonb_build_object(
+               'id', id,
+               'at', latest_at,
+               'evidenceKind', 'conflict',
+               'conflicted', true
+             )
+             else one_event
+           end as event,
+           id
+      from grouped
+  ), sortable as (
+    select event,
+           id,
+           case when jsonb_typeof(event -> 'at') = 'number' then (event ->> 'at')::numeric else 0 end as at_number,
+           case when jsonb_typeof(event -> 'at') = 'string' and btrim(event ->> 'at') <> '' then btrim(event ->> 'at') end as at_text
+      from resolved
   ), retained as (
     select event, id, at_number, at_text
-      from deduplicated
+      from sortable
      order by case when at_text is null then 0 else 1 end desc, at_number desc, at_text desc nulls last, id desc
      limit 1200
   )

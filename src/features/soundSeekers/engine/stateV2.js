@@ -104,11 +104,46 @@ function compareEventAt(left, right) {
   return left.id.localeCompare(right.id);
 }
 
+function canonicalJson(value) {
+  if (Array.isArray(value)) return value.map(canonicalJson);
+  if (!value || typeof value !== "object") return value;
+  return Object.fromEntries(Object.keys(value).sort().map(key => [key, canonicalJson(value[key])]));
+}
+
+function eventFingerprint(event) {
+  return JSON.stringify(canonicalJson(event));
+}
+
+function isConflictMarker(event) {
+  return event?.evidenceKind === "conflict" && event?.conflicted === true;
+}
+
+function conflictMarkerFor(events) {
+  const latest = [...events].sort(compareEventAt).at(-1);
+  return Object.freeze({
+    id: latest.id,
+    at: latest.at,
+    evidenceKind: "conflict",
+    conflicted: true
+  });
+}
+
 function normalizeEvidence(value) {
-  const seen = new Set();
-  return (Array.isArray(value) ? value : [])
+  const byId = new Map();
+  for (const event of (Array.isArray(value) ? value : [])
     .map(normalizeEvent)
-    .filter(event => event && !seen.has(event.id) && seen.add(event.id))
+    .filter(Boolean)) {
+    const matches = byId.get(event.id) || [];
+    matches.push(event);
+    byId.set(event.id, matches);
+  }
+  return [...byId.values()]
+    .map(events => {
+      const distinctPayloads = new Set(events.map(eventFingerprint));
+      return events.some(isConflictMarker) || distinctPayloads.size > 1
+        ? conflictMarkerFor(events)
+        : events[0];
+    })
     .sort(compareEventAt)
     .slice(-MAX_SOUND_SEEKERS_EVIDENCE);
 }

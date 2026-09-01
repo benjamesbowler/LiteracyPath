@@ -70,8 +70,8 @@ function reportCueDelivery(type, { id = currentCueId, session = currentCueSessio
 function stopCuePlayback({ preserveSequence = false } = {}) {
   if (!preserveSequence) cancelCueSequence();
   clearCueListeners();
+  if (currentCueId !== null) reportCueDelivery("interrupted");
   if (currentCue) {
-    reportCueDelivery("interrupted");
     try {
       currentCue.pause();
       currentCue.currentTime = 0;
@@ -103,43 +103,65 @@ function playCueAudioInternal(src, { volume = 0.95, onUnavailable, onDelivery, c
     onUnavailable?.();
     return;
   }
+
+  const session = currentCueSession + 1;
+  currentCueSession = session;
+  const deliveryId = String(cueId || src);
+  currentCueId = deliveryId;
+  currentCueDelivery = onDelivery;
+  const ownsSession = () => currentCueSession === session && currentCueId === deliveryId;
+  let ownedAudio = null;
+  const ownsCue = () => ownsSession() && currentCue === ownedAudio;
+  const finish = (type = "completed") => {
+    if (!ownsSession()) return;
+    if (type !== "completed" && currentCue) {
+      try {
+        currentCue.pause();
+      } catch {
+        // A failed media element may reject cleanup too.
+      }
+    }
+    clearCueListeners();
+    currentCue = null;
+    currentCueFinish = null;
+    currentCueDelivery = null;
+    currentCueId = null;
+    cueResumeAfterSuspend = false;
+    setQuestActionSfxInstructionActive(false);
+    restoreGameMusic();
+    reportCueDelivery(type, { id: deliveryId, session, delivery: onDelivery });
+  };
+  let unavailableNotified = false;
+  const unavailable = () => {
+    if (!ownsSession() || unavailableNotified) return;
+    unavailableNotified = true;
+    finish("failed");
+    onUnavailable?.();
+  };
+  currentCueFinish = finish;
+  reportCueDelivery("loading", { id: deliveryId, session, delivery: onDelivery });
+
   try {
     const audio = getSharedCueElement();
-    audio.pause();
-    audio.currentTime = 0;
-    audio.src = src;
-    audio.load?.();
-    audio.volume = applyLearnerAudioIntensity(volume);
+    if (!ownsSession()) return;
+    ownedAudio = audio;
     currentCue = audio;
-    const session = currentCueSession + 1;
-    currentCueSession = session;
-    const deliveryId = String(cueId || src);
-    currentCueId = deliveryId;
-    currentCueDelivery = onDelivery;
-    reportCueDelivery("loading");
+    audio.pause();
+    if (!ownsCue()) return;
+    audio.currentTime = 0;
+    if (!ownsCue()) return;
+    audio.src = src;
+    if (!ownsCue()) return;
+    audio.load?.();
+    if (!ownsCue()) return;
+    audio.volume = applyLearnerAudioIntensity(volume);
+    if (!ownsCue()) return;
     setQuestActionSfxInstructionActive(true);
-    const ownsCue = () => currentCue === audio && currentCueSession === session && currentCueId === deliveryId;
-    const finish = (type = "completed") => {
-      if (!ownsCue()) return;
-      currentCue = null;
-      currentCueFinish = null;
-      currentCueDelivery = null;
-      currentCueId = null;
-      cueResumeAfterSuspend = false;
-      setQuestActionSfxInstructionActive(false);
-      restoreGameMusic();
-      reportCueDelivery(type, { id: deliveryId, session, delivery: onDelivery });
-    };
-    let unavailableNotified = false;
-    const unavailable = () => {
-      if (!ownsCue() || unavailableNotified) return;
-      unavailableNotified = true;
-      finish("failed");
-      onUnavailable?.();
-    };
-    currentCueFinish = finish;
+    if (!ownsCue()) return;
     listenForCue("ended", () => finish("completed"), { once: true });
+    if (!ownsCue()) return;
     listenForCue("error", unavailable, { once: true });
+    if (!ownsCue()) return;
     if (cueSuspended) {
       cueResumeAfterSuspend = true;
       return;
@@ -154,15 +176,7 @@ function playCueAudioInternal(src, { volume = 0.95, onUnavailable, onDelivery, c
       if (ownsCue()) reportCueDelivery("started", { id: deliveryId, session, delivery: onDelivery });
     }
   } catch {
-    currentCue = null;
-    currentCueFinish = null;
-    currentCueDelivery = null;
-    currentCueId = null;
-    cueResumeAfterSuspend = false;
-    setQuestActionSfxInstructionActive(false);
-    restoreGameMusic();
-    onDelivery?.({ id: String(cueId || src), session: currentCueSession + 1, type: "failed", at: Date.now() });
-    onUnavailable?.();
+    unavailable();
   }
 }
 

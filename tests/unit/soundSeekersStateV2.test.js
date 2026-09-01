@@ -8,6 +8,10 @@ import {
   mergeSoundSeekersStates,
   normalizeSoundSeekersState
 } from "../../src/features/soundSeekers/engine/stateV2.js";
+import {
+  deriveConfusions,
+  evidenceIsIndependent
+} from "../../src/features/soundSeekers/engine/evidence.js";
 
 test("v1 learning starts a fresh v2 game while allowlisted preferences survive", () => {
   const next = normalizeSoundSeekersState({
@@ -71,7 +75,7 @@ test("v2 evidence trims ids and orders numeric timestamps before string timestam
       { id: " shared ", at: 2 },
       { id: "number", at: 4 },
       { id: "string", at: "a" },
-      { id: "shared", at: 1 }
+      { id: "shared", at: 2 }
     ]
   });
   assert.deepEqual(state.evidence, [
@@ -89,6 +93,80 @@ test("v2 merge unions immutable events, monotonic repairs, and reset ancestry", 
   assert.deepEqual(merged.evidence.map(event => event.id), ["a", "b"]);
   assert.equal(merged.trail.journeyStep, 42);
   assert.deepEqual(merged.trail.repairs, { mill: true, bridge: true });
+});
+
+test("identical evidence retries remain one normal immutable event", () => {
+  const base = createSoundSeekersState();
+  const event = {
+    id: "same-attempt:1",
+    at: "2026-09-01T10:00:00.000Z",
+    evidenceKind: "practice",
+    target: "sh",
+    domain: "phoneme_to_grapheme",
+    correct: true,
+    supportLevel: 0,
+    revealed: false,
+    audioRequired: false
+  };
+  const merged = mergeSoundSeekersStates(
+    { ...base, evidence: [event] },
+    { ...base, evidence: [{ ...event }] }
+  );
+
+  assert.deepEqual(merged.evidence, [event]);
+  assert.equal(evidenceIsIndependent(merged.evidence[0]), true);
+});
+
+test("a conflicting evidence id becomes one absorbing no-credit marker in either merge direction", () => {
+  const base = createSoundSeekersState();
+  const accepted = {
+    id: "conflicted-attempt:2",
+    at: 11,
+    evidenceKind: "practice",
+    target: "sh",
+    domain: "phoneme_to_grapheme",
+    correct: true,
+    supportLevel: 0,
+    revealed: false,
+    audioRequired: false
+  };
+  const conflicting = { ...accepted, at: 12, correct: false, confusion: "ch" };
+  const expected = {
+    id: "conflicted-attempt:2",
+    at: 12,
+    evidenceKind: "conflict",
+    conflicted: true
+  };
+  const left = { ...base, evidence: [accepted] };
+  const right = { ...base, evidence: [conflicting] };
+
+  const forward = mergeSoundSeekersStates(left, right);
+  const reverse = mergeSoundSeekersStates(right, left);
+  assert.deepEqual(forward.evidence, [expected]);
+  assert.deepEqual(reverse.evidence, [expected]);
+  assert.deepEqual(forward, reverse);
+  assert.equal(evidenceIsIndependent(expected), false);
+  assert.deepEqual(deriveConfusions([expected]), {});
+
+  const retried = mergeSoundSeekersStates(forward, left);
+  assert.deepEqual(retried.evidence, [expected], "a later clean retry cannot resurrect learning credit");
+});
+
+test("conflicting evidence merge is associative and keeps the latest deterministic sort timestamp", () => {
+  const base = createSoundSeekersState();
+  const a = { ...base, evidence: [{ id: "assoc:1", at: 1, evidenceKind: "practice", target: "sh", domain: "phoneme_to_grapheme", correct: true }] };
+  const b = { ...base, evidence: [{ id: "assoc:1", at: 2, evidenceKind: "practice", target: "sh", domain: "phoneme_to_grapheme", correct: false }] };
+  const c = { ...base, evidence: [{ id: "assoc:1", at: 3, evidenceKind: "practice", target: "ch", domain: "phoneme_to_grapheme", correct: true }] };
+  const leftGrouped = mergeSoundSeekersStates(mergeSoundSeekersStates(a, b), c);
+  const rightGrouped = mergeSoundSeekersStates(a, mergeSoundSeekersStates(b, c));
+
+  assert.deepEqual(leftGrouped, rightGrouped);
+  assert.deepEqual(leftGrouped.evidence, [{
+    id: "assoc:1",
+    at: 3,
+    evidenceKind: "conflict",
+    conflicted: true
+  }]);
 });
 
 test("v2 state keeps only a compatible local checkpoint and server-owned assignment", () => {

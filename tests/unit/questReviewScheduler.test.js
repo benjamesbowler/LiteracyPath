@@ -145,3 +145,16 @@ test("v2 scheduler ranks due targets by journey-step need across the wrap", () =
   }, 42);
   assert.deepEqual(due, ["sh"]);
 });
+
+test("v2 scheduler fails closed when a review record has no explicit valid gap", () => {
+  const due = dueTargetsAtJourneyStep({
+    missing: { lastSeen: { journeyStep: 42 }, priority: 99 },
+    nullGap: { lastSeen: { journeyStep: 42 }, gap: null, priority: 98 },
+    invalidGap: { lastSeen: { journeyStep: 39 }, gap: "3", priority: 97 },
+    negativeGap: { lastSeen: { journeyStep: 39 }, gap: -1, priority: 96 },
+    validReviewGap: { lastSeen: { journeyStep: 39 }, reviewGap: 3, priority: 2 },
+    explicitZero: { lastSeen: { journeyStep: 42 }, gap: 0, priority: 1 }
+  }, 42);
+
+  assert.deepEqual(due, ["validReviewGap", "explicitZero"]);
+});

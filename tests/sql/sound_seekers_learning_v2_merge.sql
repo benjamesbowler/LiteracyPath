@@ -17,6 +17,56 @@ begin
   if merged #> '{assignment}' <> '{"stopIds":["s1"]}'::jsonb then raise exception 'teacher assignment did not survive child upload'; end if;
   if merged #>> '{checkpoint,stopId}' <> 's2' then raise exception 'writer checkpoint was not retained'; end if;
 
+  -- Evidence conflict vectors mirror tests/unit/soundSeekersStateV2.test.js.
+  -- Identical delivery retries stay normal; divergent payloads collapse to
+  -- one absorbing marker that can never contribute learning credit.
+  merged := public.lp_quest_merge_learning_v2(
+    '{"v":2,"contentVersion":"sound-seekers-v2","reset":{"epoch":0,"at":null},"trail":{},"evidence":[{"id":"same-attempt:1","at":11,"evidenceKind":"practice","target":"sh","domain":"phoneme_to_grapheme","correct":true}],"settings":{}}'::jsonb,
+    '{"v":2,"contentVersion":"sound-seekers-v2","reset":{"epoch":0,"at":null},"trail":{},"evidence":[{"domain":"phoneme_to_grapheme","target":"sh","evidenceKind":"practice","correct":true,"at":11,"id":"same-attempt:1"}],"settings":{}}'::jsonb
+  );
+  if merged #> '{evidence}' <> '[{"id":"same-attempt:1","at":11,"evidenceKind":"practice","target":"sh","domain":"phoneme_to_grapheme","correct":true}]'::jsonb then
+    raise exception 'identical evidence retry did not remain one normal event: %', merged -> 'evidence';
+  end if;
+
+  merged := public.lp_quest_merge_learning_v2(
+    '{"v":2,"contentVersion":"sound-seekers-v2","reset":{"epoch":0,"at":null},"trail":{},"evidence":[{"id":"conflicted-attempt:2","at":11,"evidenceKind":"practice","target":"sh","domain":"phoneme_to_grapheme","correct":true}],"settings":{}}'::jsonb,
+    '{"v":2,"contentVersion":"sound-seekers-v2","reset":{"epoch":0,"at":null},"trail":{},"evidence":[{"id":"conflicted-attempt:2","at":12,"evidenceKind":"practice","target":"sh","domain":"phoneme_to_grapheme","correct":false,"confusion":"ch"}],"settings":{}}'::jsonb
+  );
+  if merged #> '{evidence}' <> '[{"id":"conflicted-attempt:2","at":12,"evidenceKind":"conflict","conflicted":true}]'::jsonb then
+    raise exception 'conflicting evidence did not fail closed: %', merged -> 'evidence';
+  end if;
+  if public.lp_quest_merge_learning_v2(
+      '{"v":2,"contentVersion":"sound-seekers-v2","reset":{"epoch":0,"at":null},"trail":{},"evidence":[{"id":"conflicted-attempt:2","at":12,"evidenceKind":"practice","target":"sh","domain":"phoneme_to_grapheme","correct":false,"confusion":"ch"}],"settings":{}}'::jsonb,
+      '{"v":2,"contentVersion":"sound-seekers-v2","reset":{"epoch":0,"at":null},"trail":{},"evidence":[{"id":"conflicted-attempt:2","at":11,"evidenceKind":"practice","target":"sh","domain":"phoneme_to_grapheme","correct":true}],"settings":{}}'::jsonb
+    ) #> '{evidence}' <> merged #> '{evidence}' then
+    raise exception 'conflicting evidence changed owner when merge direction reversed';
+  end if;
+
+  merged := public.lp_quest_merge_learning_v2(
+    merged,
+    '{"v":2,"contentVersion":"sound-seekers-v2","reset":{"epoch":0,"at":null},"trail":{},"evidence":[{"id":"conflicted-attempt:2","at":11,"evidenceKind":"practice","target":"sh","domain":"phoneme_to_grapheme","correct":true}],"settings":{}}'::jsonb
+  );
+  if merged #> '{evidence}' <> '[{"id":"conflicted-attempt:2","at":12,"evidenceKind":"conflict","conflicted":true}]'::jsonb then
+    raise exception 'clean retry resurrected conflicted learning credit: %', merged -> 'evidence';
+  end if;
+
+  if public.lp_quest_merge_learning_v2(
+      public.lp_quest_merge_learning_v2(
+        '{"v":2,"contentVersion":"sound-seekers-v2","reset":{"epoch":0,"at":null},"trail":{},"evidence":[{"id":"assoc:1","at":1,"evidenceKind":"practice","target":"sh","domain":"phoneme_to_grapheme","correct":true}],"settings":{}}'::jsonb,
+        '{"v":2,"contentVersion":"sound-seekers-v2","reset":{"epoch":0,"at":null},"trail":{},"evidence":[{"id":"assoc:1","at":2,"evidenceKind":"practice","target":"sh","domain":"phoneme_to_grapheme","correct":false}],"settings":{}}'::jsonb
+      ),
+      '{"v":2,"contentVersion":"sound-seekers-v2","reset":{"epoch":0,"at":null},"trail":{},"evidence":[{"id":"assoc:1","at":3,"evidenceKind":"practice","target":"ch","domain":"phoneme_to_grapheme","correct":true}],"settings":{}}'::jsonb
+    ) #> '{evidence}'
+    <> public.lp_quest_merge_learning_v2(
+      '{"v":2,"contentVersion":"sound-seekers-v2","reset":{"epoch":0,"at":null},"trail":{},"evidence":[{"id":"assoc:1","at":1,"evidenceKind":"practice","target":"sh","domain":"phoneme_to_grapheme","correct":true}],"settings":{}}'::jsonb,
+      public.lp_quest_merge_learning_v2(
+        '{"v":2,"contentVersion":"sound-seekers-v2","reset":{"epoch":0,"at":null},"trail":{},"evidence":[{"id":"assoc:1","at":2,"evidenceKind":"practice","target":"sh","domain":"phoneme_to_grapheme","correct":false}],"settings":{}}'::jsonb,
+        '{"v":2,"contentVersion":"sound-seekers-v2","reset":{"epoch":0,"at":null},"trail":{},"evidence":[{"id":"assoc:1","at":3,"evidenceKind":"practice","target":"ch","domain":"phoneme_to_grapheme","correct":true}],"settings":{}}'::jsonb
+      )
+    ) #> '{evidence}' then
+    raise exception 'conflicting evidence merge was not associative';
+  end if;
+
   merged := public.lp_quest_merge_learning_v2(
     merged,
     '{"assignment":{"targets":["ch","th"],"assignedAt":"2026-09-01T09:00:00Z","by":"teacher"}}'::jsonb
@@ -35,7 +85,7 @@ begin
 
   merged := public.lp_quest_merge_learning_v2(
     '{"v":2,"contentVersion":"sound-seekers-v2","reset":{"epoch":0,"at":null},"trail":{},"evidence":[{"id":" shared ","at":2},{"id":"number","at":4},{"id":"string","at":"a"}],"assignment":{"stopIds":["s4"]},"settings":{}}'::jsonb,
-    '{"v":2,"contentVersion":"sound-seekers-v2","reset":{"epoch":0,"at":null},"trail":{},"evidence":[{"id":"shared","at":1}],"assignment":{"stopIds":["s40"]},"settings":{}}'::jsonb
+    '{"v":2,"contentVersion":"sound-seekers-v2","reset":{"epoch":0,"at":null},"trail":{},"evidence":[{"id":"shared","at":2}],"assignment":{"stopIds":["s40"]},"settings":{}}'::jsonb
   );
   if merged #> '{evidence}' <> '[{"id":"shared","at":2},{"id":"number","at":4},{"id":"string","at":"a"}]'::jsonb then raise exception 'v2 evidence normalization diverged'; end if;
   if merged #> '{assignment}' <> '{"stopIds":["s40"]}'::jsonb then raise exception 'valid incoming teacher assignment did not replace the previous assignment'; end if;

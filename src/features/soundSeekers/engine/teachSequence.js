@@ -95,7 +95,7 @@ function workedExample(entry, metadata) {
   return `Find ${graphemeLabel(entry.id)} in ${metadata.word}.`;
 }
 
-function teachItem(stop, entry) {
+function teachItem(stop, entry, teachIndex) {
   const metadata = targetMetadata(entry);
   const morphologyExample = MORPHOLOGY_TEACH_EXAMPLES[entry.id];
   const instruction = instructionFor(entry);
@@ -103,6 +103,7 @@ function teachItem(stop, entry) {
   return Object.freeze({
     stopId: stop.id,
     targetId: entry.id,
+    teachIndex,
     scored: false,
     instructionId: instruction.instructionId,
     childText: instruction.childText,
@@ -127,30 +128,53 @@ function normalizeIndex(value, length) {
   return Number.isInteger(index) && index >= 0 && index <= length ? index : 0;
 }
 
-export function createTeachSequence(stop, taughtTargetIds = [], checkpoint = null) {
-  const known = targetIds(taughtTargetIds);
-  const items = (stop?.teach || []).filter(entry => entry?.id && !known.has(entry.id)).map(entry => teachItem(stop, entry));
-  const teachIndex = normalizeIndex(checkpoint?.teachIndex, items.length);
+function sequenceAtCursor(state, rawIndex, rawTargetId = null) {
+  const suppliedTeachCount = Number(state?.teachCount);
+  const teachCount = Number.isInteger(suppliedTeachCount) && suppliedTeachCount >= 0
+    ? suppliedTeachCount
+    : state?.items?.length || 0;
+  const firstRemainingIndex = state.items[0]?.teachIndex ?? teachCount;
+  let cursor = normalizeIndex(rawIndex, teachCount);
+  const targetId = typeof rawTargetId === "string" && rawTargetId.trim() ? rawTargetId.trim() : null;
+  if (targetId) {
+    const exactItem = state.items.find(item => item.teachIndex === cursor);
+    if (!exactItem || exactItem.targetId !== targetId) cursor = firstRemainingIndex;
+  }
+  const currentItem = state.items.find(item => item.teachIndex >= cursor) || null;
   return Object.freeze({
-    stopId: stop?.id || null,
-    items: Object.freeze(items),
-    teachIndex,
-    currentItem: items[teachIndex] || null,
-    nextPhase: "challenge",
+    ...state,
+    teachIndex: currentItem?.teachIndex ?? teachCount,
+    teachTargetId: currentItem?.targetId ?? null,
+    currentItem,
     scored: false
   });
+}
+
+export function createTeachSequence(stop, taughtTargetIds = [], checkpoint = null) {
+  const known = targetIds(taughtTargetIds);
+  const authoredTeach = Array.isArray(stop?.teach) ? stop.teach : [];
+  const items = authoredTeach
+    .map((entry, teachIndex) => ({ entry, teachIndex }))
+    .filter(({ entry }) => entry?.id && !known.has(entry.id))
+    .map(({ entry, teachIndex }) => teachItem(stop, entry, teachIndex));
+  const state = {
+    stopId: stop?.id || null,
+    items: Object.freeze(items),
+    teachCount: authoredTeach.length,
+    nextPhase: "challenge",
+    scored: false
+  };
+  return sequenceAtCursor(state, checkpoint?.teachIndex, checkpoint?.teachTargetId);
 }
 
 export function reduceTeachSequence(state, input = {}) {
   const current = state && typeof state === "object" ? state : createTeachSequence(null);
   if (input.type === "replay") return current;
   if (input.type === "restore") {
-    const teachIndex = normalizeIndex(input.checkpoint?.teachIndex, current.items.length);
-    return Object.freeze({ ...current, teachIndex, currentItem: current.items[teachIndex] || null, scored: false });
+    return sequenceAtCursor(current, input.checkpoint?.teachIndex, input.checkpoint?.teachTargetId);
   }
   if (input.type === "complete-teach") {
-    const teachIndex = Math.min(current.items.length, current.teachIndex + 1);
-    return Object.freeze({ ...current, teachIndex, currentItem: current.items[teachIndex] || null, scored: false });
+    return sequenceAtCursor(current, current.teachIndex + 1);
   }
   return current;
 }

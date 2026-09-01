@@ -8,7 +8,7 @@ These are production-path candidates. Automated checks verify file identity and 
   "source": "Google Cloud Text-to-Speech",
   "voice": "en-US-Chirp3-HD-Leda",
   "model": "Google Cloud Text-to-Speech Chirp3 HD",
-  "generatedAt": "2026-09-01T14:32:25.693Z",
+  "generatedAt": "2026-09-01T15:06:12.481Z",
   "assets": [
     {
       "instructionId": "alternative-value-teach",
@@ -37,6 +37,23 @@ These are production-path candidates. Automated checks verify file identity and 
       "durationSeconds": 2.016,
       "sha256": "64717d96e422946f626dabde2aff18d0e87b743e37316c59369559500641fba5",
       "meanVolumeDb": -23,
+      "automatedSignalChecks": [
+        "ffprobe-duration",
+        "ffmpeg-volumedetect",
+        "sha256"
+      ],
+      "humanListeningApproved": false
+    },
+    {
+      "instructionId": "blend-bridge-choose-novel-meaning",
+      "childText": "Blend the new word. Choose its picture.",
+      "path": "/audio/quest-v2/instructions/blend-bridge-choose-novel-meaning.mp3",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "generatedAt": "2026-09-01T15:06:01.876Z",
+      "durationSeconds": 3.36,
+      "sha256": "7ffde67a6f728d92920a94f02953ef91d3754f50eae7df28235db8568e7e387f",
+      "meanVolumeDb": -23.2,
       "automatedSignalChecks": [
         "ffprobe-duration",
         "ffmpeg-volumedetect",
@@ -96,15 +113,49 @@ These are production-path candidates. Automated checks verify file identity and 
       "humanListeningApproved": false
     },
     {
-      "instructionId": "contrast-sort-place-token",
-      "childText": "Put this item with the matching sound.",
-      "path": "/audio/quest-v2/instructions/contrast-sort-place-token.mp3",
+      "instructionId": "contrast-sort-place-decoded-word",
+      "childText": "Read this word. Put it with the matching word pattern.",
+      "path": "/audio/quest-v2/instructions/contrast-sort-place-decoded-word.mp3",
       "voice": "en-US-Chirp3-HD-Leda",
       "model": "Google Cloud Text-to-Speech Chirp3 HD",
-      "generatedAt": "2026-09-01T13:35:12.002Z",
-      "durationSeconds": 2.904,
-      "sha256": "e929ed6c8c6a3cb70f9fc953db6da830ff348e67b614dbed0c9aba44593b97be",
-      "meanVolumeDb": -27.4,
+      "generatedAt": "2026-09-01T15:06:03.020Z",
+      "durationSeconds": 3.936,
+      "sha256": "cb7884dd4e2b1448f9a061ccd66449426e1ce6c9e220eabfb779bba908b72f3f",
+      "meanVolumeDb": -24.4,
+      "automatedSignalChecks": [
+        "ffprobe-duration",
+        "ffmpeg-volumedetect",
+        "sha256"
+      ],
+      "humanListeningApproved": false
+    },
+    {
+      "instructionId": "contrast-sort-place-heart-word",
+      "childText": "Look at the heart part. Put this word with its matching pattern.",
+      "path": "/audio/quest-v2/instructions/contrast-sort-place-heart-word.mp3",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "generatedAt": "2026-09-01T15:06:04.091Z",
+      "durationSeconds": 3.528,
+      "sha256": "52a860506b8cede742b959b4a05cf65018a579daea9956221880485f7a7da8e4",
+      "meanVolumeDb": -26.7,
+      "automatedSignalChecks": [
+        "ffprobe-duration",
+        "ffmpeg-volumedetect",
+        "sha256"
+      ],
+      "humanListeningApproved": false
+    },
+    {
+      "instructionId": "contrast-sort-place-sound",
+      "childText": "Put this item with the matching sound.",
+      "path": "/audio/quest-v2/instructions/contrast-sort-place-sound.mp3",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "generatedAt": "2026-09-01T15:06:05.099Z",
+      "durationSeconds": 3,
+      "sha256": "12d1816dc6007ef1f1e5ffa203e9ae8e371f368de95aca3372d474a4820c2ace",
+      "meanVolumeDb": -26.7,
       "automatedSignalChecks": [
         "ffprobe-duration",
         "ffmpeg-volumedetect",
@@ -215,15 +266,66 @@ These are production-path candidates. Automated checks verify file identity and 
       "humanListeningApproved": false
     },
     {
-      "instructionId": "memory-delivery-deliver-cue",
-      "childText": "Use the clue to help the right friend.",
-      "path": "/audio/quest-v2/instructions/memory-delivery-deliver-cue.mp3",
+      "instructionId": "memory-delivery-deliver-decoded-word",
+      "childText": "Read and remember the word. Take it to what it means.",
+      "path": "/audio/quest-v2/instructions/memory-delivery-deliver-decoded-word.mp3",
       "voice": "en-US-Chirp3-HD-Leda",
       "model": "Google Cloud Text-to-Speech Chirp3 HD",
-      "generatedAt": "2026-09-01T13:35:19.216Z",
-      "durationSeconds": 2.496,
-      "sha256": "14f3f5b12e8e91bed3dfbc367bc2431f9e4d87d15daf8f72d00549666ca20d03",
-      "meanVolumeDb": -24,
+      "generatedAt": "2026-09-01T15:06:06.195Z",
+      "durationSeconds": 3.768,
+      "sha256": "900cbcc69aa20386eaf8c1457af108ca8b2ac2db26641065ca19282f84863959",
+      "meanVolumeDb": -23.5,
+      "automatedSignalChecks": [
+        "ffprobe-duration",
+        "ffmpeg-volumedetect",
+        "sha256"
+      ],
+      "humanListeningApproved": false
+    },
+    {
+      "instructionId": "memory-delivery-deliver-heart-word",
+      "childText": "Remember the heart word. Take it to its matching place.",
+      "path": "/audio/quest-v2/instructions/memory-delivery-deliver-heart-word.mp3",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "generatedAt": "2026-09-01T15:06:07.400Z",
+      "durationSeconds": 4.632,
+      "sha256": "c6364b6cc474efdc1c4c4d80e53ea0ebfa8e8afa1d2a1064f56ed8e586472d73",
+      "meanVolumeDb": -25.6,
+      "automatedSignalChecks": [
+        "ffprobe-duration",
+        "ffmpeg-volumedetect",
+        "sha256"
+      ],
+      "humanListeningApproved": false
+    },
+    {
+      "instructionId": "memory-delivery-deliver-sound",
+      "childText": "Remember the sound. Take it to the matching letter.",
+      "path": "/audio/quest-v2/instructions/memory-delivery-deliver-sound.mp3",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "generatedAt": "2026-09-01T15:06:08.372Z",
+      "durationSeconds": 3.192,
+      "sha256": "25c25fe71b1040f0be1acd2fe0cc80ad43b0a01a8cfc0bf0f11e704ed60a43d2",
+      "meanVolumeDb": -22.7,
+      "automatedSignalChecks": [
+        "ffprobe-duration",
+        "ffmpeg-volumedetect",
+        "sha256"
+      ],
+      "humanListeningApproved": false
+    },
+    {
+      "instructionId": "memory-delivery-follow-decoded-instruction",
+      "childText": "Read and remember the instruction. Do it when you arrive.",
+      "path": "/audio/quest-v2/instructions/memory-delivery-follow-decoded-instruction.mp3",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "generatedAt": "2026-09-01T15:06:09.489Z",
+      "durationSeconds": 4.104,
+      "sha256": "5ee643fbbdad9fe9d8b38cb67f9f72759635860d242f2f5fe4d3684b5d42d6c3",
+      "meanVolumeDb": -23.2,
       "automatedSignalChecks": [
         "ffprobe-duration",
         "ffmpeg-volumedetect",

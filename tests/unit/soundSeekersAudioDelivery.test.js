@@ -126,6 +126,104 @@ test("cue playback reports a truthful failed lifecycle", async () => {
   }
 });
 
+test("synchronous cue setup failures report loading then failed in one owned session", async () => {
+  const originalWindow = globalThis.window;
+  const originalAudio = globalThis.Audio;
+  globalThis.window = { speechSynthesis: { cancel() {} } };
+
+  async function observeFailure(label, FakeAudio) {
+    globalThis.Audio = FakeAudio;
+    const cue = await import(`../../src/utils/audio/cuePlayer.js?sync-failure=${label}-${Date.now()}-${Math.random()}`);
+    const lifecycle = [];
+    let unavailableCount = 0;
+    try {
+      cue.playCueAudio(`/audio/${label}.mp3`, {
+        cueId: label,
+        onDelivery: event => lifecycle.push(event),
+        onUnavailable: () => { unavailableCount += 1; }
+      });
+      assert.deepEqual(lifecycle.map(event => event.type), ["loading", "failed"], label);
+      assert.equal(new Set(lifecycle.map(event => event.session)).size, 1, `${label} changed session mid-failure`);
+      assert.ok(lifecycle.every(event => event.id === label), label);
+      assert.equal(unavailableCount, 1, label);
+    } finally {
+      cue.stopCueAudio();
+    }
+  }
+
+  try {
+    await observeFailure("constructor-throws", class FakeAudio {
+      constructor() { throw new Error("constructor failed"); }
+    });
+    await observeFailure("pause-throws", class FakeAudio {
+      pause() { throw new Error("pause failed"); }
+    });
+    await observeFailure("load-throws", class FakeAudio {
+      pause() {}
+      load() { throw new Error("load failed"); }
+    });
+    await observeFailure("play-throws", class FakeAudio {
+      constructor() { this.listeners = new Map(); }
+      addEventListener(type, listener) { this.listeners.set(type, listener); }
+      removeEventListener(type, listener) { if (this.listeners.get(type) === listener) this.listeners.delete(type); }
+      pause() {}
+      load() {}
+      play() { throw new Error("play failed"); }
+    });
+  } finally {
+    globalThis.window = originalWindow;
+    globalThis.Audio = originalAudio;
+  }
+});
+
+test("a reentrant setup exception cannot clear or fail its replacement cue", async () => {
+  const originalWindow = globalThis.window;
+  const originalAudio = globalThis.Audio;
+  const playResolvers = [];
+  let cue;
+  let replaceDuringLoad = true;
+  let first = [];
+  const second = [];
+
+  class FakeAudio {
+    constructor() { this.listeners = new Map(); }
+    addEventListener(type, listener) { this.listeners.set(type, listener); }
+    removeEventListener(type, listener) { if (this.listeners.get(type) === listener) this.listeners.delete(type); }
+    pause() {}
+    load() {
+      if (!replaceDuringLoad) return;
+      replaceDuringLoad = false;
+      cue.playCueAudio("/audio/replacement.mp3", {
+        cueId: "replacement",
+        onDelivery: event => second.push(event)
+      });
+      throw new Error("superseded setup failed");
+    }
+    play() { return new Promise(resolve => playResolvers.push(resolve)); }
+  }
+
+  globalThis.window = { speechSynthesis: { cancel() {} } };
+  globalThis.Audio = FakeAudio;
+  try {
+    cue = await import(`../../src/utils/audio/cuePlayer.js?reentrant-setup=${Date.now()}`);
+    cue.playCueAudio("/audio/first.mp3", {
+      cueId: "first",
+      onDelivery: event => first.push(event)
+    });
+    playResolvers[0]();
+    await Promise.resolve();
+    await Promise.resolve();
+
+    assert.deepEqual(first.map(event => event.type), ["loading", "interrupted"]);
+    assert.deepEqual(second.map(event => event.type), ["loading", "started"]);
+    assert.ok(second.every(event => event.id === "replacement"));
+  } finally {
+    cue?.stopCueAudio();
+    globalThis.window = originalWindow;
+    globalThis.Audio = originalAudio;
+  }
+});
+
 test("a sequence exposes one aggregate lifecycle that completes only after every item", async () => {
   const originalWindow = globalThis.window;
   const originalAudio = globalThis.Audio;

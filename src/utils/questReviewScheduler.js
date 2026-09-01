@@ -122,7 +122,12 @@ export function dueTargets(mastery, stopIndex, limit = MAX_REVIEW_PER_STOP) {
 export function dueTargetsAtJourneyStep(targets, currentJourneyStep, limit = MAX_REVIEW_PER_STOP) {
   return Object.entries(targets || {})
     .filter(([target, record]) => !String(target).startsWith("sign:")
-      && dueAtJourneyStep(target, record?.lastSeen || record, record?.gap ?? record?.reviewGap ?? 0, currentJourneyStep))
+      && dueAtJourneyStep(
+        target,
+        record?.lastSeen || record,
+        Object.prototype.hasOwnProperty.call(record || {}, "gap") ? record.gap : record?.reviewGap,
+        currentJourneyStep
+      ))
     .map(([target, record]) => ({
       target,
       priority: Number.isFinite(Number(record?.priority)) ? Number(record.priority) : 0
