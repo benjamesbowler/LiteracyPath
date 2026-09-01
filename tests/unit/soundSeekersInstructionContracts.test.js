@@ -29,6 +29,34 @@ function readSourceManifest() {
   return JSON.parse(match[1]);
 }
 
+function targetIdentityFor(contract) {
+  if ([EVIDENCE_DOMAINS.PHONEME_TO_GRAPHEME, EVIDENCE_DOMAINS.GRAPHEME_TO_PHONEME].includes(contract.recordsDomain)) {
+    return { targetId: "sh" };
+  }
+  if ([EVIDENCE_DOMAINS.WORD_DECODING, EVIDENCE_DOMAINS.WORD_SEGMENTATION_ENCODING].includes(contract.recordsDomain)) {
+    return {
+      targetId: "word:ship",
+      wordId: "ship",
+      position: contract.recordsDomain === EVIDENCE_DOMAINS.WORD_SEGMENTATION_ENCODING ? 0 : "whole"
+    };
+  }
+  if (contract.recordsDomain === EVIDENCE_DOMAINS.HEART_WORD_MAPPING) {
+    return { targetId: "hw:the", wordId: "the", activityType: "recognition" };
+  }
+  if (contract.recordsDomain === EVIDENCE_DOMAINS.CONNECTED_TEXT_TRANSFER) {
+    return { targetId: "text:scene-s1", connectedTextId: "scene-s1" };
+  }
+  if (contract.recordsDomain === EVIDENCE_DOMAINS.NOVEL_DECODING) {
+    return {
+      targetId: "novel:stone",
+      wordId: "stone",
+      position: "whole",
+      bossTransferId: "forge-settlement-boss"
+    };
+  }
+  return {};
+}
+
 test("instruction text, action, and evidence domain describe the same child action", () => {
   assert.deepEqual(getInstructionContract("word-forge-place-tile"), {
     instructionId: "word-forge-place-tile",
@@ -49,7 +77,8 @@ test("instruction text, action, and evidence domain describe the same child acti
       powerId: SOUND_POWER_IDS.WORD_FORGE,
       expectedAction: "place_grapheme_tile",
       recordsDomain: EVIDENCE_DOMAINS.WORD_SEGMENTATION_ENCODING,
-      requiresAudio: true
+      requiresAudio: true,
+      ...targetIdentityFor(getInstructionContract("word-forge-place-tile"))
     }
   ));
   assert.throws(() => assertInstructionMatchesChallenge(
@@ -58,7 +87,8 @@ test("instruction text, action, and evidence domain describe the same child acti
       instructionId: "word-forge-place-tile",
       powerId: SOUND_POWER_IDS.WORD_FORGE,
       expectedAction: "choose_story_action",
-      recordsDomain: EVIDENCE_DOMAINS.CONNECTED_TEXT_TRANSFER
+      recordsDomain: EVIDENCE_DOMAINS.CONNECTED_TEXT_TRANSFER,
+      ...targetIdentityFor(getInstructionContract("word-forge-place-tile"))
     }
   ), /action/i);
 });
@@ -137,7 +167,8 @@ test("the authored boss transfer has one exact Blend Bridge novel-decoding contr
     powerId: contract.powerId,
     expectedAction: contract.expectedAction,
     recordsDomain: contract.recordsDomain,
-    requiresAudio: true
+    requiresAudio: true,
+    ...targetIdentityFor(contract)
   }), true);
   assert.throws(() => assertInstructionMatchesChallenge(
     getInstructionContract("blend-bridge-choose-meaning"),
@@ -146,7 +177,8 @@ test("the authored boss transfer has one exact Blend Bridge novel-decoding contr
       powerId: SOUND_POWER_IDS.BLEND_BRIDGE,
       expectedAction: "choose_novel_decoded_meaning",
       recordsDomain: EVIDENCE_DOMAINS.NOVEL_DECODING,
-      requiresAudio: true
+      requiresAudio: true,
+      ...targetIdentityFor(contract)
     }
   ), /instruction|action|records domain/iu);
 });
@@ -163,7 +195,8 @@ test("every Contrast Sort and Memory Delivery decision variant matches only its 
       powerId: contract.powerId,
       expectedAction: contract.expectedAction,
       recordsDomain: contract.recordsDomain,
-      requiresAudio: true
+      requiresAudio: true,
+      ...targetIdentityFor(contract)
     };
     assert.equal(assertInstructionMatchesChallenge(contract, challenge), true, contract.instructionId);
     assert.throws(
@@ -197,11 +230,38 @@ test("decision matching rejects incomplete challenge contracts instead of guessi
       powerId: contract?.powerId,
       expectedAction: contract?.expectedAction,
       recordsDomain: contract?.recordsDomain,
-      requiresAudio: true
+      requiresAudio: true,
+      ...targetIdentityFor(contract)
     };
     delete challenge[missing];
     assert.throws(() => assertInstructionMatchesChallenge(contract, challenge), new RegExp(missing.replace(/[A-Z]/gu, letter => ` ${letter.toLowerCase()}`), "iu"));
   }
+});
+
+test("exact instruction tuples still reject a target that cannot own their evidence path", () => {
+  const heart = getInstructionContract("memory-delivery-deliver-heart-word");
+  assert.throws(() => assertInstructionMatchesChallenge(heart, {
+    instructionId: heart.instructionId,
+    powerId: heart.powerId,
+    expectedAction: heart.expectedAction,
+    recordsDomain: heart.recordsDomain,
+    targetId: "sh",
+    activityType: "recognition",
+    requiresAudio: true
+  }), /target|eligible|evidence path/iu);
+
+  const boss = getInstructionContract("blend-bridge-choose-novel-meaning");
+  assert.throws(() => assertInstructionMatchesChallenge(boss, {
+    instructionId: boss.instructionId,
+    powerId: boss.powerId,
+    expectedAction: boss.expectedAction,
+    recordsDomain: boss.recordsDomain,
+    targetId: "hw:the",
+    wordId: "the",
+    activityType: "recognition",
+    bossTransferId: "forge-settlement-boss",
+    requiresAudio: true
+  }), /target|eligible|evidence path/iu);
 });
 
 test("Word Forge and Blend Bridge use early-reader language, not internal phonics jargon", () => {

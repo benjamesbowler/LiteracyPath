@@ -73,7 +73,7 @@ test("third miss models once then requires a fresh supported attempt", () => {
   assert.equal(correction.missCount, 3);
 });
 
-test("the correction ladder preserves the contrast then queues another legitimate domain", () => {
+test("the correction ladder derives another legitimate domain instead of trusting caller claims", () => {
   const first = nextCorrection({}, v2Miss());
   assert.equal(first.supportLevel, 1);
   assert.equal(first.replayContrast, true);
@@ -86,7 +86,7 @@ test("the correction ladder preserves the contrast then queues another legitimat
 
   const later = nextCorrection(
     { missCount: 3, targetId: "short_i", domain: "phoneme_to_grapheme" },
-    v2Miss({ eligibleDomains: ["phoneme_to_grapheme", "grapheme_to_phoneme"] })
+    v2Miss({ eligibleDomains: ["phoneme_to_grapheme", "heart_word_mapping"] })
   );
   assert.equal(later.queueIsomorphicReview, true);
   assert.equal(later.reviewDomain, "grapheme_to_phoneme");
@@ -94,12 +94,52 @@ test("the correction ladder preserves the contrast then queues another legitimat
 
 test("later correction review fails closed without an alternate legitimate domain", () => {
   const correction = nextCorrection(
-    { missCount: 3, targetId: "short_i", domain: "phoneme_to_grapheme" },
-    v2Miss({ eligibleDomains: ["phoneme_to_grapheme", "collision"] })
+    {
+      missCount: 3,
+      targetId: "text:scene-s1",
+      connectedTextId: "scene-s1",
+      domain: "connected_text_transfer"
+    },
+    {
+      targetId: "text:scene-s1",
+      connectedTextId: "scene-s1",
+      domain: "connected_text_transfer",
+      selected: "water",
+      intended: "seed",
+      eligibleDomains: ["connected_text_transfer", "novel_decoding"]
+    }
   );
   assert.equal(correction.queueIsomorphicReview, false);
   assert.equal(correction.reviewDomain, null);
   assert.equal(correction.reviewTargetId, null);
+});
+
+test("heart-word correction alternates its authored activity path and never borrows novel decoding", () => {
+  const correction = nextCorrection({
+    missCount: 3,
+    targetId: "hw:the",
+    wordId: "the",
+    activityType: "recognition",
+    domain: "heart_word_mapping"
+  }, {
+    targetId: "hw:the",
+    wordId: "the",
+    activityType: "recognition",
+    domain: "heart_word_mapping",
+    selected: "they",
+    intended: "the",
+    eligibleDomains: ["novel_decoding"]
+  });
+
+  assert.equal(correction.reviewDomain, "heart_word_mapping");
+  assert.equal(correction.reviewActivityType, "heart_part_mapping");
+  assert.deepEqual(correction.review, {
+    targetId: "hw:the",
+    wordId: "the",
+    activityType: "heart_part_mapping",
+    domain: "heart_word_mapping",
+    evidenceKind: "practice"
+  });
 });
 
 test("later correction review fails closed when its prior domain is not legitimate", () => {
@@ -219,6 +259,7 @@ test("v2 correction payloads fail closed on missing or conflicting construct ide
   assert.equal(nextCorrection({}, { ...validMiss, domain: "collision" }), null);
   assert.equal(nextCorrection({}, { ...validMiss, position: -1 }), null);
   assert.equal(nextCorrection({}, { ...validMiss, intended: {} }), null);
+  assert.equal(nextCorrection({}, { ...validMiss, wordId: "better" }), null);
   assert.equal(nextCorrection({}, { ...validMiss, evidenceKind: "assessment" }), null);
   assert.equal(nextCorrection({
     missCount: 1,

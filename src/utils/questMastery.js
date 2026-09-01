@@ -3,7 +3,7 @@ import {
   isValidSessionDay,
   localSessionDayFor
 } from "../features/soundSeekers/engine/evidence.js";
-import { isEvidenceDomain } from "../features/soundSeekers/engine/challengeContract.js";
+import { validateEvidencePath } from "../features/soundSeekers/engine/evidenceEligibility.js";
 
 // Sound Seekers legacy mastery rules. The currently mounted QuestRoot still
 // relies on this API; v2 readiness is added below without changing its calls.
@@ -333,7 +333,15 @@ export function practiceReadinessFor(targetId, events, { now } = {}) {
     if (
       event?.evidenceKind === "practice"
       && event.target === targetId
-      && isEvidenceDomain(event.domain)
+      && validateEvidencePath({
+        targetId: event.target,
+        domain: event.domain,
+        wordId: event.word,
+        position: event.position,
+        activityType: event.activityType,
+        connectedTextId: event.connectedTextId,
+        bossTransferId: event.bossTransferId
+      }).valid
       && typeof event.correct === "boolean"
       && typeof event.id === "string"
       && event.id

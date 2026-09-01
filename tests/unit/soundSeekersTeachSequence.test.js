@@ -138,6 +138,20 @@ test("multi-value spellings and endings teach every authored value without addin
     "land + –ed → landed: already happened.",
     "call + –ed → called: already happened."
   ]);
+  assert.deepEqual(itemByTarget.suffix_s.anchorEvidence.units, [
+    { grapheme: "s", soundKey: "s" }
+  ], "the primary plural anchor keeps its /s/ allomorph");
+  assert.deepEqual(itemByTarget.suffix_s.alternateExamples.map(example => example.anchorEvidence.units), [
+    [{ grapheme: "s", soundKey: "z" }]
+  ], "the alternate plural anchor keeps its /z/ allomorph");
+  assert.deepEqual(itemByTarget.suffix_ed.anchorEvidence.units, [
+    { grapheme: "ed", soundKey: "t" }
+  ], "the primary past-tense anchor keeps its /t/ allomorph");
+  assert.deepEqual(itemByTarget.suffix_ed.alternateExamples.map(example => example.anchorEvidence.units), [
+    [{ grapheme: "ed", soundKey: "ed_id" }],
+    [{ grapheme: "ed", soundKey: "d" }]
+  ], "the alternate past-tense anchors keep the /id/ and /d/ allomorphs");
+  assert.deepEqual(itemByTarget.suffix_ing.anchorEvidence.units, [], "the authored -ing anchor does not invent a phoneme unit");
   for (const targetId of ["th", "u_e", "ew", "suffix_s", "suffix_ed"]) {
     const item = itemByTarget[targetId];
     assert.equal(item.scored, false, targetId);

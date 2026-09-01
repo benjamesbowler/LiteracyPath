@@ -30,6 +30,10 @@ const shortVowelPronunciations = Object.freeze({
 const practiceEvent = event => Object.freeze({
   evidenceKind: "practice",
   domain: "phoneme_to_grapheme",
+  supportLevel: 0,
+  revealed: false,
+  audioRequired: false,
+  cueDelivery: "unavailable",
   ...event,
   id: event.id || `${event.target}-${event.journeyStep}`
 });
@@ -75,6 +79,55 @@ test("director labels a review only when its journey-step gap is actually due", 
   };
   assert.equal(selectNextChallenge(shared).reason, "stable_practice");
   assert.equal(selectNextChallenge({ ...shared, journeyStep: 13 }).reason, "due_review");
+});
+
+test("supported, revealed, interrupted, and failed-audio successes remain support demand", () => {
+  const nonIndependent = [
+    practiceEvent({ id: "supported", target: "short_i", correct: true, supportLevel: 1, journeyStep: 8 }),
+    practiceEvent({ id: "revealed", target: "short_i", correct: true, revealed: true, journeyStep: 9 }),
+    practiceEvent({
+      id: "interrupted",
+      target: "short_i",
+      correct: true,
+      audioRequired: true,
+      cueDelivery: "interrupted",
+      journeyStep: 10
+    }),
+    practiceEvent({
+      id: "failed-audio",
+      target: "short_i",
+      correct: true,
+      audioRequired: true,
+      cueDelivery: "failed",
+      journeyStep: 11
+    })
+  ];
+
+  const next = selectNextChallenge({
+    targetId: "short_i",
+    taught: ["short_i"],
+    evidence: nonIndependent,
+    journeyStep: 12,
+    reviewGap: 12
+  });
+
+  assert.equal(next.reason, "support_needed");
+  assert.notEqual(next.reason, "stable_practice");
+});
+
+test("one independent success can be stable even when supported exposure is also present", () => {
+  const next = selectNextChallenge({
+    targetId: "short_i",
+    taught: ["short_i"],
+    evidence: [
+      practiceEvent({ id: "independent", target: "short_i", correct: true, journeyStep: 10 }),
+      practiceEvent({ id: "supported", target: "short_i", correct: true, supportLevel: 2, journeyStep: 11 })
+    ],
+    journeyStep: 12,
+    reviewGap: 12
+  });
+
+  assert.equal(next.reason, "stable_practice");
 });
 
 test("director ignores mutable, non-practice, and non-domain events", () => {

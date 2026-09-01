@@ -1,4 +1,8 @@
-import { EVIDENCE_DOMAINS, isEvidenceDomain } from "../engine/challengeContract.js";
+import {
+  EVIDENCE_DOMAINS,
+  isEvidenceDomain,
+  validateEvidencePath
+} from "../engine/evidenceEligibility.js";
 
 export const SOUND_POWER_IDS = Object.freeze({
   ECHO_SEARCH: "echo_search",
@@ -96,6 +100,12 @@ export function assertInstructionMatchesChallenge(contract, challenge = {}) {
   }
   if (challenge.recordsDomain !== contract.recordsDomain) {
     throw new Error(`${contract.instructionId}: records domain does not match the challenge`);
+  }
+  if (contract.phase === "decision") {
+    const eligibility = validateEvidencePath(challenge);
+    if (!eligibility.valid) {
+      throw new Error(`${contract.instructionId}: target evidence path is not eligible (${eligibility.errors.join("; ")})`);
+    }
   }
   if (challenge.requiresAudio !== false && contract.silenceIsIntentional === true) {
     throw new Error(`${contract.instructionId}: an audio-dependent challenge cannot use intentional silence`);

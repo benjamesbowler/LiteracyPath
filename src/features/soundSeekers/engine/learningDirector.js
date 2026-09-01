@@ -1,4 +1,5 @@
 import { isEvidenceDomain } from "./challengeContract.js";
+import { evidenceIsIndependent } from "./evidence.js";
 import { dueAtJourneyStep } from "./journeyClock.js";
 
 function stringId(value) {
@@ -144,13 +145,16 @@ function priorityFor(context, targetId) {
   const evidence = evidenceFor(context, targetId);
   if (!evidence.length) return { rank: 0, reason: "never_served" };
 
+  const independentEvidence = evidence.filter(evidenceIsIndependent);
+  if (!independentEvidence.length) return { rank: 1, reason: "support_needed" };
+
   const recentWindow = Math.max(1, Number(context?.recentWindow) || 24);
   const now = currentJourneyStep(context);
-  const recent = evidence.filter(event => now - (Number(event?.journeyStep) || now) <= recentWindow);
-  const scored = recent.length ? recent : evidence;
+  const recent = independentEvidence.filter(event => now - (Number(event?.journeyStep) || now) <= recentWindow);
+  const scored = recent.length ? recent : independentEvidence;
   const correct = scored.filter(event => event?.correct === true).length;
   const accuracy = correct / scored.length;
-  const lastSeen = lastSeenFor(context, targetId, evidence);
+  const lastSeen = lastSeenFor(context, targetId, independentEvidence);
   const reviewGap = Math.max(1, Number(context?.reviewGap) || 12);
   if (accuracy < 0.75 || isMarkedDecayed(context, targetId)) return { rank: 1, reason: "low_or_decayed_accuracy" };
 

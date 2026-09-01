@@ -97,7 +97,8 @@ test("a completed word has one decision event, never component-target fan-out", 
       targetId: "word:ship",
       recordsDomain: EVIDENCE_DOMAINS.WORD_SEGMENTATION_ENCODING,
       expectedToken: "ship",
-      wordId: "ship"
+      wordId: "ship",
+      position: "whole"
     }),
     response: { kind: "literacy-answer", token: "ship" }
   });
@@ -126,6 +127,50 @@ test("challenge validation closes the domain and answer boundary before evidence
   assert.equal("expectedToken" in view, false);
   assert.equal("isCorrect" in view, false);
   assert.equal("recordsDomain" in view, true);
+});
+
+test("challenge validation rejects target-domain laundering and incompatible construct identity", () => {
+  assert.equal(validateQuestChallenge(challenge({
+    targetId: "sh",
+    recordsDomain: EVIDENCE_DOMAINS.HEART_WORD_MAPPING,
+    activityType: "recognition"
+  })).valid, false, "a phoneme cannot be credited as a heart word");
+  assert.equal(validateQuestChallenge(challenge({
+    targetId: "hw:the",
+    wordId: "the",
+    activityType: "recognition",
+    recordsDomain: EVIDENCE_DOMAINS.NOVEL_DECODING
+  })).valid, false, "a heart word cannot be credited as boss transfer");
+  assert.equal(validateQuestChallenge(challenge({
+    targetId: "word:ship",
+    wordId: "shop",
+    position: 0,
+    recordsDomain: EVIDENCE_DOMAINS.WORD_SEGMENTATION_ENCODING
+  })).valid, false, "a word target cannot borrow another word identity");
+  assert.equal(validateQuestChallenge(challenge({
+    targetId: "word:ship",
+    wordId: "ship",
+    recordsDomain: EVIDENCE_DOMAINS.WORD_DECODING
+  })).valid, false, "a word construct cannot omit its position");
+});
+
+test("a legitimate heart-word subtype survives one child-safe evidence event", () => {
+  const heartChallenge = challenge({
+    attemptId: "heart-the-1",
+    targetId: "hw:the",
+    wordId: "the",
+    activityType: "recognition",
+    recordsDomain: EVIDENCE_DOMAINS.HEART_WORD_MAPPING,
+    expectedToken: "the"
+  });
+  assert.equal(validateQuestChallenge(heartChallenge).valid, true);
+  assert.equal(toChildChallengeView(heartChallenge).activityType, "recognition");
+  const event = decision({
+    challenge: heartChallenge,
+    response: { kind: "literacy-answer", token: "the" }
+  });
+  assert.equal(event.domain, EVIDENCE_DOMAINS.HEART_WORD_MAPPING);
+  assert.equal(event.activityType, "recognition");
 });
 
 test("a wrong literacy decision records only its own truthful confusion", () => {
@@ -164,6 +209,39 @@ test("unrecognised domains cannot be smuggled into practice readiness", () => {
   const result = practiceReadinessFor("sh", [forged]);
   assert.equal(result.attempts, 0);
   assert.equal(result.state, "exposure");
+});
+
+test("mastery rejects valid domain names attached to an ineligible target path", () => {
+  const base = decision();
+  const forged = [
+    Object.freeze({
+      ...base,
+      id: "phoneme-as-heart",
+      target: "sh",
+      domain: EVIDENCE_DOMAINS.HEART_WORD_MAPPING,
+      activityType: "recognition"
+    }),
+    Object.freeze({
+      ...base,
+      id: "heart-as-novel",
+      target: "hw:the",
+      word: "the",
+      activityType: "recognition",
+      domain: EVIDENCE_DOMAINS.NOVEL_DECODING
+    }),
+    Object.freeze({
+      ...base,
+      id: "word-mismatch",
+      target: "word:ship",
+      word: "shop",
+      position: 0,
+      domain: EVIDENCE_DOMAINS.WORD_SEGMENTATION_ENCODING
+    })
+  ];
+
+  assert.equal(practiceReadinessFor("sh", [forged[0]]).attempts, 0);
+  assert.equal(practiceReadinessFor("hw:the", [forged[1]]).attempts, 0);
+  assert.equal(practiceReadinessFor("word:ship", [forged[2]]).attempts, 0);
 });
 
 test("practice readiness requires independent, spaced, diverse recent literacy evidence and never claims Secure", () => {

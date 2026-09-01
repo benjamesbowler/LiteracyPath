@@ -116,7 +116,7 @@ function teachItem(stop, entry, teachIndex) {
       ? "This ending changes or extends a word."
       : "This spelling helps us read a word.",
     anchorWord: metadata?.word || morphologyExample.derived,
-    anchorEvidence: Object.freeze({ units: Object.freeze(metadata?.units || []) }),
+    anchorEvidence: Object.freeze({ units: Object.freeze(morphologyExample?.units || metadata?.units || []) }),
     anchorImage: anchorVisual(entry, metadata),
     workedExample: workedExample(entry, metadata),
     alternateExamples: morphologyAlternates(entry)

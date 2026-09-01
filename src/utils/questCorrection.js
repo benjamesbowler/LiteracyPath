@@ -1,4 +1,8 @@
-import { isEvidenceDomain } from "../features/soundSeekers/engine/challengeContract.js";
+import {
+  isEvidenceDomain,
+  nextEligibleEvidencePath,
+  validateEvidencePath
+} from "../features/soundSeekers/engine/evidenceEligibility.js";
 
 export const CORRECTION_MODES = Object.freeze({
   DISCOVER: "discover",
@@ -41,9 +45,19 @@ function sameIdentity(previousValue, missValue) {
   return previousValue === null || missValue === null || previousValue === missValue;
 }
 
-function laterReviewDomain(priorDomain, miss) {
-  const domains = Array.isArray(miss?.eligibleDomains) ? miss.eligibleDomains : [];
-  return domains.find(domain => typeof domain === "string" && domain !== priorDomain && isEvidenceDomain(domain)) || null;
+function resolvedOptionalString(previous, miss, key) {
+  const previousValue = previous[key] === null || previous[key] === undefined
+    ? null
+    : nonEmptyString(previous[key]);
+  const missedValue = miss[key] === null || miss[key] === undefined
+    ? null
+    : nonEmptyString(miss[key]);
+  if ((hasOwn(previous, key) && previous[key] !== null && !previousValue)
+    || (hasOwn(miss, key) && miss[key] !== null && !missedValue)
+    || !sameIdentity(previousValue, missedValue)) {
+    return { valid: false, value: null };
+  }
+  return { valid: true, value: previousValue || missedValue };
 }
 
 // v2 correction is a view-independent record for both full and simplified
@@ -73,28 +87,42 @@ export function nextCorrection(previous = {}, miss = {}) {
   const domain = previousDomain || missedDomain;
   if (!domain || !sameIdentity(previousDomain, missedDomain)) return null;
 
-  const previousWordId = previous.wordId === null || previous.wordId === undefined
-    ? null
-    : nonEmptyString(previous.wordId);
-  const missedWordId = miss.wordId === null || miss.wordId === undefined
-    ? null
-    : nonEmptyString(miss.wordId);
-  if ((hasOwn(previous, "wordId") && previous.wordId !== null && !previousWordId)
-    || (hasOwn(miss, "wordId") && miss.wordId !== null && !missedWordId)
-    || !sameIdentity(previousWordId, missedWordId)) return null;
-  const wordId = previousWordId || missedWordId;
+  const wordIdentity = resolvedOptionalString(previous, miss, "wordId");
+  const activityIdentity = resolvedOptionalString(previous, miss, "activityType");
+  const connectedTextIdentity = resolvedOptionalString(previous, miss, "connectedTextId");
+  const bossTransferIdentity = resolvedOptionalString(previous, miss, "bossTransferId");
+  if (!wordIdentity.valid || !activityIdentity.valid || !connectedTextIdentity.valid || !bossTransferIdentity.valid) return null;
+  const wordId = wordIdentity.value;
+  const activityType = activityIdentity.value;
+  const connectedTextId = connectedTextIdentity.value;
+  const bossTransferId = bossTransferIdentity.value;
 
   const previousPosition = exactPosition(previous.position);
   const missedPosition = exactPosition(miss.position);
   if (!previousPosition.valid || !missedPosition.valid) return null;
   const position = hasOwn(miss, "position") ? missedPosition.value : previousPosition.value;
-  const missCount = previousMissCount + 1;
-  const later = missCount > 3;
-  const reviewDomain = later ? laterReviewDomain(domain, miss) : null;
-  const review = reviewDomain ? Object.freeze({
+  const construct = {
     targetId,
+    domain,
     wordId,
     position,
+    activityType,
+    connectedTextId,
+    bossTransferId
+  };
+  if (!validateEvidencePath(construct).valid) return null;
+  const missCount = previousMissCount + 1;
+  const later = missCount > 3;
+  const reviewPath = later ? nextEligibleEvidencePath(construct, { domain, activityType }) : null;
+  const reviewDomain = reviewPath?.domain || null;
+  const reviewActivityType = reviewPath?.activityType || null;
+  const review = reviewPath ? Object.freeze({
+    targetId,
+    ...(wordId ? { wordId } : {}),
+    ...(position !== null ? { position } : {}),
+    ...(connectedTextId ? { connectedTextId } : {}),
+    ...(bossTransferId ? { bossTransferId } : {}),
+    ...(reviewActivityType ? { activityType: reviewActivityType } : {}),
     domain: reviewDomain,
     evidenceKind: "practice"
   }) : null;
@@ -104,6 +132,9 @@ export function nextCorrection(previous = {}, miss = {}) {
     missCount,
     targetId,
     wordId,
+    activityType,
+    connectedTextId,
+    bossTransferId,
     selected,
     intended,
     domain,
@@ -117,9 +148,12 @@ export function nextCorrection(previous = {}, miss = {}) {
     requiresFreshAttempt: missCount >= 3,
     queueIsomorphicReview: Boolean(reviewDomain),
     reviewDomain,
+    reviewActivityType,
     reviewTargetId: review?.targetId || null,
     reviewWordId: review?.wordId || null,
     reviewPosition: review?.position ?? null,
+    reviewConnectedTextId: review?.connectedTextId || null,
+    reviewBossTransferId: review?.bossTransferId || null,
     reviewEvidenceKind: review?.evidenceKind || null,
     review
   });
