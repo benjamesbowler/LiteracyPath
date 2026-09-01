@@ -14,6 +14,31 @@ const BASIC = Object.freeze({
   bb: "b", dd: "d", ff: "f", gg: "g", ll: "l", mm: "m", nn: "n",
   pp: "p", rr: "r", ss: "s", tt: "t", zz: "zz"
 });
+const CURRICULUM_TARGET_IDS = new Set(QUEST_STOPS.flatMap(stop => stop.teach.map(target => target.id)));
+const EVIDENCE_TARGET_BY_SOUND_KEY = Object.freeze({
+  short_a: "a",
+  short_e: "e",
+  short_i: "i",
+  short_o: "o",
+  short_u: "u",
+  th_voiced: "th",
+  ew_yoo: "ew",
+  ear_lax: "ear",
+  ure_no_y: "ure",
+  schwa: null,
+  once_onset: null,
+  ed_id: "suffix_ed"
+});
+const CONTEXTUAL_EVIDENCE_TARGETS = new Set([
+  "oo_short", "ow_ou", "y_ie", "y_ee", "c_s", "g_j", "ch_k", "ea_e"
+]);
+const EVIDENCE_TARGET_BY_UNIT = Object.freeze({
+  "a|a_e": "a_e",
+  "i|i_e": "i_e",
+  "eye|i_e": "i_e",
+  "o|o_e": "o_e",
+  "u_e|oo": "u_e"
+});
 
 const SHORT_OO = new Set(["book", "look", "cook", "foot", "good", "wood", "hook", "took"]);
 const OW_AS_OU = new Set(["cow", "now", "brown", "down", "town", "how"]);
@@ -23,7 +48,9 @@ const EA_SHORT_E = new Set(["bread", "head", "ready"]);
 const VOICED_TH = new Set(["the", "this", "that", "then", "them", "with", "they", "their", "there", "these"]);
 const FINAL_Z = new Set(["dogs", "goes", "these", "use", "amuse", "fuse", "close"]);
 
-// Each tuple is [printed grapheme, instructional sound key, authored role].
+// Each tuple is [printed grapheme, instructional sound key, authored role,
+// optional reviewed evidence target]. The compiler fills omitted values only
+// from the explicit curriculum maps above, then persists the result.
 // These are the contextual/irregular records that spelling alone cannot supply.
 const EXPLICIT = Object.freeze({
   i: [["i", "i_e", "irregular"]],
@@ -697,9 +724,27 @@ function storyTokens(stop) {
     .map(word => word.replace(/'s$/, "")));
 }
 
+function evidenceTargetIdFor(grapheme, soundKey, role) {
+  if (role === "suffix-plural-unvoiced" || role === "suffix-plural-voiced") return "suffix_s";
+  if (role === "suffix-past-unvoiced" || role === "suffix-past-voiced" || role === "suffix-past-syllabic") {
+    return "suffix_ed";
+  }
+  if (role === "suffix-progressive") return "suffix_ing";
+  const exactUnitTarget = EVIDENCE_TARGET_BY_UNIT[`${grapheme}|${soundKey}`];
+  if (exactUnitTarget) return exactUnitTarget;
+  if (Object.hasOwn(EVIDENCE_TARGET_BY_SOUND_KEY, soundKey)) {
+    const mappedSound = EVIDENCE_TARGET_BY_SOUND_KEY[soundKey];
+    return CURRICULUM_TARGET_IDS.has(mappedSound) ? mappedSound : null;
+  }
+  if (CONTEXTUAL_EVIDENCE_TARGETS.has(soundKey)) return soundKey;
+  if (role !== "regular" && CURRICULUM_TARGET_IDS.has(soundKey)) return soundKey;
+  if (CURRICULUM_TARGET_IDS.has(grapheme)) return grapheme;
+  return CURRICULUM_TARGET_IDS.has(soundKey) ? soundKey : null;
+}
+
 function assignLetterIndices(word, authoredUnits) {
   const claimed = new Set();
-  return authoredUnits.map(([grapheme, soundKey, role = "regular"]) => {
+  return authoredUnits.map(([grapheme, soundKey, role = "regular", evidenceTargetId]) => {
     const letters = grapheme.includes("_") ? grapheme.split("_") : grapheme.split("");
     const indices = [];
     let searchFrom = 0;
@@ -718,11 +763,18 @@ function assignLetterIndices(word, authoredUnits) {
       indices.push(found);
       searchFrom = found + 1;
     }
+    const reviewedEvidenceTargetId = evidenceTargetId === undefined
+      ? evidenceTargetIdFor(grapheme, soundKey, role)
+      : evidenceTargetId;
+    if (reviewedEvidenceTargetId !== null && !CURRICULUM_TARGET_IDS.has(reviewedEvidenceTargetId)) {
+      throw new Error(`${word}:${grapheme} has unknown evidence target ${reviewedEvidenceTargetId}`);
+    }
     return {
       grapheme,
       soundKey,
       letterIndices: indices,
       role,
+      evidenceTargetId: reviewedEvidenceTargetId,
       ...(BLOCKED_KEYS[soundKey] ? { releaseBlockingStatus: BLOCKED_KEYS[soundKey] } : {})
     };
   });
@@ -753,11 +805,18 @@ function roleFor(word, grapheme, unitIndex, segments, soundKey) {
 }
 
 function authoredUnitsFor(word) {
-  if (EXPLICIT[word]) return EXPLICIT[word];
-  const segments = segmentWord(word);
-  return segments.map((grapheme, unitIndex) => {
-    const soundKey = soundKeyFor(word, grapheme, unitIndex, segments);
-    return [grapheme, soundKey, roleFor(word, grapheme, unitIndex, segments, soundKey)];
+  const authored = EXPLICIT[word] || (() => {
+    const segments = segmentWord(word);
+    return segments.map((grapheme, unitIndex) => {
+      const soundKey = soundKeyFor(word, grapheme, unitIndex, segments);
+      return [grapheme, soundKey, roleFor(word, grapheme, unitIndex, segments, soundKey)];
+    });
+  })();
+  return authored.map(([grapheme, soundKey, role = "regular", evidenceTargetId]) => {
+    const reviewedEvidenceTargetId = evidenceTargetId === undefined
+      ? evidenceTargetIdFor(grapheme, soundKey, role)
+      : evidenceTargetId;
+    return [grapheme, soundKey, role, reviewedEvidenceTargetId];
   });
 }
 

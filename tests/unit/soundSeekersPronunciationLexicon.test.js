@@ -62,6 +62,62 @@ test("shipping records represent contextual pronunciations explicitly", () => {
   assert.doesNotThrow(() => assertShippingPronunciationLexicon(SOUND_SEEKERS_WORDS));
 });
 
+test("shipping units persist explicit canonical evidence target metadata", () => {
+  for (const record of SOUND_SEEKERS_WORDS) {
+    for (const unit of record.units) {
+      assert.equal(Object.hasOwn(unit, "evidenceTargetId"), true, `${record.id}:${unit.grapheme}`);
+    }
+  }
+
+  assert.deepEqual(
+    getPronunciation("ship").units.map(unit => unit.evidenceTargetId),
+    ["sh", "i", "p"]
+  );
+  assert.deepEqual(
+    getPronunciation("cake").units.map(unit => unit.evidenceTargetId),
+    ["c", "a_e", "k"]
+  );
+  assert.deepEqual(
+    getPronunciation("cats").units.map(unit => unit.evidenceTargetId),
+    ["c", "a", "t", "suffix_s"]
+  );
+  assert.deepEqual(
+    getPronunciation("table").units.map(unit => unit.evidenceTargetId),
+    ["t", "a_e", "b", "le"]
+  );
+  assert.equal(
+    getPronunciation("a").units[0].evidenceTargetId,
+    null,
+    "schwa must not claim evidence for the taught short-a target"
+  );
+});
+
+test("the validator requires known evidence targets for assessed v2 words", () => {
+  const ship = getPronunciation("ship");
+  assert.doesNotThrow(() => assertShippingPronunciationLexicon([ship], {
+    requiredEvidenceWordIds: ["ship"]
+  }));
+
+  assert.throws(
+    () => assertShippingPronunciationLexicon([{
+      ...ship,
+      units: ship.units.map((unit, index) => index === 1
+        ? { ...unit, evidenceTargetId: null }
+        : unit)
+    }], { requiredEvidenceWordIds: ["ship"] }),
+    /ship.*evidence target/i
+  );
+  assert.throws(
+    () => assertShippingPronunciationLexicon([{
+      ...ship,
+      units: ship.units.map((unit, index) => index === 1
+        ? { ...unit, evidenceTargetId: "not-a-curriculum-target" }
+        : unit)
+    }]),
+    /unknown evidence target/i
+  );
+});
+
 test("the shipping lexicon covers every reachable word exactly once", () => {
   assert.equal(new Set(QUEST_STOPS.flatMap(stop => stop.words.map(word => word.toLowerCase()))).size, 431);
   assert.equal(new Set(QUEST_STOPS.flatMap(stop => stop.heartWords.map(word => word.toLowerCase()))).size, 60);

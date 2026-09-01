@@ -1,4 +1,5 @@
 import { getPreferredPhonemeAudioPath } from "../../../data/phonemeAudioBank.js";
+import { QUEST_STOPS } from "../../../data/questSequence.js";
 import { PRONUNCIATION_RECORDS } from "./pronunciationRecords.js";
 import { WORD_MEANINGS } from "./wordMeanings.js";
 
@@ -6,6 +7,7 @@ const normalizeWordId = value => String(value || "")
   .trim()
   .toLowerCase()
   .replace(/^hw:/, "");
+const CURRICULUM_TARGET_IDS = new Set(QUEST_STOPS.flatMap(stop => stop.teach.map(target => target.id)));
 
 export const PRONUNCIATION_AUDIO_BLOCKER = "release_blocked_missing_instructional_audio";
 
@@ -65,7 +67,7 @@ function assertNoFallback(record) {
   }
 }
 
-function assertRecord(record, seenIds) {
+function assertRecord(record, seenIds, requiredEvidenceWordIds) {
   if (!record || typeof record !== "object") throw new Error("pronunciation record must be an object");
   assertNoFallback(record);
 
@@ -86,6 +88,16 @@ function assertRecord(record, seenIds) {
     if (!String(unit.grapheme || "").trim()) throw new Error(`${id}: unit ${unitIndex} is missing grapheme`);
     if (!String(unit.soundKey || "").trim()) throw new Error(`${id}: unit ${unitIndex} is missing sound key`);
     if (!String(unit.role || "").trim()) throw new Error(`${id}: unit ${unitIndex} is missing role`);
+    if (!Object.hasOwn(unit, "evidenceTargetId")) {
+      throw new Error(`${id}: unit ${unitIndex} is missing explicit evidence target metadata`);
+    }
+    const evidenceTargetId = String(unit.evidenceTargetId || "").trim() || null;
+    if (evidenceTargetId && !CURRICULUM_TARGET_IDS.has(evidenceTargetId)) {
+      throw new Error(`${id}: unit ${unitIndex} has unknown evidence target "${evidenceTargetId}"`);
+    }
+    if (requiredEvidenceWordIds.has(id) && !evidenceTargetId) {
+      throw new Error(`${id}: unit ${unitIndex} needs an explicit evidence target for assessed v2 use`);
+    }
     if (!Array.isArray(unit.letterIndices) || unit.letterIndices.length === 0) {
       throw new Error(`${id}: unit ${unitIndex} is missing letter indices`);
     }
@@ -113,10 +125,19 @@ function assertRecord(record, seenIds) {
   assertMeaning(record);
 }
 
-export function assertShippingPronunciationLexicon(content, { release = false } = {}) {
+export function assertShippingPronunciationLexicon(content, {
+  release = false,
+  requiredEvidenceWordIds = []
+} = {}) {
   if (!Array.isArray(content) || content.length === 0) throw new Error("shipping pronunciation content must be a non-empty array");
   const seenIds = new Set();
-  for (const record of content) assertRecord(record, seenIds);
+  const requiredEvidenceIds = new Set((Array.isArray(requiredEvidenceWordIds) ? requiredEvidenceWordIds : [])
+    .map(normalizeWordId)
+    .filter(Boolean));
+  for (const record of content) assertRecord(record, seenIds, requiredEvidenceIds);
+  for (const requiredId of requiredEvidenceIds) {
+    if (!seenIds.has(requiredId)) throw new Error(`${requiredId}: assessed v2 word is missing from pronunciation content`);
+  }
   if (release) {
     const blockers = collectPronunciationAudioBlockers(content)
       .map(unit => `${unit.word}:${unit.grapheme}:${unit.soundKey}`);

@@ -13,6 +13,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0
         ],
         "role": "irregular",
+        "evidenceTargetId": null,
         "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       }
     ],
@@ -41,7 +42,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "c",
@@ -49,7 +51,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "tion",
@@ -60,7 +63,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "tion"
       }
     ],
     "taughtAt": [
@@ -83,6 +87,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0
         ],
         "role": "irregular",
+        "evidenceTargetId": null,
         "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       },
       {
@@ -91,7 +96,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "ai",
@@ -100,7 +106,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "n",
@@ -108,7 +115,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -135,7 +143,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "air"
       }
     ],
     "taughtAt": [
@@ -157,7 +166,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "aw"
       },
       {
         "grapheme": "ll",
@@ -166,7 +176,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ll"
       }
     ],
     "taughtAt": [
@@ -190,7 +201,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "m",
@@ -198,7 +210,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -221,6 +234,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0
         ],
         "role": "irregular",
+        "evidenceTargetId": null,
         "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       },
       {
@@ -229,7 +243,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "u_e",
@@ -238,7 +253,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u_e"
       },
       {
         "grapheme": "s",
@@ -246,7 +262,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "z"
       }
     ],
     "taughtAt": [
@@ -268,7 +285,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "n",
@@ -276,7 +294,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -298,7 +317,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "n",
@@ -306,7 +326,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "d",
@@ -314,7 +335,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -342,7 +364,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "n",
@@ -350,7 +373,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "y",
@@ -358,7 +382,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "y_ee"
       }
     ],
     "taughtAt": [
@@ -380,7 +405,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "pp",
@@ -389,7 +415,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "le",
@@ -398,7 +425,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "le"
       }
     ],
     "taughtAt": [
@@ -422,7 +450,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "ar"
       }
     ],
     "taughtAt": [
@@ -445,7 +474,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ar"
       },
       {
         "grapheme": "m",
@@ -453,7 +483,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -475,7 +506,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "s",
@@ -483,7 +515,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "z"
       }
     ],
     "taughtAt": [
@@ -505,7 +538,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "s",
@@ -513,7 +547,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "k",
@@ -521,7 +556,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       },
       {
         "grapheme": "ed",
@@ -530,7 +566,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "suffix-past-unvoiced"
+        "role": "suffix-past-unvoiced",
+        "evidenceTargetId": "suffix_ed"
       }
     ],
     "taughtAt": [
@@ -552,7 +589,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "t",
@@ -560,7 +598,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -584,7 +623,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "th",
@@ -593,7 +633,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "th"
       },
       {
         "grapheme": "l",
@@ -601,7 +642,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "e_e",
@@ -610,7 +652,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           6
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e_e"
       },
       {
         "grapheme": "t",
@@ -618,7 +661,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -640,7 +684,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "a",
@@ -648,7 +693,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "ck",
@@ -657,7 +703,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ck"
       }
     ],
     "taughtAt": [
@@ -682,7 +729,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "a",
@@ -690,7 +738,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "d",
@@ -698,7 +747,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -720,7 +770,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "a",
@@ -728,7 +779,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "ng",
@@ -737,7 +789,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ng"
       }
     ],
     "taughtAt": [
@@ -759,7 +812,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "a",
@@ -767,7 +821,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "nk",
@@ -776,7 +831,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "nk"
       }
     ],
     "taughtAt": [
@@ -798,7 +854,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "ar",
@@ -807,7 +864,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ar"
       },
       {
         "grapheme": "k",
@@ -815,7 +873,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       }
     ],
     "taughtAt": [
@@ -837,7 +896,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "a",
@@ -845,7 +905,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "t",
@@ -853,7 +914,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -875,7 +937,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "a",
@@ -883,7 +946,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "th",
@@ -892,7 +956,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "th"
       }
     ],
     "taughtAt": [
@@ -914,7 +979,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "e",
@@ -922,7 +988,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "ee"
       }
     ],
     "taughtAt": [
@@ -944,7 +1011,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "ea",
@@ -953,7 +1021,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ea"
       },
       {
         "grapheme": "ch",
@@ -962,7 +1031,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ch"
       }
     ],
     "taughtAt": [
@@ -984,7 +1054,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "e",
@@ -992,7 +1063,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "c",
@@ -1000,7 +1072,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "au",
@@ -1009,7 +1082,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "aw"
       },
       {
         "grapheme": "se",
@@ -1018,7 +1092,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           5,
           6
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "z"
       }
     ],
     "taughtAt": [
@@ -1040,7 +1115,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "e",
@@ -1048,7 +1124,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "d",
@@ -1056,7 +1133,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -1078,7 +1156,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "e",
@@ -1086,7 +1165,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "f",
@@ -1094,7 +1174,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "ore",
@@ -1104,7 +1185,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ore"
       }
     ],
     "taughtAt": [
@@ -1126,7 +1208,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "e",
@@ -1134,7 +1217,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "ll",
@@ -1143,7 +1227,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ll"
       }
     ],
     "taughtAt": [
@@ -1165,7 +1250,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "e",
@@ -1173,7 +1259,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "s",
@@ -1181,7 +1268,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "t",
@@ -1189,7 +1277,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -1211,7 +1300,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "i",
@@ -1219,7 +1309,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "g",
@@ -1227,7 +1318,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       }
     ],
     "taughtAt": [
@@ -1249,7 +1341,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "i_e",
@@ -1258,7 +1351,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i_e"
       },
       {
         "grapheme": "k",
@@ -1266,7 +1360,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       }
     ],
     "taughtAt": [
@@ -1288,7 +1383,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "i",
@@ -1296,7 +1392,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "n",
@@ -1304,7 +1401,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -1326,7 +1424,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "ir",
@@ -1335,7 +1434,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ir"
       },
       {
         "grapheme": "d",
@@ -1343,7 +1443,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -1365,7 +1466,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "ir",
@@ -1374,7 +1476,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ir"
       },
       {
         "grapheme": "d",
@@ -1382,7 +1485,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "s",
@@ -1390,7 +1494,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "suffix-plural-voiced"
+        "role": "suffix-plural-voiced",
+        "evidenceTargetId": "suffix_s"
       }
     ],
     "taughtAt": [
@@ -1412,7 +1517,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "i",
@@ -1420,7 +1526,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "t",
@@ -1428,7 +1535,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -1450,7 +1558,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "l",
@@ -1458,7 +1567,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "a",
@@ -1466,7 +1576,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "ck",
@@ -1475,7 +1586,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ck"
       }
     ],
     "taughtAt": [
@@ -1498,7 +1610,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "l",
@@ -1506,7 +1619,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "o",
@@ -1514,7 +1628,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "ck",
@@ -1523,7 +1638,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ck"
       }
     ],
     "taughtAt": [
@@ -1545,7 +1661,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "l",
@@ -1553,7 +1670,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "ow",
@@ -1562,7 +1680,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ow"
       }
     ],
     "taughtAt": [
@@ -1584,7 +1703,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "l",
@@ -1592,7 +1712,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "ue",
@@ -1601,7 +1722,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ue"
       }
     ],
     "taughtAt": [
@@ -1623,7 +1745,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "oa",
@@ -1632,7 +1755,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oa"
       },
       {
         "grapheme": "t",
@@ -1640,7 +1764,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -1662,7 +1787,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "o_e",
@@ -1671,7 +1797,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o_e"
       },
       {
         "grapheme": "n",
@@ -1679,7 +1806,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -1701,7 +1829,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "oo",
@@ -1710,7 +1839,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "oo_short"
       },
       {
         "grapheme": "k",
@@ -1718,7 +1848,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       }
     ],
     "taughtAt": [
@@ -1740,7 +1871,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "or",
@@ -1749,7 +1881,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "or"
       },
       {
         "grapheme": "n",
@@ -1757,7 +1890,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -1779,7 +1913,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "o",
@@ -1787,7 +1922,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "tt",
@@ -1796,7 +1932,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "le",
@@ -1805,7 +1942,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "le"
       }
     ],
     "taughtAt": [
@@ -1827,7 +1965,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "o",
@@ -1835,7 +1974,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "x",
@@ -1843,7 +1983,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "x"
       }
     ],
     "taughtAt": [
@@ -1866,7 +2007,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "oy",
@@ -1875,7 +2017,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oy"
       }
     ],
     "taughtAt": [
@@ -1897,7 +2040,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "r",
@@ -1905,7 +2049,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "ea",
@@ -1914,7 +2059,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "ea_e"
       },
       {
         "grapheme": "d",
@@ -1922,7 +2068,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -1944,7 +2091,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "r",
@@ -1952,7 +2100,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "i",
@@ -1960,7 +2109,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "ck",
@@ -1969,7 +2119,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ck"
       }
     ],
     "taughtAt": [
@@ -1991,7 +2142,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "r",
@@ -1999,7 +2151,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "i",
@@ -2007,7 +2160,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "dge",
@@ -2017,7 +2171,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "g_j"
       }
     ],
     "taughtAt": [
@@ -2039,7 +2194,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "r",
@@ -2047,7 +2203,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "igh",
@@ -2057,7 +2214,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "igh"
       },
       {
         "grapheme": "t",
@@ -2065,7 +2223,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -2089,7 +2248,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "r",
@@ -2097,7 +2257,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "i",
@@ -2105,7 +2266,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "ng",
@@ -2114,7 +2276,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ng"
       }
     ],
     "taughtAt": [
@@ -2136,7 +2299,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "r",
@@ -2144,7 +2308,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "ow",
@@ -2153,7 +2318,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "ow_ou"
       },
       {
         "grapheme": "n",
@@ -2161,7 +2327,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -2183,7 +2350,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "u",
@@ -2191,7 +2359,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "d",
@@ -2199,7 +2368,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -2221,7 +2391,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "u",
@@ -2229,7 +2400,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "n",
@@ -2237,7 +2409,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -2260,7 +2433,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "ur",
@@ -2269,7 +2443,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ur"
       },
       {
         "grapheme": "n",
@@ -2277,7 +2452,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -2299,7 +2475,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "u",
@@ -2307,7 +2484,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "s",
@@ -2315,7 +2493,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       }
     ],
     "taughtAt": [
@@ -2337,7 +2516,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "u",
@@ -2345,7 +2525,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "t",
@@ -2353,7 +2534,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -2375,7 +2557,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "u",
@@ -2383,7 +2566,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "zz",
@@ -2392,7 +2576,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "zz"
       }
     ],
     "taughtAt": [
@@ -2415,7 +2600,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "y",
@@ -2423,7 +2609,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "y_ie"
       }
     ],
     "taughtAt": [
@@ -2445,7 +2632,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "a_e",
@@ -2454,7 +2642,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a_e"
       },
       {
         "grapheme": "k",
@@ -2462,7 +2651,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       }
     ],
     "taughtAt": [
@@ -2484,7 +2674,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "a",
@@ -2492,7 +2683,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "aw"
       },
       {
         "grapheme": "ll",
@@ -2501,7 +2693,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ll"
       },
       {
         "grapheme": "ed",
@@ -2510,7 +2703,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "suffix-past-voiced"
+        "role": "suffix-past-voiced",
+        "evidenceTargetId": "suffix_ed"
       }
     ],
     "taughtAt": [
@@ -2532,7 +2726,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "a",
@@ -2540,7 +2735,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "m",
@@ -2548,7 +2744,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "p",
@@ -2556,7 +2753,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -2578,7 +2776,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "a",
@@ -2586,7 +2785,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "n",
@@ -2594,7 +2794,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -2618,7 +2819,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "a",
@@ -2626,7 +2828,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "n",
@@ -2634,7 +2837,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "d",
@@ -2642,7 +2846,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "le",
@@ -2651,7 +2856,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "le"
       }
     ],
     "taughtAt": [
@@ -2674,7 +2880,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "a",
@@ -2682,7 +2889,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "p",
@@ -2690,7 +2898,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -2712,7 +2921,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "ar",
@@ -2721,7 +2931,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ar"
       }
     ],
     "taughtAt": [
@@ -2743,7 +2954,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "ar",
@@ -2752,7 +2964,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ar"
       },
       {
         "grapheme": "d",
@@ -2760,7 +2973,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -2782,7 +2996,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "are",
@@ -2792,7 +3007,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "are"
       }
     ],
     "taughtAt": [
@@ -2814,7 +3030,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "a",
@@ -2822,7 +3039,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "t",
@@ -2830,7 +3048,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -2852,7 +3071,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "a",
@@ -2860,7 +3080,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "t",
@@ -2868,7 +3089,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "s",
@@ -2876,7 +3098,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "suffix-plural-unvoiced"
+        "role": "suffix-plural-unvoiced",
+        "evidenceTargetId": "suffix_s"
       }
     ],
     "taughtAt": [
@@ -2898,7 +3121,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "c_s"
       },
       {
         "grapheme": "e",
@@ -2906,7 +3130,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "ll",
@@ -2915,7 +3140,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ll"
       }
     ],
     "taughtAt": [
@@ -2938,7 +3164,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ch"
       },
       {
         "grapheme": "air",
@@ -2948,7 +3175,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "air"
       }
     ],
     "taughtAt": [
@@ -2971,7 +3199,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ch"
       },
       {
         "grapheme": "a",
@@ -2979,7 +3208,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "t",
@@ -2987,7 +3217,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -3010,7 +3241,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ch"
       },
       {
         "grapheme": "e",
@@ -3018,7 +3250,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "ss",
@@ -3027,7 +3260,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ss"
       }
     ],
     "taughtAt": [
@@ -3050,7 +3284,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ch"
       },
       {
         "grapheme": "ew",
@@ -3059,7 +3294,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ew"
       }
     ],
     "taughtAt": [
@@ -3082,7 +3318,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ch"
       },
       {
         "grapheme": "i",
@@ -3090,7 +3327,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "n",
@@ -3098,7 +3336,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -3121,7 +3360,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ch"
       },
       {
         "grapheme": "i",
@@ -3129,7 +3369,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "p",
@@ -3137,7 +3378,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -3160,7 +3402,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ch"
       },
       {
         "grapheme": "o",
@@ -3168,7 +3411,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "p",
@@ -3176,7 +3420,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -3199,7 +3444,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "c_s"
       },
       {
         "grapheme": "i",
@@ -3207,7 +3453,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "t",
@@ -3215,7 +3462,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "y",
@@ -3223,7 +3471,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "y_ee"
       }
     ],
     "taughtAt": [
@@ -3246,7 +3495,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "l",
@@ -3254,7 +3504,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "a",
@@ -3262,7 +3513,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "p",
@@ -3270,7 +3522,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -3292,7 +3545,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "l",
@@ -3300,7 +3554,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "aw",
@@ -3309,7 +3564,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "aw"
       }
     ],
     "taughtAt": [
@@ -3331,7 +3587,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "l",
@@ -3339,7 +3596,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "ear",
@@ -3350,6 +3608,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4
         ],
         "role": "context",
+        "evidenceTargetId": "ear",
         "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       }
     ],
@@ -3372,7 +3631,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "l",
@@ -3380,7 +3640,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "i",
@@ -3388,7 +3649,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "ck",
@@ -3397,7 +3659,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ck"
       }
     ],
     "taughtAt": [
@@ -3419,7 +3682,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "l",
@@ -3427,7 +3691,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "i",
@@ -3435,7 +3700,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "i_e"
       },
       {
         "grapheme": "mb",
@@ -3444,7 +3710,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -3466,7 +3733,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "l",
@@ -3474,7 +3742,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "o_e",
@@ -3483,7 +3752,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o_e"
       },
       {
         "grapheme": "s",
@@ -3491,7 +3761,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       }
     ],
     "taughtAt": [
@@ -3513,7 +3784,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "l",
@@ -3521,7 +3793,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "ou",
@@ -3530,7 +3803,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ou"
       },
       {
         "grapheme": "d",
@@ -3538,7 +3812,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -3560,7 +3835,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "oa",
@@ -3569,7 +3845,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oa"
       },
       {
         "grapheme": "t",
@@ -3577,7 +3854,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -3599,7 +3877,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "oi",
@@ -3608,7 +3887,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oi"
       },
       {
         "grapheme": "n",
@@ -3616,7 +3896,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -3638,7 +3919,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "o",
@@ -3646,7 +3928,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "me",
@@ -3655,7 +3938,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -3677,7 +3961,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "o",
@@ -3686,6 +3971,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1
         ],
         "role": "irregular",
+        "evidenceTargetId": null,
         "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       },
       {
@@ -3694,7 +3980,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "p",
@@ -3702,7 +3989,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "l",
@@ -3710,7 +3998,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "e_e",
@@ -3719,7 +4008,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           5,
           7
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e_e"
       },
       {
         "grapheme": "t",
@@ -3727,7 +4017,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           6
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -3749,7 +4040,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "oo",
@@ -3758,7 +4050,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "oo_short"
       },
       {
         "grapheme": "k",
@@ -3766,7 +4059,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       }
     ],
     "taughtAt": [
@@ -3788,7 +4082,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "or",
@@ -3797,7 +4092,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "or"
       },
       {
         "grapheme": "n",
@@ -3805,7 +4101,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -3827,7 +4124,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "oul",
@@ -3837,7 +4135,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "oo_short"
       },
       {
         "grapheme": "d",
@@ -3845,7 +4144,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -3869,7 +4169,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "ow",
@@ -3878,7 +4179,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "ow_ou"
       }
     ],
     "taughtAt": [
@@ -3900,7 +4202,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "r",
@@ -3908,7 +4211,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "a",
@@ -3916,7 +4220,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "b",
@@ -3924,7 +4229,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       }
     ],
     "taughtAt": [
@@ -3948,7 +4254,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "r",
@@ -3956,7 +4263,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "a",
@@ -3964,7 +4272,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "sh",
@@ -3973,7 +4282,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "sh"
       }
     ],
     "taughtAt": [
@@ -3995,7 +4305,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "r",
@@ -4003,7 +4314,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "ea",
@@ -4012,7 +4324,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ea"
       },
       {
         "grapheme": "t",
@@ -4020,7 +4333,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "ch"
       },
       {
         "grapheme": "ure",
@@ -4030,7 +4344,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           6,
           7
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "er"
       }
     ],
     "taughtAt": [
@@ -4052,7 +4367,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "r",
@@ -4060,7 +4376,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "o",
@@ -4068,7 +4385,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "aw"
       },
       {
         "grapheme": "ss",
@@ -4077,7 +4395,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ss"
       }
     ],
     "taughtAt": [
@@ -4099,7 +4418,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "r",
@@ -4107,7 +4427,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "y",
@@ -4115,7 +4436,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "y_ie"
       }
     ],
     "taughtAt": [
@@ -4137,7 +4459,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "u",
@@ -4145,7 +4468,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "b",
@@ -4153,7 +4477,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       }
     ],
     "taughtAt": [
@@ -4175,7 +4500,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "u_e",
@@ -4184,7 +4510,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u_e"
       },
       {
         "grapheme": "b",
@@ -4192,7 +4519,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       }
     ],
     "taughtAt": [
@@ -4214,7 +4542,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "u",
@@ -4222,7 +4551,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "p",
@@ -4230,7 +4560,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -4253,7 +4584,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "ure",
@@ -4263,7 +4595,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ure"
       }
     ],
     "taughtAt": [
@@ -4285,7 +4618,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "ur",
@@ -4294,7 +4628,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ur"
       },
       {
         "grapheme": "l",
@@ -4302,7 +4637,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       }
     ],
     "taughtAt": [
@@ -4324,7 +4660,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "u",
@@ -4332,7 +4669,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "t",
@@ -4340,7 +4678,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -4362,7 +4701,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "u_e",
@@ -4371,7 +4711,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u_e"
       },
       {
         "grapheme": "t",
@@ -4379,7 +4720,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -4401,7 +4743,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "a",
@@ -4409,7 +4752,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "d",
@@ -4417,7 +4761,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -4439,7 +4784,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "ar",
@@ -4448,7 +4794,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ar"
       },
       {
         "grapheme": "k",
@@ -4456,7 +4803,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       }
     ],
     "taughtAt": [
@@ -4480,7 +4828,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "ay",
@@ -4489,7 +4838,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ay"
       }
     ],
     "taughtAt": [
@@ -4511,7 +4861,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "ear",
@@ -4522,6 +4873,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3
         ],
         "role": "context",
+        "evidenceTargetId": "ear",
         "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       }
     ],
@@ -4544,7 +4896,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "e",
@@ -4552,7 +4905,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "l",
@@ -4560,7 +4914,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "e_e",
@@ -4569,7 +4924,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e_e"
       },
       {
         "grapheme": "t",
@@ -4577,7 +4933,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -4599,7 +4956,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "i",
@@ -4607,7 +4965,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "d",
@@ -4615,7 +4974,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -4637,7 +4997,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "i",
@@ -4645,7 +5006,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "ff",
@@ -4654,7 +5016,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ff"
       },
       {
         "grapheme": "er",
@@ -4663,7 +5026,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "er"
       },
       {
         "grapheme": "e",
@@ -4672,6 +5036,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           6
         ],
         "role": "irregular",
+        "evidenceTargetId": null,
         "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       },
       {
@@ -4680,7 +5045,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           7
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "t",
@@ -4688,7 +5054,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           8
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -4710,7 +5077,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "i",
@@ -4718,7 +5086,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "sh",
@@ -4727,7 +5096,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "sh"
       }
     ],
     "taughtAt": [
@@ -4749,7 +5119,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "o",
@@ -4757,7 +5128,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "oo"
       }
     ],
     "taughtAt": [
@@ -4781,7 +5153,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "o",
@@ -4789,7 +5162,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "g",
@@ -4797,7 +5171,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "s",
@@ -4805,7 +5180,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "suffix-plural-voiced"
+        "role": "suffix-plural-voiced",
+        "evidenceTargetId": "suffix_s"
       }
     ],
     "taughtAt": [
@@ -4827,7 +5203,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "o",
@@ -4835,7 +5212,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "ll",
@@ -4844,7 +5222,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ll"
       }
     ],
     "taughtAt": [
@@ -4866,7 +5245,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "ow",
@@ -4875,7 +5255,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "ow_ou"
       },
       {
         "grapheme": "n",
@@ -4883,7 +5264,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -4905,7 +5287,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "r",
@@ -4913,7 +5296,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "aw",
@@ -4922,7 +5306,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "aw"
       }
     ],
     "taughtAt": [
@@ -4944,7 +5329,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "r",
@@ -4952,7 +5338,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "ea",
@@ -4961,7 +5348,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ea"
       },
       {
         "grapheme": "m",
@@ -4969,7 +5357,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -4991,7 +5380,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "r",
@@ -4999,7 +5389,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "i",
@@ -5007,7 +5398,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "p",
@@ -5015,7 +5407,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -5037,7 +5430,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "r",
@@ -5045,7 +5439,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "u",
@@ -5053,7 +5448,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "m",
@@ -5061,7 +5457,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -5083,7 +5480,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "u",
@@ -5091,7 +5489,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "ck",
@@ -5100,7 +5499,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ck"
       }
     ],
     "taughtAt": [
@@ -5125,7 +5525,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ear"
       }
     ],
     "taughtAt": [
@@ -5148,7 +5549,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ea"
       },
       {
         "grapheme": "t",
@@ -5156,7 +5558,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -5178,7 +5581,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "ch",
@@ -5187,7 +5591,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "ch_k"
       },
       {
         "grapheme": "o",
@@ -5195,7 +5600,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "ow"
       }
     ],
     "taughtAt": [
@@ -5217,7 +5623,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "n",
@@ -5225,7 +5632,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "d",
@@ -5233,7 +5641,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "ure",
@@ -5243,7 +5652,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ure"
       }
     ],
     "taughtAt": [
@@ -5265,7 +5675,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "n",
@@ -5273,7 +5684,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "j",
@@ -5281,7 +5693,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "j"
       },
       {
         "grapheme": "oy",
@@ -5290,7 +5703,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oy"
       }
     ],
     "taughtAt": [
@@ -5312,7 +5726,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "v",
@@ -5320,7 +5735,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "v"
       },
       {
         "grapheme": "er",
@@ -5329,7 +5745,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "er"
       },
       {
         "grapheme": "y",
@@ -5337,7 +5754,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "y_ee"
       }
     ],
     "taughtAt": [
@@ -5359,7 +5777,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "x",
@@ -5367,7 +5786,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "x"
       },
       {
         "grapheme": "t",
@@ -5375,7 +5795,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "r",
@@ -5383,7 +5804,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "e_e",
@@ -5392,7 +5814,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           6
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e_e"
       },
       {
         "grapheme": "m",
@@ -5400,7 +5823,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -5424,7 +5848,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "i_e"
       },
       {
         "grapheme": "s",
@@ -5432,7 +5857,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "suffix-plural-voiced"
+        "role": "suffix-plural-voiced",
+        "evidenceTargetId": "suffix_s"
       }
     ],
     "taughtAt": [
@@ -5454,7 +5880,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "air",
@@ -5464,7 +5891,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "air"
       }
     ],
     "taughtAt": [
@@ -5486,7 +5914,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "a",
@@ -5494,7 +5923,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "n",
@@ -5502,7 +5932,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -5524,7 +5955,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "ar",
@@ -5533,7 +5965,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ar"
       },
       {
         "grapheme": "m",
@@ -5541,7 +5974,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -5563,7 +5997,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "a",
@@ -5571,7 +6006,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "s",
@@ -5579,7 +6015,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "t",
@@ -5587,7 +6024,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -5609,7 +6047,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "ear",
@@ -5620,6 +6059,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3
         ],
         "role": "context",
+        "evidenceTargetId": "ear",
         "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       }
     ],
@@ -5642,7 +6082,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "ee",
@@ -5651,7 +6092,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ee"
       },
       {
         "grapheme": "t",
@@ -5659,7 +6101,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -5681,7 +6124,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "e",
@@ -5689,7 +6133,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "ll",
@@ -5698,7 +6143,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ll"
       }
     ],
     "taughtAt": [
@@ -5721,7 +6167,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "er",
@@ -5730,7 +6177,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "er"
       },
       {
         "grapheme": "n",
@@ -5738,7 +6186,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -5760,7 +6209,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "ew",
@@ -5769,7 +6219,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "ew"
       }
     ],
     "taughtAt": [
@@ -5791,7 +6242,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "i",
@@ -5799,7 +6251,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "c",
@@ -5807,7 +6260,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "tion",
@@ -5818,7 +6272,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           5,
           6
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "tion"
       }
     ],
     "taughtAt": [
@@ -5840,7 +6295,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "igh",
@@ -5850,7 +6306,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "igh"
       },
       {
         "grapheme": "t",
@@ -5858,7 +6315,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -5880,7 +6338,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "i",
@@ -5888,7 +6347,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "n",
@@ -5896,7 +6356,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -5918,7 +6379,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "i",
@@ -5926,7 +6388,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "sh",
@@ -5935,7 +6398,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "sh"
       }
     ],
     "taughtAt": [
@@ -5957,7 +6421,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "i",
@@ -5965,7 +6430,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "t",
@@ -5973,7 +6439,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -5995,7 +6462,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "i",
@@ -6003,7 +6471,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "x",
@@ -6011,7 +6480,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "x"
       }
     ],
     "taughtAt": [
@@ -6033,7 +6503,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "i",
@@ -6041,7 +6512,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "zz",
@@ -6050,7 +6522,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "zz"
       }
     ],
     "taughtAt": [
@@ -6072,7 +6545,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "l",
@@ -6080,7 +6554,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "a",
@@ -6088,7 +6563,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "g",
@@ -6096,7 +6572,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       }
     ],
     "taughtAt": [
@@ -6119,7 +6596,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "l",
@@ -6127,7 +6605,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "a_e",
@@ -6136,7 +6615,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a_e"
       },
       {
         "grapheme": "m",
@@ -6144,7 +6624,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -6166,7 +6647,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "l",
@@ -6174,7 +6656,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "i",
@@ -6182,7 +6665,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "p",
@@ -6190,7 +6674,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -6212,7 +6697,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "l",
@@ -6220,7 +6706,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "y",
@@ -6228,7 +6715,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "y_ie"
       }
     ],
     "taughtAt": [
@@ -6250,7 +6738,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "o",
@@ -6258,7 +6747,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "ll",
@@ -6267,7 +6757,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ll"
       },
       {
         "grapheme": "ow",
@@ -6276,7 +6767,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ow"
       }
     ],
     "taughtAt": [
@@ -6298,7 +6790,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "oo",
@@ -6307,7 +6800,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oo"
       },
       {
         "grapheme": "d",
@@ -6315,7 +6809,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -6337,7 +6832,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "oo",
@@ -6346,7 +6842,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "oo_short"
       },
       {
         "grapheme": "t",
@@ -6354,7 +6851,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -6376,7 +6874,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "or",
@@ -6385,7 +6884,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "or"
       },
       {
         "grapheme": "k",
@@ -6393,7 +6893,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       }
     ],
     "taughtAt": [
@@ -6415,7 +6916,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "ou",
@@ -6424,7 +6926,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ou"
       },
       {
         "grapheme": "n",
@@ -6432,7 +6935,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "d",
@@ -6440,7 +6944,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -6462,7 +6967,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "o",
@@ -6470,7 +6976,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "x",
@@ -6478,7 +6985,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "x"
       }
     ],
     "taughtAt": [
@@ -6500,7 +7008,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "r",
@@ -6508,7 +7017,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "ie",
@@ -6517,7 +7027,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "n",
@@ -6525,7 +7036,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "d",
@@ -6533,7 +7045,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "s",
@@ -6541,7 +7054,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           6
         ],
-        "role": "suffix-plural-voiced"
+        "role": "suffix-plural-voiced",
+        "evidenceTargetId": "suffix_s"
       }
     ],
     "taughtAt": [
@@ -6563,7 +7077,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "r",
@@ -6571,7 +7086,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "o",
@@ -6579,7 +7095,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "g",
@@ -6587,7 +7104,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       }
     ],
     "taughtAt": [
@@ -6611,7 +7129,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "r",
@@ -6619,7 +7138,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "o",
@@ -6627,7 +7147,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "m",
@@ -6635,7 +7156,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -6657,7 +7179,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "u",
@@ -6665,7 +7188,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "nn",
@@ -6674,7 +7198,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "y",
@@ -6682,7 +7207,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "y_ee"
       }
     ],
     "taughtAt": [
@@ -6704,7 +7230,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "u_e",
@@ -6713,7 +7240,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u_e"
       },
       {
         "grapheme": "s",
@@ -6721,7 +7249,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       }
     ],
     "taughtAt": [
@@ -6743,7 +7272,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "a_e",
@@ -6752,7 +7282,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a_e"
       },
       {
         "grapheme": "m",
@@ -6760,7 +7291,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -6782,7 +7314,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "a",
@@ -6790,7 +7323,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "p",
@@ -6798,7 +7332,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -6820,7 +7355,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "a",
@@ -6828,7 +7364,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "s",
@@ -6836,7 +7373,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       }
     ],
     "taughtAt": [
@@ -6858,7 +7396,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "a_e",
@@ -6867,7 +7406,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a_e"
       },
       {
         "grapheme": "t",
@@ -6875,7 +7415,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -6897,7 +7438,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "g_j"
       },
       {
         "grapheme": "e",
@@ -6905,7 +7447,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "m",
@@ -6913,7 +7456,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -6935,7 +7479,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "e",
@@ -6943,7 +7488,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "t",
@@ -6951,7 +7497,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -6973,7 +7520,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "context-soft-g"
+        "role": "context-soft-g",
+        "evidenceTargetId": "g_j"
       },
       {
         "grapheme": "i",
@@ -6981,7 +7529,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "i_e"
       },
       {
         "grapheme": "a",
@@ -6990,6 +7539,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2
         ],
         "role": "irregular",
+        "evidenceTargetId": null,
         "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       },
       {
@@ -6998,7 +7548,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "t",
@@ -7006,7 +7557,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -7029,7 +7581,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "i",
@@ -7037,7 +7590,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "f",
@@ -7045,7 +7599,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "t",
@@ -7053,7 +7608,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -7075,7 +7631,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "ir",
@@ -7084,7 +7641,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ir"
       },
       {
         "grapheme": "l",
@@ -7092,7 +7650,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       }
     ],
     "taughtAt": [
@@ -7114,7 +7673,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "l",
@@ -7122,7 +7682,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "a",
@@ -7130,7 +7691,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "d",
@@ -7138,7 +7700,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -7160,7 +7723,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "l",
@@ -7168,7 +7732,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "a",
@@ -7176,7 +7741,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "ss",
@@ -7185,7 +7751,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ss"
       }
     ],
     "taughtAt": [
@@ -7207,7 +7774,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "l",
@@ -7215,7 +7783,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "o_e",
@@ -7224,7 +7793,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o_e"
       },
       {
         "grapheme": "b",
@@ -7232,7 +7802,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       }
     ],
     "taughtAt": [
@@ -7254,7 +7825,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "l",
@@ -7262,7 +7834,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "ue",
@@ -7271,7 +7844,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ue"
       }
     ],
     "taughtAt": [
@@ -7293,7 +7867,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "o",
@@ -7301,7 +7876,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "ow"
       }
     ],
     "taughtAt": [
@@ -7329,7 +7905,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "oa",
@@ -7338,7 +7915,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oa"
       },
       {
         "grapheme": "t",
@@ -7346,7 +7924,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -7368,7 +7947,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "oe",
@@ -7377,7 +7957,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oe"
       },
       {
         "grapheme": "s",
@@ -7385,7 +7966,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       }
     ],
     "taughtAt": [
@@ -7407,7 +7989,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "o",
@@ -7415,7 +7998,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "ow"
       },
       {
         "grapheme": "i",
@@ -7423,7 +8007,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "suffix-progressive"
+        "role": "suffix-progressive",
+        "evidenceTargetId": "suffix_ing"
       },
       {
         "grapheme": "ng",
@@ -7432,7 +8017,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "suffix-progressive"
+        "role": "suffix-progressive",
+        "evidenceTargetId": "suffix_ing"
       }
     ],
     "taughtAt": [
@@ -7454,7 +8040,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "oo",
@@ -7463,7 +8050,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "oo_short"
       },
       {
         "grapheme": "d",
@@ -7471,7 +8059,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -7493,7 +8082,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "o",
@@ -7501,7 +8091,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "t",
@@ -7509,7 +8100,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -7531,7 +8123,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "r",
@@ -7539,7 +8132,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "a",
@@ -7547,7 +8141,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "b",
@@ -7555,7 +8150,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       }
     ],
     "taughtAt": [
@@ -7577,7 +8173,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "r",
@@ -7585,7 +8182,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "ee",
@@ -7594,7 +8192,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ee"
       },
       {
         "grapheme": "n",
@@ -7602,7 +8201,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -7624,7 +8224,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "r",
@@ -7632,7 +8233,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "ew",
@@ -7641,7 +8243,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ew"
       }
     ],
     "taughtAt": [
@@ -7665,7 +8268,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "r",
@@ -7673,7 +8277,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "i",
@@ -7681,7 +8286,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "n",
@@ -7689,7 +8295,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -7712,7 +8319,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       },
       {
         "grapheme": "r",
@@ -7720,7 +8328,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "ow",
@@ -7729,7 +8338,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ow"
       }
     ],
     "taughtAt": [
@@ -7751,7 +8361,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "a",
@@ -7759,7 +8370,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "d",
@@ -7767,7 +8379,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -7789,7 +8402,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "air",
@@ -7799,7 +8413,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "air"
       }
     ],
     "taughtAt": [
@@ -7821,7 +8436,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "a",
@@ -7829,7 +8445,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "m",
@@ -7837,7 +8454,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -7859,7 +8477,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "a",
@@ -7867,7 +8486,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "n",
@@ -7875,7 +8495,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "d",
@@ -7883,7 +8504,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -7906,7 +8528,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "a",
@@ -7914,7 +8537,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "pp",
@@ -7923,7 +8547,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "y",
@@ -7931,7 +8556,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "y_ee"
       }
     ],
     "taughtAt": [
@@ -7954,7 +8580,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "ar",
@@ -7963,7 +8590,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ar"
       },
       {
         "grapheme": "d",
@@ -7971,7 +8599,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -7995,7 +8624,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "a",
@@ -8003,7 +8633,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "t",
@@ -8011,7 +8642,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -8034,7 +8666,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "a",
@@ -8042,7 +8675,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "ve",
@@ -8051,7 +8685,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "v"
       }
     ],
     "taughtAt": [
@@ -8073,7 +8708,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "e",
@@ -8081,7 +8717,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "ee"
       }
     ],
     "taughtAt": [
@@ -8103,7 +8740,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "ea",
@@ -8112,7 +8750,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "ea_e"
       },
       {
         "grapheme": "d",
@@ -8120,7 +8759,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -8142,7 +8782,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "ear",
@@ -8152,7 +8793,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ear"
       }
     ],
     "taughtAt": [
@@ -8174,7 +8816,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "er",
@@ -8183,7 +8826,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "er"
       }
     ],
     "taughtAt": [
@@ -8207,7 +8851,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "ere",
@@ -8217,7 +8862,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "ear"
       }
     ],
     "taughtAt": [
@@ -8239,7 +8885,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "i",
@@ -8247,7 +8894,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "d",
@@ -8255,7 +8903,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -8277,7 +8926,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "i_e",
@@ -8286,7 +8936,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i_e"
       },
       {
         "grapheme": "d",
@@ -8294,7 +8945,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -8316,7 +8968,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "igh",
@@ -8326,7 +8979,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "igh"
       }
     ],
     "taughtAt": [
@@ -8348,7 +9002,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "i",
@@ -8356,7 +9011,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "m",
@@ -8364,7 +9020,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -8386,7 +9043,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "i",
@@ -8394,7 +9052,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "ss",
@@ -8403,7 +9062,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ss"
       }
     ],
     "taughtAt": [
@@ -8425,7 +9085,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "i",
@@ -8433,7 +9094,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "t",
@@ -8441,7 +9103,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -8463,7 +9126,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "o_e",
@@ -8472,7 +9136,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o_e"
       },
       {
         "grapheme": "l",
@@ -8480,7 +9145,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       }
     ],
     "taughtAt": [
@@ -8502,7 +9168,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "o_e",
@@ -8511,7 +9178,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o_e"
       },
       {
         "grapheme": "m",
@@ -8519,7 +9187,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -8541,7 +9210,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "oo",
@@ -8550,7 +9220,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "oo_short"
       },
       {
         "grapheme": "k",
@@ -8558,7 +9229,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       }
     ],
     "taughtAt": [
@@ -8580,7 +9252,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "o",
@@ -8588,7 +9261,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "t",
@@ -8596,7 +9270,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -8619,7 +9294,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "ow",
@@ -8628,7 +9304,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "ow_ou"
       }
     ],
     "taughtAt": [
@@ -8650,7 +9327,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "u",
@@ -8658,7 +9336,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "ff",
@@ -8667,7 +9346,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ff"
       }
     ],
     "taughtAt": [
@@ -8689,7 +9369,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "u_e",
@@ -8698,7 +9379,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u_e"
       },
       {
         "grapheme": "g",
@@ -8706,7 +9388,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "context-soft-g"
+        "role": "context-soft-g",
+        "evidenceTargetId": "g_j"
       }
     ],
     "taughtAt": [
@@ -8728,7 +9411,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "ur",
@@ -8737,7 +9421,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ur"
       },
       {
         "grapheme": "t",
@@ -8745,7 +9430,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -8767,7 +9453,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "i_e"
       }
     ],
     "taughtAt": [
@@ -8790,7 +9477,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i_e"
       },
       {
         "grapheme": "c",
@@ -8798,7 +9486,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "c_s"
       }
     ],
     "taughtAt": [
@@ -8820,7 +9509,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "f",
@@ -8828,7 +9518,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       }
     ],
     "taughtAt": [
@@ -8850,7 +9541,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "n",
@@ -8858,7 +9550,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -8882,7 +9575,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "s",
@@ -8890,7 +9584,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "z"
       }
     ],
     "taughtAt": [
@@ -8915,7 +9610,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "t",
@@ -8923,7 +9619,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -8951,7 +9648,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "t",
@@ -8959,7 +9657,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "s",
@@ -8967,7 +9666,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       }
     ],
     "taughtAt": [
@@ -8989,7 +9689,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "j"
       },
       {
         "grapheme": "a",
@@ -8997,7 +9698,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "m",
@@ -9005,7 +9707,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -9027,7 +9730,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "j"
       },
       {
         "grapheme": "e",
@@ -9035,7 +9739,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "t",
@@ -9043,7 +9748,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -9066,7 +9772,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "j"
       },
       {
         "grapheme": "o",
@@ -9074,7 +9781,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "b",
@@ -9082,7 +9790,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       }
     ],
     "taughtAt": [
@@ -9104,7 +9813,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "j"
       },
       {
         "grapheme": "oi",
@@ -9113,7 +9823,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oi"
       },
       {
         "grapheme": "n",
@@ -9121,7 +9832,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -9143,7 +9855,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "j"
       },
       {
         "grapheme": "o_e",
@@ -9152,7 +9865,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o_e"
       },
       {
         "grapheme": "k",
@@ -9160,7 +9874,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       }
     ],
     "taughtAt": [
@@ -9182,7 +9897,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "j"
       },
       {
         "grapheme": "oy",
@@ -9191,7 +9907,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oy"
       }
     ],
     "taughtAt": [
@@ -9213,7 +9930,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "j"
       },
       {
         "grapheme": "u",
@@ -9221,7 +9939,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "g",
@@ -9229,7 +9948,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       }
     ],
     "taughtAt": [
@@ -9251,7 +9971,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "j"
       },
       {
         "grapheme": "u",
@@ -9259,7 +9980,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "m",
@@ -9267,7 +9989,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "p",
@@ -9275,7 +9998,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -9299,7 +10023,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "j"
       },
       {
         "grapheme": "u",
@@ -9307,7 +10032,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "m",
@@ -9315,7 +10041,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "p",
@@ -9323,7 +10050,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "ed",
@@ -9332,7 +10060,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "suffix-past-unvoiced"
+        "role": "suffix-past-unvoiced",
+        "evidenceTargetId": "suffix_ed"
       }
     ],
     "taughtAt": [
@@ -9355,7 +10084,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "j"
       },
       {
         "grapheme": "u",
@@ -9363,7 +10093,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "m",
@@ -9371,7 +10102,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "p",
@@ -9379,7 +10111,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "i",
@@ -9387,7 +10120,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "suffix-progressive"
+        "role": "suffix-progressive",
+        "evidenceTargetId": "suffix_ing"
       },
       {
         "grapheme": "ng",
@@ -9396,7 +10130,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           5,
           6
         ],
-        "role": "suffix-progressive"
+        "role": "suffix-progressive",
+        "evidenceTargetId": "suffix_ing"
       }
     ],
     "taughtAt": [
@@ -9418,7 +10153,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       },
       {
         "grapheme": "ee",
@@ -9427,7 +10163,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ee"
       },
       {
         "grapheme": "p",
@@ -9435,7 +10172,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -9457,7 +10195,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       },
       {
         "grapheme": "i",
@@ -9465,7 +10204,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "ck",
@@ -9474,7 +10214,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ck"
       }
     ],
     "taughtAt": [
@@ -9496,7 +10237,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       },
       {
         "grapheme": "i",
@@ -9504,7 +10246,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "d",
@@ -9512,7 +10255,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -9535,7 +10279,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       },
       {
         "grapheme": "i",
@@ -9543,7 +10288,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "ng",
@@ -9552,7 +10298,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ng"
       }
     ],
     "taughtAt": [
@@ -9574,7 +10321,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       },
       {
         "grapheme": "i",
@@ -9582,7 +10330,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "ss",
@@ -9591,7 +10340,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ss"
       }
     ],
     "taughtAt": [
@@ -9613,7 +10363,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       },
       {
         "grapheme": "i",
@@ -9621,7 +10372,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "t",
@@ -9629,7 +10381,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -9651,7 +10404,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       },
       {
         "grapheme": "i_e",
@@ -9660,7 +10414,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i_e"
       },
       {
         "grapheme": "t",
@@ -9668,7 +10423,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -9690,7 +10446,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "a",
@@ -9698,7 +10455,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "m",
@@ -9706,7 +10464,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "p",
@@ -9714,7 +10473,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -9736,7 +10496,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "a",
@@ -9744,7 +10505,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "n",
@@ -9752,7 +10514,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "d",
@@ -9760,7 +10523,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -9782,7 +10546,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "a",
@@ -9790,7 +10555,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "n",
@@ -9798,7 +10564,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "d",
@@ -9806,7 +10573,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "ed",
@@ -9816,6 +10584,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           5
         ],
         "role": "suffix-past-syllabic",
+        "evidenceTargetId": "suffix_ed",
         "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       }
     ],
@@ -9839,7 +10608,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "a",
@@ -9847,7 +10617,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "s",
@@ -9855,7 +10626,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "t",
@@ -9863,7 +10635,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -9888,7 +10661,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "a_e",
@@ -9897,7 +10671,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a_e"
       },
       {
         "grapheme": "t",
@@ -9905,7 +10680,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -9927,7 +10703,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "a",
@@ -9935,7 +10712,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "ugh",
@@ -9945,7 +10723,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "ed",
@@ -9954,7 +10733,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           5,
           6
         ],
-        "role": "suffix-past-unvoiced"
+        "role": "suffix-past-unvoiced",
+        "evidenceTargetId": "suffix_ed"
       }
     ],
     "taughtAt": [
@@ -9976,7 +10756,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "ea",
@@ -9985,7 +10766,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ea"
       },
       {
         "grapheme": "f",
@@ -9993,7 +10775,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       }
     ],
     "taughtAt": [
@@ -10015,7 +10798,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "ea",
@@ -10024,7 +10808,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ea"
       },
       {
         "grapheme": "ve",
@@ -10033,7 +10818,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "v"
       }
     ],
     "taughtAt": [
@@ -10055,7 +10841,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "e",
@@ -10063,7 +10850,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "g",
@@ -10071,7 +10859,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       }
     ],
     "taughtAt": [
@@ -10093,7 +10882,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "e",
@@ -10101,7 +10891,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "ss",
@@ -10110,7 +10901,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ss"
       }
     ],
     "taughtAt": [
@@ -10132,7 +10924,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "i",
@@ -10140,7 +10933,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "d",
@@ -10148,7 +10942,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -10170,7 +10965,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "ie",
@@ -10179,7 +10975,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ie"
       }
     ],
     "taughtAt": [
@@ -10201,7 +10998,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "i",
@@ -10209,7 +11007,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "f",
@@ -10217,7 +11016,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "t",
@@ -10225,7 +11025,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -10247,7 +11048,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "igh",
@@ -10257,7 +11059,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "igh"
       },
       {
         "grapheme": "t",
@@ -10265,7 +11068,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -10289,7 +11093,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "i_e",
@@ -10298,7 +11103,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i_e"
       },
       {
         "grapheme": "k",
@@ -10306,7 +11112,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       }
     ],
     "taughtAt": [
@@ -10330,7 +11137,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "i",
@@ -10338,7 +11146,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "st",
@@ -10347,7 +11156,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "e",
@@ -10356,6 +11166,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4
         ],
         "role": "irregular",
+        "evidenceTargetId": null,
         "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       },
       {
@@ -10364,7 +11175,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -10386,7 +11198,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "i",
@@ -10394,7 +11207,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "t",
@@ -10402,7 +11216,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -10424,7 +11239,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "i",
@@ -10432,7 +11248,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "tt",
@@ -10441,7 +11258,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "le",
@@ -10450,7 +11268,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "le"
       }
     ],
     "taughtAt": [
@@ -10475,7 +11294,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "o",
@@ -10483,7 +11303,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "ck",
@@ -10492,7 +11313,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ck"
       }
     ],
     "taughtAt": [
@@ -10514,7 +11336,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "o",
@@ -10522,7 +11345,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "aw"
       },
       {
         "grapheme": "ng",
@@ -10531,7 +11355,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ng"
       }
     ],
     "taughtAt": [
@@ -10555,7 +11380,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "oo",
@@ -10564,7 +11390,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "oo_short"
       },
       {
         "grapheme": "k",
@@ -10572,7 +11399,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       }
     ],
     "taughtAt": [
@@ -10596,7 +11424,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "oo",
@@ -10605,7 +11434,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oo_short"
       },
       {
         "grapheme": "k",
@@ -10613,7 +11443,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       },
       {
         "grapheme": "ed",
@@ -10622,7 +11453,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "suffix-past-unvoiced"
+        "role": "suffix-past-unvoiced",
+        "evidenceTargetId": "suffix_ed"
       }
     ],
     "taughtAt": [
@@ -10644,7 +11476,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "o",
@@ -10652,7 +11485,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "t",
@@ -10660,7 +11494,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -10682,7 +11517,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "o",
@@ -10690,7 +11526,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "o_e"
       },
       {
         "grapheme": "tion",
@@ -10701,7 +11538,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "tion"
       }
     ],
     "taughtAt": [
@@ -10723,7 +11561,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "ou",
@@ -10732,7 +11571,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ou"
       },
       {
         "grapheme": "d",
@@ -10740,7 +11580,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -10762,7 +11603,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "a",
@@ -10770,7 +11612,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "d",
@@ -10778,7 +11621,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -10800,7 +11644,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "a_e",
@@ -10809,7 +11654,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a_e"
       },
       {
         "grapheme": "d",
@@ -10817,7 +11663,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -10839,7 +11686,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "a",
@@ -10847,7 +11695,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "g",
@@ -10855,7 +11704,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "g_j"
       },
       {
         "grapheme": "i",
@@ -10863,7 +11713,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "c",
@@ -10871,7 +11722,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       }
     ],
     "taughtAt": [
@@ -10893,7 +11745,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "ai",
@@ -10902,7 +11755,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ai"
       },
       {
         "grapheme": "l",
@@ -10910,7 +11764,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       }
     ],
     "taughtAt": [
@@ -10932,7 +11787,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "a_e",
@@ -10941,7 +11797,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a_e"
       },
       {
         "grapheme": "k",
@@ -10949,7 +11806,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       }
     ],
     "taughtAt": [
@@ -10971,7 +11829,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "a",
@@ -10979,7 +11838,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "n",
@@ -10987,7 +11847,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -11009,7 +11870,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "a",
@@ -11018,6 +11880,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1
         ],
         "role": "irregular",
+        "evidenceTargetId": null,
         "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       },
       {
@@ -11026,7 +11889,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "ure",
@@ -11037,6 +11901,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           5
         ],
         "role": "context",
+        "evidenceTargetId": "ure",
         "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       }
     ],
@@ -11059,7 +11924,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "a",
@@ -11067,7 +11933,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "n",
@@ -11075,7 +11942,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "y",
@@ -11083,7 +11951,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "y_ee"
       }
     ],
     "taughtAt": [
@@ -11105,7 +11974,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "a",
@@ -11113,7 +11983,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "t",
@@ -11121,7 +11992,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -11144,7 +12016,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "a",
@@ -11152,7 +12025,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "t",
@@ -11160,7 +12034,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "s",
@@ -11168,7 +12043,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       }
     ],
     "taughtAt": [
@@ -11190,7 +12066,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "ay",
@@ -11199,7 +12076,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ay"
       }
     ],
     "taughtAt": [
@@ -11221,7 +12099,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "e",
@@ -11229,7 +12108,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "ee"
       }
     ],
     "taughtAt": [
@@ -11251,7 +12131,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "i",
@@ -11259,7 +12140,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "dd",
@@ -11268,7 +12150,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "le",
@@ -11277,7 +12160,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "le"
       }
     ],
     "taughtAt": [
@@ -11299,7 +12183,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "i_e",
@@ -11308,7 +12193,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i_e"
       },
       {
         "grapheme": "l",
@@ -11316,7 +12202,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       }
     ],
     "taughtAt": [
@@ -11338,7 +12225,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "i",
@@ -11346,7 +12234,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "ss",
@@ -11355,7 +12244,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ss"
       }
     ],
     "taughtAt": [
@@ -11377,7 +12267,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "i",
@@ -11385,7 +12276,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "x",
@@ -11393,7 +12285,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "x"
       }
     ],
     "taughtAt": [
@@ -11415,7 +12308,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "oo",
@@ -11424,7 +12318,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oo"
       },
       {
         "grapheme": "n",
@@ -11432,7 +12327,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -11454,7 +12350,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "ore",
@@ -11464,7 +12361,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ore"
       }
     ],
     "taughtAt": [
@@ -11486,7 +12384,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "o",
@@ -11494,7 +12393,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "o_e"
       },
       {
         "grapheme": "tion",
@@ -11505,7 +12405,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "tion"
       }
     ],
     "taughtAt": [
@@ -11527,7 +12428,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "ou",
@@ -11536,7 +12438,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ou"
       },
       {
         "grapheme": "th",
@@ -11545,7 +12448,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "th"
       }
     ],
     "taughtAt": [
@@ -11567,7 +12471,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "u",
@@ -11575,7 +12480,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "ch",
@@ -11584,7 +12490,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ch"
       }
     ],
     "taughtAt": [
@@ -11606,7 +12513,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "u",
@@ -11614,7 +12522,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "dd",
@@ -11623,7 +12532,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "y",
@@ -11631,7 +12541,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "y_ee"
       }
     ],
     "taughtAt": [
@@ -11653,7 +12564,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "u_e",
@@ -11662,7 +12574,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u_e"
       },
       {
         "grapheme": "l",
@@ -11670,7 +12583,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       }
     ],
     "taughtAt": [
@@ -11692,7 +12606,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "u",
@@ -11700,7 +12615,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "s",
@@ -11708,7 +12624,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "t",
@@ -11716,7 +12633,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -11738,7 +12656,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "u_e",
@@ -11747,7 +12666,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u_e"
       },
       {
         "grapheme": "t",
@@ -11755,7 +12675,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -11777,7 +12698,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "y",
@@ -11785,7 +12707,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "y_ie"
       }
     ],
     "taughtAt": [
@@ -11811,7 +12734,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "a_e",
@@ -11820,7 +12744,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a_e"
       },
       {
         "grapheme": "m",
@@ -11828,7 +12753,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -11850,7 +12776,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "a",
@@ -11858,7 +12785,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "a_e"
       },
       {
         "grapheme": "tion",
@@ -11869,7 +12797,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "tion"
       }
     ],
     "taughtAt": [
@@ -11891,7 +12820,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "ear",
@@ -11902,6 +12832,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3
         ],
         "role": "context",
+        "evidenceTargetId": "ear",
         "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       }
     ],
@@ -11926,7 +12857,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "e",
@@ -11934,7 +12866,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "t",
@@ -11942,7 +12875,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -11964,7 +12898,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "ew",
@@ -11973,7 +12908,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ew"
       }
     ],
     "taughtAt": [
@@ -11995,7 +12931,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "igh",
@@ -12005,7 +12942,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "igh"
       },
       {
         "grapheme": "t",
@@ -12013,7 +12951,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -12035,7 +12974,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "o",
@@ -12043,7 +12983,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "ow"
       }
     ],
     "taughtAt": [
@@ -12065,7 +13006,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "o",
@@ -12073,7 +13015,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "t",
@@ -12081,7 +13024,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -12106,7 +13050,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "o_e",
@@ -12115,7 +13060,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o_e"
       },
       {
         "grapheme": "t",
@@ -12123,7 +13069,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -12145,7 +13092,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "ow",
@@ -12154,7 +13102,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "ow_ou"
       }
     ],
     "taughtAt": [
@@ -12177,6 +13126,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0
         ],
         "role": "irregular",
+        "evidenceTargetId": null,
         "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       },
       {
@@ -12185,7 +13135,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "s",
@@ -12193,7 +13144,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "c",
@@ -12201,7 +13153,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "ure",
@@ -12211,7 +13164,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           5,
           6
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ure"
       }
     ],
     "taughtAt": [
@@ -12233,7 +13187,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "f",
@@ -12241,7 +13196,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "v"
       }
     ],
     "taughtAt": [
@@ -12264,7 +13220,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "aw"
       },
       {
         "grapheme": "ff",
@@ -12273,7 +13230,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ff"
       }
     ],
     "taughtAt": [
@@ -12298,7 +13256,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "ow"
       }
     ],
     "taughtAt": [
@@ -12321,7 +13280,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oi"
       },
       {
         "grapheme": "l",
@@ -12329,7 +13289,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       }
     ],
     "taughtAt": [
@@ -12351,7 +13312,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "n",
@@ -12359,7 +13321,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -12388,6 +13351,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0
         ],
         "role": "irregular",
+        "evidenceTargetId": null,
         "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       },
       {
@@ -12396,7 +13360,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "ce",
@@ -12405,7 +13370,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "s"
       }
     ],
     "taughtAt": [
@@ -12428,6 +13394,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0
         ],
         "role": "irregular",
+        "evidenceTargetId": null,
         "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       },
       {
@@ -12437,7 +13404,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -12460,7 +13428,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ou"
       },
       {
         "grapheme": "t",
@@ -12468,7 +13437,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -12494,7 +13464,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "o_e"
       },
       {
         "grapheme": "v",
@@ -12502,7 +13473,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "v"
       },
       {
         "grapheme": "er",
@@ -12511,7 +13483,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "er"
       }
     ],
     "taughtAt": [
@@ -12533,7 +13506,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "ai",
@@ -12542,7 +13516,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ai"
       },
       {
         "grapheme": "n",
@@ -12550,7 +13525,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "t",
@@ -12558,7 +13534,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -12580,7 +13557,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "air",
@@ -12590,7 +13568,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "air"
       }
     ],
     "taughtAt": [
@@ -12612,7 +13591,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "ar",
@@ -12621,7 +13601,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ar"
       },
       {
         "grapheme": "k",
@@ -12629,7 +13610,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       }
     ],
     "taughtAt": [
@@ -12651,7 +13633,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "a",
@@ -12659,7 +13642,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "t",
@@ -12667,7 +13651,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -12689,7 +13674,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "a",
@@ -12697,7 +13683,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "th",
@@ -12706,7 +13693,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "th"
       }
     ],
     "taughtAt": [
@@ -12730,7 +13718,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "aw",
@@ -12739,7 +13728,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "aw"
       }
     ],
     "taughtAt": [
@@ -12761,7 +13751,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "e",
@@ -12769,7 +13760,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "n",
@@ -12777,7 +13769,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -12799,7 +13792,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "eo",
@@ -12808,7 +13802,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "ee"
       },
       {
         "grapheme": "p",
@@ -12816,7 +13811,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "le",
@@ -12825,7 +13821,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "le"
       }
     ],
     "taughtAt": [
@@ -12847,7 +13844,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "i",
@@ -12855,7 +13853,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "ck",
@@ -12864,7 +13863,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ck"
       }
     ],
     "taughtAt": [
@@ -12886,7 +13886,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "i",
@@ -12894,7 +13895,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "c",
@@ -12902,7 +13904,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "t",
@@ -12910,7 +13913,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "ch"
       },
       {
         "grapheme": "ure",
@@ -12920,7 +13924,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           5,
           6
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "er"
       }
     ],
     "taughtAt": [
@@ -12942,7 +13947,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "ie",
@@ -12951,7 +13957,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ie"
       }
     ],
     "taughtAt": [
@@ -12973,7 +13980,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "i",
@@ -12981,7 +13989,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "g",
@@ -12989,7 +13998,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       }
     ],
     "taughtAt": [
@@ -13012,7 +14022,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "i",
@@ -13020,7 +14031,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "n",
@@ -13028,7 +14040,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -13050,7 +14063,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "i",
@@ -13058,7 +14072,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "nk",
@@ -13067,7 +14082,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "nk"
       }
     ],
     "taughtAt": [
@@ -13089,7 +14105,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "i",
@@ -13097,7 +14114,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "t",
@@ -13105,7 +14123,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -13127,7 +14146,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "l",
@@ -13135,7 +14155,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "a",
@@ -13143,7 +14164,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "n",
@@ -13151,7 +14173,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -13173,7 +14196,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "l",
@@ -13181,7 +14205,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "a_e",
@@ -13190,7 +14215,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a_e"
       },
       {
         "grapheme": "t",
@@ -13198,7 +14224,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -13220,7 +14247,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "l",
@@ -13228,7 +14256,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "ay",
@@ -13237,7 +14266,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ay"
       }
     ],
     "taughtAt": [
@@ -13259,7 +14289,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "l",
@@ -13267,7 +14298,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "ea",
@@ -13276,7 +14308,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ea"
       },
       {
         "grapheme": "se",
@@ -13285,7 +14318,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "z"
       }
     ],
     "taughtAt": [
@@ -13307,7 +14341,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "l",
@@ -13315,7 +14350,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "u",
@@ -13323,7 +14359,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "m",
@@ -13331,7 +14368,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -13353,7 +14391,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "oi",
@@ -13362,7 +14401,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oi"
       },
       {
         "grapheme": "n",
@@ -13370,7 +14410,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "t",
@@ -13378,7 +14419,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -13400,7 +14442,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "o",
@@ -13408,7 +14451,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "p",
@@ -13416,7 +14460,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -13439,7 +14484,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "o",
@@ -13447,7 +14493,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "t",
@@ -13455,7 +14502,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -13477,7 +14525,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "r",
@@ -13485,7 +14534,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "e",
@@ -13493,7 +14543,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "ss",
@@ -13502,7 +14553,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ss"
       }
     ],
     "taughtAt": [
@@ -13524,7 +14576,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "r",
@@ -13532,7 +14585,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "o",
@@ -13540,7 +14594,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "p",
@@ -13548,7 +14603,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -13570,7 +14626,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "u",
@@ -13578,7 +14635,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "ff",
@@ -13587,7 +14645,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ff"
       }
     ],
     "taughtAt": [
@@ -13609,7 +14668,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "u",
@@ -13617,7 +14677,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "p",
@@ -13625,7 +14686,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -13647,7 +14709,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "ure",
@@ -13657,7 +14720,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ure"
       }
     ],
     "taughtAt": [
@@ -13680,7 +14744,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "u",
@@ -13688,7 +14753,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "zz",
@@ -13697,7 +14763,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "zz"
       },
       {
         "grapheme": "le",
@@ -13706,7 +14773,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "le"
       }
     ],
     "taughtAt": [
@@ -13730,7 +14798,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "qu"
       },
       {
         "grapheme": "e",
@@ -13738,7 +14807,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "s",
@@ -13746,7 +14816,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "t",
@@ -13754,7 +14825,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -13777,7 +14849,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "qu"
       },
       {
         "grapheme": "i",
@@ -13785,7 +14858,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "t",
@@ -13793,7 +14867,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -13815,7 +14890,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "a_e",
@@ -13824,7 +14900,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a_e"
       },
       {
         "grapheme": "c",
@@ -13832,7 +14909,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "c_s"
       }
     ],
     "taughtAt": [
@@ -13854,7 +14932,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "ai",
@@ -13863,7 +14942,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ai"
       },
       {
         "grapheme": "n",
@@ -13871,7 +14951,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -13893,7 +14974,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "a",
@@ -13901,7 +14983,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "n",
@@ -13909,7 +14992,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -13931,7 +15015,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "a",
@@ -13939,7 +15024,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "t",
@@ -13947,7 +15033,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -13969,7 +15056,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "ea",
@@ -13978,7 +15066,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ea"
       },
       {
         "grapheme": "ch",
@@ -13987,7 +15076,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ch"
       }
     ],
     "taughtAt": [
@@ -14009,7 +15099,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "ea",
@@ -14018,7 +15109,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ea"
       },
       {
         "grapheme": "d",
@@ -14026,7 +15118,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -14051,7 +15144,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "ea",
@@ -14060,7 +15154,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ea"
       },
       {
         "grapheme": "d",
@@ -14068,7 +15163,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "i",
@@ -14076,7 +15172,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "suffix-progressive"
+        "role": "suffix-progressive",
+        "evidenceTargetId": "suffix_ing"
       },
       {
         "grapheme": "ng",
@@ -14085,7 +15182,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           5,
           6
         ],
-        "role": "suffix-progressive"
+        "role": "suffix-progressive",
+        "evidenceTargetId": "suffix_ing"
       }
     ],
     "taughtAt": [
@@ -14107,7 +15205,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "ea",
@@ -14116,7 +15215,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "ea_e"
       },
       {
         "grapheme": "d",
@@ -14124,7 +15224,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "y",
@@ -14132,7 +15233,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "y_ee"
       }
     ],
     "taughtAt": [
@@ -14154,7 +15256,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "e",
@@ -14162,7 +15265,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "d",
@@ -14170,7 +15274,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -14193,7 +15298,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "e",
@@ -14201,7 +15307,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "s",
@@ -14209,7 +15316,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "t",
@@ -14217,7 +15325,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -14240,7 +15349,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "i",
@@ -14248,7 +15358,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "ch",
@@ -14257,7 +15368,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ch"
       }
     ],
     "taughtAt": [
@@ -14279,7 +15391,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "i_e",
@@ -14288,7 +15401,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i_e"
       },
       {
         "grapheme": "d",
@@ -14296,7 +15410,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -14318,7 +15433,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "igh",
@@ -14328,7 +15444,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "igh"
       },
       {
         "grapheme": "t",
@@ -14336,7 +15453,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -14358,7 +15476,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "i",
@@ -14366,7 +15485,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "m",
@@ -14374,7 +15494,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -14396,7 +15517,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "i",
@@ -14404,7 +15526,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "ng",
@@ -14413,7 +15536,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ng"
       }
     ],
     "taughtAt": [
@@ -14435,7 +15559,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "oa",
@@ -14444,7 +15569,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oa"
       },
       {
         "grapheme": "d",
@@ -14452,7 +15578,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -14474,7 +15601,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "o",
@@ -14482,7 +15610,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "ck",
@@ -14491,7 +15620,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ck"
       }
     ],
     "taughtAt": [
@@ -14515,7 +15645,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "o",
@@ -14523,7 +15654,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "ck",
@@ -14532,7 +15664,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ck"
       },
       {
         "grapheme": "s",
@@ -14540,7 +15673,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       }
     ],
     "taughtAt": [
@@ -14562,7 +15696,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "oo",
@@ -14571,7 +15706,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oo"
       },
       {
         "grapheme": "m",
@@ -14579,7 +15715,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -14603,7 +15740,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "o_e",
@@ -14612,7 +15750,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o_e"
       },
       {
         "grapheme": "p",
@@ -14620,7 +15759,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -14642,7 +15782,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "ou",
@@ -14651,7 +15792,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ou"
       },
       {
         "grapheme": "n",
@@ -14659,7 +15801,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "d",
@@ -14667,7 +15810,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -14691,7 +15835,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "u",
@@ -14699,7 +15844,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "n",
@@ -14707,7 +15853,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -14729,7 +15876,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "a",
@@ -14737,7 +15885,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "d",
@@ -14745,7 +15894,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -14767,7 +15917,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "ai",
@@ -14776,7 +15927,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "d",
@@ -14784,7 +15936,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -14809,7 +15962,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "ai",
@@ -14818,7 +15972,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ai"
       },
       {
         "grapheme": "l",
@@ -14826,7 +15981,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       }
     ],
     "taughtAt": [
@@ -14848,7 +16004,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "a",
@@ -14856,7 +16013,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "n",
@@ -14864,7 +16022,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "d",
@@ -14872,7 +16031,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -14894,7 +16054,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "a",
@@ -14902,7 +16063,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "t",
@@ -14910,7 +16072,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -14935,7 +16098,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "aw",
@@ -14944,7 +16108,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "aw"
       }
     ],
     "taughtAt": [
@@ -14966,7 +16131,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "ay",
@@ -14975,7 +16141,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ay"
       }
     ],
     "taughtAt": [
@@ -14997,7 +16164,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "c",
@@ -15005,7 +16173,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "are",
@@ -15015,7 +16184,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "are"
       }
     ],
     "taughtAt": [
@@ -15037,7 +16207,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "ch",
@@ -15046,7 +16217,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "ch_k"
       },
       {
         "grapheme": "oo",
@@ -15055,7 +16227,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oo"
       },
       {
         "grapheme": "l",
@@ -15063,7 +16236,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       }
     ],
     "taughtAt": [
@@ -15085,7 +16259,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "ea",
@@ -15094,7 +16269,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ea"
       },
       {
         "grapheme": "t",
@@ -15102,7 +16278,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -15124,7 +16301,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "e",
@@ -15132,7 +16310,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "c",
@@ -15140,7 +16319,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "c"
       },
       {
         "grapheme": "ure",
@@ -15150,7 +16330,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ure"
       }
     ],
     "taughtAt": [
@@ -15172,7 +16353,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "ee",
@@ -15181,7 +16363,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ee"
       }
     ],
     "taughtAt": [
@@ -15203,7 +16386,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "ee",
@@ -15212,7 +16396,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ee"
       },
       {
         "grapheme": "d",
@@ -15220,7 +16405,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -15243,7 +16429,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "sh"
       },
       {
         "grapheme": "a_e",
@@ -15252,7 +16439,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a_e"
       },
       {
         "grapheme": "p",
@@ -15260,7 +16448,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -15283,7 +16472,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "sh"
       },
       {
         "grapheme": "are",
@@ -15293,7 +16483,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "are"
       }
     ],
     "taughtAt": [
@@ -15316,7 +16507,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "sh"
       },
       {
         "grapheme": "ar",
@@ -15325,7 +16517,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ar"
       },
       {
         "grapheme": "p",
@@ -15333,7 +16526,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -15356,7 +16550,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "sh"
       },
       {
         "grapheme": "e",
@@ -15364,7 +16559,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "ee"
       }
     ],
     "taughtAt": [
@@ -15387,7 +16583,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "sh"
       },
       {
         "grapheme": "e",
@@ -15395,7 +16592,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "d",
@@ -15403,7 +16601,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -15426,7 +16625,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "sh"
       },
       {
         "grapheme": "ee",
@@ -15435,7 +16635,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ee"
       },
       {
         "grapheme": "p",
@@ -15443,7 +16644,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -15466,7 +16668,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "sh"
       },
       {
         "grapheme": "e",
@@ -15474,7 +16677,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "ll",
@@ -15483,7 +16687,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ll"
       }
     ],
     "taughtAt": [
@@ -15509,7 +16714,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "sh"
       },
       {
         "grapheme": "i_e",
@@ -15518,7 +16724,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i_e"
       },
       {
         "grapheme": "n",
@@ -15526,7 +16733,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -15549,7 +16757,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "sh"
       },
       {
         "grapheme": "i",
@@ -15557,7 +16766,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "p",
@@ -15565,7 +16775,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -15589,7 +16800,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "sh"
       },
       {
         "grapheme": "ir",
@@ -15598,7 +16810,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ir"
       },
       {
         "grapheme": "t",
@@ -15606,7 +16819,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -15629,7 +16843,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "sh"
       },
       {
         "grapheme": "o",
@@ -15637,7 +16852,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "p",
@@ -15645,7 +16861,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -15668,7 +16885,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "sh"
       },
       {
         "grapheme": "or",
@@ -15677,7 +16895,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "or"
       },
       {
         "grapheme": "t",
@@ -15685,7 +16904,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -15708,7 +16928,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "sh"
       },
       {
         "grapheme": "oul",
@@ -15718,7 +16939,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "oo_short"
       },
       {
         "grapheme": "d",
@@ -15726,7 +16948,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -15749,7 +16972,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "sh"
       },
       {
         "grapheme": "ou",
@@ -15758,7 +16982,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ou"
       },
       {
         "grapheme": "t",
@@ -15766,7 +16991,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -15789,7 +17015,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "sh"
       },
       {
         "grapheme": "ow",
@@ -15798,7 +17025,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ow"
       }
     ],
     "taughtAt": [
@@ -15820,7 +17048,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "i",
@@ -15828,7 +17057,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "ck",
@@ -15837,7 +17067,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ck"
       }
     ],
     "taughtAt": [
@@ -15859,7 +17090,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "i_e",
@@ -15868,7 +17100,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i_e"
       },
       {
         "grapheme": "d",
@@ -15876,7 +17109,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -15898,7 +17132,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "igh",
@@ -15908,7 +17143,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "igh"
       },
       {
         "grapheme": "t",
@@ -15916,7 +17152,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -15938,7 +17175,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "i",
@@ -15946,7 +17184,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "ll",
@@ -15955,7 +17194,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ll"
       },
       {
         "grapheme": "y",
@@ -15963,7 +17203,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "y_ee"
       }
     ],
     "taughtAt": [
@@ -15985,7 +17226,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "i",
@@ -15993,7 +17235,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "m",
@@ -16001,7 +17244,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "p",
@@ -16009,7 +17253,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "le",
@@ -16018,7 +17263,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "le"
       }
     ],
     "taughtAt": [
@@ -16041,7 +17287,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "i",
@@ -16049,7 +17296,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "ng",
@@ -16058,7 +17306,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ng"
       }
     ],
     "taughtAt": [
@@ -16081,7 +17330,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "i",
@@ -16089,7 +17339,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "ng",
@@ -16098,7 +17349,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ng"
       },
       {
         "grapheme": "i",
@@ -16106,7 +17358,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "suffix-progressive"
+        "role": "suffix-progressive",
+        "evidenceTargetId": "suffix_ing"
       },
       {
         "grapheme": "ng",
@@ -16115,7 +17368,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           5,
           6
         ],
-        "role": "suffix-progressive"
+        "role": "suffix-progressive",
+        "evidenceTargetId": "suffix_ing"
       }
     ],
     "taughtAt": [
@@ -16139,7 +17393,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "i",
@@ -16147,7 +17402,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "nk",
@@ -16156,7 +17412,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "nk"
       }
     ],
     "taughtAt": [
@@ -16178,7 +17435,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "i",
@@ -16186,7 +17444,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "t",
@@ -16194,7 +17453,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -16217,7 +17477,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "i",
@@ -16225,7 +17486,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "x",
@@ -16233,7 +17495,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "x"
       }
     ],
     "taughtAt": [
@@ -16255,7 +17518,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "k",
@@ -16263,7 +17527,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       },
       {
         "grapheme": "i",
@@ -16271,7 +17536,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "n",
@@ -16279,7 +17545,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -16301,7 +17568,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "k",
@@ -16309,7 +17577,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       },
       {
         "grapheme": "i",
@@ -16317,7 +17586,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "p",
@@ -16325,7 +17595,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -16347,7 +17618,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "k",
@@ -16355,7 +17627,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       },
       {
         "grapheme": "y",
@@ -16363,7 +17636,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "y_ie"
       }
     ],
     "taughtAt": [
@@ -16385,7 +17659,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "l",
@@ -16393,7 +17668,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "i_e",
@@ -16402,7 +17678,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i_e"
       },
       {
         "grapheme": "d",
@@ -16410,7 +17687,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -16432,7 +17710,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "l",
@@ -16440,7 +17719,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "i",
@@ -16448,7 +17728,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "p",
@@ -16456,7 +17737,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -16478,7 +17760,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "l",
@@ -16486,7 +17769,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "ow",
@@ -16495,7 +17779,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ow"
       }
     ],
     "taughtAt": [
@@ -16517,7 +17802,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "l",
@@ -16525,7 +17811,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       },
       {
         "grapheme": "u",
@@ -16533,7 +17820,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "g",
@@ -16541,7 +17829,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "g"
       }
     ],
     "taughtAt": [
@@ -16563,7 +17852,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "m",
@@ -16571,7 +17861,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "e",
@@ -16579,7 +17870,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "ll",
@@ -16588,7 +17880,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ll"
       }
     ],
     "taughtAt": [
@@ -16610,7 +17903,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "m",
@@ -16618,7 +17912,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "i_e",
@@ -16627,7 +17922,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i_e"
       },
       {
         "grapheme": "l",
@@ -16635,7 +17931,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       }
     ],
     "taughtAt": [
@@ -16657,7 +17954,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "m",
@@ -16665,7 +17963,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       },
       {
         "grapheme": "o_e",
@@ -16674,7 +17973,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o_e"
       },
       {
         "grapheme": "k",
@@ -16682,7 +17982,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       }
     ],
     "taughtAt": [
@@ -16704,7 +18005,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "n",
@@ -16712,7 +18014,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "a_e",
@@ -16721,7 +18024,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a_e"
       },
       {
         "grapheme": "k",
@@ -16729,7 +18033,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       }
     ],
     "taughtAt": [
@@ -16751,7 +18056,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "n",
@@ -16759,7 +18065,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "a",
@@ -16767,7 +18074,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "p",
@@ -16775,7 +18083,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -16797,7 +18106,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "n",
@@ -16805,7 +18115,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "i",
@@ -16813,7 +18124,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "p",
@@ -16821,7 +18133,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -16843,7 +18156,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "n",
@@ -16851,7 +18165,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "ow",
@@ -16860,7 +18175,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ow"
       }
     ],
     "taughtAt": [
@@ -16882,7 +18198,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "o",
@@ -16890,7 +18207,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "ow"
       }
     ],
     "taughtAt": [
@@ -16912,7 +18230,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "o",
@@ -16920,7 +18239,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "ck",
@@ -16929,7 +18249,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ck"
       }
     ],
     "taughtAt": [
@@ -16951,7 +18272,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "o",
@@ -16959,7 +18281,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "f",
@@ -16967,7 +18290,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       },
       {
         "grapheme": "t",
@@ -16975,7 +18299,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -16997,7 +18322,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "oi",
@@ -17006,7 +18332,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oi"
       },
       {
         "grapheme": "l",
@@ -17014,7 +18341,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       }
     ],
     "taughtAt": [
@@ -17036,7 +18364,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "o",
@@ -17044,7 +18373,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "me",
@@ -17053,7 +18383,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -17075,7 +18406,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "o",
@@ -17083,7 +18415,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "aw"
       },
       {
         "grapheme": "ng",
@@ -17092,7 +18425,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ng"
       }
     ],
     "taughtAt": [
@@ -17114,7 +18448,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "oo",
@@ -17123,7 +18458,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oo"
       },
       {
         "grapheme": "n",
@@ -17131,7 +18467,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -17153,7 +18490,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "ou",
@@ -17162,7 +18500,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ou"
       },
       {
         "grapheme": "n",
@@ -17170,7 +18509,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "d",
@@ -17178,7 +18518,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -17200,7 +18541,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "p",
@@ -17208,7 +18550,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "are",
@@ -17218,7 +18561,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "are"
       }
     ],
     "taughtAt": [
@@ -17240,7 +18584,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "p",
@@ -17248,7 +18593,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "i",
@@ -17256,7 +18602,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "n",
@@ -17264,7 +18611,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -17286,7 +18634,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "p",
@@ -17294,7 +18643,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "oo",
@@ -17303,7 +18653,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oo"
       },
       {
         "grapheme": "n",
@@ -17311,7 +18662,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -17333,7 +18685,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "p",
@@ -17341,7 +18694,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "o",
@@ -17349,7 +18703,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "t",
@@ -17357,7 +18712,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -17379,7 +18735,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "p",
@@ -17387,7 +18744,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       },
       {
         "grapheme": "u",
@@ -17395,7 +18753,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "n",
@@ -17403,7 +18762,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -17425,7 +18785,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "t",
@@ -17433,7 +18794,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "air",
@@ -17443,7 +18805,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "air"
       }
     ],
     "taughtAt": [
@@ -17465,7 +18828,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "t",
@@ -17473,7 +18837,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "ar",
@@ -17482,7 +18847,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ar"
       }
     ],
     "taughtAt": [
@@ -17507,7 +18873,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "t",
@@ -17515,7 +18882,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "are",
@@ -17525,7 +18893,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "are"
       }
     ],
     "taughtAt": [
@@ -17547,7 +18916,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "t",
@@ -17555,7 +18925,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "ar",
@@ -17564,7 +18935,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ar"
       },
       {
         "grapheme": "s",
@@ -17572,7 +18944,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "suffix-plural-voiced"
+        "role": "suffix-plural-voiced",
+        "evidenceTargetId": "suffix_s"
       }
     ],
     "taughtAt": [
@@ -17594,7 +18967,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "t",
@@ -17602,7 +18976,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "ar",
@@ -17611,7 +18986,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ar"
       },
       {
         "grapheme": "t",
@@ -17619,7 +18995,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -17641,7 +19018,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "t",
@@ -17649,7 +19027,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "a",
@@ -17657,7 +19036,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "a_e"
       },
       {
         "grapheme": "tion",
@@ -17668,7 +19048,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           5,
           6
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "tion"
       }
     ],
     "taughtAt": [
@@ -17690,7 +19071,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "t",
@@ -17698,7 +19080,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "ay",
@@ -17707,7 +19090,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ay"
       }
     ],
     "taughtAt": [
@@ -17729,7 +19113,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "t",
@@ -17737,7 +19122,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "e",
@@ -17745,7 +19131,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "p",
@@ -17753,7 +19140,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -17775,7 +19163,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "t",
@@ -17783,7 +19172,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "i",
@@ -17791,7 +19181,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "ll",
@@ -17800,7 +19191,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ll"
       }
     ],
     "taughtAt": [
@@ -17822,7 +19214,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "t",
@@ -17830,7 +19223,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "o_e",
@@ -17839,7 +19233,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o_e"
       },
       {
         "grapheme": "n",
@@ -17847,7 +19242,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -17872,7 +19268,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "t",
@@ -17880,7 +19277,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "o",
@@ -17888,7 +19286,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "p",
@@ -17896,7 +19295,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -17918,7 +19318,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "t",
@@ -17926,7 +19327,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "ore",
@@ -17936,7 +19338,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ore"
       }
     ],
     "taughtAt": [
@@ -17958,7 +19361,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "t",
@@ -17966,7 +19370,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "or",
@@ -17975,7 +19380,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "or"
       },
       {
         "grapheme": "m",
@@ -17983,7 +19389,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -18005,7 +19412,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "u",
@@ -18013,7 +19421,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "ch",
@@ -18022,7 +19431,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ch"
       }
     ],
     "taughtAt": [
@@ -18044,7 +19454,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "u",
@@ -18052,7 +19463,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "nn",
@@ -18061,7 +19473,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "y",
@@ -18069,7 +19482,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "y_ee"
       }
     ],
     "taughtAt": [
@@ -18091,7 +19505,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "sh"
       },
       {
         "grapheme": "ure",
@@ -18102,6 +19517,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3
         ],
         "role": "context",
+        "evidenceTargetId": "ure",
         "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       }
     ],
@@ -18124,7 +19540,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "ur",
@@ -18133,7 +19550,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ur"
       },
       {
         "grapheme": "f",
@@ -18141,7 +19559,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "f"
       }
     ],
     "taughtAt": [
@@ -18163,7 +19582,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "w",
@@ -18171,7 +19591,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "w"
       },
       {
         "grapheme": "i",
@@ -18179,7 +19600,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "m",
@@ -18187,7 +19609,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -18210,7 +19633,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "w",
@@ -18218,7 +19642,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "w"
       },
       {
         "grapheme": "i",
@@ -18226,7 +19651,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "ng",
@@ -18235,7 +19661,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ng"
       }
     ],
     "taughtAt": [
@@ -18257,7 +19684,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "a",
@@ -18265,7 +19693,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "a_e"
       },
       {
         "grapheme": "b",
@@ -18273,7 +19702,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       },
       {
         "grapheme": "le",
@@ -18282,7 +19712,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "le"
       }
     ],
     "taughtAt": [
@@ -18305,7 +19736,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "a_e",
@@ -18314,7 +19746,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a_e"
       },
       {
         "grapheme": "k",
@@ -18322,7 +19755,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       }
     ],
     "taughtAt": [
@@ -18344,7 +19778,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "a_e",
@@ -18353,7 +19788,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a_e"
       },
       {
         "grapheme": "p",
@@ -18361,7 +19797,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -18383,7 +19820,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "ea",
@@ -18392,7 +19830,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ea"
       },
       {
         "grapheme": "m",
@@ -18400,7 +19839,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -18422,7 +19862,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "e",
@@ -18430,7 +19871,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "ll",
@@ -18439,7 +19881,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ll"
       }
     ],
     "taughtAt": [
@@ -18461,7 +19904,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "e",
@@ -18469,7 +19913,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "n",
@@ -18477,7 +19922,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -18499,7 +19945,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "er",
@@ -18508,7 +19955,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "er"
       },
       {
         "grapheme": "m",
@@ -18516,7 +19964,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -18539,7 +19988,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "th"
       },
       {
         "grapheme": "a",
@@ -18547,7 +19997,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "nk",
@@ -18556,7 +20007,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "nk"
       }
     ],
     "taughtAt": [
@@ -18579,7 +20031,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "context-voiced-th"
+        "role": "context-voiced-th",
+        "evidenceTargetId": "th"
       },
       {
         "grapheme": "a",
@@ -18587,7 +20040,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "t",
@@ -18595,7 +20049,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -18620,7 +20075,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "th"
       },
       {
         "grapheme": "e",
@@ -18629,6 +20085,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2
         ],
         "role": "irregular",
+        "evidenceTargetId": null,
         "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       }
     ],
@@ -18659,7 +20116,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "th"
       },
       {
         "grapheme": "eir",
@@ -18669,7 +20127,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "air"
       }
     ],
     "taughtAt": [
@@ -18692,7 +20151,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "context-voiced-th"
+        "role": "context-voiced-th",
+        "evidenceTargetId": "th"
       },
       {
         "grapheme": "e",
@@ -18700,7 +20160,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "m",
@@ -18708,7 +20169,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -18731,7 +20193,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "th"
       },
       {
         "grapheme": "e_e",
@@ -18740,7 +20203,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e_e"
       },
       {
         "grapheme": "m",
@@ -18748,7 +20212,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -18771,7 +20236,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "context-voiced-th"
+        "role": "context-voiced-th",
+        "evidenceTargetId": "th"
       },
       {
         "grapheme": "e",
@@ -18779,7 +20245,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "n",
@@ -18787,7 +20254,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -18810,7 +20278,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "th"
       },
       {
         "grapheme": "ere",
@@ -18820,7 +20289,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "air"
       }
     ],
     "taughtAt": [
@@ -18843,7 +20313,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "context-voiced-th"
+        "role": "context-voiced-th",
+        "evidenceTargetId": "th"
       },
       {
         "grapheme": "e_e",
@@ -18852,7 +20323,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e_e"
       },
       {
         "grapheme": "s",
@@ -18860,7 +20332,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       }
     ],
     "taughtAt": [
@@ -18883,7 +20356,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "th"
       },
       {
         "grapheme": "ey",
@@ -18892,7 +20366,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "ay"
       }
     ],
     "taughtAt": [
@@ -18917,7 +20392,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "th"
       },
       {
         "grapheme": "i",
@@ -18925,7 +20401,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "n",
@@ -18933,7 +20410,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -18956,7 +20434,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "th"
       },
       {
         "grapheme": "i",
@@ -18964,7 +20443,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "ng",
@@ -18973,7 +20453,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ng"
       }
     ],
     "taughtAt": [
@@ -18997,7 +20478,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "th"
       },
       {
         "grapheme": "ir",
@@ -19006,7 +20488,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ir"
       },
       {
         "grapheme": "d",
@@ -19014,7 +20497,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -19037,7 +20521,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "context-voiced-th"
+        "role": "context-voiced-th",
+        "evidenceTargetId": "th"
       },
       {
         "grapheme": "i",
@@ -19045,7 +20530,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "s",
@@ -19053,7 +20539,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       }
     ],
     "taughtAt": [
@@ -19076,7 +20563,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "th"
       },
       {
         "grapheme": "ough",
@@ -19087,7 +20575,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "aw"
       },
       {
         "grapheme": "t",
@@ -19095,7 +20584,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           6
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -19118,7 +20608,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "th"
       },
       {
         "grapheme": "r",
@@ -19126,7 +20617,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "ough",
@@ -19137,7 +20629,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           5,
           6
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "oo"
       }
     ],
     "taughtAt": [
@@ -19159,7 +20652,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "ie",
@@ -19168,7 +20662,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ie"
       }
     ],
     "taughtAt": [
@@ -19190,7 +20685,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "i_e",
@@ -19199,7 +20695,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i_e"
       },
       {
         "grapheme": "m",
@@ -19207,7 +20704,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -19229,7 +20727,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "i",
@@ -19237,7 +20736,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "n",
@@ -19245,7 +20745,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -19267,7 +20768,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "o",
@@ -19275,7 +20777,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "oo"
       }
     ],
     "taughtAt": [
@@ -19297,7 +20800,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "oa",
@@ -19306,7 +20810,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oa"
       },
       {
         "grapheme": "s",
@@ -19314,7 +20819,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       },
       {
         "grapheme": "t",
@@ -19322,7 +20828,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -19344,7 +20851,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "oe",
@@ -19353,7 +20861,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oe"
       }
     ],
     "taughtAt": [
@@ -19375,7 +20884,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "oo",
@@ -19384,7 +20894,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "oo_short"
       },
       {
         "grapheme": "k",
@@ -19392,7 +20903,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       }
     ],
     "taughtAt": [
@@ -19414,7 +20926,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "ow",
@@ -19423,7 +20936,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "ow_ou"
       },
       {
         "grapheme": "n",
@@ -19431,7 +20945,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -19453,7 +20968,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "oy",
@@ -19462,7 +20978,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "oy"
       }
     ],
     "taughtAt": [
@@ -19484,7 +21001,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "r",
@@ -19492,7 +21010,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "ai",
@@ -19501,7 +21020,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ai"
       },
       {
         "grapheme": "n",
@@ -19509,7 +21029,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -19531,7 +21052,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "r",
@@ -19539,7 +21061,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "a",
@@ -19547,7 +21070,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "sh",
@@ -19556,7 +21080,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "sh"
       }
     ],
     "taughtAt": [
@@ -19578,7 +21103,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "r",
@@ -19586,7 +21112,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "ay",
@@ -19595,7 +21122,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ay"
       }
     ],
     "taughtAt": [
@@ -19617,7 +21145,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "r",
@@ -19625,7 +21154,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "ee",
@@ -19634,7 +21164,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ee"
       }
     ],
     "taughtAt": [
@@ -19658,7 +21189,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "r",
@@ -19666,7 +21198,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "i",
@@ -19674,7 +21207,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "p",
@@ -19682,7 +21216,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -19704,7 +21239,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "r",
@@ -19712,7 +21248,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "u",
@@ -19720,7 +21257,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "ck",
@@ -19729,7 +21267,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ck"
       }
     ],
     "taughtAt": [
@@ -19751,7 +21290,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "r",
@@ -19759,7 +21299,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "ue",
@@ -19768,7 +21309,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ue"
       }
     ],
     "taughtAt": [
@@ -19790,7 +21332,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "r",
@@ -19798,7 +21341,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "r"
       },
       {
         "grapheme": "y",
@@ -19806,7 +21350,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "y_ie"
       }
     ],
     "taughtAt": [
@@ -19828,7 +21373,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "u_e",
@@ -19837,7 +21383,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           3
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "u_e"
       },
       {
         "grapheme": "b",
@@ -19845,7 +21392,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "b"
       }
     ],
     "taughtAt": [
@@ -19867,7 +21415,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "ur",
@@ -19876,7 +21425,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ur"
       },
       {
         "grapheme": "n",
@@ -19884,7 +21434,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -19908,7 +21459,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "p",
@@ -19916,7 +21468,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -19938,7 +21491,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "s",
@@ -19946,7 +21500,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       }
     ],
     "taughtAt": [
@@ -19969,7 +21524,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u_e"
       },
       {
         "grapheme": "s",
@@ -19977,7 +21533,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       }
     ],
     "taughtAt": [
@@ -19999,7 +21556,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "v"
       },
       {
         "grapheme": "a",
@@ -20007,7 +21565,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "n",
@@ -20015,7 +21574,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -20037,7 +21597,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "v"
       },
       {
         "grapheme": "e",
@@ -20045,7 +21606,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "t",
@@ -20053,7 +21615,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -20075,7 +21638,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "w"
       },
       {
         "grapheme": "ai",
@@ -20084,7 +21648,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ai"
       },
       {
         "grapheme": "t",
@@ -20092,7 +21657,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -20114,7 +21680,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "w"
       },
       {
         "grapheme": "a",
@@ -20122,7 +21689,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "a_e"
       },
       {
         "grapheme": "k",
@@ -20130,7 +21698,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       },
       {
         "grapheme": "i",
@@ -20138,7 +21707,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "suffix-progressive"
+        "role": "suffix-progressive",
+        "evidenceTargetId": "suffix_ing"
       },
       {
         "grapheme": "ng",
@@ -20147,7 +21717,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "suffix-progressive"
+        "role": "suffix-progressive",
+        "evidenceTargetId": "suffix_ing"
       }
     ],
     "taughtAt": [
@@ -20169,7 +21740,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "w"
       },
       {
         "grapheme": "al",
@@ -20178,7 +21750,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "aw"
       },
       {
         "grapheme": "k",
@@ -20186,7 +21759,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       },
       {
         "grapheme": "ed",
@@ -20195,7 +21769,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "suffix-past-unvoiced"
+        "role": "suffix-past-unvoiced",
+        "evidenceTargetId": "suffix_ed"
       }
     ],
     "taughtAt": [
@@ -20217,7 +21792,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "w"
       },
       {
         "grapheme": "a",
@@ -20225,7 +21801,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "aw"
       },
       {
         "grapheme": "n",
@@ -20233,7 +21810,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "t",
@@ -20241,7 +21819,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "ed",
@@ -20251,6 +21830,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           5
         ],
         "role": "suffix-past-syllabic",
+        "evidenceTargetId": "suffix_ed",
         "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       }
     ],
@@ -20273,7 +21853,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "w"
       },
       {
         "grapheme": "a",
@@ -20281,7 +21862,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "o"
       },
       {
         "grapheme": "s",
@@ -20289,7 +21871,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "z"
       }
     ],
     "taughtAt": [
@@ -20316,7 +21899,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "w"
       },
       {
         "grapheme": "a",
@@ -20324,7 +21908,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "aw"
       },
       {
         "grapheme": "t",
@@ -20332,7 +21917,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       },
       {
         "grapheme": "er",
@@ -20341,7 +21927,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "er"
       }
     ],
     "taughtAt": [
@@ -20363,7 +21950,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "w"
       },
       {
         "grapheme": "a",
@@ -20371,7 +21959,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "x",
@@ -20379,7 +21968,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "x"
       }
     ],
     "taughtAt": [
@@ -20401,7 +21991,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "w"
       },
       {
         "grapheme": "ay",
@@ -20410,7 +22001,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ay"
       }
     ],
     "taughtAt": [
@@ -20435,7 +22027,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "w"
       },
       {
         "grapheme": "e",
@@ -20443,7 +22036,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "ee"
       }
     ],
     "taughtAt": [
@@ -20465,7 +22059,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "w"
       },
       {
         "grapheme": "e",
@@ -20473,7 +22068,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "n",
@@ -20481,7 +22077,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       },
       {
         "grapheme": "t",
@@ -20489,7 +22086,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -20511,7 +22109,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "w"
       },
       {
         "grapheme": "ere",
@@ -20521,7 +22120,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "er"
       }
     ],
     "taughtAt": [
@@ -20546,7 +22146,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "wh"
       },
       {
         "grapheme": "a_e",
@@ -20555,7 +22156,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a_e"
       },
       {
         "grapheme": "l",
@@ -20563,7 +22165,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "l"
       }
     ],
     "taughtAt": [
@@ -20586,7 +22189,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "wh"
       },
       {
         "grapheme": "a",
@@ -20594,7 +22198,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "t",
@@ -20602,7 +22207,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -20625,7 +22231,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "wh"
       },
       {
         "grapheme": "e",
@@ -20633,7 +22240,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "n",
@@ -20641,7 +22249,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -20666,7 +22275,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "wh"
       },
       {
         "grapheme": "ere",
@@ -20676,7 +22286,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "air"
       }
     ],
     "taughtAt": [
@@ -20699,7 +22310,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "wh"
       },
       {
         "grapheme": "i",
@@ -20707,7 +22319,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "ch",
@@ -20716,7 +22329,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "ch"
       }
     ],
     "taughtAt": [
@@ -20739,7 +22353,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "wh"
       },
       {
         "grapheme": "i",
@@ -20747,7 +22362,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "p",
@@ -20755,7 +22371,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -20779,7 +22396,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "wh"
       },
       {
         "grapheme": "i_e",
@@ -20788,7 +22406,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i_e"
       },
       {
         "grapheme": "t",
@@ -20796,7 +22415,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -20821,7 +22441,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "o",
@@ -20829,7 +22450,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "oo"
       }
     ],
     "taughtAt": [
@@ -20852,7 +22474,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "h"
       },
       {
         "grapheme": "o",
@@ -20860,7 +22483,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "ow"
       },
       {
         "grapheme": "le",
@@ -20869,7 +22493,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "l"
       }
     ],
     "taughtAt": [
@@ -20892,7 +22517,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0,
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "wh"
       },
       {
         "grapheme": "y",
@@ -20900,7 +22526,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "y_ie"
       }
     ],
     "taughtAt": [
@@ -20922,7 +22549,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "w"
       },
       {
         "grapheme": "i",
@@ -20930,7 +22558,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "n",
@@ -20938,7 +22567,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "n"
       }
     ],
     "taughtAt": [
@@ -20961,7 +22591,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "w"
       },
       {
         "grapheme": "i",
@@ -20969,7 +22600,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "nk",
@@ -20978,7 +22610,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "nk"
       }
     ],
     "taughtAt": [
@@ -21000,7 +22633,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "w"
       },
       {
         "grapheme": "i",
@@ -21008,7 +22642,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "sh",
@@ -21017,7 +22652,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "sh"
       }
     ],
     "taughtAt": [
@@ -21039,7 +22675,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "w"
       },
       {
         "grapheme": "i",
@@ -21047,7 +22684,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "t",
@@ -21055,7 +22693,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "t"
       }
     ],
     "taughtAt": [
@@ -21077,7 +22716,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "w"
       },
       {
         "grapheme": "i",
@@ -21085,7 +22725,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "th",
@@ -21094,7 +22735,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "context-voiced-th"
+        "role": "context-voiced-th",
+        "evidenceTargetId": "th"
       }
     ],
     "taughtAt": [
@@ -21116,7 +22758,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "w"
       },
       {
         "grapheme": "oo",
@@ -21125,7 +22768,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "context"
+        "role": "context",
+        "evidenceTargetId": "oo_short"
       },
       {
         "grapheme": "d",
@@ -21133,7 +22777,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -21155,7 +22800,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "w"
       },
       {
         "grapheme": "or",
@@ -21164,7 +22810,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "er"
       },
       {
         "grapheme": "d",
@@ -21172,7 +22819,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       },
       {
         "grapheme": "s",
@@ -21180,7 +22828,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "suffix-plural-voiced"
+        "role": "suffix-plural-voiced",
+        "evidenceTargetId": "suffix_s"
       }
     ],
     "taughtAt": [
@@ -21202,7 +22851,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "w"
       },
       {
         "grapheme": "or",
@@ -21211,7 +22861,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "er"
       },
       {
         "grapheme": "k",
@@ -21219,7 +22870,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "k"
       }
     ],
     "taughtAt": [
@@ -21241,7 +22893,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "w"
       },
       {
         "grapheme": "oul",
@@ -21251,7 +22904,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "oo_short"
       },
       {
         "grapheme": "d",
@@ -21259,7 +22913,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "d"
       }
     ],
     "taughtAt": [
@@ -21281,7 +22936,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "y"
       },
       {
         "grapheme": "ear",
@@ -21292,6 +22948,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3
         ],
         "role": "context",
+        "evidenceTargetId": "ear",
         "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       }
     ],
@@ -21314,7 +22971,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "y"
       },
       {
         "grapheme": "e",
@@ -21322,7 +22980,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "e"
       },
       {
         "grapheme": "s",
@@ -21330,7 +22989,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "s"
       }
     ],
     "taughtAt": [
@@ -21352,7 +23012,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "y"
       },
       {
         "grapheme": "ou",
@@ -21361,7 +23022,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1,
           2
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "oo"
       }
     ],
     "taughtAt": [
@@ -21388,7 +23050,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "y"
       },
       {
         "grapheme": "our",
@@ -21398,7 +23061,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2,
           3
         ],
-        "role": "irregular"
+        "role": "irregular",
+        "evidenceTargetId": "or"
       }
     ],
     "taughtAt": [
@@ -21420,7 +23084,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "y"
       },
       {
         "grapheme": "u",
@@ -21428,7 +23093,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "u"
       },
       {
         "grapheme": "m",
@@ -21436,7 +23102,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "m"
       }
     ],
     "taughtAt": [
@@ -21458,7 +23125,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "z"
       },
       {
         "grapheme": "a",
@@ -21466,7 +23134,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "a"
       },
       {
         "grapheme": "p",
@@ -21474,7 +23143,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
@@ -21496,7 +23166,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "z"
       },
       {
         "grapheme": "i",
@@ -21504,7 +23175,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "i"
       },
       {
         "grapheme": "p",
@@ -21512,7 +23184,8 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "regular",
+        "evidenceTargetId": "p"
       }
     ],
     "taughtAt": [
