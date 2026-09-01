@@ -18,3 +18,10 @@ test("a future or missing journey observation is not due", () => {
   assert.equal(dueAtJourneyStep("sh", { journeyStep: 43 }, 3, 42), false);
   assert.equal(dueAtJourneyStep("sh", null, 3, 42), false);
 });
+
+test("invalid review gaps never become immediately due", () => {
+  for (const gap of [undefined, null, -1, 1.5, Number.NaN, "three"]) {
+    assert.equal(dueAtJourneyStep("sh", { journeyStep: 39 }, gap, 42), false, String(gap));
+  }
+  assert.equal(dueAtJourneyStep("sh", { journeyStep: 39 }, 0, 39), true);
+});

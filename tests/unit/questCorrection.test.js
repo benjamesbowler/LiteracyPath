@@ -83,3 +83,22 @@ test("the correction ladder preserves the contrast then queues another legitimat
   assert.equal(later.queueIsomorphicReview, true);
   assert.equal(later.reviewDomain, "grapheme_to_phoneme");
 });
+
+test("later correction review fails closed without an alternate legitimate domain", () => {
+  const correction = nextCorrection(
+    { missCount: 3, domain: "phoneme_to_grapheme" },
+    { selected: "short_e", intended: "short_i", eligibleDomains: ["phoneme_to_grapheme", "collision"] }
+  );
+  assert.equal(correction.queueIsomorphicReview, false);
+  assert.equal(correction.reviewDomain, null);
+  assert.equal(correction.reviewTargetId, null);
+});
+
+test("later correction review fails closed when its prior domain is not legitimate", () => {
+  const correction = nextCorrection(
+    { missCount: 3, domain: "collision" },
+    { selected: "short_e", intended: "short_i", eligibleDomains: ["phoneme_to_grapheme"] }
+  );
+  assert.equal(correction.queueIsomorphicReview, false);
+  assert.equal(correction.reviewDomain, null);
+});

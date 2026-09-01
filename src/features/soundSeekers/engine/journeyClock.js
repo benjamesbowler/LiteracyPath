@@ -3,9 +3,10 @@ function positiveInteger(value, fallback = 1) {
   return Number.isInteger(number) && number >= 1 ? number : fallback;
 }
 
-function nonNegativeInteger(value, fallback = 0) {
+function nonNegativeInteger(value) {
+  if (value === null || value === undefined || typeof value === "boolean" || typeof value === "string") return null;
   const number = Number(value);
-  return Number.isInteger(number) && number >= 0 ? number : fallback;
+  return Number.isInteger(number) && number >= 0 ? number : null;
 }
 
 // The visible route loops after forty stops. Learning time does not: review
@@ -24,8 +25,9 @@ export function advanceJourney(trail = {}, _completedStopId) {
 export function dueAtJourneyStep(_target, lastSeen, gap, currentJourneyStep) {
   const seenStep = Number(lastSeen?.journeyStep);
   const currentStep = Number(currentJourneyStep);
-  if (!Number.isFinite(seenStep) || seenStep < 0 || !Number.isFinite(currentStep) || currentStep < seenStep) {
+  const validGap = nonNegativeInteger(gap);
+  if (!Number.isFinite(seenStep) || seenStep < 0 || !Number.isFinite(currentStep) || currentStep < seenStep || validGap === null) {
     return false;
   }
-  return currentStep - seenStep >= nonNegativeInteger(gap);
+  return currentStep - seenStep >= validGap;
 }

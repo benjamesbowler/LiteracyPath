@@ -1,3 +1,5 @@
+import { isEvidenceDomain } from "../features/soundSeekers/engine/challengeContract.js";
+
 export const CORRECTION_MODES = Object.freeze({
   DISCOVER: "discover",
   RETRY: "retry",
@@ -12,8 +14,9 @@ function v2MissCount(previous) {
 
 function laterReviewDomain(previous, miss) {
   const priorDomain = typeof previous?.domain === "string" ? previous.domain : null;
+  if (!isEvidenceDomain(priorDomain)) return null;
   const domains = Array.isArray(miss?.eligibleDomains) ? miss.eligibleDomains : [];
-  return domains.find(domain => typeof domain === "string" && domain !== priorDomain) || null;
+  return domains.find(domain => typeof domain === "string" && domain !== priorDomain && isEvidenceDomain(domain)) || null;
 }
 
 // v2 correction is a view-independent record for both full and simplified
@@ -26,6 +29,7 @@ export function nextCorrection(previous = {}, miss = {}) {
     ? miss.position
     : typeof previous.position === "string" ? previous.position : null;
   const later = missCount > 3;
+  const reviewDomain = later ? laterReviewDomain(previous, miss) : null;
 
   return Object.freeze({
     missCount,
@@ -40,9 +44,9 @@ export function nextCorrection(previous = {}, miss = {}) {
     reduceIrrelevantLoad: missCount === 2,
     modelOnce: missCount === 3,
     requiresFreshAttempt: missCount >= 3,
-    queueIsomorphicReview: later,
-    reviewDomain: later ? laterReviewDomain(previous, miss) : null,
-    reviewTargetId: later ? intended : null
+    queueIsomorphicReview: Boolean(reviewDomain),
+    reviewDomain,
+    reviewTargetId: reviewDomain ? intended : null
   });
 }
 

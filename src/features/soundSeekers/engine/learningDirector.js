@@ -1,3 +1,6 @@
+import { isEvidenceDomain } from "./challengeContract.js";
+import { dueAtJourneyStep } from "./journeyClock.js";
+
 function stringId(value) {
   return typeof value === "string" && value.trim() ? value.trim() : null;
 }
@@ -41,14 +44,55 @@ function taughtSet(context) {
   return new Set(normalizedIds(context?.taught || context?.teachHistory));
 }
 
+function validJourneyStep(value) {
+  return Number.isInteger(value) && value >= 0;
+}
+
+function isV2PracticeEvent(event) {
+  return Boolean(
+    event
+    && Object.isFrozen(event)
+    && event.evidenceKind === "practice"
+    && isEvidenceDomain(event.domain)
+    && typeof event.id === "string" && event.id
+    && typeof event.target === "string" && event.target
+    && typeof event.correct === "boolean"
+    && validJourneyStep(event.journeyStep)
+  );
+}
+
+function explicitConfusionWindow(context) {
+  const value = Number(context?.confusionWindow);
+  return Number.isInteger(value) && value > 0 ? value : null;
+}
+
 function confusionCount(context, targetId, candidateId) {
+  const now = currentJourneyStep(context);
+  const evidenceWindow = explicitConfusionWindow(context) ?? Math.max(1, Number(context?.recentWindow) || 24);
+  const evidenceCount = evidenceFor(context, targetId)
+    .filter(event => event.correct === false && String(event.confusion) === candidateId)
+    .filter(event => now - event.journeyStep >= 0 && now - event.journeyStep <= evidenceWindow)
+    .length;
+
+  // A persisted aggregate has no embedded event history. It is safe only when
+  // both the caller's window and the aggregate's latest observation are explicit.
+  const aggregateWindow = explicitConfusionWindow(context);
   const confusions = context?.confusions && typeof context.confusions === "object" ? context.confusions : {};
-  return Math.max(0, Number(confusions[`${targetId}:${candidateId}`] ?? confusions[candidateId]) || 0);
+  const aggregate = confusions[`${targetId}:${candidateId}`] ?? confusions[candidateId];
+  const aggregateCount = aggregateWindow !== null
+    && aggregate && typeof aggregate === "object"
+    && validJourneyStep(aggregate.journeyStep)
+    && now - aggregate.journeyStep >= 0
+    && now - aggregate.journeyStep <= aggregateWindow
+    ? Math.max(0, Number(aggregate.count) || 0)
+    : 0;
+  return Math.max(evidenceCount, aggregateCount);
 }
 
 function evidenceFor(context, targetId) {
   return (Array.isArray(context?.evidence) ? context.evidence : [])
-    .filter(event => event?.target === targetId || event?.targetId === targetId);
+    .filter(isV2PracticeEvent)
+    .filter(event => event.target === targetId);
 }
 
 function lastSeenFor(context, targetId, evidence) {
@@ -66,9 +110,9 @@ function isMarkedDecayed(context, targetId) {
 
 function currentJourneyStep(context) {
   const supplied = Number(context?.journeyStep ?? context?.currentJourneyStep);
-  if (Number.isFinite(supplied)) return supplied;
+  if (Number.isInteger(supplied) && supplied >= 0) return supplied;
   return (Array.isArray(context?.evidence) ? context.evidence : []).reduce(
-    (latest, event) => Math.max(latest, Number(event?.journeyStep) || 0),
+    (latest, event) => isV2PracticeEvent(event) ? Math.max(latest, event.journeyStep) : latest,
     0
   );
 }
@@ -145,21 +189,36 @@ function isAuditedPronunciation(record) {
     && record.ambiguous !== true && record.unambiguous !== false);
 }
 
+function authoredSoundValues(record) {
+  return new Set([record?.pronunciation, record?.soundKey]
+    .filter(value => typeof value === "string" && value.trim())
+    .map(value => value.trim().toLocaleLowerCase().replace(/\s+/g, "")));
+}
+
+function hasSameAuthoredSound(targetRecord, candidateRecord) {
+  const targetValues = authoredSoundValues(targetRecord);
+  return [...authoredSoundValues(candidateRecord)].some(value => targetValues.has(value));
+}
+
 // Returns reducer-owned option metadata. Renderers receive only the selected
 // challenge view, never this answer-bearing audit record.
 export function buildAuditedDistractors(context = {}) {
   const targetId = stringId(context.targetId);
   const taught = taughtSet(context);
   const targetFamily = targetId ? comparisonFamilyFor(context, targetId) : null;
+  const targetRecord = recordFor(context.pronunciations || context.targets, targetId);
   if (!targetId || !taught.has(targetId) || !targetFamily
-    || !isAuditedPronunciation(recordFor(context.pronunciations || context.targets, targetId))) return null;
+    || !isAuditedPronunciation(targetRecord)) return null;
 
   const requestedCount = Math.floor(Number(context.optionCount) || 3);
   const optionCount = Math.max(2, requestedCount);
   const candidateIds = normalizedIds(context.candidates || context.taught || context.teachHistory)
     .filter(id => id !== targetId && taught.has(id))
     .filter(id => comparisonFamilyFor(context, id) === targetFamily)
-    .filter(id => isAuditedPronunciation(recordFor(context.pronunciations || context.targets, id)));
+    .filter(id => {
+      const candidateRecord = recordFor(context.pronunciations || context.targets, id);
+      return isAuditedPronunciation(candidateRecord) && !hasSameAuthoredSound(targetRecord, candidateRecord);
+    });
   const distractorIds = seededOrder(candidateIds, context.seed).slice(0, optionCount - 1);
   if (distractorIds.length !== optionCount - 1) return null;
 
@@ -181,4 +240,3 @@ export function buildAuditedDistractors(context = {}) {
     audit
   });
 }
-import { dueAtJourneyStep } from "./journeyClock.js";
