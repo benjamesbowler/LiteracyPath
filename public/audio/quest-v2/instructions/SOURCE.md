@@ -8,8 +8,25 @@ These are production-path candidates. Automated checks verify file identity and 
   "source": "Google Cloud Text-to-Speech",
   "voice": "en-US-Chirp3-HD-Leda",
   "model": "Google Cloud Text-to-Speech Chirp3 HD",
-  "generatedAt": "2026-09-01T13:38:49.706Z",
+  "generatedAt": "2026-09-01T14:32:25.693Z",
   "assets": [
+    {
+      "instructionId": "alternative-value-teach",
+      "childText": "These letters can show this sound in this word.",
+      "path": "/audio/quest-v2/instructions/alternative-value-teach.mp3",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "generatedAt": "2026-09-01T14:29:06.726Z",
+      "durationSeconds": 4.056,
+      "sha256": "f51e6cc73898a14c12217deeacd87bf5a34b3f2cb5d749226a3cc40144ea8f0c",
+      "meanVolumeDb": -25.8,
+      "automatedSignalChecks": [
+        "ffprobe-duration",
+        "ffmpeg-volumedetect",
+        "sha256"
+      ],
+      "humanListeningApproved": false
+    },
     {
       "instructionId": "blend-bridge-choose-meaning",
       "childText": "Choose what the blended word means.",
@@ -29,14 +46,14 @@ These are production-path candidates. Automated checks verify file identity and 
     },
     {
       "instructionId": "blend-bridge-replay",
-      "childText": "Hear the graphemes again.",
+      "childText": "Hear the sounds again.",
       "path": "/audio/quest-v2/instructions/blend-bridge-replay.mp3",
       "voice": "en-US-Chirp3-HD-Leda",
       "model": "Google Cloud Text-to-Speech Chirp3 HD",
-      "generatedAt": "2026-09-01T13:35:10.030Z",
-      "durationSeconds": 1.56,
-      "sha256": "471bd168936ea05bc363d3e22a1b4a4614e3fbc1245d8c341eec08c18653f99b",
-      "meanVolumeDb": -22.1,
+      "generatedAt": "2026-09-01T14:32:19.787Z",
+      "durationSeconds": 1.68,
+      "sha256": "6d1d1f6f540981761f07c3acfdff062ee34e6e1b97923cce6e93f03740bca7d2",
+      "meanVolumeDb": -24.7,
       "automatedSignalChecks": [
         "ffprobe-duration",
         "ffmpeg-volumedetect",
@@ -46,14 +63,31 @@ These are production-path candidates. Automated checks verify file identity and 
     },
     {
       "instructionId": "blend-bridge-teach",
-      "childText": "Touch each grapheme. Blend the word.",
+      "childText": "Touch each letter or letter team. Blend the word.",
       "path": "/audio/quest-v2/instructions/blend-bridge-teach.mp3",
       "voice": "en-US-Chirp3-HD-Leda",
       "model": "Google Cloud Text-to-Speech Chirp3 HD",
-      "generatedAt": "2026-09-01T13:35:11.022Z",
-      "durationSeconds": 3.408,
-      "sha256": "c4a7281e4f7645e5333ea6362361ff2451cbed056a3fba1a2b9101f3cf47e68c",
-      "meanVolumeDb": -27.6,
+      "generatedAt": "2026-09-01T14:32:20.953Z",
+      "durationSeconds": 4.056,
+      "sha256": "7cd0f84b885b4a991862726f57697308b8af8639abcb7315b79a9a348563b26c",
+      "meanVolumeDb": -23.7,
+      "automatedSignalChecks": [
+        "ffprobe-duration",
+        "ffmpeg-volumedetect",
+        "sha256"
+      ],
+      "humanListeningApproved": false
+    },
+    {
+      "instructionId": "consonant-blend-teach",
+      "childText": "Say each sound, then slide them together.",
+      "path": "/audio/quest-v2/instructions/consonant-blend-teach.mp3",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "generatedAt": "2026-09-01T14:29:07.929Z",
+      "durationSeconds": 2.616,
+      "sha256": "85c0a822d9230debd7098d77342c326d7afad1e72a3ba7e7b3a541bfde0cb9d2",
+      "meanVolumeDb": -25.3,
       "automatedSignalChecks": [
         "ffprobe-duration",
         "ffmpeg-volumedetect",
@@ -164,6 +198,23 @@ These are production-path candidates. Automated checks verify file identity and 
       "humanListeningApproved": false
     },
     {
+      "instructionId": "letter-team-teach",
+      "childText": "These letters work together to show one sound.",
+      "path": "/audio/quest-v2/instructions/letter-team-teach.mp3",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "generatedAt": "2026-09-01T14:29:08.984Z",
+      "durationSeconds": 3.192,
+      "sha256": "b2a270ea25f931b6878ae5c4fd26ad1a1f10f7252e825ab0061d6615a4b92f53",
+      "meanVolumeDb": -25.7,
+      "automatedSignalChecks": [
+        "ffprobe-duration",
+        "ffmpeg-volumedetect",
+        "sha256"
+      ],
+      "humanListeningApproved": false
+    },
+    {
       "instructionId": "memory-delivery-deliver-cue",
       "childText": "Use the clue to help the right friend.",
       "path": "/audio/quest-v2/instructions/memory-delivery-deliver-cue.mp3",
@@ -232,6 +283,23 @@ These are production-path candidates. Automated checks verify file identity and 
       "humanListeningApproved": false
     },
     {
+      "instructionId": "single-sound-teach",
+      "childText": "This spelling shows the sound. Say it with me.",
+      "path": "/audio/quest-v2/instructions/single-sound-teach.mp3",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "model": "Google Cloud Text-to-Speech Chirp3 HD",
+      "generatedAt": "2026-09-01T14:29:10.303Z",
+      "durationSeconds": 3.888,
+      "sha256": "6cc46cd89787e66c00c5c0dab8b3caa959dacf916bef337e9bb2b6605726f7dd",
+      "meanVolumeDb": -25.7,
+      "automatedSignalChecks": [
+        "ffprobe-duration",
+        "ffmpeg-volumedetect",
+        "sha256"
+      ],
+      "humanListeningApproved": false
+    },
+    {
       "instructionId": "story-power-choose-story-action",
       "childText": "Choose the action that matches the story.",
       "path": "/audio/quest-v2/instructions/story-power-choose-story-action.mp3",
@@ -284,13 +352,13 @@ These are production-path candidates. Automated checks verify file identity and 
     },
     {
       "instructionId": "word-forge-place-tile",
-      "childText": "Choose the grapheme for this sound.",
+      "childText": "Choose the letter or letter team for this sound.",
       "path": "/audio/quest-v2/instructions/word-forge-place-tile.mp3",
       "voice": "en-US-Chirp3-HD-Leda",
       "model": "Google Cloud Text-to-Speech Chirp3 HD",
-      "generatedAt": "2026-09-01T13:35:25.948Z",
-      "durationSeconds": 2.208,
-      "sha256": "3d393253afe121c83dfad32f0632b11d0654f95594ad79552ed3bd4575cee227",
+      "generatedAt": "2026-09-01T14:32:22.183Z",
+      "durationSeconds": 3.816,
+      "sha256": "80d2d85f859f8612ace21f1aaf86d820629d8062e61e6a83dc1c1d27ecedca34",
       "meanVolumeDb": -24.5,
       "automatedSignalChecks": [
         "ffprobe-duration",
@@ -318,14 +386,14 @@ These are production-path candidates. Automated checks verify file identity and 
     },
     {
       "instructionId": "word-forge-teach",
-      "childText": "Listen to the whole word. Build it with graphemes.",
+      "childText": "Listen to the whole word. Build it with letters or letter teams.",
       "path": "/audio/quest-v2/instructions/word-forge-teach.mp3",
       "voice": "en-US-Chirp3-HD-Leda",
       "model": "Google Cloud Text-to-Speech Chirp3 HD",
-      "generatedAt": "2026-09-01T13:35:27.849Z",
-      "durationSeconds": 3.888,
-      "sha256": "0adc8314dad77c7abf3cb7898ac30d3ff61328654bc16dd4ad2b7404ca9728ba",
-      "meanVolumeDb": -24.3,
+      "generatedAt": "2026-09-01T14:32:23.337Z",
+      "durationSeconds": 4.176,
+      "sha256": "2722aa102e3effee7dbf1b5f89130c68ace5ad1203987c6e704d7bf9078b0e80",
+      "meanVolumeDb": -25.6,
       "automatedSignalChecks": [
         "ffprobe-duration",
         "ffmpeg-volumedetect",

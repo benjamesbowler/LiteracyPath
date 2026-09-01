@@ -15,6 +15,8 @@ let sharedCueElement = null;
 let cueListeners = [];
 let cueSequenceVersion = 0;
 let cueSequenceTimer = null;
+let cueSequenceSession = 0;
+let activeCueSequence = null;
 
 function getSharedCueElement() {
   if (!sharedCueElement) {
@@ -36,16 +38,33 @@ function listenForCue(type, listener, options) {
   cueListeners.push([type, listener]);
 }
 
-function cancelCueSequence() {
+function reportSequenceDelivery(sequence, type) {
+  sequence?.onDelivery?.({
+    id: sequence.cueId,
+    session: sequence.session,
+    type,
+    at: Date.now()
+  });
+}
+
+function finishCueSequence(sequence, type) {
+  if (!sequence || sequence.finished || activeCueSequence !== sequence) return;
+  sequence.finished = true;
+  reportSequenceDelivery(sequence, type);
+  activeCueSequence = null;
+}
+
+function cancelCueSequence({ interrupt = true } = {}) {
   cueSequenceVersion += 1;
   if (cueSequenceTimer !== null && typeof window !== "undefined") {
     window.clearTimeout?.(cueSequenceTimer);
   }
   cueSequenceTimer = null;
+  if (interrupt) finishCueSequence(activeCueSequence, "interrupted");
 }
 
-function reportCueDelivery(type) {
-  currentCueDelivery?.({ id: currentCueId, session: currentCueSession, type, at: Date.now() });
+function reportCueDelivery(type, { id = currentCueId, session = currentCueSession, delivery = currentCueDelivery } = {}) {
+  delivery?.({ id, session, type, at: Date.now() });
 }
 
 function stopCuePlayback({ preserveSequence = false } = {}) {
@@ -94,13 +113,14 @@ function playCueAudioInternal(src, { volume = 0.95, onUnavailable, onDelivery, c
     currentCue = audio;
     const session = currentCueSession + 1;
     currentCueSession = session;
-    currentCueId = String(cueId || src);
+    const deliveryId = String(cueId || src);
+    currentCueId = deliveryId;
     currentCueDelivery = onDelivery;
     reportCueDelivery("loading");
     setQuestActionSfxInstructionActive(true);
+    const ownsCue = () => currentCue === audio && currentCueSession === session && currentCueId === deliveryId;
     const finish = (type = "completed") => {
-      if (currentCue !== audio || currentCueSession !== session) return;
-      reportCueDelivery(type);
+      if (!ownsCue()) return;
       currentCue = null;
       currentCueFinish = null;
       currentCueDelivery = null;
@@ -108,10 +128,11 @@ function playCueAudioInternal(src, { volume = 0.95, onUnavailable, onDelivery, c
       cueResumeAfterSuspend = false;
       setQuestActionSfxInstructionActive(false);
       restoreGameMusic();
+      reportCueDelivery(type, { id: deliveryId, session, delivery: onDelivery });
     };
     let unavailableNotified = false;
     const unavailable = () => {
-      if (currentCue !== audio || unavailableNotified) return;
+      if (!ownsCue() || unavailableNotified) return;
       unavailableNotified = true;
       finish("failed");
       onUnavailable?.();
@@ -127,10 +148,10 @@ function playCueAudioInternal(src, { volume = 0.95, onUnavailable, onDelivery, c
     const result = audio.play();
     if (result?.catch) {
       result.then(() => {
-        if (currentCue === audio) reportCueDelivery("started");
+        if (ownsCue()) reportCueDelivery("started", { id: deliveryId, session, delivery: onDelivery });
       }).catch(unavailable);
     } else {
-      reportCueDelivery("started");
+      if (ownsCue()) reportCueDelivery("started", { id: deliveryId, session, delivery: onDelivery });
     }
   } catch {
     currentCue = null;
@@ -153,35 +174,61 @@ export function playCueAudio(src, options = {}) {
 // ("st" = /s/ then /t/, said quickly) and any future phoneme-then-name
 // sequence. One-voice rule holds: if anything else grabs the voice mid-chain,
 // the chain stops instead of talking over it.
-export function playCueSequence(srcs = [], { volume = 0.95, gapMs = 150, onDelivery, cueId = "cue-sequence" } = {}) {
+export function playCueSequence(srcs = [], { volume = 0.95, gapMs = 150, onDelivery, onItemDelivery: onItemDiagnostic, cueId = "cue-sequence" } = {}) {
   const queue = (srcs || []).filter(Boolean);
   if (!queue.length) return;
   cancelCueSequence();
   const sequenceVersion = cueSequenceVersion;
+  const sequence = {
+    cueId: String(cueId),
+    session: cueSequenceSession + 1,
+    onDelivery,
+    finished: false,
+    started: false
+  };
+  cueSequenceSession = sequence.session;
+  activeCueSequence = sequence;
+  reportSequenceDelivery(sequence, "loading");
   let index = 0;
   const playNext = () => {
     if (sequenceVersion !== cueSequenceVersion) return;
-    if (index >= queue.length) return;
+    if (index >= queue.length) {
+      if (activeCueSequence === sequence) finishCueSequence(sequence, "completed");
+      return;
+    }
     const src = queue[index];
     index += 1;
     const itemCueId = `${cueId}:${index}`;
-    let advanced = false;
-    const advance = () => {
-      if (advanced || index >= queue.length) return;
-      advanced = true;
+    const handleItemDelivery = event => {
+      onItemDiagnostic?.(event);
+      const ownsAggregate = activeCueSequence === sequence && !sequence.finished;
+      if (event.type === "started" && ownsAggregate && !sequence.started) {
+        sequence.started = true;
+        reportSequenceDelivery(sequence, "started");
+      }
+      if (event.type === "failed" || event.type === "interrupted") {
+        if (ownsAggregate) finishCueSequence(sequence, event.type);
+        // Older callers rely on a failed recording trying the next source. It
+        // remains diagnostic-only once the aggregate has truthfully failed.
+        if (event.type === "failed" && index < queue.length) {
+          cueSequenceTimer = window.setTimeout(() => {
+            cueSequenceTimer = null;
+            playNext();
+          }, gapMs);
+        }
+        return;
+      }
+      if (event.type !== "completed") return;
+      if (index >= queue.length) {
+        if (ownsAggregate) finishCueSequence(sequence, "completed");
+        return;
+      }
       cueSequenceTimer = window.setTimeout(() => {
         cueSequenceTimer = null;
-        if (sequenceVersion === cueSequenceVersion && currentCue === null) playNext();
+        playNext();
       }, gapMs);
     };
-    playCueAudioInternal(src, { volume, cueId: itemCueId, onDelivery, onUnavailable: advance }, true);
-    const audio = currentCue;
-    if (!audio) {
-      advance();
-      return;
-    }
-    listenForCue("ended", advance, { once: true });
-    listenForCue("error", advance, { once: true });
+    playCueAudioInternal(src, { volume, cueId: itemCueId, onDelivery: handleItemDelivery }, true);
   };
   playNext();
 }
@@ -201,18 +248,22 @@ export function setCueAudioSuspended(suspended = true) {
   if (!currentCue || !cueResumeAfterSuspend) return cueSuspended;
   const audio = currentCue;
   const finish = currentCueFinish;
+  const session = currentCueSession;
+  const cueId = currentCueId;
+  const delivery = currentCueDelivery;
+  const ownsCue = () => currentCue === audio && currentCueSession === session && currentCueId === cueId;
   cueResumeAfterSuspend = false;
   duckGameMusic();
   try {
     const result = audio.play();
     if (result?.catch) result.then(() => {
-      if (currentCue === audio) reportCueDelivery("started");
+      if (ownsCue()) reportCueDelivery("started", { id: cueId, session, delivery });
     }).catch(() => {
-      if (currentCue === audio) finish?.("failed");
+      if (ownsCue()) finish?.("failed");
     });
-    else reportCueDelivery("started");
+    else if (ownsCue()) reportCueDelivery("started", { id: cueId, session, delivery });
   } catch {
-    if (currentCue === audio) finish?.("failed");
+    if (ownsCue()) finish?.("failed");
   }
   return cueSuspended;
 }

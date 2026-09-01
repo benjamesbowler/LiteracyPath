@@ -31,6 +31,19 @@ test("delivery records truthful lifecycle times and ignores a stale cue event", 
   assert.equal(reduceAudioDelivery(completed, { id: "cue-1", session: 1, type: "failed" }).status, "completed");
 });
 
+test("a strictly newer loading session replaces completed evidence for the same cue", () => {
+  let state = createAudioDelivery("replay");
+  for (const event of [
+    { id: "replay", session: 1, type: "loading", at: 1 },
+    { id: "replay", session: 1, type: "started", at: 2 },
+    { id: "replay", session: 1, type: "completed", at: 3 },
+    { id: "replay", session: 2, type: "loading", at: 4 }
+  ]) state = reduceAudioDelivery(state, event);
+  assert.deepEqual(state, { id: "replay", session: 2, status: "loading", startedAt: null, completedAt: null });
+  assert.equal(reduceAudioDelivery(state, { id: "replay", session: 1, type: "completed", at: 5 }).status, "loading");
+  assert.equal(reduceAudioDelivery(state, { id: "replay", session: 2, type: "failed", at: 6 }).status, "failed");
+});
+
 test("the delivery status vocabulary is closed", () => {
   assert.deepEqual(CUE_DELIVERY_STATUSES, ["unavailable", "loading", "started", "completed", "interrupted", "failed"]);
   assert.equal(reduceAudioDelivery(createAudioDelivery("cue-1"), { id: "cue-1", session: 1, type: "made-up" }).status, "unavailable");
@@ -113,7 +126,7 @@ test("cue playback reports a truthful failed lifecycle", async () => {
   }
 });
 
-test("a sequence exposes per-item lifecycle ownership that the reducer can complete", async () => {
+test("a sequence exposes one aggregate lifecycle that completes only after every item", async () => {
   const originalWindow = globalThis.window;
   const originalAudio = globalThis.Audio;
   const instances = [];
@@ -132,14 +145,24 @@ test("a sequence exposes per-item lifecycle ownership that the reducer can compl
   try {
     cue = await import(`../../src/utils/audio/cuePlayer.js?sequence-delivery=${Date.now()}`);
     const events = [];
-    cue.playCueSequence(["/audio/one.mp3", "/audio/two.mp3"], { cueId: "lesson", gapMs: 0, onDelivery: event => events.push(event) });
+    const itemEvents = [];
+    cue.playCueSequence(["/audio/one.mp3", "/audio/two.mp3"], {
+      cueId: "lesson",
+      gapMs: 0,
+      onDelivery: event => events.push(event),
+      onItemDelivery: event => itemEvents.push(event)
+    });
     await Promise.resolve();
     instances[0].emit("ended");
     await Promise.resolve();
-    let state = createAudioDelivery("lesson:1");
-    for (const event of events.filter(event => event.id === "lesson:1")) state = reduceAudioDelivery(state, event);
+    assert.equal(events.some(event => event.type === "completed"), false);
+    assert.ok(itemEvents.some(event => event.id === "lesson:1" && event.type === "completed"));
+    instances[0].emit("ended");
+    let state = createAudioDelivery("lesson");
+    for (const event of events) state = reduceAudioDelivery(state, event);
     assert.equal(state.status, "completed");
-    assert.ok(events.some(event => event.id === "lesson:2" && event.type === "loading"));
+    assert.ok(itemEvents.some(event => event.id === "lesson:2" && event.type === "loading"));
+    assert.ok(events.every(event => event.id === "lesson"));
   } finally {
     cue?.stopCueAudio();
     globalThis.window = originalWindow;
@@ -175,6 +198,112 @@ test("suspension cannot complete or revive a replaced cue session", async () => 
     assert.equal(first.some(event => event.type === "completed"), false);
     assert.equal(second.some(event => event.type === "completed"), false);
     assert.ok(second.every(event => event.id === "second"));
+  } finally {
+    cue?.stopCueAudio();
+    globalThis.window = originalWindow;
+    globalThis.Audio = originalAudio;
+  }
+});
+
+test("a late play promise from a replaced cue cannot report into its replacement", async () => {
+  const originalWindow = globalThis.window;
+  const originalAudio = globalThis.Audio;
+  const resolvers = [];
+  class FakeAudio {
+    constructor() { this.listeners = new Map(); }
+    addEventListener(type, listener) { this.listeners.set(type, listener); }
+    removeEventListener(type, listener) { if (this.listeners.get(type) === listener) this.listeners.delete(type); }
+    pause() {}
+    load() {}
+    play() { return new Promise((resolve, reject) => resolvers.push({ resolve, reject })); }
+  }
+  globalThis.window = { speechSynthesis: { cancel() {} } };
+  globalThis.Audio = FakeAudio;
+  let cue;
+  try {
+    cue = await import(`../../src/utils/audio/cuePlayer.js?late-promise=${Date.now()}`);
+    const first = [];
+    const second = [];
+    cue.playCueAudio("/audio/first.mp3", { cueId: "first", onDelivery: event => first.push(event) });
+    cue.playCueAudio("/audio/second.mp3", { cueId: "second", onDelivery: event => second.push(event) });
+    resolvers[0].resolve();
+    await Promise.resolve();
+    await Promise.resolve();
+    assert.deepEqual(first.map(event => event.type), ["loading", "interrupted"]);
+    assert.deepEqual(second.map(event => event.type), ["loading"]);
+  } finally {
+    cue?.stopCueAudio();
+    globalThis.window = originalWindow;
+    globalThis.Audio = originalAudio;
+  }
+});
+
+test("a late rejected play promise from a replaced cue cannot fail its replacement", async () => {
+  const originalWindow = globalThis.window;
+  const originalAudio = globalThis.Audio;
+  const resolvers = [];
+  class FakeAudio {
+    constructor() { this.listeners = new Map(); }
+    addEventListener(type, listener) { this.listeners.set(type, listener); }
+    removeEventListener(type, listener) { if (this.listeners.get(type) === listener) this.listeners.delete(type); }
+    pause() {}
+    load() {}
+    play() { return new Promise((resolve, reject) => resolvers.push({ resolve, reject })); }
+  }
+  globalThis.window = { speechSynthesis: { cancel() {} } };
+  globalThis.Audio = FakeAudio;
+  let cue;
+  try {
+    cue = await import(`../../src/utils/audio/cuePlayer.js?late-rejection=${Date.now()}`);
+    const second = [];
+    cue.playCueAudio("/audio/first.mp3", { cueId: "first" });
+    cue.playCueAudio("/audio/second.mp3", { cueId: "second", onDelivery: event => second.push(event) });
+    resolvers[0].reject(new Error("first clip was replaced"));
+    await Promise.resolve();
+    await Promise.resolve();
+    assert.deepEqual(second.map(event => event.type), ["loading"]);
+  } finally {
+    cue?.stopCueAudio();
+    globalThis.window = originalWindow;
+    globalThis.Audio = originalAudio;
+  }
+});
+
+test("a sequence failure or replacement is terminal for its aggregate reducer cue", async () => {
+  const originalWindow = globalThis.window;
+  const originalAudio = globalThis.Audio;
+  const instances = [];
+  class FakeAudio {
+    constructor() { this.listeners = new Map(); instances.push(this); }
+    addEventListener(type, listener) { const values = this.listeners.get(type) || []; values.push(listener); this.listeners.set(type, values); }
+    removeEventListener(type, listener) { this.listeners.set(type, (this.listeners.get(type) || []).filter(value => value !== listener)); }
+    pause() {}
+    load() {}
+    play() { return Promise.resolve(); }
+    emit(type) { for (const listener of this.listeners.get(type) || []) listener(); }
+  }
+  globalThis.window = { speechSynthesis: { cancel() {} }, setTimeout(callback) { callback(); return 1; }, clearTimeout() {} };
+  globalThis.Audio = FakeAudio;
+  let cue;
+  try {
+    cue = await import(`../../src/utils/audio/cuePlayer.js?sequence-terminal=${Date.now()}`);
+    const failed = [];
+    cue.playCueSequence(["/audio/one.mp3", "/audio/two.mp3"], { cueId: "failed-sequence", onDelivery: event => failed.push(event) });
+    await Promise.resolve();
+    instances[0].emit("error");
+    let failedState = createAudioDelivery("failed-sequence");
+    for (const event of failed) failedState = reduceAudioDelivery(failedState, event);
+    assert.equal(failedState.status, "failed");
+    assert.equal(failed.some(event => event.type === "completed"), false);
+
+    const replaced = [];
+    cue.playCueSequence(["/audio/one.mp3", "/audio/two.mp3"], { cueId: "replaced-sequence", onDelivery: event => replaced.push(event) });
+    await Promise.resolve();
+    cue.playCueAudio("/audio/replacement.mp3", { cueId: "replacement" });
+    let replacedState = createAudioDelivery("replaced-sequence");
+    for (const event of replaced) replacedState = reduceAudioDelivery(replacedState, event);
+    assert.equal(replacedState.status, "interrupted");
+    assert.equal(replaced.some(event => event.type === "completed"), false);
   } finally {
     cue?.stopCueAudio();
     globalThis.window = originalWindow;

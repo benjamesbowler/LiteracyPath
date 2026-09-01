@@ -33,7 +33,8 @@ export function reduceAudioDelivery(state, event = {}) {
   const session = Number(event.session);
   if (!Number.isInteger(session) || session < 1) return current;
   if (event.type === "loading") {
-    if (!LEGAL_TRANSITIONS[current.status].has(event.type)) return current;
+    if (current.session !== null && session <= current.session) return current;
+    return Object.freeze({ id: current.id, status: "loading", session, startedAt: null, completedAt: null });
   } else if (current.session !== session || !LEGAL_TRANSITIONS[current.status].has(event.type)) return current;
   const at = timestamp(event.at);
   const startedAt = event.type === "started" ? at ?? current.startedAt : current.startedAt;

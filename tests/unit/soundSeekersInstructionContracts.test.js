@@ -34,7 +34,7 @@ test("instruction text, action, and evidence domain describe the same child acti
     instructionId: "word-forge-place-tile",
     powerId: SOUND_POWER_IDS.WORD_FORGE,
     phase: "decision",
-    childText: "Choose the grapheme for this sound.",
+    childText: "Choose the letter or letter team for this sound.",
     childAudio: "quest/instructions/word-forge-place-tile",
     cue: "whole_word",
     expectedAction: "place_grapheme_tile",
@@ -104,6 +104,14 @@ test("only exact scored decisions carry their canonical evidence domain", () => 
       [SOUND_POWER_IDS.STORY_POWER, EVIDENCE_DOMAINS.CONNECTED_TEXT_TRANSFER]
     ]
   );
+});
+
+test("Word Forge and Blend Bridge use early-reader language, not internal phonics jargon", () => {
+  for (const contract of Object.values(SOUND_SEEKERS_INSTRUCTIONS)) {
+    if ([SOUND_POWER_IDS.WORD_FORGE, SOUND_POWER_IDS.BLEND_BRIDGE].includes(contract.powerId)) {
+      assert.doesNotMatch(contract.childText, /grapheme/ui, contract.instructionId);
+    }
+  }
 });
 
 test("every non-silent instruction resolves to a provenance-locked recording", () => {
