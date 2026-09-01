@@ -95,15 +95,16 @@ for (const viewport of STUDENT_EMPHASIS_VIEWPORTS) {
 
 test("A3.9 My Hollow keeps its instruction clear of World on compact portrait phones", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.setViewportSize({ width: 320, height: 844 });
+  await page.goto("/preview/child-surfaces.html?surface=my-hollow");
+
+  const surface = page.locator('[data-child-surface="my-hollow"]');
+  const instruction = surface.locator(".hollow-room-hint[data-child-instruction]");
+  const world = surface.locator(".hollow-world-button");
+  const room = surface.locator(".hollow-room");
 
   for (const width of [320, 390, 400]) {
     await page.setViewportSize({ width, height: 844 });
-    await page.goto("/preview/child-surfaces.html?surface=my-hollow");
-
-    const surface = page.locator('[data-child-surface="my-hollow"]');
-    const instruction = surface.locator(".hollow-room-hint[data-child-instruction]");
-    const world = surface.locator(".hollow-world-button");
-    const room = surface.locator(".hollow-room");
     await expect(surface).toBeVisible();
     await expect(room).toBeVisible();
     await expect(instruction).toBeVisible();
