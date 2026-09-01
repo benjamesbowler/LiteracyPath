@@ -102,6 +102,7 @@ declare
   result jsonb;
   trail jsonb;
   assignment_value jsonb;
+  incoming_assignment_value jsonb;
   settings_value jsonb;
   checkpoint_value jsonb := 'null'::jsonb;
 begin
@@ -119,11 +120,23 @@ begin
     winner := case when existing_epoch > incoming_epoch then existing else incoming end;
   end if;
 
+  -- Child uploads omit this teacher-owned key. An explicit incoming key is a
+  -- teacher partial update: valid data replaces, JSON null clears, and a
+  -- malformed non-null value fails closed by retaining the stored assignment.
   assignment_value := coalesce(
     public.lp_quest_normalize_v2_assignment(existing -> 'assignment'),
-    public.lp_quest_normalize_v2_assignment(incoming -> 'assignment'),
     'null'::jsonb
   );
+  if coalesce(incoming ? 'assignment', false) then
+    if incoming -> 'assignment' = 'null'::jsonb then
+      assignment_value := 'null'::jsonb;
+    else
+      incoming_assignment_value := public.lp_quest_normalize_v2_assignment(incoming -> 'assignment');
+      if incoming_assignment_value is not null then
+        assignment_value := incoming_assignment_value;
+      end if;
+    end if;
+  end if;
   settings_value := coalesce(
     case when jsonb_typeof(incoming -> 'settings') = 'object' then incoming -> 'settings' end,
     case when jsonb_typeof(existing -> 'settings') = 'object' then existing -> 'settings' end,

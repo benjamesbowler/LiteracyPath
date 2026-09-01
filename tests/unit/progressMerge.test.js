@@ -42,6 +42,22 @@ test("phonics_quest cloud payloads never include assignment or telemetry", () =>
   assert.equal(sanitizeCloudProgressPayload("learn_games", { telemetry: true }).telemetry, true);
 });
 
+test("phonics_quest v2 child uploads cannot send a teacher assignment", () => {
+  const state = createSoundSeekersState({
+    assignment: {
+      targets: ["sh"],
+      assignedAt: "2026-09-01T08:00:00Z",
+      by: "teacher"
+    }
+  });
+  const safe = sanitizeCloudProgressPayload("phonics_quest", state);
+
+  assert.equal(Object.hasOwn(safe, "assignment"), false);
+  assert.equal(Object.hasOwn(safe, "telemetry"), false);
+  assert.equal(safe.v, 2);
+  assert.equal(safe.contentVersion, "sound-seekers-v2");
+});
+
 test("phonics_quest v2 merges event evidence without accepting a stale v1 journey", () => {
   const local = {
     ...createSoundSeekersState(),

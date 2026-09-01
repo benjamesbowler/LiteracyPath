@@ -67,6 +67,19 @@ function normalizeAssignment(raw) {
   return Object.keys(next).length ? next : null;
 }
 
+export function createTeacherSoundSeekersAssignmentUpdate(targets = [], note = "", assignedAt = "") {
+  return {
+    assignment: normalizeAssignment({ targets, note, assignedAt, by: "teacher" })
+  };
+}
+
+function mergeTeacherAssignment(existing, incoming) {
+  const stored = normalizeAssignment(existing);
+  if (!Object.prototype.hasOwnProperty.call(asObject(incoming), "assignment")) return stored;
+  if (incoming.assignment === null) return null;
+  return normalizeAssignment(incoming.assignment) || stored;
+}
+
 function normalizeEvent(event) {
   const value = asObject(event);
   const id = typeof value.id === "string" ? trimAsciiSpaces(value.id) : "";
@@ -241,13 +254,13 @@ export function mergeSoundSeekersStates(local, remote) {
   const remoteIsV2 = isSoundSeekersV2(remoteRaw);
   const localState = normalizeSoundSeekersState(localRaw, remoteIsV2 ? {} : remoteRaw);
   const remoteState = normalizeSoundSeekersState(remoteRaw, localIsV2 ? {} : localRaw);
+  const assignment = mergeTeacherAssignment(localRaw.assignment, remoteRaw);
 
   if (localIsV2 !== remoteIsV2) {
     const winner = localIsV2 ? localState : remoteState;
-    const legacy = localIsV2 ? remoteRaw : localRaw;
     return normalizeSoundSeekersState({
       ...winner,
-      assignment: remoteState.assignment || localState.assignment || normalizeAssignment(legacy.assignment),
+      assignment,
       settings: winner.settings
     });
   }
@@ -258,7 +271,7 @@ export function mergeSoundSeekersStates(local, remote) {
     const winner = localEpoch > remoteEpoch ? localState : remoteState;
     return normalizeSoundSeekersState({
       ...winner,
-      assignment: remoteState.assignment || localState.assignment,
+      assignment,
       settings: localState.settings
     });
   }
@@ -292,7 +305,7 @@ export function mergeSoundSeekersStates(local, remote) {
     },
     rewards: { claimedIds: mergeIds(localState.rewards.claimedIds, remoteState.rewards.claimedIds) },
     checkpoint: localState.checkpoint,
-    assignment: remoteState.assignment || localState.assignment,
+    assignment,
     settings: localState.settings
   });
 }

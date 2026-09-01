@@ -14,6 +14,7 @@ import {
 } from "../data/teacherRosterOperations.js";
 import { selectAllRows } from "../data/pagedSelect.js";
 import { setEphemeralNetworkMode } from "../data/boundaries/facade.js";
+import { createTeacherSoundSeekersAssignmentUpdate } from "../features/soundSeekers/engine/stateV2.js";
 import { setSampleContentScope } from "../policy/freeTierContent.js";
 import { beginTryModeSession } from "../policy/tryModeSession.js";
 import { LEGAL_POLICY } from "../policy/legalPolicy.js";
@@ -3340,18 +3341,14 @@ export function useAppSessionController(context) {
   // applied — the naive merge unions the old targets back in).
   async function saveQuestAssignment(studentRowId, targets = [], note = "") {
     if (!teacherId || !studentRowId) return false;
-    const assignment = {
-      targets: [...new Set(targets)].filter(Boolean).slice(0, 6),
-      note: String(note || "").slice(0, 120),
-      assignedAt: new Date().toISOString(),
-      by: "teacher"
-    };
+    const updatedAt = new Date().toISOString();
+    const payload = createTeacherSoundSeekersAssignmentUpdate(targets, note, updatedAt);
     const { error } = await supabase.table("student_progress").upsert({
       student_id: studentRowId,
       area: "phonics_quest",
       key: "__all__",
-      payload: { assignment },
-      updated_at: new Date().toISOString()
+      payload,
+      updated_at: updatedAt
     }, { onConflict: "student_id,area,key" });
     if (error) {
       console.error("Assign practice error:", error);
