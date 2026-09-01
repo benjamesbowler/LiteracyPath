@@ -22,6 +22,7 @@ import {
 import { ConfettiCelebration } from "../learn/games/shared/ConfettiCelebration.jsx";
 import { ProgressStars } from "../learn/games/shared/ProgressStars.jsx";
 import { ChildRecommendationExplanation } from "../recommendations/RecommendationExplanation.jsx";
+import { resolveAdventureMapCycleLock } from "../../policy/childTrailPolicy.js";
 import {
   stationsForCycle,
   buildStationRounds,
@@ -512,7 +513,9 @@ export function ElSkillsQuest({
   studentName = "Reader",
   progressScopeKey = "default",
   initialCycleId = "",
-  initialStationId = ""
+  initialStationId = "",
+  lockedCycleId = null,
+  onLockedCycleAvailabilityChange = null
 }) {
   const playableCycles = useMemo(
     () => elSkillsBlockCycles.filter(cycle => cycle.cycleNumber),
@@ -523,7 +526,13 @@ export function ElSkillsQuest({
     playableCycles.find(cycle => !(progress.cycles?.[cycle.id]?.stars > 0)) || playableCycles[0]
   ), [playableCycles, progress]);
 
-  const initialCycle = playableCycles.find(cycle => cycle.id === initialCycleId) || null;
+  const cycleLock = useMemo(() => resolveAdventureMapCycleLock({
+    cycles: playableCycles,
+    lockedCycleId
+  }), [lockedCycleId, playableCycles]);
+  const initialCycle = cycleLock.locked
+    ? cycleLock.cycle
+    : playableCycles.find(cycle => cycle.id === initialCycleId) || null;
   const initialStation = initialCycle
     ? stationsForCycle(initialCycle).find(station => station.id === initialStationId)
     : null;
@@ -544,8 +553,15 @@ export function ElSkillsQuest({
   const [mapZoom] = useState(1);
   const cueTimerRef = useRef(null);
 
-  const activeCycle = playableCycles.find(cycle => cycle.id === activeCycleId) || null;
+  const activeCycle = cycleLock.locked
+    ? cycleLock.cycle
+    : playableCycles.find(cycle => cycle.id === activeCycleId) || null;
   const round = rounds[roundIndex] || null;
+
+  useEffect(() => {
+    if (!cycleLock.locked) return;
+    onLockedCycleAvailabilityChange?.(cycleLock.contentAvailable);
+  }, [cycleLock.contentAvailable, cycleLock.locked, onLockedCycleAvailabilityChange]);
 
   useEffect(() => {
     function handleHydrated(event) {
@@ -575,6 +591,7 @@ export function ElSkillsQuest({
   }, [round, rounds, roundIndex]);
 
   function openCycle(cycle) {
+    if (cycleLock.locked) return;
     setActiveCycleId(cycle.id);
     setStationId(null);
     setCelebration(null);
@@ -850,6 +867,22 @@ export function ElSkillsQuest({
     return () => window.clearTimeout(timer);
   }, [celebration, activeCycle]);
 
+  if (cycleLock.locked && !cycleLock.contentAvailable) {
+    return (
+      <main
+        className="skills-block-quest"
+        data-learning-lane="practice_and_play"
+        data-quest-view="unavailable"
+        role="alert"
+      >
+        <div className="sbq-celebrate">
+          <h1>This assigned map space is not available</h1>
+          <p>Stay here and ask your teacher for help.</p>
+        </div>
+      </main>
+    );
+  }
+
   if (!activeCycle) {
     const completedCycles = playableCycles.filter(cycle => (
       (progress.cycles?.[cycle.id]?.stars || 0) > 0
@@ -1000,7 +1033,9 @@ export function ElSkillsQuest({
                 }
               }}
             >
-              {isCycle ? "Back to the map" : celebration.nextStationId ? "Next station!" : "Keep going"}
+              {isCycle
+                ? cycleLock.locked ? "Back to this cycle" : "Back to the map"
+                : celebration.nextStationId ? "Next station!" : "Keep going"}
             </button>
             {!isCycle && (
               <button className="sbq-ghost-button" type="button" onClick={() => setCelebration(null)}>
@@ -1020,7 +1055,7 @@ export function ElSkillsQuest({
                 Print certificate
               </button>
             )}
-            {isCycle && (
+            {isCycle && !cycleLock.locked && (
               <button
                 className="sbq-ghost-button"
                 type="button"
@@ -1078,9 +1113,11 @@ export function ElSkillsQuest({
                   <span style={{ width: `${completionPercent}%` }} />
                 </span>
               </div>
-              <button className="sbq-ghost-button" type="button" onClick={() => setActiveCycleId(null)}>
-                Map
-              </button>
+              {!cycleLock.locked && (
+                <button className="sbq-ghost-button" type="button" onClick={() => setActiveCycleId(null)}>
+                  Map
+                </button>
+              )}
             </div>
           </header>
 

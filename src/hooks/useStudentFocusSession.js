@@ -8,6 +8,8 @@ import {
 export const INITIAL_STUDENT_FOCUS_STATE = Object.freeze({
   connection: "idle",
   session: null,
+  endAction: "",
+  endedSessionId: "",
   failureCount: 0,
   lastContactAt: ""
 });
@@ -26,8 +28,14 @@ export function reduceStudentFocusState(state, action) {
   switch (action.type) {
     case "session":
       return {
-        connection: action.session ? "connected" : state.session ? "ended" : "idle",
+        connection: action.session
+          ? "connected"
+          : state.session || action.endAction
+            ? "ended"
+            : "idle",
         session: action.session,
+        endAction: action.endAction || "",
+        endedSessionId: action.endedSessionId || "",
         failureCount: 0,
         lastContactAt: action.at
       };
@@ -93,6 +101,8 @@ export function useStudentFocusSession({
       dispatch({
         type: "session",
         session,
+        endAction: data?.end_action || "",
+        endedSessionId: data?.ended_session_id || "",
         at: new Date().toISOString()
       });
       if (session) void requestWakeLock();

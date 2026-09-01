@@ -24,6 +24,16 @@
   box-shadow: 0 24px 70px rgba(22, 58, 49, 0.24);
 }
 
+.student-session-setup button,
+.student-session-setup select {
+  min-height: 44px;
+}
+
+.student-session-setup .lp-button,
+.student-session-bar-actions .lp-button {
+  min-height: 44px !important;
+}
+
 .student-session-setup-header,
 .student-session-section-heading,
 .student-session-start {
@@ -353,12 +363,35 @@
   box-shadow: 0 6px 18px rgba(30, 63, 54, 0.08);
 }
 
-.student-session-bar > div {
+.student-session-bar-summary {
   display: flex;
   flex: 1;
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
+}
+
+.student-session-bar-actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.student-session-bar-actions .lp-button {
+  min-height: 44px;
+  white-space: nowrap;
+}
+
+.student-session-switch-button {
+  font-weight: 800;
+}
+
+.student-session-bar > p[role="alert"] {
+  flex-basis: 100%;
+  margin: 0;
+  color: #8a2d21;
+  font-weight: 700;
 }
 
 .student-session-live {
@@ -521,5 +554,14 @@
   .student-session-bar {
     align-items: flex-start;
     flex-wrap: wrap;
+  }
+
+  .student-session-bar-summary,
+  .student-session-bar-actions {
+    flex-basis: 100%;
+  }
+
+  .student-session-bar-actions .lp-button {
+    flex: 1;
   }
 }

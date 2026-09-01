@@ -3,6 +3,7 @@ import test from "node:test";
 
 import {
   STUDENT_FOCUS_AUDIENCES,
+  STUDENT_ADVENTURE_MAP_MODES,
   STUDENT_SKILL_ASSIGNMENT_MODES,
   buildStudentFocusAssignments,
   hasCompleteStudentFocusSkillsEvidence,
@@ -110,6 +111,43 @@ test("exact books and games use one bounded wildcard config", () => {
     target: STUDENT_FOCUS_TARGETS.ARCADE_GAME,
     students,
     selectedGame: { id: "retired-game", title: "Retired Game", hidden: true }
+  }), {});
+});
+
+test("Adventure Map can assign each child their current space", () => {
+  assert.deepEqual(buildStudentFocusAssignments({
+    target: STUDENT_FOCUS_TARGETS.ADVENTURE_MAP,
+    students,
+    adventureMapMode: STUDENT_ADVENTURE_MAP_MODES.EACH_CHILD_CURRENT
+  }), {
+    "*": { map_mode: "each_child_current" }
+  });
+});
+
+test("Adventure Map can assign one exact space to everyone", () => {
+  assert.deepEqual(buildStudentFocusAssignments({
+    target: STUDENT_FOCUS_TARGETS.ADVENTURE_MAP,
+    students,
+    adventureMapMode: STUDENT_ADVENTURE_MAP_MODES.ONE_SPACE_FOR_EVERYONE,
+    selectedMapSpace: {
+      cycleId: "cycle-14",
+      cycleNumber: 14,
+      spaceName: "Fern Jungle"
+    }
+  }), {
+    "*": {
+      map_mode: "one_space_for_everyone",
+      cycle_id: "cycle-14",
+      cycle_number: 14,
+      space_name: "Fern Jungle"
+    }
+  });
+
+  assert.deepEqual(buildStudentFocusAssignments({
+    target: STUDENT_FOCUS_TARGETS.ADVENTURE_MAP,
+    students,
+    adventureMapMode: STUDENT_ADVENTURE_MAP_MODES.ONE_SPACE_FOR_EVERYONE,
+    selectedMapSpace: { cycleId: "cycle-40", cycleNumber: 40, spaceName: "Missing" }
   }), {});
 });
 

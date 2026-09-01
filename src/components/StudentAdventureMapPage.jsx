@@ -15,7 +15,9 @@
 //
 // IT IS A FORWARD PATH, NOT A LEVEL PICKER. Only the first unfinished stop can
 // open. Completed stops are visible proof of progress and later stops show the
-// journey ahead, but neither is selectable.
+// journey ahead, but neither is selectable. A teacher focus session may replace
+// that one action with one exact assigned cycle; it never turns the map into a
+// chooser.
 //
 // EVERY NUMBER IS REAL. The mock's "Duck Pond, 3 of 3 stars" is a placeholder
 // (the spec says so). The land, the part, the place names, which stop is next
@@ -48,7 +50,8 @@ import { speakStudentRailLabel } from "../policy/studentRailPolicy.js";
 import {
   ADVENTURE_MAP_PARTS,
   adventureMapPartFor,
-  buildAdventureMapScene
+  buildAdventureMapScene,
+  resolveAdventureMapCycleLock
 } from "../policy/childTrailPolicy.js";
 
 function hideOnError(event) {
@@ -132,6 +135,10 @@ export function StudentAdventureMapPage({
   onNavigate,
   onHome,
   onGrownUps,
+  focusLocked = false,
+  lockedCycleId = null,
+  onLockedCycleAvailabilityChange = null,
+  headerActions = null,
   // The real mode, handed in by the router so this screen never decides how the
   // Skills Quest is code-split. It receives the stop the child tapped.
   renderQuest
@@ -164,16 +171,30 @@ export function StudentAdventureMapPage({
   const read = readMapProgress(progressScopeKey);
 
   const starsFor = cycleId => Number(read.cycles?.[cycleId]?.stars) || 0;
+  const availableCycles = playableCycles();
+  const cycleLock = resolveAdventureMapCycleLock({
+    cycles: availableCycles,
+    lockedCycleId
+  });
+
+  useEffect(() => {
+    if (!cycleLock.locked) return;
+    onLockedCycleAvailabilityChange?.(cycleLock.contentAvailable);
+  }, [cycleLock.contentAvailable, cycleLock.locked, onLockedCycleAvailabilityChange]);
 
   // The land the child is standing in: the one holding their first unfinished
   // stop. Same rule the mode itself uses to pick its home world, so the sign on
   // this screen and the map inside the mode never disagree.
-  const currentCycle = playableCycles().find(cycle => starsFor(cycle.id) <= 0)
-    || playableCycles()[playableCycles().length - 1];
+  const currentCycle = cycleLock.locked
+    ? cycleLock.cycle
+    : availableCycles.find(cycle => starsFor(cycle.id) <= 0)
+      || availableCycles[availableCycles.length - 1];
   const part = adventureMapPartFor(currentCycle?.cycleNumber || 1);
-  const worldCycles = playableCycles().filter(cycle => (
-    cycle.cycleNumber >= part.first && cycle.cycleNumber <= part.last
-  ));
+  const worldCycles = currentCycle
+    ? availableCycles.filter(cycle => (
+        cycle.cycleNumber >= part.first && cycle.cycleNumber <= part.last
+      ))
+    : [];
   const landmarks = WORLD_LANDMARKS_WIDE[part.id] || [];
   const mapArt = WIDE_WORLDS.find(world => world.id === part.id)?.image || "";
   const emblem = PAL_WORLDS[part.id]?.emblem || "";
@@ -190,7 +211,8 @@ export function StudentAdventureMapPage({
     cycles: worldCycles,
     starsFor,
     landmarks,
-    points: mapPoints
+    points: mapPoints,
+    activeCycleId: cycleLock.locked ? cycleLock.cycleId : null
   });
 
   // The pal stands on a MARKER, not on a fact: scene.next is the child's next
@@ -210,7 +232,9 @@ export function StudentAdventureMapPage({
   // act on, so that clause is the one marked data-child-instruction and the one
   // held to the eight-word cap in tests/release/app-copy-standard.spec.js.
   const context = read.ok ? `Walk the ${part.name}.` : "";
-  const instruction = !read.ok
+  const instruction = cycleLock.locked && !cycleLock.contentAvailable
+    ? "This assigned map space is not available."
+    : !read.ok
     ? "We could not open your map right now."
     : scene.next
       ? `Your pal is waiting at ${scene.next.name}.`
@@ -227,7 +251,11 @@ export function StudentAdventureMapPage({
     return "Locked";
   };
 
-  if (openCycleId && renderQuest) {
+  if (
+    openCycleId
+    && renderQuest
+    && (!cycleLock.locked || openCycleId === cycleLock.cycleId)
+  ) {
     return renderQuest({ cycleId: openCycleId, onExit: () => setOpenCycleId("") });
   }
 
@@ -237,14 +265,21 @@ export function StudentAdventureMapPage({
       scopeKey={progressScopeKey}
       active="map"
       onNavigate={onNavigate}
-      onHome={onHome}
-      onGrownUps={onGrownUps}
+      onHome={focusLocked ? undefined : onHome}
+      onGrownUps={focusLocked ? undefined : onGrownUps}
+      profileInteractive={!focusLocked}
+      showGrownUps={!focusLocked}
+      showWallet={!focusLocked}
+      tabs={focusLocked ? [] : undefined}
+      headerActions={headerActions}
     >
       <div
         className="kg-screen kg-map"
         data-child-surface="adventure-map"
         data-learning-lane="practice_and_play"
         data-read-state={read.ok ? "ready" : "unreadable"}
+        data-focus-locked={cycleLock.locked ? "true" : "false"}
+        data-locked-cycle-id={cycleLock.cycleId || undefined}
       >
         <div className="kg-trail-head">
           <div>
@@ -386,6 +421,7 @@ export function StudentAdventureMapPage({
                 className={`kg-glass kg-map-card kg-map-card--${stop.state}`}
                 onClick={isNext ? () => setOpenCycleId(stop.id) : undefined}
                 aria-disabled={!isNext || undefined}
+                data-cycle-id={stop.id}
                 data-node-state={stop.state}
                 data-child-emphasis={stop.state === "next" ? "primary" : "choice"}
                 {...(stop.state === "next" ? { "data-child-primary": "" } : {})}

@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  STUDENT_FOCUS_END_ACTIONS,
   endStudentFocusSession,
   getStudentFocusSession,
   saveStudentFocusAssessmentAnswer,
@@ -117,4 +118,32 @@ test("focus operations fail before a network call when no service client exists"
     endStudentFocusSession({ client: null, sessionId: "focus-1" }),
     /unavailable while the service is offline/i
   );
+});
+
+test("teacher can end a session and send assigned iPads to student selection", async () => {
+  const client = recordingClient({ ok: true });
+  await endStudentFocusSession({
+    client,
+    sessionId: "focus-1",
+    endAction: STUDENT_FOCUS_END_ACTIONS.STUDENT_PICKER
+  });
+  assert.deepEqual(client.calls, [{
+    name: "teacher_end_student_focus_session",
+    args: {
+      p_session_id: "focus-1",
+      p_end_action: "student_picker"
+    }
+  }]);
+});
+
+test("ordinary session end returns assigned iPads to Student Home", async () => {
+  const client = recordingClient({ ok: true });
+  await endStudentFocusSession({ client, sessionId: "focus-2" });
+  assert.deepEqual(client.calls, [{
+    name: "teacher_end_student_focus_session",
+    args: {
+      p_session_id: "focus-2",
+      p_end_action: "return_home"
+    }
+  }]);
 });

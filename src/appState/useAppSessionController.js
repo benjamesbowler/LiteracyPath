@@ -369,6 +369,30 @@ export function useAppSessionController(context) {
     }
   }
 
+  function returnToStudentSelection() {
+    try {
+      localStorage.removeItem(STUDENT_SESSION_STORAGE_KEY);
+    } catch {
+      // The in-memory session is still cleared when device storage is unavailable.
+    }
+    clearProgressSyncSession();
+    setStudentSession(null);
+    setStudentSessionId(null);
+    setStudentSessionName("");
+    setNameSaved(false);
+    setGuidedReadingRecords({});
+    setLetterIndex(0);
+    setLetterAssessment([]);
+    setPatternIndex(0);
+    setPatternAssessment([]);
+    setPatternAttempt(0);
+    setElBenchmarkSession(null);
+    setSessionMode("student");
+    setEntryMode("student");
+    setMessage("");
+    setAppView(APP_VIEWS.STUDENT_LOGIN);
+  }
+
   useEffect(() => {
     if (!authReady || teacherUser || studentSession) return;
     const timeoutId = window.setTimeout(() => restoreLatestStudentSession(), 0);
@@ -4193,7 +4217,7 @@ export function useAppSessionController(context) {
     loadStudentProgress, loadStudents, logInDemoTeacher, logInTeacher,
     logOutStudent, logOutTeacher, normalizeApprovalStatus, openAdminDashboard,
     profileStorageKey, regenerateClassCode, requestPasswordReset, resetSelectedStudentProgress,
-    retryTeacherSchoolName,
+    retryTeacherSchoolName, returnToStudentSelection,
     resetStudentSymbolPassword, saveGuidedReadingRecord, saveTeacherSchool, setStudentAccessibilitySettings,
     resendEmailConfirmation, nudgeTeacherAccountReview, loadPendingAccountAlert,
     startTryMode, endTryMode,

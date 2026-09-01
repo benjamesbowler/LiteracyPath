@@ -35,6 +35,24 @@ test("focus polling preserves the last lock while an iPad reconnects", () => {
   assert.equal(state.session, null);
 });
 
+test("an ended session can carry a one-time student-selection command", () => {
+  const state = reduceStudentFocusState({
+    ...INITIAL_STUDENT_FOCUS_STATE,
+    session
+  }, {
+    type: "session",
+    session: null,
+    endAction: "student_picker",
+    endedSessionId: "focus-1",
+    at: "2026-09-01T12:00:00.000Z"
+  });
+
+  assert.equal(state.connection, "ended");
+  assert.equal(state.session, null);
+  assert.equal(state.endAction, "student_picker");
+  assert.equal(state.endedSessionId, "focus-1");
+});
+
 test("focus retry delay uses the bounded one-to-eight second sequence", () => {
   assert.deepEqual(
     [1, 2, 3, 4, 5, 8].map(focusSessionRetryDelay),

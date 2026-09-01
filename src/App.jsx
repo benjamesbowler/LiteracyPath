@@ -63,6 +63,10 @@ import {
   STUDENT_FOCUS_TARGETS,
   studentFocusTargetView
 } from "./policy/studentFocusTargets.js";
+import {
+  markStudentFocusExitHandled,
+  shouldHandleStudentFocusExit
+} from "./policy/studentFocusExit.js";
 
 const STUDENT_PREVIEW_VIEWS = new Set([
   APP_VIEWS.STUDENT_HOME,
@@ -240,6 +244,7 @@ export default function App() {
   const [studentFocusCompletedSessionId, setStudentFocusCompletedSessionId] = useState("");
   const appliedStudentFocusSessionRef = useRef("");
   const previousStudentFocusSessionRef = useRef(null);
+  const handledStudentFocusExitIdsRef = useRef(new Set());
   const [profileLoaded, setProfileLoaded] = useState(false);
   const [nameSaved, setNameSaved] = useState(false);
   const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
@@ -923,6 +928,7 @@ export default function App() {
     logOutStudent, logOutTeacher, normalizeApprovalStatus, openAdminDashboard,
     profileStorageKey, regenerateClassCode, requestPasswordReset, resetSelectedStudentProgress,
     retryTeacherSchoolName, resendEmailConfirmation, nudgeTeacherAccountReview,
+    returnToStudentSelection,
     startTryMode, endTryMode,
     resetStudentSymbolPassword, saveGuidedReadingRecord, saveTeacherSchool, setStudentAccessibilitySettings,
     setStudentReducedChoiceMode, signUpTeacher, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus,
@@ -2639,6 +2645,7 @@ export default function App() {
   }
 
   const startStudentFocusAssessment = useEffectEvent(startAssessment);
+  const returnToStudentSelectionEvent = useEffectEvent(returnToStudentSelection);
 
   useEffect(() => {
     const session = studentFocus.session;
@@ -2646,6 +2653,41 @@ export default function App() {
     previousStudentFocusSessionRef.current = session;
 
     if (sessionMode !== "student") return;
+    const exitCommand = {
+      endAction: studentFocus.endAction,
+      endedSessionId: studentFocus.endedSessionId
+    };
+    let exitStorage = null;
+    try {
+      exitStorage = window.localStorage;
+    } catch {
+      // The in-memory guard below still prevents repeat handling on this page.
+    }
+    const exitAlreadyHandledInMemory = handledStudentFocusExitIdsRef.current.has(
+      String(exitCommand.endedSessionId || "")
+    );
+    if (
+      !exitAlreadyHandledInMemory
+      && shouldHandleStudentFocusExit(exitCommand, exitStorage)
+    ) {
+      handledStudentFocusExitIdsRef.current.add(exitCommand.endedSessionId);
+      markStudentFocusExitHandled(exitCommand.endedSessionId, exitStorage);
+      appliedStudentFocusSessionRef.current = "";
+      setStudentFocusCompletedSessionId("");
+      setStudentFocusContentReport(null);
+      assessmentActiveRef.current = false;
+      answerInFlightRef.current = false;
+      setCurrentQuestion(null);
+      setFeedback(null);
+      setCheckpointDecision(null);
+      setRoundAnswers([]);
+      setRoundItemKeys([]);
+      setRoundQuestionIds([]);
+      roundItemKeysRef.current = [];
+      roundQuestionIdsRef.current = [];
+      returnToStudentSelectionEvent();
+      return;
+    }
     if (!session) {
       if (previousSession) {
         appliedStudentFocusSessionRef.current = "";
@@ -2728,6 +2770,8 @@ export default function App() {
     sessionMode,
     setAppView,
     studentFocus.connection,
+    studentFocus.endAction,
+    studentFocus.endedSessionId,
     studentFocus.session,
     studentId,
   ]);

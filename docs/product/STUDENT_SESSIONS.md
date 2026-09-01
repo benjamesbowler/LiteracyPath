@@ -26,6 +26,12 @@ into the existing synchronized Guided Reading flow.
   navigation.
 - **Letters Practice** opens Letters and Sounds while removing Words, Games,
   Home, profile, wallet, grown-up, and tab navigation.
+- **Adventure Map** either assigns one canonical map space to every targeted
+  learner or snapshots each learner's own first unfinished cycle. The
+  each-child assignment is resolved by the database from that learner's
+  `el_quest` progress; the browser sends only the mode and cannot claim another
+  child's current space. The resolved cycle id, cycle number, and painted space
+  name are stored separately on every session member for stable reloads.
 - **Guided Reading Together** opens the existing teacher-paced shared-book
   setup rather than creating a second reading-session system.
 
@@ -34,7 +40,10 @@ automatic expiry of 30, 60, 90, or 120 minutes. A whole-class launch is derived
 atomically from the current active class roster by the database rather than
 trusting a possibly stale browser list. The live teacher bar reports assigned,
 connected, completed, unavailable-content, and reconnecting states and includes
-an explicit End session action.
+an explicit End session action. Ending can return assigned devices to each
+student's home or send them to the student picker. A picker command is returned
+only from the learner's newest ended focus session and only until that session's
+original expiry, so an older command cannot reappear after a later ordinary end.
 
 ## Control and recovery rules
 
@@ -50,6 +59,10 @@ an explicit End session action.
 - Exact books and games are stored as bounded catalogue identifiers, never as
   routes or URLs. Unknown, hidden, quarantined, unavailable, or outdated
   content also fails closed and does not fall back to a chooser.
+- Adventure Map accepts only the wildcard modes `each_child_current` and
+  `one_space_for_everyone`. Shared spaces must match one of the 27 canonical
+  cycle ids, numbers, and painted map names; arbitrary routes, labels, and
+  per-student browser assignments are rejected.
 - A student can be in only one active focus or synchronized reading session.
   A teacher can run only one active focus session. Failed replacement launches
   leave the existing session intact.

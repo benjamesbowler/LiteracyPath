@@ -21,3 +21,10 @@ test("live database probe signatures contain unique PostgREST parameter names", 
     }
   }
 });
+
+test("student focus end probe includes the explicit device destination", () => {
+  assert.deepEqual(
+    LIVE_DATABASE_FUNCTIONS.teacher_end_student_focus_session,
+    ["p_session_id", "p_end_action"]
+  );
+});

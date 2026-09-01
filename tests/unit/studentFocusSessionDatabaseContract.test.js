@@ -10,6 +10,14 @@ const extensionMigration = fs.readFileSync(
   new URL("../../supabase/migrations/20260830213034_extend_student_focus_sessions_whole_class_targets.sql", import.meta.url),
   "utf8"
 );
+const adventureMigration = fs.readFileSync(
+  new URL("../../supabase/migrations/20260831233417_extend_student_focus_sessions_adventure_map.sql", import.meta.url),
+  "utf8"
+);
+const mapStopsSource = fs.readFileSync(
+  new URL("../../src/data/mapStops.js", import.meta.url),
+  "utf8"
+);
 
 test("student sessions have bounded expiry, one active lock per student and RPC-only membership", () => {
   assert.match(migration, /expires_at <= started_at \+ interval '2 hours'/i);
@@ -154,5 +162,183 @@ test("teacher and student session reads include the authoritative audience", () 
   );
   assert.ok(
     [...extensionMigration.matchAll(/'selection_scope', v_session\.selection_scope/g)].length >= 3
+  );
+});
+
+test("Adventure Map and end actions extend the schema in a new forward migration", () => {
+  assert.match(
+    adventureMigration,
+    /target in \([\s\S]*'assigned_book'[\s\S]*'arcade_game'[\s\S]*'adventure_map'[\s\S]*\)/i
+  );
+  assert.match(
+    adventureMigration,
+    /add column end_action text not null default 'return_home'/i
+  );
+  assert.match(
+    adventureMigration,
+    /end_action in \('return_home', 'student_picker'\)/i
+  );
+  assert.match(
+    adventureMigration,
+    /student_focus_members_student_history_idx[\s\S]*\(student_id, session_id\)/i
+  );
+  assert.doesNotMatch(
+    `${migration}\n${extensionMigration}`,
+    /adventure_map|end_action/i,
+    "historical migrations must stay immutable"
+  );
+});
+
+test("the effective start RPC retains teacher ownership, locking and atomic conflict checks", () => {
+  const startFunction = adventureMigration.slice(
+    adventureMigration.indexOf("create or replace function public.teacher_start_student_focus_session"),
+    adventureMigration.indexOf("revoke all on function public.teacher_end_student_focus_session")
+  );
+  const replacementBoundary = startFunction.indexOf("update public.student_focus_session_members member");
+  assert.match(startFunction, /assert_current_actor_teacher_access\(\)/i);
+  assert.match(
+    startFunction,
+    /from public\.classes class[\s\S]*class\.id = p_class_id and class\.teacher_id = v_actor[\s\S]*for update/i
+  );
+  assert.match(
+    startFunction,
+    /where student\.id = any\(v_student_ids\)[\s\S]*order by student\.id[\s\S]*for update/i
+  );
+  assert.match(
+    startFunction,
+    /student\.class_id = p_class_id[\s\S]*student\.teacher_id = v_actor[\s\S]*student\.archived_at is null/i
+  );
+  assert.match(startFunction, /perform public\.end_expired_student_focus_sessions\(\)/i);
+  assert.match(startFunction, /join public\.reading_sessions reading[\s\S]*reading\.status = 'active'/i);
+  assert.ok(startFunction.indexOf("if v_busy_student is not null", 0) < replacementBoundary);
+  assert.match(startFunction, /when unique_violation then[\s\S]*session_conflict/i);
+  assert.match(
+    adventureMigration,
+    /revoke all on function public\.teacher_start_student_focus_session\(uuid, text, uuid\[\], jsonb, integer, text, boolean\)[\s\S]*grant execute[\s\S]*to authenticated/i
+  );
+});
+
+test("Adventure Map accepts only the two bounded wildcard assignment modes", () => {
+  const startFunction = adventureMigration.slice(
+    adventureMigration.indexOf("create or replace function public.teacher_start_student_focus_session"),
+    adventureMigration.indexOf("revoke all on function public.teacher_end_student_focus_session")
+  );
+  assert.match(startFunction, /p_target not in \([\s\S]*'adventure_map'/i);
+  assert.match(startFunction, /p_assignments -> '\*'/i);
+  assert.match(startFunction, /count\(\*\) from jsonb_object_keys\(p_assignments\)\) <> 1/i);
+  assert.match(startFunction, /map_mode[\s\S]*each_child_current[\s\S]*one_space_for_everyone/i);
+  assert.match(startFunction, /cycle_id[\s\S]*cycle_number[\s\S]*space_name/i);
+  assert.match(startFunction, /jsonb_object_keys\(v_config\)[\s\S]*config_key not in/i);
+  assert.match(startFunction, /v_cycle_id <> 'cycle-' \|\| v_cycle_number::text/i);
+  assert.match(startFunction, /v_space_name <> v_space_names\[v_cycle_number\]/i);
+  assert.match(startFunction, /char_length\(v_cycle_number_text\) > 2/i);
+  assert.match(startFunction, /when p_target = 'adventure_map' and v_map_mode = 'each_child_current'/i);
+  assert.match(startFunction, /when p_target = 'adventure_map' then v_shared_config/i);
+});
+
+test("Adventure Map database labels stay aligned with the 27 painted runtime landmarks", () => {
+  const sqlBlock = adventureMigration.match(/v_space_names text\[\] := array\[([\s\S]*?)\n {2}\];/i)?.[1] || "";
+  const runtimeBlock = mapStopsSource.match(/export const WORLD_LANDMARKS_WIDE = \{([\s\S]*?)\n\};/i)?.[1] || "";
+  const sqlNames = [...sqlBlock.matchAll(/'([^']+)'/g)].map(match => match[1]);
+  const runtimeNames = [...runtimeBlock.matchAll(/"([^"]+)"/g)].map(match => match[1]);
+  assert.equal(sqlNames.length, 27);
+  assert.deepEqual(sqlNames, runtimeNames);
+});
+
+test("each-child Adventure Map assignments are resolved from the owned progress row", () => {
+  const startFunction = adventureMigration.slice(
+    adventureMigration.indexOf("create or replace function public.teacher_start_student_focus_session"),
+    adventureMigration.indexOf("revoke all on function public.teacher_end_student_focus_session")
+  );
+  assert.match(startFunction, /public\.student_progress progress/i);
+  assert.match(startFunction, /progress\.student_id = requested\.id/i);
+  assert.match(startFunction, /progress\.area = 'el_quest'/i);
+  assert.match(startFunction, /progress\.key = '__all__'/i);
+  assert.match(startFunction, /generate_series\(1, 27\)/i);
+  assert.match(startFunction, /select coalesce\([\s\S]*limit 1[\s\S]*\),\s*27\s*\) as cycle_number/i);
+  assert.match(
+    startFunction,
+    /payload #> array\[[\s\S]*'cycles',[\s\S]*'cycle-' \|\| candidate\.cycle_number::text,[\s\S]*'stars'[\s\S]*\]/i
+  );
+  assert.match(startFunction, /jsonb_build_object\([\s\S]*'map_mode', 'each_child_current'[\s\S]*'cycle_id'[\s\S]*'cycle_number'[\s\S]*'space_name'/i);
+});
+
+test("teacher end action replaces the old RPC without creating an ambiguous overload", () => {
+  const endFunction = adventureMigration.slice(
+    adventureMigration.indexOf("create function public.teacher_end_student_focus_session"),
+    adventureMigration.indexOf("create or replace function public.student_get_focus_session")
+  );
+  assert.match(
+    adventureMigration,
+    /drop function public\.teacher_end_student_focus_session\(uuid\)/i
+  );
+  assert.match(
+    adventureMigration,
+    /create function public\.teacher_end_student_focus_session\([\s\S]*p_end_action text default 'return_home'[\s\S]*\)\s*returns json/i
+  );
+  assert.match(
+    adventureMigration,
+    /p_end_action not in \('return_home', 'student_picker'\)[\s\S]*invalid_end_action/i
+  );
+  assert.match(endFunction, /assert_current_actor_teacher_access\(\)/i);
+  assert.match(
+    endFunction,
+    /where id = p_session_id and teacher_id = auth\.uid\(\)[\s\S]*for update/i
+  );
+  assert.match(
+    adventureMigration,
+    /set status = 'ended'[\s\S]*end_action = p_end_action/i
+  );
+  assert.match(
+    adventureMigration,
+    /grant execute on function public\.teacher_end_student_focus_session\(uuid, text\)[\s\S]*to authenticated/i
+  );
+  assert.doesNotMatch(
+    adventureMigration,
+    /grant execute on function public\.teacher_end_student_focus_session\(uuid\)\s/i
+  );
+});
+
+test("student polling ranks active and newest-ended state in one database snapshot", () => {
+  const studentRead = adventureMigration.slice(
+    adventureMigration.indexOf("create or replace function public.student_get_focus_session"),
+    adventureMigration.indexOf("revoke all on function public.teacher_start_student_focus_session")
+  );
+  assert.match(studentRead, /student_from_token\(p_token\)/i);
+  assert.doesNotMatch(studentRead, /auth\.uid\(\)/i);
+  assert.doesNotMatch(studentRead, /v_ended_session/i);
+  const candidateLookup = studentRead.slice(
+    studentRead.indexOf("select\n    session.id as session_id"),
+    studentRead.indexOf("if v_candidate.session_id is null")
+  );
+  assert.match(studentRead, /v_candidate record/i);
+  assert.match(candidateLookup, /into v_candidate/i);
+  assert.match(candidateLookup, /member\.student_id = v_student\.id/i);
+  assert.match(
+    candidateLookup,
+    /member\.active[\s\S]*session\.status = 'active'[\s\S]*session\.expires_at > now\(\)[\s\S]*or session\.status = 'ended'/i
+  );
+  assert.match(candidateLookup, /or session\.status = 'ended'\s*\)\s*order by/i);
+  assert.match(
+    candidateLookup,
+    /order by[\s\S]*when member\.active[\s\S]*session\.status = 'active'[\s\S]*then 0[\s\S]*else 1[\s\S]*session\.ended_at end desc nulls last[\s\S]*session\.started_at desc,[\s\S]*session\.id desc/i
+  );
+  assert.equal([...candidateLookup.matchAll(/\bselect\b/gi)].length, 1);
+  assert.doesNotMatch(
+    candidateLookup.slice(candidateLookup.indexOf("from public.student_focus_sessions")),
+    /end_action/i
+  );
+  const actionCheck = studentRead.indexOf("v_candidate.end_action = 'student_picker'");
+  assert.ok(actionCheck > studentRead.indexOf("if v_candidate.session_status = 'ended'"));
+  assert.match(
+    studentRead,
+    /if v_candidate\.session_status = 'ended'[\s\S]*if v_candidate\.end_action = 'student_picker'[\s\S]*and v_candidate\.expires_at > now\(\)/i
+  );
+  assert.match(studentRead, /'session', null/i);
+  assert.match(studentRead, /'end_action', v_candidate\.end_action/i);
+  assert.match(studentRead, /'ended_session_id', v_candidate\.session_id/i);
+  assert.match(
+    adventureMigration,
+    /grant execute on function public\.student_get_focus_session\(text, text, boolean\)[\s\S]*to anon, authenticated/i
   );
 });

@@ -18,6 +18,7 @@ import "./styles/kids-home.css";
 import "./styles/kids-trail.css";
 import "./styles/kids-library.css";
 import "./styles/ui-quality-pass.css";
+import "./styles/student-sessions.css";
 import { ElSkillsQuest } from "./components/elQuest/ElSkillsQuest.jsx";
 import { GuidedReadingPage } from "./components/guided-reading/GuidedReadingPage.jsx";
 import { HollowPage } from "./components/HollowPage.jsx";
@@ -31,6 +32,7 @@ import StudentGlassShell from "./components/StudentGlassShell.jsx";
 import { StudentSoundTrailPage } from "./components/StudentSoundTrailPage.jsx";
 import { StudentStoryQuestsPage } from "./components/StudentStoryQuestsPage.jsx";
 import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
+import { StudentSessionNotice } from "./components/student-sessions/StudentSessionNotice.jsx";
 import { GUIDED_READING_BOOK_INDEX } from "./data/generated/guidedReadingBookIndex.generated.js";
 import { localProgressStorageKey } from "./utils/progressKeys.js";
 import { COMPANIONS, setCompanion } from "./utils/studentProfile.js";
@@ -38,6 +40,7 @@ import { COMPANIONS, setCompanion } from "./utils/studentProfile.js";
 const PREVIEW_PARAMS = new URLSearchParams(window.location.search);
 const SURFACE_ID = PREVIEW_PARAMS.get("surface") || "student-home";
 const PREVIEW_SCOPE = "child-surface-preview";
+const LOCKED_ADVENTURE_CYCLE = PREVIEW_PARAMS.get("lockedCycle");
 
 setCompanion(PREVIEW_SCOPE, COMPANIONS[0].id);
 window.localStorage.removeItem(localProgressStorageKey("phonics_quest", PREVIEW_SCOPE));
@@ -120,15 +123,20 @@ function ReadingLibrarySurface() {
   );
 }
 
-function PreviewShell({ active, children }) {
+function PreviewShell({ active, children, focusLocked = false, headerActions = null }) {
   return (
     <StudentGlassShell
       active={active}
-      onGrownUps={() => markDestination("grown-ups")}
-      onHome={() => markDestination("student-home")}
+      onGrownUps={focusLocked ? undefined : () => markDestination("grown-ups")}
+      onHome={focusLocked ? undefined : () => markDestination("student-home")}
       onNavigate={markDestination}
+      profileInteractive={!focusLocked}
       scopeKey={PREVIEW_SCOPE}
+      showGrownUps={!focusLocked}
+      showWallet={!focusLocked}
       studentName="Aaron"
+      tabs={focusLocked ? [] : undefined}
+      headerActions={headerActions}
     >
       {children}
     </StudentGlassShell>
@@ -153,14 +161,24 @@ function Surface() {
     // actually lands on; the mode each one launches is handed in exactly as the
     // router hands it in, so the preview and the app agree.
     case "adventure-map":
+      {
+        const focusSession = LOCKED_ADVENTURE_CYCLE !== null ? {
+          id: "focus-preview-adventure",
+          target: "adventure_map",
+          resolved_config: { cycle_id: LOCKED_ADVENTURE_CYCLE }
+        } : null;
+        const focusNotice = focusSession ? (
+          <StudentSessionNotice connection="connected" placement="header" session={focusSession} />
+        ) : null;
       if (PREVIEW_PARAMS.get("quest")) {
         return (
-          <PreviewShell active="map">
+          <PreviewShell active="map" focusLocked={Boolean(focusSession)} headerActions={focusNotice}>
             <ElSkillsQuest
               studentName="Aaron"
               progressScopeKey={PREVIEW_SCOPE}
               initialCycleId={PREVIEW_PARAMS.get("quest")}
               initialStationId={PREVIEW_PARAMS.get("station") || ""}
+              lockedCycleId={focusSession?.resolved_config.cycle_id ?? null}
             />
           </PreviewShell>
         );
@@ -169,17 +187,22 @@ function Surface() {
         <StudentAdventureMapPage
           studentName="Aaron"
           progressScopeKey={PREVIEW_SCOPE}
+          focusLocked={Boolean(focusSession)}
+          lockedCycleId={focusSession?.resolved_config.cycle_id ?? null}
+          headerActions={focusNotice}
           renderQuest={({ cycleId }) => (
-            <PreviewShell active="map">
+            <PreviewShell active="map" focusLocked={Boolean(focusSession)} headerActions={focusNotice}>
               <ElSkillsQuest
                 studentName="Aaron"
                 progressScopeKey={PREVIEW_SCOPE}
                 initialCycleId={cycleId}
+                lockedCycleId={focusSession?.resolved_config.cycle_id ?? null}
               />
             </PreviewShell>
           )}
         />
       );
+      }
     case "sound-seekers":
       return (
         <StudentSoundTrailPage

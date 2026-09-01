@@ -23,6 +23,7 @@ test("each teacher focus target resolves to one student destination", () => {
   assert.equal(studentFocusTargetView(STUDENT_FOCUS_TARGETS.READING_LIBRARY), APP_VIEWS.GUIDED_READING);
   assert.equal(studentFocusTargetView(STUDENT_FOCUS_TARGETS.LETTERS_PRACTICE), APP_VIEWS.PHONICS_LEARN);
   assert.equal(studentFocusTargetView(STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT), APP_VIEWS.ASSESSMENT);
+  assert.equal(studentFocusTargetView(STUDENT_FOCUS_TARGETS.ADVENTURE_MAP), APP_VIEWS.SKILLS_BLOCK_QUEST);
 });
 
 test("book, game, library and letters sessions force every navigation attempt back to the assigned area", () => {
@@ -47,6 +48,22 @@ test("skills assessment allows only its assessment and completion views", () => 
   assert.equal(isStudentAllowedView(APP_VIEWS.ASSESSMENT, session), true);
   assert.equal(isStudentAllowedView(APP_VIEWS.CHECKPOINT, session), true);
   assert.equal(isStudentAllowedView(APP_VIEWS.ASSESSMENT), false);
+});
+
+test("Adventure Map sessions force every navigation attempt back to the map", () => {
+  const session = activeSession(STUDENT_FOCUS_TARGETS.ADVENTURE_MAP);
+  assert.equal(
+    enforceStudentFocusView(APP_VIEWS.STUDENT_HOME, session),
+    APP_VIEWS.SKILLS_BLOCK_QUEST
+  );
+  assert.equal(
+    enforceStudentFocusView(APP_VIEWS.PHONICS_LEARN, session),
+    APP_VIEWS.SKILLS_BLOCK_QUEST
+  );
+  assert.equal(
+    enforceStudentFocusView(APP_VIEWS.GUIDED_READING, session),
+    APP_VIEWS.SKILLS_BLOCK_QUEST
+  );
 });
 
 test("expired and ended sessions stop controlling navigation", () => {

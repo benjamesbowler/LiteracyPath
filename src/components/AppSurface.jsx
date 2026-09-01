@@ -59,6 +59,7 @@ import { getSelectedClassName } from "../appState/studentSessionHelpers.js";
 import { getStudentRosterReadView } from "../appState/studentRosterReadState.js";
 import { learnerAccessibilityDataAttributes } from "../accessibility/learnerAccessibility.js";
 import { STUDENT_TAB_BAR } from "../policy/studentTabBar.js";
+import { adventureMapFocusLockFor } from "../policy/childTrailPolicy.js";
 import { resolveConfirmedElPlacement } from "../policy/elPlacementPolicy.js";
 import { worldForScope } from "../utils/palWorlds.js";
 import { useReadingSessionFollower } from "../hooks/useReadingSessionFollower.js";
@@ -972,6 +973,12 @@ export function AppSurface({ surface }) {
   ].filter(Boolean).join(" ");
   const activeStudentFocus = studentFocus?.session || null;
   const isStudentFocusLocked = isStudentMode && Boolean(activeStudentFocus);
+  const adventureMapFocusLock = adventureMapFocusLockFor({
+    isStudentMode,
+    session: activeStudentFocus
+  });
+  const isAdventureMapFocus = adventureMapFocusLock.focusLocked;
+  const assignedAdventureCycleId = adventureMapFocusLock.lockedCycleId;
   const isAssignedBook = isStudentFocusLocked
     && activeStudentFocus.target === STUDENT_FOCUS_TARGETS.ASSIGNED_BOOK;
   const isAssignedArcadeGame = isStudentFocusLocked
@@ -1002,7 +1009,11 @@ export function AppSurface({ surface }) {
   const isIndependentSkillsAssessment = isStudentFocusLocked
     && activeStudentFocus.target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT;
   const studentFocusNoticeInChildHeader = isStudentFocusLocked
-    && [APP_VIEWS.GUIDED_READING, APP_VIEWS.PHONICS_LEARN].includes(appView)
+    && [
+      APP_VIEWS.GUIDED_READING,
+      APP_VIEWS.PHONICS_LEARN,
+      APP_VIEWS.SKILLS_BLOCK_QUEST
+    ].includes(appView)
     && !studentFocusUnavailable;
   const studentFocusNoticeInAssessment = isIndependentSkillsAssessment
     && appView === APP_VIEWS.ASSESSMENT
@@ -1452,23 +1463,36 @@ export function AppSurface({ surface }) {
 
       {/* THE ADVENTURE MAP. The redesigned map screen is the front door of this
           route (phase C); the Skills Quest itself opens on top of it at the stop
-          the child tapped, and keeps its own full map, lands, pan and stations.
-          The mode's own wrapper is unchanged - withStudentRail with the scroll
-          hatch - so nothing about how it renders moved. */}
-      {appView === APP_VIEWS.SKILLS_BLOCK_QUEST && nameSaved && (
+          the child tapped. A teacher focus session narrows both surfaces to its
+          resolved cycle; ordinary play keeps the existing full map journey. */}
+      {appView === APP_VIEWS.SKILLS_BLOCK_QUEST && nameSaved && !studentFocusUnavailable && (
         <PageBoundary resetKey={`skills-block-quest-${studentId}`}>
           <StudentAdventureMapPage
+            key={`${studentId}:${isAdventureMapFocus ? activeStudentFocus.id : "open"}`}
             studentName={studentName}
             progressScopeKey={studentId || studentName || "default"}
             onNavigate={goToStudentTab}
             onHome={goStudentHome}
             onGrownUps={goStudentHome}
+            focusLocked={isAdventureMapFocus}
+            lockedCycleId={assignedAdventureCycleId}
+            onLockedCycleAvailabilityChange={reportExactStudentFocusContent}
+            headerActions={studentFocusNoticeInChildHeader ? (
+              <StudentSessionNotice
+                connection={studentFocus.connection}
+                placement="header"
+                session={activeStudentFocus}
+              />
+            ) : null}
             renderQuest={({ cycleId }) => withStudentRail("map", (
               <Suspense fallback={<LazyPageFallback label="Loading Skills Quest..." />}>
                 <ElSkillsQuest
+                  key={`${studentId}:${isAdventureMapFocus ? activeStudentFocus.id : cycleId}`}
                   studentName={studentName || "Reader"}
                   progressScopeKey={studentId || studentName || "default"}
                   initialCycleId={cycleId}
+                  lockedCycleId={assignedAdventureCycleId}
+                  onLockedCycleAvailabilityChange={reportExactStudentFocusContent}
                   onExit={() => setAppView(isStudentMode ? APP_VIEWS.STUDENT_HOME : APP_VIEWS.TEACHER_CLASSES)}
                 />
               </Suspense>

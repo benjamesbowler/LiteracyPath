@@ -1,5 +1,8 @@
 import { APP_RELEASE_ID } from "../utils/errorLog.js";
 import { compactAssessmentAttemptForStorage } from "./assessmentHistoryStore.js";
+import { STUDENT_FOCUS_END_ACTIONS } from "../policy/studentFocusExit.js";
+
+export { STUDENT_FOCUS_END_ACTIONS } from "../policy/studentFocusExit.js";
 
 export const STUDENT_FOCUS_CONTENT_VERSION = APP_RELEASE_ID;
 
@@ -41,9 +44,14 @@ export function getTeacherStudentFocusSession({ client, sessionId = null }) {
   });
 }
 
-export function endStudentFocusSession({ client, sessionId }) {
+export function endStudentFocusSession({
+  client,
+  sessionId,
+  endAction = STUDENT_FOCUS_END_ACTIONS.RETURN_HOME
+}) {
   return callFocusRpc(client, "teacher_end_student_focus_session", {
-    p_session_id: sessionId
+    p_session_id: sessionId,
+    p_end_action: endAction
   });
 }
 

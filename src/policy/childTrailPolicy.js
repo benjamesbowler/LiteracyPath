@@ -196,6 +196,35 @@ export function adventureMapPartFor(cycleNumber) {
     || ADVENTURE_MAP_PARTS[0];
 }
 
+export function resolveAdventureMapCycleLock({ cycles = [], lockedCycleId = null } = {}) {
+  const locked = lockedCycleId !== null && lockedCycleId !== undefined;
+  if (!locked) {
+    return { locked: false, cycleId: "", cycle: null, contentAvailable: true };
+  }
+
+  const cycleId = String(lockedCycleId || "").trim();
+  const cycle = cycles.find(item => (
+    item?.cycleNumber
+    && item.id === cycleId
+  )) || null;
+  return {
+    locked: true,
+    cycleId,
+    cycle,
+    contentAvailable: Boolean(cycle)
+  };
+}
+
+export function adventureMapFocusLockFor({ isStudentMode = false, session = null } = {}) {
+  const focusLocked = Boolean(isStudentMode && session?.target === "adventure_map");
+  return {
+    focusLocked,
+    lockedCycleId: focusLocked
+      ? String(session?.resolved_config?.cycle_id || "").trim()
+      : null
+  };
+}
+
 /**
  * The map scene and the four cards under it.
  *
@@ -206,6 +235,8 @@ export function adventureMapPartFor(cycleNumber) {
  * @param points   the admin-placed [x, y] percentage pairs for those cycles,
  *                 same order — wideMapPointsFor(worldId, override) from
  *                 src/data/mapStops.js. No list, no markers.
+ * @param activeCycleId an exact teacher-assigned cycle, or null for the
+ *                 ordinary first-unfinished progression rule
  */
 export function buildAdventureMapScene({
   cycles = [],
@@ -213,7 +244,8 @@ export function buildAdventureMapScene({
   landmarks = [],
   points = [],
   sizes = MAP_STOP_SIZES,
-  cardCount = MAP_CARD_COUNT
+  cardCount = MAP_CARD_COUNT,
+  activeCycleId = null
 } = {}) {
   const list = cycles.filter(Boolean).map((cycle, position) => ({
     id: cycle.id,
@@ -223,12 +255,20 @@ export function buildAdventureMapScene({
     position
   }));
 
+  const exactCycleLock = activeCycleId !== null && activeCycleId !== undefined;
+  const activeCyclePosition = exactCycleLock
+    ? list.findIndex(item => item.id === activeCycleId)
+    : -1;
   const firstUnfinished = list.findIndex(item => item.stars <= 0);
   // Every stop finished means the land is done: the last one stays "next" so
   // the screen still has somewhere to point rather than nowhere.
-  const nextPosition = firstUnfinished >= 0 ? firstUnfinished : Math.max(0, list.length - 1);
+  const nextPosition = exactCycleLock
+    ? activeCyclePosition
+    : firstUnfinished >= 0 ? firstUnfinished : Math.max(0, list.length - 1);
   const stateFor = item => {
+    if (exactCycleLock && item.position === activeCyclePosition) return "next";
     if (item.stars > 0) return "done";
+    if (exactCycleLock) return "locked";
     if (item.position === nextPosition) return "next";
     return "locked";
   };
@@ -257,16 +297,18 @@ export function buildAdventureMapScene({
 
   // The cards keep the current stop third, which is where the spec's four
   // states put it: two behind, the one you are on, one ahead.
-  const cardStart = clamp(nextPosition - 2, 0, Math.max(0, list.length - cardCount));
+  const cardAnchor = nextPosition >= 0 ? nextPosition : 0;
+  const cardStart = clamp(cardAnchor - 2, 0, Math.max(0, list.length - cardCount));
   const cards = list
     .slice(cardStart, cardStart + cardCount)
     .map(item => ({ ...item, state: stateFor(item) }));
 
-  const next = list[nextPosition] || null;
+  const next = nextPosition >= 0 ? list[nextPosition] || null : null;
   return {
     stops,
     cards,
     next: next ? { ...next, state: stateFor(next) } : null,
+    activeCycleAvailable: !exactCycleLock || activeCyclePosition >= 0,
     polyline: stops.map(stop => `${stop.x},${stop.y}`).join(" ")
   };
 }

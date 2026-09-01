@@ -67,7 +67,7 @@ export const LIVE_DATABASE_FUNCTIONS = Object.freeze({
   teacher_delete_planned_intervention: ["p_intervention_id"],
   teacher_delete_saved_assessment_report: ["p_report_id"],
   teacher_end_reading_session: ["p_session_id"],
-  teacher_end_student_focus_session: ["p_session_id"],
+  teacher_end_student_focus_session: ["p_session_id", "p_end_action"],
   teacher_export_learner_data: ["p_student_id", "p_requester_role", "p_verification_method"],
   teacher_get_learner_deletion_status: ["p_request_id", "p_subject_ref"],
   teacher_get_reading_session_presence: ["p_session_id"],

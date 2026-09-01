@@ -205,6 +205,28 @@ test("the map's stops, cards and states are read from real star counts", () => {
   assert.equal(scene.polyline, scene.stops.map(stop => `${stop.x},${stop.y}`).join(" "));
 });
 
+test("a teacher-assigned Adventure Map space is the only open space", () => {
+  const stars = { "cycle-1": 3, "cycle-2": 3, "cycle-6": 3 };
+  const scene = buildAdventureMapScene({
+    cycles: CYCLES,
+    starsFor: id => stars[id] || 0,
+    landmarks: LANDMARKS,
+    points: POINTS,
+    activeCycleId: "cycle-6"
+  });
+
+  assert.equal(scene.next.id, "cycle-6");
+  assert.equal(scene.next.state, "next", "an assigned completed space can be replayed");
+  assert.deepEqual(
+    scene.cards.filter(card => card.state === "next").map(card => card.id),
+    ["cycle-6"]
+  );
+  assert.deepEqual(
+    scene.stops.filter(stop => stop.state === "next").map(stop => stop.id),
+    ["cycle-6"]
+  );
+});
+
 // STOP N IS DRAWN WHERE LANDMARK N IS PAINTED. The pairing is by index and
 // nothing may re-order or window it: slide the list by one and the child's stop
 // is announced as "Duck Pond" while the marker sits in a carrot patch.

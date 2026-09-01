@@ -5,7 +5,8 @@ export const STUDENT_FOCUS_TARGETS = Object.freeze({
   ARCADE_GAME: "arcade_game",
   READING_LIBRARY: "reading_library",
   LETTERS_PRACTICE: "letters_practice",
-  SKILLS_ASSESSMENT: "skills_assessment"
+  SKILLS_ASSESSMENT: "skills_assessment",
+  ADVENTURE_MAP: "adventure_map"
 });
 
 export const STUDENT_FOCUS_TARGET_OPTIONS = Object.freeze([
@@ -33,6 +34,11 @@ export const STUDENT_FOCUS_TARGET_OPTIONS = Object.freeze([
     id: STUDENT_FOCUS_TARGETS.LETTERS_PRACTICE,
     label: "Letters Practice",
     description: "Students can practise letters and sounds, without Words or Games."
+  }),
+  Object.freeze({
+    id: STUDENT_FOCUS_TARGETS.ADVENTURE_MAP,
+    label: "Adventure Map",
+    description: "Keep students at one shared map space or each child at their own current space."
   })
 ]);
 
@@ -46,6 +52,8 @@ export function studentFocusTargetView(target) {
       return APP_VIEWS.PHONICS_LEARN;
     case STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT:
       return APP_VIEWS.ASSESSMENT;
+    case STUDENT_FOCUS_TARGETS.ADVENTURE_MAP:
+      return APP_VIEWS.SKILLS_BLOCK_QUEST;
     default:
       return APP_VIEWS.STUDENT_HOME;
   }

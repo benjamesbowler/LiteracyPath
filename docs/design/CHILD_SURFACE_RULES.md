@@ -1,6 +1,6 @@
 # Child surface rules
 
-**Version:** 2026.07.29
+**Version:** 2026.09.01
 
 **Scope:** every route a child can reach before or after sign-in
 
@@ -37,6 +37,12 @@ The implementation exposes these regions as `data-child-title`, `data-child-inst
   starts at Meadow cycle 1, then progresses through Meadow, Dino and Moonwood.
   Only the first unfinished stop is interactive; completed and future stops
   are progress/context only.
+- An active teacher-controlled Adventure Map session is the one temporary
+  exception to that forward route. It exposes only the server-assigned stop,
+  removes the map/path chooser and alternate exits. Normal forward progression
+  resumes when the session ends, with completed learning still saved. A teacher
+  may assign one shared stop or snapshot each learner's current saved stop at
+  session start.
 
 ## Background audio rules
 
@@ -81,7 +87,7 @@ The implementation exposes these regions as `data-child-title`, `data-child-inst
 | Student home | PASS | PASS | PASS | PASS | PASS | Removed the duplicate top-bar continuation; the recommended activity card now owns the one named continuation action. |
 | Phonics | PASS | PASS | PASS | PASS | PASS | Added a route title contract and promotes the first available unfinished letter while keeping the island switcher subordinate. |
 | Arcade | PASS | PASS | PASS | PASS | PASS | Added a direct instruction and marks the first unplayed game as “Play next”; the rest remain ordinary choices. |
-| Adventure Map | PASS | PASS | PASS | PASS | PASS | Forward-only Meadow → Dino → Moonwood path; only the first unfinished stop opens. |
+| Adventure Map | PASS | PASS | PASS | PASS | PASS | Forward-only Meadow → Dino → Moonwood path; only the first unfinished stop opens outside a temporary, single-stop teacher session. |
 | Sound Seekers | PASS | PASS | PASS | PASS | PASS | The fresh-state creature builder names the task, part step, choices, and one hatch action inside the Sound Seekers root. |
 | Story Quests | PASS | PASS | PASS | PASS | PASS | Added a single Start/Continue recommendation and a text title fallback that remains visible when the raster logo is suppressed. |
 | Reading Library | PASS | PASS | PASS | PASS | PASS | Fiction/non-fiction, then series, then paged books; completed books show a read tick. |

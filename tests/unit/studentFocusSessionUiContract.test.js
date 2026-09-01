@@ -57,6 +57,31 @@ test("teacher pages expose the unified Student Sessions launcher and live contro
   assert.match(sessionBar, /resolvedConfig\.book_title/);
 });
 
+test("Adventure Map setup offers current-space and exact-space modes from the canonical 27 cycles", () => {
+  assert.match(sessionSetup, /const ADVENTURE_MAP_SPACE_COUNT = 27/);
+  assert.match(sessionSetup, /import\("\.\.\/\.\.\/data\/elSkillsBlockCycles\.js"\)/);
+  assert.match(sessionSetup, /mapModule\.WORLD_LANDMARKS_WIDE/);
+  assert.match(sessionSetup, /trailModule\.ADVENTURE_MAP_PARTS/);
+  assert.match(sessionSetup, /STUDENT_ADVENTURE_MAP_MODES\.EACH_CHILD_CURRENT/);
+  assert.match(sessionSetup, /STUDENT_ADVENTURE_MAP_MODES\.ONE_SPACE_FOR_EVERYONE/);
+  assert.match(sessionSetup, /<strong>Each child&apos;s current space<\/strong>/);
+  assert.match(sessionSetup, /<strong>One space for everyone<\/strong>/);
+  assert.match(sessionSetup, /id="student-session-map-space"/);
+  assert.match(sessionSetup, /adventureMapMode,[\s\S]*selectedMapSpace/);
+  assert.match(sessionSetup, /\{space\.spaceName\} · \{space\.cycleTitle\}/);
+});
+
+test("active Adventure Map controls show the mode and keep both end destinations distinct", () => {
+  assert.match(sessionBar, /resolvedConfig\.map_mode === STUDENT_ADVENTURE_MAP_MODES\.EACH_CHILD_CURRENT/);
+  assert.match(sessionBar, /Each child's current space/);
+  assert.match(sessionBar, /One space for everyone · \$\{resolvedConfig\.space_name/);
+  assert.match(sessionBar, /end\(STUDENT_FOCUS_END_ACTIONS\.RETURN_HOME\)/);
+  assert.match(sessionBar, /end\(STUDENT_FOCUS_END_ACTIONS\.STUDENT_PICKER\)/);
+  assert.match(sessionBar, /"End session"/);
+  assert.match(sessionBar, /"End & switch students"/);
+  assert.match(sessionStyles, /\.student-session-switch-button\s*\{[\s\S]*font-weight: 800/);
+});
+
 test("student focus mode removes escape navigation from the shared shell and library", () => {
   assert.match(appSurface, /tabs=\{isStudentFocusLocked \? \[\] : STUDENT_TAB_BAR\}/);
   assert.match(appSurface, /showGrownUps=\{!isStudentFocusLocked\}/);

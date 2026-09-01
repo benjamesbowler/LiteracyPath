@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 
 import { startStudentFocusSession } from "../../data/studentFocusSessionCore.js";
 import {
+  STUDENT_ADVENTURE_MAP_MODES,
   STUDENT_FOCUS_AUDIENCES,
   STUDENT_SKILL_ASSIGNMENT_MODES,
   buildStudentFocusAssignments,
@@ -15,6 +16,35 @@ import {
 import { TeacherDialog } from "../teacher/ui/TeacherDialog.jsx";
 
 const GUIDED_READING_TOGETHER = "guided_reading";
+const ADVENTURE_MAP_SPACE_COUNT = 27;
+
+function buildAdventureMapSpaces(cycles, landmarksByPart, parts) {
+  const cycleByNumber = new Map(
+    cycles
+      .filter(cycle => Number.isInteger(cycle?.cycleNumber))
+      .map(cycle => [cycle.cycleNumber, cycle])
+  );
+
+  return Array.from({ length: ADVENTURE_MAP_SPACE_COUNT }, (_, index) => {
+    const cycleNumber = index + 1;
+    const cycle = cycleByNumber.get(cycleNumber);
+    const part = parts.find(item => cycleNumber >= item.first && cycleNumber <= item.last);
+    const spaceName = part
+      ? landmarksByPart?.[part.id]?.[cycleNumber - part.first]
+      : "";
+    if (!cycle?.id || cycle.id !== `cycle-${cycleNumber}` || !part || !spaceName) {
+      throw new Error("Adventure Map catalogue is incomplete.");
+    }
+    return {
+      cycleId: cycle.id,
+      cycleNumber,
+      cycleTitle: cycle.title,
+      partId: part.id,
+      partName: part.name,
+      spaceName
+    };
+  });
+}
 
 function activityLabel(target) {
   if (target === STUDENT_FOCUS_TARGETS.ARCADE_GAME) return "One Game";
@@ -67,6 +97,12 @@ export function StudentSessionSetup({
   const [games, setGames] = useState([]);
   const [gameId, setGameId] = useState("");
   const [gameLoadStatus, setGameLoadStatus] = useState("idle");
+  const [adventureMapMode, setAdventureMapMode] = useState(
+    STUDENT_ADVENTURE_MAP_MODES.EACH_CHILD_CURRENT
+  );
+  const [mapSpaces, setMapSpaces] = useState([]);
+  const [mapSpaceId, setMapSpaceId] = useState("");
+  const [mapSpaceLoadStatus, setMapSpaceLoadStatus] = useState("idle");
   const [catalogReloadKey, setCatalogReloadKey] = useState(0);
   const [durationMinutes, setDurationMinutes] = useState(60);
   const [busy, setBusy] = useState(false);
@@ -122,6 +158,34 @@ export function StudentSessionSetup({
     return () => { active = false; };
   }, [catalogReloadKey, target]);
 
+  useEffect(() => {
+    if (target !== STUDENT_FOCUS_TARGETS.ADVENTURE_MAP) return undefined;
+    let active = true;
+    Promise.all([
+      import("../../data/elSkillsBlockCycles.js"),
+      import("../../data/mapStops.js"),
+      import("../../policy/childTrailPolicy.js")
+    ]).then(([cyclesModule, mapModule, trailModule]) => {
+      if (!active) return;
+      const availableMapSpaces = buildAdventureMapSpaces(
+        cyclesModule.elSkillsBlockCycles,
+        mapModule.WORLD_LANDMARKS_WIDE,
+        trailModule.ADVENTURE_MAP_PARTS
+      );
+      setMapSpaces(availableMapSpaces);
+      setMapSpaceId(current => (
+        availableMapSpaces.some(space => space.cycleId === current) ? current : ""
+      ));
+      setMapSpaceLoadStatus("ready");
+    }).catch(() => {
+      if (!active) return;
+      setMapSpaces([]);
+      setMapSpaceId("");
+      setMapSpaceLoadStatus("error");
+    });
+    return () => { active = false; };
+  }, [catalogReloadKey, target]);
+
   const dashboardById = useMemo(
     () => new Map(classDashboard.map(row => [String(row.id), row])),
     [classDashboard]
@@ -143,6 +207,16 @@ export function StudentSessionSetup({
     () => games.find(game => game.id === gameId) || null,
     [gameId, games]
   );
+  const selectedMapSpace = useMemo(
+    () => mapSpaces.find(space => space.cycleId === mapSpaceId) || null,
+    [mapSpaceId, mapSpaces]
+  );
+  const mapSpaceGroups = useMemo(() => (
+    [...new Set(mapSpaces.map(space => space.partName))].map(partName => ({
+      partName,
+      spaces: mapSpaces.filter(space => space.partName === partName)
+    }))
+  ), [mapSpaces]);
   const resolvedCommonSkillId = skillTree.some(skill => skill.id === commonSkillId)
     ? commonSkillId
     : skillTree[0]?.id || "";
@@ -155,14 +229,18 @@ export function StudentSessionSetup({
     skillAssignmentMode,
     commonSkillId: resolvedCommonSkillId,
     selectedBook,
-    selectedGame
+    selectedGame,
+    adventureMapMode,
+    selectedMapSpace
   }), [
+    adventureMapMode,
     assessmentHistory,
     audienceSelection.students,
     classDashboard,
     resolvedCommonSkillId,
     selectedBook,
     selectedGame,
+    selectedMapSpace,
     skillAssignmentMode,
     skillTree,
     target
@@ -178,6 +256,9 @@ export function StudentSessionSetup({
     ? bookLoadStatus === "ready" && Boolean(selectedBook)
     : target === STUDENT_FOCUS_TARGETS.ARCADE_GAME
       ? gameLoadStatus === "ready" && Boolean(selectedGame)
+      : target === STUDENT_FOCUS_TARGETS.ADVENTURE_MAP
+        ? adventureMapMode === STUDENT_ADVENTURE_MAP_MODES.EACH_CHILD_CURRENT
+          || (mapSpaceLoadStatus === "ready" && Boolean(selectedMapSpace))
       : true;
   const canStart = audienceSelection.students.length > 0
     && exactChoiceReady
@@ -192,6 +273,9 @@ export function StudentSessionSetup({
     if (nextTarget !== target && nextTarget === STUDENT_FOCUS_TARGETS.ARCADE_GAME) {
       setGameLoadStatus("loading");
     }
+    if (nextTarget !== target && nextTarget === STUDENT_FOCUS_TARGETS.ADVENTURE_MAP) {
+      setMapSpaceLoadStatus("loading");
+    }
     setTarget(nextTarget);
     setMessage("");
   }
@@ -204,6 +288,7 @@ export function StudentSessionSetup({
   function retryCatalog(kind) {
     if (kind === "book") setBookLoadStatus("loading");
     if (kind === "game") setGameLoadStatus("loading");
+    if (kind === "map") setMapSpaceLoadStatus("loading");
     setCatalogReloadKey(current => current + 1);
   }
 
@@ -232,9 +317,13 @@ export function StudentSessionSetup({
       return;
     }
     if (!exactChoiceReady) {
-      setMessage(target === STUDENT_FOCUS_TARGETS.ASSIGNED_BOOK
-        ? "Choose one available Guided Reading book before starting."
-        : "Choose one available game before starting.");
+      if (target === STUDENT_FOCUS_TARGETS.ASSIGNED_BOOK) {
+        setMessage("Choose one available Guided Reading book before starting.");
+      } else if (target === STUDENT_FOCUS_TARGETS.ARCADE_GAME) {
+        setMessage("Choose one available game before starting.");
+      } else {
+        setMessage("Choose one available Adventure Map space before starting.");
+      }
       return;
     }
     if (!skillsAssignmentsReady) {
@@ -279,6 +368,12 @@ export function StudentSessionSetup({
         ? skillAssignmentMode === STUDENT_SKILL_ASSIGNMENT_MODES.ONE_SKILL_FOR_EVERYONE
           ? chosenSkill?.label || ""
           : "Each child's next skill"
+        : target === STUDENT_FOCUS_TARGETS.ADVENTURE_MAP
+          ? adventureMapMode === STUDENT_ADVENTURE_MAP_MODES.EACH_CHILD_CURRENT
+            ? "Each child's current space"
+            : selectedMapSpace
+              ? `${selectedMapSpace.spaceName}, Cycle ${selectedMapSpace.cycleNumber}`
+              : ""
         : "";
   const audienceLabel = audienceSelection.wholeClass
     ? `Whole class, ${audienceSelection.students.length} active student${audienceSelection.students.length === 1 ? "" : "s"}`
@@ -368,6 +463,72 @@ export function StudentSessionSetup({
                     {skillTree.map(skill => <option key={skill.id} value={skill.id}>{skill.label}</option>)}
                   </select>
                 </label>
+              )}
+            </fieldset>
+          )}
+
+          {target === STUDENT_FOCUS_TARGETS.ADVENTURE_MAP && (
+            <fieldset className="student-session-activity-config">
+              <legend>Map choice</legend>
+              <div className="student-session-config-options">
+                <button
+                  aria-pressed={adventureMapMode === STUDENT_ADVENTURE_MAP_MODES.EACH_CHILD_CURRENT}
+                  className={adventureMapMode === STUDENT_ADVENTURE_MAP_MODES.EACH_CHILD_CURRENT ? "selected" : ""}
+                  onClick={() => {
+                    setAdventureMapMode(STUDENT_ADVENTURE_MAP_MODES.EACH_CHILD_CURRENT);
+                    setMessage("");
+                  }}
+                  type="button"
+                >
+                  <strong>Each child&apos;s current space</strong>
+                  <span>Open the map at each child&apos;s own saved place.</span>
+                </button>
+                <button
+                  aria-pressed={adventureMapMode === STUDENT_ADVENTURE_MAP_MODES.ONE_SPACE_FOR_EVERYONE}
+                  className={adventureMapMode === STUDENT_ADVENTURE_MAP_MODES.ONE_SPACE_FOR_EVERYONE ? "selected" : ""}
+                  onClick={() => {
+                    setAdventureMapMode(STUDENT_ADVENTURE_MAP_MODES.ONE_SPACE_FOR_EVERYONE);
+                    setMessage("");
+                  }}
+                  type="button"
+                >
+                  <strong>One space for everyone</strong>
+                  <span>Open the same map space for every chosen student.</span>
+                </button>
+              </div>
+              {adventureMapMode === STUDENT_ADVENTURE_MAP_MODES.ONE_SPACE_FOR_EVERYONE && (
+                <>
+                  <label htmlFor="student-session-map-space">
+                    Adventure Map space
+                    <select
+                      disabled={mapSpaceLoadStatus !== "ready"}
+                      id="student-session-map-space"
+                      value={mapSpaceId}
+                      onChange={event => {
+                        setMapSpaceId(event.target.value);
+                        setMessage("");
+                      }}
+                    >
+                      <option value="">Choose one map space</option>
+                      {mapSpaceGroups.map(group => (
+                        <optgroup key={group.partName} label={group.partName}>
+                          {group.spaces.map(space => (
+                            <option key={space.cycleId} value={space.cycleId}>
+                              {space.spaceName} · {space.cycleTitle}
+                            </option>
+                          ))}
+                        </optgroup>
+                      ))}
+                    </select>
+                  </label>
+                  {mapSpaceLoadStatus === "loading" && <p role="status">Loading Adventure Map spaces…</p>}
+                  {mapSpaceLoadStatus === "error" && (
+                    <div className="student-session-catalog-error">
+                      <p role="alert">The Adventure Map spaces could not be loaded.</p>
+                      <button className="text-button" onClick={() => retryCatalog("map")} type="button">Try loading map spaces again</button>
+                    </div>
+                  )}
+                </>
               )}
             </fieldset>
           )}

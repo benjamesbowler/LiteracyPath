@@ -70,9 +70,13 @@ export function useStudentFocusSessionHost({ client, teacherId = "", enabled = t
     setConnection(nextSession ? "connected" : "idle");
   }, []);
 
-  const end = useCallback(async () => {
+  const end = useCallback(async endAction => {
     if (!sessionRef.current?.id) return false;
-    const data = await endStudentFocusSession({ client, sessionId: sessionRef.current.id });
+    const data = await endStudentFocusSession({
+      client,
+      sessionId: sessionRef.current.id,
+      endAction
+    });
     if (data?.ok === false) return false;
     setSession(null);
     setMembers([]);

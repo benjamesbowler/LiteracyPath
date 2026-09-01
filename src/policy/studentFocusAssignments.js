@@ -14,6 +14,11 @@ export const STUDENT_SKILL_ASSIGNMENT_MODES = Object.freeze({
   ONE_SKILL_FOR_EVERYONE: "one_skill_for_everyone"
 });
 
+export const STUDENT_ADVENTURE_MAP_MODES = Object.freeze({
+  EACH_CHILD_CURRENT: "each_child_current",
+  ONE_SPACE_FOR_EVERYONE: "one_space_for_everyone"
+});
+
 const SKILL_PHASE_PATH = Object.freeze([
   Object.freeze({ level: 1, phase: 1 }),
   Object.freeze({ level: 1, phase: 2 }),
@@ -133,7 +138,9 @@ export function buildStudentFocusAssignments({
   skillAssignmentMode = STUDENT_SKILL_ASSIGNMENT_MODES.EACH_CHILD_NEXT,
   commonSkillId = "",
   selectedBook = null,
-  selectedGame = null
+  selectedGame = null,
+  adventureMapMode = STUDENT_ADVENTURE_MAP_MODES.EACH_CHILD_CURRENT,
+  selectedMapSpace = null
 } = {}) {
   if (target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT) {
     return Object.fromEntries(activeRoster(students).map(student => [
@@ -167,6 +174,36 @@ export function buildStudentFocusAssignments({
       "*": {
         game_id: String(selectedGame.id),
         game_title: String(selectedGame.title || "")
+      }
+    };
+  }
+
+  if (target === STUDENT_FOCUS_TARGETS.ADVENTURE_MAP) {
+    if (adventureMapMode === STUDENT_ADVENTURE_MAP_MODES.EACH_CHILD_CURRENT) {
+      return {
+        "*": { map_mode: STUDENT_ADVENTURE_MAP_MODES.EACH_CHILD_CURRENT }
+      };
+    }
+
+    const cycleNumber = Number(selectedMapSpace?.cycleNumber);
+    const cycleId = String(selectedMapSpace?.cycleId || "");
+    const validCycle = Number.isInteger(cycleNumber)
+      && cycleNumber >= 1
+      && cycleNumber <= 27
+      && cycleId === `cycle-${cycleNumber}`;
+    if (
+      adventureMapMode !== STUDENT_ADVENTURE_MAP_MODES.ONE_SPACE_FOR_EVERYONE
+      || !validCycle
+      || !String(selectedMapSpace?.spaceName || "").trim()
+    ) {
+      return {};
+    }
+    return {
+      "*": {
+        map_mode: STUDENT_ADVENTURE_MAP_MODES.ONE_SPACE_FOR_EVERYONE,
+        cycle_id: cycleId,
+        cycle_number: cycleNumber,
+        space_name: String(selectedMapSpace.spaceName).trim()
       }
     };
   }
