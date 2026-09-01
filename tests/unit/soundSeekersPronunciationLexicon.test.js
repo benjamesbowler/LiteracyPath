@@ -1,13 +1,21 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
 
 import { QUEST_STOPS } from "../../src/data/questSequence.js";
+import {
+  PRONUNCIATION_CORPUS_CONTENT_HASH,
+  PRONUNCIATION_CORPUS_RECORD_COUNT,
+  PRONUNCIATION_CORPUS_RECORD_IDS
+} from "../../src/features/soundSeekers/content/pronunciationCorpusInvariant.generated.js";
 import {
   getPronunciation,
   getWordMeaning,
   SOUND_SEEKERS_WORDS,
   assertShippingPronunciationLexicon
 } from "../../src/features/soundSeekers/content/pronunciationLexicon.js";
+import { PRONUNCIATION_RECORDS } from "../../src/features/soundSeekers/content/pronunciationRecords.js";
 
 const reachableWords = new Set(
   QUEST_STOPS.flatMap(stop => [
@@ -83,13 +91,40 @@ test("shipping units persist explicit canonical evidence target metadata", () =>
   );
   assert.deepEqual(
     getPronunciation("table").units.map(unit => unit.evidenceTargetId),
-    ["t", "a_e", "b", "le"]
+    ["t", null, "b", "le"],
+    "table's /ay/ is not evidence for the split-digraph a_e spelling"
+  );
+  assert.deepEqual(
+    getPronunciation("station").units.map(unit => unit.evidenceTargetId),
+    ["s", "t", null, "tion"],
+    "station's /ay/ is not evidence for the split-digraph a_e spelling"
   );
   assert.equal(
     getPronunciation("a").units[0].evidenceTargetId,
     null,
     "schwa must not claim evidence for the taught short-a target"
   );
+});
+
+test("the generated corpus invariant derives membership, count, and canonical content hash", () => {
+  const actualIds = Object.keys(PRONUNCIATION_RECORDS).sort((left, right) => left.localeCompare(right));
+  const actualHash = createHash("sha256")
+    .update(JSON.stringify(PRONUNCIATION_RECORDS))
+    .digest("hex");
+
+  assert.deepEqual(PRONUNCIATION_CORPUS_RECORD_IDS, actualIds);
+  assert.equal(PRONUNCIATION_CORPUS_RECORD_COUNT, PRONUNCIATION_CORPUS_RECORD_IDS.length);
+  assert.equal(PRONUNCIATION_CORPUS_CONTENT_HASH, actualHash);
+  assert.match(PRONUNCIATION_CORPUS_CONTENT_HASH, /^[a-f0-9]{64}$/u);
+});
+
+test("the generator never promotes legacy spelling heuristics to reviewed v2 evidence", () => {
+  const source = readFileSync(
+    new URL("../../tools/buildSoundSeekersPronunciationLexicon.mjs", import.meta.url),
+    "utf8"
+  );
+  assert.doesNotMatch(source, /function evidenceTargetIdFor|EVIDENCE_TARGET_BY_SOUND_KEY|EVIDENCE_TARGET_BY_UNIT/u);
+  assert.match(source, /REVIEWED_EVIDENCE_TARGETS/u);
 });
 
 test("the validator requires known evidence targets for assessed v2 words", () => {

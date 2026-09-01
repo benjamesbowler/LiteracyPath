@@ -1,5 +1,9 @@
 import { getPreferredPhonemeAudioPath } from "../../../data/phonemeAudioBank.js";
 import { QUEST_STOPS } from "../../../data/questSequence.js";
+import {
+  PRONUNCIATION_CORPUS_RECORD_COUNT,
+  PRONUNCIATION_CORPUS_RECORD_IDS
+} from "./pronunciationCorpusInvariant.generated.js";
 import { PRONUNCIATION_RECORDS } from "./pronunciationRecords.js";
 import { WORD_MEANINGS } from "./wordMeanings.js";
 
@@ -8,6 +12,15 @@ const normalizeWordId = value => String(value || "")
   .toLowerCase()
   .replace(/^hw:/, "");
 const CURRICULUM_TARGET_IDS = new Set(QUEST_STOPS.flatMap(stop => stop.teach.map(target => target.id)));
+const generatedRecordIds = Object.keys(PRONUNCIATION_RECORDS).sort((left, right) => left.localeCompare(right));
+
+if (
+  PRONUNCIATION_CORPUS_RECORD_COUNT !== PRONUNCIATION_CORPUS_RECORD_IDS.length
+  || generatedRecordIds.length !== PRONUNCIATION_CORPUS_RECORD_COUNT
+  || generatedRecordIds.some((recordId, index) => recordId !== PRONUNCIATION_CORPUS_RECORD_IDS[index])
+) {
+  throw new Error("Sound Seekers pronunciation corpus membership does not match its generated invariant");
+}
 
 export const PRONUNCIATION_AUDIO_BLOCKER = "release_blocked_missing_instructional_audio";
 

@@ -2,6 +2,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { QUEST_STOPS } from "../src/data/questSequence.js";
 import { segmentWord } from "../src/utils/questSegments.js";
@@ -15,29 +16,61 @@ const BASIC = Object.freeze({
   pp: "p", rr: "r", ss: "s", tt: "t", zz: "zz"
 });
 const CURRICULUM_TARGET_IDS = new Set(QUEST_STOPS.flatMap(stop => stop.teach.map(target => target.id)));
-const EVIDENCE_TARGET_BY_SOUND_KEY = Object.freeze({
-  short_a: "a",
-  short_e: "e",
-  short_i: "i",
-  short_o: "o",
-  short_u: "u",
-  th_voiced: "th",
-  ew_yoo: "ew",
-  ear_lax: "ear",
-  ure_no_y: "ure",
-  schwa: null,
-  once_onset: null,
-  ed_id: "suffix_ed"
-});
-const CONTEXTUAL_EVIDENCE_TARGETS = new Set([
-  "oo_short", "ow_ou", "y_ie", "y_ee", "c_s", "g_j", "ch_k", "ea_e"
-]);
-const EVIDENCE_TARGET_BY_UNIT = Object.freeze({
-  "a|a_e": "a_e",
-  "i|i_e": "i_e",
-  "eye|i_e": "i_e",
-  "o|o_e": "o_e",
-  "u_e|oo": "u_e"
+
+// These mappings are an authored review ledger, not a spelling rule. Only
+// words used by scored v2 word decisions (plus named regression fixtures) may
+// copy non-null evidence into the shipping record. All other generated units
+// are explicitly non-assessed until an author reviews and adds them here.
+const REVIEWED_EVIDENCE_TARGETS = Object.freeze({
+  action: Object.freeze(["a", "c", "tion"]),
+  bike: Object.freeze(["b", "i_e", "k"]),
+  bird: Object.freeze(["b", "ir", "d"]),
+  boat: Object.freeze(["b", "oa", "t"]),
+  book: Object.freeze(["b", "oo_short", "k"]),
+  box: Object.freeze(["b", "o", "x"]),
+  bun: Object.freeze(["b", "u", "n"]),
+  by: Object.freeze(["b", "y_ie"]),
+  cake: Object.freeze(["c", "a_e", "k"]),
+  car: Object.freeze(["c", "ar"]),
+  cat: Object.freeze(["c", "a", "t"]),
+  cats: Object.freeze(["c", "a", "t", "suffix_s"]),
+  chair: Object.freeze(["ch", "air"]),
+  city: Object.freeze(["c_s", "i", "t", "y_ee"]),
+  clap: Object.freeze(["c", "l", "a", "p"]),
+  coin: Object.freeze(["c", "oi", "n"]),
+  cube: Object.freeze(["c", "u_e", "b"]),
+  cup: Object.freeze(["c", "u", "p"]),
+  fiction: Object.freeze(["f", "i", "c", "tion"]),
+  frog: Object.freeze(["f", "r", "o", "g"]),
+  hand: Object.freeze(["h", "a", "n", "d"]),
+  hear: Object.freeze(["h", "ear"]),
+  home: Object.freeze(["h", "o_e", "m"]),
+  hot: Object.freeze(["h", "o", "t"]),
+  jam: Object.freeze(["j", "a", "m"]),
+  light: Object.freeze(["l", "igh", "t"]),
+  little: Object.freeze(["l", "i", "t", "le"]),
+  mat: Object.freeze(["m", "a", "t"]),
+  moon: Object.freeze(["m", "oo", "n"]),
+  near: Object.freeze(["n", "ear"]),
+  night: Object.freeze(["n", "igh", "t"]),
+  point: Object.freeze(["p", "oi", "n", "t"]),
+  pop: Object.freeze(["p", "o", "p"]),
+  pure: Object.freeze(["p", "ure"]),
+  rain: Object.freeze(["r", "ai", "n"]),
+  rock: Object.freeze(["r", "o", "ck"]),
+  ship: Object.freeze(["sh", "i", "p"]),
+  sit: Object.freeze(["s", "i", "t"]),
+  sound: Object.freeze(["s", "ou", "n", "d"]),
+  spin: Object.freeze(["s", "p", "i", "n"]),
+  stone: Object.freeze(["s", "t", "o_e", "n"]),
+  storm: Object.freeze(["s", "t", "or", "m"]),
+  table: Object.freeze(["t", null, "b", "le"]),
+  station: Object.freeze(["s", "t", null, "tion"]),
+  theme: Object.freeze(["th", "e_e", "m"]),
+  thin: Object.freeze(["th", "i", "n"]),
+  thing: Object.freeze(["th", "i", "ng"]),
+  tree: Object.freeze(["t", "r", "ee"]),
+  truck: Object.freeze(["t", "r", "u", "ck"])
 });
 
 const SHORT_OO = new Set(["book", "look", "cook", "foot", "good", "wood", "hook", "took"]);
@@ -724,24 +757,6 @@ function storyTokens(stop) {
     .map(word => word.replace(/'s$/, "")));
 }
 
-function evidenceTargetIdFor(grapheme, soundKey, role) {
-  if (role === "suffix-plural-unvoiced" || role === "suffix-plural-voiced") return "suffix_s";
-  if (role === "suffix-past-unvoiced" || role === "suffix-past-voiced" || role === "suffix-past-syllabic") {
-    return "suffix_ed";
-  }
-  if (role === "suffix-progressive") return "suffix_ing";
-  const exactUnitTarget = EVIDENCE_TARGET_BY_UNIT[`${grapheme}|${soundKey}`];
-  if (exactUnitTarget) return exactUnitTarget;
-  if (Object.hasOwn(EVIDENCE_TARGET_BY_SOUND_KEY, soundKey)) {
-    const mappedSound = EVIDENCE_TARGET_BY_SOUND_KEY[soundKey];
-    return CURRICULUM_TARGET_IDS.has(mappedSound) ? mappedSound : null;
-  }
-  if (CONTEXTUAL_EVIDENCE_TARGETS.has(soundKey)) return soundKey;
-  if (role !== "regular" && CURRICULUM_TARGET_IDS.has(soundKey)) return soundKey;
-  if (CURRICULUM_TARGET_IDS.has(grapheme)) return grapheme;
-  return CURRICULUM_TARGET_IDS.has(soundKey) ? soundKey : null;
-}
-
 function assignLetterIndices(word, authoredUnits) {
   const claimed = new Set();
   return authoredUnits.map(([grapheme, soundKey, role = "regular", evidenceTargetId]) => {
@@ -763,9 +778,10 @@ function assignLetterIndices(word, authoredUnits) {
       indices.push(found);
       searchFrom = found + 1;
     }
-    const reviewedEvidenceTargetId = evidenceTargetId === undefined
-      ? evidenceTargetIdFor(grapheme, soundKey, role)
-      : evidenceTargetId;
+    if (evidenceTargetId === undefined) {
+      throw new Error(`${word}:${grapheme} is missing an explicit reviewed evidence value`);
+    }
+    const reviewedEvidenceTargetId = evidenceTargetId;
     if (reviewedEvidenceTargetId !== null && !CURRICULUM_TARGET_IDS.has(reviewedEvidenceTargetId)) {
       throw new Error(`${word}:${grapheme} has unknown evidence target ${reviewedEvidenceTargetId}`);
     }
@@ -812,12 +828,16 @@ function authoredUnitsFor(word) {
       return [grapheme, soundKey, roleFor(word, grapheme, unitIndex, segments, soundKey)];
     });
   })();
-  return authored.map(([grapheme, soundKey, role = "regular", evidenceTargetId]) => {
-    const reviewedEvidenceTargetId = evidenceTargetId === undefined
-      ? evidenceTargetIdFor(grapheme, soundKey, role)
-      : evidenceTargetId;
-    return [grapheme, soundKey, role, reviewedEvidenceTargetId];
-  });
+  const reviewedTargets = REVIEWED_EVIDENCE_TARGETS[word] || null;
+  if (reviewedTargets && reviewedTargets.length !== authored.length) {
+    throw new Error(`${word}: reviewed evidence target count does not match authored units`);
+  }
+  return authored.map(([grapheme, soundKey, role = "regular", evidenceTargetId], unitIndex) => [
+    grapheme,
+    soundKey,
+    role,
+    reviewedTargets ? reviewedTargets[unitIndex] : (evidenceTargetId ?? null)
+  ]);
 }
 
 function meaningFor(word) {
@@ -892,12 +912,22 @@ function renderModule(exportName, value, intro) {
   return `${intro}\nexport const ${exportName} = Object.freeze(${JSON.stringify(value, null, 2)});\n`;
 }
 
+function renderCorpusInvariant(records) {
+  const recordIds = Object.keys(records).sort((left, right) => left.localeCompare(right));
+  const contentHash = createHash("sha256").update(JSON.stringify(records)).digest("hex");
+  return `// Generated canonical membership and content identity. Do not hand-edit.\n`
+    + `export const PRONUNCIATION_CORPUS_RECORD_IDS = Object.freeze(${JSON.stringify(recordIds, null, 2)});\n`
+    + `export const PRONUNCIATION_CORPUS_CONTENT_HASH = ${JSON.stringify(contentHash)};\n`
+    + "export const PRONUNCIATION_CORPUS_RECORD_COUNT = PRONUNCIATION_CORPUS_RECORD_IDS.length;\n";
+}
+
 const records = buildRecords();
 assertPronunciationsMatchReference(records);
 const meanings = Object.fromEntries(Object.keys(records).map(word => [meaningIdFor(word), meaningFor(word)]));
 const outputs = new Map([
   [path.join(CONTENT_DIR, "pronunciationRecords.js"), renderModule("PRONUNCIATION_RECORDS", records,
     "// Explicit shipping records compiled at authoring time. Runtime code must not segment spellings.")],
+  [path.join(CONTENT_DIR, "pronunciationCorpusInvariant.generated.js"), renderCorpusInvariant(records)],
   [path.join(CONTENT_DIR, "wordMeanings.js"), renderModule("WORD_MEANINGS", meanings,
     "// Child-safe meaning/action records for every currently reachable Sound Seekers word.")]
 ]);
@@ -905,7 +935,7 @@ const outputs = new Map([
 if (process.argv.includes("--write")) {
   fs.mkdirSync(CONTENT_DIR, { recursive: true });
   for (const [file, source] of outputs) fs.writeFileSync(file, source);
-  console.log(`Wrote ${Object.keys(records).length} explicit pronunciation records and ${Object.keys(meanings).length} meaning records.`);
+  console.log(`Wrote ${Object.keys(records).length} explicit pronunciation records, the derived corpus invariant, and ${Object.keys(meanings).length} meaning records.`);
 } else {
   let stale = false;
   for (const [file, expected] of outputs) {
