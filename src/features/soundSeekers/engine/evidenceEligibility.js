@@ -31,12 +31,10 @@ export const EVIDENCE_READINESS_MODES = Object.freeze({
 });
 
 const practiceReadiness = Object.freeze({
-  readinessMode: EVIDENCE_READINESS_MODES.PRACTICE,
-  minDistinctPaths: 2
+  readinessMode: EVIDENCE_READINESS_MODES.PRACTICE
 });
 const exposureOnly = Object.freeze({
-  readinessMode: EVIDENCE_READINESS_MODES.EXPOSURE_ONLY,
-  minDistinctPaths: null
+  readinessMode: EVIDENCE_READINESS_MODES.EXPOSURE_ONLY
 });
 
 export const EVIDENCE_READINESS_POLICIES = Object.freeze({
@@ -231,8 +229,7 @@ export function describeEvidencePath(input = {}) {
   return Object.freeze({
     identity: evidencePathIdentity(target, domain),
     targetKind: target.kind,
-    readinessMode: policy.readinessMode,
-    minDistinctPaths: policy.minDistinctPaths
+    readinessMode: policy.readinessMode
   });
 }
 

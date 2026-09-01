@@ -374,7 +374,9 @@ export function practiceReadinessFor(targetId, events, { now } = {}) {
   const sessions = [...new Set(currentIndependentCorrect.map(evidenceSessionDay).filter(Boolean))].sort();
   const targetPath = deduped.length ? pathByEventId.get(deduped[0].id) : null;
   const readinessMode = targetPath?.readinessMode ?? null;
-  const minDistinctPaths = targetPath?.minDistinctPaths ?? null;
+  const minDistinctPaths = readinessMode === EVIDENCE_READINESS_MODES.PRACTICE
+    ? QUEST_PRACTICE_THRESHOLDS.minDomains
+    : null;
   const ready = readinessMode === EVIDENCE_READINESS_MODES.PRACTICE
     && currentIndependentCorrect.length >= QUEST_PRACTICE_THRESHOLDS.minCorrect
     && recent.length === QUEST_PRACTICE_THRESHOLDS.accuracyWindow

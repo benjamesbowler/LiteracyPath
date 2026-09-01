@@ -188,13 +188,16 @@ test("canonical path descriptions own diversity and target-kind readiness policy
   assert.notEqual(wordPositionZero.identity, wordDecodedAtZero.identity);
   assert.deepEqual({
     targetKind: wordPositionZero.targetKind,
-    readinessMode: wordPositionZero.readinessMode,
-    minDistinctPaths: wordPositionZero.minDistinctPaths
+    readinessMode: wordPositionZero.readinessMode
   }, {
     targetKind: EVIDENCE_TARGET_KINDS.WORD_POSITION,
-    readinessMode: "practice",
-    minDistinctPaths: 2
+    readinessMode: "practice"
   });
+  assert.equal("minDistinctPaths" in wordPositionZero, false,
+    "eligibility describes paths and mode but never owns the numeric threshold");
+  assert.equal(Object.values(evidenceEligibility.EVIDENCE_READINESS_POLICIES)
+    .every(policy => !("minDistinctPaths" in policy)), true,
+  "eligibility policies cannot duplicate the mastery threshold");
 
   const text = evidenceEligibility.describeEvidencePath({
     targetId: "text:scene-s1",
@@ -209,5 +212,6 @@ test("canonical path descriptions own diversity and target-kind readiness policy
     domain: EVIDENCE_DOMAINS.NOVEL_DECODING
   });
   assert.deepEqual([text.readinessMode, boss.readinessMode], ["exposure_only", "exposure_only"]);
-  assert.deepEqual([text.minDistinctPaths, boss.minDistinctPaths], [null, null]);
+  assert.equal("minDistinctPaths" in text, false);
+  assert.equal("minDistinctPaths" in boss, false);
 });

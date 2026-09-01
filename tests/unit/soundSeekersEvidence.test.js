@@ -283,6 +283,8 @@ test("four heart-word activity paths across two sessions can reach practice read
   assert.equal(result.ready, true);
   assert.equal(result.targetKind, "heart_word");
   assert.equal(result.readinessMode, "practice");
+  assert.equal(result.minDistinctPaths, QUEST_PRACTICE_THRESHOLDS.minDomains,
+    "the one exported mastery threshold owns required path diversity");
   assert.equal(result.evidencePaths.length, 4);
 });
 
@@ -344,6 +346,7 @@ test("connected-text and boss-novel events remain exposure-only", () => {
     const result = practiceReadinessFor(fixture.targetId, evidence, { now: "2026-09-03T12:00:00.000Z" });
     assert.equal(result.ready, false, fixture.targetId);
     assert.equal(result.readinessMode, "exposure_only", fixture.targetId);
+    assert.equal(result.minDistinctPaths, null, fixture.targetId);
     assert.equal(result.state, "exposure", fixture.targetId);
   }
 });
