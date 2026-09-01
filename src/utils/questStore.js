@@ -16,6 +16,7 @@ import {
   sanitizeCloudProgressPayload
 } from "./progressMerge.js";
 import { localProgressStorageKey } from "./progressKeys.js";
+import { baseQuestState, normalizeQuestState } from "./questProgress.js";
 import {
   createSoundSeekersState,
   normalizeSoundSeekersState
@@ -46,19 +47,29 @@ function emitStorageStatus(scopeKey, result) {
 }
 
 export function loadQuestProgress(scopeKey = DEFAULT_SCOPE) {
+  if (typeof window === "undefined") return baseQuestState();
+  try {
+    const parsed = JSON.parse(window.localStorage.getItem(questProgressStorageKey(scopeKey)) || "null");
+    return normalizeQuestState(parsed);
+  } catch {
+    // A corrupt save is a bad day; a white screen is a child who never comes
+    // back. Always hand back something playable.
+    return baseQuestState();
+  }
+}
+
+export function loadSoundSeekersV2Progress(scopeKey = DEFAULT_SCOPE) {
   if (typeof window === "undefined") return createSoundSeekersState();
   try {
     const parsed = JSON.parse(window.localStorage.getItem(questProgressStorageKey(scopeKey)) || "null");
     return normalizeSoundSeekersState(parsed);
   } catch {
-    // A corrupt save is a bad day; a white screen is a child who never comes
-    // back. Always hand back something playable.
     return createSoundSeekersState();
   }
 }
 
-export function saveQuestProgress(scopeKey = DEFAULT_SCOPE, state, { syncCloud = true } = {}) {
-  let next = normalizeSoundSeekersState(state);
+function saveQuestState(scopeKey, state, normalize, { syncCloud = true } = {}) {
+  let next = normalize(state);
   if (typeof window !== "undefined") {
     try {
       const stored = JSON.parse(
@@ -89,4 +100,15 @@ export function saveQuestProgress(scopeKey = DEFAULT_SCOPE, state, { syncCloud =
     queueProgressSave("phonics_quest", "__all__", uploadPayload, { scopeKey });
   }
   return next;
+}
+
+// QuestRoot remains on the v1 state model until the explicit v2 route replaces
+// it. Keeping the default API stable prevents a partially rebuilt route from
+// stripping fields the live renderer still owns.
+export function saveQuestProgress(scopeKey = DEFAULT_SCOPE, state, options = {}) {
+  return saveQuestState(scopeKey, state, normalizeQuestState, options);
+}
+
+export function saveSoundSeekersV2Progress(scopeKey = DEFAULT_SCOPE, state, options = {}) {
+  return saveQuestState(scopeKey, state, normalizeSoundSeekersState, options);
 }

@@ -11,10 +11,16 @@ returns jsonb language sql immutable as $$
     select value, 1
       from jsonb_array_elements(coalesce(case when jsonb_typeof(b) = 'array' then b end, '[]'::jsonb))
   ), valid as (
-    select event,
-           event ->> 'id' as id,
-           case when jsonb_typeof(event -> 'at') = 'number' then (event ->> 'at')::numeric end as at_number,
-           case when jsonb_typeof(event -> 'at') <> 'number' then coalesce(event ->> 'at', '') end as at_text,
+    select event || jsonb_build_object(
+             'id', btrim(event ->> 'id'),
+             'at', case
+               when jsonb_typeof(event -> 'at') = 'number' then event -> 'at'
+               when jsonb_typeof(event -> 'at') = 'string' and btrim(event ->> 'at') <> '' then to_jsonb(btrim(event ->> 'at'))
+               else '0'::jsonb end
+           ) as event,
+           btrim(event ->> 'id') as id,
+           case when jsonb_typeof(event -> 'at') = 'number' then (event ->> 'at')::numeric else 0 end as at_number,
+           case when jsonb_typeof(event -> 'at') = 'string' and btrim(event ->> 'at') <> '' then btrim(event ->> 'at') end as at_text,
            source_order
       from raw
      where jsonb_typeof(event) = 'object'
@@ -26,13 +32,43 @@ returns jsonb language sql immutable as $$
   ), retained as (
     select event, id, at_number, at_text
       from deduplicated
-     order by at_number desc nulls last, at_text desc nulls last, id desc
+     order by case when at_text is null then 0 else 1 end desc, at_number desc, at_text desc nulls last, id desc
      limit 1200
   )
   select coalesce(
-    jsonb_agg(event order by at_number asc nulls last, at_text asc nulls last, id asc),
+    jsonb_agg(event order by case when at_text is null then 0 else 1 end, at_number asc, at_text asc nulls last, id asc),
     '[]'::jsonb
   ) from retained;
+$$;
+
+create or replace function public.lp_quest_normalize_v2_assignment(payload jsonb)
+returns jsonb language sql immutable as $$
+  with stop_ids as (
+    select coalesce(jsonb_agg(to_jsonb(id) order by id collate "C"), '[]'::jsonb) as value
+      from (
+        select distinct btrim(value #>> '{}') as id
+          from jsonb_array_elements(coalesce(case when jsonb_typeof(payload -> 'stopIds') = 'array' then payload -> 'stopIds' end, '[]'::jsonb))
+         where jsonb_typeof(value) = 'string' and btrim(value #>> '{}') <> ''
+      ) ids
+  ), targets as (
+    select coalesce(jsonb_agg(to_jsonb(id) order by id collate "C"), '[]'::jsonb) as value
+      from (
+        select id from (
+          select distinct btrim(value #>> '{}') as id
+            from jsonb_array_elements(coalesce(case when jsonb_typeof(payload -> 'targets') = 'array' then payload -> 'targets' end, '[]'::jsonb))
+           where jsonb_typeof(value) = 'string' and btrim(value #>> '{}') <> ''
+        ) ordered order by id collate "C" limit 6
+      ) ids
+  )
+  select case when jsonb_array_length(stop_ids.value) + jsonb_array_length(targets.value) = 0 then null else
+    jsonb_strip_nulls(jsonb_build_object(
+      'stopIds', case when jsonb_array_length(stop_ids.value) > 0 then stop_ids.value end,
+      'targets', case when jsonb_array_length(targets.value) > 0 then targets.value end,
+      'note', case when jsonb_typeof(payload -> 'note') = 'string' then left(payload ->> 'note', 120) end,
+      'assignedAt', case when jsonb_typeof(payload -> 'assignedAt') = 'string' then payload ->> 'assignedAt' end,
+      'by', case when jsonb_typeof(payload -> 'by') = 'string' then payload ->> 'by' end
+    )) end
+    from stop_ids, targets;
 $$;
 
 create or replace function public.lp_quest_union_v2_ids(a jsonb, b jsonb)
@@ -84,8 +120,8 @@ begin
   end if;
 
   assignment_value := coalesce(
-    case when jsonb_typeof(existing -> 'assignment') = 'object' then existing -> 'assignment' end,
-    case when jsonb_typeof(incoming -> 'assignment') = 'object' then incoming -> 'assignment' end,
+    public.lp_quest_normalize_v2_assignment(existing -> 'assignment'),
+    public.lp_quest_normalize_v2_assignment(incoming -> 'assignment'),
     'null'::jsonb
   );
   settings_value := coalesce(
@@ -95,7 +131,8 @@ begin
   );
 
   if winner is not null then
-    return winner || jsonb_build_object(
+    result := public.lp_quest_merge_learning_v2(winner, winner);
+    return result || jsonb_build_object(
       'v', 2,
       'contentVersion', 'sound-seekers-v2',
       'assignment', assignment_value,
@@ -190,9 +227,11 @@ $$;
 
 revoke all on function public.lp_quest_union_v2_evidence(jsonb, jsonb) from public;
 revoke all on function public.lp_quest_union_v2_ids(jsonb, jsonb) from public;
+revoke all on function public.lp_quest_normalize_v2_assignment(jsonb) from public;
 revoke all on function public.lp_quest_merge_learning_v2(jsonb, jsonb) from public;
 revoke all on function public.lp_merge_phonics_quest(jsonb, jsonb) from public;
 grant execute on function public.lp_quest_union_v2_evidence(jsonb, jsonb) to anon, authenticated;
 grant execute on function public.lp_quest_union_v2_ids(jsonb, jsonb) to anon, authenticated;
+grant execute on function public.lp_quest_normalize_v2_assignment(jsonb) to anon, authenticated;
 grant execute on function public.lp_quest_merge_learning_v2(jsonb, jsonb) to anon, authenticated;
 grant execute on function public.lp_merge_phonics_quest(jsonb, jsonb) to anon, authenticated;

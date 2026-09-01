@@ -2,6 +2,10 @@ export const SOUND_SEEKERS_SCHEMA_VERSION = 2;
 export const SOUND_SEEKERS_CONTENT_VERSION = "sound-seekers-v2";
 export const MAX_SOUND_SEEKERS_EVIDENCE = 1200;
 
+function trimAsciiSpaces(value) {
+  return value.replace(/^ +| +$/g, "");
+}
+
 const DEFAULT_SETTINGS = Object.freeze({
   reducedMotion: false,
   highContrast: false,
@@ -32,11 +36,12 @@ function normalizeIdList(value) {
 
 export function normalizeAllowlistedSettings(raw = {}) {
   const value = asObject(raw);
+  const quietLegacyAudio = value.quietSoundscape === true || value.soundEnabled === false;
   const music = typeof value.music === "boolean"
     ? value.music
     : typeof value.musicEnabled === "boolean"
       ? value.musicEnabled
-      : DEFAULT_SETTINGS.music;
+      : quietLegacyAudio ? false : DEFAULT_SETTINGS.music;
   const displayMode = value.displayMode === "pixel" ? "pixel" : "auto";
   return {
     reducedMotion: Boolean(value.reducedMotion),
@@ -53,6 +58,7 @@ function normalizeAssignment(raw) {
   const next = {};
   const stopIds = uniqueStrings(value.stopIds);
   const targets = uniqueStrings(value.targets);
+  if (!stopIds.length && !targets.length) return null;
   if (stopIds.length) next.stopIds = stopIds;
   if (targets.length) next.targets = targets.slice(0, 6);
   if (typeof value.note === "string") next.note = value.note.slice(0, 120);
@@ -63,15 +69,21 @@ function normalizeAssignment(raw) {
 
 function normalizeEvent(event) {
   const value = asObject(event);
-  const id = typeof value.id === "string" ? value.id.trim() : "";
+  const id = typeof value.id === "string" ? trimAsciiSpaces(value.id) : "";
   if (!id) return null;
-  const at = typeof value.at === "number" || typeof value.at === "string" ? value.at : 0;
+  const at = typeof value.at === "number" && Number.isFinite(value.at)
+    ? value.at
+    : typeof value.at === "string" && trimAsciiSpaces(value.at)
+      ? trimAsciiSpaces(value.at)
+      : 0;
   return { ...value, id, at };
 }
 
 function compareEventAt(left, right) {
   const leftNumber = typeof left.at === "number" && Number.isFinite(left.at) ? left.at : null;
   const rightNumber = typeof right.at === "number" && Number.isFinite(right.at) ? right.at : null;
+  if (leftNumber !== null && rightNumber === null) return -1;
+  if (leftNumber === null && rightNumber !== null) return 1;
   if (leftNumber !== null && rightNumber !== null && leftNumber !== rightNumber) return leftNumber - rightNumber;
   const leftAt = String(left.at ?? "");
   const rightAt = String(right.at ?? "");

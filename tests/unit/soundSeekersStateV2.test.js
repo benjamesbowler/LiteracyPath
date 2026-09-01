@@ -25,6 +25,36 @@ test("v1 learning starts a fresh v2 game while allowlisted preferences survive",
   assert.equal(next.settings.music, false);
 });
 
+test("v2 keeps quiet legacy audio preferences quiet", () => {
+  assert.equal(normalizeSoundSeekersState({ v: 1, settings: { quietSoundscape: true } }).settings.music, false);
+  assert.equal(normalizeSoundSeekersState({ v: 1, settings: { soundEnabled: false } }).settings.musicEnabled, false);
+});
+
+test("v2 assignment needs a valid target or stop payload", () => {
+  assert.equal(normalizeSoundSeekersState({ v: 1, assignment: { note: "metadata only" } }).assignment, null);
+  assert.deepEqual(
+    normalizeSoundSeekersState({ v: 1, assignment: { targets: [" sh "], note: "Practise" } }).assignment,
+    { targets: ["sh"], note: "Practise" }
+  );
+});
+
+test("v2 evidence trims ids and orders numeric timestamps before string timestamps", () => {
+  const state = normalizeSoundSeekersState({
+    ...createSoundSeekersState(),
+    evidence: [
+      { id: " shared ", at: 2 },
+      { id: "number", at: 4 },
+      { id: "string", at: "a" },
+      { id: "shared", at: 1 }
+    ]
+  });
+  assert.deepEqual(state.evidence, [
+    { id: "shared", at: 2 },
+    { id: "number", at: 4 },
+    { id: "string", at: "a" }
+  ]);
+});
+
 test("v2 merge unions immutable events, monotonic repairs, and reset ancestry", () => {
   const base = createSoundSeekersState();
   const a = { ...base, evidence: [{ id: "a", at: 1 }], trail: { ...base.trail, journeyStep: 41, repairs: { mill: true } } };
