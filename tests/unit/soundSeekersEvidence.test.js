@@ -147,7 +147,7 @@ test("two reskins of one mapping domain do not satisfy domain diversity", () => 
     ordinal: 1,
     at: "2026-09-02T10:00:00.000Z"
   });
-  const result = practiceReadinessFor("sh", [echo, secondEcho]);
+  const result = practiceReadinessFor("sh", [echo, secondEcho], { now: "2026-09-03T12:00:00.000Z" });
   assert.equal(result.ready, false);
   assert.deepEqual(result.domains, ["phoneme_to_grapheme"]);
   assert.equal(result.state, "building");
@@ -224,7 +224,11 @@ test("pre-sessionDay v2 evidence falls back only to a valid local calendar day",
       "2026-09-03T11:00:00.000Z"
     ],
     sessionDays: ["2026-09-02", "2026-09-02", "2026-09-03", "2026-09-03"]
-  }).map(({ sessionDay, ...event }) => Object.freeze(event));
+  }).map(event => {
+    const legacyEvent = { ...event };
+    delete legacyEvent.sessionDay;
+    return Object.freeze(legacyEvent);
+  });
   const result = practiceReadinessFor("sh", legacyEvents, { now: "2026-09-05T12:00:00.000Z" });
   assert.equal(result.ready, true);
   assert.deepEqual(result.sessions, ["2026-09-02", "2026-09-03"]);
