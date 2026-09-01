@@ -10,6 +10,8 @@ let cueSuspended = false;
 let cueResumeAfterSuspend = false;
 let sharedCueElement = null;
 let cueListeners = [];
+let cueSequenceVersion = 0;
+let cueSequenceTimer = null;
 
 function getSharedCueElement() {
   if (!sharedCueElement) {
@@ -31,7 +33,16 @@ function listenForCue(type, listener, options) {
   cueListeners.push([type, listener]);
 }
 
-export function stopCueAudio() {
+function cancelCueSequence() {
+  cueSequenceVersion += 1;
+  if (cueSequenceTimer !== null && typeof window !== "undefined") {
+    window.clearTimeout?.(cueSequenceTimer);
+  }
+  cueSequenceTimer = null;
+}
+
+function stopCuePlayback({ preserveSequence = false } = {}) {
+  if (!preserveSequence) cancelCueSequence();
   clearCueListeners();
   if (currentCue) {
     try {
@@ -51,8 +62,12 @@ export function stopCueAudio() {
   }
 }
 
-export function playCueAudio(src, { volume = 0.95, onUnavailable } = {}) {
-  stopCueAudio();
+export function stopCueAudio() {
+  stopCuePlayback();
+}
+
+function playCueAudioInternal(src, { volume = 0.95, onUnavailable } = {}, preserveSequence = false) {
+  stopCuePlayback({ preserveSequence });
   if (!src) {
     onUnavailable?.();
     return;
@@ -103,6 +118,10 @@ export function playCueAudio(src, { volume = 0.95, onUnavailable } = {}) {
   }
 }
 
+export function playCueAudio(src, options = {}) {
+  playCueAudioInternal(src, options);
+}
+
 // Play clips back to back with a small breath between — the blend fallback
 // ("st" = /s/ then /t/, said quickly) and any future phoneme-then-name
 // sequence. One-voice rule holds: if anything else grabs the voice mid-chain,
@@ -110,8 +129,11 @@ export function playCueAudio(src, { volume = 0.95, onUnavailable } = {}) {
 export function playCueSequence(srcs = [], { volume = 0.95, gapMs = 150 } = {}) {
   const queue = (srcs || []).filter(Boolean);
   if (!queue.length) return;
+  cancelCueSequence();
+  const sequenceVersion = cueSequenceVersion;
   let index = 0;
   const playNext = () => {
+    if (sequenceVersion !== cueSequenceVersion) return;
     if (index >= queue.length) return;
     const src = queue[index];
     index += 1;
@@ -119,11 +141,12 @@ export function playCueSequence(srcs = [], { volume = 0.95, gapMs = 150 } = {}) 
     const advance = () => {
       if (advanced || index >= queue.length) return;
       advanced = true;
-      window.setTimeout(() => {
-        if (currentCue === null) playNext();
+      cueSequenceTimer = window.setTimeout(() => {
+        cueSequenceTimer = null;
+        if (sequenceVersion === cueSequenceVersion && currentCue === null) playNext();
       }, gapMs);
     };
-    playCueAudio(src, { volume, onUnavailable: advance });
+    playCueAudioInternal(src, { volume, onUnavailable: advance }, true);
     const audio = currentCue;
     if (!audio) {
       advance();

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { elSkillsBlockCycles } from "../../data/elSkillsBlockCycles.js";
 import { getChildWordAsset } from "../../data/childAssets";
-import { playCueAudio, stopCueAudio } from "../../utils/audio/cuePlayer.js";
+import { playCueAudio, playCueSequence, stopCueAudio } from "../../utils/audio/cuePlayer.js";
 import { playCorrectChime, playSoftBuzz, playCelebrationFanfare, playStarChime } from "../../utils/audio/gameSfx.js";
 import { queueProgressSave } from "../../utils/progressSync.js";
 import { computeHydratedValue } from "../../utils/progressMerge.js";
@@ -31,6 +31,7 @@ import {
   starsForAccuracy,
   shuffleItems
 } from "./elQuestEngine.js";
+import { resolveAdventureRoundAudio } from "./adventureRoundAudio.js";
 import "../../styles/skills-block-quest.css";
 
 const STORAGE_PREFIX = "lp-el-quest";
@@ -123,6 +124,23 @@ function playCue(round) {
     // Gold voice or silence - the robotic browser voice never plays.
     onUnavailable: () => {}
   });
+}
+
+function playRoundInstruction(round, { includeContent = false } = {}) {
+  const resolved = resolveAdventureRoundAudio(round);
+  const sequence = [
+    resolved.instructionAudio,
+    ...resolved.targetAudio,
+    ...(includeContent && resolved.contentAudio ? [resolved.contentAudio] : [])
+  ].filter(Boolean);
+  if (sequence.length) playCueSequence(sequence, { gapMs: 180 });
+}
+
+function cancelPendingCoachCue(timerRef, requestRef) {
+  requestRef.current += 1;
+  if (timerRef.current === null) return;
+  window.clearTimeout(timerRef.current);
+  timerRef.current = null;
 }
 
 function SpeakerIcon() {
@@ -304,9 +322,10 @@ function TraceRound({ round, onResult }) {
   }
 
   function checkTrace() {
+    const expected = expectedStrokes();
     const result = scoreLetterTrace({
       drawnStrokes: drawnStrokesRef.current,
-      expectedStrokes: expectedStrokes()
+      expectedStrokes: expected
     });
     if (result.pass) {
       setTraceMessage(CHILD_COPY.tracing.good);
@@ -591,11 +610,18 @@ export function ElSkillsQuest({
   const [sessionStations, setSessionStations] = useState({});
   const [mapZoom] = useState(1);
   const cueTimerRef = useRef(null);
+  const coachCueTimerRef = useRef(null);
+  const coachCueRequestRef = useRef(0);
+  const playedInstructionKeyRef = useRef("");
 
   const activeCycle = cycleLock.locked
     ? cycleLock.cycle
     : playableCycles.find(cycle => cycle.id === activeCycleId) || null;
   const round = rounds[roundIndex] || null;
+  const roundAudio = useMemo(
+    () => (round ? resolveAdventureRoundAudio(round) : null),
+    [round]
+  );
 
   useEffect(() => {
     if (!cycleLock.locked) return;
@@ -616,18 +642,36 @@ export function ElSkillsQuest({
 
   useEffect(() => {
     answerLockRef.current = false;
-    if (!round || round.type === "build" || !round.audio) return undefined;
-    // The poem narration is ~10s: hear it in full on the first round,
-    // then only when the child taps Listen.
-    if (round.type === "poem" && roundIndex > 0) return undefined;
-    cueTimerRef.current = window.setTimeout(() => playCue(round), 120);
-    // Warm the next round's audio so it starts instantly.
+    cancelPendingCoachCue(coachCueTimerRef, coachCueRequestRef);
+    if (!stationId || celebration || !round || !roundAudio?.instructionAudio) return undefined;
+    const instructionKey = `${stationId}:${roundIndex}:${roundAudio.instructionAudio}`;
+    if (playedInstructionKeyRef.current !== instructionKey) {
+      cueTimerRef.current = window.setTimeout(() => {
+        playedInstructionKeyRef.current = instructionKey;
+        playRoundInstruction(round, { includeContent: round.type === "poem" && roundIndex === 0 });
+      }, 120);
+    }
+    // Warm the next round's directions and learning cue so both begin without
+    // a blank pause on a classroom connection.
     const next = rounds[roundIndex + 1];
-    if (next?.audio) {
-      try { new Audio(next.audio).preload = "auto"; } catch { /* ignore */ }
+    if (next) {
+      const nextAudio = resolveAdventureRoundAudio(next);
+      [nextAudio.instructionAudio, ...nextAudio.targetAudio, nextAudio.contentAudio]
+        .filter(Boolean)
+        .forEach(src => {
+          try {
+            const preload = new Audio(src);
+            preload.preload = "auto";
+          } catch { /* ignore */ }
+        });
     }
     return () => window.clearTimeout(cueTimerRef.current);
-  }, [round, rounds, roundIndex]);
+  }, [celebration, round, roundAudio, rounds, roundIndex, stationId]);
+
+  useEffect(() => () => {
+    cancelPendingCoachCue(coachCueTimerRef, coachCueRequestRef);
+    stopCueAudio();
+  }, []);
 
   function openCycle(cycle) {
     if (cycleLock.locked) return;
@@ -638,15 +682,26 @@ export function ElSkillsQuest({
   }
 
   function startStation(cycle, id) {
+    cancelPendingCoachCue(coachCueTimerRef, coachCueRequestRef);
+    const nextRounds = buildStationRounds(cycle, id);
     setStationId(id);
-    setRounds(buildStationRounds(cycle, id));
+    setRounds(nextRounds);
     setRoundIndex(0);
     setCorrect(0);
     setWrongs(0);
     setCelebration(null);
+    const firstRound = nextRounds[0];
+    if (firstRound) {
+      const firstAudio = resolveAdventureRoundAudio(firstRound);
+      playedInstructionKeyRef.current = `${id}:0:${firstAudio.instructionAudio}`;
+      // This runs inside the station-button tap, which keeps iPad Safari's
+      // media permission attached to the child's trusted gesture.
+      playRoundInstruction(firstRound, { includeContent: firstRound.type === "poem" });
+    }
   }
 
   function finishStation(finalCorrect, finalWrongs) {
+    cancelPendingCoachCue(coachCueTimerRef, coachCueRequestRef);
     stopCueAudio();
     const total = rounds.length;
     if (stationId === "check") {
@@ -711,6 +766,7 @@ export function ElSkillsQuest({
     // or skip a round; the lock releases when the next round renders.
     if (answerLockRef.current) return;
     if (success) {
+      cancelPendingCoachCue(coachCueTimerRef, coachCueRequestRef);
       answerLockRef.current = true;
       playCorrectChime();
       // Micro-celebration on EVERY correct answer (Duolingo ABC pattern).
@@ -729,7 +785,14 @@ export function ElSkillsQuest({
       setEncourage(true);
       // Coach the mistake: replay the sound cue so the child hears it again
       // right before retrying (never a penalty, always another go).
-      window.setTimeout(() => playCue(round), 700);
+      cancelPendingCoachCue(coachCueTimerRef, coachCueRequestRef);
+      const coachCueRequest = coachCueRequestRef.current;
+      const coachRound = round;
+      coachCueTimerRef.current = window.setTimeout(() => {
+        coachCueTimerRef.current = null;
+        if (coachCueRequestRef.current !== coachCueRequest) return;
+        playCue(coachRound);
+      }, 700);
       window.setTimeout(() => setEncourage(false), 1500);
     }
   }
@@ -1043,7 +1106,11 @@ export function ElSkillsQuest({
   if (celebration) {
     const isCycle = celebration.kind === "cycle";
     return (
-      <main className="skills-block-quest" data-learning-lane="practice_and_play">
+      <main
+        className="skills-block-quest"
+        data-learning-lane="practice_and_play"
+        data-quest-view="celebration"
+      >
         <div className="sbq-celebrate">
           {isCycle && <ConfettiCelebration show={celebration.stars > 0} />}
           <img src={isCycle ? worldForCycle(activeCycle.cycleNumber).cheer : worldForCycle(activeCycle.cycleNumber).point} alt="" />
@@ -1241,7 +1308,11 @@ export function ElSkillsQuest({
         <button
           className="sbq-ghost-button"
           type="button"
-          onClick={() => setStationId(null)}
+          onClick={() => {
+            cancelPendingCoachCue(coachCueTimerRef, coachCueRequestRef);
+            stopCueAudio();
+            setStationId(null);
+          }}
         >
           Stop
         </button>
@@ -1258,14 +1329,47 @@ export function ElSkillsQuest({
           {sparkle && (
             <span className="sbq-sparkle" aria-hidden="true" onAnimationEnd={() => setSparkle(false)}>✨</span>
           )}
-          <p className="sbq-round-prompt">{round.prompt}</p>
+          <div className="sbq-instruction-block">
+            <div className="sbq-instruction-copy">
+              <p className="sbq-round-prompt">{roundAudio.instructionText}</p>
+              {roundAudio.detailText && <p className="sbq-round-detail">{roundAudio.detailText}</p>}
+            </div>
+            <button
+              className="sbq-instruction-button"
+              type="button"
+              aria-label="Hear instructions again"
+              data-instruction-audio={roundAudio.instructionAudio}
+              onClick={() => playRoundInstruction(round, { includeContent: round.type === "poem" })}
+            >
+              <SpeakerIcon />
+              Hear what to do
+            </button>
+          </div>
           {round.support && <p className="sbq-round-support">{round.support}</p>}
           {encourage && <p className="sbq-encourage" role="status">Almost! Try again.</p>}
-          {round.audio && (
-            <button className="sbq-listen-button" type="button" onClick={() => playCue(round)}>
-              <SpeakerIcon />
-              Listen
-            </button>
+          {(roundAudio.targetAudio.length > 0 || roundAudio.contentAudio) && (
+            <div className="sbq-round-audio-actions">
+              {roundAudio.targetAudio.length > 0 && (
+                <button
+                  className="sbq-listen-button"
+                  type="button"
+                  onClick={() => playCueSequence(roundAudio.targetAudio, { gapMs: 150 })}
+                >
+                  <SpeakerIcon />
+                  Listen
+                </button>
+              )}
+              {roundAudio.contentAudio && (
+                <button
+                  className="sbq-listen-button sbq-listen-content"
+                  type="button"
+                  onClick={() => playCueAudio(roundAudio.contentAudio)}
+                >
+                  <SpeakerIcon />
+                  Hear the poem
+                </button>
+              )}
+            </div>
           )}
 
           {round.cover && (

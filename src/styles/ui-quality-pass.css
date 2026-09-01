@@ -92,6 +92,27 @@
   overflow: hidden;
 }
 
+.kg-stage .kg-main > .skills-block-quest .sbq-instruction-block {
+  flex: 0 0 auto;
+  width: min(100%, 860px);
+  gap: 10px;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-instruction-copy {
+  flex: 1 1 auto;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-round-detail {
+  margin-top: 2px;
+  font-size: 0.88rem;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-instruction-button,
+.kg-stage .kg-main > .skills-block-quest .sbq-primary-button,
+.kg-stage .kg-main > .skills-block-quest .sbq-ghost-button {
+  min-height: var(--kg-physical-hit, 56px);
+}
+
 .kg-stage .kg-main > .skills-block-quest .sbq-round-prompt,
 .kg-stage .kg-main > .skills-block-quest .sbq-round-support,
 .kg-stage .kg-main > .skills-block-quest .sbq-poem-title,
@@ -104,8 +125,8 @@
 }
 
 .kg-stage .kg-main > .skills-block-quest .sbq-listen-button {
-  min-height: 44px;
-  padding-block: 8px;
+  min-height: var(--kg-physical-hit, 56px);
+  padding-block: 10px;
 }
 
 .kg-stage .kg-main > .skills-block-quest .sbq-answer-grid {
@@ -116,8 +137,25 @@
 }
 
 .kg-stage .kg-main > .skills-block-quest .sbq-answer-grid button {
-  min-height: 72px;
+  min-width: max(88px, var(--kg-physical-answer-width, 80px)) !important;
+  min-height: max(72px, var(--kg-physical-answer-height, 64px)) !important;
   padding: 8px 12px;
+  transition: background-color 0.15s ease, border-color 0.15s ease,
+    box-shadow 0.15s ease, color 0.15s ease, opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-pattern-tile {
+  min-width: max(116px, var(--kg-physical-answer-width, 80px)) !important;
+  min-height: max(78px, var(--kg-physical-answer-height, 64px)) !important;
+  font-size: 1.22rem;
+  transition: background-color 0.15s ease, border-color 0.15s ease,
+    box-shadow 0.15s ease, color 0.15s ease, opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.kg-stage .kg-main > .skills-block-quest > .sbq-round-card > .sbq-primary-button {
+  min-width: 120px !important;
 }
 
 .kg-stage .kg-main > .skills-block-quest .sbq-answer-grid.pictures img {
@@ -140,6 +178,43 @@
 
 .kg-stage .kg-main > .skills-block-quest .sbq-story-cover figcaption {
   font-size: 1rem;
+}
+
+/* Story Stop previously floated a small cover and tiny answer row in the
+   middle of a mostly empty card. Use the available iPad width as two clear
+   reading lanes while keeping the spoken direction across the top. */
+.kg-stage .kg-main > .skills-block-quest[data-round-type="story"] > .sbq-round-card {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.8fr) minmax(340px, 1.2fr);
+  grid-template-rows: auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: clamp(18px, 4vw, 48px);
+}
+
+.kg-stage .kg-main > .skills-block-quest[data-round-type="story"] .sbq-instruction-block {
+  grid-column: 1 / -1;
+}
+
+.kg-stage .kg-main > .skills-block-quest[data-round-type="story"] .sbq-story-cover {
+  grid-column: 1;
+  grid-row: 2;
+  flex: none;
+}
+
+.kg-stage .kg-main > .skills-block-quest[data-round-type="story"] .sbq-story-cover img {
+  width: auto;
+  height: min(28vh, 220px);
+  max-height: 220px;
+}
+
+.kg-stage .kg-main > .skills-block-quest[data-round-type="story"] .sbq-answer-grid {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.kg-stage .kg-main > .skills-block-quest[data-round-type="story"] .sbq-answer-grid button {
+  min-width: max(140px, var(--kg-physical-answer-width, 80px)) !important;
+  min-height: max(84px, var(--kg-physical-answer-height, 64px)) !important;
 }
 
 .kg-stage .kg-main > .skills-block-quest .sbq-round-display {
@@ -200,6 +275,29 @@
 .kg-stage .kg-main > .skills-block-quest .sbq-trace-message {
   grid-column: 1 / -1;
   grid-row: 2;
+}
+
+/* Completion is a single bounded state, not a three-row round player. The old
+   inherited grid put its card against the top safe edge in the photographed
+   iPad layout. */
+.kg-stage .kg-main > .skills-block-quest[data-quest-view="celebration"] {
+  grid-template-rows: minmax(0, 1fr);
+  padding: 12px 16px;
+}
+
+.kg-stage .kg-main > .skills-block-quest[data-quest-view="celebration"] > .sbq-celebrate {
+  align-self: center;
+  justify-self: center;
+  max-width: min(720px, 100%);
+  max-height: 100%;
+  margin: 0;
+  padding: clamp(18px, 3vh, 32px) clamp(22px, 4vw, 42px);
+  overflow: hidden;
+}
+
+.kg-stage .kg-main > .skills-block-quest[data-quest-view="celebration"] .sbq-celebrate-actions button {
+  min-width: 150px !important;
+  min-height: var(--kg-physical-hit, 56px);
 }
 
 /* A station picker has no progress row or round card. Give its station grid
@@ -499,6 +597,59 @@
 
   .kg-stage .kg-main--scroll > * {
     min-height: 100%;
+  }
+
+  /* Adventure activities use the phone's declared content scroller instead of
+     clipping a tablet-sized fixed card. Story Stop becomes one clear column,
+     so its cover and answer cards never hang past the panel edge. */
+  .kg-stage .kg-main > .skills-block-quest[data-quest-view="round"] {
+    grid-template-rows: auto 10px auto;
+    height: auto;
+    min-height: 100%;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .kg-stage .kg-main > .skills-block-quest[data-quest-view="round"] > .sbq-round-card {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .kg-stage .kg-main > .skills-block-quest[data-round-type="story"] > .sbq-round-card {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+    row-gap: 10px;
+  }
+
+  .kg-stage .kg-main > .skills-block-quest[data-round-type="story"] .sbq-instruction-block,
+  .kg-stage .kg-main > .skills-block-quest[data-round-type="story"] .sbq-story-cover,
+  .kg-stage .kg-main > .skills-block-quest[data-round-type="story"] .sbq-answer-grid {
+    grid-column: 1;
+  }
+
+  .kg-stage .kg-main > .skills-block-quest[data-round-type="story"] .sbq-instruction-block {
+    grid-row: 1;
+  }
+
+  .kg-stage .kg-main > .skills-block-quest[data-round-type="story"] .sbq-story-cover {
+    grid-row: 2;
+  }
+
+  .kg-stage .kg-main > .skills-block-quest[data-round-type="story"] .sbq-story-cover img {
+    height: 120px;
+    max-height: 120px;
+  }
+
+  .kg-stage .kg-main > .skills-block-quest[data-round-type="story"] .sbq-answer-grid {
+    grid-row: 3;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .kg-stage .kg-main > .skills-block-quest[data-round-type="story"] .sbq-answer-grid button {
+    width: 100%;
+    min-width: 0 !important;
   }
 
   .kg-stage .kg-tabbar {

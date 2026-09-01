@@ -83,6 +83,8 @@ const MIN_SCALE = 0.4;
 const NATIVE_PHONE_MAX_WIDTH = 700;
 const NATIVE_PORTRAIT_TABLET_MAX_WIDTH = 900;
 const PHYSICAL_TARGET_PX = 56;
+const PHYSICAL_ANSWER_WIDTH_PX = 80;
+const PHYSICAL_ANSWER_HEIGHT_PX = 64;
 
 function usesNativeViewportLayout(width, height) {
   return width <= NATIVE_PHONE_MAX_WIDTH
@@ -189,7 +191,15 @@ export function applyKidsStageMetrics(element, view = globalThis) {
   element.style.setProperty("--kg-scale", String(metrics.scale));
   element.style.setProperty("--kg-stage-width", `${metrics.stageWidth}px`);
   // Compensate in design pixels so scaling never turns the child-facing 56px
-  // floor into a smaller physical target.
+  // floor or readable answer-card floor into smaller physical controls.
   element.style.setProperty("--kg-physical-hit", `${PHYSICAL_TARGET_PX / effectiveScale}px`);
+  element.style.setProperty(
+    "--kg-physical-answer-width",
+    `${PHYSICAL_ANSWER_WIDTH_PX / effectiveScale}px`
+  );
+  element.style.setProperty(
+    "--kg-physical-answer-height",
+    `${PHYSICAL_ANSWER_HEIGHT_PX / effectiveScale}px`
+  );
   return metrics;
 }

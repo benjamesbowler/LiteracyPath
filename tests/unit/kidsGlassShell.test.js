@@ -220,6 +220,8 @@ test("the metrics are written to the DOM as custom properties, not held in React
   assert.equal(written["--kg-scale"], "1");
   assert.equal(written["--kg-stage-width"], "1194px");
   assert.equal(written["--kg-physical-hit"], "56px");
+  assert.equal(written["--kg-physical-answer-width"], "80px");
+  assert.equal(written["--kg-physical-answer-height"], "64px");
   const portraitTabletWritten = {};
   applyKidsStageMetrics(
     { style: { setProperty: (name, value) => { portraitTabletWritten[name] = value; } } },
@@ -229,6 +231,19 @@ test("the metrics are written to the DOM as custom properties, not held in React
     portraitTabletWritten["--kg-physical-hit"],
     "56px",
     "the native portrait-tablet layout must not compensate for a transform it does not use"
+  );
+  assert.equal(portraitTabletWritten["--kg-physical-answer-width"], "80px");
+  assert.equal(portraitTabletWritten["--kg-physical-answer-height"], "64px");
+  const shortTabletWritten = {};
+  const shortTabletMetrics = applyKidsStageMetrics(
+    { style: { setProperty: (name, value) => { shortTabletWritten[name] = value; } } },
+    { innerWidth: 1024, innerHeight: 650 }
+  );
+  assert.ok(
+    (Number.parseFloat(shortTabletWritten["--kg-physical-answer-width"]) * shortTabletMetrics.scale) >= 80
+  );
+  assert.ok(
+    (Number.parseFloat(shortTabletWritten["--kg-physical-answer-height"]) * shortTabletMetrics.scale) >= 64
   );
   assert.deepEqual(
     applyKidsStageMetrics(null, { innerWidth: 800, innerHeight: 600 }),

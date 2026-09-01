@@ -68,14 +68,46 @@ test("the right strokes in the wrong pedagogic order do not pass", () => {
   assert.equal(result.orderScore, 0);
 });
 
-test("all expected strokes concatenated into one stroke do not pass", () => {
-  const concatenated = [expectedA.flat()];
+test("a correctly formed letter passes when the child keeps one finger down", () => {
+  const continuousTrace = [expectedA.flat()];
   const result = scoreLetterTrace({
-    drawnStrokes: concatenated,
+    drawnStrokes: continuousTrace,
+    expectedStrokes: expectedA
+  });
+  assert.equal(result.pass, true);
+  assert.equal(result.strokeCoverage, 1);
+  assert.equal(result.directionScore, 1);
+  assert.equal(result.orderScore, 1);
+});
+
+test("one continuous box-and-cross scribble is still rejected", () => {
+  const continuousScribble = [[
+    ...line(40, 30, 260, 30, 40),
+    ...line(260, 30, 260, 270, 40),
+    ...line(260, 270, 40, 270, 40),
+    ...line(40, 270, 40, 30, 40),
+    ...line(40, 30, 260, 270, 50),
+    ...line(260, 270, 260, 30, 40),
+    ...line(260, 30, 40, 270, 50)
+  ]];
+  const result = scoreLetterTrace({
+    drawnStrokes: continuousScribble,
     expectedStrokes: expectedA
   });
   assert.equal(result.pass, false);
-  assert.ok(result.strokeCoverage < 1);
+});
+
+test("a backwards stroke hidden inside one continuous retrace is rejected", () => {
+  const backwardsThenRetraced = [[
+    ...[...expectedA[0]].reverse(),
+    ...expectedA[1],
+    ...expectedA[2]
+  ]];
+  const result = scoreLetterTrace({
+    drawnStrokes: backwardsThenRetraced,
+    expectedStrokes: expectedA
+  });
+  assert.equal(result.pass, false);
 });
 
 test("a different letter shape does not pass over the target", () => {

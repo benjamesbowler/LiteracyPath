@@ -1,5 +1,8 @@
 import { expect, test } from "@playwright/test";
 
+import { LETTER_GUIDES, LETTER_STROKES } from "../../src/data/letterStrokes.js";
+import { scoreLetterTrace } from "../../src/utils/traceLetterScoring.js";
+
 const PREVIEW = "/?skillsQuest";
 const TRACE_CANVAS = ".sbq-trace-stage canvas";
 const TRACE_TARGET = ".sbq-trace-letter [data-trace-target]";
@@ -114,6 +117,120 @@ async function renderedTargetStrokes(page) {
     });
   }));
 }
+
+async function sampleLetterStrokeBank(page) {
+  return page.evaluate(({ guides, pathsByLetter }) => {
+    const namespace = "http://www.w3.org/2000/svg";
+    const scale = Math.min((460 - 72) / guides.width, (300 - 34) / 140);
+    const offsetX = (460 - (guides.width * scale)) / 2;
+    const offsetY = (300 - (140 * scale)) / 2;
+    return Object.fromEntries(Object.entries(pathsByLetter).map(([letter, pathData]) => [
+      letter,
+      pathData.map(data => {
+        const path = document.createElementNS(namespace, "path");
+        path.setAttribute("d", data);
+        const length = path.getTotalLength();
+        const points = [];
+        for (let at = 0; at <= length; at += 5) {
+          const point = path.getPointAtLength(Math.min(at, length));
+          points.push([
+            offsetX + (point.x * scale),
+            offsetY + (point.y * scale)
+          ]);
+        }
+        return points;
+      })
+    ]));
+  }, { guides: LETTER_GUIDES, pathsByLetter: LETTER_STROKES });
+}
+
+function substantialStroke(stroke) {
+  if (stroke.length < 2) return false;
+  const [firstX, firstY] = stroke[0];
+  const [lastX, lastY] = stroke.at(-1);
+  return Math.hypot(lastX - firstX, lastY - firstY) > 12;
+}
+
+test("one continuous modelled gesture is accepted across the taught letter bank", async ({ page }) => {
+  const strokeBank = await sampleLetterStrokeBank(page);
+
+  const failures = Object.entries(strokeBank)
+    .filter(([, expectedStrokes]) => expectedStrokes.length > 1)
+    .flatMap(([letter, expectedStrokes]) => {
+      const exact = expectedStrokes.flat();
+      const childLike = exact.map(([x, y], index) => [
+        x + (Math.sin(index * 0.7) * 3),
+        y + (Math.cos(index * 0.55) * 3)
+      ]);
+      return [
+        ["exact", exact],
+        ["child-like", childLike]
+      ].map(([variant, drawn]) => ({
+        letter,
+        variant,
+        result: scoreLetterTrace({
+          drawnStrokes: [drawn],
+          expectedStrokes
+        })
+      }));
+    })
+    .filter(({ result }) => !result.pass);
+
+  expect(failures).toEqual([]);
+});
+
+test("a continuous gesture cannot hide an observably reversed pedagogic stroke", async ({ page }) => {
+  const strokeBank = await sampleLetterStrokeBank(page);
+  // Uppercase Y's second branch is the one unavoidable ambiguity introduced
+  // by never lifting: both formations travel centre -> right -> centre, with
+  // only the invisible boundary between connector and stroke changing.
+  const continuouslyIndistinguishable = new Set(["Y:1"]);
+  const acceptedReversals = Object.entries(strokeBank)
+    .filter(([, expectedStrokes]) => expectedStrokes.length > 1)
+    .flatMap(([letter, expectedStrokes]) => expectedStrokes
+      .map((stroke, reversedIndex) => ({ stroke, reversedIndex }))
+      .filter(({ stroke }) => substantialStroke(stroke))
+      .map(({ reversedIndex }) => {
+        const drawn = expectedStrokes.flatMap((stroke, index) => (
+          index === reversedIndex ? [...stroke].reverse() : stroke
+        ));
+        return {
+          letter,
+          reversedIndex,
+          result: scoreLetterTrace({ drawnStrokes: [drawn], expectedStrokes })
+        };
+      })
+      .filter(({ letter: candidateLetter, reversedIndex }) => (
+        !continuouslyIndistinguishable.has(`${candidateLetter}:${reversedIndex}`)
+      )))
+    .filter(({ result }) => result.pass);
+
+  expect(acceptedReversals).toEqual([]);
+});
+
+test("a continuous gesture cannot hide a full backwards retrace", async ({ page }) => {
+  const strokeBank = await sampleLetterStrokeBank(page);
+  const acceptedRetraces = Object.entries(strokeBank)
+    .filter(([, expectedStrokes]) => expectedStrokes.length > 1)
+    .map(([letter, expectedStrokes]) => {
+      const retracedIndex = expectedStrokes.reduce((longestIndex, stroke, index) => (
+        stroke.length > expectedStrokes[longestIndex].length ? index : longestIndex
+      ), 0);
+      const drawn = expectedStrokes.flatMap((stroke, index) => (
+        index === retracedIndex
+          ? [...stroke, ...[...stroke].reverse().slice(1), ...stroke.slice(1)]
+          : stroke
+      ));
+      return {
+        letter,
+        retracedIndex,
+        result: scoreLetterTrace({ drawnStrokes: [drawn], expectedStrokes })
+      };
+    })
+    .filter(({ result }) => result.pass);
+
+  expect(acceptedRetraces).toEqual([]);
+});
 
 async function drawMouseStroke(page, points) {
   await page.mouse.move(points[0].x, points[0].y);
@@ -242,7 +359,8 @@ test("Letter Trace requires ordered formation through real mouse or touch input"
     await expectRejected(page);
     await clearTrace(page);
 
-    // The complete modelled stroke sequence is accepted through the same input.
+    // The complete modelled shape is accepted even when a child keeps one
+    // finger down while moving between its pedagogic strokes.
     targetStrokes = await renderedTargetStrokes(page);
     await page.locator(TRACE_CANVAS).evaluate(canvas => {
       window.__letterTracePointerEvidence = [];
@@ -258,7 +376,7 @@ test("Letter Trace requires ordered formation through real mouse or touch input"
         });
       }
     });
-    await driver.draw(targetStrokes);
+    await driver.draw([targetStrokes.flat()]);
     const pointerEvidence = await page.evaluate(() => window.__letterTracePointerEvidence || []);
     expect(pointerEvidence.length).toBeGreaterThanOrEqual(20);
     expect([...new Set(pointerEvidence.map(event => event.pointerType))]).toEqual([

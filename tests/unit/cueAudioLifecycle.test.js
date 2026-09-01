@@ -118,6 +118,76 @@ test("a failed cue advances to the next recorded clip in a sequence", async () =
   }
 });
 
+test("stopping during a sequence gap prevents the next clip from starting", async () => {
+  const originalWindow = globalThis.window;
+  const originalAudio = globalThis.Audio;
+  const instances = [];
+  const timers = [];
+  let cue = null;
+
+  class FakeAudio {
+    constructor(source = "") {
+      this.src = source;
+      this.currentTime = 0;
+      this.playCount = 0;
+      this.listeners = new Map();
+      instances.push(this);
+    }
+
+    addEventListener(type, handler) {
+      const handlers = this.listeners.get(type) || [];
+      handlers.push(handler);
+      this.listeners.set(type, handlers);
+    }
+
+    removeEventListener(type, handler) {
+      const handlers = this.listeners.get(type) || [];
+      this.listeners.set(type, handlers.filter(candidate => candidate !== handler));
+    }
+
+    emit(type) {
+      for (const handler of this.listeners.get(type) || []) handler();
+    }
+
+    play() {
+      this.playCount += 1;
+      return Promise.resolve();
+    }
+
+    pause() {}
+  }
+
+  globalThis.window = {
+    speechSynthesis: { cancel() {} },
+    setTimeout(callback) {
+      timers.push(callback);
+      return timers.length;
+    },
+    clearTimeout() {}
+  };
+  globalThis.Audio = FakeAudio;
+
+  try {
+    cue = await import(`../../src/utils/audio/cuePlayer.js?gap-stop=${Date.now()}`);
+    cue.playCueSequence(["/audio/first.mp3", "/audio/second.mp3"], { gapMs: 180 });
+    const audio = instances[0];
+    assert.equal(audio.src, "/audio/first.mp3");
+    assert.equal(audio.playCount, 1);
+
+    audio.emit("ended");
+    assert.equal(timers.length, 1);
+    cue.stopCueAudio();
+    timers[0]();
+
+    assert.equal(audio.src, "/audio/first.mp3");
+    assert.equal(audio.playCount, 1);
+  } finally {
+    cue?.stopCueAudio();
+    globalThis.window = originalWindow;
+    globalThis.Audio = originalAudio;
+  }
+});
+
 test("a rejected cue play promise also advances the sequence", async () => {
   const originalWindow = globalThis.window;
   const originalAudio = globalThis.Audio;

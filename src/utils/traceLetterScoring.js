@@ -134,6 +134,200 @@ function pointCoverage(target = [], evidence = [], toleranceSquared) {
   return target.filter(point => nearAny(point, evidence, toleranceSquared)).length / target.length;
 }
 
+/**
+ * A young child will often keep one finger on the glass while moving between
+ * the modelled strokes. Treat that as one gesture, not one pedagogic stroke:
+ * choose one forward interval for every expected stroke, in pedagogic order.
+ * The dynamic programme considers all plausible start/end anchor visits as a
+ * chain. That matters for B, M, W and other forms which deliberately revisit
+ * an earlier anchor: a locally nearest endpoint can belong to a later stroke.
+ * Travel between the chosen intervals is retained as transition evidence, so
+ * a backwards stroke or retrace cannot disappear into an ignored connector.
+ */
+function partitionContinuousGesture(stroke = [], expected = [], tolerance = 23) {
+  if (!stroke.length || expected.length < 2) return null;
+  const anchorToleranceSquared = (tolerance * 1.5) ** 2;
+  const spacing = Math.max(3, tolerance / 4);
+
+  const journeyFor = journeyStrokes => journeyStrokes.flatMap((expectedStroke, index) => {
+    if (index === 0) return expectedStroke;
+    const connector = resampleStroke([
+      journeyStrokes[index - 1].at(-1),
+      expectedStroke[0]
+    ], spacing);
+    return [...connector.slice(1, -1), ...expectedStroke];
+  });
+  const forwardJourneyDistance = orderedAlignment(stroke, journeyFor(expected)).meanDistance;
+  // Whole-journey resampling can move a very short connector by a fraction of
+  // a pixel. Require both a useful absolute margin and a decisive relative
+  // win before treating a reversed model as the better explanation.
+  const directionMargin = Math.max(0.5, tolerance * 0.02);
+  const reversedJourneyWins = expected.some((expectedStroke, reversedIndex) => {
+    const expectedIsDot = expectedStroke.length <= 2
+      || strokeLength(expectedStroke) <= tolerance * 0.3;
+    if (expectedIsDot) return false;
+    const reversedJourney = journeyFor(expected.map((candidate, index) => (
+      index === reversedIndex ? [...candidate].reverse() : candidate
+    )));
+    const reversedDistance = orderedAlignment(stroke, reversedJourney).meanDistance;
+    return reversedDistance + directionMargin < forwardJourneyDistance
+      && reversedDistance < forwardJourneyDistance * 0.8;
+  });
+  if (reversedJourneyWins) return null;
+
+  const candidatesByStroke = expected.map(expectedStroke => {
+    const expectedLength = strokeLength(expectedStroke);
+    const expectedIsDot = expectedStroke.length <= 2 || expectedLength <= tolerance * 0.3;
+    const starts = [];
+    const ends = [];
+    stroke.forEach((point, index) => {
+      if (squaredDistance(point, expectedStroke[0]) <= anchorToleranceSquared) starts.push(index);
+      if (squaredDistance(point, expectedStroke.at(-1)) <= anchorToleranceSquared) ends.push(index);
+    });
+
+    const candidates = [];
+    starts.forEach(start => {
+      ends.forEach(end => {
+        if (end < start || (!expectedIsDot && end === start)) return;
+        const points = stroke.slice(start, end + 1);
+        if (expectedIsDot) {
+          candidates.push({
+            start,
+            end,
+            points: [stroke[start]],
+            cost: distance(stroke[start], expectedStroke[0]) / Math.max(1, tolerance)
+          });
+          return;
+        }
+
+        const match = matchDrawnStroke(points, expectedStroke, tolerance);
+        const drawnLength = strokeLength(points);
+        const lengthRatio = expectedLength > 0 ? drawnLength / expectedLength : 1;
+        if (
+          match.forward.meanDistance > tolerance * 1.1
+          || match.coverage < 0.55
+          || match.precision < 0.5
+          || !match.directionForward
+          || lengthRatio < 0.42
+          || lengthRatio > 1.65
+        ) return;
+
+        const endpointCost = (
+          distance(points[0], expectedStroke[0])
+          + distance(points.at(-1), expectedStroke.at(-1))
+        ) / Math.max(1, tolerance);
+        candidates.push({
+          start,
+          end,
+          points,
+          cost: (match.forward.meanDistance / Math.max(1, tolerance))
+            + ((1 - match.coverage) * 2)
+            + ((1 - match.precision) * 1.5)
+            + (Math.abs(1 - lengthRatio) * 0.35)
+            + (endpointCost * 0.35)
+        });
+      });
+    });
+    return candidates;
+  });
+
+  if (candidatesByStroke.some(candidates => candidates.length === 0)) return null;
+
+  const outsideTravelLimit = tolerance * 1.5;
+  let states = candidatesByStroke[0].flatMap(candidate => {
+    const prefixLength = strokeLength(stroke.slice(0, candidate.start + 1));
+    if (prefixLength > outsideTravelLimit) return [];
+    return [{
+      candidate,
+      chain: [candidate],
+      transitionExcessLength: 0,
+      cost: candidate.cost + (prefixLength / Math.max(1, tolerance))
+    }];
+  });
+  if (!states.length) return null;
+
+  for (let expectedIndex = 1; expectedIndex < expected.length; expectedIndex += 1) {
+    const expectedConnectorLength = distance(
+      expected[expectedIndex - 1].at(-1),
+      expected[expectedIndex][0]
+    );
+    const nextStates = [];
+    candidatesByStroke[expectedIndex].forEach(candidate => {
+      let best = null;
+      states.forEach(previous => {
+        if (candidate.start < previous.candidate.end) return;
+        const transitionPoints = stroke.slice(
+          previous.candidate.end,
+          candidate.start + 1
+        );
+        const transitionLength = strokeLength(transitionPoints);
+        if (expectedConnectorLength <= tolerance * 0.3) {
+          // Shared anchors need only a tiny bridge. If a whole backwards line
+          // appears here, it is formation evidence rather than pen travel.
+          if (transitionLength > tolerance * 1.35) return;
+        } else {
+          const connectorModel = resampleStroke([
+            expected[expectedIndex - 1].at(-1),
+            expected[expectedIndex][0]
+          ], Math.max(3, tolerance / 4));
+          const connectorAlignment = orderedAlignment(transitionPoints, connectorModel);
+          const connectorPrecision = pointCoverage(
+            transitionPoints,
+            connectorModel,
+            (tolerance * 1.4) ** 2
+          );
+          if (
+            connectorAlignment.meanDistance > tolerance * 1.25
+            || connectorPrecision < 0.55
+            || transitionLength > (expectedConnectorLength * 1.65) + tolerance
+          ) return;
+        }
+        // A child's bridge may bow around the letter. Allow 35% plus one pen
+        // width, but retain any longer detour as unmatched formation evidence.
+        const transitionAllowance = (expectedConnectorLength * 1.35) + tolerance;
+        const transitionExcess = Math.max(0, transitionLength - transitionAllowance);
+        const transitionCost = transitionExcess / Math.max(1, tolerance);
+        const cost = previous.cost + candidate.cost + transitionCost;
+        if (!best || cost < best.cost) {
+          best = {
+            candidate,
+            chain: [...previous.chain, candidate],
+            transitionExcessLength: previous.transitionExcessLength + transitionExcess,
+            cost
+          };
+        }
+      });
+      if (best) nextStates.push(best);
+    });
+    if (!nextStates.length) return null;
+    states = nextStates;
+  }
+
+  const best = states.reduce((winner, state) => {
+    const suffixLength = strokeLength(stroke.slice(state.candidate.end));
+    if (suffixLength > outsideTravelLimit) return winner;
+    const finalCost = state.cost + (suffixLength / Math.max(1, tolerance));
+    if (!winner || finalCost < winner.finalCost) return { ...state, finalCost };
+    return winner;
+  }, null);
+  if (!best) return null;
+
+  const expectedStrokeLength = expected.reduce(
+    (total, expectedStroke) => total + strokeLength(expectedStroke),
+    0
+  );
+  const expectedConnectorLength = expected.slice(1).reduce((total, expectedStroke, index) => (
+    total + distance(expected[index].at(-1), expectedStroke[0])
+  ), 0);
+  return {
+    pieces: best.chain.map(candidate => candidate.points),
+    expectedJourneyLength: expectedStrokeLength + expectedConnectorLength,
+    transitionExcessLength: best.transitionExcessLength,
+    outsideTravelLength: strokeLength(stroke.slice(0, best.chain[0].start + 1))
+      + strokeLength(stroke.slice(best.candidate.end))
+  };
+}
+
 function matchDrawnStroke(drawn, expected, tolerance) {
   const toleranceSquared = tolerance * tolerance;
   const reversedExpected = [...expected].reverse();
@@ -177,6 +371,11 @@ export function scoreLetterTrace({
   const drawnPoints = sampledDrawn.flat();
   const expectedPoints = sampledExpected.flat();
   const toleranceSquared = tolerance * tolerance;
+  const continuousPartition = sampledDrawn.length === 1
+    ? partitionContinuousGesture(sampledDrawn[0], sampledExpected, tolerance)
+    : null;
+  const continuousPieces = continuousPartition?.pieces || null;
+  const matchingStrokes = continuousPieces || sampledDrawn;
 
   // Use resampled evidence here rather than raw pointer-event count. A valid
   // fast stroke may produce only a handful of events on a low-rate device.
@@ -193,7 +392,7 @@ export function scoreLetterTrace({
     };
   }
 
-  const assignments = sampledDrawn.map((stroke, drawnIndex) => {
+  const assignments = matchingStrokes.map((stroke, drawnIndex) => {
     const candidates = sampledExpected.map((expectedStroke, expectedIndex) => ({
       expectedIndex,
       ...matchDrawnStroke(stroke, expectedStroke, tolerance)
@@ -303,7 +502,26 @@ export function scoreLetterTrace({
   const unmatchedLength = substantialAssignments
     .filter(row => !row.accepted)
     .reduce((total, row) => total + row.length, 0);
-  const unmatchedStrokeRatio = totalDrawnLength > 0 ? unmatchedLength / totalDrawnLength : 1;
+  const assignmentUnmatchedRatio = totalDrawnLength > 0 ? unmatchedLength / totalDrawnLength : 1;
+  const originalDrawnLength = sampledDrawn.reduce(
+    (total, stroke) => total + strokeLength(stroke),
+    0
+  );
+  const continuousTravelRatio = continuousPieces && originalDrawnLength > 0
+    ? Math.max(
+      Math.max(
+        0,
+        (originalDrawnLength - (continuousPartition.expectedJourneyLength * 1.15))
+          / originalDrawnLength
+      ),
+      continuousPartition.transitionExcessLength / originalDrawnLength
+    )
+    : 0;
+  const outsideTravelRatio = continuousPartition && originalDrawnLength > 0
+    ? continuousPartition.outsideTravelLength / originalDrawnLength
+    : 0;
+  const unmatchedStrokeRatio = Math.max(assignmentUnmatchedRatio, continuousTravelRatio);
+  const unmatchedLimit = 0.12;
 
   return {
     pass: (
@@ -313,7 +531,8 @@ export function scoreLetterTrace({
       && endpointCoverage >= 0.78
       && directionScore === 1
       && orderScore === 1
-      && unmatchedStrokeRatio <= 0.12
+      && unmatchedStrokeRatio <= unmatchedLimit
+      && outsideTravelRatio <= 0.14
     ),
     coverage,
     precision,
