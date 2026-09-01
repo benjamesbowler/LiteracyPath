@@ -55,6 +55,34 @@ test("family release snapshots retain canonical report sections and progress sta
   assert.equal(snapshot.progress.find(row => row.id === "reading_aloud").status, "mixed_evidence");
 });
 
+test("family domain summaries never hide mixed evidence behind another status", () => {
+  const collisionWorkspace = {
+    wholeChild: {
+      reportKey: "whole_child",
+      studentId: "11111111-1111-4111-8111-111111111111",
+      concepts: [
+        { domain: "fluency", status: { id: "secure" } },
+        { domain: "fluency", status: { id: "mixed_evidence" } },
+        { domain: "decoding", status: { id: "developing" } },
+        { domain: "decoding", status: { id: "mixed_evidence" } },
+        { domain: "encoding", status: { id: "needs_support" } },
+        { domain: "encoding", status: { id: "mixed_evidence" } }
+      ]
+    }
+  };
+  const snapshot = buildParentReleaseSnapshot({
+    workspace: collisionWorkspace,
+    studentId: "11111111-1111-4111-8111-111111111111",
+    studentName: "Aarav",
+    className: "Willow Class",
+    schoolName: "Oakfield Primary"
+  });
+
+  assert.equal(snapshot.progress.find(row => row.id === "reading_aloud").status, "mixed_evidence");
+  assert.equal(snapshot.progress.find(row => row.id === "reading_words").status, "mixed_evidence");
+  assert.equal(snapshot.progress.find(row => row.id === "spelling_words").status, "mixed_evidence");
+});
+
 test("family release snapshots fall back to a valid teaching cycle", () => {
   const snapshot = buildParentReleaseSnapshot({
     workspace,
