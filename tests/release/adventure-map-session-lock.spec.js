@@ -42,6 +42,11 @@ test("an assigned Adventure Map space stays pinned and keeps its notice out of t
     await expect(map).toHaveAttribute("data-locked-cycle-id", "cycle-14");
     await expect(page.locator('.kg-map-card[data-node-state="next"]')).toHaveCount(1);
     await expect(page.locator('.kg-map-card[data-cycle-id="cycle-14"]')).toBeVisible();
+    const assignedReason = map.locator(
+      '[data-child-primary] [data-child-emphasis-cue] [data-recommendation-surface="adventure-map"]'
+    );
+    await expect(assignedReason).toHaveText("Your teacher chose this map space.");
+    await expect(assignedReason).not.toContainText("next unfinished stop");
     await expect(page.locator(".kg-tabbar")).toHaveCount(0);
     await expect(page.locator(".student-session-notice--header")).toContainText(
       "Your teacher has chosen this activity"

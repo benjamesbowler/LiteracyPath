@@ -248,9 +248,17 @@ export function StudentAdventureMapPage({
 
   const stateLabel = stop => {
     if (stop.state === "done") return `${stop.stars} of 3 stars`;
-    if (stop.state === "next") return "Your pal is here";
+    if (stop.state === "next") {
+      return cycleLock.locked
+        ? "Your teacher chose this map space"
+        : "This is your next unfinished stop";
+    }
     return "Locked";
   };
+
+  const primaryReason = cycleLock.locked
+    ? "Your teacher chose this map space."
+    : "This is your next unfinished stop.";
 
   if (
     openCycleId
@@ -437,7 +445,7 @@ export function StudentAdventureMapPage({
                       ? (
                           <ChildRecommendationExplanation
                             surface="adventure-map"
-                            reason="This is your next unfinished stop."
+                            reason={primaryReason}
                           />
                         )
                       : read.ok ? stateLabel(stop) : "Still loading"}
