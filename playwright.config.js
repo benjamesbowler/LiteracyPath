@@ -1,5 +1,9 @@
 import { defineConfig, devices } from "@playwright/test";
 
+const mobileSnapshotPathTemplate = process.platform === "linux"
+  ? "{testDir}/{testFilePath}-snapshots/linux/mobile/{arg}{ext}"
+  : "{testDir}/{testFilePath}-snapshots/mobile/{arg}{ext}";
+
 export default defineConfig({
   testDir: "tests",
   // Chromium rendering is stable within an OS, while font rasterisation is
@@ -20,7 +24,9 @@ export default defineConfig({
   webServer: {
     command: "npm run dev -- --host 127.0.0.1 --port 4174 --strictPort",
     url: "http://127.0.0.1:4174",
-    reuseExistingServer: true,
+    // Reusing a process from another branch can turn its pixels into this
+    // checkout's evidence. Make reuse an explicit local-only choice.
+    reuseExistingServer: process.env.LP_PLAYWRIGHT_REUSE_SERVER === "1",
     timeout: 30_000
   },
   projects: [
@@ -33,6 +39,8 @@ export default defineConfig({
     },
     {
       name: "mobile",
+      // A bare multi-project run must never overwrite the desktop evidence.
+      snapshotPathTemplate: mobileSnapshotPathTemplate,
       use: {
         ...devices["Pixel 5"]
       }

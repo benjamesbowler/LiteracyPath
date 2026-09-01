@@ -177,10 +177,28 @@ test("Linux visual baselines have an isolated reviewed refresh workflow", () => 
   assert.match(workflow, /authenticated-missing/);
   assert.match(workflow, /supabase db reset --local --no-seed/);
   assert.match(workflow, /npm run seed:audit-school/);
-  assert.equal(workflow.match(/--update-snapshots=all/g)?.length, 2);
+  assert.equal(workflow.match(/--update-snapshots=all/g)?.length, 3);
+  assert.match(
+    workflow,
+    /env -u LP_AUDIT_TEACHER_PASSWORD npx playwright test[\s\S]*teacher-roster-device-matrix\.spec\.js[\s\S]*--update-snapshots=all/
+  );
   assert.match(workflow, /tests\/release\/\*\*\/\*-snapshots\/linux\/\*\.png/);
+  assert.match(workflow, /name: Upload approved Linux baselines\n\s+if: success\(\)/);
   assert.match(workflow, /actions\/upload-artifact@v7/);
   assert.doesNotMatch(workflow, /actions\/upload-artifact@v[1-6]\b/);
+});
+
+test("Playwright visual evidence stays isolated by project and checkout", () => {
+  const config = readFileSync(
+    new URL("../../playwright.config.js", import.meta.url),
+    "utf8"
+  );
+
+  assert.match(config, /name: "mobile",[\s\S]*snapshotPathTemplate: mobileSnapshotPathTemplate/);
+  assert.match(config, /mobileSnapshotPathTemplate[\s\S]*-snapshots\/linux\/mobile\/\{arg\}\{ext\}/);
+  assert.match(config, /mobileSnapshotPathTemplate[\s\S]*-snapshots\/mobile\/\{arg\}\{ext\}/);
+  assert.match(config, /reuseExistingServer: process\.env\.LP_PLAYWRIGHT_REUSE_SERVER === "1"/);
+  assert.doesNotMatch(config, /reuseExistingServer: true/);
 });
 
 test("teacher release journeys open the disclosed class control before using it", () => {

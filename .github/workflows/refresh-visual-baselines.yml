@@ -67,6 +67,9 @@ jobs:
             tests/release/student-rail-accessibility.spec.js \
             tests/release/teacher-roster-device-matrix.spec.js \
             --project=desktop --workers=1 --update-snapshots=all
+          env -u LP_AUDIT_TEACHER_PASSWORD npx playwright test \
+            tests/release/teacher-roster-device-matrix.spec.js \
+            --project=desktop --workers=1 --update-snapshots=all
       - name: Refresh missing authenticated Linux baselines
         if: inputs.scope == 'authenticated-missing'
         run: |
@@ -75,7 +78,7 @@ jobs:
             tests/release/teacher-roster-device-matrix.spec.js \
             --project=desktop --workers=1 --update-snapshots=all
       - name: Upload approved Linux baselines
-        if: always()
+        if: success()
         uses: actions/upload-artifact@v7
         with:
           name: reviewed-linux-visual-baselines-${{ github.sha }}
@@ -90,6 +93,7 @@ jobs:
           path: |
             test-results/
             playwright-report/
+            tests/release/**/*-snapshots/linux/*.png
           if-no-files-found: warn
           retention-days: 14
       - name: Stop local Supabase

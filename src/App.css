@@ -4741,7 +4741,9 @@ body:has(.kg-viewport) .student-home-float { display: none; }
   width: 100%;
   max-width: 100%;
   display: flex;
+  padding-block: 4px;
   overflow: visible;
+  white-space: normal;
   background: #eef2ff;
   color: #3730a3;
 }
@@ -4756,9 +4758,11 @@ body:has(.kg-viewport) .student-home-float { display: none; }
 }
 
 .teacher-focus-pill .lp-defined-metric-value {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow: visible;
+  overflow-wrap: anywhere;
+  line-height: 1.25;
+  text-overflow: clip;
+  white-space: normal;
 }
 
 .teacher-progress-cell {

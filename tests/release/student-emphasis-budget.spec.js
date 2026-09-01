@@ -4,6 +4,7 @@ import {
   STUDENT_EMPHASIS_ROUTES,
   STUDENT_EMPHASIS_VIEWPORTS
 } from "../../src/policy/studentEmphasisBudget.js";
+import { expectVisibleImagesReady } from "./support/visualReadiness.js";
 
 async function waitForPrimaryMedia(primary) {
   const image = primary.locator("img").first();
@@ -77,6 +78,7 @@ for (const viewport of STUDENT_EMPHASIS_VIEWPORTS) {
         cueInViewport: true
       });
       await waitForPrimaryMedia(primary);
+      await expectVisibleImagesReady(page, `${route.id} ${viewport.id} emphasis screenshot`);
       await expect(page).toHaveScreenshot(
         `student-emphasis-${route.id}-${viewport.id}.png`,
         {
@@ -90,3 +92,117 @@ for (const viewport of STUDENT_EMPHASIS_VIEWPORTS) {
     });
   }
 }
+
+test("A3.9 My Hollow keeps its instruction clear of World on compact portrait phones", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+
+  for (const width of [320, 390, 400]) {
+    await page.setViewportSize({ width, height: 844 });
+    await page.goto("/preview/child-surfaces.html?surface=my-hollow");
+
+    const surface = page.locator('[data-child-surface="my-hollow"]');
+    const instruction = surface.locator(".hollow-room-hint[data-child-instruction]");
+    const world = surface.locator(".hollow-world-button");
+    const room = surface.locator(".hollow-room");
+    await expect(surface).toBeVisible();
+    await expect(room).toBeVisible();
+    await expect(instruction).toBeVisible();
+    await expect(world).toBeVisible();
+
+    const geometry = await surface.evaluate(element => {
+      const bounds = selector => {
+        const rect = element.querySelector(selector)?.getBoundingClientRect();
+        return rect ? {
+          left: rect.left,
+          top: rect.top,
+          right: rect.right,
+          bottom: rect.bottom
+        } : null;
+      };
+      const instructionBox = bounds(".hollow-room-hint[data-child-instruction]");
+      const worldBox = bounds(".hollow-world-button");
+      const roomBox = bounds(".hollow-room");
+      const overlapWidth = Math.max(
+        0,
+        Math.min(instructionBox.right, worldBox.right)
+          - Math.max(instructionBox.left, worldBox.left)
+      );
+      const overlapHeight = Math.max(
+        0,
+        Math.min(instructionBox.bottom, worldBox.bottom)
+          - Math.max(instructionBox.top, worldBox.top)
+      );
+      return {
+        instruction: instructionBox,
+        world: worldBox,
+        room: roomBox,
+        overlapArea: overlapWidth * overlapHeight,
+        instructionContained: instructionBox.left >= roomBox.left - 1
+          && instructionBox.top >= roomBox.top - 1
+          && instructionBox.right <= roomBox.right + 1
+          && instructionBox.bottom <= roomBox.bottom + 1
+      };
+    });
+
+    expect(
+      geometry.overlapArea,
+      `${width}px My Hollow keeps its instruction out of the World action: ${JSON.stringify(geometry)}`
+    ).toBe(0);
+    expect(
+      geometry.instructionContained,
+      `${width}px My Hollow keeps its instruction inside the room: ${JSON.stringify(geometry)}`
+    ).toBe(true);
+  }
+});
+
+test("A3.9 Phonics keeps its phone recommendation cue clear of status decoration", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/preview/child-surfaces.html?surface=phonics");
+
+  const primary = page.locator('[data-child-surface="phonics"] [data-child-primary]');
+  const cue = primary.locator(".phonics-letter-next");
+  await expect(primary).toBeVisible();
+  await expect(cue).toHaveText("Start here");
+  await page.evaluate(() => document.fonts?.ready);
+
+  const geometry = await primary.evaluate(card => {
+    const cardBox = card.getBoundingClientRect();
+    const cueNode = card.querySelector(".phonics-letter-next");
+    const statusNode = card.querySelector(".phonics-letter-status");
+    const cueBox = cueNode.getBoundingClientRect();
+    const statusBox = statusNode.getBoundingClientRect();
+    const statusStyle = getComputedStyle(statusNode);
+    const statusVisible = statusStyle.display !== "none"
+      && statusStyle.visibility !== "hidden"
+      && statusBox.width >= 1
+      && statusBox.height >= 1;
+    const intersectionWidth = statusVisible
+      ? Math.max(0, Math.min(cueBox.right, statusBox.right) - Math.max(cueBox.left, statusBox.left))
+      : 0;
+    const intersectionHeight = statusVisible
+      ? Math.max(0, Math.min(cueBox.bottom, statusBox.bottom) - Math.max(cueBox.top, statusBox.top))
+      : 0;
+    return {
+      cueContained: cueBox.left >= cardBox.left - 1
+        && cueBox.top >= cardBox.top - 1
+        && cueBox.right <= cardBox.right + 1
+        && cueBox.bottom <= cardBox.bottom + 1,
+      overlapArea: intersectionWidth * intersectionHeight,
+      card: { left: cardBox.left, top: cardBox.top, right: cardBox.right, bottom: cardBox.bottom },
+      cue: { left: cueBox.left, top: cueBox.top, right: cueBox.right, bottom: cueBox.bottom },
+      status: statusVisible
+        ? { left: statusBox.left, top: statusBox.top, right: statusBox.right, bottom: statusBox.bottom }
+        : null
+    };
+  });
+
+  expect(
+    geometry.cueContained,
+    `Phonics keeps the complete Start here cue inside its recommended letter: ${JSON.stringify(geometry)}`
+  ).toBe(true);
+  expect(
+    geometry.overlapArea,
+    `Phonics keeps status decoration off its Start here cue: ${JSON.stringify(geometry)}`
+  ).toBe(0);
+});

@@ -1097,7 +1097,7 @@ export function TeacherStudentsPage({
   // typed-confirmation deletion workflow.
   const rosterGridTemplate = [
     "minmax(136px, 1.4fr)",
-    "minmax(118px, 1fr)",
+    "minmax(136px, 1fr)",
     "minmax(66px, 0.7fr)",
     "minmax(108px, 0.9fr)",
     "minmax(78px, 0.8fr)",

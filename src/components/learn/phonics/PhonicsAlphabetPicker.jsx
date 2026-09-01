@@ -3,6 +3,15 @@ import { motion } from "framer-motion";
 import { getAllLetters, getAvailableLetters } from "../../../data/phonicsLessons";
 import { ChildRecommendationExplanation } from "../../recommendations/RecommendationExplanation.jsx";
 
+function letterAccessibleName(letter, status, recommended) {
+  const states = recommended ? ["Start here"] : [];
+  if (status === "locked") states.push("locked");
+  if (status === "completed") states.push("completed");
+  if (status === "inprogress") states.push("in progress");
+  if (recommended) states.push("recommended");
+  return [`Letter ${letter}`, ...states].join(", ");
+}
+
 export function PhonicsAlphabetPicker({ progress = {}, onSelectLetter }) {
   const letters = useMemo(() => getAllLetters(), []);
   const availableLetters = useMemo(() => new Set(getAvailableLetters()), []);
@@ -43,6 +52,7 @@ export function PhonicsAlphabetPicker({ progress = {}, onSelectLetter }) {
         {letters.map(letter => {
           const status = getStatus(letter);
           const isClickable = status !== "locked";
+          const isRecommended = letter === recommendedLetter;
 
           return (
             <motion.button
@@ -51,14 +61,14 @@ export function PhonicsAlphabetPicker({ progress = {}, onSelectLetter }) {
               whileTap={isClickable ? { scale: 0.95 } : {}}
               onClick={() => handleLetterClick(letter, status)}
               disabled={!isClickable}
-              className={`phonics-letter-card ${status}${letter === recommendedLetter ? " recommended" : ""}`}
-              aria-label={`Letter ${letter}${status === "locked" ? " locked" : ""}`}
+              className={`phonics-letter-card ${status}${isRecommended ? " recommended" : ""}`}
+              aria-label={letterAccessibleName(letter, status, isRecommended)}
               type="button"
-              data-child-primary={letter === recommendedLetter ? "" : undefined}
-              data-child-emphasis={letter === recommendedLetter ? "primary" : "choice"}
+              data-child-primary={isRecommended ? "" : undefined}
+              data-child-emphasis={isRecommended ? "primary" : "choice"}
             >
               <span className="phonics-letter-symbol">{letter}</span>
-              {letter === recommendedLetter && (
+              {isRecommended && (
                 <span className="phonics-letter-next" data-child-emphasis-cue="">Start here</span>
               )}
               <span className="phonics-letter-status" aria-hidden="true">

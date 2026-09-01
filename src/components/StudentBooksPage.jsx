@@ -88,6 +88,20 @@ function ChevronGlyph() {
   );
 }
 
+// Keyboard focus must reveal the whole choice, not merely the first visible
+// pixels. Pointer focus is deliberately ignored: moving a partially visible
+// choice between pointer-down and pointer-up cancels the child's tap. Calling
+// this from the choice itself lets the browser resolve every nested horizontal
+// scroller without changing DOM order.
+function revealFocusedChoice(event) {
+  if (!event.currentTarget.matches(":focus-visible")) return;
+  event.currentTarget.scrollIntoView({
+    behavior: "auto",
+    block: "nearest",
+    inline: "nearest"
+  });
+}
+
 function MoreGlyph() {
   return (
     <svg className="kg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -410,6 +424,7 @@ export function StudentBooksPage({
                   type="button"
                   className={`kg-segment${entry === shownLevel ? " is-active" : ""}`}
                   aria-pressed={entry === shownLevel}
+                  onFocus={revealFocusedChoice}
                   onClick={() => {
                     setLevel(entry);
                     setCollectionId("all");
@@ -432,6 +447,7 @@ export function StudentBooksPage({
                 type="button"
                 className={`kg-collection-chip${shownCollectionId === "all" ? " is-active" : ""}`}
                 aria-pressed={shownCollectionId === "all"}
+                onFocus={revealFocusedChoice}
                 onClick={() => {
                   setCollectionId("all");
                   setShelfPages({ "just-right": 0, second: 0 });
@@ -445,6 +461,7 @@ export function StudentBooksPage({
                   type="button"
                   className={`kg-collection-chip${collection.id === shownCollectionId ? " is-active" : ""}`}
                   aria-pressed={collection.id === shownCollectionId}
+                  onFocus={revealFocusedChoice}
                   onClick={() => {
                     setCollectionId(collection.id);
                     setShelfPages({ "just-right": 0, second: 0 });
@@ -460,6 +477,7 @@ export function StudentBooksPage({
             type="button"
             className="kg-button kg-button--sm kg-glass kg-glass--strong kg-books-stories"
             aria-pressed={showKnowledge}
+            onFocus={revealFocusedChoice}
             onClick={() => setShowKnowledge(current => !current)}
           >
             {showKnowledge ? "All books" : "Explore ideas"}
@@ -469,6 +487,7 @@ export function StudentBooksPage({
             <button
               type="button"
               className="kg-button kg-button--sm kg-glass kg-glass--strong kg-books-stories"
+              onFocus={revealFocusedChoice}
               onClick={onOpenStoryQuests}
             >
               Story Quests
@@ -631,6 +650,7 @@ export function StudentBooksPage({
                       key={book.id}
                       type="button"
                       className="kg-glass kg-book-card"
+                      onFocus={revealFocusedChoice}
                       onClick={() => setOpenBookId(book.id)}
                       data-child-emphasis="choice"
                       data-reading-purpose={purpose.id}
@@ -646,14 +666,14 @@ export function StudentBooksPage({
                         />
                         <strong className="kg-book-title">{book.title}</strong>
                         <small className="kg-book-purpose">{purpose.shortLabel}</small>
-                      </span>
-                      <span
-                        className="kg-book-stars"
-                        role="img"
-                        aria-label={stars === 1 ? "1 star won" : `${stars} stars won`}
-                      >
-                        <StarGlyph earned={stars > 0} />
-                        {stars}
+                        <span
+                          className="kg-book-stars"
+                          role="img"
+                          aria-label={stars === 1 ? "1 star won" : `${stars} stars won`}
+                        >
+                          <StarGlyph earned={stars > 0} />
+                          {stars}
+                        </span>
                       </span>
                     </button>
                   );
@@ -662,6 +682,7 @@ export function StudentBooksPage({
                   <button
                     type="button"
                     className="kg-glass kg-glass--quiet kg-book-card kg-book-card--more"
+                    onFocus={revealFocusedChoice}
                     onClick={() => turnShelf(shelfIndex === 0 ? "just-right" : "second", shelf.step)}
                   >
                     <span className="kg-book-card-main">

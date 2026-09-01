@@ -3,6 +3,22 @@ import { completeTeacherClassEntry } from "./support/teacherLanding.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
 const teacherId = "10000000-0000-4000-8000-000000000001";
+const snapshotVariant = teacherPassword ? "authenticated" : "preview";
+const supportsCurrentSnapshotVariant = process.platform === "linux"
+  || (process.platform === "darwin" && snapshotVariant === "preview");
+
+async function expectTeacherScreenshot(locator, name, options, testInfo) {
+  if (!supportsCurrentSnapshotVariant) {
+    if (!testInfo.annotations.some(annotation => annotation.type === "visual-evidence")) {
+      testInfo.annotations.push({
+        type: "visual-evidence",
+        description: `${snapshotVariant} teacher pixels are not baselined on ${process.platform}; behavioral assertions still run, and hosted Linux captures both variants.`
+      });
+    }
+    return;
+  }
+  await expect(locator).toHaveScreenshot(name, options);
+}
 
 async function openAuditRoster(page) {
   if (!teacherPassword) {
@@ -49,9 +65,76 @@ async function expectNoViewportOverflow(page) {
   ))).toBe(true);
 }
 
+async function expectReadableFocusPills(roster, expectedLabels = ["Initial Sounds", "Final Sounds"]) {
+  const measurements = await roster.locator(".teacher-focus-pill").evaluateAll(pills => pills.map(pill => {
+    const value = pill.querySelector(".lp-defined-metric-value");
+    const info = pill.querySelector(".lp-metric-definition-trigger");
+    const pillBox = pill.getBoundingClientRect();
+    const cellBox = pill.closest("td")?.getBoundingClientRect();
+    const infoBox = info?.getBoundingClientRect();
+    const valueStyle = value ? getComputedStyle(value) : null;
+    const infoStyle = info ? getComputedStyle(info) : null;
+    const range = document.createRange();
+    if (value) range.selectNodeContents(value);
+    const textBoxes = value ? [...range.getClientRects()] : [];
+    const contains = (container, box) => Boolean(container)
+      && box.left >= container.left - 1
+      && box.top >= container.top - 1
+      && box.right <= container.right + 1
+      && box.bottom <= container.bottom + 1;
+    return {
+      text: value?.textContent?.trim() || "",
+      textClientWidth: value?.clientWidth || 0,
+      textScrollWidth: value?.scrollWidth || 0,
+      textClientHeight: value?.clientHeight || 0,
+      textScrollHeight: value?.scrollHeight || 0,
+      textPainted: Boolean(
+        valueStyle
+        && valueStyle.display !== "none"
+        && valueStyle.visibility !== "hidden"
+        && Number.parseFloat(valueStyle.opacity || "1") > 0
+        && valueStyle.color !== "rgba(0, 0, 0, 0)"
+        && textBoxes.some(box => box.width >= 1 && box.height >= 1)
+      ),
+      textInsidePill: textBoxes.length > 0 && textBoxes.every(box => contains(pillBox, box)),
+      textInsideCell: textBoxes.length > 0 && textBoxes.every(box => contains(cellBox, box)),
+      infoVisible: Boolean(
+        infoBox?.width
+        && infoBox?.height
+        && infoStyle?.display !== "none"
+        && infoStyle?.visibility !== "hidden"
+        && Number.parseFloat(infoStyle?.opacity || "1") > 0
+      ),
+      infoInsidePill: contains(pillBox, infoBox),
+      infoInsideCell: contains(cellBox, infoBox),
+      pillInsideCell: contains(cellBox, pillBox)
+    };
+  }));
+
+  expect(measurements).toHaveLength(10);
+  expect(measurements.every(({ text }) => text.length > 0)).toBe(true);
+  expect(measurements.map(({ text }) => text)).toEqual(expect.arrayContaining(expectedLabels));
+  expect(
+    measurements.filter(measurement => (
+      measurement.textScrollWidth > measurement.textClientWidth + 1
+      || measurement.textScrollHeight > measurement.textClientHeight + 1
+      || !measurement.textPainted
+      || !measurement.textInsidePill
+      || !measurement.textInsideCell
+    )),
+    `Current focus labels must not be shortened: ${JSON.stringify(measurements)}`
+  ).toEqual([]);
+  expect(
+    measurements.filter(({ infoVisible, infoInsidePill, infoInsideCell, pillInsideCell }) => (
+      !infoVisible || !infoInsidePill || !infoInsideCell || !pillInsideCell
+    )),
+    `Current focus information controls must stay usable: ${JSON.stringify(measurements)}`
+  ).toEqual([]);
+}
+
 test("@teacher-roster-device-matrix keeps a configurable roster and student panel usable on Chromebook and tablet", async ({
   page
-}) => {
+}, testInfo) => {
   test.setTimeout(90_000);
   await page.setViewportSize({ width: 1366, height: 768 });
   await openAuditRoster(page);
@@ -66,6 +149,7 @@ test("@teacher-roster-device-matrix keeps a configurable roster and student pane
   await expect(roster.getByRole("columnheader", { name: "Progress", exact: true })).toHaveCount(0);
   await expectNoViewportOverflow(page);
   await expect.poll(() => roster.evaluate(table => table.scrollWidth <= table.clientWidth + 1)).toBe(true);
+  await expectReadableFocusPills(roster);
 
   const columnPicker = page.locator(".teacher-roster-column-picker");
   await columnPicker.getByText(/More filters and columns/).click();
@@ -92,14 +176,16 @@ test("@teacher-roster-device-matrix keeps a configurable roster and student pane
   // component capture enough vertical room to include its header and all ten
   // rows without the app shell clipping either edge.
   await page.setViewportSize({ width: 1366, height: 1600 });
-  await expect(page.locator(".teacher-dashboard-roster")).toHaveScreenshot(
-    "teacher-roster-chromebook.png",
+  await expectTeacherScreenshot(
+    page.locator(".teacher-dashboard-roster"),
+    `teacher-roster-chromebook-${snapshotVariant}.png`,
     {
       animations: "disabled",
       mask: [roster.locator('td[data-label="Last active"]')],
       maskColor: "#eef2f7",
       maxDiffPixelRatio: 0.025
-    }
+    },
+    testInfo
   );
 
   await page.setViewportSize({ width: 1366, height: 768 });
@@ -118,12 +204,14 @@ test("@teacher-roster-device-matrix keeps a configurable roster and student pane
   // Capture the whole long region instead of letting the app shell's internal
   // 768px scroller obscure its lower half. Width remains Chromebook-sized.
   await page.setViewportSize({ width: 1366, height: 4000 });
-  await expect(studentPanel).toHaveScreenshot(
-    "teacher-learner-drawer-chromebook.png",
+  await expectTeacherScreenshot(
+    studentPanel,
+    `teacher-learner-drawer-chromebook-${snapshotVariant}.png`,
     {
       animations: "disabled",
       maxDiffPixelRatio: 0.025
-    }
+    },
+    testInfo
   );
   await studentPanel.getByRole("button", { name: "Close student details", exact: true }).click();
   await expect(page.getByRole("region", { name: "Student panel" })).toBeVisible();
@@ -148,6 +236,7 @@ test("@teacher-roster-device-matrix keeps a configurable roster and student pane
   const tabletRow = roster.getByRole("row").filter({ hasText: "Aarav" });
   await expect.poll(() => tabletRow.evaluate(row => getComputedStyle(row).display)).toBe("grid");
   await expect.poll(() => roster.evaluate(table => table.scrollWidth <= table.clientWidth + 1)).toBe(true);
+  await expectReadableFocusPills(roster);
   const tabletRowBox = await tabletRow.boundingBox();
   const rosterBox = await roster.boundingBox();
   expect(tabletRowBox).not.toBeNull();
@@ -160,14 +249,16 @@ test("@teacher-roster-device-matrix keeps a configurable roster and student pane
   // component capture enough vertical room to include its header and all ten
   // rows without the app shell clipping either edge.
   await page.setViewportSize({ width: 1024, height: 1600 });
-  await expect(page.locator(".teacher-dashboard-roster")).toHaveScreenshot(
-    "teacher-roster-tablet.png",
+  await expectTeacherScreenshot(
+    page.locator(".teacher-dashboard-roster"),
+    `teacher-roster-tablet-${snapshotVariant}.png`,
     {
       animations: "disabled",
       mask: [roster.locator('td[data-label="Last active"]')],
       maskColor: "#eef2f7",
       maxDiffPixelRatio: 0.025
-    }
+    },
+    testInfo
   );
 
   await page.setViewportSize({ width: 1024, height: 768 });
@@ -182,11 +273,58 @@ test("@teacher-roster-device-matrix keeps a configurable roster and student pane
   // height so Playwright can record this long region without clipping it at
   // the internally scrolling app shell's viewport edge.
   await page.setViewportSize({ width: 1024, height: 4000 });
-  await expect(tabletPanel).toHaveScreenshot(
-    "teacher-learner-drawer-tablet.png",
+  await expectTeacherScreenshot(
+    tabletPanel,
+    `teacher-learner-drawer-tablet-${snapshotVariant}.png`,
     {
       animations: "disabled",
       maxDiffPixelRatio: 0.025
-    }
+    },
+    testInfo
   );
+});
+
+test("@teacher-roster-device-matrix preserves full focus labels when a narrow viewport needs internal roster scrolling", async ({
+  page
+}) => {
+  test.setTimeout(90_000);
+  await page.setViewportSize({ width: 639, height: 768 });
+  await openAuditRoster(page);
+
+  const rosterRegion = page.locator(".teacher-data-table-region");
+  const roster = page.locator(".teacher-roster-table");
+  await expectNoViewportOverflow(page);
+  await expect.poll(() => rosterRegion.evaluate(region => region.scrollWidth > region.clientWidth + 1)).toBe(true);
+  await expectReadableFocusPills(roster);
+});
+
+test("@teacher-roster-device-matrix preserves the longest authoritative focus labels", async ({ page }) => {
+  test.setTimeout(90_000);
+  const longLabels = [
+    "Short Vowel Discrimination",
+    "High-Frequency Words 76-100",
+    "Theme and Higher Comprehension"
+  ];
+  await page.setViewportSize({ width: 1366, height: 768 });
+  await openAuditRoster(page);
+
+  const roster = page.locator(".teacher-roster-table");
+  const rosterRegion = page.locator(".teacher-data-table-region");
+  for (const width of [1366, 1024, 639]) {
+    await page.setViewportSize({ width, height: 768 });
+    await roster.locator(".lp-defined-metric-value").evaluateAll((values, labels) => {
+      values.forEach((value, index) => {
+        value.textContent = labels[index % labels.length];
+      });
+    }, longLabels);
+    await expectNoViewportOverflow(page);
+    await expectReadableFocusPills(roster, longLabels);
+    if (width === 639) {
+      await expect.poll(() => rosterRegion.evaluate(region => (
+        region.scrollWidth > region.clientWidth + 1
+      ))).toBe(true);
+    } else {
+      await expect.poll(() => roster.evaluate(table => table.scrollWidth <= table.clientWidth + 1)).toBe(true);
+    }
+  }
 });

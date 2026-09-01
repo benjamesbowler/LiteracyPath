@@ -6,6 +6,38 @@ import {
   validateChildSurfaceRegions
 } from "../../src/policy/childSurfaceRules.js";
 
+test("A3.1 child previews load the production self-hosted child typefaces", async ({ page }) => {
+  await page.goto("/preview/child-surfaces.html?surface=adventure-map");
+  await expect(page.locator('[data-child-surface="adventure-map"]')).toBeVisible();
+
+  const fontEvidence = await page.evaluate(async () => {
+    const [displayFaces, bodyFaces] = await Promise.all([
+      document.fonts.load('700 19px "Baloo 2"', "Adventure Map"),
+      document.fonts.load("700 16px Nunito", "This is your next unfinished stop")
+    ]);
+    const serialise = face => ({
+      family: face.family.replaceAll('"', ""),
+      status: face.status,
+      weight: face.weight
+    });
+    return {
+      displayFaces: displayFaces.map(serialise),
+      bodyFaces: bodyFaces.map(serialise)
+    };
+  });
+
+  expect(fontEvidence.displayFaces).toContainEqual({
+    family: "Baloo 2",
+    status: "loaded",
+    weight: "700"
+  });
+  expect(fontEvidence.bodyFaces).toContainEqual({
+    family: "Nunito",
+    status: "loaded",
+    weight: "700"
+  });
+});
+
 for (const route of CHILD_SURFACE_ROUTES) {
   test(`A3.1 ${route.label} renders the complete child-surface contract`, async ({ page }) => {
     const pageErrors = [];

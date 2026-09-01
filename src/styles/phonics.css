@@ -195,6 +195,14 @@
   font: 900 1rem var(--phonics-font-body);
 }
 
+/* Keep the status mark out of the Start here band at every card width. The
+   collision follows the recommended-card composition, not a viewport size. */
+.phonics-letter-card.recommended .phonics-letter-status {
+  top: 8px;
+  right: 4px;
+  bottom: auto;
+}
+
 .phonics-letter-card.locked .phonics-letter-status {
   color: #98a1a6;
 }
