@@ -1,4 +1,8 @@
-import { evidenceIsIndependent } from "../features/soundSeekers/engine/evidence.js";
+import {
+  evidenceIsIndependent,
+  isValidSessionDay,
+  localSessionDayFor
+} from "../features/soundSeekers/engine/evidence.js";
 import { isEvidenceDomain } from "../features/soundSeekers/engine/challengeContract.js";
 
 // Sound Seekers legacy mastery rules. The currently mounted QuestRoot still
@@ -26,7 +30,8 @@ export const QUEST_PRACTICE_THRESHOLDS = Object.freeze({
   minAccuracy: 0.75,
   accuracyWindow: 4,
   minDomains: 2,
-  minSessions: 2
+  minSessions: 2,
+  conclusionWindowDays: 90
 });
 
 export const MASTERY_RULES = Object.freeze({
@@ -284,14 +289,44 @@ function compareEvidence(left, right) {
   return String(left?.id ?? "").localeCompare(String(right?.id ?? ""));
 }
 
-function evidenceDay(event) {
-  const at = String(event?.at ?? "");
-  return /^\d{4}-\d{2}-\d{2}/.test(at) ? at.slice(0, 10) : "";
+function evidenceSessionDay(event) {
+  if (Object.prototype.hasOwnProperty.call(event || {}, "sessionDay")) {
+    return isValidSessionDay(event.sessionDay) ? event.sessionDay : "";
+  }
+  // v2 events written before sessionDay existed may use their actual local
+  // timestamp day. Invalid timestamps cannot manufacture spacing proof.
+  return localSessionDayFor(event?.at) || "";
+}
+
+function evidenceTime(event) {
+  try {
+    const date = event?.at instanceof Date ? new Date(event.at.getTime()) : new Date(event?.at);
+    const time = date.getTime();
+    return Number.isNaN(time) ? null : time;
+  } catch {
+    return null;
+  }
+}
+
+function readinessNow(now) {
+  try {
+    const date = now instanceof Date ? new Date(now.getTime()) : new Date(now ?? Date.now());
+    const time = date.getTime();
+    return Number.isNaN(time) ? null : time;
+  } catch {
+    return null;
+  }
+}
+
+function isCurrentEvidence(event, nowTime) {
+  const time = evidenceTime(event);
+  if (time === null || nowTime === null || time > nowTime) return false;
+  return nowTime - time <= QUEST_PRACTICE_THRESHOLDS.conclusionWindowDays * 24 * 60 * 60 * 1000;
 }
 
 // v2 is guided practice, not an assessment. This result may guide the next
 // teaching check, but intentionally has no formal-status or Secure pathway.
-export function practiceReadinessFor(targetId, events) {
+export function practiceReadinessFor(targetId, events, { now } = {}) {
   const deduped = [];
   const ids = new Set();
   for (const event of Array.isArray(events) ? events : []) {
@@ -310,13 +345,17 @@ export function practiceReadinessFor(targetId, events) {
   }
   const independent = deduped.filter(evidenceIsIndependent).sort(compareEvidence);
   const independentCorrect = independent.filter(event => event.correct === true);
-  const recent = independent.slice(-QUEST_PRACTICE_THRESHOLDS.accuracyWindow);
+  const nowTime = readinessNow(now);
+  const current = deduped.filter(event => isCurrentEvidence(event, nowTime));
+  const currentIndependent = current.filter(evidenceIsIndependent).sort(compareEvidence);
+  const currentIndependentCorrect = currentIndependent.filter(event => event.correct === true);
+  const recent = currentIndependent.slice(-QUEST_PRACTICE_THRESHOLDS.accuracyWindow);
   const recentAccuracy = recent.length
     ? recent.filter(event => event.correct === true).length / recent.length
     : 0;
-  const domains = [...new Set(independentCorrect.map(event => event.domain))].sort();
-  const sessions = [...new Set(independentCorrect.map(evidenceDay).filter(Boolean))].sort();
-  const ready = independentCorrect.length >= QUEST_PRACTICE_THRESHOLDS.minCorrect
+  const domains = [...new Set(currentIndependentCorrect.map(event => event.domain))].sort();
+  const sessions = [...new Set(currentIndependentCorrect.map(evidenceSessionDay).filter(Boolean))].sort();
+  const ready = currentIndependentCorrect.length >= QUEST_PRACTICE_THRESHOLDS.minCorrect
     && recent.length === QUEST_PRACTICE_THRESHOLDS.accuracyWindow
     && recentAccuracy >= QUEST_PRACTICE_THRESHOLDS.minAccuracy
     && domains.length >= QUEST_PRACTICE_THRESHOLDS.minDomains
@@ -328,11 +367,14 @@ export function practiceReadinessFor(targetId, events) {
     attempts: deduped.length,
     independentAttempts: independent.length,
     correct: independentCorrect.length,
+    currentAttempts: current.length,
+    currentIndependentAttempts: currentIndependent.length,
+    currentCorrect: currentIndependentCorrect.length,
     recentAccuracy,
     domains: Object.freeze(domains),
     sessions: Object.freeze(sessions),
     ready,
-    state: ready ? "ready_for_teaching_check" : independent.length ? "building" : "exposure"
+    state: ready ? "ready_for_teaching_check" : currentIndependent.length ? "building" : "exposure"
   });
 }
 

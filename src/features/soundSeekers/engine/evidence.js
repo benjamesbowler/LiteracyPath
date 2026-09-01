@@ -17,6 +17,46 @@ function eventId(event) {
   return typeof event?.id === "string" && event.id ? event.id : null;
 }
 
+function dateFor(value) {
+  if (value === null || value === undefined || value === "") return null;
+  try {
+    const date = value instanceof Date ? new Date(value.getTime()) : new Date(value);
+    return Number.isNaN(date.getTime()) ? null : date;
+  } catch {
+    return null;
+  }
+}
+
+function normalizedAt(value) {
+  const date = dateFor(value);
+  return date ? date.toISOString() : null;
+}
+
+export function isValidSessionDay(value) {
+  const match = typeof value === "string" && /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+  if (!match) return false;
+  const [, year, month, day] = match;
+  const date = new Date(Number(year), Number(month) - 1, Number(day));
+  return date.getFullYear() === Number(year)
+    && date.getMonth() === Number(month) - 1
+    && date.getDate() === Number(day);
+}
+
+// Uses the local calendar getters deliberately. A session may also supply its
+// trusted child-local day, which wins over this device-local fallback.
+export function localSessionDayFor(at) {
+  const date = dateFor(at);
+  if (!date) return null;
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+}
+
+function sessionDayFor(sessionDay, at) {
+  if (sessionDay !== undefined && sessionDay !== null) {
+    return isValidSessionDay(sessionDay) ? sessionDay : null;
+  }
+  return localSessionDayFor(at);
+}
+
 // One explicit answer is the only input accepted by this boundary. Movement,
 // timing, collisions, rewards, and reducer transitions do not enter here.
 export function createLiteracyDecision({
@@ -26,12 +66,17 @@ export function createLiteracyDecision({
   audio = {},
   journeyStep = null,
   ordinal,
-  at = null
+  at = null,
+  sessionDay
 } = {}) {
   if (!isRecordableQuestChallenge(challenge) || response?.kind !== "literacy-answer") return null;
   if (!Number.isInteger(ordinal) || ordinal < 0) return null;
   const token = responseToken(response);
   if (token === null) return null;
+  const eventAt = normalizedAt(at);
+  if (!eventAt) return null;
+  const resolvedSessionDay = sessionDayFor(sessionDay, eventAt);
+  if (!resolvedSessionDay) return null;
 
   const correct = token === challenge.expectedToken;
   const supportLevel = finiteNonNegative(support?.level);
@@ -49,7 +94,8 @@ export function createLiteracyDecision({
     position: challenge.position ?? null,
     mechanic: challenge.powerId || null,
     journeyStep: Number.isFinite(Number(journeyStep)) ? Number(journeyStep) : null,
-    at,
+    at: eventAt,
+    sessionDay: resolvedSessionDay,
     evidenceKind: "practice"
   };
   return Object.freeze(event);

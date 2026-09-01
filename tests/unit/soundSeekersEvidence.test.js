@@ -50,9 +50,45 @@ test("movement and reward inputs emit no learning event; one answer emits one im
   const event = decision();
   assert.equal(event.evidenceKind, "practice");
   assert.equal(Object.isFrozen(event), true);
+  assert.equal(event.sessionDay, "2026-09-01");
   assert.equal(appendEvidence([event], event).length, 1);
   assert.equal(appendEvidence([], event).length, 1);
 });
+
+test("new evidence validates and freezes an action-time local session day", () => {
+  const at = new Date("2026-09-01T23:30:00.000Z");
+  const event = decision({ at, sessionDay: "2026-09-02" });
+  at.setUTCDate(3);
+  assert.equal(event.at, "2026-09-01T23:30:00.000Z");
+  assert.equal(event.sessionDay, "2026-09-02");
+  assert.equal(createLiteracyDecision({
+    challenge: challenge(),
+    response: { kind: "literacy-answer", token: "sh" },
+    ordinal: 9,
+    at: "not-a-date",
+    sessionDay: "2026-02-30"
+  }), null);
+  assert.equal(createLiteracyDecision({
+    challenge: challenge(),
+    response: { kind: "literacy-answer", token: "sh" },
+    ordinal: 10
+  }), null);
+});
+
+function readyEvidence({ sessionDays, atValues, domains } = {}) {
+  const defaultDomains = [
+    EVIDENCE_DOMAINS.PHONEME_TO_GRAPHEME,
+    EVIDENCE_DOMAINS.GRAPHEME_TO_PHONEME,
+    EVIDENCE_DOMAINS.PHONEME_TO_GRAPHEME,
+    EVIDENCE_DOMAINS.GRAPHEME_TO_PHONEME
+  ];
+  return (domains || defaultDomains).map((recordsDomain, index) => decision({
+    challenge: challenge({ attemptId: `ready-${index}`, recordsDomain }),
+    ordinal: 1,
+    at: atValues?.[index] || `2026-09-0${index < 2 ? 1 : 2}T10:00:00.000Z`,
+    sessionDay: sessionDays?.[index] || `2026-09-0${index < 2 ? 1 : 2}`
+  }));
+}
 
 test("a completed word has one decision event, never component-target fan-out", () => {
   const event = decision({
@@ -142,9 +178,85 @@ test("practice readiness requires independent, spaced, diverse recent literacy e
     ordinal: 1,
     at: `2026-09-0${index < 2 ? 1 : 2}T10:00:00.000Z`
   }));
-  const result = practiceReadinessFor("sh", evidence);
+  const result = practiceReadinessFor("sh", evidence, { now: "2026-09-03T12:00:00.000Z" });
   assert.equal(result.ready, true);
   assert.equal(result.state, "ready_for_teaching_check");
   assert.equal("SECURE" in result, false);
   assert.equal(result.formalStatus, undefined);
+});
+
+test("one Shanghai sitting crossing UTC midnight remains one local session day", () => {
+  const evidence = readyEvidence({
+    atValues: [
+      "2026-09-01T23:30:00.000Z",
+      "2026-09-02T00:30:00.000Z",
+      "2026-09-01T23:40:00.000Z",
+      "2026-09-02T00:40:00.000Z"
+    ],
+    sessionDays: ["2026-09-02", "2026-09-02", "2026-09-02", "2026-09-02"]
+  });
+  const result = practiceReadinessFor("sh", evidence, { now: "2026-09-05T12:00:00.000Z" });
+  assert.equal(result.ready, false);
+  assert.deepEqual(result.sessions, ["2026-09-02"]);
+});
+
+test("two genuine local session days can meet the spacing rule", () => {
+  const evidence = readyEvidence({
+    atValues: [
+      "2026-09-02T10:00:00.000Z",
+      "2026-09-02T11:00:00.000Z",
+      "2026-09-03T10:00:00.000Z",
+      "2026-09-03T11:00:00.000Z"
+    ],
+    sessionDays: ["2026-09-02", "2026-09-02", "2026-09-03", "2026-09-03"]
+  });
+  const result = practiceReadinessFor("sh", evidence, { now: "2026-09-05T12:00:00.000Z" });
+  assert.equal(result.ready, true);
+  assert.deepEqual(result.sessions, ["2026-09-02", "2026-09-03"]);
+});
+
+test("pre-sessionDay v2 evidence falls back only to a valid local calendar day", () => {
+  const legacyEvents = readyEvidence({
+    atValues: [
+      "2026-09-02T10:00:00.000Z",
+      "2026-09-02T11:00:00.000Z",
+      "2026-09-03T10:00:00.000Z",
+      "2026-09-03T11:00:00.000Z"
+    ],
+    sessionDays: ["2026-09-02", "2026-09-02", "2026-09-03", "2026-09-03"]
+  }).map(({ sessionDay, ...event }) => Object.freeze(event));
+  const result = practiceReadinessFor("sh", legacyEvents, { now: "2026-09-05T12:00:00.000Z" });
+  assert.equal(result.ready, true);
+  assert.deepEqual(result.sessions, ["2026-09-02", "2026-09-03"]);
+});
+
+test("readiness uses the inclusive 90-day conclusion window and excludes just-expired evidence", () => {
+  const now = new Date("2026-12-30T12:00:00.000Z");
+  const boundaryAt = new Date(now.getTime() - 90 * 24 * 60 * 60 * 1000).toISOString();
+  const expiredAt = new Date(now.getTime() - 90 * 24 * 60 * 60 * 1000 - 1).toISOString();
+  const currentSecondDay = new Date(now.getTime() - 89 * 24 * 60 * 60 * 1000).toISOString();
+  const onBoundary = practiceReadinessFor("sh", readyEvidence({
+    atValues: [boundaryAt, boundaryAt, currentSecondDay, currentSecondDay],
+    sessionDays: ["2026-10-01", "2026-10-01", "2026-10-02", "2026-10-02"]
+  }), { now });
+  const expired = practiceReadinessFor("sh", readyEvidence({ atValues: Array(4).fill(expiredAt) }), { now });
+  assert.equal(onBoundary.ready, true);
+  assert.equal(expired.ready, false);
+  assert.equal(expired.attempts, 4, "lifetime reporting context survives");
+  assert.equal(expired.currentAttempts, 0);
+});
+
+test("all-old or invalid-dated evidence cannot prove current spaced readiness", () => {
+  const allOld = practiceReadinessFor("sh", readyEvidence({
+    atValues: Array(4).fill("2026-01-01T10:00:00.000Z")
+  }), { now: "2026-12-30T12:00:00.000Z" });
+  assert.equal(allOld.ready, false);
+  assert.equal(allOld.currentAttempts, 0);
+
+  const invalidSessionDays = readyEvidence({
+    sessionDays: ["2026-02-30", "2026-02-30", "2026-02-30", "2026-02-30"]
+  }).map(event => Object.freeze({ ...event, sessionDay: "2026-02-30" }));
+  const invalid = practiceReadinessFor("sh", invalidSessionDays, { now: "2026-09-05T12:00:00.000Z" });
+  assert.equal(invalid.ready, false);
+  assert.deepEqual(invalid.sessions, []);
 });
