@@ -51,7 +51,6 @@ function validJourneyStep(value) {
 function isV2PracticeEvent(event) {
   return Boolean(
     event
-    && Object.isFrozen(event)
     && event.evidenceKind === "practice"
     && isEvidenceDomain(event.domain)
     && typeof event.id === "string" && event.id
@@ -61,32 +60,18 @@ function isV2PracticeEvent(event) {
   );
 }
 
-function explicitConfusionWindow(context) {
-  const value = Number(context?.confusionWindow);
-  return Number.isInteger(value) && value > 0 ? value : null;
+function confusionWindow(context) {
+  const requested = Number(context?.confusionWindow ?? context?.recentWindow);
+  return Number.isInteger(requested) && requested > 0 ? requested : 24;
 }
 
 function confusionCount(context, targetId, candidateId) {
   const now = currentJourneyStep(context);
-  const evidenceWindow = explicitConfusionWindow(context) ?? Math.max(1, Number(context?.recentWindow) || 24);
-  const evidenceCount = evidenceFor(context, targetId)
+  const window = confusionWindow(context);
+  return evidenceFor(context, targetId)
     .filter(event => event.correct === false && String(event.confusion) === candidateId)
-    .filter(event => now - event.journeyStep >= 0 && now - event.journeyStep <= evidenceWindow)
+    .filter(event => now - event.journeyStep >= 0 && now - event.journeyStep <= window)
     .length;
-
-  // A persisted aggregate has no embedded event history. It is safe only when
-  // both the caller's window and the aggregate's latest observation are explicit.
-  const aggregateWindow = explicitConfusionWindow(context);
-  const confusions = context?.confusions && typeof context.confusions === "object" ? context.confusions : {};
-  const aggregate = confusions[`${targetId}:${candidateId}`] ?? confusions[candidateId];
-  const aggregateCount = aggregateWindow !== null
-    && aggregate && typeof aggregate === "object"
-    && validJourneyStep(aggregate.journeyStep)
-    && now - aggregate.journeyStep >= 0
-    && now - aggregate.journeyStep <= aggregateWindow
-    ? Math.max(0, Number(aggregate.count) || 0)
-    : 0;
-  return Math.max(evidenceCount, aggregateCount);
 }
 
 function evidenceFor(context, targetId) {
@@ -159,6 +144,8 @@ function bestConfusionContrast(context, targetId) {
 
 // Selection is intentionally a pure function of instructional history. It
 // never consumes travel, response-time, collision, or device-performance data.
+// `stateV2.confusions` is a numeric lifetime reporting context, not an adaptive
+// signal: recent confusions are derived from validated windowed evidence only.
 export function selectNextChallenge(context = {}) {
   const taught = taughtSet(context);
   const requestedTargetId = stringId(context.targetId);

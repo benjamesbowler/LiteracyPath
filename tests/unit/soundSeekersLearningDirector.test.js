@@ -5,6 +5,10 @@ import {
   buildAuditedDistractors,
   selectNextChallenge
 } from "../../src/features/soundSeekers/engine/learningDirector.js";
+import {
+  createSoundSeekersState,
+  normalizeSoundSeekersState
+} from "../../src/features/soundSeekers/engine/stateV2.js";
 
 const comparisonFamilies = {
   short_a: "short-vowels",
@@ -23,9 +27,9 @@ const practiceEvent = event => Object.freeze({
 test("director serves a taught homogeneous contrast from recent confusion", () => {
   const next = selectNextChallenge({
     targetId: "short_i",
-    confusions: { short_e: { count: 3, journeyStep: 7 } },
     taught: ["short_i", "short_e"],
     comparisonFamilies,
+    evidence: [practiceEvent({ target: "short_i", correct: false, confusion: "short_e", journeyStep: 7 })],
     journeyStep: 8,
     confusionWindow: 3,
     seed: 7
@@ -81,7 +85,7 @@ test("director ignores mutable, non-practice, and non-domain events", () => {
   assert.equal(next.reason, "never_served");
 });
 
-test("stale aggregate confusion cannot outrank a due review", () => {
+test("persisted lifetime confusion counts are non-adaptive context", () => {
   const next = selectNextChallenge({
     targetId: "short_i",
     taught: ["short_i", "short_e"],
@@ -95,6 +99,48 @@ test("stale aggregate confusion cannot outrank a due review", () => {
 
   assert.equal(next.reason, "due_review");
   assert.equal(next.contrastTargetId, null);
+});
+
+test("director uses structurally valid persisted evidence after a v2 resume", () => {
+  const base = createSoundSeekersState();
+  const resume = ({ evidence, journeyStep, confusions = {} }) => normalizeSoundSeekersState({
+    ...base,
+    trail: { ...base.trail, journeyStep },
+    evidence,
+    confusions
+  });
+  const context = state => ({
+    targetId: "short_i",
+    taught: ["short_i", "short_e"],
+    comparisonFamilies,
+    evidence: state.evidence,
+    confusions: state.confusions,
+    journeyStep: state.trail.journeyStep,
+    reviewGap: 3,
+    confusionWindow: 3
+  });
+
+  const due = resume({
+    evidence: [practiceEvent({ id: "due", target: "short_i", correct: true, journeyStep: 10, at: 10 })],
+    journeyStep: 13,
+    confusions: { "short_i:short_e": 99 }
+  });
+  assert.equal(Object.isFrozen(due.evidence[0]), false, "JSON-normalized evidence is plain data");
+  assert.equal(selectNextChallenge(context(due)).reason, "due_review");
+
+  const lowAccuracy = resume({
+    evidence: [practiceEvent({ id: "low", target: "short_i", correct: false, confusion: null, journeyStep: 12, at: 12 })],
+    journeyStep: 13
+  });
+  assert.equal(selectNextChallenge(context(lowAccuracy)).reason, "low_or_decayed_accuracy");
+
+  const confusion = resume({
+    evidence: [practiceEvent({ id: "confusion", target: "short_i", correct: false, confusion: "short_e", journeyStep: 12, at: 12 })],
+    journeyStep: 13
+  });
+  const next = selectNextChallenge(context(confusion));
+  assert.equal(next.reason, "recent_confusion");
+  assert.equal(next.contrastTargetId, "short_e");
 });
 
 test("recent immutable confusion evidence chooses its taught contrast", () => {
