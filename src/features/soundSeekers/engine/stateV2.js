@@ -76,7 +76,7 @@ function normalizeEvent(event) {
     : typeof value.at === "string" && trimAsciiSpaces(value.at)
       ? trimAsciiSpaces(value.at)
       : 0;
-  return { ...value, id, at };
+  return Object.freeze({ ...value, id, at });
 }
 
 function compareEventAt(left, right) {

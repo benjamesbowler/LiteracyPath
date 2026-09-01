@@ -125,7 +125,8 @@ test("director uses structurally valid persisted evidence after a v2 resume", ()
     journeyStep: 13,
     confusions: { "short_i:short_e": 99 }
   });
-  assert.equal(Object.isFrozen(due.evidence[0]), false, "JSON-normalized evidence is plain data");
+  assert.equal(Object.isFrozen(due.evidence[0]), true, "normalized evidence is an immutable reducer snapshot");
+  assert.throws(() => { due.evidence[0].correct = false; }, TypeError);
   assert.equal(selectNextChallenge(context(due)).reason, "due_review");
 
   const lowAccuracy = resume({
