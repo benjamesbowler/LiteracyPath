@@ -37,10 +37,13 @@ For substantial work, use the three-lane workflow in
 
 1. **Research/planning** defines scope, current sources, acceptance criteria,
    and risks.
-2. **Implementation** makes the smallest scoped change and does not broaden
+2. **Implementation** makes the smallest scoped change that completely
+   satisfies the requested outcome and acceptance criteria; it does not broaden
    the task or alter release authority.
-3. **Verification/release** runs focused checks, inspects the diff, and records
-   evidence before handoff.
+3. **Verification/release** exercises the finished end-to-end deliverable in
+   its intended environment, runs focused checks, inspects the diff, and records
+   evidence before handoff. Evidence for an intermediate artifact is not a
+   substitute for the requested finished product.
 
 Use [`docs/brain/AGENT_TASK_BRIEF.md`](docs/brain/AGENT_TASK_BRIEF.md) when a
 task needs delegation or more than one independent work lane. The parent task
@@ -54,6 +57,57 @@ privacy, cost, and rollback review is recorded first.
 Do not keep old and new policies or designs in parallel. The only exception is
 an A/B test the user has explicitly requested; that test must have a named,
 current selection path and the losing variant must be removed when the test ends.
+
+## Definition of done: deliver the requested finished product
+
+Treat the user's requested outcome, specifications and exact qualifiers as the
+acceptance contract. Complete 100% of every explicit in-scope requirement. A
+task is complete only when the finished, usable deliverable exists, passes the
+applicable current product, Bible, quality and release requirements, and has
+been exercised in its intended end-use environment.
+
+- Never silently reinterpret or reduce the request. Preserve words such as
+  `all`, `every`, `exact`, `finished`, `production-ready`, `Moho-ready` and
+  `ready to publish` as testable acceptance criteria.
+- Demos, prototypes, scaffolds, samples, candidates, proxies, placeholders,
+  contact sheets, manifests, source pointers, partial packs and
+  `release-blocked` assets are intermediate work only unless the user explicitly
+  requested that form. Never substitute one for the requested finished product.
+- A known limitation that contradicts the requested state means the task is
+  unfinished. It must trigger more implementation, correction and verification,
+  not a completion claim followed by a caveat or future-work list.
+- Files existing, links resolving, hashes matching, tests compiling and reports
+  passing are supporting evidence. They do not replace direct verification of
+  the actual artifact, workflow, hosted state, device behavior, listening
+  quality, visual quality or target-tool operation required by the request.
+- Do not use a small shared asset bank, generic fallback, keyword mapping or
+  duplicated placeholder to satisfy a request for distinct exact outputs unless
+  the user explicitly authorized reuse and each use independently satisfies the
+  specification.
+- Size, difficulty, time pressure and context limits do not authorize stopping
+  early or lowering the requested standard. Use delegation, checkpoints and
+  phased execution to finish the whole endpoint while preserving the same
+  acceptance contract.
+- During preflight, identify any material requirement that cannot be completed
+  with the available tools, authority or environment. If a genuine blocker
+  remains after safe alternatives are exhausted, report it before substituting
+  another deliverable and mark the work blocked, not complete. Finish every
+  unblocked requirement, name the exact missing authority or access, and ask
+  only for the action needed to resume.
+- Do not bypass security, privacy, data-rights, educational-validity or release
+  gates to manufacture a completion claim. Satisfy them as part of the work or
+  remain explicitly blocked.
+
+Concrete acceptance examples:
+
+- `Moho-ready` requires independently usable semantic parts, true alpha,
+  correct registration/common canvas, concealed overlap where required, and
+  direct import and deformation verification in Moho. An opaque source sheet,
+  parts catalogue or release-blocked candidate pack does not qualify.
+- `A background for every scene` requires an appropriate completed background
+  for each exact scene. Linking a small reusable master bank across hundreds of
+  scene labels does not qualify unless the user explicitly requested reusable
+  masters and each assignment passes exact scene review.
 
 ## Rules that must not return
 

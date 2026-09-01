@@ -1,7 +1,7 @@
 ---
 type: knowledge-map
 status: active
-updated: 2026-08-03
+updated: 2026-09-02
 authority: orientation-only
 ---
 
@@ -38,5 +38,6 @@ authority: orientation-only
 - [Local-first agent memory decision](decisions/2026-08-03-local-first-agent-memory.md)
 - [Agent-memory research](research/2026-08-03-agent-memory-landscape.md)
 - [Bounded agent workflow decision](decisions/2026-08-08-bounded-agent-workflow.md)
+- [Finished deliverable definition of done](decisions/2026-09-02-finished-deliverable-definition-of-done.md)
 - [Agent task brief](AGENT_TASK_BRIEF.md)
 - [Agent efficiency and creative-tools audit](research/2026-08-08-agent-efficiency-and-creative-tools-audit.md)

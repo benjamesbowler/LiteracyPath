@@ -23,10 +23,13 @@ including a transcript.
 
 - **Changed files:**
 - **Checks and results:**
-- **Known limitations or follow-up:**
+- **Remaining blockers (unmet acceptance criteria; task is not complete):**
+- **Items explicitly deferred by the user:**
 - **Parent decision required:** yes | no
 
 ## Rules
 
 The lane may not broaden scope, modify unrelated files, change production or
 Supabase authority, install an unreviewed remote service, or merge its own work.
+It may not turn an unmet acceptance criterion into optional follow-up or present
+an intermediate artifact as the finished requested product.
