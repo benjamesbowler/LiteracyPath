@@ -466,6 +466,49 @@ Direct gates kept separate:
 
 Automation may not claim these direct gates passed.
 
+### Research benchmark addendum: tightening SS-01 through SS-20
+
+The [competitive benchmark](../research/2026-09-01-sound-seekers-competitive-benchmark.md)
+is evidence input to this approved design, not a twenty-first requirement or a
+second authority. It tightens the existing requirements as follows:
+
+- **Formative child evidence (`SS-05`, `SS-20`):** observe children at the
+  control prototype, first playable Sound Power, Seedwake gold chapter, and
+  representative all-chapter stages. Test instruction comprehension, first-use
+  control discovery, correction recovery, stopping/resume, enjoyment, and
+  voluntary replay rather than completion alone. Each direct gate remains
+  openly reported as unexercised, failed, or passed; automation and adult
+  inference never close it.
+- **Starting path and power onboarding (`SS-02`, `SS-08`, `SS-11`):** a fresh
+  journey may use a brief, low-stakes, reversible sample to suggest a practice
+  starting path. It is not placement, assessment, or mastery evidence and may
+  be overridden by the teacher. Each new Sound Power begins with a replayable,
+  consequence-free control rehearsal; rehearsal errors do not cost rewards,
+  alter progress, or create evidence.
+- **Equivalent access (`SS-06`, `SS-13`, `SS-18`, `SS-19`):** every drag action
+  has an explicit simple-pointer alternative such as select-then-place, plus
+  the required keyboard and switch-compatible path. Shape, icon, label,
+  position, or pattern carries every semantic state independently of color.
+  The current instruction and its labelled replay control remain available
+  until the learning action completes, including after interruption or error.
+- **Ethical pacing (`SS-01`, `SS-05`, `SS-06`, `SS-17`):** Sound Seekers has no
+  streak-loss threat, energy timer, variable-ratio reward loop, paid or loot-box
+  pressure, manipulative reminder, competitive rank, or forced continuation.
+  Every saved learning loop ends at a child-visible natural stopping point and
+  supports lossless exit and short-reminder resume.
+- **Optional co-engagement (`SS-09`, `SS-15`, `SS-16`):** an adult may listen,
+  discuss a scene, share a controlled text, or review the journal, but the game
+  never requires an adult and an adult action never becomes child evidence.
+  Supported shared, echo, or repeated reading is stored only as participation
+  with its support level; it is not scored fluency or mastery.
+- **Measured performance and transfer claims (`SS-18`, `SS-20`):** profile
+  first load, resume, memory, frame pacing, input response, and audio behavior
+  on representative supported low-power devices. Any numeric budget must be
+  derived from current measurements and governed by one live check, not
+  invented in this document. Off-game transfer may be studied only as a
+  separately labelled research measure; it never enters routine Sound Seekers
+  mastery, migration, rewards, or teacher practice status.
+
 ## 6. State and migration design
 
 ### 6.1 Save version
