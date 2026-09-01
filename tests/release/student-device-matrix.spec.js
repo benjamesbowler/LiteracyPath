@@ -938,10 +938,6 @@ async function expectCreatorTabLabelsClear(tabs, state) {
       right: rect.right,
       bottom: rect.bottom
     });
-    const contains = (container, box) => box.left >= container.left - 1
-      && box.top >= container.top - 1
-      && box.right <= container.right + 1
-      && box.bottom <= container.bottom + 1;
     const labels = nodes.map(node => {
       const tab = toBox(node.getBoundingClientRect());
       const range = document.createRange();
@@ -957,25 +953,99 @@ async function expectCreatorTabLabelsClear(tabs, state) {
             bottom: Math.max(...textBoxes.map(box => box.bottom))
           }
         : null;
+      const clippingBoxes = [{
+        element: "viewport",
+        clipsX: true,
+        clipsY: true,
+        box: { left: 0, top: 0, right: window.innerWidth, bottom: window.innerHeight }
+      }];
+      let clippingAncestor = node;
+      while (clippingAncestor) {
+        const style = getComputedStyle(clippingAncestor);
+        const clipsX = ["auto", "clip", "hidden", "scroll"].includes(style.overflowX);
+        const clipsY = ["auto", "clip", "hidden", "scroll"].includes(style.overflowY);
+        if (clipsX || clipsY) {
+          const rect = clippingAncestor.getBoundingClientRect();
+          const measuredScaleX = clippingAncestor.offsetWidth > 0
+            ? rect.width / clippingAncestor.offsetWidth
+            : 1;
+          const measuredScaleY = clippingAncestor.offsetHeight > 0
+            ? rect.height / clippingAncestor.offsetHeight
+            : 1;
+          const scaleX = Number.isFinite(measuredScaleX) && measuredScaleX > 0
+            ? measuredScaleX
+            : 1;
+          const scaleY = Number.isFinite(measuredScaleY) && measuredScaleY > 0
+            ? measuredScaleY
+            : 1;
+          const left = rect.left + (clippingAncestor.clientLeft * scaleX);
+          const top = rect.top + (clippingAncestor.clientTop * scaleY);
+          clippingBoxes.push({
+            element: clippingAncestor === node
+              ? "tab"
+              : clippingAncestor.className || clippingAncestor.tagName.toLowerCase(),
+            clipsX,
+            clipsY,
+            box: {
+              left,
+              top,
+              right: left + (clippingAncestor.clientWidth * scaleX),
+              bottom: top + (clippingAncestor.clientHeight * scaleY)
+            }
+          });
+        }
+        clippingAncestor = clippingAncestor.parentElement;
+      }
+      const unclipped = textBoxes.length > 0 && textBoxes.every(box => (
+        clippingBoxes.every(clip => (
+          (!clip.clipsX || (
+            box.left >= clip.box.left - 1
+            && box.right <= clip.box.right + 1
+          ))
+          && (!clip.clipsY || (
+            box.top >= clip.box.top - 1
+            && box.bottom <= clip.box.bottom + 1
+          ))
+        ))
+      ));
       return {
         label: node.textContent.trim(),
         tab,
         text,
         textBoxes,
-        contained: textBoxes.length > 0 && textBoxes.every(box => contains(tab, box))
+        clippingBoxes,
+        unclipped
       };
     });
-    return labels.map((label, index) => ({
-      ...label,
-      gapToNext: index < labels.length - 1 && label.text && labels[index + 1].text
-        ? labels[index + 1].text.left - label.text.right
-        : null
-    }));
+    return labels.map((label, index) => {
+      const previousTab = labels[index - 1]?.tab;
+      const nextTab = labels[index + 1]?.tab;
+      const horizontalBounds = {
+        left: previousTab?.right ?? label.tab.left - 1,
+        right: nextTab?.left ?? label.tab.right + 1
+      };
+      return {
+        ...label,
+        clearOfAdjacentTabs: label.textBoxes.length > 0 && label.textBoxes.every(box => (
+          box.left >= horizontalBounds.left
+          && box.right <= horizontalBounds.right
+          && box.top >= label.tab.top - 1
+          && box.bottom <= label.tab.bottom + 1
+        )),
+        gapToNext: index < labels.length - 1 && label.text && labels[index + 1].text
+          ? labels[index + 1].text.left - label.text.right
+          : null
+      };
+    });
   });
   expect(geometry, `${state} exposes all five creator tab labels`).toHaveLength(5);
   expect(
-    geometry.filter(label => !label.contained),
-    `${state} keeps every tab label inside its own control: ${JSON.stringify(geometry)}`
+    geometry.filter(label => !label.clearOfAdjacentTabs),
+    `${state} keeps tab-label ink out of adjacent controls: ${JSON.stringify(geometry)}`
+  ).toEqual([]);
+  expect(
+    geometry.filter(label => !label.unclipped),
+    `${state} keeps every tab label visible through all clipping boundaries: ${JSON.stringify(geometry)}`
   ).toEqual([]);
   expect(
     geometry.filter(label => label.gapToNext !== null && label.gapToNext < 2),
@@ -2304,6 +2374,30 @@ test("A3.6 Sound Seekers compact creator contains option labels and locked rewar
     `
   });
   await expectCreatorTabLabelsClear(tabs, "Sound Seekers wider-font creator tabs");
+
+  const characterTab = creator.getByRole("tab", { name: "Character", exact: true });
+  await characterTab.evaluate(node => {
+    const label = document.createElement("span");
+    label.textContent = node.textContent;
+    node.replaceChildren(label);
+    const tabBox = node.getBoundingClientRect();
+    const nextTabBox = node.nextElementSibling.getBoundingClientRect();
+    const range = document.createRange();
+    range.selectNodeContents(label);
+    const textBox = range.getBoundingClientRect();
+    const gutter = nextTabBox.left - tabBox.right;
+    const overhang = Math.max(1.25, gutter - 0.5);
+    label.style.position = "relative";
+    label.style.left = `${tabBox.right + overhang - textBox.right}px`;
+    node.style.overflow = "hidden";
+  });
+  await expect(
+    expectCreatorTabLabelsClear(tabs, "Sound Seekers clipped-label negative control")
+  ).rejects.toThrow(/clipping boundaries/);
+  await characterTab.evaluate(node => {
+    node.replaceChildren("Character");
+    node.style.removeProperty("overflow");
+  });
 
   const outfitsTab = creator.getByRole("tab", { name: "Outfits", exact: true });
   await outfitsTab.click();
