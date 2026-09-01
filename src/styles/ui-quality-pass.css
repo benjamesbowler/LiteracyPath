@@ -1260,6 +1260,134 @@
    quiet strip between the room name and the first shelf target instead of
    covering the labelled recommended glow. */
 @media (max-width: 360px) and (orientation: portrait) {
+  /* The creator's heading and instruction gain a line with Ubuntu's wider
+     system font. Let the illustrated stage absorb that difference while the
+     option reel and sole completion action keep explicit, reachable tracks. */
+  .q-root .q-creator {
+    display: grid;
+    grid-template-rows: auto auto auto minmax(0, 1fr) 56px 128px 64px;
+    gap: 4px;
+    padding: 8px 16px;
+    overflow: hidden;
+  }
+
+  .q-root .q-creator .q-title {
+    width: calc(100% - 112px);
+    font-size: 20px;
+    line-height: 1.1;
+  }
+
+  .q-root .q-creator-instruction {
+    margin-top: 14px;
+    font-size: 13px;
+    line-height: 1.2;
+  }
+
+  .q-root .q-creator-step {
+    margin-top: 4px;
+    padding: 3px 7px;
+    font-size: 11px;
+  }
+
+  .q-root .q-creator-stage {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .q-root .q-creator-book-identity {
+    grid-template-rows: minmax(0, 1fr) auto auto;
+    align-content: stretch;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .q-root .q-creator-book-character,
+  .q-root .q-creator-book-character > .q-book-avatar {
+    width: 130px;
+    height: 130px;
+    min-height: 0;
+  }
+
+  .q-root .q-creator .q-tabs {
+    grid-template-columns: repeat(5, minmax(56px, 1fr));
+    gap: 2px;
+    padding: 0;
+  }
+
+  .q-root .q-creator .q-tab {
+    height: 56px;
+    min-height: 56px;
+    padding-inline: 2px;
+    font-size: 11px;
+  }
+
+  .q-root .q-creator .q-reel {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-height: 0;
+    gap: 4px;
+    padding: 2px 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+  }
+
+  .q-root .q-creator .q-reel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .q-root .q-creator .q-option,
+  .q-root .q-creator .q-option.is-featured {
+    flex: 0 0 132px;
+    grid-template-rows: 48px auto auto;
+    align-content: start;
+    width: 132px;
+    min-width: 132px;
+    height: 124px;
+    min-height: 124px;
+    padding: 3px;
+  }
+
+  .q-root .q-creator .q-option-art,
+  .q-root .q-creator .q-option.is-featured .q-option-art {
+    height: 48px;
+  }
+
+  .q-root .q-creator .q-option-art > .q-book-avatar,
+  .q-root .q-creator .q-option-art > .q-book-avatar > .q-book-avatar-character {
+    width: 48px;
+    max-width: 48px;
+    height: 48px;
+    max-height: 48px;
+  }
+
+  .q-root .q-creator .q-option-label,
+  .q-root .q-creator .q-option.is-featured .q-option-label {
+    max-width: 100%;
+    font-size: 11px;
+    line-height: 1.15;
+    text-align: center;
+  }
+
+  .q-root .q-creator .q-option-cost {
+    width: 100%;
+    height: 38px;
+    min-height: 38px;
+    padding: 2px 4px;
+    font-size: 9px;
+    line-height: 1.15;
+  }
+
+  .q-root .q-creator .q-primary {
+    width: 100%;
+    height: 64px;
+    min-height: 64px;
+    margin: 0;
+  }
+
   .kg-stage .hollow-room-hint {
     display: block;
     top: 56px;
@@ -2455,6 +2583,32 @@
 
   .kg-stage .kg-map-card-text strong {
     font-size: 16px;
+  }
+
+  /* Keep the active destination honest across platform font metrics. The
+     whole card is the 56px+ action, so its decorative number and arrow can
+     yield room to the name; wrapping remains available for later stops. */
+  .kg-stage .kg-map-card--next {
+    grid-template-columns: 34px minmax(0, 1fr) 22px;
+    gap: 3px;
+    padding-inline: 4px;
+  }
+
+  .kg-stage .kg-map-card--next .kg-map-card-chip {
+    width: 34px;
+    height: 34px;
+  }
+
+  .kg-stage .kg-map-card--next .kg-map-card-go {
+    width: 22px;
+    height: 22px;
+    font-size: 16px;
+  }
+
+  .kg-stage .kg-map-card--next .kg-map-card-text strong {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
   }
 
   .kg-stage .kg-quests-head {

@@ -475,6 +475,144 @@ async function expectCompactHollowOverlaysSeparated(surface, state) {
   ).toBe(false);
 }
 
+async function expectCreatorOptionContentsContained(creator, state) {
+  const options = creator.locator(".q-option");
+  expect(await options.count(), `${state} exposes creator options`).toBeGreaterThan(0);
+  const failures = await options.evaluateAll(nodes => nodes.flatMap((option, optionIndex) => {
+    const optionBox = option.getBoundingClientRect();
+    const contains = (container, box) => box.left >= container.left - 1
+      && box.top >= container.top - 1
+      && box.right <= container.right + 1
+      && box.bottom <= container.bottom + 1;
+    const optionGeometry = {
+      left: optionBox.left,
+      top: optionBox.top,
+      right: optionBox.right,
+      bottom: optionBox.bottom
+    };
+    return [...option.querySelectorAll([
+      ":scope > .q-option-art",
+      ":scope > .q-option-label",
+      ":scope > .q-option-cost",
+      ":scope > .q-option-art > .q-book-avatar",
+      ":scope > .q-option-art > .q-book-avatar > .q-book-avatar-character"
+    ].join(", "))]
+      .flatMap(content => {
+        const style = getComputedStyle(content);
+        const contentBox = content.getBoundingClientRect();
+        if (
+          style.display === "none"
+          || style.visibility === "hidden"
+          || Number.parseFloat(style.opacity || "1") <= 0
+          || contentBox.width < 1
+          || contentBox.height < 1
+        ) return [];
+        const text = content.textContent.trim();
+        const range = document.createRange();
+        range.selectNodeContents(content);
+        const textBoxes = text
+          ? [...range.getClientRects()].map(rect => ({
+              left: rect.left,
+              top: rect.top,
+              right: rect.right,
+              bottom: rect.bottom
+            }))
+          : [];
+        const contentGeometry = {
+          left: contentBox.left,
+          top: contentBox.top,
+          right: contentBox.right,
+          bottom: contentBox.bottom
+        };
+        const requiresText = content.classList.contains("q-option-label")
+          || content.classList.contains("q-option-cost");
+        if (
+          !contains(optionGeometry, contentGeometry)
+          || textBoxes.some(box => !contains(optionGeometry, box))
+          || textBoxes.some(box => !contains(contentGeometry, box))
+          || (requiresText && !text)
+        ) {
+          return [{
+            optionIndex,
+            optionName: option.getAttribute("aria-label") || "",
+            contentClass: content.className,
+            text,
+            option: optionGeometry,
+            content: contentGeometry,
+            textBoxes
+          }];
+        }
+        return [];
+      });
+  }));
+  expect(
+    failures,
+    `${state} keeps every visible label and reward state inside its option card: ${JSON.stringify(failures)}`
+  ).toEqual([]);
+}
+
+async function expectCreatorOptionRailStartsReachably(reel, state) {
+  const geometry = await reel.evaluate(element => {
+    const rail = element.getBoundingClientRect();
+    const first = element.querySelector(":scope > .q-option")?.getBoundingClientRect();
+    return {
+      railLeft: rail.left,
+      firstLeft: first?.left ?? null,
+      scrollLeft: element.scrollLeft
+    };
+  });
+  expect(geometry.firstLeft, `${state} exposes a first option`).not.toBeNull();
+  expect(
+    geometry.firstLeft,
+    `${state} keeps its first option inside the reachable left edge: ${JSON.stringify(geometry)}`
+  ).toBeGreaterThanOrEqual(geometry.railLeft - 1);
+}
+
+async function expectCreatorInstructionClearOfHeaderControls(surface, state) {
+  const instruction = surface.locator("[data-child-instruction]");
+  await expect(instruction).toBeVisible();
+  const geometry = await surface.evaluate(element => {
+    const instructionNode = element.querySelector("[data-child-instruction]");
+    const instructionBox = instructionNode?.getBoundingClientRect();
+    const overlaps = (first, second) => Boolean(first && second)
+      && first.left < second.right
+      && first.right > second.left
+      && first.top < second.bottom
+      && first.bottom > second.top;
+    const visibleHeaderControls = [...element.querySelectorAll(".q-creator-music-toggle, .q-exit")]
+      .filter(control => {
+        const style = getComputedStyle(control);
+        const box = control.getBoundingClientRect();
+        return style.display !== "none"
+          && style.visibility !== "hidden"
+          && Number.parseFloat(style.opacity || "1") > 0
+          && box.width >= 1
+          && box.height >= 1;
+      });
+    const serialise = box => box && ({
+      left: box.left,
+      top: box.top,
+      right: box.right,
+      bottom: box.bottom
+    });
+    return {
+      instruction: serialise(instructionBox),
+      controls: visibleHeaderControls.map(control => ({
+        name: control.getAttribute("aria-label") || control.textContent.trim(),
+        box: serialise(control.getBoundingClientRect())
+      })),
+      collisions: visibleHeaderControls
+        .filter(control => overlaps(instructionBox, control.getBoundingClientRect()))
+        .map(control => control.getAttribute("aria-label") || control.textContent.trim())
+    };
+  });
+  expect(geometry.controls, `${state} exposes music and Close header controls`).toHaveLength(2);
+  expect(
+    geometry.collisions,
+    `${state} keeps its instruction clear of visible header controls: ${JSON.stringify(geometry)}`
+  ).toEqual([]);
+}
+
 async function openChildSurface(page, route, profile) {
   const errors = [];
   page.on("pageerror", error => errors.push(error.message));
@@ -523,6 +661,43 @@ for (const profile of STUDENT_DEVICE_PROFILES) {
     }
   });
 }
+
+test("A3.6 Sound Seekers compact creator contains option labels and locked rewards", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.goto("/preview/child-surfaces.html?surface=sound-seekers");
+  const surface = page.locator('[data-child-surface="sound-seekers"]');
+  const creator = surface.locator(".q-creator");
+  await expect(creator).toBeVisible();
+  await waitForVisibleImages(page);
+  await page.evaluate(() => document.fonts?.ready);
+  await expectCreatorInstructionClearOfHeaderControls(surface, "Sound Seekers compact creator");
+
+  const characterReel = creator.locator(".q-reel--body");
+  await expect(characterReel).toBeVisible();
+  await expectCreatorOptionRailStartsReachably(characterReel, "Sound Seekers Character options");
+  await expectCreatorOptionContentsContained(characterReel, "Sound Seekers Character options");
+
+  const tabs = creator.getByRole("tab");
+  const tabHeights = await tabs.evaluateAll(nodes => nodes.map(node => node.getBoundingClientRect().height));
+  expect(tabHeights.every(height => height >= 56), "compact creator keeps 56px tabs").toBe(true);
+
+  const outfitsTab = creator.getByRole("tab", { name: "Outfits", exact: true });
+  await outfitsTab.click();
+  await expect(outfitsTab).toHaveAttribute("aria-selected", "true");
+  const outfitReel = creator.locator(".q-reel--outfit");
+  await expect(outfitReel).toBeVisible();
+  const lockedOptions = outfitReel.locator(":scope > .q-option.is-locked");
+  await expect(lockedOptions, "Outfits exposes its five locked trail rewards").toHaveCount(5);
+  await expect(lockedOptions.first().locator(".q-option-cost")).toContainText("Trail reward");
+  await expectCreatorOptionRailStartsReachably(outfitReel, "Sound Seekers locked Outfit options");
+  await expectCreatorOptionContentsContained(outfitReel, "Sound Seekers locked Outfit options");
+
+  const primary = creator.locator("[data-child-primary]");
+  const primaryBox = await primary.boundingBox();
+  expect(primaryBox?.height || 0, "compact creator keeps its 64px primary action").toBeGreaterThanOrEqual(64);
+  await expectPrimaryActionInInitialPane(surface, "Sound Seekers compact creator");
+});
 
 for (const keyboardViewport of STUDENT_SOFTWARE_KEYBOARD_VIEWPORTS) {
   test(`A3.6 student sign in remains usable with ${keyboardViewport.id}`, async ({ page }) => {
