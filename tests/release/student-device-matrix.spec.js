@@ -161,6 +161,116 @@ async function expectHomeDoorLabels(surface, state) {
   expect(failures, `${state} keeps every destination name visibly inside its card`).toEqual([]);
 }
 
+async function expectPrimaryMapDestinationLabel(surface, state) {
+  const label = surface.locator(".kg-map-card--next .kg-map-card-text strong");
+  await expect(label, `${state} exposes the next destination name`).toBeVisible();
+  const geometry = await label.evaluate(element => ({
+    text: element.textContent.trim(),
+    clientWidth: element.clientWidth,
+    scrollWidth: element.scrollWidth
+  }));
+  expect(geometry.text, `${state} names the next destination`).not.toBe("");
+  expect(
+    geometry.scrollWidth,
+    `${state} keeps the full next destination name visible`
+  ).toBeLessThanOrEqual(geometry.clientWidth + 1);
+}
+
+async function expectArcadeTitleContained(surface, state) {
+  const geometry = await surface.evaluate(element => {
+    const title = element.querySelector("[data-child-title]");
+    const scrollbody = element.querySelector(".lg-arcade-scrollbody");
+    const titleBox = title?.getBoundingClientRect();
+    const scrollBox = scrollbody?.getBoundingClientRect();
+    return {
+      hasParts: Boolean(titleBox && scrollBox),
+      title: title?.textContent.trim() || "",
+      titleTop: titleBox?.top || 0,
+      titleBottom: titleBox?.bottom || 0,
+      scrollTop: scrollBox?.top || 0,
+      scrollBottom: scrollBox?.bottom || 0
+    };
+  });
+  expect(geometry.hasParts, `${state} exposes its title and internal pane`).toBe(true);
+  expect(geometry.title, `${state} keeps a route title`).not.toBe("");
+  expect(
+    geometry.titleTop,
+    `${state} keeps the full route title below the pane's top edge after focus`
+  ).toBeGreaterThanOrEqual(geometry.scrollTop - 1);
+  expect(
+    geometry.titleBottom,
+    `${state} keeps the full route title above the pane's bottom edge after focus`
+  ).toBeLessThanOrEqual(geometry.scrollBottom + 1);
+}
+
+async function expectCompactHollowOverlaysSeparated(surface, state) {
+  const geometry = await surface.evaluate(element => {
+    const box = selector => {
+      const node = element.querySelector(selector);
+      if (!node) return null;
+      const rect = node.getBoundingClientRect();
+      if (rect.width < 1 || rect.height < 1) return null;
+      return {
+        left: rect.left,
+        top: rect.top,
+        right: rect.right,
+        bottom: rect.bottom
+      };
+    };
+    const overlaps = (first, second) => Boolean(first && second)
+      && first.left < second.right - 1
+      && first.right > second.left + 1
+      && first.top < second.bottom - 1
+      && first.bottom > second.top + 1;
+    const room = box(".hollow-room");
+    const pageTitle = box(".hollow-title");
+    const primaryCue = box(".hollow-spot-next");
+    const recommendedSpot = box(".hollow-spot.recommended");
+    const roomName = box(".hollow-room-name");
+    const instruction = box(".hollow-room-hint");
+    const world = box(".hollow-world-button");
+    const nextRoom = box(".hollow-room-arrow.right");
+    return {
+      hasParts: Boolean(room && pageTitle && primaryCue && recommendedSpot && world && nextRoom),
+      room,
+      pageTitle,
+      primaryCue,
+      recommendedSpot,
+      roomName,
+      instruction,
+      world,
+      nextRoom,
+      primaryCueContained: Boolean(room && primaryCue)
+        && primaryCue.left >= room.left - 1
+        && primaryCue.right <= room.right + 1
+        && primaryCue.top >= room.top - 1
+        && primaryCue.bottom <= room.bottom + 1,
+      overlayCollision: [
+        [roomName, instruction],
+        [roomName, recommendedSpot],
+        [instruction, recommendedSpot],
+        [instruction, primaryCue],
+        [instruction, world],
+        [instruction, nextRoom]
+      ].some(([first, second]) => overlaps(first, second)),
+      worldNextOverlap: overlaps(world, nextRoom)
+    };
+  });
+  expect(geometry.hasParts, `${state} exposes its title, primary cue and room controls`).toBe(true);
+  expect(
+    geometry.overlayCollision,
+    `${state} keeps room overlays clear of its placement controls: ${JSON.stringify(geometry)}`
+  ).toBe(false);
+  expect(
+    geometry.worldNextOverlap,
+    `${state} separates the World and next-room controls: ${JSON.stringify(geometry)}`
+  ).toBe(false);
+  expect(
+    geometry.primaryCueContained,
+    `${state} keeps the visible primary cue inside the room: ${JSON.stringify(geometry)}`
+  ).toBe(true);
+}
+
 async function openChildSurface(page, route, profile) {
   const errors = [];
   page.on("pageerror", error => errors.push(error.message));
@@ -187,6 +297,13 @@ for (const profile of STUDENT_DEVICE_PROFILES) {
       await expectMinimumTargets(surface, state);
       await expectKeyboardState(page, surface, state);
       if (route.id === "student-home") await expectHomeDoorLabels(surface, state);
+      if (route.id === "adventure-map") await expectPrimaryMapDestinationLabel(surface, state);
+      if (route.id === "arcade" && profile.id === "small-phone-landscape") {
+        await expectArcadeTitleContained(surface, state);
+      }
+      if (route.id === "my-hollow" && profile.id.startsWith("small-phone-")) {
+        await expectCompactHollowOverlaysSeparated(surface, state);
+      }
       await expect(page).toHaveScreenshot(`student-device-${route.id}-${profile.id}.png`, {
         animations: "disabled",
         caret: "hide",

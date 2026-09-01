@@ -883,7 +883,10 @@
 
   .kg-stage .student-surface-arcade .lg-game-tile {
     height: auto;
-    min-height: 210px;
+    /* The shared child-control floor is !important. Match that cascade here
+       so the authored phone card cannot collapse to its content height; the
+       later 568x320 compact-landscape rule still deliberately wins at 112px. */
+    min-height: 210px !important;
   }
 
   .kg-stage .student-surface-arcade .lg-game-tile-art {
@@ -1253,6 +1256,14 @@
   }
 }
 
+/* On the 320px portrait matrix the labelled recommended glow already states
+   the action. Repeating the generic room hint directly covers that label. */
+@media (max-width: 360px) and (orientation: portrait) {
+  .kg-stage .hollow-room-hint {
+    display: none;
+  }
+}
+
 /* A 568 x 320 phone has only about 200px between its navigation bars. Keep the
    next action wholly visible there; the checklist and choices remain below it
    on the same deliberate vertical scroll path. */
@@ -1283,6 +1294,48 @@
 
   .kg-stage .kg-identity {
     display: none;
+  }
+
+  /* The generic narrow-screen Hollow stacks its title above four controls.
+     With the mandatory 56px tap floor that leaves a 98px room and forces the
+     room name/instruction plus World/next actions into one another. Landscape
+     has enough width for a single chrome row, returning that height to play. */
+  .kg-stage .hollow-topbar {
+    grid-template-columns: max-content minmax(0, 1fr);
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+  }
+
+  .kg-stage .hollow-title {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .kg-stage .hollow-tabs {
+    grid-column: 2;
+    order: initial;
+  }
+
+  .kg-stage .hollow-world-button {
+    right: 76px;
+  }
+
+  /* At 320px high the visible page title, active tab and labelled recommended
+     glow already carry the room identity and instruction. The two redundant
+     scene pills otherwise sit directly over the shelf targets. */
+  .kg-stage .hollow-room-name,
+  .kg-stage .hollow-room-hint {
+    display: none;
+  }
+
+  .kg-stage .hollow-spot.empty.recommended {
+    width: 56px;
+    height: 56px;
+  }
+
+  .kg-stage .hollow-spot-next {
+    top: 100%;
   }
 
   /* Arcade keeps its secondary progress/High Scores band in the child pane.
@@ -1322,8 +1375,20 @@
 
   .kg-stage .student-surface-arcade .lg-arcade-topband {
     flex: none;
-    gap: 6px;
-    padding: 6px 10px;
+    gap: 2px;
+    padding: 2px 8px;
+  }
+
+  .kg-stage .student-surface-arcade .lg-arcade-8bit {
+    font-size: 0.72rem;
+    line-height: 1;
+  }
+
+  .kg-stage .student-surface-arcade .lg-arcade-instruction,
+  .kg-stage .student-surface-arcade .lg-arcade-recommendation-reason {
+    margin-top: 1px;
+    font-size: 0.7rem;
+    line-height: 1.15;
   }
 
   .kg-stage .student-surface-arcade .lg-arcade-topband-controls {
@@ -1599,6 +1664,29 @@
     width: 100vw !important;
     height: 100dvh;
     transform: translate(-50%, -50%);
+  }
+
+  /* Four map stops share one narrow row here. Keep the forward arrow without
+     reducing the actual destination name to a single-letter ellipsis. */
+  .kg-stage .kg-map-card {
+    grid-template-columns: 38px minmax(0, 1fr) 28px;
+    gap: 4px;
+    padding-inline: 6px;
+  }
+
+  .kg-stage .kg-map-card-chip {
+    width: 38px;
+    height: 38px;
+  }
+
+  .kg-stage .kg-map-card-go {
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+  }
+
+  .kg-stage .kg-map-card-text strong {
+    font-size: 16px;
   }
 
   .kg-stage .kg-quests-head {
