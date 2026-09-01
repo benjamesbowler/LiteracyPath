@@ -14,8 +14,18 @@ const comparisonFamilies = {
   short_a: "short-vowels",
   short_e: "short-vowels",
   short_i: "short-vowels",
+  short_o: "short-vowels",
+  short_u: "short-vowels",
   sh: "digraphs"
 };
+
+const shortVowelPronunciations = Object.freeze({
+  short_a: Object.freeze({ id: "short_a", pronunciation: "/a/" }),
+  short_e: Object.freeze({ id: "short_e", pronunciation: "/e/" }),
+  short_i: Object.freeze({ id: "short_i", pronunciation: "/i/" }),
+  short_o: Object.freeze({ id: "short_o", pronunciation: "/o/" }),
+  short_u: Object.freeze({ id: "short_u", pronunciation: "/u/" })
+});
 
 const practiceEvent = event => Object.freeze({
   evidenceKind: "practice",
@@ -156,6 +166,89 @@ test("recent immutable confusion evidence chooses its taught contrast", () => {
 
   assert.equal(next.reason, "recent_confusion");
   assert.equal(next.contrastTargetId, "short_e");
+});
+
+test("equal-priority eligible targets all receive bounded deterministic seed coverage", () => {
+  const targetIds = ["short_a", "short_e", "short_i", "short_o", "short_u"];
+  const counts = Object.fromEntries(targetIds.map(targetId => [targetId, 0]));
+
+  for (let seed = 0; seed < 256; seed += 1) {
+    const next = selectNextChallenge({
+      eligibleTargets: targetIds,
+      taught: targetIds,
+      journeyStep: 17,
+      seed
+    });
+    counts[next.targetId] += 1;
+    assert.equal(next.reason, "never_served");
+  }
+
+  assert.deepEqual(new Set(Object.keys(counts).filter(targetId => counts[targetId] > 0)), new Set(targetIds));
+  assert.ok(Object.values(counts).every(count => count >= 20 && count <= 90), JSON.stringify(counts));
+});
+
+test("journey context varies equal-priority selection while replay and resume stay identical", () => {
+  const targetIds = ["short_a", "short_e", "short_i", "short_o", "short_u"];
+  const context = {
+    eligibleTargets: targetIds,
+    taught: targetIds,
+    journeyStep: 23,
+    seed: "journey-replay"
+  };
+  const replay = selectNextChallenge(context);
+  const resumed = selectNextChallenge(JSON.parse(JSON.stringify(context)));
+  assert.deepEqual(resumed, replay);
+
+  const acrossJourney = new Set();
+  for (let journeyStep = 1; journeyStep <= 64; journeyStep += 1) {
+    acrossJourney.add(selectNextChallenge({ ...context, journeyStep }).targetId);
+  }
+  assert.deepEqual(acrossJourney, new Set(targetIds));
+});
+
+test("pronunciation-distinct distractor subsets cover every eligible contrast deterministically", () => {
+  const taught = ["short_a", "short_e", "short_i", "short_o", "short_u"];
+  const inclusionCounts = Object.fromEntries(taught
+    .filter(targetId => targetId !== "short_i")
+    .map(targetId => [targetId, 0]));
+  const subsets = new Set();
+
+  for (let seed = 0; seed < 256; seed += 1) {
+    const context = {
+      targetId: "short_i",
+      taught,
+      comparisonFamilies,
+      pronunciations: shortVowelPronunciations,
+      optionCount: 3,
+      journeyStep: 31,
+      seed
+    };
+    const result = buildAuditedDistractors(context);
+    assert.deepEqual(buildAuditedDistractors(JSON.parse(JSON.stringify(context))), result);
+    subsets.add([...result.distractorIds].sort().join("+"));
+    for (const targetId of result.distractorIds) inclusionCounts[targetId] += 1;
+  }
+
+  assert.equal(subsets.size, 6, [...subsets].join(","));
+  assert.ok(Object.values(inclusionCounts).every(count => count >= 70 && count <= 180), JSON.stringify(inclusionCounts));
+});
+
+test("journey context varies audited distractor subsets for one replay seed", () => {
+  const taught = ["short_a", "short_e", "short_i", "short_o", "short_u"];
+  const subsets = new Set();
+  for (let journeyStep = 1; journeyStep <= 32; journeyStep += 1) {
+    const result = buildAuditedDistractors({
+      targetId: "short_i",
+      taught,
+      comparisonFamilies,
+      pronunciations: shortVowelPronunciations,
+      optionCount: 3,
+      journeyStep,
+      seed: "same-replay-seed"
+    });
+    subsets.add([...result.distractorIds].sort().join("+"));
+  }
+  assert.equal(subsets.size, 6, [...subsets].join(","));
 });
 
 test("distractors are taught, same-family, explicit, and position-balanced", () => {

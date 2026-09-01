@@ -25,19 +25,50 @@ function comparisonFamilyFor(context, id) {
   return stringId(record?.comparisonFamily || record?.comparisonFamilyId || record?.family);
 }
 
-function seedNumber(seed) {
-  if (Number.isFinite(Number(seed))) return Math.abs(Math.floor(Number(seed)));
-  let value = 0;
-  for (const char of String(seed ?? "")) value = ((value * 31) + char.charCodeAt(0)) >>> 0;
-  return value;
+function seedToken(seed) {
+  if (Number.isFinite(Number(seed))) return String(Math.abs(Math.floor(Number(seed))));
+  return String(seed ?? "");
 }
 
-function seededOrder(ids, seed) {
-  return [...ids].sort((left, right) => {
-    const leftHash = seedNumber(`${seed}:${left}`);
-    const rightHash = seedNumber(`${seed}:${right}`);
-    return leftHash - rightHash || left.localeCompare(right);
-  });
+function hashSeed(value) {
+  let hash = 1779033703 ^ value.length;
+  for (let index = 0; index < value.length; index += 1) {
+    hash = Math.imul(hash ^ value.charCodeAt(index), 3432918353);
+    hash = (hash << 13) | (hash >>> 19);
+  }
+  hash = Math.imul(hash ^ (hash >>> 16), 2246822507);
+  hash = Math.imul(hash ^ (hash >>> 13), 3266489909);
+  return (hash ^ (hash >>> 16)) >>> 0;
+}
+
+function seededRandom(key) {
+  let state = hashSeed(key);
+  return () => {
+    state = (state + 0x6D2B79F5) >>> 0;
+    let value = state;
+    value = Math.imul(value ^ (value >>> 15), value | 1);
+    value ^= value + Math.imul(value ^ (value >>> 7), value | 61);
+    return ((value ^ (value >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function seedKey(context, stream, targetId = "") {
+  return [stream, seedToken(context?.seed), currentJourneyStep(context), targetId].join("\u0000");
+}
+
+function seededOrder(ids, context, stream, targetId = "") {
+  const ordered = [...ids].sort((left, right) => left.localeCompare(right));
+  const random = seededRandom(seedKey(context, stream, targetId));
+  for (let index = ordered.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(random() * (index + 1));
+    [ordered[index], ordered[swapIndex]] = [ordered[swapIndex], ordered[index]];
+  }
+  return ordered;
+}
+
+function seededIndex(length, context, stream, targetId = "") {
+  if (!Number.isInteger(length) || length <= 0) return 0;
+  return Math.floor(seededRandom(seedKey(context, stream, targetId))() * length);
 }
 
 function taughtSet(context) {
@@ -154,9 +185,13 @@ export function selectNextChallenge(context = {}) {
   if (!eligible.length) return null;
 
   const ranked = eligible.map(targetId => ({ targetId, ...priorityFor(context, targetId) }));
-  ranked.sort((left, right) => left.rank - right.rank
-    || seededOrder([left.targetId, right.targetId], context.seed)[0].localeCompare(left.targetId));
-  const chosen = ranked[0];
+  const bestRank = Math.min(...ranked.map(entry => entry.rank));
+  const chosenTargetId = seededOrder(
+    ranked.filter(entry => entry.rank === bestRank).map(entry => entry.targetId),
+    context,
+    "challenge-target"
+  )[0];
+  const chosen = ranked.find(entry => entry.targetId === chosenTargetId);
   const contrastTargetId = bestConfusionContrast(context, chosen.targetId);
   const reason = contrastTargetId && (requestedTargetId || chosen.reason === "recent_confusion")
     ? "recent_confusion"
@@ -206,10 +241,10 @@ export function buildAuditedDistractors(context = {}) {
       const candidateRecord = recordFor(context.pronunciations || context.targets, id);
       return isAuditedPronunciation(candidateRecord) && !hasSameAuthoredSound(targetRecord, candidateRecord);
     });
-  const distractorIds = seededOrder(candidateIds, context.seed).slice(0, optionCount - 1);
+  const distractorIds = seededOrder(candidateIds, context, "distractor-subset", targetId).slice(0, optionCount - 1);
   if (distractorIds.length !== optionCount - 1) return null;
 
-  const correctIndex = seedNumber(context.seed) % optionCount;
+  const correctIndex = seededIndex(optionCount, context, "answer-position", targetId);
   const optionTargetIds = [...distractorIds];
   optionTargetIds.splice(correctIndex, 0, targetId);
   const audit = Object.freeze(distractorIds.map(id => Object.freeze({

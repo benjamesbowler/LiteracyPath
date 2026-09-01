@@ -8,13 +8,40 @@ export const CORRECTION_MODES = Object.freeze({
   GUIDED: "guided"
 });
 
-function v2MissCount(previous) {
-  return Math.max(0, Math.floor(Number(previous?.missCount ?? previous?.misses) || 0));
+function isRecord(value) {
+  return Boolean(value && typeof value === "object" && !Array.isArray(value));
 }
 
-function laterReviewDomain(previous, miss) {
-  const priorDomain = typeof previous?.domain === "string" ? previous.domain : null;
-  if (!isEvidenceDomain(priorDomain)) return null;
+function hasOwn(value, key) {
+  return Object.prototype.hasOwnProperty.call(value, key);
+}
+
+function nonEmptyString(value) {
+  return typeof value === "string" && value.trim() ? value.trim() : null;
+}
+
+function answerToken(value) {
+  if (typeof value === "string" && value.length > 0) return value;
+  return typeof value === "number" && Number.isFinite(value) ? value : null;
+}
+
+function exactPosition(value) {
+  if (value === null || value === undefined) return { valid: true, value: null };
+  if (Number.isInteger(value) && value >= 0) return { valid: true, value };
+  if (typeof value === "string" && value.trim()) return { valid: true, value };
+  return { valid: false, value: null };
+}
+
+function v2MissCount(previous) {
+  const value = previous?.missCount ?? previous?.misses ?? 0;
+  return Number.isInteger(value) && value >= 0 ? value : null;
+}
+
+function sameIdentity(previousValue, missValue) {
+  return previousValue === null || missValue === null || previousValue === missValue;
+}
+
+function laterReviewDomain(priorDomain, miss) {
   const domains = Array.isArray(miss?.eligibleDomains) ? miss.eligibleDomains : [];
   return domains.find(domain => typeof domain === "string" && domain !== priorDomain && isEvidenceDomain(domain)) || null;
 }
@@ -22,20 +49,64 @@ function laterReviewDomain(previous, miss) {
 // v2 correction is a view-independent record for both full and simplified
 // scenes. The mounted legacy route continues to use the helpers below.
 export function nextCorrection(previous = {}, miss = {}) {
-  const missCount = v2MissCount(previous) + 1;
-  const selected = typeof miss.selected === "string" ? miss.selected : null;
-  const intended = typeof miss.intended === "string" ? miss.intended : null;
-  const position = typeof miss.position === "string"
-    ? miss.position
-    : typeof previous.position === "string" ? previous.position : null;
+  if (!isRecord(previous) || !isRecord(miss)) return null;
+  if ((hasOwn(previous, "evidenceKind") && previous.evidenceKind !== "practice")
+    || (hasOwn(miss, "evidenceKind") && miss.evidenceKind !== "practice")) return null;
+  if (hasOwn(miss, "eligibleDomains") && !Array.isArray(miss.eligibleDomains)) return null;
+
+  const previousMissCount = v2MissCount(previous);
+  const selected = answerToken(miss.selected);
+  const intended = answerToken(miss.intended);
+  if (previousMissCount === null || selected === null || intended === null) return null;
+
+  const previousTargetId = nonEmptyString(previous.targetId);
+  const missedTargetId = nonEmptyString(miss.targetId);
+  if ((hasOwn(previous, "targetId") && !previousTargetId)
+    || (hasOwn(miss, "targetId") && !missedTargetId)) return null;
+  const targetId = previousTargetId || missedTargetId;
+  if (!targetId || !sameIdentity(previousTargetId, missedTargetId)) return null;
+
+  const previousDomain = isEvidenceDomain(previous.domain) ? previous.domain : null;
+  const missedDomain = isEvidenceDomain(miss.domain) ? miss.domain : null;
+  if ((hasOwn(previous, "domain") && !previousDomain)
+    || (hasOwn(miss, "domain") && !missedDomain)) return null;
+  const domain = previousDomain || missedDomain;
+  if (!domain || !sameIdentity(previousDomain, missedDomain)) return null;
+
+  const previousWordId = previous.wordId === null || previous.wordId === undefined
+    ? null
+    : nonEmptyString(previous.wordId);
+  const missedWordId = miss.wordId === null || miss.wordId === undefined
+    ? null
+    : nonEmptyString(miss.wordId);
+  if ((hasOwn(previous, "wordId") && previous.wordId !== null && !previousWordId)
+    || (hasOwn(miss, "wordId") && miss.wordId !== null && !missedWordId)
+    || !sameIdentity(previousWordId, missedWordId)) return null;
+  const wordId = previousWordId || missedWordId;
+
+  const previousPosition = exactPosition(previous.position);
+  const missedPosition = exactPosition(miss.position);
+  if (!previousPosition.valid || !missedPosition.valid) return null;
+  const position = hasOwn(miss, "position") ? missedPosition.value : previousPosition.value;
+  const missCount = previousMissCount + 1;
   const later = missCount > 3;
-  const reviewDomain = later ? laterReviewDomain(previous, miss) : null;
+  const reviewDomain = later ? laterReviewDomain(domain, miss) : null;
+  const review = reviewDomain ? Object.freeze({
+    targetId,
+    wordId,
+    position,
+    domain: reviewDomain,
+    evidenceKind: "practice"
+  }) : null;
 
   return Object.freeze({
+    evidenceKind: "practice",
     missCount,
+    targetId,
+    wordId,
     selected,
     intended,
-    domain: typeof previous.domain === "string" ? previous.domain : null,
+    domain,
     position,
     supportLevel: missCount === 1 ? 1 : missCount === 2 ? 2 : 3,
     nameSelected: missCount >= 1,
@@ -46,7 +117,11 @@ export function nextCorrection(previous = {}, miss = {}) {
     requiresFreshAttempt: missCount >= 3,
     queueIsomorphicReview: Boolean(reviewDomain),
     reviewDomain,
-    reviewTargetId: reviewDomain ? intended : null
+    reviewTargetId: review?.targetId || null,
+    reviewWordId: review?.wordId || null,
+    reviewPosition: review?.position ?? null,
+    reviewEvidenceKind: review?.evidenceKind || null,
+    review
   });
 }
 
