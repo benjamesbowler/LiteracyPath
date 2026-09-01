@@ -344,8 +344,10 @@ git commit -m "feat: record truthful Sound Seekers practice evidence"
 ```js
 test("review becomes due across the physical route wrap", () => {
   assert.equal(dueAtJourneyStep("sh", { journeyStep: 39 }, 3, 42), true);
-  const trail = advanceJourney({ routeCursor: 40, journeyStep: 40 }, "s40");
-  assert.deepEqual(trail, { routeCursor: 1, journeyStep: 41 });
+  const trail = advanceJourney({ routeCursor: 40, journeyStep: 40, repairs: { mill: true } }, "s40");
+  assert.equal(trail.routeCursor, 1);
+  assert.equal(trail.journeyStep, 41);
+  assert.deepEqual(trail.repairs, { mill: true });
 });
 
 test("director serves a taught homogeneous contrast from recent confusion", () => {
@@ -371,10 +373,11 @@ Expected: FAIL on missing journey-clock and director functions and on the old st
 - [ ] **Step 3: Implement monotonic scheduling and the exact correction ladder**
 
 ```js
-export function advanceJourney({ routeCursor, journeyStep }, _completedStopId) {
+export function advanceJourney(trail, _completedStopId) {
   return {
-    routeCursor: routeCursor >= 40 ? 1 : routeCursor + 1,
-    journeyStep: journeyStep + 1
+    ...trail,
+    routeCursor: trail.routeCursor >= 40 ? 1 : trail.routeCursor + 1,
+    journeyStep: trail.journeyStep + 1
   };
 }
 
@@ -405,6 +408,9 @@ git commit -m "feat: add adaptive Sound Seekers review logic"
 - Create: `src/features/soundSeekers/engine/teachSequence.js`
 - Create: `src/features/soundSeekers/engine/audioDelivery.js`
 - Modify: `src/utils/audio/cuePlayer.js`
+- Create: `tools/generateSoundSeekersInstructionAudio.mjs`
+- Create: `public/audio/quest-v2/instructions/SOURCE.md`
+- Create: one `public/audio/quest-v2/instructions/<instructionId>.mp3` for every non-silent instruction contract
 - Create: `tests/unit/soundSeekersInstructionContracts.test.js`
 - Create: `tests/unit/soundSeekersTeachSequence.test.js`
 - Create: `tests/unit/soundSeekersAudioDelivery.test.js`
@@ -445,6 +451,17 @@ test("audio-dependent evidence accepts completed delivery only", () => {
   }
   assert.equal(reduceAudioDelivery(createAudioDelivery("cue-2"), { type: "completed" }).status, "completed");
 });
+
+test("every non-silent instruction resolves to a provenance-locked recording", () => {
+  const source = readInstructionAudioSourceManifest();
+  for (const contract of Object.values(SOUND_SEEKERS_INSTRUCTIONS).filter(item => !item.silenceIsIntentional)) {
+    const record = source.assets.find(asset => asset.instructionId === contract.instructionId);
+    assert.ok(record, contract.instructionId);
+    assert.equal(record.childText, contract.childText);
+    assert.equal(record.humanListeningApproved, false);
+    assert.ok(fs.existsSync(publicPath(record.path)));
+  }
+});
 ```
 
 - [ ] **Step 2: Run the instruction/audio tests and confirm the red state**
@@ -467,6 +484,8 @@ export function createAudioDelivery(id) {
 
 Author instruction contracts for teach, replay, and every decision point in all six powers. Reject underscore-bearing internal IDs in child text, mismatched expected action/domain, missing audio without `silenceIsIntentional: true`, or a scored target without a preceding teach record. Each teach item includes reviewed child text, audio key, grapheme display, child label, mouth/formation cue, anchor image, and worked example. `cuePlayer` reports lifecycle callbacks and ducks music during instruction; cancellation records `interrupted`, and playback rejection records `failed`. Checkpoints retain teach index but never convert a teach replay into scored evidence.
 
+Generate one en-US instruction recording for every non-silent contract using the repository's existing approved production speech pipeline and voice configuration. `SOURCE.md` records instruction ID, exact child text, voice/model, generation date, duration, SHA-256, and `humanListeningApproved: false`; only a real direct listening review may change that field. The static gate rejects missing, stale-text, zero-duration, or unprovenanced clips. Do not substitute browser speech for a required shipping recording.
+
 - [ ] **Step 4: Run the complete foundation test set and integrity gate**
 
 Run: `node --test tests/unit/soundSeekersStateV2.test.js tests/unit/soundSeekersPronunciationLexicon.test.js tests/unit/soundSeekersEvidence.test.js tests/unit/soundSeekersJourneyClock.test.js tests/unit/soundSeekersLearningDirector.test.js tests/unit/soundSeekersInstructionContracts.test.js tests/unit/soundSeekersTeachSequence.test.js tests/unit/soundSeekersAudioDelivery.test.js tests/unit/questMastery.test.js tests/unit/questReviewScheduler.test.js tests/unit/questCorrection.test.js tests/unit/progressMerge.test.js`
@@ -480,6 +499,6 @@ Expected: PASS; the repository unit count increases and no legacy test is weaken
 - [ ] **Step 5: Commit the exact teaching and audio contract**
 
 ```bash
-git add src/features/soundSeekers/content/instructionContracts.js src/features/soundSeekers/engine/teachSequence.js src/features/soundSeekers/engine/audioDelivery.js src/utils/audio/cuePlayer.js tests/unit/soundSeekersInstructionContracts.test.js tests/unit/soundSeekersTeachSequence.test.js tests/unit/soundSeekersAudioDelivery.test.js tools/checkQuestIntegrity.js
+git add src/features/soundSeekers/content/instructionContracts.js src/features/soundSeekers/engine/teachSequence.js src/features/soundSeekers/engine/audioDelivery.js src/utils/audio/cuePlayer.js tools/generateSoundSeekersInstructionAudio.mjs public/audio/quest-v2/instructions tests/unit/soundSeekersInstructionContracts.test.js tests/unit/soundSeekersTeachSequence.test.js tests/unit/soundSeekersAudioDelivery.test.js tools/checkQuestIntegrity.js
 git commit -m "feat: make Sound Seekers teaching and audio exact"
 ```
