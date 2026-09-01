@@ -26,6 +26,11 @@ const { graphemeCandidates } =
 const { CREATURE_BODIES, CREATURE_PARTS, CREATURE_GEAR, ANCHOR_IDS } =
   await import(path.join(ROOT, "src/data/creatureParts.js"));
 const { artFor } = await import(path.join(ROOT, "src/data/creatureArt.js"));
+const {
+  SOUND_SEEKERS_WORDS,
+  getPronunciation,
+  assertShippingPronunciationLexicon
+} = await import(path.join(ROOT, "src/features/soundSeekers/content/pronunciationLexicon.js"));
 
 const errors = [];
 const warnings = [];
@@ -80,6 +85,27 @@ for (const stop of QUEST_STOPS) {
       fail(`${stop.id}: sort pen "${a}" is neither taught here nor earlier`);
     }
   }
+}
+
+// ── 1b. Every reachable word has one explicit authored pronunciation ──────
+// This includes current connected text, not only the 431 decodable-bank words.
+// Future story authoring therefore fails this same gate until its new tokens
+// have explicit records; runtime spelling-derived segmentation is forbidden.
+try {
+  assertShippingPronunciationLexicon(SOUND_SEEKERS_WORDS);
+} catch (error) {
+  fail(`pronunciation lexicon: ${error.message}`);
+}
+
+const reachablePronunciationWords = new Set(QUEST_STOPS.flatMap(stop => [
+  ...stop.words,
+  ...stop.heartWords,
+  ...(stop.pages || []).flatMap(page => [page.text, ...(page.choices || [])]
+    .flatMap(text => String(text).toLowerCase().match(/[a-z']+/g) || [])
+    .map(word => word.replace(/'s$/, "")))
+]).map(word => word.toLowerCase()));
+for (const word of reachablePronunciationWords) {
+  if (!getPronunciation(word)) fail(`pronunciation lexicon: reachable word "${word}" has no explicit record`);
 }
 
 // ── 2. Audio: every taught sound resolves to a file that EXISTS on disk ─────
