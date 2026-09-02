@@ -17,17 +17,12 @@ import {
 import { createSoundSeekersState } from "../../src/features/soundSeekers/engine/stateV2.js";
 import { resolveSceneVisualSemantic } from "../../src/features/soundSeekers/content/sceneVisualSemantics.js";
 import { createSoundSeekersAudioController } from "../../src/features/soundSeekers/runtime/soundSeekersAudioController.js";
+import { installSoundSeekersProductionAudioDouble } from "../helpers/soundSeekersProductionAudioDouble.js";
+
+installSoundSeekersProductionAudioDouble();
 
 function teachInput(item) {
-  const controller = createSoundSeekersAudioController({
-    cuePlayer: { playCueAudio(audioKey, options) {
-      void audioKey;
-      for (const [type, at] of [["loading", 1], ["started", 2], ["completed", 3]]) {
-        options.onDelivery({ id: options.cueId, session: 1, type, at });
-      }
-    }, stopCueAudio() {} },
-    music: { duck() {}, restore() {} }, clock: () => 0
-  });
+  const controller = createSoundSeekersAudioController({ clock: () => 0 });
   const audioKeys = [...new Set([item.childAudio, item.targetAudio, ...item.targetAudioSequence,
     ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)].filter(Boolean))];
   const audioDeliveries = audioKeys.map((audioKey, ordinal) => {

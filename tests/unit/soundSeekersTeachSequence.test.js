@@ -10,22 +10,13 @@ import {
 import { getPronunciation } from "../../src/features/soundSeekers/content/pronunciationLexicon.js";
 import { SOUND_SEEKERS_TEACH_TARGETS } from "../../src/features/soundSeekers/content/teachTargetMetadata.js";
 import { createSoundSeekersAudioController } from "../../src/features/soundSeekers/runtime/soundSeekersAudioController.js";
+import { installSoundSeekersProductionAudioDouble } from "../helpers/soundSeekersProductionAudioDouble.js";
+
+installSoundSeekersProductionAudioDouble();
 
 const stop = id => QUEST_STOPS.find(item => item.id === id);
 function completedTeachInput(item) {
-  const controller = createSoundSeekersAudioController({
-    cuePlayer: {
-      playCueAudio(audioKey, options) {
-        void audioKey;
-        for (const [type, at] of [["loading", 1], ["started", 2], ["completed", 3]]) {
-          options.onDelivery({ id: options.cueId, session: 1, type, at });
-        }
-      },
-      stopCueAudio() {}
-    },
-    music: { duck() {}, restore() {} },
-    clock: () => 0
-  });
+  const controller = createSoundSeekersAudioController({ clock: () => 0 });
   const audioKeys = [...new Set([item.childAudio, item.targetAudio, ...item.targetAudioSequence,
     ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)].filter(Boolean))];
   const audioDeliveries = audioKeys.map((audioKey, ordinal) => {

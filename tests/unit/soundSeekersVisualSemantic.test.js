@@ -4,6 +4,7 @@ import { readFileSync } from "node:fs";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { createServer } from "vite";
+import { installSoundSeekersProductionAudioDouble } from "../helpers/soundSeekersProductionAudioDouble.js";
 import { SOUND_SEEKERS_CHAPTERS } from "../../src/features/soundSeekers/content/chapters/index.js";
 import { SOUND_SEEKERS_CAST_ARCS } from "../../src/features/soundSeekers/content/castArcs.js";
 import {
@@ -275,19 +276,8 @@ function renderViteScene(childScene, context) {
 }
 
 function completedViteTeachInput(item) {
-  const controller = viteAudioController.createSoundSeekersAudioController({
-    cuePlayer: {
-      playCueAudio(audioKey, options) {
-        void audioKey;
-        for (const [type, at] of [["loading", 1], ["started", 2], ["completed", 3]]) {
-          options.onDelivery({ id: options.cueId, session: 1, type, at });
-        }
-      },
-      stopCueAudio() {}
-    },
-    music: { duck() {}, restore() {} },
-    clock: () => 0
-  });
+  installSoundSeekersProductionAudioDouble();
+  const controller = viteAudioController.createSoundSeekersAudioController({ clock: () => 0 });
   const audioKeys = [...new Set([item.childAudio, item.targetAudio, ...item.targetAudioSequence,
     ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)].filter(Boolean))];
   return {
