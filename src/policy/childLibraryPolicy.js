@@ -48,6 +48,11 @@ export const QUEST_GRID_SLOTS = 6;
 
 export const READING_LEVELS = Object.freeze(["A", "B", "C", "D", "E", "F"]);
 
+export function advanceBookShelfPage(pages = {}, shelfId = "", step = 0) {
+  const key = shelfId === "read-again" || shelfId === "more-books" ? "second" : shelfId;
+  return { ...pages, [key]: (pages[key] || 0) + step };
+}
+
 // ── Books ───────────────────────────────────────────────────────────────────
 
 // A level answers "how hard is this book?". A collection answers "what kind of

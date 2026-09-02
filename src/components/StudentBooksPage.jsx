@@ -53,6 +53,7 @@ import {
   bookCoverSrc,
   bookReadingProgress,
   buildBookShelves,
+  advanceBookShelfPage,
   pickContinueBook
 } from "../policy/childLibraryPolicy.js";
 
@@ -333,7 +334,7 @@ export function StudentBooksPage({
   }
 
   function turnShelf(key, step) {
-    setShelfPages(current => ({ ...current, [key]: (current[key] || 0) + step }));
+    setShelfPages(current => advanceBookShelfPage(current, key, step));
   }
 
   if (openBookId && renderReader && library.some(book => book.id === openBookId)) {

@@ -54,6 +54,7 @@ import {
 import {
   buildGuidedReadingCompletionPatch,
   getGuidedReadingCompletionMilestone,
+  getGuidedReadingProgressionBooks,
   mergeGuidedReadingRecord,
   shouldShowGuidedReadingCompletionSummary
 } from "../../utils/guidedReading/completionPolicy.js";
@@ -1106,11 +1107,10 @@ export function GuidedReadingPage({
     const scope = studentId || studentName || "default";
     const newlyDone = notifyMissionTaskDone(scope, "book", { deferReturn: isStudentMode });
     if (newlyDone && isStudentMode) missionReturnPendingRef.current = true;
-    const levelBooks = getGuidedReadingLevelBooks(
-      selectedBook.type,
-      selectedBook.level,
-      runtimeGuidedReadingBooks
-    ).filter(book => selectedBook.level !== "C" || book.readingBandProfile === "standard");
+    const levelBooks = getGuidedReadingProgressionBooks({
+      book: selectedBook,
+      books: runtimeGuidedReadingBooks
+    });
     const milestone = getGuidedReadingCompletionMilestone({
       book: selectedBook,
       levelBooks,

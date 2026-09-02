@@ -3,6 +3,7 @@ import test from "node:test";
 import {
   buildGuidedReadingCompletionPatch,
   getGuidedReadingCompletionMilestone,
+  getGuidedReadingProgressionBooks,
   mergeGuidedReadingRecord,
   shouldShowGuidedReadingCompletionSummary
 } from "../../src/utils/guidedReading/completionPolicy.js";
@@ -53,6 +54,57 @@ test("C Standard progression does not wait for C Extended read-together history"
       records: { [standard.id]: { completed: true } }
     }),
     null
+  );
+});
+
+test("C Standard completion spans fiction and nonfiction while excluding extended books", () => {
+  const fiction = { id: "c-fiction", level: "C", type: "fiction", readingBandProfile: "standard" };
+  const nonfiction = { id: "c-nonfiction", level: "C", type: "nonfiction", readingBandProfile: "standard" };
+  const extended = { id: "c-extended", level: "C", type: "fiction", readingBandProfile: "extended" };
+  const progressionBooks = getGuidedReadingProgressionBooks({
+    book: fiction,
+    books: [
+      fiction,
+      nonfiction,
+      extended,
+      { id: "c-unclassified", level: "C", type: "fiction" },
+      { id: "b-fiction", level: "B", type: "fiction" }
+    ]
+  });
+
+  assert.deepEqual(progressionBooks.map(book => book.id), ["c-fiction", "c-nonfiction"]);
+  assert.equal(
+    getGuidedReadingCompletionMilestone({
+      book: fiction,
+      levelBooks: progressionBooks,
+      records: {}
+    }),
+    null,
+    "finishing only the fiction subset must not complete C Standard"
+  );
+  assert.deepEqual(
+    getGuidedReadingCompletionMilestone({
+      book: fiction,
+      levelBooks: progressionBooks,
+      records: { "c-nonfiction": { completed: true } }
+    }),
+    { level: "C", count: 2 }
+  );
+});
+
+test("A and B completion pools remain scoped to the selected book type", () => {
+  const selected = { id: "b-fiction-2", level: "B", type: "fiction" };
+  assert.deepEqual(
+    getGuidedReadingProgressionBooks({
+      book: selected,
+      books: [
+        { id: "b-fiction-1", level: "B", type: "Fiction" },
+        selected,
+        { id: "b-nonfiction", level: "B", type: "non-fiction" },
+        { id: "a-fiction", level: "A", type: "fiction" }
+      ]
+    }).map(book => book.id),
+    ["b-fiction-1", "b-fiction-2"]
   );
 });
 

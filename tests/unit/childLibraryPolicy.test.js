@@ -13,6 +13,7 @@ import test from "node:test";
 import { storyQuests } from "../../src/data/storyQuests.js";
 import { selectActiveStudentTab } from "../../src/policy/studentRailPolicy.js";
 import {
+  advanceBookShelfPage,
   BOOK_SHELF_SLOTS,
   QUEST_GRID_SLOTS,
   STORY_WORLDS,
@@ -171,6 +172,27 @@ test("the second shelf is what you finished, and never an empty row", () => {
   const shownFirst = new Set(shelves[0].books.map(row => row.book.id));
   assert.ok(shelves[1].books.length > 0);
   assert.ok(shelves[1].books.every(row => !shownFirst.has(row.book.id)));
+});
+
+test("the second shelf pager advances for both more-books and read-again shelves", () => {
+  const many = Array.from({ length: 20 }, (unused, index) => book(`book-${index}`, "A"));
+  for (const records of [
+    {},
+    Object.fromEntries(many.map(item => [item.id, { completed: true }]))
+  ]) {
+    const initial = buildBookShelves({ books: many, records, level: "A" })[1];
+    const pages = advanceBookShelfPage({}, initial.id, initial.step);
+    const advanced = buildBookShelves({
+      books: many,
+      records,
+      level: "A",
+      readAgainPage: pages.second
+    })[1];
+
+    assert.ok(["more-books", "read-again"].includes(initial.id));
+    assert.equal(pages.second, 7);
+    assert.notEqual(advanced.books[0].book.id, initial.books[0].book.id);
+  }
 });
 
 test("shelf one is the child's own level, ordered by the app's recommender", () => {
