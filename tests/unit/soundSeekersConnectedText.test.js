@@ -65,23 +65,23 @@ const freezeCausalContracts = contracts => Object.freeze(Object.fromEntries(
 
 const EXPECTED_CAUSAL_CONTRACTS = freezeCausalContracts({
   s1: ["Lift mat; see light.", "What uncovers Moss's seed light?", "Lift mat.", "lifting the mat uncovers the light"],
-  s2: ["Fit fin.", "What mends Tumble's fern step?", "Fit fin.", "fitting the missing fin mends the step"],
+  s2: ["Fit fin; sit at mat.", "What mends Tumble's fern step?", "Fit fin.", "fitting the missing fin mends the step"],
   s3: ["Hit the hot rock drum.", "What starts Bramble's wind-stone drum?", "Hit hot rock.", "hitting the rock drum starts the wind stones"],
-  s4: ["Fit rock in the gap.", "What fills Tumble's ford gap?", "Rock in gap.", "fitting the rock fills the ford gap"],
+  s4: ["Not bun; rock in gap.", "What fills Tumble's ford gap?", "Rock in gap.", "fitting the rock fills the ford gap"],
   s6: ["Get the buzz box home.", "How can Fizz guide the bluff bees home?", "Get box home.", "moving the buzzing box takes the bees home"],
   s7: ["Get jam off the bell.", "What frees Quill's ferry brake bell?", "Get jam off bell.", "removing the jam frees the ferry bell"],
-  s8: ["Cut the net.", "What clears Rill's fishpool channel?", "Cut net.", "cutting the net removes the channel block"],
+  s8: ["Not mat; cut the net.", "What clears Rill's fishpool channel?", "Cut net.", "cutting the net removes the channel block"],
   s9: ["Fix the ship fin; it can spin.", "What turns Fizz's water wheel?", "Fix ship fin.", "fitting the ship fin lets the wheel spin"],
   s11: ["Pick the rock off the path.", "What reveals Rook's amber path?", "Pick rock off path.", "picking the rock off reveals the path"],
-  s12: ["Fit the lamp in the lift.", "What mends Amber's loose lift part?", "Fit lamp in lift.", "fitting the loose lift part restarts it"],
+  s12: ["Fit lamp in lift with hand.", "What mends Amber's loose lift part?", "Fit lamp in lift.", "fitting the loose lift part restarts it"],
   s13: ["Spin the fan; it can clear the path.", "What blows Claw's ash off the trail?", "Spin fan.", "spinning the fan uncovers the path"],
   s14: ["Clap at the flag; the path can grow.", "What grows Rook's fern bridge?", "Clap at flag.", "clapping activates the magic flag that grows the path"],
-  s16: ["Click the lock to lift the gate.", "Which action opens Bolt's lane?", "Click lock.", "clicking the lock opens the gearworks lane"],
+  s16: ["Click lock by gate; it can lift.", "Which action opens Bolt's lane?", "Click lock.", "clicking the lock opens the gearworks lane"],
   s17: ["Big rock is in the bin. Lift the rock off.", "What clears Soot's hopper bin?", "Lift rock off.", "lifting the rock out clears the hopper"],
-  s18: ["The flame is not hot. Make the flame hot.", "What relights Bellows's foundry?", "Make flame hot.", "heating the flame relights the foundry"],
+  s18: ["Cake is hot, but the flame is not hot. Make the flame hot.", "What relights Bellows's foundry?", "Make flame hot.", "heating the flame relights the foundry"],
   s19: ["The bike is on the train path. Slide the bike off.", "What clears Bolt's night-train track?", "Slide bike off.", "sliding the bike off clears the train path"],
   s21: ["The big cube can stop the ship. Fit the rope on the cube.", "What anchors Ripple's drifting ferry?", "Rope on cube.", "fastening the rope to the cube anchors the ship"],
-  s22: ["Rain can make it run. Pick rain to start it.", "Which sign starts Mica's clear-water pump?", "Pick rain.", "choosing the rain sign starts the water"],
+  s22: ["Rain is the theme. Pick rain to start it.", "Which sign starts Mica's clear-water pump?", "Pick rain.", "choosing the rain sign starts the water"],
   s23: ["Lift the rain tray. It can lift the path.", "What raises Glint's hidden steps?", "Lift rain tray.", "lifting the roped rain tray raises the path"],
   s24: ["The tree can sing. Clap with tree; the path can sing.", "What tunes Ripple's causeway song?", "Clap with tree.", "clapping with the tree tunes the causeway"],
   s26: ["Show coat on the right road. The boat can go that way.", "Which marker keeps Kelp's boat on course?", "Show coat on road.", "showing the coat marks the right road"],
@@ -93,7 +93,7 @@ const EXPECTED_CAUSAL_CONTRACTS = freezeCausalContracts({
   s33: ["The bird can turn by the fern. The girl can look at it. Draw the turn on the path so the girl can look.", "What completes Orbit's living map?", "Draw turn on path.", "drawing the observed turn records the route"],
   s34: ["The chair is by one ring. The stair is by the last ring. Pair the chair with the stair.", "Which markers line up Luma's hollow rings?", "Pair chair with stair.", "pairing the two markers aligns the rings"],
   s36: ["The creature is here. Pure light can lift the dark stair. Make the stair bright with pure light so the path is secure.", "What raises Comet's faded stair?", "Make stair bright.", "bright pure light lifts the stair"],
-  s37: ["The magic words are ready. The lock is dark. Read the magic words at the lock so it can click.", "What opens Aster's archive?", "Read magic words.", "reading the magic words opens the lock"],
+  s37: ["Magic words from the city are ready. The lock is dark. Read the magic words at the lock so it can click.", "What opens Aster's archive?", "Read magic words.", "reading the magic words opens the lock"],
   s38: ["The cats jumped up. The dogs landed by the stars. Join the star path so the cats can step on it.", "What joins Dawn's divided path?", "Join star path.", "joining the star path gives the cats a crossing"],
   s39: ["The bridge is not complete. The little puzzle can fit in its gap. Fit the little puzzle in the gap.", "What completes Comet's skybridge?", "Fit little puzzle in gap.", "fitting the puzzle tile fills the bridge gap"]
 });
@@ -293,6 +293,23 @@ test("every assessed decision is explicitly scene-grounded without a wording ans
   }
   assert.equal(firstCorrectWords.size >= 18, true);
   assert.equal(Math.max(...firstCorrectWords.values()) <= 3, true);
+});
+
+test("assessed option accessible names stay peer-neutral before the decision", () => {
+  for (const scene of SOUND_SEEKERS_CONNECTED_TEXT
+    .filter(item => item.choice.kind === "assessed_connected_text")) {
+    const evaluator = CONNECTED_TEXT_EVALUATORS[scene.id];
+    const keyOnlyExpansions = scene.choice.options.filter(option => (
+      option.accessibleLabel !== option.childLabel
+      && option.token === evaluator.expectedToken
+    ));
+    assert.deepEqual(keyOnlyExpansions, [],
+      `${scene.id}: the correct option must not receive a richer pre-choice accessible name`);
+    for (const option of scene.choice.options) {
+      assert.equal(option.accessibleLabel, option.childLabel,
+        `${scene.id}:${option.token} must use the same concise peer name in visible and accessible copy`);
+    }
+  }
 });
 
 test("all thirty-two assessed scenes obey the frozen causal mission contract", () => {
