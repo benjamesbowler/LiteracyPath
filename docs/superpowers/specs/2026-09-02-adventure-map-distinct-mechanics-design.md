@@ -250,19 +250,38 @@ Support use is recorded in the current run. The initial v2 implementation persis
 
 ## Progress version and reset
 
-Use:
+Use two explicit authorities:
 
 ```js
-const ADVENTURE_PROGRESS_VERSION = 2;
+const EL_QUEST_SCHEMA_VERSION = 2;
+const EL_QUEST_PROGRESS_EPOCH = 2;
 ```
 
-On local or hydrated progress load:
+Canonical payload:
 
-- if `progress.adventureVersion !== 2`, replace only the Adventure Map `cycles` record with `{}` and set `adventureVersion: 2`;
+```json
+{
+  "schemaVersion": 2,
+  "progressEpoch": 2,
+  "cycles": {}
+}
+```
+
+`schemaVersion` describes the shape. `progressEpoch` authorises the destructive Adventure-only reset and prevents a stale device from resurrecting v1 records. Existing payloads without both fields are legacy epoch 1.
+
+On local, queued, hydrated, and server merge:
+
+- legacy versus legacy produces canonical empty epoch 2;
+- epoch 2 beats legacy in either orientation as a whole payload;
+- equal epoch 2 values forward-merge `cycles` normally;
+- a future schema/epoch is preserved and never downgraded by the older client;
 - retain no v1 station booleans, stars, best scores, or plays;
-- save the v2 marker locally and queue the complete v2 `el_quest` payload;
-- if an old cloud v1 row later hydrates, normalisation must discard its cycles before it reaches the component;
-- v2 cloud/local rows continue forward-merging normally.
+- save both metadata fields locally and queue the complete epoch-2 `el_quest` payload;
+- use the same pure merge helper from component load, hydration, and offline queue coalescing;
+- add a new Supabase migration defining `lp_merge_el_quest`, routing `lp_forward_merge_progress('el_quest', ...)` through it, normalising first inserts, and backfilling only `area='el_quest' and key='__all__'` to empty epoch 2 without changing `updated_at`;
+- do not edit a historical migration, delete progress rows, emit the global `__reset__` tombstone, revoke learner sessions, or mutate focus-session records.
+
+The server migration must be applied before the client release begins emitting epoch 2. Active exact-cycle teacher assignments continue reading their stored `student_focus_session_members.resolved_config`; the Adventure reset must not recompute them.
 
 This is a one-time product-version reset, not an account or teacher-commanded destructive reset.
 
@@ -286,7 +305,7 @@ This is a one-time product-version reset, not an account or teacher-commanded de
 - Grapheme segmentation treats taught multi-letter graphemes as units.
 - Word Play operations are phoneme/grapheme aware.
 - Cycle Quest is balanced and scores first attempts, not eventual completion.
-- Progress v1 becomes empty v2 once; v2 progress survives reload and hydration.
+- Progress v1 becomes empty epoch 2 once; epoch 2 progress survives reload, queue coalescing, and hydration; stale v1 cannot resurrect through update or first insert.
 - Semantic outcomes produce construct-specific feedback.
 
 ### Browser

@@ -13,7 +13,7 @@
 ## Global constraints
 
 - Preserve `lockedCycleId`, `initialCycleId`, `initialStationId`, learner identity, and all non-Adventure progress.
-- Reset only `el_quest.cycles` whose `adventureVersion` is not exactly `2`.
+- Reset only `el_quest` legacy epochs; canonical payloads use `schemaVersion: 2` and `progressEpoch: 2` with top-level `cycles`.
 - Keep Adventure Map evidence practice-only; never claim Secure placement or oral fluency.
 - Never silently return another station mechanic from `buildStationRounds`.
 - Every required action has touch/pointer and keyboard activation, with no required drag-only path.
@@ -29,32 +29,45 @@
 - Create: `src/utils/adventureMapProgress.js`
 - Modify: `src/components/elQuest/ElSkillsQuest.jsx`
 - Modify: `src/utils/progressMerge.js`
+- Modify: `src/utils/progressQueue.js`
+- Create: `supabase/migrations/20260902090000_reset_adventure_map_progress_epoch_2.sql`
+- Modify: `supabase/verify/progress_forward_merge_selftest.sql`
 - Test: `tests/unit/adventureMapProgress.test.js`
 - Test: `tests/unit/progressMerge.test.js`
+- Test: `tests/unit/progressQueue.test.js`
+- Modify: `tests/unit/studentFocusSessionDatabaseContract.test.js`
 
 **Interfaces:**
-- Produces: `ADVENTURE_PROGRESS_VERSION`, `normalizeAdventureProgress(value)`, and `isCurrentAdventureProgress(value)`.
+- Produces: `EL_QUEST_SCHEMA_VERSION`, `EL_QUEST_PROGRESS_EPOCH`, `emptyElQuestProgress()`, `normalizeElQuestProgress(value)`, and `mergeElQuestProgress(existing, incoming)`.
 - Consumes: existing `loadQuestProgress`, `saveQuestProgress`, and `computeHydratedValue` paths.
 
 - [ ] **Step 1: Write failing normalisation tests**
 
 ```js
 test("v1 Adventure Map progress resets only its cycle records", () => {
-  assert.deepEqual(normalizeAdventureProgress({
+  assert.deepEqual(normalizeElQuestProgress({
     v: 1,
     cycles: { cycle1: { stars: 3, stations: { letters: true } } },
     unrelatedMarker: "keep"
   }), {
     v: 1,
-    adventureVersion: 2,
+    schemaVersion: 2,
+    progressEpoch: 2,
     cycles: {},
     unrelatedMarker: "keep"
   });
 });
 
 test("v2 Adventure Map progress survives normalisation", () => {
-  const current = { adventureVersion: 2, cycles: { cycle1: { stars: 2 } } };
-  assert.deepEqual(normalizeAdventureProgress(current), current);
+  const current = { schemaVersion: 2, progressEpoch: 2, cycles: { cycle1: { stars: 2 } } };
+  assert.deepEqual(normalizeElQuestProgress(current), current);
+});
+
+test("epoch 2 beats stale legacy progress in either orientation", () => {
+  const current = { schemaVersion: 2, progressEpoch: 2, cycles: {} };
+  const legacy = { v: 1, cycles: { cycle1: { stars: 3 } } };
+  assert.deepEqual(mergeElQuestProgress(current, legacy), current);
+  assert.deepEqual(mergeElQuestProgress(legacy, current), current);
 });
 ```
 
@@ -66,32 +79,39 @@ Expected: FAIL resolving `adventureMapProgress.js`.
 - [ ] **Step 3: Implement the pure boundary**
 
 ```js
-export const ADVENTURE_PROGRESS_VERSION = 2;
+export const EL_QUEST_SCHEMA_VERSION = 2;
+export const EL_QUEST_PROGRESS_EPOCH = 2;
 
-export function isCurrentAdventureProgress(value) {
-  return Number(value?.adventureVersion) === ADVENTURE_PROGRESS_VERSION;
+export function isCurrentElQuestProgress(value) {
+  return Number(value?.schemaVersion) === EL_QUEST_SCHEMA_VERSION
+    && Number(value?.progressEpoch) === EL_QUEST_PROGRESS_EPOCH;
 }
 
-export function normalizeAdventureProgress(value) {
+export function normalizeElQuestProgress(value) {
   const source = value && typeof value === "object" ? value : {};
-  if (isCurrentAdventureProgress(source)) return { cycles: {}, ...source };
-  return { ...source, adventureVersion: ADVENTURE_PROGRESS_VERSION, cycles: {} };
+  if (Number(source.progressEpoch) > EL_QUEST_PROGRESS_EPOCH) return source;
+  if (isCurrentElQuestProgress(source)) return { cycles: {}, ...source };
+  return { ...source, schemaVersion: EL_QUEST_SCHEMA_VERSION, progressEpoch: EL_QUEST_PROGRESS_EPOCH, cycles: {} };
 }
 ```
 
-- [ ] **Step 4: Apply normalisation on local load, hydration, and `el_quest` cloud merge**
+- [ ] **Step 4: Apply epoch-aware merge on local load, hydration, and offline queue coalescing**
 
-`loadQuestProgress` normalises parsed values. The hydration handler normalises the merged value before state update. `computeHydratedValue("el_quest", ...)` normalises both local and incoming payloads before merging so v1 cloud cycles cannot return after a local v2 reset.
+`loadQuestProgress` normalises parsed values. The hydration handler uses `mergeElQuestProgress`. `computeHydratedValue("el_quest", ...)` delegates to the same helper. Queue coalescing therefore cannot let a stale tab reintroduce legacy cycles. Corrupt JSON remains a read failure on the map rather than silently appearing as empty progress.
 
-- [ ] **Step 5: Run focused progress tests**
+- [ ] **Step 5: Write the server epoch migration and SQL self-tests**
 
-Run: `node --test tests/unit/adventureMapProgress.test.js tests/unit/progressMerge.test.js`  
+The new migration defines immutable `public.lp_merge_el_quest(existing, incoming)`, adds the `el_quest` branch to the latest complete `lp_forward_merge_progress` CASE, adds a narrowly scoped `BEFORE INSERT` normalizer for canonical `el_quest/__all__` rows, and backfills only those rows. The backfill updates `payload` without touching `updated_at`. Add assertions for legacy/current/future truth-table cases, stale first insert, unchanged non-Adventure areas, and unchanged focus-session records.
+
+- [ ] **Step 6: Run focused progress tests**
+
+Run: `node --test tests/unit/adventureMapProgress.test.js tests/unit/progressMerge.test.js tests/unit/progressQueue.test.js tests/unit/studentFocusSessionDatabaseContract.test.js`  
 Expected: PASS.
 
-- [ ] **Step 6: Commit the boundary**
+- [ ] **Step 7: Commit the boundary**
 
 ```bash
-git add src/utils/adventureMapProgress.js src/components/elQuest/ElSkillsQuest.jsx src/utils/progressMerge.js tests/unit/adventureMapProgress.test.js tests/unit/progressMerge.test.js
+git add src/utils/adventureMapProgress.js src/components/elQuest/ElSkillsQuest.jsx src/utils/progressMerge.js src/utils/progressQueue.js supabase/migrations/20260902090000_reset_adventure_map_progress_epoch_2.sql supabase/verify/progress_forward_merge_selftest.sql tests/unit/adventureMapProgress.test.js tests/unit/progressMerge.test.js tests/unit/progressQueue.test.js tests/unit/studentFocusSessionDatabaseContract.test.js
 git commit -m "feat: reset Adventure Map progress for v2"
 ```
 
