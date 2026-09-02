@@ -15,19 +15,27 @@ function text(value) {
   return String(value ?? "").trim();
 }
 
+function valueLabel(value) {
+  if (value && typeof value === "object") {
+    return text(value.word || value.title || value.label || value.text || value.cover || value.id);
+  }
+  return text(value);
+}
+
 function selectedLabel(outcome = {}) {
-  return selectedValues(outcome.selected).map(text).filter(Boolean).join(", ") || "that response";
+  const raw = outcome.selected ?? outcome.selectedItems ?? outcome.selectedWords;
+  return selectedValues(raw).map(valueLabel).filter(Boolean).join(", ") || "that response";
 }
 
 function choiceWords(round = {}) {
   return [
     ...(Array.isArray(round.objects) ? round.objects.map(item => item?.word || item?.label || item?.id) : []),
     ...(Array.isArray(round.choices) ? round.choices : [])
-  ].map(text).filter(Boolean);
+  ].map(valueLabel).filter(Boolean);
 }
 
 function selectedWord(round, outcome) {
-  const selected = selectedValues(outcome?.selected ?? outcome).map(text).filter(Boolean);
+  const selected = selectedValues(outcome?.selected ?? outcome).map(valueLabel).filter(Boolean);
   const words = choiceWords(round);
   return selected
     .map(value => words.find(word => word === value) || words.find(word => word.startsWith(value)))
@@ -35,11 +43,11 @@ function selectedWord(round, outcome) {
 }
 
 function targetWord(round = {}) {
-  return text(round.answer || round.targetWord || round.afterWord || round.word) || "the target word";
+  return text(round.answer || round.targetWord || round.afterWord || round.word || round.studyWord);
 }
 
 function targetGrapheme(round = {}) {
-  return text(round.targetGrapheme || round.target || round.pattern || round.answer) || "target sound";
+  return text(round.targetGrapheme || round.target || round.pattern || round.answer);
 }
 
 function onset(word) {
@@ -56,19 +64,113 @@ function coaching(attempt, first, later) {
   return attempt <= 1 ? first : later;
 }
 
+function selectedPatternWords(round, outcome) {
+  const raw = outcome?.selectedItems ?? outcome?.selectedWords ?? outcome?.selected;
+  const selected = selectedValues(raw).map(valueLabel).filter(Boolean);
+  const words = Array.isArray(round.items)
+    ? round.items.map(item => text(item?.word)).filter(Boolean)
+    : [];
+  return selected
+    .map(value => words.find(word => word === value) || words.find(word => word.startsWith(value)))
+    .filter(Boolean);
+}
+
+function selectedCover(round, outcome) {
+  const covers = Array.isArray(round.covers) ? round.covers : [];
+  const raw = outcome?.selectedCover ?? outcome?.selectedTitle ?? outcome?.selected;
+  const labels = selectedValues(raw).map(valueLabel).filter(Boolean);
+  return labels
+    .map(label => covers.find(cover => (
+      valueLabel(cover) === label
+      || text(cover?.title) === label
+      || text(cover?.character) === label
+      || text(cover?.cover) === label
+    )))
+    .find(Boolean) || (labels[0] ? { title: labels[0] } : null);
+}
+
+/**
+ * Resolve correction targets from the semantic round shape, rather than
+ * guessing from a station title or falling back to a generic word/sound.
+ * This stays pure so generated-round coverage can exercise it without React.
+ */
+function resolveFeedbackTarget(round = {}, outcome = {}) {
+  const construct = text(round.construct || round.mechanicId || round.type).toLowerCase();
+  if (construct === "orthographic_pattern_sort" || construct === "patternsort") {
+    const fitBin = round.bins?.find(bin => bin?.id === "fits") || round.bins?.[0];
+    const notBin = round.bins?.find(bin => bin?.id === "not") || round.bins?.[1];
+    const pattern = text(round.patternLabel || fitBin?.label || round.targetGrapheme || round.pattern);
+    const selectedWords = selectedPatternWords(round, outcome);
+    return {
+      construct,
+      target: pattern,
+      pattern,
+      selected: selectedWords.join(", ") || selectedLabel(outcome),
+      selectedWords,
+      fitLabel: text(fitBin?.label || pattern),
+      notLabel: text(notBin?.label)
+    };
+  }
+
+  if (construct === "supported_cover_title_association" || construct === "coverclue" || construct === "story") {
+    const targetCover = round.targetCover || round.covers?.find(cover => cover?.matches);
+    const stripText = text(round.strip?.text || targetCover?.title);
+    const targetTitle = text(targetCover?.title || stripText);
+    const chosenCover = selectedCover(round, outcome);
+    return {
+      construct,
+      target: targetTitle,
+      stripText,
+      targetTitle,
+      selected: text(chosenCover?.title || chosenCover?.character || selectedLabel(outcome)),
+      selectedTitle: text(chosenCover?.title || chosenCover?.character || selectedLabel(outcome)),
+      selectedCover: chosenCover
+    };
+  }
+
+  if (construct === "letter_formation_practice"
+    || construct === "grapheme_pattern_formation_practice"
+    || construct === "lettertrace"
+    || construct === "trace") {
+    const letter = text(round.letter || round.targetGrapheme || round.target || round.answer || round.word);
+    return {
+      construct,
+      target: letter,
+      letter,
+      selected: selectedLabel(outcome)
+    };
+  }
+
+  const target = targetGrapheme(round) || targetWord(round) || text(round.patternLabel);
+  return { construct, target, selected: selectedLabel(outcome) };
+}
+
 /**
  * Make correction feedback from the round's literacy construct. The response
  * always identifies both the selected response and the target contrast.
  */
 export function feedbackForOutcome(round = {}, outcome = {}, attempt = 1) {
-  const construct = text(round.construct || round.mechanicId || round.type).toLowerCase();
-  const selected = selectedLabel(outcome);
-  const target = targetGrapheme(round);
-  const word = targetWord(round);
+  const resolved = resolveFeedbackTarget(round, outcome);
+  const construct = resolved.construct;
+  const selected = resolved.selected || selectedLabel(outcome);
+  const target = resolved.target;
+  const word = targetWord(round) || target;
   const chosenWord = selectedWord(round, outcome);
   const level = Math.max(1, positiveInteger(attempt) || 1);
 
   if (outcome.correct) {
+    if (construct === "orthographic_pattern_sort" || construct === "patternsort") {
+      return `Yes — ${selected} fits the pattern “${resolved.pattern}”.`;
+    }
+    if (construct === "supported_cover_title_association" || construct === "coverclue" || construct === "story") {
+      return `Yes — the title strip “${resolved.stripText}” matches the “${resolved.targetTitle}” cover.`;
+    }
+    if (construct === "letter_formation_practice"
+      || construct === "grapheme_pattern_formation_practice"
+      || construct === "lettertrace"
+      || construct === "trace") {
+      return `Yes — your trace follows ${resolved.letter}.`;
+    }
     return `Yes — ${selected} matches ${word}.`;
   }
 
@@ -113,14 +215,21 @@ export function feedbackForOutcome(round = {}, outcome = {}, attempt = 1) {
         `Say ${chosenWord}, then isolate its first sound. The target starts /${target}/, as in ${word}.`
       );
     }
-    case "ending_grapheme_pattern_discrimination":
-    case "orthographic_pattern_sort":
-    case "patternsort": {
+    case "ending_grapheme_pattern_discrimination": {
       const chosenPattern = text(outcome.selectedPattern) || ending(chosenWord);
       return coaching(
         level,
         `${chosenWord} shows the ending pattern ${chosenPattern}. Listen for /${target}/ at the end of ${word}.`,
         `Look at the ending of ${chosenWord}, then compare it with /${target}/ at the end of ${word}.`
+      );
+    }
+    case "orthographic_pattern_sort":
+    case "patternsort": {
+      const chosenPattern = text(outcome.selectedPattern) || ending(chosenWord);
+      return coaching(
+        level,
+        `${resolved.selected || chosenWord} does not fit “${resolved.pattern || target}”. Sort it into “${resolved.fitLabel || target}” or “${resolved.notLabel || "the other bin"}”.`,
+        `Compare ${resolved.selected || chosenWord} with the pattern “${resolved.pattern || target}”; look for “${chosenPattern}” only where the bin label says it belongs.`
       );
     }
     case "high_frequency_word_recognition":
@@ -178,8 +287,8 @@ export function feedbackForOutcome(round = {}, outcome = {}, attempt = 1) {
     case "story":
       return coaching(
         level,
-        `You placed ${selected}. Match the title strip to the ${word} cover.`,
-        `Read the title strip, then place it on ${word}; you chose ${selected}.`
+        `You placed “${resolved.selectedTitle}”. Read the title strip “${resolved.stripText}” and match it to the “${resolved.targetTitle}” cover.`,
+        `Compare “${resolved.selectedTitle}” with the title strip “${resolved.stripText}”, then place it on the “${resolved.targetTitle}” cover.`
       );
     case "letter_formation_practice":
     case "grapheme_pattern_formation_practice":
@@ -188,8 +297,8 @@ export function feedbackForOutcome(round = {}, outcome = {}, attempt = 1) {
       const dimension = text(outcome.dimension || outcome.errorDimension || "start, order, direction, or coverage");
       return coaching(
         level,
-        `Your trace of ${selected} needs a clearer ${dimension}. Watch the model, then trace ${word}.`,
-        `Start at the marked point and follow the direction through ${word}; your trace was ${selected}.`
+        `Your trace “${selected}” needs a clearer ${dimension}. Watch the model, then trace ${resolved.letter}.`,
+        `Start at the marked point and follow the direction through ${resolved.letter}; your trace was ${selected}.`
       );
     }
     case "grapheme_substitution_chain":
@@ -216,8 +325,8 @@ export function feedbackForOutcome(round = {}, outcome = {}, attempt = 1) {
 
   return coaching(
     level,
-    `You chose ${selected}. Compare it with the target ${word} (${target}).`,
-    `Look closely at ${word} and compare it with your response ${selected}; the target is ${target}.`
+    `You chose ${selected}. Compare it with ${target || "that target"}.`,
+    `Look closely at ${target || "that target"} and compare it with your response ${selected}.`
   );
 }
 
