@@ -59,3 +59,26 @@ test("replay holds target and pronunciation invariant while remixing only audite
   }, 1, 0), /audited replay field/i);
   assert.throws(() => createReplayVariant(deck, 1.5, 0), /integer seed/i);
 });
+
+test("replay rejects unsafe identities, pronunciation values, and candidate position shapes", () => {
+  for (const malformed of [
+    { ...deck, targetId: "" },
+    { ...deck, expectedToken: "sh" },
+    { ...deck, pronunciation: { key: "", ipa: "/ʃ/" } },
+    { ...deck, pronunciation: { key: "sh", expectedToken: "sh" } },
+    { ...deck, pronunciation: { key: "sh", nested: { value: undefined } } },
+    { ...deck, pronunciation: new Date("2026-09-01T00:00:00.000Z") },
+    { ...deck, variants: [{ ...deck.variants[0], contentId: "" }] },
+    { ...deck, variants: [{ ...deck.variants[0], routeId: 7 }] },
+    { ...deck, variants: [{ ...deck.variants[0], candidatePositions: [0, 0, 2] }] },
+    { ...deck, variants: [{ ...deck.variants[0], candidatePositions: [0, 1.5, 2] }] },
+    { ...deck, variants: [deck.variants[0], { ...deck.variants[1], candidatePositions: [0, 1] }] }
+  ]) assert.throws(() => createReplayVariant(malformed, 4, 0), /replay|pronunciation|position|id/i);
+});
+
+test("replay rejects duplicate effective variants before selection", () => {
+  assert.throws(() => createReplayVariant({
+    ...deck,
+    variants: [deck.variants[0], { ...deck.variants[0] }]
+  }, 4, 0), /duplicate replay variant/i);
+});

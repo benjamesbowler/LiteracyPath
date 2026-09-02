@@ -79,6 +79,7 @@ function identityFor(contract, action) {
 function challengeFor(action) {
   const contract = getInstructionContract(action.instructionId);
   const answer = `${action.instructionId}:answer`;
+  const id = suffix => `${action.contextId}:${suffix}`;
   const challenge = {
     challengeId: `${action.id}:challenge`,
     attemptId: `${action.id}:attempt:0`,
@@ -93,22 +94,28 @@ function challengeFor(action) {
     requiresAudio: false,
     ...identityFor(contract, action),
     presentation: {
-      candidates: [{ id: "answer", label: "first" }, { id: "decoy", label: "second" }],
+      candidates: [{ id: id("candidate:answer"), label: "first" }, { id: id("candidate:decoy"), label: "second" }],
       items: [
-        { id: "item-1", label: "item one" },
-        { id: "item-2", label: "item two" },
-        { id: "item-3", label: "item three" },
-        { id: "item-4", label: "item four" }
+        { id: id("item:1"), label: "item one" },
+        { id: id("item:2"), label: "item two" },
+        { id: id("item:3"), label: "item three" },
+        { id: id("item:4"), label: "item four" }
       ],
-      bins: [{ id: "bin-1", label: "first bin" }, { id: "bin-2", label: "second bin" }],
+      bins: [{ id: id("bin:1"), label: "first bin" }, { id: id("bin:2"), label: "second bin" }],
       rack: [
-        { id: "tile-answer", label: "sh", token: answer },
-        { id: "tile-decoy", label: "ch", token: `${action.instructionId}:decoy` }
+        { id: id("tile:answer"), label: "sh", token: answer },
+        { id: id("tile:decoy"), label: "ch", token: `${action.instructionId}:decoy` }
       ],
-      slots: [{ id: "slot-0" }, { id: "slot-1" }, { id: "slot-2" }],
-      segments: [{ id: "segment-0", label: "s" }, { id: "segment-1", label: "h" }],
-      recipients: [{ id: "recipient-1", label: "first place" }],
-      choices: [{ id: "choice-1", label: "first picture", token: answer }]
+      slots: [{ id: id("slot:0") }, { id: id("slot:1") }, { id: id("slot:2") }],
+      segments: [{ id: id("segment:0"), label: "s" }, { id: id("segment:1"), label: "h" }],
+      recipients: [
+        { id: id("recipient:1"), label: "first place" },
+        { id: id("recipient:2"), label: "second place" }
+      ],
+      choices: [
+        { id: id("choice:1"), label: "first picture", token: answer },
+        { id: id("choice:2"), label: "second picture", token: `${action.instructionId}:decoy` }
+      ]
     }
   };
   return Object.freeze(challenge);
@@ -123,24 +130,30 @@ function interactionFor(action) {
 
 function transcriptFor(action, challenge) {
   const answer = challenge.expectedToken;
+  const presentation = challenge.presentation;
   switch (action.powerId) {
     case "echo_search":
-      return [{ type: "probe", candidateId: "answer" }, { type: "confirm_candidate", candidateId: "answer", token: answer }];
+      return [
+        { type: "probe", candidateId: presentation.candidates[0].id },
+        { type: "confirm_candidate", candidateId: presentation.candidates[0].id, token: answer }
+      ];
     case "contrast_sort":
-      return [{ type: action.expectedAction, itemId: "item-1", binId: "bin-1", token: answer }];
+      return [{ type: action.expectedAction, itemId: presentation.items[0].id, binId: presentation.bins[0].id, token: answer }];
     case "word_forge":
-      return [{ type: "place_tile", tileId: "tile-answer" }];
+      return [{ type: "place_tile", tileId: presentation.rack[0].id }];
     case "blend_bridge":
       return [
-        { type: "activate_segment", segmentId: "segment-0" },
-        { type: "activate_segment", segmentId: "segment-1" },
+        ...presentation.segments.map(segment => ({ type: "activate_segment", segmentId: segment.id })),
         { type: "sweep_blend" },
-        { type: action.expectedAction, token: answer }
+        { type: action.expectedAction, choiceId: presentation.choices[0].id, token: answer }
       ];
     case "memory_delivery":
-      return [{ type: "receive_cue" }, { type: "move", dx: 1, dy: 0 }, { type: "arrive" }, { type: action.expectedAction, token: answer }];
+      return [
+        { type: "receive_cue" }, { type: "move", dx: 1, dy: 0 }, { type: "arrive" },
+        { type: action.expectedAction, recipientId: presentation.recipients[0].id, token: answer }
+      ];
     case "story_power":
-      return [{ type: "read_text" }, { type: action.expectedAction, token: answer }];
+      return [{ type: "read_text" }, { type: action.expectedAction, choiceId: presentation.choices[0].id, token: answer }];
     default:
       throw new Error(`unknown power ${action.powerId}`);
   }
@@ -242,6 +255,13 @@ test("all two hundred authored contexts retain exact semantics and reach one pen
     const played = play(action, transcriptFor(action, challenge));
     assert.equal(played.state.status, "awaiting_mission_commit", action.id);
     assert.equal(played.responseIntents.length, 1, action.id);
+
+    const foreignAction = actions.find(item => item.powerId === action.powerId && item.contextId !== action.contextId);
+    assert.ok(foreignAction, `${action.id}: missing cross-context fixture`);
+    const foreignChallenge = challengeFor(foreignAction);
+    const crossed = play(action, transcriptFor(foreignAction, foreignChallenge));
+    assert.notEqual(crossed.state.status, "awaiting_mission_commit", `${action.id} accepted ${foreignAction.contextId}`);
+    assert.deepEqual(crossed.responseIntents, []);
   }
 });
 
@@ -252,16 +272,63 @@ test("interaction runtime rejects altered contexts, missing references, and mism
   assert.throws(() => createInteractionRuntimeModel(action, { ...context, objectIds: [], objectRoles: [], recipientId: null, recipientRole: null }), /object or recipient/i);
   assert.throws(() => createInteractionRuntimeModel({ ...action, contextId: "other" }, context), /context/i);
   assert.throws(() => createInteractionRuntimeModel(action, { ...context, decisionSteps: ["Choose this and then finish."] }), /one immediate action/i);
+  assert.throws(() => createInteractionRuntimeModel({ ...action, id: "caller-fabricated-action" }, context), /canonical action/i);
+  assert.throws(() => createInteractionRuntimeModel({ ...action, activityFocus: "caller_override" }, context), /canonical action/i);
+});
+
+test("power creation binds fixed target, word, text, and heart subtype identities to the canonical action", () => {
+  const fixedTarget = actions.find(action => Array.isArray(action.targetIds) && action.targetIds.length === 1);
+  const fixedWord = actions.find(action => action.wordId && action.recordsDomain === "word_decoding");
+  const fixedText = actions.find(action => action.connectedTextId && action.recordsDomain === "connected_text_transfer");
+  const heart = actions.find(action => action.recordsDomain === "heart_word_mapping" && action.activityFocus);
+  for (const [action, challengePatch] of [
+    [fixedTarget, { targetId: "caller-target" }],
+    [fixedWord, { targetId: "word:caller", wordId: "caller" }],
+    [fixedText, { targetId: "text:caller", connectedTextId: "caller" }],
+    [heart, { activityType: heart.activityFocus === "recognition" ? "encoding" : "recognition" }]
+  ]) {
+    const challenge = { ...challengeFor(action), ...challengePatch };
+    assert.throws(() => SOUND_POWER_REGISTRY[action.powerId].createState(challenge, {
+      seed: 4,
+      interaction: interactionFor(action)
+    }), /canonical action|challenge identity/i, action.id);
+  }
+});
+
+test("every scored action rejects extra caller authority fields", () => {
+  for (const contract of decisionContracts) {
+    const action = actionForInstruction(contract.instructionId);
+    const challenge = challengeFor(action);
+    const transcript = transcriptFor(action, challenge);
+    const prelude = transcript.slice(0, -1);
+    const prepared = play(action, prelude);
+    const answer = transcript.at(-1);
+    for (const injected of [
+      { correct: true }, { support: { level: 3 } }, { event: { correct: true } },
+      { privateRecordId: "forged" }, { completion: true }
+    ]) {
+      const result = prepared.power.reduce(prepared.state, { ...answer, ...injected }, { challenge });
+      assert.strictEqual(result.state, prepared.state, `${contract.instructionId}:${Object.keys(injected)[0]}`);
+      assert.deepEqual(result.responseIntents, []);
+    }
+  }
 });
 
 test("motor presentations preserve one semantic transcript and one exact response intent", () => {
   for (const action of actions) {
     const challenge = challengeFor(action);
     const baseline = play(action, transcriptFor(action, challenge));
+    const baselineView = baseline.power.view(baseline.state, challenge, normalizeMotorAssists());
+    const baselineCheckpoint = baseline.power.checkpoint(baseline.state);
     for (const key of ["autoTravel", "slowerMovement", "noDamageTravel", "largerTargets", "simplifiedScene", "extendedResponse"]) {
       const assisted = play(action, transcriptFor(action, challenge), normalizeMotorAssists({ [key]: true }));
       assert.deepEqual(assisted.responseIntents, baseline.responseIntents, `${action.id}:${key}`);
-      assert.deepEqual(assisted.state.semanticSteps, baseline.state.semanticSteps, `${action.id}:${key}`);
+      assert.deepEqual(assisted.power.checkpoint(assisted.state), baselineCheckpoint, `${action.id}:${key}:state`);
+      assert.deepEqual(
+        assisted.power.view(assisted.state, challenge, normalizeMotorAssists({ [key]: true })),
+        baselineView,
+        `${action.id}:${key}:view`
+      );
       assert.equal(assisted.state.status, "awaiting_mission_commit");
     }
   }
@@ -291,18 +358,16 @@ test("Word Forge exposes only a frozen answer-neutral workbench and checkpoints 
     "slots", "status", "sweep", "visualCue"
   ]);
   assert.equal(recursivelyFrozen(initialView), true);
-  assert.deepEqual(initialView.rack, [
-    { id: "tile-answer", label: "sh" }, { id: "tile-decoy", label: "ch" }
-  ]);
+  assert.deepEqual(initialView.rack, challenge.presentation.rack.map(({ id, label }) => ({ id, label })));
   for (const forbidden of ["word", "wordId", "expectedToken", "optionTokens", "candidateTokens", "correct", "selected", "intended"]) {
     assert.equal(JSON.stringify(initialView).includes(`"${forbidden}"`), false, forbidden);
   }
 
-  const placed = play(action, [{ type: "place_tile", tileId: "tile-answer" }]);
+  const placed = play(action, [{ type: "place_tile", tileId: challenge.presentation.rack[0].id }]);
   const checkpoint = placed.power.checkpoint(placed.state);
   assert.equal(recursivelyFrozen(checkpoint), true);
-  assert.equal(checkpoint.slots[0].tileId, "tile-answer");
-  assert.equal(checkpoint.rack.find(tile => tile.id === "tile-answer").placed, true);
+  assert.equal(checkpoint.slots[0].tileId, challenge.presentation.rack[0].id);
+  assert.equal(checkpoint.rack.find(tile => tile.id === challenge.presentation.rack[0].id).placed, true);
   assert.equal(JSON.stringify(checkpoint).includes(challenge.expectedToken), false);
 });
 
@@ -316,13 +381,10 @@ test("views redact private correction authority and never mutate source challeng
     seed: 1,
     interaction: interactionFor(action),
     resume: {
+      ...power.checkpoint(power.createState(challenge, { seed: 1, interaction: interactionFor(action) })),
       correction: {
         supportLevel: 2,
-        isolatePosition: "initial",
-        selected: "no",
-        intended: "yes",
-        correct: false,
-        privateRecordId: "secret"
+        isolatePosition: "initial"
       }
     }
   });
@@ -333,6 +395,81 @@ test("views redact private correction authority and never mutate source challeng
   const publicKeys = allObjectKeys(view);
   for (const forbidden of ["privateRecordId", "selected", "intended", "correct"]) {
     assert.equal(publicKeys.has(forbidden), false, forbidden);
+  }
+  const checkpoint = power.checkpoint(state);
+  assert.throws(() => power.createState(challenge, {
+    seed: 1,
+    interaction: interactionFor(action),
+    resume: { ...checkpoint, correction: { ...checkpoint.correction, privateRecordId: "secret" } }
+  }), /unknown correction|resume/i);
+});
+
+test("every power rejects partial, unknown, malformed, and impossible resume checkpoints", () => {
+  for (const powerId of Object.keys(SOUND_POWER_REGISTRY)) {
+    const action = actions.find(item => item.powerId === powerId);
+    const challenge = challengeFor(action);
+    const played = play(action, transcriptFor(action, challenge));
+    const checkpoint = played.power.checkpoint(played.state);
+    const cases = [
+      {},
+      Object.fromEntries(Object.entries(checkpoint).filter(([key]) => key !== "powerId")),
+      { ...checkpoint, unknown: true },
+      { ...checkpoint, status: "finished" },
+      { ...checkpoint, revision: -1 },
+      { ...checkpoint, semanticSteps: [7] },
+      { ...checkpoint, correction: { supportLevel: Number.NaN } }
+    ];
+    if (powerId === "echo_search") cases.push({ ...checkpoint, foundCandidateId: "unknown" });
+    if (powerId === "contrast_sort") cases.push({ ...checkpoint, placements: { unknown: checkpoint.bins[0].id } });
+    if (powerId === "word_forge") cases.push({ ...checkpoint, rack: [checkpoint.rack[0], checkpoint.rack[0]] });
+    if (powerId === "blend_bridge") cases.push({ ...checkpoint, nextSegmentIndex: 0, sweepComplete: true });
+    if (powerId === "memory_delivery") cases.push({ ...checkpoint, cueReceived: false, routeProgress: 0, arrived: true });
+    if (powerId === "story_power") cases.push({ ...checkpoint, textRead: false, status: "awaiting_mission_commit" });
+    for (const resume of cases) {
+      assert.throws(() => played.power.createState(challenge, {
+        seed: 3,
+        resume,
+        interaction: interactionFor(action)
+      }), /resume|checkpoint/i, `${powerId}:${JSON.stringify(resume)}`);
+    }
+  }
+});
+
+test("power presentation and resume collections require unique nonempty context-bound IDs", () => {
+  const mutations = [
+    ["echo_search", "candidates"],
+    ["contrast_sort", "items"],
+    ["contrast_sort", "bins"],
+    ["word_forge", "rack"],
+    ["word_forge", "slots"],
+    ["blend_bridge", "segments"],
+    ["blend_bridge", "choices"],
+    ["memory_delivery", "recipients"],
+    ["story_power", "choices"]
+  ];
+  for (const [powerId, collection] of mutations) {
+    const action = actions.find(item => item.powerId === powerId);
+    const challenge = challengeFor(action);
+    const ids = [
+      challenge.presentation[collection][0].id,
+      "",
+      "foreign-context:item"
+    ];
+    for (const invalidId of ids) {
+      const invalid = {
+        ...challenge,
+        presentation: {
+          ...challenge.presentation,
+          [collection]: challenge.presentation[collection].map((item, index) => index === 1
+            ? { ...item, id: invalidId }
+            : item)
+        }
+      };
+      assert.throws(() => SOUND_POWER_REGISTRY[powerId].createState(invalid, {
+        seed: 2,
+        interaction: interactionFor(action)
+      }), /unique nonempty|context-bound/i, `${powerId}:${collection}:${invalidId}`);
+    }
   }
 });
 
@@ -346,7 +483,7 @@ test("Contrast Sort rejects a partial item set instead of collapsing to one choi
   assert.throws(() => SOUND_POWER_REGISTRY.contrast_sort.createState(partial, {
     seed: 2,
     interaction: interactionFor(action)
-  }), /four-to-six item set/i);
+  }), /expected 4-6 records/i);
 });
 
 test("the exact s38 morphology application emits its sole zero-evidence content response", () => {

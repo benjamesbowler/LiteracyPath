@@ -7,7 +7,10 @@ import {
   assertInstructionMatchesChallenge,
   getInstructionContract
 } from "../../content/instructionContracts.js";
-import { SOUND_SEEKERS_INTERACTION_CONTEXTS } from "../../content/expeditions.js";
+import {
+  SOUND_SEEKERS_EXPEDITIONS,
+  SOUND_SEEKERS_INTERACTION_CONTEXTS
+} from "../../content/expeditions.js";
 
 const INTERACTION_CONTEXT_FIELDS = Object.freeze([
   "id", "chapterId", "semanticRule", "childDecision", "decisionSteps", "objectIds",
@@ -33,6 +36,19 @@ const SAFE_CORRECTION_FIELDS = Object.freeze([
   "supportLevel", "mode", "replayContrast", "isolatePosition", "reduceIrrelevantLoad",
   "modelOnce", "requiresFreshAttempt", "queueIsomorphicReview"
 ]);
+const SAFE_CORRECTION_FIELD_SET = new Set(SAFE_CORRECTION_FIELDS);
+const COMMON_CHECKPOINT_FIELDS = Object.freeze([
+  "kind", "powerId", "challengeId", "instructionId", "expectedAction", "recordsDomain",
+  "interactionContextId", "status", "revision", "semanticSteps", "correction"
+]);
+const CANONICAL_ACTIONS = Object.freeze(SOUND_SEEKERS_EXPEDITIONS.flatMap(expedition => [
+  ...expedition.phases.filter(phase => phase.powerId),
+  ...expedition.heartWordOpportunities
+]));
+const CANONICAL_ACTION_BY_ID = new Map(CANONICAL_ACTIONS.map(action => [action.id, action]));
+if (CANONICAL_ACTIONS.length !== 200 || CANONICAL_ACTION_BY_ID.size !== 200) {
+  throw new Error("Sound Seekers runtime requires exactly 200 unique canonical actions");
+}
 
 function isPlainObject(value) {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);
@@ -54,6 +70,22 @@ export function isRecursivelyFrozen(value, seen = new Set()) {
 
 function exactKeys(value, allowed) {
   return Object.keys(value).every(key => allowed.includes(key));
+}
+
+function sameValue(left, right) {
+  if (Object.is(left, right)) return true;
+  if (Array.isArray(left) || Array.isArray(right)) {
+    return Array.isArray(left) && Array.isArray(right) && left.length === right.length
+      && left.every((item, index) => sameValue(item, right[index]));
+  }
+  if (isPlainObject(left) || isPlainObject(right)) {
+    if (!isPlainObject(left) || !isPlainObject(right)) return false;
+    const leftKeys = Object.keys(left);
+    const rightKeys = Object.keys(right);
+    return leftKeys.length === rightKeys.length
+      && leftKeys.every(key => Object.hasOwn(right, key) && sameValue(left[key], right[key]));
+  }
+  return false;
 }
 
 function oneImmediateAction(step) {
@@ -92,24 +124,37 @@ function assertContextShape(context) {
   }
 }
 
-function assertActionContextContract(action, context) {
+function resolveCanonicalAction(action) {
   if (!isPlainObject(action)) throw new Error("authored action is required");
-  if (action.contextId !== context.id) throw new Error(`${action.id || "action"}: interaction context does not match`);
+  const canonical = CANONICAL_ACTION_BY_ID.get(action.id);
+  if (!canonical) throw new Error(`${action.id || "action"}: canonical action is required`);
+  for (const [key, value] of Object.entries(canonical)) {
+    if (!Object.hasOwn(action, key) || !sameValue(action[key], value)) {
+      throw new Error(`${action.id}: canonical action field ${key} does not match`);
+    }
+  }
+  return canonical;
+}
+
+function assertActionContextContract(action, context) {
+  const canonicalAction = resolveCanonicalAction(action);
+  if (canonicalAction.contextId !== context.id) throw new Error(`${canonicalAction.id}: interaction context does not match`);
   const canonical = SOUND_SEEKERS_INTERACTION_CONTEXTS[context.id];
   if (!canonical || canonical !== context) throw new Error(`${context.id}: interaction context is not the exact authored context`);
-  const instruction = getInstructionContract(action.instructionId);
-  if (!instruction || instruction.phase !== "decision") throw new Error(`${action.id || "action"}: decision instruction is required`);
-  if (instruction.powerId !== action.powerId
-    || instruction.expectedAction !== action.expectedAction
-    || instruction.recordsDomain !== action.recordsDomain) {
-    throw new Error(`${action.id || "action"}: action does not match its instruction contract`);
+  const instruction = getInstructionContract(canonicalAction.instructionId);
+  if (!instruction || instruction.phase !== "decision") throw new Error(`${canonicalAction.id}: decision instruction is required`);
+  if (instruction.powerId !== canonicalAction.powerId
+    || instruction.expectedAction !== canonicalAction.expectedAction
+    || instruction.recordsDomain !== canonicalAction.recordsDomain) {
+    throw new Error(`${canonicalAction.id}: canonical action does not match its instruction contract`);
   }
+  return canonicalAction;
 }
 
 export function createInteractionRuntimeModel(action, context) {
   assertContextShape(context);
-  assertActionContextContract(action, context);
-  const validInputs = [...(INPUTS_BY_POWER[action.powerId] || []), action.expectedAction];
+  const canonicalAction = assertActionContextContract(action, context);
+  const validInputs = [...(INPUTS_BY_POWER[canonicalAction.powerId] || []), canonicalAction.expectedAction];
   const uniqueInputs = [...new Set(validInputs)];
   const semanticInputAllowlist = uniqueInputs.map((type, index) => ({
     type,
@@ -119,12 +164,17 @@ export function createInteractionRuntimeModel(action, context) {
   }));
   return deepFreezeClone({
     kind: "sound_seekers_interaction_runtime",
-    actionId: action.id,
-    configurationId: action.configurationId,
-    powerId: action.powerId,
-    instructionId: action.instructionId,
-    expectedAction: action.expectedAction,
-    recordsDomain: action.recordsDomain,
+    actionId: canonicalAction.id,
+    configurationId: canonicalAction.configurationId,
+    actionKind: canonicalAction.kind,
+    powerId: canonicalAction.powerId,
+    instructionId: canonicalAction.instructionId,
+    expectedAction: canonicalAction.expectedAction,
+    recordsDomain: canonicalAction.recordsDomain,
+    targetIds: canonicalAction.targetIds || null,
+    targetSourceId: canonicalAction.targetSourceId || null,
+    wordId: canonicalAction.wordId || null,
+    connectedTextId: canonicalAction.connectedTextId || null,
     contextId: context.id,
     ...Object.fromEntries(INTERACTION_CONTEXT_FIELDS.filter(key => key !== "id").map(key => [key, context[key]])),
     validInputs: uniqueInputs,
@@ -180,6 +230,14 @@ export function validatePowerChallenge(challenge, powerId, interaction) {
       || runtime.recordsDomain !== challenge.recordsDomain) {
       throw new Error(`${powerId}: challenge and interaction contract do not match`);
     }
+    if ((runtime.targetIds && !runtime.targetIds.includes(challenge.targetId))
+      || (runtime.wordId && challenge.wordId !== runtime.wordId)
+      || (runtime.recordsDomain === "connected_text_transfer"
+        && runtime.connectedTextId && challenge.connectedTextId !== runtime.connectedTextId)
+      || (runtime.recordsDomain === "heart_word_mapping"
+        && runtime.activityFocus && challenge.activityType !== runtime.activityFocus)) {
+      throw new Error(`${powerId}: challenge identity does not match its canonical action`);
+    }
     return Object.freeze({ instruction, runtime, morphology: null });
   }
   if (!isExactS38MorphologyChallenge(challenge)) throw new Error("only the exact s38 morphology challenge may be unscored");
@@ -226,26 +284,59 @@ export function projectCorrection(correction) {
   return Object.keys(projected).length ? deepFreezeClone(projected) : null;
 }
 
-export function createCommonState(powerId, challenge, options = {}) {
-  if (!Number.isInteger(options.seed)) throw new Error(`${powerId}: integer seed is required`);
-  const authority = validatePowerChallenge(challenge, powerId, options.interaction);
-  const resume = isPlainObject(options.resume) ? options.resume : {};
-  if (Object.hasOwn(resume, "powerId") && (resume.powerId !== powerId
+function assertCorrectionCheckpoint(correction) {
+  if (correction === null) return;
+  if (!isPlainObject(correction)) throw new Error("resume checkpoint correction must be null or an object");
+  for (const [key, value] of Object.entries(correction)) {
+    if (!SAFE_CORRECTION_FIELD_SET.has(key)) throw new Error(`unknown correction resume field: ${key}`);
+    if (value !== null && (!["string", "number", "boolean"].includes(typeof value)
+      || (typeof value === "number" && !Number.isFinite(value)))) {
+      throw new Error(`resume checkpoint correction field ${key} must be primitive`);
+    }
+  }
+}
+
+function assertResumeCheckpoint(resume, { powerId, challenge, interactionContextId, extraFields }) {
+  if (!isPlainObject(resume)) throw new Error(`${powerId}: resume checkpoint must be an object`);
+  const expectedFields = [...COMMON_CHECKPOINT_FIELDS, ...extraFields];
+  const keys = Object.keys(resume);
+  if (keys.length !== expectedFields.length
+    || expectedFields.some(key => !Object.hasOwn(resume, key))) {
+    throw new Error(`${powerId}: resume checkpoint schema is incomplete or has unknown fields`);
+  }
+  if (resume.kind !== `${powerId}_state`
+    || resume.powerId !== powerId
     || resume.challengeId !== challenge.challengeId
     || resume.instructionId !== challenge.instructionId
     || resume.expectedAction !== challenge.expectedAction
     || resume.recordsDomain !== challenge.recordsDomain
-    || resume.interactionContextId !== (authority.runtime?.contextId || null))) {
+    || resume.interactionContextId !== interactionContextId) {
     throw new Error(`${powerId}: resume checkpoint identity is stale or mismatched`);
   }
-  const status = ["active", "awaiting_mission_commit"].includes(resume.status)
-    ? resume.status
-    : "active";
-  const revision = Number.isInteger(resume.revision) && resume.revision >= 0 ? resume.revision : 0;
-  const semanticSteps = Array.isArray(resume.semanticSteps)
-    && resume.semanticSteps.every(step => typeof step === "string")
-    ? resume.semanticSteps
-    : [];
+  if (!["active", "awaiting_mission_commit"].includes(resume.status)) {
+    throw new Error(`${powerId}: resume checkpoint status is invalid`);
+  }
+  if (!Number.isInteger(resume.revision) || resume.revision < 0
+    || !Array.isArray(resume.semanticSteps)
+    || resume.semanticSteps.length !== resume.revision
+    || resume.semanticSteps.some(step => typeof step !== "string" || !step)) {
+    throw new Error(`${powerId}: resume checkpoint revision and semantic steps are inconsistent`);
+  }
+  assertCorrectionCheckpoint(resume.correction);
+  return resume;
+}
+
+export function createCommonState(powerId, challenge, options = {}, extraResumeFields = []) {
+  if (!Number.isInteger(options.seed)) throw new Error(`${powerId}: integer seed is required`);
+  const authority = validatePowerChallenge(challenge, powerId, options.interaction);
+  const resume = options.resume === null || options.resume === undefined
+    ? null
+    : assertResumeCheckpoint(options.resume, {
+      powerId,
+      challenge,
+      interactionContextId: authority.runtime?.contextId || null,
+      extraFields: extraResumeFields
+    });
   return {
     kind: `${powerId}_state`,
     powerId,
@@ -254,13 +345,44 @@ export function createCommonState(powerId, challenge, options = {}) {
     expectedAction: challenge.expectedAction,
     recordsDomain: challenge.recordsDomain,
     interactionContextId: authority.runtime?.contextId || null,
-    status,
-    revision,
+    status: resume?.status || "active",
+    revision: resume?.revision || 0,
     seed: options.seed,
-    semanticSteps,
-    correction: projectCorrection(resume.correction),
+    semanticSteps: resume?.semanticSteps || [],
+    correction: projectCorrection(resume?.correction),
     morphology: authority.morphology
   };
+}
+
+export function assertStableCollection(entries, {
+  name,
+  contextId,
+  min = 1,
+  max = Number.POSITIVE_INFINITY,
+  fields = ["id", "label"]
+} = {}) {
+  if (!Array.isArray(entries) || entries.length < min || entries.length > max) {
+    throw new Error(`${name}: expected ${min}-${max} records with unique nonempty context-bound IDs`);
+  }
+  const ids = new Set();
+  for (const entry of entries) {
+    if (!isPlainObject(entry)
+      || Object.keys(entry).length !== fields.length
+      || fields.some(field => !Object.hasOwn(entry, field))) {
+      throw new Error(`${name}: records must use the exact collection schema`);
+    }
+    if (typeof entry.id !== "string" || !entry.id.startsWith(`${contextId}:`) || ids.has(entry.id)) {
+      throw new Error(`${name}: IDs must be unique nonempty and context-bound`);
+    }
+    ids.add(entry.id);
+    if (fields.includes("label") && (typeof entry.label !== "string" || !entry.label.trim())) {
+      throw new Error(`${name}: labels must be nonempty strings`);
+    }
+    if (fields.includes("token") && !isToken(entry.token)) {
+      throw new Error(`${name}: tokens must be primitive literacy tokens`);
+    }
+  }
+  return true;
 }
 
 export function assertReducerContext(state, challenge, interaction = null) {

@@ -1,6 +1,7 @@
 import {
   answerPower,
   assertReducerContext,
+  assertStableCollection,
   checkpointState,
   commonView,
   createCommonState,
@@ -28,11 +29,11 @@ function initialSlots(challenge) {
 
 export const wordForge = Object.freeze({
   createState(challenge, options = {}) {
-    const common = createCommonState(POWER_ID, challenge, options);
+    const common = createCommonState(POWER_ID, challenge, options, ["slots", "rack", "sweep", "morphology"]);
     if (common.morphology) {
       const tileId = "morphology-ending-tile";
       const resumedPlaced = options.resume?.rack?.find(tile => tile.id === tileId)?.placed === true;
-      return deepFreezeClone({
+      const state = {
         ...common,
         rack: [{ id: tileId, label: common.morphology.ending, placed: resumedPlaced }],
         slots: [
@@ -40,8 +41,45 @@ export const wordForge = Object.freeze({
           { id: "morphology-ending-slot", tileId: resumedPlaced ? tileId : null }
         ],
         sweep: options.resume?.sweep === "meaning_ready" ? "meaning_ready" : "not_ready"
-      });
+      };
+      if (options.resume) {
+        const validRack = Array.isArray(options.resume.rack) && options.resume.rack.length === 1
+          && Object.keys(options.resume.rack[0] || {}).length === 3
+          && options.resume.rack[0].id === tileId
+          && options.resume.rack[0].label === common.morphology.ending
+          && typeof options.resume.rack[0].placed === "boolean";
+        const validSlots = Array.isArray(options.resume.slots) && options.resume.slots.length === 2
+          && options.resume.slots[0]?.id === "morphology-base-slot"
+          && options.resume.slots[0]?.tileId === "morphology-base-fixed"
+          && options.resume.slots[1]?.id === "morphology-ending-slot"
+          && options.resume.slots[1]?.tileId === (resumedPlaced ? tileId : null)
+          && options.resume.slots.every(slot => Object.keys(slot || {}).length === 2);
+        const sameMorphology = JSON.stringify(options.resume.morphology) === JSON.stringify(common.morphology);
+        if (!validRack || !validSlots || !sameMorphology
+          || !["not_ready", "meaning_ready"].includes(options.resume.sweep)
+          || (options.resume.status === "awaiting_mission_commit"
+            && (!resumedPlaced || options.resume.sweep !== "meaning_ready"
+              || options.resume.semanticSteps.at(-1) !== "place_tile"))
+          || (options.resume.status === "active" && (resumedPlaced || options.resume.sweep !== "not_ready"))) {
+          throw new Error("Word Forge morphology resume checkpoint is impossible");
+        }
+      }
+      return deepFreezeClone(state);
     }
+    assertStableCollection(challenge.presentation?.rack, {
+      name: "Word Forge rack",
+      contextId: common.interactionContextId,
+      min: 2,
+      max: 12,
+      fields: ["id", "label", "token"]
+    });
+    assertStableCollection(challenge.presentation?.slots, {
+      name: "Word Forge slots",
+      contextId: common.interactionContextId,
+      min: 1,
+      max: 12,
+      fields: ["id"]
+    });
     const rack = initialRack(challenge);
     const slots = initialSlots(challenge);
     if (rack.length < 2 || slots.length === 0 || rack.some(tile => !tile.id || !tile.label)) {
@@ -52,16 +90,37 @@ export const wordForge = Object.freeze({
     const resumeSlotsAreValid = Array.isArray(options.resume?.slots)
       && options.resume.slots.length === slots.length
       && options.resume.slots.every(slot => canonicalSlotIds.has(slot.id)
+        && Object.keys(slot || {}).length === 2
         && (slot.tileId === null || canonicalRackIds.has(slot.tileId)));
+    const resumeRackIsValid = Array.isArray(options.resume?.rack)
+      && options.resume.rack.length === rack.length
+      && options.resume.rack.every((tile, index) => Object.keys(tile || {}).length === 3
+        && tile.id === rack[index].id
+        && tile.label === rack[index].label
+        && typeof tile.placed === "boolean");
+    if (options.resume) {
+      if (!resumeSlotsAreValid || !resumeRackIsValid) {
+        throw new Error("Word Forge resume checkpoint collections are invalid");
+      }
+      const referencedTileIds = options.resume.slots.map(slot => slot.tileId).filter(Boolean);
+      const placedTileIds = options.resume.rack.filter(tile => tile.placed).map(tile => tile.id);
+      if (new Set(referencedTileIds).size !== referencedTileIds.length
+        || referencedTileIds.length !== placedTileIds.length
+        || referencedTileIds.some(id => !placedTileIds.includes(id))
+        || options.resume.morphology !== null
+        || options.resume.sweep !== "not_ready"
+        || (options.resume.status === "awaiting_mission_commit"
+          && (placedTileIds.length === 0 || options.resume.semanticSteps.at(-1) !== "place_tile"))) {
+        throw new Error("Word Forge resume checkpoint is impossible");
+      }
+    }
     const resumedSlots = resumeSlotsAreValid ? options.resume.slots : slots;
     const placedIds = new Set(resumedSlots.map(slot => slot.tileId).filter(Boolean));
     return deepFreezeClone({
       ...common,
       rack: rack.map(tile => ({ ...tile, placed: placedIds.has(tile.id) })),
       slots: resumedSlots,
-      sweep: ["not_ready", "ready", "complete", "meaning_ready"].includes(options.resume?.sweep)
-        ? options.resume.sweep
-        : "not_ready"
+      sweep: options.resume?.sweep || "not_ready"
     });
   },
 
