@@ -20,6 +20,9 @@ import { guidedReadingBooks } from "./data/guidedReadingBooks.js";
 export function GuidedReadingPreview() {
   const params = new URLSearchParams(window.location.search);
   const requestedBookId = params.get("book") || "moonwood-tales-c-25";
+  const requestedMode = ["teacher", "class", "adminReview"].includes(params.get("mode"))
+    ? params.get("mode")
+    : "student";
   const book = guidedReadingBooks.find(item => item.id === requestedBookId) || guidedReadingBooks[0];
   const [records, setRecords] = useState({});
   useEffect(() => {
@@ -39,14 +42,14 @@ export function GuidedReadingPreview() {
     <GuidedReadingPage
       guidedReadingRecords={records}
       initialBookId={book.id}
-      mode="student"
+      mode={requestedMode}
       sessionHost={staleGroupHost}
       saveGuidedReadingRecord={(bookId, nextRecord) => {
         setRecords(current => ({ ...current, [bookId]: nextRecord }));
       }}
       speakText={() => {}}
-      studentId="guided-reading-preview"
-      studentName="Preview Reader"
+      studentId={requestedMode === "student" ? "guided-reading-preview" : ""}
+      studentName={requestedMode === "student" ? "Preview Reader" : ""}
     />
   );
 

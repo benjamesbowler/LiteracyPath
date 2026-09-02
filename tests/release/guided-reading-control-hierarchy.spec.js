@@ -102,6 +102,32 @@ test("A2.8 Guided Reading keeps the forward page action primary and groups audio
   expect(pageErrors).toEqual([]);
 });
 
+test("teacher discussion support is collapsed, book-specific, and navigates to its visual page", async ({ page }) => {
+  await page.goto("/preview/guided-reading-preview.html?book=level-c-nonfiction-01-bees&mode=teacher");
+
+  const reader = page.getByRole("region", { name: /Honeybees and Pollination full-screen reader/ });
+  const discussion = reader.getByText("Discuss this book", { exact: true }).locator("..");
+  await expect(discussion).not.toHaveAttribute("open", "");
+  await expect(discussion.getByText("How does a honeybee help fruit grow after it visits one flower?"))
+    .not.toBeVisible();
+
+  await discussion.getByText("Discuss this book", { exact: true }).click();
+  await expect(discussion).toContainText("How does a honeybee help fruit grow after it visits one flower?");
+  await expect(discussion).toContainText("nectar and dusty pollen");
+  await discussion.getByRole("button", { name: "Look again at page 3" }).click();
+  await expect(reader.getByRole("status", { name: "Reading progress" })).toHaveText(/Page 3 of \d+/);
+});
+
+test("student Guided Reading does not mount or serialize private discussion text", async ({ page }) => {
+  await page.goto("/preview/guided-reading-preview.html?book=level-c-nonfiction-01-bees");
+
+  await expect(page.getByText("Discuss this book", { exact: true })).toHaveCount(0);
+  await expect(page.locator("body")).not.toContainText(
+    "How does a honeybee help fruit grow after it visits one flower?"
+  );
+  await expect(page.locator("body")).not.toContainText("nectar and dusty pollen");
+});
+
 test("child Guided Reading exposes meaningful art, one primary, and 56px targets at supported sizes", async ({ page }) => {
   const cases = [
     { fullscreen: false, height: 953, width: 1467 },

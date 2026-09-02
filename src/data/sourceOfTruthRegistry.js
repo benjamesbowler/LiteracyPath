@@ -51,6 +51,7 @@ export const sourceOfTruthRegistry = Object.freeze({
     activeRuntimeFiles: [
       "src/data/guidedReadingBooks.js",
       "src/data/guidedReadingBookMetadata.js",
+      "src/data/guidedReadingDiscussionPrompts.js",
       "src/data/guidedReadingRegenBooks.js",
       "src/data/guidedStoryBooks.js",
       "src/data/firstFactsActualLevelABooks.js",

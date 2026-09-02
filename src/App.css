@@ -6572,6 +6572,92 @@ body:has(.kg-viewport) .student-home-float { display: none; }
   padding: 0 12px 12px;
 }
 
+.guided-reading-discussion {
+  border: 1px solid color-mix(in srgb, var(--sage-deep, #315d4c) 22%, transparent);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--sage-mist, #edf5ef) 72%, white);
+  color: var(--ink, #19342b);
+  margin: 0 24px 16px;
+  overflow: hidden;
+}
+
+.guided-reading-discussion summary {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-weight: 800;
+  justify-content: space-between;
+  min-height: 56px;
+  padding: 12px 18px;
+}
+
+.guided-reading-discussion summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.guided-reading-discussion[open] summary::after {
+  content: "−";
+}
+
+.guided-reading-discussion-content {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 0 18px 18px;
+}
+
+.guided-reading-discussion-content section {
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 14px;
+  display: flex;
+  gap: 12px;
+  padding: 14px;
+}
+
+.guided-reading-discussion-content section > div {
+  min-width: 0;
+}
+
+.guided-reading-discussion-content p {
+  margin: 6px 0;
+}
+
+.guided-reading-discussion-number {
+  align-items: center;
+  background: var(--sage-deep, #315d4c);
+  border-radius: 999px;
+  color: white;
+  display: inline-flex;
+  flex: 0 0 28px;
+  font-weight: 800;
+  height: 28px;
+  justify-content: center;
+  width: 28px;
+}
+
+.guided-reading-discussion-note {
+  color: color-mix(in srgb, var(--ink, #19342b) 75%, white);
+  font-size: 0.92rem;
+}
+
+.guided-reading-discussion .lp-button {
+  margin-top: 6px;
+  min-height: 48px;
+}
+
+@media (max-width: 760px) {
+  .guided-reading-discussion {
+    margin-inline: 12px;
+  }
+
+  .guided-reading-discussion-content {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Note boxes grow with their content instead of scrolling inside themselves
    (field-sizing, FRONTIER/26 study). Engines without it keep the fixed box;
    manual vertical resize still wins either way. */

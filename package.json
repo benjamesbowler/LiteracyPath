@@ -31,6 +31,7 @@
     "check:guided-reading-story-bible": "node tools/checkGuidedReadingStoryBible.mjs",
     "check:guided-reading-writing-evidence": "node tools/checkGuidedReadingWritingEvidence.mjs",
     "check:guided-reading-human-voice": "node tools/checkGuidedReadingHumanVoice.mjs",
+    "check:guided-reading-discussion-prompts": "node tools/checkGuidedReadingDiscussionPrompts.mjs",
     "check:guided-reading-visual-alignment": "node tools/checkGuidedReadingVisualAlignment.mjs",
     "record:app-visual-review": "node tools/recordAppVisualReview.mjs",
     "check:app-visual-review": "node tools/checkAppVisualReview.mjs",

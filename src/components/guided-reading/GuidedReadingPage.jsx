@@ -74,7 +74,9 @@ import { nextReadingWordMark } from "../../hooks/readingSessionMarkTarget.js";
 import { STOP_CHILD_AUDIO_EVENT } from "../../utils/audio/childAudioLifecycle.js";
 import { AUDIO_GUIDED_READING_PATHS } from "../../data/generated/audioGuidedReadingPaths.generated.js";
 import { BuddyReaderBar } from "./BuddyReaderBar.jsx";
+import BookDiscussionPanel from "./BookDiscussionPanel.jsx";
 import { appendBuddyTurn, buildBuddyReaderPlan, summarizeBuddyReader } from "../../utils/guidedReading/buddyReader.js";
+import { getGuidedReadingDiscussion } from "../../data/guidedReadingDiscussionPrompts.js";
 import "../../styles/buddy-reader.css";
 
 const GUIDED_READING_MEDIA_VERSION = "20260603-continuity-1";
@@ -590,6 +592,9 @@ export function GuidedReadingPage({
       }
     : runtimeSelectedBook, [activeGroupSession, runtimeSelectedBook]);
   const page = selectedBook?.pages?.[pageIndex];
+  const selectedDiscussion = !isStudentMode && selectedBook
+    ? selectedBook.discussion || getGuidedReadingDiscussion(selectedBook.id)
+    : null;
   const readingMeasure = getGuidedReadingMeasure(selectedBook?.level, selectedBook?.readingBandProfile);
   const record = guidedReadingRecords[selectedBook?.id] || {
     bookId: selectedBook?.id,
@@ -2535,6 +2540,16 @@ export function GuidedReadingPage({
                 </p>
               )}
             </div>}
+
+            {!isStudentMode && (
+              <BookDiscussionPanel
+                discussion={selectedDiscussion}
+                onGoToPage={pageNumber => {
+                  const nextPageIndex = selectedBook.pages.findIndex(item => item.pageNumber === pageNumber);
+                  if (nextPageIndex >= 0) setPageIndex(nextPageIndex);
+                }}
+              />
+            )}
 
             <AnimatePresence mode="wait">
               <motion.div

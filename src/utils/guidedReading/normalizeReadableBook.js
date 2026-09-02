@@ -25,6 +25,7 @@ const fallbackIllustrators = [
 ];
 
 import { getGuidedReadingBookMetadata } from "../../data/guidedReadingBookMetadata.js";
+import { getGuidedReadingDiscussion } from "../../data/guidedReadingDiscussionPrompts.js";
 
 function getStableNameIndex(bookId = "", offset = 0) {
   const source = String(bookId || "guided-reading-book");
@@ -103,6 +104,7 @@ export function normalizeReadableBook(book = {}) {
     level: book.level || book.guidedReadingLevel || book.gradeBand || "",
     readingBandProfile: book.readingBandProfile || metadata?.readingBandProfile || "",
     readingMode: book.readingMode || metadata?.readingMode || "",
+    discussion: book.discussion || getGuidedReadingDiscussion(book),
     category: book.category || book.type || book.readingType || "",
     gradeBand: book.gradeBand || "",
     difficulty: book.difficulty || book.readingLevel || "",
