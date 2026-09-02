@@ -324,18 +324,81 @@ function normalizePath(filePath) {
   return filePath.split(path.sep).join("/");
 }
 
-function staticString(node) {
+function staticString(node, bindings = new Map(), seen = new Set()) {
   if (!node) return null;
   if (node.type === "StringLiteral") return node.value;
-  if (node.type === "TemplateLiteral" && node.expressions.length === 0) {
-    return node.quasis.map(quasi => quasi.value.cooked).join("");
+  if (["ParenthesizedExpression", "TSAsExpression", "TSTypeAssertion"].includes(node.type)) {
+    return staticString(node.expression, bindings, seen);
+  }
+  if (node.type === "Identifier" && bindings.has(node.name) && !seen.has(node.name)) {
+    return staticString(bindings.get(node.name), bindings, new Set([...seen, node.name]));
+  }
+  if (node.type === "TemplateLiteral") {
+    let value = "";
+    for (const [index, quasi] of node.quasis.entries()) {
+      value += quasi.value.cooked ?? quasi.value.raw;
+      if (index < node.expressions.length) {
+        const expression = staticString(node.expressions[index], bindings, seen);
+        if (expression === null) return null;
+        value += expression;
+      }
+    }
+    return value;
   }
   if (node.type === "BinaryExpression" && node.operator === "+") {
-    const left = staticString(node.left);
-    const right = staticString(node.right);
+    const left = staticString(node.left, bindings, seen);
+    const right = staticString(node.right, bindings, seen);
     return left === null || right === null ? null : left + right;
   }
   return null;
+}
+
+function staticStringFragments(node, bindings, seen = new Set()) {
+  if (!node) return [];
+  if (node.type === "StringLiteral") return [node.value];
+  if (["ParenthesizedExpression", "TSAsExpression", "TSTypeAssertion"].includes(node.type)) {
+    return staticStringFragments(node.expression, bindings, seen);
+  }
+  if (node.type === "Identifier" && bindings.has(node.name) && !seen.has(node.name)) {
+    return staticStringFragments(bindings.get(node.name), bindings, new Set([...seen, node.name]));
+  }
+  if (node.type === "TemplateLiteral") {
+    return node.quasis.flatMap((quasi, index) => [
+      quasi.value.cooked ?? quasi.value.raw,
+      ...index < node.expressions.length ? staticStringFragments(node.expressions[index], bindings, seen) : []
+    ]);
+  }
+  if (node.type === "BinaryExpression" && node.operator === "+") {
+    return [
+      ...staticStringFragments(node.left, bindings, seen),
+      ...staticStringFragments(node.right, bindings, seen)
+    ];
+  }
+  return [];
+}
+
+function decodeHtmlCharacterReferences(value) {
+  const named = new Map([
+    ["amp", "&"], ["apos", "'"], ["colon", ":"], ["gt", ">"], ["hyphen", "-"],
+    ["lowbar", "_"], ["lt", "<"], ["period", "."], ["quot", "\""], ["sol", "/"]
+  ]);
+  return value.replace(/&(?:#x([\da-f]+);?|#(\d+);?|([a-z][\da-z]+);)/giu, (match, hex, decimal, name) => {
+    if (hex || decimal) {
+      const codePoint = Number.parseInt(hex || decimal, hex ? 16 : 10);
+      try { return codePoint > 0 && codePoint <= 0x10ffff ? String.fromCodePoint(codePoint) : "\ufffd"; } catch { return "\ufffd"; }
+    }
+    return named.get(name.toLocaleLowerCase("en-US")) ?? match;
+  });
+}
+
+function decodeCssEscapes(value) {
+  return value.replace(/\\(?:([\da-f]{1,6})(?:\r\n|[\t\n\f\r ])?|\r\n|[\n\f\r]|(.))/giu, (match, hex, escaped) => {
+    if (hex) {
+      const codePoint = Number.parseInt(hex, 16);
+      try { return codePoint > 0 && codePoint <= 0x10ffff ? String.fromCodePoint(codePoint) : "\ufffd"; } catch { return "\ufffd"; }
+    }
+    return escaped ?? "";
+  });
 }
 
 function walkAst(node, visit) {
@@ -364,19 +427,22 @@ function parseSourceEdges(relativePath, source) {
   const edges = [];
   const nonliteralDynamic = [];
   if (extension === ".html") {
-    for (const tag of source.matchAll(/<(?:script|link)\b[^>]*>/giu)) {
+    for (const tag of source.matchAll(/<[a-z][^>]*>/giu)) {
       for (const attribute of tag[0].matchAll(/\b(?:src|href)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/giu)) {
-        edges.push({ specifier: attribute[1] ?? attribute[2] ?? attribute[3], kind: "html" });
+        edges.push({
+          specifier: decodeHtmlCharacterReferences(attribute[1] ?? attribute[2] ?? attribute[3]),
+          kind: "html"
+        });
       }
     }
     return { edges, nonliteralDynamic };
   }
   if (extension === ".css") {
-    for (const match of source.matchAll(/url\(\s*(?:"([^"]*)"|'([^']*)'|([^)'"\s][^)]*?))\s*\)/giu)) {
-      edges.push({ specifier: (match[1] ?? match[2] ?? match[3]).trim(), kind: "css-url" });
+    for (const match of source.matchAll(/url\(\s*(?:"((?:\\.|[^"\\])*)"|'((?:\\.|[^'\\])*)'|((?:\\.|[^)])*?))\s*\)/giu)) {
+      edges.push({ specifier: decodeCssEscapes((match[1] ?? match[2] ?? match[3]).trim()), kind: "css-url" });
     }
-    for (const match of source.matchAll(/@import\s+(?!url\s*\()(?:"([^"]*)"|'([^']*)'|([^\s;]+))/giu)) {
-      edges.push({ specifier: match[1] ?? match[2] ?? match[3], kind: "css-import" });
+    for (const match of source.matchAll(/@import\s+(?!url\s*\()(?:"((?:\\.|[^"\\])*)"|'((?:\\.|[^'\\])*)'|((?:\\.|[^\s;])+))/giu)) {
+      edges.push({ specifier: decodeCssEscapes(match[1] ?? match[2] ?? match[3]), kind: "css-import" });
     }
     return { edges, nonliteralDynamic };
   }
@@ -389,23 +455,33 @@ function parseSourceEdges(relativePath, source) {
   } catch (error) {
     throw new Error(`${relativePath}: source parse failed: ${error.message}`, { cause: error });
   }
+  const bindings = new Map();
+  const duplicateBindings = new Set();
+  walkAst(ast, node => {
+    if (node.type !== "VariableDeclaration" || node.kind !== "const") return;
+    for (const declaration of node.declarations) {
+      if (declaration.id?.type !== "Identifier" || !declaration.init) continue;
+      if (bindings.has(declaration.id.name)) duplicateBindings.add(declaration.id.name);
+      else bindings.set(declaration.id.name, declaration.init);
+    }
+  });
+  for (const name of duplicateBindings) bindings.delete(name);
   walkAst(ast, node => {
     if (["ImportDeclaration", "ExportNamedDeclaration", "ExportAllDeclaration"].includes(node.type)
       && node.source?.type === "StringLiteral") {
       edges.push({ specifier: node.source.value, kind: node.type });
     }
     if (node.type === "CallExpression" && node.callee?.type === "Import") {
-      const specifier = staticString(node.arguments[0]);
+      const specifier = staticString(node.arguments[0], bindings);
       if (specifier !== null) edges.push({ specifier, kind: "dynamic" });
       else nonliteralDynamic.push(null);
     }
     if (node.type === "JSXAttribute" && ["src", "href"].includes(node.name?.name)) {
       const valueNode = node.value?.type === "JSXExpressionContainer" ? node.value.expression : node.value;
-      const specifier = staticString(valueNode);
+      const specifier = staticString(valueNode, bindings);
       if (specifier !== null) {
         edges.push({ specifier, kind: `jsx-${node.name.name}` });
-      } else if (source.slice(node.value?.start ?? node.start, node.value?.end ?? node.end)
-        .match(/sound-seekers-v2-|ContentArtGallery|galleryReplayRecipes|content-art-gallery/u)) {
+      } else if (looksLikeGalleryFragment(staticStringFragments(valueNode, bindings).join(""))) {
         nonliteralDynamic.push(null);
       }
     }
@@ -434,6 +510,11 @@ function looksLikeGallerySpecifier(value) {
     || value.includes("galleryReplayRecipes")
     || value.includes("content-art-gallery")
   );
+}
+
+function looksLikeGalleryFragment(value) {
+  return looksLikeGallerySpecifier(value)
+    || typeof value === "string" && value.includes("sound-seekers-v2-");
 }
 
 function previewAuthorityViolations(relativePath, source) {

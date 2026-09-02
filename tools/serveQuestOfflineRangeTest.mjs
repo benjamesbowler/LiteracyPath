@@ -1,12 +1,15 @@
 #!/usr/bin/env node
-import { timingSafeEqual } from "node:crypto";
+import { createHash, randomBytes, timingSafeEqual } from "node:crypto";
 import { spawn } from "node:child_process";
 import {
   createReadStream,
+  closeSync,
   existsSync,
+  fsyncSync,
   lstatSync,
   mkdirSync,
   mkdtempSync,
+  openSync,
   readFileSync,
   realpathSync,
   rmSync,
@@ -21,6 +24,7 @@ const REPOSITORY_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)
 const TEMPORARY_ROOT_PREFIX = "literacy-path-quest-offline-";
 const TEMPORARY_ROOT_MARKER = ".quest-offline-test-root.json";
 const TEMPORARY_ROOT_PURPOSE = "quest-offline-temporary-build-v1";
+const TEMPORARY_ROOT_IDENTITIES = new WeakMap();
 const MIME = Object.freeze({
   ".css": "text/css; charset=utf-8",
   ".html": "text/html; charset=utf-8",
@@ -48,6 +52,11 @@ function isBelow(parent, candidate) {
   return Boolean(relative) && !relative.startsWith(`..${path.sep}`) && relative !== ".." && !path.isAbsolute(relative);
 }
 
+function fsyncPath(value) {
+  const descriptor = openSync(value, "r");
+  try { fsyncSync(descriptor); } finally { closeSync(descriptor); }
+}
+
 export function validateQuestOfflineRoot(value) {
   if (typeof value !== "string" || !path.isAbsolute(value)) {
     throw new TypeError("quest offline root must be an absolute path");
@@ -68,26 +77,65 @@ export function createQuestOfflineTemporaryBuildRoot() {
   const temporaryParent = realpathSync(os.tmpdir());
   const container = realpathSync(mkdtempSync(path.join(temporaryParent, TEMPORARY_ROOT_PREFIX)));
   const outputDir = path.join(container, "dist");
-  mkdirSync(outputDir);
-  writeFileSync(path.join(container, TEMPORARY_ROOT_MARKER), `${JSON.stringify({
+  mkdirSync(outputDir, { mode: 0o700 });
+  const containerStat = lstatSync(container);
+  const outputStat = lstatSync(outputDir);
+  const ownershipToken = randomBytes(32);
+  const ownershipDigest = createHash("sha256").update(ownershipToken).digest("hex");
+  const markerPath = path.join(container, TEMPORARY_ROOT_MARKER);
+  writeFileSync(markerPath, `${JSON.stringify({
     schemaVersion: 1,
-    purpose: TEMPORARY_ROOT_PURPOSE
-  })}\n`, { flag: "wx" });
-  return Object.freeze({ container, outputDir });
+    purpose: TEMPORARY_ROOT_PURPOSE,
+    rootRealpath: container,
+    device: containerStat.dev,
+    inode: containerStat.ino,
+    ownershipDigest
+  })}\n`, { encoding: "utf8", flag: "wx", mode: 0o600 });
+  fsyncPath(markerPath);
+  fsyncPath(container);
+  const markerStat = lstatSync(markerPath);
+  const handle = Object.freeze({ container, outputDir });
+  TEMPORARY_ROOT_IDENTITIES.set(handle, Object.freeze({
+    containerDevice: containerStat.dev,
+    containerInode: containerStat.ino,
+    outputDevice: outputStat.dev,
+    outputInode: outputStat.ino,
+    markerDevice: markerStat.dev,
+    markerInode: markerStat.ino,
+    ownershipDigest
+  }));
+  ownershipToken.fill(0);
+  return handle;
 }
 
 export function validateQuestOfflineTemporaryBuildRoot(value) {
-  const outputDir = validateQuestOfflineRoot(value);
+  if (!value || typeof value !== "object" || !TEMPORARY_ROOT_IDENTITIES.has(value)) {
+    throw new TypeError("quest offline temporary build root requires its original ownership handle");
+  }
+  const identity = TEMPORARY_ROOT_IDENTITIES.get(value);
+  const outputDir = validateQuestOfflineRoot(value.outputDir);
   const container = path.dirname(outputDir);
   const temporaryParent = realpathSync(os.tmpdir());
-  if (path.basename(outputDir) !== "dist"
+  if (value.container !== container
+    || path.basename(outputDir) !== "dist"
     || path.dirname(container) !== temporaryParent
     || !path.basename(container).startsWith(TEMPORARY_ROOT_PREFIX)) {
     throw new TypeError("quest offline temporary build root is outside the marked OS-temp boundary");
   }
+  const containerStat = lstatSync(container);
+  const outputStat = lstatSync(outputDir);
+  if (!containerStat.isDirectory() || containerStat.isSymbolicLink() || realpathSync(container) !== container
+    || containerStat.dev !== identity.containerDevice || containerStat.ino !== identity.containerInode
+    || outputStat.dev !== identity.outputDevice || outputStat.ino !== identity.outputInode) {
+    throw new TypeError("quest offline temporary build directory identity changed");
+  }
   const markerPath = path.join(container, TEMPORARY_ROOT_MARKER);
   const markerStat = lstatSync(markerPath);
-  if (!markerStat.isFile() || markerStat.isSymbolicLink() || realpathSync(markerPath) !== markerPath) {
+  if (!markerStat.isFile() || markerStat.isSymbolicLink() || realpathSync(markerPath) !== markerPath
+    || (markerStat.mode & 0o777) !== 0o600
+    || markerStat.dev !== identity.markerDevice || markerStat.ino !== identity.markerInode
+    || markerStat.uid !== containerStat.uid
+    || typeof process.geteuid === "function" && markerStat.uid !== process.geteuid()) {
     throw new TypeError("quest offline temporary build marker is not a real file");
   }
   let marker;
@@ -96,8 +144,11 @@ export function validateQuestOfflineTemporaryBuildRoot(value) {
   } catch (error) {
     throw new TypeError("quest offline temporary build marker is malformed", { cause: error });
   }
-  if (!marker || Object.keys(marker).sort().join(",") !== "purpose,schemaVersion"
-    || marker.schemaVersion !== 1 || marker.purpose !== TEMPORARY_ROOT_PURPOSE) {
+  if (!marker || Object.keys(marker).join(",") !== "schemaVersion,purpose,rootRealpath,device,inode,ownershipDigest"
+    || marker.schemaVersion !== 1 || marker.purpose !== TEMPORARY_ROOT_PURPOSE
+    || marker.rootRealpath !== container
+    || marker.device !== containerStat.dev || marker.inode !== containerStat.ino
+    || marker.ownershipDigest !== identity.ownershipDigest) {
     throw new TypeError("quest offline temporary build marker is invalid");
   }
   return outputDir;
@@ -107,6 +158,8 @@ export function cleanupQuestOfflineTemporaryBuildRoot(value) {
   const outputDir = validateQuestOfflineTemporaryBuildRoot(value);
   const container = path.dirname(outputDir);
   rmSync(container, { recursive: true, force: false });
+  if (existsSync(container)) throw new Error("quest offline temporary build cleanup did not complete");
+  TEMPORARY_ROOT_IDENTITIES.delete(value);
 }
 
 export function parseSingleRange(header, size) {
@@ -261,6 +314,166 @@ export function createQuestOfflineControlServer({ assetServer }) {
   });
 }
 
+function withTimeout(promise, milliseconds, label) {
+  let timer = null;
+  return Promise.race([
+    promise,
+    new Promise((resolve, reject) => {
+      timer = setTimeout(() => reject(new Error(`${label} exceeded ${milliseconds}ms`)), milliseconds);
+      timer.unref?.();
+    })
+  ]).finally(() => clearTimeout(timer));
+}
+
+function observeChild(child) {
+  let settled = false;
+  const done = new Promise((resolve, reject) => {
+    child.once("error", error => {
+      settled = true;
+      reject(error);
+    });
+    child.once("close", (code, signal) => {
+      settled = true;
+      resolve({ code: code ?? 1, signal });
+    });
+  });
+  done.catch(() => {});
+  return Object.freeze({ child, done, isSettled: () => settled });
+}
+
+async function terminateChild(childState, milliseconds = 10_000) {
+  if (!childState || childState.isSettled()) return;
+  childState.child.kill("SIGTERM");
+  try {
+    await withTimeout(childState.done, milliseconds, "quest offline build termination");
+  } catch (error) {
+    if (childState.isSettled()) throw error;
+    childState.child.kill("SIGKILL");
+    await withTimeout(childState.done, milliseconds, "quest offline forced build termination");
+  }
+}
+
+function listen(listener, options) {
+  return new Promise((resolve, reject) => {
+    const onError = error => {
+      listener.off("listening", onListening);
+      reject(error);
+    };
+    const onListening = () => {
+      listener.off("error", onError);
+      resolve();
+    };
+    listener.once("error", onError);
+    listener.once("listening", onListening);
+    try {
+      listener.listen(options);
+    } catch (error) {
+      listener.off("error", onError);
+      listener.off("listening", onListening);
+      reject(error);
+    }
+  });
+}
+
+function closeListener(listener) {
+  if (!listener?.listening) return Promise.resolve();
+  return new Promise((resolve, reject) => {
+    listener.close(error => error ? reject(error) : resolve());
+  });
+}
+
+export async function runQuestOfflineRangeServerLifecycle(options, dependencies = {}) {
+  const {
+    temporaryBuild,
+    root: externalRoot = null,
+    host,
+    port,
+    controlPort,
+    buildTimeoutMs = 120_000
+  } = options || {};
+  if (host !== "127.0.0.1" || !Number.isInteger(port) || port < 1024 || port > 65535
+    || !Number.isInteger(controlPort) || controlPort < 1024 || controlPort > 65535 || controlPort === port) {
+    throw new TypeError("offline test server is loopback-only with a valid unprivileged port");
+  }
+  if (typeof temporaryBuild !== "boolean" || !temporaryBuild && typeof externalRoot !== "string") {
+    throw new TypeError("quest offline lifecycle requires a temporary build or external root");
+  }
+  if (!Number.isSafeInteger(buildTimeoutMs) || buildTimeoutMs <= 0) {
+    throw new TypeError("quest offline build timeout must be a positive integer");
+  }
+
+  const processLike = dependencies.processLike || process;
+  const createTemporary = dependencies.createTemporaryBuildRoot || createQuestOfflineTemporaryBuildRoot;
+  const validateTemporary = dependencies.validateTemporaryBuildRoot || validateQuestOfflineTemporaryBuildRoot;
+  const cleanupTemporary = dependencies.cleanupTemporaryBuildRoot || cleanupQuestOfflineTemporaryBuildRoot;
+  const spawnProcess = dependencies.spawnProcess || spawn;
+  const assertOfflineBuild = dependencies.assertOfflineBuild || (async outputDir => {
+    const checker = await import("./checkQuestOffline.mjs");
+    checker.assertQuestOfflineBuild({ outputDir });
+  });
+  const createRangeServer = dependencies.createRangeServer || createQuestOfflineRangeServer;
+  const createControlServer = dependencies.createControlServer || createQuestOfflineControlServer;
+  let temporary = null;
+  let childState = null;
+  let server = null;
+  let controlServer = null;
+  let shutdownRequested = false;
+  let resolveShutdown;
+  const shutdown = new Promise(resolve => {
+    resolveShutdown = resolve;
+  });
+  const requestShutdown = () => {
+    if (shutdownRequested) return;
+    shutdownRequested = true;
+    resolveShutdown();
+  };
+  processLike.once("SIGINT", requestShutdown);
+  processLike.once("SIGTERM", requestShutdown);
+
+  try {
+    let root = externalRoot;
+    if (temporaryBuild) {
+      temporary = createTemporary();
+      const child = spawnProcess("npm", [
+        "run", "build:quest-offline-test", "--", "--outDir", temporary.outputDir
+      ], { cwd: REPOSITORY_ROOT, env: { ...process.env }, stdio: "inherit" });
+      childState = observeChild(child);
+      const buildOutcome = await withTimeout(Promise.race([
+        childState.done.then(result => ({ kind: "build", result })),
+        shutdown.then(() => ({ kind: "shutdown" }))
+      ]), buildTimeoutMs, "quest offline build");
+      if (buildOutcome.kind === "shutdown") return;
+      if (buildOutcome.result.code !== 0) {
+        throw new Error(`quest offline temporary build failed with exit code ${buildOutcome.result.code}`);
+      }
+      root = validateTemporary(temporary);
+      await assertOfflineBuild(root);
+    }
+
+    server = createRangeServer({ root });
+    controlServer = createControlServer({ assetServer: server });
+    const listenResults = await Promise.allSettled([
+      listen(server, { host, port, exclusive: true }),
+      listen(controlServer, { host, port: controlPort, exclusive: true })
+    ]);
+    const bindFailure = listenResults.find(result => result.status === "rejected");
+    if (bindFailure) throw bindFailure.reason;
+    console.log(`Quest offline control server listening on http://${host}:${controlPort}`);
+    console.log(`Quest offline range server listening on http://${host}:${port}`);
+    await dependencies.onReady?.({ server, controlServer });
+    await shutdown;
+  } finally {
+    processLike.off("SIGINT", requestShutdown);
+    processLike.off("SIGTERM", requestShutdown);
+    try {
+      await terminateChild(childState);
+      await Promise.all([closeListener(server), closeListener(controlServer)]);
+    } finally {
+      if (temporary) cleanupTemporary(temporary);
+    }
+  }
+}
+
 async function main() {
   const args = process.argv.slice(2);
   const temporaryBuild = args.includes("--temporary-build");
@@ -270,74 +483,14 @@ async function main() {
   if ((!temporaryBuild && envIndex < 0) || hostIndex < 0 || portIndex < 0) {
     throw new TypeError("--root-env or --temporary-build, plus --host and --port, are required");
   }
-  let temporary = null;
-  let cleaned = false;
-  let root = temporaryBuild ? null : process.env[args[envIndex + 1]];
-  const cleanupTemporary = () => {
-    if (!temporary || cleaned) return;
-    cleanupQuestOfflineTemporaryBuildRoot(temporary.outputDir);
-    cleaned = true;
-  };
   const host = args[hostIndex + 1];
   const port = Number(args[portIndex + 1]);
-  const controlPort = Number(process.env.QUEST_OFFLINE_CONTROL_PORT || port + 2);
-  if (host !== "127.0.0.1" || !Number.isInteger(port) || port < 1024 || port > 65535
-    || !Number.isInteger(controlPort) || controlPort < 1024 || controlPort > 65535 || controlPort === port) {
-    throw new TypeError("offline test server is loopback-only with a valid unprivileged port");
-  }
-  if (temporaryBuild) {
-    temporary = createQuestOfflineTemporaryBuildRoot();
-    process.once("exit", () => {
-      if (!cleaned && existsSync(temporary.container)) cleanupTemporary();
-    });
-    const buildCode = await new Promise((resolve, reject) => {
-      const child = spawn("npm", [
-        "run", "build:quest-offline-test", "--", "--outDir", temporary.outputDir
-      ], { cwd: REPOSITORY_ROOT, env: { ...process.env }, stdio: "inherit" });
-      child.once("error", reject);
-      child.once("close", code => resolve(code ?? 1));
-    }).catch(error => {
-      cleanupQuestOfflineTemporaryBuildRoot(temporary.outputDir);
-      throw error;
-    });
-    if (buildCode !== 0) {
-      cleanupQuestOfflineTemporaryBuildRoot(temporary.outputDir);
-      throw new Error(`quest offline temporary build failed with exit code ${buildCode}`);
-    }
-    validateQuestOfflineTemporaryBuildRoot(temporary.outputDir);
-    const { assertQuestOfflineBuild } = await import("./checkQuestOffline.mjs");
-    assertQuestOfflineBuild({ outputDir: temporary.outputDir });
-    root = temporary.outputDir;
-  }
-  const server = createQuestOfflineRangeServer({ root, host, port });
-  const controlServer = createQuestOfflineControlServer({ assetServer: server });
-  const shutdown = () => {
-    const timer = setTimeout(() => process.exit(1), 10_000);
-    timer.unref();
-    const closes = [server, controlServer].map(listener => new Promise(resolve => {
-      if (!listener.listening) return resolve();
-      listener.close(error => resolve(error || null));
-    }));
-    Promise.all(closes).then(errors => {
-      cleanupTemporary();
-      process.exit(errors.some(Boolean) ? 1 : 0);
-    });
-  };
-  process.once("SIGINT", shutdown);
-  process.once("SIGTERM", shutdown);
-  server.on("error", error => {
-    console.error(`Quest offline range server failed: ${error.message}`);
-    process.exitCode = 1;
-  });
-  controlServer.on("error", error => {
-    console.error(`Quest offline control server failed: ${error.message}`);
-    process.exitCode = 1;
-  });
-  controlServer.listen({ host, port: controlPort, exclusive: true }, () => {
-    console.log(`Quest offline control server listening on http://${host}:${controlPort}`);
-  });
-  server.listen({ host, port, exclusive: true }, () => {
-    console.log(`Quest offline range server listening on http://${host}:${port}`);
+  await runQuestOfflineRangeServerLifecycle({
+    temporaryBuild,
+    root: temporaryBuild ? null : process.env[args[envIndex + 1]],
+    host,
+    port,
+    controlPort: Number(process.env.QUEST_OFFLINE_CONTROL_PORT || port + 2)
   });
 }
 

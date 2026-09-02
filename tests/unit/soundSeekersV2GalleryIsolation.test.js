@@ -1,6 +1,18 @@
 import assert from "node:assert/strict";
-import { existsSync, mkdtempSync, mkdirSync, readFileSync, realpathSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
-import { once } from "node:events";
+import {
+  chmodSync,
+  existsSync,
+  lstatSync,
+  mkdtempSync,
+  mkdirSync,
+  readFileSync,
+  realpathSync,
+  renameSync,
+  rmSync,
+  symlinkSync,
+  writeFileSync
+} from "node:fs";
+import { EventEmitter, once } from "node:events";
 import os from "node:os";
 import path from "node:path";
 import test from "node:test";
@@ -18,6 +30,7 @@ const {
   createQuestOfflineTemporaryBuildRoot,
   cleanupQuestOfflineTemporaryBuildRoot,
   parseSingleRange,
+  runQuestOfflineRangeServerLifecycle,
   validateQuestOfflineRoot,
   validateQuestOfflineTemporaryBuildRoot
 } = questOfflineServer;
@@ -154,7 +167,16 @@ test("gallery reference scanning covers HTML, CSS, and JSX references outside im
     ["JSX link href", "src/main.jsx", "export const Leak = () => <link href=\"/preview/sound-seekers-v2-content.html\" />;"],
     ["JSX script src string expression", "src/main.jsx", "export const Leak = () => <script src={'/preview/sound-seekers-v2-content.jsx'} />;"],
     ["JSX dynamic gallery href", "src/main.jsx", "export const Leak = ({ kind }) => <a href={`/preview/sound-seekers-v2-${kind}.html`}>Leak</a>;"],
-    ["JSX unresolved gallery href", "src/main.jsx", "export const Leak = () => <a href=\"/preview/sound-seekers-v2-content-missing.html\">Leak</a>;" ]
+    ["JSX unresolved gallery href", "src/main.jsx", "export const Leak = () => <a href=\"/preview/sound-seekers-v2-content-missing.html\">Leak</a>;"],
+    ["HTML numeric-entity path", "index.html", "<script src=\"&#47;preview&#47;sound-seekers-v2-content.jsx\"></script>"],
+    ["HTML named-entity anchor path", "index.html", "<a href=\"&sol;preview&sol;sound&hyphen;seekers-v2-content&period;html\">Leak</a>"],
+    ["HTML encoded anchor fragment", "index.html", "<a href=\"&#35;&sol;preview&sol;sound-seekers-v2-content.html\">Leak</a>"],
+    ["CSS hex-escaped URL", "src/index.css", String.raw`body { background: url(\2f preview\2f sound-seekers-v2-content\2e html); }`],
+    ["CSS escaped quoted import", "src/index.css", String.raw`@import "\2f preview\2f sound-seekers-v2-content\2e html";`],
+    ["JSX constant reference", "src/main.jsx", "const gallery = '/preview/sound-seekers-v2-content.html'; export const Leak = () => <a href={gallery}>Leak</a>;"],
+    ["JSX constant template reference", "src/main.jsx", "const root = '/preview/sound-seekers-v2'; const leaf = 'content'; export const Leak = () => <a href={`${root}-${leaf}.html`}>Leak</a>;"],
+    ["JSX concatenated fragments", "src/main.jsx", "const first = '/preview/sound-'; const second = 'seekers-v2-content.html'; export const Leak = () => <a href={first + second}>Leak</a>;"],
+    ["JSX unresolved indirect gallery reference", "src/main.jsx", "const root = '/preview/sound-seekers-v2-'; const leaf = chooseAtRuntime(); export const Leak = () => <a href={root + leaf}>Leak</a>;" ]
   ];
   for (const [label, relativePath, source] of cases) {
     assert.throws(() => scanVirtualPolicy({ virtualSources: { [relativePath]: source } }), undefined, label);
@@ -240,25 +262,256 @@ test("the offline range server rejects unsafe roots and implements one standards
   assert.throws(() => parseSingleRange("bytes=0-1,3-4", 10));
 });
 
-test("standalone offline builds use a marked OS-temp root and only validated cleanup can remove it", () => {
+test("standalone offline builds use an identity-bound OS-temp root and only validated cleanup can remove it", () => {
   assert.equal(typeof createQuestOfflineTemporaryBuildRoot, "function");
   const temporary = createQuestOfflineTemporaryBuildRoot();
   try {
     assert.equal(path.isAbsolute(temporary.outputDir), true);
     assert.equal(path.relative(realpathSync(os.tmpdir()), temporary.container).startsWith(".."), false);
-    assert.equal(validateQuestOfflineTemporaryBuildRoot(temporary.outputDir), temporary.outputDir);
+    assert.equal(validateQuestOfflineTemporaryBuildRoot(temporary), temporary.outputDir);
     assert.throws(() => cleanupQuestOfflineTemporaryBuildRoot(realpathSync(os.tmpdir())));
-    assert.match(readFileSync(path.join(temporary.container, ".quest-offline-test-root.json"), "utf8"), /quest-offline-temporary-build-v1/u);
+    const markerPath = path.join(temporary.container, ".quest-offline-test-root.json");
+    const marker = JSON.parse(readFileSync(markerPath, "utf8"));
+    assert.deepEqual(Object.keys(marker), ["schemaVersion", "purpose", "rootRealpath", "device", "inode", "ownershipDigest"]);
+    assert.equal(marker.rootRealpath, temporary.container);
+    assert.equal(marker.device, lstatSync(temporary.container).dev);
+    assert.equal(marker.inode, lstatSync(temporary.container).ino);
+    assert.equal(lstatSync(markerPath).mode & 0o777, 0o600);
   } finally {
-    cleanupQuestOfflineTemporaryBuildRoot(temporary.outputDir);
+    cleanupQuestOfflineTemporaryBuildRoot(temporary);
   }
   assert.equal(existsSync(temporary.container), false);
   const config = readFileSync("playwright.quest.offline.config.js", "utf8");
   assert.match(config, /--temporary-build/u);
   assert.doesNotMatch(config, /QUEST_OFFLINE_DIST=dist-quest-offline/u);
   assert.match(config, /gracefulShutdown:\s*\{\s*signal:\s*"SIGTERM"/u);
-  const serverSource = readFileSync("tools/serveQuestOfflineRangeTest.mjs", "utf8");
-  assert.match(serverSource, /temporary = createQuestOfflineTemporaryBuildRoot\(\)[\s\S]*process\.once\("exit"[\s\S]*spawn\("npm"/u);
+});
+
+test("temporary-root validation rejects forged, tampered, replaced, and swapped ownership", () => {
+  const temporaryParent = realpathSync(os.tmpdir());
+  const forgedContainer = realpathSync(mkdtempSync(path.join(temporaryParent, "literacy-path-quest-offline-")));
+  const forgedOutput = path.join(forgedContainer, "dist");
+  mkdirSync(forgedOutput);
+  const forgedStat = lstatSync(forgedContainer);
+  writeFileSync(path.join(forgedContainer, ".quest-offline-test-root.json"), `${JSON.stringify({
+    schemaVersion: 1,
+    purpose: "quest-offline-temporary-build-v1",
+    rootRealpath: forgedContainer,
+    device: forgedStat.dev,
+    inode: forgedStat.ino,
+    ownershipDigest: "a".repeat(64)
+  })}\n`, { mode: 0o600 });
+  try {
+    assert.throws(() => validateQuestOfflineTemporaryBuildRoot(Object.freeze({
+      container: forgedContainer,
+      outputDir: forgedOutput
+    })));
+  } finally {
+    rmSync(forgedContainer, { recursive: true, force: true });
+  }
+
+  for (const [label, mutate] of [
+    ["marker contents", temporary => writeFileSync(
+      path.join(temporary.container, ".quest-offline-test-root.json"),
+      "{}\n"
+    )],
+    ["marker permissions", temporary => chmodSync(
+      path.join(temporary.container, ".quest-offline-test-root.json"),
+      0o644
+    )],
+    ["marker replacement", temporary => {
+      const markerPath = path.join(temporary.container, ".quest-offline-test-root.json");
+      const replacement = `${markerPath}.replacement`;
+      writeFileSync(replacement, readFileSync(markerPath), { mode: 0o600 });
+      renameSync(replacement, markerPath);
+    }]
+  ]) {
+    const temporary = createQuestOfflineTemporaryBuildRoot();
+    try {
+      mutate(temporary);
+      assert.throws(() => validateQuestOfflineTemporaryBuildRoot(temporary), undefined, label);
+      assert.throws(() => cleanupQuestOfflineTemporaryBuildRoot(temporary), undefined, label);
+    } finally {
+      rmSync(temporary.container, { recursive: true, force: true });
+    }
+  }
+
+  const swapped = createQuestOfflineTemporaryBuildRoot();
+  const originalContainer = `${swapped.container}-original`;
+  renameSync(swapped.container, originalContainer);
+  symlinkSync(originalContainer, swapped.container, "dir");
+  assert.throws(() => validateQuestOfflineTemporaryBuildRoot(swapped));
+  assert.throws(() => cleanupQuestOfflineTemporaryBuildRoot(swapped));
+  rmSync(swapped.container);
+  mkdirSync(swapped.container);
+  mkdirSync(swapped.outputDir);
+  writeFileSync(
+    path.join(swapped.container, ".quest-offline-test-root.json"),
+    readFileSync(path.join(originalContainer, ".quest-offline-test-root.json")),
+    { mode: 0o600 }
+  );
+  try {
+    assert.throws(() => validateQuestOfflineTemporaryBuildRoot(swapped));
+    assert.throws(() => cleanupQuestOfflineTemporaryBuildRoot(swapped));
+  } finally {
+    rmSync(swapped.container, { recursive: true, force: true });
+    renameSync(originalContainer, swapped.container);
+    cleanupQuestOfflineTemporaryBuildRoot(swapped);
+  }
+});
+
+function lifecycleFixture({ spawnFailure = false, buildNeverCloses = false, bindFailure = null } = {}) {
+  const events = [];
+  const processLike = new EventEmitter();
+  const temporary = Object.freeze({ container: "/virtual/owned", outputDir: "/virtual/owned/dist" });
+  class FakeChild extends EventEmitter {
+    exitCode = null;
+    signalCode = null;
+    kill(signal) {
+      events.push(`child-kill:${signal}`);
+      queueMicrotask(() => {
+        this.signalCode = signal;
+        events.push("child-close");
+        this.emit("close", null, signal);
+      });
+      return true;
+    }
+  }
+  class FakeListener extends EventEmitter {
+    constructor(name) {
+      super();
+      this.name = name;
+      this.listening = false;
+    }
+    listen() {
+      events.push(`${this.name}-listen`);
+      queueMicrotask(() => {
+        if (bindFailure === this.name) {
+          events.push(`${this.name}-bind-error`);
+          this.emit("error", new Error(`${this.name} bind failed`));
+          return;
+        }
+        this.listening = true;
+        events.push(`${this.name}-listening`);
+        this.emit("listening");
+      });
+    }
+    close(callback) {
+      events.push(`${this.name}-close-start`);
+      queueMicrotask(() => {
+        this.listening = false;
+        events.push(`${this.name}-close-done`);
+        this.emit("close");
+        callback();
+      });
+    }
+  }
+  const child = new FakeChild();
+  const assetServer = new FakeListener("asset");
+  const controlServer = new FakeListener("control");
+  const dependencies = {
+    processLike,
+    createTemporaryBuildRoot: () => {
+      events.push("temporary-create");
+      return temporary;
+    },
+    validateTemporaryBuildRoot: value => {
+      assert.equal(value, temporary);
+      events.push("temporary-validate");
+      return temporary.outputDir;
+    },
+    cleanupTemporaryBuildRoot: value => {
+      assert.equal(value, temporary);
+      events.push("temporary-cleanup");
+    },
+    spawnProcess: () => {
+      events.push("build-spawn");
+      assert.equal(processLike.listenerCount("SIGINT"), 1);
+      assert.equal(processLike.listenerCount("SIGTERM"), 1);
+      queueMicrotask(() => {
+        if (spawnFailure) {
+          events.push("build-spawn-error");
+          child.emit("error", new Error("spawn failed"));
+        } else if (!buildNeverCloses) {
+          child.exitCode = 0;
+          events.push("build-close");
+          child.emit("close", 0, null);
+        }
+      });
+      return child;
+    },
+    assertOfflineBuild: outputDir => {
+      assert.equal(outputDir, temporary.outputDir);
+      events.push("build-assert");
+    },
+    createRangeServer: () => assetServer,
+    createControlServer: ({ assetServer: received }) => {
+      assert.equal(received, assetServer);
+      return controlServer;
+    }
+  };
+  return { assetServer, child, controlServer, dependencies, events, processLike };
+}
+
+const lifecycleOptions = Object.freeze({
+  temporaryBuild: true,
+  host: "127.0.0.1",
+  port: 5191,
+  controlPort: 5193,
+  buildTimeoutMs: 50
+});
+
+test("offline lifecycle installs signals before spawn and awaits child/listener shutdown before cleanup", async () => {
+  assert.equal(typeof runQuestOfflineRangeServerLifecycle, "function");
+  const fixture = lifecycleFixture();
+  fixture.dependencies.onReady = () => fixture.processLike.emit("SIGTERM");
+  await runQuestOfflineRangeServerLifecycle(lifecycleOptions, fixture.dependencies);
+  assert.deepEqual(fixture.events.filter(event => event.includes("close-done") || event === "temporary-cleanup"), [
+    "asset-close-done",
+    "control-close-done",
+    "temporary-cleanup"
+  ]);
+  assert.equal(fixture.processLike.listenerCount("SIGINT"), 0);
+  assert.equal(fixture.processLike.listenerCount("SIGTERM"), 0);
+});
+
+test("offline lifecycle bounds a stuck build, terminates it, awaits it, and cleans once", async () => {
+  const fixture = lifecycleFixture({ buildNeverCloses: true });
+  await assert.rejects(
+    () => runQuestOfflineRangeServerLifecycle(
+      { ...lifecycleOptions, buildTimeoutMs: 5 },
+      fixture.dependencies
+    ),
+    /build exceeded 5ms/u
+  );
+  assert.equal(fixture.events.filter(event => event === "temporary-cleanup").length, 1);
+  assert.ok(fixture.events.indexOf("child-close") < fixture.events.indexOf("temporary-cleanup"));
+  assert.deepEqual(fixture.events.filter(event => event.startsWith("child-kill")), ["child-kill:SIGTERM"]);
+});
+
+test("offline lifecycle cleans after spawn failure", async () => {
+  const fixture = lifecycleFixture({ spawnFailure: true });
+  await assert.rejects(
+    () => runQuestOfflineRangeServerLifecycle(lifecycleOptions, fixture.dependencies),
+    /spawn failed/u
+  );
+  assert.equal(fixture.events.filter(event => event === "temporary-cleanup").length, 1);
+  assert.equal(fixture.processLike.listenerCount("SIGTERM"), 0);
+});
+
+test("offline lifecycle handles either port bind failure and awaits the peer listener", async () => {
+  for (const failedListener of ["asset", "control"]) {
+    const fixture = lifecycleFixture({ bindFailure: failedListener });
+    await assert.rejects(
+      () => runQuestOfflineRangeServerLifecycle(lifecycleOptions, fixture.dependencies),
+      new RegExp(`${failedListener} bind failed`, "u")
+    );
+    assert.equal(fixture.assetServer.listening, false, failedListener);
+    assert.equal(fixture.controlServer.listening, false, failedListener);
+    assert.equal(fixture.events.filter(event => event === "temporary-cleanup").length, 1, failedListener);
+    const peer = failedListener === "asset" ? "control" : "asset";
+    assert.ok(fixture.events.indexOf(`${peer}-close-done`) < fixture.events.indexOf("temporary-cleanup"), failedListener);
+  }
 });
 
 test("the offline range server rejects symlink components and unauthenticated shutdown", async () => {
