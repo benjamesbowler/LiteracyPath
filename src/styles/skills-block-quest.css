@@ -2408,8 +2408,8 @@
 .sbq-chain-replacements button,
 .sbq-phrase-flow button,
 .sbq-heart-word button {
-  min-width: 62px;
-  min-height: 60px;
+  min-width: max(62px, var(--kg-physical-hit, 56px)) !important;
+  min-height: max(60px, var(--kg-physical-hit, 56px)) !important;
   padding: 9px 14px;
   border: 3px solid #fff0ad;
   border-radius: 15px;
