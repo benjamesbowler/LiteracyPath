@@ -29,6 +29,24 @@ begin
   assert r #>> '{cycles,c-1,stars}' = '3', 'el_quest local-only cycle lost';
   assert r #>> '{cycles,c-2,stars}' = '2', 'el_quest cycle not maxed';
   assert r #>> '{cycles,c-3,stars}' = '1', 'el_quest cloud-only cycle lost';
+  r := public.lp_merge_el_quest(
+    '{"schemaVersion":2,"progressEpoch":2,"cycles":{"c-1":{"stars":3,"bestScore":100,"bestIndependent":10,"plays":4,"recoveries":0,"sampledConstructs":["older"],"lastIndependent":10,"lastTotal":10,"lastPlayedAt":"2026-09-02T09:00:00.000Z"}}}'::jsonb,
+    '{"schemaVersion":2,"progressEpoch":2,"cycles":{"c-1":{"stars":1,"bestScore":40,"bestIndependent":4,"plays":5,"recoveries":6,"sampledConstructs":["new-a","new-b"],"lastIndependent":4,"lastTotal":10,"lastPlayedAt":"2026-09-02T10:00:00.000Z"}}}'::jsonb
+  );
+  assert r #>> '{cycles,c-1,stars}' = '3', 'el_quest best stars regressed';
+  assert r #>> '{cycles,c-1,bestScore}' = '100', 'el_quest best score regressed';
+  assert r #>> '{cycles,c-1,recoveries}' = '6', 'el_quest latest recovery count was maxed';
+  assert r #>> '{cycles,c-1,lastIndependent}' = '4', 'el_quest latest independent count was maxed';
+  assert r #> '{cycles,c-1,sampledConstructs}' = '["new-a","new-b"]'::jsonb,
+    'el_quest latest construct manifest was unioned';
+  r := public.lp_merge_el_quest(
+    '{"schemaVersion":2,"progressEpoch":2,"cycles":{"c-1":{"stars":1,"plays":5,"recoveries":6,"sampledConstructs":["new-a","new-b"],"lastPlayedAt":"2026-09-02T10:00:00.000Z"}}}'::jsonb,
+    '{"schemaVersion":2,"progressEpoch":2,"cycles":{"c-1":{"stars":3,"plays":4,"recoveries":0,"sampledConstructs":["older"],"lastPlayedAt":"2026-09-02T09:00:00.000Z"}}}'::jsonb
+  );
+  assert r #>> '{cycles,c-1,stars}' = '3', 'el_quest reverse merge lost best stars';
+  assert r #>> '{cycles,c-1,recoveries}' = '6', 'el_quest reverse merge lost latest recovery count';
+  assert r #> '{cycles,c-1,sampledConstructs}' = '["new-a","new-b"]'::jsonb,
+    'el_quest reverse merge lost latest construct manifest';
   assert public.lp_merge_el_quest(
     '{"schemaVersion":2,"progressEpoch":2,"cycles":{}}'::jsonb,
     '{"v":1,"cycles":{"c-1":{"stars":3}}}'::jsonb

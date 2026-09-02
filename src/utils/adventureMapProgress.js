@@ -52,6 +52,56 @@ function sourceEpoch(value) {
   return Number(value?.progressEpoch) || 0;
 }
 
+const LATEST_RUN_FIELDS = Object.freeze([
+  "recoveries",
+  "sampledConstructs",
+  "lastIndependent",
+  "lastTotal"
+]);
+
+function playedAt(value) {
+  const timestamp = Date.parse(String(value?.lastPlayedAt || ""));
+  return Number.isFinite(timestamp) ? timestamp : 0;
+}
+
+function latestCycleRun(left = {}, right = {}) {
+  const leftTime = playedAt(left);
+  const rightTime = playedAt(right);
+  if (leftTime !== rightTime) return rightTime > leftTime ? right : left;
+  const leftPlays = Number(left?.plays) || 0;
+  const rightPlays = Number(right?.plays) || 0;
+  return rightPlays >= leftPlays ? right : left;
+}
+
+function mergeCycleRecord(left, right) {
+  if (left === undefined || left === null) return right;
+  if (right === undefined || right === null) return left;
+  const merged = mergeForward(left, right);
+  const latest = latestCycleRun(left, right);
+
+  // Bests, stars, completed stations and play counts move only forward. These
+  // fields describe one particular latest run, so keep them as one coherent
+  // snapshot instead of maxing numbers or unioning construct manifests.
+  for (const field of LATEST_RUN_FIELDS) {
+    if (Object.prototype.hasOwnProperty.call(latest, field)) merged[field] = latest[field];
+    else delete merged[field];
+  }
+  if (Object.prototype.hasOwnProperty.call(latest, "lastPlayedAt")) {
+    merged.lastPlayedAt = latest.lastPlayedAt;
+  } else {
+    delete merged.lastPlayedAt;
+  }
+  return merged;
+}
+
+function mergeCycles(left = {}, right = {}) {
+  const merged = {};
+  for (const cycleId of new Set([...Object.keys(left || {}), ...Object.keys(right || {})])) {
+    merged[cycleId] = mergeCycleRecord(left?.[cycleId], right?.[cycleId]);
+  }
+  return merged;
+}
+
 export function mergeElQuestProgress(existing, incoming) {
   const existingEpoch = sourceEpoch(existing);
   const incomingEpoch = sourceEpoch(incoming);
@@ -70,6 +120,6 @@ export function mergeElQuestProgress(existing, incoming) {
     ...cloud,
     schemaVersion: EL_QUEST_SCHEMA_VERSION,
     progressEpoch: EL_QUEST_PROGRESS_EPOCH,
-    cycles: mergeForward(local.cycles, cloud.cycles)
+    cycles: mergeCycles(local.cycles, cloud.cycles)
   };
 }

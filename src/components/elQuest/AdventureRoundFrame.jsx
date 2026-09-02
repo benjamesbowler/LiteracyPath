@@ -56,7 +56,6 @@ export function AdventureRoundFrame({
         <button
           className="adventure-round-frame__stop"
           type="button"
-          disabled={disabled}
           onClick={onStop}
         >
           Stop

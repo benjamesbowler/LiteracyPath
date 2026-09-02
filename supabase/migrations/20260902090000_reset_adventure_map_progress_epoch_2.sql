@@ -38,6 +38,60 @@ returns jsonb language sql immutable as $$
   end;
 $$;
 
+-- Forward-only achievements and station completion can merge recursively, but
+-- the recovery count and construct manifest describe one particular latest
+-- Cycle Quest run. Keep that snapshot together instead of maxing or unioning
+-- its fields across devices.
+create or replace function public.lp_merge_el_quest_cycle(existing jsonb, incoming jsonb)
+returns jsonb language plpgsql immutable as $$
+declare
+  local_cycle jsonb := case when jsonb_typeof(existing) = 'object' then existing else '{}'::jsonb end;
+  incoming_cycle jsonb := case when jsonb_typeof(incoming) = 'object' then incoming else '{}'::jsonb end;
+  merged jsonb;
+  latest jsonb;
+  local_played_at text := coalesce(local_cycle ->> 'lastPlayedAt', '');
+  incoming_played_at text := coalesce(incoming_cycle ->> 'lastPlayedAt', '');
+  field_name text;
+begin
+  merged := public.lp_jsonb_forward_merge(local_cycle, incoming_cycle);
+  latest := case
+    when incoming_played_at > local_played_at then incoming_cycle
+    when incoming_played_at < local_played_at then local_cycle
+    when public.lp_el_quest_number(incoming_cycle, 'plays') >= public.lp_el_quest_number(local_cycle, 'plays')
+      then incoming_cycle
+    else local_cycle
+  end;
+
+  foreach field_name in array array['recoveries', 'sampledConstructs', 'lastIndependent', 'lastTotal', 'lastPlayedAt']
+  loop
+    merged := merged - field_name;
+    if latest ? field_name then
+      merged := merged || jsonb_build_object(field_name, latest -> field_name);
+    end if;
+  end loop;
+  return merged;
+end;
+$$;
+
+create or replace function public.lp_merge_el_quest_cycles(existing jsonb, incoming jsonb)
+returns jsonb language sql immutable as $$
+  select coalesce(
+    jsonb_object_agg(
+      cycle_id,
+      public.lp_merge_el_quest_cycle(
+        case when jsonb_typeof(existing) = 'object' then existing -> cycle_id else null end,
+        case when jsonb_typeof(incoming) = 'object' then incoming -> cycle_id else null end
+      )
+    ),
+    '{}'::jsonb
+  )
+  from (
+    select jsonb_object_keys(case when jsonb_typeof(existing) = 'object' then existing else '{}'::jsonb end) as cycle_id
+    union
+    select jsonb_object_keys(case when jsonb_typeof(incoming) = 'object' then incoming else '{}'::jsonb end) as cycle_id
+  ) cycle_ids;
+$$;
+
 create or replace function public.lp_merge_el_quest(existing jsonb, incoming jsonb)
 returns jsonb language plpgsql immutable as $$
 declare
@@ -63,7 +117,7 @@ begin
   return (local_payload || incoming_payload) || jsonb_build_object(
     'schemaVersion', 2,
     'progressEpoch', 2,
-    'cycles', public.lp_jsonb_forward_merge(local_payload -> 'cycles', incoming_payload -> 'cycles')
+    'cycles', public.lp_merge_el_quest_cycles(local_payload -> 'cycles', incoming_payload -> 'cycles')
   );
 end;
 $$;
@@ -112,6 +166,8 @@ grant execute on function public.lp_el_quest_epoch(jsonb) to anon, authenticated
 grant execute on function public.lp_el_quest_number(jsonb, text) to anon, authenticated;
 grant execute on function public.lp_is_current_el_quest(jsonb) to anon, authenticated;
 grant execute on function public.lp_normalize_el_quest(jsonb) to anon, authenticated;
+grant execute on function public.lp_merge_el_quest_cycle(jsonb, jsonb) to anon, authenticated;
+grant execute on function public.lp_merge_el_quest_cycles(jsonb, jsonb) to anon, authenticated;
 grant execute on function public.lp_merge_el_quest(jsonb, jsonb) to anon, authenticated;
 
 notify pgrst, 'reload schema';

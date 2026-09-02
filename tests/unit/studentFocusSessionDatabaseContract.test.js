@@ -28,6 +28,8 @@ const mapStopsSource = fs.readFileSync(
 );
 
 test("Adventure Map v2 progress is normalized at the database boundary without changing focus sessions", () => {
+  assert.match(adventureProgressEpochMigration, /create or replace function public\.lp_merge_el_quest_cycle\(existing jsonb, incoming jsonb\)[\s\S]*sampledConstructs[\s\S]*lastPlayedAt/i);
+  assert.match(adventureProgressEpochMigration, /'cycles', public\.lp_merge_el_quest_cycles\(local_payload -> 'cycles', incoming_payload -> 'cycles'\)/i);
   assert.match(adventureProgressEpochMigration, /create or replace function public\.lp_merge_el_quest\(existing jsonb, incoming jsonb\)[\s\S]*returns jsonb[\s\S]*immutable/i);
   assert.match(adventureProgressEpochMigration, /when p_area = 'el_quest' then public\.lp_merge_el_quest\(p_existing, p_incoming\)/i);
   assert.match(adventureProgressEpochMigration, /before insert on public\.student_progress/i);
@@ -41,6 +43,8 @@ test("Adventure Map epoch SQL verification exercises the insert trigger and leav
   assert.match(forwardMergeSelftest, /begin;[\s\S]*insert into public\.student_progress[\s\S]*'el_quest'[\s\S]*'__all__'/i);
   assert.match(forwardMergeSelftest, /select payload into [\w_]+\s+from public\.student_progress/i);
   assert.match(forwardMergeSelftest, /progressEpoch/i);
+  assert.match(forwardMergeSelftest, /latest construct manifest was unioned/i);
+  assert.match(forwardMergeSelftest, /reverse merge lost latest recovery count/i);
   assert.match(forwardMergeSelftest, /student_focus_sessions/i);
   assert.match(forwardMergeSelftest, /rollback;/i);
 });

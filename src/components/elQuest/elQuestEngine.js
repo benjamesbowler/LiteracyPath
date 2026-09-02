@@ -1269,12 +1269,44 @@ export function stationsForCycle(cycle) {
   return definitions;
 }
 
+export function buildCycleQuestBlueprint(cycle, limit = 10) {
+  const maximum = Math.max(1, Math.min(10, Number(limit) || 10));
+  const candidates = stationsForCycle(cycle)
+    .filter(station => station.id !== "check" && station.build)
+    .flatMap(station => station.build(cycle));
+  const byConstruct = new Map();
+
+  for (const round of candidates) {
+    const construct = String(round?.construct || "").trim();
+    if (!construct) continue;
+    if (!byConstruct.has(construct)) byConstruct.set(construct, []);
+    byConstruct.get(construct).push(round);
+  }
+
+  // Sample every eligible literacy construct before adding a second example
+  // of any construct. This keeps the Cycle Quest broad even when one station
+  // happens to generate many more rounds than its neighbours.
+  const firstPass = [...byConstruct.values()]
+    .map(rounds => rounds[0])
+    .filter(Boolean)
+    .slice(0, maximum);
+  const selected = new Set(firstPass);
+  const remaining = shuffleItems(candidates.filter(round => !selected.has(round)));
+  const rounds = [...firstPass, ...remaining].slice(0, maximum);
+
+  if (!rounds.length) {
+    throw new Error(`Adventure Map Cycle Quest has no truthful rounds for cycle ${cycle?.cycleNumber || "unknown"}.`);
+  }
+
+  return {
+    rounds,
+    manifest: rounds.map(round => round.construct)
+  };
+}
+
 export function buildStationRounds(cycle, stationId) {
   if (stationId === "check") {
-    const everything = stationsForCycle(cycle)
-      .filter(station => station.id !== "check")
-      .flatMap(station => station.build(cycle));
-    return shuffleItems(everything).slice(0, 10);
+    return buildCycleQuestBlueprint(cycle).rounds;
   }
   const station = stationsForCycle(cycle).find(item => item.id === stationId);
   if (!station?.build) {
