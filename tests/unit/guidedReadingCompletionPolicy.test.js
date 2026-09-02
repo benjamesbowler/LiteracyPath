@@ -35,6 +35,27 @@ test("completion identifies the level milestone using the completed record and n
   );
 });
 
+test("C Standard progression does not wait for C Extended read-together history", () => {
+  const standard = { id: "c-standard", level: "C", readingBandProfile: "standard" };
+  const extended = { id: "c-extended", level: "C", readingBandProfile: "extended" };
+  assert.deepEqual(
+    getGuidedReadingCompletionMilestone({
+      book: standard,
+      levelBooks: [{ id: "c-standard-1", level: "C", readingBandProfile: "standard" }, standard, extended],
+      records: { "c-standard-1": { completed: true } }
+    }),
+    { level: "C", count: 2 }
+  );
+  assert.equal(
+    getGuidedReadingCompletionMilestone({
+      book: extended,
+      levelBooks: [standard, extended],
+      records: { [standard.id]: { completed: true } }
+    }),
+    null
+  );
+});
+
 test("record merge preserves raw legacy quiz fields on an existing-record completion update and creates none for a clean completion", () => {
   const patch = buildGuidedReadingCompletionPatch({
     now: "2026-09-02T10:00:00.000Z",

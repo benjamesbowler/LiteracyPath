@@ -43,6 +43,10 @@ import {
 } from "../data/knowledgeJourneys.js";
 import { classifyBookReadingPurpose } from "../policy/literacyExperiencePolicy.js";
 import {
+  childGuidedReadingModeLabel,
+  splitLevelCBooks
+} from "../policy/guidedReadingCatalogPolicy.js";
+import {
   BOOK_SHELF_SLOTS,
   bookCollectionId,
   bookCollectionsForLevel,
@@ -177,7 +181,7 @@ export function StudentBooksPage({
     exactBookLock ? normalizedLockedBookId : (initialBookId || "")
   );
   const [speechStatus, setSpeechStatus] = useState("");
-  const [shelfPages, setShelfPages] = useState({ "just-right": 0, second: 0 });
+  const [shelfPages, setShelfPages] = useState({ "just-right": 0, second: 0, "c-standard": 0, "c-extended": 0 });
   const [knowledgeJourneyId, setKnowledgeJourneyId] = useState(KNOWLEDGE_JOURNEYS[0]?.id || "");
   const [showKnowledge, setShowKnowledge] = useState(false);
   const [collectionId, setCollectionId] = useState("all");
@@ -290,15 +294,38 @@ export function StudentBooksPage({
       || classifyBookReadingPurpose(book, studentProgress || {});
   }
 
-  const shelves = useMemo(() => buildBookShelves({
-    books: shownLibrary,
-    records: guidedReadingRecords,
-    level: shownLevel,
-    order: recommended.map(item => item.book.id),
-    justRightPage: shelfPages["just-right"],
-    readAgainPage: shelfPages.second,
-    slots: BOOK_SHELF_SLOTS
-  }), [shownLibrary, guidedReadingRecords, recommended, shelfPages, shownLevel]);
+  const shelves = useMemo(() => {
+    const common = {
+      records: guidedReadingRecords,
+      level: shownLevel,
+      order: recommended.map(item => item.book.id),
+      slots: BOOK_SHELF_SLOTS
+    };
+    if (shownLevel !== "C") {
+      return buildBookShelves({
+        ...common,
+        books: shownLibrary,
+        justRightPage: shelfPages["just-right"],
+        readAgainPage: shelfPages.second
+      });
+    }
+    const { standard, extended } = splitLevelCBooks(shownLibrary);
+    const bandShelf = (id, title, note, books) => ({
+      ...buildBookShelves({
+        ...common,
+        books,
+        justRightPage: shelfPages[id] || 0,
+        keepCompletedInFirstShelf: true
+      })[0],
+      id,
+      title,
+      note
+    });
+    return [
+      bandShelf("c-standard", "C Standard", "Compact Level C books", standard),
+      bandShelf("c-extended", "C Extended / Read Together", "Longer books to share with a grown-up", extended)
+    ].filter(shelf => shelf.total > 0);
+  }, [shownLibrary, guidedReadingRecords, recommended, shelfPages, shownLevel]);
 
   function hear(text) {
     const spoken = speakStudentRailLabel(text, window);
@@ -417,7 +444,7 @@ export function StudentBooksPage({
                   onClick={() => {
                     setLevel(entry);
                     setCollectionId("all");
-                    setShelfPages({ "just-right": 0, second: 0 });
+                    setShelfPages({ "just-right": 0, second: 0, "c-standard": 0, "c-extended": 0 });
                   }}
                 >
                   Level {entry}
@@ -439,7 +466,7 @@ export function StudentBooksPage({
                 onFocus={revealFocusedChoice}
                 onClick={() => {
                   setCollectionId("all");
-                  setShelfPages({ "just-right": 0, second: 0 });
+                  setShelfPages({ "just-right": 0, second: 0, "c-standard": 0, "c-extended": 0 });
                 }}
               >
                 All books
@@ -453,7 +480,7 @@ export function StudentBooksPage({
                   onFocus={revealFocusedChoice}
                   onClick={() => {
                     setCollectionId(collection.id);
-                    setShelfPages({ "just-right": 0, second: 0 });
+                    setShelfPages({ "just-right": 0, second: 0, "c-standard": 0, "c-extended": 0 });
                   }}
                 >
                   {collection.label}
@@ -618,7 +645,7 @@ export function StudentBooksPage({
         </section>}
 
         {!showKnowledge && <div className="kg-shelves" data-child-choices="">
-          {shelves.map((shelf, shelfIndex) => (
+          {shelves.map(shelf => (
             <section className="kg-shelf" key={shelf.id} aria-labelledby={`kg-shelf-${shelf.id}`}>
               <div className="kg-shelf-head">
                 <span
@@ -643,6 +670,7 @@ export function StudentBooksPage({
                       onClick={() => setOpenBookId(book.id)}
                       data-child-emphasis="choice"
                       data-reading-purpose={purpose.id}
+                      data-reading-mode={book.readingMode}
                     >
                       <span className="kg-book-card-main">
                         <img
@@ -654,7 +682,7 @@ export function StudentBooksPage({
                           onError={hideOnError}
                         />
                         <strong className="kg-book-title">{book.title}</strong>
-                        <small className="kg-book-purpose">{purpose.shortLabel}</small>
+                        <small className="kg-book-purpose">{childGuidedReadingModeLabel(book)} · {purpose.shortLabel}</small>
                       </span>
                     </button>
                   );
@@ -664,7 +692,7 @@ export function StudentBooksPage({
                     type="button"
                     className="kg-glass kg-glass--quiet kg-book-card kg-book-card--more"
                     onFocus={revealFocusedChoice}
-                    onClick={() => turnShelf(shelfIndex === 0 ? "just-right" : "second", shelf.step)}
+                    onClick={() => turnShelf(shelf.id, shelf.step)}
                   >
                     <span className="kg-book-card-main">
                       <span className="kg-book-more-glyph" aria-hidden="true"><MoreGlyph /></span>

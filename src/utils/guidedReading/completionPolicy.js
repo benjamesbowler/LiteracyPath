@@ -3,10 +3,16 @@ export function shouldShowGuidedReadingCompletionSummary({ mode, studentId } = {
 }
 
 export function getGuidedReadingCompletionMilestone({ book, levelBooks = [], records = {} } = {}) {
-  const allDone = levelBooks.length > 1 && levelBooks.every(candidate =>
+  // Extended Level C read-together completions are retained as reading history,
+  // but C Standard is the only progression sequence.
+  if (book?.level === "C" && book?.readingBandProfile === "extended") return null;
+  const progressionBooks = book?.level === "C"
+    ? levelBooks.filter(candidate => candidate.readingBandProfile !== "extended")
+    : levelBooks;
+  const allDone = progressionBooks.length > 1 && progressionBooks.every(candidate =>
     candidate.id === book?.id || Boolean(records[candidate.id]?.completed || records[candidate.id]?.completedAt)
   );
-  return allDone ? { level: book.level, count: levelBooks.length } : null;
+  return allDone ? { level: book.level, count: progressionBooks.length } : null;
 }
 
 export function mergeGuidedReadingRecord({

@@ -5639,6 +5639,18 @@ body:has(.kg-viewport) .student-home-float { display: none; }
   gap: 18px;
 }
 
+.guided-book-band {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 220px));
+  gap: 18px;
+}
+
+.guided-book-band-title {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
 .guided-category-card,
 .guided-level-card {
   display: grid;

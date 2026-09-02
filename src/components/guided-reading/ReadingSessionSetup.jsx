@@ -5,6 +5,7 @@ import { TeacherFunnelStep } from "../TeacherFunnelStep.jsx";
 import { TeacherDialog } from "../teacher/ui/TeacherDialog.jsx";
 import "./readingSession.css";
 import { filterPublishedGuidedReadingBooks } from "../../policy/guidedReadingApprovalPolicy.js";
+import { guidedReadingBandLabel, guidedReadingModeLabel } from "../../policy/guidedReadingCatalogPolicy.js";
 
 export function ReadingSessionSetup({
   open,
@@ -105,7 +106,7 @@ export function ReadingSessionSetup({
         </header>
 
         <TeacherFunnelStep
-          answer={selectedBook ? `${selectedBook.title} · Level ${selectedBook.level}` : ""}
+          answer={selectedBook ? `${selectedBook.title} · ${guidedReadingBandLabel(selectedBook.readingBandProfile, selectedBook.level)} · ${guidedReadingModeLabel(selectedBook.readingMode)}` : ""}
           number="1"
           onChange={() => setStep(1)}
           open={step === 1}
@@ -124,7 +125,7 @@ export function ReadingSessionSetup({
                 type="button"
               >
                 <strong>{book.title}</strong>
-                <span>Level {book.level} · {book.pages.length} pages</span>
+                <span>{guidedReadingBandLabel(book.readingBandProfile, book.level)} · {guidedReadingModeLabel(book.readingMode)} · {book.pages.length} pages</span>
               </button>
             ))}
           </div>

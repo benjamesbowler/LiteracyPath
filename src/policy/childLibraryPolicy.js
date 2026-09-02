@@ -59,6 +59,7 @@ export const BOOK_COLLECTIONS = Object.freeze([
   Object.freeze({ id: "james-and-anna", label: "James & Anna" }),
   Object.freeze({ id: "dino-pals", label: "Dino Pals" }),
   Object.freeze({ id: "aiden-and-betty", label: "Aiden & Betty" }),
+  Object.freeze({ id: "willow-street-readers", label: "Willow Street Readers" }),
   Object.freeze({ id: "moonwood-tales", label: "Moonwood Tales" }),
   Object.freeze({ id: "science-and-facts", label: "Science & Facts" }),
   Object.freeze({ id: "other-stories", label: "Other Stories" })
@@ -80,6 +81,7 @@ export function bookCollectionId(book = {}) {
   }
   if (id.startsWith("dino-pals-")) return "dino-pals";
   if (id.startsWith("ab-c-") || /\baiden and betty\b/.test(title)) return "aiden-and-betty";
+  if (id.startsWith("willow-street-")) return "willow-street-readers";
   if (id.startsWith("moonwood-tales-")) return "moonwood-tales";
   if (
     id.startsWith("first-facts-")
@@ -207,7 +209,8 @@ export function buildBookShelves({
   order = [],
   justRightPage = 0,
   readAgainPage = 0,
-  slots = BOOK_SHELF_SLOTS
+  slots = BOOK_SHELF_SLOTS,
+  keepCompletedInFirstShelf = false
 } = {}) {
   const rank = new Map(order.map((id, index) => [id, index]));
   const byOrder = (a, b) => (
@@ -220,7 +223,9 @@ export function buildBookShelves({
   const unread = atLevel
     .filter(book => !bookReadingProgress(book, records[book.id] || {}).completed)
     .sort(byOrder);
-  const justRightPool = unread.length ? unread : atLevel.slice().sort(byOrder);
+  const justRightPool = keepCompletedInFirstShelf
+    ? atLevel.slice().sort(byOrder)
+    : unread.length ? unread : atLevel.slice().sort(byOrder);
 
   const finished = books
     .filter(book => bookReadingProgress(book, records[book.id] || {}).completed)

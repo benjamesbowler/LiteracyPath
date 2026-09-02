@@ -1,4 +1,4 @@
-export const GUIDED_READING_MEASURE_VERSION = "2026.07.24";
+export const GUIDED_READING_MEASURE_VERSION = "2026.09.02";
 
 const LEVEL_MEASURES = Object.freeze({
   A: Object.freeze({
@@ -25,9 +25,9 @@ const LEVEL_MEASURES = Object.freeze({
     textFraction: 44,
     stackedImageViewportHeight: 52
   }),
-  C: Object.freeze({
+  C_STANDARD: Object.freeze({
     level: "C",
-    templateId: "level-c",
+    templateId: "level-c-standard",
     maxRenderedCharactersPerLine: 52,
     maxLineMeasureCh: 32,
     maxFontSizePx: 28,
@@ -36,6 +36,18 @@ const LEVEL_MEASURES = Object.freeze({
     imageFraction: 50,
     textFraction: 50,
     stackedImageViewportHeight: 46
+  }),
+  C_EXTENDED: Object.freeze({
+    level: "C",
+    templateId: "level-c-extended",
+    maxRenderedCharactersPerLine: 52,
+    maxLineMeasureCh: 38,
+    maxFontSizePx: 26,
+    minFontSizePx: 16,
+    lineHeight: 1.42,
+    imageFraction: 46,
+    textFraction: 54,
+    stackedImageViewportHeight: 42
   })
 });
 
@@ -43,10 +55,13 @@ export const GUIDED_READING_LEVEL_MEASURES = LEVEL_MEASURES;
 
 export function normalizeGuidedReadingLevel(level) {
   const normalized = String(level || "").trim().toUpperCase();
-  return Object.hasOwn(LEVEL_MEASURES, normalized) ? normalized : "A";
+  return ["A", "B", "C"].includes(normalized) ? normalized : "A";
 }
 
-export function getGuidedReadingMeasure(level) {
-  return LEVEL_MEASURES[normalizeGuidedReadingLevel(level)];
+export function getGuidedReadingMeasure(level, readingBandProfile = "standard") {
+  const normalizedLevel = normalizeGuidedReadingLevel(level);
+  if (normalizedLevel === "C") {
+    return readingBandProfile === "extended" ? LEVEL_MEASURES.C_EXTENDED : LEVEL_MEASURES.C_STANDARD;
+  }
+  return LEVEL_MEASURES[normalizedLevel];
 }
-

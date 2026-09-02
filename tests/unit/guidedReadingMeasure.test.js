@@ -10,11 +10,11 @@ import {
 
 const appCss = readFileSync(new URL("../../src/App.css", import.meta.url), "utf8");
 
-test("A3.7 owns one complete reading-measure template for levels A, B, and C", () => {
-  assert.deepEqual(Object.keys(GUIDED_READING_LEVEL_MEASURES), ["A", "B", "C"]);
+test("A3.7 owns one complete reading-measure template for A, B, C Standard and C Extended", () => {
+  assert.deepEqual(Object.keys(GUIDED_READING_LEVEL_MEASURES), ["A", "B", "C_STANDARD", "C_EXTENDED"]);
   for (const [level, measure] of Object.entries(GUIDED_READING_LEVEL_MEASURES)) {
-    assert.equal(measure.level, level);
-    assert.equal(measure.templateId, `level-${level.toLowerCase()}`);
+    assert.equal(measure.level, level.startsWith("C_") ? "C" : level);
+    assert.match(measure.templateId, /^level-(?:a|b|c-standard|c-extended)$/);
     assert.equal(measure.imageFraction + measure.textFraction, 100);
     assert.ok(measure.maxRenderedCharactersPerLine > 0);
     assert.ok(measure.maxLineMeasureCh > 0);
@@ -40,12 +40,21 @@ test("A3.7 reading lines widen gradually as text complexity increases", () => {
   );
 });
 
-test("A3.7 earlier templates reserve more space for instructional imagery", () => {
+test("A3.7 compact templates reserve more space for instructional imagery", () => {
   const [levelA, levelB, levelC] = ["A", "B", "C"].map(getGuidedReadingMeasure);
   assert.ok(levelA.imageFraction > levelB.imageFraction);
   assert.ok(levelB.imageFraction > levelC.imageFraction);
   assert.ok(levelA.stackedImageViewportHeight > levelB.stackedImageViewportHeight);
   assert.ok(levelB.stackedImageViewportHeight > levelC.stackedImageViewportHeight);
+});
+
+test("C Standard and C Extended keep separate honest reader measures", () => {
+  const standard = getGuidedReadingMeasure("C", "standard");
+  const extended = getGuidedReadingMeasure("C", "extended");
+  assert.equal(standard.templateId, "level-c-standard");
+  assert.equal(extended.templateId, "level-c-extended");
+  assert.ok(extended.maxLineMeasureCh > standard.maxLineMeasureCh);
+  assert.ok(extended.imageFraction < standard.imageFraction);
 });
 
 test("unknown or malformed reading levels fail closed to the earliest template", () => {

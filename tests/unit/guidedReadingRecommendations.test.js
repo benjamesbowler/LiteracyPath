@@ -4,6 +4,7 @@ import test from "node:test";
 import { TEACHER_COPY } from "../../src/copy/teacherCopy.js";
 import { guidedReadingBooks } from "../../src/data/guidedReadingBooks.js";
 import { recommendBooksForStudent } from "../../src/utils/guidedReading/recommendBooksForStudent.js";
+import { getRuntimeGuidedReadingBooks } from "../../src/utils/guidedReading/runtimeBooks.js";
 
 const guidedReadingPageSource = readFileSync(
   new URL("../../src/components/guided-reading/GuidedReadingPage.jsx", import.meta.url),
@@ -42,6 +43,18 @@ test("saved reading history keeps suggestions at the student's latest reading le
 
   assert.ok(recommendations.every(item => item.book.level === "C"));
   assert.ok(recommendations.every(item => item.readingLevelSource === "saved-reading"));
+});
+
+test("C recommendations keep standard progression separate from extended read-together books", () => {
+  const books = getRuntimeGuidedReadingBooks();
+  const standard = books.find(book => book.level === "C" && book.readingBandProfile === "standard");
+  const recommendations = recommendBooksForStudent({
+    books,
+    studentProgress: { guidedReadingLevel: "C" },
+    readingHistory: { [standard.id]: { completed: true } }
+  });
+  assert.ok(recommendations.length > 0);
+  assert.ok(recommendations.every(item => item.book.readingBandProfile === "standard"));
 });
 
 test("generic analyser tokens and unchecked books cannot influence recommendations", () => {

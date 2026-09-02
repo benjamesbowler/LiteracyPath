@@ -89,6 +89,20 @@ async function readerPageGeometry(reader) {
   });
 }
 
+async function expectReaderImageReady(reader) {
+  await expect(reader.locator(".guided-page-image")).toHaveJSProperty("complete", true);
+  await expect.poll(async () => reader.locator(".guided-page-image").evaluate(image => ({
+    naturalWidth: image.naturalWidth,
+    naturalHeight: image.naturalHeight
+  }))).toEqual({
+    naturalWidth: expect.any(Number),
+    naturalHeight: expect.any(Number)
+  });
+  await expect.poll(async () => reader.locator(".guided-page-image").evaluate(image => (
+    image.naturalWidth > 0 && image.naturalHeight > 0
+  ))).toBe(true);
+}
+
 for (const levelCase of LEVEL_CASES) {
   test(`A3.7 Level ${levelCase.level} constrains rendered lines and applies its image/text template`, async ({
     page
@@ -114,6 +128,7 @@ for (const levelCase of LEVEL_CASES) {
     await expect(layout).toHaveAttribute("data-reading-level", levelCase.level);
     await expect(layout).toHaveAttribute("data-reading-template", measure.templateId);
     await expect(pageText).toHaveClass(/is-ready/);
+    await expectReaderImageReady(reader);
 
     const pageCount = Number((await progress.textContent())?.match(/of\s+(\d+)/)?.[1] || 0);
     expect(pageCount).toBeGreaterThan(0);
@@ -122,6 +137,7 @@ for (const levelCase of LEVEL_CASES) {
       pageText = pageTextFor(pageIndex + 1);
       await expect(pageText).toBeVisible();
       await expect(pageText).toHaveClass(/is-ready/);
+      await expectReaderImageReady(reader);
       const lineCounts = await renderedCharacterCountsByLine(pageText);
       expect(lineCounts.length, `Level ${levelCase.level} page ${pageIndex + 1} renders text`).toBeGreaterThan(0);
       expect(
@@ -259,4 +275,12 @@ test("Guided Reading preserves the full-image composition in portrait and landsc
     await viewControls.getByRole("button", { name: "Exit", exact: true }).click();
     await expect(reader).not.toHaveClass(/fullscreen/);
   }
+});
+
+test("C Extended uses the read-together measure rather than the compact C Standard template", async ({ page }) => {
+  await page.goto("/preview/guided-reading-preview.html?book=moonwood-tales-c-01");
+  const reader = page.getByLabel("Pip and the Bravery Stone full-screen reader");
+  const layout = reader.locator(".guided-page-layout");
+  await expect(layout).toHaveAttribute("data-reading-level", "C");
+  await expect(layout).toHaveAttribute("data-reading-template", "level-c-extended");
 });
