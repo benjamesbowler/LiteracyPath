@@ -219,14 +219,19 @@ function verifyConnectedTextHistoryAgainstTask2(state, { sceneId, transactionId,
   const scene = getConnectedText(sceneId);
   if (!scene) throw new Error("presentation scene is unknown");
   const match = /^story-transfer:(\d+):(s(?:[1-9]|[1-3][0-9]|40))$/u.exec(transactionId);
-  if (!match || match[2] !== scene.stopId) throw new Error("presentation transaction identity is invalid");
+  if (!match || match[2] !== scene.stopId
+    || Number(match[1]) !== Number(scene.stopId.slice(1))) {
+    throw new Error("presentation transaction identity is invalid");
+  }
   const journeyStep = Number(match[1]);
   verifyCanonicalVisits(state, scene, transactionId, journeyStep);
   const decisions = history.filter(event => event.type === "decision_committed");
   const receipts = validAttemptReceipts(state)
     .filter(receipt => receipt.operation === "story_transfer" && receipt.subjectId === transactionId)
     .sort((left, right) => left.attemptOrdinal - right.attemptOrdinal);
-  if (decisions.length !== receipts.length || decisions.length === 0) {
+  const rawReceipts = Object.values(state.attemptReceipts)
+    .filter(receipt => plainObject(receipt) && receipt.subjectId === transactionId);
+  if (decisions.length !== receipts.length || rawReceipts.length !== receipts.length) {
     throw new Error("presentation decision history does not match canonical receipts");
   }
   const evidenceIds = new Set();
@@ -267,7 +272,22 @@ function verifyConnectedTextHistoryAgainstTask2(state, { sceneId, transactionId,
     .filter(use => use.transactionId === transactionId);
   const descriptor = state.checkpoint?.storyTransfer;
   let narrativeChoiceToken;
-  if (newest.event.correct) {
+  if (!newest) {
+    if (!descriptor || !exactKeys(descriptor, [
+      "kind", "transactionId", "stopId", "journeyStep", "stage", "storyVisitId",
+      "transferVisitId", "narrativeChoiceToken", "attemptOrdinal", "attemptId"
+    ]) || descriptor.kind !== "story_transfer"
+      || descriptor.transactionId !== transactionId || descriptor.stopId !== scene.stopId
+      || descriptor.journeyStep !== journeyStep || descriptor.stage !== "response_pending"
+      || descriptor.storyVisitId !== `visit:${transactionId}:story`
+      || descriptor.transferVisitId !== `visit:${transactionId}:transfer`
+      || descriptor.attemptOrdinal !== 0
+      || descriptor.attemptId !== `story-transfer-attempt:${transactionId}:0`
+      || storyUses.length || transferUses.length) {
+      throw new Error("revision-zero presentation checkpoint is inconsistent");
+    }
+    narrativeChoiceToken = descriptor.narrativeChoiceToken;
+  } else if (newest.event.correct) {
     if (descriptor || storyUses.length !== 1 || transferUses.length !== 1) {
       throw new Error("completed presentation lacks one reciprocal final use pair");
     }
@@ -305,7 +325,7 @@ function verifyConnectedTextHistoryAgainstTask2(state, { sceneId, transactionId,
   } else if (narrativeChoiceToken !== null) {
     throw new Error("assessed connected text cannot retain a narrative token");
   }
-  return { scene, verified, newest, completed: newest.event.correct, narrativeChoiceToken };
+  return { scene, verified, newest, completed: Boolean(newest?.event.correct), narrativeChoiceToken };
 }
 
 function payoffFor(verification) {
@@ -510,7 +530,7 @@ export function rehydrateConnectedTextPresentation(state, checkpoint) {
     || checkpoint.schemaVersion !== 1
     || checkpoint.kind !== "connected_text_presentation_checkpoint"
     || !stringId(checkpoint.sceneId) || !stringId(checkpoint.transactionId)
-    || !Array.isArray(checkpoint.history) || checkpoint.history.length === 0) {
+    || !Array.isArray(checkpoint.history)) {
     throw new Error("presentation checkpoint shape is invalid");
   }
   checkpoint.history.forEach((event, index) => {

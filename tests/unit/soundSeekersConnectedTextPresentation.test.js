@@ -133,6 +133,64 @@ test("boss narrative choice is rederived from reciprocal Task 2 uses", () => {
   closeConnectedTextPresentation(resumed.presentation);
 });
 
+test("revision-zero pre-choice checkpoints round-trip only with the exact live Task 2 transaction", () => {
+  for (const [sceneId, journeyStep, boss] of [
+    ["scene-s1", 1, false],
+    ["scene-s5", 5, true]
+  ]) {
+    const narrativeChoiceToken = boss
+      ? toChildConnectedTextScene(sceneId, "revision-zero").choice.options[0].token
+      : null;
+    const fixture = start(sceneId, journeyStep, narrativeChoiceToken);
+    const checkpoint = JSON.parse(JSON.stringify(
+      checkpointConnectedTextPresentation(fixture.presentation)
+    ));
+    const canonicalState = normalizeSoundSeekersState(
+      JSON.parse(JSON.stringify(fixture.state))
+    );
+    const resumed = rehydrateConnectedTextPresentation(canonicalState, checkpoint);
+    assert.equal(resumed.presentation.phase, "pre_choice");
+    assert.equal(resumed.presentation.reducerRevision, 0);
+    assert.equal(resumed.presentation.attemptId, null);
+    assert.deepEqual(resumed.presentation.history, []);
+    assert.equal(resumed.transition, null);
+    closeConnectedTextPresentation(resumed.presentation);
+
+    const mutations = [
+      state => { state.checkpoint.storyTransfer.attemptId += ":forged"; },
+      state => { state.checkpoint.storyTransfer.journeyStep += 1; },
+      state => { state.checkpoint.storyTransfer.stage = "model_pending"; },
+      state => { state.checkpoint.storyTransfer.attemptOrdinal = 1; },
+      state => { delete state.contentDecks.stories.visits[`visit:${fixture.transactionId}:story`]; },
+      state => {
+        state.attemptReceipts[`story-transfer-attempt:${fixture.transactionId}:0`] = {
+          kind: "attempt_receipt",
+          attemptId: `story-transfer-attempt:${fixture.transactionId}:0`,
+          operation: "story_transfer",
+          subjectId: fixture.transactionId,
+          decisionOrdinal: 0,
+          attemptOrdinal: 0,
+          inputSha256: "0".repeat(64),
+          completed: false,
+          correctionRecordIds: [],
+          eventIds: [],
+          useIds: []
+        };
+      }
+    ];
+    if (boss) {
+      mutations.push(state => { state.checkpoint.storyTransfer.narrativeChoiceToken = "story-s5-forged"; });
+    } else {
+      mutations.push(state => { state.checkpoint.storyTransfer.narrativeChoiceToken = "story-s5-a"; });
+    }
+    for (const mutate of mutations) {
+      const forged = JSON.parse(JSON.stringify(canonicalState));
+      mutate(forged);
+      assert.throws(() => rehydrateConnectedTextPresentation(forged, checkpoint));
+    }
+  }
+});
+
 test("replacement invalidates every old state and transition identity", () => {
   const fixture = start("scene-s1", 1);
   const completed = submit(fixture, fixture.challenge.expectedToken, 1);

@@ -1,121 +1,121 @@
 const AUTHORED_FEEDBACK = [
-  [1, ["lift"], "Lifting the mat repeats the exact scene action.", [
-    ["a", "Sitting beside the mat leaves the lantern cover in place.", "The words say lift, so show the mat moving up."],
-    ["c", "The picture of the mat already down repeats the problem.", "Choose the picture that shows the mat being lifted."]
+  [1, ["lift"], "Lifting the mat reveals the seed light named by the mission.", [
+    ["a", "Lifting the light moves the thing that should be uncovered.", "Lift the covering mat, not the seed light."],
+    ["c", "Lifting several mats changes the single mat named in the text.", "Lift the one mat that covers the light."]
   ]],
-  [2, ["sit"], "Sitting on the fin matches every word.", [
-    ["b", "Fitting the fin changes sit to a different action.", "Read the first action word again: sit."],
-    ["c", "Fanning the fin is not named in the scene.", "Show the body action named by sit."]
+  [2, ["fit"], "Fitting the missing fin repairs Tumble's fern step.", [
+    ["b", "Sitting beside the fin leaves the step part loose.", "Fit the fin into its matching step."],
+    ["c", "Fanning the fin moves air but does not attach the part.", "Mend the step by fitting its fin."]
   ]],
-  [3, ["hit"], "Hitting the hot rock follows the wind-stone command.", [
-    ["a", "Sitting on the rock cannot turn the wind stone.", "Find the action hit before hot rock."],
-    ["b", "Hitting the hot hat changes the named object from rock to hat.", "Keep the action hit, but match it to the hot rock."]
+  [3, ["hit"], "Hitting the hot rock drum starts the wind-stone mechanism.", [
+    ["a", "Sitting on the rock drum does not strike it.", "Hit the hot rock drum to start it."],
+    ["b", "Hitting a hat changes the rock drum into the wrong object.", "Keep hit and hot, but choose the rock drum."]
   ]],
-  [4, ["fit"], "Fitting the bun in the bin repeats the ford repair.", [
-    ["a", "Putting the bun on the bin changes the named position.", "The words place the bun in the bin, not on it."],
-    ["c", "The bud is a close-sounding object, but the text names a bun.", "Fit the bun, not the bud, in the bin."]
+  [4, ["fit"], "Fitting the hard rock in the gap completes the ford path.", [
+    ["a", "A soft bun is lunch, not a firm piece for the ford gap.", "Fit the hard rock into the gap."],
+    ["c", "Putting the rock on the gap leaves the open space unfilled.", "Fit the rock in the gap, not on it."]
   ]],
-  [6, ["home"], "Putting the buzz home in the box follows all five words.", [
-    ["a", "Putting the buzz in the net changes its named home.", "Guide the buzz home to the box, not the net."],
-    ["b", "Loading the box into the van moves the wrong thing.", "The buzz is the thing that must go home in the box."]
+  [6, ["home"], "Moving the buzzing bee box home guides the bees with it.", [
+    ["a", "Taking the net home leaves the buzzing bee box behind.", "Move the box that buzzes home."],
+    ["b", "Taking the van home chooses a vehicle instead of the bee box.", "The buzzing box is the thing that goes home."]
   ]],
   [7, ["off"], "Taking jam off the bell frees the ferry signal.", [
     ["b", "Taking the bell off the mat moves the bell but leaves its jam.", "Move the jam off the bell, not the bell off the mat."],
     ["c", "Leaving the jam on the bell keeps the signal stuck.", "Off means the jam must leave the bell."]
   ]],
-  [8, ["mat"], "Patching the net with the mat uses the named repair material.", [
-    ["a", "The box is a plausible patch, but the text names the mat.", "Match the net to the mat named in the words."],
-    ["c", "Using the mat on the bell fixes the wrong object.", "The mat must fix the net, not the bell."]
+  [8, ["cut"], "Cutting the blocking net clears the fishpool channel.", [
+    ["a", "Fixing the net keeps the channel block in place.", "Clear the channel by cutting the net."],
+    ["c", "Cutting the bell damages the signal and leaves the net blocking the channel.", "Cut the net, not the bell."]
   ]],
-  [9, ["fix"], "Fixing the ship is the stated wheelhouse repair.", [
-    ["a", "Fixing the fish changes the object named in the sentence.", "Fix the ship, not the fish."],
-    ["b", "Fixing the net is a useful job, but not this wheelhouse job.", "The sentence names the ship as the thing to fix."]
+  [9, ["fit"], "Fitting the ship fin lets the wheelhouse mechanism spin.", [
+    ["a", "A fish fin belongs to a fish, not the ship mechanism.", "Fit the ship fin into the wheelhouse."],
+    ["b", "Sitting beside the ship does not attach its missing fin.", "Fit the fin so the mechanism can spin."]
   ]],
-  [11, ["pick"], "Picking up the path rock reveals the amber marker.", [
-    ["b", "Kicking the path rock ignores the action pick.", "Keep the path rock and pick it up."],
-    ["c", "Sitting on the rock covers the marker.", "Raise the rock so the path can show."]
+  [11, ["pick"], "Picking the rock off the path reveals the amber marker.", [
+    ["b", "Kicking the rock on the path can leave it covering the marker.", "Pick the rock off the path."],
+    ["c", "Sitting on the path rock keeps the marker covered.", "Remove the rock instead of sitting on it."]
   ]],
-  [12, ["lift"], "Lifting the lamp by hand follows the complete sentence.", [
-    ["a", "Kicking the lamp uses a different action and could damage it.", "The sentence tells Amber to lift the lamp."],
-    ["b", "Picking the lamp does not show the upward action named in the text.", "Choose the action lift, not pick."]
+  [12, ["fit"], "Fitting the lamp into the lift repairs the loose lift part.", [
+    ["a", "Lifting the loose lamp moves it without fitting it into place.", "Fit the lamp in the lift."],
+    ["b", "A ship lamp is a different part from Amber's lift lamp.", "Fit the named lamp into the lift."]
   ]],
-  [13, ["spin"], "Spinning at the marked spot reveals the ash-flat route.", [
-    ["a", "Sitting at the spot performs no turning action.", "Make the marked spot spin."],
-    ["c", "Skipping at the spot changes the named action from spin.", "Stay at the spot and do the named spin action."]
+  [13, ["spin"], "Spinning the fan blows the ash away and clears the path.", [
+    ["a", "Sitting at the fan makes no air to move the ash.", "Spin the fan to clear the trail."],
+    ["c", "Hitting the fan does not make the steady wind the path needs.", "Use the spin action named in the text."]
   ]],
-  [14, ["clap"], "Clapping at the flag makes the bridge signal named in the text.", [
-    ["b", "Flipping the flag off removes the bridge signal.", "Keep the flag on the block and clap at it."],
-    ["c", "Clapping at the block targets the support instead of the flag.", "Clap at the flag named in the sentence."]
+  [14, ["clap"], "Clapping at the magic flag makes the fern path grow.", [
+    ["b", "Flipping the flag changes its position but does not trigger its clap magic.", "Clap at the flag to grow the bridge."],
+    ["c", "Clapping at the block targets the support instead of the magic flag.", "Aim the clap at the flag."]
   ]],
-  [16, ["click"], "Clicking the lock by the gate follows the gearworks command.", [
-    ["a", "Clicking the flag selects a nearby marker instead of the lock.", "The instruction names the lock as the thing to click."],
-    ["c", "Flying by the lock does not operate it.", "Bolt's lane opens when the lock is clicked."]
+  [16, ["click"], "Clicking the gearworks lock lifts the gate from Bolt's lane.", [
+    ["a", "Clicking the flag chooses a marker instead of the gate lock.", "Click the lock that controls the gate."],
+    ["c", "Flying past the lock leaves the gate mechanism untouched.", "Operate the lock with a click."]
   ]],
-  [17, ["lift"], "Lifting the rock off the ship removes the hopper block.", [
-    ["a", "Kicking the rock can strike the ship instead of clearing it.", "Lift the rock off the ship without kicking it."],
-    ["b", "Sitting on the rock adds weight to the jam.", "Do not sit on the rock that blocks the ship."]
+  [17, ["lift"], "Lifting the rock off the bin clears Soot's ore hopper.", [
+    ["a", "Kicking the rock farther in makes the hopper jam worse.", "Lift the rock off the hopper bin."],
+    ["b", "Sitting on the rock adds weight to the hopper block.", "Lift the blocking rock instead of sitting on it."]
   ]],
   [18, ["hot"], "Making the flame hot directly relights the plate foundry.", [
     ["b", "Heating the cake changes the wrong thing.", "The second sentence says to make the flame hot."],
     ["c", "Heating the plate leaves the flame cold.", "Relight the foundry by making the flame hot."]
   ]],
-  [19, ["slide"], "Sliding the bike off the ship clears the named block.", [
-    ["a", "Hiding the bike leaves it on the ship.", "The bike must slide off the ship."],
-    ["c", "Riding the bike does not remove it from the ship.", "Slide the bike off instead of riding it."]
+  [19, ["slide"], "Sliding the bike off the train path clears the night-train track.", [
+    ["a", "Hiding the bike can leave it blocking the train path.", "Slide the bike off the track."],
+    ["c", "Riding the bike follows it instead of clearing it from the train path.", "Move the bike off with the slide action."]
   ]],
-  [21, ["cube"], "Fastening the rope to the cube matches both ship sentences.", [
-    ["a", "The mule is not the object beside the ship.", "Find the object the text places by the ship."],
-    ["b", "The gate is not named as the rope anchor.", "The rope is on the cube, not the gate."]
+  [21, ["cube"], "Fitting the rope on the big cube gives the ship a heavy anchor.", [
+    ["a", "The mule can walk away and is not the heavy cube anchor.", "Fit the rope on the big cube."],
+    ["b", "The gate is not the weight named to stop the ship.", "Fasten the rope to the cube, not the gate."]
   ]],
-  [22, ["rain"], "The rain picture directly matches the stated theme.", [
-    ["b", "Run is a close-sounding action, not the named rain theme.", "Match the picture to rain, not run."],
-    ["c", "The flame picture contradicts the rain theme.", "The theme is rain, not flame."]
+  [22, ["rain"], "Picking the rain sign starts the clear-water pump.", [
+    ["b", "Run sounds close to rain but is not the water sign on the pump.", "Pick rain to start the pump."],
+    ["c", "Flame contradicts the water theme of the rain sign.", "Choose the rain sign, not the flame."]
   ]],
-  [23, ["by"], "Placing the rain tray by the train preserves the stated position.", [
-    ["a", "Putting the tray on the train changes by to on.", "By means beside, not on top."],
-    ["c", "Putting the tray in the train changes by to in.", "Keep the rain tray beside the train."]
+  [23, ["lift"], "Lifting the rain tray pulls up Glint's hidden path.", [
+    ["a", "Lifting the train moves the wrong object and leaves the tray down.", "Lift the rain tray that controls the steps."],
+    ["c", "Sitting beside the tray does not pull its rope upward.", "Lift the tray instead of sitting near it."]
   ]],
-  [24, ["clap"], "Clapping with the singing tree supplies the causeway rhythm.", [
-    ["a", "Singing repeats what the tree already does but omits the named clap.", "Join the tree's song with the clap action."],
-    ["b", "Sitting by the tree does not add the named rhythm.", "Stay with the tree and clap."]
+  [24, ["clap"], "Clapping with the singing tree makes the causeway path sing in tune.", [
+    ["a", "Singing copies the tree but omits the clap that tunes the path.", "Clap with the tree's song."],
+    ["b", "Sitting by the tree adds no rhythm to the causeway.", "Stay with the tree and clap."]
   ]],
-  [26, ["coat"], "The coat road is the landmark explicitly named for the boat.", [
-    ["b", "Snow is a rhyming decoy, not the road marker.", "Read the landmark again: coat."],
-    ["c", "Goat is a plausible rhyme but is not the landmark.", "Match the road to coat, not goat."]
+  [26, ["coat"], "Showing the coat on the right road marks the boat's safe course.", [
+    ["b", "Snow is a rhyming decoy and does not mark the right road.", "Show the coat marker on the road."],
+    ["c", "Goat is another rhyme but is not Kelp's road marker.", "Choose coat, not goat, for the road."]
   ]],
   [27, ["glue"], "Gluing the blue moon coat follows the shelter repair sentence.", [
     ["a", "Food in the room does not cover the snowy shelter.", "Choose the blue moon coat named after glue."],
     ["c", "Putting snow in the room adds to the shelter problem.", "Attach the blue moon coat with glue."]
   ]],
-  [28, ["light"], "Hooking the light shown in the book restores the signal.", [
-    ["a", "Hooking the book to the boat moves the clue instead of the signal.", "Look in the book, then hook the light."],
-    ["b", "Hiding the light in the book keeps the harbour dark.", "The signal light must show, not hide."]
+  [28, ["light"], "Hooking the planned light high restores the harbour signal.", [
+    ["a", "Hooking the book to the boat moves the plan instead of its light.", "Follow the book plan and hook the light high."],
+    ["b", "Hiding the light in the book keeps the harbour signal dark.", "Raise the light where boats can see it."]
   ]],
-  [29, ["stop"], "Sitting while the loud sound stops follows the calm-cove sequence.", [
-    ["b", "Banging the rock adds a new loud sound.", "Let the sound stop instead of adding a bang."],
-    ["c", "Making the sound louder is the opposite of calm.", "Calm needs less sound, not more."]
+  [29, ["close"], "Closing the box lid contains the loud sound and calms the cove.", [
+    ["b", "Banging on the box adds another loud sound.", "Close the lid instead of banging the box."],
+    ["c", "Making the sound louder is the opposite of calming it.", "Contain the sound by closing the box."]
   ]],
-  [31, ["by"], "Parking the car by the gate repeats the route sentence.", [
-    ["a", "Starting down the dark path passes the stopping place.", "The scene says park by the gate."],
-    ["c", "Hiding at the farm moves the car away from the gate.", "The car belongs beside the gate, not at the farm."]
+  [31, ["park"], "Parking the car on the star pad activates and lifts the gate.", [
+    ["a", "Starting the car at the gate does not press the star pad.", "Park the car on the star."],
+    ["c", "Hiding the car at the farm moves it away from the gate control.", "Bring the car to the star pad and park it."]
   ]],
-  [32, ["draw"], "Drawing the dark star on the tree follows the echo-root repair.", [
+  [32, ["draw"], "Drawing the star turns on the storm-dark echo-root light.", [
     ["a", "Sawing cuts down the tree instead of marking it.", "Keep the tree and draw the dark star."],
     ["b", "Storing the star does not put its mark on the tree.", "The final sentence says to draw the star on the tree."]
   ]],
-  [33, ["draw"], "Drawing the bird's turn records the place on Orbit's map.", [
+  [33, ["draw"], "Drawing the bird's turn on the path records Orbit's route.", [
     ["b", "Looking at the bird observes it but records no turn.", "Draw where the bird turned instead."],
     ["c", "Sitting by the fern records no route.", "The living map needs the turn drawn."]
   ]],
-  [34, ["stair"], "Pairing chair with stair repeats the final alignment sentence.", [
-    ["a", "Hair is a rhyme decoy, not the chair's partner.", "Match the two objects named together."],
+  [34, ["stair"], "Pairing the chair and stair markers aligns the hollow rings.", [
+    ["a", "Hair is a rhyme decoy, not the chair's partner.", "Pair the chair with the stair."],
     ["c", "Pairing the stair with hair leaves the chair unmatched.", "The text pairs chair with stair."]
   ]],
-  [36, ["bright"], "Pure light making the stair bright supplies the stated repair.", [
+  [36, ["bright"], "Making the stair bright with pure light activates its lift.", [
     ["a", "Following the creature does not change the dark stair.", "Stay at the stair and change its light."],
     ["b", "Showing the stair still dark repeats the problem.", "The stair must become bright."]
   ]],
-  [37, ["read"], "Reading the magic words at the lock follows the archive clue.", [
+  [37, ["read"], "Reading the ready magic words makes the archive lock click.", [
     ["b", "Climbing into the city cell bypasses the archive lock.", "The words act at the lock."],
     ["c", "Resting beside the lock ignores the ready words.", "Read the ready words instead of resting."]
   ]],
@@ -123,9 +123,9 @@ const AUTHORED_FEEDBACK = [
     ["a", "Following the dogs leaves the cats' path divided.", "Stay with the star path and join it."],
     ["c", "Sitting by the stars leaves the path divided.", "The cats need the path joined."]
   ]],
-  [39, ["little"], "Taking the little puzzle over the bridge follows both clauses.", [
-    ["a", "Leaving the puzzle behind cannot complete the bridge.", "The little puzzle must cross the bridge."],
-    ["b", "Taking the rocks contradicts the instruction to leave them.", "Leave the rocks and take the puzzle."]
+  [39, ["fit"], "Fitting the little puzzle into the gap completes the skybridge.", [
+    ["a", "Leaving the puzzle by the table leaves the bridge gap open.", "Fit the little puzzle into the gap."],
+    ["b", "Rocks are not the matching puzzle tile for this bridge gap.", "Fit the little puzzle, not the rocks."]
   ]]
 ];
 

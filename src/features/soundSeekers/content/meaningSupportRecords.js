@@ -53,16 +53,39 @@ const COPY = Object.freeze({
   tree: ["A tree is a tall plant with a trunk, branches, and leaves.", "Stand one arm like a trunk and spread branch fingers.", "A tree has a woody trunk; grass has soft blades.", "Roots hold the tree while branches reach upward.", "Raise both arms and spread fingers like branches.", "tall-trunked-plant"],
   truck: ["A truck is a road vehicle made to carry heavy loads.", "Pretend to steer a truck carrying a load.", "A truck carries loads on land; a ship carries them on water.", "The back or trailer gives a truck room for cargo.", "Hold a steering wheel, then gesture to a load behind it.", "road-vehicle-for-loads"],
   buzz: ["A buzz is a low humming sound like a bee makes.", "Hum softly and move one finger like a flying bee.", "A buzz is a sound; a light is something we see.", "Bees and small machines can make a steady buzz.", "Circle one finger while humming softly.", "low-humming-bee-sound"],
-  lift: ["Lift means move something upward.", "Raise both hands as if lifting a light object.", "Lift moves up; put down moves toward the ground.", "Hands can lift an object from a lower place to a higher place.", "Start with low hands and raise them together.", "move-something-upward"]
+  lift: ["Lift means move something upward.", "Raise both hands as if lifting a light object.", "Lift moves up; put down moves toward the ground.", "Hands can lift an object from a lower place to a higher place.", "Start with low hands and raise them together.", "move-something-upward"],
+  clear: ["Clear means open and free from anything in the way.", "Sweep one hand aside to clear a path.", "A clear path is open; a blocked path is closed.", "Moving a block away can make a path clear.", "Sweep both palms away from the middle.", "open-unblocked-path"],
+  drum: ["A drum is an instrument that sounds when it is hit.", "Tap an imaginary drum with both hands.", "A drum is hit; a bell is rung.", "The stretched top moves and makes a sound.", "Tap both palms down in a steady beat.", "hit-to-make-rhythm"],
+  fit: ["Fit means put something into its matching place.", "Move one hand into a matching space.", "Fit joins matching parts; pull takes them apart.", "A part fits when its shape and place match.", "Slide one flat hand into a gap beside the other.", "matching-part-in-place"],
+  gap: ["A gap is an open space between two things.", "Hold two hands apart to show a gap.", "A gap is open space; a block fills space.", "A path can stop at a gap until something fills it.", "Hold palms apart, then move one hand into the space.", "open-space-between-things"],
+  gate: ["A gate opens and closes an entrance in a fence or wall.", "Swing one arm open like a gate.", "A gate controls an entrance; a wall has no opening.", "Opening the gate lets someone pass through.", "Hold one arm still and swing the other outward.", "opening-in-fence-or-wall"],
+  grow: ["Grow means become bigger, taller, or more developed.", "Raise one hand slowly to show something grow.", "Grow gets bigger; shrink gets smaller.", "Plants and living things grow over time.", "Start with a low fist, then raise and open it.", "become-bigger-or-taller"],
+  net: ["A net is crossed cord or thread used to catch or hold things.", "Cross your fingers to make a net pattern.", "A net has open spaces; a mat is a flat cover.", "The crossed strands make many small openings.", "Spread crossed fingers in front of you.", "crossed-cord-mesh"],
+  read: ["Read means look at written words and understand them.", "Open a pretend book and follow one line with a finger.", "Read uses written words; listen uses spoken sounds.", "Letters and words carry a message for the reader.", "Move one finger from left to right across an open palm.", "understand-written-words"],
+  see: ["See means notice something with your eyes.", "Point from your eyes toward something you see.", "See uses eyes; hear uses ears.", "Light helps our eyes see objects.", "Point to both eyes, then point outward.", "notice-with-eyes"],
+  start: ["Start means make something begin.", "Move one hand forward from a still position.", "Start begins an action; stop ends it.", "A switch or signal can start a machine.", "Hold a fist still, then move it forward.", "make-something-begin"],
+  train: ["A train is a line of connected vehicles that travels on tracks.", "Move one hand forward like a train on its track.", "A train travels on tracks; a ship travels on water.", "Connected cars follow the engine along the same track.", "Link fingers, then move both hands forward.", "connected-track-vehicles"],
+  turn: ["Turn means move around or change direction.", "Rotate one hand to show a turn.", "Turn changes direction; stay keeps the same direction.", "A wheel can turn around its center.", "Point forward, then curve your hand to one side.", "change-direction-or-rotate"]
 });
 
 const ADVANCED_REASON = Object.freeze({
   buzz: "new_concept",
+  clear: "new_concept",
+  drum: "new_concept",
+  gap: "new_concept",
+  gate: "new_concept",
+  grow: "new_concept",
   home: "new_concept",
   lift: "new_concept",
+  light: "new_concept",
   rain: "new_concept",
   rock: "new_concept",
-  sit: "new_concept"
+  see: "new_concept",
+  sit: "new_concept",
+  spin: "new_concept",
+  start: "new_concept",
+  train: "new_concept",
+  turn: "new_concept"
 });
 
 function record(wordId) {
@@ -83,5 +106,8 @@ function record(wordId) {
 }
 
 export const MEANING_SUPPORT_RECORDS = Object.freeze(
-  [...REQUIRED_ACTION_MEANING_WORD_IDS, "buzz", "lift"].sort().map(record)
+  [...new Set([
+    ...REQUIRED_ACTION_MEANING_WORD_IDS,
+    "buzz", "clear", "drum", "gap", "gate", "grow", "lift", "see", "start", "train", "turn"
+  ])].sort().map(record)
 );

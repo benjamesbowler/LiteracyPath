@@ -290,7 +290,11 @@ for (const scene of SOUND_SEEKERS_CONNECTED_TEXT) {
     const option = scene.choice.kind === "narrative_bridge"
       ? scene.choice.options.find(item => item.token === scene.narrativeBranches[index].token)
       : scene.choice.options.find(item => item.token === CONNECTED_TEXT_EVALUATORS[scene.id].expectedToken);
-    const justifiedWords = new Set([...textWords, ...tokenizeConnectedText(option?.childLabel)]);
+    const justifiedWords = new Set([
+      ...textWords,
+      ...tokenizeConnectedText(option?.childLabel),
+      ...tokenizeConnectedText(option?.accessibleLabel)
+    ]);
     if (wordIds.some(wordId => !justifiedWords.has(wordId))) {
       throw new Error(`${scene.id}: post-decision meaning is not justified by scene text/action`);
     }

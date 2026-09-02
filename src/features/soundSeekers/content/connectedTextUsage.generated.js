@@ -11,22 +11,16 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "a",
     "uses": [
       {
-        "sceneId": "scene-s12",
-        "stopId": "s12",
-        "surface": "running_text",
-        "ordinal": 4
-      },
-      {
-        "sceneId": "scene-s17",
-        "stopId": "s17",
-        "surface": "running_text",
-        "ordinal": 0
+        "sceneId": "scene-s8",
+        "stopId": "s8",
+        "surface": "accessible_label",
+        "ordinal": 108
       },
       {
         "sceneId": "scene-s32",
         "stopId": "s32",
         "surface": "running_text",
-        "ordinal": 5
+        "ordinal": 10
       },
       {
         "sceneId": "meaning:action",
@@ -299,6 +293,24 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 13
       },
       {
+        "sceneId": "meaning:clear",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 11
+      },
+      {
+        "sceneId": "meaning:clear",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 16
+      },
+      {
+        "sceneId": "meaning:clear",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 25
+      },
+      {
         "sceneId": "meaning:coin",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -353,6 +365,18 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 13
       },
       {
+        "sceneId": "meaning:drum",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "meaning:drum",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 17
+      },
+      {
         "sceneId": "meaning:fiction",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -387,6 +411,48 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 23
+      },
+      {
+        "sceneId": "meaning:gap",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "meaning:gap",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 9
+      },
+      {
+        "sceneId": "meaning:gap",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 14
+      },
+      {
+        "sceneId": "meaning:gap",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 26
+      },
+      {
+        "sceneId": "meaning:gate",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "meaning:gate",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 8
+      },
+      {
+        "sceneId": "meaning:gate",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 24
       },
       {
         "sceneId": "meaning:hand",
@@ -575,6 +641,24 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 0
       },
       {
+        "sceneId": "meaning:start",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 5
+      },
+      {
+        "sceneId": "meaning:start",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 11
+      },
+      {
+        "sceneId": "meaning:start",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 18
+      },
+      {
         "sceneId": "meaning:stone",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -653,6 +737,24 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 0
       },
       {
+        "sceneId": "meaning:train",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "meaning:train",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 3
+      },
+      {
+        "sceneId": "meaning:train",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 26
+      },
+      {
         "sceneId": "meaning:tree",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -705,18 +807,24 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 27
+      },
+      {
+        "sceneId": "meaning:turn",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 7
+      },
+      {
+        "sceneId": "meaning:turn",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 19
       }
     ]
   },
   {
     "wordId": "action",
     "uses": [
-      {
-        "sceneId": "scene-s1",
-        "stopId": "s1",
-        "surface": "prompt",
-        "ordinal": 1
-      },
       {
         "sceneId": "scene-s16",
         "stopId": "s16",
@@ -817,6 +925,18 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 18
       },
       {
+        "sceneId": "meaning:drum",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 3
+      },
+      {
+        "sceneId": "meaning:drum",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 20
+      },
+      {
         "sceneId": "meaning:fiction",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -833,6 +953,18 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 23
+      },
+      {
+        "sceneId": "meaning:gap",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 3
+      },
+      {
+        "sceneId": "meaning:gate",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 5
       },
       {
         "sceneId": "meaning:lift",
@@ -852,10 +984,10 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "and",
     "uses": [
       {
-        "sceneId": "scene-s39",
-        "stopId": "s39",
-        "surface": "running_text",
-        "ordinal": 11
+        "sceneId": "scene-s34",
+        "stopId": "s34",
+        "surface": "accessible_label",
+        "ordinal": 103
       },
       {
         "sceneId": "scene-s40",
@@ -912,6 +1044,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 10
       },
       {
+        "sceneId": "meaning:clear",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 3
+      },
+      {
         "sceneId": "meaning:coin",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -922,6 +1060,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 21
+      },
+      {
+        "sceneId": "meaning:drum",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 15
       },
       {
         "sceneId": "meaning:fiction",
@@ -946,6 +1090,18 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 21
+      },
+      {
+        "sceneId": "meaning:gate",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 3
+      },
+      {
+        "sceneId": "meaning:grow",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 9
       },
       {
         "sceneId": "meaning:hand",
@@ -1028,7 +1184,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s37",
         "stopId": "s37",
         "surface": "running_text",
-        "ordinal": 12
+        "ordinal": 3
       },
       {
         "sceneId": "meaning:action",
@@ -1059,6 +1215,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
   {
     "wordId": "arm",
     "uses": [
+      {
+        "sceneId": "meaning:gate",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 21
+      },
       {
         "sceneId": "meaning:hand",
         "stopId": "meaning-support",
@@ -1106,22 +1268,10 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "at",
     "uses": [
       {
-        "sceneId": "scene-s1",
-        "stopId": "s1",
-        "surface": "accessible_label",
-        "ordinal": 1
-      },
-      {
-        "sceneId": "scene-s2",
-        "stopId": "s2",
-        "surface": "running_text",
-        "ordinal": 1
-      },
-      {
         "sceneId": "scene-s2",
         "stopId": "s2",
         "surface": "accessible_label",
-        "ordinal": 1
+        "ordinal": 101
       },
       {
         "sceneId": "scene-s5",
@@ -1130,20 +1280,8 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 1
       },
       {
-        "sceneId": "scene-s13",
-        "stopId": "s13",
-        "surface": "running_text",
-        "ordinal": 1
-      },
-      {
-        "sceneId": "scene-s13",
-        "stopId": "s13",
-        "surface": "accessible_label",
-        "ordinal": 1
-      },
-      {
-        "sceneId": "scene-s13",
-        "stopId": "s13",
+        "sceneId": "scene-s9",
+        "stopId": "s9",
         "surface": "accessible_label",
         "ordinal": 101
       },
@@ -1151,7 +1289,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s13",
         "stopId": "s13",
         "surface": "accessible_label",
-        "ordinal": 201
+        "ordinal": 1
       },
       {
         "sceneId": "scene-s14",
@@ -1181,6 +1319,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s31",
         "stopId": "s31",
         "surface": "accessible_label",
+        "ordinal": 2
+      },
+      {
+        "sceneId": "scene-s31",
+        "stopId": "s31",
+        "surface": "accessible_label",
         "ordinal": 202
       },
       {
@@ -1199,7 +1343,19 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s37",
         "stopId": "s37",
         "surface": "running_text",
-        "ordinal": 18
+        "ordinal": 13
+      },
+      {
+        "sceneId": "scene-s37",
+        "stopId": "s37",
+        "surface": "accessible_label",
+        "ordinal": 4
+      },
+      {
+        "sceneId": "meaning:gap",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 13
       },
       {
         "sceneId": "meaning:hand",
@@ -1265,6 +1421,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "be",
     "uses": [
       {
+        "sceneId": "scene-s1",
+        "stopId": "s1",
+        "surface": "accessible_label",
+        "ordinal": 108
+      },
+      {
         "sceneId": "meaning:bun",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -1309,25 +1471,36 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   },
   {
+    "wordId": "because",
+    "uses": [
+      {
+        "sceneId": "scene-s36",
+        "stopId": "s36",
+        "surface": "accessible_label",
+        "ordinal": 204
+      }
+    ]
+  },
+  {
     "wordId": "bell",
     "uses": [
       {
         "sceneId": "scene-s7",
         "stopId": "s7",
         "surface": "running_text",
-        "ordinal": 3
-      },
-      {
-        "sceneId": "scene-s7",
-        "stopId": "s7",
-        "surface": "prompt",
         "ordinal": 4
       },
       {
         "sceneId": "scene-s7",
         "stopId": "s7",
+        "surface": "prompt",
+        "ordinal": 5
+      },
+      {
+        "sceneId": "scene-s7",
+        "stopId": "s7",
         "surface": "accessible_label",
-        "ordinal": 3
+        "ordinal": 8
       },
       {
         "sceneId": "scene-s7",
@@ -1345,7 +1518,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s8",
         "stopId": "s8",
         "surface": "accessible_label",
-        "ordinal": 203
+        "ordinal": 201
       },
       {
         "sceneId": "scene-s10",
@@ -1368,7 +1541,19 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s17",
         "stopId": "s17",
         "surface": "running_text",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "scene-s21",
+        "stopId": "s21",
+        "surface": "running_text",
         "ordinal": 1
+      },
+      {
+        "sceneId": "scene-s21",
+        "stopId": "s21",
+        "surface": "accessible_label",
+        "ordinal": 206
       },
       {
         "sceneId": "meaning:theme",
@@ -1385,7 +1570,13 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s19",
         "stopId": "s19",
         "surface": "running_text",
-        "ordinal": 2
+        "ordinal": 1
+      },
+      {
+        "sceneId": "scene-s19",
+        "stopId": "s19",
+        "surface": "running_text",
+        "ordinal": 9
       },
       {
         "sceneId": "scene-s19",
@@ -1397,7 +1588,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s19",
         "stopId": "s19",
         "surface": "accessible_label",
-        "ordinal": 101
+        "ordinal": 102
       },
       {
         "sceneId": "scene-s19",
@@ -1423,28 +1614,22 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "bin",
     "uses": [
       {
-        "sceneId": "scene-s4",
-        "stopId": "s4",
+        "sceneId": "scene-s17",
+        "stopId": "s17",
         "surface": "running_text",
-        "ordinal": 3
+        "ordinal": 5
       },
       {
-        "sceneId": "scene-s4",
-        "stopId": "s4",
-        "surface": "accessible_label",
-        "ordinal": 3
+        "sceneId": "scene-s17",
+        "stopId": "s17",
+        "surface": "prompt",
+        "ordinal": 4
       },
       {
-        "sceneId": "scene-s4",
-        "stopId": "s4",
+        "sceneId": "scene-s17",
+        "stopId": "s17",
         "surface": "accessible_label",
-        "ordinal": 103
-      },
-      {
-        "sceneId": "scene-s4",
-        "stopId": "s4",
-        "surface": "accessible_label",
-        "ordinal": 203
+        "ordinal": 208
       }
     ]
   },
@@ -1517,14 +1702,25 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s14",
         "stopId": "s14",
-        "surface": "running_text",
-        "ordinal": 6
-      },
-      {
-        "sceneId": "scene-s14",
-        "stopId": "s14",
         "surface": "accessible_label",
         "ordinal": 202
+      },
+      {
+        "sceneId": "meaning:clear",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 12
+      }
+    ]
+  },
+  {
+    "wordId": "blow",
+    "uses": [
+      {
+        "sceneId": "scene-s13",
+        "stopId": "s13",
+        "surface": "accessible_label",
+        "ordinal": 104
       }
     ]
   },
@@ -1535,13 +1731,13 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s27",
         "stopId": "s27",
         "surface": "running_text",
-        "ordinal": 7
+        "ordinal": 8
       },
       {
         "sceneId": "scene-s27",
         "stopId": "s27",
         "surface": "accessible_label",
-        "ordinal": 101
+        "ordinal": 103
       }
     ]
   },
@@ -1564,7 +1760,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s28",
         "stopId": "s28",
         "surface": "running_text",
-        "ordinal": 5
+        "ordinal": 10
       },
       {
         "sceneId": "scene-s28",
@@ -1611,7 +1807,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s28",
         "stopId": "s28",
         "surface": "running_text",
-        "ordinal": 9
+        "ordinal": 1
       },
       {
         "sceneId": "scene-s28",
@@ -1664,25 +1860,43 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s6",
         "stopId": "s6",
         "surface": "running_text",
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s6",
+        "stopId": "s6",
+        "surface": "accessible_label",
+        "ordinal": 202
+      },
+      {
+        "sceneId": "scene-s29",
+        "stopId": "s29",
+        "surface": "running_text",
+        "ordinal": 6
+      },
+      {
+        "sceneId": "scene-s29",
+        "stopId": "s29",
+        "surface": "running_text",
+        "ordinal": 16
+      },
+      {
+        "sceneId": "scene-s29",
+        "stopId": "s29",
+        "surface": "prompt",
         "ordinal": 4
       },
       {
-        "sceneId": "scene-s6",
-        "stopId": "s6",
+        "sceneId": "scene-s29",
+        "stopId": "s29",
         "surface": "accessible_label",
-        "ordinal": 101
+        "ordinal": 10
       },
       {
-        "sceneId": "scene-s6",
-        "stopId": "s6",
+        "sceneId": "scene-s29",
+        "stopId": "s29",
         "surface": "accessible_label",
-        "ordinal": 204
-      },
-      {
-        "sceneId": "scene-s8",
-        "stopId": "s8",
-        "surface": "accessible_label",
-        "ordinal": 0
+        "ordinal": 102
       },
       {
         "sceneId": "meaning:box",
@@ -1742,16 +1956,22 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 4
       },
       {
+        "sceneId": "scene-s14",
+        "stopId": "s14",
+        "surface": "accessible_label",
+        "ordinal": 9
+      },
+      {
         "sceneId": "scene-s39",
         "stopId": "s39",
         "surface": "running_text",
-        "ordinal": 4
+        "ordinal": 1
       },
       {
         "sceneId": "scene-s39",
         "stopId": "s39",
         "surface": "accessible_label",
-        "ordinal": 103
+        "ordinal": 207
       }
     ]
   },
@@ -1780,7 +2000,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s36",
         "stopId": "s36",
         "surface": "accessible_label",
-        "ordinal": 202
+        "ordinal": 203
       }
     ]
   },
@@ -1796,36 +2016,19 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   },
   {
-    "wordId": "bud",
-    "uses": [
-      {
-        "sceneId": "scene-s4",
-        "stopId": "s4",
-        "surface": "accessible_label",
-        "ordinal": 201
-      }
-    ]
-  },
-  {
     "wordId": "bun",
     "uses": [
       {
         "sceneId": "scene-s4",
         "stopId": "s4",
-        "surface": "running_text",
-        "ordinal": 1
+        "surface": "accessible_label",
+        "ordinal": 0
       },
       {
         "sceneId": "scene-s4",
         "stopId": "s4",
         "surface": "accessible_label",
-        "ordinal": 1
-      },
-      {
-        "sceneId": "scene-s4",
-        "stopId": "s4",
-        "surface": "accessible_label",
-        "ordinal": 101
+        "ordinal": 111
       },
       {
         "sceneId": "meaning:bun",
@@ -1848,25 +2051,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s6",
         "stopId": "s6",
         "surface": "running_text",
-        "ordinal": 1
-      },
-      {
-        "sceneId": "scene-s6",
-        "stopId": "s6",
-        "surface": "prompt",
-        "ordinal": 5
-      },
-      {
-        "sceneId": "scene-s6",
-        "stopId": "s6",
-        "surface": "accessible_label",
-        "ordinal": 1
-      },
-      {
-        "sceneId": "scene-s6",
-        "stopId": "s6",
-        "surface": "accessible_label",
-        "ordinal": 201
+        "ordinal": 2
       },
       {
         "sceneId": "meaning:buzz",
@@ -1886,10 +2071,16 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "by",
     "uses": [
       {
+        "sceneId": "scene-s12",
+        "stopId": "s12",
+        "surface": "accessible_label",
+        "ordinal": 208
+      },
+      {
         "sceneId": "scene-s16",
         "stopId": "s16",
-        "surface": "running_text",
-        "ordinal": 3
+        "surface": "accessible_label",
+        "ordinal": 104
       },
       {
         "sceneId": "scene-s16",
@@ -1904,82 +2095,16 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 3
       },
       {
-        "sceneId": "scene-s21",
-        "stopId": "s21",
-        "surface": "running_text",
-        "ordinal": 3
-      },
-      {
-        "sceneId": "scene-s23",
-        "stopId": "s23",
-        "surface": "running_text",
-        "ordinal": 9
-      },
-      {
         "sceneId": "scene-s23",
         "stopId": "s23",
         "surface": "accessible_label",
-        "ordinal": 102
+        "ordinal": 201
       },
       {
         "sceneId": "scene-s24",
         "stopId": "s24",
         "surface": "accessible_label",
         "ordinal": 101
-      },
-      {
-        "sceneId": "scene-s26",
-        "stopId": "s26",
-        "surface": "running_text",
-        "ordinal": 3
-      },
-      {
-        "sceneId": "scene-s26",
-        "stopId": "s26",
-        "surface": "accessible_label",
-        "ordinal": 1
-      },
-      {
-        "sceneId": "scene-s26",
-        "stopId": "s26",
-        "surface": "accessible_label",
-        "ordinal": 101
-      },
-      {
-        "sceneId": "scene-s26",
-        "stopId": "s26",
-        "surface": "accessible_label",
-        "ordinal": 201
-      },
-      {
-        "sceneId": "scene-s28",
-        "stopId": "s28",
-        "surface": "running_text",
-        "ordinal": 3
-      },
-      {
-        "sceneId": "scene-s29",
-        "stopId": "s29",
-        "surface": "running_text",
-        "ordinal": 4
-      },
-      {
-        "sceneId": "scene-s31",
-        "stopId": "s31",
-        "surface": "running_text",
-        "ordinal": 4
-      },
-      {
-        "sceneId": "scene-s31",
-        "stopId": "s31",
-        "surface": "running_text",
-        "ordinal": 10
-      },
-      {
-        "sceneId": "scene-s31",
-        "stopId": "s31",
-        "surface": "accessible_label",
-        "ordinal": 102
       },
       {
         "sceneId": "scene-s33",
@@ -2000,6 +2125,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 3
       },
       {
+        "sceneId": "scene-s34",
+        "stopId": "s34",
+        "surface": "running_text",
+        "ordinal": 9
+      },
+      {
         "sceneId": "scene-s37",
         "stopId": "s37",
         "surface": "accessible_label",
@@ -2016,12 +2147,6 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "s38",
         "surface": "accessible_label",
         "ordinal": 201
-      },
-      {
-        "sceneId": "scene-s39",
-        "stopId": "s39",
-        "surface": "running_text",
-        "ordinal": 15
       },
       {
         "sceneId": "scene-s39",
@@ -2061,20 +2186,14 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s18",
         "stopId": "s18",
-        "surface": "running_text",
-        "ordinal": 1
+        "surface": "accessible_label",
+        "ordinal": 7
       },
       {
         "sceneId": "scene-s18",
         "stopId": "s18",
         "surface": "accessible_label",
         "ordinal": 101
-      },
-      {
-        "sceneId": "scene-s34",
-        "stopId": "s34",
-        "surface": "running_text",
-        "ordinal": 12
       },
       {
         "sceneId": "meaning:cake",
@@ -2094,16 +2213,10 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "can",
     "uses": [
       {
-        "sceneId": "scene-s2",
-        "stopId": "s2",
-        "surface": "prompt",
-        "ordinal": 1
-      },
-      {
-        "sceneId": "scene-s4",
-        "stopId": "s4",
-        "surface": "prompt",
-        "ordinal": 1
+        "sceneId": "scene-s1",
+        "stopId": "s1",
+        "surface": "accessible_label",
+        "ordinal": 107
       },
       {
         "sceneId": "scene-s6",
@@ -2112,40 +2225,16 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 1
       },
       {
-        "sceneId": "scene-s8",
-        "stopId": "s8",
+        "sceneId": "scene-s9",
+        "stopId": "s9",
         "surface": "running_text",
-        "ordinal": 1
-      },
-      {
-        "sceneId": "scene-s8",
-        "stopId": "s8",
-        "surface": "prompt",
-        "ordinal": 1
-      },
-      {
-        "sceneId": "scene-s8",
-        "stopId": "s8",
-        "surface": "accessible_label",
-        "ordinal": 1
-      },
-      {
-        "sceneId": "scene-s8",
-        "stopId": "s8",
-        "surface": "accessible_label",
-        "ordinal": 101
-      },
-      {
-        "sceneId": "scene-s8",
-        "stopId": "s8",
-        "surface": "accessible_label",
-        "ordinal": 201
+        "ordinal": 5
       },
       {
         "sceneId": "scene-s9",
         "stopId": "s9",
-        "surface": "running_text",
-        "ordinal": 1
+        "surface": "accessible_label",
+        "ordinal": 208
       },
       {
         "sceneId": "scene-s10",
@@ -2154,10 +2243,16 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 3
       },
       {
-        "sceneId": "scene-s12",
-        "stopId": "s12",
-        "surface": "prompt",
-        "ordinal": 1
+        "sceneId": "scene-s13",
+        "stopId": "s13",
+        "surface": "running_text",
+        "ordinal": 4
+      },
+      {
+        "sceneId": "scene-s14",
+        "stopId": "s14",
+        "surface": "running_text",
+        "ordinal": 6
       },
       {
         "sceneId": "scene-s15",
@@ -2166,34 +2261,40 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 2
       },
       {
-        "sceneId": "scene-s19",
-        "stopId": "s19",
-        "surface": "running_text",
-        "ordinal": 7
-      },
-      {
         "sceneId": "scene-s20",
         "stopId": "s20",
         "surface": "running_text",
         "ordinal": 6
       },
       {
-        "sceneId": "scene-s23",
-        "stopId": "s23",
+        "sceneId": "scene-s21",
+        "stopId": "s21",
         "surface": "running_text",
-        "ordinal": 2
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s22",
+        "stopId": "s22",
+        "surface": "running_text",
+        "ordinal": 1
       },
       {
         "sceneId": "scene-s23",
         "stopId": "s23",
         "surface": "running_text",
-        "ordinal": 7
+        "ordinal": 5
       },
       {
         "sceneId": "scene-s24",
         "stopId": "s24",
         "surface": "running_text",
         "ordinal": 2
+      },
+      {
+        "sceneId": "scene-s24",
+        "stopId": "s24",
+        "surface": "running_text",
+        "ordinal": 9
       },
       {
         "sceneId": "scene-s25",
@@ -2210,14 +2311,20 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s28",
         "stopId": "s28",
+        "surface": "running_text",
+        "ordinal": 11
+      },
+      {
+        "sceneId": "scene-s28",
+        "stopId": "s28",
         "surface": "prompt",
         "ordinal": 1
       },
       {
-        "sceneId": "scene-s29",
-        "stopId": "s29",
-        "surface": "running_text",
-        "ordinal": 11
+        "sceneId": "scene-s28",
+        "stopId": "s28",
+        "surface": "accessible_label",
+        "ordinal": 207
       },
       {
         "sceneId": "scene-s30",
@@ -2235,7 +2342,13 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s31",
         "stopId": "s31",
         "surface": "running_text",
-        "ordinal": 15
+        "ordinal": 2
+      },
+      {
+        "sceneId": "scene-s32",
+        "stopId": "s32",
+        "surface": "running_text",
+        "ordinal": 17
       },
       {
         "sceneId": "scene-s33",
@@ -2253,13 +2366,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s33",
         "stopId": "s33",
         "surface": "running_text",
-        "ordinal": 19
-      },
-      {
-        "sceneId": "scene-s34",
-        "stopId": "s34",
-        "surface": "running_text",
-        "ordinal": 8
+        "ordinal": 22
       },
       {
         "sceneId": "scene-s35",
@@ -2277,13 +2384,13 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s36",
         "stopId": "s36",
         "surface": "running_text",
-        "ordinal": 5
+        "ordinal": 6
       },
       {
         "sceneId": "scene-s37",
         "stopId": "s37",
         "surface": "running_text",
-        "ordinal": 2
+        "ordinal": 18
       },
       {
         "sceneId": "scene-s38",
@@ -2295,7 +2402,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s39",
         "stopId": "s39",
         "surface": "running_text",
-        "ordinal": 1
+        "ordinal": 8
       },
       {
         "sceneId": "meaning:bun",
@@ -2322,6 +2429,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 14
       },
       {
+        "sceneId": "meaning:clear",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 14
+      },
+      {
         "sceneId": "meaning:fiction",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -2332,6 +2445,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 7
+      },
+      {
+        "sceneId": "meaning:gap",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 11
       },
       {
         "sceneId": "meaning:hand",
@@ -2406,6 +2525,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 12
       },
       {
+        "sceneId": "meaning:start",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 9
+      },
+      {
         "sceneId": "meaning:stone",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -2428,6 +2553,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 28
+      },
+      {
+        "sceneId": "meaning:turn",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 9
       }
     ]
   },
@@ -2438,19 +2569,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s31",
         "stopId": "s31",
         "surface": "running_text",
-        "ordinal": 9
-      },
-      {
-        "sceneId": "scene-s31",
-        "stopId": "s31",
-        "surface": "running_text",
-        "ordinal": 14
-      },
-      {
-        "sceneId": "scene-s31",
-        "stopId": "s31",
-        "surface": "prompt",
-        "ordinal": 5
+        "ordinal": 8
       },
       {
         "sceneId": "scene-s31",
@@ -2462,7 +2581,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s31",
         "stopId": "s31",
         "surface": "accessible_label",
-        "ordinal": 101
+        "ordinal": 102
       },
       {
         "sceneId": "scene-s31",
@@ -2554,8 +2673,8 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s37",
         "stopId": "s37",
-        "surface": "running_text",
-        "ordinal": 8
+        "surface": "accessible_label",
+        "ordinal": 14
       },
       {
         "sceneId": "scene-s37",
@@ -2578,7 +2697,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s34",
         "stopId": "s34",
         "surface": "running_text",
-        "ordinal": 16
+        "ordinal": 15
       },
       {
         "sceneId": "scene-s34",
@@ -2590,7 +2709,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s34",
         "stopId": "s34",
         "surface": "accessible_label",
-        "ordinal": 101
+        "ordinal": 102
       },
       {
         "sceneId": "meaning:chair",
@@ -2612,8 +2731,8 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s37",
         "stopId": "s37",
-        "surface": "running_text",
-        "ordinal": 7
+        "surface": "accessible_label",
+        "ordinal": 13
       },
       {
         "sceneId": "scene-s37",
@@ -2698,10 +2817,46 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "clear",
     "uses": [
       {
+        "sceneId": "scene-s13",
+        "stopId": "s13",
+        "surface": "running_text",
+        "ordinal": 5
+      },
+      {
+        "sceneId": "scene-s22",
+        "stopId": "s22",
+        "surface": "prompt",
+        "ordinal": 4
+      },
+      {
+        "sceneId": "scene-s22",
+        "stopId": "s22",
+        "surface": "accessible_label",
+        "ordinal": 9
+      },
+      {
         "sceneId": "meaning:action",
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 17
+      },
+      {
+        "sceneId": "meaning:clear",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "meaning:clear",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 18
+      },
+      {
+        "sceneId": "meaning:clear",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 24
       },
       {
         "sceneId": "meaning:pure",
@@ -2731,6 +2886,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "s16",
         "surface": "accessible_label",
         "ordinal": 100
+      },
+      {
+        "sceneId": "scene-s37",
+        "stopId": "s37",
+        "surface": "running_text",
+        "ordinal": 19
       }
     ]
   },
@@ -2740,8 +2901,8 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s37",
         "stopId": "s37",
-        "surface": "running_text",
-        "ordinal": 3
+        "surface": "accessible_label",
+        "ordinal": 10
       },
       {
         "sceneId": "scene-s37",
@@ -2754,6 +2915,18 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
   {
     "wordId": "close",
     "uses": [
+      {
+        "sceneId": "scene-s29",
+        "stopId": "s29",
+        "surface": "running_text",
+        "ordinal": 11
+      },
+      {
+        "sceneId": "scene-s29",
+        "stopId": "s29",
+        "surface": "accessible_label",
+        "ordinal": 0
+      },
       {
         "sceneId": "meaning:by",
         "stopId": "meaning-support",
@@ -2781,7 +2954,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s26",
         "stopId": "s26",
         "surface": "running_text",
-        "ordinal": 5
+        "ordinal": 1
       },
       {
         "sceneId": "scene-s26",
@@ -2793,13 +2966,19 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s27",
         "stopId": "s27",
         "surface": "running_text",
-        "ordinal": 9
+        "ordinal": 10
       },
       {
         "sceneId": "scene-s27",
         "stopId": "s27",
         "surface": "accessible_label",
-        "ordinal": 103
+        "ordinal": 2
+      },
+      {
+        "sceneId": "scene-s27",
+        "stopId": "s27",
+        "surface": "accessible_label",
+        "ordinal": 106
       }
     ]
   },
@@ -2833,6 +3012,17 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   },
   {
+    "wordId": "complete",
+    "uses": [
+      {
+        "sceneId": "scene-s39",
+        "stopId": "s39",
+        "surface": "running_text",
+        "ordinal": 4
+      }
+    ]
+  },
+  {
     "wordId": "creature",
     "uses": [
       {
@@ -2850,36 +3040,25 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   },
   {
-    "wordId": "cross",
-    "uses": [
-      {
-        "sceneId": "scene-s39",
-        "stopId": "s39",
-        "surface": "running_text",
-        "ordinal": 2
-      }
-    ]
-  },
-  {
     "wordId": "cube",
     "uses": [
       {
         "sceneId": "scene-s21",
         "stopId": "s21",
         "surface": "running_text",
-        "ordinal": 1
+        "ordinal": 2
       },
       {
         "sceneId": "scene-s21",
         "stopId": "s21",
         "surface": "running_text",
-        "ordinal": 11
+        "ordinal": 12
       },
       {
         "sceneId": "scene-s21",
         "stopId": "s21",
         "surface": "accessible_label",
-        "ordinal": 202
+        "ordinal": 207
       },
       {
         "sceneId": "meaning:cube",
@@ -2940,6 +3119,24 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "cut",
     "uses": [
       {
+        "sceneId": "scene-s8",
+        "stopId": "s8",
+        "surface": "running_text",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "scene-s8",
+        "stopId": "s8",
+        "surface": "accessible_label",
+        "ordinal": 100
+      },
+      {
+        "sceneId": "scene-s8",
+        "stopId": "s8",
+        "surface": "accessible_label",
+        "ordinal": 200
+      },
+      {
         "sceneId": "meaning:cake",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -2963,22 +3160,16 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "dark",
     "uses": [
       {
-        "sceneId": "scene-s31",
-        "stopId": "s31",
-        "surface": "running_text",
-        "ordinal": 1
-      },
-      {
         "sceneId": "scene-s32",
         "stopId": "s32",
-        "surface": "running_text",
-        "ordinal": 6
+        "surface": "accessible_label",
+        "ordinal": 206
       },
       {
         "sceneId": "scene-s36",
         "stopId": "s36",
         "surface": "running_text",
-        "ordinal": 12
+        "ordinal": 9
       },
       {
         "sceneId": "scene-s36",
@@ -2990,7 +3181,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s37",
         "stopId": "s37",
         "surface": "running_text",
-        "ordinal": 6
+        "ordinal": 8
       },
       {
         "sceneId": "meaning:night",
@@ -3014,6 +3205,23 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 11
+      }
+    ]
+  },
+  {
+    "wordId": "do",
+    "uses": [
+      {
+        "sceneId": "scene-s2",
+        "stopId": "s2",
+        "surface": "accessible_label",
+        "ordinal": 8
+      },
+      {
+        "sceneId": "scene-s37",
+        "stopId": "s37",
+        "surface": "accessible_label",
+        "ordinal": 8
       }
     ]
   },
@@ -3052,7 +3260,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s32",
         "stopId": "s32",
         "surface": "running_text",
-        "ordinal": 11
+        "ordinal": 9
       },
       {
         "sceneId": "scene-s32",
@@ -3081,6 +3289,41 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   },
   {
+    "wordId": "drum",
+    "uses": [
+      {
+        "sceneId": "scene-s3",
+        "stopId": "s3",
+        "surface": "running_text",
+        "ordinal": 4
+      },
+      {
+        "sceneId": "scene-s3",
+        "stopId": "s3",
+        "surface": "prompt",
+        "ordinal": 5
+      },
+      {
+        "sceneId": "scene-s3",
+        "stopId": "s3",
+        "surface": "accessible_label",
+        "ordinal": 204
+      },
+      {
+        "sceneId": "meaning:drum",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 1
+      },
+      {
+        "sceneId": "meaning:drum",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 22
+      }
+    ]
+  },
+  {
     "wordId": "ear",
     "uses": [
       {
@@ -3094,6 +3337,23 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 20
+      }
+    ]
+  },
+  {
+    "wordId": "echo",
+    "uses": [
+      {
+        "sceneId": "scene-s32",
+        "stopId": "s32",
+        "surface": "prompt",
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s32",
+        "stopId": "s32",
+        "surface": "accessible_label",
+        "ordinal": 212
       }
     ]
   },
@@ -3115,13 +3375,25 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   },
   {
-    "wordId": "fair",
+    "wordId": "eyes",
     "uses": [
       {
-        "sceneId": "scene-s34",
-        "stopId": "s34",
-        "surface": "running_text",
-        "ordinal": 11
+        "sceneId": "meaning:see",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 6
+      },
+      {
+        "sceneId": "meaning:see",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 10
+      },
+      {
+        "sceneId": "meaning:see",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 16
       }
     ]
   },
@@ -3133,6 +3405,30 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "s2",
         "surface": "accessible_label",
         "ordinal": 200
+      },
+      {
+        "sceneId": "scene-s13",
+        "stopId": "s13",
+        "surface": "running_text",
+        "ordinal": 2
+      },
+      {
+        "sceneId": "scene-s13",
+        "stopId": "s13",
+        "surface": "accessible_label",
+        "ordinal": 2
+      },
+      {
+        "sceneId": "scene-s13",
+        "stopId": "s13",
+        "surface": "accessible_label",
+        "ordinal": 102
+      },
+      {
+        "sceneId": "scene-s13",
+        "stopId": "s13",
+        "surface": "accessible_label",
+        "ordinal": 201
       }
     ]
   },
@@ -3162,10 +3458,28 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "fern",
     "uses": [
       {
+        "sceneId": "scene-s2",
+        "stopId": "s2",
+        "surface": "prompt",
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s2",
+        "stopId": "s2",
+        "surface": "accessible_label",
+        "ordinal": 6
+      },
+      {
         "sceneId": "scene-s14",
         "stopId": "s14",
         "surface": "prompt",
         "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s14",
+        "stopId": "s14",
+        "surface": "accessible_label",
+        "ordinal": 8
       },
       {
         "sceneId": "scene-s33",
@@ -3217,37 +3531,49 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s2",
         "stopId": "s2",
         "surface": "running_text",
-        "ordinal": 2
+        "ordinal": 1
       },
       {
         "sceneId": "scene-s2",
         "stopId": "s2",
         "surface": "accessible_label",
-        "ordinal": 2
+        "ordinal": 3
       },
       {
         "sceneId": "scene-s2",
         "stopId": "s2",
         "surface": "accessible_label",
-        "ordinal": 101
+        "ordinal": 102
       },
       {
         "sceneId": "scene-s2",
         "stopId": "s2",
         "surface": "accessible_label",
         "ordinal": 201
+      },
+      {
+        "sceneId": "scene-s9",
+        "stopId": "s9",
+        "surface": "running_text",
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s9",
+        "stopId": "s9",
+        "surface": "accessible_label",
+        "ordinal": 2
+      },
+      {
+        "sceneId": "scene-s9",
+        "stopId": "s9",
+        "surface": "accessible_label",
+        "ordinal": 203
       }
     ]
   },
   {
     "wordId": "fish",
     "uses": [
-      {
-        "sceneId": "scene-s8",
-        "stopId": "s8",
-        "surface": "prompt",
-        "ordinal": 4
-      },
       {
         "sceneId": "scene-s9",
         "stopId": "s9",
@@ -3262,8 +3588,14 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s2",
         "stopId": "s2",
+        "surface": "running_text",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "scene-s2",
+        "stopId": "s2",
         "surface": "accessible_label",
-        "ordinal": 100
+        "ordinal": 0
       },
       {
         "sceneId": "scene-s4",
@@ -3275,17 +3607,53 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s4",
         "stopId": "s4",
         "surface": "accessible_label",
+        "ordinal": 100
+      },
+      {
+        "sceneId": "scene-s12",
+        "stopId": "s12",
+        "surface": "running_text",
         "ordinal": 0
       },
       {
-        "sceneId": "scene-s4",
-        "stopId": "s4",
+        "sceneId": "scene-s12",
+        "stopId": "s12",
         "surface": "accessible_label",
         "ordinal": 100
       },
       {
-        "sceneId": "scene-s4",
-        "stopId": "s4",
+        "sceneId": "scene-s12",
+        "stopId": "s12",
+        "surface": "accessible_label",
+        "ordinal": 200
+      },
+      {
+        "sceneId": "scene-s21",
+        "stopId": "s21",
+        "surface": "running_text",
+        "ordinal": 7
+      },
+      {
+        "sceneId": "scene-s39",
+        "stopId": "s39",
+        "surface": "running_text",
+        "ordinal": 9
+      },
+      {
+        "sceneId": "scene-s39",
+        "stopId": "s39",
+        "surface": "running_text",
+        "ordinal": 13
+      },
+      {
+        "sceneId": "scene-s39",
+        "stopId": "s39",
+        "surface": "accessible_label",
+        "ordinal": 100
+      },
+      {
+        "sceneId": "scene-s39",
+        "stopId": "s39",
         "surface": "accessible_label",
         "ordinal": 200
       },
@@ -3303,44 +3671,20 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s8",
         "stopId": "s8",
-        "surface": "running_text",
-        "ordinal": 2
-      },
-      {
-        "sceneId": "scene-s8",
-        "stopId": "s8",
-        "surface": "accessible_label",
-        "ordinal": 2
-      },
-      {
-        "sceneId": "scene-s8",
-        "stopId": "s8",
-        "surface": "accessible_label",
-        "ordinal": 102
-      },
-      {
-        "sceneId": "scene-s8",
-        "stopId": "s8",
-        "surface": "accessible_label",
-        "ordinal": 202
-      },
-      {
-        "sceneId": "scene-s9",
-        "stopId": "s9",
-        "surface": "running_text",
-        "ordinal": 2
-      },
-      {
-        "sceneId": "scene-s9",
-        "stopId": "s9",
         "surface": "accessible_label",
         "ordinal": 0
       },
       {
         "sceneId": "scene-s9",
         "stopId": "s9",
+        "surface": "running_text",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "scene-s9",
+        "stopId": "s9",
         "surface": "accessible_label",
-        "ordinal": 100
+        "ordinal": 0
       },
       {
         "sceneId": "scene-s9",
@@ -3374,7 +3718,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s14",
         "stopId": "s14",
         "surface": "accessible_label",
-        "ordinal": 2
+        "ordinal": 4
       },
       {
         "sceneId": "scene-s14",
@@ -3397,19 +3741,19 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s18",
         "stopId": "s18",
         "surface": "running_text",
-        "ordinal": 8
+        "ordinal": 1
+      },
+      {
+        "sceneId": "scene-s18",
+        "stopId": "s18",
+        "surface": "running_text",
+        "ordinal": 7
       },
       {
         "sceneId": "scene-s18",
         "stopId": "s18",
         "surface": "accessible_label",
-        "ordinal": 1
-      },
-      {
-        "sceneId": "scene-s22",
-        "stopId": "s22",
-        "surface": "running_text",
-        "ordinal": 7
+        "ordinal": 3
       },
       {
         "sceneId": "scene-s22",
@@ -3477,12 +3821,6 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s36",
         "stopId": "s36",
-        "surface": "running_text",
-        "ordinal": 6
-      },
-      {
-        "sceneId": "scene-s36",
-        "stopId": "s36",
         "surface": "accessible_label",
         "ordinal": 0
       },
@@ -3491,6 +3829,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "s38",
         "surface": "accessible_label",
         "ordinal": 0
+      },
+      {
+        "sceneId": "meaning:train",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 14
       }
     ]
   },
@@ -3501,7 +3845,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s27",
         "stopId": "s27",
         "surface": "accessible_label",
-        "ordinal": 0
+        "ordinal": 1
       },
       {
         "sceneId": "meaning:cake",
@@ -3574,6 +3918,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 25
       },
       {
+        "sceneId": "meaning:clear",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 5
+      },
+      {
         "sceneId": "meaning:lift",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -3598,6 +3948,18 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 11
       },
       {
+        "sceneId": "meaning:see",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 14
+      },
+      {
+        "sceneId": "meaning:start",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 17
+      },
+      {
         "sceneId": "meaning:thin",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -3611,8 +3973,74 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s4",
         "stopId": "s4",
+        "surface": "running_text",
+        "ordinal": 4
+      },
+      {
+        "sceneId": "scene-s4",
+        "stopId": "s4",
         "surface": "prompt",
-        "ordinal": 6
+        "ordinal": 4
+      },
+      {
+        "sceneId": "scene-s4",
+        "stopId": "s4",
+        "surface": "accessible_label",
+        "ordinal": 2
+      },
+      {
+        "sceneId": "scene-s4",
+        "stopId": "s4",
+        "surface": "accessible_label",
+        "ordinal": 107
+      },
+      {
+        "sceneId": "scene-s4",
+        "stopId": "s4",
+        "surface": "accessible_label",
+        "ordinal": 202
+      },
+      {
+        "sceneId": "scene-s39",
+        "stopId": "s39",
+        "surface": "running_text",
+        "ordinal": 12
+      },
+      {
+        "sceneId": "scene-s39",
+        "stopId": "s39",
+        "surface": "running_text",
+        "ordinal": 19
+      },
+      {
+        "sceneId": "scene-s39",
+        "stopId": "s39",
+        "surface": "accessible_label",
+        "ordinal": 103
+      },
+      {
+        "sceneId": "scene-s39",
+        "stopId": "s39",
+        "surface": "accessible_label",
+        "ordinal": 208
+      },
+      {
+        "sceneId": "meaning:gap",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 1
+      },
+      {
+        "sceneId": "meaning:gap",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 15
+      },
+      {
+        "sceneId": "meaning:gap",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 27
       }
     ]
   },
@@ -3632,6 +4060,18 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 102
       },
       {
+        "sceneId": "scene-s16",
+        "stopId": "s16",
+        "surface": "running_text",
+        "ordinal": 6
+      },
+      {
+        "sceneId": "scene-s16",
+        "stopId": "s16",
+        "surface": "accessible_label",
+        "ordinal": 106
+      },
+      {
         "sceneId": "scene-s21",
         "stopId": "s21",
         "surface": "accessible_label",
@@ -3641,13 +4081,43 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s31",
         "stopId": "s31",
         "surface": "running_text",
-        "ordinal": 12
+        "ordinal": 5
+      },
+      {
+        "sceneId": "scene-s31",
+        "stopId": "s31",
+        "surface": "prompt",
+        "ordinal": 4
       },
       {
         "sceneId": "scene-s31",
         "stopId": "s31",
         "surface": "accessible_label",
-        "ordinal": 103
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s31",
+        "stopId": "s31",
+        "surface": "accessible_label",
+        "ordinal": 111
+      },
+      {
+        "sceneId": "meaning:gate",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 1
+      },
+      {
+        "sceneId": "meaning:gate",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 14
+      },
+      {
+        "sceneId": "meaning:gate",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 25
       }
     ]
   },
@@ -3673,21 +4143,9 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 100
       },
       {
-        "sceneId": "scene-s6",
-        "stopId": "s6",
-        "surface": "accessible_label",
-        "ordinal": 200
-      },
-      {
         "sceneId": "scene-s7",
         "stopId": "s7",
         "surface": "running_text",
-        "ordinal": 0
-      },
-      {
-        "sceneId": "scene-s7",
-        "stopId": "s7",
-        "surface": "accessible_label",
         "ordinal": 0
       },
       {
@@ -3705,17 +4163,6 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   },
   {
-    "wordId": "giant",
-    "uses": [
-      {
-        "sceneId": "scene-s37",
-        "stopId": "s37",
-        "surface": "running_text",
-        "ordinal": 1
-      }
-    ]
-  },
-  {
     "wordId": "girl",
     "uses": [
       {
@@ -3728,13 +4175,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s33",
         "stopId": "s33",
         "surface": "running_text",
-        "ordinal": 18
-      },
-      {
-        "sceneId": "scene-s34",
-        "stopId": "s34",
-        "surface": "running_text",
-        "ordinal": 7
+        "ordinal": 21
       },
       {
         "sceneId": "scene-s35",
@@ -3757,6 +4198,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s27",
         "stopId": "s27",
         "surface": "accessible_label",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "scene-s27",
+        "stopId": "s27",
+        "surface": "accessible_label",
         "ordinal": 100
       }
     ]
@@ -3769,6 +4216,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "s26",
         "surface": "running_text",
         "ordinal": 9
+      },
+      {
+        "sceneId": "scene-s28",
+        "stopId": "s28",
+        "surface": "running_text",
+        "ordinal": 12
       },
       {
         "sceneId": "meaning:cup",
@@ -3785,7 +4238,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s26",
         "stopId": "s26",
         "surface": "accessible_label",
-        "ordinal": 202
+        "ordinal": 201
       }
     ]
   },
@@ -3793,10 +4246,34 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "grow",
     "uses": [
       {
-        "sceneId": "scene-s29",
-        "stopId": "s29",
-        "surface": "prompt",
-        "ordinal": 4
+        "sceneId": "scene-s14",
+        "stopId": "s14",
+        "surface": "running_text",
+        "ordinal": 7
+      },
+      {
+        "sceneId": "scene-s14",
+        "stopId": "s14",
+        "surface": "accessible_label",
+        "ordinal": 6
+      },
+      {
+        "sceneId": "meaning:grow",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "meaning:grow",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 12
+      },
+      {
+        "sceneId": "meaning:grow",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 22
       }
     ]
   },
@@ -3823,8 +4300,8 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s12",
         "stopId": "s12",
-        "surface": "running_text",
-        "ordinal": 5
+        "surface": "accessible_label",
+        "ordinal": 209
       },
       {
         "sceneId": "meaning:by",
@@ -3839,10 +4316,22 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 21
       },
       {
+        "sceneId": "meaning:clear",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 21
+      },
+      {
         "sceneId": "meaning:frog",
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 29
+      },
+      {
+        "sceneId": "meaning:grow",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 17
       },
       {
         "sceneId": "meaning:hand",
@@ -3869,16 +4358,40 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 18
       },
       {
+        "sceneId": "meaning:start",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 15
+      },
+      {
         "sceneId": "meaning:stone",
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 15
+      },
+      {
+        "sceneId": "meaning:train",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 23
+      },
+      {
+        "sceneId": "meaning:turn",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 16
       }
     ]
   },
   {
     "wordId": "hard",
     "uses": [
+      {
+        "sceneId": "scene-s4",
+        "stopId": "s4",
+        "surface": "accessible_label",
+        "ordinal": 102
+      },
       {
         "sceneId": "meaning:rock",
         "stopId": "meaning-support",
@@ -4017,6 +4530,18 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 4
       },
       {
+        "sceneId": "scene-s28",
+        "stopId": "s28",
+        "surface": "running_text",
+        "ordinal": 8
+      },
+      {
+        "sceneId": "scene-s28",
+        "stopId": "s28",
+        "surface": "accessible_label",
+        "ordinal": 204
+      },
+      {
         "sceneId": "meaning:hot",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -4046,10 +4571,22 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 200
       },
       {
+        "sceneId": "scene-s13",
+        "stopId": "s13",
+        "surface": "accessible_label",
+        "ordinal": 200
+      },
+      {
         "sceneId": "scene-s32",
         "stopId": "s32",
         "surface": "running_text",
         "ordinal": 2
+      },
+      {
+        "sceneId": "meaning:drum",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 10
       }
     ]
   },
@@ -4060,19 +4597,31 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s6",
         "stopId": "s6",
         "surface": "running_text",
-        "ordinal": 2
+        "ordinal": 4
       },
       {
         "sceneId": "scene-s6",
         "stopId": "s6",
         "surface": "prompt",
-        "ordinal": 6
+        "ordinal": 7
       },
       {
         "sceneId": "scene-s6",
         "stopId": "s6",
         "surface": "accessible_label",
-        "ordinal": 202
+        "ordinal": 2
+      },
+      {
+        "sceneId": "scene-s6",
+        "stopId": "s6",
+        "surface": "accessible_label",
+        "ordinal": 102
+      },
+      {
+        "sceneId": "scene-s6",
+        "stopId": "s6",
+        "surface": "accessible_label",
+        "ordinal": 206
       },
       {
         "sceneId": "scene-s20",
@@ -4107,7 +4656,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s28",
         "stopId": "s28",
         "surface": "running_text",
-        "ordinal": 10
+        "ordinal": 6
       },
       {
         "sceneId": "scene-s28",
@@ -4130,13 +4679,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s3",
         "stopId": "s3",
         "surface": "running_text",
-        "ordinal": 1
-      },
-      {
-        "sceneId": "scene-s3",
-        "stopId": "s3",
-        "surface": "prompt",
-        "ordinal": 3
+        "ordinal": 2
       },
       {
         "sceneId": "scene-s3",
@@ -4148,25 +4691,19 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s3",
         "stopId": "s3",
         "surface": "accessible_label",
-        "ordinal": 201
+        "ordinal": 202
       },
       {
         "sceneId": "scene-s18",
         "stopId": "s18",
         "surface": "running_text",
-        "ordinal": 5
+        "ordinal": 4
       },
       {
         "sceneId": "scene-s18",
         "stopId": "s18",
         "surface": "running_text",
-        "ordinal": 9
-      },
-      {
-        "sceneId": "scene-s18",
-        "stopId": "s18",
-        "surface": "accessible_label",
-        "ordinal": 2
+        "ordinal": 8
       },
       {
         "sceneId": "scene-s18",
@@ -4198,26 +4735,8 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "how",
     "uses": [
       {
-        "sceneId": "scene-s2",
-        "stopId": "s2",
-        "surface": "prompt",
-        "ordinal": 0
-      },
-      {
-        "sceneId": "scene-s4",
-        "stopId": "s4",
-        "surface": "prompt",
-        "ordinal": 0
-      },
-      {
         "sceneId": "scene-s6",
         "stopId": "s6",
-        "surface": "prompt",
-        "ordinal": 0
-      },
-      {
-        "sceneId": "scene-s12",
-        "stopId": "s12",
         "surface": "prompt",
         "ordinal": 0
       },
@@ -4265,65 +4784,59 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s4",
         "stopId": "s4",
         "surface": "accessible_label",
-        "ordinal": 102
+        "ordinal": 1
       },
       {
-        "sceneId": "scene-s4",
-        "stopId": "s4",
-        "surface": "accessible_label",
-        "ordinal": 202
-      },
-      {
-        "sceneId": "scene-s6",
-        "stopId": "s6",
+        "sceneId": "scene-s12",
+        "stopId": "s12",
         "surface": "running_text",
         "ordinal": 3
       },
       {
-        "sceneId": "scene-s6",
-        "stopId": "s6",
+        "sceneId": "scene-s17",
+        "stopId": "s17",
+        "surface": "running_text",
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s17",
+        "stopId": "s17",
         "surface": "accessible_label",
         "ordinal": 2
       },
       {
-        "sceneId": "scene-s6",
-        "stopId": "s6",
+        "sceneId": "scene-s27",
+        "stopId": "s27",
+        "surface": "running_text",
+        "ordinal": 2
+      },
+      {
+        "sceneId": "scene-s28",
+        "stopId": "s28",
         "surface": "accessible_label",
         "ordinal": 102
       },
       {
-        "sceneId": "scene-s6",
-        "stopId": "s6",
-        "surface": "accessible_label",
-        "ordinal": 203
-      },
-      {
-        "sceneId": "scene-s23",
-        "stopId": "s23",
-        "surface": "accessible_label",
-        "ordinal": 201
-      },
-      {
-        "sceneId": "scene-s27",
-        "stopId": "s27",
-        "surface": "accessible_label",
-        "ordinal": 1
-      },
-      {
-        "sceneId": "scene-s27",
-        "stopId": "s27",
-        "surface": "accessible_label",
-        "ordinal": 201
-      },
-      {
-        "sceneId": "scene-s28",
-        "stopId": "s28",
+        "sceneId": "scene-s29",
+        "stopId": "s29",
         "surface": "running_text",
-        "ordinal": 7
+        "ordinal": 4
       },
       {
-        "sceneId": "scene-s28",
-        "stopId": "s28",
+        "sceneId": "scene-s39",
+        "stopId": "s39",
+        "surface": "running_text",
+        "ordinal": 10
+      },
+      {
+        "sceneId": "scene-s39",
+        "stopId": "s39",
+        "surface": "running_text",
+        "ordinal": 17
+      },
+      {
+        "sceneId": "scene-s39",
+        "stopId": "s39",
         "surface": "accessible_label",
         "ordinal": 102
       },
@@ -4346,10 +4859,22 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 25
       },
       {
+        "sceneId": "meaning:clear",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 7
+      },
+      {
         "sceneId": "meaning:coin",
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 20
+      },
+      {
+        "sceneId": "meaning:gate",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 7
       },
       {
         "sceneId": "meaning:little",
@@ -4387,38 +4912,32 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "is",
     "uses": [
       {
+        "sceneId": "scene-s6",
+        "stopId": "s6",
+        "surface": "accessible_label",
+        "ordinal": 204
+      },
+      {
         "sceneId": "scene-s17",
         "stopId": "s17",
         "surface": "running_text",
-        "ordinal": 3
+        "ordinal": 2
       },
       {
         "sceneId": "scene-s18",
         "stopId": "s18",
         "surface": "running_text",
-        "ordinal": 3
+        "ordinal": 2
+      },
+      {
+        "sceneId": "scene-s19",
+        "stopId": "s19",
+        "surface": "running_text",
+        "ordinal": 2
       },
       {
         "sceneId": "scene-s20",
         "stopId": "s20",
-        "surface": "running_text",
-        "ordinal": 2
-      },
-      {
-        "sceneId": "scene-s21",
-        "stopId": "s21",
-        "surface": "running_text",
-        "ordinal": 2
-      },
-      {
-        "sceneId": "scene-s21",
-        "stopId": "s21",
-        "surface": "running_text",
-        "ordinal": 8
-      },
-      {
-        "sceneId": "scene-s22",
-        "stopId": "s22",
         "surface": "running_text",
         "ordinal": 2
       },
@@ -4453,28 +4972,34 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 3
       },
       {
+        "sceneId": "scene-s29",
+        "stopId": "s29",
+        "surface": "running_text",
+        "ordinal": 9
+      },
+      {
         "sceneId": "scene-s30",
         "stopId": "s30",
         "surface": "running_text",
         "ordinal": 11
       },
       {
-        "sceneId": "scene-s31",
-        "stopId": "s31",
-        "surface": "running_text",
-        "ordinal": 3
-      },
-      {
         "sceneId": "scene-s32",
         "stopId": "s32",
         "surface": "running_text",
-        "ordinal": 8
+        "ordinal": 7
       },
       {
         "sceneId": "scene-s34",
         "stopId": "s34",
         "surface": "running_text",
         "ordinal": 2
+      },
+      {
+        "sceneId": "scene-s34",
+        "stopId": "s34",
+        "surface": "running_text",
+        "ordinal": 8
       },
       {
         "sceneId": "scene-s35",
@@ -4492,7 +5017,19 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s36",
         "stopId": "s36",
         "surface": "running_text",
-        "ordinal": 18
+        "ordinal": 21
+      },
+      {
+        "sceneId": "scene-s37",
+        "stopId": "s37",
+        "surface": "running_text",
+        "ordinal": 7
+      },
+      {
+        "sceneId": "scene-s39",
+        "stopId": "s39",
+        "surface": "running_text",
+        "ordinal": 2
       },
       {
         "sceneId": "scene-s40",
@@ -4603,6 +5140,18 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 2
       },
       {
+        "sceneId": "meaning:drum",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 2
+      },
+      {
+        "sceneId": "meaning:drum",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 9
+      },
+      {
         "sceneId": "meaning:fiction",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -4610,6 +5159,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       },
       {
         "sceneId": "meaning:frog",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 2
+      },
+      {
+        "sceneId": "meaning:gap",
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 2
@@ -4735,6 +5290,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 19
       },
       {
+        "sceneId": "meaning:train",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 2
+      },
+      {
         "sceneId": "meaning:tree",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -4752,16 +5313,34 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "it",
     "uses": [
       {
-        "sceneId": "scene-s16",
-        "stopId": "s16",
+        "sceneId": "scene-s2",
+        "stopId": "s2",
+        "surface": "accessible_label",
+        "ordinal": 12
+      },
+      {
+        "sceneId": "scene-s8",
+        "stopId": "s8",
+        "surface": "accessible_label",
+        "ordinal": 112
+      },
+      {
+        "sceneId": "scene-s9",
+        "stopId": "s9",
         "surface": "running_text",
         "ordinal": 4
       },
       {
-        "sceneId": "scene-s19",
-        "stopId": "s19",
+        "sceneId": "scene-s13",
+        "stopId": "s13",
         "surface": "running_text",
-        "ordinal": 6
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s16",
+        "stopId": "s16",
+        "surface": "accessible_label",
+        "ordinal": 109
       },
       {
         "sceneId": "scene-s20",
@@ -4770,10 +5349,34 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 8
       },
       {
-        "sceneId": "scene-s32",
-        "stopId": "s32",
+        "sceneId": "scene-s22",
+        "stopId": "s22",
         "surface": "running_text",
-        "ordinal": 10
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s22",
+        "stopId": "s22",
+        "surface": "running_text",
+        "ordinal": 9
+      },
+      {
+        "sceneId": "scene-s23",
+        "stopId": "s23",
+        "surface": "running_text",
+        "ordinal": 4
+      },
+      {
+        "sceneId": "scene-s27",
+        "stopId": "s27",
+        "surface": "running_text",
+        "ordinal": 13
+      },
+      {
+        "sceneId": "scene-s31",
+        "stopId": "s31",
+        "surface": "accessible_label",
+        "ordinal": 108
       },
       {
         "sceneId": "scene-s33",
@@ -4790,20 +5393,20 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s36",
         "stopId": "s36",
+        "surface": "accessible_label",
+        "ordinal": 208
+      },
+      {
+        "sceneId": "scene-s37",
+        "stopId": "s37",
         "surface": "running_text",
-        "ordinal": 4
+        "ordinal": 17
       },
       {
         "sceneId": "scene-s38",
         "stopId": "s38",
         "surface": "running_text",
         "ordinal": 20
-      },
-      {
-        "sceneId": "scene-s39",
-        "stopId": "s39",
-        "surface": "running_text",
-        "ordinal": 10
       },
       {
         "sceneId": "meaning:box",
@@ -4818,6 +5421,18 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 23
       },
       {
+        "sceneId": "meaning:drum",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 8
+      },
+      {
+        "sceneId": "meaning:gap",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 19
+      },
+      {
         "sceneId": "meaning:pure",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -4829,10 +5444,34 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "its",
     "uses": [
       {
+        "sceneId": "scene-s23",
+        "stopId": "s23",
+        "surface": "accessible_label",
+        "ordinal": 105
+      },
+      {
+        "sceneId": "scene-s39",
+        "stopId": "s39",
+        "surface": "running_text",
+        "ordinal": 11
+      },
+      {
         "sceneId": "meaning:theme",
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 30
+      },
+      {
+        "sceneId": "meaning:train",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 29
+      },
+      {
+        "sceneId": "meaning:turn",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 12
       }
     ]
   },
@@ -4849,7 +5488,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s7",
         "stopId": "s7",
         "surface": "accessible_label",
-        "ordinal": 1
+        "ordinal": 3
       },
       {
         "sceneId": "scene-s7",
@@ -4917,6 +5556,23 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   },
   {
+    "wordId": "keep",
+    "uses": [
+      {
+        "sceneId": "scene-s4",
+        "stopId": "s4",
+        "surface": "accessible_label",
+        "ordinal": 108
+      },
+      {
+        "sceneId": "scene-s29",
+        "stopId": "s29",
+        "surface": "accessible_label",
+        "ordinal": 4
+      }
+    ]
+  },
+  {
     "wordId": "kick",
     "uses": [
       {
@@ -4924,12 +5580,6 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "s11",
         "surface": "accessible_label",
         "ordinal": 100
-      },
-      {
-        "sceneId": "scene-s12",
-        "stopId": "s12",
-        "surface": "accessible_label",
-        "ordinal": 0
       },
       {
         "sceneId": "scene-s17",
@@ -4951,12 +5601,6 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s12",
         "stopId": "s12",
-        "surface": "prompt",
-        "ordinal": 6
-      },
-      {
-        "sceneId": "scene-s12",
-        "stopId": "s12",
         "surface": "accessible_label",
         "ordinal": 1
       },
@@ -4964,13 +5608,13 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s12",
         "stopId": "s12",
         "surface": "accessible_label",
-        "ordinal": 101
+        "ordinal": 102
       },
       {
         "sceneId": "scene-s12",
         "stopId": "s12",
         "surface": "accessible_label",
-        "ordinal": 201
+        "ordinal": 203
       },
       {
         "sceneId": "meaning:light",
@@ -5003,14 +5647,19 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   },
   {
-    "wordId": "leave",
+    "wordId": "last",
     "uses": [
       {
-        "sceneId": "scene-s39",
-        "stopId": "s39",
+        "sceneId": "scene-s34",
+        "stopId": "s34",
         "surface": "running_text",
-        "ordinal": 12
-      },
+        "ordinal": 11
+      }
+    ]
+  },
+  {
+    "wordId": "leave",
+    "uses": [
       {
         "sceneId": "scene-s39",
         "stopId": "s39",
@@ -5031,6 +5680,29 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   },
   {
+    "wordId": "lid",
+    "uses": [
+      {
+        "sceneId": "scene-s29",
+        "stopId": "s29",
+        "surface": "running_text",
+        "ordinal": 8
+      },
+      {
+        "sceneId": "scene-s29",
+        "stopId": "s29",
+        "surface": "running_text",
+        "ordinal": 13
+      },
+      {
+        "sceneId": "scene-s29",
+        "stopId": "s29",
+        "surface": "accessible_label",
+        "ordinal": 2
+      }
+    ]
+  },
+  {
     "wordId": "lift",
     "uses": [
       {
@@ -5043,31 +5715,61 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s1",
         "stopId": "s1",
         "surface": "accessible_label",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "scene-s1",
+        "stopId": "s1",
+        "surface": "accessible_label",
         "ordinal": 100
+      },
+      {
+        "sceneId": "scene-s1",
+        "stopId": "s1",
+        "surface": "accessible_label",
+        "ordinal": 200
       },
       {
         "sceneId": "scene-s12",
         "stopId": "s12",
         "surface": "running_text",
-        "ordinal": 0
-      },
-      {
-        "sceneId": "scene-s12",
-        "stopId": "s12",
-        "surface": "prompt",
         "ordinal": 5
       },
       {
         "sceneId": "scene-s12",
         "stopId": "s12",
+        "surface": "prompt",
+        "ordinal": 4
+      },
+      {
+        "sceneId": "scene-s12",
+        "stopId": "s12",
         "surface": "accessible_label",
-        "ordinal": 200
+        "ordinal": 0
+      },
+      {
+        "sceneId": "scene-s12",
+        "stopId": "s12",
+        "surface": "accessible_label",
+        "ordinal": 207
+      },
+      {
+        "sceneId": "scene-s16",
+        "stopId": "s16",
+        "surface": "running_text",
+        "ordinal": 4
+      },
+      {
+        "sceneId": "scene-s16",
+        "stopId": "s16",
+        "surface": "accessible_label",
+        "ordinal": 108
       },
       {
         "sceneId": "scene-s17",
         "stopId": "s17",
         "surface": "running_text",
-        "ordinal": 7
+        "ordinal": 6
       },
       {
         "sceneId": "scene-s17",
@@ -5078,6 +5780,42 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s20",
         "stopId": "s20",
+        "surface": "running_text",
+        "ordinal": 7
+      },
+      {
+        "sceneId": "scene-s23",
+        "stopId": "s23",
+        "surface": "running_text",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "scene-s23",
+        "stopId": "s23",
+        "surface": "running_text",
+        "ordinal": 6
+      },
+      {
+        "sceneId": "scene-s23",
+        "stopId": "s23",
+        "surface": "accessible_label",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "scene-s23",
+        "stopId": "s23",
+        "surface": "accessible_label",
+        "ordinal": 100
+      },
+      {
+        "sceneId": "scene-s31",
+        "stopId": "s31",
+        "surface": "running_text",
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s36",
+        "stopId": "s36",
         "surface": "running_text",
         "ordinal": 7
       },
@@ -5107,8 +5845,26 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s1",
         "stopId": "s1",
+        "surface": "running_text",
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s1",
+        "stopId": "s1",
         "surface": "prompt",
         "ordinal": 4
+      },
+      {
+        "sceneId": "scene-s1",
+        "stopId": "s1",
+        "surface": "accessible_label",
+        "ordinal": 1
+      },
+      {
+        "sceneId": "scene-s1",
+        "stopId": "s1",
+        "surface": "accessible_label",
+        "ordinal": 106
       },
       {
         "sceneId": "scene-s20",
@@ -5138,7 +5894,13 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s28",
         "stopId": "s28",
         "surface": "running_text",
-        "ordinal": 12
+        "ordinal": 4
+      },
+      {
+        "sceneId": "scene-s28",
+        "stopId": "s28",
+        "surface": "running_text",
+        "ordinal": 7
       },
       {
         "sceneId": "scene-s28",
@@ -5150,13 +5912,49 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s28",
         "stopId": "s28",
         "surface": "accessible_label",
-        "ordinal": 201
+        "ordinal": 203
+      },
+      {
+        "sceneId": "scene-s32",
+        "stopId": "s32",
+        "surface": "running_text",
+        "ordinal": 6
+      },
+      {
+        "sceneId": "scene-s32",
+        "stopId": "s32",
+        "surface": "running_text",
+        "ordinal": 16
+      },
+      {
+        "sceneId": "scene-s32",
+        "stopId": "s32",
+        "surface": "prompt",
+        "ordinal": 5
+      },
+      {
+        "sceneId": "scene-s32",
+        "stopId": "s32",
+        "surface": "accessible_label",
+        "ordinal": 214
       },
       {
         "sceneId": "scene-s36",
         "stopId": "s36",
         "surface": "running_text",
-        "ordinal": 9
+        "ordinal": 5
+      },
+      {
+        "sceneId": "scene-s36",
+        "stopId": "s36",
+        "surface": "running_text",
+        "ordinal": 17
+      },
+      {
+        "sceneId": "scene-s36",
+        "stopId": "s36",
+        "surface": "accessible_label",
+        "ordinal": 206
       },
       {
         "sceneId": "meaning:lift",
@@ -5181,6 +5979,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 22
+      },
+      {
+        "sceneId": "meaning:see",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 7
       }
     ]
   },
@@ -5224,6 +6028,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 21
       },
       {
+        "sceneId": "meaning:gate",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 23
+      },
+      {
         "sceneId": "meaning:light",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -5260,6 +6070,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 23
       },
       {
+        "sceneId": "meaning:train",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 25
+      },
+      {
         "sceneId": "meaning:tree",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -5285,13 +6101,19 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s39",
         "stopId": "s39",
         "surface": "running_text",
-        "ordinal": 7
+        "ordinal": 6
+      },
+      {
+        "sceneId": "scene-s39",
+        "stopId": "s39",
+        "surface": "running_text",
+        "ordinal": 15
       },
       {
         "sceneId": "scene-s39",
         "stopId": "s39",
         "surface": "accessible_label",
-        "ordinal": 201
+        "ordinal": 202
       },
       {
         "sceneId": "meaning:little",
@@ -5338,7 +6160,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s16",
         "stopId": "s16",
         "surface": "accessible_label",
-        "ordinal": 101
+        "ordinal": 103
       },
       {
         "sceneId": "scene-s16",
@@ -5350,7 +6172,19 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s37",
         "stopId": "s37",
         "surface": "running_text",
-        "ordinal": 20
+        "ordinal": 6
+      },
+      {
+        "sceneId": "scene-s37",
+        "stopId": "s37",
+        "surface": "running_text",
+        "ordinal": 15
+      },
+      {
+        "sceneId": "scene-s37",
+        "stopId": "s37",
+        "surface": "accessible_label",
+        "ordinal": 7
       },
       {
         "sceneId": "scene-s37",
@@ -5364,12 +6198,6 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "look",
     "uses": [
       {
-        "sceneId": "scene-s28",
-        "stopId": "s28",
-        "surface": "running_text",
-        "ordinal": 6
-      },
-      {
         "sceneId": "scene-s33",
         "stopId": "s33",
         "surface": "running_text",
@@ -5379,7 +6207,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s33",
         "stopId": "s33",
         "surface": "running_text",
-        "ordinal": 20
+        "ordinal": 23
       },
       {
         "sceneId": "scene-s33",
@@ -5415,6 +6243,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "s29",
         "surface": "running_text",
         "ordinal": 1
+      },
+      {
+        "sceneId": "scene-s29",
+        "stopId": "s29",
+        "surface": "accessible_label",
+        "ordinal": 6
       },
       {
         "sceneId": "scene-s29",
@@ -5457,22 +6291,28 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "magic",
     "uses": [
       {
-        "sceneId": "scene-s37",
-        "stopId": "s37",
-        "surface": "running_text",
-        "ordinal": 10
+        "sceneId": "scene-s14",
+        "stopId": "s14",
+        "surface": "accessible_label",
+        "ordinal": 3
       },
       {
         "sceneId": "scene-s37",
         "stopId": "s37",
         "surface": "running_text",
-        "ordinal": 16
+        "ordinal": 1
+      },
+      {
+        "sceneId": "scene-s37",
+        "stopId": "s37",
+        "surface": "running_text",
+        "ordinal": 11
       },
       {
         "sceneId": "scene-s37",
         "stopId": "s37",
         "surface": "accessible_label",
-        "ordinal": 1
+        "ordinal": 2
       }
     ]
   },
@@ -5483,13 +6323,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s18",
         "stopId": "s18",
         "surface": "running_text",
-        "ordinal": 6
-      },
-      {
-        "sceneId": "scene-s18",
-        "stopId": "s18",
-        "surface": "accessible_label",
-        "ordinal": 0
+        "ordinal": 5
       },
       {
         "sceneId": "scene-s18",
@@ -5504,6 +6338,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 200
       },
       {
+        "sceneId": "scene-s22",
+        "stopId": "s22",
+        "surface": "running_text",
+        "ordinal": 2
+      },
+      {
         "sceneId": "scene-s29",
         "stopId": "s29",
         "surface": "accessible_label",
@@ -5513,7 +6353,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s36",
         "stopId": "s36",
         "surface": "running_text",
-        "ordinal": 10
+        "ordinal": 11
       },
       {
         "sceneId": "scene-s36",
@@ -5546,6 +6386,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 12
       },
       {
+        "sceneId": "meaning:clear",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 15
+      },
+      {
         "sceneId": "meaning:frog",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -5574,6 +6420,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 13
+      },
+      {
+        "sceneId": "meaning:start",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 2
       }
     ]
   },
@@ -5625,19 +6477,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s1",
         "stopId": "s1",
         "surface": "accessible_label",
-        "ordinal": 2
-      },
-      {
-        "sceneId": "scene-s1",
-        "stopId": "s1",
-        "surface": "accessible_label",
-        "ordinal": 101
-      },
-      {
-        "sceneId": "scene-s1",
-        "stopId": "s1",
-        "surface": "accessible_label",
-        "ordinal": 200
+        "ordinal": 102
       },
       {
         "sceneId": "scene-s7",
@@ -5648,20 +6488,8 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s8",
         "stopId": "s8",
-        "surface": "running_text",
-        "ordinal": 0
-      },
-      {
-        "sceneId": "scene-s8",
-        "stopId": "s8",
         "surface": "accessible_label",
-        "ordinal": 100
-      },
-      {
-        "sceneId": "scene-s8",
-        "stopId": "s8",
-        "surface": "accessible_label",
-        "ordinal": 200
+        "ordinal": 109
       },
       {
         "sceneId": "meaning:mat",
@@ -5678,19 +6506,30 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   },
   {
+    "wordId": "mats",
+    "uses": [
+      {
+        "sceneId": "scene-s1",
+        "stopId": "s1",
+        "surface": "accessible_label",
+        "ordinal": 201
+      }
+    ]
+  },
+  {
     "wordId": "moon",
     "uses": [
       {
         "sceneId": "scene-s27",
         "stopId": "s27",
         "surface": "running_text",
-        "ordinal": 8
+        "ordinal": 9
       },
       {
         "sceneId": "scene-s27",
         "stopId": "s27",
         "surface": "accessible_label",
-        "ordinal": 102
+        "ordinal": 104
       },
       {
         "sceneId": "meaning:moon",
@@ -5726,6 +6565,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 13
+      },
+      {
+        "sceneId": "meaning:grow",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 6
       }
     ]
   },
@@ -5810,43 +6655,43 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s6",
         "stopId": "s6",
         "surface": "accessible_label",
-        "ordinal": 3
+        "ordinal": 1
       },
       {
         "sceneId": "scene-s8",
         "stopId": "s8",
         "surface": "running_text",
-        "ordinal": 3
-      },
-      {
-        "sceneId": "scene-s8",
-        "stopId": "s8",
-        "surface": "prompt",
-        "ordinal": 5
+        "ordinal": 2
       },
       {
         "sceneId": "scene-s8",
         "stopId": "s8",
         "surface": "accessible_label",
-        "ordinal": 3
+        "ordinal": 1
       },
       {
         "sceneId": "scene-s8",
         "stopId": "s8",
         "surface": "accessible_label",
-        "ordinal": 103
-      },
-      {
-        "sceneId": "scene-s9",
-        "stopId": "s9",
-        "surface": "accessible_label",
-        "ordinal": 101
+        "ordinal": 102
       }
     ]
   },
   {
     "wordId": "night",
     "uses": [
+      {
+        "sceneId": "scene-s19",
+        "stopId": "s19",
+        "surface": "prompt",
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s19",
+        "stopId": "s19",
+        "surface": "accessible_label",
+        "ordinal": 105
+      },
       {
         "sceneId": "scene-s25",
         "stopId": "s25",
@@ -5883,16 +6728,34 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "not",
     "uses": [
       {
+        "sceneId": "scene-s2",
+        "stopId": "s2",
+        "surface": "accessible_label",
+        "ordinal": 9
+      },
+      {
         "sceneId": "scene-s18",
         "stopId": "s18",
         "surface": "running_text",
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s18",
+        "stopId": "s18",
+        "surface": "accessible_label",
         "ordinal": 4
       },
       {
-        "sceneId": "scene-s22",
-        "stopId": "s22",
+        "sceneId": "scene-s37",
+        "stopId": "s37",
+        "surface": "accessible_label",
+        "ordinal": 9
+      },
+      {
+        "sceneId": "scene-s39",
+        "stopId": "s39",
         "surface": "running_text",
-        "ordinal": 6
+        "ordinal": 3
       },
       {
         "sceneId": "meaning:mat",
@@ -5915,25 +6778,14 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   },
   {
-    "wordId": "now",
-    "uses": [
-      {
-        "sceneId": "scene-s29",
-        "stopId": "s29",
-        "surface": "running_text",
-        "ordinal": 8
-      },
-      {
-        "sceneId": "scene-s29",
-        "stopId": "s29",
-        "surface": "accessible_label",
-        "ordinal": 1
-      }
-    ]
-  },
-  {
     "wordId": "of",
     "uses": [
+      {
+        "sceneId": "scene-s17",
+        "stopId": "s17",
+        "surface": "accessible_label",
+        "ordinal": 204
+      },
       {
         "sceneId": "meaning:boat",
         "stopId": "meaning-support",
@@ -5987,6 +6839,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 7
+      },
+      {
+        "sceneId": "meaning:train",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 5
       }
     ]
   },
@@ -6003,7 +6861,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s7",
         "stopId": "s7",
         "surface": "accessible_label",
-        "ordinal": 2
+        "ordinal": 4
       },
       {
         "sceneId": "scene-s7",
@@ -6012,22 +6870,58 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 102
       },
       {
+        "sceneId": "scene-s11",
+        "stopId": "s11",
+        "surface": "running_text",
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s11",
+        "stopId": "s11",
+        "surface": "accessible_label",
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s13",
+        "stopId": "s13",
+        "surface": "prompt",
+        "ordinal": 4
+      },
+      {
+        "sceneId": "scene-s13",
+        "stopId": "s13",
+        "surface": "accessible_label",
+        "ordinal": 107
+      },
+      {
         "sceneId": "scene-s17",
         "stopId": "s17",
+        "surface": "running_text",
+        "ordinal": 9
+      },
+      {
+        "sceneId": "scene-s19",
+        "stopId": "s19",
         "surface": "running_text",
         "ordinal": 10
       },
       {
         "sceneId": "scene-s19",
         "stopId": "s19",
-        "surface": "running_text",
-        "ordinal": 3
+        "surface": "accessible_label",
+        "ordinal": 103
       },
       {
-        "sceneId": "scene-s19",
-        "stopId": "s19",
-        "surface": "accessible_label",
-        "ordinal": 102
+        "sceneId": "scene-s29",
+        "stopId": "s29",
+        "surface": "running_text",
+        "ordinal": 10
+      },
+      {
+        "sceneId": "scene-s32",
+        "stopId": "s32",
+        "surface": "running_text",
+        "ordinal": 8
       }
     ]
   },
@@ -6044,7 +6938,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s4",
         "stopId": "s4",
         "surface": "accessible_label",
-        "ordinal": 2
+        "ordinal": 201
       },
       {
         "sceneId": "scene-s7",
@@ -6055,14 +6949,8 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s11",
         "stopId": "s11",
-        "surface": "running_text",
-        "ordinal": 3
-      },
-      {
-        "sceneId": "scene-s11",
-        "stopId": "s11",
         "surface": "accessible_label",
-        "ordinal": 2
+        "ordinal": 102
       },
       {
         "sceneId": "scene-s11",
@@ -6071,34 +6959,22 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 201
       },
       {
-        "sceneId": "scene-s13",
-        "stopId": "s13",
-        "surface": "running_text",
-        "ordinal": 4
-      },
-      {
-        "sceneId": "scene-s14",
-        "stopId": "s14",
-        "surface": "running_text",
-        "ordinal": 4
-      },
-      {
-        "sceneId": "scene-s17",
-        "stopId": "s17",
-        "surface": "running_text",
-        "ordinal": 4
-      },
-      {
         "sceneId": "scene-s17",
         "stopId": "s17",
         "surface": "accessible_label",
         "ordinal": 101
       },
       {
+        "sceneId": "scene-s19",
+        "stopId": "s19",
+        "surface": "running_text",
+        "ordinal": 3
+      },
+      {
         "sceneId": "scene-s21",
         "stopId": "s21",
         "surface": "running_text",
-        "ordinal": 9
+        "ordinal": 10
       },
       {
         "sceneId": "scene-s21",
@@ -6111,18 +6987,18 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "s21",
         "surface": "accessible_label",
         "ordinal": 101
-      },
-      {
-        "sceneId": "scene-s21",
-        "stopId": "s21",
-        "surface": "accessible_label",
-        "ordinal": 201
       },
       {
         "sceneId": "scene-s23",
         "stopId": "s23",
         "surface": "accessible_label",
-        "ordinal": 1
+        "ordinal": 104
+      },
+      {
+        "sceneId": "scene-s26",
+        "stopId": "s26",
+        "surface": "running_text",
+        "ordinal": 2
       },
       {
         "sceneId": "scene-s26",
@@ -6131,16 +7007,40 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 5
       },
       {
-        "sceneId": "scene-s27",
-        "stopId": "s27",
-        "surface": "running_text",
-        "ordinal": 2
+        "sceneId": "scene-s26",
+        "stopId": "s26",
+        "surface": "accessible_label",
+        "ordinal": 4
+      },
+      {
+        "sceneId": "scene-s26",
+        "stopId": "s26",
+        "surface": "accessible_label",
+        "ordinal": 102
+      },
+      {
+        "sceneId": "scene-s26",
+        "stopId": "s26",
+        "surface": "accessible_label",
+        "ordinal": 202
       },
       {
         "sceneId": "scene-s27",
         "stopId": "s27",
         "surface": "running_text",
-        "ordinal": 10
+        "ordinal": 6
+      },
+      {
+        "sceneId": "scene-s27",
+        "stopId": "s27",
+        "surface": "accessible_label",
+        "ordinal": 101
+      },
+      {
+        "sceneId": "scene-s27",
+        "stopId": "s27",
+        "surface": "accessible_label",
+        "ordinal": 201
       },
       {
         "sceneId": "scene-s28",
@@ -6149,8 +7049,38 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 2
       },
       {
+        "sceneId": "scene-s29",
+        "stopId": "s29",
+        "surface": "running_text",
+        "ordinal": 14
+      },
+      {
+        "sceneId": "scene-s29",
+        "stopId": "s29",
+        "surface": "accessible_label",
+        "ordinal": 101
+      },
+      {
         "sceneId": "scene-s30",
         "stopId": "s30",
+        "surface": "running_text",
+        "ordinal": 12
+      },
+      {
+        "sceneId": "scene-s31",
+        "stopId": "s31",
+        "surface": "running_text",
+        "ordinal": 9
+      },
+      {
+        "sceneId": "scene-s31",
+        "stopId": "s31",
+        "surface": "accessible_label",
+        "ordinal": 103
+      },
+      {
+        "sceneId": "scene-s32",
+        "stopId": "s32",
         "surface": "running_text",
         "ordinal": 12
       },
@@ -6158,19 +7088,31 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s32",
         "stopId": "s32",
         "surface": "running_text",
-        "ordinal": 9
-      },
-      {
-        "sceneId": "scene-s32",
-        "stopId": "s32",
-        "surface": "running_text",
-        "ordinal": 14
+        "ordinal": 19
       },
       {
         "sceneId": "scene-s32",
         "stopId": "s32",
         "surface": "accessible_label",
-        "ordinal": 202
+        "ordinal": 203
+      },
+      {
+        "sceneId": "scene-s32",
+        "stopId": "s32",
+        "surface": "accessible_label",
+        "ordinal": 210
+      },
+      {
+        "sceneId": "scene-s33",
+        "stopId": "s33",
+        "surface": "running_text",
+        "ordinal": 16
+      },
+      {
+        "sceneId": "scene-s33",
+        "stopId": "s33",
+        "surface": "accessible_label",
+        "ordinal": 2
       },
       {
         "sceneId": "scene-s38",
@@ -6225,12 +7167,30 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 5
+      },
+      {
+        "sceneId": "meaning:train",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 10
+      },
+      {
+        "sceneId": "meaning:train",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 28
       }
     ]
   },
   {
     "wordId": "one",
     "uses": [
+      {
+        "sceneId": "scene-s34",
+        "stopId": "s34",
+        "surface": "running_text",
+        "ordinal": 4
+      },
       {
         "sceneId": "meaning:action",
         "stopId": "meaning-support",
@@ -6292,6 +7252,24 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 19
       },
       {
+        "sceneId": "meaning:clear",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 20
+      },
+      {
+        "sceneId": "meaning:gate",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 20
+      },
+      {
+        "sceneId": "meaning:grow",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 16
+      },
+      {
         "sceneId": "meaning:hand",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -6352,6 +7330,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 18
       },
       {
+        "sceneId": "meaning:start",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 14
+      },
+      {
         "sceneId": "meaning:thin",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -6364,16 +7348,34 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 25
       },
       {
+        "sceneId": "meaning:train",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 22
+      },
+      {
         "sceneId": "meaning:tree",
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 21
+      },
+      {
+        "sceneId": "meaning:turn",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 15
       }
     ]
   },
   {
     "wordId": "out",
     "uses": [
+      {
+        "sceneId": "scene-s17",
+        "stopId": "s17",
+        "surface": "accessible_label",
+        "ordinal": 203
+      },
       {
         "sceneId": "meaning:mat",
         "stopId": "meaning-support",
@@ -6386,16 +7388,10 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "over",
     "uses": [
       {
-        "sceneId": "scene-s39",
-        "stopId": "s39",
-        "surface": "running_text",
-        "ordinal": 9
-      },
-      {
-        "sceneId": "scene-s39",
-        "stopId": "s39",
-        "surface": "accessible_label",
-        "ordinal": 102
+        "sceneId": "meaning:grow",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 13
       },
       {
         "sceneId": "meaning:home",
@@ -6412,7 +7408,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s34",
         "stopId": "s34",
         "surface": "running_text",
-        "ordinal": 14
+        "ordinal": 13
       },
       {
         "sceneId": "scene-s34",
@@ -6442,12 +7438,6 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "s31",
         "surface": "running_text",
         "ordinal": 6
-      },
-      {
-        "sceneId": "scene-s31",
-        "stopId": "s31",
-        "surface": "running_text",
-        "ordinal": 7
       },
       {
         "sceneId": "scene-s31",
@@ -6500,13 +7490,13 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s11",
         "stopId": "s11",
         "surface": "accessible_label",
-        "ordinal": 3
+        "ordinal": 6
       },
       {
         "sceneId": "scene-s11",
         "stopId": "s11",
         "surface": "accessible_label",
-        "ordinal": 101
+        "ordinal": 103
       },
       {
         "sceneId": "scene-s11",
@@ -6518,7 +7508,19 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s13",
         "stopId": "s13",
         "surface": "running_text",
-        "ordinal": 6
+        "ordinal": 7
+      },
+      {
+        "sceneId": "scene-s13",
+        "stopId": "s13",
+        "surface": "accessible_label",
+        "ordinal": 109
+      },
+      {
+        "sceneId": "scene-s14",
+        "stopId": "s14",
+        "surface": "running_text",
+        "ordinal": 5
       },
       {
         "sceneId": "scene-s15",
@@ -6527,10 +7529,34 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 1
       },
       {
+        "sceneId": "scene-s19",
+        "stopId": "s19",
+        "surface": "running_text",
+        "ordinal": 6
+      },
+      {
         "sceneId": "scene-s20",
         "stopId": "s20",
         "surface": "prompt",
         "ordinal": 1
+      },
+      {
+        "sceneId": "scene-s23",
+        "stopId": "s23",
+        "surface": "running_text",
+        "ordinal": 8
+      },
+      {
+        "sceneId": "scene-s24",
+        "stopId": "s24",
+        "surface": "running_text",
+        "ordinal": 8
+      },
+      {
+        "sceneId": "scene-s24",
+        "stopId": "s24",
+        "surface": "accessible_label",
+        "ordinal": 209
       },
       {
         "sceneId": "scene-s25",
@@ -6563,10 +7589,16 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 1
       },
       {
-        "sceneId": "scene-s31",
-        "stopId": "s31",
+        "sceneId": "scene-s33",
+        "stopId": "s33",
         "surface": "running_text",
-        "ordinal": 2
+        "ordinal": 18
+      },
+      {
+        "sceneId": "scene-s33",
+        "stopId": "s33",
+        "surface": "accessible_label",
+        "ordinal": 3
       },
       {
         "sceneId": "scene-s35",
@@ -6578,7 +7610,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s36",
         "stopId": "s36",
         "surface": "running_text",
-        "ordinal": 17
+        "ordinal": 20
       },
       {
         "sceneId": "scene-s38",
@@ -6615,6 +7647,24 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "s40",
         "surface": "accessible_label",
         "ordinal": 102
+      },
+      {
+        "sceneId": "meaning:clear",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 17
+      },
+      {
+        "sceneId": "meaning:clear",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 26
+      },
+      {
+        "sceneId": "meaning:gap",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 10
       }
     ]
   },
@@ -6657,16 +7707,10 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 0
       },
       {
-        "sceneId": "scene-s12",
-        "stopId": "s12",
-        "surface": "accessible_label",
-        "ordinal": 100
-      },
-      {
         "sceneId": "scene-s22",
         "stopId": "s22",
         "surface": "running_text",
-        "ordinal": 4
+        "ordinal": 5
       },
       {
         "sceneId": "scene-s22",
@@ -6698,12 +7742,6 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "picture",
     "uses": [
       {
-        "sceneId": "scene-s22",
-        "stopId": "s22",
-        "surface": "prompt",
-        "ordinal": 1
-      },
-      {
         "sceneId": "meaning:cat",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -6712,14 +7750,19 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   },
   {
-    "wordId": "plate",
+    "wordId": "plan",
     "uses": [
       {
-        "sceneId": "scene-s18",
-        "stopId": "s18",
+        "sceneId": "scene-s28",
+        "stopId": "s28",
         "surface": "running_text",
-        "ordinal": 2
-      },
+        "ordinal": 5
+      }
+    ]
+  },
+  {
+    "wordId": "plate",
+    "uses": [
       {
         "sceneId": "scene-s18",
         "stopId": "s18",
@@ -6768,6 +7811,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 17
       },
       {
+        "sceneId": "meaning:see",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 13
+      },
+      {
         "sceneId": "meaning:theme",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -6788,7 +7837,19 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s36",
         "stopId": "s36",
         "surface": "running_text",
-        "ordinal": 8
+        "ordinal": 4
+      },
+      {
+        "sceneId": "scene-s36",
+        "stopId": "s36",
+        "surface": "running_text",
+        "ordinal": 16
+      },
+      {
+        "sceneId": "scene-s36",
+        "stopId": "s36",
+        "surface": "accessible_label",
+        "ordinal": 205
       },
       {
         "sceneId": "meaning:pure",
@@ -6805,7 +7866,13 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s39",
         "stopId": "s39",
         "surface": "running_text",
-        "ordinal": 8
+        "ordinal": 7
+      },
+      {
+        "sceneId": "scene-s39",
+        "stopId": "s39",
+        "surface": "running_text",
+        "ordinal": 16
       },
       {
         "sceneId": "scene-s39",
@@ -6817,7 +7884,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s39",
         "stopId": "s39",
         "surface": "accessible_label",
-        "ordinal": 202
+        "ordinal": 203
       }
     ]
   },
@@ -6839,13 +7906,13 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s22",
         "stopId": "s22",
         "surface": "running_text",
-        "ordinal": 3
+        "ordinal": 0
       },
       {
         "sceneId": "scene-s22",
         "stopId": "s22",
         "surface": "running_text",
-        "ordinal": 5
+        "ordinal": 6
       },
       {
         "sceneId": "scene-s22",
@@ -6857,19 +7924,13 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s23",
         "stopId": "s23",
         "surface": "running_text",
-        "ordinal": 5
-      },
-      {
-        "sceneId": "scene-s23",
-        "stopId": "s23",
-        "surface": "prompt",
-        "ordinal": 5
+        "ordinal": 2
       },
       {
         "sceneId": "scene-s23",
         "stopId": "s23",
         "surface": "accessible_label",
-        "ordinal": 100
+        "ordinal": 102
       },
       {
         "sceneId": "meaning:rain",
@@ -6927,7 +7988,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s37",
         "stopId": "s37",
         "surface": "running_text",
-        "ordinal": 14
+        "ordinal": 9
       },
       {
         "sceneId": "scene-s37",
@@ -6950,7 +8011,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s37",
         "stopId": "s37",
         "surface": "running_text",
-        "ordinal": 13
+        "ordinal": 4
       }
     ]
   },
@@ -6996,6 +8057,18 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "s25",
         "surface": "running_text",
         "ordinal": 13
+      },
+      {
+        "sceneId": "scene-s26",
+        "stopId": "s26",
+        "surface": "running_text",
+        "ordinal": 4
+      },
+      {
+        "sceneId": "scene-s26",
+        "stopId": "s26",
+        "surface": "accessible_label",
+        "ordinal": 6
       }
     ]
   },
@@ -7019,6 +8092,18 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "s10",
         "surface": "accessible_label",
         "ordinal": 100
+      },
+      {
+        "sceneId": "scene-s34",
+        "stopId": "s34",
+        "surface": "running_text",
+        "ordinal": 5
+      },
+      {
+        "sceneId": "scene-s34",
+        "stopId": "s34",
+        "surface": "running_text",
+        "ordinal": 12
       },
       {
         "sceneId": "scene-s35",
@@ -7053,25 +8138,25 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s26",
         "stopId": "s26",
         "surface": "running_text",
-        "ordinal": 2
+        "ordinal": 5
       },
       {
         "sceneId": "scene-s26",
         "stopId": "s26",
         "surface": "accessible_label",
-        "ordinal": 0
+        "ordinal": 8
       },
       {
         "sceneId": "scene-s26",
         "stopId": "s26",
         "surface": "accessible_label",
-        "ordinal": 100
+        "ordinal": 103
       },
       {
         "sceneId": "scene-s26",
         "stopId": "s26",
         "surface": "accessible_label",
-        "ordinal": 200
+        "ordinal": 203
       },
       {
         "sceneId": "meaning:car",
@@ -7100,7 +8185,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s3",
         "stopId": "s3",
         "surface": "running_text",
-        "ordinal": 2
+        "ordinal": 3
       },
       {
         "sceneId": "scene-s3",
@@ -7112,7 +8197,25 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s3",
         "stopId": "s3",
         "surface": "accessible_label",
-        "ordinal": 202
+        "ordinal": 203
+      },
+      {
+        "sceneId": "scene-s4",
+        "stopId": "s4",
+        "surface": "running_text",
+        "ordinal": 1
+      },
+      {
+        "sceneId": "scene-s4",
+        "stopId": "s4",
+        "surface": "accessible_label",
+        "ordinal": 103
+      },
+      {
+        "sceneId": "scene-s4",
+        "stopId": "s4",
+        "surface": "accessible_label",
+        "ordinal": 200
       },
       {
         "sceneId": "scene-s11",
@@ -7124,13 +8227,13 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s11",
         "stopId": "s11",
         "surface": "accessible_label",
-        "ordinal": 1
+        "ordinal": 2
       },
       {
         "sceneId": "scene-s11",
         "stopId": "s11",
         "surface": "accessible_label",
-        "ordinal": 102
+        "ordinal": 101
       },
       {
         "sceneId": "scene-s11",
@@ -7142,13 +8245,13 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s17",
         "stopId": "s17",
         "surface": "running_text",
-        "ordinal": 2
+        "ordinal": 1
       },
       {
         "sceneId": "scene-s17",
         "stopId": "s17",
         "surface": "running_text",
-        "ordinal": 9
+        "ordinal": 8
       },
       {
         "sceneId": "scene-s17",
@@ -7166,19 +8269,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s17",
         "stopId": "s17",
         "surface": "accessible_label",
-        "ordinal": 201
-      },
-      {
-        "sceneId": "scene-s29",
-        "stopId": "s29",
-        "surface": "running_text",
-        "ordinal": 6
-      },
-      {
-        "sceneId": "scene-s29",
-        "stopId": "s29",
-        "surface": "accessible_label",
-        "ordinal": 101
+        "ordinal": 202
       },
       {
         "sceneId": "meaning:boat",
@@ -7212,12 +8303,6 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s39",
         "stopId": "s39",
-        "surface": "running_text",
-        "ordinal": 14
-      },
-      {
-        "sceneId": "scene-s39",
-        "stopId": "s39",
         "surface": "accessible_label",
         "ordinal": 101
       },
@@ -7241,18 +8326,6 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s27",
         "stopId": "s27",
-        "surface": "running_text",
-        "ordinal": 12
-      },
-      {
-        "sceneId": "scene-s27",
-        "stopId": "s27",
-        "surface": "accessible_label",
-        "ordinal": 2
-      },
-      {
-        "sceneId": "scene-s27",
-        "stopId": "s27",
         "surface": "accessible_label",
         "ordinal": 202
       },
@@ -7271,13 +8344,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s21",
         "stopId": "s21",
         "surface": "running_text",
-        "ordinal": 7
-      },
-      {
-        "sceneId": "scene-s21",
-        "stopId": "s21",
-        "surface": "prompt",
-        "ordinal": 5
+        "ordinal": 9
       },
       {
         "sceneId": "scene-s21",
@@ -7295,7 +8362,13 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s21",
         "stopId": "s21",
         "surface": "accessible_label",
-        "ordinal": 200
+        "ordinal": 203
+      },
+      {
+        "sceneId": "scene-s23",
+        "stopId": "s23",
+        "surface": "accessible_label",
+        "ordinal": 106
       }
     ]
   },
@@ -7338,27 +8411,16 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "run",
     "uses": [
       {
-        "sceneId": "scene-s19",
-        "stopId": "s19",
+        "sceneId": "scene-s22",
+        "stopId": "s22",
         "surface": "running_text",
-        "ordinal": 8
+        "ordinal": 4
       },
       {
         "sceneId": "scene-s22",
         "stopId": "s22",
         "surface": "accessible_label",
         "ordinal": 101
-      }
-    ]
-  },
-  {
-    "wordId": "sat",
-    "uses": [
-      {
-        "sceneId": "scene-s1",
-        "stopId": "s1",
-        "surface": "accessible_label",
-        "ordinal": 201
       }
     ]
   },
@@ -7403,7 +8465,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s36",
         "stopId": "s36",
         "surface": "running_text",
-        "ordinal": 19
+        "ordinal": 22
       }
     ]
   },
@@ -7411,16 +8473,63 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "see",
     "uses": [
       {
+        "sceneId": "scene-s1",
+        "stopId": "s1",
+        "surface": "running_text",
+        "ordinal": 2
+      },
+      {
+        "sceneId": "scene-s28",
+        "stopId": "s28",
+        "surface": "accessible_label",
+        "ordinal": 208
+      },
+      {
         "sceneId": "meaning:light",
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 7
       },
       {
+        "sceneId": "meaning:see",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "meaning:see",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 11
+      },
+      {
+        "sceneId": "meaning:see",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 20
+      },
+      {
         "sceneId": "meaning:thing",
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 29
+      }
+    ]
+  },
+  {
+    "wordId": "seed",
+    "uses": [
+      {
+        "sceneId": "scene-s1",
+        "stopId": "s1",
+        "surface": "prompt",
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s1",
+        "stopId": "s1",
+        "surface": "accessible_label",
+        "ordinal": 105
       }
     ]
   },
@@ -7460,54 +8569,43 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   },
   {
-    "wordId": "share",
-    "uses": [
-      {
-        "sceneId": "scene-s34",
-        "stopId": "s34",
-        "surface": "running_text",
-        "ordinal": 9
-      }
-    ]
-  },
-  {
     "wordId": "ship",
     "uses": [
       {
         "sceneId": "scene-s9",
         "stopId": "s9",
         "surface": "running_text",
-        "ordinal": 4
+        "ordinal": 2
       },
       {
         "sceneId": "scene-s9",
         "stopId": "s9",
         "surface": "accessible_label",
-        "ordinal": 201
+        "ordinal": 102
       },
       {
-        "sceneId": "scene-s17",
-        "stopId": "s17",
-        "surface": "running_text",
-        "ordinal": 6
+        "sceneId": "scene-s9",
+        "stopId": "s9",
+        "surface": "accessible_label",
+        "ordinal": 202
       },
       {
-        "sceneId": "scene-s19",
-        "stopId": "s19",
-        "surface": "running_text",
-        "ordinal": 5
+        "sceneId": "scene-s12",
+        "stopId": "s12",
+        "surface": "accessible_label",
+        "ordinal": 101
       },
       {
         "sceneId": "scene-s21",
         "stopId": "s21",
         "surface": "running_text",
-        "ordinal": 5
+        "ordinal": 6
       },
       {
-        "sceneId": "scene-s28",
-        "stopId": "s28",
-        "surface": "running_text",
-        "ordinal": 1
+        "sceneId": "scene-s21",
+        "stopId": "s21",
+        "surface": "accessible_label",
+        "ordinal": 202
       },
       {
         "sceneId": "meaning:ship",
@@ -7568,18 +8666,6 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 2
       },
       {
-        "sceneId": "scene-s21",
-        "stopId": "s21",
-        "surface": "prompt",
-        "ordinal": 1
-      },
-      {
-        "sceneId": "scene-s23",
-        "stopId": "s23",
-        "surface": "prompt",
-        "ordinal": 1
-      },
-      {
         "sceneId": "scene-s25",
         "stopId": "s25",
         "surface": "prompt",
@@ -7590,12 +8676,6 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "s30",
         "surface": "prompt",
         "ordinal": 2
-      },
-      {
-        "sceneId": "scene-s31",
-        "stopId": "s31",
-        "surface": "prompt",
-        "ordinal": 1
       },
       {
         "sceneId": "scene-s35",
@@ -7632,6 +8712,24 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 0
       },
       {
+        "sceneId": "scene-s26",
+        "stopId": "s26",
+        "surface": "accessible_label",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "scene-s26",
+        "stopId": "s26",
+        "surface": "accessible_label",
+        "ordinal": 100
+      },
+      {
+        "sceneId": "scene-s26",
+        "stopId": "s26",
+        "surface": "accessible_label",
+        "ordinal": 200
+      },
+      {
         "sceneId": "meaning:action",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -7648,6 +8746,18 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 22
+      },
+      {
+        "sceneId": "meaning:gap",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 25
+      },
+      {
+        "sceneId": "meaning:grow",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 20
       },
       {
         "sceneId": "meaning:hot",
@@ -7678,6 +8788,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 23
+      },
+      {
+        "sceneId": "meaning:turn",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 18
       }
     ]
   },
@@ -7704,6 +8820,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s24",
         "stopId": "s24",
+        "surface": "running_text",
+        "ordinal": 10
+      },
+      {
+        "sceneId": "scene-s24",
+        "stopId": "s24",
         "surface": "accessible_label",
         "ordinal": 0
       },
@@ -7723,6 +8845,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "s10",
         "surface": "accessible_label",
         "ordinal": 105
+      },
+      {
+        "sceneId": "scene-s24",
+        "stopId": "s24",
+        "surface": "accessible_label",
+        "ordinal": 203
       }
     ]
   },
@@ -7730,28 +8858,28 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "sit",
     "uses": [
       {
-        "sceneId": "scene-s1",
-        "stopId": "s1",
-        "surface": "accessible_label",
-        "ordinal": 0
-      },
-      {
         "sceneId": "scene-s2",
         "stopId": "s2",
-        "surface": "running_text",
-        "ordinal": 0
+        "surface": "accessible_label",
+        "ordinal": 10
       },
       {
         "sceneId": "scene-s2",
         "stopId": "s2",
         "surface": "accessible_label",
-        "ordinal": 0
+        "ordinal": 100
       },
       {
         "sceneId": "scene-s3",
         "stopId": "s3",
         "surface": "accessible_label",
         "ordinal": 0
+      },
+      {
+        "sceneId": "scene-s9",
+        "stopId": "s9",
+        "surface": "accessible_label",
+        "ordinal": 100
       },
       {
         "sceneId": "scene-s11",
@@ -7774,26 +8902,14 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s23",
         "stopId": "s23",
-        "surface": "running_text",
-        "ordinal": 8
+        "surface": "accessible_label",
+        "ordinal": 200
       },
       {
         "sceneId": "scene-s24",
         "stopId": "s24",
         "surface": "accessible_label",
         "ordinal": 100
-      },
-      {
-        "sceneId": "scene-s29",
-        "stopId": "s29",
-        "surface": "running_text",
-        "ordinal": 7
-      },
-      {
-        "sceneId": "scene-s29",
-        "stopId": "s29",
-        "surface": "accessible_label",
-        "ordinal": 0
       },
       {
         "sceneId": "scene-s33",
@@ -7845,17 +8961,6 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   },
   {
-    "wordId": "skip",
-    "uses": [
-      {
-        "sceneId": "scene-s13",
-        "stopId": "s13",
-        "surface": "accessible_label",
-        "ordinal": 200
-      }
-    ]
-  },
-  {
     "wordId": "sky",
     "uses": [
       {
@@ -7891,7 +8996,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s19",
         "stopId": "s19",
         "surface": "running_text",
-        "ordinal": 0
+        "ordinal": 7
       },
       {
         "sceneId": "scene-s19",
@@ -7908,13 +9013,19 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s26",
         "stopId": "s26",
         "surface": "accessible_label",
-        "ordinal": 102
+        "ordinal": 101
       },
       {
         "sceneId": "scene-s27",
         "stopId": "s27",
         "surface": "running_text",
         "ordinal": 0
+      },
+      {
+        "sceneId": "scene-s27",
+        "stopId": "s27",
+        "surface": "accessible_label",
+        "ordinal": 110
       },
       {
         "sceneId": "scene-s27",
@@ -7934,16 +9045,52 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "so",
     "uses": [
       {
+        "sceneId": "scene-s1",
+        "stopId": "s1",
+        "surface": "accessible_label",
+        "ordinal": 103
+      },
+      {
+        "sceneId": "scene-s9",
+        "stopId": "s9",
+        "surface": "accessible_label",
+        "ordinal": 204
+      },
+      {
+        "sceneId": "scene-s28",
+        "stopId": "s28",
+        "surface": "running_text",
+        "ordinal": 9
+      },
+      {
+        "sceneId": "scene-s28",
+        "stopId": "s28",
+        "surface": "accessible_label",
+        "ordinal": 205
+      },
+      {
+        "sceneId": "scene-s31",
+        "stopId": "s31",
+        "surface": "accessible_label",
+        "ordinal": 107
+      },
+      {
         "sceneId": "scene-s33",
         "stopId": "s33",
         "surface": "running_text",
-        "ordinal": 16
+        "ordinal": 19
       },
       {
         "sceneId": "scene-s36",
         "stopId": "s36",
         "surface": "running_text",
-        "ordinal": 15
+        "ordinal": 18
+      },
+      {
+        "sceneId": "scene-s37",
+        "stopId": "s37",
+        "surface": "running_text",
+        "ordinal": 16
       },
       {
         "sceneId": "scene-s38",
@@ -7962,6 +9109,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
   {
     "wordId": "soft",
     "uses": [
+      {
+        "sceneId": "scene-s4",
+        "stopId": "s4",
+        "surface": "accessible_label",
+        "ordinal": 110
+      },
       {
         "sceneId": "meaning:bun",
         "stopId": "meaning-support",
@@ -8005,8 +9158,8 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s29",
         "stopId": "s29",
-        "surface": "running_text",
-        "ordinal": 10
+        "surface": "accessible_label",
+        "ordinal": 7
       },
       {
         "sceneId": "scene-s29",
@@ -8025,6 +9178,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 14
+      },
+      {
+        "sceneId": "meaning:drum",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 18
       },
       {
         "sceneId": "meaning:hear",
@@ -8050,6 +9209,18 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "spin",
     "uses": [
       {
+        "sceneId": "scene-s9",
+        "stopId": "s9",
+        "surface": "running_text",
+        "ordinal": 6
+      },
+      {
+        "sceneId": "scene-s9",
+        "stopId": "s9",
+        "surface": "accessible_label",
+        "ordinal": 209
+      },
+      {
         "sceneId": "scene-s13",
         "stopId": "s13",
         "surface": "running_text",
@@ -8076,66 +9247,37 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   },
   {
-    "wordId": "spot",
-    "uses": [
-      {
-        "sceneId": "scene-s13",
-        "stopId": "s13",
-        "surface": "running_text",
-        "ordinal": 3
-      },
-      {
-        "sceneId": "scene-s13",
-        "stopId": "s13",
-        "surface": "accessible_label",
-        "ordinal": 2
-      },
-      {
-        "sceneId": "scene-s13",
-        "stopId": "s13",
-        "surface": "accessible_label",
-        "ordinal": 102
-      },
-      {
-        "sceneId": "scene-s13",
-        "stopId": "s13",
-        "surface": "accessible_label",
-        "ordinal": 202
-      }
-    ]
-  },
-  {
     "wordId": "stair",
     "uses": [
       {
-        "sceneId": "scene-s32",
-        "stopId": "s32",
-        "surface": "prompt",
-        "ordinal": 5
+        "sceneId": "scene-s34",
+        "stopId": "s34",
+        "surface": "running_text",
+        "ordinal": 7
       },
       {
         "sceneId": "scene-s34",
         "stopId": "s34",
         "surface": "running_text",
-        "ordinal": 5
-      },
-      {
-        "sceneId": "scene-s34",
-        "stopId": "s34",
-        "surface": "running_text",
-        "ordinal": 19
+        "ordinal": 18
       },
       {
         "sceneId": "scene-s34",
         "stopId": "s34",
         "surface": "accessible_label",
-        "ordinal": 103
+        "ordinal": 104
       },
       {
         "sceneId": "scene-s34",
         "stopId": "s34",
         "surface": "accessible_label",
         "ordinal": 201
+      },
+      {
+        "sceneId": "scene-s36",
+        "stopId": "s36",
+        "surface": "running_text",
+        "ordinal": 10
       },
       {
         "sceneId": "scene-s36",
@@ -8159,7 +9301,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s36",
         "stopId": "s36",
         "surface": "accessible_label",
-        "ordinal": 201
+        "ordinal": 202
       }
     ]
   },
@@ -8167,16 +9309,28 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "star",
     "uses": [
       {
-        "sceneId": "scene-s32",
-        "stopId": "s32",
+        "sceneId": "scene-s31",
+        "stopId": "s31",
         "surface": "running_text",
-        "ordinal": 7
+        "ordinal": 1
+      },
+      {
+        "sceneId": "scene-s31",
+        "stopId": "s31",
+        "surface": "running_text",
+        "ordinal": 11
+      },
+      {
+        "sceneId": "scene-s31",
+        "stopId": "s31",
+        "surface": "accessible_label",
+        "ordinal": 105
       },
       {
         "sceneId": "scene-s32",
         "stopId": "s32",
         "surface": "running_text",
-        "ordinal": 13
+        "ordinal": 11
       },
       {
         "sceneId": "scene-s32",
@@ -8188,7 +9342,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s32",
         "stopId": "s32",
         "surface": "accessible_label",
-        "ordinal": 201
+        "ordinal": 202
       },
       {
         "sceneId": "scene-s38",
@@ -8237,10 +9391,40 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "start",
     "uses": [
       {
+        "sceneId": "scene-s3",
+        "stopId": "s3",
+        "surface": "accessible_label",
+        "ordinal": 206
+      },
+      {
+        "sceneId": "scene-s22",
+        "stopId": "s22",
+        "surface": "running_text",
+        "ordinal": 8
+      },
+      {
+        "sceneId": "scene-s22",
+        "stopId": "s22",
+        "surface": "accessible_label",
+        "ordinal": 7
+      },
+      {
         "sceneId": "scene-s31",
         "stopId": "s31",
         "surface": "accessible_label",
         "ordinal": 0
+      },
+      {
+        "sceneId": "meaning:start",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "meaning:start",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 10
       }
     ]
   },
@@ -8256,24 +9440,19 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   },
   {
-    "wordId": "stay",
-    "uses": [
-      {
-        "sceneId": "scene-s23",
-        "stopId": "s23",
-        "surface": "running_text",
-        "ordinal": 3
-      }
-    ]
-  },
-  {
     "wordId": "step",
     "uses": [
       {
         "sceneId": "scene-s2",
         "stopId": "s2",
         "surface": "prompt",
-        "ordinal": 5
+        "ordinal": 4
+      },
+      {
+        "sceneId": "scene-s2",
+        "stopId": "s2",
+        "surface": "accessible_label",
+        "ordinal": 7
       },
       {
         "sceneId": "scene-s38",
@@ -8297,6 +9476,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 13
+      },
+      {
+        "sceneId": "meaning:start",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 19
       }
     ]
   },
@@ -8307,7 +9492,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s3",
         "stopId": "s3",
         "surface": "prompt",
-        "ordinal": 5
+        "ordinal": 4
       },
       {
         "sceneId": "scene-s20",
@@ -8351,22 +9536,28 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "stop",
     "uses": [
       {
-        "sceneId": "scene-s29",
-        "stopId": "s29",
+        "sceneId": "scene-s21",
+        "stopId": "s21",
+        "surface": "running_text",
+        "ordinal": 4
+      },
+      {
+        "sceneId": "scene-s27",
+        "stopId": "s27",
         "surface": "running_text",
         "ordinal": 12
       },
       {
-        "sceneId": "scene-s31",
-        "stopId": "s31",
-        "surface": "running_text",
-        "ordinal": 16
+        "sceneId": "scene-s27",
+        "stopId": "s27",
+        "surface": "accessible_label",
+        "ordinal": 108
       },
       {
-        "sceneId": "scene-s31",
-        "stopId": "s31",
-        "surface": "prompt",
-        "ordinal": 3
+        "sceneId": "meaning:gap",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 12
       }
     ]
   },
@@ -8391,6 +9582,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 1
       },
       {
+        "sceneId": "scene-s32",
+        "stopId": "s32",
+        "surface": "accessible_label",
+        "ordinal": 205
+      },
+      {
         "sceneId": "meaning:storm",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -8411,14 +9608,19 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   },
   {
-    "wordId": "table",
+    "wordId": "swing",
     "uses": [
       {
-        "sceneId": "scene-s39",
-        "stopId": "s39",
-        "surface": "running_text",
-        "ordinal": 17
-      },
+        "sceneId": "meaning:gate",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 19
+      }
+    ]
+  },
+  {
+    "wordId": "table",
+    "uses": [
       {
         "sceneId": "scene-s39",
         "stopId": "s39",
@@ -8473,24 +9675,6 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 4
       },
       {
-        "sceneId": "scene-s39",
-        "stopId": "s39",
-        "surface": "running_text",
-        "ordinal": 5
-      },
-      {
-        "sceneId": "scene-s39",
-        "stopId": "s39",
-        "surface": "accessible_label",
-        "ordinal": 100
-      },
-      {
-        "sceneId": "scene-s39",
-        "stopId": "s39",
-        "surface": "accessible_label",
-        "ordinal": 200
-      },
-      {
         "sceneId": "scene-s40",
         "stopId": "s40",
         "surface": "prompt",
@@ -8501,6 +9685,18 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
   {
     "wordId": "that",
     "uses": [
+      {
+        "sceneId": "scene-s6",
+        "stopId": "s6",
+        "surface": "accessible_label",
+        "ordinal": 203
+      },
+      {
+        "sceneId": "scene-s8",
+        "stopId": "s8",
+        "surface": "accessible_label",
+        "ordinal": 103
+      },
       {
         "sceneId": "scene-s26",
         "stopId": "s26",
@@ -8515,6 +9711,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       },
       {
         "sceneId": "meaning:boat",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 5
+      },
+      {
+        "sceneId": "meaning:drum",
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 5
@@ -8542,6 +9744,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 6
+      },
+      {
+        "sceneId": "meaning:train",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 8
       }
     ]
   },
@@ -8551,26 +9759,68 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s1",
         "stopId": "s1",
-        "surface": "prompt",
-        "ordinal": 3
+        "surface": "accessible_label",
+        "ordinal": 101
+      },
+      {
+        "sceneId": "scene-s1",
+        "stopId": "s1",
+        "surface": "accessible_label",
+        "ordinal": 104
       },
       {
         "sceneId": "scene-s2",
         "stopId": "s2",
-        "surface": "prompt",
-        "ordinal": 4
+        "surface": "accessible_label",
+        "ordinal": 1
+      },
+      {
+        "sceneId": "scene-s2",
+        "stopId": "s2",
+        "surface": "accessible_label",
+        "ordinal": 5
       },
       {
         "sceneId": "scene-s3",
         "stopId": "s3",
-        "surface": "prompt",
-        "ordinal": 2
+        "surface": "running_text",
+        "ordinal": 1
+      },
+      {
+        "sceneId": "scene-s3",
+        "stopId": "s3",
+        "surface": "accessible_label",
+        "ordinal": 201
+      },
+      {
+        "sceneId": "scene-s3",
+        "stopId": "s3",
+        "surface": "accessible_label",
+        "ordinal": 207
       },
       {
         "sceneId": "scene-s4",
         "stopId": "s4",
-        "surface": "prompt",
-        "ordinal": 4
+        "surface": "running_text",
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s4",
+        "stopId": "s4",
+        "surface": "accessible_label",
+        "ordinal": 101
+      },
+      {
+        "sceneId": "scene-s4",
+        "stopId": "s4",
+        "surface": "accessible_label",
+        "ordinal": 105
+      },
+      {
+        "sceneId": "scene-s4",
+        "stopId": "s4",
+        "surface": "accessible_label",
+        "ordinal": 109
       },
       {
         "sceneId": "scene-s5",
@@ -8599,32 +9849,80 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s6",
         "stopId": "s6",
+        "surface": "running_text",
+        "ordinal": 1
+      },
+      {
+        "sceneId": "scene-s6",
+        "stopId": "s6",
         "surface": "prompt",
         "ordinal": 4
       },
       {
+        "sceneId": "scene-s6",
+        "stopId": "s6",
+        "surface": "accessible_label",
+        "ordinal": 201
+      },
+      {
+        "sceneId": "scene-s6",
+        "stopId": "s6",
+        "surface": "accessible_label",
+        "ordinal": 208
+      },
+      {
         "sceneId": "scene-s7",
         "stopId": "s7",
-        "surface": "prompt",
-        "ordinal": 2
+        "surface": "running_text",
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s7",
+        "stopId": "s7",
+        "surface": "accessible_label",
+        "ordinal": 1
+      },
+      {
+        "sceneId": "scene-s7",
+        "stopId": "s7",
+        "surface": "accessible_label",
+        "ordinal": 5
       },
       {
         "sceneId": "scene-s8",
         "stopId": "s8",
-        "surface": "prompt",
-        "ordinal": 3
+        "surface": "running_text",
+        "ordinal": 1
+      },
+      {
+        "sceneId": "scene-s8",
+        "stopId": "s8",
+        "surface": "accessible_label",
+        "ordinal": 101
+      },
+      {
+        "sceneId": "scene-s8",
+        "stopId": "s8",
+        "surface": "accessible_label",
+        "ordinal": 105
       },
       {
         "sceneId": "scene-s9",
         "stopId": "s9",
         "surface": "running_text",
-        "ordinal": 3
+        "ordinal": 1
       },
       {
         "sceneId": "scene-s9",
         "stopId": "s9",
-        "surface": "prompt",
-        "ordinal": 2
+        "surface": "accessible_label",
+        "ordinal": 201
+      },
+      {
+        "sceneId": "scene-s9",
+        "stopId": "s9",
+        "surface": "accessible_label",
+        "ordinal": 205
       },
       {
         "sceneId": "scene-s10",
@@ -8665,8 +9963,14 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s11",
         "stopId": "s11",
-        "surface": "prompt",
-        "ordinal": 2
+        "surface": "accessible_label",
+        "ordinal": 1
+      },
+      {
+        "sceneId": "scene-s11",
+        "stopId": "s11",
+        "surface": "accessible_label",
+        "ordinal": 4
       },
       {
         "sceneId": "scene-s12",
@@ -8677,44 +9981,80 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s12",
         "stopId": "s12",
-        "surface": "prompt",
+        "surface": "running_text",
         "ordinal": 4
       },
       {
-        "sceneId": "scene-s13",
-        "stopId": "s13",
-        "surface": "running_text",
-        "ordinal": 2
+        "sceneId": "scene-s12",
+        "stopId": "s12",
+        "surface": "accessible_label",
+        "ordinal": 201
+      },
+      {
+        "sceneId": "scene-s12",
+        "stopId": "s12",
+        "surface": "accessible_label",
+        "ordinal": 206
       },
       {
         "sceneId": "scene-s13",
         "stopId": "s13",
         "surface": "running_text",
-        "ordinal": 5
+        "ordinal": 1
+      },
+      {
+        "sceneId": "scene-s13",
+        "stopId": "s13",
+        "surface": "running_text",
+        "ordinal": 6
       },
       {
         "sceneId": "scene-s13",
         "stopId": "s13",
         "surface": "prompt",
-        "ordinal": 2
-      },
-      {
-        "sceneId": "scene-s14",
-        "stopId": "s14",
-        "surface": "running_text",
-        "ordinal": 2
-      },
-      {
-        "sceneId": "scene-s14",
-        "stopId": "s14",
-        "surface": "running_text",
         "ordinal": 5
       },
       {
+        "sceneId": "scene-s13",
+        "stopId": "s13",
+        "surface": "accessible_label",
+        "ordinal": 101
+      },
+      {
+        "sceneId": "scene-s13",
+        "stopId": "s13",
+        "surface": "accessible_label",
+        "ordinal": 105
+      },
+      {
+        "sceneId": "scene-s13",
+        "stopId": "s13",
+        "surface": "accessible_label",
+        "ordinal": 108
+      },
+      {
         "sceneId": "scene-s14",
         "stopId": "s14",
-        "surface": "prompt",
+        "surface": "running_text",
         "ordinal": 2
+      },
+      {
+        "sceneId": "scene-s14",
+        "stopId": "s14",
+        "surface": "running_text",
+        "ordinal": 4
+      },
+      {
+        "sceneId": "scene-s14",
+        "stopId": "s14",
+        "surface": "accessible_label",
+        "ordinal": 2
+      },
+      {
+        "sceneId": "scene-s14",
+        "stopId": "s14",
+        "surface": "accessible_label",
+        "ordinal": 7
       },
       {
         "sceneId": "scene-s15",
@@ -8759,16 +10099,46 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 1
       },
       {
-        "sceneId": "scene-s17",
-        "stopId": "s17",
+        "sceneId": "scene-s16",
+        "stopId": "s16",
         "surface": "running_text",
         "ordinal": 5
+      },
+      {
+        "sceneId": "scene-s16",
+        "stopId": "s16",
+        "surface": "accessible_label",
+        "ordinal": 101
+      },
+      {
+        "sceneId": "scene-s16",
+        "stopId": "s16",
+        "surface": "accessible_label",
+        "ordinal": 105
       },
       {
         "sceneId": "scene-s17",
         "stopId": "s17",
         "surface": "running_text",
-        "ordinal": 8
+        "ordinal": 4
+      },
+      {
+        "sceneId": "scene-s17",
+        "stopId": "s17",
+        "surface": "running_text",
+        "ordinal": 7
+      },
+      {
+        "sceneId": "scene-s17",
+        "stopId": "s17",
+        "surface": "accessible_label",
+        "ordinal": 201
+      },
+      {
+        "sceneId": "scene-s17",
+        "stopId": "s17",
+        "surface": "accessible_label",
+        "ordinal": 205
       },
       {
         "sceneId": "scene-s18",
@@ -8780,19 +10150,25 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s18",
         "stopId": "s18",
         "surface": "running_text",
-        "ordinal": 7
+        "ordinal": 6
       },
       {
         "sceneId": "scene-s18",
         "stopId": "s18",
-        "surface": "prompt",
-        "ordinal": 2
+        "surface": "accessible_label",
+        "ordinal": 1
+      },
+      {
+        "sceneId": "scene-s18",
+        "stopId": "s18",
+        "surface": "accessible_label",
+        "ordinal": 5
       },
       {
         "sceneId": "scene-s19",
         "stopId": "s19",
         "surface": "running_text",
-        "ordinal": 1
+        "ordinal": 0
       },
       {
         "sceneId": "scene-s19",
@@ -8803,8 +10179,20 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s19",
         "stopId": "s19",
-        "surface": "prompt",
-        "ordinal": 2
+        "surface": "running_text",
+        "ordinal": 8
+      },
+      {
+        "sceneId": "scene-s19",
+        "stopId": "s19",
+        "surface": "accessible_label",
+        "ordinal": 101
+      },
+      {
+        "sceneId": "scene-s19",
+        "stopId": "s19",
+        "surface": "accessible_label",
+        "ordinal": 104
       },
       {
         "sceneId": "scene-s20",
@@ -8840,79 +10228,91 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s21",
         "stopId": "s21",
         "surface": "running_text",
-        "ordinal": 4
+        "ordinal": 5
       },
       {
         "sceneId": "scene-s21",
         "stopId": "s21",
         "surface": "running_text",
-        "ordinal": 6
+        "ordinal": 8
       },
       {
         "sceneId": "scene-s21",
         "stopId": "s21",
         "surface": "running_text",
-        "ordinal": 10
+        "ordinal": 11
       },
       {
         "sceneId": "scene-s21",
         "stopId": "s21",
-        "surface": "prompt",
-        "ordinal": 4
+        "surface": "accessible_label",
+        "ordinal": 201
+      },
+      {
+        "sceneId": "scene-s21",
+        "stopId": "s21",
+        "surface": "accessible_label",
+        "ordinal": 205
       },
       {
         "sceneId": "scene-s22",
         "stopId": "s22",
-        "surface": "running_text",
-        "ordinal": 0
-      },
-      {
-        "sceneId": "scene-s22",
-        "stopId": "s22",
-        "surface": "prompt",
-        "ordinal": 3
-      },
-      {
-        "sceneId": "scene-s23",
-        "stopId": "s23",
-        "surface": "running_text",
-        "ordinal": 0
-      },
-      {
-        "sceneId": "scene-s23",
-        "stopId": "s23",
-        "surface": "running_text",
-        "ordinal": 4
-      },
-      {
-        "sceneId": "scene-s23",
-        "stopId": "s23",
-        "surface": "running_text",
-        "ordinal": 10
-      },
-      {
-        "sceneId": "scene-s23",
-        "stopId": "s23",
-        "surface": "prompt",
-        "ordinal": 4
-      },
-      {
-        "sceneId": "scene-s24",
-        "stopId": "s24",
-        "surface": "running_text",
-        "ordinal": 0
-      },
-      {
-        "sceneId": "scene-s24",
-        "stopId": "s24",
-        "surface": "running_text",
-        "ordinal": 6
-      },
-      {
-        "sceneId": "scene-s24",
-        "stopId": "s24",
-        "surface": "prompt",
+        "surface": "accessible_label",
         "ordinal": 2
+      },
+      {
+        "sceneId": "scene-s22",
+        "stopId": "s22",
+        "surface": "accessible_label",
+        "ordinal": 8
+      },
+      {
+        "sceneId": "scene-s23",
+        "stopId": "s23",
+        "surface": "running_text",
+        "ordinal": 1
+      },
+      {
+        "sceneId": "scene-s23",
+        "stopId": "s23",
+        "surface": "running_text",
+        "ordinal": 7
+      },
+      {
+        "sceneId": "scene-s23",
+        "stopId": "s23",
+        "surface": "accessible_label",
+        "ordinal": 101
+      },
+      {
+        "sceneId": "scene-s23",
+        "stopId": "s23",
+        "surface": "accessible_label",
+        "ordinal": 109
+      },
+      {
+        "sceneId": "scene-s24",
+        "stopId": "s24",
+        "surface": "running_text",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "scene-s24",
+        "stopId": "s24",
+        "surface": "running_text",
+        "ordinal": 7
+      },
+      {
+        "sceneId": "scene-s24",
+        "stopId": "s24",
+        "surface": "accessible_label",
+        "ordinal": 202
+      },
+      {
+        "sceneId": "scene-s24",
+        "stopId": "s24",
+        "surface": "accessible_label",
+        "ordinal": 207
       },
       {
         "sceneId": "scene-s25",
@@ -8948,25 +10348,25 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s26",
         "stopId": "s26",
         "surface": "running_text",
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s26",
+        "stopId": "s26",
+        "surface": "running_text",
+        "ordinal": 6
+      },
+      {
+        "sceneId": "scene-s26",
+        "stopId": "s26",
+        "surface": "accessible_label",
         "ordinal": 1
       },
       {
         "sceneId": "scene-s26",
         "stopId": "s26",
-        "surface": "running_text",
-        "ordinal": 4
-      },
-      {
-        "sceneId": "scene-s26",
-        "stopId": "s26",
-        "surface": "running_text",
-        "ordinal": 6
-      },
-      {
-        "sceneId": "scene-s26",
-        "stopId": "s26",
-        "surface": "prompt",
-        "ordinal": 3
+        "surface": "accessible_label",
+        "ordinal": 5
       },
       {
         "sceneId": "scene-s27",
@@ -8978,13 +10378,19 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s27",
         "stopId": "s27",
         "surface": "running_text",
-        "ordinal": 6
+        "ordinal": 7
       },
       {
         "sceneId": "scene-s27",
         "stopId": "s27",
-        "surface": "running_text",
-        "ordinal": 11
+        "surface": "accessible_label",
+        "ordinal": 102
+      },
+      {
+        "sceneId": "scene-s27",
+        "stopId": "s27",
+        "surface": "accessible_label",
+        "ordinal": 109
       },
       {
         "sceneId": "scene-s28",
@@ -8996,25 +10402,25 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s28",
         "stopId": "s28",
         "surface": "running_text",
-        "ordinal": 4
-      },
-      {
-        "sceneId": "scene-s28",
-        "stopId": "s28",
-        "surface": "running_text",
-        "ordinal": 8
-      },
-      {
-        "sceneId": "scene-s28",
-        "stopId": "s28",
-        "surface": "running_text",
-        "ordinal": 11
+        "ordinal": 3
       },
       {
         "sceneId": "scene-s28",
         "stopId": "s28",
         "surface": "prompt",
         "ordinal": 4
+      },
+      {
+        "sceneId": "scene-s28",
+        "stopId": "s28",
+        "surface": "accessible_label",
+        "ordinal": 201
+      },
+      {
+        "sceneId": "scene-s28",
+        "stopId": "s28",
+        "surface": "accessible_label",
+        "ordinal": 209
       },
       {
         "sceneId": "scene-s29",
@@ -9032,13 +10438,37 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s29",
         "stopId": "s29",
         "surface": "running_text",
-        "ordinal": 9
+        "ordinal": 7
       },
       {
         "sceneId": "scene-s29",
         "stopId": "s29",
-        "surface": "prompt",
-        "ordinal": 2
+        "surface": "running_text",
+        "ordinal": 12
+      },
+      {
+        "sceneId": "scene-s29",
+        "stopId": "s29",
+        "surface": "running_text",
+        "ordinal": 15
+      },
+      {
+        "sceneId": "scene-s29",
+        "stopId": "s29",
+        "surface": "accessible_label",
+        "ordinal": 1
+      },
+      {
+        "sceneId": "scene-s29",
+        "stopId": "s29",
+        "surface": "accessible_label",
+        "ordinal": 5
+      },
+      {
+        "sceneId": "scene-s29",
+        "stopId": "s29",
+        "surface": "accessible_label",
+        "ordinal": 9
       },
       {
         "sceneId": "scene-s30",
@@ -9092,55 +10522,85 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s31",
         "stopId": "s31",
         "surface": "running_text",
+        "ordinal": 4
+      },
+      {
+        "sceneId": "scene-s31",
+        "stopId": "s31",
+        "surface": "running_text",
+        "ordinal": 7
+      },
+      {
+        "sceneId": "scene-s31",
+        "stopId": "s31",
+        "surface": "running_text",
+        "ordinal": 10
+      },
+      {
+        "sceneId": "scene-s31",
+        "stopId": "s31",
+        "surface": "accessible_label",
+        "ordinal": 101
+      },
+      {
+        "sceneId": "scene-s31",
+        "stopId": "s31",
+        "surface": "accessible_label",
+        "ordinal": 104
+      },
+      {
+        "sceneId": "scene-s31",
+        "stopId": "s31",
+        "surface": "accessible_label",
+        "ordinal": 110
+      },
+      {
+        "sceneId": "scene-s32",
+        "stopId": "s32",
+        "surface": "running_text",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "scene-s32",
+        "stopId": "s32",
+        "surface": "running_text",
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s32",
+        "stopId": "s32",
+        "surface": "running_text",
         "ordinal": 5
       },
       {
-        "sceneId": "scene-s31",
-        "stopId": "s31",
-        "surface": "running_text",
-        "ordinal": 8
-      },
-      {
-        "sceneId": "scene-s31",
-        "stopId": "s31",
-        "surface": "running_text",
-        "ordinal": 11
-      },
-      {
-        "sceneId": "scene-s31",
-        "stopId": "s31",
+        "sceneId": "scene-s32",
+        "stopId": "s32",
         "surface": "running_text",
         "ordinal": 13
-      },
-      {
-        "sceneId": "scene-s31",
-        "stopId": "s31",
-        "surface": "prompt",
-        "ordinal": 4
-      },
-      {
-        "sceneId": "scene-s32",
-        "stopId": "s32",
-        "surface": "running_text",
-        "ordinal": 0
-      },
-      {
-        "sceneId": "scene-s32",
-        "stopId": "s32",
-        "surface": "running_text",
-        "ordinal": 3
-      },
-      {
-        "sceneId": "scene-s32",
-        "stopId": "s32",
-        "surface": "running_text",
-        "ordinal": 12
       },
       {
         "sceneId": "scene-s32",
         "stopId": "s32",
         "surface": "running_text",
         "ordinal": 15
+      },
+      {
+        "sceneId": "scene-s32",
+        "stopId": "s32",
+        "surface": "accessible_label",
+        "ordinal": 201
+      },
+      {
+        "sceneId": "scene-s32",
+        "stopId": "s32",
+        "surface": "accessible_label",
+        "ordinal": 204
+      },
+      {
+        "sceneId": "scene-s32",
+        "stopId": "s32",
+        "surface": "accessible_label",
+        "ordinal": 211
       },
       {
         "sceneId": "scene-s33",
@@ -9173,16 +10633,16 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 17
       },
       {
-        "sceneId": "scene-s34",
-        "stopId": "s34",
+        "sceneId": "scene-s33",
+        "stopId": "s33",
         "surface": "running_text",
-        "ordinal": 0
+        "ordinal": 20
       },
       {
         "sceneId": "scene-s34",
         "stopId": "s34",
         "surface": "running_text",
-        "ordinal": 4
+        "ordinal": 0
       },
       {
         "sceneId": "scene-s34",
@@ -9200,19 +10660,25 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s34",
         "stopId": "s34",
         "surface": "running_text",
-        "ordinal": 15
+        "ordinal": 14
       },
       {
         "sceneId": "scene-s34",
         "stopId": "s34",
         "surface": "running_text",
-        "ordinal": 18
+        "ordinal": 17
       },
       {
         "sceneId": "scene-s34",
         "stopId": "s34",
-        "surface": "prompt",
-        "ordinal": 4
+        "surface": "accessible_label",
+        "ordinal": 101
+      },
+      {
+        "sceneId": "scene-s34",
+        "stopId": "s34",
+        "surface": "accessible_label",
+        "ordinal": 109
       },
       {
         "sceneId": "scene-s35",
@@ -9272,19 +10738,25 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s36",
         "stopId": "s36",
         "surface": "running_text",
-        "ordinal": 7
+        "ordinal": 8
       },
       {
         "sceneId": "scene-s36",
         "stopId": "s36",
         "surface": "running_text",
-        "ordinal": 11
+        "ordinal": 12
       },
       {
         "sceneId": "scene-s36",
         "stopId": "s36",
         "surface": "running_text",
-        "ordinal": 16
+        "ordinal": 19
+      },
+      {
+        "sceneId": "scene-s36",
+        "stopId": "s36",
+        "surface": "accessible_label",
+        "ordinal": 201
       },
       {
         "sceneId": "scene-s37",
@@ -9302,19 +10774,31 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s37",
         "stopId": "s37",
         "surface": "running_text",
-        "ordinal": 9
+        "ordinal": 10
       },
       {
         "sceneId": "scene-s37",
         "stopId": "s37",
         "surface": "running_text",
-        "ordinal": 15
+        "ordinal": 14
       },
       {
         "sceneId": "scene-s37",
         "stopId": "s37",
-        "surface": "running_text",
-        "ordinal": 19
+        "surface": "accessible_label",
+        "ordinal": 1
+      },
+      {
+        "sceneId": "scene-s37",
+        "stopId": "s37",
+        "surface": "accessible_label",
+        "ordinal": 5
+      },
+      {
+        "sceneId": "scene-s37",
+        "stopId": "s37",
+        "surface": "accessible_label",
+        "ordinal": 12
       },
       {
         "sceneId": "scene-s38",
@@ -9350,25 +10834,37 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s39",
         "stopId": "s39",
         "surface": "running_text",
-        "ordinal": 3
+        "ordinal": 0
       },
       {
         "sceneId": "scene-s39",
         "stopId": "s39",
         "surface": "running_text",
-        "ordinal": 6
+        "ordinal": 5
       },
       {
         "sceneId": "scene-s39",
         "stopId": "s39",
         "surface": "running_text",
-        "ordinal": 13
+        "ordinal": 14
       },
       {
         "sceneId": "scene-s39",
         "stopId": "s39",
         "surface": "running_text",
-        "ordinal": 16
+        "ordinal": 18
+      },
+      {
+        "sceneId": "scene-s39",
+        "stopId": "s39",
+        "surface": "accessible_label",
+        "ordinal": 201
+      },
+      {
+        "sceneId": "scene-s39",
+        "stopId": "s39",
+        "surface": "accessible_label",
+        "ordinal": 206
       },
       {
         "sceneId": "scene-s40",
@@ -9455,6 +10951,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 7
       },
       {
+        "sceneId": "meaning:clear",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 8
+      },
+      {
         "sceneId": "meaning:coin",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -9471,6 +10973,18 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 9
+      },
+      {
+        "sceneId": "meaning:drum",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 11
+      },
+      {
+        "sceneId": "meaning:gate",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 13
       },
       {
         "sceneId": "meaning:hand",
@@ -9617,6 +11131,18 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 16
       },
       {
+        "sceneId": "meaning:train",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 15
+      },
+      {
+        "sceneId": "meaning:train",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 18
+      },
+      {
         "sceneId": "meaning:tree",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -9658,8 +11184,8 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s22",
         "stopId": "s22",
-        "surface": "running_text",
-        "ordinal": 1
+        "surface": "accessible_label",
+        "ordinal": 5
       },
       {
         "sceneId": "meaning:theme",
@@ -9701,12 +11227,6 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
   {
     "wordId": "there",
     "uses": [
-      {
-        "sceneId": "scene-s34",
-        "stopId": "s34",
-        "surface": "running_text",
-        "ordinal": 13
-      },
       {
         "sceneId": "meaning:cats",
         "stopId": "meaning-support",
@@ -9786,6 +11306,17 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   },
   {
+    "wordId": "through",
+    "uses": [
+      {
+        "sceneId": "meaning:gate",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 18
+      }
+    ]
+  },
+  {
     "wordId": "time",
     "uses": [
       {
@@ -9793,6 +11324,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 20
+      },
+      {
+        "sceneId": "meaning:grow",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 14
       },
       {
         "sceneId": "meaning:night",
@@ -9806,10 +11343,94 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "to",
     "uses": [
       {
-        "sceneId": "scene-s37",
-        "stopId": "s37",
+        "sceneId": "scene-s3",
+        "stopId": "s3",
+        "surface": "accessible_label",
+        "ordinal": 205
+      },
+      {
+        "sceneId": "scene-s13",
+        "stopId": "s13",
+        "surface": "accessible_label",
+        "ordinal": 103
+      },
+      {
+        "sceneId": "scene-s14",
+        "stopId": "s14",
+        "surface": "accessible_label",
+        "ordinal": 5
+      },
+      {
+        "sceneId": "scene-s16",
+        "stopId": "s16",
         "surface": "running_text",
-        "ordinal": 4
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s16",
+        "stopId": "s16",
+        "surface": "accessible_label",
+        "ordinal": 107
+      },
+      {
+        "sceneId": "scene-s21",
+        "stopId": "s21",
+        "surface": "accessible_label",
+        "ordinal": 204
+      },
+      {
+        "sceneId": "scene-s22",
+        "stopId": "s22",
+        "surface": "running_text",
+        "ordinal": 7
+      },
+      {
+        "sceneId": "scene-s22",
+        "stopId": "s22",
+        "surface": "accessible_label",
+        "ordinal": 6
+      },
+      {
+        "sceneId": "scene-s23",
+        "stopId": "s23",
+        "surface": "accessible_label",
+        "ordinal": 107
+      },
+      {
+        "sceneId": "scene-s24",
+        "stopId": "s24",
+        "surface": "accessible_label",
+        "ordinal": 205
+      },
+      {
+        "sceneId": "scene-s27",
+        "stopId": "s27",
+        "surface": "running_text",
+        "ordinal": 11
+      },
+      {
+        "sceneId": "scene-s27",
+        "stopId": "s27",
+        "surface": "accessible_label",
+        "ordinal": 107
+      },
+      {
+        "sceneId": "scene-s29",
+        "stopId": "s29",
+        "surface": "accessible_label",
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s32",
+        "stopId": "s32",
+        "surface": "accessible_label",
+        "ordinal": 208
+      },
+      {
+        "sceneId": "scene-s34",
+        "stopId": "s34",
+        "surface": "accessible_label",
+        "ordinal": 106
       },
       {
         "sceneId": "meaning:book",
@@ -9848,10 +11469,28 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 11
       },
       {
+        "sceneId": "meaning:clear",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 23
+      },
+      {
         "sceneId": "meaning:cube",
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 22
+      },
+      {
+        "sceneId": "meaning:gap",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 24
+      },
+      {
+        "sceneId": "meaning:grow",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 19
       },
       {
         "sceneId": "meaning:hear",
@@ -9954,6 +11593,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 22
+      },
+      {
+        "sceneId": "meaning:turn",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 17
       }
     ]
   },
@@ -9980,26 +11625,49 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s19",
         "stopId": "s19",
+        "surface": "running_text",
+        "ordinal": 5
+      },
+      {
+        "sceneId": "scene-s19",
+        "stopId": "s19",
         "surface": "prompt",
-        "ordinal": 3
+        "ordinal": 4
       },
       {
-        "sceneId": "scene-s23",
-        "stopId": "s23",
-        "surface": "running_text",
-        "ordinal": 1
-      },
-      {
-        "sceneId": "scene-s23",
-        "stopId": "s23",
-        "surface": "running_text",
-        "ordinal": 11
+        "sceneId": "scene-s19",
+        "stopId": "s19",
+        "surface": "accessible_label",
+        "ordinal": 106
       },
       {
         "sceneId": "scene-s23",
         "stopId": "s23",
         "surface": "accessible_label",
-        "ordinal": 2
+        "ordinal": 1
+      },
+      {
+        "sceneId": "meaning:train",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 1
+      },
+      {
+        "sceneId": "meaning:train",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 27
+      }
+    ]
+  },
+  {
+    "wordId": "tray",
+    "uses": [
+      {
+        "sceneId": "scene-s23",
+        "stopId": "s23",
+        "surface": "running_text",
+        "ordinal": 3
       },
       {
         "sceneId": "scene-s23",
@@ -10016,41 +11684,6 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   },
   {
-    "wordId": "tray",
-    "uses": [
-      {
-        "sceneId": "scene-s23",
-        "stopId": "s23",
-        "surface": "running_text",
-        "ordinal": 6
-      },
-      {
-        "sceneId": "scene-s23",
-        "stopId": "s23",
-        "surface": "prompt",
-        "ordinal": 6
-      },
-      {
-        "sceneId": "scene-s23",
-        "stopId": "s23",
-        "surface": "accessible_label",
-        "ordinal": 0
-      },
-      {
-        "sceneId": "scene-s23",
-        "stopId": "s23",
-        "surface": "accessible_label",
-        "ordinal": 101
-      },
-      {
-        "sceneId": "scene-s23",
-        "stopId": "s23",
-        "surface": "accessible_label",
-        "ordinal": 200
-      }
-    ]
-  },
-  {
     "wordId": "tree",
     "uses": [
       {
@@ -10063,7 +11696,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s24",
         "stopId": "s24",
         "surface": "running_text",
-        "ordinal": 7
+        "ordinal": 6
       },
       {
         "sceneId": "scene-s24",
@@ -10081,7 +11714,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s24",
         "stopId": "s24",
         "surface": "accessible_label",
-        "ordinal": 202
+        "ordinal": 204
       },
       {
         "sceneId": "scene-s32",
@@ -10093,7 +11726,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s32",
         "stopId": "s32",
         "surface": "running_text",
-        "ordinal": 16
+        "ordinal": 14
       },
       {
         "sceneId": "scene-s32",
@@ -10105,7 +11738,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s32",
         "stopId": "s32",
         "surface": "accessible_label",
-        "ordinal": 203
+        "ordinal": 207
       },
       {
         "sceneId": "scene-s35",
@@ -10166,6 +11799,18 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "turn",
     "uses": [
       {
+        "sceneId": "scene-s32",
+        "stopId": "s32",
+        "surface": "running_text",
+        "ordinal": 18
+      },
+      {
+        "sceneId": "scene-s32",
+        "stopId": "s32",
+        "surface": "accessible_label",
+        "ordinal": 209
+      },
+      {
         "sceneId": "scene-s33",
         "stopId": "s33",
         "surface": "running_text",
@@ -10218,6 +11863,24 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 2
+      },
+      {
+        "sceneId": "meaning:turn",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "meaning:turn",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 10
+      },
+      {
+        "sceneId": "meaning:turn",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 20
       }
     ]
   },
@@ -10229,6 +11892,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "s34",
         "surface": "prompt",
         "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s34",
+        "stopId": "s34",
+        "surface": "accessible_label",
+        "ordinal": 108
       },
       {
         "sceneId": "scene-s38",
@@ -10285,13 +11954,43 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s6",
         "stopId": "s6",
         "surface": "accessible_label",
-        "ordinal": 103
+        "ordinal": 101
       }
     ]
   },
   {
     "wordId": "water",
     "uses": [
+      {
+        "sceneId": "scene-s9",
+        "stopId": "s9",
+        "surface": "prompt",
+        "ordinal": 3
+      },
+      {
+        "sceneId": "scene-s9",
+        "stopId": "s9",
+        "surface": "accessible_label",
+        "ordinal": 206
+      },
+      {
+        "sceneId": "scene-s22",
+        "stopId": "s22",
+        "surface": "prompt",
+        "ordinal": 5
+      },
+      {
+        "sceneId": "scene-s22",
+        "stopId": "s22",
+        "surface": "accessible_label",
+        "ordinal": 4
+      },
+      {
+        "sceneId": "scene-s22",
+        "stopId": "s22",
+        "surface": "accessible_label",
+        "ordinal": 10
+      },
       {
         "sceneId": "meaning:boat",
         "stopId": "meaning-support",
@@ -10332,6 +12031,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "s26",
         "surface": "running_text",
         "ordinal": 11
+      },
+      {
+        "sceneId": "meaning:clear",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 9
       }
     ]
   },
@@ -10343,12 +12048,6 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "s5",
         "surface": "prompt",
         "ordinal": 3
-      },
-      {
-        "sceneId": "scene-s9",
-        "stopId": "s9",
-        "surface": "running_text",
-        "ordinal": 0
       },
       {
         "sceneId": "scene-s10",
@@ -10417,12 +12116,6 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 6
       },
       {
-        "sceneId": "scene-s39",
-        "stopId": "s39",
-        "surface": "running_text",
-        "ordinal": 0
-      },
-      {
         "sceneId": "scene-s40",
         "stopId": "s40",
         "surface": "running_text",
@@ -10464,8 +12157,20 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 0
       },
       {
+        "sceneId": "scene-s2",
+        "stopId": "s2",
+        "surface": "prompt",
+        "ordinal": 0
+      },
+      {
         "sceneId": "scene-s3",
         "stopId": "s3",
+        "surface": "prompt",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "scene-s4",
+        "stopId": "s4",
         "surface": "prompt",
         "ordinal": 0
       },
@@ -10490,6 +12195,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s11",
         "stopId": "s11",
+        "surface": "prompt",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "scene-s12",
+        "stopId": "s12",
         "surface": "prompt",
         "ordinal": 0
       },
@@ -10524,6 +12235,18 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 0
       },
       {
+        "sceneId": "scene-s21",
+        "stopId": "s21",
+        "surface": "prompt",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "scene-s23",
+        "stopId": "s23",
+        "surface": "prompt",
+        "ordinal": 0
+      },
+      {
         "sceneId": "scene-s24",
         "stopId": "s24",
         "surface": "prompt",
@@ -10538,6 +12261,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
       {
         "sceneId": "scene-s29",
         "stopId": "s29",
+        "surface": "prompt",
+        "ordinal": 0
+      },
+      {
+        "sceneId": "scene-s31",
+        "stopId": "s31",
         "surface": "prompt",
         "ordinal": 0
       },
@@ -10583,6 +12312,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "when",
     "uses": [
       {
+        "sceneId": "meaning:drum",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 7
+      },
+      {
         "sceneId": "meaning:hear",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -10599,24 +12334,6 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
   {
     "wordId": "where",
     "uses": [
-      {
-        "sceneId": "scene-s21",
-        "stopId": "s21",
-        "surface": "prompt",
-        "ordinal": 0
-      },
-      {
-        "sceneId": "scene-s23",
-        "stopId": "s23",
-        "surface": "prompt",
-        "ordinal": 0
-      },
-      {
-        "sceneId": "scene-s31",
-        "stopId": "s31",
-        "surface": "prompt",
-        "ordinal": 0
-      },
       {
         "sceneId": "meaning:city",
         "stopId": "meaning-support",
@@ -10746,10 +12463,10 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     "wordId": "with",
     "uses": [
       {
-        "sceneId": "scene-s12",
-        "stopId": "s12",
-        "surface": "running_text",
-        "ordinal": 3
+        "sceneId": "scene-s6",
+        "stopId": "s6",
+        "surface": "accessible_label",
+        "ordinal": 207
       },
       {
         "sceneId": "scene-s24",
@@ -10773,7 +12490,7 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s34",
         "stopId": "s34",
         "surface": "running_text",
-        "ordinal": 17
+        "ordinal": 16
       },
       {
         "sceneId": "scene-s34",
@@ -10785,13 +12502,13 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s34",
         "stopId": "s34",
         "surface": "accessible_label",
-        "ordinal": 102
+        "ordinal": 202
       },
       {
-        "sceneId": "scene-s34",
-        "stopId": "s34",
-        "surface": "accessible_label",
-        "ordinal": 202
+        "sceneId": "scene-s36",
+        "stopId": "s36",
+        "surface": "running_text",
+        "ordinal": 15
       },
       {
         "sceneId": "meaning:action",
@@ -10854,6 +12571,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 6
       },
       {
+        "sceneId": "meaning:drum",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 23
+      },
+      {
         "sceneId": "meaning:frog",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -10890,6 +12613,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 18
       },
       {
+        "sceneId": "meaning:see",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 4
+      },
+      {
         "sceneId": "meaning:storm",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -10910,19 +12639,19 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "sceneId": "scene-s37",
         "stopId": "s37",
         "surface": "running_text",
-        "ordinal": 11
+        "ordinal": 2
       },
       {
         "sceneId": "scene-s37",
         "stopId": "s37",
         "surface": "running_text",
-        "ordinal": 17
+        "ordinal": 12
       },
       {
         "sceneId": "scene-s37",
         "stopId": "s37",
         "surface": "accessible_label",
-        "ordinal": 2
+        "ordinal": 3
       },
       {
         "sceneId": "meaning:book",
@@ -10940,6 +12669,17 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 11
+      }
+    ]
+  },
+  {
+    "wordId": "would",
+    "uses": [
+      {
+        "sceneId": "scene-s8",
+        "stopId": "s8",
+        "surface": "accessible_label",
+        "ordinal": 110
       }
     ]
   },
@@ -10968,6 +12708,12 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "stopId": "meaning-support",
         "surface": "meaning_support",
         "ordinal": 22
+      },
+      {
+        "sceneId": "meaning:see",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 19
       },
       {
         "sceneId": "meaning:thing",
@@ -11095,6 +12841,18 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
         "ordinal": 15
       },
       {
+        "sceneId": "meaning:see",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 5
+      },
+      {
+        "sceneId": "meaning:see",
+        "stopId": "meaning-support",
+        "surface": "meaning_support",
+        "ordinal": 15
+      },
+      {
         "sceneId": "meaning:sit",
         "stopId": "meaning-support",
         "surface": "meaning_support",
@@ -11139,6 +12897,6 @@ export const CONNECTED_TEXT_USAGE = deepFreeze([
     ]
   }
 ]);
-export const ADVANCED_SCENE_TOKEN_IDS = Object.freeze(["buzz","home","lift","rain","rock","sit"]);
+export const ADVANCED_SCENE_TOKEN_IDS = Object.freeze(["buzz","clear","drum","gap","gate","grow","home","lift","light","rain","rock","see","spin","start","train","turn"]);
 export const ADVANCED_SCENE_TOKEN_COUNT = ADVANCED_SCENE_TOKEN_IDS.length;
-export const ADVANCED_SCENE_TOKEN_CONTENT_HASH = "0add07f5b448be501ac5ce45163186696132d64d7b24bd7eca230083e381abaf";
+export const ADVANCED_SCENE_TOKEN_CONTENT_HASH = "8426e34a2b330f5fe1173658ad59bdd46856a89ca1b2a57e30554fa8ce0eec68";
