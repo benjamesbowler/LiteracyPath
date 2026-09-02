@@ -234,6 +234,18 @@ test("JSX gallery resolution follows lexical bindings without crossing duplicate
       ].join("\n")
     }
   }), undefined, "constant initializers resolve in their declaration scope");
+
+  assert.doesNotThrow(() => scanVirtualPolicy({
+    virtualSources: {
+      "src/main.jsx": [
+        "const target = '/preview/sound-seekers-v2-content.html';",
+        "export function Safe() {",
+        "  { var target = '/safe.html'; }",
+        "  return <a href={target}>Function-scoped var</a>;",
+        "}"
+      ].join("\n")
+    }
+  }), "a nested-block var must shadow the outer binding throughout its function");
 });
 
 test("gallery isolation follows static, re-export, dynamic, HTML, and CSS edges", () => {
@@ -283,6 +295,7 @@ test("preview policy rejects authored transition, evidence, correctness, phase, 
     ["transition", "export const x = { presentationTransition: { reducerRevision: 1 } };"],
     ["evidence", "export const x = { evidenceEvent: { domain: 'novel_decoding' } };"],
     ["correctness", "export const x = { correct: true };"],
+    ["computed template correctness", "export const x = { [`correct`]: true };"],
     ["phase prop", "export const x = <SceneVisual phase=\"resolved\" />;"],
     ["challenge", "export const x = { challenge: { expectedToken: 'x' } };"],
     ["response", "export const x = { response: { token: 'x' } };"],
@@ -654,7 +667,10 @@ test("offline lifecycle bounds stalled shutdown while still settling the peer cl
     ),
     /listener shutdown exceeded 5ms/u
   );
-  assert.ok(fixture.events.indexOf("control-close-done") < fixture.events.indexOf("temporary-cleanup"));
+  assert.notEqual(fixture.events.indexOf("control-close-done"), -1);
+  assert.equal(fixture.assetServer.listening, true);
+  assert.equal(fixture.assetServer.listenerCount("error"), 1);
+  assert.equal(fixture.events.includes("temporary-cleanup"), false);
 });
 
 test("offline lifecycle waits for both closes when one listener reports an error", async () => {
@@ -685,27 +701,56 @@ test("offline lifecycle routes post-listen errors through shared shutdown", asyn
 
 test("offline lifecycle terminates the detached build process group including descendants", async () => {
   const fixture = lifecycleFixture({ buildNeverCloses: true });
+  let groupAlive = true;
+  fixture.dependencies.isProcessGroupAlive = () => groupAlive;
   fixture.dependencies.killProcessGroup = (pid, signal) => {
     fixture.events.push(`group-kill:${pid}:${signal}`);
-    queueMicrotask(() => {
-      fixture.events.push("descendant-close");
+    if (signal === "SIGTERM") queueMicrotask(() => {
       fixture.child.signalCode = signal;
       fixture.child.emit("close", null, signal);
     });
+    if (signal === "SIGKILL") {
+      groupAlive = false;
+      fixture.events.push("descendant-close");
+    }
   };
   await assert.rejects(
     () => runQuestOfflineRangeServerLifecycle(
-      { ...lifecycleOptions, buildTimeoutMs: 5 },
+      { ...lifecycleOptions, buildTimeoutMs: 5, terminationTimeoutMs: 5 },
       fixture.dependencies
     ),
     /build exceeded 5ms/u
   );
   assert.deepEqual(fixture.events.filter(event => event.startsWith("group-kill")), [
-    "group-kill:42424:SIGTERM"
+    "group-kill:42424:SIGTERM",
+    "group-kill:42424:SIGKILL"
   ]);
   assert.equal(fixture.events.includes("build-detached:true"), true);
   assert.equal(fixture.events.some(event => event.startsWith("child-kill")), false);
   assert.ok(fixture.events.indexOf("descendant-close") < fixture.events.indexOf("temporary-cleanup"));
+});
+
+test("offline lifecycle retains the temporary root when descendants survive forced termination", async () => {
+  const fixture = lifecycleFixture({ buildNeverCloses: true });
+  const startedAt = Date.now();
+  fixture.dependencies.isProcessGroupAlive = () => true;
+  fixture.dependencies.killProcessGroup = (pid, signal) => {
+    fixture.events.push(`group-kill:${pid}:${signal}`);
+    if (signal === "SIGTERM") queueMicrotask(() => {
+      fixture.child.signalCode = signal;
+      fixture.child.emit("close", null, signal);
+    });
+  };
+  await assert.rejects(() => runQuestOfflineRangeServerLifecycle(
+    { ...lifecycleOptions, buildTimeoutMs: 5, terminationTimeoutMs: 5 },
+    fixture.dependencies
+  ));
+  assert.deepEqual(fixture.events.filter(event => event.startsWith("group-kill")), [
+    "group-kill:42424:SIGTERM",
+    "group-kill:42424:SIGKILL"
+  ]);
+  assert.ok(Date.now() - startedAt < 100, "forced process-tree failure must remain deadline-bounded");
+  assert.equal(fixture.events.includes("temporary-cleanup"), false);
 });
 
 test("the offline range server rejects symlink components and unauthenticated shutdown", async () => {

@@ -334,7 +334,7 @@ function staticString(node, bindings = new Map(), seen = new Set()) {
     return staticString(bindings.get(node.name), bindings, new Set([...seen, node.name]));
   }
   if (node.type === "TemplateLiteral") {
-    let value;
+    let value = "";
     for (const [index, quasi] of node.quasis.entries()) {
       value += quasi.value.cooked ?? quasi.value.raw;
       if (index < node.expressions.length) {
@@ -583,10 +583,14 @@ function patternIdentifiers(pattern) {
 function lexicalScopes(ast) {
   const scopeByNode = new WeakMap();
   const pendingMutations = [];
-  const childScope = parent => ({ parent, bindings: new Map() });
+  const childScope = (parent, functionBoundary = false) => {
+    const scope = { parent, bindings: new Map(), functionScope: null };
+    scope.functionScope = functionBoundary || !parent ? scope : parent.functionScope;
+    return scope;
+  };
   const declare = (scope, name, binding) => {
     const previous = scope.bindings.get(name);
-    scope.bindings.set(name, previous ? { ...previous, ambiguous: true } : { ...binding, scope });
+    scope.bindings.set(name, previous ? { ...previous, ambiguous: true } : { ...binding, scope: binding.scope || scope });
   };
   const visit = (node, inheritedScope) => {
     if (!node || typeof node !== "object") return;
@@ -594,7 +598,9 @@ function lexicalScopes(ast) {
       "ArrowFunctionExpression", "FunctionDeclaration", "FunctionExpression", "ObjectMethod", "ClassMethod"
     ].includes(node.type);
     const createsBlock = ["Program", "BlockStatement", "SwitchStatement", "CatchClause"].includes(node.type);
-    const scope = isFunction || createsBlock ? childScope(inheritedScope) : inheritedScope;
+    const scope = isFunction || createsBlock
+      ? childScope(inheritedScope, isFunction || node.type === "Program")
+      : inheritedScope;
     scopeByNode.set(node, scope);
     if (isFunction) {
       for (const parameter of node.params || []) {
@@ -607,7 +613,13 @@ function lexicalScopes(ast) {
     if (node.type === "VariableDeclaration") {
       for (const declarator of node.declarations) {
         for (const name of patternIdentifiers(declarator.id)) {
-          declare(scope, name, { kind: node.kind, init: declarator.init, mutable: node.kind !== "const" });
+          const bindingScope = node.kind === "var" ? scope.functionScope : scope;
+          declare(bindingScope, name, {
+            kind: node.kind,
+            init: declarator.init,
+            mutable: node.kind !== "const",
+            scope
+          });
         }
       }
     }

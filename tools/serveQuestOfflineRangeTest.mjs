@@ -364,7 +364,8 @@ function observeChild(child) {
   return Object.freeze({ child, done, isSettled: () => settled });
 }
 
-function signalProcessTree(child, signal, { platform, killProcessGroup }) {
+function signalProcessTree(childState, signal, { platform, killProcessGroup }) {
+  const { child } = childState;
   if (platform !== "win32" && Number.isSafeInteger(child.pid) && child.pid > 0) {
     try {
       killProcessGroup(child.pid, signal);
@@ -373,24 +374,49 @@ function signalProcessTree(child, signal, { platform, killProcessGroup }) {
       if (error?.code !== "ESRCH") throw error;
     }
   }
-  child.kill(signal);
+  if (!childState.isSettled()) child.kill(signal);
 }
 
-async function terminateChild(childState, { milliseconds, platform, killProcessGroup }) {
-  if (!childState || childState.isSettled()) return;
-  signalProcessTree(childState.child, "SIGTERM", { platform, killProcessGroup });
+async function waitForProcessTreeExit(childState, { milliseconds, platform, isProcessGroupAlive }) {
+  const pid = childState.child.pid;
+  const deadline = Date.now() + milliseconds;
+  const groupIsAlive = () => platform !== "win32" && Number.isSafeInteger(pid) && pid > 0
+    && isProcessGroupAlive(pid);
+  while (!childState.isSettled() || groupIsAlive()) {
+    const remaining = deadline - Date.now();
+    if (remaining <= 0) {
+      throw new Error(`quest offline process-tree termination exceeded ${milliseconds}ms`);
+    }
+    await Promise.race([
+      childState.isSettled() ? new Promise(() => {}) : childState.done.catch(() => {}),
+      new Promise(resolve => setTimeout(resolve, Math.min(10, remaining)))
+    ]);
+  }
+}
+
+async function terminateChild(childState, { milliseconds, platform, killProcessGroup, isProcessGroupAlive }) {
+  if (!childState) return;
+  const pid = childState.child.pid;
+  const groupAlive = platform !== "win32" && Number.isSafeInteger(pid) && pid > 0
+    && isProcessGroupAlive(pid);
+  if (childState.isSettled() && !groupAlive) return;
+  signalProcessTree(childState, "SIGTERM", { platform, killProcessGroup });
   try {
-    await withTimeout(childState.done, milliseconds, "quest offline build termination");
+    await waitForProcessTreeExit(childState, { milliseconds, platform, isProcessGroupAlive });
   } catch (error) {
-    if (childState.isSettled()) throw error;
-    signalProcessTree(childState.child, "SIGKILL", { platform, killProcessGroup });
-    await withTimeout(childState.done, milliseconds, "quest offline forced build termination");
+    const stillAlive = !childState.isSettled()
+      || platform !== "win32" && Number.isSafeInteger(pid) && pid > 0 && isProcessGroupAlive(pid);
+    if (!stillAlive) throw error;
+    signalProcessTree(childState, "SIGKILL", { platform, killProcessGroup });
+    await waitForProcessTreeExit(childState, { milliseconds, platform, isProcessGroupAlive });
   }
 }
 
 function startListener(listener, options, onRuntimeError) {
   let state = "starting";
   let rejectStartup;
+  let closePromise = null;
+  let closeSettled = false;
   const onError = error => {
     if (state === "starting") {
       state = "failed";
@@ -420,25 +446,36 @@ function startListener(listener, options, onRuntimeError) {
     listener,
     promise,
     isStarting: () => state === "starting",
+    close: () => {
+      if (!closePromise) {
+        closePromise = new Promise((resolve, reject) => {
+          try {
+            listener.close(error => {
+              closeSettled = true;
+              if (error && (listener.listening || error.code !== "ERR_SERVER_NOT_RUNNING")) reject(error);
+              else resolve();
+            });
+          } catch (error) {
+            closeSettled = true;
+            if (!listener.listening && error?.code === "ERR_SERVER_NOT_RUNNING") resolve();
+            else reject(error);
+          }
+        });
+        closePromise.catch(() => {});
+      }
+      return closePromise;
+    },
+    forceClose: () => {
+      listener.closeAllConnections?.();
+      listener.closeIdleConnections?.();
+    },
+    isStopped: () => closeSettled && !listener.listening,
     detach: () => listener.off("error", onError)
   });
 }
 
 function closeListener(listenerState) {
-  if (!listenerState) return Promise.resolve();
-  const { listener } = listenerState;
-  return new Promise((resolve, reject) => {
-    try {
-      listener.close(error => {
-        if (error && (listener.listening || error.code !== "ERR_SERVER_NOT_RUNNING")) reject(error);
-        else resolve();
-      });
-      listener.closeAllConnections?.();
-    } catch (error) {
-      if (!listener.listening && error?.code === "ERR_SERVER_NOT_RUNNING") resolve();
-      else reject(error);
-    }
-  });
+  return listenerState ? listenerState.close() : Promise.resolve();
 }
 
 export async function runQuestOfflineRangeServerLifecycle(options, dependencies = {}) {
@@ -479,6 +516,16 @@ export async function runQuestOfflineRangeServerLifecycle(options, dependencies 
   const platform = dependencies.platform || process.platform;
   const killProcessGroup = dependencies.killProcessGroup
     || ((pid, signal) => process.kill(-pid, signal));
+  const isProcessGroupAlive = dependencies.isProcessGroupAlive || (pid => {
+    try {
+      process.kill(-pid, 0);
+      return true;
+    } catch (error) {
+      if (error?.code === "ESRCH") return false;
+      if (error?.code === "EPERM") return true;
+      throw error;
+    }
+  });
   const log = dependencies.log || console.log;
   let temporary = null;
   let childState = null;
@@ -571,12 +618,14 @@ export async function runQuestOfflineRangeServerLifecycle(options, dependencies 
     await terminateChild(childState, {
       milliseconds: terminationTimeoutMs,
       platform,
-      killProcessGroup
+      killProcessGroup,
+      isProcessGroupAlive
     });
   } catch (error) {
     terminationError = error;
   }
   let closeError;
+  const listenerStates = [serverState, controlServerState].filter(Boolean);
   try {
     const closeResults = await withTimeout(Promise.allSettled([
       closeListener(serverState),
@@ -585,14 +634,24 @@ export async function runQuestOfflineRangeServerLifecycle(options, dependencies 
     closeError = closeResults.find(result => result.status === "rejected")?.reason || null;
   } catch (error) {
     closeError = error;
+    listenerStates.forEach(listenerState => listenerState.forceClose());
+    try {
+      await withTimeout(Promise.allSettled(listenerStates.map(closeListener)),
+        shutdownTimeoutMs, "quest offline forced listener shutdown");
+    } catch {
+      // The original bounded-shutdown error is reported below. Live listeners retain their resources.
+    }
   }
-  serverState?.detach();
-  controlServerState?.detach();
+  const listenersStopped = listenerStates.every(listenerState => listenerState.isStopped());
+  if (listenersStopped) listenerStates.forEach(listenerState => listenerState.detach());
   let cleanupError = null;
   try {
-    if (temporary) cleanupTemporary(temporary);
+    if (temporary && listenersStopped && !terminationError) cleanupTemporary(temporary);
   } catch (error) {
     cleanupError = error;
+  }
+  if (!listenersStopped && !closeError) {
+    closeError = new Error("quest offline listener remained live after forced shutdown; temporary root retained");
   }
   const failure = operationError || terminationError || closeError || cleanupError;
   if (failure) throw failure;
