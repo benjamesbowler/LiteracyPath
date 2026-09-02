@@ -44,6 +44,9 @@ let vitePresentation;
 let viteSceneAccess;
 let viteState;
 let viteVisualSemantics;
+let viteMissionPlan;
+let viteMissionReducer;
+let viteAudioController;
 let vite;
 
 test.before(async () => {
@@ -97,6 +100,15 @@ test.before(async () => {
   );
   viteVisualSemantics = await vite.ssrLoadModule(
     "/src/features/soundSeekers/content/sceneVisualSemantics.js"
+  );
+  viteMissionPlan = await vite.ssrLoadModule(
+    "/src/features/soundSeekers/engine/createMissionPlan.js"
+  );
+  viteMissionReducer = await vite.ssrLoadModule(
+    "/src/features/soundSeekers/engine/missionReducer.js"
+  );
+  viteAudioController = await vite.ssrLoadModule(
+    "/src/features/soundSeekers/runtime/soundSeekersAudioController.js"
   );
 });
 
@@ -261,6 +273,140 @@ function renderViteScene(childScene, context) {
     onChoose: () => {}
   }));
 }
+
+function completedViteTeachInput(item) {
+  const controller = viteAudioController.createSoundSeekersAudioController({
+    cuePlayer: {
+      playCueAudio(audioKey, options) {
+        void audioKey;
+        for (const [type, at] of [["loading", 1], ["started", 2], ["completed", 3]]) {
+          options.onDelivery({ id: options.cueId, session: 1, type, at });
+        }
+      },
+      stopCueAudio() {}
+    },
+    music: { duck() {}, restore() {} },
+    clock: () => 0
+  });
+  const audioKeys = [...new Set([item.childAudio, item.targetAudio, ...item.targetAudioSequence,
+    ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)].filter(Boolean))];
+  return {
+    type: "complete-teach",
+    teachIndex: item.teachIndex,
+    targetId: item.targetId,
+    audioDeliveries: audioKeys.map((audioKey, ordinal) => {
+      controller.request({
+        cueId: `teach:${item.stopId}:${item.teachIndex}:${item.targetId}:${ordinal}`,
+        audioKey,
+        visibleText: item.childText,
+        spokenText: item.childText,
+        kind: "teach",
+        requiresAudio: true
+      });
+      return controller.getSnapshot().delivery;
+    })
+  };
+}
+
+function correctVitePowerInputs(mission) {
+  const challenge = mission.activity.powerChallenge || mission.challenge;
+  if (challenge.powerId === "echo_search") {
+    const candidate = challenge.presentation.candidates
+      .find(item => item.token === challenge.expectedToken);
+    return [{ type: "probe", candidateId: candidate.id },
+      { type: "confirm_candidate", candidateId: candidate.id }];
+  }
+  if (challenge.powerId === "word_forge") {
+    const tile = challenge.presentation.rack.find(item => item.token === challenge.expectedToken);
+    return [{ type: "place_tile", tileId: tile.id }];
+  }
+  if (challenge.powerId === "memory_delivery") {
+    const recipient = challenge.presentation.recipients
+      .find(item => item.token === challenge.expectedToken);
+    return [{ type: "receive_cue" }, { type: "move", dx: 1, dy: 0 }, { type: "arrive" },
+      { type: challenge.expectedAction, recipientId: recipient.id }];
+  }
+  if (challenge.powerId === "story_power") {
+    const choice = challenge.presentation.choices.find(item => item.token === challenge.expectedToken);
+    return [{ type: "read_text" },
+      { type: challenge.expectedAction, choiceId: choice.id, token: choice.token }];
+  }
+  throw new Error(`unsupported Vite mission power ${challenge.powerId}`);
+}
+
+function currentViteStoryMission() {
+  const gameState = viteState.createSoundSeekersState();
+  const plan = viteMissionPlan.createMissionPlan({
+    stopId: "s1", state: gameState, seed: 1, replayOrdinal: 0
+  });
+  let mission = viteMissionReducer.createMissionState(plan);
+  for (let guard = 0; guard < 100 && mission.phaseId !== "s1-transfer"; guard += 1) {
+    const phase = plan.phases[mission.phaseIndex];
+    const inputs = phase.kind === "teach"
+      ? [completedViteTeachInput(mission.activity.sequence.currentItem)]
+      : ["power_onboarding", "challenge", "content_opportunity"].includes(phase.kind)
+        ? correctVitePowerInputs(mission)
+        : [{ type: `complete_${phase.kind}` }];
+    for (const input of inputs) {
+      mission = viteMissionReducer.reduceMission(mission, input, {
+        gameState: mission.gameState,
+        at: "2026-09-03T09:00:00.000Z",
+        sessionDay: "2026-09-03",
+        audio: { status: "completed" }
+      }).state;
+    }
+  }
+  assert.equal(mission.phaseId, "s1-transfer");
+  return mission;
+}
+
+test("mission scene projection preserves exact branded connected-text identities for production consumers", () => {
+  let mission = currentViteStoryMission();
+  const before = viteMissionReducer.projectCurrentMissionSceneModel(mission);
+  assert.strictEqual(before.childScene, mission.activity.childScene);
+  assert.strictEqual(before.presentation, mission.activity.presentation);
+  assert.equal(before.transition, null);
+  let committed;
+  for (const input of correctVitePowerInputs(mission)) {
+    committed = viteMissionReducer.reduceMission(mission, input, {
+      gameState: mission.gameState,
+      at: "2026-09-03T09:01:00.000Z",
+      sessionDay: "2026-09-03",
+      audio: { status: "completed" }
+    });
+    mission = committed.state;
+  }
+  const model = viteMissionReducer.projectCurrentMissionSceneModel(
+    mission, {}, committed.transition
+  );
+  assert.strictEqual(model.childScene, mission.activity.childScene);
+  assert.strictEqual(model.presentation, mission.activity.presentation);
+  assert.strictEqual(model.transition, mission.presentationTransition);
+  for (const forbidden of ["expectedToken", "optionTokens", "responseIntents", "candidateState",
+    "correct\""]) {
+    assert.equal(JSON.stringify(model).includes(forbidden), false, forbidden);
+  }
+  const context = {
+    sceneId: model.transition.sceneId,
+    attemptId: model.transition.attemptId,
+    reducerRevision: model.transition.reducerRevision
+  };
+  const access = viteSceneAccess.issueSceneVisualAccess(model.transition, context);
+  assert.equal(viteSceneAccess.validateSceneVisualAccess(access, context), true);
+  assert.match(renderViteScene(model.childScene, { ...context, sceneAccess: access }),
+    /data-scene-phase="action"/u);
+  assert.throws(() => viteSceneAccess.issueSceneVisualAccess(
+    structuredClone(model.transition), context
+  ));
+  assert.throws(() => renderViteScene(structuredClone(model.childScene), {
+    ...context, sceneAccess: access
+  }));
+  assert.throws(() => vitePresentation.closeConnectedTextPresentation(
+    structuredClone(model.presentation)
+  ));
+  vitePresentation.closeConnectedTextPresentation(model.presentation);
+  assert.equal(viteSceneAccess.validateSceneVisualAccess(access, context), false);
+});
 
 const POSE_IDS = [
   "idle", "walk", "explain", "encourage", "anticipate",

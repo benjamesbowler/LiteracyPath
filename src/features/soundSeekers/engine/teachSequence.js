@@ -4,6 +4,7 @@ import { getInstructionContract } from "../content/instructionContracts.js";
 import { MORPHOLOGY_TEACH_EXAMPLES, SOUND_SEEKERS_TEACH_TARGETS } from "../content/teachTargetMetadata.js";
 import { graphemeLabel } from "../../../utils/questLabels.js";
 import { getPreferredPhonemeAudioPath } from "../../../data/phonemeAudioBank.js";
+import { validateCompletedAudioDeliveryReceipt } from "./audioControllerAuthority.js";
 
 const INSTRUCTION_BY_KIND = Object.freeze({
   blend: "consonant-blend-teach",
@@ -146,19 +147,21 @@ function completedAudioFor(state, item, input) {
   ].filter(Boolean))];
   if (input.audioDeliveries.length !== required.length) return false;
   const delivered = new Map();
-  for (const delivery of input.audioDeliveries) {
-    if (!delivery || typeof delivery !== "object" || Array.isArray(delivery)
-      || Object.keys(delivery).length !== 5
-      || !["id", "status", "session", "startedAt", "completedAt"]
-        .every(key => Object.hasOwn(delivery, key))
-      || !required.includes(delivery.id) || delivered.has(delivery.id)
-      || delivery.status !== "completed"
-      || !Number.isInteger(delivery.session) || delivery.session < 1
-      || !Number.isFinite(delivery.startedAt) || !Number.isFinite(delivery.completedAt)
-      || delivery.completedAt < delivery.startedAt) return false;
-    delivered.set(delivery.id, delivery);
+  for (let ordinal = 0; ordinal < required.length; ordinal += 1) {
+    const audioKey = required[ordinal];
+    const cueId = `teach:${item.stopId}:${item.teachIndex}:${item.targetId}:${ordinal}`;
+    const delivery = input.audioDeliveries[ordinal];
+    if (delivered.has(cueId) || !validateCompletedAudioDeliveryReceipt(delivery, {
+      cueId,
+      audioKey,
+      visibleText: item.childText,
+      spokenText: item.childText,
+      kind: "teach",
+      requiresAudio: true
+    })) return false;
+    delivered.set(cueId, delivery);
   }
-  return required.every(id => delivered.has(id));
+  return delivered.size === required.length;
 }
 
 function sequenceAtCursor(state, rawIndex, rawTargetId = null) {

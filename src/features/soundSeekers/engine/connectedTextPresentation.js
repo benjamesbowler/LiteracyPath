@@ -275,12 +275,16 @@ function verifyConnectedTextHistoryAgainstTask2(state, { sceneId, transactionId,
   const descriptor = state.checkpoint?.storyTransfer;
   let narrativeChoiceToken;
   if (!newest) {
+    const waitsForBossChoice = scene.choice.kind === "narrative_bridge"
+      && descriptor?.stage === "narrative_choice_pending"
+      && descriptor?.narrativeChoiceToken === null;
+    const awaitsResponse = descriptor?.stage === "response_pending";
     if (!descriptor || !exactKeys(descriptor, [
       "kind", "transactionId", "stopId", "journeyStep", "stage", "storyVisitId",
       "transferVisitId", "narrativeChoiceToken", "attemptOrdinal", "attemptId"
     ]) || descriptor.kind !== "story_transfer"
       || descriptor.transactionId !== transactionId || descriptor.stopId !== scene.stopId
-      || descriptor.journeyStep !== journeyStep || descriptor.stage !== "response_pending"
+      || descriptor.journeyStep !== journeyStep || (!waitsForBossChoice && !awaitsResponse)
       || descriptor.storyVisitId !== `visit:${transactionId}:story`
       || descriptor.transferVisitId !== `visit:${transactionId}:transfer`
       || descriptor.attemptOrdinal !== 0
@@ -322,6 +326,10 @@ function verifyConnectedTextHistoryAgainstTask2(state, { sceneId, transactionId,
     narrativeChoiceToken = descriptor.narrativeChoiceToken;
   }
   if (scene.choice.kind === "narrative_bridge") {
+    if (narrativeChoiceToken === null && !newest
+      && descriptor?.stage === "narrative_choice_pending") {
+      return { scene, verified, newest, completed: false, narrativeChoiceToken };
+    }
     const branch = resolveNarrativeBranchOutcome(scene.id, narrativeChoiceToken);
     if (!branch) throw new Error("boss story outcome cannot be derived from persisted choice");
   } else if (narrativeChoiceToken !== null) {

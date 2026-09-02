@@ -20,3 +20,15 @@ export function normalizeMotorAssists(raw = {}) {
   }
   return Object.freeze(Object.fromEntries(MOTOR_ASSIST_KEYS.map(key => [key, value[key] === true])));
 }
+
+export function projectMotorPresentation(raw = {}) {
+  const assists = normalizeMotorAssists(raw);
+  return Object.freeze({
+    travelMode: assists.autoTravel ? "automatic" : "manual",
+    movementPace: assists.slowerMovement ? "slower" : "standard",
+    travelConsequence: assists.noDamageTravel ? "protected" : "standard",
+    targetScale: assists.largerTargets ? "large" : "standard",
+    sceneDensity: assists.simplifiedScene ? "simplified" : "full",
+    responsePacing: assists.extendedResponse ? "extended" : "standard"
+  });
+}

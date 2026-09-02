@@ -106,10 +106,10 @@ export const storyPower = Object.freeze({
     return emptyPowerResult(state);
   },
 
-  view(state, challenge) {
+  view(state, challenge, assists) {
     assertReducerContext(state, challenge);
     return deepFreezeClone({
-      ...commonView(state, challenge),
+      ...commonView(state, challenge, assists),
       textRead: state.textRead,
       choices: state.choices,
       narrativeChoiceMade: state.narrativeChoiceToken !== null

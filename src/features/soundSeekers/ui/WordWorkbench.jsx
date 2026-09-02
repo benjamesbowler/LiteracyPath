@@ -19,7 +19,11 @@ const CORRECTION_KEYS = Object.freeze([
 ]);
 const MODEL_KEYS = Object.freeze([
   "challengeId", "powerId", "instructionLabel", "visualCue", "status", "correction",
-  "slots", "rack", "sweep", "morphology"
+  "slots", "rack", "sweep", "morphology", "motor"
+]);
+const MOTOR_KEYS = Object.freeze([
+  "travelMode", "movementPace", "travelConsequence", "targetScale", "sceneDensity",
+  "responsePacing"
 ]);
 const SAFE_CORRECTION_KEYS = new Set([
   "supportLevel", "mode", "replayContrast", "isolatePosition", "reduceIrrelevantLoad",
@@ -60,11 +64,22 @@ function validCollectionRecord(value, keys) {
   });
 }
 
+function validMotorPresentation(value) {
+  return exactRecord(value, MOTOR_KEYS)
+    && ["automatic", "manual"].includes(value.travelMode)
+    && ["slower", "standard"].includes(value.movementPace)
+    && ["protected", "standard"].includes(value.travelConsequence)
+    && ["large", "standard"].includes(value.targetScale)
+    && ["simplified", "full"].includes(value.sceneDensity)
+    && ["extended", "standard"].includes(value.responsePacing);
+}
+
 function validWordForgeModel(model) {
   if (!exactRecord(model, MODEL_KEYS) || !isRecursivelyFrozen(model)
     || model.powerId !== "word_forge" || !nonemptyString(model.challengeId)
     || !["active", "awaiting_mission_commit"].includes(model.status)
     || !validCorrectionModel(model.correction)
+    || !validMotorPresentation(model.motor)
     || !Array.isArray(model.rack) || model.rack.length < 1 || model.rack.length > 12
     || !Array.isArray(model.slots) || model.slots.length < 1 || model.slots.length > 12
     || model.rack.some(tile => !validCollectionRecord(tile, ["id", "label"]))

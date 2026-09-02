@@ -197,10 +197,10 @@ export const wordForge = Object.freeze({
       semanticStepFor(state, "place_tile", tileIndex, position), { slots, rack });
   },
 
-  view(state, challenge) {
+  view(state, challenge, assists) {
     assertReducerContext(state, challenge);
     const model = deepFreezeClone({
-      ...commonView(state, challenge),
+      ...commonView(state, challenge, assists),
       slots: publicEntries(state.slots, ["id", "tileId"]),
       rack: publicEntries(state.rack),
       sweep: state.sweep,

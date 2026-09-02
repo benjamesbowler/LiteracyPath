@@ -138,10 +138,10 @@ export const blendBridge = Object.freeze({
     return emptyPowerResult(state);
   },
 
-  view(state, challenge) {
+  view(state, challenge, assists) {
     assertReducerContext(state, challenge);
     return deepFreezeClone({
-      ...commonView(state, challenge),
+      ...commonView(state, challenge, assists),
       segments: publicEntries(state.segments, ["id", "label", "active"]),
       sweepComplete: state.sweepComplete,
       choices: state.choices

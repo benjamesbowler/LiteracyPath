@@ -12,6 +12,7 @@ import {
   SOUND_SEEKERS_INTERACTION_CONTEXTS
 } from "../../content/expeditions.js";
 import { CONTENT_DECK_PLACEMENTS } from "../../content/contentDeckBindings.js";
+import { projectMotorPresentation } from "../motorAssists.js";
 
 const INTERACTION_CONTEXT_FIELDS = Object.freeze([
   "id", "chapterId", "semanticRule", "childDecision", "decisionSteps", "objectIds",
@@ -509,7 +510,7 @@ export function morphologyPower(state, challenge, semanticStep, patch = {}) {
   return deepFreezeClone({ state: nextState, responseIntents: [canonicalMorphologyIntent(challenge)] });
 }
 
-export function commonView(state, challenge) {
+export function commonView(state, challenge, assists = {}) {
   const child = toChildChallengeView(challenge);
   if (!child || child.challengeId !== state.challengeId) throw new Error(`${state.powerId}: child view challenge is invalid`);
   const contract = getInstructionContract(state.instructionId);
@@ -519,7 +520,8 @@ export function commonView(state, challenge) {
     instructionLabel: contract.childText,
     visualCue: { kind: child.cue || contract.cue },
     status: state.status,
-    correction: state.correction
+    correction: state.correction,
+    motor: projectMotorPresentation(assists)
   };
 }
 

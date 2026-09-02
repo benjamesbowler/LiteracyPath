@@ -482,10 +482,14 @@ test("motor presentations preserve one semantic transcript and one exact respons
       const assisted = play(action, transcriptFor(action, challenge), normalizeMotorAssists({ [key]: true }));
       assert.deepEqual(assisted.responseIntents, baseline.responseIntents, `${action.id}:${key}`);
       assert.deepEqual(assisted.power.checkpoint(assisted.state), baselineCheckpoint, `${action.id}:${key}:state`);
+      const assistedView = assisted.power.view(
+        assisted.state, challenge, normalizeMotorAssists({ [key]: true })
+      );
+      assert.notDeepEqual(assistedView.motor, baselineView.motor, `${action.id}:${key}:motor`);
       assert.deepEqual(
-        assisted.power.view(assisted.state, challenge, normalizeMotorAssists({ [key]: true })),
-        baselineView,
-        `${action.id}:${key}:view`
+        Object.fromEntries(Object.entries(assistedView).filter(([field]) => field !== "motor")),
+        Object.fromEntries(Object.entries(baselineView).filter(([field]) => field !== "motor")),
+        `${action.id}:${key}:semantic-view`
       );
       assert.equal(assisted.state.status, "awaiting_mission_commit");
     }
@@ -512,7 +516,7 @@ test("Word Forge exposes only a frozen answer-neutral workbench and checkpoints 
   const initial = play(action, []);
   const initialView = initial.power.view(initial.state, challenge, normalizeMotorAssists({ largerTargets: true }));
   assert.deepEqual(Object.keys(initialView).sort(), [
-    "challengeId", "correction", "instructionLabel", "morphology", "powerId", "rack",
+    "challengeId", "correction", "instructionLabel", "morphology", "motor", "powerId", "rack",
     "slots", "status", "sweep", "visualCue"
   ]);
   assert.equal(recursivelyFrozen(initialView), true);

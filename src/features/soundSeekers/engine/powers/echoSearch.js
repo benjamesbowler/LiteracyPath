@@ -114,10 +114,10 @@ export const echoSearch = Object.freeze({
     return emptyPowerResult(state);
   },
 
-  view(state, challenge) {
+  view(state, challenge, assists) {
     assertReducerContext(state, challenge);
     return deepFreezeClone({
-      ...commonView(state, challenge),
+      ...commonView(state, challenge, assists),
       candidates: publicEntries(state.candidates, ["id", "label", "revealed"]),
       foundCandidateId: state.foundCandidateId,
       sourceRevealed: state.sourceRevealed

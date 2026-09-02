@@ -116,10 +116,10 @@ export const contrastSort = Object.freeze({
     });
   },
 
-  view(state, challenge) {
+  view(state, challenge, assists) {
     assertReducerContext(state, challenge);
     return deepFreezeClone({
-      ...commonView(state, challenge),
+      ...commonView(state, challenge, assists),
       items: state.items,
       bins: state.bins,
       placements: state.placements

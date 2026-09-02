@@ -8,9 +8,11 @@ import { createMissionPlan } from "../../src/features/soundSeekers/engine/create
 import {
   checkpointMission,
   createMissionState,
+  projectCurrentMissionSceneModel,
   reduceMission,
   validateCurrentMissionTransition
 } from "../../src/features/soundSeekers/engine/missionReducer.js";
+import * as missionReducerModule from "../../src/features/soundSeekers/engine/missionReducer.js";
 import * as missionCommitModule from "../../src/features/soundSeekers/engine/missionResponseCommit.js";
 import {
   issueWordWorkbenchAccess,
@@ -21,6 +23,7 @@ import * as workbenchAccessModule from "../../src/features/soundSeekers/engine/w
 import { echoSearch } from "../../src/features/soundSeekers/engine/powers/index.js";
 import { getPronunciation } from "../../src/features/soundSeekers/content/pronunciationLexicon.js";
 import { createSoundSeekersState, normalizeSoundSeekersState } from "../../src/features/soundSeekers/engine/stateV2.js";
+import { createSoundSeekersAudioController } from "../../src/features/soundSeekers/runtime/soundSeekersAudioController.js";
 
 function recursivelyFreeze(value) {
   if (!value || typeof value !== "object" || Object.isFrozen(value)) return value;
@@ -29,15 +32,24 @@ function recursivelyFreeze(value) {
 }
 
 function completedTeachInput(item) {
-  return {
-    type: "complete-teach", teachIndex: item.teachIndex, targetId: item.targetId,
-    audioDeliveries: [item.childAudio, item.targetAudio, ...item.targetAudioSequence,
-      ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)]
-      .filter(Boolean).map((id, index) => ({
-        id, status: "completed", session: index + 1,
-        startedAt: index * 10, completedAt: index * 10 + 5
-      }))
-  };
+  const controller = createSoundSeekersAudioController({
+    cuePlayer: { playCueAudio(audioKey, options) {
+      void audioKey;
+      for (const [type, at] of [["loading", 1], ["started", 2], ["completed", 3]]) {
+        options.onDelivery({ id: options.cueId, session: 1, type, at });
+      }
+    }, stopCueAudio() {} },
+    music: { duck() {}, restore() {} }, clock: () => 0
+  });
+  const audioKeys = [...new Set([item.childAudio, item.targetAudio, ...item.targetAudioSequence,
+    ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)].filter(Boolean))];
+  const audioDeliveries = audioKeys.map((audioKey, ordinal) => {
+    controller.request({ cueId: `teach:${item.stopId}:${item.teachIndex}:${item.targetId}:${ordinal}`,
+      audioKey, visibleText: item.childText, spokenText: item.childText,
+      kind: "teach", requiresAudio: true });
+    return controller.getSnapshot().delivery;
+  });
+  return { type: "complete-teach", teachIndex: item.teachIndex, targetId: item.targetId, audioDeliveries };
 }
 
 function finishEchoOnboarding(mission, gameState) {
@@ -210,6 +222,46 @@ test("an ordinary response commits once, advances, and exposes only an applied t
     missionId: plan.id, revision: committed.state.missionRevision
   }), false);
   assert.equal(checkpointMission(committed.state).phaseId, "s1-heart-1-onboarding");
+  const recipient = committed.state.challenge.presentation.recipients[0];
+  const changed = reduceMission(committed.state, { type: "receive_cue" }, {
+    gameState: committed.state.gameState
+  });
+  assert.notStrictEqual(changed.state, committed.state);
+  assert.equal(validateCurrentMissionTransition(committed.transition, {
+    missionId: plan.id,
+    phaseId: "s1-primary",
+    revision: committed.state.missionRevision
+  }), false, "an applied transition becomes stale when its final mission revision is no longer current");
+  void recipient;
+});
+
+test("the current mission scene projection is child-safe, assisted, and canonically targeted", () => {
+  const gameState = createSoundSeekersState();
+  const plan = createMissionPlan({ stopId: "s1", state: gameState, seed: 1, replayOrdinal: 0 });
+  let mission = createMissionState(plan);
+  mission = reduceMission(mission, { type: "complete_arrival" }, { gameState }).state;
+  while (mission.phaseId === "s1-teach") {
+    mission = reduceMission(mission, completedTeachInput(mission.activity.sequence.currentItem), {
+      gameState: mission.gameState
+    }).state;
+  }
+  mission = finishEchoOnboarding(mission, gameState);
+  const model = projectCurrentMissionSceneModel(mission, { largerTargets: true });
+  assert.equal(Object.isFrozen(model), true);
+  assert.equal(model.kind, "sound_seekers_mission_scene_model");
+  assert.equal(model.contactTargetId, null);
+  assert.equal(model.activity.motor.targetScale, "large");
+  const serialized = JSON.stringify(model);
+  for (const forbidden of ["expectedToken", "optionTokens", "candidateTokens", "evidence",
+    "responseIntents", "narrativeChoiceToken", "token\""]) {
+    assert.equal(serialized.includes(forbidden), false, forbidden);
+  }
+  const candidate = mission.challenge.presentation.candidates[0];
+  const changed = reduceMission(mission, { type: "probe", candidateId: candidate.id }, {
+    gameState: mission.gameState
+  }).state;
+  assert.notStrictEqual(changed, mission);
+  assert.throws(() => projectCurrentMissionSceneModel(mission), /current|stale/u);
 });
 
 test("mission commits reject frozen literal state, caller authority, and public candidate access", () => {
@@ -239,14 +291,24 @@ test("mission commits reject frozen literal state, caller authority, and public 
   });
   void forgedState;
   void commitContext;
-  assert.equal(Object.hasOwn(missionCommitModule, "commitMissionResponse"), false);
-  assert.equal(Object.hasOwn(missionCommitModule, "finalizeMissionCommit"), false);
-  assert.equal(Object.hasOwn(missionCommitModule, "consumeMissionCommitCandidate"), false);
-  assert.equal(Object.hasOwn(missionCommitModule, "markMissionCommitApplied"), false);
+  assert.deepEqual(Object.keys(missionCommitModule), [], "the commit module exposes no authority factory");
+  assert.deepEqual(Object.keys(missionReducerModule).sort(), [
+    "checkpointMission", "completeMission", "createMissionState", "currentMissionOwnsPowerPair",
+    "exactCurrentMissionPowerBinding", "issueWordWorkbenchAccess", "projectCurrentMissionSceneModel",
+    "projectCurrentWordWorkbenchModel", "projectWordWorkbenchAccess", "reduceMission",
+    "validateCurrentMissionTransition"
+  ]);
+  assert.equal(Object.hasOwn(missionReducerModule, "projectMissionWorkbenchAuthority"), false);
+  assert.deepEqual(Object.keys(workbenchAccessModule).sort(), [
+    "issueWordWorkbenchAccess", "projectCurrentWordWorkbenchModel", "projectWordWorkbenchAccess"
+  ]);
 
   assert.throws(() => reduceMission(mission, { type: "probe", candidateId: candidate.id }, {
     gameState, correct: true
   }), /caller|context|authority|unknown/i);
+  assert.throws(() => reduceMission(mission, { type: "probe", candidateId: candidate.id }, {
+    gameState, assists: { largerTargets: true, answer: true }
+  }), /assist|unknown|context/u);
 });
 
 test("a Word Forge miss reissues a fresh attempt and only its exact current view gets correction access", () => {
@@ -359,8 +421,8 @@ test("checkpoint reload rehydrates a fresh ordinary power authority", () => {
   const oldModel = projectCurrentWordWorkbenchModel(mission);
   const savedMission = checkpointMission(mission);
   const savedState = normalizeSoundSeekersState({
-    ...gameState,
-    checkpoint: { contentVersion: gameState.contentVersion, mission: savedMission }
+    ...mission.gameState,
+    checkpoint: { contentVersion: mission.gameState.contentVersion, mission: savedMission }
   });
   const restoredPlan = createMissionPlan({ stopId: "s3", state: savedState, seed: 3, replayOrdinal: 0 });
   assert.throws(() => createMissionState(restoredPlan, recursivelyFreeze(structuredClone(savedState.checkpoint.mission))),

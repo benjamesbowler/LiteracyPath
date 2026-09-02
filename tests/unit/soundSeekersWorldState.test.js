@@ -16,17 +16,27 @@ import {
 } from "../../src/features/soundSeekers/engine/worldState.js";
 import { createSoundSeekersState } from "../../src/features/soundSeekers/engine/stateV2.js";
 import { resolveSceneVisualSemantic } from "../../src/features/soundSeekers/content/sceneVisualSemantics.js";
+import { createSoundSeekersAudioController } from "../../src/features/soundSeekers/runtime/soundSeekersAudioController.js";
 
 function teachInput(item) {
-  return {
-    type: "complete-teach", teachIndex: item.teachIndex, targetId: item.targetId,
-    audioDeliveries: [item.childAudio, item.targetAudio, ...item.targetAudioSequence,
-      ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)]
-      .filter(Boolean).map((id, index) => ({
-        id, status: "completed", session: index + 1,
-        startedAt: index * 10, completedAt: index * 10 + 5
-      }))
-  };
+  const controller = createSoundSeekersAudioController({
+    cuePlayer: { playCueAudio(audioKey, options) {
+      void audioKey;
+      for (const [type, at] of [["loading", 1], ["started", 2], ["completed", 3]]) {
+        options.onDelivery({ id: options.cueId, session: 1, type, at });
+      }
+    }, stopCueAudio() {} },
+    music: { duck() {}, restore() {} }, clock: () => 0
+  });
+  const audioKeys = [...new Set([item.childAudio, item.targetAudio, ...item.targetAudioSequence,
+    ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)].filter(Boolean))];
+  const audioDeliveries = audioKeys.map((audioKey, ordinal) => {
+    controller.request({ cueId: `teach:${item.stopId}:${item.teachIndex}:${item.targetId}:${ordinal}`,
+      audioKey, visibleText: item.childText, spokenText: item.childText,
+      kind: "teach", requiresAudio: true });
+    return controller.getSnapshot().delivery;
+  });
+  return { type: "complete-teach", teachIndex: item.teachIndex, targetId: item.targetId, audioDeliveries };
 }
 
 function correctInputs(mission) {

@@ -9,20 +9,38 @@ import {
 } from "../../src/features/soundSeekers/engine/teachSequence.js";
 import { getPronunciation } from "../../src/features/soundSeekers/content/pronunciationLexicon.js";
 import { SOUND_SEEKERS_TEACH_TARGETS } from "../../src/features/soundSeekers/content/teachTargetMetadata.js";
+import { createSoundSeekersAudioController } from "../../src/features/soundSeekers/runtime/soundSeekersAudioController.js";
 
 const stop = id => QUEST_STOPS.find(item => item.id === id);
-const completedTeachInput = item => ({
-  type: "complete-teach",
-  teachIndex: item.teachIndex,
-  targetId: item.targetId,
-  audioDeliveries: [item.childAudio, item.targetAudio, ...item.targetAudioSequence,
-    ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)]
-    .filter(Boolean)
-    .map((id, index) => ({
-      id, status: "completed", session: index + 1,
-      startedAt: index * 10, completedAt: index * 10 + 5
-    }))
-});
+function completedTeachInput(item) {
+  const controller = createSoundSeekersAudioController({
+    cuePlayer: {
+      playCueAudio(audioKey, options) {
+        void audioKey;
+        for (const [type, at] of [["loading", 1], ["started", 2], ["completed", 3]]) {
+          options.onDelivery({ id: options.cueId, session: 1, type, at });
+        }
+      },
+      stopCueAudio() {}
+    },
+    music: { duck() {}, restore() {} },
+    clock: () => 0
+  });
+  const audioKeys = [...new Set([item.childAudio, item.targetAudio, ...item.targetAudioSequence,
+    ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)].filter(Boolean))];
+  const audioDeliveries = audioKeys.map((audioKey, ordinal) => {
+    controller.request({
+      cueId: `teach:${item.stopId}:${item.teachIndex}:${item.targetId}:${ordinal}`,
+      audioKey,
+      visibleText: item.childText,
+      spokenText: item.childText,
+      kind: "teach",
+      requiresAudio: true
+    });
+    return controller.getSnapshot().delivery;
+  });
+  return { type: "complete-teach", teachIndex: item.teachIndex, targetId: item.targetId, audioDeliveries };
+}
 
 test("all six targets at s7 are taught before its first scored challenge", () => {
   const sequence = createTeachSequence(stop("s7"), []);
@@ -57,6 +75,10 @@ test("a checkpoint retains the teach index and a replay cannot create scored evi
   assert.strictEqual(reduceTeachSequence(afterReplay, {
     ...valid, audioDeliveries: valid.audioDeliveries.map(item => ({ ...item, status: "started" }))
   }), afterReplay);
+  assert.strictEqual(reduceTeachSequence(afterReplay, {
+    ...valid,
+    audioDeliveries: valid.audioDeliveries.map(item => Object.freeze({ ...item }))
+  }), afterReplay, "a frozen literal delivery cannot complete teaching");
   const afterTeach = reduceTeachSequence(afterReplay, valid);
   assert.equal(afterTeach.teachIndex, 1);
   const restored = reduceTeachSequence(afterTeach, { type: "restore", checkpoint: afterTeach });

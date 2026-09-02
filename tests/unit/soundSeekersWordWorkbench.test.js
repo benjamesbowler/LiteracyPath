@@ -30,6 +30,7 @@ let reduceRuntimeMission;
 let createRuntimeState;
 let issueRuntimeWorkbenchAccess;
 let projectRuntimeWorkbenchModel;
+let createRuntimeAudioController;
 let vite;
 
 function deepFreeze(value) {
@@ -80,6 +81,9 @@ test.before(async () => {
   } = await vite.ssrLoadModule(
     "/src/features/soundSeekers/engine/workbenchAccess.js"
   ));
+  ({ createSoundSeekersAudioController: createRuntimeAudioController } = await vite.ssrLoadModule(
+    "/src/features/soundSeekers/runtime/soundSeekersAudioController.js"
+  ));
 });
 
 test.after(async () => {
@@ -118,6 +122,10 @@ function fixture(word, { placedCount = 1, status = "active", sweep = "not_ready"
     visualCue: Object.freeze({ kind: "whole_word" }),
     status,
     correction: null,
+    motor: Object.freeze({
+      travelMode: "manual", movementPace: "standard", travelConsequence: "standard",
+      targetScale: "standard", sceneDensity: "full", responsePacing: "standard"
+    }),
     slots: Object.freeze(source.units.map((unused, index) => Object.freeze({
       id: `fixture:${word}:slot:${index}`,
       tileId: index < placedCount ? rack[index].id : null
@@ -159,19 +167,27 @@ function authorizedWord(word) {
     }
     if (phase.kind === "teach") {
       const item = mission.activity.sequence.currentItem;
-      const audioIds = [item.childAudio, item.targetAudio, ...item.targetAudioSequence,
-        ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)].filter(Boolean);
+      const audioIds = [...new Set([item.childAudio, item.targetAudio, ...item.targetAudioSequence,
+        ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)].filter(Boolean))];
+      const controller = createRuntimeAudioController({
+        cuePlayer: { playCueAudio(audioKey, options) {
+          void audioKey;
+          for (const [type, at] of [["loading", 1], ["started", 2], ["completed", 3]]) {
+            options.onDelivery({ id: options.cueId, session: 1, type, at });
+          }
+        }, stopCueAudio() {} },
+        music: { duck() {}, restore() {} }, clock: () => 0
+      });
       mission = reduceRuntimeMission(mission, {
         type: "complete-teach",
         teachIndex: item.teachIndex,
         targetId: item.targetId,
-        audioDeliveries: audioIds.map((id, index) => ({
-          id,
-          status: "completed",
-          session: index + 1,
-          startedAt: index * 10,
-          completedAt: index * 10 + 5
-        }))
+        audioDeliveries: audioIds.map((audioKey, ordinal) => {
+          controller.request({ cueId: `teach:${item.stopId}:${item.teachIndex}:${item.targetId}:${ordinal}`,
+            audioKey, visibleText: item.childText, spokenText: item.childText,
+            kind: "teach", requiresAudio: true });
+          return controller.getSnapshot().delivery;
+        })
       }, { gameState: mission.gameState }).state;
       continue;
     }
@@ -423,6 +439,10 @@ test("morphology is explicitly unscored and never reveals the derived word befor
     visualCue: Object.freeze({ kind: "morphology" }),
     status: "active",
     correction: null,
+    motor: Object.freeze({
+      travelMode: "manual", movementPace: "standard", travelConsequence: "standard",
+      targetScale: "standard", sceneDensity: "full", responsePacing: "standard"
+    }),
     slots: Object.freeze([
       Object.freeze({ id: "morphology-base-slot", tileId: "morphology-base-fixed" }),
       Object.freeze({ id: "morphology-ending-slot", tileId: null })

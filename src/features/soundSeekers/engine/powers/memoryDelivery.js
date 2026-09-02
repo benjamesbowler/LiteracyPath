@@ -130,10 +130,10 @@ export const memoryDelivery = Object.freeze({
     return emptyPowerResult(state);
   },
 
-  view(state, challenge) {
+  view(state, challenge, assists) {
     assertReducerContext(state, challenge);
     return deepFreezeClone({
-      ...commonView(state, challenge),
+      ...commonView(state, challenge, assists),
       cueReceived: state.cueReceived,
       cueVisible: state.cueVisible,
       routeProgress: state.routeProgress,

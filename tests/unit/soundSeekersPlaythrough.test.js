@@ -7,6 +7,7 @@ import {
   checkpointMission,
   completeMission,
   createMissionState,
+  projectCurrentMissionSceneModel,
   reduceMission
 } from "../../src/features/soundSeekers/engine/missionReducer.js";
 import { validContentDeckUses } from "../../src/features/soundSeekers/engine/contentCoverage.js";
@@ -22,18 +23,30 @@ import {
   projectCurrentWordWorkbenchModel,
   projectWordWorkbenchAccess
 } from "../../src/features/soundSeekers/engine/workbenchAccess.js";
+import { createSoundSeekersAudioController } from "../../src/features/soundSeekers/runtime/soundSeekersAudioController.js";
 
 function completedTeachInput(item, sequence = null) {
-  return {
-    type: "complete-teach", teachIndex: item?.teachIndex ?? sequence?.teachIndex,
-    targetId: item?.targetId ?? null,
-    audioDeliveries: item ? [item.childAudio, item.targetAudio, ...item.targetAudioSequence,
-      ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)]
-      .filter(Boolean).map((id, index) => ({
-        id, status: "completed", session: index + 1,
-        startedAt: index * 10, completedAt: index * 10 + 5
-      })) : []
-  };
+  if (!item) return { type: "complete-teach", teachIndex: sequence?.teachIndex,
+    targetId: null, audioDeliveries: [] };
+  const controller = createSoundSeekersAudioController({
+    cuePlayer: { playCueAudio(audioKey, options) {
+      void audioKey;
+      for (const [type, at] of [["loading", 1], ["started", 2], ["completed", 3]]) {
+        options.onDelivery({ id: options.cueId, session: 1, type, at });
+      }
+    }, stopCueAudio() {} },
+    music: { duck() {}, restore() {} }, clock: () => 0
+  });
+  const audioKeys = [...new Set([item.childAudio, item.targetAudio, ...item.targetAudioSequence,
+    ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)].filter(Boolean))];
+  const audioDeliveries = audioKeys.map((audioKey, ordinal) => {
+    controller.request({ cueId: `teach:${item.stopId}:${item.teachIndex}:${item.targetId}:${ordinal}`,
+      audioKey, visibleText: item.childText, spokenText: item.childText,
+      kind: "teach", requiresAudio: true });
+    return controller.getSnapshot().delivery;
+  });
+  return { type: "complete-teach", teachIndex: item.teachIndex,
+    targetId: item.targetId, audioDeliveries };
 }
 
 function driveInputs(mission, inputs, context) {
@@ -107,6 +120,31 @@ test("the two-route circuit preserves a monotonic visit clock", () => {
   assert.equal(createMissionPlan({ stopId: "s1", state: {
     ...state, trail: { ...state.trail, journeyStep: 41 }
   }, seed: 41, replayOrdinal: 1 }).id.startsWith("mission:41:s1:"), true);
+});
+
+test("resume and completion rederive every scored phase from canonical mission history", () => {
+  const gameState = createSoundSeekersState();
+  const plan = createMissionPlan({ stopId: "s1", state: gameState, seed: 1, replayOrdinal: 0 });
+  const payoff = driveToPhase(plan, "s1-payoff");
+  const checkpoint = checkpointMission(payoff);
+  const forgedState = normalizeSoundSeekersState({
+    ...payoff.gameState,
+    evidence: payoff.gameState.evidence.filter(event => !event.id.includes(":s1-primary:attempt:")),
+    checkpoint: { ...payoff.gameState.checkpoint, contentVersion: payoff.gameState.contentVersion, mission: checkpoint }
+  });
+  const forgedPlan = createMissionPlan({ stopId: "s1", state: forgedState, seed: 1, replayOrdinal: 0 });
+  assert.throws(
+    () => createMissionState(forgedPlan, forgedState.checkpoint.mission),
+    /completed|history|evidence|canonical/u
+  );
+
+  const finished = reduceMission(payoff, { type: "complete_payoff" }, { gameState: payoff.gameState });
+  assert.ok(finished.completion);
+  createMissionState(plan);
+  assert.throws(
+    () => completeMission(finished.state.gameState, finished.completion),
+    /current|revision|stale/u
+  );
 });
 
 test("the first ordinary and heart-word loops commit one response and one owner use each", () => {
@@ -281,6 +319,20 @@ test("a boss waits for an authenticated child narrative choice and preserves it 
   let mission = driveToPhase(plan, story.id);
   assert.equal(mission.challenge, null);
   assert.equal(mission.activity.status, "narrative_choice_pending");
+  const beforeChoiceCheckpoint = checkpointMission(mission);
+  const beforeChoiceSaved = normalizeSoundSeekersState({
+    ...mission.gameState,
+    checkpoint: { ...mission.gameState.checkpoint, contentVersion: mission.gameState.contentVersion,
+      mission: beforeChoiceCheckpoint }
+  });
+  const beforeChoicePlan = createMissionPlan({
+    stopId: "s5", state: beforeChoiceSaved, seed: 5, replayOrdinal: 0
+  });
+  const beforeChoiceRestored = createMissionState(beforeChoicePlan, beforeChoiceSaved.checkpoint.mission);
+  assert.equal(beforeChoiceRestored.challenge, null);
+  assert.equal(beforeChoiceRestored.activity.status, "narrative_choice_pending");
+  assert.equal(beforeChoiceRestored.gameState.checkpoint.storyTransfer.narrativeChoiceToken, null);
+  mission = beforeChoiceRestored;
   const choice = mission.activity.childScene.choice.options[1];
   assert.equal(reduceMission(mission, {
     type: "choose_narrative_route", choiceId: "forged"
@@ -449,6 +501,9 @@ test("s38 morphology stays unscored and reveals its derivation only after the ap
   const access = issueWordWorkbenchAccess({
     missionState: mission, model, transition: committed.transition
   });
+  assert.equal(projectCurrentMissionSceneModel(mission).contactTargetId, null);
+  assert.equal(projectCurrentMissionSceneModel(mission, {}, committed.transition).contactTargetId,
+    "morphology-ending-slot");
   assert.deepEqual(projectWordWorkbenchAccess(access, model).morphology, {
     kind: "morphology_introduction", baseWord: "cat", ending: "s",
     derivedWord: "cats", meaning: "more than one"
@@ -510,6 +565,87 @@ function powerInputsForToken(mission, token) {
   }
   throw new Error(`unsupported power in route fixture: ${challenge.powerId}`);
 }
+
+function exactContactForResponse(mission, token) {
+  const challenge = mission.activity.powerChallenge || mission.challenge;
+  if (challenge.powerId === "echo_search") {
+    return challenge.presentation.candidates.find(item => item.token === token).id;
+  }
+  if (challenge.powerId === "contrast_sort") {
+    return challenge.presentation.bins.find(item => item.token === token).id;
+  }
+  if (challenge.powerId === "word_forge") {
+    const position = Number.isInteger(challenge.position) ? challenge.position : 0;
+    return challenge.presentation.slots[position].id;
+  }
+  if (challenge.powerId === "blend_bridge" || challenge.powerId === "story_power") {
+    return challenge.presentation.choices.find(item => item.token === token).id;
+  }
+  if (challenge.powerId === "memory_delivery") {
+    return challenge.presentation.recipients.find(item => item.token === token).id;
+  }
+  throw new Error(`unsupported contact power ${challenge.powerId}`);
+}
+
+test("current scene contact targets come only from exact applied six-power transitions", () => {
+  const cases = [
+    ["s1", "s1-primary", "echo_search"],
+    ["s16", "s16-alternative", "contrast_sort"],
+    ["s1", "s1-secondary", "word_forge"],
+    ["s2", "s2-secondary", "blend_bridge"],
+    ["s3", "s3-primary", "memory_delivery"],
+    ["s1", "s1-transfer", "story_power"]
+  ];
+  const outcomes = new Set();
+  let priorTransition = null;
+  for (const [stopId, phaseId, powerId] of cases) {
+    const journeyStep = Number(stopId.slice(1));
+    const initial = createSoundSeekersState();
+    const gameState = normalizeSoundSeekersState({
+      ...initial, trail: { ...initial.trail, journeyStep }
+    });
+    const plan = createMissionPlan({ stopId, state: gameState, seed: journeyStep, replayOrdinal: 0 });
+    const mission = driveToPhase(plan, phaseId);
+    const challenge = mission.activity.powerChallenge || mission.challenge;
+    assert.equal(challenge.powerId, powerId);
+    assert.equal(projectCurrentMissionSceneModel(mission).contactTargetId, null);
+    const expected = exactContactForResponse(mission, challenge.expectedToken);
+    const committed = driveInputs(mission, correctPowerInputs(mission), {
+      gameState: mission.gameState,
+      at: "2026-09-03T08:00:00.000Z",
+      sessionDay: "2026-09-03",
+      audio: { status: "completed" }
+    }).result;
+    outcomes.add(committed.transition.outcome);
+    assert.equal(projectCurrentMissionSceneModel(
+      committed.state, {}, committed.transition
+    ).contactTargetId, expected, powerId);
+    if (priorTransition) {
+      assert.equal(projectCurrentMissionSceneModel(
+        committed.state, {}, priorTransition
+      ).contactTargetId, null, `${powerId}: cross-mission transition`);
+    }
+    priorTransition = committed.transition;
+  }
+
+  const initial = createSoundSeekersState();
+  const retryPlan = createMissionPlan({ stopId: "s1", state: initial, seed: 1, replayOrdinal: 0 });
+  const retryMission = driveToPhase(retryPlan, "s1-primary");
+  const wrong = retryMission.challenge.optionTokens.find(token => token !== retryMission.challenge.expectedToken);
+  const expectedWrongContact = exactContactForResponse(retryMission, wrong);
+  const retried = driveInputs(retryMission, powerInputsForToken(retryMission, wrong), {
+    gameState: retryMission.gameState,
+    at: "2026-09-03T08:00:00.000Z",
+    sessionDay: "2026-09-03",
+    audio: { status: "completed" }
+  }).result;
+  outcomes.add(retried.transition.outcome);
+  assert.equal(projectCurrentMissionSceneModel(retried.state, {}, retried.transition).contactTargetId,
+    expectedWrongContact);
+  assert.equal(outcomes.has("advance"), true);
+  assert.equal(outcomes.has("continue"), true);
+  assert.equal(outcomes.has("retry"), true);
+});
 
 test("all forty public missions complete two accumulating routes with exact deck and story totals", () => {
   let campaign = createSoundSeekersState();

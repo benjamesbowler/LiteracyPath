@@ -8,7 +8,9 @@ import {
   beginContentPlacementAttempt,
   beginStoryTransferTransaction,
   checkpointStoryTransferTransaction,
+  commitContentPlacementResponse,
   completeContentPlacementCorrectionModel,
+  completeStoryTransferTransaction,
   completeStoryTransferCorrectionModel,
   materializeBossTransferChallenge,
   materializeContentPlacementChallenge,
@@ -19,6 +21,7 @@ import {
 } from "./contentDeckTransactions.js";
 import {
   projectBoundContentResolverInputs,
+  recordContentDeckUse,
   rehydrateServedContentInstance,
   serveContentDeck
 } from "./contentDeckScheduler.js";
@@ -37,19 +40,13 @@ import {
 import { currentGameStateForMissionPlan } from "./createMissionPlan.js";
 import { advanceJourney } from "./journeyClock.js";
 import { validContentDeckUses } from "./contentCoverage.js";
-import { createMissionRuntimeAuthority } from "./missionResponseCommit.js";
+import { appendEvidence, createLiteracyDecision, deriveConfusions } from "./evidence.js";
 import { SOUND_POWER_REGISTRY } from "./powers/index.js";
 import { normalizeSoundSeekersState } from "./stateV2.js";
 import { createTeachSequence, reduceTeachSequence } from "./teachSequence.js";
-import { projectCorrection } from "./powers/contracts.js";
+import { parseSemanticHistory, projectCorrection } from "./powers/contracts.js";
+import { normalizeMotorAssists, projectMotorPresentation } from "./motorAssists.js";
 
-const missionAuthority = createMissionRuntimeAuthority();
-const {
-  assertCurrentMissionState: assertCurrent,
-  brandState: brandMissionState,
-  commitMissionResponse,
-  finalizeMissionCommit
-} = missionAuthority;
 const missionByPowerState = new WeakMap();
 const completionBrands = new WeakSet();
 const completionMetadata = new WeakMap();
@@ -63,6 +60,301 @@ function deepFreeze(value) {
   for (const child of Object.values(value)) deepFreeze(child);
   return Object.freeze(value);
 }
+
+function exactKeys(value, keys) {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value)
+    && Object.keys(value).length === keys.length && keys.every(key => Object.hasOwn(value, key));
+}
+
+function sameValue(left, right) {
+  if (Object.is(left, right)) return true;
+  if (Array.isArray(left) || Array.isArray(right)) {
+    return Array.isArray(left) && Array.isArray(right) && left.length === right.length
+      && left.every((item, index) => sameValue(item, right[index]));
+  }
+  if (left && right && typeof left === "object" && typeof right === "object") {
+    const leftKeys = Object.keys(left);
+    const rightKeys = Object.keys(right);
+    return leftKeys.length === rightKeys.length
+      && leftKeys.every(key => Object.hasOwn(right, key) && sameValue(left[key], right[key]));
+  }
+  return false;
+}
+
+function createPrivateMissionAuthority() {
+  const missionBrands = new WeakSet();
+  const currentByMissionId = new Map();
+  const issuedResults = new WeakSet();
+  const resultMetadata = new WeakMap();
+  const cachedByIntentSet = new WeakMap();
+
+  function brandState(value) {
+    const state = deepFreeze(value);
+    missionBrands.add(state);
+    currentByMissionId.set(state.plan.id, state);
+    return state;
+  }
+
+  function isCurrentMissionState(state) {
+    return missionBrands.has(state) && currentByMissionId.get(state?.plan?.id) === state;
+  }
+
+  function assertCurrentMissionState(state) {
+    if (!isCurrentMissionState(state)) throw new Error("mission state is not the exact current revision");
+  }
+
+  function assertCommitContext(state, intents, context) {
+    if (!isCurrentMissionState(state)
+      || !Object.isFrozen(state) || !Object.isFrozen(intents) || intents.length !== 1
+      || !Object.isFrozen(intents[0]) || !context?.challenge || !context?.gameState
+      || !exactKeys(context, ["challenge", "gameState", "at", "sessionDay", "audio"])
+      || !exactKeys(intents[0], ["kind", "challengeId", "response"])
+      || !["challenge_response", "content_response"].includes(intents[0].kind)
+      || intents[0].challengeId !== context.challenge.challengeId
+      || state.challenge !== context.challenge || state.gameState !== context.gameState
+      || state.activity?.status !== "awaiting_mission_commit"
+      || state.attemptId !== context.challenge.attemptId
+      || (intents[0].kind === "challenge_response"
+        && (!exactKeys(intents[0].response, ["kind", "token"])
+          || intents[0].response.kind !== "literacy-answer"))) {
+      throw new Error("mission response commit requires the exact current response intent");
+    }
+  }
+
+  function commitMissionResponse(state, responseIntents, context = {}, reducerCapability = null) {
+    assertCommitContext(state, responseIntents, context);
+    if (!["at", "sessionDay", "audio"].every(key => Object.hasOwn(context, key))) {
+      throw new Error("mission response commit needs canonical time, session, and audio inputs");
+    }
+    const cached = cachedByIntentSet.get(responseIntents);
+    if (cached) {
+      const metadata = resultMetadata.get(cached);
+      if (!metadata || metadata.missionState !== state || metadata.reducerCapability !== reducerCapability
+        || metadata.at !== context.at || metadata.sessionDay !== context.sessionDay
+        || !sameValue(metadata.audio, context.audio)) {
+        throw new Error("cached mission response context is stale or changed");
+      }
+      return cached;
+    }
+    const attemptSupportLevel = Math.min(state.attemptOrdinal, 3);
+    const phase = state.plan.phases[state.phaseIndex];
+    const baseGameState = state.gameState;
+    let transaction = null;
+    if (phase.kind === "content_placement") {
+      transaction = commitContentPlacementResponse(baseGameState, {
+        placementId: state.activeContent.placementId, visitId: state.activeContent.visitId,
+        challenge: context.challenge, response: responseIntents[0].response,
+        audio: context.audio, at: context.at, sessionDay: context.sessionDay
+      });
+    } else if (phase.kind === "story_transfer") {
+      transaction = completeStoryTransferTransaction(baseGameState, {
+        transactionId: state.activeContent.transactionId, challenge: context.challenge,
+        response: responseIntents[0].response, audio: context.audio,
+        at: context.at, sessionDay: context.sessionDay
+      });
+    }
+    const event = transaction?.event || (responseIntents[0].kind === "challenge_response"
+      ? createLiteracyDecision({
+        challenge: context.challenge, response: responseIntents[0].response,
+        support: { level: attemptSupportLevel, revealed: attemptSupportLevel >= 3 },
+        audio: context.audio, journeyStep: state.plan.journeyStep,
+        ordinal: state.nextDecisionOrdinal, at: context.at, sessionDay: context.sessionDay
+      }) : null);
+    if (!event && phase.category !== "morphology") {
+      throw new Error("mission response did not produce canonical evidence");
+    }
+    let candidateState = transaction ? normalizeSoundSeekersState(transaction.nextState)
+      : normalizeSoundSeekersState({
+        ...baseGameState,
+        evidence: appendEvidence(baseGameState.evidence, event),
+        confusions: deriveConfusions(appendEvidence(baseGameState.evidence, event))
+      });
+    if ((phase.kind === "content_opportunity" || phase.contentBinding?.category === "heartWords")
+      && event?.correct) {
+      candidateState = normalizeSoundSeekersState({
+        ...candidateState,
+        contentDecks: recordContentDeckUse(candidateState.contentDecks,
+          state.activeContent.served, state.activeContent.binding)
+      });
+    }
+    const correction = transaction?.correction || (event && !event.correct
+      ? nextCorrection(state.correctionState || {}, {
+        selected: event.confusion, intended: context.challenge.expectedToken,
+        targetId: context.challenge.targetId, domain: context.challenge.recordsDomain,
+        wordId: context.challenge.wordId || null, position: context.challenge.position ?? null,
+        evidenceKind: "practice"
+      }) : null);
+    const transactionOutcome = transaction?.outcome;
+    const outcome = transactionOutcome === "completed" ? "advance"
+      : transactionOutcome === "next_challenge" ? "continue"
+        : transactionOutcome || (event.correct ? "advance"
+          : state.attemptOrdinal >= 2 ? "model_required" : "retry");
+    const supportLevel = ["retry", "model_required"].includes(outcome)
+      ? Math.min(state.attemptOrdinal + 1, 3)
+      : outcome === "continue" ? 0 : attemptSupportLevel;
+    const checkpoint = phase.kind === "content_placement"
+      ? candidateState.checkpoint?.contentPlacement
+      : phase.kind === "story_transfer" ? candidateState.checkpoint?.storyTransfer : null;
+    const nextAttemptId = outcome === "advance" ? null
+      : checkpoint?.attemptId || `${state.plan.id}:${state.phaseId}:attempt:${state.attemptOrdinal + 1}`;
+    const correctionRecordIds = transaction?.correction?.correctionRecordId
+      ? [transaction.correction.correctionRecordId]
+      : correction ? [`mission-correction:${context.challenge.attemptId}`] : [];
+    const result = deepFreeze({
+      kind: "sound_seekers_mission_commit_result", missionId: state.plan.id,
+      phaseId: state.phaseId, attemptId: state.attemptId,
+      attemptOrdinal: state.attemptOrdinal, outcome, supportLevel,
+      correctionRecordIds, nextAttemptId
+    });
+    issuedResults.add(result);
+    resultMetadata.set(result, {
+      status: "issued", missionState: state, missionRevision: state.missionRevision,
+      responseIntents, candidateState, event, correction, finalizedRevision: null,
+      reducerCapability, at: context.at, sessionDay: context.sessionDay,
+      audio: structuredClone(context.audio)
+    });
+    cachedByIntentSet.set(responseIntents, result);
+    return result;
+  }
+
+  function assertCurrentMissionCommitResult(result, expected = {}) {
+    const metadata = resultMetadata.get(result);
+    if (!issuedResults.has(result) || !metadata || metadata.status !== "issued") {
+      throw new Error("mission commit result is forged, stale, or consumed");
+    }
+    const checks = { missionId: result.missionId, phaseId: result.phaseId,
+      attemptId: result.attemptId, attemptOrdinal: result.attemptOrdinal,
+      revision: metadata.missionRevision };
+    for (const [key, value] of Object.entries(expected)) {
+      if (Object.hasOwn(checks, key) && checks[key] !== value) {
+        throw new Error("mission commit result does not match the current mission revision");
+      }
+    }
+    return true;
+  }
+
+  function validateCurrentMissionTransition(result, expected = {}) {
+    const metadata = resultMetadata.get(result);
+    if (!issuedResults.has(result) || !metadata || metadata.status !== "applied"
+      || !metadata.finalMissionState
+      || !isCurrentMissionState(metadata.finalMissionState)
+      || metadata.finalMissionState.missionRevision !== metadata.finalizedRevision) return false;
+    if (expected.missionId !== undefined && result.missionId !== expected.missionId) return false;
+    if (expected.phaseId !== undefined && result.phaseId !== expected.phaseId) return false;
+    if (expected.revision !== undefined && metadata.finalizedRevision !== expected.revision) return false;
+    return true;
+  }
+
+  function projectContactTarget(result, finalMissionState) {
+    if (!validateCurrentMissionTransition(result)
+      || resultMetadata.get(result)?.finalMissionState !== finalMissionState) return null;
+    const metadata = resultMetadata.get(result);
+    const preFinalState = metadata.missionState;
+    const response = metadata.responseIntents[0]?.response;
+    const activity = preFinalState.activity;
+    if (response?.kind === "non-recording-complete"
+      && activity?.powerId === "word_forge"
+      && activity.morphology
+      && activity.slots?.[1]?.id === "morphology-ending-slot"
+      && activity.slots[1].tileId === "morphology-ending-tile") {
+      return activity.slots[1].id;
+    }
+    if (response?.kind !== "literacy-answer" || !activity?.powerId) return null;
+    const step = parseSemanticHistory(activity).at(-1);
+    const terminalAction = activity.powerId === "echo_search"
+      ? "confirm_candidate" : activity.powerId === "word_forge" ? "place_tile" : activity.expectedAction;
+    if (!step || step.type !== terminalAction) return null;
+    const token = response.token;
+    if (activity.powerId === "echo_search") {
+      const candidate = activity.candidates?.[step.indexes[0]];
+      return candidate && activity.candidateTokens?.[candidate.id] === token ? candidate.id : null;
+    }
+    if (activity.powerId === "contrast_sort") {
+      const bin = activity.bins?.[step.indexes[1]];
+      return bin && activity.binTokens?.[bin.id] === token ? bin.id : null;
+    }
+    if (activity.powerId === "word_forge") {
+      const tile = activity.rack?.[step.indexes[0]];
+      const slot = activity.slots?.[step.indexes[1]];
+      return tile && slot && tile.token === token && slot.tileId === tile.id ? slot.id : null;
+    }
+    if (activity.powerId === "blend_bridge" || activity.powerId === "story_power") {
+      const choice = activity.choices?.[step.indexes[0]];
+      return choice && activity.choiceTokens?.[choice.id] === token ? choice.id : null;
+    }
+    if (activity.powerId === "memory_delivery") {
+      const recipient = activity.recipients?.[step.indexes[0]];
+      return recipient && activity.recipientTokens?.[recipient.id] === token ? recipient.id : null;
+    }
+    return null;
+  }
+
+  function projectWorkbench(result, expected = {}, binding = {}) {
+    if (!validateCurrentMissionTransition(result, expected)) return null;
+    const metadata = resultMetadata.get(result);
+    const missionState = metadata.missionState;
+    const finalMissionState = metadata.finalMissionState;
+    if (!finalMissionState
+      || ![missionState.activity, finalMissionState.activity].includes(binding.powerState)
+      || ![missionState.challenge, finalMissionState.challenge].includes(binding.challenge)) return null;
+    const correction = metadata.correction;
+    let correctionPresentation = null;
+    if (["retry", "model_required"].includes(result.outcome) && correction) {
+      const rack = missionState.activity?.rack || [];
+      const selectedContrast = rack.find(tile => missionState.challenge.presentation?.rack
+        ?.find(source => source.id === tile.id)?.token === correction.selected)?.label
+        || String(correction.selected);
+      const mode = correction.modelOnce ? "teach"
+        : correction.isolatePosition !== null ? "narrow" : "retry";
+      const visibleText = correction.modelOnce
+        ? `Watch once. Then try ${selectedContrast} again.`
+        : correction.isolatePosition !== null
+          ? `Listen at the important sound. Then try ${selectedContrast} again.`
+          : `Listen again. Compare ${selectedContrast} with the target sound.`;
+      correctionPresentation = deepFreeze({ mode,
+        replayContrast: correction.replayContrast === true,
+        selectedContrast, visibleText, spokenText: visibleText });
+    }
+    return deepFreeze({
+      outcome: result.outcome, correctionPresentation,
+      morphology: missionState.plan.phases[missionState.phaseIndex]?.placementId === "s38-morphology"
+        ? missionState.interaction : null
+    });
+  }
+
+  function finalizeMissionCommit(result, state, reducerCapability, finalize) {
+    const metadata = resultMetadata.get(result);
+    if (!metadata || metadata.status !== "issued" || metadata.missionState !== state
+      || !reducerCapability || metadata.reducerCapability !== reducerCapability
+      || typeof finalize !== "function") {
+      throw new Error("mission commit finalization capability is forged or stale");
+    }
+    const finalizedState = finalize(Object.freeze({
+      candidateState: metadata.candidateState, event: metadata.event, correction: metadata.correction
+    }));
+    if (!isCurrentMissionState(finalizedState) || !Number.isInteger(finalizedState.missionRevision)) {
+      throw new Error("mission commit result cannot be finalized");
+    }
+    metadata.status = "applied";
+    metadata.finalizedRevision = finalizedState.missionRevision;
+    metadata.finalMissionState = finalizedState;
+    return finalizedState;
+  }
+
+  return Object.freeze({
+    brandState, assertCurrentMissionState, isCurrentMissionState, commitMissionResponse,
+    finalizeMissionCommit, assertCurrentMissionCommitResult,
+    validateCurrentMissionTransition, projectContactTarget, projectWorkbench
+  });
+}
+
+const missionAuthority = createPrivateMissionAuthority();
+const {
+  assertCurrentMissionState: assertCurrent,
+  brandState: brandMissionState,
+  commitMissionResponse,
+  finalizeMissionCommit
+} = missionAuthority;
 
 function brandState(value) {
   const state = brandMissionState(deepFreeze(value));
@@ -217,6 +509,111 @@ function deriveOrdinaryResumeCorrection(state, phase) {
     if (!correction) throw new Error("mission resume correction could not be rederived");
   }
   return correction;
+}
+
+function canonicalChallengeForCompletedPhase(plan, gameState, phase, attemptOrdinal) {
+  if (phase.kind === "content_opportunity") {
+    const served = rehydrateServedContentInstance(gameState.contentDecks, {
+      category: "heartWords",
+      visitId: `visit:${plan.journeyStep}:${phase.id}`
+    });
+    return served ? heartChallenge(phase, plan, served, attemptOrdinal) : null;
+  }
+  const sharedHeart = phase.contentBinding?.category === "heartWords"
+    && phase.contentBinding.isVisitOwner === false;
+  const served = sharedHeart ? rehydrateServedContentInstance(gameState.contentDecks, {
+    category: "heartWords",
+    visitId: `visit:${plan.journeyStep}:${phase.contentBinding.visitOwnerId}`
+  }) : null;
+  if (sharedHeart && !served) return null;
+  return createChallenge({
+    action: phase,
+    missionId: plan.id,
+    attemptOrdinal,
+    seed: plan.seed,
+    contentSource: served ? projectBoundContentResolverInputs(served) : null
+  });
+}
+
+function completedDecisionIsCanonical(plan, gameState, phase) {
+  const prefix = `${plan.id}:${phase.id}:attempt:`;
+  const events = gameState.evidence.filter(event => event.id.startsWith(prefix));
+  if (!events.length) return false;
+  const attempts = events.map(event => {
+    const [attemptText, decisionText, ...rest] = event.id.slice(prefix.length).split(":");
+    return rest.length || !/^(?:0|[1-9][0-9]*)$/u.test(attemptText)
+      || !/^(?:0|[1-9][0-9]*)$/u.test(decisionText)
+      ? null : { event, attemptOrdinal: Number(attemptText), decisionOrdinal: Number(decisionText) };
+  }).filter(Boolean).sort((left, right) => left.attemptOrdinal - right.attemptOrdinal);
+  if (attempts.length !== events.length
+    || attempts.some((entry, index) => entry.attemptOrdinal !== index)) return false;
+  return attempts.every((entry, index) => {
+    const challenge = canonicalChallengeForCompletedPhase(plan, gameState, phase, index);
+    const event = entry.event;
+    const correct = index === attempts.length - 1;
+    const valid = challenge
+      && event.id === `${challenge.attemptId}:${entry.decisionOrdinal}`
+      && event.target === challenge.targetId
+      && event.domain === challenge.recordsDomain
+      && event.correct === correct
+      && event.supportLevel === Math.min(index, 3)
+      && event.revealed === (index >= 3)
+      && event.audioRequired === (challenge.requiresAudio !== false)
+      && event.word === (challenge.wordId || null)
+      && event.position === (challenge.position ?? null)
+      && event.connectedTextId === (challenge.connectedTextId || null)
+      && event.bossTransferId === (challenge.bossTransferId || null)
+      && event.mechanic === challenge.powerId
+      && event.journeyStep === plan.journeyStep
+      && event.evidenceKind === "practice"
+      && (correct ? event.confusion === null : challenge.optionTokens.includes(event.confusion));
+    return valid;
+  });
+}
+
+function completedContentUseIsCanonical(plan, gameState, phase) {
+  if (phase.kind === "story_transfer") {
+    const transactionId = `story-transfer:${plan.journeyStep}:${plan.stopId}`;
+    return ["stories", "transfer"].every(category => validContentDeckUses(gameState, category)
+      .some(use => use.transactionId === transactionId && use.journeyStep === plan.journeyStep));
+  }
+  const category = phase.kind === "content_opportunity"
+    ? "heartWords" : phase.category || phase.contentBinding?.category;
+  return validContentDeckUses(gameState, category).some(use =>
+    use.actionUseId === phase.contentBinding?.actionUseId
+    && use.journeyStep === plan.journeyStep);
+}
+
+function assertCanonicalCompletedPrefix(plan, gameState, phaseIndex, completedPhaseIds, teach) {
+  const expected = plan.phases.slice(0, phaseIndex);
+  if (completedPhaseIds.length !== expected.length
+    || completedPhaseIds.some((id, index) => id !== expected[index].id)) {
+    throw new Error("mission completed phases are not the contiguous canonical prefix");
+  }
+  const teachPhaseIndex = plan.phases.findIndex(phase => phase.kind === "teach");
+  if (phaseIndex > teachPhaseIndex) {
+    const teachCount = getExpedition(plan.stopId).teach.targetIds.length;
+    if (teach?.teachIndex !== teachCount || teach?.teachTargetId !== null) {
+      throw new Error("mission completed teach history is not canonical");
+    }
+  }
+  for (const phase of expected) {
+    if (["challenge", "content_opportunity"].includes(phase.kind)) {
+      const decisionValid = completedDecisionIsCanonical(plan, gameState, phase);
+      const useValid = phase.contentBinding?.category !== "heartWords"
+        || completedContentUseIsCanonical(plan, gameState, phase);
+      if (!decisionValid || !useValid) {
+        throw new Error(`mission completed phase ${phase.id} lacks canonical evidence history`);
+      }
+    }
+    if (phase.kind === "content_placement" && !completedContentUseIsCanonical(plan, gameState, phase)) {
+      throw new Error(`mission completed phase ${phase.id} lacks its canonical content use`);
+    }
+    if (phase.kind === "story_transfer" && !completedContentUseIsCanonical(plan, gameState, phase)) {
+      throw new Error(`mission completed phase ${phase.id} lacks reciprocal story history`);
+    }
+  }
+  return true;
 }
 
 function enteredState(base, phaseIndex, context = {}) {
@@ -444,17 +841,14 @@ export function createMissionState(plan, resume = null) {
       || resume.journeyStep !== plan.journeyStep) throw new Error("mission resume does not match its plan");
     const phaseIndex = plan.phases.findIndex(phase => phase.id === resume.phaseId);
     if (phaseIndex < 0) throw new Error("mission resume phase is not canonical");
-    const expectedCompleted = plan.phases.slice(0, phaseIndex).map(phase => phase.id);
-    if (resume.completedPhaseIds.length !== expectedCompleted.length
-      || resume.completedPhaseIds.some((id, index) => id !== expectedCompleted[index])) {
-      throw new Error("mission resume completed phases are not the contiguous canonical prefix");
-    }
+    assertCanonicalCompletedPrefix(plan, savedState, phaseIndex, resume.completedPhaseIds, resume.teach);
     const entered = enteredState({
       kind: "sound_seekers_mission_state", plan, phaseIndex,
       completedPhaseIds: [...resume.completedPhaseIds], missionRevision: resume.missionRevision,
       attemptOrdinal: resume.attemptOrdinal, attemptId: resume.attemptId,
       nextDecisionOrdinal: resume.nextDecisionOrdinal,
       presentationTransition: null,
+      teachProgress: resume.teach,
       modelPending: resume.activity?.powerCheckpoint?.status === "model_pending",
       correctionState: null,
       gameState: currentGameStateForMissionPlan(plan)
@@ -480,6 +874,7 @@ export function createMissionState(plan, resume = null) {
     completedPhaseIds: [], missionRevision: 0,
     attemptOrdinal: 0, attemptId: `${plan.id}:${plan.phases[0].id}:attempt:0`,
     nextDecisionOrdinal: 0, presentationTransition: null, modelPending: false,
+    teachProgress: { teachIndex: 0, teachTargetId: null },
     correctionState: null,
     gameState: currentGameStateForMissionPlan(plan)
   }, 0, { gameState: currentGameStateForMissionPlan(plan) }));
@@ -499,6 +894,9 @@ function finalizeResponseCommit(result, pending, buildOutput) {
 }
 
 function completionFor(state, gameState) {
+  assertCanonicalCompletedPrefix(
+    state.plan, gameState, state.plan.phases.length, state.completedPhaseIds, state.teachProgress
+  );
   const completion = deepFreeze({
     kind: "sound_seekers_mission_completion",
     missionId: state.plan.id,
@@ -507,7 +905,12 @@ function completionFor(state, gameState) {
     completedPhaseIds: state.plan.phases.map(phase => phase.id)
   });
   completionBrands.add(completion);
-  completionMetadata.set(completion, { gameState, result: null });
+  completionMetadata.set(completion, {
+    gameState,
+    missionState: state,
+    missionRevision: state.missionRevision,
+    result: null
+  });
   return completion;
 }
 
@@ -540,6 +943,7 @@ export function reduceMission(state, input = {}, context = {}) {
     || Object.keys(context).some(key => !MISSION_CONTEXT_KEYS.has(key))) {
     throw new Error("mission context contains unknown caller authority");
   }
+  const assists = normalizeMotorAssists(context.assists);
   const phase = state.plan.phases[state.phaseIndex];
   if (!phase) return emptyResult(state);
   if (state.modelPending === true) {
@@ -562,14 +966,19 @@ export function reduceMission(state, input = {}, context = {}) {
         activity: deepFreeze({ ...state.activity, sequence }) });
       return emptyResult(next);
     }
-    const moved = advance(state, context);
+    const taughtState = {
+      ...state,
+      activity: deepFreeze({ ...state.activity, sequence }),
+      teachProgress: { teachIndex: sequence.teachIndex, teachTargetId: sequence.teachTargetId }
+    };
+    const moved = advance(taughtState, context);
     return deepFreeze({ state: moved.state, responseIntents: [], transition: null, completion: moved.completion });
   }
   if (phase.kind === "power_onboarding") {
     const power = SOUND_POWER_REGISTRY[phase.powerId];
     const reduced = power.reduce(state.activity, input, {
       challenge: state.activity.powerChallenge || state.challenge,
-      assists: context.assists
+      assists
     });
     if (!reduced.responseIntents.length) {
       if (reduced.state === state.activity) return emptyResult(state);
@@ -678,7 +1087,7 @@ export function reduceMission(state, input = {}, context = {}) {
   const power = SOUND_POWER_REGISTRY[phase.powerId];
   const reduced = power.reduce(state.activity, input, {
     challenge: state.activity.powerChallenge || state.challenge,
-    assists: context.assists
+    assists
   });
   const reducedActivity = phase.kind === "story_transfer"
     ? deepFreeze({
@@ -861,10 +1270,10 @@ export function checkpointMission(state) {
     replayOrdinal: state.plan.replayOrdinal,
     phaseId: state.phaseId,
     completedPhaseIds: state.completedPhaseIds,
-    teach: {
-      teachIndex: state.activity?.sequence?.teachIndex || 0,
-      teachTargetId: state.activity?.sequence?.teachTargetId || null
-    },
+    teach: state.activity?.sequence ? {
+      teachIndex: state.activity.sequence.teachIndex,
+      teachTargetId: state.activity.sequence.teachTargetId
+    } : state.teachProgress,
     nextDecisionOrdinal: state.nextDecisionOrdinal,
     activity: {
       kind: phase.kind,
@@ -881,10 +1290,24 @@ export function checkpointMission(state) {
 export function completeMission(gameState, completion) {
   const metadata = completionMetadata.get(completion);
   if (!completionBrands.has(completion) || !metadata) throw new Error("mission completion is forged or stale");
+  if (!missionAuthority.isCurrentMissionState(metadata.missionState)
+    || metadata.missionState.missionRevision !== metadata.missionRevision) {
+    throw new Error("mission completion is not bound to the exact current final mission revision");
+  }
   if (metadata.result) {
     if (gameState !== metadata.result.nextState) throw new Error("mission completion state has diverged");
     return metadata.result;
   }
+  if (metadata.missionState.gameState !== gameState) {
+    throw new Error("mission completion is not bound to the exact current final mission revision");
+  }
+  assertCanonicalCompletedPrefix(
+    metadata.missionState.plan,
+    gameState,
+    metadata.missionState.plan.phases.length,
+    metadata.missionState.completedPhaseIds,
+    metadata.missionState.teachProgress
+  );
   if (gameState !== metadata.gameState) throw new Error("mission completion is bound to another game state");
   const expedition = getExpedition(completion.stopId);
   const placementCategories = new Set(getContentDeckPlacements(expedition.stopId).map(item => item.category));
@@ -950,8 +1373,47 @@ export function validateCurrentMissionTransition(result, expected = {}) {
   return missionAuthority.validateCurrentMissionTransition(result, expected);
 }
 
-export function projectMissionWorkbenchAuthority(result, expected = {}, binding = {}) {
-  return missionAuthority.projectMissionWorkbenchAuthority(result, expected, binding);
+export function projectCurrentMissionSceneModel(missionState, rawAssists = {}, transition = null) {
+  assertCurrent(missionState);
+  const assists = normalizeMotorAssists(rawAssists);
+  const phase = missionState.plan.phases[missionState.phaseIndex];
+  const context = missionState.interaction?.context || null;
+  const power = phase?.powerId && missionState.challenge
+    ? SOUND_POWER_REGISTRY[phase.powerId] : null;
+  const activity = power
+    ? power.view(missionState.activity, missionState.activity.powerChallenge || missionState.challenge, assists)
+    : deepFreeze({
+      kind: missionState.activity?.kind || phase?.kind || null,
+      powerId: missionState.activity?.powerId || phase?.powerId || null,
+      status: missionState.activity?.status || null,
+      motor: projectMotorPresentation(assists)
+    });
+  const contactTargetId = transition
+    ? missionAuthority.projectContactTarget(transition, missionState) : null;
+  return deepFreeze({
+    kind: "sound_seekers_mission_scene_model",
+    missionId: missionState.plan.id,
+    stopId: missionState.plan.stopId,
+    phaseId: missionState.phaseId,
+    revision: missionState.missionRevision,
+    contactTargetId,
+    activity,
+    interaction: context ? {
+      contextId: context.id,
+      childDecision: context.childDecision,
+      decisionSteps: context.decisionSteps,
+      objectIds: context.objectIds,
+      objectRoles: context.objectRoles,
+      recipientId: context.recipientId,
+      recipientRole: context.recipientRole,
+      physicalExpression: context.physicalExpression,
+      consequenceId: context.consequenceId,
+      consequence: context.consequence
+    } : null,
+    childScene: missionState.activity?.childScene || null,
+    presentation: missionState.activity?.presentation || null,
+    transition: missionState.presentationTransition || null
+  });
 }
 
 export function projectCurrentWordWorkbenchModel(missionState) {
@@ -996,7 +1458,7 @@ export function issueWordWorkbenchAccess({
     if (!missionAuthority.validateCurrentMissionTransition(transition, expected)) {
       throw new Error("workbench transition is stale or cross-mission");
     }
-    const authority = missionAuthority.projectMissionWorkbenchAuthority(transition, expected, binding);
+    const authority = missionAuthority.projectWorkbench(transition, expected, binding);
     if (!authority) throw new Error("workbench transition does not own this final child view");
     correctionPresentation = authority.correctionPresentation;
     if (authority.outcome === "advance" && authority.morphology) morphology = authority.morphology;
