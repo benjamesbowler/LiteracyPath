@@ -64,6 +64,20 @@ const characterPartIds = Object.freeze([
   "neck-accessory", "head-accessory", "held-accessory"
 ]);
 
+function stableGlyphSeed(value) {
+  let hash = 2166136261;
+  for (const character of value) {
+    hash ^= character.codePointAt(0);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
+function expectedWorldCompositionSignature({ chapterId, sceneId, visualStateId, scenePhase, compositionMode }) {
+  const seed = stableGlyphSeed([chapterId, sceneId, visualStateId, scenePhase, compositionMode].join(":"));
+  return `world-composition:${seed.toString(16).padStart(8, "0")}`;
+}
+
 function shot(id, kind, fields = {}) {
   return {
     id: slug(id),
@@ -136,6 +150,36 @@ function expectedRenderedFacts(record) {
       worldAppearanceSignature: signature,
       previewRenderedPartIds: [...characterPartIds],
       worldRenderedPartIds: [...characterPartIds]
+    };
+  }
+  if (record.kind === "boss-branch") {
+    const scene = SCENE_BY_ID.get(record.sceneId);
+    const option = scene?.choice.options.find(candidate => candidate.visualSemanticId === record.subjectId);
+    const branch = SOUND_SEEKERS_NARRATIVE_BRANCH_OUTCOMES.find(candidate => (
+      candidate.sceneId === record.sceneId && candidate.token === option?.token
+    ));
+    const postDecision = semanticById.get(branch?.postDecisionSemanticId);
+    if (!scene || !option || !branch || !postDecision) {
+      throw new TypeError(`boss gallery record ${record.id} has no exact selected-branch authority`);
+    }
+    return {
+      kind: "boss-branch",
+      selectedOptionVisualId: option.visualSemanticId,
+      postDecisionSemanticId: branch.postDecisionSemanticId,
+      resolvedVisualStateId: postDecision.resolvedStateId,
+      landmarkStateId: postDecision.resolvedStateId,
+      ordinaryCompositionSignature: expectedWorldCompositionSignature({
+        chapterId: scene.chapterId, sceneId: scene.id, visualStateId: postDecision.resolvedStateId,
+        scenePhase: "resolved", compositionMode: "ordinary"
+      }),
+      wonderCompositionSignature: expectedWorldCompositionSignature({
+        chapterId: scene.chapterId, sceneId: scene.id, visualStateId: postDecision.resolvedStateId,
+        scenePhase: "resolved", compositionMode: "wonder"
+      }),
+      bossCompositionSignature: expectedWorldCompositionSignature({
+        chapterId: scene.chapterId, sceneId: scene.id, visualStateId: postDecision.resolvedStateId,
+        scenePhase: "resolved", compositionMode: "boss-resolved"
+      })
     };
   }
   return null;
@@ -402,7 +446,7 @@ const ASSET_KEYS = ["path", "sha256", "cropRecordSha256"];
 const PNG_KEYS = ["width", "height", "byteLength", "sha256"];
 const BASE_CHECK_KEYS = [
   "consoleErrors", "pageErrors", "failedRequests", "visibleControlIds",
-  "focusTargetId", "noAnswerLeak"
+  "focusTargetId", "noAnswerLeak", "payoffComparison"
 ];
 const CHECK_KEYS = [...BASE_CHECK_KEYS, "layout"];
 const CHARACTER_RENDER_KEYS = [
@@ -414,6 +458,14 @@ const CREATOR_RENDER_KEYS = [
   "previewAppearanceSignature", "worldAppearanceSignature",
   "previewRenderedPartIds", "worldRenderedPartIds"
 ];
+const BOSS_RENDER_KEYS = [
+  "kind", "selectedOptionVisualId", "postDecisionSemanticId", "resolvedVisualStateId",
+  "landmarkStateId", "ordinaryCompositionSignature",
+  "wonderCompositionSignature", "bossCompositionSignature"
+];
+const PAYOFF_COMPARISON_KEYS = ["selectedOptionVisualId", "resolvedVisualStateId", "variants"];
+const PAYOFF_VARIANT_KEYS = ["mode", "compositionSignature", "pngSha256"];
+const PAYOFF_MODES = ["ordinary", "wonder", "boss-resolved"];
 const FAILURE_KEYS = ["url", "method", "reason"];
 const CONSTRAINED_PROFILE_IDS = new Set([
   "portrait-320x568", "landscape-568x320", "tablet-1194x834",
@@ -486,6 +538,40 @@ function validConstrainedLayout(layout, matrix) {
     && !intersects(layout.target, layout.landmark);
 }
 
+function renderedFactKeys(kind) {
+  if (kind === "character-pose") return CHARACTER_RENDER_KEYS;
+  if (kind === "creator-option") return CREATOR_RENDER_KEYS;
+  if (kind === "boss-branch") return BOSS_RENDER_KEYS;
+  return null;
+}
+
+function validPayoffComparison(comparison, matrix, record) {
+  if (matrix.kind !== "boss-branch") return comparison === null;
+  if (!hasExactKeys(comparison, PAYOFF_COMPARISON_KEYS)
+    || comparison.selectedOptionVisualId !== matrix.subjectId
+    || comparison.selectedOptionVisualId !== matrix.expectedRenderedFacts.selectedOptionVisualId
+    || comparison.resolvedVisualStateId !== matrix.expectedRenderedFacts.resolvedVisualStateId
+    || !Array.isArray(comparison.variants) || comparison.variants.length !== PAYOFF_MODES.length) {
+    return false;
+  }
+  for (let index = 0; index < PAYOFF_MODES.length; index += 1) {
+    const variant = comparison.variants[index];
+    const expectedSignature = matrix.expectedRenderedFacts[
+      index === 0 ? "ordinaryCompositionSignature"
+        : index === 1 ? "wonderCompositionSignature" : "bossCompositionSignature"
+    ];
+    if (!hasExactKeys(variant, PAYOFF_VARIANT_KEYS)
+      || variant.mode !== PAYOFF_MODES[index]
+      || variant.compositionSignature !== expectedSignature
+      || !/^[a-f0-9]{64}$/u.test(variant.pngSha256 || "")) {
+      return false;
+    }
+  }
+  return new Set(comparison.variants.map(variant => variant.compositionSignature)).size === PAYOFF_MODES.length
+    && new Set(comparison.variants.map(variant => variant.pngSha256)).size === PAYOFF_MODES.length
+    && comparison.variants[2].pngSha256 === record.png.sha256;
+}
+
 export function assertSoundSeekersV2GalleryManifest(manifest) {
   if (!hasExactKeys(manifest, MANIFEST_KEYS)
     || manifest.schemaVersion !== 1 || manifest.status !== "complete"
@@ -536,9 +622,9 @@ export function assertSoundSeekersV2GalleryManifest(manifest) {
       || canonicalJson(recordProjection) !== canonicalJson(matrixProjection)
       || !hasExactKeys(record.viewport, VIEWPORT_KEYS)
       || !hasExactKeys(record.asset, ASSET_KEYS)
-      || (record.expectedRenderedFacts !== null
-        && !hasExactKeys(record.expectedRenderedFacts, record.kind === "character-pose"
-          ? CHARACTER_RENDER_KEYS : CREATOR_RENDER_KEYS))
+      || (renderedFactKeys(record.kind) === null
+        ? record.expectedRenderedFacts !== null
+        : !hasExactKeys(record.expectedRenderedFacts, renderedFactKeys(record.kind)))
       || !hasExactKeys(record.png, PNG_KEYS)
       || record.png.width !== matrix.viewport.width || record.png.height !== matrix.viewport.height
       || !Number.isInteger(record.png.byteLength) || record.png.byteLength <= 0
@@ -549,6 +635,7 @@ export function assertSoundSeekersV2GalleryManifest(manifest) {
       || !Array.isArray(record.checks.pageErrors) || record.checks.pageErrors.length
       || canonicalJson(record.checks.visibleControlIds) !== canonicalJson(matrix.expectedVisibleControlIds)
       || record.checks.focusTargetId !== matrix.expectedFocusTargetId
+      || !validPayoffComparison(record.checks.payoffComparison, matrix, record)
       || layoutInvalid) {
       throw new TypeError(layoutInvalid
         ? `Sound Seekers gallery shot ${index + 1} layout evidence is invalid`
@@ -571,6 +658,19 @@ export function assertSoundSeekersV2GalleryManifest(manifest) {
       && canonicalJson(ordinary.optionIds) === canonicalJson(payoff.optionIds);
     if (sameResolvedContent && payoff.png.sha256 === ordinary.png.sha256) {
       throw new TypeError(`Sound Seekers gallery payoff ${payoff.id} is identical to its ordinary resolved scene`);
+    }
+  }
+  for (const records of Map.groupBy(
+    manifest.shots.filter(record => record.kind === "boss-branch"),
+    record => record.sceneId
+  ).values()) {
+    if (records.length !== 2) throw new TypeError("Sound Seekers boss comparison requires both selected options");
+    for (let variantIndex = 0; variantIndex < PAYOFF_MODES.length; variantIndex += 1) {
+      const left = records[0].checks.payoffComparison.variants[variantIndex];
+      const right = records[1].checks.payoffComparison.variants[variantIndex];
+      if (left.compositionSignature === right.compositionSignature || left.pngSha256 === right.pngSha256) {
+        throw new TypeError(`Sound Seekers boss comparison ${records[0].sceneId} reused ${PAYOFF_MODES[variantIndex]} evidence across options`);
+      }
     }
   }
   return true;

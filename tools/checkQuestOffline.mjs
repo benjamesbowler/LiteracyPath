@@ -32,14 +32,14 @@ export function selectQuestExecutablePolicy(precache, executable) {
   for (const root of executable.roots) visit(root);
   if (closure.size !== graph.size) throw new Error("offline executable graph contains an unreachable chunk");
   if (executable.mode === "v2") {
-    if (!v2Routes.length
+    if (v2Routes.length !== 1
       || [...v2Routes].sort().join("\n") !== [...executable.roots].sort().join("\n")) {
       throw new Error("v2 offline executable graph is not rooted at SoundSeekersRoute");
     }
     if (legacyRoutes.length || legacyRuntimes.length) throw new Error("v2 offline shell contains legacy QuestRoot/QuestPixelWorld chunks");
   } else {
     const expectedRoots = [...legacyRoutes, ...legacyRuntimes].sort();
-    if (!legacyRoutes.length || !legacyRuntimes.length
+    if (legacyRoutes.length !== 1 || legacyRuntimes.length !== 1
       || expectedRoots.join("\n") !== [...executable.roots].sort().join("\n")) {
       throw new Error("legacy offline executable graph is incomplete");
     }

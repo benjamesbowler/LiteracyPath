@@ -87,44 +87,50 @@ test("Sound Seekers v2 media warms exact complete bytes and leaves unwarmed rang
     headers: { "X-Quest-Offline-Shutdown-Token": shutdownToken }
   });
   expect(shutdown.status).toBe(202);
-  await expect.poll(async () => {
-    try { await fetch("http://127.0.0.1:5191/index.html", { cache: "no-store" }); return false; } catch { return true; }
-  }).toBe(true);
+  try {
+    await expect.poll(async () => {
+      try { await fetch("http://127.0.0.1:5191/index.html", { cache: "no-store" }); return false; } catch { return true; }
+    }).toBe(true);
 
-  await context.setOffline(true);
-  await page.close();
-  const offlinePage = await context.newPage();
-  await offlinePage.goto(EVIDENCE_URL);
-  const offline = await offlinePage.evaluate(async ({ expected, unwarmed }) => {
-    const digest = async response => [...new Uint8Array(await crypto.subtle.digest("SHA-256", await response.arrayBuffer()))]
-      .map(value => value.toString(16).padStart(2, "0")).join("");
-    const complete = [];
-    for (const item of expected) {
-      const response = await fetch(item.path);
-      complete.push({ path: item.path, status: response.status, sha256: await digest(response) });
-    }
-    const backgroundRange = await fetch(expected[0].path, { headers: { Range: "bytes=0-31" } });
-    const audioRange = await fetch(expected[9].path, { headers: { Range: "bytes=0-31" } });
-    let unwarmedFailed;
-    try {
-      const response = await fetch(unwarmed.path, { headers: { Range: "bytes=0-31" } });
-      unwarmedFailed = !response.ok;
-    } catch { unwarmedFailed = true; }
-    return {
-      complete,
-      backgroundRange: { status: backgroundRange.status, sha256: await digest(backgroundRange) },
-      audioRange: { status: audioRange.status, sha256: await digest(audioRange) },
-      unwarmedFailed
-    };
-  }, { expected: V2_WARM_MEDIA, unwarmed: V2_UNWARMED_AUDIO });
-  expect(offline.complete).toEqual(V2_WARM_MEDIA.map(item => ({ ...item, status: 200 })));
-  expect(offline.backgroundRange).toEqual({ status: 200, sha256: V2_WARM_MEDIA[0].sha256 });
-  expect(offline.audioRange).toEqual({ status: 200, sha256: V2_WARM_MEDIA[9].sha256 });
-  expect(offline.unwarmedFailed).toBe(true);
-  await context.setOffline(false);
-  await expect.poll(async () => {
-    try { return (await fetch("http://127.0.0.1:5191/index.html", { cache: "no-store" })).status; } catch { return 0; }
-  }, { timeout: 10_000 }).toBe(200);
+    await page.close();
+    const offlinePage = await context.newPage();
+    await offlinePage.goto(EVIDENCE_URL);
+    const offline = await offlinePage.evaluate(async ({ expected, unwarmed }) => {
+      const digest = async response => [...new Uint8Array(await crypto.subtle.digest("SHA-256", await response.arrayBuffer()))]
+        .map(value => value.toString(16).padStart(2, "0")).join("");
+      const complete = [];
+      for (const item of expected) {
+        const response = await fetch(item.path);
+        complete.push({ path: item.path, status: response.status, sha256: await digest(response) });
+      }
+      const backgroundRange = await fetch(expected[0].path, { headers: { Range: "bytes=0-31" } });
+      const audioRange = await fetch(expected[9].path, { headers: { Range: "bytes=0-31" } });
+      let unwarmedFailed;
+      try {
+        const response = await fetch(unwarmed.path, { headers: { Range: "bytes=0-31" } });
+        unwarmedFailed = !response.ok;
+      } catch { unwarmedFailed = true; }
+      return {
+        complete,
+        backgroundRange: { status: backgroundRange.status, sha256: await digest(backgroundRange) },
+        audioRange: { status: audioRange.status, sha256: await digest(audioRange) },
+        unwarmedFailed
+      };
+    }, { expected: V2_WARM_MEDIA, unwarmed: V2_UNWARMED_AUDIO });
+    expect(offline.complete).toEqual(V2_WARM_MEDIA.map(item => ({ ...item, status: 200 })));
+    expect(offline.backgroundRange).toEqual({ status: 200, sha256: V2_WARM_MEDIA[0].sha256 });
+    expect(offline.audioRange).toEqual({ status: 200, sha256: V2_WARM_MEDIA[9].sha256 });
+    expect(offline.unwarmedFailed).toBe(true);
+  } finally {
+    const restart = await fetch("http://127.0.0.1:5193/.quest-offline-test/restart", {
+      method: "POST",
+      headers: { "X-Quest-Offline-Shutdown-Token": shutdownToken }
+    });
+    expect(restart.status).toBe(202);
+    await expect.poll(async () => {
+      try { return (await fetch("http://127.0.0.1:5191/index.html", { cache: "no-store" })).status; } catch { return 0; }
+    }, { timeout: 10_000 }).toBe(200);
+  }
 });
 
 test("streaming audio range requests bypass cache writes and remain playable", async ({ page }) => {

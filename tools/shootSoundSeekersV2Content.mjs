@@ -21,6 +21,7 @@ import path from "node:path";
 import { get } from "node:http";
 import { fileURLToPath } from "node:url";
 
+import { parse } from "@babel/parser";
 import { chromium } from "playwright";
 
 import { SOUND_SEEKERS_EXPEDITIONS } from "../src/features/soundSeekers/content/expeditions.js";
@@ -83,6 +84,8 @@ const CONSTRAINED_PROFILE_IDS = new Set([
   "portrait-320x568", "landscape-568x320", "tablet-1194x834",
   "zoom-200-effective-320x568"
 ]);
+const GALLERY_SOURCE_EXTENSIONS = Object.freeze([".js", ".jsx", ".mjs", ".ts", ".tsx", ".html", ".css"]);
+const GALLERY_SOURCE_INDEXES = Object.freeze(GALLERY_SOURCE_EXTENSIONS.map(extension => `index${extension}`));
 
 function sha256Bytes(bytes) {
   return createHash("sha256").update(bytes).digest("hex");
@@ -151,58 +154,149 @@ function cleanBuildRoot(value) {
   if (existsSync(root)) throw new Error("Task 6 build root cleanup did not complete");
 }
 
-function localEdges(filePath, source) {
-  const edges = [];
-  const extension = path.extname(filePath);
-  const patterns = extension === ".html"
-    ? [/(?:src|href)=["']([^"']+)["']/gu]
-    : extension === ".css"
-      ? [/@import\s+(?:url\()?\s*["']([^"']+)["']/gu]
-      : [/(?:import|export)\s+(?:[\s\S]*?\s+from\s+)?["']([^"']+)["']/gu, /import\(\s*["']([^"']+)["']\s*\)/gu];
-  for (const pattern of patterns) {
-    for (const match of source.matchAll(pattern)) {
-      if (match[1].startsWith(".") || match[1].startsWith("/")) edges.push(match[1]);
-    }
+function canonicalSourcePath(value) {
+  if (typeof value !== "string" || value.length === 0 || value.includes("\\")) {
+    throw new TypeError("gallery source path must be a non-empty POSIX path");
   }
-  if (extension !== ".html" && extension !== ".css") {
-    for (const match of source.matchAll(/import\(([^)]+)\)/gu)) {
-      if (!/^\s*["']/u.test(match[1]) && /[./]/u.test(match[1])) {
-        throw new Error(`${path.relative(ROOT, filePath)} contains a non-literal local dynamic import`);
-      }
+  const normalized = path.posix.normalize(value.replace(/^\//u, ""));
+  if (normalized === "." || normalized === ".." || normalized.startsWith("../") || path.posix.isAbsolute(normalized)) {
+    throw new TypeError(`unsafe gallery source path ${value}`);
+  }
+  return normalized;
+}
+
+function staticImportSpecifier(node) {
+  if (node?.type === "StringLiteral" || (node?.type === "Literal" && typeof node.value === "string")) {
+    return node.value;
+  }
+  if (node?.type === "TemplateLiteral" && node.expressions.length === 0) {
+    return node.quasis[0].value.cooked;
+  }
+  if (node?.type === "BinaryExpression" && node.operator === "+") {
+    const left = staticImportSpecifier(node.left);
+    const right = staticImportSpecifier(node.right);
+    return typeof left === "string" && typeof right === "string" ? left + right : null;
+  }
+  return null;
+}
+
+function scriptSourceEdges(filePath, source) {
+  const extension = path.posix.extname(filePath);
+  const plugins = ["importAttributes", "topLevelAwait"];
+  if (extension === ".jsx" || extension === ".tsx") plugins.push("jsx");
+  if (extension === ".ts" || extension === ".tsx") plugins.push("typescript");
+  let program;
+  try {
+    program = parse(source, { sourceType: "unambiguous", plugins });
+  } catch (error) {
+    throw new Error(`${filePath} could not be parsed for the gallery source graph: ${error.message}`, { cause: error });
+  }
+  const edges = [];
+  const pending = [program];
+  while (pending.length) {
+    const node = pending.pop();
+    if (!node || typeof node !== "object") continue;
+    if ((node.type === "ImportDeclaration" || node.type === "ExportNamedDeclaration" || node.type === "ExportAllDeclaration")
+      && node.source) {
+      edges.push(node.source.value);
+    }
+    if (node.type === "CallExpression" && node.callee?.type === "Import") {
+      const specifier = staticImportSpecifier(node.arguments?.[0]);
+      if (typeof specifier !== "string") throw new Error(`${filePath} contains a non-literal dynamic import`);
+      edges.push(specifier);
+    }
+    if (node.type === "ImportExpression") {
+      const specifier = staticImportSpecifier(node.source);
+      if (typeof specifier !== "string") throw new Error(`${filePath} contains a non-literal dynamic import`);
+      edges.push(specifier);
+    }
+    for (const value of Object.values(node)) {
+      if (Array.isArray(value)) pending.push(...value);
+      else if (value && typeof value === "object" && typeof value.type === "string") pending.push(value);
     }
   }
   return edges;
 }
 
-function resolveLocalImport(fromPath, specifier) {
-  const withoutQuery = specifier.split(/[?#]/u)[0];
-  const base = withoutQuery.startsWith("/")
-    ? path.join(ROOT, withoutQuery.replace(/^\//u, ""))
-    : path.resolve(path.dirname(fromPath), withoutQuery);
-  const candidates = [base, ...[".js", ".jsx", ".mjs", ".css", ".html"].map(ext => `${base}${ext}`),
-    ...["index.js", "index.jsx", "index.mjs"].map(name => path.join(base, name))];
-  const resolved = candidates.find(candidate => existsSync(candidate) && lstatSync(candidate).isFile());
-  if (!resolved || !path.relative(ROOT, resolved) || path.relative(ROOT, resolved).startsWith("..")) {
-    throw new Error(`unresolved or unsafe gallery source edge ${specifier} from ${path.relative(ROOT, fromPath)}`);
+function gallerySourceEdges(filePath, source) {
+  const extension = path.posix.extname(filePath);
+  if (extension === ".html") {
+    return [...source.matchAll(/<(?:script|link)\b[^>]*?\b(?:src|href)\s*=\s*["']([^"']+)["'][^>]*>/giu)]
+      .map(match => match[1]);
   }
+  if (extension === ".css") {
+    return [...source.matchAll(/@import\s+(?:url\(\s*)?["']([^"']+)["']\s*\)?/giu)]
+      .map(match => match[1]);
+  }
+  return scriptSourceEdges(filePath, source);
+}
+
+function resolveGallerySourceEdge(fromPath, specifier, sourcePaths) {
+  if (typeof specifier !== "string" || (!specifier.startsWith(".") && !specifier.startsWith("/"))) return null;
+  const withoutQuery = specifier.split(/[?#]/u)[0];
+  const base = canonicalSourcePath(withoutQuery.startsWith("/")
+    ? withoutQuery
+    : path.posix.join(path.posix.dirname(fromPath), withoutQuery));
+  const candidates = [
+    base,
+    ...GALLERY_SOURCE_EXTENSIONS.map(extension => `${base}${extension}`),
+    ...GALLERY_SOURCE_INDEXES.map(index => path.posix.join(base, index))
+  ];
+  const resolved = candidates.find(candidate => sourcePaths.has(candidate));
+  if (!resolved) throw new Error(`unresolved gallery source edge ${specifier} from ${fromPath}`);
   return resolved;
 }
 
-function gallerySourceGraph() {
-  const pending = GALLERY_ROOTS.map(relativePath => path.join(ROOT, relativePath));
+export function gallerySourceGraphFromSources({ rootPaths, sources }) {
+  if (!Array.isArray(rootPaths) || !sources || typeof sources !== "object" || Array.isArray(sources)) {
+    throw new TypeError("gallery source graph requires rootPaths and sources");
+  }
+  const normalizedSources = new Map();
+  for (const [sourcePath, source] of Object.entries(sources)) {
+    const canonicalPath = canonicalSourcePath(sourcePath);
+    if (normalizedSources.has(canonicalPath) || typeof source !== "string") {
+      throw new TypeError(`invalid or duplicate gallery source ${sourcePath}`);
+    }
+    normalizedSources.set(canonicalPath, source);
+  }
+  const pending = rootPaths.map(canonicalSourcePath);
   const visited = new Set();
   while (pending.length) {
     const filePath = pending.pop();
-    const real = realpathSync(filePath);
-    if (visited.has(real)) continue;
-    visited.add(real);
-    const source = readFileSync(real, "utf8");
-    for (const edge of localEdges(real, source)) pending.push(resolveLocalImport(real, edge));
+    if (visited.has(filePath)) continue;
+    const source = normalizedSources.get(filePath);
+    if (typeof source !== "string") throw new Error(`missing gallery source root ${filePath}`);
+    visited.add(filePath);
+    for (const specifier of gallerySourceEdges(filePath, source)) {
+      const resolved = resolveGallerySourceEdge(filePath, specifier, normalizedSources);
+      if (resolved) pending.push(resolved);
+    }
   }
   return [...visited].map(filePath => ({
-    path: path.relative(ROOT, filePath).split(path.sep).join("/"),
-    sha256: sha256Bytes(readFileSync(filePath))
+    path: filePath,
+    sha256: sha256Bytes(Buffer.from(normalizedSources.get(filePath), "utf8"))
   })).sort((left, right) => left.path.localeCompare(right.path));
+}
+
+function repositoryGallerySources() {
+  const sources = {};
+  const pending = ["preview", "src", "tools"];
+  while (pending.length) {
+    const relativePath = pending.pop();
+    const absolutePath = path.join(ROOT, relativePath);
+    for (const entry of readdirSync(absolutePath, { withFileTypes: true })) {
+      const childRelative = path.posix.join(relativePath, entry.name);
+      if (entry.isDirectory()) pending.push(childRelative);
+      else if (entry.isFile() && GALLERY_SOURCE_EXTENSIONS.includes(path.posix.extname(entry.name))) {
+        sources[childRelative] = readFileSync(path.join(ROOT, childRelative), "utf8");
+      }
+    }
+  }
+  return sources;
+}
+
+function gallerySourceGraph() {
+  return gallerySourceGraphFromSources({ rootPaths: GALLERY_ROOTS, sources: repositoryGallerySources() });
 }
 
 function sourceHashInputs(browserVersion) {
@@ -322,10 +416,69 @@ async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
     });
   }
   try {
-    await withTimeout(page.goto(`${baseUrl}${matrix.url}`, { waitUntil: "domcontentloaded", timeout: 30_000 }), 30_000, "gallery navigation");
-    await withTimeout(page.locator("[data-gallery-ready='true']").waitFor({ state: "visible" }), 15_000, "gallery ready");
-    await withTimeout(page.evaluate(() => document.fonts.ready), 5_000, "gallery fonts");
-    await withTimeout(page.waitForFunction(() => [...document.images].every(image => image.complete)), 10_000, "gallery images");
+    const navigateGallery = async relativeUrl => {
+      await withTimeout(page.goto(`${baseUrl}${relativeUrl}`, { waitUntil: "domcontentloaded", timeout: 30_000 }), 30_000, "gallery navigation");
+      await withTimeout(page.locator("[data-gallery-ready='true']").waitFor({ state: "visible" }), 15_000, "gallery ready");
+      await withTimeout(page.evaluate(() => document.fonts.ready), 5_000, "gallery fonts");
+      await withTimeout(page.waitForFunction(() => [...document.images].every(image => image.complete)), 10_000, "gallery images");
+    };
+    await navigateGallery(matrix.url);
+    let bossPngBytes = null;
+    let bossRenderedBase = null;
+    let payoffComparison = null;
+    if (matrix.kind === "boss-branch") {
+      const variants = [];
+      for (const mode of ["ordinary", "wonder", "boss-resolved"]) {
+        const variantUrl = new URL(matrix.url, "http://gallery.invalid");
+        variantUrl.searchParams.set("mode", mode === "ordinary"
+          ? "route-landmark" : mode === "wonder" ? "wonder" : "scene");
+        await navigateGallery(`${variantUrl.pathname}${variantUrl.search}`);
+        const rendered = await page.locator("[data-task4-rendered-subtree]").evaluate(root => ({
+          selectedOptionVisualId: root.querySelector('[data-option-visual-id][data-control-state="settled"]')
+            ?.getAttribute("data-option-visual-id") || null,
+          postDecisionSemanticId: root.querySelector('[data-semantic-kind="post_decision"]')
+            ?.getAttribute("data-code-native-semantic") || null,
+          resolvedVisualStateId: root.querySelector("[data-sound-seekers-scene]")
+            ?.getAttribute("data-visual-state-id") || null,
+          landmarkStateId: root.querySelector("[data-landmark-state]")
+            ?.getAttribute("data-landmark-state") || null,
+          compositionMode: root.querySelector("[data-world-composition]")
+            ?.getAttribute("data-world-composition") || null,
+          compositionSignature: root.querySelector("[data-world-composition-signature]")
+            ?.getAttribute("data-world-composition-signature") || null
+        }));
+        const expectedSignature = matrix.expectedRenderedFacts[
+          mode === "ordinary" ? "ordinaryCompositionSignature"
+            : mode === "wonder" ? "wonderCompositionSignature" : "bossCompositionSignature"
+        ];
+        const expectedBase = {
+          selectedOptionVisualId: matrix.expectedRenderedFacts.selectedOptionVisualId,
+          postDecisionSemanticId: matrix.expectedRenderedFacts.postDecisionSemanticId,
+          resolvedVisualStateId: matrix.expectedRenderedFacts.resolvedVisualStateId,
+          landmarkStateId: matrix.expectedRenderedFacts.landmarkStateId,
+          compositionMode: mode,
+          compositionSignature: expectedSignature
+        };
+        if (canonicalJson(rendered) !== canonicalJson(expectedBase)) {
+          throw new Error(`${matrix.id}: ${mode} selected-branch rendering drifted ${JSON.stringify({ rendered, expectedBase })}`);
+        }
+        const pngBytes = await withTimeout(
+          page.screenshot({ fullPage: false, animations: "disabled" }),
+          15_000,
+          `${mode} boss comparison screenshot`
+        );
+        variants.push({ mode, compositionSignature: rendered.compositionSignature, pngSha256: sha256Bytes(pngBytes) });
+        if (mode === "boss-resolved") {
+          bossPngBytes = pngBytes;
+          bossRenderedBase = rendered;
+        }
+      }
+      payoffComparison = {
+        selectedOptionVisualId: bossRenderedBase.selectedOptionVisualId,
+        resolvedVisualStateId: bossRenderedBase.resolvedVisualStateId,
+        variants
+      };
+    }
     const option = page.locator("[data-option-visual-id]").first();
     if (matrix.kind === "input-focus") {
       const box = await option.boundingBox();
@@ -410,7 +563,18 @@ async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
             worldRenderedPartIds: world.parts
           };
         }, matrix.subjectId)
-        : null;
+        : matrix.kind === "boss-branch"
+          ? {
+            kind: "boss-branch",
+            selectedOptionVisualId: bossRenderedBase.selectedOptionVisualId,
+            postDecisionSemanticId: bossRenderedBase.postDecisionSemanticId,
+            resolvedVisualStateId: bossRenderedBase.resolvedVisualStateId,
+            landmarkStateId: bossRenderedBase.landmarkStateId,
+            ordinaryCompositionSignature: payoffComparison.variants[0].compositionSignature,
+            wonderCompositionSignature: payoffComparison.variants[1].compositionSignature,
+            bossCompositionSignature: payoffComparison.variants[2].compositionSignature
+          }
+          : null;
     const layout = matrix.kind === "profile-viewport-zoom"
       && CONSTRAINED_PROFILE_IDS.has(matrix.subjectId) ? await page.evaluate(() => {
       const round = value => Math.round(value * 100) / 100;
@@ -450,7 +614,8 @@ async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
         controls: visibleRects("[data-option-visual-id]").map(rectFacts)
       };
     }) : null;
-    await withTimeout(page.screenshot({ path: targetPath, fullPage: false, animations: "disabled" }), 15_000, "gallery screenshot");
+    if (bossPngBytes) writeFileSync(targetPath, bossPngBytes, { flag: "wx" });
+    else await withTimeout(page.screenshot({ path: targetPath, fullPage: false, animations: "disabled" }), 15_000, "gallery screenshot");
     const failedRequests = matrix.kind === "background-failure" && abortCount === 1
       && rawFailures.length === 1 && rawFailures[0].url === matrix.asset.path && rawFailures[0].method === "GET"
       ? [{ url: matrix.asset.path, method: "GET", reason: "route_abort" }]
@@ -485,7 +650,8 @@ async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
         visibleControlIds,
         focusTargetId,
         noAnswerLeak,
-        layout
+        layout,
+        payoffComparison
       }
     };
   } finally {

@@ -95,18 +95,10 @@ const GALLERY_TARGETS = new Set([
   "src/features/soundSeekers/preview/content-art-gallery.css"
 ]);
 const GALLERY_CONSUMERS = new Set([
-  ...GALLERY_TARGETS,
-  "tools/shootSoundSeekersV2Content.mjs",
-  "tools/lib/soundSeekersV2GalleryManifest.mjs",
-  "tools/checkSoundSeekersV2Content.mjs",
-  "tools/checkQuestOffline.mjs",
-  "tests/browser/sound-seekers-content-gallery.spec.js",
-  "tests/browser/sound-seekers-visual-semantic.spec.js",
-  "tests/unit/soundSeekersConnectedText.test.js",
-  "tests/unit/soundSeekersGalleryReplay.test.js",
-  "tests/unit/soundSeekersV2GalleryManifest.test.js",
-  "tests/unit/soundSeekersV2GalleryIsolation.test.js",
-  "tests/unit/soundSeekersVisualPolish.test.js"
+  "preview/sound-seekers-v2-content.html",
+  "preview/sound-seekers-v2-content.jsx",
+  "src/features/soundSeekers/preview/ContentArtGallery.jsx",
+  "tests/unit/soundSeekersGalleryReplay.test.js"
 ]);
 
 function deepFreeze(value) {
@@ -213,6 +205,10 @@ export function buildSoundSeekersV2CanonicalCoverageFixture() {
 }
 
 export function summarizeSoundSeekersV2Coverage(state) {
+  if (!state?.contentDecks
+    || !isDeepStrictEqual(Object.keys(state.contentDecks), CONTENT_DECK_CATEGORIES)) {
+    throw new Error("Sound Seekers v2 canonical fixture must contain exactly all five content decks");
+  }
   const canonicalCoverage = coverageStatus(state);
   if (!isDeepStrictEqual(canonicalCoverage, EXPECTED_COVERAGE)) {
     throw new Error("Sound Seekers v2 canonical coverage is incomplete or drifted");
@@ -221,8 +217,14 @@ export function summarizeSoundSeekersV2Coverage(state) {
   const validUseCounts = Object.fromEntries(CONTENT_DECK_CATEGORIES.map(category => [
     category, validContentDeckUses(state, category).length
   ]));
+  const recordedUseCounts = Object.fromEntries(CONTENT_DECK_CATEGORIES.map(category => [
+    category, Object.keys(state.contentDecks?.[category]?.uses || {}).length
+  ]));
   if (!isDeepStrictEqual(validUseCounts, EXPECTED_USE_COUNTS)) {
     throw new Error("Sound Seekers v2 valid content-use totals drifted");
+  }
+  if (!isDeepStrictEqual(recordedUseCounts, EXPECTED_USE_COUNTS)) {
+    throw new Error("Sound Seekers v2 recorded content-use totals contain missing or unauthorised records");
   }
   const assessedDecisionCounts = {
     connectedTextTransfer: state.evidence.filter(event => event.domain === "connected_text_transfer" && event.correct).length,
@@ -233,6 +235,11 @@ export function summarizeSoundSeekersV2Coverage(state) {
   }
   if (attemptReceipts.length !== Object.keys(state.attemptReceipts).length) {
     throw new Error("Sound Seekers v2 canonical fixture contains an invalid receipt");
+  }
+  const claimedEvidenceIds = attemptReceipts.flatMap(receipt => receipt.eventIds).sort();
+  const recordedEvidenceIds = state.evidence.map(event => event.id).sort();
+  if (!isDeepStrictEqual(recordedEvidenceIds, claimedEvidenceIds)) {
+    throw new Error("Sound Seekers v2 canonical fixture contains missing or unauthorised evidence");
   }
   return deepFreeze({ canonicalCoverage, validUseCounts, assessedDecisionCounts });
 }
@@ -341,6 +348,17 @@ function walkAst(node, visit) {
   }
 }
 
+function walkAstWithAncestors(node, visit, ancestors = []) {
+  if (!node || typeof node !== "object") return;
+  visit(node, ancestors);
+  const nextAncestors = [...ancestors, node];
+  for (const [key, child] of Object.entries(node)) {
+    if (["loc", "start", "end", "extra"].includes(key)) continue;
+    if (Array.isArray(child)) child.forEach(value => walkAstWithAncestors(value, visit, nextAncestors));
+    else if (child && typeof child === "object") walkAstWithAncestors(child, visit, nextAncestors);
+  }
+}
+
 function parseSourceEdges(relativePath, source) {
   const extension = path.extname(relativePath);
   const edges = [];
@@ -373,8 +391,8 @@ function parseSourceEdges(relativePath, source) {
     }
     if (node.type === "CallExpression" && node.callee?.type === "Import") {
       const specifier = staticString(node.arguments[0]);
-      if (node.arguments[0]?.type === "StringLiteral") edges.push({ specifier, kind: "dynamic" });
-      else nonliteralDynamic.push(specifier);
+      if (specifier !== null) edges.push({ specifier, kind: "dynamic" });
+      else nonliteralDynamic.push(null);
     }
   });
   return { edges, nonliteralDynamic };
@@ -413,32 +431,99 @@ function previewAuthorityViolations(relativePath, source) {
   if (/\breaddir(?:Sync)?\s*\([^)]*(?:public|game-assets|audio)/su.test(source)) {
     violations.push(`${relativePath}: preview scans an asset directory`);
   }
-  if (relativePath.endsWith("galleryReplayRecipes.js")) return violations;
   let ast;
   try {
     ast = parse(source, { sourceType: "unambiguous", plugins: ["jsx", "typescript"] });
   } catch {
     return violations;
   }
+  const replayRecipe = relativePath.endsWith("galleryReplayRecipes.js");
   const forbiddenKeys = new Set(["presentationTransition", "evidenceEvent", "correct", "phase", "challenge", "response"]);
-  walkAst(ast, node => {
+  const enclosingFunctionName = ancestors => {
+    const fn = [...ancestors].reverse().find(candidate => [
+      "FunctionDeclaration", "FunctionExpression", "ArrowFunctionExpression"
+    ].includes(candidate.type));
+    if (!fn) return null;
+    if (fn.id?.name) return fn.id.name;
+    const parent = ancestors[ancestors.indexOf(fn) - 1];
+    return parent?.type === "VariableDeclarator" ? parent.id?.name : null;
+  };
+  const exactReplayProperty = (node, ancestors, key) => {
+    if (!replayRecipe || enclosingFunctionName(ancestors) !== "replaySoundSeekersGalleryFixture") return false;
+    const parent = ancestors.at(-1);
+    const grandparent = ancestors.at(-2);
+    if (parent?.type !== "ObjectExpression") return false;
+    if (["challenge", "response"].includes(key)) {
+      const exactTransaction = grandparent?.type === "CallExpression"
+        && grandparent.callee?.type === "Identifier"
+        && grandparent.callee.name === "completeStoryTransferTransaction";
+      if (!exactTransaction) return false;
+      if (key === "challenge") {
+        return node.value?.type === "Identifier" && ["challenge", "freshChallenge"].includes(node.value.name);
+      }
+      if (node.value?.type !== "ObjectExpression" || node.value.properties.length !== 2) return false;
+      const responseFields = new Map(node.value.properties.map(property => [
+        property.key?.name || property.key?.value, property.value
+      ]));
+      const kind = responseFields.get("kind");
+      const token = responseFields.get("token");
+      return kind?.type === "StringLiteral" && kind.value === "literacy-answer"
+        && (token?.type === "Identifier" && token.name === "wrongToken"
+          || token?.type === "MemberExpression"
+            && token.object?.type === "Identifier"
+            && ["challenge", "freshChallenge"].includes(token.object.name)
+            && token.property?.type === "Identifier" && token.property.name === "expectedToken");
+    }
+    const returnStatement = grandparent?.type === "ReturnStatement"
+      ? grandparent
+      : grandparent?.type === "CallExpression"
+        && grandparent.callee?.type === "MemberExpression"
+        && grandparent.callee.object?.name === "Object"
+        && grandparent.callee.property?.name === "freeze"
+        ? ancestors.at(-3)
+        : null;
+    if (returnStatement?.type !== "ReturnStatement") return false;
+    if (key === "presentationTransition") {
+      return node.value?.type === "Identifier" && node.value.name === "transition"
+        || node.value?.type === "NullLiteral";
+    }
+    if (key === "phase") {
+      return node.value?.type === "MemberExpression"
+        && node.value.object?.type === "Identifier"
+        && node.value.object.name === "transition"
+        && node.value.property?.type === "Identifier"
+        && node.value.property.name === "phase"
+        || node.value?.type === "StringLiteral" && ["pre_choice", "correction"].includes(node.value.value);
+    }
+    return false;
+  };
+  walkAstWithAncestors(ast, (node, ancestors) => {
     if (node.type === "ObjectProperty") {
       const key = node.computed ? staticString(node.key) : node.key?.name || node.key?.value;
-      if (forbiddenKeys.has(key)) violations.push(`${relativePath}: preview authors forbidden ${key} authority`);
+      if (forbiddenKeys.has(key) && !exactReplayProperty(node, ancestors, key)) {
+        violations.push(`${relativePath}: preview authors forbidden ${key} authority`);
+      }
     }
     if (node.type === "JSXAttribute" && forbiddenKeys.has(node.name?.name)) {
       violations.push(`${relativePath}: preview passes forbidden ${node.name.name} prop`);
     }
+    if (node.type === "CallExpression" && node.callee?.type === "Identifier"
+      && node.callee.name === "issueSceneVisualAccess") {
+      const exactReplayCall = replayRecipe
+        && enclosingFunctionName(ancestors) === "replaySoundSeekersGalleryFixture"
+        && node.arguments.length === 2
+        && node.arguments[0]?.type === "Identifier" && node.arguments[0].name === "transition"
+        && node.arguments[1]?.type === "Identifier" && node.arguments[1].name === "context";
+      if (!exactReplayCall) violations.push(`${relativePath}: preview issues scene access outside reducer replay`);
+    }
   });
-  if (/\bissueSceneVisualAccess\s*\(/u.test(source)) {
-    violations.push(`${relativePath}: preview issues scene access outside reducer replay`);
-  }
   return violations;
 }
 
-export function scanSoundSeekersV2SourcePolicy({ virtualSources = null } = {}) {
+export function scanSoundSeekersV2SourcePolicy({ virtualSources = null, removedSources = [] } = {}) {
   const sources = new Map(repositorySources());
   const overrides = new Set(Object.keys(virtualSources || {}).map(normalizePath));
+  for (const relativePath of removedSources) sources.delete(normalizePath(relativePath));
   for (const [relativePath, source] of Object.entries(virtualSources || {})) sources.set(normalizePath(relativePath), source);
   const violations = [];
   for (const [relativePath, source] of sources) {
@@ -458,13 +543,9 @@ export function scanSoundSeekersV2SourcePolicy({ virtualSources = null } = {}) {
     const { edges, nonliteralDynamic } = overrides.has(relativePath)
       ? parseSourceEdges(relativePath, source)
       : cachedRepositoryEdges.get(relativePath) || parseSourceEdges(relativePath, source);
-    for (const computed of nonliteralDynamic) {
-      if (computed !== null && (computed.startsWith(".") || computed.startsWith("/"))) {
-        if (looksLikeGallerySpecifier(computed)) {
-          violations.push(`${relativePath}: non-literal dynamic gallery load is forbidden`);
-        }
-      } else if (/import\s*\([\s\S]*(?:soundSeekers|sound-seekers)[\s\S]*(?:preview|gallery)/u.test(source)) {
-        violations.push(`${relativePath}: non-literal dynamic gallery load cannot be proven isolated`);
+    for (const [dynamicIndex] of nonliteralDynamic.entries()) {
+      if (relativePath.startsWith("src/") || relativePath.startsWith("preview/")) {
+        violations.push(`${relativePath}: dynamic import ${dynamicIndex + 1} cannot be proven local and isolated`);
       }
     }
     for (const edge of edges) {
@@ -479,7 +560,7 @@ export function scanSoundSeekersV2SourcePolicy({ virtualSources = null } = {}) {
       }
     }
   }
-  if (virtualSources && violations.length) throw new Error(violations.join("\n"));
+  if ((virtualSources || removedSources.length) && violations.length) throw new Error(violations.join("\n"));
   return deepFreeze({ violations });
 }
 

@@ -19,6 +19,16 @@ const MIME = Object.freeze({
   ".webp": "image/webp"
 });
 
+function authorizedControlRequest(request) {
+  const shutdownToken = process.env.QUEST_OFFLINE_SHUTDOWN_TOKEN || "";
+  const suppliedHeader = request.headers["x-quest-offline-shutdown-token"];
+  const supplied = typeof suppliedHeader === "string" ? suppliedHeader : "";
+  return request.method === "POST"
+    && /^[a-f0-9]{64}$/u.test(shutdownToken)
+    && Buffer.byteLength(supplied) === Buffer.byteLength(shutdownToken)
+    && timingSafeEqual(Buffer.from(supplied), Buffer.from(shutdownToken));
+}
+
 function isBelow(parent, candidate) {
   const relative = path.relative(parent, candidate);
   return Boolean(relative) && !relative.startsWith(`..${path.sep}`) && relative !== ".." && !path.isAbsolute(relative);
@@ -91,26 +101,16 @@ function requestFile(root, requestUrl) {
 
 export function createQuestOfflineRangeServer({ root }) {
   const safeRoot = validateQuestOfflineRoot(root);
-  const shutdownToken = process.env.QUEST_OFFLINE_SHUTDOWN_TOKEN || "";
   const server = createServer((request, response) => {
     if (request.url === "/.quest-offline-test/shutdown") {
-      const suppliedHeader = request.headers["x-quest-offline-shutdown-token"];
-      const supplied = typeof suppliedHeader === "string" ? suppliedHeader : "";
-      const authorized = request.method === "POST"
-        && /^[a-f0-9]{64}$/u.test(shutdownToken)
-        && Buffer.byteLength(supplied) === Buffer.byteLength(shutdownToken)
-        && timingSafeEqual(Buffer.from(supplied), Buffer.from(shutdownToken));
-      if (!authorized) {
+      if (!authorizedControlRequest(request)) {
         response.writeHead(404);
         response.end();
         return;
       }
       response.writeHead(202, { "Cache-Control": "no-store", Connection: "close" });
       response.end(() => {
-        server.close(error => {
-          if (error) return;
-          setTimeout(() => server.listen(server.addressInfo), 3_000);
-        });
+        server.close();
       });
       return;
     }
@@ -161,7 +161,45 @@ export function createQuestOfflineRangeServer({ root }) {
     const address = server.address();
     if (address && typeof address === "object") server.addressInfo = { host: address.address, port: address.port, exclusive: true };
   });
+  server.restart = () => new Promise((resolve, reject) => {
+    if (server.listening || !server.addressInfo) {
+      reject(new Error("offline range listener is not in a restartable state"));
+      return;
+    }
+    const onError = error => {
+      server.off("listening", onListening);
+      reject(error);
+    };
+    const onListening = () => {
+      server.off("error", onError);
+      resolve();
+    };
+    server.once("error", onError);
+    server.once("listening", onListening);
+    server.listen(server.addressInfo);
+  });
   return server;
+}
+
+export function createQuestOfflineControlServer({ assetServer }) {
+  if (!assetServer || typeof assetServer.restart !== "function") {
+    throw new TypeError("a restartable offline range server is required");
+  }
+  return createServer(async (request, response) => {
+    if (request.url !== "/.quest-offline-test/restart" || !authorizedControlRequest(request)) {
+      response.writeHead(404, { "Cache-Control": "no-store" });
+      response.end();
+      return;
+    }
+    try {
+      await assetServer.restart();
+      response.writeHead(202, { "Cache-Control": "no-store", Connection: "close" });
+      response.end();
+    } catch {
+      response.writeHead(409, { "Cache-Control": "no-store", Connection: "close" });
+      response.end();
+    }
+  });
 }
 
 async function main() {
@@ -173,20 +211,34 @@ async function main() {
   const root = process.env[args[envIndex + 1]];
   const host = args[hostIndex + 1];
   const port = Number(args[portIndex + 1]);
-  if (host !== "127.0.0.1" || !Number.isInteger(port) || port < 1024 || port > 65535) {
+  const controlPort = Number(process.env.QUEST_OFFLINE_CONTROL_PORT || port + 2);
+  if (host !== "127.0.0.1" || !Number.isInteger(port) || port < 1024 || port > 65535
+    || !Number.isInteger(controlPort) || controlPort < 1024 || controlPort > 65535 || controlPort === port) {
     throw new TypeError("offline test server is loopback-only with a valid unprivileged port");
   }
   const server = createQuestOfflineRangeServer({ root, host, port });
+  const controlServer = createQuestOfflineControlServer({ assetServer: server });
   const shutdown = () => {
     const timer = setTimeout(() => process.exit(1), 10_000);
     timer.unref();
-    server.close(error => process.exit(error ? 1 : 0));
+    const closes = [server, controlServer].map(listener => new Promise(resolve => {
+      if (!listener.listening) return resolve();
+      listener.close(error => resolve(error || null));
+    }));
+    Promise.all(closes).then(errors => process.exit(errors.some(Boolean) ? 1 : 0));
   };
   process.once("SIGINT", shutdown);
   process.once("SIGTERM", shutdown);
   server.on("error", error => {
     console.error(`Quest offline range server failed: ${error.message}`);
     process.exitCode = 1;
+  });
+  controlServer.on("error", error => {
+    console.error(`Quest offline control server failed: ${error.message}`);
+    process.exitCode = 1;
+  });
+  controlServer.listen({ host, port: controlPort, exclusive: true }, () => {
+    console.log(`Quest offline control server listening on http://${host}:${controlPort}`);
   });
   server.listen({ host, port, exclusive: true }, () => {
     console.log(`Quest offline range server listening on http://${host}:${port}`);

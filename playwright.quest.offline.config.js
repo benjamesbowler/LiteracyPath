@@ -3,6 +3,7 @@ import { randomBytes } from "node:crypto";
 
 const externalOfflineRoot = Boolean(process.env.QUEST_OFFLINE_DIST);
 process.env.QUEST_OFFLINE_SHUTDOWN_TOKEN ||= randomBytes(32).toString("hex");
+process.env.QUEST_OFFLINE_CONTROL_PORT ||= "5193";
 
 export default defineConfig({
   testDir: "tests/quest-offline",
@@ -23,7 +24,8 @@ export default defineConfig({
       : "npm run build:quest-offline-test && QUEST_OFFLINE_DIST=dist-quest-offline npm run serve:quest-offline-test",
     env: {
       ...process.env,
-      QUEST_OFFLINE_SHUTDOWN_TOKEN: process.env.QUEST_OFFLINE_SHUTDOWN_TOKEN
+      QUEST_OFFLINE_SHUTDOWN_TOKEN: process.env.QUEST_OFFLINE_SHUTDOWN_TOKEN,
+      QUEST_OFFLINE_CONTROL_PORT: process.env.QUEST_OFFLINE_CONTROL_PORT
     },
     url: "http://127.0.0.1:5191/preview/quest.html",
     reuseExistingServer: false,

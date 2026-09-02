@@ -10,11 +10,14 @@ import {
   scanSoundSeekersV2SourcePolicy
 } from "../../tools/checkSoundSeekersV2Content.mjs";
 import {
+  createQuestOfflineControlServer,
   createQuestOfflineRangeServer,
   parseSingleRange,
   validateQuestOfflineRoot
 } from "../../tools/serveQuestOfflineRangeTest.mjs";
 import { selectQuestExecutablePolicy } from "../../tools/checkQuestOffline.mjs";
+
+const scanVirtualPolicy = options => scanSoundSeekersV2SourcePolicy(options);
 
 test("production bundle analysis fails on every gallery marker and accepts an isolated bundle", () => {
   const root = mkdtempSync(path.join(os.tmpdir(), "ssv2-gallery-isolation-"));
@@ -37,26 +40,37 @@ test("gallery isolation follows static, re-export, dynamic, HTML, and CSS edges"
     ["star re-export", "src/main.jsx", "export * from './features/soundSeekers/preview/galleryReplayRecipes.js';"],
     ["literal dynamic import", "src/main.jsx", "export const load = () => import('./features/soundSeekers/preview/ContentArtGallery.jsx');"],
     ["nonliteral dynamic import", "src/main.jsx", "export const load = () => import('./features/' + 'soundSeekers/preview/ContentArtGallery.jsx');"],
+    ["unprovable JavaScript dynamic import", "src/main.js", "const localPath = chooseAtRuntime(); export const load = () => import(localPath);"],
+    ["unprovable TypeScript dynamic import", "src/main.ts", "const localPath: string = chooseAtRuntime(); export const load = () => import(localPath);"],
+    ["unprovable TSX dynamic import", "src/main.tsx", "const localPath: string = chooseAtRuntime(); export const App = () => <button onClick={() => import(localPath)}>Load</button>;"],
     ["HTML module", "index.html", "<script type=\"module\" src=\"/preview/sound-seekers-v2-content.jsx\"></script>"],
     ["CSS import", "src/index.css", "@import './features/soundSeekers/preview/content-art-gallery.css';"]
   ];
   for (const [label, relativePath, source] of cases) {
-    assert.throws(() => scanSoundSeekersV2SourcePolicy({
+    assert.throws(() => scanVirtualPolicy({
       virtualSources: { [relativePath]: source }
     }), undefined, label);
   }
 });
 
 test("gallery graph rejects unresolved edges and permits only the exact evidence consumers", () => {
-  assert.throws(() => scanSoundSeekersV2SourcePolicy({
+  assert.throws(() => scanVirtualPolicy({
     virtualSources: {
       "preview/sound-seekers-v2-content.jsx": "import '../src/features/soundSeekers/preview/ContentArtGalleryMissing.jsx';"
     }
   }));
-  assert.throws(() => scanSoundSeekersV2SourcePolicy({
+  assert.throws(() => scanVirtualPolicy({
     virtualSources: {
       "tests/unit/not-an-authorized-gallery-consumer.test.js":
         "import '../../src/features/soundSeekers/preview/galleryReplayRecipes.js';"
+    }
+  }));
+  assert.throws(() => scanVirtualPolicy({
+    removedSources: ["src/features/soundSeekers/preview/ContentArtGallery.jsx"]
+  }));
+  assert.throws(() => scanVirtualPolicy({
+    virtualSources: {
+      "src/main.tsx": "export { ContentArtGallery } from './features/soundSeekers/preview/ContentArtGallery.jsx';"
     }
   }));
 });
@@ -71,8 +85,19 @@ test("preview policy rejects authored transition, evidence, correctness, phase, 
     ["response", "export const x = { response: { token: 'x' } };"],
     ["direct access", "import { issueSceneVisualAccess } from '../engine/sceneVisualAccess.js'; issueSceneVisualAccess({}, {});"]
   ]) {
-    assert.throws(() => scanSoundSeekersV2SourcePolicy({
+    assert.throws(() => scanVirtualPolicy({
       virtualSources: { "src/features/soundSeekers/preview/bad.jsx": source }
+    }), undefined, label);
+  }
+  for (const [label, source] of [
+    ["replay transition lookalike", "export function replaySoundSeekersGalleryFixture() { return { presentationTransition: { reducerRevision: 1 } }; }"],
+    ["replay evidence lookalike", "export function replaySoundSeekersGalleryFixture() { return { evidenceEvent: { domain: 'novel_decoding' } }; }"],
+    ["replay phase literal", "export function replaySoundSeekersGalleryFixture() { return { phase: 'resolved' }; }"],
+    ["replay direct access lookalike", "export function replaySoundSeekersGalleryFixture() { return issueSceneVisualAccess({}, {}); }"],
+    ["replay caller-authored transaction", "export function replaySoundSeekersGalleryFixture() { return completeStoryTransferTransaction(state, { challenge: { expectedToken: 'x' }, response: { kind: 'literacy-answer', token: 'x' } }); }"]
+  ]) {
+    assert.throws(() => scanVirtualPolicy({
+      virtualSources: { "src/features/soundSeekers/preview/galleryReplayRecipes.js": source }
     }), undefined, label);
   }
 });
@@ -110,6 +135,50 @@ test("the offline range server rejects symlink components and unauthenticated sh
     await new Promise((resolve, reject) => server.close(error => error ? reject(error) : resolve()));
     server = null;
   } finally {
+    if (server?.listening) await new Promise(resolve => server.close(() => resolve()));
+    if (previousToken === undefined) delete process.env.QUEST_OFFLINE_SHUTDOWN_TOKEN;
+    else process.env.QUEST_OFFLINE_SHUTDOWN_TOKEN = previousToken;
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the offline range listener stays closed until an explicit authenticated restart", async () => {
+  const root = realpathSync(mkdtempSync(path.join(os.tmpdir(), "ssv2-range-lifecycle-")));
+  const previousToken = process.env.QUEST_OFFLINE_SHUTDOWN_TOKEN;
+  process.env.QUEST_OFFLINE_SHUTDOWN_TOKEN = "c".repeat(64);
+  let server = null;
+  let controlServer = null;
+  try {
+    writeFileSync(path.join(root, "index.html"), "listener lifecycle");
+    server = createQuestOfflineRangeServer({ root });
+    server.listen({ host: "127.0.0.1", port: 0, exclusive: true });
+    await once(server, "listening");
+    const { port } = server.address();
+    const base = `http://127.0.0.1:${port}`;
+    controlServer = createQuestOfflineControlServer({ assetServer: server });
+    controlServer.listen({ host: "127.0.0.1", port: 0, exclusive: true });
+    await once(controlServer, "listening");
+    const controlBase = `http://127.0.0.1:${controlServer.address().port}`;
+    assert.equal((await fetch(base)).status, 200);
+    assert.equal((await fetch(`${controlBase}/.quest-offline-test/restart`, { method: "POST" })).status, 404);
+    assert.equal((await fetch(`${controlBase}/.quest-offline-test/restart`, {
+      method: "POST", headers: { "X-Quest-Offline-Shutdown-Token": "d".repeat(64) }
+    })).status, 404);
+    const closed = once(server, "close");
+    assert.equal((await fetch(`${base}/.quest-offline-test/shutdown`, {
+      method: "POST", headers: { "X-Quest-Offline-Shutdown-Token": "c".repeat(64) }
+    })).status, 202);
+    await closed;
+    await new Promise(resolve => setTimeout(resolve, 3_250));
+    assert.equal(server.listening, false);
+    await assert.rejects(() => fetch(base));
+    const restart = await fetch(`${controlBase}/.quest-offline-test/restart`, {
+      method: "POST", headers: { "X-Quest-Offline-Shutdown-Token": "c".repeat(64) }
+    });
+    assert.equal(restart.status, 202);
+    assert.equal((await fetch(base)).status, 200);
+  } finally {
+    if (controlServer?.listening) await new Promise(resolve => controlServer.close(() => resolve()));
     if (server?.listening) await new Promise(resolve => server.close(() => resolve()));
     if (previousToken === undefined) delete process.env.QUEST_OFFLINE_SHUTDOWN_TOKEN;
     else process.env.QUEST_OFFLINE_SHUTDOWN_TOKEN = previousToken;
@@ -173,6 +242,17 @@ test("offline executable checks are transition-safe and never accept a mixed leg
     graph: [
       { url: "/assets/SoundSeekersRoute-a.js", imports: ["/assets/shared.js"] },
       { url: "/assets/shared.js", imports: [] }
+    ]
+  }));
+  assert.throws(() => selectQuestExecutablePolicy([
+    "/assets/QuestRoot-a.js", "/assets/QuestRoot-b.js", "/assets/QuestPixelWorld-a.js"
+  ], {
+    mode: "legacy",
+    roots: ["/assets/QuestRoot-a.js", "/assets/QuestRoot-b.js", "/assets/QuestPixelWorld-a.js"],
+    graph: [
+      { url: "/assets/QuestRoot-a.js", imports: [] },
+      { url: "/assets/QuestRoot-b.js", imports: [] },
+      { url: "/assets/QuestPixelWorld-a.js", imports: [] }
     ]
   }));
 });

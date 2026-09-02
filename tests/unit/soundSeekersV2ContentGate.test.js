@@ -107,6 +107,56 @@ test("coverage rejects category, use, receipt, evidence, reciprocal, and decisio
   }
 });
 
+test("coverage rejects unauthorised records and every canonical ledger dependency", () => {
+  const fixture = buildSoundSeekersV2CanonicalCoverageFixture();
+  const categories = ["heartWords", "stories", "alternatives", "morphology", "transfer"];
+  for (const category of categories) {
+    const missingCategory = structuredClone(fixture.state);
+    delete missingCategory.contentDecks[category];
+    assert.throws(() => summarizeSoundSeekersV2Coverage(missingCategory), undefined, `${category} category`);
+
+    const missingUse = structuredClone(fixture.state);
+    delete missingUse.contentDecks[category].uses[Object.keys(missingUse.contentDecks[category].uses)[0]];
+    assert.throws(() => summarizeSoundSeekersV2Coverage(missingUse), undefined, `${category} covered/use count`);
+
+    const corruptOwner = structuredClone(fixture.state);
+    const ownedUse = Object.values(corruptOwner.contentDecks[category].uses)[0];
+    ownedUse.visitOwnerId = `${ownedUse.visitOwnerId}:forged`;
+    assert.throws(() => summarizeSoundSeekersV2Coverage(corruptOwner), undefined, `${category} owner binding`);
+  }
+
+  const unauthorised = structuredClone(fixture.state);
+  const canonicalUse = Object.values(unauthorised.contentDecks.heartWords.uses)[0];
+  const unauthorisedUse = { ...canonicalUse, useId: `${canonicalUse.useId}:unauthorised` };
+  unauthorised.contentDecks.heartWords.uses[unauthorisedUse.useId] = unauthorisedUse;
+  assert.throws(() => summarizeSoundSeekersV2Coverage(unauthorised), undefined, "plausible unauthorised use");
+
+  const unauthorisedEvidence = structuredClone(fixture.state);
+  unauthorisedEvidence.evidence.push({
+    ...unauthorisedEvidence.evidence[0],
+    id: `${unauthorisedEvidence.evidence[0].id}:unauthorised`,
+    correct: false
+  });
+  assert.throws(() => summarizeSoundSeekersV2Coverage(unauthorisedEvidence), undefined, "plausible unauthorised evidence");
+
+  for (const receiptId of Object.keys(fixture.state.attemptReceipts)) {
+    const state = structuredClone(fixture.state);
+    delete state.attemptReceipts[receiptId];
+    assert.throws(() => summarizeSoundSeekersV2Coverage(state), undefined, `receipt dependency ${receiptId}`);
+  }
+  for (const event of fixture.state.evidence) {
+    const state = structuredClone(fixture.state);
+    state.evidence = state.evidence.filter(candidate => candidate.id !== event.id);
+    assert.throws(() => summarizeSoundSeekersV2Coverage(state), undefined, `evidence dependency ${event.id}`);
+  }
+  for (const domain of ["connected_text_transfer", "novel_decoding"]) {
+    const state = structuredClone(fixture.state);
+    state.evidence.find(event => event.domain === domain && event.correct).domain = domain === "novel_decoding"
+      ? "connected_text_transfer" : "novel_decoding";
+    assert.throws(() => summarizeSoundSeekersV2Coverage(state), undefined, `${domain} 32/8 split`);
+  }
+});
+
 test("the source policy rejects raw colors and preview answer-authority imports", () => {
   assert.deepEqual(scanSoundSeekersV2SourcePolicy().violations, []);
   assert.throws(() => scanSoundSeekersV2SourcePolicy({
