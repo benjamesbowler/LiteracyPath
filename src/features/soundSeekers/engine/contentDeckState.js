@@ -1,4 +1,9 @@
-import { normalizeHeartWordActivityType } from "./evidenceEligibility.js";
+import {
+  normalizeHeartWordActivityType,
+  normalizeSoundSeekersEvidenceEvent
+} from "./evidenceEligibility.js";
+
+export { normalizeSoundSeekersEvidenceEvent };
 
 export const CONTENT_DECK_CATEGORIES = Object.freeze([
   "heartWords",
@@ -9,7 +14,6 @@ export const CONTENT_DECK_CATEGORIES = Object.freeze([
 ]);
 
 const CATEGORY_SET = new Set(CONTENT_DECK_CATEGORIES);
-const NON_HEART_CATEGORIES = new Set(CONTENT_DECK_CATEGORIES.slice(1));
 const COMPOSITE_CATEGORIES = new Set(["stories", "transfer"]);
 const CHECKPOINT_STAGES = new Set(["response_pending", "model_pending"]);
 
@@ -17,8 +21,25 @@ function asObject(value) {
   return value && typeof value === "object" && !Array.isArray(value) ? value : {};
 }
 
+function trimCanonicalWhitespace(value) {
+  return value.replace(/^[ \t\n\r\f\v]+|[ \t\n\r\f\v]+$/gu, "");
+}
+
 function stringId(value) {
-  return typeof value === "string" && value.trim() ? value.trim() : null;
+  if (typeof value !== "string") return null;
+  const normalized = trimCanonicalWhitespace(value);
+  return normalized ? normalized : null;
+}
+
+function compareCanonicalIds(left, right) {
+  const leftPoints = [...left];
+  const rightPoints = [...right];
+  const length = Math.min(leftPoints.length, rightPoints.length);
+  for (let index = 0; index < length; index += 1) {
+    const difference = leftPoints[index].codePointAt(0) - rightPoints[index].codePointAt(0);
+    if (difference) return difference;
+  }
+  return leftPoints.length - rightPoints.length;
 }
 
 function nullableString(value) {
@@ -27,11 +48,11 @@ function nullableString(value) {
 }
 
 function nonNegativeInteger(value) {
-  return Number.isInteger(value) && value >= 0 ? value : null;
+  return Number.isSafeInteger(value) && value >= 0 ? value : null;
 }
 
 function positiveInteger(value) {
-  return Number.isInteger(value) && value > 0 ? value : null;
+  return Number.isSafeInteger(value) && value > 0 ? value : null;
 }
 
 function deepFreeze(value) {
@@ -54,7 +75,7 @@ function visitConflict(visitId) {
   return Object.freeze({ kind: "visit_conflict", visitId });
 }
 
-function useConflict(useId) {
+function deckUseConflict(useId) {
   return Object.freeze({ kind: "use_conflict", useId });
 }
 
@@ -62,7 +83,7 @@ function receiptConflict(attemptId) {
   return Object.freeze({ kind: "attempt_receipt_conflict", attemptId });
 }
 
-function normalizeCanonicalStringArray(value, compare = (left, right) => left.localeCompare(right)) {
+function normalizeCanonicalStringArray(value, compare = compareCanonicalIds) {
   if (!Array.isArray(value)) return null;
   const strings = value.map(stringId);
   if (strings.some(item => item === null) || new Set(strings).size !== strings.length) return null;
@@ -83,22 +104,36 @@ function attemptIdParts(value) {
   return null;
 }
 
+function attemptOrderParts(value) {
+  const content = /^content-placement-attempt:.*:(\d+):(\d+)$/u.exec(value);
+  if (content) return [0, BigInt(content[1]), BigInt(content[2]), value];
+  const story = /^story-transfer-attempt:.*:(\d+)$/u.exec(value);
+  if (story) return [1, 0n, BigInt(story[1]), value];
+  return [2, 0n, 0n, value];
+}
+
 function compareAttemptIds(left, right) {
-  const a = attemptIdParts(left);
-  const b = attemptIdParts(right);
-  if (a && b) {
-    return a.decisionOrdinal - b.decisionOrdinal
-      || a.attemptOrdinal - b.attemptOrdinal
-      || a.id.localeCompare(b.id);
-  }
-  return left.localeCompare(right);
+  const a = attemptOrderParts(left);
+  const b = attemptOrderParts(right);
+  if (a[0] !== b[0]) return a[0] - b[0];
+  if (a[1] !== b[1]) return a[1] < b[1] ? -1 : 1;
+  if (a[2] !== b[2]) return a[2] < b[2] ? -1 : 1;
+  return compareCanonicalIds(a[3], b[3]);
 }
 
 export function normalizeContentDeckVisit(category, entryId, raw) {
+  if (typeof entryId !== "string" || !entryId
+    || entryId !== trimCanonicalWhitespace(entryId)) return null;
   const visitId = stringId(entryId);
   if (!visitId || !CATEGORY_SET.has(category)) return null;
   const value = asObject(raw);
   if (value.kind === "visit_conflict") return visitConflict(visitId);
+  const hasTargetId = Object.prototype.hasOwnProperty.call(value, "targetId");
+  const hasWordId = Object.prototype.hasOwnProperty.call(value, "wordId");
+  const targetIdIsCanonical = hasTargetId
+    && (value.targetId === null || stringId(value.targetId) !== null);
+  const wordIdIsCanonical = hasWordId
+    && (value.wordId === null || stringId(value.wordId) !== null);
 
   const normalized = {
     kind: "visit",
@@ -129,6 +164,8 @@ export function normalizeContentDeckVisit(category, entryId, raw) {
     && normalized.visitId === visitId
     && normalized.category === category
     && requiredStrings.every(Boolean)
+    && targetIdIsCanonical
+    && wordIdIsCanonical
     && normalized.journeyStep !== null;
 
   if (category === "heartWords") {
@@ -148,10 +185,12 @@ export function normalizeContentDeckVisit(category, entryId, raw) {
 }
 
 export function normalizeContentDeckUse(category, entryId, raw) {
+  if (typeof entryId !== "string" || !entryId
+    || entryId !== trimCanonicalWhitespace(entryId)) return null;
   const useId = stringId(entryId);
   if (!useId || !CATEGORY_SET.has(category)) return null;
   const value = asObject(raw);
-  if (value.kind === "use_conflict") return useConflict(useId);
+  if (value.kind === "use_conflict") return deckUseConflict(useId);
 
   const normalized = {
     kind: "use",
@@ -196,7 +235,7 @@ export function normalizeContentDeckUse(category, entryId, raw) {
         && (value.narrativeChoiceToken === null || normalized.narrativeChoiceToken !== null);
     }
   }
-  return valid ? deepFreeze(normalized) : useConflict(useId);
+  return valid ? deepFreeze(normalized) : deckUseConflict(useId);
 }
 
 function normalizeLedger(category, raw, kind) {
@@ -254,7 +293,7 @@ export function mergeContentDeckState(left, right) {
     uses: unionLedger(local[category].uses, remote[category].uses, {
       idKey: "useId",
       conflictKind: "use_conflict",
-      marker: useConflict
+      marker: deckUseConflict
     })
   }]));
 }
@@ -282,10 +321,12 @@ export function validContentDeckVisits(contentDecks, category) {
     .filter(entries => entries.length === 1)
     .flat()
     .sort((left, right) => left.journeyStep - right.journeyStep
-      || left.visitId.localeCompare(right.visitId)));
+      || compareCanonicalIds(left.visitId, right.visitId)));
 }
 
 export function normalizeAttemptReceipt(entryId, raw) {
+  if (typeof entryId !== "string" || !entryId
+    || entryId !== trimCanonicalWhitespace(entryId)) return null;
   const attemptId = stringId(entryId);
   if (!attemptId) return null;
   const value = asObject(raw);
@@ -426,7 +467,9 @@ function exactStoryDescriptor(raw, contentDecks) {
     || storyVisit.stopId !== stopId
     || transferVisit.stopId !== stopId
     || storyVisit.journeyStep !== journeyStep
-    || transferVisit.journeyStep !== journeyStep) return null;
+    || transferVisit.journeyStep !== journeyStep
+    || (transferVisit.wordId === null && narrativeChoiceToken !== null)
+    || (transferVisit.wordId !== null && narrativeChoiceToken === null)) return null;
   return Object.freeze({
     kind: "story_transfer",
     transactionId,

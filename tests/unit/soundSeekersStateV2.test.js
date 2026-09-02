@@ -85,6 +85,37 @@ test("v2 evidence trims ids and orders numeric timestamps before string timestam
   ]);
 });
 
+test("equal-time evidence uses deterministic UTF-8 C ordering", () => {
+  const state = normalizeSoundSeekersState({
+    ...createSoundSeekersState(),
+    evidence: ["event:z", "event:ä", "event:Z", "event:a"].map(id => ({ id, at: 1 }))
+  });
+  assert.deepEqual(state.evidence.map(event => event.id), [
+    "event:Z", "event:a", "event:z", "event:ä"
+  ]);
+});
+
+test("string-time evidence uses deterministic UTF-8 C ordering", () => {
+  const state = normalizeSoundSeekersState({
+    ...createSoundSeekersState(),
+    evidence: ["z", "ä", "Z", "a"].map((at, index) => ({ id: `event:${index}`, at }))
+  });
+  assert.deepEqual(state.evidence.map(event => event.at), ["Z", "a", "z", "ä"]);
+});
+
+test("v2 evidence discards non-string event identities", () => {
+  const state = normalizeSoundSeekersState({
+    ...createSoundSeekersState(),
+    evidence: [
+      { id: 123, at: 1 },
+      { id: true, at: 2 },
+      { id: { forged: true }, at: 3 },
+      { id: "valid", at: 4 }
+    ]
+  });
+  assert.deepEqual(state.evidence, [{ id: "valid", at: 4 }]);
+});
+
 test("v2 structural state normalizes all five deck categories, receipts, and exact pending descriptors", () => {
   const base = createSoundSeekersState();
   assert.deepEqual(Object.keys(base.contentDecks), [

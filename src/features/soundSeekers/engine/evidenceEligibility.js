@@ -71,7 +71,31 @@ export const EVIDENCE_PATH_CATALOG = Object.freeze({
 });
 
 function stringId(value) {
-  return typeof value === "string" && value.trim() ? value.trim() : null;
+  if (typeof value !== "string") return null;
+  const normalized = value.replace(/^[ \t\n\r\f\v]+|[ \t\n\r\f\v]+$/gu, "");
+  return normalized ? normalized : null;
+}
+
+function trimAsciiSpaces(value) {
+  return value.replace(/^ +| +$/gu, "");
+}
+
+export function normalizeSoundSeekersEvidenceEvent(event) {
+  const value = event && typeof event === "object" && !Array.isArray(event) ? event : {};
+  const id = typeof value.id === "string" ? trimAsciiSpaces(value.id) : "";
+  if (!id) return null;
+  const at = typeof value.at === "number" && Number.isFinite(value.at)
+    ? value.at
+    : typeof value.at === "string" && trimAsciiSpaces(value.at)
+      ? trimAsciiSpaces(value.at)
+      : 0;
+  const normalized = { ...value, id, at };
+  delete normalized.activityType;
+  const activityType = value.domain === EVIDENCE_DOMAINS.HEART_WORD_MAPPING
+    ? normalizeHeartWordActivityType(value.activityType)
+    : null;
+  if (activityType) normalized.activityType = activityType;
+  return Object.freeze(normalized);
 }
 
 export function normalizeHeartWordActivityType(value) {

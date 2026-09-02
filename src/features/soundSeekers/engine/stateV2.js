@@ -6,17 +6,12 @@ import {
   normalizeContentDeckCheckpoint
 } from "./contentDeckState.js";
 import {
-  EVIDENCE_DOMAINS,
-  normalizeHeartWordActivityType
+  normalizeSoundSeekersEvidenceEvent
 } from "./evidenceEligibility.js";
 
 export const SOUND_SEEKERS_SCHEMA_VERSION = 2;
 export const SOUND_SEEKERS_CONTENT_VERSION = "sound-seekers-v2";
 export const MAX_SOUND_SEEKERS_EVIDENCE = 1200;
-
-function trimAsciiSpaces(value) {
-  return value.replace(/^ +| +$/g, "");
-}
 
 const DEFAULT_SETTINGS = Object.freeze({
   reducedMotion: false,
@@ -92,22 +87,15 @@ function mergeTeacherAssignment(existing, incoming) {
   return normalizeAssignment(incoming.assignment) || stored;
 }
 
-function normalizeEvent(event) {
-  const value = asObject(event);
-  const id = typeof value.id === "string" ? trimAsciiSpaces(value.id) : "";
-  if (!id) return null;
-  const at = typeof value.at === "number" && Number.isFinite(value.at)
-    ? value.at
-    : typeof value.at === "string" && trimAsciiSpaces(value.at)
-      ? trimAsciiSpaces(value.at)
-      : 0;
-  const normalized = { ...value, id, at };
-  delete normalized.activityType;
-  const activityType = value.domain === EVIDENCE_DOMAINS.HEART_WORD_MAPPING
-    ? normalizeHeartWordActivityType(value.activityType)
-    : null;
-  if (activityType) normalized.activityType = activityType;
-  return Object.freeze(normalized);
+function compareCanonicalIds(left, right) {
+  const leftPoints = [...left];
+  const rightPoints = [...right];
+  const length = Math.min(leftPoints.length, rightPoints.length);
+  for (let index = 0; index < length; index += 1) {
+    const difference = leftPoints[index].codePointAt(0) - rightPoints[index].codePointAt(0);
+    if (difference) return difference;
+  }
+  return leftPoints.length - rightPoints.length;
 }
 
 function compareEventAt(left, right) {
@@ -118,8 +106,8 @@ function compareEventAt(left, right) {
   if (leftNumber !== null && rightNumber !== null && leftNumber !== rightNumber) return leftNumber - rightNumber;
   const leftAt = String(left.at ?? "");
   const rightAt = String(right.at ?? "");
-  if (leftAt !== rightAt) return leftAt < rightAt ? -1 : 1;
-  return left.id.localeCompare(right.id);
+  if (leftAt !== rightAt) return compareCanonicalIds(leftAt, rightAt);
+  return compareCanonicalIds(left.id, right.id);
 }
 
 function canonicalJson(value) {
@@ -149,7 +137,7 @@ function conflictMarkerFor(events) {
 function normalizeEvidence(value) {
   const byId = new Map();
   for (const event of (Array.isArray(value) ? value : [])
-    .map(normalizeEvent)
+    .map(normalizeSoundSeekersEvidenceEvent)
     .filter(Boolean)) {
     const matches = byId.get(event.id) || [];
     matches.push(event);

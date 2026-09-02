@@ -97,8 +97,9 @@ export function runSoundSeekersContentDeckSqlSelftest({
   remove = rmSync,
   tmpdir = nodeTmpdir,
   stdout = process.stdout,
-  stderr: _stderr = process.stderr
+  stderr = process.stderr
 } = {}) {
+  void stderr;
   assertNoSqlSelftestCliArguments(args);
   const commandEnvironment = sanitizedPostgresEnvironment(env);
 
@@ -125,12 +126,8 @@ export function runSoundSeekersContentDeckSqlSelftest({
   } catch {
     throw gateError("mkdtemp");
   }
-  if (root && typeof root.then === "function") {
-    throw gateError("mkdtemp", null, null, "synchronous mkdtemp contract");
-  }
-
-  const dataDirectory = join(root, "d");
-  const socketDirectory = join(root, "s");
+  let dataDirectory = null;
+  let socketDirectory = null;
   let port;
   let database;
   let startAttempted = false;
@@ -139,6 +136,14 @@ export function runSoundSeekersContentDeckSqlSelftest({
   const cleanupFailures = [];
 
   try {
+    if (root && typeof root.then === "function") {
+      throw gateError("mkdtemp", null, null, "synchronous mkdtemp contract");
+    }
+    if (typeof root !== "string" || root.length === 0) {
+      throw gateError("mkdtemp", null, null, "owned temporary root contract");
+    }
+    dataDirectory = join(root, "d");
+    socketDirectory = join(root, "s");
     assertOwnedRoot(root, prefix, dataDirectory, socketDirectory);
     const portBytes = randomBytes(2);
     if (!Buffer.isBuffer(portBytes) || portBytes.length !== 2) {

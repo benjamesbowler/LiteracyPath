@@ -5,10 +5,10 @@ create or replace function public.lp_quest_normalize_v2_activity_type(domain tex
 returns text language sql immutable as $$
   select case
     when domain = 'heart_word_mapping'
-      and btrim(coalesce(value, '')) in (
+      and btrim(coalesce(value, ''), E' \t\n\r\f\013') in (
         'recognition', 'heart_part_mapping', 'encoding', 'sentence_use'
       )
-      then btrim(value)
+      then btrim(value, E' \t\n\r\f\013')
     else null
   end;
 $$;
@@ -55,7 +55,8 @@ returns jsonb language sql immutable as $$
            case when jsonb_typeof(event -> 'at') = 'string'
              and btrim(event ->> 'at') <> '' then btrim(event ->> 'at') end as at_text
       from activity_normalized
-     where coalesce(btrim(event ->> 'id'), '') <> ''
+     where jsonb_typeof(event -> 'id') = 'string'
+       and coalesce(btrim(event ->> 'id'), '') <> ''
   ), grouped as (
     select id,
            count(distinct event) as payload_count,
@@ -68,7 +69,7 @@ returns jsonb language sql immutable as $$
              event -> 'at'
              order by case when at_text is null then 0 else 1 end desc,
                       at_number desc,
-                      at_text desc nulls last
+                      at_text collate "C" desc nulls last
            ) -> 0) as latest_at
       from valid
      group by id
@@ -97,13 +98,13 @@ returns jsonb language sql immutable as $$
       from sortable
      order by case when at_text is null then 0 else 1 end desc,
               at_number desc,
-              at_text desc nulls last,
-              id desc
+              at_text collate "C" desc nulls last,
+              id collate "C" desc
      limit 1200
   )
   select coalesce(
     jsonb_agg(event order by case when at_text is null then 0 else 1 end,
-      at_number asc, at_text asc nulls last, id asc),
+      at_number asc, at_text collate "C" asc nulls last, id collate "C" asc),
     '[]'::jsonb
   ) from retained;
 $$;
@@ -117,52 +118,70 @@ declare
   target_id jsonb;
   word_id jsonb;
 begin
-  entry_id := btrim(coalesce(entry_id, ''));
+  if entry_id is null or entry_id = ''
+    or entry_id <> btrim(entry_id, E' \t\n\r\f\013') then return null; end if;
+  entry_id := btrim(coalesce(entry_id, ''), E' \t\n\r\f\013');
   if entry_id = '' or category not in (
     'heartWords', 'stories', 'alternatives', 'morphology', 'transfer'
   ) then return null; end if;
-  if jsonb_typeof(value) <> 'object' then
+  if jsonb_typeof(value) is distinct from 'object' then
     return jsonb_build_object('kind', 'visit_conflict', 'visitId', entry_id);
   end if;
   if value ->> 'kind' = 'visit_conflict' then
     return jsonb_build_object('kind', 'visit_conflict', 'visitId', entry_id);
   end if;
-  if jsonb_typeof(value -> 'journeyStep') <> 'number'
-    or (value ->> 'journeyStep') !~ '^[1-9][0-9]*$' then
+  if jsonb_typeof(value -> 'journeyStep') is distinct from 'number' then
     return jsonb_build_object('kind', 'visit_conflict', 'visitId', entry_id);
   end if;
   journey_step := (value ->> 'journeyStep')::numeric;
+  if journey_step < 1 or journey_step > 9007199254740991
+    or journey_step <> trunc(journey_step) then
+    return jsonb_build_object('kind', 'visit_conflict', 'visitId', entry_id);
+  end if;
+  if exists (
+    select 1
+      from unnest(array[
+        'visitId', 'contentInstanceId', 'visitOwnerId', 'ownerActionUseId',
+        'slotId', 'recordId', 'contentId', 'stopId'
+      ]) field_name
+     where jsonb_typeof(value -> field_name) is distinct from 'string'
+  ) then
+    return jsonb_build_object('kind', 'visit_conflict', 'visitId', entry_id);
+  end if;
+  journey_step := trunc(journey_step);
   target_id := case
     when value -> 'targetId' = 'null'::jsonb then 'null'::jsonb
     when jsonb_typeof(value -> 'targetId') = 'string'
-      and btrim(value ->> 'targetId') <> '' then to_jsonb(btrim(value ->> 'targetId'))
+      and btrim(value ->> 'targetId', E' \t\n\r\f\013') <> ''
+      then to_jsonb(btrim(value ->> 'targetId', E' \t\n\r\f\013'))
     else null end;
   word_id := case
     when value -> 'wordId' = 'null'::jsonb then 'null'::jsonb
     when jsonb_typeof(value -> 'wordId') = 'string'
-      and btrim(value ->> 'wordId') <> '' then to_jsonb(btrim(value ->> 'wordId'))
+      and btrim(value ->> 'wordId', E' \t\n\r\f\013') <> ''
+      then to_jsonb(btrim(value ->> 'wordId', E' \t\n\r\f\013'))
     else null end;
   result := jsonb_build_object(
     'kind', 'visit',
-    'visitId', btrim(value ->> 'visitId'),
-    'contentInstanceId', btrim(value ->> 'contentInstanceId'),
-    'visitOwnerId', btrim(value ->> 'visitOwnerId'),
-    'ownerActionUseId', btrim(value ->> 'ownerActionUseId'),
-    'category', btrim(value ->> 'category'),
-    'slotId', btrim(value ->> 'slotId'),
-    'recordId', btrim(value ->> 'recordId'),
-    'contentId', btrim(value ->> 'contentId'),
+    'visitId', btrim(value ->> 'visitId', E' \t\n\r\f\013'),
+    'contentInstanceId', btrim(value ->> 'contentInstanceId', E' \t\n\r\f\013'),
+    'visitOwnerId', btrim(value ->> 'visitOwnerId', E' \t\n\r\f\013'),
+    'ownerActionUseId', btrim(value ->> 'ownerActionUseId', E' \t\n\r\f\013'),
+    'category', btrim(value ->> 'category', E' \t\n\r\f\013'),
+    'slotId', btrim(value ->> 'slotId', E' \t\n\r\f\013'),
+    'recordId', btrim(value ->> 'recordId', E' \t\n\r\f\013'),
+    'contentId', btrim(value ->> 'contentId', E' \t\n\r\f\013'),
     'targetId', target_id,
     'wordId', word_id,
-    'stopId', btrim(value ->> 'stopId'),
+    'stopId', btrim(value ->> 'stopId', E' \t\n\r\f\013'),
     'journeyStep', to_jsonb(journey_step)
   );
-  if value ->> 'kind' <> 'visit'
-    or btrim(coalesce(value ->> 'visitId', '')) <> entry_id
-    or btrim(coalesce(value ->> 'category', '')) <> category
+  if value -> 'kind' is distinct from '"visit"'::jsonb
+    or btrim(coalesce(value ->> 'visitId', ''), E' \t\n\r\f\013') <> entry_id
+    or btrim(coalesce(value ->> 'category', ''), E' \t\n\r\f\013') <> category
     or exists (
       select 1 from jsonb_each_text(result - array['kind','category','targetId','wordId','journeyStep']) item
-      where btrim(coalesce(item.value, '')) = ''
+      where btrim(coalesce(item.value, ''), E' \t\n\r\f\013') = ''
     ) then
     return jsonb_build_object('kind', 'visit_conflict', 'visitId', entry_id);
   end if;
@@ -207,36 +226,52 @@ declare
   narrative_token jsonb;
   journey_step numeric;
 begin
-  entry_id := btrim(coalesce(entry_id, ''));
+  if entry_id is null or entry_id = ''
+    or entry_id <> btrim(entry_id, E' \t\n\r\f\013') then return null; end if;
+  entry_id := btrim(coalesce(entry_id, ''), E' \t\n\r\f\013');
   if entry_id = '' or category not in (
     'heartWords', 'stories', 'alternatives', 'morphology', 'transfer'
   ) then return null; end if;
-  if jsonb_typeof(value) <> 'object' or value ->> 'kind' = 'use_conflict' then
+  if jsonb_typeof(value) is distinct from 'object' or value ->> 'kind' = 'use_conflict' then
     return jsonb_build_object('kind', 'use_conflict', 'useId', entry_id);
   end if;
-  if jsonb_typeof(value -> 'journeyStep') <> 'number'
-    or (value ->> 'journeyStep') !~ '^[1-9][0-9]*$' then
+  if jsonb_typeof(value -> 'journeyStep') is distinct from 'number' then
     return jsonb_build_object('kind', 'use_conflict', 'useId', entry_id);
   end if;
   journey_step := (value ->> 'journeyStep')::numeric;
+  if journey_step < 1 or journey_step > 9007199254740991
+    or journey_step <> trunc(journey_step) then
+    return jsonb_build_object('kind', 'use_conflict', 'useId', entry_id);
+  end if;
+  if exists (
+    select 1
+      from unnest(array[
+        'useId', 'visitId', 'contentInstanceId', 'visitOwnerId',
+        'actionUseId', 'slotId', 'recordId'
+      ]) field_name
+     where jsonb_typeof(value -> field_name) is distinct from 'string'
+  ) then
+    return jsonb_build_object('kind', 'use_conflict', 'useId', entry_id);
+  end if;
+  journey_step := trunc(journey_step);
   result := jsonb_build_object(
     'kind', 'use',
-    'useId', btrim(value ->> 'useId'),
-    'visitId', btrim(value ->> 'visitId'),
-    'contentInstanceId', btrim(value ->> 'contentInstanceId'),
-    'visitOwnerId', btrim(value ->> 'visitOwnerId'),
-    'actionUseId', btrim(value ->> 'actionUseId'),
-    'category', btrim(value ->> 'category'),
-    'slotId', btrim(value ->> 'slotId'),
-    'recordId', btrim(value ->> 'recordId'),
+    'useId', btrim(value ->> 'useId', E' \t\n\r\f\013'),
+    'visitId', btrim(value ->> 'visitId', E' \t\n\r\f\013'),
+    'contentInstanceId', btrim(value ->> 'contentInstanceId', E' \t\n\r\f\013'),
+    'visitOwnerId', btrim(value ->> 'visitOwnerId', E' \t\n\r\f\013'),
+    'actionUseId', btrim(value ->> 'actionUseId', E' \t\n\r\f\013'),
+    'category', btrim(value ->> 'category', E' \t\n\r\f\013'),
+    'slotId', btrim(value ->> 'slotId', E' \t\n\r\f\013'),
+    'recordId', btrim(value ->> 'recordId', E' \t\n\r\f\013'),
     'journeyStep', to_jsonb(journey_step)
   );
-  if value ->> 'kind' <> 'use'
-    or btrim(coalesce(value ->> 'useId', '')) <> entry_id
-    or btrim(coalesce(value ->> 'category', '')) <> category
+  if value -> 'kind' is distinct from '"use"'::jsonb
+    or btrim(coalesce(value ->> 'useId', ''), E' \t\n\r\f\013') <> entry_id
+    or btrim(coalesce(value ->> 'category', ''), E' \t\n\r\f\013') <> category
     or exists (
       select 1 from jsonb_each_text(result - array['kind','category','journeyStep']) item
-      where btrim(coalesce(item.value, '')) = ''
+      where btrim(coalesce(item.value, ''), E' \t\n\r\f\013') = ''
     ) then
     return jsonb_build_object('kind', 'use_conflict', 'useId', entry_id);
   end if;
@@ -251,21 +286,29 @@ begin
     return result || jsonb_build_object('activityType', activity);
   end if;
 
-  if jsonb_typeof(value -> 'attemptReceiptIds') <> 'array' then
+  if jsonb_typeof(value -> 'attemptReceiptIds') is distinct from 'array' then
     return jsonb_build_object('kind', 'use_conflict', 'useId', entry_id);
   end if;
-  select coalesce(jsonb_agg(to_jsonb(id) order by decision_ordinal, attempt_ordinal, id collate "C"), '[]'::jsonb)
+  select coalesce(jsonb_agg(to_jsonb(id) order by type_rank, decision_ordinal,
+      attempt_ordinal, id collate "C"), '[]'::jsonb)
     into receipt_ids
     from (
       select id,
-             case when id like 'content-placement-attempt:%'
-               then coalesce((regexp_match(id, ':(\\d+):(\\d+)$'))[1]::numeric, 0)
+             case when id ~ '^content-placement-attempt:.*:[0-9]+:[0-9]+$' then 0
+               when id ~ '^story-transfer-attempt:.*:[0-9]+$' then 1 else 2 end as type_rank,
+             case when id ~ '^content-placement-attempt:.*:[0-9]+:[0-9]+$'
+               then (regexp_match(id, ':([0-9]+):([0-9]+)$'))[1]::numeric
                else 0 end as decision_ordinal,
-             coalesce((regexp_match(id, ':(\\d+)$'))[1]::numeric, 0) as attempt_ordinal
+             case when id ~ '^content-placement-attempt:.*:[0-9]+:[0-9]+$'
+               then (regexp_match(id, ':([0-9]+):([0-9]+)$'))[2]::numeric
+               when id ~ '^story-transfer-attempt:.*:[0-9]+$'
+               then (regexp_match(id, ':([0-9]+)$'))[1]::numeric
+               else 0 end as attempt_ordinal
         from (
-          select distinct btrim(item #>> '{}') as id
+          select distinct btrim(item #>> '{}', E' \t\n\r\f\013') as id
             from jsonb_array_elements(value -> 'attemptReceiptIds') item
-           where jsonb_typeof(item) = 'string' and btrim(item #>> '{}') <> ''
+           where jsonb_typeof(item) = 'string'
+             and btrim(item #>> '{}', E' \t\n\r\f\013') <> ''
         ) ids
     ) ordered;
   if jsonb_array_length(receipt_ids) = 0
@@ -279,19 +322,22 @@ begin
       when value ? 'narrativeChoiceToken' and value -> 'narrativeChoiceToken' = 'null'::jsonb
         then 'null'::jsonb
       when jsonb_typeof(value -> 'narrativeChoiceToken') = 'string'
-        and btrim(value ->> 'narrativeChoiceToken') <> ''
-        then to_jsonb(btrim(value ->> 'narrativeChoiceToken'))
+        and btrim(value ->> 'narrativeChoiceToken', E' \t\n\r\f\013') <> ''
+        then to_jsonb(btrim(value ->> 'narrativeChoiceToken', E' \t\n\r\f\013'))
       else null end;
     if narrative_token is null
-      or btrim(coalesce(value ->> 'transactionId', '')) = ''
-      or btrim(coalesce(value ->> 'pairedUseId', '')) = ''
-      or btrim(coalesce(value ->> 'evidenceEventId', '')) = '' then
+      or jsonb_typeof(value -> 'transactionId') is distinct from 'string'
+      or jsonb_typeof(value -> 'pairedUseId') is distinct from 'string'
+      or jsonb_typeof(value -> 'evidenceEventId') is distinct from 'string'
+      or btrim(coalesce(value ->> 'transactionId', ''), E' \t\n\r\f\013') = ''
+      or btrim(coalesce(value ->> 'pairedUseId', ''), E' \t\n\r\f\013') = ''
+      or btrim(coalesce(value ->> 'evidenceEventId', ''), E' \t\n\r\f\013') = '' then
       return jsonb_build_object('kind', 'use_conflict', 'useId', entry_id);
     end if;
     result := result || jsonb_build_object(
-      'transactionId', btrim(value ->> 'transactionId'),
-      'pairedUseId', btrim(value ->> 'pairedUseId'),
-      'evidenceEventId', btrim(value ->> 'evidenceEventId'),
+      'transactionId', btrim(value ->> 'transactionId', E' \t\n\r\f\013'),
+      'pairedUseId', btrim(value ->> 'pairedUseId', E' \t\n\r\f\013'),
+      'evidenceEventId', btrim(value ->> 'evidenceEventId', E' \t\n\r\f\013'),
       'narrativeChoiceToken', narrative_token
     );
   end if;
@@ -417,27 +463,42 @@ declare
   use_ids jsonb;
   result jsonb;
 begin
-  entry_id := btrim(coalesce(entry_id, ''));
+  if entry_id is null or entry_id = ''
+    or entry_id <> btrim(entry_id, E' \t\n\r\f\013') then return null; end if;
+  entry_id := btrim(coalesce(entry_id, ''), E' \t\n\r\f\013');
   if entry_id = '' then return null; end if;
-  if jsonb_typeof(value) <> 'object'
+  if jsonb_typeof(value) is distinct from 'object'
     or value ->> 'kind' = 'attempt_receipt_conflict' then
     return jsonb_build_object('kind', 'attempt_receipt_conflict', 'attemptId', entry_id);
   end if;
+  if value -> 'kind' is distinct from '"attempt_receipt"'::jsonb then
+    return jsonb_build_object('kind', 'attempt_receipt_conflict', 'attemptId', entry_id);
+  end if;
   operation_value := value ->> 'operation';
-  subject_id := btrim(coalesce(value ->> 'subjectId', ''));
+  subject_id := btrim(coalesce(value ->> 'subjectId', ''), E' \t\n\r\f\013');
   input_sha := value ->> 'inputSha256';
   if operation_value not in ('content_placement', 'story_transfer')
+    or jsonb_typeof(value -> 'operation') is distinct from 'string'
+    or jsonb_typeof(value -> 'attemptId') is distinct from 'string'
+    or jsonb_typeof(value -> 'subjectId') is distinct from 'string'
+    or jsonb_typeof(value -> 'inputSha256') is distinct from 'string'
     or subject_id = ''
-    or jsonb_typeof(value -> 'decisionOrdinal') <> 'number'
-    or (value ->> 'decisionOrdinal') !~ '^[0-9]+$'
-    or jsonb_typeof(value -> 'attemptOrdinal') <> 'number'
-    or (value ->> 'attemptOrdinal') !~ '^[0-9]+$'
+    or jsonb_typeof(value -> 'decisionOrdinal') is distinct from 'number'
+    or jsonb_typeof(value -> 'attemptOrdinal') is distinct from 'number'
     or coalesce(input_sha, '') !~ '^[a-f0-9]{64}$'
-    or jsonb_typeof(value -> 'completed') <> 'boolean' then
+    or jsonb_typeof(value -> 'completed') is distinct from 'boolean' then
     return jsonb_build_object('kind', 'attempt_receipt_conflict', 'attemptId', entry_id);
   end if;
   decision_ordinal := (value ->> 'decisionOrdinal')::numeric;
   attempt_ordinal := (value ->> 'attemptOrdinal')::numeric;
+  if decision_ordinal < 0 or decision_ordinal > 9007199254740991
+    or decision_ordinal <> trunc(decision_ordinal)
+    or attempt_ordinal < 0 or attempt_ordinal > 9007199254740991
+    or attempt_ordinal <> trunc(attempt_ordinal) then
+    return jsonb_build_object('kind', 'attempt_receipt_conflict', 'attemptId', entry_id);
+  end if;
+  decision_ordinal := trunc(decision_ordinal);
+  attempt_ordinal := trunc(attempt_ordinal);
   if operation_value = 'story_transfer' then
     if decision_ordinal <> 0
       or entry_id <> format('story-transfer-attempt:%s:%s', subject_id, attempt_ordinal) then
@@ -448,37 +509,40 @@ begin
       <> format(':%s:%s:%s', subject_id, decision_ordinal, attempt_ordinal) then
     return jsonb_build_object('kind', 'attempt_receipt_conflict', 'attemptId', entry_id);
   end if;
-  if btrim(coalesce(value ->> 'attemptId', '')) <> entry_id then
+  if btrim(coalesce(value ->> 'attemptId', ''), E' \t\n\r\f\013') <> entry_id then
     return jsonb_build_object('kind', 'attempt_receipt_conflict', 'attemptId', entry_id);
   end if;
 
   select coalesce(jsonb_agg(to_jsonb(id) order by id collate "C"), '[]'::jsonb)
     into correction_ids from (
-      select distinct btrim(item #>> '{}') as id
+      select distinct btrim(item #>> '{}', E' \t\n\r\f\013') as id
       from jsonb_array_elements(coalesce(
         case when jsonb_typeof(value -> 'correctionRecordIds') = 'array'
           then value -> 'correctionRecordIds' end, '[]'::jsonb
-      )) item where jsonb_typeof(item) = 'string' and btrim(item #>> '{}') <> ''
+      )) item where jsonb_typeof(item) = 'string'
+        and btrim(item #>> '{}', E' \t\n\r\f\013') <> ''
     ) ids;
   select coalesce(jsonb_agg(to_jsonb(id) order by id collate "C"), '[]'::jsonb)
     into event_ids from (
-      select distinct btrim(item #>> '{}') as id
+      select distinct btrim(item #>> '{}', E' \t\n\r\f\013') as id
       from jsonb_array_elements(coalesce(
         case when jsonb_typeof(value -> 'eventIds') = 'array' then value -> 'eventIds' end,
         '[]'::jsonb
-      )) item where jsonb_typeof(item) = 'string' and btrim(item #>> '{}') <> ''
+      )) item where jsonb_typeof(item) = 'string'
+        and btrim(item #>> '{}', E' \t\n\r\f\013') <> ''
     ) ids;
   select coalesce(jsonb_agg(to_jsonb(id) order by id collate "C"), '[]'::jsonb)
     into use_ids from (
-      select distinct btrim(item #>> '{}') as id
+      select distinct btrim(item #>> '{}', E' \t\n\r\f\013') as id
       from jsonb_array_elements(coalesce(
         case when jsonb_typeof(value -> 'useIds') = 'array' then value -> 'useIds' end,
         '[]'::jsonb
-      )) item where jsonb_typeof(item) = 'string' and btrim(item #>> '{}') <> ''
+      )) item where jsonb_typeof(item) = 'string'
+        and btrim(item #>> '{}', E' \t\n\r\f\013') <> ''
     ) ids;
-  if jsonb_typeof(value -> 'correctionRecordIds') <> 'array'
-    or jsonb_typeof(value -> 'eventIds') <> 'array'
-    or jsonb_typeof(value -> 'useIds') <> 'array'
+  if jsonb_typeof(value -> 'correctionRecordIds') is distinct from 'array'
+    or jsonb_typeof(value -> 'eventIds') is distinct from 'array'
+    or jsonb_typeof(value -> 'useIds') is distinct from 'array'
     or jsonb_array_length(correction_ids) <> jsonb_array_length(value -> 'correctionRecordIds')
     or jsonb_array_length(event_ids) <> jsonb_array_length(value -> 'eventIds')
     or jsonb_array_length(use_ids) <> jsonb_array_length(value -> 'useIds') then
@@ -565,15 +629,16 @@ declare
   event_count int;
   use_count int;
   correction_count int;
-  expected_support int;
+  expected_support numeric;
   correct_value boolean;
   completed_value boolean;
   candidate_valid boolean;
   group_key text;
   group_progress jsonb;
-  expected_decision int;
-  expected_attempt int;
+  expected_decision numeric;
+  expected_attempt numeric;
   group_closed boolean;
+  ordinal_claim_count int;
 begin
   for receipt in
     select value
@@ -586,6 +651,14 @@ begin
               value ->> 'attemptId' collate "C"
   loop
     candidate_valid := true;
+    select count(*) into ordinal_claim_count
+      from jsonb_each(receipts) competing
+     where competing.value ->> 'kind' = 'attempt_receipt'
+       and competing.value ->> 'operation' = receipt ->> 'operation'
+       and competing.value ->> 'subjectId' = receipt ->> 'subjectId'
+       and competing.value -> 'decisionOrdinal' = receipt -> 'decisionOrdinal'
+       and competing.value -> 'attemptOrdinal' = receipt -> 'attemptOrdinal';
+    if ordinal_claim_count <> 1 then candidate_valid := false; end if;
     event_count := jsonb_array_length(receipt -> 'eventIds');
     use_count := jsonb_array_length(receipt -> 'useIds');
     correction_count := jsonb_array_length(receipt -> 'correctionRecordIds');
@@ -600,18 +673,18 @@ begin
         from jsonb_array_elements(events) item
        where item ->> 'id' = event_id
          and item ->> 'evidenceKind' <> 'conflict'
-         and coalesce((item ->> 'conflicted')::boolean, false) = false;
+         and item -> 'conflicted' is distinct from 'true'::jsonb;
       if reference_count <> 1
         or event_id <> (receipt ->> 'attemptId') || ':0'
-        or jsonb_typeof(event_value -> 'correct') <> 'boolean'
-        or jsonb_typeof(event_value -> 'supportLevel') <> 'number'
-        or jsonb_typeof(event_value -> 'revealed') <> 'boolean' then
+        or jsonb_typeof(event_value -> 'correct') is distinct from 'boolean'
+        or jsonb_typeof(event_value -> 'supportLevel') is distinct from 'number'
+        or jsonb_typeof(event_value -> 'revealed') is distinct from 'boolean' then
         candidate_valid := false;
       else
-        expected_support := least((receipt ->> 'attemptOrdinal')::int, 3);
-        if (event_value ->> 'supportLevel')::int <> expected_support
-          or (event_value ->> 'revealed')::boolean
-            <> ((receipt ->> 'attemptOrdinal')::int >= 3) then
+        expected_support := least((receipt ->> 'attemptOrdinal')::numeric, 3::numeric);
+        if event_value -> 'supportLevel' <> to_jsonb(expected_support)
+          or event_value -> 'revealed'
+            <> to_jsonb((receipt ->> 'attemptOrdinal')::numeric >= 3) then
           candidate_valid := false;
         end if;
       end if;
@@ -644,7 +717,7 @@ begin
     end loop;
 
     if event_count = 1 then
-      correct_value := coalesce((event_value ->> 'correct')::boolean, false);
+      correct_value := event_value -> 'correct' = 'true'::jsonb;
     else
       correct_value := false;
     end if;
@@ -661,15 +734,40 @@ begin
         candidate_valid := false;
       end if;
     elsif event_count = 0 then
-      if (receipt ->> 'decisionOrdinal')::int <> 0
-        or (receipt ->> 'attemptOrdinal')::int <> 0
+      if (receipt ->> 'subjectId') in (
+          's16-alternative', 's28-alternative', 's29-alternative', 's37-alternative'
+        )
+        or (receipt ->> 'decisionOrdinal')::numeric <> 0
+        or (receipt ->> 'attemptOrdinal')::numeric <> 0
         or not completed_value or correction_count <> 0 or use_count <> 1
         or use_category <> 'morphology' then
         candidate_valid := false;
       end if;
     elsif correct_value then
-      if correction_count <> 0 or use_count > 1
-        or (use_count = 1 and not completed_value) then
+      if receipt ->> 'subjectId' = 's38-morphology' then
+        candidate_valid := false;
+      elsif receipt ->> 'subjectId' in (
+        's16-alternative', 's28-alternative', 's29-alternative', 's37-alternative'
+      ) then
+        expected_decision := case receipt ->> 'subjectId'
+          when 's16-alternative' then 1
+          when 's28-alternative' then 0
+          when 's29-alternative' then 0
+          when 's37-alternative' then 3
+        end;
+        if (receipt ->> 'decisionOrdinal')::numeric < expected_decision then
+          if correction_count <> 0 or use_count <> 0 or completed_value then
+            candidate_valid := false;
+          end if;
+        elsif (receipt ->> 'decisionOrdinal')::numeric <> expected_decision
+          or correction_count <> 0 or use_count <> 1 or not completed_value
+          or use_category <> 'alternatives' then
+          candidate_valid := false;
+        end if;
+      elsif correction_count <> 0
+        or (use_count = 0 and completed_value)
+        or (use_count = 1 and (not completed_value or use_category <> 'alternatives'))
+        or use_count > 1 then
         candidate_valid := false;
       end if;
     elsif completed_value
@@ -683,12 +781,12 @@ begin
     group_progress := coalesce(progress -> group_key, jsonb_build_object(
       'decision', 0, 'attempt', 0, 'closed', false
     ));
-    expected_decision := (group_progress ->> 'decision')::int;
-    expected_attempt := (group_progress ->> 'attempt')::int;
+    expected_decision := (group_progress ->> 'decision')::numeric;
+    expected_attempt := (group_progress ->> 'attempt')::numeric;
     group_closed := (group_progress ->> 'closed')::boolean;
     if group_closed
-      or (receipt ->> 'decisionOrdinal')::int <> expected_decision
-      or (receipt ->> 'attemptOrdinal')::int <> expected_attempt then
+      or (receipt ->> 'decisionOrdinal')::numeric <> expected_decision
+      or (receipt ->> 'attemptOrdinal')::numeric <> expected_attempt then
       candidate_valid := false;
     end if;
 
@@ -785,12 +883,27 @@ begin
       valid_use := valid_use and reference_count = 1;
 
       if valid_use and category = 'heartWords' then
-        if use_entry.value ->> 'actionUseId' <> visit_value ->> 'ownerActionUseId' then
+        if use_entry.value ->> 'actionUseId' = visit_value ->> 'ownerActionUseId' then
+          valid_use := use_entry.value ->> 'activityType'
+            = visit_value ->> 'ownerActivityType';
+        else
           owner_value := decks -> 'heartWords' -> 'uses'
             -> ((use_entry.value ->> 'visitId') || ':' || (visit_value ->> 'ownerActionUseId'));
           valid_use := owner_value ->> 'kind' = 'use'
+            and owner_value ->> 'category' = visit_value ->> 'category'
             and owner_value ->> 'visitId' = visit_value ->> 'visitId'
-            and owner_value ->> 'recordId' = visit_value ->> 'recordId';
+            and owner_value ->> 'contentInstanceId' = visit_value ->> 'contentInstanceId'
+            and owner_value ->> 'visitOwnerId' = visit_value ->> 'visitOwnerId'
+            and owner_value ->> 'slotId' = visit_value ->> 'slotId'
+            and owner_value ->> 'recordId' = visit_value ->> 'recordId'
+            and owner_value -> 'journeyStep' = visit_value -> 'journeyStep'
+            and owner_value ->> 'activityType' = visit_value ->> 'ownerActivityType';
+          select count(*) into reference_count
+            from jsonb_each(decks -> 'heartWords' -> 'uses') competing
+           where competing.value ->> 'kind' = 'use'
+             and competing.value ->> 'visitId' = visit_value ->> 'visitId'
+             and competing.value ->> 'actionUseId' = visit_value ->> 'ownerActionUseId';
+          valid_use := valid_use and reference_count = 1;
         end if;
       elsif valid_use then
         for receipt_id in
@@ -807,12 +920,12 @@ begin
             and (final_receipt ->> 'completed')::boolean
             and final_receipt -> 'useIds' @> jsonb_build_array(use_entry.key);
           if valid_use and category = 'alternatives' then
-            valid_use := (final_receipt ->> 'decisionOrdinal')::int = case final_receipt ->> 'subjectId'
+            valid_use := (final_receipt ->> 'decisionOrdinal')::numeric = case final_receipt ->> 'subjectId'
               when 's16-alternative' then 1
               when 's28-alternative' then 0
               when 's29-alternative' then 0
               when 's37-alternative' then 3
-              else (final_receipt ->> 'decisionOrdinal')::int end;
+              else (final_receipt ->> 'decisionOrdinal')::numeric end;
           end if;
         end if;
         if valid_use then
@@ -839,6 +952,7 @@ begin
         pair_visit := result -> pair_category -> 'visits' -> (pair_value ->> 'visitId');
         valid_use := pair_value ->> 'kind' = 'use'
           and pair_visit is not null
+          and pair_value ->> 'category' = pair_visit ->> 'category'
           and pair_value ->> 'pairedUseId' = use_entry.key
           and pair_value ->> 'transactionId' = use_entry.value ->> 'transactionId'
           and pair_value ->> 'evidenceEventId' = use_entry.value ->> 'evidenceEventId'
@@ -848,13 +962,23 @@ begin
           and pair_value ->> 'contentInstanceId' = pair_visit ->> 'contentInstanceId'
           and pair_value ->> 'visitOwnerId' = pair_visit ->> 'visitOwnerId'
           and pair_value ->> 'slotId' = pair_visit ->> 'slotId'
-          and pair_value ->> 'recordId' = pair_visit ->> 'recordId';
+          and pair_value ->> 'recordId' = pair_visit ->> 'recordId'
+          and pair_value -> 'journeyStep' = pair_visit -> 'journeyStep'
+          and pair_visit ->> 'stopId' = visit_value ->> 'stopId';
+        if valid_use then
+          select count(*) into reference_count
+            from jsonb_each(decks -> pair_category -> 'uses') competing
+           where competing.value ->> 'kind' = 'use'
+             and competing.value ->> 'visitId' = pair_value ->> 'visitId'
+             and competing.value ->> 'actionUseId' = pair_value ->> 'actionUseId';
+          valid_use := reference_count = 1;
+        end if;
         if valid_use then
           transfer_visit := case when category = 'transfer' then visit_value else pair_visit end;
           valid_use := case when transfer_visit -> 'wordId' = 'null'::jsonb
             then use_entry.value -> 'narrativeChoiceToken' = 'null'::jsonb
             else jsonb_typeof(use_entry.value -> 'narrativeChoiceToken') = 'string'
-              and btrim(use_entry.value ->> 'narrativeChoiceToken') <> '' end;
+              and btrim(use_entry.value ->> 'narrativeChoiceToken', E' \t\n\r\f\013') <> '' end;
           valid_use := valid_use
             and final_receipt #>> '{eventIds,0}' = use_entry.value ->> 'evidenceEventId';
           valid_use := valid_use

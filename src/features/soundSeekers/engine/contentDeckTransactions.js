@@ -14,7 +14,8 @@ import {
 } from "./contentDeckScheduler.js";
 import {
   createContentDeckState,
-  normalizeAttemptReceipts
+  normalizeAttemptReceipts,
+  normalizeContentDeckCheckpoint
 } from "./contentDeckState.js";
 import {
   appendEvidence,
@@ -121,14 +122,13 @@ function inputSha256(value) {
 
 function normalizedState(raw) {
   const state = asObject(raw);
+  const contentDecks = createContentDeckState(state.contentDecks);
   return {
     ...state,
-    contentDecks: createContentDeckState(state.contentDecks),
+    contentDecks,
     attemptReceipts: normalizeAttemptReceipts(state.attemptReceipts),
     evidence: Array.isArray(state.evidence) ? state.evidence : [],
-    checkpoint: state.checkpoint && typeof state.checkpoint === "object"
-      ? { ...state.checkpoint }
-      : null
+    checkpoint: normalizeContentDeckCheckpoint(state.checkpoint, contentDecks)
   };
 }
 
@@ -182,6 +182,13 @@ function storyAttemptId(transactionId, attemptOrdinal) {
   return `story-transfer-attempt:${transactionId}:${attemptOrdinal}`;
 }
 
+function placementAttemptIdFromChallengeId(challengeId) {
+  const value = stringId(challengeId);
+  const marker = ":challenge:";
+  const markerIndex = value?.lastIndexOf(marker) ?? -1;
+  return markerIndex > 0 ? value.slice(0, markerIndex) : null;
+}
+
 function attemptView(descriptor, supportLevel, revealed) {
   return Object.freeze({
     attemptId: descriptor.attemptId,
@@ -201,7 +208,7 @@ function receiptsFor(state, operation, subjectId) {
     .filter(receipt => receipt.operation === operation && receipt.subjectId === subjectId)
     .sort((left, right) => left.decisionOrdinal - right.decisionOrdinal
       || left.attemptOrdinal - right.attemptOrdinal
-      || left.attemptId.localeCompare(right.attemptId));
+      || (left.attemptId < right.attemptId ? -1 : left.attemptId > right.attemptId ? 1 : 0));
 }
 
 function correctionFromMiss(previous, { event, challenge, receipt }) {
@@ -224,6 +231,58 @@ function correctionFromMiss(previous, { event, challenge, receipt }) {
   });
 }
 
+function historicalResponse(event, challenge) {
+  if (!event || typeof event.correct !== "boolean") {
+    throw new Error("attempt receipt event history is invalid");
+  }
+  const token = event.correct ? challenge.expectedToken : event.confusion;
+  const response = canonicalResponse({ kind: "literacy-answer", token });
+  if (!challenge.optionTokens.includes(response.token)
+    || event.correct !== (response.token === challenge.expectedToken)
+    || event.confusion !== (event.correct ? null : response.token)) {
+    throw new Error("attempt receipt event has an impossible correct/confusion relation");
+  }
+  return response;
+}
+
+function assertHistoricalReceiptCanonical(state, descriptor, receipt, challenge, event) {
+  if (!event) return;
+  const response = historicalResponse(event, challenge);
+  const audio = { status: event.cueDelivery };
+  const canonicalInput = descriptor.kind === "content_placement"
+    ? canonicalPlacementInput(descriptor, {
+      response,
+      audio,
+      at: event.at,
+      sessionDay: event.sessionDay
+    }, challenge)
+    : canonicalStoryInput(descriptor, {
+      response,
+      audio,
+      at: event.at,
+      sessionDay: event.sessionDay
+    }, challenge);
+  const canonicalEvent = createLiteracyDecision({
+    challenge,
+    response,
+    support: {
+      level: Math.min(descriptor.attemptOrdinal, 3),
+      revealed: descriptor.attemptOrdinal >= 3
+    },
+    audio,
+    journeyStep: descriptor.journeyStep,
+    ordinal: 0,
+    at: event.at,
+    sessionDay: event.sessionDay
+  });
+  if (!canonicalEvent || !sameValue(event, canonicalEvent)) {
+    throw new Error("attempt receipt event does not match its fresh canonical challenge");
+  }
+  if (inputSha256(canonicalInput) !== receipt.inputSha256) {
+    throw new Error("attempt receipt historical input fingerprint is divergent");
+  }
+}
+
 function placementChallengeForDescriptor(state, descriptor) {
   const placement = placementById(descriptor.placementId);
   const served = rehydrateServedContentInstance(state.contentDecks, {
@@ -244,7 +303,6 @@ function placementChallengeForDescriptor(state, descriptor) {
       challengeId: `${descriptor.attemptId}:challenge:0:morphology`,
       attemptId: descriptor.attemptId,
       targetOrdinal: 0,
-      targetId: null,
       recordsDomain: null,
       powerId: placement.powerId,
       expectedAction: placement.expectedAction,
@@ -270,7 +328,6 @@ function placementChallengeForDescriptor(state, descriptor) {
     powerId: placement.powerId,
     expectedAction: placement.expectedAction,
     instructionId: placement.instructionId,
-    wordId: null,
     position: null,
     optionTokens: decision.optionTokens,
     expectedToken: decision.expectedToken,
@@ -298,6 +355,13 @@ function replayPlacementHistory(state, descriptor, { throughAttemptId = null } =
     };
     const challenge = placementChallengeForDescriptor(state, historicalDescriptor);
     const event = receipt.eventIds.length ? eventById(state, receipt.eventIds[0]) : null;
+    assertHistoricalReceiptCanonical(
+      state,
+      historicalDescriptor,
+      receipt,
+      challenge,
+      event
+    );
     let correction = null;
     if (event && !event.correct) {
       correction = correctionFromMiss(previousCorrection, { event, challenge, receipt });
@@ -330,7 +394,8 @@ function assertPlacementDescriptorHistory(state, descriptor) {
   if (descriptor.stage === "model_pending" && descriptor.attemptOrdinal !== 3) {
     throw new Error("content placement model is pending only after the third miss");
   }
-  if (descriptor.attemptOrdinal >= 3 && !history.previousCorrection?.modelOnce) {
+  if (descriptor.attemptOrdinal >= 3
+    && (!history.previousCorrection || history.previousCorrection.missCount < 3)) {
     throw new Error("content placement modeled support lacks a valid correction history");
   }
   return history;
@@ -408,8 +473,6 @@ export function resumeContentPlacementAttempt(rawState, { placementId, visitId }
 }
 
 export function materializeContentPlacementChallenge(rawState, { placementId, visitId } = {}) {
-  const cached = cachedChallenge(rawState, rawState?.checkpoint?.contentPlacement?.attemptId);
-  if (cached) return cached;
   const state = normalizedState(rawState);
   const descriptor = state.checkpoint?.contentPlacement;
   if (!descriptor || descriptor.placementId !== placementId || descriptor.visitId !== visitId) {
@@ -417,7 +480,15 @@ export function materializeContentPlacementChallenge(rawState, { placementId, vi
   }
   if (descriptor.stage !== "response_pending") throw new Error("content placement model is pending");
   assertPlacementDescriptorHistory(state, descriptor);
-  return cacheChallenge(rawState, descriptor.attemptId, placementChallengeForDescriptor(state, descriptor));
+  const canonical = placementChallengeForDescriptor(state, descriptor);
+  const cached = cachedChallenge(rawState, descriptor.attemptId);
+  if (cached) {
+    if (!sameValue(cached, canonical)) {
+      throw new Error("cached content placement challenge no longer matches current authority");
+    }
+    return cached;
+  }
+  return cacheChallenge(rawState, descriptor.attemptId, canonical);
 }
 
 function canonicalResponse(response) {
@@ -466,7 +537,7 @@ function canonicalCorrection(descriptor) {
   };
 }
 
-function canonicalPlacementInput(state, descriptor, input, challenge, history) {
+function canonicalPlacementInput(descriptor, input, challenge) {
   return canonicalJson({
     schemaVersion: 1,
     operation: "content_placement",
@@ -486,6 +557,9 @@ function canonicalPlacementInput(state, descriptor, input, challenge, history) {
 }
 
 function addReceipt(state, receipt) {
+  if (Object.prototype.hasOwnProperty.call(state.attemptReceipts, receipt.attemptId)) {
+    throw new Error("immutable attempt receipt identity is already occupied");
+  }
   return {
     ...state,
     attemptReceipts: normalizeAttemptReceipts({
@@ -496,6 +570,11 @@ function addReceipt(state, receipt) {
 }
 
 function addNonHeartUses(state, category, uses) {
+  for (const use of uses) {
+    if (Object.prototype.hasOwnProperty.call(state.contentDecks[category].uses, use.useId)) {
+      throw new Error("immutable content use identity is already occupied");
+    }
+  }
   return {
     ...state,
     contentDecks: createContentDeckState({
@@ -562,9 +641,12 @@ function assertIdempotentReceiptDependencies(state, receipt) {
 
 export function commitContentPlacementResponse(rawState, input = {}) {
   const state = normalizedState(rawState);
-  const suppliedAttemptId = stringId(input.challenge?.attemptId);
+  const suppliedAttemptId = placementAttemptIdFromChallengeId(input.challenge?.challengeId);
   const existing = suppliedAttemptId ? state.attemptReceipts[suppliedAttemptId] : null;
   if (existing?.kind === "attempt_receipt") {
+    if (stringId(input.placementId) !== existing.subjectId) {
+      throw new Error("content placement retry subject identity is invalid");
+    }
     assertIdempotentReceiptDependencies(state, existing);
     const placement = placementById(existing.subjectId);
     const descriptor = {
@@ -584,14 +666,11 @@ export function commitContentPlacementResponse(rawState, input = {}) {
     };
     const history = replayPlacementHistory(state, descriptor, { throughAttemptId: existing.attemptId });
     if (!history.found) throw new Error("attempt receipt is outside the canonical replay chain");
-    const before = replayPlacementHistory({ ...state, attemptReceipts: Object.fromEntries(
-      Object.entries(state.attemptReceipts).filter(([id]) => id !== existing.attemptId)
-    ) }, descriptor);
     const challenge = placementChallengeForDescriptor(state, descriptor);
     if (!sameValue(input.challenge, challenge)) {
       throw new Error("content placement retry challenge is not canonical");
     }
-    const canonical = canonicalPlacementInput(state, descriptor, input, challenge, before);
+    const canonical = canonicalPlacementInput(descriptor, input, challenge);
     if (inputSha256(canonical) !== existing.inputSha256) {
       throw new Error("attempt receipt input fingerprint is divergent");
     }
@@ -627,7 +706,7 @@ export function commitContentPlacementResponse(rawState, input = {}) {
     });
     const receiptIds = [...receiptIdsBefore, descriptor.attemptId];
     const use = deepFreeze(baseNonHeartUse(served, binding, receiptIds));
-    const canonical = canonicalPlacementInput(state, descriptor, input, challenge, history);
+    const canonical = canonicalPlacementInput(descriptor, input, challenge);
     const receipt = deepFreeze({
       kind: "attempt_receipt",
       attemptId: descriptor.attemptId,
@@ -688,7 +767,7 @@ export function commitContentPlacementResponse(rawState, input = {}) {
     });
     use = deepFreeze(baseNonHeartUse(served, placement.contentBinding, receiptIds));
   }
-  const canonical = canonicalPlacementInput(state, descriptor, input, challenge, history);
+  const canonical = canonicalPlacementInput(descriptor, input, challenge);
   const receipt = deepFreeze({
     kind: "attempt_receipt",
     attemptId: descriptor.attemptId,
@@ -790,7 +869,9 @@ export function beginStoryTransferTransaction(rawState, { stopId, journeyStep, s
     throw new Error("another content transaction is already pending");
   }
   const expedition = expeditionByStop(stopId);
-  if (!Number.isInteger(journeyStep) || journeyStep <= 0) throw new Error("story transfer journey step is invalid");
+  if (!Number.isSafeInteger(journeyStep) || journeyStep <= 0) {
+    throw new Error("story transfer journey step is invalid");
+  }
   const transactionId = `story-transfer:${journeyStep}:${stopId}`;
   const storyBinding = getContentDeckOwnerBinding("stories", `story-slot-${stopId}`);
   const transferBinding = getContentDeckOwnerBinding("transfer", `transfer-slot-${stopId}`);
@@ -885,7 +966,7 @@ function storyChallengeForDescriptor(state, descriptor) {
     bossTransferId: record.bossTransferId
   }) !== record.targetId) throw new Error("boss transfer identity is inconsistent");
   const challenge = deepFreeze({
-    challengeId: `${descriptor.attemptId}:challenge:${record.targetId}`,
+    challengeId: `${descriptor.attemptId}:${boss ? "boss" : "transfer"}`,
     attemptId: descriptor.attemptId,
     targetId: record.targetId,
     recordsDomain: record.recordsDomain,
@@ -895,12 +976,13 @@ function storyChallengeForDescriptor(state, descriptor) {
     ...(boss ? {
       wordId: record.wordId,
       position: "whole",
-      bossTransferId: record.bossTransferId
+      bossTransferId: record.bossTransferId,
+      connectedTextId: null
     } : { connectedTextId: record.connectedTextId }),
     optionTokens: record.decisionContract.optionTokens,
     expectedToken: record.decisionContract.expectedToken,
     childText: boss ? "Blend the new word. Choose its picture." : "Choose the action that matches the story.",
-    requiresAudio: true
+    requiresAudio: false
   });
   assertInstructionMatchesChallenge(getInstructionContract(challenge.instructionId), challenge);
   return challenge;
@@ -916,6 +998,7 @@ function replayStoryHistory(state, descriptor, { throughAttemptId = null } = {})
       attemptId: receipt.attemptId, stage: "response_pending" };
     const challenge = storyChallengeForDescriptor(state, historical);
     const event = receipt.eventIds.length ? eventById(state, receipt.eventIds[0]) : null;
+    assertHistoricalReceiptCanonical(state, historical, receipt, challenge, event);
     let correction = null;
     if (event && !event.correct) {
       correction = correctionFromMiss(previousCorrection, { event, challenge, receipt });
@@ -943,7 +1026,8 @@ function assertStoryDescriptorHistory(state, descriptor) {
   if (descriptor.stage === "model_pending" && descriptor.attemptOrdinal !== 3) {
     throw new Error("story transfer model is pending only after the third miss");
   }
-  if (descriptor.attemptOrdinal >= 3 && !history.previousCorrection?.modelOnce) {
+  if (descriptor.attemptOrdinal >= 3
+    && (!history.previousCorrection || history.previousCorrection.missCount < 3)) {
     throw new Error("story transfer modeled support lacks a valid correction history");
   }
   return history;
@@ -972,16 +1056,10 @@ export function resumeStoryTransferTransaction(rawState, { transactionId } = {})
     transferServed,
     correction: history.previousCorrection
   };
-  if (descriptor.stage === "response_pending") {
-    result.challenge = materializeStoryTransferChallenge(rawState, { transactionId });
-  }
   return deepFreeze(result);
 }
 
 export function materializeStoryTransferChallenge(rawState, { transactionId } = {}) {
-  const attemptId = rawState?.checkpoint?.storyTransfer?.attemptId;
-  const cached = cachedChallenge(rawState, attemptId);
-  if (cached) return cached;
   const state = normalizedState(rawState);
   const descriptor = state.checkpoint?.storyTransfer;
   if (!descriptor || descriptor.transactionId !== transactionId) {
@@ -989,7 +1067,15 @@ export function materializeStoryTransferChallenge(rawState, { transactionId } = 
   }
   if (descriptor.stage !== "response_pending") throw new Error("story transfer model is pending");
   assertStoryDescriptorHistory(state, descriptor);
-  return cacheChallenge(rawState, descriptor.attemptId, storyChallengeForDescriptor(state, descriptor));
+  const canonical = storyChallengeForDescriptor(state, descriptor);
+  const cached = cachedChallenge(rawState, descriptor.attemptId);
+  if (cached) {
+    if (!sameValue(cached, canonical)) {
+      throw new Error("cached story transfer challenge no longer matches current authority");
+    }
+    return cached;
+  }
+  return cacheChallenge(rawState, descriptor.attemptId, canonical);
 }
 
 export function materializeBossTransferChallenge(rawState, { transactionId } = {}) {
@@ -1010,7 +1096,7 @@ export function projectBossTransferOptionsForChild(rawState, { transactionId } =
   return record.bossDecision.options;
 }
 
-function canonicalStoryInput(descriptor, input, challenge, history) {
+function canonicalStoryInput(descriptor, input, challenge) {
   return canonicalJson({
     schemaVersion: 1,
     operation: "story_transfer",
@@ -1030,6 +1116,9 @@ function canonicalStoryInput(descriptor, input, challenge, history) {
 }
 
 function storyIdempotentResult(state, input, receipt) {
+  if (stringId(input.transactionId) !== receipt.subjectId) {
+    throw new Error("story transfer retry subject identity is invalid");
+  }
   assertIdempotentReceiptDependencies(state, receipt);
   const checkpoint = state.checkpoint?.storyTransfer;
   const stopId = checkpoint?.stopId
@@ -1050,17 +1139,11 @@ function storyIdempotentResult(state, input, receipt) {
     attemptOrdinal: receipt.attemptOrdinal,
     attemptId: receipt.attemptId
   };
-  const withoutCurrent = {
-    ...state,
-    attemptReceipts: Object.fromEntries(Object.entries(state.attemptReceipts)
-      .filter(([id]) => id !== receipt.attemptId))
-  };
-  const before = replayStoryHistory(withoutCurrent, descriptor);
   const challenge = storyChallengeForDescriptor(state, descriptor);
   if (!sameValue(input.challenge, challenge)) {
     throw new Error("story transfer retry challenge is not canonical");
   }
-  const canonical = canonicalStoryInput(descriptor, input, challenge, before);
+  const canonical = canonicalStoryInput(descriptor, input, challenge);
   if (inputSha256(canonical) !== receipt.inputSha256) {
     throw new Error("attempt receipt input fingerprint is divergent");
   }
@@ -1143,7 +1226,7 @@ export function completeStoryTransferTransaction(rawState, input = {}) {
     storyUse = deepFreeze(storyUse);
     transferUse = deepFreeze(transferUse);
   }
-  const canonical = canonicalStoryInput(descriptor, input, challenge, history);
+  const canonical = canonicalStoryInput(descriptor, input, challenge);
   const receipt = deepFreeze({
     kind: "attempt_receipt",
     attemptId: descriptor.attemptId,

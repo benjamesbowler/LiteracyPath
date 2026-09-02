@@ -9,17 +9,8 @@ import {
 } from "../content/contentDeckCatalogs.js";
 import { createContentDeckState } from "./contentDeckState.js";
 
-const NORMALIZED_DECK_CACHE = new WeakMap();
-const HEART_USE_CACHE = new WeakMap();
-
 function normalizedDeckState(value) {
-  if (!value || typeof value !== "object") return createContentDeckState();
-  const cached = NORMALIZED_DECK_CACHE.get(value);
-  if (cached) return cached;
-  const normalized = createContentDeckState(value);
-  NORMALIZED_DECK_CACHE.set(value, normalized);
-  NORMALIZED_DECK_CACHE.set(normalized, normalized);
-  return normalized;
+  return createContentDeckState(value);
 }
 
 function validVisits(state, category) {
@@ -48,6 +39,17 @@ function canonicalJson(value) {
 
 function sameValue(left, right) {
   return JSON.stringify(canonicalJson(left)) === JSON.stringify(canonicalJson(right));
+}
+
+function compareCanonicalIds(left, right) {
+  const leftPoints = [...left];
+  const rightPoints = [...right];
+  const length = Math.min(leftPoints.length, rightPoints.length);
+  for (let index = 0; index < length; index += 1) {
+    const difference = leftPoints[index].codePointAt(0) - rightPoints[index].codePointAt(0);
+    if (difference) return difference;
+  }
+  return leftPoints.length - rightPoints.length;
 }
 
 function stopNumber(stopId) {
@@ -93,8 +95,6 @@ function canonicalOwnerBinding(binding) {
 
 function structurallyValidHeartUses(contentDecks) {
   const state = normalizedDeckState(contentDecks);
-  const cached = HEART_USE_CACHE.get(state);
-  if (cached) return cached;
   const claims = new Map();
   for (const visit of Object.values(state.heartWords.visits)) {
     if (visit.kind !== "visit") continue;
@@ -105,7 +105,17 @@ function structurallyValidHeartUses(contentDecks) {
   }
   const visits = new Map([...claims.values()].filter(list => list.length === 1)
     .map(([visit]) => [visit.visitId, visit]));
-  const uses = Object.values(state.heartWords.uses).filter(use => {
+  const useClaims = new Map();
+  for (const use of Object.values(state.heartWords.uses)) {
+    if (use.kind !== "use") continue;
+    const claim = `${use.visitId}\u0000${use.actionUseId}`;
+    const list = useClaims.get(claim) || [];
+    list.push(use);
+    useClaims.set(claim, list);
+  }
+  const candidates = [...useClaims.values()].filter(list => list.length === 1).flat();
+  const candidateUseIds = new Set(candidates.map(use => use.useId));
+  const uses = candidates.filter(use => {
     if (use.kind !== "use") return false;
     const visit = visits.get(use.visitId);
     if (!visit
@@ -115,10 +125,21 @@ function structurallyValidHeartUses(contentDecks) {
       || use.slotId !== visit.slotId
       || use.recordId !== visit.recordId
       || use.journeyStep !== visit.journeyStep) return false;
-    if (use.actionUseId === visit.ownerActionUseId) return true;
-    return Boolean(state.heartWords.uses[`${visit.visitId}:${visit.ownerActionUseId}`]?.kind === "use");
+    if (use.actionUseId === visit.ownerActionUseId) {
+      return use.activityType === visit.ownerActivityType;
+    }
+    const owner = state.heartWords.uses[`${visit.visitId}:${visit.ownerActionUseId}`];
+    return Boolean(owner?.kind === "use"
+      && candidateUseIds.has(owner.useId)
+      && owner.category === visit.category
+      && owner.visitId === visit.visitId
+      && owner.contentInstanceId === visit.contentInstanceId
+      && owner.visitOwnerId === visit.visitOwnerId
+      && owner.slotId === visit.slotId
+      && owner.recordId === visit.recordId
+      && owner.journeyStep === visit.journeyStep
+      && owner.activityType === visit.ownerActivityType);
   });
-  HEART_USE_CACHE.set(state, uses);
   return uses;
 }
 
@@ -147,7 +168,7 @@ export function rankContentDeckCandidates(records, contentDecks, context = {}) {
         || { count: 0, last: Number.NEGATIVE_INFINITY })
     })).sort((left, right) => left.count - right.count
       || left.last - right.last
-      || left.activityType.localeCompare(right.activityType));
+      || compareCanonicalIds(left.activityType, right.activityType));
     const aggregateCount = activity.reduce((sum, item) => sum + item.count, 0);
     const worst = activity[0] || { count: uses.filter(use => use.recordId === record.recordId).length,
       last: Number.NEGATIVE_INFINITY };
@@ -169,7 +190,7 @@ export function rankContentDeckCandidates(records, contentDecks, context = {}) {
     for (let index = 0; index < left.tuple.length; index += 1) {
       if (left.tuple[index] !== right.tuple[index]) return left.tuple[index] - right.tuple[index];
     }
-    return left.record.recordId.localeCompare(right.record.recordId);
+    return compareCanonicalIds(left.record.recordId, right.record.recordId);
   });
   return Object.freeze(ranked.map(item => item.record));
 }
@@ -238,7 +259,7 @@ export function serveContentDeck(contentDecks, input = {}) {
   const binding = canonicalOwnerBinding(input.binding);
   const visitId = typeof input.visitId === "string" && input.visitId.trim() ? input.visitId.trim() : null;
   const stopId = typeof input.stopId === "string" && input.stopId.trim() ? input.stopId.trim() : null;
-  const journeyStep = Number.isInteger(input.journeyStep) && input.journeyStep > 0
+  const journeyStep = Number.isSafeInteger(input.journeyStep) && input.journeyStep > 0
     ? input.journeyStep
     : null;
   if (!visitId || !stopId || journeyStep === null) throw new Error("content deck serve identity is invalid");
@@ -249,13 +270,22 @@ export function serveContentDeck(contentDecks, input = {}) {
   const existing = state[binding.category].visits[visitId];
   if (existing) {
     const rehydrated = rehydrateServedContentInstance(state, { category: binding.category, visitId });
-    if (!rehydrated || existing.stopId !== stopId || existing.journeyStep !== journeyStep) {
+    if (!rehydrated
+      || existing.stopId !== stopId
+      || existing.journeyStep !== journeyStep
+      || rehydrated.category !== binding.category
+      || rehydrated.slotId !== binding.slotId
+      || rehydrated.contentInstanceId !== binding.contentInstanceId
+      || rehydrated.visitOwnerId !== binding.visitOwnerId
+      || rehydrated.ownerActionUseId !== binding.actionUseId) {
       throw new Error("existing content deck visit is divergent");
     }
     return rehydrated;
   }
-  const duplicateClaim = validVisits(state, binding.category).find(visit =>
-    visit.contentInstanceId === binding.contentInstanceId && visit.journeyStep === journeyStep);
+  const duplicateClaim = Object.values(state[binding.category].visits).find(visit =>
+    visit.kind === "visit"
+      && visit.contentInstanceId === binding.contentInstanceId
+      && visit.journeyStep === journeyStep);
   if (duplicateClaim) throw new Error("content instance already has a visit at this journey step");
 
   const candidates = candidateRecords(state, binding, { stopId });
@@ -335,27 +365,46 @@ export function recordContentDeckUse(contentDecks, served, binding) {
     visitId: served.visitId
   });
   if (!current) throw new Error("content use cannot rehydrate its canonical visit");
-  const canonicalOwner = getContentDeckOwnerBinding(binding.category, binding.slotId);
-  if (binding.isVisitOwner !== true) {
-    const ownerUseId = `${current.visitId}:${canonicalOwner.actionUseId}`;
-    if (state.heartWords.uses[ownerUseId]?.kind !== "use") {
-      throw new Error("shared heart-word use requires the owner use first");
-    }
+  if (current.category !== canonicalBinding.category
+    || current.slotId !== canonicalBinding.slotId
+    || current.contentInstanceId !== canonicalBinding.contentInstanceId
+    || current.visitOwnerId !== canonicalBinding.visitOwnerId) {
+    throw new Error("content use binding does not own the current visit");
   }
-  const useId = `${current.visitId}:${binding.actionUseId}`;
-  const use = deepFreeze({
+  const canonicalOwner = getContentDeckOwnerBinding(binding.category, binding.slotId);
+  const canonicalUseFor = actionBinding => deepFreeze({
     kind: "use",
-    useId,
+    useId: `${current.visitId}:${actionBinding.actionUseId}`,
     visitId: current.visitId,
     contentInstanceId: current.contentInstanceId,
     visitOwnerId: current.visitOwnerId,
-    actionUseId: binding.actionUseId,
+    actionUseId: actionBinding.actionUseId,
     category: "heartWords",
     slotId: current.slotId,
     recordId: current.recordId,
     journeyStep: current.journeyStep,
-    activityType: binding.requiredActivityType
+    activityType: actionBinding.requiredActivityType
   });
+  if (binding.isVisitOwner !== true) {
+    const ownerUseId = `${current.visitId}:${canonicalOwner.actionUseId}`;
+    const ownerClaims = Object.values(state.heartWords.uses).filter(item =>
+      item.kind === "use"
+        && item.visitId === current.visitId
+        && item.actionUseId === canonicalOwner.actionUseId);
+    if (ownerClaims.length !== 1
+      || ownerClaims[0].useId !== ownerUseId
+      || !sameValue(ownerClaims[0], canonicalUseFor(canonicalOwner))) {
+      throw new Error("shared heart-word use requires the owner use first");
+    }
+  }
+  const useId = `${current.visitId}:${binding.actionUseId}`;
+  const competingClaim = Object.values(state.heartWords.uses).find(item =>
+    item.kind === "use"
+      && item.visitId === current.visitId
+      && item.actionUseId === binding.actionUseId
+      && item.useId !== useId);
+  if (competingClaim) throw new Error("heart-word action already has a divergent use claim");
+  const use = canonicalUseFor(binding);
   const existing = state.heartWords.uses[useId];
   if (existing) {
     if (!sameValue(existing, use)) throw new Error("immutable heart-word use is divergent");

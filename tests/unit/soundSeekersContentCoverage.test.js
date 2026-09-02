@@ -3,8 +3,17 @@ import test from "node:test";
 
 import { SOUND_SEEKERS_EXPEDITIONS } from "../../src/features/soundSeekers/content/expeditions.js";
 import { CONTENT_DECK_PLACEMENTS } from "../../src/features/soundSeekers/content/contentDeckBindings.js";
+import { CONTENT_DECK_CATEGORIES } from "../../src/features/soundSeekers/content/contentDeckCatalogs.js";
 import { createSoundSeekersState, mergeSoundSeekersStates } from "../../src/features/soundSeekers/engine/stateV2.js";
-import { recordContentDeckUse, serveContentDeck } from "../../src/features/soundSeekers/engine/contentDeckScheduler.js";
+import {
+  createContentDeckState,
+  validContentDeckVisits
+} from "../../src/features/soundSeekers/engine/contentDeckState.js";
+import {
+  recordContentDeckUse,
+  rehydrateServedContentInstance,
+  serveContentDeck
+} from "../../src/features/soundSeekers/engine/contentDeckScheduler.js";
 import {
   beginContentPlacementAttempt,
   beginStoryTransferTransaction,
@@ -21,7 +30,7 @@ import {
   validContentDeckUses
 } from "../../src/features/soundSeekers/engine/contentCoverage.js";
 
-function completeCanonicalState() {
+export function completeCanonicalContentCoverageState() {
   let state = createSoundSeekersState();
   for (const expedition of SOUND_SEEKERS_EXPEDITIONS) {
     for (const opportunity of expedition.heartWordOpportunities) {
@@ -82,8 +91,145 @@ function completeCanonicalState() {
   return state;
 }
 
+export function structurallyValidUnauthorisedContentDeckFixture() {
+  const contentDecks = createContentDeckState();
+  const evidence = [];
+  const attemptReceipts = {};
+  const entryIds = {};
+  const recordIds = {};
+  const makeVisit = (category, overrides = {}) => {
+    const visitId = `unauthorised:${category}:visit`;
+    const visitOwnerId = `unauthorised:${category}:owner`;
+    const actionUseId = `unauthorised:${category}:action`;
+    const recordId = `unauthorised:${category}:record`;
+    entryIds[category] = { visitId, useId: `unauthorised:${category}:use` };
+    recordIds[category] = recordId;
+    return {
+      kind: "visit",
+      visitId,
+      contentInstanceId: `unauthorised:${category}:instance`,
+      visitOwnerId,
+      ownerActionUseId: actionUseId,
+      category,
+      slotId: `unauthorised:${category}:slot`,
+      recordId,
+      contentId: `unauthorised:${category}:content`,
+      targetId: null,
+      wordId: null,
+      stopId: "s1",
+      journeyStep: 1,
+      ...overrides
+    };
+  };
+  const makeUse = (category, visit, overrides = {}) => ({
+    kind: "use",
+    useId: entryIds[category].useId,
+    visitId: visit.visitId,
+    contentInstanceId: visit.contentInstanceId,
+    visitOwnerId: visit.visitOwnerId,
+    actionUseId: visit.ownerActionUseId,
+    category,
+    slotId: visit.slotId,
+    recordId: visit.recordId,
+    journeyStep: visit.journeyStep,
+    ...overrides
+  });
+  const makeEvent = attemptId => {
+    const event = {
+      id: `${attemptId}:0`,
+      at: "2026-09-02T00:00:00.000Z",
+      evidenceKind: "practice",
+      correct: true,
+      supportLevel: 0,
+      revealed: false
+    };
+    evidence.push(event);
+    return event;
+  };
+  const makeReceipt = ({ attemptId, operation, subjectId, useIds, eventIds }) => {
+    attemptReceipts[attemptId] = {
+      kind: "attempt_receipt",
+      attemptId,
+      operation,
+      subjectId,
+      decisionOrdinal: 0,
+      attemptOrdinal: 0,
+      inputSha256: "a".repeat(64),
+      completed: true,
+      correctionRecordIds: [],
+      eventIds,
+      useIds
+    };
+  };
+
+  const heartVisit = makeVisit("heartWords", {
+    targetId: "unauthorised:heartWords:target",
+    wordId: "unauthorised-heart-word",
+    ownerActivityType: "recognition"
+  });
+  const heartUse = makeUse("heartWords", heartVisit, { activityType: "recognition" });
+  contentDecks.heartWords.visits[heartVisit.visitId] = heartVisit;
+  contentDecks.heartWords.uses[heartUse.useId] = heartUse;
+
+  for (const category of ["alternatives", "morphology"]) {
+    const visit = makeVisit(category, category === "morphology"
+      ? { wordId: "unauthorised-morphology-word" }
+      : {});
+    const subjectId = visit.visitOwnerId;
+    const attemptId = `content-placement-attempt:unauthorised:${category}:${subjectId}:0:0`;
+    const use = makeUse(category, visit, { attemptReceiptIds: [attemptId] });
+    const eventIds = category === "alternatives" ? [makeEvent(attemptId).id] : [];
+    makeReceipt({
+      attemptId,
+      operation: "content_placement",
+      subjectId,
+      useIds: [use.useId],
+      eventIds
+    });
+    contentDecks[category].visits[visit.visitId] = visit;
+    contentDecks[category].uses[use.useId] = use;
+  }
+
+  const transactionId = "unauthorised:story-transfer:transaction";
+  const storyVisit = makeVisit("stories", {
+    targetId: "unauthorised:story:target"
+  });
+  const transferVisit = makeVisit("transfer", {
+    targetId: "unauthorised:transfer:target"
+  });
+  const attemptId = `story-transfer-attempt:${transactionId}:0`;
+  const event = makeEvent(attemptId);
+  const common = {
+    attemptReceiptIds: [attemptId],
+    transactionId,
+    evidenceEventId: event.id,
+    narrativeChoiceToken: null
+  };
+  const storyUse = makeUse("stories", storyVisit, {
+    ...common,
+    pairedUseId: entryIds.transfer.useId
+  });
+  const transferUse = makeUse("transfer", transferVisit, {
+    ...common,
+    pairedUseId: entryIds.stories.useId
+  });
+  contentDecks.stories.visits[storyVisit.visitId] = storyVisit;
+  contentDecks.stories.uses[storyUse.useId] = storyUse;
+  contentDecks.transfer.visits[transferVisit.visitId] = transferVisit;
+  contentDecks.transfer.uses[transferUse.useId] = transferUse;
+  makeReceipt({
+    attemptId,
+    operation: "story_transfer",
+    subjectId: transactionId,
+    useIds: [storyUse.useId, transferUse.useId],
+    eventIds: [event.id]
+  });
+
+  return { contentDecks, evidence, attemptReceipts, entryIds, recordIds };
+}
+
 test("canonical public reducers reach exact whole-state coverage totals", () => {
-  const state = completeCanonicalState();
+  const state = completeCanonicalContentCoverageState();
   assert.deepEqual(coverageStatus(state), {
     complete: true,
     categories: {
@@ -106,8 +252,132 @@ test("canonical public reducers reach exact whole-state coverage totals", () => 
   });
 });
 
+test("structurally valid unauthorised records survive sync without earning product coverage", () => {
+  const unauthorised = structurallyValidUnauthorisedContentDeckFixture();
+  assert.deepEqual(Object.keys(unauthorised), [
+    "contentDecks", "evidence", "attemptReceipts", "entryIds", "recordIds"
+  ]);
+  for (const category of CONTENT_DECK_CATEGORIES) {
+    const { visitId } = unauthorised.entryIds[category];
+    assert.equal(validContentDeckVisits(unauthorised.contentDecks, category).length, 1, category);
+    assert.equal(validContentDeckUses(unauthorised, category).length, 1, category);
+    assert.equal(deriveContentDeckRecordStats(
+      unauthorised, category, unauthorised.recordIds[category]
+    ).useCount, 1, category);
+    assert.equal(rehydrateServedContentInstance(unauthorised.contentDecks, {
+      category,
+      visitId
+    }), null, `${category}: invented identity must not rehydrate`);
+  }
+  assert.deepEqual(coverageStatus(unauthorised), {
+    complete: false,
+    categories: {
+      heartWords: { coveredRecordCount: 0, totalRecordCount: 60 },
+      stories: { coveredRecordCount: 0, totalRecordCount: 40 },
+      alternatives: { coveredRecordCount: 0, totalRecordCount: 4 },
+      morphology: { coveredRecordCount: 0, totalRecordCount: 1 },
+      transfer: { coveredRecordCount: 0, totalRecordCount: 40 }
+    }
+  });
+
+  const alternativeReceipt = Object.values(unauthorised.attemptReceipts)
+    .find(receipt => receipt.subjectId === "unauthorised:alternatives:owner");
+  const alternativeEvent = unauthorised.evidence
+    .find(event => event.id === alternativeReceipt.eventIds[0]);
+  const missingDependency = {
+    ...unauthorised,
+    evidence: unauthorised.evidence.filter(event => event.id !== alternativeEvent.id)
+  };
+  assert.equal(validContentDeckUses(missingDependency, "alternatives").length, 0);
+  const repaired = mergeSoundSeekersStates(
+    createSoundSeekersState(missingDependency),
+    createSoundSeekersState({ evidence: [alternativeEvent] })
+  );
+  assert.equal(validContentDeckUses(repaired, "alternatives").length, 1,
+    "an exact later dependency repairs raw structural statistics");
+  assert.equal(coverageStatus(repaired).categories.alternatives.coveredRecordCount, 0);
+
+  const canonical = completeCanonicalContentCoverageState();
+  const merged = mergeSoundSeekersStates(canonical, createSoundSeekersState(unauthorised));
+  for (const category of CONTENT_DECK_CATEGORIES) {
+    const { visitId, useId } = unauthorised.entryIds[category];
+    assert.deepEqual(merged.contentDecks[category].visits[visitId],
+      createSoundSeekersState(unauthorised).contentDecks[category].visits[visitId]);
+    assert.deepEqual(merged.contentDecks[category].uses[useId],
+      createSoundSeekersState(unauthorised).contentDecks[category].uses[useId]);
+    assert.equal(deriveContentDeckRecordStats(
+      merged, category, unauthorised.recordIds[category]
+    ).useCount, 1);
+  }
+  assert.equal(coverageStatus(merged).complete, true,
+    "invented structural records cannot inflate or break canonical product coverage");
+});
+
+test("receipt evidence deduplicates only after shared activity normalization", () => {
+  const fixture = structurallyValidUnauthorisedContentDeckFixture();
+  const receipt = Object.values(fixture.attemptReceipts)
+    .find(item => item.subjectId === "unauthorised:alternatives:owner");
+  const eventIndex = fixture.evidence.findIndex(event => event.id === receipt.eventIds[0]);
+  const baseEvent = fixture.evidence[eventIndex];
+
+  const nonHeart = structuredClone(fixture);
+  nonHeart.evidence[eventIndex] = {
+    ...baseEvent,
+    domain: "connected_text_transfer"
+  };
+  nonHeart.evidence.push({
+    ...baseEvent,
+    domain: "connected_text_transfer",
+    activityType: "encoding"
+  });
+  assert.equal(validAttemptReceipts(nonHeart)
+    .some(item => item.attemptId === receipt.attemptId), true,
+  "illegal non-heart activity is removed before duplicate comparison");
+
+  const heartAlias = structuredClone(fixture);
+  heartAlias.evidence[eventIndex] = {
+    ...baseEvent,
+    domain: "heart_word_mapping",
+    activityType: "recognition"
+  };
+  heartAlias.evidence.push({
+    ...baseEvent,
+    domain: "heart_word_mapping",
+    activityType: "\trecognition\n"
+  });
+  assert.equal(validAttemptReceipts(heartAlias)
+    .some(item => item.attemptId === receipt.attemptId), true,
+  "heart activity whitespace aliases normalize before duplicate comparison");
+});
+
+test("duplicate receipt ordinals invalidate the whole contiguous tail", () => {
+  const state = completeCanonicalContentCoverageState();
+  const original = validAttemptReceipts(state).find(receipt =>
+    receipt.subjectId === "s16-alternative"
+    && receipt.decisionOrdinal === 0
+    && receipt.attemptOrdinal === 0);
+  const duplicateAttemptId =
+    "content-placement-attempt:duplicate:s16-alternative:s16-alternative:0:0";
+  const duplicateEvent = {
+    ...state.evidence.find(event => event.id === original.eventIds[0]),
+    id: `${duplicateAttemptId}:0`
+  };
+  const forged = structuredClone(state);
+  forged.evidence.push(duplicateEvent);
+  forged.attemptReceipts[duplicateAttemptId] = {
+    ...original,
+    attemptId: duplicateAttemptId,
+    eventIds: [duplicateEvent.id]
+  };
+  assert.deepEqual(validAttemptReceipts(forged)
+    .filter(receipt => receipt.subjectId === "s16-alternative"), [],
+  "both duplicate ordinal claimants and every later attempt are invalid");
+  assert.equal(validContentDeckUses(forged, "alternatives")
+    .some(use => use.visitOwnerId === "s16-alternative"), false);
+});
+
 test("immutable visit, use, evidence, and receipt conflicts are absorbing", () => {
-  const complete = completeCanonicalState();
+  const complete = completeCanonicalContentCoverageState();
   const visitId = Object.keys(complete.contentDecks.alternatives.visits)[0];
   const visit = complete.contentDecks.alternatives.visits[visitId];
   const conflicting = structuredClone(complete);
@@ -137,7 +407,7 @@ test("older v2 saves gain all five empty deck branches and the answer-safe recei
 });
 
 test("a canonical alternative use requires every authored target receipt", () => {
-  const state = completeCanonicalState();
+  const state = completeCanonicalContentCoverageState();
   const use = validContentDeckUses(state, "alternatives")
     .find(item => item.visitOwnerId === "s16-alternative");
   const [firstAttemptId, finalAttemptId] = use.attemptReceiptIds;
@@ -146,14 +416,15 @@ test("a canonical alternative use requires every authored target receipt", () =>
   forged.attemptReceipts[firstAttemptId].useIds = [use.useId];
   forged.contentDecks.alternatives.uses[use.useId].attemptReceiptIds = [firstAttemptId];
   delete forged.attemptReceipts[finalAttemptId];
-  assert.equal(validAttemptReceipts(forged).length > 0, true,
-    "the generic receipt projection can retain the structurally contiguous prefix");
+  assert.equal(validAttemptReceipts(forged)
+    .some(receipt => receipt.attemptId === firstAttemptId), false,
+  "a known non-final alternative target cannot claim completion or own the final use");
   assert.equal(validContentDeckUses(forged, "alternatives")
     .some(item => item.useId === use.useId), false);
 });
 
 test("duplicate receipt dependencies and duplicate visit/action claims fail closed", () => {
-  const state = completeCanonicalState();
+  const state = completeCanonicalContentCoverageState();
   const alternativeUse = validContentDeckUses(state, "alternatives")[0];
   const finalReceiptId = alternativeUse.attemptReceiptIds.at(-1);
   const duplicateDependencies = structuredClone(state);
@@ -175,4 +446,141 @@ test("duplicate receipt dependencies and duplicate visit/action claims fail clos
   assert.equal(validContentDeckUses(duplicateClaim, "heartWords")
     .filter(item => item.visitId === heartUse.visitId
       && item.actionUseId === heartUse.actionUseId).length, 0);
+
+  const heartUsesByVisit = Map.groupBy(
+    validContentDeckUses(state, "heartWords"), use => use.visitId);
+  const [sharedVisitId, sharedVisitUses] = [...heartUsesByVisit]
+    .find(([, uses]) => uses.length === 2);
+  const sharedVisit = state.contentDecks.heartWords.visits[sharedVisitId];
+  const ownerUseId = `${sharedVisitId}:${sharedVisit.ownerActionUseId}`;
+  const ownerUse = state.contentDecks.heartWords.uses[ownerUseId];
+  const duplicatedOwner = structuredClone(state);
+  duplicatedOwner.contentDecks.heartWords.uses[`${ownerUseId}:duplicate`] = {
+    ...ownerUse,
+    useId: `${ownerUseId}:duplicate`
+  };
+  assert.equal(validContentDeckUses(duplicatedOwner, "heartWords")
+    .filter(use => use.visitId === sharedVisitId).length, 0,
+  "a shared activity cannot outlive a duplicate-conflicted owner claim");
+  assert.equal(sharedVisitUses.some(use => use.actionUseId !== sharedVisit.ownerActionUseId), true);
+
+  const wrongOwnerActivity = structuredClone(state);
+  wrongOwnerActivity.contentDecks.heartWords.uses[ownerUseId].activityType =
+    ownerUse.activityType === "recognition" ? "encoding" : "recognition";
+  assert.equal(validContentDeckUses(wrongOwnerActivity, "heartWords")
+    .filter(use => use.visitId === sharedVisitId).length, 0,
+  "an owner activity mismatch invalidates both owner and dependent shared use");
+  assert.equal(coverageStatus(wrongOwnerActivity).categories.heartWords.coveredRecordCount < 60, true);
+
+  const invalidParentClaim = structuredClone(state);
+  invalidParentClaim.contentDecks.alternatives.uses[`${alternativeUse.useId}:orphan-claim`] = {
+    ...alternativeUse,
+    useId: `${alternativeUse.useId}:orphan-claim`,
+    slotId: "tampered-slot"
+  };
+  assert.equal(validContentDeckUses(invalidParentClaim, "alternatives")
+    .some(use => use.useId === alternativeUse.useId), false,
+  "an invalid-parent duplicate action claim must poison the canonical claim");
+
+  const storyUse = validContentDeckUses(state, "stories")[0];
+  const transferPair = state.contentDecks.transfer.uses[storyUse.pairedUseId];
+  const duplicatedPair = structuredClone(state);
+  duplicatedPair.contentDecks.transfer.uses[`${transferPair.useId}:duplicate`] = {
+    ...transferPair,
+    useId: `${transferPair.useId}:duplicate`
+  };
+  assert.equal(validContentDeckUses(duplicatedPair, "stories")
+    .some(use => use.useId === storyUse.useId), false,
+  "a composite half cannot survive a duplicate-conflicted reciprocal claim");
+  assert.equal(validContentDeckUses(duplicatedPair, "transfer")
+    .some(use => use.useId === transferPair.useId), false);
+
+  const mismatchedPairStop = structuredClone(state);
+  mismatchedPairStop.contentDecks.transfer.visits[transferPair.visitId].stopId = "s2";
+  assert.equal(validContentDeckUses(mismatchedPairStop, "stories")
+    .some(use => use.useId === storyUse.useId), false,
+  "reciprocal parent visits must belong to the same stop");
+
+  const mismatchedPairJourney = structuredClone(state);
+  mismatchedPairJourney.contentDecks.transfer.uses[transferPair.useId].journeyStep += 1;
+  assert.equal(validContentDeckUses(mismatchedPairJourney, "stories")
+    .some(use => use.useId === storyUse.useId), false,
+  "the reciprocal use must match its own parent journey");
+
+  const s16Use = validContentDeckUses(state, "alternatives")
+    .find(item => item.visitOwnerId === "s16-alternative");
+  const s16Receipt = state.attemptReceipts[s16Use.attemptReceiptIds.at(-1)];
+  const s16Event = state.evidence.find(event => event.id === s16Receipt.eventIds[0]);
+  const s28Use = validContentDeckUses(state, "alternatives")
+    .find(item => item.visitOwnerId === "s28-alternative");
+  const poisonedOwnership = structuredClone(state);
+  const s28ReceiptId = s28Use.attemptReceiptIds.at(-1);
+  poisonedOwnership.attemptReceipts[s28ReceiptId].useIds = [s16Use.useId];
+  const validReceiptIds = new Set(validAttemptReceipts(poisonedOwnership)
+    .map(receipt => receipt.attemptId));
+  assert.equal(validReceiptIds.has(s16Use.attemptReceiptIds.at(-1)), false,
+    "every receipt sharing a use claim must fail closed");
+  assert.equal(validReceiptIds.has(s28ReceiptId), false,
+    "the competing receipt must also fail closed");
+  assert.equal(validContentDeckUses(poisonedOwnership, "alternatives")
+    .some(item => item.useId === s16Use.useId), false);
+
+  const closedIntermediate = structuredClone(state);
+  const intermediateReceiptId = s16Use.attemptReceiptIds[0];
+  closedIntermediate.attemptReceipts[intermediateReceiptId].completed = true;
+  assert.equal(validAttemptReceipts(closedIntermediate)
+    .some(receipt => receipt.attemptId === intermediateReceiptId), false,
+  "a correct zero-use intermediate receipt cannot claim completion");
+
+  const eventBearingMorphology = structuredClone(state);
+  const morphologyUseForShape = validContentDeckUses(state, "morphology")[0];
+  const morphologyReceiptId = morphologyUseForShape.attemptReceiptIds[0];
+  const forgedMorphologyEvent = {
+    ...s16Event,
+    id: `${morphologyReceiptId}:0`,
+    correct: true,
+    supportLevel: 0,
+    revealed: false
+  };
+  eventBearingMorphology.evidence.push(forgedMorphologyEvent);
+  eventBearingMorphology.attemptReceipts[morphologyReceiptId].eventIds = [
+    forgedMorphologyEvent.id
+  ];
+  assert.equal(validAttemptReceipts(eventBearingMorphology)
+    .some(receipt => receipt.attemptId === morphologyReceiptId), false,
+  "a morphology completion must remain the exact zero-event exposure shape");
+
+  const morphologyUse = validContentDeckUses(state, "morphology")[0];
+  const crossCategoryDuplicate = structuredClone(state);
+  crossCategoryDuplicate.contentDecks.alternatives.uses[morphologyUse.useId] = {
+    ...morphologyUse,
+    category: "alternatives"
+  };
+  assert.equal(validAttemptReceipts(crossCategoryDuplicate)
+    .some(receipt => receipt.useIds.includes(morphologyUse.useId)), false,
+  "a duplicate use id in another category must invalidate every receipt claimant");
+  assert.equal(validContentDeckUses(crossCategoryDuplicate, "morphology").length, 0);
+
+  const duplicateEvidence = structuredClone(state);
+  duplicateEvidence.evidence.push(structuredClone(s16Event));
+  assert.equal(validAttemptReceipts(duplicateEvidence)
+    .some(receipt => receipt.attemptId === s16Receipt.attemptId), true,
+  "byte-identical duplicate evidence is idempotent like the SQL evidence union");
+
+  const divergentEvidence = structuredClone(duplicateEvidence);
+  divergentEvidence.evidence.at(-1).correct = !s16Event.correct;
+  assert.equal(validAttemptReceipts(divergentEvidence)
+    .some(receipt => receipt.attemptId === s16Receipt.attemptId), false,
+  "divergent evidence with one identity is an absorbing conflict");
+
+  const conflictEvidence = structuredClone(state);
+  conflictEvidence.evidence.push({
+    id: s16Event.id,
+    at: s16Event.at,
+    evidenceKind: "conflict",
+    conflicted: true
+  });
+  assert.equal(validAttemptReceipts(conflictEvidence)
+    .some(receipt => receipt.attemptId === s16Receipt.attemptId), false,
+  "an existing evidence conflict marker remains absorbing");
 });

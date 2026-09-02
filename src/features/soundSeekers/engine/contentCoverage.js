@@ -11,6 +11,7 @@ import { rehydrateServedContentInstance } from "./contentDeckScheduler.js";
 import {
   createContentDeckState,
   normalizeAttemptReceipts,
+  normalizeSoundSeekersEvidenceEvent,
   validContentDeckVisits
 } from "./contentDeckState.js";
 
@@ -28,22 +29,42 @@ function deepFreeze(value) {
   return Object.freeze(value);
 }
 
+function canonicalJson(value) {
+  if (Array.isArray(value)) return value.map(canonicalJson);
+  if (!value || typeof value !== "object") return value;
+  return Object.fromEntries(Object.keys(value).sort()
+    .map(key => [key, canonicalJson(value[key])]));
+}
+
+function compareCanonicalIds(left, right) {
+  const leftPoints = [...left];
+  const rightPoints = [...right];
+  const length = Math.min(leftPoints.length, rightPoints.length);
+  for (let index = 0; index < length; index += 1) {
+    const difference = leftPoints[index].codePointAt(0) - rightPoints[index].codePointAt(0);
+    if (difference) return difference;
+  }
+  return leftPoints.length - rightPoints.length;
+}
+
 function asState(raw) {
   const value = raw && typeof raw === "object" && !Array.isArray(raw) ? raw : {};
   return {
     ...value,
     contentDecks: createContentDeckState(value.contentDecks),
     attemptReceipts: normalizeAttemptReceipts(value.attemptReceipts),
-    evidence: Array.isArray(value.evidence) ? value.evidence : []
+    evidence: (Array.isArray(value.evidence) ? value.evidence : [])
+      .map(normalizeSoundSeekersEvidenceEvent)
+      .filter(Boolean)
   };
 }
 
 function receiptOrder(left, right) {
-  return left.operation.localeCompare(right.operation)
-    || left.subjectId.localeCompare(right.subjectId)
+  return compareCanonicalIds(left.operation, right.operation)
+    || compareCanonicalIds(left.subjectId, right.subjectId)
     || left.decisionOrdinal - right.decisionOrdinal
     || left.attemptOrdinal - right.attemptOrdinal
-    || left.attemptId.localeCompare(right.attemptId);
+    || compareCanonicalIds(left.attemptId, right.attemptId);
 }
 
 function expectedAttemptId(receipt) {
@@ -87,8 +108,10 @@ function receiptResultShape(receipt, event, referencedUses) {
       && receipt.useIds.length === 0;
   }
 
+  const placement = CONTENT_DECK_PLACEMENTS.find(item => item.placementId === receipt.subjectId);
   if (!event) {
-    return receipt.decisionOrdinal === 0
+    return placement?.category !== "alternatives"
+      && receipt.decisionOrdinal === 0
       && receipt.attemptOrdinal === 0
       && receipt.completed === true
       && receipt.correctionRecordIds.length === 0
@@ -96,10 +119,26 @@ function receiptResultShape(receipt, event, referencedUses) {
       && receipt.useIds.length === 1
       && referencedUses[0]?.category === "morphology";
   }
+  if (placement?.category === "morphology") return false;
   if (event.correct) {
+    if (placement?.category === "alternatives") {
+      const finalOrdinal = placement.challengeTargetIds.length - 1;
+      if (receipt.decisionOrdinal < finalOrdinal) {
+        return receipt.correctionRecordIds.length === 0
+          && receipt.useIds.length === 0
+          && receipt.completed === false;
+      }
+      return receipt.decisionOrdinal === finalOrdinal
+        && receipt.correctionRecordIds.length === 0
+        && receipt.useIds.length === 1
+        && receipt.completed === true
+        && referencedUses[0]?.category === "alternatives";
+    }
     return receipt.correctionRecordIds.length === 0
-      && receipt.useIds.length <= 1
-      && (!receipt.useIds.length || receipt.completed === true);
+      && ((receipt.useIds.length === 0 && receipt.completed === false)
+        || (receipt.useIds.length === 1
+          && receipt.completed === true
+          && referencedUses[0]?.category === "alternatives"));
   }
   return receipt.completed === false
     && exactArray(receipt.correctionRecordIds, [`content-correction:${receipt.attemptId}`])
@@ -108,17 +147,62 @@ function receiptResultShape(receipt, event, referencedUses) {
 
 export function validAttemptReceipts(rawState) {
   const state = asState(rawState);
-  const evidenceById = new Map(state.evidence.map(event => [event?.id, event]));
-  const rawUses = new Map(CONTENT_DECK_CATEGORIES.flatMap(category =>
-    Object.values(state.contentDecks[category].uses).map(use => [use.useId, use])));
+  const evidenceGroups = new Map();
+  for (const event of state.evidence) {
+    if (!event?.id) continue;
+    const group = evidenceGroups.get(event.id) || [];
+    group.push(event);
+    evidenceGroups.set(event.id, group);
+  }
+  const evidenceById = new Map([...evidenceGroups]
+    .map(([id, group]) => {
+      const hasConflict = group.some(event =>
+        event.evidenceKind === "conflict" || event.conflicted === true);
+      const distinctPayloads = new Set(group.map(event => JSON.stringify(canonicalJson(event))));
+      return [id, !hasConflict && distinctPayloads.size === 1 ? group[0] : null];
+    }));
+  const rawUseGroups = new Map();
+  for (const category of CONTENT_DECK_CATEGORIES) {
+    for (const use of Object.values(state.contentDecks[category].uses)) {
+      if (use?.kind !== "use") continue;
+      const group = rawUseGroups.get(use.useId) || [];
+      group.push(use);
+      rawUseGroups.set(use.useId, group);
+    }
+  }
+  const rawUses = new Map([...rawUseGroups]
+    .map(([id, group]) => [id, group.length === 1 ? group[0] : null]));
   const receipts = Object.values(state.attemptReceipts)
     .filter(receipt => receipt.kind === "attempt_receipt")
     .sort(receiptOrder);
+  const eventClaimCounts = new Map();
+  const useClaimCounts = new Map();
+  const ordinalClaimCounts = new Map();
+  for (const receipt of receipts) {
+    const ordinalClaim = [
+      receipt.operation,
+      receipt.subjectId,
+      receipt.decisionOrdinal,
+      receipt.attemptOrdinal
+    ].join("\u0000");
+    ordinalClaimCounts.set(ordinalClaim, (ordinalClaimCounts.get(ordinalClaim) || 0) + 1);
+    for (const eventId of receipt.eventIds) {
+      eventClaimCounts.set(eventId, (eventClaimCounts.get(eventId) || 0) + 1);
+    }
+    for (const useId of receipt.useIds) {
+      useClaimCounts.set(useId, (useClaimCounts.get(useId) || 0) + 1);
+    }
+  }
   const preliminary = [];
-  const eventOwners = new Map();
-  const useOwners = new Map();
 
   for (const receipt of receipts) {
+    const ordinalClaim = [
+      receipt.operation,
+      receipt.subjectId,
+      receipt.decisionOrdinal,
+      receipt.attemptOrdinal
+    ].join("\u0000");
+    if (ordinalClaimCounts.get(ordinalClaim) !== 1) continue;
     if (expectedAttemptId(receipt) !== receipt.attemptId) continue;
     const events = receipt.eventIds.map(eventId => evidenceById.get(eventId));
     const uses = receipt.useIds.map(useId => rawUses.get(useId));
@@ -127,11 +211,9 @@ export function validAttemptReceipts(rawState) {
     if (receipt.eventIds.length > 1
       || (event && !validEventForReceipt(event, receipt))
       || !receiptResultShape(receipt, event, uses)) continue;
-    if (receipt.eventIds.some(id => eventOwners.has(id))
-      || receipt.useIds.some(id => useOwners.has(id))) continue;
+    if (receipt.eventIds.some(id => eventClaimCounts.get(id) !== 1)
+      || receipt.useIds.some(id => useClaimCounts.get(id) !== 1)) continue;
     preliminary.push(receipt);
-    receipt.eventIds.forEach(id => eventOwners.set(id, receipt.attemptId));
-    receipt.useIds.forEach(id => useOwners.set(id, receipt.attemptId));
   }
 
   const bySubject = new Map();
@@ -199,39 +281,57 @@ function validReceiptChain(use, validReceipts) {
   return receipts;
 }
 
-function rawValidUses(rawState, category) {
-  const state = asState(rawState);
-  if (!CONTENT_DECK_CATEGORIES.includes(category)) return [];
+function structurallyUniqueUseCandidates(state, category) {
   const visits = new Map(validContentDeckVisits(state.contentDecks, category)
     .map(visit => [visit.visitId, visit]));
-  const receiptMap = new Map(validAttemptReceipts(state)
-    .map(receipt => [receipt.attemptId, receipt]));
-  const parentCandidates = Object.values(state.contentDecks[category].uses)
-    .filter(use => use.kind === "use" && parentValid(use, visits.get(use.visitId)));
   const claims = new Map();
-  for (const use of parentCandidates) {
+  for (const use of Object.values(state.contentDecks[category].uses)) {
+    if (use.kind !== "use") continue;
     const claim = `${use.visitId}\u0000${use.actionUseId}`;
     const group = claims.get(claim) || [];
     group.push(use);
     claims.set(claim, group);
   }
-  const candidates = [...claims.values()].filter(group => group.length === 1).flat();
+  const candidates = [...claims.values()]
+    .filter(group => group.length === 1)
+    .flat()
+    .filter(use => parentValid(use, visits.get(use.visitId)));
+  return { visits, candidates, candidateUseIds: new Set(candidates.map(use => use.useId)) };
+}
+
+function rawValidUses(rawState, category) {
+  const state = asState(rawState);
+  if (!CONTENT_DECK_CATEGORIES.includes(category)) return [];
+  const { visits, candidates, candidateUseIds } = structurallyUniqueUseCandidates(
+    state, category);
+  const receiptMap = new Map(validAttemptReceipts(state)
+    .map(receipt => [receipt.attemptId, receipt]));
   if (category === "heartWords") {
     return candidates.filter(use => {
       const visit = visits.get(use.visitId);
-      if (use.actionUseId === visit.ownerActionUseId) return true;
+      if (use.actionUseId === visit.ownerActionUseId) {
+        return use.activityType === visit.ownerActivityType;
+      }
       const owner = state.contentDecks.heartWords.uses[`${visit.visitId}:${visit.ownerActionUseId}`];
-      return owner?.kind === "use" && parentValid(owner, visit);
+      return owner?.kind === "use"
+        && candidateUseIds.has(owner.useId)
+        && parentValid(owner, visit)
+        && owner.activityType === visit.ownerActivityType;
     });
   }
   const chained = candidates.filter(use => validReceiptChain(use, receiptMap));
   if (!new Set(["stories", "transfer"]).has(category)) return chained;
   return chained.filter(use => {
     const reciprocalCategory = category === "stories" ? "transfer" : "stories";
+    const reciprocal = structurallyUniqueUseCandidates(state, reciprocalCategory);
     const pair = state.contentDecks[reciprocalCategory].uses[use.pairedUseId];
-    const pairVisits = new Map(validContentDeckVisits(state.contentDecks, reciprocalCategory)
-      .map(visit => [visit.visitId, visit]));
-    if (!pair || pair.kind !== "use" || !parentValid(pair, pairVisits.get(pair.visitId))) return false;
+    const pairVisit = reciprocal.visits.get(pair?.visitId);
+    const currentVisit = visits.get(use.visitId);
+    if (!pair
+      || pair.kind !== "use"
+      || !reciprocal.candidateUseIds.has(pair.useId)
+      || !parentValid(pair, pairVisit)
+      || pairVisit.stopId !== currentVisit.stopId) return false;
     if (pair.pairedUseId !== use.useId
       || pair.transactionId !== use.transactionId
       || pair.evidenceEventId !== use.evidenceEventId
@@ -239,10 +339,7 @@ function rawValidUses(rawState, category) {
       || pair.journeyStep !== use.journeyStep
       || !exactArray(pair.attemptReceiptIds, use.attemptReceiptIds)
       || !validReceiptChain(pair, receiptMap)) return false;
-    const transferUse = category === "transfer" ? use : pair;
-    const transferVisit = pairVisits.get(pair.visitId)?.category === "transfer"
-      ? pairVisits.get(pair.visitId)
-      : visits.get(use.visitId);
+    const transferVisit = pairVisit?.category === "transfer" ? pairVisit : currentVisit;
     const token = use.narrativeChoiceToken;
     if (transferVisit?.wordId === null && token !== null) return false;
     if (transferVisit?.wordId !== null && (typeof token !== "string" || !token)) return false;
@@ -257,7 +354,7 @@ function rawValidUses(rawState, category) {
 export function validContentDeckUses(state, category) {
   return deepFreeze(rawValidUses(state, category)
     .sort((left, right) => left.journeyStep - right.journeyStep
-      || left.useId.localeCompare(right.useId)));
+      || compareCanonicalIds(left.useId, right.useId)));
 }
 
 export function deriveContentDeckRecordStats(state, category, recordId) {
@@ -298,7 +395,9 @@ export function coverageStatus(rawState) {
       const bindings = getContentDeckActionBindings(category, use.contentInstanceId);
       const binding = bindings.find(item => item.actionUseId === use.actionUseId);
       const owner = getContentDeckOwnerBinding(category, use.slotId);
-      if (!binding || !owner || served.ownerActionUseId !== owner.actionUseId) continue;
+      if (!binding || !owner || served.ownerActionUseId !== owner.actionUseId
+        || (category === "heartWords"
+          && use.activityType !== binding.requiredActivityType)) continue;
       covered.add(use.recordId);
     }
     categories[category] = {
