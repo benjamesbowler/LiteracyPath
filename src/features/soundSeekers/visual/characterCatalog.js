@@ -30,6 +30,22 @@ const BODY_SHAPE_IDS = new Set([
   "body-shape-bell"
 ]);
 const CAST_KINDS = new Set(["guide", "resident", "player"]);
+const PROPORTION_BY_BODY_SHAPE = Object.freeze({
+  "body-shape-sprout": "proportion-tall-sprout",
+  "body-shape-pebble": "proportion-grounded-pebble",
+  "body-shape-kite": "proportion-agile-kite",
+  "body-shape-bell": "proportion-broad-bell"
+});
+const MATERIAL_BY_CHAPTER = Object.freeze({
+  "seedwake-meadow": "material-leaf-and-lantern",
+  "river-gardens": "material-river-cloth-and-ceramic",
+  "fossil-canyon": "material-canvas-and-sandstone",
+  "forge-settlement": "material-wool-and-copper",
+  "glass-marsh": "material-reed-and-glass",
+  "storm-coast": "material-oilskin-and-rope",
+  "lantern-forest": "material-moss-and-bark",
+  "star-reach": "material-quilt-and-starlight"
+});
 
 function deepFreeze(value) {
   if (value === null || typeof value !== "object" || Object.isFrozen(value)) return value;
@@ -753,6 +769,39 @@ const canonicalCast = SOUND_SEEKERS_CHAPTERS.flatMap(chapter => [
   }))
 ]);
 
+function characterSlug(value) {
+  return value.toLocaleLowerCase("en-US").replace(/[^a-z0-9]+/gu, "-").replace(/^-|-$/gu, "");
+}
+
+function createCharacterArtProfile(characterId, chapterId, bodyShapeId, ordinal) {
+  return {
+    characterId,
+    silhouetteFamilyId: `silhouette-${characterSlug(characterId)}`,
+    proportionId: PROPORTION_BY_BODY_SHAPE[bodyShapeId],
+    materialId: chapterId ? MATERIAL_BY_CHAPTER[chapterId] : "material-expedition-canvas",
+    headShapeId: `head-silhouette-${(ordinal % 12) + 1}`,
+    limbShapeId: `limb-shape-${(ordinal % 4) + 1}`
+  };
+}
+
+export const SOUND_SEEKERS_CHARACTER_ART_PROFILES = deepFreeze([
+  ...canonicalCast.map((character, ordinal) => createCharacterArtProfile(
+    character.characterId,
+    character.chapterId,
+    CHARACTER_ENRICHMENTS[character.characterId].bodyShapeId,
+    ordinal
+  )),
+  createCharacterArtProfile("player", null, "body-shape-sprout", canonicalCast.length)
+]);
+
+const characterArtProfileById = new Map(
+  SOUND_SEEKERS_CHARACTER_ART_PROFILES.map(profile => [profile.characterId, profile])
+);
+
+export function resolveCharacterArtProfile(characterId) {
+  return typeof characterId === "string" ? characterArtProfileById.get(characterId) || null : null;
+}
+
 export const SOUND_SEEKERS_CHARACTER_VISUALS = deepFreeze(canonicalCast.map(character => (
   createCharacterVisual({
     characterId: character.characterId,
@@ -785,6 +834,22 @@ function validateCanonicalCharacterCatalog() {
     || enrichmentIds.some(characterId => !canonicalIds.includes(characterId))
   ) {
     throw new Error("Character visual enrichments must join the canonical cast bijectively");
+  }
+  if (SOUND_SEEKERS_CHARACTER_ART_PROFILES.length !== canonicalCast.length + 1
+    || new Set(SOUND_SEEKERS_CHARACTER_ART_PROFILES.map(profile => profile.characterId)).size
+      !== SOUND_SEEKERS_CHARACTER_ART_PROFILES.length
+    || new Set(SOUND_SEEKERS_CHARACTER_ART_PROFILES.map(profile => profile.silhouetteFamilyId)).size
+      !== SOUND_SEEKERS_CHARACTER_ART_PROFILES.length) {
+    throw new Error("Character art profiles must join every cast identity with a unique silhouette");
+  }
+  for (const profile of SOUND_SEEKERS_CHARACTER_ART_PROFILES) {
+    if (!/^silhouette-[a-z0-9-]+$/u.test(profile.silhouetteFamilyId)
+      || !/^proportion-[a-z0-9-]+$/u.test(profile.proportionId)
+      || !/^material-[a-z0-9-]+$/u.test(profile.materialId)
+      || !/^head-silhouette-(?:[1-9]|1[0-2])$/u.test(profile.headShapeId)
+      || !/^limb-shape-[1-4]$/u.test(profile.limbShapeId)) {
+      throw new Error(`${profile.characterId}: character art profile is invalid`);
+    }
   }
 
   for (const chapter of SOUND_SEEKERS_CHAPTERS) {

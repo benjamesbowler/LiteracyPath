@@ -180,6 +180,36 @@ const routeMaterialByChapter = Object.freeze({
   "lantern-forest": "route-material-root-and-moss",
   "star-reach": "route-material-starlight-stone"
 });
+const routeFamilyByChapter = Object.freeze({
+  "seedwake-meadow": "route-family-meadow-boardwalk",
+  "river-gardens": "route-family-water-bridge",
+  "fossil-canyon": "route-family-canyon-track",
+  "forge-settlement": "route-family-forge-rail",
+  "glass-marsh": "route-family-reed-causeway",
+  "storm-coast": "route-family-cliff-rope",
+  "lantern-forest": "route-family-living-root",
+  "star-reach": "route-family-starlight-steps"
+});
+const routeEdgeByChapter = Object.freeze({
+  "seedwake-meadow": "edge-hewn-plank",
+  "river-gardens": "edge-ripple-tile",
+  "fossil-canyon": "edge-chipped-stone",
+  "forge-settlement": "edge-riveted-rail",
+  "glass-marsh": "edge-reed-lashed",
+  "storm-coast": "edge-rope-guard",
+  "lantern-forest": "edge-root-fork",
+  "star-reach": "edge-star-cut"
+});
+const landmarkFamilyByChapter = Object.freeze({
+  "seedwake-meadow": "landmark-family-seed-gate",
+  "river-gardens": "landmark-family-waterwheel",
+  "fossil-canyon": "landmark-family-fossil-arch",
+  "forge-settlement": "landmark-family-forge-tower",
+  "glass-marsh": "landmark-family-crystal-reed",
+  "storm-coast": "landmark-family-storm-beacon",
+  "lantern-forest": "landmark-family-lantern-tree",
+  "star-reach": "landmark-family-star-observatory"
+});
 
 export const SOUND_SEEKERS_ROUTE_SPECS = deepFreeze(
   SOUND_SEEKERS_EXPEDITIONS.map(expedition => {
@@ -192,6 +222,8 @@ export const SOUND_SEEKERS_ROUTE_SPECS = deepFreeze(
       chapterId: expedition.chapterId,
       topologyId: chapter.routeTopologies[chapterOrdinal],
       materialTokenId: routeMaterialByChapter[chapter.id],
+      routeFamilyId: routeFamilyByChapter[chapter.id],
+      edgeTreatmentId: routeEdgeByChapter[chapter.id],
       pathGeometryId: `route-geometry:${expedition.stopId}`,
       viewBox: [...VIEW_BOX],
       taskCamera: {
@@ -202,11 +234,13 @@ export const SOUND_SEEKERS_ROUTE_SPECS = deepFreeze(
   })
 );
 
-function stateVisual(stateId, stateOrdinal, resolved, accessibleLabel) {
+function stateVisual({ landmarkFamilyId, stateOrdinal, stateRole, accessibleLabel }) {
   return {
-    shapeId: resolved ? `landmark-shape-restored-${(stateOrdinal % 4) + 1}` : "landmark-shape-dormant",
-    partCount: resolved ? 3 + (stateOrdinal % 4) : 2,
-    patternId: resolved ? `landmark-pattern-bright-${(stateOrdinal % 5) + 1}` : "landmark-pattern-dormant-dashes",
+    landmarkFamilyId,
+    stateRole,
+    shapeId: `${landmarkFamilyId.replace("landmark-family", "landmark-shape")}-${stateRole}`,
+    partCount: stateRole === "problem" ? 2 : stateRole === "repairing" ? 4 : 5 + (stateOrdinal % 2),
+    patternId: `landmark-pattern-${stateRole}-${(stateOrdinal % 3) + 1}`,
     accessibleLabel
   };
 }
@@ -234,6 +268,8 @@ export const SOUND_SEEKERS_LANDMARK_BINDINGS = deepFreeze(
         binding.actionStateId, binding.resolvedStateId, binding.consequenceId
       ])
     ])];
+    const landmarkFamilyId = landmarkFamilyByChapter[expedition.chapterId];
+    const actionStateIds = new Set(bindings.map(binding => binding.actionStateId));
     const childStateLabel = stateId => {
       if (stateId === preChoice.neutralStateId) return `${expedition.title} needs your help.`;
       const binding = bindings.find(item => [
@@ -247,6 +283,7 @@ export const SOUND_SEEKERS_LANDMARK_BINDINGS = deepFreeze(
       id: `landmark:${expedition.stopId}`,
       stopId: expedition.stopId,
       chapterId: expedition.chapterId,
+      landmarkFamilyId,
       repairId: expedition.payoff.repairId,
       sceneId,
       sceneVisualId: scene.id,
@@ -254,12 +291,13 @@ export const SOUND_SEEKERS_LANDMARK_BINDINGS = deepFreeze(
       postDecisionBindings: bindings,
       stateVisuals: Object.fromEntries(stateIds.map((stateId, stateOrdinal) => [
         stateId,
-        stateVisual(
-          stateId,
-          expeditionOrdinal + stateOrdinal,
-          stateId !== preChoice.neutralStateId,
-          childStateLabel(stateId)
-        )
+        stateVisual({
+          landmarkFamilyId,
+          stateOrdinal: expeditionOrdinal + stateOrdinal,
+          stateRole: stateId === preChoice.neutralStateId
+            ? "problem" : actionStateIds.has(stateId) ? "repairing" : "repaired",
+          accessibleLabel: childStateLabel(stateId)
+        })
       ]))
     };
   })

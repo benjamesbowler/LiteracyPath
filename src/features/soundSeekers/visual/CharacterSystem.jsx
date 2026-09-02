@@ -3,6 +3,7 @@ import {
   SOUND_SEEKERS_PLAYER_VISUAL,
   characterVisualSignature,
   poseCompositionSignature,
+  resolveCharacterArtProfile,
   resolvePoseRenderer
 } from "./characterCatalog.js";
 import {
@@ -60,30 +61,73 @@ function BodyShape({ bodyShapeId }) {
   return <path className="sound-seekers-character__body-fill" d="M 0 -66 C 42 -62 54 -20 43 35 C 35 69 -35 69 -43 35 C -54 -20 -42 -62 0 -66 Z" />;
 }
 
-function Arm({ side, transform, torso }) {
+function MaterialMarks({ materialId }) {
+  const seed = stableVisualSeed(materialId);
+  const texturePath = [
+    "M -30 -17 Q -6 -29 22 -17 M -26 2 Q 1 -9 29 3 M -21 23 Q 0 14 22 24",
+    "M -27 -21 L 26 -5 M -31 -2 L 22 14 M -22 18 L 17 31",
+    "M -29 -15 Q -8 -3 18 -14 M -24 7 Q 0 21 26 5 M -17 28 Q 1 35 18 27",
+    "M -25 -26 L -7 31 M 0 -31 L 13 32 M 23 -24 L 30 21"
+  ][seed % 4];
+  return (
+    <g data-character-material-marks={materialId}>
+      <path className="sound-seekers-character__body-shade" d="M 18 -54 Q 49 -21 35 34 Q 27 55 5 59 Q 24 21 18 -54 Z" />
+      <path className="sound-seekers-character__material-mark" d={texturePath} />
+    </g>
+  );
+}
+
+function Arm({ side, transform, torso, limbShapeId }) {
   const direction = side === "left" ? -1 : 1;
   const shoulderX = torso.x + (direction * 39);
   const shoulderY = torso.y - 28;
+  const shapeOrdinal = Number(limbShapeId.at(-1));
+  const upperWidth = 7 + shapeOrdinal;
+  const lowerWidth = 6 + (shapeOrdinal % 3);
   return (
-    <g transform={`translate(${shoulderX} ${shoulderY}) rotate(${transform.shoulder})`}>
-      <path className="sound-seekers-character__limb" d={`M 0 0 Q ${direction * 18} 24 ${direction * 25} 43`} />
+    <g
+      data-shaped-limb={`${side}-arm`}
+      data-limb-shape={limbShapeId}
+      transform={`translate(${shoulderX} ${shoulderY}) rotate(${transform.shoulder})`}
+    >
+      <path
+        className="sound-seekers-character__limb-fill"
+        d={`M ${direction * -upperWidth} -3 Q ${direction * 13} 17 ${direction * 30} 39 Q ${direction * 26} 48 ${direction * (18 - upperWidth)} 44 Q ${direction * 7} 25 ${direction * -upperWidth} 8 Z`}
+      />
+      <path className="sound-seekers-character__limb-highlight" d={`M ${direction * 3} 8 Q ${direction * 15} 23 ${direction * 24} 36`} />
       <g transform={`translate(${direction * 25} 43) rotate(${transform.elbow})`}>
-        <path className="sound-seekers-character__limb" d={`M 0 0 Q ${direction * 12} 18 ${direction * 21} 34`} />
+        <path
+          className="sound-seekers-character__limb-fill"
+          d={`M ${direction * -lowerWidth} -4 Q ${direction * 11} 12 ${direction * 26} 31 Q ${direction * 27} 40 ${direction * (17 - lowerWidth)} 42 Q ${direction * 5} 23 ${direction * -lowerWidth} 5 Z`}
+        />
         <circle className="sound-seekers-character__hand" cx={direction * 23} cy="36" r="8" transform={`rotate(${transform.hand})`} />
       </g>
     </g>
   );
 }
 
-function Leg({ side, transform, torso }) {
+function Leg({ side, transform, torso, limbShapeId }) {
   const direction = side === "left" ? -1 : 1;
   const hipX = torso.x + (direction * 22);
   const hipY = torso.y + 48;
+  const shapeOrdinal = Number(limbShapeId.at(-1));
+  const width = 8 + shapeOrdinal;
   return (
-    <g transform={`translate(${hipX} ${hipY}) rotate(${transform.hip})`}>
-      <path className="sound-seekers-character__limb" d={`M 0 0 Q ${direction * 3} 24 ${direction * 6} 43`} />
+    <g
+      data-shaped-limb={`${side}-leg`}
+      data-limb-shape={limbShapeId}
+      transform={`translate(${hipX} ${hipY}) rotate(${transform.hip})`}
+    >
+      <path
+        className="sound-seekers-character__limb-fill"
+        d={`M ${direction * -width} -5 Q ${direction * -2} 22 ${direction * (8 + width)} 43 L ${direction * (8 - width)} 49 Q ${direction * -7} 25 ${direction * width} 1 Z`}
+      />
+      <path className="sound-seekers-character__limb-highlight" d={`M ${direction * -2} 6 Q ${direction * 1} 24 ${direction * 6} 37`} />
       <g transform={`translate(${direction * 6} 43) rotate(${transform.knee})`}>
-        <path className="sound-seekers-character__limb" d={`M 0 0 Q ${direction * 2} 17 ${direction * 5} 31`} />
+        <path
+          className="sound-seekers-character__limb-fill"
+          d={`M ${direction * -width} -3 Q ${direction * -1} 16 ${direction * (6 + width)} 31 L ${direction * (6 - width)} 38 Q ${direction * -6} 19 ${direction * width} 2 Z`}
+        />
         <path className="sound-seekers-character__foot" d={`M ${direction * -2} 31 L ${direction * 19} 31 Q ${direction * 24} 40 ${direction * 5} 43 Z`} transform={`rotate(${transform.foot})`} />
       </g>
     </g>
@@ -124,9 +168,10 @@ function Face({ face }) {
   );
 }
 
-function HeadSilhouette({ featureIds }) {
+function HeadSilhouette({ featureIds, artProfile }) {
   const id = featureIds.join("-").toLocaleLowerCase("en-US");
-  const variant = stableVisualSeed(id) % 3;
+  const variant = Number(artProfile.headShapeId.split("-").at(-1)) - 1;
+  const attachmentVariant = variant % 3;
   let attachment;
 
   if (/antennae/u.test(id)) {
@@ -151,7 +196,7 @@ function HeadSilhouette({ featureIds }) {
         "M -34 -30 Q -51 -77 -30 -88 Q -9 -63 -18 -31 Z",
         "M 34 -30 Q 51 -77 30 -88 Q 9 -63 18 -31 Z"
       ]
-    ][variant];
+    ][attachmentVariant];
     attachment = earPaths.map((path, index) => (
       <path key={path} className="sound-seekers-character__feature-fill" d={path} data-silhouette-part={`ear-${index + 1}`} />
     ));
@@ -161,12 +206,12 @@ function HeadSilhouette({ featureIds }) {
       "M -40 -26 Q -31 -68 -16 -43 Q -4 -82 8 -46 Q 27 -74 40 -26 Z",
       "M -39 -27 L -31 -62 L -12 -45 L 0 -78 L 13 -45 L 32 -62 L 40 -27 Z"
     ];
-    attachment = <path className="sound-seekers-character__feature-fill" d={crestPaths[variant]} data-silhouette-part="crest" />;
+    attachment = <path className="sound-seekers-character__feature-fill" d={crestPaths[attachmentVariant]} data-silhouette-part="crest" />;
   } else {
     attachment = (
       <>
-        <circle className="sound-seekers-character__feature-fill" cx="-43" cy="-12" r={12 + variant} data-silhouette-part="left-round-ear" />
-        <circle className="sound-seekers-character__feature-fill" cx="43" cy="-12" r={14 - variant} data-silhouette-part="right-round-ear" />
+        <circle className="sound-seekers-character__feature-fill" cx="-43" cy="-12" r={12 + attachmentVariant} data-silhouette-part="left-round-ear" />
+        <circle className="sound-seekers-character__feature-fill" cx="43" cy="-12" r={14 - attachmentVariant} data-silhouette-part="right-round-ear" />
       </>
     );
   }
@@ -174,7 +219,18 @@ function HeadSilhouette({ featureIds }) {
   return (
     <>
       {attachment}
-      <ellipse className="sound-seekers-character__head-fill" rx="47" ry="43" />
+      <path
+        className="sound-seekers-character__head-fill"
+        data-head-shape={artProfile.headShapeId}
+        d={[
+          "M -47 2 Q -45 -42 0 -45 Q 45 -42 47 2 Q 40 44 0 45 Q -40 44 -47 2 Z",
+          "M -48 5 Q -37 -48 0 -43 Q 39 -48 48 5 Q 35 48 0 43 Q -35 48 -48 5 Z",
+          "M -44 -7 Q -26 -50 10 -43 Q 48 -34 45 8 Q 35 45 -7 45 Q -48 39 -44 -7 Z",
+          "M -48 0 Q -31 -41 0 -48 Q 31 -41 48 0 L 35 36 Q 0 52 -35 36 Z",
+          "M -43 -12 Q 0 -55 43 -12 L 49 18 Q 25 48 0 44 Q -28 48 -49 18 Z",
+          "M -50 9 Q -45 -32 -15 -47 Q 25 -55 48 -14 Q 55 26 17 45 Q -28 51 -50 9 Z"
+        ][variant % 6]}
+      />
       <path className="sound-seekers-character__head-highlight" d="M -30 -23 Q -4 -42 24 -26" />
     </>
   );
@@ -365,6 +421,8 @@ function characterLabel(visual) {
 export function SoundSeekersCharacter({ characterId, pose, appearance }) {
   const visual = VISUAL_BY_CHARACTER_ID.get(characterId);
   if (!visual) throw new TypeError(`Unknown Sound Seekers character: ${String(characterId)}`);
+  const artProfile = resolveCharacterArtProfile(characterId);
+  if (!artProfile) throw new TypeError(`Missing Sound Seekers character art profile: ${String(characterId)}`);
 
   const poseRenderer = resolvePoseRenderer(pose);
   if (!poseRenderer || visual.poseRendererIds[pose] !== poseRenderer.id) {
@@ -397,6 +455,9 @@ export function SoundSeekersCharacter({ characterId, pose, appearance }) {
       data-sound-seekers-character=""
       data-character-id={visual.characterId}
       data-character-kind={visual.castKind}
+      data-silhouette-family={artProfile.silhouetteFamilyId}
+      data-character-proportion={artProfile.proportionId}
+      data-character-material={artProfile.materialId}
       data-pose-id={poseRenderer.poseId}
       data-pose-renderer-id={poseRenderer.id}
       data-pose-composition-signature={poseCompositionSignature(poseRenderer)}
@@ -418,23 +479,24 @@ export function SoundSeekersCharacter({ characterId, pose, appearance }) {
             <ellipse className="sound-seekers-character__shadow" rx="43" ry="11" />
           </g>
           <g data-character-part="left-leg">
-            <Leg side="left" transform={transforms.leftLeg} torso={transforms.torso} />
+            <Leg side="left" transform={transforms.leftLeg} torso={transforms.torso} limbShapeId={artProfile.limbShapeId} />
           </g>
           <g data-character-part="right-leg">
-            <Leg side="right" transform={transforms.rightLeg} torso={transforms.torso} />
+            <Leg side="right" transform={transforms.rightLeg} torso={transforms.torso} limbShapeId={artProfile.limbShapeId} />
           </g>
           <g data-character-part="torso" data-body-shape-id={bodyShapeId} transform={svgTransform(transforms.torso)}>
             <BodyShape bodyShapeId={bodyShapeId} />
+            <MaterialMarks materialId={artProfile.materialId} />
             <path className="sound-seekers-character__belly-mark" d="M -25 20 Q 0 42 25 20" />
           </g>
           <g data-character-part="left-arm">
-            <Arm side="left" transform={transforms.leftArm} torso={transforms.torso} />
+            <Arm side="left" transform={transforms.leftArm} torso={transforms.torso} limbShapeId={artProfile.limbShapeId} />
           </g>
           <g data-character-part="right-arm">
-            <Arm side="right" transform={transforms.rightArm} torso={transforms.torso} />
+            <Arm side="right" transform={transforms.rightArm} torso={transforms.torso} limbShapeId={artProfile.limbShapeId} />
           </g>
           <g data-character-part="head" transform={svgTransform(transforms.head)}>
-            <HeadSilhouette featureIds={visual.featureIds} />
+            <HeadSilhouette featureIds={visual.featureIds} artProfile={artProfile} />
           </g>
           <g data-character-part="face" transform={svgTransform(transforms.head)}>
             <Face face={face} />

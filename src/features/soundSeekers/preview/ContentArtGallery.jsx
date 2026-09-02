@@ -29,6 +29,7 @@ const slug = value => String(value).toLocaleLowerCase("en-US").replace(/[^a-z0-9
 const CHARACTERS = [...SOUND_SEEKERS_CHARACTER_VISUALS, SOUND_SEEKERS_PLAYER_VISUAL];
 
 function cropProfileForViewport() {
+  if (typeof window === "undefined") return "landscape";
   if (window.innerHeight > window.innerWidth) return "portrait";
   if (window.innerWidth >= 900) return "tablet";
   return "landscape";
@@ -68,6 +69,11 @@ export function ContentArtGallery({ query }) {
   }), [query.fixtureId, query.sceneId, query.seed, query.optionId, desiredMeaning?.semanticId]);
   const [activation, setActivation] = useState(() => ({ count: 0, token: "" }));
   const [appearance, setAppearance] = useState(() => appearanceForOption(query.optionId));
+  const compositionMode = query.mode === "wonder"
+    ? "wonder"
+    : query.fixtureId === "boss-resolved"
+      ? "boss-resolved"
+      : "ordinary";
   const character = modeRecord(query.mode, "character-", CHARACTERS, visual => visual.characterId);
   const pose = SOUND_SEEKERS_POSE_IDS.includes(query.optionId) ? query.optionId : "idle";
   const serializedAppearance = serializeCharacterAppearance(appearance);
@@ -85,6 +91,7 @@ export function ContentArtGallery({ query }) {
       data-gallery-root=""
       data-gallery-ready="true"
       data-gallery-mode={query.mode}
+      data-gallery-composition={compositionMode}
       data-gallery-fixture={query.fixtureId}
       data-gallery-phase={replay.phase}
       data-gallery-activation-count={String(activation.count)}
@@ -125,6 +132,7 @@ export function ContentArtGallery({ query }) {
             cropProfile={cropProfileForViewport()}
             densityProfile={query.density}
             motionProfile={query.motion}
+            compositionMode={compositionMode}
             onChoose={token => setActivation(previous => ({
               count: previous.count + 1,
               token

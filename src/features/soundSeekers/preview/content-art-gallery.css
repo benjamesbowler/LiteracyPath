@@ -1,3 +1,7 @@
+body:has(> #sound-seekers-v2-content-root > .sound-seekers-content-gallery) {
+  margin: 0;
+}
+
 .sound-seekers-content-gallery {
   min-height: 100dvh;
   box-sizing: border-box;
@@ -28,6 +32,14 @@
   font-size: 0.85rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.sound-seekers-content-gallery:has(> .sound-seekers-content-gallery__scene-wrap) {
+  padding: 0;
+}
+
+.sound-seekers-content-gallery:has(> .sound-seekers-content-gallery__scene-wrap) .sound-seekers-content-gallery__header {
+  display: none;
 }
 
 .sound-seekers-content-gallery__scene-wrap,
@@ -79,5 +91,21 @@
 
   .sound-seekers-content-gallery__creator {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-height: 400px) {
+  .sound-seekers-content-gallery {
+    min-height: 100dvh;
+    padding: 0;
+  }
+
+  .sound-seekers-content-gallery__header {
+    display: none;
+  }
+
+  .sound-seekers-content-gallery__scene-wrap {
+    width: 100%;
+    min-height: 100dvh;
   }
 }

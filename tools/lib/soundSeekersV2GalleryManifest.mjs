@@ -332,11 +332,21 @@ const SHOT_KEYS = [
 const VIEWPORT_KEYS = ["width", "height"];
 const ASSET_KEYS = ["path", "sha256", "cropRecordSha256"];
 const PNG_KEYS = ["width", "height", "byteLength", "sha256"];
-const CHECK_KEYS = [
+const BASE_CHECK_KEYS = [
   "consoleErrors", "pageErrors", "failedRequests", "visibleControlIds",
   "focusTargetId", "noAnswerLeak"
 ];
+const CHECK_KEYS = [...BASE_CHECK_KEYS, "layout"];
 const FAILURE_KEYS = ["url", "method", "reason"];
+const CONSTRAINED_PROFILE_IDS = new Set([
+  "portrait-320x568", "landscape-568x320", "tablet-1194x834",
+  "zoom-200-effective-320x568"
+]);
+const LAYOUT_KEYS = [
+  "viewport", "horizontalOverflow", "verticalOverflow", "goal", "target",
+  "actors", "landmark", "controls"
+];
+const RECT_KEYS = ["x", "y", "width", "height", "right", "bottom"];
 
 function hasExactKeys(value, keys) {
   return Boolean(value && typeof value === "object" && !Array.isArray(value)
@@ -346,6 +356,57 @@ function hasExactKeys(value, keys) {
 
 function canonicalAsset(matrix) {
   return matrix.asset || { path: null, sha256: null, cropRecordSha256: null };
+}
+
+function finiteNumber(value) {
+  return typeof value === "number" && Number.isFinite(value);
+}
+
+function validRect(rect) {
+  return hasExactKeys(rect, RECT_KEYS)
+    && RECT_KEYS.every(key => finiteNumber(rect[key]))
+    && rect.width > 0 && rect.height > 0
+    && Math.abs(rect.right - rect.x - rect.width) <= 0.1
+    && Math.abs(rect.bottom - rect.y - rect.height) <= 0.1;
+}
+
+function intersects(left, right) {
+  return Math.min(left.right, right.right) - Math.max(left.x, right.x) > 2
+    && Math.min(left.bottom, right.bottom) - Math.max(left.y, right.y) > 2;
+}
+
+function validConstrainedLayout(layout, matrix) {
+  if (!hasExactKeys(layout, LAYOUT_KEYS)
+    || !hasExactKeys(layout.viewport, VIEWPORT_KEYS)
+    || !finiteNumber(layout.viewport.width) || !finiteNumber(layout.viewport.height)
+    || !finiteNumber(layout.horizontalOverflow) || layout.horizontalOverflow < 0
+    || !finiteNumber(layout.verticalOverflow) || layout.verticalOverflow < 0
+    || !validRect(layout.goal) || !validRect(layout.target)
+    || !validRect(layout.actors) || !validRect(layout.landmark)
+    || !Array.isArray(layout.controls) || layout.controls.length !== matrix.expectedVisibleControlIds.length
+    || layout.controls.some(control => !validRect(control) || control.width < 56 || control.height < 56)) {
+    return false;
+  }
+  const expectedWidth = matrix.viewport.width / matrix.browserZoom;
+  const expectedHeight = matrix.viewport.height / matrix.browserZoom;
+  if (Math.abs(layout.viewport.width - expectedWidth) > 1
+    || Math.abs(layout.viewport.height - expectedHeight) > 1
+    || layout.horizontalOverflow > 1
+    || (matrix.subjectId === "landscape-568x320" && layout.verticalOverflow > 1)) {
+    return false;
+  }
+  const bounded = [layout.goal, layout.target, layout.actors, layout.landmark, ...layout.controls]
+    .every(rect => rect.x >= -1 && rect.y >= -1
+      && rect.right <= layout.viewport.width + 1 && rect.bottom <= layout.viewport.height + 1);
+  const separated = layout.controls.every((control, index) => index === 0
+    || Math.max(
+      control.x - layout.controls[index - 1].right,
+      control.y - layout.controls[index - 1].bottom
+    ) >= 8);
+  return bounded && separated
+    && !intersects(layout.actors, layout.target)
+    && !intersects(layout.actors, layout.landmark)
+    && !intersects(layout.target, layout.landmark);
 }
 
 export function assertSoundSeekersV2GalleryManifest(manifest) {
@@ -362,6 +423,7 @@ export function assertSoundSeekersV2GalleryManifest(manifest) {
     || !Array.isArray(manifest.shots) || manifest.shots.length !== manifest.shotCount) {
     throw new TypeError("Sound Seekers gallery manifest header is invalid");
   }
+  const hasLayoutEvidence = manifest.shots.some(record => Object.hasOwn(record?.checks || {}, "layout"));
   for (let index = 0; index < manifest.shots.length; index += 1) {
     const record = manifest.shots[index];
     const matrix = SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX[index];
@@ -385,6 +447,11 @@ export function assertSoundSeekersV2GalleryManifest(manifest) {
       asset: canonicalAsset(matrix)
     };
     const recordProjection = Object.fromEntries(Object.keys(matrixProjection).map(key => [key, record?.[key]]));
+    const layoutRequired = matrix.kind === "profile-viewport-zoom"
+      && CONSTRAINED_PROFILE_IDS.has(matrix.subjectId);
+    const layoutInvalid = hasLayoutEvidence && (layoutRequired
+      ? !validConstrainedLayout(record?.checks?.layout, matrix)
+      : record?.checks?.layout !== null);
     if (!hasExactKeys(record, SHOT_KEYS)
       || record.ordinal !== index + 1 || record.id !== matrix.id || record.kind !== matrix.kind
       || record.relativePngPath !== expectedPath || record.status !== "passed"
@@ -395,12 +462,16 @@ export function assertSoundSeekersV2GalleryManifest(manifest) {
       || record.png.width !== matrix.viewport.width || record.png.height !== matrix.viewport.height
       || !Number.isInteger(record.png.byteLength) || record.png.byteLength <= 0
       || !/^[a-f0-9]{64}$/u.test(record.png.sha256 || "")
-      || !hasExactKeys(record.checks, CHECK_KEYS) || record.checks.noAnswerLeak !== true
+      || !(hasExactKeys(record.checks, hasLayoutEvidence ? CHECK_KEYS : BASE_CHECK_KEYS))
+      || record.checks.noAnswerLeak !== true
       || !Array.isArray(record.checks.consoleErrors) || record.checks.consoleErrors.length
       || !Array.isArray(record.checks.pageErrors) || record.checks.pageErrors.length
       || canonicalJson(record.checks.visibleControlIds) !== canonicalJson(matrix.expectedVisibleControlIds)
-      || record.checks.focusTargetId !== matrix.expectedFocusTargetId) {
-      throw new TypeError(`Sound Seekers gallery shot ${index + 1} is invalid`);
+      || record.checks.focusTargetId !== matrix.expectedFocusTargetId
+      || layoutInvalid) {
+      throw new TypeError(layoutInvalid
+        ? `Sound Seekers gallery shot ${index + 1} layout evidence is invalid`
+        : `Sound Seekers gallery shot ${index + 1} is invalid`);
     }
     const expectedFailures = matrix.kind === "background-failure"
       ? [{ url: matrix.asset.path, method: "GET", reason: "route_abort" }] : [];
@@ -408,6 +479,15 @@ export function assertSoundSeekersV2GalleryManifest(manifest) {
       || record.checks.failedRequests.some(failure => !hasExactKeys(failure, FAILURE_KEYS))
       || canonicalJson(record.checks.failedRequests) !== canonicalJson(expectedFailures)) {
       throw new TypeError(`Sound Seekers gallery shot ${index + 1} has untruthful request evidence`);
+    }
+  }
+  const ordinaryByScene = new Map(manifest.shots
+    .filter(record => record.kind === "scene-options")
+    .map(record => [record.sceneId, record]));
+  for (const payoff of manifest.shots.filter(record => record.kind === "wonder" || record.kind === "boss-branch")) {
+    const ordinary = ordinaryByScene.get(payoff.sceneId);
+    if (!ordinary || payoff.png.sha256 === ordinary.png.sha256) {
+      throw new TypeError(`Sound Seekers gallery payoff ${payoff.id} is identical to its ordinary scene`);
     }
   }
   return true;

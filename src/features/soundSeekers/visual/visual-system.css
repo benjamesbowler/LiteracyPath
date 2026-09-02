@@ -11,7 +11,9 @@
   inline-size: 100%;
   max-block-size: 24rem;
   overflow: visible;
-  filter: drop-shadow(0 3px 0 var(--ss-token-ink-muted));
+  filter:
+    drop-shadow(0 2px 0 var(--ss-token-surface-white))
+    drop-shadow(0 5px 3px var(--ss-token-mist-overlay));
 }
 
 .sound-seekers-character__body-fill,
@@ -47,6 +49,35 @@
   opacity: 0.55;
 }
 
+.sound-seekers-character__body-shade {
+  fill: var(--ss-token-scrim-ink);
+  opacity: 0.16;
+}
+
+.sound-seekers-character__material-mark {
+  fill: none;
+  stroke: var(--ss-token-surface-white);
+  stroke-linecap: round;
+  stroke-width: 3;
+  opacity: 0.3;
+}
+
+.sound-seekers-character__limb-fill {
+  fill: var(--ss-character-palette);
+  stroke: var(--ss-token-ink-deep);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.sound-seekers-character__limb-highlight {
+  fill: none;
+  stroke: var(--ss-token-surface-white);
+  stroke-linecap: round;
+  stroke-width: 3;
+  opacity: 0.38;
+}
+
 .sound-seekers-character__limb,
 .sound-seekers-character__belly-mark,
 .sound-seekers-character__face-line,
@@ -71,7 +102,7 @@
 
 .sound-seekers-character__shadow {
   fill: var(--ss-token-scrim-ink);
-  opacity: 0.22;
+  opacity: 0.28;
 }
 
 .sound-seekers-character__feature,
@@ -100,7 +131,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .sound-seekers-character__pose {
-    animation: sound-seekers-character-alive 1800ms ease-in-out infinite alternate;
+    animation: sound-seekers-character-alive 1800ms cubic-bezier(0.32, 0.72, 0, 1) infinite alternate;
     transform-box: fill-box;
     transform-origin: center bottom;
   }
@@ -134,10 +165,15 @@
   gap: 24px;
   padding: 24px;
   color: var(--ss-token-ink-deep);
-  background: var(--ss-token-surface-warm);
+  background:
+    radial-gradient(circle at 14% 18%, var(--ss-token-light-seedwake), transparent 32%),
+    var(--ss-token-surface-warm);
   border: 4px solid var(--ss-token-outline-strong);
   border-radius: 28px;
-  box-shadow: 0 8px 0 var(--ss-token-outline-strong);
+  box-shadow:
+    inset 0 2px 0 var(--ss-token-surface-white),
+    0 8px 0 var(--ss-token-outline-strong),
+    0 14px 22px var(--ss-token-mist-overlay);
 }
 
 .sound-seekers-character-creator__preview {
@@ -160,7 +196,7 @@
   min-inline-size: 0;
   margin: 0;
   padding: 12px;
-  background: var(--ss-token-surface-white);
+  background: linear-gradient(165deg, var(--ss-token-surface-white), var(--ss-token-surface-option));
   border: 3px solid var(--ss-token-outline-strong);
   border-radius: 18px 22px 17px 24px;
 }
@@ -179,7 +215,7 @@
 
 .sound-seekers-character-creator__choice {
   display: grid;
-  grid-template-columns: 22px 1fr;
+  grid-template-columns: 44px 1fr 20px;
   gap: 8px;
   align-items: center;
   min-block-size: 56px;
@@ -188,8 +224,10 @@
   color: var(--ss-token-ink-deep);
   background: var(--ss-token-surface-option);
   border: 3px solid var(--ss-token-outline-strong);
-  border-radius: 14px 18px 13px 17px;
-  box-shadow: 0 4px 0 var(--ss-token-outline-strong);
+  border-radius: 18px 22px 17px 21px;
+  box-shadow:
+    inset 0 2px 0 var(--ss-token-surface-white),
+    0 4px 0 var(--ss-token-outline-strong);
   font: inherit;
   font-weight: 800;
   text-align: start;
@@ -197,12 +235,70 @@
 }
 
 .sound-seekers-character-creator__choice-mark {
-  display: block;
+  display: grid;
   inline-size: 18px;
   block-size: 18px;
+  place-items: center;
   background: var(--ss-token-surface-white);
   border: 3px solid var(--ss-token-outline-strong);
   border-radius: 50%;
+  color: transparent;
+  font-size: 0.7rem;
+}
+
+.sound-seekers-character-creator__swatch {
+  position: relative;
+  display: grid;
+  inline-size: 40px;
+  block-size: 40px;
+  place-items: center;
+  overflow: hidden;
+  background: var(--ss-token-light-river);
+  border: 3px solid var(--ss-token-outline-strong);
+  border-radius: 13px 16px 12px 15px;
+  box-shadow: inset 0 2px 0 var(--ss-token-surface-white);
+}
+
+.sound-seekers-character-creator__swatch > span {
+  display: block;
+  inline-size: 22px;
+  block-size: 25px;
+  background: var(--ss-token-biome-seedwake);
+  border: 2px solid var(--ss-token-outline-strong);
+  border-radius: 48% 52% 42% 58%;
+}
+
+.sound-seekers-character-creator__swatch--palette {
+  background: var(--ss-swatch-color);
+}
+
+.sound-seekers-character-creator__swatch--palette > span {
+  inline-size: 17px;
+  block-size: 17px;
+  background: var(--ss-token-surface-white);
+  border-radius: 50%;
+  opacity: 0.48;
+}
+
+.sound-seekers-character-creator__swatch--back > span,
+.sound-seekers-character-creator__swatch--held > span {
+  border-radius: 7px;
+  transform: rotate(-8deg);
+}
+
+.sound-seekers-character-creator__swatch--head > span {
+  block-size: 14px;
+  border-radius: 70% 70% 20% 20%;
+}
+
+.sound-seekers-character-creator__swatch--neck > span {
+  inline-size: 28px;
+  block-size: 14px;
+  clip-path: polygon(0 0, 100% 0, 76% 100%, 48% 55%, 20% 100%);
+}
+
+.sound-seekers-character-creator__choice-label {
+  min-inline-size: 0;
 }
 
 .sound-seekers-character-creator__choice[aria-pressed="true"] {
@@ -213,6 +309,7 @@
 
 .sound-seekers-character-creator__choice[aria-pressed="true"] .sound-seekers-character-creator__choice-mark {
   background: var(--ss-token-focus-gold);
+  color: var(--ss-token-ink-deep);
 }
 
 .sound-seekers-character-creator__choice:focus-visible {
@@ -251,24 +348,36 @@
 
 .sound-seekers-scene {
   display: grid;
-  gap: 20px;
+  gap: clamp(10px, 1.5vw, 18px);
   inline-size: min(100%, 76rem);
   margin-inline: auto;
   padding: clamp(12px, 2vw, 24px);
   color: var(--ss-token-ink-deep);
-  background: linear-gradient(
-    180deg,
-    var(--ss-token-surface-white),
-    var(--ss-token-surface-warm)
-  );
+  background:
+    linear-gradient(92deg, var(--ss-token-light-seedwake), transparent 28%),
+    var(--ss-token-surface-warm);
+  border: 3px solid var(--ss-token-ink-deep);
   border-radius: 32px;
+  box-shadow:
+    inset 0 2px 0 var(--ss-token-surface-white),
+    0 7px 0 var(--ss-token-ink-deep),
+    0 13px 20px var(--ss-token-mist-overlay);
 }
 
 .sound-seekers-scene__story {
   display: grid;
-  gap: 8px;
+  gap: 5px;
   justify-items: center;
+  width: min(100%, 48rem);
+  margin-inline: auto;
+  padding: 8px 18px 10px;
   text-align: center;
+  background: linear-gradient(165deg, var(--ss-token-surface-option), var(--ss-token-surface-warm));
+  border: 3px solid var(--ss-token-ink-deep);
+  border-radius: 12px 12px 22px 22px;
+  box-shadow:
+    inset 0 2px 0 var(--ss-token-surface-white),
+    0 4px 0 var(--ss-token-ink-muted);
 }
 
 .sound-seekers-scene__text,
@@ -303,7 +412,7 @@
     var(--ss-world-light),
     var(--ss-token-surface-warm)
   );
-  border: 3px solid var(--ss-token-ink-deep);
+  border: 5px solid var(--ss-token-ink-deep);
   border-radius: 34px 42px 28px 38px;
   box-shadow:
     0 7px 0 var(--ss-token-ink-deep),
@@ -323,8 +432,8 @@
   inline-size: 100%;
   block-size: 100%;
   object-fit: cover;
-  opacity: 0.42;
-  transition: opacity 240ms ease-out;
+  opacity: 0.68;
+  transition: opacity 320ms cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 .sound-seekers-biome[data-background-status="pending"] .sound-seekers-biome__raster img {
@@ -383,7 +492,7 @@
   position: absolute;
   inset-inline: 0;
   inset-block-end: 0;
-  opacity: 0.94;
+  opacity: 0.72;
 }
 
 .sound-seekers-world__setting svg,
@@ -399,14 +508,14 @@
   fill: var(--ss-world-palette);
   stroke: var(--ss-token-ink-muted);
   stroke-width: 4;
-  opacity: 0.56;
+  opacity: 0.34;
 }
 
 .sound-seekers-world__near-shape {
   fill: var(--ss-world-light);
   stroke: var(--ss-world-palette);
   stroke-width: 4;
-  opacity: 0.94;
+  opacity: 0.74;
 }
 
 .sound-seekers-world__setting-marks {
@@ -424,23 +533,39 @@
 }
 
 .sound-seekers-route__outline,
+.sound-seekers-route__bed,
+.sound-seekers-route__edge,
 .sound-seekers-route__path,
+.sound-seekers-route__highlight,
 .sound-seekers-route__marks {
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-.sound-seekers-route__outline {
+.sound-seekers-route__bed {
+  stroke: var(--ss-token-scrim-ink);
+  stroke-width: 58;
+  opacity: 0.3;
+  transform: translateY(10px);
+}
+
+.sound-seekers-route__edge {
   stroke: var(--ss-token-ink-deep);
-  stroke-width: 50;
-  opacity: 0.88;
+  stroke-width: 48;
+  opacity: 0.92;
 }
 
 .sound-seekers-route__path {
-  stroke: var(--ss-token-surface-warm);
-  stroke-dasharray: 19 10;
-  stroke-width: 39;
+  stroke: var(--ss-world-palette);
+  stroke-width: 37;
+}
+
+.sound-seekers-route__highlight {
+  stroke: var(--ss-world-light);
+  stroke-width: 10;
+  opacity: 0.76;
+  transform: translateY(-7px);
 }
 
 .sound-seekers-route__marks {
@@ -449,13 +574,89 @@
   opacity: 0.82;
 }
 
+.sound-seekers-route[data-route-family="route-family-meadow-boardwalk"] .sound-seekers-route__path {
+  stroke-dasharray: 46 7;
+}
+
+.sound-seekers-route[data-route-family="route-family-water-bridge"] .sound-seekers-route__path {
+  stroke-dasharray: 24 5 8 5;
+}
+
+.sound-seekers-route[data-route-family="route-family-canyon-track"] .sound-seekers-route__edge {
+  stroke-dasharray: 62 4 19 3;
+}
+
+.sound-seekers-route[data-route-family="route-family-forge-rail"] .sound-seekers-route__path {
+  stroke-width: 25;
+}
+
+.sound-seekers-route[data-route-family="route-family-forge-rail"] .sound-seekers-route__highlight {
+  stroke-dasharray: 4 27;
+  stroke-width: 17;
+}
+
+.sound-seekers-route[data-route-family="route-family-glass-reed"] .sound-seekers-route__path {
+  stroke-dasharray: 58 8;
+  opacity: 0.78;
+}
+
+.sound-seekers-route[data-route-family="route-family-cliff-rope"] .sound-seekers-route__edge {
+  stroke-dasharray: 5 10;
+  stroke-width: 54;
+}
+
+.sound-seekers-route[data-route-family="route-family-living-root"] .sound-seekers-route__path {
+  stroke-dasharray: 73 5 31 4;
+}
+
+.sound-seekers-route[data-route-family="route-family-starlight-steps"] .sound-seekers-route__highlight {
+  stroke-dasharray: 3 33;
+  stroke-width: 20;
+}
+
+.sound-seekers-world__biome-frame {
+  position: absolute;
+  inset: 0;
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  overflow: visible;
+}
+
+.sound-seekers-world__biome-frame path:first-child {
+  fill: var(--ss-world-palette);
+  stroke: var(--ss-token-ink-deep);
+  stroke-width: 8;
+  opacity: 0.78;
+}
+
+.sound-seekers-world__biome-frame-mark {
+  fill: none;
+  stroke: var(--ss-world-light);
+  stroke-width: 16;
+  opacity: 0.55;
+  transform: translateY(-10px);
+}
+
+.sound-seekers-world__biome-frame--midground {
+  opacity: 0.42;
+  transform: translateY(-84px) scale(1.04);
+}
+
+.sound-seekers-world__biome-frame--foreground {
+  opacity: 0.9;
+}
+
 .sound-seekers-landmark {
   position: absolute;
-  inset-inline-end: clamp(3%, 8vw, 12%);
+  inset-inline-end: 2%;
   inset-block-end: 19%;
-  inline-size: clamp(7.5rem, 18vw, 13rem);
+  inline-size: clamp(7.5rem, 15vw, 12rem);
   color: var(--ss-token-ink-deep);
   text-align: center;
+  filter:
+    drop-shadow(0 2px 0 var(--ss-token-surface-white))
+    drop-shadow(0 8px 4px var(--ss-token-mist-overlay));
 }
 
 .sound-seekers-landmark__silhouette {
@@ -473,10 +674,42 @@
   stroke-width: 4;
 }
 
+.sound-seekers-landmark__contact-shadow {
+  fill: var(--ss-token-scrim-ink);
+  opacity: 0.26;
+}
+
 .sound-seekers-landmark__part {
   fill: var(--ss-token-focus-gold);
   stroke: var(--ss-token-ink-deep);
   stroke-width: 4;
+}
+
+.sound-seekers-landmark[data-landmark-state-role="problem"] .sound-seekers-landmark__silhouette {
+  stroke-dasharray: 19 5;
+  opacity: 0.88;
+}
+
+.sound-seekers-landmark[data-landmark-state-role="repairing"] .sound-seekers-landmark__silhouette {
+  stroke-dasharray: 52 4;
+}
+
+.sound-seekers-landmark[data-landmark-state-role="repaired"] .sound-seekers-landmark__silhouette {
+  fill: var(--ss-world-light);
+}
+
+.sound-seekers-landmark__status circle {
+  fill: var(--ss-token-surface-option);
+  stroke: var(--ss-token-ink-deep);
+  stroke-width: 5;
+}
+
+.sound-seekers-landmark__status path {
+  fill: none;
+  stroke: var(--ss-token-ink-deep);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 5;
 }
 
 .sound-seekers-landmark figcaption,
@@ -497,15 +730,19 @@
 
 .sound-seekers-world__props {
   position: absolute;
-  inset-inline-start: 43%;
+  inset-inline-start: 40%;
   inset-block-end: 19%;
   display: flex;
+  inline-size: 36%;
   gap: 16px;
   align-items: end;
+  justify-content: center;
 }
 
 .sound-seekers-world__semantic-prop {
-  inline-size: clamp(6rem, 12vw, 9.5rem);
+  flex: 1 1 0;
+  inline-size: min(8.5vw, 8rem);
+  min-inline-size: 0;
   text-align: center;
   filter: drop-shadow(0 3px 0 var(--ss-token-mist-overlay));
 }
@@ -542,7 +779,15 @@
   display: flex;
   gap: clamp(2px, 2vw, 20px);
   align-items: end;
-  inline-size: min(51%, 35rem);
+  inline-size: min(34%, 25rem);
+}
+
+.sound-seekers-world__characters[data-actor-reaction="wonder"] .sound-seekers-character {
+  transform: translateY(-7px) rotate(-2deg);
+}
+
+.sound-seekers-world__characters[data-actor-reaction="resolved"] .sound-seekers-character {
+  transform: translateY(-3px) rotate(2deg);
 }
 
 .sound-seekers-world__characters .sound-seekers-character {
@@ -559,6 +804,37 @@
   border: 3px solid var(--ss-token-ink-deep);
   border-radius: 24px;
   box-shadow: 0 5px 0 var(--ss-token-ink-muted);
+}
+
+.sound-seekers-world__transformation {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.sound-seekers-world__transformation svg {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.sound-seekers-world__transformation-ripple {
+  fill: none;
+  stroke: var(--ss-world-light);
+  stroke-linecap: round;
+  stroke-width: 9;
+  opacity: 0.88;
+}
+
+.sound-seekers-world__transformation--resolved .sound-seekers-world__transformation-ripple {
+  stroke: var(--ss-token-focus-gold);
+  stroke-dasharray: 19 11;
+}
+
+.sound-seekers-world__transformation-sigil {
+  fill: var(--ss-token-focus-gold);
+  stroke: var(--ss-token-ink-deep);
+  stroke-width: 3;
 }
 
 .sound-seekers-world__decorations span {
@@ -585,6 +861,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
   gap: 12px;
+  padding: 4px;
 }
 
 .sound-seekers-scene__option {
@@ -596,19 +873,45 @@
   min-inline-size: 56px;
   padding: 10px 14px;
   color: var(--ss-token-ink-deep);
-  background: linear-gradient(
-    160deg,
-    var(--ss-token-surface-white),
-    var(--ss-token-surface-option)
-  );
+  background:
+    linear-gradient(165deg, var(--ss-token-surface-option), var(--ss-token-surface-warm));
   border: 3px solid var(--ss-token-ink-deep);
   border-radius: 18px 22px 17px 23px;
-  box-shadow: 0 5px 0 var(--ss-token-ink-muted);
+  box-shadow:
+    inset 0 2px 0 var(--ss-token-surface-white),
+    0 5px 0 var(--ss-token-ink-muted),
+    0 9px 14px var(--ss-token-mist-overlay);
   font: inherit;
   font-size: 1.05rem;
   font-weight: 900;
   text-align: start;
   cursor: pointer;
+  transition:
+    transform 220ms cubic-bezier(0.32, 0.72, 0, 1),
+    opacity 220ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.sound-seekers-scene__option[data-control-state="retry"] {
+  border-style: dashed;
+}
+
+.sound-seekers-scene__option[data-control-state="selected"] {
+  box-shadow:
+    inset 0 0 0 4px var(--ss-token-focus-gold),
+    0 3px 0 var(--ss-token-ink-muted);
+}
+
+.sound-seekers-scene__option[data-control-state="settled"]::after {
+  content: "✓";
+  display: grid;
+  inline-size: 28px;
+  block-size: 28px;
+  place-items: center;
+  justify-self: end;
+  color: var(--ss-token-surface-white);
+  background: var(--ss-token-success-deep);
+  border: 2px solid var(--ss-token-ink-deep);
+  border-radius: 50%;
 }
 
 .sound-seekers-scene__option-glyph {
@@ -671,7 +974,11 @@
   }
 
   .sound-seekers-biome[data-motion-profile="full"] .sound-seekers-landmark__part {
-    animation: sound-seekers-world-glow 1700ms ease-in-out infinite alternate;
+    animation: sound-seekers-world-glow 1700ms cubic-bezier(0.32, 0.72, 0, 1) infinite alternate;
+  }
+
+  .sound-seekers-biome[data-motion-profile="full"] .sound-seekers-world__transformation-sigil {
+    animation: sound-seekers-world-spark 1300ms cubic-bezier(0.32, 0.72, 0, 1) infinite alternate;
   }
 }
 
@@ -704,39 +1011,160 @@
 
 @media (max-width: 38rem) {
   .sound-seekers-scene {
-    padding: 8px;
+    gap: 8px;
+    padding: 5px;
+    border-width: 2px;
+    border-radius: 22px;
+    box-shadow: 0 4px 0 var(--ss-token-ink-deep);
+  }
+
+  .sound-seekers-scene__story {
+    gap: 2px;
+    padding: 5px 8px 6px;
+    border-width: 2px;
+    border-radius: 9px 9px 15px 15px;
+    box-shadow: 0 2px 0 var(--ss-token-ink-muted);
+  }
+
+  .sound-seekers-scene__text {
+    font-size: clamp(1rem, 5.6vw, 1.3rem);
+  }
+
+  .sound-seekers-scene__prompt {
+    font-size: clamp(0.83rem, 4.2vw, 1rem);
   }
 
   .sound-seekers-biome {
-    min-block-size: 26rem;
-    border-radius: 22px;
+    min-block-size: 16rem;
+    block-size: 16rem;
+    border-width: 3px;
+    border-radius: 20px;
+    box-shadow: 0 4px 0 var(--ss-token-ink-deep);
   }
 
   .sound-seekers-world__characters {
     inset-inline-start: 1%;
-    inline-size: 58%;
+    inline-size: 36%;
   }
 
   .sound-seekers-landmark {
     inset-inline-end: 1%;
-    inline-size: 7.5rem;
+    inset-block-end: 10%;
+    inline-size: 6rem;
   }
 
   .sound-seekers-world__props {
-    inset-inline-start: 50%;
+    inset-inline-start: 38%;
+    inset-block-end: 18%;
+    inline-size: 25%;
     gap: 3px;
   }
 
   .sound-seekers-world__semantic-prop {
-    inline-size: 4.25rem;
+    inline-size: 3.8rem;
   }
 
   .sound-seekers-world__semantic-prop figcaption,
   .sound-seekers-landmark figcaption {
+    max-inline-size: 4.5rem;
+    padding: 3px 4px;
     font-size: 0.65rem;
   }
 
   .sound-seekers-scene__options {
+    grid-template-columns: repeat(auto-fit, minmax(4.75rem, 1fr));
+    gap: 8px;
+    padding: 0;
+  }
+
+  .sound-seekers-scene__option {
     grid-template-columns: 1fr;
+    grid-template-rows: minmax(44px, 1fr) auto;
+    gap: 2px;
+    min-block-size: 88px;
+    padding: 5px;
+    border-width: 2px;
+    border-radius: 14px 17px 13px 16px;
+    box-shadow: 0 3px 0 var(--ss-token-ink-muted);
+    font-size: 0.8rem;
+    line-height: 1.1;
+    text-align: center;
+  }
+
+  .sound-seekers-scene__option-glyph {
+    max-block-size: 3.2rem;
+    margin-inline: auto;
+  }
+
+  .sound-seekers-scene__option[data-control-state="settled"]::after {
+    position: absolute;
+    inline-size: 22px;
+    block-size: 22px;
+  }
+}
+
+@media (max-height: 24rem) and (orientation: landscape) {
+  .sound-seekers-scene {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+    padding: 3px;
+  }
+
+  .sound-seekers-scene__story {
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    align-items: center;
+    padding: 3px 8px 4px;
+  }
+
+  .sound-seekers-scene__text,
+  .sound-seekers-scene__prompt {
+    font-size: 0.82rem;
+    line-height: 1.1;
+  }
+
+  .sound-seekers-biome {
+    min-block-size: 8.15rem;
+    block-size: 8.15rem;
+  }
+
+  .sound-seekers-world__characters {
+    inline-size: 34%;
+  }
+
+  .sound-seekers-landmark {
+    inline-size: 4.8rem;
+  }
+
+  .sound-seekers-world__props {
+    inset-block-end: 7%;
+  }
+
+  .sound-seekers-world__semantic-prop {
+    inline-size: 3.25rem;
+  }
+
+  .sound-seekers-world__semantic-prop figcaption,
+  .sound-seekers-landmark figcaption {
+    padding: 2px 4px;
+    font-size: 0.48rem;
+  }
+
+  .sound-seekers-scene__options {
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    gap: 8px;
+  }
+
+  .sound-seekers-scene__option {
+    grid-template-columns: 3.2rem 1fr;
+    grid-template-rows: 1fr;
+    min-block-size: 58px;
+    padding: 3px 6px;
+    font-size: 0.72rem;
+    text-align: start;
+  }
+
+  .sound-seekers-scene__option-glyph {
+    max-block-size: 3rem;
   }
 }

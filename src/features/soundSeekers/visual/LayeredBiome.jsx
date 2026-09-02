@@ -172,10 +172,14 @@ function Route({ route }) {
       data-route-geometry={route.pathGeometryId}
       data-route-topology={route.topologyId}
       data-route-material={route.materialTokenId}
+      data-route-family={route.routeFamilyId}
+      data-route-edge={route.edgeTreatmentId}
     >
       <svg viewBox={route.viewBox.join(" ")} aria-hidden="true" focusable="false">
-        <path className="sound-seekers-route__outline" d={path} />
+        <path className="sound-seekers-route__bed" d={path} />
+        <path className="sound-seekers-route__edge" d={path} />
         <path className="sound-seekers-route__path" d={path} />
+        <path className="sound-seekers-route__highlight" d={path} />
         <g
           className="sound-seekers-route__marks"
           data-route-material-structure={route.materialTokenId}
@@ -185,6 +189,71 @@ function Route({ route }) {
       </svg>
       <figcaption className="sound-seekers-world__visually-hidden">The path through this place.</figcaption>
     </figure>
+  );
+}
+
+const BIOME_FRAME_PATHS = Object.freeze({
+  "seedwake-meadow": "M 0 670 Q 170 548 330 641 Q 490 525 654 645 Q 840 533 1010 650 Q 1270 548 1600 661 L 1600 900 L 0 900 Z",
+  "river-gardens": "M 0 697 Q 140 623 281 699 T 562 695 T 843 701 T 1124 692 T 1600 690 L 1600 900 L 0 900 Z",
+  "fossil-canyon": "M 0 720 L 181 648 L 333 719 L 512 623 L 704 718 L 899 637 L 1094 720 L 1320 615 L 1600 710 L 1600 900 L 0 900 Z",
+  "forge-settlement": "M 0 718 L 188 681 L 188 632 L 356 632 L 356 701 L 566 657 L 566 615 L 742 615 L 742 698 L 985 644 L 985 602 L 1181 602 L 1181 691 L 1600 645 L 1600 900 L 0 900 Z",
+  "glass-marsh": "M 0 714 Q 151 647 303 716 Q 446 626 605 715 Q 768 632 929 714 Q 1093 624 1245 713 Q 1418 650 1600 704 L 1600 900 L 0 900 Z",
+  "storm-coast": "M 0 732 L 147 657 L 287 716 L 455 626 L 625 719 L 798 646 L 981 722 L 1195 610 L 1398 711 L 1600 636 L 1600 900 L 0 900 Z",
+  "lantern-forest": "M 0 720 Q 162 608 322 711 Q 482 591 644 713 Q 805 596 968 714 Q 1126 590 1287 711 Q 1450 613 1600 701 L 1600 900 L 0 900 Z",
+  "star-reach": "M 0 732 L 201 691 L 201 657 L 411 657 L 411 704 L 625 647 L 625 612 L 839 612 L 839 697 L 1061 632 L 1061 597 L 1289 597 L 1289 687 L 1600 621 L 1600 900 L 0 900 Z"
+});
+
+function BiomeFrame({ kitId, plane }) {
+  const path = BIOME_FRAME_PATHS[kitId];
+  return (
+    <svg
+      className={`sound-seekers-world__biome-frame sound-seekers-world__biome-frame--${plane}`}
+      viewBox="0 0 1600 900"
+      aria-hidden="true"
+      focusable="false"
+      data-biome-frame={`${kitId}:${plane}`}
+    >
+      <path d={path} />
+      <path className="sound-seekers-world__biome-frame-mark" d={path} />
+    </svg>
+  );
+}
+
+const TRANSFORMATIONS = Object.freeze({
+  "seedwake-meadow": Object.freeze({ wonder: "seed-song-bloom", resolved: "seed-gate-awake" }),
+  "river-gardens": Object.freeze({ wonder: "syllable-waterwheel", resolved: "canal-rhythm-restored" }),
+  "fossil-canyon": Object.freeze({ wonder: "sound-fossil-rises", resolved: "echo-arch-restored" }),
+  "forge-settlement": Object.freeze({ wonder: "word-forge-sparks", resolved: "copper-rail-relit" }),
+  "glass-marsh": Object.freeze({ wonder: "vowel-glass-rainbow", resolved: "reed-causeway-clear" }),
+  "storm-coast": Object.freeze({ wonder: "phoneme-storm-parts", resolved: "beacon-breaks-cloud" }),
+  "lantern-forest": Object.freeze({ wonder: "morpheme-lanterns-branch", resolved: "root-road-glows" }),
+  "star-reach": Object.freeze({ wonder: "sentence-stars-connect", resolved: "observatory-road-opens" })
+});
+
+function WorldTransformation({ kitId, compositionMode }) {
+  if (compositionMode === "ordinary") return null;
+  const role = compositionMode === "wonder" ? "wonder" : "resolved";
+  const transformationId = TRANSFORMATIONS[kitId][role];
+  return (
+    <div
+      className={`sound-seekers-world__transformation sound-seekers-world__transformation--${role}`}
+      data-world-transformation={transformationId}
+      data-transformation-state="settled"
+      aria-hidden="true"
+    >
+      <svg viewBox="0 0 800 330" focusable="false">
+        <path className="sound-seekers-world__transformation-ripple" d="M 77 245 Q 203 83 400 167 Q 590 250 731 74" />
+        <path className="sound-seekers-world__transformation-ripple" d="M 68 275 Q 221 132 401 204 Q 574 275 742 119" />
+        {Array.from({ length: 7 }, (_, index) => (
+          <path
+            key={index}
+            className="sound-seekers-world__transformation-sigil"
+            d="M 0 -11 L 4 -4 L 12 0 L 4 4 L 0 12 L -4 4 L -12 0 L -4 -4 Z"
+            transform={`translate(${92 + (index * 102)} ${84 + ((index % 3) * 54)})`}
+          />
+        ))}
+      </svg>
+    </div>
   );
 }
 
@@ -480,6 +549,8 @@ export function LayeredBiome({
   cropProfile,
   densityProfile,
   motionProfile,
+  compositionMode = "ordinary",
+  compositionSignature = "world-composition:ordinary",
   backgroundImageState,
   onBackgroundLoad = undefined,
   onBackgroundError = undefined
@@ -528,6 +599,8 @@ export function LayeredBiome({
       data-background-revision={String(backgroundImageState.revision)}
       data-scene-phase={scenePresentation.scenePhase}
       data-visual-state-id={scenePresentation.visualStateId}
+      data-world-composition={compositionMode}
+      data-world-composition-signature={compositionSignature}
     >
       <div className="sound-seekers-biome__raster" data-world-plane="background" aria-hidden="true">
         <img
@@ -545,8 +618,11 @@ export function LayeredBiome({
       <div className="sound-seekers-world" data-code-native-world="">
         <div className="sound-seekers-world__plane" data-world-plane="midground" data-layer-id={kit.layers[1].id}>
           <CodeNativeSetting visual={scenePresentation.setting} kit={kit} />
+          {densityProfile === "full" ? <BiomeFrame kitId={kit.id} plane="midground" /> : null}
         </div>
         <div className="sound-seekers-world__plane" data-world-plane="route" data-layer-id={kit.layers[2].id}>
+          {densityProfile === "full" ? <BiomeFrame kitId={kit.id} plane="foreground" /> : null}
+          <WorldTransformation kitId={kit.id} compositionMode={compositionMode} />
           <Route route={route} />
           <Landmark
             landmark={landmark}
@@ -564,7 +640,11 @@ export function LayeredBiome({
           </div>
         </div>
         <div className="sound-seekers-world__plane" data-world-plane="interaction" data-layer-id={kit.layers[4].id}>
-          <div className="sound-seekers-world__characters">
+          <div
+            className="sound-seekers-world__characters"
+            data-actor-reaction={compositionMode === "wonder"
+              ? "wonder" : compositionMode === "boss-resolved" ? "resolved" : "attending"}
+          >
             {scenePresentation.characters.map(character => (
               <SoundSeekersCharacter
                 key={character.characterId}

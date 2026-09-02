@@ -27,6 +27,25 @@ function readableLabel(id, emptyLabel = "No gear") {
     .join(" ");
 }
 
+function ChoiceSwatch({ kind, optionId }) {
+  const isPalette = kind === "paletteTokenId";
+  const isBody = kind === "bodyShapeId";
+  const slot = kind.startsWith("accessory:") ? kind.slice("accessory:".length) : null;
+  return (
+    <span
+      className={`sound-seekers-character-creator__swatch sound-seekers-character-creator__swatch--${
+        isPalette ? "palette" : isBody ? "body" : slot || "empty"
+      }`}
+      aria-hidden="true"
+      data-creator-swatch={isPalette ? "palette" : isBody ? "body" : slot || "none"}
+      data-swatch-option={optionId ?? "none"}
+      style={isPalette ? { "--ss-swatch-color": `var(--ss-token-${optionId})` } : undefined}
+    >
+      <span />
+    </span>
+  );
+}
+
 function ChoiceButton({ kind, optionId, selected, onChoose }) {
   const label = readableLabel(optionId);
   return (
@@ -41,8 +60,9 @@ function ChoiceButton({ kind, optionId, selected, onChoose }) {
       data-min-css-px="56"
       onClick={onChoose}
     >
-      <span className="sound-seekers-character-creator__choice-mark" aria-hidden="true" />
-      <span>{label}</span>
+      <ChoiceSwatch kind={kind} optionId={optionId} />
+      <span className="sound-seekers-character-creator__choice-label">{label}</span>
+      <span className="sound-seekers-character-creator__choice-mark" aria-hidden="true">✓</span>
     </button>
   );
 }

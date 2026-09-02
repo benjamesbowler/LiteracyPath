@@ -79,6 +79,10 @@ const GALLERY_ROOTS = [
   "src/features/soundSeekers/preview/ContentArtGallery.jsx",
   "src/features/soundSeekers/preview/content-art-gallery.css"
 ];
+const CONSTRAINED_PROFILE_IDS = new Set([
+  "portrait-320x568", "landscape-568x320", "tablet-1194x834",
+  "zoom-200-effective-320x568"
+]);
 
 function sha256Bytes(bytes) {
   return createHash("sha256").update(bytes).digest("hex");
@@ -295,8 +299,11 @@ async function stopServer(server) {
 }
 
 async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
-  await page.setViewportSize(matrix.viewport);
-  await cdp.send("Emulation.setPageScaleFactor", { pageScaleFactor: matrix.browserZoom });
+  await page.setViewportSize({
+    width: matrix.viewport.width / matrix.browserZoom,
+    height: matrix.viewport.height / matrix.browserZoom
+  });
+  await cdp.send("Emulation.setPageScaleFactor", { pageScaleFactor: 1 });
   const consoleErrors = [];
   const pageErrors = [];
   const rawFailures = [];
@@ -335,9 +342,11 @@ async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
     const zoom = await page.evaluate(() => ({
       scale: window.visualViewport?.scale || 1,
       width: window.visualViewport?.width || window.innerWidth,
-      height: window.visualViewport?.height || window.innerHeight
+      height: window.visualViewport?.height || window.innerHeight,
+      devicePixelRatio: window.devicePixelRatio
     }));
-    if (matrix.browserZoom === 2 && (zoom.scale !== 2 || Math.round(zoom.width) !== 320 || Math.round(zoom.height) !== 568)) {
+    if (matrix.browserZoom === 2 && (zoom.devicePixelRatio !== 2
+      || Math.round(zoom.width) !== 320 || Math.round(zoom.height) !== 568)) {
       throw new Error(`CDP zoom evidence drifted: ${JSON.stringify(zoom)}`);
     }
     const observedCodeNative = await page.locator("[data-task4-rendered-subtree]").evaluate(root => {
@@ -366,6 +375,45 @@ async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
     const expectedActivationToken = matrix.kind === "input-focus"
       ? toChildConnectedTextScene(matrix.sceneId, `gallery:${matrix.seed}`).choice.options[0].token
       : "";
+    const layout = matrix.kind === "profile-viewport-zoom"
+      && CONSTRAINED_PROFILE_IDS.has(matrix.subjectId) ? await page.evaluate(() => {
+      const round = value => Math.round(value * 100) / 100;
+      const rectFacts = rect => ({
+        x: round(rect.x),
+        y: round(rect.y),
+        width: round(rect.width),
+        height: round(rect.height),
+        right: round(rect.right),
+        bottom: round(rect.bottom)
+      });
+      const visibleRects = selector => [...document.querySelectorAll(selector)]
+        .map(node => node.getBoundingClientRect())
+        .filter(rect => rect.width > 0 && rect.height > 0);
+      const union = selector => {
+        const rects = visibleRects(selector);
+        if (!rects.length) return null;
+        const x = Math.min(...rects.map(rect => rect.x));
+        const y = Math.min(...rects.map(rect => rect.y));
+        const right = Math.max(...rects.map(rect => rect.right));
+        const bottom = Math.max(...rects.map(rect => rect.bottom));
+        return rectFacts({ x, y, right, bottom, width: right - x, height: bottom - y });
+      };
+      const viewport = window.visualViewport;
+      const viewportWidth = viewport?.width || window.innerWidth;
+      const viewportHeight = viewport?.height || window.innerHeight;
+      return {
+        viewport: { width: round(viewportWidth), height: round(viewportHeight) },
+        horizontalOverflow: round(Math.max(0,
+          document.documentElement.scrollWidth - document.documentElement.clientWidth)),
+        verticalOverflow: round(Math.max(0,
+          document.documentElement.scrollHeight - viewportHeight)),
+        goal: union("[data-scene-text], [data-scene-prompt]"),
+        target: union(".sound-seekers-world__props"),
+        actors: union(".sound-seekers-world__characters"),
+        landmark: union(".sound-seekers-landmark"),
+        controls: visibleRects("[data-option-visual-id]").map(rectFacts)
+      };
+    }) : null;
     await withTimeout(page.screenshot({ path: targetPath, fullPage: false, animations: "disabled" }), 15_000, "gallery screenshot");
     const failedRequests = matrix.kind === "background-failure" && abortCount === 1
       && rawFailures.length === 1 && rawFailures[0].url === matrix.asset.path && rawFailures[0].method === "GET"
@@ -397,7 +445,8 @@ async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
         failedRequests,
         visibleControlIds,
         focusTargetId,
-        noAnswerLeak
+        noAnswerLeak,
+        layout
       }
     };
   } finally {
@@ -436,10 +485,10 @@ async function shoot() {
     }
     if (existsSync(partialDirectory)) rmSync(partialDirectory, { recursive: true });
     mkdirSync(path.join(partialDirectory, "shots"), { recursive: true });
-    const openContext = async hasTouch => {
+    const openContext = async (hasTouch, deviceScaleFactor) => {
       context = await browser.newContext({
         viewport: { width: 1280, height: 800 },
-        deviceScaleFactor: 1,
+        deviceScaleFactor,
         hasTouch,
         isMobile: hasTouch
       });
@@ -447,15 +496,19 @@ async function shoot() {
       return context.newCDPSession(page);
     };
     let contextHasTouch = false;
-    let cdp = await openContext(contextHasTouch);
+    let contextDeviceScaleFactor = 1;
+    let cdp = await openContext(contextHasTouch, contextDeviceScaleFactor);
     const records = [];
     for (const matrix of SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX) {
       const needsTouch = matrix.kind === "input-focus" && matrix.inputKind === "touch";
-      if ((matrix.ordinal > 1 && (matrix.ordinal - 1) % 100 === 0) || needsTouch !== contextHasTouch) {
+      const neededDeviceScaleFactor = matrix.browserZoom;
+      if ((matrix.ordinal > 1 && (matrix.ordinal - 1) % 100 === 0)
+        || needsTouch !== contextHasTouch || neededDeviceScaleFactor !== contextDeviceScaleFactor) {
         await withTimeout(page.close(), 10_000, "gallery page rotation");
         await withTimeout(context.close(), 10_000, "gallery context rotation");
         contextHasTouch = needsTouch;
-        cdp = await openContext(contextHasTouch);
+        contextDeviceScaleFactor = neededDeviceScaleFactor;
+        cdp = await openContext(contextHasTouch, contextDeviceScaleFactor);
       }
       await withTimeout((async () => {
         const relativePngPath = `shots/${String(matrix.ordinal).padStart(4, "0")}-${matrix.id}.png`;

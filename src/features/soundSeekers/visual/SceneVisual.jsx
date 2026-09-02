@@ -24,6 +24,19 @@ function stableGlyphSeed(value) {
   return hash >>> 0;
 }
 
+const COMPOSITION_MODES = new Set(["ordinary", "wonder", "boss-resolved"]);
+
+function compositionSignature(scenePresentation, compositionMode) {
+  const seed = stableGlyphSeed([
+    scenePresentation.chapterId,
+    scenePresentation.sceneId,
+    scenePresentation.visualStateId,
+    scenePresentation.scenePhase,
+    compositionMode
+  ].join(":"));
+  return `world-composition:${seed.toString(16).padStart(8, "0")}`;
+}
+
 function optionPropGeometry(semanticId) {
   const id = semanticId.toLocaleLowerCase("en-US");
   const seed = stableGlyphSeed(id);
@@ -205,6 +218,7 @@ function SceneVisualWithBackground({
   cropProfile,
   densityProfile,
   motionProfile,
+  compositionMode,
   onChoose
 }) {
   const [backgroundImageState, setBackgroundImageState] = useState(
@@ -220,6 +234,9 @@ function SceneVisualWithBackground({
   const chooseOption = token => {
     onChoose(token);
   };
+  const controlState = scenePresentation.scenePhase === "correction"
+    ? "retry" : scenePresentation.scenePhase === "resolved"
+      ? "settled" : scenePresentation.scenePhase === "action" ? "selected" : "idle";
 
   return (
     <section
@@ -235,6 +252,7 @@ function SceneVisualWithBackground({
       data-chapter-id={scenePresentation.chapterId}
       data-scene-phase={scenePresentation.scenePhase}
       data-visual-state-id={scenePresentation.visualStateId}
+      data-composition-mode={compositionMode}
     >
       <div className="sound-seekers-scene__story">
         <p className="sound-seekers-scene__text" data-scene-text="">{childScene.text}</p>
@@ -250,6 +268,8 @@ function SceneVisualWithBackground({
           cropProfile={cropProfile}
           densityProfile={densityProfile}
           motionProfile={motionProfile}
+          compositionMode={compositionMode}
+          compositionSignature={compositionSignature(scenePresentation, compositionMode)}
           backgroundImageState={backgroundImageState}
           onBackgroundLoad={() => updateBackground("loaded")}
           onBackgroundError={() => updateBackground("failed")}
@@ -267,6 +287,7 @@ function SceneVisualWithBackground({
             data-option-token={option.token}
             data-min-css-px={String(option.affordance.minCssPx)}
             data-emphasis-rank={String(option.affordance.emphasisRank)}
+            data-control-state={controlState}
             onClick={() => chooseOption(option.token)}
           >
             <OptionGlyph option={option} />
@@ -286,10 +307,14 @@ export function SceneVisual({
   cropProfile,
   densityProfile,
   motionProfile,
+  compositionMode = "ordinary",
   onChoose
 }) {
   if (typeof onChoose !== "function") {
     throw new TypeError("Sound Seekers scene onChoose must be a function");
+  }
+  if (!COMPOSITION_MODES.has(compositionMode)) {
+    throw new TypeError(`Unknown Sound Seekers composition mode: ${String(compositionMode)}`);
   }
   const scenePresentation = resolveSceneVisualPresentation(childScene, {
     activeAttemptId,
@@ -311,6 +336,7 @@ export function SceneVisual({
       cropProfile={cropProfile}
       densityProfile={densityProfile}
       motionProfile={motionProfile}
+      compositionMode={compositionMode}
       onChoose={onChoose}
     />
   );
