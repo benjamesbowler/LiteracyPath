@@ -3,15 +3,25 @@ import { expect, test } from "@playwright/test";
 import { LETTER_GUIDES, LETTER_STROKES } from "../../src/data/letterStrokes.js";
 import { scoreLetterTrace } from "../../src/utils/traceLetterScoring.js";
 
-const PREVIEW = "/?skillsQuest";
+const PREVIEW = "/preview/child-surfaces.html?surface=adventure-map&quest=cycle-1&station=trace";
 const TRACE_CANVAS = ".sbq-trace-stage canvas";
 const TRACE_TARGET = ".sbq-trace-letter [data-trace-target]";
 const TRACE_STATUS = ".sbq-trace-message";
 
+async function waitForChildStageSizing(page) {
+  await expect.poll(() => page.locator(".adventure-round-frame button:visible").evaluateAll(buttons => {
+    if (buttons.length === 0) return 0;
+    return Math.min(...buttons.map(button => {
+      const rect = button.getBoundingClientRect();
+      return Math.min(rect.width, rect.height);
+    }));
+  }), {
+    message: "child stage must finish calculating its physical target size"
+  }).toBeGreaterThanOrEqual(55.9);
+}
+
 async function openFirstLetterTrace(page) {
   await page.goto(PREVIEW);
-  await page.getByRole("button", { name: /you are here/i }).click();
-  await page.getByRole("button", { name: /Letter Trace/i }).click();
 
   await expect(page.getByRole("heading", { name: "1 of 4" })).toBeVisible();
   await expect(page.locator('[data-mechanic-stage="letter-trace"]')).toHaveAttribute("data-trace-phase", "guided");
@@ -20,12 +30,13 @@ async function openFirstLetterTrace(page) {
 }
 
 async function expectTextMechanicFits(page, station, viewport) {
-  const card = page.locator(".sbq-round-card");
+  await waitForChildStageSizing(page);
+  const frame = page.locator(".adventure-round-frame");
   const stage = page.locator("[data-mechanic-stage]");
-  const geometry = await card.evaluate((root, viewportSize) => {
+  const geometry = await frame.evaluate((root, viewportSize) => {
     const rootRect = root.getBoundingClientRect();
-    const instructionRect = root.querySelector(".sbq-instruction-block")?.getBoundingClientRect();
-    const stageRect = root.querySelector("[data-mechanic-stage]")?.getBoundingClientRect();
+    const instructionRect = root.querySelector(".adventure-round-frame__plaque")?.getBoundingClientRect();
+    const stageRect = root.querySelector(".adventure-round-frame__stage")?.getBoundingClientRect();
     const controls = [...root.querySelectorAll("button:not([disabled]), canvas")]
       .filter(element => {
         const style = getComputedStyle(element);
@@ -36,17 +47,17 @@ async function expectTextMechanicFits(page, station, viewport) {
         const rect = element.getBoundingClientRect();
         return {
           label: element.getAttribute("aria-label") || element.textContent?.trim() || element.tagName,
-          width: Math.round(rect.width),
-          height: Math.round(rect.height),
+          width: Number(rect.width.toFixed(2)),
+          height: Number(rect.height.toFixed(2)),
           inside: rect.left >= rootRect.left - 1
             && rect.right <= rootRect.right + 1
             && rect.top >= rootRect.top - 1
             && rect.bottom <= rootRect.bottom + 1
         };
-      });
+    });
     return {
-      cardOverflowX: root.scrollWidth - root.clientWidth,
-      cardOverflowY: root.scrollHeight - root.clientHeight,
+      frameOverflowX: root.scrollWidth - root.clientWidth,
+      frameOverflowY: root.scrollHeight - root.clientHeight,
       stageInsideViewport: Boolean(stageRect)
         && stageRect.left >= 0
         && stageRect.right <= viewportSize.width
@@ -60,17 +71,17 @@ async function expectTextMechanicFits(page, station, viewport) {
     };
   }, viewport);
 
-  expect(geometry.cardOverflowX, `${station} must not overflow sideways at ${viewport.width}x${viewport.height}`).toBeLessThanOrEqual(1);
-  expect(geometry.cardOverflowY, `${station} must not overflow vertically at ${viewport.width}x${viewport.height}`).toBeLessThanOrEqual(1);
+  expect(geometry.frameOverflowX, `${station} must not overflow sideways at ${viewport.width}x${viewport.height}`).toBeLessThanOrEqual(1);
+  expect(geometry.frameOverflowY, `${station} must not overflow vertically at ${viewport.width}x${viewport.height}`).toBeLessThanOrEqual(1);
   expect(geometry.stageInsideViewport, `${station} stage must remain visible at ${viewport.width}x${viewport.height}`).toBe(true);
   expect(geometry.instructionStageOverlap, `${station} must not overlap its instruction`).toBe(0);
   expect(
-    geometry.controls.filter(control => control.width < 56 || control.height < 56),
+    geometry.controls.filter(control => control.width < 55.9 || control.height < 55.9),
     `${station} controls must keep the 56px floor at ${viewport.width}x${viewport.height}`
   ).toEqual([]);
   expect(
     geometry.controls.filter(control => !control.inside),
-    `${station} controls must stay inside the activity card at ${viewport.width}x${viewport.height}`
+    `${station} controls must stay inside the round frame at ${viewport.width}x${viewport.height}`
   ).toEqual([]);
   await expect(stage).toBeVisible();
 }
@@ -100,7 +111,7 @@ test("Task7 text mechanics fit max-content rounds at both short classroom viewpo
 });
 
 async function chooseCurrentPoemTarget(page) {
-  const prompt = await page.locator(".sbq-instruction-copy").textContent();
+  const prompt = await page.locator(".adventure-round-frame__instruction").textContent();
   const position = prompt?.match(/word (\d+) in line (\d+)/i);
   expect(position, "Poem Spotlight must name an exact word occurrence").toBeTruthy();
   const [, word, line] = position;
@@ -447,8 +458,8 @@ async function clearTrace(page) {
   await page.getByRole("button", { name: "Start again" }).click();
   await expect(page.locator(TRACE_STATUS)).toHaveText("Trace the grey letter.");
   await expect(page.getByRole("button", { name: "Check my letter" })).toBeDisabled();
-  await expect(page.locator(".sbq-encourage")).toHaveCount(0);
-  await expect(page.locator(".sbq-round-card")).not.toHaveClass(/sbq-shake/);
+  await expect(page.locator(".sbq-sparkle")).toHaveCount(0);
+  await expect(page.locator(".adventure-round-frame__stage")).not.toHaveClass(/sbq-shake/);
 }
 
 function highCoverageScribble(canvasBox) {

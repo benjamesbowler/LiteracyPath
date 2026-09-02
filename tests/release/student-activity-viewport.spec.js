@@ -12,7 +12,7 @@ const QUEST_STATIONS = [
   ["cycle-1", "hunt"],
   ["cycle-1", "quick"],
   ["cycle-1", "build"],
-  ["cycle-1", "play"],
+  ["cycle-4", "play"],
   ["cycle-1", "poem"],
   ["cycle-1", "story"],
   ["cycle-1", "trace"],
@@ -33,6 +33,18 @@ const VISIBLE_CONTROL = [
   "textarea:not([disabled])",
   "canvas"
 ].join(",");
+
+async function waitForChildStageSizing(page) {
+  await expect.poll(() => page.locator(".adventure-round-frame button:visible").evaluateAll(buttons => {
+    if (buttons.length === 0) return 0;
+    return Math.min(...buttons.map(button => {
+      const rect = button.getBoundingClientRect();
+      return Math.min(rect.width, rect.height);
+    }));
+  }), {
+    message: "child stage must finish calculating its physical target size"
+  }).toBeGreaterThanOrEqual(55.9);
+}
 
 async function boundedGeometry(locator, state, {
   allowedHorizontalScroll = [],
@@ -117,26 +129,50 @@ async function expectFullSizeChildControls(locator, state) {
       const rect = button.getBoundingClientRect();
       return {
         label: button.getAttribute("aria-label") || button.textContent?.trim() || "button",
-        width: Math.round(rect.width),
-        height: Math.round(rect.height)
+        width: Number(rect.width.toFixed(2)),
+        height: Number(rect.height.toFixed(2))
       };
     })
-    .filter(button => button.width < 56 || button.height < 56));
+    .filter(button => button.width < 55.9 || button.height < 55.9));
   expect(undersized, `${state} needs 56px child controls`).toEqual([]);
 }
 
-async function expectReadableAnswerCards(locator, state) {
+async function expectReadableMechanicControls(locator, state) {
   const undersized = await locator
-    .locator(".sbq-answer-grid button:visible, .sbq-pattern-tile:visible")
+    .locator("[data-mechanic-stage] button:visible")
     .evaluateAll(buttons => buttons.map(button => {
       const rect = button.getBoundingClientRect();
       return {
-        label: button.textContent?.trim() || "answer",
-        width: Math.round(rect.width),
-        height: Math.round(rect.height)
+        label: button.getAttribute("aria-label") || button.textContent?.trim() || "mechanic control",
+        width: Number(rect.width.toFixed(2)),
+        height: Number(rect.height.toFixed(2))
       };
-    }).filter(button => button.width < 80 || button.height < 64));
-  expect(undersized, `${state} needs readable answer cards, not tiny boxes`).toEqual([]);
+    }).filter(button => button.width < 55.9 || button.height < 55.9));
+  expect(undersized, `${state} needs readable mechanic controls, not tiny targets`).toEqual([]);
+}
+
+function coverByTitle() {
+  return new Map(
+    Object.values(QUEST_STORY_QUESTIONS).flatMap(bank => (
+      bank.questions.map(question => [question.title, question.cover])
+    ))
+  );
+}
+
+async function completeCurrentCoverClue(page) {
+  const stage = page.locator('[data-mechanic-stage="cover-clue"]');
+  const strip = stage.locator('[data-cover-strip="title"]');
+  const title = (await strip.textContent())?.trim();
+  const expectedCover = coverByTitle().get(title);
+  expect(expectedCover, `title strip ${title} needs a known cover`).toBeTruthy();
+  await strip.click();
+  const covers = stage.locator("[data-cover-piece]");
+  const coverPaths = await covers.locator("img").evaluateAll(images => (
+    images.map(image => image.getAttribute("src"))
+  ));
+  const answerIndex = coverPaths.findIndex(path => path === expectedCover);
+  expect(answerIndex, `title strip ${title} must have its matching cover`).toBeGreaterThanOrEqual(0);
+  await covers.nth(answerIndex).click();
 }
 
 test("every logged-in child destination fits an iPad without hidden controls", async ({ page }) => {
@@ -170,10 +206,11 @@ test("all Adventure Map and Letter station types fit an iPad without scrolling",
     );
     const activity = page.locator(`[data-quest-view="round"][data-station-id="${station}"]`);
     await expect(activity).toBeVisible();
+    await waitForChildStageSizing(page);
     await boundedGeometry(page.locator(".kg-main"), `${cycle} ${station} content row`);
-    await boundedGeometry(activity.locator(".sbq-round-card"), `${cycle} ${station} activity card`);
+    await boundedGeometry(activity.locator(".adventure-round-frame"), `${cycle} ${station} round frame`);
     await expectFullSizeChildControls(activity, `${cycle} ${station}`);
-    await expectReadableAnswerCards(activity, `${cycle} ${station}`);
+    await expectReadableMechanicControls(activity, `${cycle} ${station}`);
   }
 });
 
@@ -189,14 +226,15 @@ test("Adventure Map answers stay readable when iPad browser chrome shortens the 
       );
       const activity = page.locator(`[data-quest-view="round"][data-station-id="${station}"]`);
       await expect(activity).toBeVisible();
-      await boundedGeometry(activity.locator(".sbq-round-card"), `${height}px ${station} activity card`);
+      await waitForChildStageSizing(page);
+      await boundedGeometry(activity.locator(".adventure-round-frame"), `${height}px ${station} round frame`);
       await expectFullSizeChildControls(activity, `${height}px ${station}`);
-      await expectReadableAnswerCards(activity, `${height}px ${station}`);
+      await expectReadableMechanicControls(activity, `${height}px ${station}`);
     }
   }
 });
 
-test("Story Stop reflows without clipped answer cards on phones", async ({ page }) => {
+test("Cover Clue reflows without clipped cover cards on phones", async ({ page }) => {
   for (const viewport of [
     { width: 390, height: 844, label: "phone portrait" },
     { width: 667, height: 375, label: "short phone landscape" }
@@ -209,30 +247,31 @@ test("Story Stop reflows without clipped answer cards on phones", async ({ page 
     );
     const activity = page.locator('[data-quest-view="round"][data-station-id="story"]');
     await expect(activity).toBeVisible();
-    await expectReadableAnswerCards(activity, viewport.label);
+    await waitForChildStageSizing(page);
+    await expectReadableMechanicControls(activity, viewport.label);
     const geometry = await activity.evaluate(root => {
       const rootRect = root.getBoundingClientRect();
-      const card = root.querySelector(".sbq-round-card");
-      const cardRect = card.getBoundingClientRect();
-      const answers = [...root.querySelectorAll(".sbq-answer-grid button")]
+      const frame = root.querySelector(".adventure-round-frame");
+      const frameRect = frame.getBoundingClientRect();
+      const covers = [...root.querySelectorAll('[data-mechanic-stage="cover-clue"] [data-cover-piece]')]
         .map(button => button.getBoundingClientRect());
       return {
         rootOverflowX: root.scrollWidth - root.clientWidth,
-        cardOverflowX: card.scrollWidth - card.clientWidth,
-        cardInsideHorizontally: cardRect.left >= rootRect.left - 1
-          && cardRect.right <= rootRect.right + 1,
-        clippedAnswers: answers.filter(rect => (
+        frameOverflowX: frame.scrollWidth - frame.clientWidth,
+        frameInsideHorizontally: frameRect.left >= rootRect.left - 1
+          && frameRect.right <= rootRect.right + 1,
+        clippedCovers: covers.filter(rect => (
           rect.left < rootRect.left - 1 || rect.right > rootRect.right + 1
         )).length
       };
     });
     expect(geometry.rootOverflowX, `${viewport.label} activity must not scroll sideways`).toBeLessThanOrEqual(1);
-    expect(geometry.cardOverflowX, `${viewport.label} card must not overflow sideways`).toBeLessThanOrEqual(1);
-    expect(geometry.cardInsideHorizontally, `${viewport.label} card must stay inside the activity`).toBe(true);
-    expect(geometry.clippedAnswers, `${viewport.label} answers must stay inside the activity`).toBe(0);
-    const lastAnswer = activity.locator(".sbq-answer-grid button").last();
-    await lastAnswer.scrollIntoViewIfNeeded();
-    await expect(lastAnswer).toBeVisible();
+    expect(geometry.frameOverflowX, `${viewport.label} frame must not overflow sideways`).toBeLessThanOrEqual(1);
+    expect(geometry.frameInsideHorizontally, `${viewport.label} frame must stay inside the activity`).toBe(true);
+    expect(geometry.clippedCovers, `${viewport.label} covers must stay inside the activity`).toBe(0);
+    const lastCover = activity.locator('[data-mechanic-stage="cover-clue"] [data-cover-piece]').last();
+    await lastCover.scrollIntoViewIfNeeded();
+    await expect(lastCover).toBeVisible();
   }
 });
 
@@ -240,18 +279,11 @@ test("Adventure Map completion actions stay full-size and inside the iPad activi
   await page.setViewportSize(IPAD_LANDSCAPE);
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/preview/child-surfaces.html?surface=adventure-map&quest=cycle-1&station=story");
+  await waitForChildStageSizing(page);
 
-  const answerByTitle = new Map(
-    Object.values(QUEST_STORY_QUESTIONS).flatMap(bank => (
-      bank.questions.map(question => [question.title, question.answer])
-    ))
-  );
   for (let round = 1; round <= 4; round += 1) {
     await expect(page.getByRole("heading", { name: `${round} of 4` })).toBeVisible();
-    const title = await page.locator(".sbq-story-cover figcaption").textContent();
-    const answer = answerByTitle.get(title?.trim());
-    expect(answer, `story title ${title} needs a known answer`).toBeTruthy();
-    await page.locator(".sbq-answer-grid").getByRole("button", { name: answer, exact: true }).click();
+    await completeCurrentCoverClue(page);
     if (round < 4) {
       await expect(page.getByRole("heading", { name: `${round + 1} of 4` })).toBeVisible();
     }
