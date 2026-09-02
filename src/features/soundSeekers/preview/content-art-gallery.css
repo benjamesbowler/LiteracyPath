@@ -67,8 +67,9 @@
   visibility: hidden;
 }
 
-[data-gallery-semantic-inventory] {
-  display: none;
+.sound-seekers-content-gallery [data-option-visual-id]:focus {
+  outline: 5px solid var(--ss-token-ink-deep);
+  outline-offset: 4px;
 }
 
 @media (max-width: 680px) {

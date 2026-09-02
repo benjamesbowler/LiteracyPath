@@ -56,9 +56,55 @@ test("the data-only authority snapshot is exact and every cloned mutation fails 
     "playerVisual", "creatorOptions", "poseIds", "assetManifest"
   ]);
   assert.equal(validateSoundSeekersV2ContentAuthorities(structuredClone(snapshot)), true);
-  const changed = structuredClone(snapshot);
-  changed.expeditions[0].stopId = "s40";
-  assert.throws(() => validateSoundSeekersV2ContentAuthorities(changed));
+  const mutations = [
+    ["quest stop", value => { value.questStops[0].title = "drift"; }],
+    ["chapter", value => { value.chapters[0].title = "drift"; }],
+    ["expedition", value => { value.expeditions[0].stopId = "s40"; }],
+    ["review source", value => { value.reviewSourceId = "drift"; }],
+    ["pronunciation", value => { value.pronunciationInvariant.contentHash = "drift"; }],
+    ["deck categories", value => { value.contentDeckCategories.pop(); }],
+    ["deck catalog", value => { value.contentDeckCatalogs.heartWords.pop(); }],
+    ["deck binding", value => { value.contentDeckBindings[0].stopId = "s40"; }],
+    ["deck placement", value => { value.contentDeckPlacements[0].stopId = "s40"; }],
+    ["coverage", value => { value.coverageSummary.validUseCounts.heartWords -= 1; }],
+    ["receipt summary", value => { value.attemptReceiptSummary.ids.pop(); }],
+    ["connected text", value => { value.connectedTextScenes[0].stopId = "s40"; }],
+    ["scene semantic", value => { value.sceneVisualSemantics[0].chapterId = "drift"; }],
+    ["branch", value => { value.narrativeBranchOutcomes[0].storyOutcomeId = "drift"; }],
+    ["meaning support", value => { value.meaningSupport[0].visualSemanticId = "drift"; }],
+    ["meaning owner", value => { value.meaningVisualOwners[0].meaningSemanticId = "drift"; }],
+    ["instruction audio", value => { value.instructionAudioInventory[0].path = "/drift.mp3"; }],
+    ["scene audio", value => { value.sceneAudioInventory[0].path = "/drift.mp3"; }]
+  ];
+  for (const [label, mutate] of mutations) {
+    const changed = structuredClone(snapshot);
+    mutate(changed);
+    assert.throws(() => validateSoundSeekersV2ContentAuthorities(changed), undefined, label);
+  }
+});
+
+test("coverage rejects category, use, receipt, evidence, reciprocal, and decision-split mutations", () => {
+  const fixture = buildSoundSeekersV2CanonicalCoverageFixture();
+  for (const [label, mutate] of [
+    ["missing category", state => { delete state.contentDecks.transfer; }],
+    ["missing use", state => {
+      delete state.contentDecks.heartWords.uses[Object.keys(state.contentDecks.heartWords.uses)[0]];
+    }],
+    ["orphan reciprocal", state => {
+      delete state.contentDecks.transfer.uses[Object.keys(state.contentDecks.transfer.uses)[0]];
+    }],
+    ["missing receipt", state => { delete state.attemptReceipts[Object.keys(state.attemptReceipts)[0]]; }],
+    ["receipt conflict", state => {
+      const id = Object.keys(state.attemptReceipts)[0];
+      state.attemptReceipts[id].eventIds = [];
+    }],
+    ["missing evidence", state => { state.evidence.pop(); }],
+    ["evidence domain", state => { state.evidence[0].domain = "novel_decoding"; }]
+  ]) {
+    const state = structuredClone(fixture.state);
+    mutate(state);
+    assert.throws(() => summarizeSoundSeekersV2Coverage(state), undefined, label);
+  }
 });
 
 test("the source policy rejects raw colors and preview answer-authority imports", () => {
@@ -68,4 +114,15 @@ test("the source policy rejects raw colors and preview answer-authority imports"
       "src/features/soundSeekers/preview/bad.jsx": "import '../content/connectedTextAnswerKeys.js'; export default '#abc';"
     }
   }));
+  for (const [label, source] of [
+    ["CSS short hex", ".bad { color: #abc; }"],
+    ["CSS alpha hex", ".bad { color: #abcdef12; }"],
+    ["JS numeric hex", "export const bad = 0xabcdef;"],
+    ["directory scan", "import { readdirSync } from 'node:fs'; readdirSync('public/game-assets');"]
+  ]) {
+    const extension = label.startsWith("CSS") ? "css" : "js";
+    assert.throws(() => scanSoundSeekersV2SourcePolicy({
+      virtualSources: { [`src/features/soundSeekers/preview/bad.${extension}`]: source }
+    }), undefined, label);
+  }
 });

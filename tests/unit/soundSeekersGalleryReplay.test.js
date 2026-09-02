@@ -18,8 +18,21 @@ test("gallery queries accept only canonical child-safe replay inputs", () => {
   });
   for (const unsafe of [
     "state=repair", "phase=resolved", "worldState=repair", "correct=true", "answer=x",
-    "fixture=resolved", "stop=s1&stop=s2", "unknown=x"
+    "fixture=resolved", "stop=s1&stop=s2", "unknown=x",
+    "mode=creator", "mode=creator&option=idle",
+    "mode=character-bouncy&option=body-shape-round",
+    "mode=scene&stop=s1&option=body-shape-round",
+    "mode=scene&stop=s5&fixture=boss-resolved&option=scene-s1-option-lift-light",
+    "mode=meaning-meaning-bike-two-wheel-pedal-vehicle&scene=scene-s2&fixture=assessed-direct-meaning",
+    "mode=meaning-meaning-action-person-doing-something&scene=scene-s40&fixture=boss-direct-meaning"
   ]) assert.throws(() => parseSoundSeekersGalleryQuery(`?${unsafe}`));
+
+  assert.equal(parseSoundSeekersGalleryQuery(
+    "?mode=creator&stop=s1&fixture=pre-choice&option=body-shape-sprout"
+  ).optionId, "body-shape-sprout");
+  assert.equal(parseSoundSeekersGalleryQuery(
+    "?mode=character-bouncy&stop=s1&fixture=pre-choice&option=idle"
+  ).optionId, "idle");
 });
 
 test("every frozen recipe is committed reducer replay rather than authored presentation state", () => {

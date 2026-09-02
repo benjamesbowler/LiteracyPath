@@ -1,12 +1,18 @@
 #!/usr/bin/env node
 import { isDeepStrictEqual } from "node:util";
-import { existsSync, readFileSync, readdirSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { parse } from "@babel/parser";
 
 import { QUEST_STOPS } from "../src/data/questSequence.js";
 import { SOUND_SEEKERS_CHAPTERS } from "../src/features/soundSeekers/content/chapters/index.js";
-import { SOUND_SEEKERS_EXPEDITIONS } from "../src/features/soundSeekers/content/expeditions.js";
+import {
+  SOUND_SEEKERS_EXPEDITIONS,
+  SOUND_SEEKERS_INTERACTION_CONTEXTS,
+  assertExpeditionContentOwnership,
+  assertSoundSeekersInteractionContexts
+} from "../src/features/soundSeekers/content/expeditions.js";
 import { SOUND_SEEKERS_REVIEW_SOURCE_ID } from "../src/features/soundSeekers/content/reviewSequences.js";
 import {
   PRONUNCIATION_CORPUS_CONTENT_HASH,
@@ -15,7 +21,14 @@ import {
 } from "../src/features/soundSeekers/content/pronunciationCorpusInvariant.generated.js";
 import { CONTENT_DECK_CATEGORIES, SOUND_SEEKERS_CONTENT_DECK_CATALOGS } from "../src/features/soundSeekers/content/contentDeckCatalogs.js";
 import { CONTENT_DECK_BINDINGS, CONTENT_DECK_PLACEMENTS } from "../src/features/soundSeekers/content/contentDeckBindings.js";
-import { SOUND_SEEKERS_CONNECTED_TEXT } from "../src/features/soundSeekers/content/connectedText.js";
+import {
+  SOUND_SEEKERS_CONNECTED_TEXT,
+  validateSceneAtStop
+} from "../src/features/soundSeekers/content/connectedText.js";
+import {
+  SOUND_SEEKERS_WORDS,
+  assertShippingPronunciationLexicon
+} from "../src/features/soundSeekers/content/pronunciationLexicon.js";
 import {
   SOUND_SEEKERS_MEANING_VISUAL_OWNERS,
   SOUND_SEEKERS_NARRATIVE_BRANCH_OUTCOMES,
@@ -23,13 +36,17 @@ import {
 } from "../src/features/soundSeekers/content/sceneVisualSemantics.js";
 import { SOUND_SEEKERS_MEANING_SUPPORT } from "../src/features/soundSeekers/content/meaningSupport.js";
 import { SOUND_SEEKERS_INSTRUCTIONS } from "../src/features/soundSeekers/content/instructionContracts.js";
-import { SOUND_SEEKERS_BIOME_KITS } from "../src/features/soundSeekers/content/biomeKits.js";
+import {
+  SOUND_SEEKERS_BIOME_KITS,
+  validateSoundSeekersBiomeKits
+} from "../src/features/soundSeekers/content/biomeKits.js";
 import {
   SOUND_SEEKERS_LANDMARK_BINDINGS,
   SOUND_SEEKERS_MEANING_VISUALS,
   SOUND_SEEKERS_OPTION_VISUALS,
   SOUND_SEEKERS_ROUTE_SPECS,
-  SOUND_SEEKERS_SCENE_RENDER_SPECS
+  SOUND_SEEKERS_SCENE_RENDER_SPECS,
+  validateSoundSeekersVisualCatalogs
 } from "../src/features/soundSeekers/visual/sceneVisualCatalog.js";
 import {
   SOUND_SEEKERS_CHARACTER_VISUALS,
@@ -50,7 +67,10 @@ import { recordContentDeckUse, serveContentDeck } from "../src/features/soundSee
 import { coverageStatus, validAttemptReceipts, validContentDeckUses } from "../src/features/soundSeekers/engine/contentCoverage.js";
 import { createSoundSeekersState, normalizeSoundSeekersState } from "../src/features/soundSeekers/engine/stateV2.js";
 import { expectedSoundSeekersSceneAudio, assertSoundSeekersSceneAudio } from "./checkSoundSeekersSceneAudio.mjs";
-import { readSoundSeekersV2AssetManifest } from "./lib/soundSeekersV2AssetManifest.mjs";
+import {
+  assertSoundSeekersV2AssetManifest,
+  readSoundSeekersV2AssetManifest
+} from "./lib/soundSeekersV2AssetManifest.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const EXPECTED_COVERAGE = Object.freeze({
@@ -66,8 +86,28 @@ const EXPECTED_COVERAGE = Object.freeze({
 const EXPECTED_USE_COUNTS = Object.freeze({
   heartWords: 81, stories: 40, alternatives: 4, morphology: 1, transfer: 40
 });
-const GALLERY_MARKER = /sound-seekers-v2-content|ContentArtGallery|galleryReplayRecipes|data-gallery-root/u;
 const RAW_COLOR = /(?<!&)#(?:[\da-fA-F]{3}|[\da-fA-F]{4}|[\da-fA-F]{6}|[\da-fA-F]{8})\b|\b0x[\da-fA-F]{6}\b/u;
+const GALLERY_TARGETS = new Set([
+  "preview/sound-seekers-v2-content.html",
+  "preview/sound-seekers-v2-content.jsx",
+  "src/features/soundSeekers/preview/ContentArtGallery.jsx",
+  "src/features/soundSeekers/preview/galleryReplayRecipes.js",
+  "src/features/soundSeekers/preview/content-art-gallery.css"
+]);
+const GALLERY_CONSUMERS = new Set([
+  ...GALLERY_TARGETS,
+  "tools/shootSoundSeekersV2Content.mjs",
+  "tools/lib/soundSeekersV2GalleryManifest.mjs",
+  "tools/checkSoundSeekersV2Content.mjs",
+  "tools/checkQuestOffline.mjs",
+  "tests/browser/sound-seekers-content-gallery.spec.js",
+  "tests/browser/sound-seekers-visual-semantic.spec.js",
+  "tests/unit/soundSeekersConnectedText.test.js",
+  "tests/unit/soundSeekersGalleryReplay.test.js",
+  "tests/unit/soundSeekersV2GalleryManifest.test.js",
+  "tests/unit/soundSeekersV2GalleryIsolation.test.js",
+  "tests/unit/soundSeekersVisualPolish.test.js"
+]);
 
 function deepFreeze(value) {
   if (!value || typeof value !== "object" || Object.isFrozen(value)) return value;
@@ -250,15 +290,6 @@ export function validateSoundSeekersV2ContentAuthorities(authorities) {
   return true;
 }
 
-function filesBelow(directory) {
-  if (!existsSync(directory)) return [];
-  return readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
-    const fullPath = path.join(directory, entry.name);
-    if (entry.isDirectory()) return filesBelow(fullPath);
-    return /\.(?:js|jsx|mjs|css)$/u.test(entry.name) ? [fullPath] : [];
-  });
-}
-
 function repositorySourceFiles(directory = ROOT) {
   const ignored = new Set([".git", "node_modules", ".artifacts", "dist", "dist-quest-offline", "coverage", "test-results", "playwright-report"]);
   return readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
@@ -269,49 +300,183 @@ function repositorySourceFiles(directory = ROOT) {
   });
 }
 
-export function scanSoundSeekersV2SourcePolicy({ virtualSources = null } = {}) {
-  const sources = new Map();
-  for (const directory of [
-    "src/features/soundSeekers/content",
-    "src/features/soundSeekers/engine",
-    "src/features/soundSeekers/visual",
-    "src/features/soundSeekers/preview"
-  ]) {
-    for (const filePath of filesBelow(path.join(ROOT, directory))) {
-      sources.set(path.relative(ROOT, filePath).split(path.sep).join("/"), readFileSync(filePath, "utf8"));
-    }
+let cachedRepositorySources = null;
+let cachedRepositoryEdges = null;
+
+function repositorySources() {
+  if (!cachedRepositorySources) {
+    cachedRepositorySources = new Map(repositorySourceFiles().map(filePath => {
+      const relativePath = normalizePath(path.relative(ROOT, filePath));
+      return [relativePath, readFileSync(filePath, "utf8")];
+    }));
   }
-  for (const [relativePath, source] of Object.entries(virtualSources || {})) sources.set(relativePath, source);
+  return cachedRepositorySources;
+}
+
+function normalizePath(filePath) {
+  return filePath.split(path.sep).join("/");
+}
+
+function staticString(node) {
+  if (!node) return null;
+  if (node.type === "StringLiteral") return node.value;
+  if (node.type === "TemplateLiteral" && node.expressions.length === 0) {
+    return node.quasis.map(quasi => quasi.value.cooked).join("");
+  }
+  if (node.type === "BinaryExpression" && node.operator === "+") {
+    const left = staticString(node.left);
+    const right = staticString(node.right);
+    return left === null || right === null ? null : left + right;
+  }
+  return null;
+}
+
+function walkAst(node, visit) {
+  if (!node || typeof node !== "object") return;
+  visit(node);
+  for (const [key, child] of Object.entries(node)) {
+    if (["loc", "start", "end", "extra"].includes(key)) continue;
+    if (Array.isArray(child)) child.forEach(value => walkAst(value, visit));
+    else if (child && typeof child === "object") walkAst(child, visit);
+  }
+}
+
+function parseSourceEdges(relativePath, source) {
+  const extension = path.extname(relativePath);
+  const edges = [];
+  const nonliteralDynamic = [];
+  if (extension === ".html") {
+    for (const match of source.matchAll(/<(?:script|link)\b[^>]*(?:src|href)=["']([^"']+)["'][^>]*>/giu)) {
+      edges.push({ specifier: match[1], kind: "html" });
+    }
+    return { edges, nonliteralDynamic };
+  }
+  if (extension === ".css") {
+    for (const match of source.matchAll(/@import\s+(?:url\(\s*)?["']([^"']+)["']/giu)) {
+      edges.push({ specifier: match[1], kind: "css" });
+    }
+    return { edges, nonliteralDynamic };
+  }
+  let ast;
+  try {
+    ast = parse(source, {
+      sourceType: "unambiguous",
+      plugins: ["jsx", "typescript", "dynamicImport", "importAttributes"]
+    });
+  } catch (error) {
+    throw new Error(`${relativePath}: source parse failed: ${error.message}`, { cause: error });
+  }
+  walkAst(ast, node => {
+    if (["ImportDeclaration", "ExportNamedDeclaration", "ExportAllDeclaration"].includes(node.type)
+      && node.source?.type === "StringLiteral") {
+      edges.push({ specifier: node.source.value, kind: node.type });
+    }
+    if (node.type === "CallExpression" && node.callee?.type === "Import") {
+      const specifier = staticString(node.arguments[0]);
+      if (node.arguments[0]?.type === "StringLiteral") edges.push({ specifier, kind: "dynamic" });
+      else nonliteralDynamic.push(specifier);
+    }
+  });
+  return { edges, nonliteralDynamic };
+}
+
+function resolveSourceEdge(fromPath, specifier, sources) {
+  if (typeof specifier !== "string" || (!specifier.startsWith(".") && !specifier.startsWith("/"))) return null;
+  const clean = specifier.split(/[?#]/u)[0];
+  const base = clean.startsWith("/")
+    ? clean.slice(1)
+    : normalizePath(path.posix.normalize(path.posix.join(path.posix.dirname(fromPath), clean)));
+  const candidates = [
+    base,
+    ...[".js", ".jsx", ".mjs", ".ts", ".tsx", ".html", ".css"].map(extension => `${base}${extension}`),
+    ...["index.js", "index.jsx", "index.mjs", "index.ts", "index.tsx"].map(name => `${base}/${name}`)
+  ];
+  return candidates.find(candidate => sources.has(candidate)) || null;
+}
+
+function looksLikeGallerySpecifier(value) {
+  return typeof value === "string" && (
+    value.includes("sound-seekers-v2-content")
+    || value.includes("ContentArtGallery")
+    || value.includes("galleryReplayRecipes")
+    || value.includes("content-art-gallery")
+  );
+}
+
+function previewAuthorityViolations(relativePath, source) {
+  if (!(relativePath === "preview/sound-seekers-v2-content.jsx"
+    || relativePath.startsWith("src/features/soundSeekers/preview/"))) return [];
+  const violations = [];
+  if (/connectedTextAnswerKeys|CONNECTED_TEXT_EVALUATORS|evaluateConnectedTextDecision|\/engine\/evidence(?:\.js)?["']/u.test(source)) {
+    violations.push(`${relativePath}: preview imports private answer/evidence authority`);
+  }
+  if (/\breaddir(?:Sync)?\s*\([^)]*(?:public|game-assets|audio)/su.test(source)) {
+    violations.push(`${relativePath}: preview scans an asset directory`);
+  }
+  if (relativePath.endsWith("galleryReplayRecipes.js")) return violations;
+  let ast;
+  try {
+    ast = parse(source, { sourceType: "unambiguous", plugins: ["jsx", "typescript"] });
+  } catch {
+    return violations;
+  }
+  const forbiddenKeys = new Set(["presentationTransition", "evidenceEvent", "correct", "phase", "challenge", "response"]);
+  walkAst(ast, node => {
+    if (node.type === "ObjectProperty") {
+      const key = node.computed ? staticString(node.key) : node.key?.name || node.key?.value;
+      if (forbiddenKeys.has(key)) violations.push(`${relativePath}: preview authors forbidden ${key} authority`);
+    }
+    if (node.type === "JSXAttribute" && forbiddenKeys.has(node.name?.name)) {
+      violations.push(`${relativePath}: preview passes forbidden ${node.name.name} prop`);
+    }
+  });
+  if (/\bissueSceneVisualAccess\s*\(/u.test(source)) {
+    violations.push(`${relativePath}: preview issues scene access outside reducer replay`);
+  }
+  return violations;
+}
+
+export function scanSoundSeekersV2SourcePolicy({ virtualSources = null } = {}) {
+  const sources = new Map(repositorySources());
+  const overrides = new Set(Object.keys(virtualSources || {}).map(normalizePath));
+  for (const [relativePath, source] of Object.entries(virtualSources || {})) sources.set(normalizePath(relativePath), source);
   const violations = [];
   for (const [relativePath, source] of sources) {
-    if (relativePath !== "src/features/soundSeekers/visual/visualTokens.js" && RAW_COLOR.test(source)) {
+    const rawColorScope = relativePath.startsWith("src/features/soundSeekers/")
+      || relativePath === "preview/sound-seekers-v2-content.jsx";
+    if (rawColorScope && relativePath !== "src/features/soundSeekers/visual/visualTokens.js" && RAW_COLOR.test(source)) {
       violations.push(`${relativePath}: raw color outside visualTokens.js`);
     }
-    if (relativePath.startsWith("src/features/soundSeekers/preview/")
-      && /connectedTextAnswerKeys|CONNECTED_TEXT_EVALUATORS|evaluateConnectedTextDecision/u.test(source)) {
-      violations.push(`${relativePath}: preview imports private answer authority`);
-    }
+    violations.push(...previewAuthorityViolations(relativePath, source));
   }
-  const galleryConsumers = new Set([
-    "preview/sound-seekers-v2-content.html",
-    "preview/sound-seekers-v2-content.jsx",
-    "src/features/soundSeekers/preview/ContentArtGallery.jsx",
-    "src/features/soundSeekers/preview/galleryReplayRecipes.js",
-    "tools/shootSoundSeekersV2Content.mjs",
-    "tools/lib/soundSeekersV2GalleryManifest.mjs",
-    "tools/checkSoundSeekersV2Content.mjs",
-    "tools/checkQuestOffline.mjs",
-    "tests/browser/sound-seekers-content-gallery.spec.js",
-    "tests/browser/sound-seekers-visual-semantic.spec.js",
-    "tests/unit/soundSeekersConnectedText.test.js",
-    "tests/unit/soundSeekersGalleryReplay.test.js",
-    "tests/unit/soundSeekersV2GalleryIsolation.test.js"
-  ]);
-  for (const filePath of repositorySourceFiles()) {
-    const relativePath = path.relative(ROOT, filePath).split(path.sep).join("/");
-    const source = readFileSync(filePath, "utf8");
-    if (GALLERY_MARKER.test(source) && !galleryConsumers.has(relativePath)) {
-      violations.push(`${relativePath}: dev-only gallery is reachable from an unauthorized source`);
+
+  if (!cachedRepositoryEdges) {
+    cachedRepositoryEdges = new Map([...repositorySources()].map(([relativePath, source]) =>
+      [relativePath, parseSourceEdges(relativePath, source)]));
+  }
+  for (const [relativePath, source] of sources) {
+    const { edges, nonliteralDynamic } = overrides.has(relativePath)
+      ? parseSourceEdges(relativePath, source)
+      : cachedRepositoryEdges.get(relativePath) || parseSourceEdges(relativePath, source);
+    for (const computed of nonliteralDynamic) {
+      if (computed !== null && (computed.startsWith(".") || computed.startsWith("/"))) {
+        if (looksLikeGallerySpecifier(computed)) {
+          violations.push(`${relativePath}: non-literal dynamic gallery load is forbidden`);
+        }
+      } else if (/import\s*\([\s\S]*(?:soundSeekers|sound-seekers)[\s\S]*(?:preview|gallery)/u.test(source)) {
+        violations.push(`${relativePath}: non-literal dynamic gallery load cannot be proven isolated`);
+      }
+    }
+    for (const edge of edges) {
+      if (!looksLikeGallerySpecifier(edge.specifier)) continue;
+      const resolved = resolveSourceEdge(relativePath, edge.specifier, sources);
+      if (!resolved) {
+        violations.push(`${relativePath}: unresolved gallery source edge ${edge.specifier}`);
+        continue;
+      }
+      if (GALLERY_TARGETS.has(resolved) && !GALLERY_CONSUMERS.has(relativePath)) {
+        violations.push(`${relativePath}: dev-only gallery edge is not an exact authorized consumer`);
+      }
     }
   }
   if (virtualSources && violations.length) throw new Error(violations.join("\n"));
@@ -320,11 +485,38 @@ export function scanSoundSeekersV2SourcePolicy({ virtualSources = null } = {}) {
 
 function assertBundleIsolation(productionBundlePath) {
   if (!productionBundlePath) return;
-  const source = readFileSync(path.resolve(productionBundlePath), "utf8");
-  if (GALLERY_MARKER.test(source)) throw new Error("production bundle contains the dev-only gallery");
+  const analysis = JSON.parse(readFileSync(path.resolve(productionBundlePath), "utf8"));
+  const paths = [
+    ...Object.keys(analysis.inputs || {}),
+    ...Object.entries(analysis.outputs || {}).flatMap(([outputPath, output]) => [
+      outputPath,
+      output?.entryPoint,
+      ...(output?.imports || []).map(record => record.path)
+    ])
+  ].filter(Boolean).map(normalizePath);
+  if (paths.some(candidate => GALLERY_TARGETS.has(candidate)
+    || [...GALLERY_TARGETS].some(target => candidate.endsWith(`/${target}`)))) {
+    throw new Error("production bundle graph contains the dev-only gallery");
+  }
+}
+
+function assertTaskOneToFiveAuthorities() {
+  assertSoundSeekersInteractionContexts(SOUND_SEEKERS_INTERACTION_CONTEXTS);
+  for (const expedition of SOUND_SEEKERS_EXPEDITIONS) assertExpeditionContentOwnership(expedition);
+  const assessedWordIds = [...new Set(SOUND_SEEKERS_EXPEDITIONS.flatMap(expedition =>
+    expedition.phases.map(phase => phase.wordId).filter(Boolean)))];
+  assertShippingPronunciationLexicon(SOUND_SEEKERS_WORDS, { requiredEvidenceWordIds: assessedWordIds });
+  for (const scene of SOUND_SEEKERS_CONNECTED_TEXT) {
+    const errors = validateSceneAtStop(scene, scene.stopId);
+    if (errors.length) throw new Error(`${scene.id}: authoritative connected-text validation failed: ${errors.join(", ")}`);
+  }
+  validateSoundSeekersBiomeKits(SOUND_SEEKERS_BIOME_KITS);
+  validateSoundSeekersVisualCatalogs();
+  assertSoundSeekersV2AssetManifest(readSoundSeekersV2AssetManifest(), SOUND_SEEKERS_BIOME_KITS);
 }
 
 export function assertSoundSeekersV2Content({ productionBundlePath = null } = {}) {
+  assertTaskOneToFiveAuthorities();
   const fixture = buildSoundSeekersV2CanonicalCoverageFixture();
   const coverageSummary = summarizeSoundSeekersV2Coverage(fixture.state);
   validateSoundSeekersV2ContentAuthorities(buildSoundSeekersV2AuthoritySnapshot());

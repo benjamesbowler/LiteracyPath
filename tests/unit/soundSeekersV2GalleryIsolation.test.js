@@ -5,7 +5,10 @@ import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 
-import { assertSoundSeekersV2Content } from "../../tools/checkSoundSeekersV2Content.mjs";
+import {
+  assertSoundSeekersV2Content,
+  scanSoundSeekersV2SourcePolicy
+} from "../../tools/checkSoundSeekersV2Content.mjs";
 import {
   createQuestOfflineRangeServer,
   parseSingleRange,
@@ -24,6 +27,53 @@ test("production bundle analysis fails on every gallery marker and accepts an is
     assert.throws(() => assertSoundSeekersV2Content({ productionBundlePath: leaked }));
   } finally {
     rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("gallery isolation follows static, re-export, dynamic, HTML, and CSS edges", () => {
+  const cases = [
+    ["static import", "src/main.jsx", "import './features/soundSeekers/preview/ContentArtGallery.jsx';"],
+    ["named re-export", "src/main.jsx", "export { ContentArtGallery } from './features/soundSeekers/preview/ContentArtGallery.jsx';"],
+    ["star re-export", "src/main.jsx", "export * from './features/soundSeekers/preview/galleryReplayRecipes.js';"],
+    ["literal dynamic import", "src/main.jsx", "export const load = () => import('./features/soundSeekers/preview/ContentArtGallery.jsx');"],
+    ["nonliteral dynamic import", "src/main.jsx", "export const load = () => import('./features/' + 'soundSeekers/preview/ContentArtGallery.jsx');"],
+    ["HTML module", "index.html", "<script type=\"module\" src=\"/preview/sound-seekers-v2-content.jsx\"></script>"],
+    ["CSS import", "src/index.css", "@import './features/soundSeekers/preview/content-art-gallery.css';"]
+  ];
+  for (const [label, relativePath, source] of cases) {
+    assert.throws(() => scanSoundSeekersV2SourcePolicy({
+      virtualSources: { [relativePath]: source }
+    }), undefined, label);
+  }
+});
+
+test("gallery graph rejects unresolved edges and permits only the exact evidence consumers", () => {
+  assert.throws(() => scanSoundSeekersV2SourcePolicy({
+    virtualSources: {
+      "preview/sound-seekers-v2-content.jsx": "import '../src/features/soundSeekers/preview/ContentArtGalleryMissing.jsx';"
+    }
+  }));
+  assert.throws(() => scanSoundSeekersV2SourcePolicy({
+    virtualSources: {
+      "tests/unit/not-an-authorized-gallery-consumer.test.js":
+        "import '../../src/features/soundSeekers/preview/galleryReplayRecipes.js';"
+    }
+  }));
+});
+
+test("preview policy rejects authored transition, evidence, correctness, phase, challenge, and response authority", () => {
+  for (const [label, source] of [
+    ["transition", "export const x = { presentationTransition: { reducerRevision: 1 } };"],
+    ["evidence", "export const x = { evidenceEvent: { domain: 'novel_decoding' } };"],
+    ["correctness", "export const x = { correct: true };"],
+    ["phase prop", "export const x = <SceneVisual phase=\"resolved\" />;"],
+    ["challenge", "export const x = { challenge: { expectedToken: 'x' } };"],
+    ["response", "export const x = { response: { token: 'x' } };"],
+    ["direct access", "import { issueSceneVisualAccess } from '../engine/sceneVisualAccess.js'; issueSceneVisualAccess({}, {});"]
+  ]) {
+    assert.throws(() => scanSoundSeekersV2SourcePolicy({
+      virtualSources: { "src/features/soundSeekers/preview/bad.jsx": source }
+    }), undefined, label);
   }
 });
 
@@ -104,5 +154,25 @@ test("offline executable checks are transition-safe and never accept a mixed leg
   assert.throws(() => selectQuestExecutablePolicy(["/assets/SoundSeekersRoute-new.js"], {
     mode: "v2", roots: ["/assets/SoundSeekersRoute-new.js"],
     graph: [{ url: "/assets/SoundSeekersRoute-new.js", imports: ["/assets/missing.js"] }]
+  }));
+  assert.throws(() => selectQuestExecutablePolicy([
+    "/assets/QuestRoot-old.js", "/assets/QuestPixelWorld-old.js", "/assets/shared.js"
+  ], {
+    mode: "legacy",
+    roots: ["/assets/QuestPixelWorld-old.js"],
+    graph: [
+      { url: "/assets/QuestPixelWorld-old.js", imports: ["/assets/shared.js"] },
+      { url: "/assets/shared.js", imports: [] }
+    ]
+  }));
+  assert.throws(() => selectQuestExecutablePolicy([
+    "/assets/SoundSeekersRoute-a.js", "/assets/SoundSeekersRoute-b.js", "/assets/shared.js"
+  ], {
+    mode: "v2",
+    roots: ["/assets/SoundSeekersRoute-a.js"],
+    graph: [
+      { url: "/assets/SoundSeekersRoute-a.js", imports: ["/assets/shared.js"] },
+      { url: "/assets/shared.js", imports: [] }
+    ]
   }));
 });

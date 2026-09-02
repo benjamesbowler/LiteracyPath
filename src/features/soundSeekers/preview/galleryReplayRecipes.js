@@ -4,6 +4,7 @@ import {
 } from "../content/connectedText.js";
 import {
   SOUND_SEEKERS_MEANING_VISUAL_OWNERS,
+  SOUND_SEEKERS_NARRATIVE_BRANCH_OUTCOMES,
   SOUND_SEEKERS_SCENE_VISUAL_SEMANTICS,
   resolveNarrativeBranchOutcome
 } from "../content/sceneVisualSemantics.js";
@@ -64,12 +65,7 @@ const CREATOR_IDS = new Set([
   ...SOUND_SEEKERS_CHARACTER_CREATOR_OPTIONS.palettes,
   ...Object.values(SOUND_SEEKERS_CHARACTER_CREATOR_OPTIONS.accessoriesBySlot).flat().filter(Boolean)
 ]);
-const OPTION_IDS = new Set([
-  ...CREATOR_IDS,
-  ...SOUND_SEEKERS_POSE_IDS,
-  ...SOUND_SEEKERS_MEANING_VISUALS.map(visual => visual.semanticId),
-  ...CHILD_SCENES.flatMap(scene => scene.choice.options.map(option => option.visualSemanticId))
-]);
+const POSE_IDS = new Set(SOUND_SEEKERS_POSE_IDS);
 
 function exactInteger(value, name) {
   if (!/^\d+$/u.test(value || "")) throw new TypeError(`${name} must be an integer`);
@@ -107,8 +103,37 @@ export function parseSoundSeekersGalleryQuery(search) {
   if (!DENSITIES.has(density) || !MOTIONS.has(motion) || !LABELS.has(labels)) {
     throw new TypeError("invalid gallery presentation profile");
   }
-  if (optionId && !OPTION_IDS.has(optionId)) {
-    throw new TypeError("unknown gallery option identity");
+  const characterMode = mode.startsWith("character-");
+  const meaningMode = mode.startsWith("meaning-");
+  if (mode === "creator") {
+    if (!optionId || !CREATOR_IDS.has(optionId)) {
+      throw new TypeError("creator mode requires one canonical creator option");
+    }
+  } else if (characterMode) {
+    if (!optionId || !POSE_IDS.has(optionId)) {
+      throw new TypeError("character mode requires one canonical pose");
+    }
+  } else if (meaningMode) {
+    const semanticId = SOUND_SEEKERS_MEANING_VISUALS.find(visual =>
+      `meaning-${slug(visual.semanticId)}` === mode)?.semanticId;
+    const owner = SOUND_SEEKERS_MEANING_VISUAL_OWNERS.find(record =>
+      record.meaningSemanticId === semanticId);
+    if (!owner || owner.sceneId !== scene.id || !fixtureId.endsWith("direct-meaning")) {
+      throw new TypeError("meaning mode does not match its canonical owner and fixture");
+    }
+    if (scene.choice.kind === "narrative_bridge") {
+      const branch = SOUND_SEEKERS_NARRATIVE_BRANCH_OUTCOMES.find(record =>
+        record.sceneId === scene.id
+        && record.postDecisionSemanticId === owner.postDecisionSemanticId);
+      const expectedOption = scene.choice.options.find(option => option.token === branch?.token);
+      if (!expectedOption || optionId !== expectedOption.visualSemanticId) {
+        throw new TypeError("boss meaning mode requires its canonical branch option");
+      }
+    } else if (optionId !== null) {
+      throw new TypeError("assessed meaning mode does not accept an unrelated option");
+    }
+  } else if (optionId && !scene.choice.options.some(option => option.visualSemanticId === optionId)) {
+    throw new TypeError("gallery option is not a member of the selected scene mode");
   }
   return Object.freeze({
     mode,

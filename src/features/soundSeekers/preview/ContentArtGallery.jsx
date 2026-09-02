@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react";
 
-import { getBiomeKit } from "../content/biomeKits.js";
 import {
   replaySoundSeekersGalleryFixture
 } from "./galleryReplayRecipes.js";
@@ -67,9 +66,8 @@ export function ContentArtGallery({ query }) {
     optionId: query.fixtureId.startsWith("boss-") ? query.optionId : null,
     meaningSemanticId: desiredMeaning?.semanticId || null
   }), [query.fixtureId, query.sceneId, query.seed, query.optionId, desiredMeaning?.semanticId]);
-  const [activationCount, setActivationCount] = useState(0);
+  const [activation, setActivation] = useState(() => ({ count: 0, token: "" }));
   const [appearance, setAppearance] = useState(() => appearanceForOption(query.optionId));
-  const kit = getBiomeKit(replay.childScene.chapterId);
   const character = modeRecord(query.mode, "character-", CHARACTERS, visual => visual.characterId);
   const pose = SOUND_SEEKERS_POSE_IDS.includes(query.optionId) ? query.optionId : "idle";
   const serializedAppearance = serializeCharacterAppearance(appearance);
@@ -89,8 +87,8 @@ export function ContentArtGallery({ query }) {
       data-gallery-mode={query.mode}
       data-gallery-fixture={query.fixtureId}
       data-gallery-phase={replay.phase}
-      data-gallery-activation-count={String(activationCount)}
-      data-expected-code-native-ids={JSON.stringify(kit.codeNativeSemanticIds)}
+      data-gallery-activation-count={String(activation.count)}
+      data-gallery-last-activation-token={activation.token}
     >
       <header className="sound-seekers-content-gallery__header">
         <p>Sound Seekers v2 content and art</p>
@@ -100,6 +98,7 @@ export function ContentArtGallery({ query }) {
       {query.mode === "creator" ? (
         <section
           className="sound-seekers-content-gallery__creator"
+          data-task4-rendered-subtree=""
           data-creator-serialized={serializedAppearance}
           data-creator-signature={appearanceSignature(roundTrippedAppearance)}
         >
@@ -109,7 +108,7 @@ export function ContentArtGallery({ query }) {
           </div>
         </section>
       ) : character ? (
-        <section className="sound-seekers-content-gallery__character-stage">
+        <section className="sound-seekers-content-gallery__character-stage" data-task4-rendered-subtree="">
           <SoundSeekersCharacter
             characterId={character.characterId}
             pose={pose}
@@ -117,7 +116,7 @@ export function ContentArtGallery({ query }) {
           />
         </section>
       ) : (
-        <div className="sound-seekers-content-gallery__scene-wrap" data-code-native-world="">
+        <div className="sound-seekers-content-gallery__scene-wrap" data-task4-rendered-subtree="">
           <SceneVisual
             childScene={replay.childScene}
             activeAttemptId={replay.context?.attemptId || null}
@@ -126,13 +125,11 @@ export function ContentArtGallery({ query }) {
             cropProfile={cropProfileForViewport()}
             densityProfile={query.density}
             motionProfile={query.motion}
-            onChoose={() => setActivationCount(count => count + 1)}
+            onChoose={token => setActivation(previous => ({
+              count: previous.count + 1,
+              token
+            }))}
           />
-          <div data-gallery-semantic-inventory="" aria-hidden="true">
-            {kit.codeNativeSemanticIds.map(id => (
-              <span key={id} data-code-native-semantic-id={id} />
-            ))}
-          </div>
         </div>
       )}
     </main>

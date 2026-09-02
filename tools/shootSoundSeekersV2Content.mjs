@@ -32,7 +32,10 @@ import {
 } from "../src/features/soundSeekers/content/pronunciationCorpusInvariant.generated.js";
 import { SOUND_SEEKERS_CONTENT_DECK_CATALOGS } from "../src/features/soundSeekers/content/contentDeckCatalogs.js";
 import { CONTENT_DECK_BINDINGS, CONTENT_DECK_PLACEMENTS } from "../src/features/soundSeekers/content/contentDeckBindings.js";
-import { SOUND_SEEKERS_CONNECTED_TEXT } from "../src/features/soundSeekers/content/connectedText.js";
+import {
+  SOUND_SEEKERS_CONNECTED_TEXT,
+  toChildConnectedTextScene
+} from "../src/features/soundSeekers/content/connectedText.js";
 import {
   SOUND_SEEKERS_MEANING_VISUAL_OWNERS,
   SOUND_SEEKERS_NARRATIVE_BRANCH_OUTCOMES,
@@ -318,9 +321,16 @@ async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
     await withTimeout(page.waitForFunction(() => [...document.images].every(image => image.complete)), 10_000, "gallery images");
     const option = page.locator("[data-option-visual-id]").first();
     if (matrix.kind === "input-focus") {
-      await option.focus();
-      if (matrix.inputKind === "Enter" || matrix.inputKind === "Space") await option.press(matrix.inputKind);
-      else await option.click();
+      const box = await option.boundingBox();
+      if (!box || box.width < 56 || box.height < 56) throw new Error("input target is smaller than 56 CSS px");
+      if (matrix.inputKind === "pointer") {
+        await page.mouse.click(box.x + (box.width / 2), box.y + (box.height / 2));
+      } else if (matrix.inputKind === "touch") {
+        await page.touchscreen.tap(box.x + (box.width / 2), box.y + (box.height / 2));
+      } else {
+        await option.focus();
+        await page.keyboard.press(matrix.inputKind);
+      }
     }
     const zoom = await page.evaluate(() => ({
       scale: window.visualViewport?.scale || 1,
@@ -330,13 +340,32 @@ async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
     if (matrix.browserZoom === 2 && (zoom.scale !== 2 || Math.round(zoom.width) !== 320 || Math.round(zoom.height) !== 568)) {
       throw new Error(`CDP zoom evidence drifted: ${JSON.stringify(zoom)}`);
     }
-    const observedCodeNative = await page.locator("[data-code-native-semantic-id]")
-      .evaluateAll(nodes => [...new Set(nodes.map(node => node.getAttribute("data-code-native-semantic-id")))].sort());
+    const observedCodeNative = await page.locator("[data-task4-rendered-subtree]").evaluate(root => {
+      const attributes = [
+        "data-semantic-id", "data-code-native-semantic", "data-route-id", "data-landmark-id",
+        "data-visual-state-id", "data-option-visual-id", "data-choice-frame", "data-option-prop",
+        "data-option-action", "data-meaning-semantic-id", "data-prop-family"
+      ];
+      const values = attributes.flatMap(attribute => [...root.querySelectorAll(`[${attribute}]`)]
+        .map(node => node.getAttribute(attribute)));
+      values.push(...[...root.querySelectorAll("[data-character-id]")]
+        .map(node => `character:${node.getAttribute("data-character-id").toLocaleLowerCase("en-US")}`));
+      return [...new Set(values.filter(Boolean))].sort();
+    });
     const visibleControlIds = await page.locator("button:visible").evaluateAll(nodes => nodes.map((node, index) =>
       node.getAttribute("data-option-visual-id") || node.getAttribute("data-option-id") || node.getAttribute("aria-label") || `button-${index + 1}`));
     const focusTargetId = await page.evaluate(() => document.activeElement?.getAttribute("data-option-visual-id")
       || document.activeElement?.getAttribute("data-option-id") || null);
-    const noAnswerLeak = await page.locator("[data-private-answer],[data-correct],[data-expected-token]").count() === 0;
+    const noAnswerLeak = await page.locator("[data-private-answer],[data-correct],[data-expected-token]").count() === 0
+      && !await page.locator("[data-task4-rendered-subtree]").evaluate(root =>
+        /expectedToken|private-answer|data-correct|correctness/iu.test(root.innerHTML));
+    const activation = await page.locator("[data-gallery-root]").evaluate(root => ({
+      count: Number(root.getAttribute("data-gallery-activation-count")),
+      token: root.getAttribute("data-gallery-last-activation-token") || ""
+    }));
+    const expectedActivationToken = matrix.kind === "input-focus"
+      ? toChildConnectedTextScene(matrix.sceneId, `gallery:${matrix.seed}`).choice.options[0].token
+      : "";
     await withTimeout(page.screenshot({ path: targetPath, fullPage: false, animations: "disabled" }), 15_000, "gallery screenshot");
     const failedRequests = matrix.kind === "background-failure" && abortCount === 1
       && rawFailures.length === 1 && rawFailures[0].url === matrix.asset.path && rawFailures[0].method === "GET"
@@ -345,10 +374,19 @@ async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
     const expectedAbortConsole = matrix.kind === "background-failure"
       && consoleErrors.every(message => message === "Failed to load resource: net::ERR_FAILED");
     const normalizedConsoleErrors = expectedAbortConsole ? [] : consoleErrors;
-    if (normalizedConsoleErrors.length || pageErrors.length || !noAnswerLeak
+    if (canonicalJson(observedCodeNative) !== canonicalJson(matrix.expectedCodeNativeSemanticIds)
+      || canonicalJson(visibleControlIds) !== canonicalJson(matrix.expectedVisibleControlIds)
+      || focusTargetId !== matrix.expectedFocusTargetId
+      || activation.count !== (matrix.kind === "input-focus" ? 1 : 0)
+      || activation.token !== expectedActivationToken
+      || normalizedConsoleErrors.length || pageErrors.length || !noAnswerLeak
       || (matrix.kind === "background-failure" ? failedRequests[0]?.reason !== "route_abort" : failedRequests.length)) {
       throw new Error(`${matrix.id}: gallery runtime evidence failed ${JSON.stringify({
-        abortCount, consoleErrors, pageErrors, rawFailures, noAnswerLeak
+        abortCount, consoleErrors, pageErrors, rawFailures, observedCodeNative,
+        expectedCodeNative: matrix.expectedCodeNativeSemanticIds,
+        visibleControlIds, expectedVisibleControlIds: matrix.expectedVisibleControlIds,
+        focusTargetId, expectedFocusTargetId: matrix.expectedFocusTargetId,
+        activation, expectedActivationToken, noAnswerLeak
       })}`);
     }
     return {
@@ -398,17 +436,26 @@ async function shoot() {
     }
     if (existsSync(partialDirectory)) rmSync(partialDirectory, { recursive: true });
     mkdirSync(path.join(partialDirectory, "shots"), { recursive: true });
-    context = await browser.newContext({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1 });
-    page = await context.newPage();
-    let cdp = await context.newCDPSession(page);
+    const openContext = async hasTouch => {
+      context = await browser.newContext({
+        viewport: { width: 1280, height: 800 },
+        deviceScaleFactor: 1,
+        hasTouch,
+        isMobile: hasTouch
+      });
+      page = await context.newPage();
+      return context.newCDPSession(page);
+    };
+    let contextHasTouch = false;
+    let cdp = await openContext(contextHasTouch);
     const records = [];
     for (const matrix of SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX) {
-      if (matrix.ordinal > 1 && (matrix.ordinal - 1) % 100 === 0) {
+      const needsTouch = matrix.kind === "input-focus" && matrix.inputKind === "touch";
+      if ((matrix.ordinal > 1 && (matrix.ordinal - 1) % 100 === 0) || needsTouch !== contextHasTouch) {
         await withTimeout(page.close(), 10_000, "gallery page rotation");
         await withTimeout(context.close(), 10_000, "gallery context rotation");
-        context = await browser.newContext({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1 });
-        page = await context.newPage();
-        cdp = await context.newCDPSession(page);
+        contextHasTouch = needsTouch;
+        cdp = await openContext(contextHasTouch);
       }
       await withTimeout((async () => {
         const relativePngPath = `shots/${String(matrix.ordinal).padStart(4, "0")}-${matrix.id}.png`;

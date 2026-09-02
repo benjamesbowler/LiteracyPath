@@ -31,9 +31,25 @@ test("raster review truth stays byte-bound and disjoint from code-native DOM tru
   }
 });
 
-test("a cloned visual authority with semantic drift is rejected", () => {
-  const snapshot = structuredClone(buildSoundSeekersV2AuthoritySnapshot());
-  assert.equal(validateSoundSeekersVisualAuthorities(snapshot), true);
-  snapshot.biomeKits[0].codeNativeSemanticIds.pop();
-  assert.throws(() => validateSoundSeekersVisualAuthorities(snapshot));
+test("every cloned visual authority family fails closed on drift", () => {
+  assert.equal(validateSoundSeekersVisualAuthorities(
+    structuredClone(buildSoundSeekersV2AuthoritySnapshot())
+  ), true);
+  for (const [label, mutate] of [
+    ["biome", value => { value.biomeKits[0].codeNativeSemanticIds.pop(); }],
+    ["scene", value => { value.sceneRenderSpecs[0].optionSemanticIds.pop(); }],
+    ["option", value => { value.optionVisuals[0].accessibleLabel = "drift"; }],
+    ["meaning", value => { value.meaningVisuals[0].accessibleLabel = "drift"; }],
+    ["route", value => { value.routeSpecs[0].stopId = "s40"; }],
+    ["landmark", value => { value.landmarkBindings[0].sceneId = "scene-s40"; }],
+    ["character", value => { value.characterVisuals[0].characterId = "drift"; }],
+    ["player", value => { value.playerVisual.characterId = "drift"; }],
+    ["creator", value => { value.creatorOptions.bodyShapes.pop(); }],
+    ["pose", value => { value.poseIds.pop(); }],
+    ["asset", value => { value.assetManifest.assets[0].path = "/drift.webp"; }]
+  ]) {
+    const snapshot = structuredClone(buildSoundSeekersV2AuthoritySnapshot());
+    mutate(snapshot);
+    assert.throws(() => validateSoundSeekersVisualAuthorities(snapshot), undefined, label);
+  }
 });
