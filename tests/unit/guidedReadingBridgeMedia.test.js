@@ -15,6 +15,10 @@ const PHOTOREAL_MANIFEST_PATH = resolve(
   ROOT,
   "docs/guided-reading/willow-street-photoreal-media-manifest.json"
 );
+const VISUAL_REVIEW_PATH = resolve(
+  ROOT,
+  "docs/guided-reading/willow-street-visual-review.json"
+);
 const sha256 = value => createHash("sha256").update(value).digest("hex");
 
 test("every illustrated bridge page resolves to a unique reviewed-sized asset", async () => {
@@ -153,5 +157,34 @@ test("the six nonfiction books use unique self-created photorealistic assets", a
     assert.ok(record.directReview.notes.length > 0, item.path);
     assert.ok(!hashes.has(record.sha256), `duplicate final pixels: ${item.path}`);
     hashes.add(record.sha256);
+  }
+});
+
+test("the final Willow Street visual review covers every cover and reading page", async () => {
+  const review = JSON.parse(await readFile(VISUAL_REVIEW_PATH, "utf8"));
+  const expectedPaths = GUIDED_READING_BRIDGE_BOOKS.flatMap(book => [
+    book.coverImage,
+    ...book.pages.map(page => page.image)
+  ]).sort();
+
+  assert.equal(review.collection, "Willow Street Readers");
+  assert.equal(review.status, "complete");
+  assert.deepEqual(review.scope, {
+    books: 20,
+    covers: 20,
+    readingPages: 160,
+    assets: 180,
+    approved: 180,
+    replacementsOpen: 0
+  });
+  assert.deepEqual(review.assets.map(asset => asset.path).sort(), expectedPaths);
+  for (const asset of review.assets) {
+    assert.equal(asset.disposition, "approved", asset.path);
+    assert.equal(asset.provenance, "self-created", asset.path);
+    assert.deepEqual(asset.viewport, { width: 1365, height: 768, detail: "original" }, asset.path);
+    assert.match(asset.imageSha256, /^[a-f0-9]{64}$/u, asset.path);
+    assert.match(asset.textSha256, /^[a-f0-9]{64}$/u, asset.path);
+    assert.match(asset.visualBriefSha256, /^[a-f0-9]{64}$/u, asset.path);
+    assert.match(asset.reviewedAt, /^2026-09-02T/u, asset.path);
   }
 });

@@ -491,7 +491,7 @@ function getGuidedReadingSeries(type) {
     .filter(book => normalizeGuidedReadingType(book.type) === normalizedType)
     .forEach(book => {
       const id = book.seriesId || `${normalizedType}-more`;
-      const title = book.seriesTitle || (normalizedType === "fiction" ? "More stories" : "More non-fiction");
+      const title = book.collection || book.seriesTitle || (normalizedType === "fiction" ? "More stories" : "More non-fiction");
       if (!groups.has(id)) groups.set(id, { id, title, books: [] });
       groups.get(id).books.push(book);
     });
@@ -2215,7 +2215,7 @@ export function GuidedReadingPage({
                   </div>
                   <div className="guided-book-info">
                     <h3 className="guided-book-title">{book.title}</h3>
-                    <p className="guided-book-meta">{book.seriesTitle ? `${book.seriesTitle} · ` : ""}{formatGuidedReadingType(book.type)} · {guidedReadingBandLabel(book.readingBandProfile, book.level)} · {guidedReadingModeLabel(book.readingMode)} · {book.pages.length} pages</p>
+                    <p className="guided-book-meta">{book.collection || book.seriesTitle ? `${book.collection || book.seriesTitle} · ` : ""}{formatGuidedReadingType(book.type)} · {guidedReadingBandLabel(book.readingBandProfile, book.level)} · {guidedReadingModeLabel(book.readingMode)} · {book.pages.length} pages</p>
                     <p className="guided-book-progress">
                       {progress.completed ? "Completed" : hasStarted ? `${progress.completedPages}/${book.pages.length} pages read` : "Not started"}
                     </p>

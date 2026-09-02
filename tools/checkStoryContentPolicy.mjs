@@ -228,9 +228,9 @@ if (GUIDED_READING_RELEASE_READINESS.status !== "approved") {
   ).length;
   releaseBlocks.push(
     `guided-reading Willow Street: ${GUIDED_READING_RELEASE_READINESS.status}; content manuscripts are approved, `
-    + `${missingImages}/${GUIDED_READING_RELEASE_READINESS.expectedImages} images and `
-    + `${missingNarrationPages}/${GUIDED_READING_RELEASE_READINESS.expectedNarrationPages} narration pages are not release-ready; `
-    + "direct visual review, provenance, and human listening remain open"
+    + `${GUIDED_READING_RELEASE_READINESS.expectedImages - missingImages}/${GUIDED_READING_RELEASE_READINESS.expectedImages} images are present and directly reviewed, `
+    + `${GUIDED_READING_RELEASE_READINESS.expectedNarrationPages - missingNarrationPages}/${GUIDED_READING_RELEASE_READINESS.expectedNarrationPages} exact-text narrations resolve, `
+    + `and ${GUIDED_READING_RELEASE_READINESS.humanListeningPendingPages} page clips still require direct human listening`
   );
 }
 

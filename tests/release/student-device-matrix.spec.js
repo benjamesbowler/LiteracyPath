@@ -1862,6 +1862,7 @@ test("A3.6 Reading Library separates C Standard from C Extended without a decoda
 
   const standard = surface.getByRole("region", { name: "C Standard", exact: true });
   const extended = surface.getByRole("region", { name: "C Extended / Read Together", exact: true });
+  await expect(surface.getByRole("button", { name: "Willow Street Readers", exact: true })).toBeVisible();
   await expect(standard).toBeVisible();
   await expect(extended).toBeVisible();
   expect(await standard.locator('[data-reading-mode="predictable-levelled"]').count()).toBeGreaterThan(0);
@@ -2509,7 +2510,14 @@ for (const profileId of STUDENT_FULLSCREEN_DEVICE_IDS) {
     const errors = [];
     page.on("pageerror", error => errors.push(error.message));
     page.on("console", message => {
-      if (message.type() === "error") errors.push(message.text());
+      // The isolated preview server intentionally has no hosted Supabase credentials.
+      // Keep the loud boot warning in the app, but do not mistake it for a fullscreen fault.
+      if (
+        message.type() === "error"
+        && !message.text().startsWith("[Literacy Guide] Supabase frontend environment is MISSING")
+      ) {
+        errors.push(message.text());
+      }
     });
     await installFullscreenMock(page);
     await page.setViewportSize({ width: profile.width, height: profile.height });

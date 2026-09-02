@@ -34,11 +34,15 @@ test("a book field cannot bypass missing-media enforcement", () => {
   );
 });
 
-test("the central Willow pending authority is exact and fingerprint-bound", () => {
+test("the central Willow authority records completed media and the remaining listening hold", () => {
   assert.equal(GUIDED_READING_RELEASE_READINESS.status, "release-blocked");
   assert.equal(GUIDED_READING_RELEASE_READINESS.blockedBooks.length, 20);
   assert.equal(GUIDED_READING_RELEASE_READINESS.expectedImages, 180);
+  assert.equal(GUIDED_READING_RELEASE_READINESS.reviewedImages, 180);
   assert.equal(GUIDED_READING_RELEASE_READINESS.expectedNarrationPages, 160);
+  assert.equal(GUIDED_READING_RELEASE_READINESS.exactNarrationPages, 160);
+  assert.equal(GUIDED_READING_RELEASE_READINESS.humanListeningPendingPages, 160);
+  assert.match(GUIDED_READING_RELEASE_READINESS.reason, /direct human listening remains open/iu);
   assert.match(GUIDED_READING_RELEASE_READINESS.authorityFingerprint, /^[a-f0-9]{64}$/u);
 
   const registered = { id: "willow-street-the-lunchbox-mix-up", mediaStatus: "approved" };

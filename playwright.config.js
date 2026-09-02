@@ -1,5 +1,8 @@
 import { defineConfig, devices } from "@playwright/test";
 
+const playwrightPort = Number(process.env.LP_PLAYWRIGHT_PORT || 4174);
+const playwrightBaseUrl = `http://127.0.0.1:${playwrightPort}`;
+
 const mobileSnapshotPathTemplate = process.platform === "linux"
   ? "{testDir}/{testFilePath}-snapshots/linux/mobile/{arg}{ext}"
   : "{testDir}/{testFilePath}-snapshots/mobile/{arg}{ext}";
@@ -18,12 +21,12 @@ export default defineConfig({
     timeout: 10_000
   },
   use: {
-    baseURL: "http://127.0.0.1:4174",
+    baseURL: playwrightBaseUrl,
     trace: "retain-on-failure"
   },
   webServer: {
-    command: "npm run dev -- --host 127.0.0.1 --port 4174 --strictPort",
-    url: "http://127.0.0.1:4174",
+    command: `npm run dev -- --host 127.0.0.1 --port ${playwrightPort} --strictPort`,
+    url: playwrightBaseUrl,
     // Reusing a process from another branch can turn its pixels into this
     // checkout's evidence. Make reuse an explicit local-only choice.
     reuseExistingServer: process.env.LP_PLAYWRIGHT_REUSE_SERVER === "1",

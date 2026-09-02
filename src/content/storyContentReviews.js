@@ -5,9 +5,13 @@ export const GUIDED_READING_RELEASE_READINESS = Object.freeze({
   status: "release-blocked",
   blockedBooks: Object.freeze(WILLOW_STREET_BOOK_MANIFEST.map(book => book.id)),
   expectedImages: 180,
+  reviewedImages: 180,
   expectedNarrationPages: 160,
-  reason: "Final Willow Street images, direct visual review, exact-current-text narration, provenance, and human listening remain incomplete.",
-  authorityFingerprint: "b7667bd42783da0a2dbdc42e04a5cc689fe13ba74ef1e98057e56e2014690d63"
+  exactNarrationPages: 160,
+  humanListeningPendingPages: 160,
+  visualReview: "docs/guided-reading/willow-street-visual-review.json",
+  reason: "All Willow Street images, original-detail visual reviews, exact-current-text narration files, and provenance checks are complete; direct human listening remains open.",
+  authorityFingerprint: "b1c1d4acb8f69d3bd80627bf63dd091a99a90c577d10ac54bc00691cb647e363"
 });
 
 const GUIDED_READING_RELEASE_BLOCK_BY_ID = new Map(
@@ -28,13 +32,13 @@ export function classifyGuidedReadingMediaFinding(bookOrId, finding) {
 export const guidedReadingPolicyBaseline = Object.freeze({
   format: "guided-reading-book",
   itemCount: 226,
-  sourceFingerprint: "d84e2c61a7709c290cfcd15ab5fb4850f9ade91a169c8f5ba3897eb12432d3cc",
+  sourceFingerprint: "293c16bbfadfbd85dc9a6016cd8793d12e8c700801f1dc56320faefeacf2f40f",
   contentStatus: "approved",
   releaseStatus: GUIDED_READING_RELEASE_READINESS.status,
   policyVersion: STORY_CONTENT_POLICY_VERSION,
   reviewedAt: "2026-09-02",
   reviewer: "Editorial and source review",
-  claim: "The existing 206 books and 1,861 pages retain their prior review evidence. The 20 Willow Street books add 160 final manuscript pages and page-specific visual briefs; final image generation, direct visual review, exact-current-text narration, and human listening remain scheduled."
+  claim: "All 226 books and 2,021 pages have current manuscript, visual-file, exact-text narration, and provenance evidence. The 20 Willow Street books add 160 compact pages and 180 directly reviewed self-created images; direct human listening remains the only release-readiness hold."
 });
 
 const historicalStoryQuestPolicyReviews = Object.freeze([

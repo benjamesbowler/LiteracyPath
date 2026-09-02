@@ -31,7 +31,7 @@ reader.
 The Willow Street release authorities are:
 
 - `docs/guided-reading/WILLOW_STREET_CONTENT_BIBLE.md`
-- `docs/guided-reading/WILLOW_STREET_VISUAL_BIBLE.md`
+- `docs/guided-reading/WILLOW_STREET_VISUAL_CONTINUITY.md`
 - `docs/guided-reading/willow-street-illustrated-media-manifest.json`
 - `docs/guided-reading/willow-street-photoreal-media-manifest.json`
 - `docs/guided-reading/willow-street-visual-review.json`

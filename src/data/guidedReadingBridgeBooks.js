@@ -15,7 +15,7 @@ const makePages = (slug, rows, isProcedure = false) => Object.freeze(rows.map((r
     embeddedImageText: "",
     active: true,
     qaStatus: "approved",
-    qaNotes: "Final Story Bible manuscript and visual brief approved; final media and exact-current-text narration remain scheduled.",
+    qaNotes: "Final Story Bible manuscript, page-specific visual media, and exact-current-text narration are installed; direct human listening is tracked separately.",
     narrationNeedsRebuild: true,
     printPlacement: PRINT_PLACEMENT,
     ...(isProcedure ? { procedureStep: pageNumber } : {})

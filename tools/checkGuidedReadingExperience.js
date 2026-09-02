@@ -15,7 +15,6 @@ const warnings = [];
 const rows = [];
 const patternCounts = new Map();
 const microphaseCounts = new Map();
-const visibleFictionBooks = guidedReadingBooks.filter(book => String(book.type || "").toLowerCase() === "fiction");
 const removedNonfictionIds = new Set(["gr-c-36", "gr-d-41"]);
 const removedNonfictionRestored = guidedReadingBooks.filter(book => removedNonfictionIds.has(book.id));
 
