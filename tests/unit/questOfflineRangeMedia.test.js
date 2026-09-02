@@ -7,6 +7,7 @@ import { serviceWorkerSource } from "../../tools/viteQuestOfflinePlugin.mjs";
 function createWorkerHarness({ cachedResponse = null, networkResponse }) {
   const listeners = new Map();
   const cacheWrites = [];
+  const messages = [];
   let skipWaitingCalls = 0;
   const cache = {
     async match() { return cachedResponse; },
@@ -36,12 +37,13 @@ function createWorkerHarness({ cachedResponse = null, networkResponse }) {
 
   return {
     cacheWrites,
+    messages,
     get skipWaitingCalls() { return skipWaitingCalls; },
     async message(data) {
       let waitPromise = Promise.resolve();
       listeners.get("message")({
         data,
-        source: null,
+        source: { postMessage(value) { messages.push(value); } },
         waitUntil(value) { waitPromise = Promise.resolve(value); }
       });
       await waitPromise;
@@ -99,4 +101,29 @@ test("a same-origin recovery action can activate a corrected waiting worker", as
   await harness.message({ type: "LP_ACTIVATE_UPDATE" });
 
   assert.equal(harness.skipWaitingCalls, 1);
+});
+
+test("the offline worker warms canonical book-character art without accepting generic game assets", async () => {
+  const harness = createWorkerHarness({
+    networkResponse: () => new Response(new Uint8Array([1, 2, 3]), { status: 200 })
+  });
+  const characterUrl = "/game-assets/sound-seekers/characters/muddy/outfit-willow-wand.webp";
+  await harness.message({
+    type: "LP_WARM_QUEST_ASSETS",
+    requestId: "character-warm-test",
+    chapterId: "star-reach",
+    urls: [characterUrl, "/game-assets/unrelated/private.bin"]
+  });
+
+  assert.equal(harness.cacheWrites.length, 1);
+  assert.equal(new URL(harness.cacheWrites[0].request, "https://literacy.guide").pathname, characterUrl);
+  assert.deepEqual(JSON.parse(JSON.stringify(harness.messages)), [{
+    type: "LP_QUEST_WARM_COMPLETE",
+    buildId: "range-test",
+    requestId: "character-warm-test",
+    chapterId: "star-reach",
+    requested: 1,
+    completed: 1,
+    failed: 0
+  }]);
 });

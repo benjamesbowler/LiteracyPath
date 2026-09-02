@@ -88,6 +88,19 @@ const OUTFIT_ASSET_BY_ID = Object.freeze({
   "stone-staff": "outfit-willow-wand"
 });
 
+const BOOK_CHARACTER_PAINTED_ASSET_NAMES = Object.freeze([...new Set([
+  ...Object.values(POSE_ASSET),
+  ...Object.values(MOOD_ASSET),
+  ...Object.values(BOOK_CHARACTER_LOOKS).flatMap(looks => looks.map(look => `look-${look.variant}`)),
+  ...Object.values(OUTFIT_ASSET_BY_ID)
+])]);
+
+export const BOOK_CHARACTER_PAINTED_URLS = Object.freeze(
+  Object.values(CHARACTER_BY_BODY).flatMap(character =>
+    BOOK_CHARACTER_PAINTED_ASSET_NAMES.map(assetName => `${character.assetRoot}/${assetName}.webp`)
+  )
+);
+
 export const BOOK_CHARACTER_OUTFIT_IDS = Object.freeze(Object.keys(OUTFIT_ASSET_BY_ID));
 export const BOOK_CHARACTER_OUTFIT_LABELS = Object.freeze({
   "leaf-cap": "Leaf cloak",

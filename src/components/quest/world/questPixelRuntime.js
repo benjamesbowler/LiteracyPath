@@ -6,6 +6,7 @@ import {
   PIXEL_BEASTIE_FRAMES_PER_DIRECTION
 } from "./questPixelAvatar.js";
 import {
+  BOOK_CHARACTER_PAINTED_URLS,
   bookCharacterAsset,
   bookCharacterTint
 } from "../bookCharacterAvatar.js";
@@ -73,7 +74,8 @@ export const QUEST_BOOK_WORLD_ART_URLS = Object.freeze([
   ...Object.values(QUEST_BOOK_WORLD_BACKGROUNDS),
   "/game-assets/sound-seekers/worlds/meadow-pals-overworld-v2.webp",
   "/game-assets/sound-seekers/worlds/dino-pals-overworld-v2.webp",
-  "/game-assets/sound-seekers/worlds/moonwood-overworld-v2.webp"
+  "/game-assets/sound-seekers/worlds/moonwood-overworld-v2.webp",
+  ...BOOK_CHARACTER_PAINTED_URLS
 ]);
 const PIXEL_ACTION_SFX_BY_KEY = Object.freeze(Object.fromEntries(
   Object.values(QUEST_ACTION_SFX).map(entry => [entry.key, entry])

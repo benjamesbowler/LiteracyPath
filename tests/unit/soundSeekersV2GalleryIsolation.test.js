@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdtempSync, mkdirSync, realpathSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
+import { existsSync, mkdtempSync, mkdirSync, readFileSync, realpathSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
 import { once } from "node:events";
 import os from "node:os";
 import path from "node:path";
@@ -9,27 +9,155 @@ import {
   assertSoundSeekersV2Content,
   scanSoundSeekersV2SourcePolicy
 } from "../../tools/checkSoundSeekersV2Content.mjs";
-import {
+import * as questOfflineServer from "../../tools/serveQuestOfflineRangeTest.mjs";
+import { selectQuestExecutablePolicy } from "../../tools/checkQuestOffline.mjs";
+
+const {
   createQuestOfflineControlServer,
   createQuestOfflineRangeServer,
+  createQuestOfflineTemporaryBuildRoot,
+  cleanupQuestOfflineTemporaryBuildRoot,
   parseSingleRange,
-  validateQuestOfflineRoot
-} from "../../tools/serveQuestOfflineRangeTest.mjs";
-import { selectQuestExecutablePolicy } from "../../tools/checkQuestOffline.mjs";
+  validateQuestOfflineRoot,
+  validateQuestOfflineTemporaryBuildRoot
+} = questOfflineServer;
 
 const scanVirtualPolicy = options => scanSoundSeekersV2SourcePolicy(options);
 
-test("production bundle analysis fails on every gallery marker and accepts an isolated bundle", () => {
+function realBundleAnalysis({ mutate = value => value, emitted = {} } = {}) {
+  const root = realpathSync(mkdtempSync(path.join(os.tmpdir(), "ssv2-bundle-analysis-")));
+  const analysis = mutate({
+    generatedAt: "2026-09-03T00:00:00.000Z",
+    chunks: [{
+      fileName: "assets/main-clean.js",
+      isEntry: true,
+      isDynamicEntry: false,
+      imports: ["assets/shared-clean.js"],
+      dynamicImports: ["assets/lazy-clean.js"],
+      renderedLength: 20,
+      modules: [{ id: "/repo/src/main.jsx", renderedLength: 20, originalLength: 25 }]
+    }, {
+      fileName: "assets/shared-clean.js",
+      isEntry: false,
+      isDynamicEntry: false,
+      imports: [],
+      dynamicImports: [],
+      renderedLength: 12,
+      modules: [{ id: "/repo/src/shared.js", renderedLength: 12, originalLength: 14 }]
+    }, {
+      fileName: "assets/lazy-clean.js",
+      isEntry: false,
+      isDynamicEntry: true,
+      imports: [],
+      dynamicImports: [],
+      renderedLength: 10,
+      modules: [{ id: "/repo/src/lazy.js", renderedLength: 10, originalLength: 12 }]
+    }, {
+      fileName: "assets/css-only-empty.js",
+      isEntry: false,
+      isDynamicEntry: false,
+      imports: [],
+      dynamicImports: [],
+      renderedLength: 0,
+      modules: [{ id: "/repo/src/styles.css", renderedLength: 0, originalLength: 0 }]
+    }]
+  });
+  for (const [relativePath, contents] of Object.entries({
+    "assets/main-clean.js": "import './shared-clean.js'; import('./lazy-clean.js');",
+    "assets/shared-clean.js": "export const shared = true;",
+    "assets/lazy-clean.js": "export const lazy = true;",
+    "index.html": "<script src=\"/assets/main-clean.js\"></script>",
+    ...emitted
+  })) {
+    const target = path.join(root, relativePath);
+    mkdirSync(path.dirname(target), { recursive: true });
+    writeFileSync(target, contents);
+  }
+  const analysisPath = path.join(root, "bundle-analysis.json");
+  writeFileSync(analysisPath, JSON.stringify(analysis));
+  return { root, analysisPath };
+}
+
+test("production bundle analysis requires the exact real Vite schema", () => {
+  const valid = realBundleAnalysis();
+  try {
+    assert.doesNotThrow(() => assertSoundSeekersV2Content({ productionBundlePath: valid.analysisPath }));
+  } finally {
+    rmSync(valid.root, { recursive: true, force: true });
+  }
+
+  const mutations = [
+    ["fabricated input/output schema", () => ({ inputs: {}, outputs: {} })],
+    ["unknown root field", value => ({ ...value, extra: true })],
+    ["invalid generatedAt", value => ({ ...value, generatedAt: "today" })],
+    ["non-ISO generatedAt", value => ({ ...value, generatedAt: "123" })],
+    ["unknown chunk field", value => ({ ...value, chunks: [{ ...value.chunks[0], extra: true }, ...value.chunks.slice(1)] })],
+    ["missing chunk field", value => ({ ...value, chunks: [{ ...value.chunks[0], modules: undefined }, ...value.chunks.slice(1)] })],
+    ["unknown module field", value => ({ ...value, chunks: [{ ...value.chunks[0], modules: [{ ...value.chunks[0].modules[0], extra: true }] }, ...value.chunks.slice(1)] })],
+    ["malformed static import", value => ({ ...value, chunks: [{ ...value.chunks[0], imports: [null] }, ...value.chunks.slice(1)] })],
+    ["malformed dynamic import", value => ({ ...value, chunks: [{ ...value.chunks[0], dynamicImports: [{}] }, ...value.chunks.slice(1)] })]
+  ];
+  for (const [label, mutate] of mutations) {
+    const fixture = realBundleAnalysis({ mutate });
+    try {
+      assert.throws(() => assertSoundSeekersV2Content({ productionBundlePath: fixture.analysisPath }), undefined, label);
+    } finally {
+      rmSync(fixture.root, { recursive: true, force: true });
+    }
+  }
+});
+
+test("production bundle isolation inspects chunks, modules, imports, and emitted text", () => {
+  const marker = "preview/sound-seekers-v2-content.jsx";
+  const mutations = [
+    ["chunk filename", value => ({ ...value, chunks: [{ ...value.chunks[0], fileName: marker }, ...value.chunks.slice(1)] }), { [marker]: "export {};" }],
+    ["module id", value => ({ ...value, chunks: [{ ...value.chunks[0], modules: [{ ...value.chunks[0].modules[0], id: `/repo/${marker}` }] }, ...value.chunks.slice(1)] }), {}],
+    ["static import", value => ({ ...value, chunks: [{ ...value.chunks[0], imports: [marker] }, ...value.chunks.slice(1)] }), {}],
+    ["dynamic import", value => ({ ...value, chunks: [{ ...value.chunks[0], dynamicImports: [marker] }, ...value.chunks.slice(1)] }), {}],
+    ["emitted JavaScript", value => value, { "assets/marker.js": `import "/${marker}";` }],
+    ["emitted CSS", value => value, { "assets/marker.css": "@import '/src/features/soundSeekers/preview/content-art-gallery.css';" }],
+    ["emitted HTML", value => value, { "marker.html": "<script src='/preview/sound-seekers-v2-content.jsx'></script>" }]
+  ];
+  for (const [label, mutate, emitted] of mutations) {
+    const fixture = realBundleAnalysis({ mutate, emitted });
+    try {
+      assert.throws(() => assertSoundSeekersV2Content({ productionBundlePath: fixture.analysisPath }), undefined, label);
+    } finally {
+      rmSync(fixture.root, { recursive: true, force: true });
+    }
+  }
+});
+
+test("legacy fabricated production bundle fixtures are rejected", () => {
   const root = mkdtempSync(path.join(os.tmpdir(), "ssv2-gallery-isolation-"));
   try {
     const clean = path.join(root, "clean.json");
     writeFileSync(clean, JSON.stringify({ inputs: { "src/main.jsx": {} }, outputs: {} }));
-    assert.doesNotThrow(() => assertSoundSeekersV2Content({ productionBundlePath: clean }));
+    assert.throws(() => assertSoundSeekersV2Content({ productionBundlePath: clean }));
     const leaked = path.join(root, "leaked.json");
     writeFileSync(leaked, JSON.stringify({ inputs: { "preview/sound-seekers-v2-content.jsx": {} } }));
     assert.throws(() => assertSoundSeekersV2Content({ productionBundlePath: leaked }));
   } finally {
     rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("gallery reference scanning covers HTML, CSS, and JSX references outside imports", () => {
+  const cases = [
+    ["HTML spaced double-quoted src", "index.html", "<script src = \"/preview/sound-seekers-v2-content.jsx\"></script>"],
+    ["HTML single-quoted href", "index.html", "<link href = '/src/features/soundSeekers/preview/content-art-gallery.css'>"],
+    ["HTML unquoted src", "index.html", "<script src=/preview/sound-seekers-v2-content.jsx></script>"],
+    ["CSS quoted import", "src/index.css", "@import '/src/features/soundSeekers/preview/content-art-gallery.css';"],
+    ["CSS unquoted import URL", "src/index.css", "@import url(/src/features/soundSeekers/preview/content-art-gallery.css);"],
+    ["CSS quoted URL", "src/index.css", "body { background: url(\"/preview/sound-seekers-v2-content.html\"); }"],
+    ["CSS unquoted URL", "src/index.css", "body { background: url(/preview/sound-seekers-v2-content.html); }"],
+    ["JSX link href", "src/main.jsx", "export const Leak = () => <link href=\"/preview/sound-seekers-v2-content.html\" />;"],
+    ["JSX script src string expression", "src/main.jsx", "export const Leak = () => <script src={'/preview/sound-seekers-v2-content.jsx'} />;"],
+    ["JSX dynamic gallery href", "src/main.jsx", "export const Leak = ({ kind }) => <a href={`/preview/sound-seekers-v2-${kind}.html`}>Leak</a>;"],
+    ["JSX unresolved gallery href", "src/main.jsx", "export const Leak = () => <a href=\"/preview/sound-seekers-v2-content-missing.html\">Leak</a>;" ]
+  ];
+  for (const [label, relativePath, source] of cases) {
+    assert.throws(() => scanVirtualPolicy({ virtualSources: { [relativePath]: source } }), undefined, label);
   }
 });
 
@@ -110,6 +238,27 @@ test("the offline range server rejects unsafe roots and implements one standards
   assert.deepEqual(parseSingleRange("bytes=7-", 10), { start: 7, end: 9 });
   assert.throws(() => parseSingleRange("bytes=11-12", 10));
   assert.throws(() => parseSingleRange("bytes=0-1,3-4", 10));
+});
+
+test("standalone offline builds use a marked OS-temp root and only validated cleanup can remove it", () => {
+  assert.equal(typeof createQuestOfflineTemporaryBuildRoot, "function");
+  const temporary = createQuestOfflineTemporaryBuildRoot();
+  try {
+    assert.equal(path.isAbsolute(temporary.outputDir), true);
+    assert.equal(path.relative(realpathSync(os.tmpdir()), temporary.container).startsWith(".."), false);
+    assert.equal(validateQuestOfflineTemporaryBuildRoot(temporary.outputDir), temporary.outputDir);
+    assert.throws(() => cleanupQuestOfflineTemporaryBuildRoot(realpathSync(os.tmpdir())));
+    assert.match(readFileSync(path.join(temporary.container, ".quest-offline-test-root.json"), "utf8"), /quest-offline-temporary-build-v1/u);
+  } finally {
+    cleanupQuestOfflineTemporaryBuildRoot(temporary.outputDir);
+  }
+  assert.equal(existsSync(temporary.container), false);
+  const config = readFileSync("playwright.quest.offline.config.js", "utf8");
+  assert.match(config, /--temporary-build/u);
+  assert.doesNotMatch(config, /QUEST_OFFLINE_DIST=dist-quest-offline/u);
+  assert.match(config, /gracefulShutdown:\s*\{\s*signal:\s*"SIGTERM"/u);
+  const serverSource = readFileSync("tools/serveQuestOfflineRangeTest.mjs", "utf8");
+  assert.match(serverSource, /temporary = createQuestOfflineTemporaryBuildRoot\(\)[\s\S]*process\.once\("exit"[\s\S]*spawn\("npm"/u);
 });
 
 test("the offline range server rejects symlink components and unauthenticated shutdown", async () => {

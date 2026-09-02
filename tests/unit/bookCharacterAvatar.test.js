@@ -2,13 +2,16 @@ import { existsSync } from "node:fs";
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import {
+import * as bookCharacters from "../../src/components/quest/bookCharacterAvatar.js";
+
+const {
   BOOK_CHARACTER_BODY_IDS,
   BOOK_CHARACTER_LOOKS,
   BOOK_CHARACTER_OUTFIT_IDS,
+  BOOK_CHARACTER_PAINTED_URLS,
   bookCharacterAsset,
   bookCharacterOutfit
-} from "../../src/components/quest/bookCharacterAvatar.js";
+} = bookCharacters;
 
 const fullyDressed = {
   body: "tuft",
@@ -70,4 +73,34 @@ test("the visible character catalogue only advertises finished illustrated state
       assert.ok(existsSync(`public${asset}`), `${bodyId}/${look.id} points at missing artwork`);
     }
   }
+});
+
+test("the canonical painted inventory contains every possible book-character asset exactly once", () => {
+  assert.ok(Array.isArray(BOOK_CHARACTER_PAINTED_URLS));
+  assert.equal(Object.isFrozen(BOOK_CHARACTER_PAINTED_URLS), true);
+  assert.equal(BOOK_CHARACTER_PAINTED_URLS.length, 51);
+  assert.equal(new Set(BOOK_CHARACTER_PAINTED_URLS).size, 51);
+  for (const url of BOOK_CHARACTER_PAINTED_URLS) {
+    assert.match(url, /^\/game-assets\/sound-seekers\/characters\/(?:muddy|chompy|pip)\/(?:pose|mood|look|outfit)-[a-z-]+\.webp$/u);
+    assert.ok(existsSync(`public${url}`), `${url} is missing`);
+  }
+
+  const explicitVariants = [
+    "look-original", "look-honey", "look-moon", "look-woodland",
+    "mood-happy", "mood-excited", "mood-thoughtful", "mood-brave",
+    "pose-ready", "pose-walking", "pose-cheering", "pose-thinking"
+  ];
+  const outfitCases = [
+    ["head", "leaf-cap"], ["head", "acorn-hat"], ["back", "moth-wings"],
+    ["neck", "vine-scarf"], ["held", "stone-staff"]
+  ];
+  const everyAuthorityResult = BOOK_CHARACTER_BODY_IDS.flatMap(body => [
+    ...explicitVariants.map(visualVariant => bookCharacterAsset({ body, visualVariant })),
+    ...outfitCases.map(([slot, id]) => bookCharacterAsset({ body, equipped: { [slot]: id } })),
+    bookCharacterAsset({ body, pose: "walk" }),
+    bookCharacterAsset({ body, eyes: "eyes-wide" }),
+    ...BOOK_CHARACTER_LOOKS[body].map(look => bookCharacterAsset({ body, dye: look.id }))
+  ]);
+  assert.equal(everyAuthorityResult.every(url => BOOK_CHARACTER_PAINTED_URLS.includes(url)), true);
+  assert.deepEqual([...new Set(everyAuthorityResult)].sort(), [...BOOK_CHARACTER_PAINTED_URLS].sort());
 });

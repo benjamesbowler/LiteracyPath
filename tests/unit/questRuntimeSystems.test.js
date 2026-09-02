@@ -1902,6 +1902,8 @@ test("book-world play exposes direct four-way movement on touch and keyboard", (
   assert.match(runtime, /dino-pals-trail-v2\.webp/, "Dino Land does not use the illustrated book-world map");
   assert.match(runtime, /moonwood-trail-v2\.webp/, "Moonwood does not use the illustrated book-world map");
   assert.match(runtime, /QUEST_BOOK_WORLD_ART_URLS/, "the illustrated worlds have no shared offline manifest");
+  assert.match(runtime, /BOOK_CHARACTER_PAINTED_URLS/, "painted book-character variants have no canonical offline inventory");
+  assert.match(runtime, /\.\.\.BOOK_CHARACTER_PAINTED_URLS/, "painted book-character variants are absent from the offline art warm list");
   assert.match(pixel, /\.\.\.QUEST_BOOK_WORLD_ART_URLS/, "book-world art is not warmed for offline play");
   for (const direction of ["left", "right", "up", "down"]) {
     assert.match(runtime, new RegExp(`directionInput\\.${direction}`), `${direction} is missing from held movement`);

@@ -1,12 +1,26 @@
 #!/usr/bin/env node
 import { timingSafeEqual } from "node:crypto";
-import { createReadStream, lstatSync, realpathSync } from "node:fs";
+import { spawn } from "node:child_process";
+import {
+  createReadStream,
+  existsSync,
+  lstatSync,
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  realpathSync,
+  rmSync,
+  writeFileSync
+} from "node:fs";
 import { createServer } from "node:http";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const REPOSITORY_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const TEMPORARY_ROOT_PREFIX = "literacy-path-quest-offline-";
+const TEMPORARY_ROOT_MARKER = ".quest-offline-test-root.json";
+const TEMPORARY_ROOT_PURPOSE = "quest-offline-temporary-build-v1";
 const MIME = Object.freeze({
   ".css": "text/css; charset=utf-8",
   ".html": "text/html; charset=utf-8",
@@ -48,6 +62,51 @@ export function validateQuestOfflineRoot(value) {
     throw new TypeError("quest offline root must be one real non-symlink directory");
   }
   return resolved;
+}
+
+export function createQuestOfflineTemporaryBuildRoot() {
+  const temporaryParent = realpathSync(os.tmpdir());
+  const container = realpathSync(mkdtempSync(path.join(temporaryParent, TEMPORARY_ROOT_PREFIX)));
+  const outputDir = path.join(container, "dist");
+  mkdirSync(outputDir);
+  writeFileSync(path.join(container, TEMPORARY_ROOT_MARKER), `${JSON.stringify({
+    schemaVersion: 1,
+    purpose: TEMPORARY_ROOT_PURPOSE
+  })}\n`, { flag: "wx" });
+  return Object.freeze({ container, outputDir });
+}
+
+export function validateQuestOfflineTemporaryBuildRoot(value) {
+  const outputDir = validateQuestOfflineRoot(value);
+  const container = path.dirname(outputDir);
+  const temporaryParent = realpathSync(os.tmpdir());
+  if (path.basename(outputDir) !== "dist"
+    || path.dirname(container) !== temporaryParent
+    || !path.basename(container).startsWith(TEMPORARY_ROOT_PREFIX)) {
+    throw new TypeError("quest offline temporary build root is outside the marked OS-temp boundary");
+  }
+  const markerPath = path.join(container, TEMPORARY_ROOT_MARKER);
+  const markerStat = lstatSync(markerPath);
+  if (!markerStat.isFile() || markerStat.isSymbolicLink() || realpathSync(markerPath) !== markerPath) {
+    throw new TypeError("quest offline temporary build marker is not a real file");
+  }
+  let marker;
+  try {
+    marker = JSON.parse(readFileSync(markerPath, "utf8"));
+  } catch (error) {
+    throw new TypeError("quest offline temporary build marker is malformed", { cause: error });
+  }
+  if (!marker || Object.keys(marker).sort().join(",") !== "purpose,schemaVersion"
+    || marker.schemaVersion !== 1 || marker.purpose !== TEMPORARY_ROOT_PURPOSE) {
+    throw new TypeError("quest offline temporary build marker is invalid");
+  }
+  return outputDir;
+}
+
+export function cleanupQuestOfflineTemporaryBuildRoot(value) {
+  const outputDir = validateQuestOfflineTemporaryBuildRoot(value);
+  const container = path.dirname(outputDir);
+  rmSync(container, { recursive: true, force: false });
 }
 
 export function parseSingleRange(header, size) {
@@ -204,17 +263,51 @@ export function createQuestOfflineControlServer({ assetServer }) {
 
 async function main() {
   const args = process.argv.slice(2);
+  const temporaryBuild = args.includes("--temporary-build");
   const envIndex = args.indexOf("--root-env");
   const hostIndex = args.indexOf("--host");
   const portIndex = args.indexOf("--port");
-  if (envIndex < 0 || hostIndex < 0 || portIndex < 0) throw new TypeError("--root-env, --host, and --port are required");
-  const root = process.env[args[envIndex + 1]];
+  if ((!temporaryBuild && envIndex < 0) || hostIndex < 0 || portIndex < 0) {
+    throw new TypeError("--root-env or --temporary-build, plus --host and --port, are required");
+  }
+  let temporary = null;
+  let cleaned = false;
+  let root = temporaryBuild ? null : process.env[args[envIndex + 1]];
+  const cleanupTemporary = () => {
+    if (!temporary || cleaned) return;
+    cleanupQuestOfflineTemporaryBuildRoot(temporary.outputDir);
+    cleaned = true;
+  };
   const host = args[hostIndex + 1];
   const port = Number(args[portIndex + 1]);
   const controlPort = Number(process.env.QUEST_OFFLINE_CONTROL_PORT || port + 2);
   if (host !== "127.0.0.1" || !Number.isInteger(port) || port < 1024 || port > 65535
     || !Number.isInteger(controlPort) || controlPort < 1024 || controlPort > 65535 || controlPort === port) {
     throw new TypeError("offline test server is loopback-only with a valid unprivileged port");
+  }
+  if (temporaryBuild) {
+    temporary = createQuestOfflineTemporaryBuildRoot();
+    process.once("exit", () => {
+      if (!cleaned && existsSync(temporary.container)) cleanupTemporary();
+    });
+    const buildCode = await new Promise((resolve, reject) => {
+      const child = spawn("npm", [
+        "run", "build:quest-offline-test", "--", "--outDir", temporary.outputDir
+      ], { cwd: REPOSITORY_ROOT, env: { ...process.env }, stdio: "inherit" });
+      child.once("error", reject);
+      child.once("close", code => resolve(code ?? 1));
+    }).catch(error => {
+      cleanupQuestOfflineTemporaryBuildRoot(temporary.outputDir);
+      throw error;
+    });
+    if (buildCode !== 0) {
+      cleanupQuestOfflineTemporaryBuildRoot(temporary.outputDir);
+      throw new Error(`quest offline temporary build failed with exit code ${buildCode}`);
+    }
+    validateQuestOfflineTemporaryBuildRoot(temporary.outputDir);
+    const { assertQuestOfflineBuild } = await import("./checkQuestOffline.mjs");
+    assertQuestOfflineBuild({ outputDir: temporary.outputDir });
+    root = temporary.outputDir;
   }
   const server = createQuestOfflineRangeServer({ root, host, port });
   const controlServer = createQuestOfflineControlServer({ assetServer: server });
@@ -225,7 +318,10 @@ async function main() {
       if (!listener.listening) return resolve();
       listener.close(error => resolve(error || null));
     }));
-    Promise.all(closes).then(errors => process.exit(errors.some(Boolean) ? 1 : 0));
+    Promise.all(closes).then(errors => {
+      cleanupTemporary();
+      process.exit(errors.some(Boolean) ? 1 : 0);
+    });
   };
   process.once("SIGINT", shutdown);
   process.once("SIGTERM", shutdown);

@@ -364,14 +364,19 @@ function parseSourceEdges(relativePath, source) {
   const edges = [];
   const nonliteralDynamic = [];
   if (extension === ".html") {
-    for (const match of source.matchAll(/<(?:script|link)\b[^>]*(?:src|href)=["']([^"']+)["'][^>]*>/giu)) {
-      edges.push({ specifier: match[1], kind: "html" });
+    for (const tag of source.matchAll(/<(?:script|link)\b[^>]*>/giu)) {
+      for (const attribute of tag[0].matchAll(/\b(?:src|href)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/giu)) {
+        edges.push({ specifier: attribute[1] ?? attribute[2] ?? attribute[3], kind: "html" });
+      }
     }
     return { edges, nonliteralDynamic };
   }
   if (extension === ".css") {
-    for (const match of source.matchAll(/@import\s+(?:url\(\s*)?["']([^"']+)["']/giu)) {
-      edges.push({ specifier: match[1], kind: "css" });
+    for (const match of source.matchAll(/url\(\s*(?:"([^"]*)"|'([^']*)'|([^)'"\s][^)]*?))\s*\)/giu)) {
+      edges.push({ specifier: (match[1] ?? match[2] ?? match[3]).trim(), kind: "css-url" });
+    }
+    for (const match of source.matchAll(/@import\s+(?!url\s*\()(?:"([^"]*)"|'([^']*)'|([^\s;]+))/giu)) {
+      edges.push({ specifier: match[1] ?? match[2] ?? match[3], kind: "css-import" });
     }
     return { edges, nonliteralDynamic };
   }
@@ -393,6 +398,16 @@ function parseSourceEdges(relativePath, source) {
       const specifier = staticString(node.arguments[0]);
       if (specifier !== null) edges.push({ specifier, kind: "dynamic" });
       else nonliteralDynamic.push(null);
+    }
+    if (node.type === "JSXAttribute" && ["src", "href"].includes(node.name?.name)) {
+      const valueNode = node.value?.type === "JSXExpressionContainer" ? node.value.expression : node.value;
+      const specifier = staticString(valueNode);
+      if (specifier !== null) {
+        edges.push({ specifier, kind: `jsx-${node.name.name}` });
+      } else if (source.slice(node.value?.start ?? node.start, node.value?.end ?? node.end)
+        .match(/sound-seekers-v2-|ContentArtGallery|galleryReplayRecipes|content-art-gallery/u)) {
+        nonliteralDynamic.push(null);
+      }
     }
   });
   return { edges, nonliteralDynamic };
@@ -566,19 +581,91 @@ export function scanSoundSeekersV2SourcePolicy({ virtualSources = null, removedS
 
 function assertBundleIsolation(productionBundlePath) {
   if (!productionBundlePath) return;
-  const analysis = JSON.parse(readFileSync(path.resolve(productionBundlePath), "utf8"));
-  const paths = [
-    ...Object.keys(analysis.inputs || {}),
-    ...Object.entries(analysis.outputs || {}).flatMap(([outputPath, output]) => [
-      outputPath,
-      output?.entryPoint,
-      ...(output?.imports || []).map(record => record.path)
-    ])
-  ].filter(Boolean).map(normalizePath);
-  if (paths.some(candidate => GALLERY_TARGETS.has(candidate)
-    || [...GALLERY_TARGETS].some(target => candidate.endsWith(`/${target}`)))) {
+  const analysisPath = path.resolve(productionBundlePath);
+  const outputRoot = path.dirname(analysisPath);
+  const analysis = JSON.parse(readFileSync(analysisPath, "utf8"));
+  const hasExactKeys = (value, expected) => value && typeof value === "object" && !Array.isArray(value)
+    && Object.keys(value).sort().join("\n") === [...expected].sort().join("\n");
+  if (!hasExactKeys(analysis, ["generatedAt", "chunks"])
+    || typeof analysis.generatedAt !== "string"
+    || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/u.test(analysis.generatedAt)
+    || !Number.isFinite(Date.parse(analysis.generatedAt))
+    || !Array.isArray(analysis.chunks)
+    || analysis.chunks.length === 0) {
+    throw new Error("production bundle analysis does not match the real Vite schema");
+  }
+  const identities = [];
+  const chunkNames = new Set();
+  for (const chunk of analysis.chunks) {
+    if (!hasExactKeys(chunk, [
+      "fileName", "isEntry", "isDynamicEntry", "imports", "dynamicImports", "renderedLength", "modules"
+    ]) || typeof chunk.fileName !== "string" || !chunk.fileName
+      || path.isAbsolute(chunk.fileName) || normalizePath(chunk.fileName).split("/").includes("..")
+      || typeof chunk.isEntry !== "boolean" || typeof chunk.isDynamicEntry !== "boolean"
+      || !Number.isSafeInteger(chunk.renderedLength) || chunk.renderedLength < 0
+      || !Array.isArray(chunk.imports) || !Array.isArray(chunk.dynamicImports)
+      || [...chunk.imports, ...chunk.dynamicImports].some(value => typeof value !== "string" || !value)
+      || new Set(chunk.imports).size !== chunk.imports.length
+      || new Set(chunk.dynamicImports).size !== chunk.dynamicImports.length
+      || !Array.isArray(chunk.modules)) {
+      throw new Error("production bundle analysis contains a malformed Vite chunk");
+    }
+    const fileName = normalizePath(chunk.fileName);
+    if (chunkNames.has(fileName)) throw new Error("production bundle analysis contains duplicate chunks");
+    chunkNames.add(fileName);
+    identities.push(fileName, ...chunk.imports.map(normalizePath), ...chunk.dynamicImports.map(normalizePath));
+    let renderedLength = 0;
+    for (const module of chunk.modules) {
+      if (!hasExactKeys(module, ["id", "renderedLength", "originalLength"])
+        || typeof module.id !== "string" || !module.id
+        || !Number.isSafeInteger(module.renderedLength) || module.renderedLength < 0
+        || !Number.isSafeInteger(module.originalLength) || module.originalLength < 0) {
+        throw new Error("production bundle analysis contains a malformed Vite module");
+      }
+      renderedLength += module.renderedLength;
+      identities.push(normalizePath(module.id));
+    }
+    if (renderedLength !== chunk.renderedLength) {
+      throw new Error("production bundle analysis chunk length does not match its modules");
+    }
+  }
+  for (const chunk of analysis.chunks) {
+    const fileName = normalizePath(chunk.fileName);
+    const emittedPath = path.resolve(outputRoot, fileName);
+    if (!emittedPath.startsWith(`${outputRoot}${path.sep}`)
+      || chunk.renderedLength > 0 && !readdirSafeFile(emittedPath)) {
+      throw new Error(`production bundle analysis references a missing emitted chunk: ${fileName}`);
+    }
+    for (const imported of [...chunk.imports, ...chunk.dynamicImports].map(normalizePath)) {
+      if (!chunkNames.has(imported)) {
+        throw new Error(`production bundle analysis references an unknown imported chunk: ${imported}`);
+      }
+    }
+  }
+  const emittedSources = emittedTextFiles(outputRoot);
+  if (identities.some(looksLikeGallerySpecifier)
+    || emittedSources.some(filePath => looksLikeGallerySpecifier(normalizePath(path.relative(outputRoot, filePath)))
+      || /sound-seekers-v2-content|ContentArtGallery|galleryReplayRecipes|content-art-gallery|data-gallery-root/u
+        .test(readFileSync(filePath, "utf8")))) {
     throw new Error("production bundle graph contains the dev-only gallery");
   }
+}
+
+function readdirSafeFile(filePath) {
+  try {
+    return readdirSync(path.dirname(filePath), { withFileTypes: true })
+      .some(entry => entry.name === path.basename(filePath) && entry.isFile());
+  } catch {
+    return false;
+  }
+}
+
+function emittedTextFiles(directory) {
+  return readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
+    const fullPath = path.join(directory, entry.name);
+    if (entry.isDirectory()) return emittedTextFiles(fullPath);
+    return entry.isFile() && /\.(?:js|css|html)$/u.test(entry.name) ? [fullPath] : [];
+  });
 }
 
 function assertTaskOneToFiveAuthorities() {
@@ -597,6 +684,7 @@ function assertTaskOneToFiveAuthorities() {
 }
 
 export function assertSoundSeekersV2Content({ productionBundlePath = null } = {}) {
+  assertBundleIsolation(productionBundlePath);
   assertTaskOneToFiveAuthorities();
   const fixture = buildSoundSeekersV2CanonicalCoverageFixture();
   const coverageSummary = summarizeSoundSeekersV2Coverage(fixture.state);
@@ -618,7 +706,6 @@ export function assertSoundSeekersV2Content({ productionBundlePath = null } = {}
   assertSoundSeekersSceneAudio();
   const policy = scanSoundSeekersV2SourcePolicy();
   if (policy.violations.length) throw new Error(policy.violations.join("\n"));
-  assertBundleIsolation(productionBundlePath);
   return deepFreeze({ coverageSummary, attemptReceiptCount: fixture.attemptReceipts.length });
 }
 

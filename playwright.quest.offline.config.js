@@ -21,13 +21,14 @@ export default defineConfig({
   webServer: {
     command: externalOfflineRoot
       ? "npm run serve:quest-offline-test"
-      : "npm run build:quest-offline-test && QUEST_OFFLINE_DIST=dist-quest-offline npm run serve:quest-offline-test",
+      : "node tools/serveQuestOfflineRangeTest.mjs --temporary-build --host 127.0.0.1 --port 5191",
     env: {
       ...process.env,
       QUEST_OFFLINE_SHUTDOWN_TOKEN: process.env.QUEST_OFFLINE_SHUTDOWN_TOKEN,
       QUEST_OFFLINE_CONTROL_PORT: process.env.QUEST_OFFLINE_CONTROL_PORT
     },
     url: "http://127.0.0.1:5191/preview/quest.html",
+    gracefulShutdown: { signal: "SIGTERM", timeout: 10_000 },
     reuseExistingServer: false,
     timeout: 120_000
   },
