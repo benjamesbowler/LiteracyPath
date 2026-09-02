@@ -1,4 +1,5 @@
 import { validateSceneVisualAccess } from "../engine/sceneVisualAccess.js";
+import { validateWorldScenePresentation } from "../engine/worldState.js";
 import { SOUND_SEEKERS_LANDMARK_BINDINGS } from "./sceneVisualCatalog.js";
 
 const LANDMARK_GEOMETRY = Object.freeze({
@@ -57,8 +58,19 @@ function requireSelectedStateAccess({
   stateId,
   activeAttemptId,
   reducerRevision,
-  sceneAccess
+  sceneAccess,
+  worldPresentation
 }) {
+  if (worldPresentation !== null) {
+    if (validateWorldScenePresentation(worldPresentation, {
+      chapterId: landmark.chapterId,
+      stopId: landmark.stopId,
+      sceneId: landmark.sceneId,
+      stateId,
+      landmark
+    })) return;
+    throw new TypeError("Landmark state is not authorized by the world presentation");
+  }
   if (stateId === landmark.initialStateId) return;
   const binding = selectedBindingForState(landmark, stateId);
   const hasCurrentAccess = validateSceneVisualAccess(sceneAccess, {
@@ -78,7 +90,8 @@ export function Landmark({
   stateId,
   activeAttemptId = null,
   reducerRevision = null,
-  sceneAccess = null
+  sceneAccess = null,
+  worldPresentation = null
 }) {
   if (!SOUND_SEEKERS_LANDMARK_BINDINGS.includes(landmark)) {
     throw new TypeError("Landmark renderer requires a canonical landmark binding");
@@ -94,7 +107,8 @@ export function Landmark({
     stateId,
     activeAttemptId,
     reducerRevision,
-    sceneAccess
+    sceneAccess,
+    worldPresentation
   });
 
   const parts = Array.from({ length: stateVisual.partCount }, (_, index) => (

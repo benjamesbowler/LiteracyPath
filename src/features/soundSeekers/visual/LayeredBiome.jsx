@@ -1,4 +1,5 @@
 import { getBiomeKit } from "../content/biomeKits.js";
+import { validateWorldScenePresentation } from "../engine/worldState.js";
 import {
   SOUND_SEEKERS_LANDMARK_BINDINGS,
   SOUND_SEEKERS_ROUTE_SPECS,
@@ -695,6 +696,13 @@ export function LayeredBiome({
   if (!kit || getBiomeKit(kit.id) !== kit) {
     throw new TypeError("Layered biome requires a canonical biome kit");
   }
+  const isWorldPresentation = scenePresentation?.kind
+    === "sound_seekers_world_scene_presentation";
+  if (isWorldPresentation && !validateWorldScenePresentation(scenePresentation, {
+    chapterId: kit.id
+  })) {
+    throw new TypeError("Layered biome requires an authorized world presentation");
+  }
   if (!scenePresentation || scenePresentation.kitId !== kit.id) {
     throw new TypeError("Layered biome scene presentation does not match its kit");
   }
@@ -712,10 +720,12 @@ export function LayeredBiome({
     targetSize: kit.background.cropProfiles[cropProfile].targetSize,
     focalPoint: kit.background.cropProfiles[cropProfile].focalPoint
   });
-  const landmark = SOUND_SEEKERS_LANDMARK_BINDINGS.find(
-    item => item.sceneId === scenePresentation.sceneId
-  );
-  const route = SOUND_SEEKERS_ROUTE_SPECS.find(item => item.stopId === landmark?.stopId);
+  const landmark = isWorldPresentation
+    ? scenePresentation.landmark
+    : SOUND_SEEKERS_LANDMARK_BINDINGS.find(item => item.sceneId === scenePresentation.sceneId);
+  const route = isWorldPresentation
+    ? scenePresentation.route
+    : SOUND_SEEKERS_ROUTE_SPECS.find(item => item.stopId === landmark?.stopId);
   if (!landmark || !route || route.chapterId !== kit.id) {
     throw new TypeError("Layered biome route and landmark join failed");
   }
@@ -767,6 +777,7 @@ export function LayeredBiome({
             activeAttemptId={activeAttemptId}
             reducerRevision={reducerRevision}
             sceneAccess={sceneAccess}
+            worldPresentation={isWorldPresentation ? scenePresentation : null}
           />
         </div>
         <div className="sound-seekers-world__plane" data-world-plane="foreground" data-layer-id={kit.layers[3].id}>
