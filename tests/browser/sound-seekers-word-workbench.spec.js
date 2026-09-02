@@ -118,9 +118,11 @@ test("correction uses the controller transcript and selected contrast without co
   await expect(page.getByText("Look at the highlighted sound box. Try again.")).toHaveCount(0);
 });
 
-test("the unscored morphology tile emits place_tile and result waits for parent advance", async ({ page }) => {
+test("the unscored morphology tile emits place_tile but pre-commit state never reveals the result", async ({ page }) => {
   await page.goto(`${HARNESS}?mode=morphology`);
   await expect(page.getByRole("heading", { name: "Try a word ending" })).toBeVisible();
+  expect(await page.locator(".ss-workbench__instruction").evaluate(node => node.getBoundingClientRect().width))
+    .toBeGreaterThanOrEqual(240);
   await expect(page.getByText("Practice only — no score")).toBeVisible();
   await expect(page.locator(".ss-workbench__morph-result")).toHaveCount(0);
   await page.getByRole("button", { name: "s grapheme tile" }).click();
@@ -129,8 +131,9 @@ test("the unscored morphology tile emits place_tile and result waits for parent 
   ]);
   await expect(page.locator(".ss-workbench__morph-result")).toHaveCount(0);
   await page.evaluate(() => window.__setSoundSeekersWorkbenchModel("morphology-advanced"));
-  await expect(page.locator(".ss-workbench__morph-result")).toContainText("cats");
-  await expect(page.locator(".ss-workbench__morph-result")).toContainText("more than one");
+  await expect(page.getByRole("heading", { name: "Try a word ending" })).toBeVisible();
+  await expect(page.locator(".ss-workbench__morph-result")).toHaveCount(0);
+  await expect(page.getByText("more than one")).toHaveCount(0);
 });
 
 test("the power-owned blend state exposes one semantic sweep intent", async ({ page }) => {

@@ -3,6 +3,7 @@ import {
   getPronunciation,
   getWordMeaning
 } from "../content/pronunciationLexicon.js";
+import { isRecursivelyFrozen } from "../engine/powers/contracts.js";
 import { SOUND_SEEKERS_VISUAL_TOKENS } from "../visual/visualTokens.js";
 import MeaningPayoff from "./MeaningPayoff.jsx";
 import "./WordWorkbench.css";
@@ -15,12 +16,83 @@ const TOKEN_STYLE = Object.freeze(Object.fromEntries(
 const CORRECTION_KEYS = Object.freeze([
   "mode", "replayContrast", "selectedContrast", "visibleText", "spokenText"
 ]);
+const MODEL_KEYS = Object.freeze([
+  "challengeId", "powerId", "instructionLabel", "visualCue", "status", "correction",
+  "slots", "rack", "sweep", "morphology"
+]);
+const SAFE_CORRECTION_KEYS = new Set([
+  "supportLevel", "mode", "replayContrast", "isolatePosition", "reduceIrrelevantLoad",
+  "modelOnce", "requiresFreshAttempt", "queueIsomorphicReview"
+]);
 const CORRECTION_MODES = new Set(["discover", "retry", "narrow", "teach", "guided"]);
 
 function exactRecord(value, keys) {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value)
     && Object.keys(value).length === keys.length
     && keys.every(key => Object.hasOwn(value, key));
+}
+
+function nonemptyString(value) {
+  return typeof value === "string" && Boolean(value.trim());
+}
+
+function validCorrectionModel(value) {
+  if (value === null) return true;
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  const entries = Object.entries(value);
+  if (!entries.length || entries.some(([key]) => !SAFE_CORRECTION_KEYS.has(key))) return false;
+  for (const [key, item] of entries) {
+    if (key === "supportLevel" && (!Number.isInteger(item) || item < 1 || item > 3)) return false;
+    if (key === "mode" && !CORRECTION_MODES.has(item)) return false;
+    if (["replayContrast", "reduceIrrelevantLoad", "modelOnce", "requiresFreshAttempt", "queueIsomorphicReview"].includes(key)
+      && typeof item !== "boolean") return false;
+    if (key === "isolatePosition" && item !== null
+      && !(nonemptyString(item) || (Number.isInteger(item) && item >= 0))) return false;
+  }
+  return true;
+}
+
+function validCollectionRecord(value, keys) {
+  return exactRecord(value, keys) && keys.every(key => {
+    if (key === "tileId") return value[key] === null || nonemptyString(value[key]);
+    return nonemptyString(value[key]);
+  });
+}
+
+function validWordForgeModel(model) {
+  if (!exactRecord(model, MODEL_KEYS) || !isRecursivelyFrozen(model)
+    || model.powerId !== "word_forge" || !nonemptyString(model.challengeId)
+    || !["active", "awaiting_mission_commit"].includes(model.status)
+    || !validCorrectionModel(model.correction)
+    || !Array.isArray(model.rack) || model.rack.length < 1 || model.rack.length > 12
+    || !Array.isArray(model.slots) || model.slots.length < 1 || model.slots.length > 12
+    || model.rack.some(tile => !validCollectionRecord(tile, ["id", "label"]))
+    || model.slots.some(slot => !validCollectionRecord(slot, ["id", "tileId"]))) return false;
+
+  const rackIds = model.rack.map(tile => tile.id);
+  const slotIds = model.slots.map(slot => slot.id);
+  const placedIds = model.slots.map(slot => slot.tileId).filter(Boolean);
+  if (new Set(rackIds).size !== rackIds.length
+    || new Set(slotIds).size !== slotIds.length
+    || new Set(placedIds).size !== placedIds.length) return false;
+
+  if (model.morphology === null) {
+    return model.instructionLabel === "Choose the letter or letter team for this sound."
+      && exactRecord(model.visualCue, ["kind"])
+      && model.visualCue.kind === "whole_word"
+      && model.rack.length >= 2
+      && ["not_ready", "ready"].includes(model.sweep)
+      && (model.sweep !== "ready"
+        || (model.status === "active" && model.slots.every(slot => slot.tileId !== null)))
+      && placedIds.every(id => rackIds.includes(id));
+  }
+
+  return model.instructionLabel === "Endings can change or extend a word."
+    && exactRecord(model.visualCue, ["kind"])
+    && model.visualCue.kind === "morphology"
+    && ["not_ready", "meaning_ready"].includes(model.sweep)
+    && placedIds.every(id => id === "morphology-base-fixed" || rackIds.includes(id))
+    && Boolean(validMorphologyModel(model));
 }
 
 function childGrapheme(value) {
@@ -59,10 +131,24 @@ function cueGeometry(referenceId, sense) {
   return null;
 }
 
-function TargetCue({ modelCue, pronunciation }) {
-  if (modelCue?.kind !== "whole_word" || !pronunciation) return null;
+function pronunciationMatchesModel(pronunciation, model) {
+  if (model.morphology !== null || !pronunciation) return false;
   const canonical = getPronunciation(pronunciation.id || pronunciation.word);
-  if (!canonical || pronunciation !== canonical) return null;
+  if (!canonical || pronunciation !== canonical || canonical.units.length !== model.slots.length) return false;
+  const availableLabels = model.rack.map(tile => tile.label);
+  for (const unit of canonical.units) {
+    const index = availableLabels.indexOf(unit.grapheme);
+    if (index < 0) return false;
+    availableLabels.splice(index, 1);
+  }
+  const rackById = new Map(model.rack.map(tile => [tile.id, tile]));
+  return model.slots.every((slot, index) => slot.tileId === null
+    || rackById.get(slot.tileId)?.label === canonical.units[index]?.grapheme);
+}
+
+function TargetCue({ model, pronunciation }) {
+  if (model.visualCue.kind !== "whole_word" || !pronunciationMatchesModel(pronunciation, model)) return null;
+  const canonical = pronunciation;
   const meaning = getWordMeaning(canonical.meaningId);
   if (!meaning?.reference || !["image", "action"].includes(meaning.reference.kind)) return null;
   const escapedWord = canonical.word.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
@@ -129,13 +215,19 @@ function MorphologyTeaching({ morphology, ready }) {
   );
 }
 
-function validCorrectionPresentation(value) {
+function validCorrectionPresentation(value, model) {
   return exactRecord(value, CORRECTION_KEYS)
+    && Object.isFrozen(value)
     && CORRECTION_MODES.has(value.mode)
     && typeof value.replayContrast === "boolean"
     && typeof value.selectedContrast === "string" && value.selectedContrast.trim()
     && typeof value.visibleText === "string" && value.visibleText.trim()
-    && value.visibleText === value.spokenText;
+    && value.visibleText === value.spokenText
+    && model.status === "active"
+    && model.correction !== null
+    && model.correction.mode === value.mode
+    && model.correction.replayContrast === value.replayContrast
+    && model.rack.some(tile => tile.label === value.selectedContrast);
 }
 
 function useVisualViewportReflow() {
@@ -162,14 +254,16 @@ export default function WordWorkbench({
 }) {
   const headingId = useId();
   const visualViewportWidth = useVisualViewportReflow();
+  if (!validWordForgeModel(model)) return null;
+  const targetCueVisible = model.visualCue.kind === "whole_word"
+    && pronunciationMatchesModel(pronunciation, model);
   const morphology = validMorphologyModel(model);
   const rackById = new Map((model?.rack || []).map(tile => [tile.id, tile]));
   const placedTileIds = new Set((model?.slots || []).map(slot => slot.tileId).filter(Boolean));
   const currentSlotIndex = (model?.slots || []).findIndex(slot => !slot.tileId);
   const interactionLocked = model?.status === "awaiting_mission_commit";
-  const morphologyReady = Boolean(morphology && model.sweep === "meaning_ready");
   const sweepReady = !model?.morphology && model?.sweep === "ready";
-  const correction = validCorrectionPresentation(correctionPresentation) ? correctionPresentation : null;
+  const correction = validCorrectionPresentation(correctionPresentation, model) ? correctionPresentation : null;
 
   return (
     <section
@@ -180,15 +274,15 @@ export default function WordWorkbench({
         ...(visualViewportWidth ? { width: `${visualViewportWidth}px`, marginInline: 0 } : {})
       }}
     >
-      <header className="ss-workbench__header">
-        <TargetCue modelCue={model?.visualCue} pronunciation={pronunciation} />
+      <header className={`ss-workbench__header${targetCueVisible ? "" : " ss-workbench__header--without-cue"}`}>
+        <TargetCue model={model} pronunciation={pronunciation} />
         <div className="ss-workbench__instruction"><p className="ss-workbench__eyebrow">Build the sound trail</p><h2 id={headingId}>{model?.instructionLabel || "Build the word."}</h2></div>
         <button className="ss-workbench__control ss-workbench__replay" type="button" aria-label="Hear the whole word again" onClick={() => onReplayWholeWord?.()}>
           <span className="ss-workbench__speaker" aria-hidden="true">▶</span><span>Hear word</span>
         </button>
       </header>
 
-      {morphology ? <MorphologyTeaching morphology={morphology} ready={morphologyReady} /> : null}
+      {morphology ? <MorphologyTeaching morphology={morphology} ready={false} /> : null}
 
       <div className="ss-workbench__build-zone">
         <div className="ss-workbench__slots" role="group" aria-label="Sound boxes">

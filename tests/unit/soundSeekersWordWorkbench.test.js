@@ -26,6 +26,15 @@ let getRuntimePronunciation;
 let resolveRuntimeMeaningVisual;
 let vite;
 
+function deepFreeze(value) {
+  if (Array.isArray(value)) {
+    value.forEach(deepFreeze);
+  } else if (value && typeof value === "object") {
+    Object.values(value).forEach(deepFreeze);
+  }
+  return value && typeof value === "object" ? Object.freeze(value) : value;
+}
+
 test.before(async () => {
   vite = await createServer({
     appType: "custom",
@@ -141,9 +150,11 @@ test("the target cue consumes the exact child-safe meaning reference and fails c
     pronunciation: { ...getRuntimePronunciation("hot"), meaningId: "forged" }
   });
   const cloned = render(fixture("hot"), { pronunciation: { ...getRuntimePronunciation("hot") } });
+  const crossWord = render(fixture("hot"), { pronunciation: getRuntimePronunciation("ship") });
   assert.doesNotMatch(absent, /ss-workbench__target/u);
   assert.doesNotMatch(forged, /ss-workbench__target/u);
   assert.doesNotMatch(cloned, /ss-workbench__target/u);
+  assert.doesNotMatch(crossWord, /ss-workbench__target/u);
 });
 
 test("the component consumes the committed Task 1 child view without a raw challenge prop", () => {
@@ -151,6 +162,9 @@ test("the component consumes the committed Task 1 child view without a raw chall
     .find(phase => phase.instructionId === "word-forge-place-tile");
   const contract = getInstructionContract(action.instructionId);
   const id = suffix => `${action.contextId}:${suffix}`;
+  const actionPronunciation = getPronunciation(action.wordId);
+  const rackLabels = [...actionPronunciation.units.map(unit => unit.grapheme), "zz"];
+  const rackTokens = rackLabels.map((unused, index) => `private-token-${index}`);
   const challenge = Object.freeze({
     challengeId: `${action.id}:task-2-integration-challenge`,
     attemptId: `${action.id}:task-2-integration-attempt`,
@@ -158,8 +172,8 @@ test("the component consumes the committed Task 1 child view without a raw chall
     powerId: contract.powerId,
     expectedAction: contract.expectedAction,
     recordsDomain: contract.recordsDomain,
-    expectedToken: "private-answer-token",
-    optionTokens: Object.freeze(["private-answer-token", "private-decoy-token"]),
+    expectedToken: rackTokens[0],
+    optionTokens: Object.freeze(rackTokens),
     childText: contract.childText,
     cue: contract.cue,
     requiresAudio: false,
@@ -167,15 +181,12 @@ test("the component consumes the committed Task 1 child view without a raw chall
     wordId: action.wordId,
     position: 0,
     presentation: Object.freeze({
-      rack: Object.freeze([
-        Object.freeze({ id: id("tile:sh"), label: "sh", token: "private-answer-token" }),
-        Object.freeze({ id: id("tile:ch"), label: "ch", token: "private-decoy-token" })
-      ]),
-      slots: Object.freeze([
-        Object.freeze({ id: id("slot:0") }),
-        Object.freeze({ id: id("slot:1") }),
-        Object.freeze({ id: id("slot:2") })
-      ])
+      rack: Object.freeze(rackLabels.map((label, index) => Object.freeze({
+        id: id(`tile:${index}`), label, token: rackTokens[index]
+      }))),
+      slots: Object.freeze(actionPronunciation.units.map((unused, index) => Object.freeze({
+        id: id(`slot:${index}`)
+      })))
     })
   });
   const state = wordForge.createState(challenge, {
@@ -188,10 +199,37 @@ test("the component consumes the committed Task 1 child view without a raw chall
   const model = wordForge.view(state, challenge, normalizeMotorAssists());
   const html = render(model, { pronunciation: getRuntimePronunciation(action.wordId) });
   assert.match(html, /Choose the letter or letter team for this sound\./u);
-  assert.match(html, /aria-label="sh grapheme tile"/u);
-  assert.doesNotMatch(html, /private-answer-token|task-2-integration/u);
+  assert.match(html, new RegExp(`aria-label="${actionPronunciation.units[0].grapheme} grapheme tile"`, "u"));
+  assert.doesNotMatch(html, /private-token|task-2-integration/u);
   assert.equal(html.includes(`word:${action.wordId}`), false);
   assert.match(html, /ss-workbench__target/u);
+  const otherWord = action.wordId === "ship" ? "hot" : "ship";
+  assert.doesNotMatch(render(model, { pronunciation: getRuntimePronunciation(otherWord) }), /ss-workbench__target/u);
+});
+
+test("invalid, unfrozen, wrong-power, and schema-expanded models fail closed", () => {
+  const valid = fixture("ship", { placedCount: 0 });
+  const invalidModels = [
+    null,
+    {},
+    { ...valid },
+    deepFreeze({ ...valid, powerId: "echo_search" }),
+    deepFreeze({ ...valid, callerAnswer: "ship" }),
+    deepFreeze({ ...valid, rack: [...valid.rack, valid.rack[0]] }),
+    deepFreeze({ ...valid, slots: [{ ...valid.slots[0], unknown: true }, ...valid.slots.slice(1)] }),
+    deepFreeze({ ...valid, status: "complete" }),
+    deepFreeze({ ...valid, sweep: "caller_ready" }),
+    deepFreeze({ ...valid, sweep: "ready" }),
+    deepFreeze({
+      ...valid,
+      instructionLabel: "Endings can change or extend a word.",
+      visualCue: { kind: "morphology" },
+      morphology: { kind: "morphology_introduction", baseWord: "dog", ending: "s", derivedWord: "dogs", meaning: "many" }
+    })
+  ];
+  for (const model of invalidModels) {
+    assert.equal(render(model, { pronunciation: getRuntimePronunciation("ship") }), "");
+  }
 });
 
 test("duplicate graphemes remain separate physical controls without exposing their identities", () => {
@@ -285,7 +323,7 @@ test("every authored Task 3 support and Task 4 visual has a specific code-native
   }
 });
 
-test("morphology is explicitly unscored and reveals the derived word only from advanced power state", () => {
+test("morphology is explicitly unscored and never reveals the derived word before authenticated commit", () => {
   const baseModel = Object.freeze({
     challengeId: "content-placement-attempt:visit:morphology:s38-morphology:0:0:challenge:0:morphology",
     powerId: "word_forge",
@@ -314,14 +352,14 @@ test("morphology is explicitly unscored and reveals the derived word only from a
   assert.match(before, />s<\/span>/u);
   assert.doesNotMatch(before, />cats<\/strong>/u);
 
-  const ready = render({
+  const awaitingCommit = render(deepFreeze({
     ...baseModel,
     status: "awaiting_mission_commit",
     slots: [baseModel.slots[0], { ...baseModel.slots[1], tileId: "morphology-ending-tile" }],
     sweep: "meaning_ready"
-  });
-  assert.match(ready, />cats<\/strong>/u);
-  assert.match(ready, /more than one/u);
+  }));
+  assert.match(awaitingCommit, /Try a word ending/u);
+  assert.doesNotMatch(awaitingCommit, />cats<\/strong>|more than one/u);
 
   assert.doesNotMatch(render({
     ...baseModel,
@@ -335,14 +373,28 @@ test("morphology is explicitly unscored and reveals the derived word only from a
 
 test("correction renders only the exact controller transcript with selected contrast and no inferred copy", () => {
   const transcript = "You chose m. Listen to m and h, then try again.";
-  const html = render(fixture("hot", { placedCount: 0 }), {
-    correctionPresentation: {
+  const correctionModel = deepFreeze({
+    ...fixture("hot", { placedCount: 0 }),
+    correction: {
+      supportLevel: 1,
       mode: "retry",
       replayContrast: true,
-      selectedContrast: "m",
-      visibleText: transcript,
-      spokenText: transcript
+      isolatePosition: null,
+      reduceIrrelevantLoad: false,
+      modelOnce: false,
+      requiresFreshAttempt: false,
+      queueIsomorphicReview: false
     }
+  });
+  const presentation = deepFreeze({
+    mode: "retry",
+    replayContrast: true,
+    selectedContrast: "m",
+    visibleText: transcript,
+    spokenText: transcript
+  });
+  const html = render(correctionModel, {
+    correctionPresentation: presentation
   });
   assert.match(html, new RegExp(`role="status" aria-live="polite"[^>]*>${transcript}<\\/p>`, "u"));
   assert.match(html, /data-correction-mode="retry" data-replay-contrast="true" data-selected-contrast="m"/u);
@@ -354,6 +406,15 @@ test("correction renders only the exact controller transcript with selected cont
     ...fixture("hot", { placedCount: 0 }),
     correction: { supportLevel: 2, mode: "narrow", isolatePosition: "initial" }
   }), /Listen to the whole word|highlighted sound box|Watch one example/u);
+  assert.doesNotMatch(render(fixture("hot", { placedCount: 0 }), {
+    correctionPresentation: presentation
+  }), /ss-workbench__correction/u);
+  assert.doesNotMatch(render(correctionModel, {
+    correctionPresentation: { ...presentation, mode: "narrow" }
+  }), /ss-workbench__correction/u);
+  assert.doesNotMatch(render(correctionModel, {
+    correctionPresentation: { ...presentation, replayContrast: false }
+  }), /ss-workbench__correction/u);
   assert.doesNotMatch(render(fixture("hot", { placedCount: 0 }), {
     correctionPresentation: {
       mode: "retry", replayContrast: true, selectedContrast: "m",

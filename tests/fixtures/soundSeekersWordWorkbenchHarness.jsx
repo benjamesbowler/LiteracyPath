@@ -53,6 +53,20 @@ const shipSweepReady = Object.freeze({
   sweep: "ready"
 });
 
+const shipCorrection = Object.freeze({
+  ...shipReady,
+  correction: Object.freeze({
+    supportLevel: 1,
+    mode: "retry",
+    replayContrast: true,
+    isolatePosition: null,
+    reduceIrrelevantLoad: false,
+    modelOnce: false,
+    requiresFreshAttempt: false,
+    queueIsomorphicReview: false
+  })
+});
+
 const morphologyReady = Object.freeze({
   challengeId: "content-placement-attempt:visit:morphology:s38-morphology:0:0:challenge:0:morphology",
   powerId: "word_forge",
@@ -105,7 +119,8 @@ window.__soundSeekersWorkbenchReplays = [];
 function WorkbenchHarness() {
   const initial = mode === "morphology"
     ? morphologyReady
-    : mode === "sweep" ? shipSweepReady : shipReady;
+    : mode === "sweep" ? shipSweepReady
+      : mode === "correction" ? shipCorrection : shipReady;
   const [model, setModel] = useState(initial);
   window.__setSoundSeekersWorkbenchModel = next => {
     if (next === "ship-awaiting") setModel(shipAwaiting);

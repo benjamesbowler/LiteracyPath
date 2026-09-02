@@ -29,6 +29,10 @@
   align-items: center;
 }
 
+.ss-workbench__header--without-cue {
+  grid-template-columns: minmax(0, 2fr) minmax(5.25rem, 0.8fr);
+}
+
 .ss-workbench__instruction {
   min-width: 0;
 }
@@ -396,6 +400,7 @@
 @media (max-width: 420px) {
   .ss-workbench { padding: 0.65rem; border-radius: 1rem; }
   .ss-workbench__header { grid-template-columns: 4.25rem minmax(0, 1fr); gap: 0.55rem; }
+  .ss-workbench__header--without-cue { grid-template-columns: minmax(0, 1fr); }
   .ss-workbench__target { width: 4.15rem; }
   .ss-workbench__replay { grid-column: 1 / -1; width: 100%; max-width: none; }
   .ss-workbench__build-zone { gap: 0.75rem; margin-top: 0.75rem; padding: 0.65rem; }
@@ -409,6 +414,7 @@
 
 @container (max-width: 420px) {
   .ss-workbench__header { grid-template-columns: 4.25rem minmax(0, 1fr); gap: 0.55rem; }
+  .ss-workbench__header--without-cue { grid-template-columns: minmax(0, 1fr); }
   .ss-workbench__target { width: 4.15rem; }
   .ss-workbench__replay { grid-column: 1 / -1; width: 100%; max-width: none; }
   .ss-workbench__build-zone { gap: 0.75rem; margin-top: 0.75rem; padding: 0.65rem; }
