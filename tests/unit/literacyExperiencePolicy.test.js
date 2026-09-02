@@ -5,7 +5,6 @@ import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
 import { GUIDED_READING_BOOK_INDEX } from "../../src/data/generated/guidedReadingBookIndex.generated.js";
 import {
   KNOWLEDGE_JOURNEYS,
-  buildMeaningPrompts,
   knowledgeJourneyBooks
 } from "../../src/data/knowledgeJourneys.js";
 import { buildStationRounds } from "../../src/components/elQuest/elQuestEngine.js";
@@ -139,10 +138,10 @@ test("knowledge journeys use current books and include talk, vocabulary and writ
     assert.ok(journey.vocabulary.length >= 5, `${journey.id} needs repeated vocabulary`);
   }
 
-  const prompts = buildMeaningPrompts({ id: "first-facts-level-a-17-a-seed-grows", type: "nonfiction" });
-  assert.match(prompts.talk, /fact|explain/iu);
-  assert.match(prompts.vocabulary, /seed/iu);
-  assert.match(prompts.writing, /draw|write/iu);
+  const seedJourney = KNOWLEDGE_JOURNEYS.find(journey => journey.id === "plants-and-growth");
+  assert.match(seedJourney.guidingQuestion, /grow/iu);
+  assert.ok(seedJourney.vocabulary.includes("seed"));
+  assert.match(seedJourney.writingPrompt, /draw|write/iu);
 });
 
 test("knowledge journeys honour the child's selected reading level", () => {

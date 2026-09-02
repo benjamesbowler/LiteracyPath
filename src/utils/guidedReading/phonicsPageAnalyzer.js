@@ -8,7 +8,6 @@ import {
   inferVowelPattern,
   normalizeLexiconWord
 } from "../phonics/phonicsHeuristics.js";
-import { buildMeaningPrompts } from "../../data/knowledgeJourneys.js";
 
 const HIGH_FREQUENCY_WORDS = new Set([
   "a", "i", "the", "my", "is", "can", "go", "to", "we", "me", "you", "and", "it", "in", "on", "at", "up",
@@ -142,12 +141,6 @@ export function enrichGuidedReadingBook(book = {}) {
     dominantPhonicsPatterns,
     recommendedMicrophase,
     recommendedSkillsToReinforce: dominantPhonicsPatterns.slice(0, 6),
-    comprehensionQuestionSeeds: buildComprehensionQuestionSeeds(book),
     estimatedDifficulty: pages.some(page => page.analysis.estimatedDifficulty === "developing") ? "developing" : pages.some(page => page.analysis.estimatedDifficulty === "early") ? "early" : "emergent"
   };
-}
-
-export function buildComprehensionQuestionSeeds(book = {}) {
-  const prompts = buildMeaningPrompts(book);
-  return [prompts.question, prompts.talk, prompts.vocabulary, prompts.writing];
 }

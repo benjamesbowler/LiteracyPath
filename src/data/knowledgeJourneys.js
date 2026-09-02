@@ -110,30 +110,3 @@ export function knowledgeJourneyBooks(journeyId = "", books = [], level = "") {
     .map(bookId => byId.get(bookId))
     .filter(book => book && (!level || book.level === level));
 }
-
-export function buildMeaningPrompts(book = {}) {
-  const journey = getBookKnowledgeJourney(book);
-  const nonfiction = String(book.type || "").toLowerCase().replace(/[^a-z]/gu, "") === "nonfiction";
-  if (journey) {
-    return Object.freeze({
-      question: journey.guidingQuestion,
-      talk: `Tell one new fact. Explain how the book shows it.`,
-      vocabulary: `Use one of these words: ${journey.vocabulary.join(", ")}.`,
-      writing: journey.writingPrompt
-    });
-  }
-  if (nonfiction) {
-    return Object.freeze({
-      question: "What is this book teaching you?",
-      talk: "Tell one important fact and how you know.",
-      vocabulary: "Choose a useful new word and explain it.",
-      writing: "Draw one fact and write a clear label."
-    });
-  }
-  return Object.freeze({
-    question: "What changed from the beginning to the end?",
-    talk: "Retell the important events and explain why they happened.",
-    vocabulary: "Choose a strong story word and use it in a sentence.",
-    writing: "Draw an important moment and write what happened."
-  });
-}

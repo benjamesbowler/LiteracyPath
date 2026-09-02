@@ -365,9 +365,7 @@ test("Guided Reading keeps connected-text word marks distinct from learned words
   assert.equal(cat.concept.construct, "connected_text_word_reading");
   assert.equal(cat.statusCandidate, REPORTING_STATUS_IDS.SECURE);
   assert.equal(cat.concept.label.includes("learned"), false);
-  const quiz = model.knowledgeEvidence.find(row => row.sourceRecordType === "book_quiz");
-  assert.equal(quiz.evidenceKind, REPORTING_EVIDENCE_KINDS.PRACTICE);
-  assert.equal(quiz.statusCandidate, REPORTING_STATUS_IDS.DEVELOPING);
+  assert.equal(model.knowledgeEvidence.some(row => row.sourceRecordType === "book_quiz"), false);
   assert.equal(model.provenance.connectedTextWordsAreNotRelabelledAsLearned, true);
   assert.equal(model.books[0].supportUseEvents[0].stageLabel, "Sound-by-sound support");
   assert.equal(model.supportUseEvents[1].stageLabel, "Whole-word audio");

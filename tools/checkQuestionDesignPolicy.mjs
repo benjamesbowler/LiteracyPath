@@ -7,7 +7,6 @@ import {
   getActiveAssessmentSkillIds,
   loadAssessmentSkillBank
 } from "../src/data/loadAssessmentSkillBank.js";
-import { GUIDED_READING_QUIZZES } from "../src/data/generated/guidedReadingQuizzes.generated.js";
 import { QUEST_STORY_QUESTIONS } from "../src/data/generated/questStoryQuestions.generated.js";
 import { SENTENCE_FIX } from "../src/data/learnGamesData.js";
 import { SOUNDKEY_WORDS } from "../src/features/soundkeys/content.js";
@@ -65,11 +64,6 @@ function auditMediaFiles(surface, id, question) {
   if (isQuestionBlockedByMediaQa(question)) {
     record(surface, id, [{ code: "Q-MEDIA-QA", message: "The question references artwork that is blocked or still awaiting media QA." }]);
   }
-}
-
-function questionBandForBookId(bookId = "") {
-  const level = String(bookId).match(/(?:^|-)([a-d])(?:-|$)/i)?.[1]?.toUpperCase();
-  return level || "B";
 }
 
 function assessmentHasLevelGap(items = []) {
@@ -134,27 +128,6 @@ async function auditAssessments() {
     skillRows.push({ skillId, questions: items.length, failures: failures.length - before });
   }
   rows.push({ surface: "30 assessment skills", questions: total, failures: failures.filter(item => item.surface === "Assessment skills").length });
-}
-
-function auditGuidedReading() {
-  const surface = "Guided Reading quizzes";
-  const before = failures.length;
-  let total = 0;
-  for (const quiz of Object.values(GUIDED_READING_QUIZZES)) {
-    for (const question of quiz.questions || []) {
-      total += 1;
-      record(surface, question.id, auditQuestionAgainstPolicy(question, {
-        ageBand: questionBandForBookId(quiz.bookId),
-        requireId: true,
-        requireVisual: true,
-        requireSpoken: true,
-        hasContextVisual: true,
-        hasSurfaceSpeaker: true,
-        skipPromptLimit: true
-      }), { bookId: quiz.bookId });
-    }
-  }
-  rows.push({ surface, questions: total, failures: failures.length - before });
 }
 
 function auditStoryStops() {
@@ -571,7 +544,6 @@ function auditWorksheets() {
 }
 
 await auditAssessments();
-auditGuidedReading();
 auditStoryStops();
 auditElQuest();
 auditArcade();
@@ -596,7 +568,7 @@ const skillTable = skillRows.map(row => `| ${row.skillId} | ${row.questions} | $
 const findingLines = failures.length
   ? failures.map(item => `- **${item.code}** \`${item.surface}/${item.id}\`: ${item.message}`).join("\n")
   : "- None. All machine-checkable rules passed.";
-const markdown = `# Question Design Policy Audit\n\n**Policy:** \`${QUESTION_DESIGN_POLICY_VERSION}\`  \n**Generated:** ${report.generatedAt}  \n**Verdict:** **${report.verdict.toUpperCase()}**  \n\nThis report audits real runtime assessment output plus every registered Guided Reading quiz, Story Stop cover question, numbered EL Quest station, every level of all 11 visible arcade literacy games, the Sentence Fix bank and every generated worksheet recipe. It complements the specialist story, phonics, media and mastery gates; it does not replace child observation or claim that software alone proves validity.\n\n## Surface results\n\n| Surface | Questions/tasks | Documents | Result |\n|---|---:|---:|---|\n${surfaceTable}\n\n## All 30 assessment skills\n\n| Skill | Runtime questions | Result |\n|---|---:|---|\n${skillTable}\n\n## Findings\n\n${findingLines}\n\n## Release interpretation\n\nA PASS means all declared machine-checkable requirements in [the Question Design Bible](../../docs/content/QUESTION_DESIGN_BIBLE.md) have evidence at runtime. Routine named human sign-off is not a release gate. New observed ambiguity, access or validity problems must become a policy revision and regression check.\n`;
+const markdown = `# Question Design Policy Audit\n\n**Policy:** \`${QUESTION_DESIGN_POLICY_VERSION}\`  \n**Generated:** ${report.generatedAt}  \n**Verdict:** **${report.verdict.toUpperCase()}**  \n\nThis report audits real runtime assessment output, Story Stop cover questions, numbered EL Quest stations, every level of all 11 visible arcade literacy games, the Sentence Fix bank and every generated worksheet recipe. It complements the specialist story, phonics, media and mastery gates; it does not replace child observation or claim that software alone proves validity.\n\n## Surface results\n\n| Surface | Questions/tasks | Documents | Result |\n|---|---:|---:|---|\n${surfaceTable}\n\n## All 30 assessment skills\n\n| Skill | Runtime questions | Result |\n|---|---:|---|\n${skillTable}\n\n## Findings\n\n${findingLines}\n\n## Release interpretation\n\nA PASS means all declared machine-checkable requirements in [the Question Design Bible](../../docs/content/QUESTION_DESIGN_BIBLE.md) have evidence at runtime. Routine named human sign-off is not a release gate. New observed ambiguity, access or validity problems must become a policy revision and regression check.\n`;
 
 fs.mkdirSync(REPORT_DIR, { recursive: true });
 fs.writeFileSync(REPORT_JSON, `${JSON.stringify(report, null, 2)}\n`);

@@ -54,8 +54,6 @@ const report = buildGuidedReadingReportModel({
       completedPages: 12,
       totalPages: 12,
       readCount: 1,
-      quizScore: 4,
-      quizTotal: 5,
       pages: {
         0: {
           wordTexts: ["It", "was", "the", "deepest", "part", "of", "the", "night"],

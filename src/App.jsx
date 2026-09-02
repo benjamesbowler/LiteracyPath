@@ -2437,13 +2437,10 @@ export default function App() {
         { header: "Read Correctly", key: "correct", width: 15 },
         { header: "Needs Support", key: "support", width: 15 },
         { header: "Marked-word Accuracy", key: "accuracy", width: 22 },
-        { header: "Quiz Result", key: "quiz", width: 16 },
         { header: "Teacher Notes", key: "notes", width: 16 }
       ];
       progress.rows.forEach(row => {
-        const record = guidedReadingRecords[row.bookId] || {};
         const observation = observationsByBook.get(row.bookId) || {};
-        const quizTotal = Number(record.quizTotal || 0);
         const noteCount = Number(Boolean(String(observation.wholeBookNote || "").trim())) + (observation.pageNotes?.length || 0);
         observationsSheet.addRow({
           lastReadAt: formatReportDate(row.lastReadAt),
@@ -2457,7 +2454,6 @@ export default function App() {
           correct: observation.correct || 0,
           support: observation.support || 0,
           accuracy: observation.attempted ? `${observation.accuracy}%` : "Not marked",
-          quiz: quizTotal ? `${Number(record.quizScore || 0)}/${quizTotal}` : "Not completed",
           notes: noteCount
         });
       });

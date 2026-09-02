@@ -23708,9 +23708,8 @@ select:focus {
   font-weight: 600;
 }
 
-/* ─── Book quiz + level-up ─────────────────────────────────────────────── */
+/* ─── Guided Reading level-up ──────────────────────────────────────────── */
 
-.book-quiz,
 .guided-levelup {
   position: fixed;
   inset: 0;
@@ -23721,7 +23720,6 @@ select:focus {
   padding: 18px;
 }
 
-.book-quiz-card,
 .guided-levelup-card {
   display: grid;
   justify-items: center;
@@ -23735,113 +23733,8 @@ select:focus {
   text-align: center;
 }
 
-.book-quiz-card {
-  max-height: calc(100dvh - 36px);
-  overflow-y: auto;
-  overscroll-behavior: contain;
-}
-
-.book-quiz-kicker {
-  margin: 0;
-  color: var(--lp-color-primary);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.book-quiz-card h3 {
-  margin: 0;
-  font: 600 clamp(20px, 3vw, 26px) var(--lp-font-reading);
-  color: var(--lp-color-text-strong);
-}
-
-.book-quiz-retry {
-  margin: 0;
-  color: var(--lp-color-warning);
-  font-weight: 600;
-}
-
-.book-quiz-loading {
-  margin: 0;
-  color: var(--lp-color-text-muted);
-  font-weight: 600;
-}
-
-.book-quiz-choices {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.book-quiz-choices button {
-  min-width: 110px;
-  min-height: 64px;
-  border: 1.5px solid var(--lp-color-border);
-  border-radius: 14px;
-  background: #ffffff;
-  box-shadow: var(--lp-shadow-card);
-  color: var(--lp-color-text-strong);
-  cursor: pointer;
-  font: 600 clamp(1.1rem, 2.4vw, 1.5rem) var(--lp-font-reading);
-  padding: 12px 18px;
-  transition: transform 120ms ease-out, border-color 120ms ease-out;
-}
-
-.book-quiz-choices button:hover {
-  border-color: var(--lp-color-primary);
-  transform: translateY(-2px);
-}
-
-.book-quiz-choices button:active {
-  transform: scale(0.95);
-}
-
-/* Keep optional audio help attached to its answer instead of letting the
-   shared answer-button sizing turn it into a second, competing answer tile. */
-.book-quiz-choices .book-quiz-hear {
-  flex: 0 0 44px;
-  width: 44px;
-  min-width: 44px;
-  min-height: 44px;
-  padding: 0;
-}
-
-.book-quiz-choices.pictures button {
-  padding: 8px;
-}
-
-.book-quiz-choices.pictures img {
-  width: 132px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.book-quiz-choices.long-text {
-  width: 100%;
-  flex-direction: column;
-}
-
-.book-quiz-choices.long-text .book-quiz-choice-row {
-  width: 100%;
-}
-
-.book-quiz-choices.long-text .book-quiz-choice-row > button:first-child {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  line-height: 1.35;
-  text-align: left;
-}
-
-.book-quiz-result img,
 .guided-levelup-card img {
   width: min(36vw, 150px);
-}
-
-.book-quiz-result h3 {
-  margin: 0;
-  font: 600 26px var(--lp-font-reading);
 }
 
 .guided-levelup-card h2 {
@@ -24020,7 +23913,6 @@ select:focus {
 
 .student-mission-celebrate-card,
 .companion-picker-card,
-.book-quiz-card,
 .guided-levelup-card {
   border: 1px solid var(--glass-border);
   background: var(--glass-surface-strong);
@@ -24031,7 +23923,6 @@ select:focus {
 
 .student-mission-celebrate,
 .companion-picker,
-.book-quiz,
 .guided-levelup {
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);

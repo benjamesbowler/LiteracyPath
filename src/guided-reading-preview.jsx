@@ -13,7 +13,6 @@ import "./styles/kids-glass.css";
 import "./styles/ui-quality-pass.css";
 import "./styles/student-sessions.css";
 import StudentGlassShell from "./components/StudentGlassShell.jsx";
-import { BookQuiz } from "./components/guided-reading/BookQuiz.jsx";
 import { GuidedReadingPage } from "./components/guided-reading/GuidedReadingPage.jsx";
 import { StudentSessionNotice } from "./components/student-sessions/StudentSessionNotice.jsx";
 import { guidedReadingBooks } from "./data/guidedReadingBooks.js";
@@ -26,7 +25,6 @@ export function GuidedReadingPreview() {
   useEffect(() => {
     window.__guidedReadingPreviewRecords = records;
   }, [records]);
-  const [quizResult, setQuizResult] = useState(null);
   const staleGroupHost = params.has("stale-group") ? {
     session: {
       id: "stale-preview-session",
@@ -36,21 +34,6 @@ export function GuidedReadingPreview() {
       status: "ended"
     }
   } : null;
-
-  if (params.has("quiz")) {
-    return (
-      <main className="student-mode-app lp-skin-sage" style={{ minHeight: "100dvh" }}>
-        {quizResult ? (
-          <p role="status">Preview finished: {quizResult.correct}/{quizResult.total}</p>
-        ) : (
-          <BookQuiz
-            book={book}
-            onFinish={(correct, total) => setQuizResult({ correct, total })}
-          />
-        )}
-      </main>
-    );
-  }
 
   const reader = (
     <GuidedReadingPage
