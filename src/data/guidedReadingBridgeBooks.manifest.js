@@ -28,10 +28,10 @@ export const WILLOW_STREET_BOOK_MANIFEST = Object.freeze([
   row("make-a-paper-kite", "Make a Paper Kite", "procedure", "willow-street-illustrated", ["WILLOW-SAMIR"]),
   row("build-a-cardboard-ramp", "Build a Cardboard Ramp", "procedure", "willow-street-illustrated", ["WILLOW-LEO"]),
   row("make-fruit-and-yoghurt-cups", "Make Fruit and Yoghurt Cups", "procedure", "willow-street-illustrated", ["WILLOW-ZOE"]),
-  row("from-wheat-to-bread", "From Wheat to Bread", "photorealistic-nonfiction", "willow-street-photorealistic", []),
-  row("where-rainwater-goes", "Where Rainwater Goes", "photorealistic-nonfiction", "willow-street-photorealistic", []),
-  row("inside-a-fire-station", "Inside a Fire Station", "photorealistic-nonfiction", "willow-street-photorealistic", []),
-  row("how-paper-is-recycled", "How Paper Is Recycled", "photorealistic-nonfiction", "willow-street-photorealistic", []),
-  row("a-snail-comes-out-at-night", "A Snail Comes Out at Night", "photorealistic-nonfiction", "willow-street-photorealistic", []),
-  row("how-a-book-is-made", "How a Book Is Made", "photorealistic-nonfiction", "willow-street-photorealistic", [])
+  row("from-wheat-to-bread", "From Wheat to Bread", "photorealistic-nonfiction", "self-created-photorealistic", []),
+  row("where-rainwater-goes", "Where Rainwater Goes", "photorealistic-nonfiction", "self-created-photorealistic", []),
+  row("inside-a-fire-station", "Inside a Fire Station", "photorealistic-nonfiction", "self-created-photorealistic", []),
+  row("how-paper-is-recycled", "How Paper Is Recycled", "photorealistic-nonfiction", "self-created-photorealistic", []),
+  row("a-snail-comes-out-at-night", "A Snail Comes Out at Night", "photorealistic-nonfiction", "self-created-photorealistic", []),
+  row("how-a-book-is-made", "How a Book Is Made", "photorealistic-nonfiction", "self-created-photorealistic", [])
 ]);

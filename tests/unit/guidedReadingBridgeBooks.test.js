@@ -72,7 +72,7 @@ test("legacy types and visual treatments follow the approved 10/10 and 14/6 spli
   assert.equal(count("type", "fiction"), 10);
   assert.equal(count("type", "nonfiction"), 10);
   assert.equal(count("visualTreatment", "willow-street-illustrated"), 14);
-  assert.equal(count("visualTreatment", "willow-street-photorealistic"), 6);
+  assert.equal(count("visualTreatment", "self-created-photorealistic"), 6);
 });
 
 test("all cover, page image, and page audio paths are final and unique", () => {

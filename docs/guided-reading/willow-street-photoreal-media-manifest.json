@@ -1,0 +1,1037 @@
+{
+  "schemaVersion": 1,
+  "collection": "Willow Street Readers",
+  "visualTreatment": "self-created-photorealistic",
+  "generator": {
+    "provenance": "self-created",
+    "mode": "built-in-image_gen-one-call-per-asset"
+  },
+  "assets": [
+    {
+      "bookId": "willow-street-from-wheat-to-bread",
+      "pageNumber": 0,
+      "path": "/guided-reading/willow-street/from-wheat-to-bread/cover.webp",
+      "sha256": "1f539fa2988eeb4b3a7d86666b027a43f882628966fe2c3018e113e30eeeaba5",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "1130313c0f076e987de281a27ca8f16d6d9aeb4e57326dc2de57a9a73442b9f0",
+      "briefSha256": "dfac10173a9d6469b8bdf447fc13aca4914c8b5af3d7464d74a70127f5677582",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "1f539fa2988eeb4b3a7d86666b027a43f882628966fe2c3018e113e30eeeaba5",
+        "notes": "Original-detail review approved for From Wheat to Bread cover: whole production chain and unbranded food still life; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-15324db6-8310-42f1-aa94-75d278733cd2.png"
+    },
+    {
+      "bookId": "willow-street-from-wheat-to-bread",
+      "pageNumber": 1,
+      "path": "/guided-reading/willow-street/from-wheat-to-bread/page-01.webp",
+      "sha256": "700713e2ec9ecf097f2c433166c7f0aef60750b02a9025f5c2a905a8fcc9533d",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "99b11186112bff0e39f66e11da8988acb98408020a12fcaa3c79bcdbc9dbe6a7",
+      "briefSha256": "f0227477cb788bbf05fe1361189654dd603b4d6ad6c00e17a06193b2854438ae",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "700713e2ec9ecf097f2c433166c7f0aef60750b02a9025f5c2a905a8fcc9533d",
+        "notes": "Original-detail review approved for From Wheat to Bread page 1: botanically plausible intact wheat spikelets; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-aabe09b4-dd52-4e65-9015-20aac1020fcf.png"
+    },
+    {
+      "bookId": "willow-street-from-wheat-to-bread",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/from-wheat-to-bread/page-02.webp",
+      "sha256": "9d2053e1ad92cfcaa3608b4b11f0f6a92ea5acc34f7a892f7280426205998c45",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "73a0242cc9b26ffd986879e4a7d078a6326847261033454a7ffbc63a12af2acf",
+      "briefSha256": "cf09bd3e8fc4709131a9ba7223fa55247ef0da39e3255efbc7fc8b675081fc8b",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "9d2053e1ad92cfcaa3608b4b11f0f6a92ea5acc34f7a892f7280426205998c45",
+        "notes": "Original-detail review approved for From Wheat to Bread page 2: combine unloading directly into the receiving trailer; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-24bb64c4-e6ad-4c1e-93ad-4bdec5099b0a.png"
+    },
+    {
+      "bookId": "willow-street-from-wheat-to-bread",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/from-wheat-to-bread/page-03.webp",
+      "sha256": "a9df31f761de425a8af7e1e835f5018efd0a26c67f22be8d07a39c791ef1d4ed",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "3fa0850040477e35a8d3ea2b19239ce47788d0f7bd9cb7f2cf6e8f2c708e472d",
+      "briefSha256": "814016c47d0f1c7b06c7eeeaaf4d70d6046a8faf485d43c2d152799b52051b38",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "a9df31f761de425a8af7e1e835f5018efd0a26c67f22be8d07a39c791ef1d4ed",
+        "notes": "Original-detail review approved for From Wheat to Bread page 3: clean sieving and believable kernel scale; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-e747ff8b-fc3c-402e-af8e-4146ef4b4686.png"
+    },
+    {
+      "bookId": "willow-street-from-wheat-to-bread",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/from-wheat-to-bread/page-04.webp",
+      "sha256": "667ea2179c5463d257d57ddcc45240a8ea09fe0b380ca82e28353552fbfc30f7",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "99373bfdf8df5303ea6e5006dd1ee47cfce7fe1e877e775d8cb753c958fa3ffb",
+      "briefSha256": "af6c20bf142d6614343fcabdfa66d5ef77fe229b9b7c51dcdb4a3d13d01cf48d",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "667ea2179c5463d257d57ddcc45240a8ea09fe0b380ca82e28353552fbfc30f7",
+        "notes": "Original-detail review approved for From Wheat to Bread page 4: guarded rollers and contained pale flour; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-a38e25d5-0d00-43ef-b4a4-f2c04e878767.png"
+    },
+    {
+      "bookId": "willow-street-from-wheat-to-bread",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/from-wheat-to-bread/page-05.webp",
+      "sha256": "4a521666e1da318361821458adb8190c7d54e6263ae70507683ec4d1496470b3",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "7beb603fbdc3577d646695c310398e47b4af738776e7d0578c09c1fbe5b06b6d",
+      "briefSha256": "4b94cd1bad28d1952ebab50d0a1964ec12bdcc95c8edfe54bc77cc003bdef559",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "4a521666e1da318361821458adb8190c7d54e6263ae70507683ec4d1496470b3",
+        "notes": "Original-detail review approved for From Wheat to Bread page 5: exact flour, water, yeast, and salt ingredients; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-e2088c5e-9892-41df-a719-3aa7bc7d68db.png"
+    },
+    {
+      "bookId": "willow-street-from-wheat-to-bread",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/from-wheat-to-bread/page-06.webp",
+      "sha256": "51a23243af49ae6424adf271aee9faeccd8c96fc744b709ff5d322f724519e16",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "0a7a5bca70398d1ae8bce0141db2a15c96893f133aa9ffeadca0d2fec9ef5a2e",
+      "briefSha256": "1342a2f3b57d8bc3e4aca6766258e1e75c7389dc321b1f448abdccf6aeb78974",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "51a23243af49ae6424adf271aee9faeccd8c96fc744b709ff5d322f724519e16",
+        "notes": "Original-detail review approved for From Wheat to Bread page 6: same dough before and after a plausible rise; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-3ba8f73f-a3d8-4d45-8f60-53f44a76f610.png"
+    },
+    {
+      "bookId": "willow-street-from-wheat-to-bread",
+      "pageNumber": 7,
+      "path": "/guided-reading/willow-street/from-wheat-to-bread/page-07.webp",
+      "sha256": "b310085f71e481894eaa45151113207311d0ebaa0c705f6086f8ba29ad67f339",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "6141799a3f6f8ffea89d021d7a811138b5a230b4c429c8ad7ba1fcf725e2915d",
+      "briefSha256": "a08202f74a61f30a838f876c34dfc6fcf71d3ef3e53698433796d1e74cb3c485",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "b310085f71e481894eaa45151113207311d0ebaa0c705f6086f8ba29ad67f339",
+        "notes": "Original-detail review approved for From Wheat to Bread page 7: closed guarded oven and naturally browning loaves; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-c49b6559-f660-4117-8893-cd164cb681ff.png"
+    },
+    {
+      "bookId": "willow-street-from-wheat-to-bread",
+      "pageNumber": 8,
+      "path": "/guided-reading/willow-street/from-wheat-to-bread/page-08.webp",
+      "sha256": "48b27ac261f373c9ebfcbe8444f0cc7f17addd5f1d9ee59316607868d64d1205",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "b680cfba57bf9d2e66fa1eab4d8711d63f3e9d63ff2d9ee1a6b06dc104c34bfc",
+      "briefSha256": "5cf0683323a89287c789199453988ac8f23cde495341b7683909a7d48dac2f15",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "48b27ac261f373c9ebfcbe8444f0cc7f17addd5f1d9ee59316607868d64d1205",
+        "notes": "Original-detail review approved for From Wheat to Bread page 8: cooling clearance and adult slicing; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-7048932e-1b0f-4dcc-a99a-33580e100d20.png"
+    },
+    {
+      "bookId": "willow-street-where-rainwater-goes",
+      "pageNumber": 0,
+      "path": "/guided-reading/willow-street/where-rainwater-goes/cover.webp",
+      "sha256": "1fa7da0e523b9173031baf5bf41be0418dd9270b39d80e455ce94de839382e6f",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "9032999953ea3ab8f7827f64f586b6128831c3cf20a8b8570e655a2159fbe345",
+      "briefSha256": "7102ee685eb0dc8ee4e6df7ef222bdff5236c04884a63f1ad305a267f3a60d2b",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "1fa7da0e523b9173031baf5bf41be0418dd9270b39d80e455ce94de839382e6f",
+        "notes": "Original-detail review approved for Where Rainwater Goes cover: one coherent roof-to-stream drainage landscape; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-cf65af34-4626-41e9-88a8-42a8f66a23bb.png"
+    },
+    {
+      "bookId": "willow-street-where-rainwater-goes",
+      "pageNumber": 1,
+      "path": "/guided-reading/willow-street/where-rainwater-goes/page-01.webp",
+      "sha256": "2725fafe511fa2c5c64c2762b6a05665b3e9ba2798a8423e63b9767afef447e6",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "eb90187a0970ab3bab50217a5dde265335a48e655fedcd67b74ef183cb3b0b28",
+      "briefSha256": "a28eed6e4b6042c17999b126e72f25be690ab46ddf7e203add9e44e28cc34a1c",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "2725fafe511fa2c5c64c2762b6a05665b3e9ba2798a8423e63b9767afef447e6",
+        "notes": "Original-detail review approved for Where Rainwater Goes page 1: moderate rain across all four surfaces; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-685725e5-ec22-4cd4-888f-54e077ce3502.png"
+    },
+    {
+      "bookId": "willow-street-where-rainwater-goes",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/where-rainwater-goes/page-02.webp",
+      "sha256": "28f51fcb6376909579c847a3fa03f7527daa2a8343296151f98e1796e93a6a26",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "afd84d5cc84f58967b5d1faa9f7741f41a5e0f5dd362f04f61b82dd22794cb7e",
+      "briefSha256": "17bc3a0e35e7417f659e9b1695b3e3bc6773a0566238b28d445de63fede2c750",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "28f51fcb6376909579c847a3fa03f7527daa2a8343296151f98e1796e93a6a26",
+        "notes": "Original-detail review approved for Where Rainwater Goes page 2: water soaking into loose soil and roots; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-5a81e38a-95ce-4ab1-aea0-bb5182b7be1d.png"
+    },
+    {
+      "bookId": "willow-street-where-rainwater-goes",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/where-rainwater-goes/page-03.webp",
+      "sha256": "a102c24cd45456a7ff6b140e69baf4e64992c626f000df965e4216a1fab166e5",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "0823049da81850ae557da1dc1875e89caedce4379deb002b3a4258ca2e598f6a",
+      "briefSha256": "24f1e9f6776888b269fa1db2aaaae552f32aab393e523cebb499312940099cee",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "a102c24cd45456a7ff6b140e69baf4e64992c626f000df965e4216a1fab166e5",
+        "notes": "Original-detail review approved for Where Rainwater Goes page 3: shallow downhill pavement flow; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-6458b1ab-6821-4ba7-8786-23684a8d5201.png"
+    },
+    {
+      "bookId": "willow-street-where-rainwater-goes",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/where-rainwater-goes/page-04.webp",
+      "sha256": "38184f053da1250bc28658a6b4e956b0561acb8fb77624b1fa7775cd8c2f8ede",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "a4d8e7868825c5edbf2b654107245b9473579aad72647ee62a7cc134e6f06663",
+      "briefSha256": "8574d42de2fdad63cf3954fe8abfc8d734f43aeff43818833e306c338d3f79e7",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "38184f053da1250bc28658a6b4e956b0561acb8fb77624b1fa7775cd8c2f8ede",
+        "notes": "Original-detail review approved for Where Rainwater Goes page 4: gutter, downpipe, covered barrel, and overflow; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-433b0147-9972-487e-b254-d9602ff796d0.png"
+    },
+    {
+      "bookId": "willow-street-where-rainwater-goes",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/where-rainwater-goes/page-05.webp",
+      "sha256": "7e0c139b7fce3e757fb271fd353b5f758cc77fac8cd3311a63e38c23cb9b33bf",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "98569f766ccde047002b3b9b58a8131d681efbe29f2ceb0609790d5e5075ee13",
+      "briefSha256": "5ed2a0b71f6e51b2452471a657fb6cac0a86d93d67d0b7c73ae3bc5f4f172b37",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "7e0c139b7fce3e757fb271fd353b5f758cc77fac8cd3311a63e38c23cb9b33bf",
+        "notes": "Original-detail review approved for Where Rainwater Goes page 5: curb drain receiving safe shallow runoff; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-77dff447-cc1c-4da0-a3bc-b617bab7e5e1.png"
+    },
+    {
+      "bookId": "willow-street-where-rainwater-goes",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/where-rainwater-goes/page-06.webp",
+      "sha256": "4ed7c1e222cac7ca39b5091fc4b711351d71a2c3a2a466076b62b8593b858dda",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "22b311305c4e7ff4119c75d23137ffb1badcbaf845068987bdb1d80924f8259d",
+      "briefSha256": "3a351d85cec23bd0da8821f725587b6b75a8d8874e86ec02001aea66e0842173",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "4ed7c1e222cac7ca39b5091fc4b711351d71a2c3a2a466076b62b8593b858dda",
+        "notes": "Original-detail review approved for Where Rainwater Goes page 6: connected stream, river, and coastal route; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-cbb02b2e-2a6f-446c-85b9-bc93b6dd1702.png"
+    },
+    {
+      "bookId": "willow-street-where-rainwater-goes",
+      "pageNumber": 7,
+      "path": "/guided-reading/willow-street/where-rainwater-goes/page-07.webp",
+      "sha256": "8196afed842fad7d764d1b149df3b4de2bfb505054fea823c7cd21ca722597db",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "c9d0ce24e6bbb0810cdfacbb8d0df78b29b64a35ca7cd8a9e9ad0c45ec3710d9",
+      "briefSha256": "4ed7a19e91560aed59bfebe50ca116a7c834ad60c1990817844f3c39041b1aae",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "8196afed842fad7d764d1b149df3b4de2bfb505054fea823c7cd21ca722597db",
+        "notes": "Original-detail review approved for Where Rainwater Goes page 7: subtle evaporation haze without arrows; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-60f90bca-be13-4e3c-93d3-e7073cc69d99.png"
+    },
+    {
+      "bookId": "willow-street-where-rainwater-goes",
+      "pageNumber": 8,
+      "path": "/guided-reading/willow-street/where-rainwater-goes/page-08.webp",
+      "sha256": "653c15b0d434ccf3ac8adb53874cb2ee66164b5cbf3cad0c2d7d8c30f0cca7c8",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "a5ac421775aab1022bf3153c8dfb2b694fbbda81c420268a8f93b60d548d4bbf",
+      "briefSha256": "ef3122dae1b6892a3e8167d7e04885cf2a5cbe4a4735154db53b13e83a7ce204",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "653c15b0d434ccf3ac8adb53874cb2ee66164b5cbf3cad0c2d7d8c30f0cca7c8",
+        "notes": "Original-detail review approved for Where Rainwater Goes page 8: layered clouds and gentle distant rainfall; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-0a4b6731-d54b-4234-b8a7-6554b9b3c463.png"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 0,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/cover.webp",
+      "sha256": "161a0be3c28120d61776f7d7b47cb25e221c4128ba942022b88217d0e817c66f",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "ad2a0f32ed764185f63f3a35ec253990f038482a3b5bed1c94e56bcdfff10ee3",
+      "briefSha256": "e268732c339bd522edd11004414a5f76957574f3d4d0fd4c7e65fbcbeb580054",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "161a0be3c28120d61776f7d7b47cb25e221c4128ba942022b88217d0e817c66f",
+        "notes": "Original-detail review approved for Inside a Fire Station cover: unbranded station, secured equipment, and realistic crew; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-7a399d5d-f645-4e99-9b7c-e441b34406aa.png"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 1,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-01.webp",
+      "sha256": "13b9e23c1867ff1d640e018f6ed6035697fcbcbf620865dc196f0d9377ac9170",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "cf76b65b741a5eaa24a7e567c023b5e1aebd2a14a5bf0b0fd934fc9fa6323135",
+      "briefSha256": "ff0e4e03d9a4275f22d9b750e0a032d9dccf31a9d03755f69ca591699bcfd821",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "13b9e23c1867ff1d640e018f6ed6035697fcbcbf620865dc196f0d9377ac9170",
+        "notes": "Original-detail review approved for Inside a Fire Station page 1: hose, breathing gear, and compartments checked safely; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-0fbe3067-cfed-46da-b041-68ca90055da8.png"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-02.webp",
+      "sha256": "6b3ed5cdf7d78a4a4816efe27c534e8c725a038077a5201c8ea3ea5039c4f998",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "bcb6d6be191d29cae353522e8465585c3e15e4feb2fbf818a31f0d43c2613248",
+      "briefSha256": "e284111ae6c43bbece1d6f16fe9901cc5e187b18c54be1ecc2fcc7b6a9c8d748",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "6b3ed5cdf7d78a4a4816efe27c534e8c725a038077a5201c8ea3ea5039c4f998",
+        "notes": "Original-detail review approved for Inside a Fire Station page 2: private dispatch details unreadable; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-6d80e6c2-d84e-41aa-84bf-c1e064c9cc0c.png"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-03.webp",
+      "sha256": "1ef91889ce90be6457b133bc7f877bda81c40a4bc914ccb7f1456299e65f4784",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "b46d0e09a0be82dad3b532a46b068d25c986b9db972afc913f3ad51baf0fe2c8",
+      "briefSha256": "a4ad4c3c1b5efbb2c985f11c68406313e931f1a0f72eae131d61c46484a95727",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "1ef91889ce90be6457b133bc7f877bda81c40a4bc914ccb7f1456299e65f4784",
+        "notes": "Original-detail review approved for Inside a Fire Station page 3: complete protective clothing sequence; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-d7515df8-c0df-4743-bf04-6bcd607a3f0f.png"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-04.webp",
+      "sha256": "1bcdae2dd41026acbfc501abd6e0dae898de66a0d68a1d751ba22100ff3e34ba",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "c99b1544640e1ae82c9fd2b755aeadb5773678228e7f556c6060bfc3b01bde01",
+      "briefSha256": "a809b66c91e640250b9bf5972dd733a4b8fc591687700f55075660ee9ba07dcd",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "1bcdae2dd41026acbfc501abd6e0dae898de66a0d68a1d751ba22100ff3e34ba",
+        "notes": "Original-detail review approved for Inside a Fire Station page 4: organized engine water, hose, tools, and seats; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-65552d0c-8d68-45b0-b5ed-4d855cdda96f.png"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-05.webp",
+      "sha256": "f0df532fd9ccd8f3fbc119efe04237ed509bdadd6f76ec1a571e718af541955c",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "2a8173081a0d537e1621afd28f45ff3b0d44e351d1fdbd0a5d66b2e248adf613",
+      "briefSha256": "7762a2f3521849c12a017a3517cc999e317e16f6f7e8923c00c3590400f1d032",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "f0df532fd9ccd8f3fbc119efe04237ed509bdadd6f76ec1a571e718af541955c",
+        "notes": "Original-detail review approved for Inside a Fire Station page 5: crew responding to one leader at a training target; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-52d6a8be-83e5-42ce-a695-3646c559a2db.png"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-06.webp",
+      "sha256": "68a422bc323234d3eb088487be09f3dece5099316c1f75141c338032496cc55f",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "c1083151bd24c9ba090fc7a53379bf8ec4edf160edfbb2f0a331cc495dd380d3",
+      "briefSha256": "77e1f827fa130033038bde4bff747db99c9787af63cf6c2642f51aa615c5d0bb",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "68a422bc323234d3eb088487be09f3dece5099316c1f75141c338032496cc55f",
+        "notes": "Original-detail review approved for Inside a Fire Station page 6: logo-free hose and cone practice without emergency spectacle; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-1932a17c-871e-4c13-af0c-67a199eaa84b.png"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 7,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-07.webp",
+      "sha256": "7ff781e9c78506fc90a571a79a20ae80be2ec2803dd4da5c46fde9ae097a40e9",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "839f8b20886485ff4420f96b9c3f80a3bd988e4ed4590c99db639e1b164e7a52",
+      "briefSha256": "704bd8669d13b5293763d203b23a68dbcf5e15b8a36e5f3676009340c742d0f2",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "7ff781e9c78506fc90a571a79a20ae80be2ec2803dd4da5c46fde9ae097a40e9",
+        "notes": "Original-detail review approved for Inside a Fire Station page 7: washed hose and safely managed wet work area; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-0bc2a73b-d2c7-4597-8280-85bff03adde3.png"
+    },
+    {
+      "bookId": "willow-street-inside-a-fire-station",
+      "pageNumber": 8,
+      "path": "/guided-reading/willow-street/inside-a-fire-station/page-08.webp",
+      "sha256": "3eb58b8e2cf53f9c9abbba93eb819ddc08488cb8c19b03534b3a0edb13023c8b",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "2b33346c49db2add8c957288fadffeb769ad374457efd7c19f2efe450481c26c",
+      "briefSha256": "574a861acdb7eb490a401c47b13d2c27cb92d287852ef6d1c0d9f9f97c793e98",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "3eb58b8e2cf53f9c9abbba93eb819ddc08488cb8c19b03534b3a0edb13023c8b",
+        "notes": "Original-detail review approved for Inside a Fire Station page 8: ladder drill under calm instructor supervision; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-61e9520e-8a07-4f36-ba20-cd96b5bc67ad.png"
+    },
+    {
+      "bookId": "willow-street-how-paper-is-recycled",
+      "pageNumber": 0,
+      "path": "/guided-reading/willow-street/how-paper-is-recycled/cover.webp",
+      "sha256": "ac1c12015ad513d116b2c739a24a0c0d7f4251d5bf798b813c0795926e616a37",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "9c911da4b0c1f905873e614a9ef2e543adbb3681f6c283b5db2a7a6eea7a1981",
+      "briefSha256": "d8208a0083566bcbc4fe8352357742f48ad9834a37ce7f7e02317337d6853656",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "ac1c12015ad513d116b2c739a24a0c0d7f4251d5bf798b813c0795926e616a37",
+        "notes": "Original-detail review approved for How Paper Is Recycled cover: used paper through pulp to new products; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-07223d18-a312-47f8-affe-0afee481c9df.png"
+    },
+    {
+      "bookId": "willow-street-how-paper-is-recycled",
+      "pageNumber": 1,
+      "path": "/guided-reading/willow-street/how-paper-is-recycled/page-01.webp",
+      "sha256": "55986237ffc5e0e03325e2f590d69cac0fd13583616d5cf2427bf3e966bc0982",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "21fb87c939f71f97ae1f6fda7cc79d90a0d8316ec0aeeeae2b0420ae5208b785",
+      "briefSha256": "d8fb5c959393dcc44ecd43259be8f8a255a19b3dc6932811906e612b7eb4ac5e",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "55986237ffc5e0e03325e2f590d69cac0fd13583616d5cf2427bf3e966bc0982",
+        "notes": "Original-detail review approved for How Paper Is Recycled page 1: clean dry paper-only collection; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-3d51be13-4523-46f1-9497-3ec2f4b3ca82.png"
+    },
+    {
+      "bookId": "willow-street-how-paper-is-recycled",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/how-paper-is-recycled/page-02.webp",
+      "sha256": "b64884ea3232379d80eee89e62dbc01245bcc29b0e3deede891344b807c39f3a",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "ce53aef49091157a323f25b7b81a8523a53e135fe1c785b73badc542eabf5151",
+      "briefSha256": "81e77ba8a3a058d1742e08a1135d608e258eb04f632207a0d4860d60b59090b5",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "b64884ea3232379d80eee89e62dbc01245bcc29b0e3deede891344b807c39f3a",
+        "notes": "Original-detail review approved for How Paper Is Recycled page 2: guarded sorting and removal of contaminants; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-47749815-afc3-4bb4-aa6c-1ad9c854c44b.png"
+    },
+    {
+      "bookId": "willow-street-how-paper-is-recycled",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/how-paper-is-recycled/page-03.webp",
+      "sha256": "80e8d2203e7e2f09cfefa3c2ba75e76b057df8b5d78a902e4e996c7431de0046",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "e9954359207e5e7a57289d9e0d7af0daf4d88e44c6eb3e3abf9b7b439236d441",
+      "briefSha256": "f55dfb56b0d040a61e82f762ef2a35c1c175217313034cf0c9731c81eacb6d37",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "80e8d2203e7e2f09cfefa3c2ba75e76b057df8b5d78a902e4e996c7431de0046",
+        "notes": "Original-detail review approved for How Paper Is Recycled page 3: credible wet fibrous pulper slurry; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-0c60e9a7-56e9-4254-b554-1efb4304bc0e.png"
+    },
+    {
+      "bookId": "willow-street-how-paper-is-recycled",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/how-paper-is-recycled/page-04.webp",
+      "sha256": "641ad1d7c9c2c888e3acf96a8ccf19d7f0bbd76bfe23378d47c24528acd04ccb",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "eb2e28180ce739fdd7db6ccf28feff4e8298c12dededba55e06bdd9f2d3ef375",
+      "briefSha256": "a7d9aa885d02221f675d92ebdf0327c2a0d1244fa5a604ab838cd5d19cfec634",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "641ad1d7c9c2c888e3acf96a8ccf19d7f0bbd76bfe23378d47c24528acd04ccb",
+        "notes": "Original-detail review approved for How Paper Is Recycled page 4: screens separating staples and tape; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-32e1608e-fd0d-4f1b-b2c2-51b95a277b63.png"
+    },
+    {
+      "bookId": "willow-street-how-paper-is-recycled",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/how-paper-is-recycled/page-05.webp",
+      "sha256": "8020eb6030d9b501b65a56ca2fce5cb1e553d5f91ebd42cc553d627eef9de9cc",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "b016049f0030d40e6145b7b83f497d88955755858d24834a1e5ca24619b67452",
+      "briefSha256": "9553ca0b74a7659c5ebe00e089bc8c690343ad437c1c9c3493d851d35a3f6caa",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "8020eb6030d9b501b65a56ca2fce5cb1e553d5f91ebd42cc553d627eef9de9cc",
+        "notes": "Original-detail review approved for How Paper Is Recycled page 5: covered cleaning system and naturally pale fibers; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-b55180ac-524f-4312-9049-28d625cb24f7.png"
+    },
+    {
+      "bookId": "willow-street-how-paper-is-recycled",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/how-paper-is-recycled/page-06.webp",
+      "sha256": "70b5ce0177440d8419e7aac99d1233e0f59ade96efd42f27bad2d22a56650924",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "4884c66d651edf4bcf608b4f88335ce487c1cd04af4b7ff3a760e460512b2849",
+      "briefSha256": "254531897419a0d4a9d867bb96154838a5d25ee8aeacae883b1dc87b9fa373f2",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "70b5ce0177440d8419e7aac99d1233e0f59ade96efd42f27bad2d22a56650924",
+        "notes": "Original-detail review approved for How Paper Is Recycled page 6: even wet mat pressed by guarded rollers; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-5725b3ed-e2e3-4ee1-8aa8-a8232c875312.png"
+    },
+    {
+      "bookId": "willow-street-how-paper-is-recycled",
+      "pageNumber": 7,
+      "path": "/guided-reading/willow-street/how-paper-is-recycled/page-07.webp",
+      "sha256": "7ab4243b423bc2dd5ea9d3da028a02dcd2c11b255cf67530366a4893b4a89870",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "850d9d5405d948d724c40282ca2c9a706e00bf02585812eee16424d5cac092de",
+      "briefSha256": "fb66c6cbc81b610b3276c5258c8e87513adbc547cec47321dc6cc6573bc3f960",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "7ab4243b423bc2dd5ea9d3da028a02dcd2c11b255cf67530366a4893b4a89870",
+        "notes": "Original-detail review approved for How Paper Is Recycled page 7: continuous paper web over guarded drying cylinders; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-47314f74-1589-4855-81c7-65caabaa5620.png"
+    },
+    {
+      "bookId": "willow-street-how-paper-is-recycled",
+      "pageNumber": 8,
+      "path": "/guided-reading/willow-street/how-paper-is-recycled/page-08.webp",
+      "sha256": "ec83bd794423b2c843316b4db48f2a2f06889a433a4c903cd8bdbcecd189dc7f",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "605f7918e45d2a1370ff5e2ea2ccbf6aa28574942924593f8ee7f79989f540ac",
+      "briefSha256": "b922fddf97ffe70d295e34400e96ab8b15bfba77ac4ba0031f0d000e6a61bacf",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "ec83bd794423b2c843316b4db48f2a2f06889a433a4c903cd8bdbcecd189dc7f",
+        "notes": "Original-detail review approved for How Paper Is Recycled page 8: off-white unbranded recycled products; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-7a00fe5b-48de-482e-ba62-5b6bfb096797.png"
+    },
+    {
+      "bookId": "willow-street-a-snail-comes-out-at-night",
+      "pageNumber": 0,
+      "path": "/guided-reading/willow-street/a-snail-comes-out-at-night/cover.webp",
+      "sha256": "4f962f53886fd198f0702e24a4745dd853bbae668681247065a21ef22a5dc618",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "f6c57c0aff733af32a7b66e16281dc92eddafeef357c0feff77f21a9c5972ab2",
+      "briefSha256": "7786cb75f9b15ed14a74f3dd44a7c0d622df1f9628b183eda89f3f69d62d1add",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "4f962f53886fd198f0702e24a4745dd853bbae668681247065a21ef22a5dc618",
+        "notes": "Original-detail review approved for A Snail Comes Out at Night cover: accurate four-tentacle snail in a damp nocturnal habitat; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-26f58158-fb50-4612-ac7e-5fa1b476c498.png"
+    },
+    {
+      "bookId": "willow-street-a-snail-comes-out-at-night",
+      "pageNumber": 1,
+      "path": "/guided-reading/willow-street/a-snail-comes-out-at-night/page-01.webp",
+      "sha256": "61d2c19854f00a9aae8baa7e76a5ca19dab302712635a73e666c00c76e9eb361",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "76a379dd87abc51b3300b22e65b6f100a3b4f6b6579c04df9b05fd5f23d91939",
+      "briefSha256": "a66762cb59066e2741ff1ff0aac007ffb5dd2a8c97904164b28074c2a90a16c3",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "61d2c19854f00a9aae8baa7e76a5ca19dab302712635a73e666c00c76e9eb361",
+        "notes": "Original-detail review approved for A Snail Comes Out at Night page 1: withdrawn daytime shelter under stone; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-de790ac1-bd5f-46cb-9fc5-7631fdf09f30.png"
+    },
+    {
+      "bookId": "willow-street-a-snail-comes-out-at-night",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/a-snail-comes-out-at-night/page-02.webp",
+      "sha256": "bb1e674222672f598c5e80d4b2942e320def64279af33b8da98871a2be94601a",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "01732def1f5d86056ede0c2420d2206870b130b920febc440c5b0b5b7b36a7a3",
+      "briefSha256": "0525883181ae6ed81da8e0603f0a4e6a9749a942ff356e1063c23309329e0a3e",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "bb1e674222672f598c5e80d4b2942e320def64279af33b8da98871a2be94601a",
+        "notes": "Original-detail review approved for A Snail Comes Out at Night page 2: same shell emerging in damp blue-hour light; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-23fd10df-66df-40b3-ab7d-8015ccfce616.png"
+    },
+    {
+      "bookId": "willow-street-a-snail-comes-out-at-night",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/a-snail-comes-out-at-night/page-03.webp",
+      "sha256": "eaf6ddf2d25eff8b03af8ab8ced5261229480b85ce95ab465b21824ea79dcbb5",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "adecfc824fc0377ce3e49252321d9323f7ae397cec87b66b22aa7169a169c0c6",
+      "briefSha256": "9991170d9063d7475f5d84b9639662319209082df0fe39489cd80ece24534fd8",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "eaf6ddf2d25eff8b03af8ab8ced5261229480b85ce95ab465b21824ea79dcbb5",
+        "notes": "Original-detail review approved for A Snail Comes Out at Night page 3: two long and two short sensory tentacles; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-60a7adcf-a19d-4132-a6f3-c506c55faab7.png"
+    },
+    {
+      "bookId": "willow-street-a-snail-comes-out-at-night",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/a-snail-comes-out-at-night/page-04.webp",
+      "sha256": "87417d2d4a1ef08fa8e19895f4dfbe1a348de6d7a81b646d98fb32441067f880",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "e44112d5ff3a927463aa2aeadc696488e3eb9fce543a983b42ba85bd75f97c39",
+      "briefSha256": "489afd167f79af2af47cd550cf1cb6a1e9854ecbaafee3df9832ea15d2e2e54d",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "87417d2d4a1ef08fa8e19895f4dfbe1a348de6d7a81b646d98fb32441067f880",
+        "notes": "Original-detail review approved for A Snail Comes Out at Night page 4: eyes only at the two longer tentacle tips; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-4ca44334-02bf-439a-9e88-2e26ded6c25d.png"
+    },
+    {
+      "bookId": "willow-street-a-snail-comes-out-at-night",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/a-snail-comes-out-at-night/page-05.webp",
+      "sha256": "a9442cf7b7ad95170b1f3c49c4861b316dcd9e83d32a652246119019bb979f3d",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "7778b84fb39216124933996fc433de9c8c972dca3b67e232b8ef9ade03d4804f",
+      "briefSha256": "0bd6051660edc8837ed725ddb474c4eefa8187ab13faeb44938b3aae9ad133bd",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "a9442cf7b7ad95170b1f3c49c4861b316dcd9e83d32a652246119019bb979f3d",
+        "notes": "Original-detail review approved for A Snail Comes Out at Night page 5: broad muscular foot contacting the leaf; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-890f84e4-76d5-4895-9c51-5be14ffe03e9.png"
+    },
+    {
+      "bookId": "willow-street-a-snail-comes-out-at-night",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/a-snail-comes-out-at-night/page-06.webp",
+      "sha256": "dcb23ef7f35dd0ff7d9b36446665a252747c67d0c4a77910d37dde1c0f78323d",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "34c10292dae6c521e010b6dad2cb3a7144df4851a38693a18f2cf3d08b8e3234",
+      "briefSha256": "c1b389887a8f9835ad9ab71a936553ae5f309fbfaff97561f5a9ff33a9eafe64",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "dcb23ef7f35dd0ff7d9b36446665a252747c67d0c4a77910d37dde1c0f78323d",
+        "notes": "Original-detail review approved for A Snail Comes Out at Night page 6: thin continuous slime trail and four visible tentacles; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-135ae18d-4757-4c91-a066-c9d16a62d7c8.png"
+    },
+    {
+      "bookId": "willow-street-a-snail-comes-out-at-night",
+      "pageNumber": 7,
+      "path": "/guided-reading/willow-street/a-snail-comes-out-at-night/page-07.webp",
+      "sha256": "ad0a9481761fd626d41b40336e275ccdab38033947aa81298066526e805f75b6",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "6d686dfc9deb482cef8c581854e5eabad34506e55f967911f53ab6e04e801d85",
+      "briefSha256": "93010d14ef94b779808fcb482370c9c15d3a05e056818c7a17459d587c2cba49",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "ad0a9481761fd626d41b40336e275ccdab38033947aa81298066526e805f75b6",
+        "notes": "Original-detail review approved for A Snail Comes Out at Night page 7: four visible tentacles feeding on a decaying leaf edge; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-8ef57312-98bb-4180-a481-d869b93f57e7.png"
+    },
+    {
+      "bookId": "willow-street-a-snail-comes-out-at-night",
+      "pageNumber": 8,
+      "path": "/guided-reading/willow-street/a-snail-comes-out-at-night/page-08.webp",
+      "sha256": "d13ccfee85dfeb77906ebd4d40590315670cd85bcb50ef87f650fae9fc940db2",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "2048d08db96f817acf133ca7f1b72561dbfbd66771b7381831028b96833f9a7d",
+      "briefSha256": "99bfb1aacf1dbd9306dbb0d5b82d1b3e7061b7ce18e8a93a9afc355c54d60dd0",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "d13ccfee85dfeb77906ebd4d40590315670cd85bcb50ef87f650fae9fc940db2",
+        "notes": "Original-detail review approved for A Snail Comes Out at Night page 8: same snail entering moist shade before daylight; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-f5112175-ccb2-4681-9cd0-ab3908f576a4.png"
+    },
+    {
+      "bookId": "willow-street-how-a-book-is-made",
+      "pageNumber": 0,
+      "path": "/guided-reading/willow-street/how-a-book-is-made/cover.webp",
+      "sha256": "3f1ba881d24bfb57b3a303dcbc38c99cd7d582d06ed9d962905ee5e580fb368b",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "e507cea9d83575f832b7f9f35a8f77db052365eb162124d2e7d0d55869a8f9d5",
+      "briefSha256": "4c005affc54bc6daa5ede106d66f7d6d3347fcac47ae5e0e73d1152546340948",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "3f1ba881d24bfb57b3a303dcbc38c99cd7d582d06ed9d962905ee5e580fb368b",
+        "notes": "Original-detail review approved for How a Book Is Made cover: text-free worktable linking all production stages; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-23df8442-3d10-4242-bfd4-555c3addfbe0.png"
+    },
+    {
+      "bookId": "willow-street-how-a-book-is-made",
+      "pageNumber": 1,
+      "path": "/guided-reading/willow-street/how-a-book-is-made/page-01.webp",
+      "sha256": "a6629c1a217b0bef462203571cd0d6bb964147f471190ac3effd9138625f46e5",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "1c458813307408b4bf0c878ef78e22f81b71955c7b45bece99a2c575f11375d9",
+      "briefSha256": "e75fdf41082eecbf473122677569ff0e51a4dd06fa2d28b65a61a019e8821091",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "a6629c1a217b0bef462203571cd0d6bb964147f471190ac3effd9138625f46e5",
+        "notes": "Original-detail review approved for How a Book Is Made page 1: blank manuscript surfaces and visible erasing action; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-999357c1-5132-4175-b106-9826360788fc.png"
+    },
+    {
+      "bookId": "willow-street-how-a-book-is-made",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/how-a-book-is-made/page-02.webp",
+      "sha256": "432edd32cd6178b92c8783c3498893761f5add88e83a3df8feb1f372f19dd8dc",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "b90ec4987de10b6c057f1ad421be27b722037c5b306ef72e94d464fdb354b989",
+      "briefSha256": "1e5d02a1f778b9417c02fad13457816e80d53d90478773da2c98e5e5e3067486",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "432edd32cd6178b92c8783c3498893761f5add88e83a3df8feb1f372f19dd8dc",
+        "notes": "Original-detail review approved for How a Book Is Made page 2: author-editor collaboration with proof back facing camera; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-e4cc0d7b-a4b8-4b1d-8d98-fc8dfbdd71cc.png"
+    },
+    {
+      "bookId": "willow-street-how-a-book-is-made",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/how-a-book-is-made/page-03.webp",
+      "sha256": "7a1697021d1150306e9a826fcd19b8914eaa8aa0837aee0948738f870f8f9328",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "b1959d6b74f540685770bbeaa490272372e808d744b18d528bccfebfaad1d539",
+      "briefSha256": "749b3a68e005cabf042e763e4144937c0c16612b8bf074cbc7edf674017c5a03",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "7a1697021d1150306e9a826fcd19b8914eaa8aa0837aee0948738f870f8f9328",
+        "notes": "Original-detail review approved for How a Book Is Made page 3: original woodland painting and eight thumbnails; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-97367301-287f-4abb-901d-e6222a6c9fe2.png"
+    },
+    {
+      "bookId": "willow-street-how-a-book-is-made",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/how-a-book-is-made/page-04.webp",
+      "sha256": "1f55974f2a5bfa5329536171914b5b9cc3fb2ac4aa99bdd8f180827c5ba13b3d",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "37d7103fa8154552239661b1e02cec18b22eebcd06f6a831d83ee00a4966a42a",
+      "briefSha256": "5847fc12715ac28f8554c0dbfa39dc49c893191040dfb8c6eb058d04233c80a3",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "1f55974f2a5bfa5329536171914b5b9cc3fb2ac4aa99bdd8f180827c5ba13b3d",
+        "notes": "Original-detail review approved for How a Book Is Made page 4: blank layout blocks and colored shape tabs only; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-59b1f9de-ef7f-4628-bf92-514a01c6e736.png"
+    },
+    {
+      "bookId": "willow-street-how-a-book-is-made",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/how-a-book-is-made/page-05.webp",
+      "sha256": "996937ba7628e68713bebdc1d995e7accc207f2d1fb31c91d7993e1f355462e3",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "a43d3d798d071a9196252ce2b0fe28ebc7ba5ddc972431d37d6c8368723f004f",
+      "briefSha256": "88f8855150f295836b700bb8a44dc9c9f556f18076112e418757b24fd3292f00",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "996937ba7628e68713bebdc1d995e7accc207f2d1fb31c91d7993e1f355462e3",
+        "notes": "Original-detail review approved for How a Book Is Made page 5: guarded four-color press with safe operator distance; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-19bdeb89-f578-4d4e-8008-6563b10124d1.png"
+    },
+    {
+      "bookId": "willow-street-how-a-book-is-made",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/how-a-book-is-made/page-06.webp",
+      "sha256": "050d3275e827dc03b629e074487a59b4b86091f64f57a771fb21984565302913",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "6bfb073c5fcee13d04d4508ac0360bb7eecd95e2c47bd4242dee2a2113d36916",
+      "briefSha256": "adf7ee5b56d41fd85bf577f190a8daad0a98eaaf1a337fdd3660457debf46453",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "050d3275e827dc03b629e074487a59b4b86091f64f57a771fb21984565302913",
+        "notes": "Original-detail review approved for How a Book Is Made page 6: folding action, guard, and completed folded section; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-3f43a056-a3c8-41d2-bb23-35c9fc5b80d2.png"
+    },
+    {
+      "bookId": "willow-street-how-a-book-is-made",
+      "pageNumber": 7,
+      "path": "/guided-reading/willow-street/how-a-book-is-made/page-07.webp",
+      "sha256": "eb3355f7b7d68d2d76b86c144e8f6b8e3731658616cc5cd40cac4bcc0b51c3dd",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "61303336abae4db9f1b4658660c97df106e80cb16991bfd8bf1c816a6587a850",
+      "briefSha256": "5cecd70dd8d03cdaab1218ef79b7cf5cc836247d0797e75729f5adce1d996dab",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "eb3355f7b7d68d2d76b86c144e8f6b8e3731658616cc5cd40cac4bcc0b51c3dd",
+        "notes": "Original-detail review approved for How a Book Is Made page 7: sewn sections, controlled glue, and plausible cover case; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-a0287a51-b7ae-402a-92e2-33bcfadd9a8f.png"
+    },
+    {
+      "bookId": "willow-street-how-a-book-is-made",
+      "pageNumber": 8,
+      "path": "/guided-reading/willow-street/how-a-book-is-made/page-08.webp",
+      "sha256": "13f278c669ad267ceb5517eb35eceb768c6a267d422b9e6c497a0b3ebed13a8e",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "66e861c1ddccf4a37e547846151bdfe8a06f73d88dbfcb254aa21c9d391ee85b",
+      "briefSha256": "d1bfbd4bb8cf8fd7848a9d88c8578fae54d738374358d794de1f669c0bb210d0",
+      "visualTreatment": "self-created-photorealistic",
+      "mediaLicense": "self-created",
+      "generatorProvenance": "self-created",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "13f278c669ad267ceb5517eb35eceb768c6a267d422b9e6c497a0b3ebed13a8e",
+        "notes": "Original-detail review approved for How a Book Is Made page 8: plain cartons, shelves, and adult-child handoff; exact brief evidence, factual mechanics or anatomy, text-free finish, and lower 22% calm cream zone verified."
+      },
+      "sourceImageGenOutput": "exec-eb8be87a-2497-4b23-9a7a-370d8a6df72d.png"
+    }
+  ]
+}
