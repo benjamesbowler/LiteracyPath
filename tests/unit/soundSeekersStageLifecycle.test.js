@@ -54,11 +54,25 @@ class FakeEventHub {
 
 function runtimeNodes() {
   const ownerDocument = { activeElement: null };
-  const canvas = new FakeEventHub();
-  canvas.ownerDocument = ownerDocument;
-  canvas.clientWidth = 640;
-  canvas.clientHeight = 360;
-  canvas.getBoundingClientRect = () => ({ left: 0, top: 0, width: 640, height: 360 });
+  const host = new FakeEventHub();
+  host.ownerDocument = ownerDocument;
+  host.clientWidth = 640;
+  host.clientHeight = 360;
+  host.children = [];
+  host.getBoundingClientRect = () => ({ left: 0, top: 0, width: 640, height: 360 });
+  host.appendChild = child => {
+    child.parentNode = host;
+    host.children.push(child);
+    return child;
+  };
+  host.removeChild = child => {
+    host.children = host.children.filter(candidate => candidate !== child);
+    child.parentNode = null;
+    return child;
+  };
+  host.querySelector = selector => selector === "canvas"
+    ? host.children.find(child => child.tagName === "CANVAS") ?? null
+    : null;
   const actionRoot = new FakeEventHub();
   actionRoot.ownerDocument = ownerDocument;
   const control = {
@@ -73,9 +87,20 @@ function runtimeNodes() {
     focus() { ownerDocument.activeElement = this; },
     click() { actionRoot.emit("click", { target: this, detail: 0 }); }
   };
-  actionRoot.contains = node => node === control;
+  actionRoot.contains = node => node === control || node === host || host.children.includes(node);
   actionRoot.querySelectorAll = selector => selector === "[data-ss-input-type]" ? [control] : [];
-  return { actionRoot, canvas, control };
+  return { actionRoot, control, host };
+}
+
+function fakeCanvas() {
+  const canvas = {
+    attributes: new Map(),
+    parentNode: null,
+    style: {},
+    tagName: "CANVAS",
+    setAttribute(name, value) { this.attributes.set(name, String(value)); }
+  };
+  return canvas;
 }
 
 function sceneContext() {
@@ -160,6 +185,8 @@ test("Strict Mode-style remount, model update, and unmount create no duplicate g
       trace.created += 1;
       configs.push(config);
       this.config = config;
+      this.canvas = fakeCanvas();
+      config.parent.appendChild(this.canvas);
       this.context = sceneContext();
       config.scene.create.call(this.context);
     }
@@ -167,6 +194,7 @@ test("Strict Mode-style remount, model update, and unmount create no duplicate g
     destroy(removeCanvas) {
       assert.equal(removeCanvas, true);
       this.context.events.emit("shutdown");
+      if (this.canvas.parentNode) this.canvas.parentNode.removeChild(this.canvas);
       trace.destroyed += 1;
     }
   }
@@ -176,7 +204,7 @@ test("Strict Mode-style remount, model update, and unmount create no duplicate g
     for (let mount = 0; mount < 2; mount += 1) {
       const nodes = runtimeNodes();
       const runtime = createSoundSeekersStageRuntime({
-        canvas: nodes.canvas,
+        host: nodes.host,
         actionRoot: nodes.actionRoot,
         model: { traversal: START_TRAVERSAL },
         assists: { reducedMotion: false },
@@ -185,6 +213,8 @@ test("Strict Mode-style remount, model update, and unmount create no duplicate g
         loadPhaser
       });
       await runtime.ready;
+      assert.equal(nodes.host.children.length, 1, "Phaser owns one child canvas while mounted");
+      assert.equal(nodes.host.children[0].attributes.get("data-ss-phaser-canvas"), "");
       runtime.update({
         model: {
           traversal: {
@@ -200,7 +230,8 @@ test("Strict Mode-style remount, model update, and unmount create no duplicate g
       nodes.control.click();
       runtime.destroy();
       runtime.destroy();
-      trace.activeListeners += nodes.canvas.listenerCount() + nodes.actionRoot.listenerCount();
+      assert.equal(nodes.host.children.length, 0, "Phaser removes only its child canvas");
+      trace.activeListeners += nodes.host.listenerCount() + nodes.actionRoot.listenerCount();
     }
     trace.duplicateDispatches = dispatched.length - 2;
     assert.deepEqual(trace, {
@@ -210,7 +241,8 @@ test("Strict Mode-style remount, model update, and unmount create no duplicate g
       duplicateDispatches: 0
     });
     assert.equal(configs.every(config => config.type === "AUTO"), true);
-    assert.equal(configs.every(config => config.canvas), true);
+    assert.equal(configs.every(config => config.parent), true);
+    assert.equal(configs.every(config => !Object.hasOwn(config, "canvas")), true);
     assert.equal(configs.every(config => config.scene.key === "SoundSeekersTraversal"), true);
   } finally {
     await vite.close();
@@ -228,7 +260,7 @@ test("late Phaser resolution and Phaser failure preserve the semantic input brid
     const deferred = new Promise(resolve => { resolveLoader = resolve; });
     const lateNodes = runtimeNodes();
     const late = createSoundSeekersStageRuntime({
-      canvas: lateNodes.canvas,
+      host: lateNodes.host,
       actionRoot: lateNodes.actionRoot,
       model: { traversal: START_TRAVERSAL },
       assists: {},
@@ -245,7 +277,7 @@ test("late Phaser resolution and Phaser failure preserve the semantic input brid
     const statuses = [];
     const dispatched = [];
     const failed = createSoundSeekersStageRuntime({
-      canvas: failedNodes.canvas,
+      host: failedNodes.host,
       actionRoot: failedNodes.actionRoot,
       model: { traversal: START_TRAVERSAL },
       assists: {},
@@ -263,7 +295,7 @@ test("late Phaser resolution and Phaser failure preserve the semantic input brid
     }]);
     assert.deepEqual(statuses, ["loading", "unavailable"]);
     failed.destroy();
-    assert.equal(failedNodes.canvas.listenerCount() + failedNodes.actionRoot.listenerCount(), 0);
+    assert.equal(failedNodes.host.listenerCount() + failedNodes.actionRoot.listenerCount(), 0);
   } finally {
     await vite.close();
   }
@@ -307,9 +339,13 @@ test("React remains the sole world, story-option, and cast renderer around trave
     }));
     assert.equal((html.match(/data-code-native-world=""/gu) ?? []).length, 1);
     assert.equal((html.match(/data-sound-seekers-scene=""/gu) ?? []).length, 1);
+    assert.ok((html.match(/data-character-id="player"/gu) ?? []).length <= 1);
+    assert.equal((html.match(/data-ss-live-avatar/gu) ?? []).length, 0);
     assert.equal((html.match(/data-option-visual-id=/gu) ?? []).length, childScene.choice.options.length);
+    assert.match(html, /data-ss-phaser-host=""/u);
     assert.match(html, /data-ss-phaser-role="traversal-only"/u);
     assert.match(html, /aria-hidden="true"[^>]*tabindex="-1"/u);
+    assert.doesNotMatch(html, /<canvas/u);
     assert.doesNotMatch(html, /data-ss-action-layer/u);
     assert.doesNotMatch(html, /data-(?:answer|correct|expected-token)/iu);
   } finally {
@@ -323,8 +359,23 @@ test("the non-story fallback keeps visible 56px traversal controls without quiz 
     "/src/features/soundSeekers/runtime/SoundSeekersStage.jsx"
   );
   try {
+    const { createCharacterAppearance } = await vite.ssrLoadModule(
+      "/src/features/soundSeekers/visual/characterCustomization.js"
+    );
+    const appearance = createCharacterAppearance({
+      schemaVersion: 1,
+      bodyShapeId: "body-shape-sprout",
+      paletteTokenId: "player-palette-river",
+      accessories: {
+        back: "gear-back-field-pack",
+        head: "gear-head-leaf-cap",
+        neck: "gear-neck-scout-scarf",
+        held: "gear-held-listening-shell"
+      }
+    });
     const html = renderToStaticMarkup(React.createElement(SoundSeekersStage, {
       model: {
+        avatar: { characterId: "player", pose: "idle", appearance },
         traversal: START_TRAVERSAL,
         activity: null,
         hud: null
@@ -335,11 +386,39 @@ test("the non-story fallback keeps visible 56px traversal controls without quiz 
     }));
     assert.match(html, /data-ss-fallback-world=""/u);
     assert.match(html, /data-ss-fallback-controls=""/u);
+    assert.match(html, /data-ss-live-avatar=""/u);
+    assert.equal((html.match(/data-character-id="player"/gu) ?? []).length, 1);
+    assert.match(html, /data-traversal-x="0\.1"/u);
+    assert.match(html, /left:10%/u);
+    assert.match(html, /data-appearance-signature="sound-seekers-appearance:/u);
+    assert.match(html, /data-ss-phaser-host=""/u);
+    assert.doesNotMatch(html, /<canvas/u);
     assert.equal((html.match(/data-ss-input-type="traverse"/gu) ?? []).length, 4);
     assert.equal((html.match(/min-height:56px/gu) ?? []).length, 4);
     assert.match(html, /data-ss-input-value="left"/u);
     assert.match(html, /data-motion-profile="reduced"/u);
     assert.doesNotMatch(html, /data-(?:answer|correct|expected-token)/iu);
+
+    for (const avatar of [
+      undefined,
+      { characterId: "resident", pose: "idle", appearance },
+      { characterId: "player", pose: "idle", appearance, fallback: true }
+    ]) {
+      assert.throws(() => renderToStaticMarkup(React.createElement(SoundSeekersStage, {
+        model: { avatar, traversal: START_TRAVERSAL, activity: null, hud: null },
+        onInput() {}
+      })), /avatar/iu);
+    }
+    assert.throws(() => renderToStaticMarkup(React.createElement(SoundSeekersStage, {
+      model: {
+        avatar: { characterId: "player", pose: "idle", appearance },
+        traversal: START_TRAVERSAL,
+        activity: null,
+        hud: null,
+        biomeProps: { scenePresentation: { characters: [{ characterId: "player" }] } }
+      },
+      onInput() {}
+    })), /exclude.*player|player.*avatar/iu);
   } finally {
     await vite.close();
   }

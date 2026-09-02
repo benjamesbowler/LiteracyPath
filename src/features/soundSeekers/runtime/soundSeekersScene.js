@@ -165,9 +165,20 @@ function phaserApi(moduleValue) {
   return candidate;
 }
 
-function canvasSize(canvas, property, fallback) {
-  const value = Number(canvas?.[property]);
+function surfaceSize(surface, property, fallback) {
+  const value = Number(surface?.[property]);
   return Number.isFinite(value) && value > 0 ? Math.round(value) : fallback;
+}
+
+function identifyTraversalCanvas(game, host) {
+  const canvas = game?.canvas ?? host?.querySelector?.("canvas") ?? null;
+  if (!canvas || canvas.parentNode !== host) return null;
+  canvas.setAttribute?.("aria-hidden", "true");
+  canvas.setAttribute?.("tabindex", "-1");
+  canvas.setAttribute?.("data-ss-phaser-canvas", "");
+  canvas.setAttribute?.("data-ss-phaser-role", "traversal-only");
+  if (canvas.style) canvas.style.pointerEvents = "none";
+  return canvas;
 }
 
 function runtimeSnapshot({ model, assists = {}, onInput, onTraversalPosition = NOOP }) {
@@ -180,7 +191,7 @@ function runtimeSnapshot({ model, assists = {}, onInput, onTraversalPosition = N
 }
 
 export function createSoundSeekersStageRuntime({
-  canvas,
+  host,
   actionRoot,
   model,
   assists = {},
@@ -196,7 +207,7 @@ export function createSoundSeekersStageRuntime({
   let game = null;
 
   const bridge = createInputBridge({
-    canvas,
+    canvas: host,
     actionRoot,
     dispatch(input) {
       if (!destroyed) current.onInput(input);
@@ -218,9 +229,9 @@ export function createSoundSeekersStageRuntime({
       });
       const nextGame = new Phaser.Game({
         type: Phaser.AUTO,
-        canvas,
-        width: canvasSize(canvas, "clientWidth", 640),
-        height: canvasSize(canvas, "clientHeight", 360),
+        parent: host,
+        width: surfaceSize(host, "clientWidth", 640),
+        height: surfaceSize(host, "clientHeight", 360),
         transparent: true,
         backgroundColor: "transparent",
         banner: false,
@@ -228,6 +239,7 @@ export function createSoundSeekersStageRuntime({
         input: { keyboard: false, mouse: false, touch: false, gamepad: false },
         scene
       });
+      identifyTraversalCanvas(nextGame, host);
       if (destroyed) {
         nextGame.destroy?.(true);
         return null;

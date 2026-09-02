@@ -1,5 +1,6 @@
 const BRIDGE_CONTROL_SELECTOR = "[data-ss-input-type]";
 const SCANNABLE_CONTROL_SELECTOR = "[data-ss-input-type], [data-option-token]";
+const ACTIVATION_DISPOSITIONS = new WeakMap();
 const SAFE_INPUT_ID = /^[a-z][a-z0-9_-]*$/u;
 const FORBIDDEN_INPUT_KEY = /(?:^|[_-])(?:answer|correct|correctness|expected|evidence|score)(?:[_-]|$)/iu;
 const DIRECTION_BY_KEY = Object.freeze({
@@ -81,6 +82,22 @@ function textEntryTarget(target) {
     || tagName === "select";
 }
 
+function nativeActivationEvent(event) {
+  const candidate = event?.nativeEvent ?? event;
+  return candidate && (typeof candidate === "object" || typeof candidate === "function")
+    ? candidate : null;
+}
+
+function setActivationDisposition(event, disposition) {
+  const nativeEvent = nativeActivationEvent(event);
+  if (nativeEvent) ACTIVATION_DISPOSITIONS.set(nativeEvent, disposition);
+}
+
+export function getSoundSeekersActivationDisposition(event) {
+  const nativeEvent = nativeActivationEvent(event);
+  return nativeEvent ? ACTIVATION_DISPOSITIONS.get(nativeEvent) ?? "unmanaged" : "unmanaged";
+}
+
 export function createInputBridge({ canvas, actionRoot, dispatch }) {
   eventTarget(canvas, "canvas");
   eventTarget(actionRoot, "action root");
@@ -90,7 +107,7 @@ export function createInputBridge({ canvas, actionRoot, dispatch }) {
   let scanIndex = -1;
   const canvasPointers = new Set();
   const actionPointers = new Map();
-  const canceledActionPointers = new Set();
+  const canceledActionPointers = new Map();
   const listeners = [];
 
   const listen = (target, type, listener, options = undefined) => {
@@ -132,12 +149,23 @@ export function createInputBridge({ canvas, actionRoot, dispatch }) {
 
   const onSemanticClick = event => {
     const control = controlForEvent(actionRoot, event);
-    if (Number.isFinite(event?.pointerId) && canceledActionPointers.delete(event.pointerId)) {
+    let canceledPointerId = null;
+    if (Number.isFinite(event?.pointerId)
+      && canceledActionPointers.get(event.pointerId) === control) {
+      canceledPointerId = event.pointerId;
+    } else if (control && Number(event?.detail) > 0 && !Number.isFinite(event?.pointerId)) {
+      canceledPointerId = [...canceledActionPointers.entries()]
+        .find(([, pressedControl]) => pressedControl === control)?.[0] ?? null;
+    }
+    if (canceledPointerId !== null) {
+      canceledActionPointers.delete(canceledPointerId);
+      setActivationDisposition(event, "canceled");
       event.preventDefault?.();
       return;
     }
     const input = semanticInputForControl(control);
     if (!input) return;
+    setActivationDisposition(event, "bridge-handled");
     event.preventDefault?.();
     emit(input);
   };
@@ -145,6 +173,9 @@ export function createInputBridge({ canvas, actionRoot, dispatch }) {
     const control = controlForEvent(actionRoot, event);
     if (control && Number.isFinite(event.pointerId)) {
       canceledActionPointers.delete(event.pointerId);
+      for (const [pointerId, pressedControl] of canceledActionPointers.entries()) {
+        if (pressedControl === control) canceledActionPointers.delete(pointerId);
+      }
       actionPointers.set(event.pointerId, control);
     }
   };
@@ -153,12 +184,14 @@ export function createInputBridge({ canvas, actionRoot, dispatch }) {
     const pressedControl = actionPointers.get(event.pointerId);
     actionPointers.delete(event.pointerId);
     if (pressedControl && controlForEvent(actionRoot, event) !== pressedControl) {
-      canceledActionPointers.add(event.pointerId);
+      canceledActionPointers.set(event.pointerId, pressedControl);
     }
   };
   const cancelActionPointer = event => {
     if (!Number.isFinite(event.pointerId)) return;
-    if (actionPointers.delete(event.pointerId)) canceledActionPointers.add(event.pointerId);
+    const pressedControl = actionPointers.get(event.pointerId);
+    actionPointers.delete(event.pointerId);
+    if (pressedControl) canceledActionPointers.set(event.pointerId, pressedControl);
   };
   const onCanvasPointerDown = event => {
     if (event.isPrimary === false || (Number.isFinite(event.button) && event.button !== 0)) return;

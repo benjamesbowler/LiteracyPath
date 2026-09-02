@@ -3,6 +3,7 @@ import { ActionLayer } from "../ui/ActionLayer.jsx";
 import { MissionHud } from "../ui/MissionHud.jsx";
 import { LayeredBiome } from "../visual/LayeredBiome.jsx";
 import { SceneVisual } from "../visual/SceneVisual.jsx";
+import { SoundSeekersCharacter } from "../visual/CharacterSystem.jsx";
 import { SOUND_SEEKERS_VISUAL_TOKENS } from "../visual/visualTokens.js";
 import { createSoundSeekersStageRuntime } from "./soundSeekersScene.js";
 
@@ -25,7 +26,7 @@ const WORLD_STYLE = Object.freeze({
   borderRadius: 20,
   isolation: "isolate"
 });
-const CANVAS_STYLE = Object.freeze({
+const PHASER_HOST_STYLE = Object.freeze({
   position: "absolute",
   inset: 0,
   zIndex: 2,
@@ -34,6 +35,13 @@ const CANVAS_STYLE = Object.freeze({
   height: "100%",
   background: "transparent",
   touchAction: "none"
+});
+const AVATAR_STYLE = Object.freeze({
+  position: "absolute",
+  zIndex: 3,
+  width: "clamp(5.75rem, 17vw, 9.5rem)",
+  margin: 0,
+  pointerEvents: "none"
 });
 const FALLBACK_WORLD_STYLE = Object.freeze({
   display: "grid",
@@ -77,6 +85,34 @@ function requiredObject(value, name) {
   return value;
 }
 
+function requiredAvatar(value) {
+  requiredObject(value, "avatar");
+  const expectedKeys = ["appearance", "characterId", "pose"];
+  const keys = Reflect.ownKeys(value);
+  const descriptors = Object.getOwnPropertyDescriptors(value);
+  if (keys.length !== expectedKeys.length
+    || keys.some(key => typeof key !== "string" || !expectedKeys.includes(key))
+    || expectedKeys.some(key => !Object.hasOwn(descriptors[key], "value")
+      || !descriptors[key].enumerable)
+    || value.characterId !== "player"
+    || typeof value.pose !== "string"
+    || !value.pose.trim()
+    || !value.appearance
+    || typeof value.appearance !== "object"
+    || Array.isArray(value.appearance)) {
+    throw new TypeError("Sound Seekers avatar must contain exactly characterId, pose, and appearance");
+  }
+  return value;
+}
+
+function assertNoProjectedPlayer(biomeProps) {
+  const characters = biomeProps?.scenePresentation?.characters;
+  if (Array.isArray(characters)
+    && characters.some(character => character?.characterId === "player")) {
+    throw new TypeError("Sound Seekers biome projection must exclude the live player avatar");
+  }
+}
+
 function displayPosition(value) {
   const clamp = item => Math.min(1, Math.max(0, Number.isFinite(item) ? item : 0));
   return Object.freeze({ x: clamp(value?.x), y: clamp(value?.y) });
@@ -116,7 +152,7 @@ export function SoundSeekersStage({ model, assists = {}, audioController, onInpu
   requiredObject(assists, "assist model");
   requiredFunction(onInput, "stage input");
   const actionRootRef = useRef(null);
-  const canvasRef = useRef(null);
+  const phaserHostRef = useRef(null);
   const runtimeRef = useRef(null);
   const initialRuntimeRef = useRef({ model, assists, onInput });
   const [runtimeStatus, setRuntimeStatus] = useState("loading");
@@ -125,7 +161,7 @@ export function SoundSeekersStage({ model, assists = {}, audioController, onInpu
   useEffect(() => {
     let mounted = true;
     const runtime = createSoundSeekersStageRuntime({
-      canvas: canvasRef.current,
+      host: phaserHostRef.current,
       actionRoot: actionRootRef.current,
       model: initialRuntimeRef.current.model,
       assists: initialRuntimeRef.current.assists,
@@ -151,6 +187,8 @@ export function SoundSeekersStage({ model, assists = {}, audioController, onInpu
   }, [assists, model, onInput]);
 
   const childScene = model.childScene ?? null;
+  const avatar = childScene ? null : requiredAvatar(model.avatar);
+  if (!childScene) assertNoProjectedPlayer(model.biomeProps);
   const hasTraversal = Boolean(model.traversal);
   const motionProfile = assists.reducedMotion === true ? "reduced" : "full";
   const sceneProfile = assists.simplifiedScene === true ? "simplified" : "full";
@@ -210,13 +248,34 @@ export function SoundSeekersStage({ model, assists = {}, audioController, onInpu
             </div>
           </div>
         )}
-        <canvas
-          ref={canvasRef}
+        {avatar ? (
+          <div
+            style={{
+              ...AVATAR_STYLE,
+              left: `${position.x * 100}%`,
+              top: `${position.y * 100}%`,
+              transform: "translate(-50%, -78%)",
+              transition: assists.reducedMotion === true ? "none" : "left 140ms linear, top 140ms linear"
+            }}
+            data-ss-live-avatar=""
+            data-traversal-x={String(position.x)}
+            data-traversal-y={String(position.y)}
+          >
+            <SoundSeekersCharacter
+              characterId={avatar.characterId}
+              pose={avatar.pose}
+              appearance={avatar.appearance}
+            />
+          </div>
+        ) : null}
+        <div
+          ref={phaserHostRef}
           aria-hidden="true"
           tabIndex={-1}
+          data-ss-phaser-host=""
           data-ss-phaser-role="traversal-only"
           data-canvas-input={childScene ? "disabled" : "enabled"}
-          style={{ ...CANVAS_STYLE, pointerEvents: childScene ? "none" : "auto" }}
+          style={{ ...PHASER_HOST_STYLE, pointerEvents: childScene ? "none" : "auto" }}
         />
       </div>
       {!childScene && hasTraversal ? <TraversalControls onInput={onInput} /> : null}

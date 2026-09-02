@@ -1,4 +1,5 @@
 import { useId } from "react";
+import { getSoundSeekersActivationDisposition } from "../runtime/inputBridge.js";
 import { SOUND_SEEKERS_VISUAL_TOKENS } from "../visual/visualTokens.js";
 
 const TOKEN_STYLE = Object.freeze(Object.fromEntries(
@@ -153,7 +154,11 @@ export function ActionLayer({
             data-control-id={control.id}
             {...controlAttributes(control.input)}
             onClick={event => {
-              if (!event.defaultPrevented) onInput(control.input);
+              const disposition = getSoundSeekersActivationDisposition(event);
+              const legitimateActivation = disposition === "bridge-handled"
+                || (disposition === "unmanaged" && !event.defaultPrevented);
+              if (!legitimateActivation) return;
+              if (disposition !== "bridge-handled") onInput(control.input);
               if (control.audioRequest && typeof onAudioRequest === "function") {
                 onAudioRequest(control.audioRequest);
               }

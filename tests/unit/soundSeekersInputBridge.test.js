@@ -170,7 +170,7 @@ test("a canceled semantic-control pointer cannot leak a synthetic click or block
     });
     fixture.actionRoot.emit("click", {
       target: fixture.controls[0],
-      pointerId: 9,
+      ...(releaseType === "pointercancel" ? { pointerId: 9 } : {}),
       pointerType: "touch",
       detail: 1
     });
