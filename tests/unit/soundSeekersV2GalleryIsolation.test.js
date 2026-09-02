@@ -183,6 +183,59 @@ test("gallery reference scanning covers HTML, CSS, and JSX references outside im
   }
 });
 
+test("gallery references normalize percent encoding and preserve HTML quoted-attribute boundaries", () => {
+  for (const [label, relativePath, source] of [
+    ["percent-encoded HTML path", "index.html", "<a href='/%70review/sound-%73eekers-v2-content.html'>Leak</a>"],
+    ["percent-encoded CSS path", "src/index.css", "body { background: url('/%70review/sound-%73eekers-v2-content.html'); }"],
+    ["percent-encoded JSX path", "src/main.jsx", "export const Leak = () => <a href='/%70review/sound-%73eekers-v2-content.html'>Leak</a>;"],
+    ["greater-than inside quoted attribute", "index.html", "<a title='1 > 0' href='/preview/sound-seekers-v2-content.html'>Leak</a>"]
+  ]) {
+    assert.throws(
+      () => scanVirtualPolicy({ virtualSources: { [relativePath]: source } }),
+      undefined,
+      label
+    );
+  }
+});
+
+test("JSX gallery resolution follows lexical bindings without crossing duplicate scopes or parameters", () => {
+  assert.throws(() => scanVirtualPolicy({
+    virtualSources: {
+      "src/main.jsx": [
+        "const target = '/safe.html';",
+        "export function Leak() {",
+        "  const target = '/preview/sound-seekers-v2-content.html';",
+        "  return <a href={target}>Leak</a>;",
+        "}"
+      ].join("\n")
+    }
+  }), undefined, "inner lexical gallery binding");
+
+  assert.doesNotThrow(() => scanVirtualPolicy({
+    virtualSources: {
+      "src/main.jsx": [
+        "const target = '/preview/sound-seekers-v2-content.html';",
+        "export function Safe({ target }) {",
+        "  return <a href={target}>Safe parameter</a>;",
+        "}"
+      ].join("\n")
+    }
+  }), "shadowed parameter must not resolve to the outer gallery constant");
+
+  assert.throws(() => scanVirtualPolicy({
+    virtualSources: {
+      "src/main.jsx": [
+        "const prefix = '/preview/sound-seekers-v2-content.html';",
+        "const target = prefix;",
+        "export function Leak() {",
+        "  const prefix = '/safe.html';",
+        "  return <a href={target}>Leak</a>;",
+        "}"
+      ].join("\n")
+    }
+  }), undefined, "constant initializers resolve in their declaration scope");
+});
+
 test("gallery isolation follows static, re-export, dynamic, HTML, and CSS edges", () => {
   const cases = [
     ["static import", "src/main.jsx", "import './features/soundSeekers/preview/ContentArtGallery.jsx';"],
@@ -360,11 +413,42 @@ test("temporary-root validation rejects forged, tampered, replaced, and swapped 
   }
 });
 
-function lifecycleFixture({ spawnFailure = false, buildNeverCloses = false, bindFailure = null } = {}) {
+test("temporary cleanup quarantines atomically and preserves a replacement swapped after validation", () => {
+  const temporary = createQuestOfflineTemporaryBuildRoot();
+  const ownedBackup = `${temporary.container}-owned-backup`;
+  let injected = false;
+  try {
+    assert.throws(() => cleanupQuestOfflineTemporaryBuildRoot(temporary, {
+      beforeQuarantine: () => {
+        injected = true;
+        renameSync(temporary.container, ownedBackup);
+        mkdirSync(temporary.container);
+        writeFileSync(path.join(temporary.container, "unrelated.txt"), "must survive");
+      }
+    }));
+    assert.equal(injected, true);
+    assert.equal(readFileSync(path.join(temporary.container, "unrelated.txt"), "utf8"), "must survive");
+    assert.equal(existsSync(ownedBackup), true);
+  } finally {
+    if (existsSync(temporary.container)) rmSync(temporary.container, { recursive: true, force: true });
+    if (existsSync(ownedBackup)) rmSync(ownedBackup, { recursive: true, force: true });
+  }
+});
+
+function lifecycleFixture({
+  spawnFailure = false,
+  buildNeverCloses = false,
+  bindFailure = null,
+  stalledListen = null,
+  stalledClose = null,
+  closeFailure = null,
+  closeDelay = {}
+} = {}) {
   const events = [];
   const processLike = new EventEmitter();
   const temporary = Object.freeze({ container: "/virtual/owned", outputDir: "/virtual/owned/dist" });
   class FakeChild extends EventEmitter {
+    pid = 42_424;
     exitCode = null;
     signalCode = null;
     kill(signal) {
@@ -382,10 +466,11 @@ function lifecycleFixture({ spawnFailure = false, buildNeverCloses = false, bind
       super();
       this.name = name;
       this.listening = false;
+      this.listenTimer = null;
     }
     listen() {
       events.push(`${this.name}-listen`);
-      queueMicrotask(() => {
+      const finish = () => {
         if (bindFailure === this.name) {
           events.push(`${this.name}-bind-error`);
           this.emit("error", new Error(`${this.name} bind failed`));
@@ -394,16 +479,25 @@ function lifecycleFixture({ spawnFailure = false, buildNeverCloses = false, bind
         this.listening = true;
         events.push(`${this.name}-listening`);
         this.emit("listening");
-      });
+      };
+      if (stalledListen === this.name) this.listenTimer = setTimeout(finish, 40);
+      else queueMicrotask(finish);
     }
     close(callback) {
       events.push(`${this.name}-close-start`);
-      queueMicrotask(() => {
+      if (this.listenTimer) {
+        clearTimeout(this.listenTimer);
+        this.listenTimer = null;
+      }
+      const finish = () => {
         this.listening = false;
         events.push(`${this.name}-close-done`);
         this.emit("close");
-        callback();
-      });
+        callback(closeFailure === this.name ? new Error(`${this.name} close failed`) : undefined);
+      };
+      const delay = stalledClose === this.name ? 40 : closeDelay[this.name] || 0;
+      if (delay) setTimeout(finish, delay);
+      else queueMicrotask(finish);
     }
   }
   const child = new FakeChild();
@@ -424,8 +518,16 @@ function lifecycleFixture({ spawnFailure = false, buildNeverCloses = false, bind
       assert.equal(value, temporary);
       events.push("temporary-cleanup");
     },
-    spawnProcess: () => {
+    killProcessGroup: () => {
+      const error = new Error("test process group is absent");
+      error.code = "ESRCH";
+      throw error;
+    },
+    spawnProcess: (command, args, options) => {
+      assert.equal(command, "npm");
+      assert.ok(args.includes("build:quest-offline-test"));
       events.push("build-spawn");
+      events.push(`build-detached:${String(options.detached)}`);
       assert.equal(processLike.listenerCount("SIGINT"), 1);
       assert.equal(processLike.listenerCount("SIGTERM"), 1);
       queueMicrotask(() => {
@@ -458,7 +560,10 @@ const lifecycleOptions = Object.freeze({
   host: "127.0.0.1",
   port: 5191,
   controlPort: 5193,
-  buildTimeoutMs: 50
+  buildTimeoutMs: 50,
+  startupTimeoutMs: 50,
+  shutdownTimeoutMs: 50,
+  terminationTimeoutMs: 50
 });
 
 test("offline lifecycle installs signals before spawn and awaits child/listener shutdown before cleanup", async () => {
@@ -512,6 +617,95 @@ test("offline lifecycle handles either port bind failure and awaits the peer lis
     const peer = failedListener === "asset" ? "control" : "asset";
     assert.ok(fixture.events.indexOf(`${peer}-close-done`) < fixture.events.indexOf("temporary-cleanup"), failedListener);
   }
+});
+
+test("offline lifecycle bounds stalled listener startup", async () => {
+  const fixture = lifecycleFixture({ stalledListen: "asset" });
+  fixture.dependencies.onReady = () => fixture.processLike.emit("SIGTERM");
+  await assert.rejects(
+    () => runQuestOfflineRangeServerLifecycle(
+      { ...lifecycleOptions, startupTimeoutMs: 5 },
+      fixture.dependencies
+    ),
+    /listener startup exceeded 5ms/u
+  );
+  assert.ok(fixture.events.indexOf("control-close-done") < fixture.events.indexOf("temporary-cleanup"));
+});
+
+test("offline lifecycle races a signal during startup and cancels a pending listener", async () => {
+  const fixture = lifecycleFixture({ stalledListen: "asset" });
+  const originalListen = fixture.controlServer.listen.bind(fixture.controlServer);
+  fixture.controlServer.listen = options => {
+    originalListen(options);
+    queueMicrotask(() => fixture.processLike.emit("SIGTERM"));
+  };
+  await runQuestOfflineRangeServerLifecycle(lifecycleOptions, fixture.dependencies);
+  assert.equal(fixture.events.includes("asset-listening"), false);
+  assert.ok(fixture.events.indexOf("asset-close-start") < fixture.events.indexOf("temporary-cleanup"));
+});
+
+test("offline lifecycle bounds stalled shutdown while still settling the peer close", async () => {
+  const fixture = lifecycleFixture({ stalledClose: "asset" });
+  fixture.dependencies.onReady = () => fixture.processLike.emit("SIGTERM");
+  await assert.rejects(
+    () => runQuestOfflineRangeServerLifecycle(
+      { ...lifecycleOptions, shutdownTimeoutMs: 5 },
+      fixture.dependencies
+    ),
+    /listener shutdown exceeded 5ms/u
+  );
+  assert.ok(fixture.events.indexOf("control-close-done") < fixture.events.indexOf("temporary-cleanup"));
+});
+
+test("offline lifecycle waits for both closes when one listener reports an error", async () => {
+  const fixture = lifecycleFixture({ closeFailure: "asset", closeDelay: { control: 5 } });
+  fixture.dependencies.onReady = () => fixture.processLike.emit("SIGTERM");
+  await assert.rejects(
+    () => runQuestOfflineRangeServerLifecycle(lifecycleOptions, fixture.dependencies),
+    /asset close failed/u
+  );
+  assert.notEqual(fixture.events.indexOf("control-close-done"), -1);
+  assert.ok(fixture.events.indexOf("control-close-done") < fixture.events.indexOf("temporary-cleanup"));
+});
+
+test("offline lifecycle routes post-listen errors through shared shutdown", async () => {
+  const fixture = lifecycleFixture();
+  fixture.assetServer.on("error", error => fixture.events.push(`observed:${error.message}`));
+  fixture.dependencies.onReady = () => {
+    setTimeout(() => fixture.processLike.emit("SIGTERM"), 20);
+    queueMicrotask(() => fixture.assetServer.emit("error", new Error("asset runtime exploded")));
+  };
+  await assert.rejects(
+    () => runQuestOfflineRangeServerLifecycle(lifecycleOptions, fixture.dependencies),
+    /asset runtime exploded/u
+  );
+  assert.ok(fixture.events.indexOf("asset-close-done") < fixture.events.indexOf("temporary-cleanup"));
+  assert.ok(fixture.events.indexOf("control-close-done") < fixture.events.indexOf("temporary-cleanup"));
+});
+
+test("offline lifecycle terminates the detached build process group including descendants", async () => {
+  const fixture = lifecycleFixture({ buildNeverCloses: true });
+  fixture.dependencies.killProcessGroup = (pid, signal) => {
+    fixture.events.push(`group-kill:${pid}:${signal}`);
+    queueMicrotask(() => {
+      fixture.events.push("descendant-close");
+      fixture.child.signalCode = signal;
+      fixture.child.emit("close", null, signal);
+    });
+  };
+  await assert.rejects(
+    () => runQuestOfflineRangeServerLifecycle(
+      { ...lifecycleOptions, buildTimeoutMs: 5 },
+      fixture.dependencies
+    ),
+    /build exceeded 5ms/u
+  );
+  assert.deepEqual(fixture.events.filter(event => event.startsWith("group-kill")), [
+    "group-kill:42424:SIGTERM"
+  ]);
+  assert.equal(fixture.events.includes("build-detached:true"), true);
+  assert.equal(fixture.events.some(event => event.startsWith("child-kill")), false);
+  assert.ok(fixture.events.indexOf("descendant-close") < fixture.events.indexOf("temporary-cleanup"));
 });
 
 test("the offline range server rejects symlink components and unauthenticated shutdown", async () => {

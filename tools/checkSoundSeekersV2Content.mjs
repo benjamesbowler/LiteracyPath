@@ -334,7 +334,7 @@ function staticString(node, bindings = new Map(), seen = new Set()) {
     return staticString(bindings.get(node.name), bindings, new Set([...seen, node.name]));
   }
   if (node.type === "TemplateLiteral") {
-    let value = "";
+    let value;
     for (const [index, quasi] of node.quasis.entries()) {
       value += quasi.value.cooked ?? quasi.value.raw;
       if (index < node.expressions.length) {
@@ -351,30 +351,6 @@ function staticString(node, bindings = new Map(), seen = new Set()) {
     return left === null || right === null ? null : left + right;
   }
   return null;
-}
-
-function staticStringFragments(node, bindings, seen = new Set()) {
-  if (!node) return [];
-  if (node.type === "StringLiteral") return [node.value];
-  if (["ParenthesizedExpression", "TSAsExpression", "TSTypeAssertion"].includes(node.type)) {
-    return staticStringFragments(node.expression, bindings, seen);
-  }
-  if (node.type === "Identifier" && bindings.has(node.name) && !seen.has(node.name)) {
-    return staticStringFragments(bindings.get(node.name), bindings, new Set([...seen, node.name]));
-  }
-  if (node.type === "TemplateLiteral") {
-    return node.quasis.flatMap((quasi, index) => [
-      quasi.value.cooked ?? quasi.value.raw,
-      ...index < node.expressions.length ? staticStringFragments(node.expressions[index], bindings, seen) : []
-    ]);
-  }
-  if (node.type === "BinaryExpression" && node.operator === "+") {
-    return [
-      ...staticStringFragments(node.left, bindings, seen),
-      ...staticStringFragments(node.right, bindings, seen)
-    ];
-  }
-  return [];
 }
 
 function decodeHtmlCharacterReferences(value) {
@@ -399,6 +375,326 @@ function decodeCssEscapes(value) {
     }
     return escaped ?? "";
   });
+}
+
+function normalizeBrowserReference(value) {
+  let normalized = value;
+  for (let index = 0; index < 2; index += 1) {
+    try {
+      const decoded = decodeURIComponent(normalized);
+      if (decoded === normalized) break;
+      normalized = decoded;
+    } catch {
+      break;
+    }
+  }
+  return normalized;
+}
+
+function htmlStartTags(source) {
+  const tags = [];
+  for (let start = 0; start < source.length;) {
+    start = source.indexOf("<", start);
+    if (start < 0) break;
+    if (source.startsWith("<!--", start)) {
+      const commentEnd = source.indexOf("-->", start + 4);
+      start = commentEnd < 0 ? source.length : commentEnd + 3;
+      continue;
+    }
+    if (!/[a-z]/iu.test(source[start + 1] || "")) {
+      start += 1;
+      continue;
+    }
+    let quote = null;
+    let end = start + 2;
+    for (; end < source.length; end += 1) {
+      const character = source[end];
+      if (quote) {
+        if (character === quote) quote = null;
+      } else if (character === '"' || character === "'") {
+        quote = character;
+      } else if (character === ">") {
+        tags.push(source.slice(start, end + 1));
+        end += 1;
+        break;
+      }
+    }
+    start = end;
+  }
+  return tags;
+}
+
+function htmlReferenceAttributes(tag) {
+  const references = [];
+  let index = 1;
+  while (index < tag.length && !/[\s/>]/u.test(tag[index])) index += 1;
+  while (index < tag.length) {
+    while (/\s/u.test(tag[index] || "")) index += 1;
+    if (!tag[index] || tag[index] === ">" || tag[index] === "/") break;
+    const nameStart = index;
+    while (index < tag.length && !/[\s=/>]/u.test(tag[index])) index += 1;
+    const name = tag.slice(nameStart, index).toLocaleLowerCase("en-US");
+    while (/\s/u.test(tag[index] || "")) index += 1;
+    if (tag[index] !== "=") continue;
+    index += 1;
+    while (/\s/u.test(tag[index] || "")) index += 1;
+    if (tag[index] === '"' || tag[index] === "'") {
+      const quote = tag[index];
+      index += 1;
+      const valueStart = index;
+      while (index < tag.length && tag[index] !== quote) index += 1;
+      const value = tag.slice(valueStart, index);
+      if (tag[index] === quote) index += 1;
+      if (name === "src" || name === "href") references.push(value);
+    } else {
+      const valueStart = index;
+      while (index < tag.length && !/[\s>]/u.test(tag[index])) index += 1;
+      const value = tag.slice(valueStart, index);
+      if (name === "src" || name === "href") references.push(value);
+    }
+  }
+  return references;
+}
+
+function cssUrlValues(value) {
+  const references = [];
+  for (let cursor = 0; cursor < value.length;) {
+    if (value.startsWith("/*", cursor)) {
+      const commentEnd = value.indexOf("*/", cursor + 2);
+      cursor = commentEnd < 0 ? value.length : commentEnd + 2;
+      continue;
+    }
+    if (value[cursor] === '"' || value[cursor] === "'") {
+      const quote = value[cursor++];
+      while (cursor < value.length && value[cursor] !== quote) {
+        cursor += value[cursor] === "\\" ? 2 : 1;
+      }
+      cursor += 1;
+      continue;
+    }
+    const urlMatch = /^url\s*\(/iu.exec(value.slice(cursor));
+    const previous = value[cursor - 1] || "";
+    if (!urlMatch || /[\w-]/u.test(previous)) {
+      cursor += 1;
+      continue;
+    }
+    let index = cursor + urlMatch[0].length;
+    while (/\s/u.test(value[index] || "")) index += 1;
+    const quote = value[index] === '"' || value[index] === "'" ? value[index++] : null;
+    const start = index;
+    while (index < value.length) {
+      if (value[index] === "\\") {
+        index += 2;
+        continue;
+      }
+      if (quote ? value[index] === quote : value[index] === ")") break;
+      index += 1;
+    }
+    const raw = value.slice(start, index);
+    if (quote) {
+      if (value[index] !== quote) {
+        cursor += urlMatch[0].length;
+        continue;
+      }
+      index += 1;
+      while (/\s/u.test(value[index] || "")) index += 1;
+    }
+    if (value[index] === ")") references.push(raw.trim());
+    cursor = Math.max(index + 1, cursor + urlMatch[0].length);
+  }
+  return references;
+}
+
+function cssImportValue(params) {
+  const value = params.trim();
+  if (/^url\s*\(/iu.test(value)) return null;
+  if (value[0] === '"' || value[0] === "'") {
+    const quote = value[0];
+    let index = 1;
+    for (; index < value.length; index += 1) {
+      if (value[index] === "\\") index += 1;
+      else if (value[index] === quote) return value.slice(1, index);
+    }
+    return null;
+  }
+  return value.match(/^(?:\\.|[^\s;])+/u)?.[0] || null;
+}
+
+function cssImportValues(source) {
+  const values = [];
+  for (let cursor = 0; cursor < source.length;) {
+    if (source.startsWith("/*", cursor)) {
+      const commentEnd = source.indexOf("*/", cursor + 2);
+      cursor = commentEnd < 0 ? source.length : commentEnd + 2;
+      continue;
+    }
+    if (source[cursor] === '"' || source[cursor] === "'") {
+      const quote = source[cursor++];
+      while (cursor < source.length && source[cursor] !== quote) {
+        cursor += source[cursor] === "\\" ? 2 : 1;
+      }
+      cursor += 1;
+      continue;
+    }
+    const match = /^@import\b/iu.exec(source.slice(cursor));
+    if (!match) {
+      cursor += 1;
+      continue;
+    }
+    let index = cursor + match[0].length;
+    let quote = null;
+    let depth = 0;
+    for (; index < source.length; index += 1) {
+      const character = source[index];
+      if (quote) {
+        if (character === "\\") index += 1;
+        else if (character === quote) quote = null;
+      } else if (character === '"' || character === "'") {
+        quote = character;
+      } else if (character === "(") {
+        depth += 1;
+      } else if (character === ")") {
+        depth = Math.max(0, depth - 1);
+      } else if (character === ";" && depth === 0) {
+        break;
+      }
+    }
+    const reference = cssImportValue(source.slice(cursor + match[0].length, index));
+    if (reference !== null) values.push(reference);
+    cursor = index + 1;
+  }
+  return values;
+}
+
+function patternIdentifiers(pattern) {
+  if (!pattern || typeof pattern !== "object") return [];
+  if (pattern.type === "Identifier") return [pattern.name];
+  if (pattern.type === "RestElement") return patternIdentifiers(pattern.argument);
+  if (pattern.type === "AssignmentPattern") return patternIdentifiers(pattern.left);
+  if (pattern.type === "ArrayPattern") return pattern.elements.flatMap(patternIdentifiers);
+  if (pattern.type === "ObjectPattern") {
+    return pattern.properties.flatMap(property => property.type === "RestElement"
+      ? patternIdentifiers(property.argument)
+      : patternIdentifiers(property.value));
+  }
+  return [];
+}
+
+function lexicalScopes(ast) {
+  const scopeByNode = new WeakMap();
+  const pendingMutations = [];
+  const childScope = parent => ({ parent, bindings: new Map() });
+  const declare = (scope, name, binding) => {
+    const previous = scope.bindings.get(name);
+    scope.bindings.set(name, previous ? { ...previous, ambiguous: true } : { ...binding, scope });
+  };
+  const visit = (node, inheritedScope) => {
+    if (!node || typeof node !== "object") return;
+    const isFunction = [
+      "ArrowFunctionExpression", "FunctionDeclaration", "FunctionExpression", "ObjectMethod", "ClassMethod"
+    ].includes(node.type);
+    const createsBlock = ["Program", "BlockStatement", "SwitchStatement", "CatchClause"].includes(node.type);
+    const scope = isFunction || createsBlock ? childScope(inheritedScope) : inheritedScope;
+    scopeByNode.set(node, scope);
+    if (isFunction) {
+      for (const parameter of node.params || []) {
+        for (const name of patternIdentifiers(parameter)) declare(scope, name, { kind: "parameter", init: null, mutable: true });
+      }
+    }
+    if (node.type === "CatchClause") {
+      for (const name of patternIdentifiers(node.param)) declare(scope, name, { kind: "parameter", init: null, mutable: true });
+    }
+    if (node.type === "VariableDeclaration") {
+      for (const declarator of node.declarations) {
+        for (const name of patternIdentifiers(declarator.id)) {
+          declare(scope, name, { kind: node.kind, init: declarator.init, mutable: node.kind !== "const" });
+        }
+      }
+    }
+    if (node.type === "AssignmentExpression" || node.type === "UpdateExpression") {
+      pendingMutations.push({ pattern: node.type === "AssignmentExpression" ? node.left : node.argument, scope });
+    }
+    for (const [key, child] of Object.entries(node)) {
+      if (["loc", "start", "end", "extra"].includes(key)) continue;
+      if (Array.isArray(child)) child.forEach(value => visit(value, scope));
+      else if (child && typeof child === "object") visit(child, scope);
+    }
+  };
+  visit(ast, null);
+  const nearest = (scope, name) => {
+    for (let current = scope; current; current = current.parent) {
+      if (current.bindings.has(name)) return current.bindings.get(name);
+    }
+    return null;
+  };
+  for (const { pattern, scope } of pendingMutations) {
+    for (const name of patternIdentifiers(pattern)) {
+      const binding = nearest(scope, name);
+      if (binding) binding.mutable = true;
+    }
+  }
+  return { scopeByNode, nearest };
+}
+
+function staticScopedString(node, scope, nearest, seen = new Set()) {
+  if (!node) return null;
+  if (node.type === "StringLiteral") return node.value;
+  if (["ParenthesizedExpression", "TSAsExpression", "TSTypeAssertion"].includes(node.type)) {
+    return staticScopedString(node.expression, scope, nearest, seen);
+  }
+  if (node.type === "Identifier") {
+    const binding = nearest(scope, node.name);
+    if (!binding || binding.kind !== "const" || binding.mutable || binding.ambiguous
+      || !binding.init || seen.has(binding)) return null;
+    return staticScopedString(binding.init, binding.scope, nearest, new Set([...seen, binding]));
+  }
+  if (node.type === "TemplateLiteral") {
+    let value = "";
+    for (const [index, quasi] of node.quasis.entries()) {
+      value += quasi.value.cooked ?? quasi.value.raw;
+      if (index < node.expressions.length) {
+        const expression = staticScopedString(node.expressions[index], scope, nearest, seen);
+        if (expression === null) return null;
+        value += expression;
+      }
+    }
+    return value;
+  }
+  if (node.type === "BinaryExpression" && node.operator === "+") {
+    const left = staticScopedString(node.left, scope, nearest, seen);
+    const right = staticScopedString(node.right, scope, nearest, seen);
+    return left === null || right === null ? null : left + right;
+  }
+  return null;
+}
+
+function staticScopedFragments(node, scope, nearest, seen = new Set()) {
+  if (!node) return [];
+  if (node.type === "StringLiteral") return [node.value];
+  if (["ParenthesizedExpression", "TSAsExpression", "TSTypeAssertion"].includes(node.type)) {
+    return staticScopedFragments(node.expression, scope, nearest, seen);
+  }
+  if (node.type === "Identifier") {
+    const binding = nearest(scope, node.name);
+    if (!binding || binding.kind !== "const" || binding.mutable || binding.ambiguous
+      || !binding.init || seen.has(binding)) return [];
+    return staticScopedFragments(binding.init, binding.scope, nearest, new Set([...seen, binding]));
+  }
+  if (node.type === "TemplateLiteral") {
+    return node.quasis.flatMap((quasi, index) => [
+      quasi.value.cooked ?? quasi.value.raw,
+      ...index < node.expressions.length
+        ? staticScopedFragments(node.expressions[index], scope, nearest, seen)
+        : []
+    ]);
+  }
+  if (node.type === "BinaryExpression" && node.operator === "+") {
+    return [
+      ...staticScopedFragments(node.left, scope, nearest, seen),
+      ...staticScopedFragments(node.right, scope, nearest, seen)
+    ];
+  }
+  return [];
 }
 
 function walkAst(node, visit) {
@@ -426,24 +722,20 @@ function parseSourceEdges(relativePath, source) {
   const extension = path.extname(relativePath);
   const edges = [];
   const nonliteralDynamic = [];
+  const addEdge = (specifier, kind) => {
+    edges.push({ specifier: normalizeBrowserReference(specifier), kind });
+  };
   if (extension === ".html") {
-    for (const tag of source.matchAll(/<[a-z][^>]*>/giu)) {
-      for (const attribute of tag[0].matchAll(/\b(?:src|href)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/giu)) {
-        edges.push({
-          specifier: decodeHtmlCharacterReferences(attribute[1] ?? attribute[2] ?? attribute[3]),
-          kind: "html"
-        });
+    for (const tag of htmlStartTags(source)) {
+      for (const attribute of htmlReferenceAttributes(tag)) {
+        addEdge(decodeHtmlCharacterReferences(attribute), "html");
       }
     }
     return { edges, nonliteralDynamic };
   }
   if (extension === ".css") {
-    for (const match of source.matchAll(/url\(\s*(?:"((?:\\.|[^"\\])*)"|'((?:\\.|[^'\\])*)'|((?:\\.|[^)])*?))\s*\)/giu)) {
-      edges.push({ specifier: decodeCssEscapes((match[1] ?? match[2] ?? match[3]).trim()), kind: "css-url" });
-    }
-    for (const match of source.matchAll(/@import\s+(?!url\s*\()(?:"((?:\\.|[^"\\])*)"|'((?:\\.|[^'\\])*)'|((?:\\.|[^\s;])+))/giu)) {
-      edges.push({ specifier: decodeCssEscapes(match[1] ?? match[2] ?? match[3]), kind: "css-import" });
-    }
+    for (const value of cssUrlValues(source)) addEdge(decodeCssEscapes(value), "css-url");
+    for (const value of cssImportValues(source)) addEdge(decodeCssEscapes(value), "css-import");
     return { edges, nonliteralDynamic };
   }
   let ast;
@@ -455,35 +747,24 @@ function parseSourceEdges(relativePath, source) {
   } catch (error) {
     throw new Error(`${relativePath}: source parse failed: ${error.message}`, { cause: error });
   }
-  const bindings = new Map();
-  const duplicateBindings = new Set();
-  walkAst(ast, node => {
-    if (node.type !== "VariableDeclaration" || node.kind !== "const") return;
-    for (const declaration of node.declarations) {
-      if (declaration.id?.type !== "Identifier" || !declaration.init) continue;
-      if (bindings.has(declaration.id.name)) duplicateBindings.add(declaration.id.name);
-      else bindings.set(declaration.id.name, declaration.init);
-    }
-  });
-  for (const name of duplicateBindings) bindings.delete(name);
+  const { scopeByNode, nearest } = lexicalScopes(ast);
   walkAst(ast, node => {
     if (["ImportDeclaration", "ExportNamedDeclaration", "ExportAllDeclaration"].includes(node.type)
       && node.source?.type === "StringLiteral") {
-      edges.push({ specifier: node.source.value, kind: node.type });
+      addEdge(node.source.value, node.type);
     }
     if (node.type === "CallExpression" && node.callee?.type === "Import") {
-      const specifier = staticString(node.arguments[0], bindings);
-      if (specifier !== null) edges.push({ specifier, kind: "dynamic" });
+      const specifier = staticScopedString(node.arguments[0], scopeByNode.get(node), nearest);
+      if (specifier !== null) addEdge(specifier, "dynamic");
       else nonliteralDynamic.push(null);
     }
-    if (node.type === "JSXAttribute" && ["src", "href"].includes(node.name?.name)) {
-      const valueNode = node.value?.type === "JSXExpressionContainer" ? node.value.expression : node.value;
-      const specifier = staticString(valueNode, bindings);
-      if (specifier !== null) {
-        edges.push({ specifier, kind: `jsx-${node.name.name}` });
-      } else if (looksLikeGalleryFragment(staticStringFragments(valueNode, bindings).join(""))) {
-        nonliteralDynamic.push(null);
-      }
+    if (node.type !== "JSXAttribute" || !["src", "href"].includes(node.name?.name)) return;
+    const reference = node.value?.type === "JSXExpressionContainer" ? node.value.expression : node.value;
+    const specifier = staticScopedString(reference, scopeByNode.get(node), nearest);
+    if (specifier !== null) {
+      addEdge(specifier, `jsx-${node.name.name}`);
+    } else if (looksLikeGalleryFragment(staticScopedFragments(reference, scopeByNode.get(node), nearest).join(""))) {
+      nonliteralDynamic.push(null);
     }
   });
   return { edges, nonliteralDynamic };

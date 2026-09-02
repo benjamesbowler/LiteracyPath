@@ -12,6 +12,7 @@ import {
   openSync,
   readFileSync,
   realpathSync,
+  renameSync,
   rmSync,
   writeFileSync
 } from "node:fs";
@@ -108,16 +109,14 @@ export function createQuestOfflineTemporaryBuildRoot() {
   return handle;
 }
 
-export function validateQuestOfflineTemporaryBuildRoot(value) {
+function validateTemporaryBuildIdentity(value, container) {
   if (!value || typeof value !== "object" || !TEMPORARY_ROOT_IDENTITIES.has(value)) {
     throw new TypeError("quest offline temporary build root requires its original ownership handle");
   }
   const identity = TEMPORARY_ROOT_IDENTITIES.get(value);
-  const outputDir = validateQuestOfflineRoot(value.outputDir);
-  const container = path.dirname(outputDir);
+  const outputDir = validateQuestOfflineRoot(path.join(container, "dist"));
   const temporaryParent = realpathSync(os.tmpdir());
-  if (value.container !== container
-    || path.basename(outputDir) !== "dist"
+  if (path.basename(outputDir) !== "dist"
     || path.dirname(container) !== temporaryParent
     || !path.basename(container).startsWith(TEMPORARY_ROOT_PREFIX)) {
     throw new TypeError("quest offline temporary build root is outside the marked OS-temp boundary");
@@ -146,7 +145,7 @@ export function validateQuestOfflineTemporaryBuildRoot(value) {
   }
   if (!marker || Object.keys(marker).join(",") !== "schemaVersion,purpose,rootRealpath,device,inode,ownershipDigest"
     || marker.schemaVersion !== 1 || marker.purpose !== TEMPORARY_ROOT_PURPOSE
-    || marker.rootRealpath !== container
+    || marker.rootRealpath !== value.container
     || marker.device !== containerStat.dev || marker.inode !== containerStat.ino
     || marker.ownershipDigest !== identity.ownershipDigest) {
     throw new TypeError("quest offline temporary build marker is invalid");
@@ -154,12 +153,36 @@ export function validateQuestOfflineTemporaryBuildRoot(value) {
   return outputDir;
 }
 
-export function cleanupQuestOfflineTemporaryBuildRoot(value) {
-  const outputDir = validateQuestOfflineTemporaryBuildRoot(value);
-  const container = path.dirname(outputDir);
-  rmSync(container, { recursive: true, force: false });
-  if (existsSync(container)) throw new Error("quest offline temporary build cleanup did not complete");
-  TEMPORARY_ROOT_IDENTITIES.delete(value);
+export function validateQuestOfflineTemporaryBuildRoot(value) {
+  if (!value || value.container !== path.dirname(value.outputDir || "")) {
+    throw new TypeError("quest offline temporary build handle paths do not match");
+  }
+  return validateTemporaryBuildIdentity(value, value.container);
+}
+
+export function cleanupQuestOfflineTemporaryBuildRoot(value, { beforeQuarantine = null } = {}) {
+  validateQuestOfflineTemporaryBuildRoot(value);
+  beforeQuarantine?.();
+  const temporaryParent = realpathSync(os.tmpdir());
+  const quarantine = path.join(
+    temporaryParent,
+    `${path.basename(value.container)}.quarantine-${randomBytes(16).toString("hex")}`
+  );
+  if (existsSync(quarantine)) throw new Error("quest offline cleanup quarantine already exists");
+  renameSync(value.container, quarantine);
+  fsyncPath(temporaryParent);
+  try {
+    validateTemporaryBuildIdentity(value, quarantine);
+    rmSync(quarantine, { recursive: true, force: false });
+    if (existsSync(quarantine)) throw new Error("quest offline temporary build cleanup did not complete");
+    TEMPORARY_ROOT_IDENTITIES.delete(value);
+  } catch (error) {
+    if (existsSync(quarantine) && !existsSync(value.container)) {
+      renameSync(quarantine, value.container);
+      fsyncPath(temporaryParent);
+    }
+    throw error;
+  }
 }
 
 export function parseSingleRange(header, size) {
@@ -341,44 +364,80 @@ function observeChild(child) {
   return Object.freeze({ child, done, isSettled: () => settled });
 }
 
-async function terminateChild(childState, milliseconds = 10_000) {
+function signalProcessTree(child, signal, { platform, killProcessGroup }) {
+  if (platform !== "win32" && Number.isSafeInteger(child.pid) && child.pid > 0) {
+    try {
+      killProcessGroup(child.pid, signal);
+      return;
+    } catch (error) {
+      if (error?.code !== "ESRCH") throw error;
+    }
+  }
+  child.kill(signal);
+}
+
+async function terminateChild(childState, { milliseconds, platform, killProcessGroup }) {
   if (!childState || childState.isSettled()) return;
-  childState.child.kill("SIGTERM");
+  signalProcessTree(childState.child, "SIGTERM", { platform, killProcessGroup });
   try {
     await withTimeout(childState.done, milliseconds, "quest offline build termination");
   } catch (error) {
     if (childState.isSettled()) throw error;
-    childState.child.kill("SIGKILL");
+    signalProcessTree(childState.child, "SIGKILL", { platform, killProcessGroup });
     await withTimeout(childState.done, milliseconds, "quest offline forced build termination");
   }
 }
 
-function listen(listener, options) {
-  return new Promise((resolve, reject) => {
-    const onError = error => {
-      listener.off("listening", onListening);
-      reject(error);
-    };
+function startListener(listener, options, onRuntimeError) {
+  let state = "starting";
+  let rejectStartup;
+  const onError = error => {
+    if (state === "starting") {
+      state = "failed";
+      rejectStartup(error);
+    } else {
+      onRuntimeError(error);
+    }
+  };
+  const promise = new Promise((resolve, reject) => {
+    rejectStartup = reject;
     const onListening = () => {
-      listener.off("error", onError);
+      state = "listening";
       resolve();
     };
-    listener.once("error", onError);
+    listener.on("error", onError);
     listener.once("listening", onListening);
     try {
       listener.listen(options);
     } catch (error) {
-      listener.off("error", onError);
       listener.off("listening", onListening);
+      state = "failed";
       reject(error);
     }
   });
+  promise.catch(() => {});
+  return Object.freeze({
+    listener,
+    promise,
+    isStarting: () => state === "starting",
+    detach: () => listener.off("error", onError)
+  });
 }
 
-function closeListener(listener) {
-  if (!listener?.listening) return Promise.resolve();
+function closeListener(listenerState) {
+  if (!listenerState) return Promise.resolve();
+  const { listener } = listenerState;
   return new Promise((resolve, reject) => {
-    listener.close(error => error ? reject(error) : resolve());
+    try {
+      listener.close(error => {
+        if (error && (listener.listening || error.code !== "ERR_SERVER_NOT_RUNNING")) reject(error);
+        else resolve();
+      });
+      listener.closeAllConnections?.();
+    } catch (error) {
+      if (!listener.listening && error?.code === "ERR_SERVER_NOT_RUNNING") resolve();
+      else reject(error);
+    }
   });
 }
 
@@ -389,7 +448,10 @@ export async function runQuestOfflineRangeServerLifecycle(options, dependencies 
     host,
     port,
     controlPort,
-    buildTimeoutMs = 120_000
+    buildTimeoutMs = 120_000,
+    startupTimeoutMs = 10_000,
+    shutdownTimeoutMs = 10_000,
+    terminationTimeoutMs = 10_000
   } = options || {};
   if (host !== "127.0.0.1" || !Number.isInteger(port) || port < 1024 || port > 65535
     || !Number.isInteger(controlPort) || controlPort < 1024 || controlPort > 65535 || controlPort === port) {
@@ -398,8 +460,9 @@ export async function runQuestOfflineRangeServerLifecycle(options, dependencies 
   if (typeof temporaryBuild !== "boolean" || !temporaryBuild && typeof externalRoot !== "string") {
     throw new TypeError("quest offline lifecycle requires a temporary build or external root");
   }
-  if (!Number.isSafeInteger(buildTimeoutMs) || buildTimeoutMs <= 0) {
-    throw new TypeError("quest offline build timeout must be a positive integer");
+  if ([buildTimeoutMs, startupTimeoutMs, shutdownTimeoutMs, terminationTimeoutMs]
+    .some(value => !Number.isSafeInteger(value) || value <= 0)) {
+    throw new TypeError("quest offline lifecycle timeouts must be positive integers");
   }
 
   const processLike = dependencies.processLike || process;
@@ -413,65 +476,126 @@ export async function runQuestOfflineRangeServerLifecycle(options, dependencies 
   });
   const createRangeServer = dependencies.createRangeServer || createQuestOfflineRangeServer;
   const createControlServer = dependencies.createControlServer || createQuestOfflineControlServer;
+  const platform = dependencies.platform || process.platform;
+  const killProcessGroup = dependencies.killProcessGroup
+    || ((pid, signal) => process.kill(-pid, signal));
+  const log = dependencies.log || console.log;
   let temporary = null;
   let childState = null;
-  let server = null;
-  let controlServer = null;
+  let server;
+  let controlServer;
+  let serverState = null;
+  let controlServerState = null;
   let shutdownRequested = false;
   let resolveShutdown;
   const shutdown = new Promise(resolve => {
     resolveShutdown = resolve;
   });
-  const requestShutdown = () => {
+  const requestShutdown = error => {
     if (shutdownRequested) return;
     shutdownRequested = true;
-    resolveShutdown();
+    resolveShutdown(error || null);
   };
-  processLike.once("SIGINT", requestShutdown);
-  processLike.once("SIGTERM", requestShutdown);
+  const onSignal = () => requestShutdown(null);
+  processLike.once("SIGINT", onSignal);
+  processLike.once("SIGTERM", onSignal);
 
+  let operationError = null;
   try {
     let root = externalRoot;
+    let shouldServe = true;
     if (temporaryBuild) {
       temporary = createTemporary();
       const child = spawnProcess("npm", [
         "run", "build:quest-offline-test", "--", "--outDir", temporary.outputDir
-      ], { cwd: REPOSITORY_ROOT, env: { ...process.env }, stdio: "inherit" });
+      ], {
+        cwd: REPOSITORY_ROOT,
+        detached: platform !== "win32",
+        env: { ...process.env },
+        stdio: "inherit"
+      });
       childState = observeChild(child);
       const buildOutcome = await withTimeout(Promise.race([
         childState.done.then(result => ({ kind: "build", result })),
         shutdown.then(() => ({ kind: "shutdown" }))
       ]), buildTimeoutMs, "quest offline build");
-      if (buildOutcome.kind === "shutdown") return;
-      if (buildOutcome.result.code !== 0) {
+      if (buildOutcome.kind === "shutdown") shouldServe = false;
+      else if (buildOutcome.result.code !== 0) {
         throw new Error(`quest offline temporary build failed with exit code ${buildOutcome.result.code}`);
+      } else {
+        root = validateTemporary(temporary);
+        await assertOfflineBuild(root);
       }
-      root = validateTemporary(temporary);
-      await assertOfflineBuild(root);
     }
 
-    server = createRangeServer({ root });
-    controlServer = createControlServer({ assetServer: server });
-    const listenResults = await Promise.allSettled([
-      listen(server, { host, port, exclusive: true }),
-      listen(controlServer, { host, port: controlPort, exclusive: true })
-    ]);
-    const bindFailure = listenResults.find(result => result.status === "rejected");
-    if (bindFailure) throw bindFailure.reason;
-    console.log(`Quest offline control server listening on http://${host}:${controlPort}`);
-    console.log(`Quest offline range server listening on http://${host}:${port}`);
-    await dependencies.onReady?.({ server, controlServer });
-    await shutdown;
-  } finally {
-    processLike.off("SIGINT", requestShutdown);
-    processLike.off("SIGTERM", requestShutdown);
-    try {
-      await terminateChild(childState);
-      await Promise.all([closeListener(server), closeListener(controlServer)]);
-    } finally {
-      if (temporary) cleanupTemporary(temporary);
+    if (shouldServe) {
+      server = createRangeServer({ root });
+      controlServer = createControlServer({ assetServer: server });
+      serverState = startListener(
+        server,
+        { host, port, exclusive: true },
+        requestShutdown
+      );
+      controlServerState = startListener(
+        controlServer,
+        { host, port: controlPort, exclusive: true },
+        requestShutdown
+      );
+      const listenResultsPromise = Promise.allSettled([
+        serverState.promise,
+        controlServerState.promise
+      ]);
+      const startupOutcome = await withTimeout(Promise.race([
+        listenResultsPromise.then(results => ({ kind: "listeners", results })),
+        shutdown.then(error => ({ kind: "shutdown", error }))
+      ]), startupTimeoutMs, "quest offline listener startup");
+      if (startupOutcome.kind === "shutdown") {
+        if (startupOutcome.error) throw startupOutcome.error;
+      } else {
+        const bindFailure = startupOutcome.results.find(result => result.status === "rejected");
+        if (bindFailure) throw bindFailure.reason;
+        log(`Quest offline control server listening on http://${host}:${controlPort}`);
+        log(`Quest offline range server listening on http://${host}:${port}`);
+        await dependencies.onReady?.({ server, controlServer });
+        const runtimeError = await shutdown;
+        if (runtimeError) throw runtimeError;
+      }
     }
+  } catch (error) {
+    operationError = error;
   }
+  processLike.off("SIGINT", onSignal);
+  processLike.off("SIGTERM", onSignal);
+  let terminationError = null;
+  try {
+    await terminateChild(childState, {
+      milliseconds: terminationTimeoutMs,
+      platform,
+      killProcessGroup
+    });
+  } catch (error) {
+    terminationError = error;
+  }
+  let closeError;
+  try {
+    const closeResults = await withTimeout(Promise.allSettled([
+      closeListener(serverState),
+      closeListener(controlServerState)
+    ]), shutdownTimeoutMs, "quest offline listener shutdown");
+    closeError = closeResults.find(result => result.status === "rejected")?.reason || null;
+  } catch (error) {
+    closeError = error;
+  }
+  serverState?.detach();
+  controlServerState?.detach();
+  let cleanupError = null;
+  try {
+    if (temporary) cleanupTemporary(temporary);
+  } catch (error) {
+    cleanupError = error;
+  }
+  const failure = operationError || terminationError || closeError || cleanupError;
+  if (failure) throw failure;
 }
 
 async function main() {
