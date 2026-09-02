@@ -21,7 +21,8 @@
 - Every runtime book has exactly one teacher-only oral prompt and one teacher-only image-grounded visual prompt with a valid reading-page reference and private listen/look-for note.
 - The child DOM contains no teacher discussion prompt text and no quiz, generic question drawer, score, or quiz-derived stars.
 - Willow Street Readers contains exactly 20 Level C Standard books: six everyday-fiction, four culture/community, four procedure, and six photorealistic-nonfiction titles.
-- Every Willow Street book has 8–10 reading pages, excluding its title page, and every reading page has 6–12 visible words.
+- Every Willow Street book has exactly 8 reading pages, excluding its title page, and every reading page has 6–12 visible words; this is the approved 8–10-page constraint at its stable lower bound.
+- Legacy `type` is `fiction` for the six everyday and four culture/community books, and `nonfiction` for the four procedure and six photorealistic factual books; `bridgeGenre` retains the exact 6/4/4/6 distinction.
 - The 14 illustrated books use the recurring Maya, Samir, Leo, and Zoe visual world; the six nonfiction books use newly created photorealistic images.
 - Final art contains no baked-in book text or visible brand marks. Page text, art, narration, word support, page order, and provenance bind to the same final manuscript.
 - Newly generated visual-review records require direct page-by-page inspection; generated file existence is not approval.
@@ -48,6 +49,8 @@
 - Delete: `tests/unit/guidedReadingQuestionBank.test.js`
 - Rename: `tests/smoke/guided-reading-quiz.spec.js` to `tests/smoke/guided-reading-reader.spec.js`
 - Modify: `src/components/guided-reading/GuidedReadingPage.jsx`
+- Modify: `src/guided-reading-preview.jsx`
+- Modify: `src/components/AppSurface.jsx`
 - Modify: `src/components/StudentBooksPage.jsx`
 - Modify: `src/policy/childLibraryPolicy.js`
 - Modify: `src/utils/guidedReading/completionPolicy.js`
@@ -105,6 +108,8 @@ test("book progress does not project legacy quiz stars", () => {
 });
 ```
 
+Add a storage-merge regression showing that a reread preserves historical `quizScore`, `quizTotal`, and `quizAt` already present in the raw record while the new completion patch does not add those keys to a clean record.
+
 In the smoke test, retain reader navigation coverage and replace the quiz expectation with:
 
 ```js
@@ -136,7 +141,7 @@ export function getGuidedReadingCompletionMilestone({ book, levelBooks = [], rec
 }
 ```
 
-Call it directly after the existing completion/reread and daily-mission persistence succeeds; play the fanfare and set `levelUp` when it returns a milestone, otherwise show the named-teacher score summary or close the reader exactly as the former handler did. Preserve teacher conference summaries and existing error handling. Remove `showQuiz`, `setShowQuiz`, `handleQuizFinish`, quiz render guards, `?quiz=1`, and all quiz imports.
+Call it directly after the existing completion/reread and daily-mission persistence succeeds; play the fanfare and set `levelUp` when it returns a milestone, otherwise show the named-teacher completion summary or close the reader exactly as the former handler did. Rename `shouldShowGuidedReadingScoreSummary` to `shouldShowGuidedReadingCompletionSummary`. Preserve teacher conference summaries and existing error handling. Remove `showQuiz`, `setShowQuiz`, `handleQuizFinish`, quiz render guards, `?quiz=1`, and all quiz imports. Update the preview route and stale AppSurface quiz-preservation comment.
 
 - [ ] **Step 4: Remove generic child questions and quiz-derived consumers**
 
@@ -328,17 +333,19 @@ git commit -m "feat: split guided reading level C bands"
 **Files:**
 - Create: `src/data/guidedReadingDiscussionPrompts.js`
 - Create: `src/components/guided-reading/BookDiscussionPanel.jsx`
+- Create: `tools/checkGuidedReadingDiscussionPrompts.mjs`
 - Create: `tests/unit/guidedReadingDiscussionPrompts.test.js`
 - Modify: `src/components/guided-reading/GuidedReadingPage.jsx`
 - Modify: `src/utils/guidedReading/normalizeReadableBook.js`
 - Modify: `src/data/sourceOfTruthRegistry.js`
 - Modify: `src/App.css`
+- Modify: `package.json`
 - Modify: `tests/release/guided-reading-control-hierarchy.spec.js`
 - Modify: `tests/release/guided-reading-decoding-support.spec.js`
 
 **Interfaces:**
 - Consumes: final current-catalogue titles, reading-page text, image/page numbers, and the editorial metadata from Task 2.
-- Produces: `GUIDED_READING_DISCUSSION_PROMPTS`, `getGuidedReadingDiscussion(bookOrId)`, and `<BookDiscussionPanel discussion={record} onGoToPage={fn} />` mounted only in teacher/admin context.
+- Produces: `GUIDED_READING_DISCUSSION_PROMPTS`, `getGuidedReadingDiscussion(bookOrId)`, and `<BookDiscussionPanel discussion={record} onGoToPage={fn} />` mounted only in teacher, whole-class teacher-led, and admin context.
 
 - [ ] **Step 1: Write failing full-coverage, specificity, and privacy tests**
 
@@ -416,7 +423,7 @@ export default function BookDiscussionPanel({ discussion, onGoToPage }) {
 }
 ```
 
-Mount only for teacher/admin modes. Keep student prompt data out of rendered markup.
+Mount only for teacher, whole-class teacher-led, and admin modes. Keep student prompt data out of rendered markup. Add `check:guided-reading-discussion-prompts` to `package.json` and make the tool fail for missing/orphan IDs, invalid pages/art, empty fields, or assessment-like score/answer/choice keys.
 
 - [ ] **Step 5: Run focused tests GREEN**
 
@@ -483,7 +490,7 @@ test("Willow Street has the approved 20-title genre mix", () => {
 test("each bridge manuscript keeps compact stable print", () => {
   for (const book of GUIDED_READING_BRIDGE_BOOKS) {
     assert.equal(book.level, "C");
-    assert.ok(book.pages.length >= 8 && book.pages.length <= 10);
+    assert.equal(book.pages.length, 8);
     for (const page of book.pages) {
       const words = page.text.trim().split(/\s+/u);
       assert.ok(words.length >= 6 && words.length <= 12, `${book.id} page ${page.pageNumber}`);
@@ -510,7 +517,7 @@ Write the content and visual continuity documents with concrete recurring detail
 
 - [ ] **Step 4: Author all 20 final manuscripts and page briefs**
 
-Give every record final text, an exact page-specific visual brief, stable `pageNumber`, `image`, and `audio` paths, Story Bible review evidence, `bridgeGenre`, `collection: "Willow Street Readers"`, and `visualTreatment`.
+Give every record final text, exactly eight reading pages, an exact page-specific visual brief, stable `pageNumber`, `image`, and `audio` paths, Story Bible review evidence, `bridgeGenre`, `collection: "Willow Street Readers"`, and `visualTreatment`. Set legacy `type: "fiction"` on the ten everyday/culture books and `type: "nonfiction"` on the four procedures plus six factual books.
 
 Use IDs and paths in this form:
 
@@ -532,7 +539,7 @@ Use IDs and paths in this form:
 }
 ```
 
-The shown first-page record fixes the interface and path pattern. Finish every book with 8–10 genuinely book-specific pages; do not copy the example sentence into another title.
+The shown first-page record fixes the interface and path pattern. Finish every book with exactly eight genuinely book-specific pages; do not copy the example sentence into another title.
 
 - [ ] **Step 5: Add metadata and two discussion prompts per new book**
 
@@ -575,7 +582,7 @@ git commit -m "feat: author Willow Street Readers"
 
 **Interfaces:**
 - Consumes: final Task 4 image briefs and `WILLOW_STREET_VISUAL_CONTINUITY.md`.
-- Produces: one unique text-free cover and one unique text-free page image for every illustrated bridge page, plus a manifest binding path, SHA-256, dimensions, visual treatment, book ID, and page number.
+- Produces: 126 unique text-free images (14 covers plus 112 reading pages), plus a manifest binding path, SHA-256, dimensions, visual treatment, book ID, and page number.
 
 - [ ] **Step 1: Write the failing illustrated-media inventory test**
 
@@ -589,6 +596,7 @@ test("every illustrated bridge page resolves to a unique reviewed-sized asset", 
   );
   assert.equal(illustrated.length, 14);
   const paths = illustrated.flatMap(book => [book.coverImage, ...book.pages.map(page => page.image)]);
+  assert.equal(paths.length, 126);
   assert.equal(new Set(paths).size, paths.length);
   for (const path of paths) {
     await access(resolve("public", path.replace(/^\//, "")));
@@ -650,7 +658,7 @@ git commit -m "feat: add Willow Street illustrated media"
 
 **Interfaces:**
 - Consumes: six final nonfiction manuscripts and image briefs from Task 4.
-- Produces: one unique newly created photorealistic cover and page image for every nonfiction page, plus the same identity/hash/dimension/review manifest contract as Task 5.
+- Produces: 54 unique newly created photorealistic images (6 covers plus 48 reading pages), plus the same identity/hash/dimension/review manifest contract as Task 5.
 
 - [ ] **Step 1: Extend the failing media test for six photorealistic books**
 
@@ -660,6 +668,7 @@ test("the six nonfiction books use self-created photorealistic assets", async ()
     book => book.visualTreatment === "self-created-photorealistic"
   );
   assert.equal(nonfiction.length, 6);
+  assert.equal(nonfiction.flatMap(book => [book.coverImage, ...book.pages]).length, 54);
   for (const book of nonfiction) {
     assert.equal(book.mediaLicense, "self-created");
     for (const page of book.pages) {
