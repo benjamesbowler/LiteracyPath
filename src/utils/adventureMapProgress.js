@@ -55,6 +55,7 @@ function sourceEpoch(value) {
 const LATEST_RUN_FIELDS = Object.freeze([
   "recoveries",
   "sampledConstructs",
+  "lastRunSeed",
   "lastIndependent",
   "lastTotal"
 ]);

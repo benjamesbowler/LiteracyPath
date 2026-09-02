@@ -62,7 +62,7 @@ begin
     else local_cycle
   end;
 
-  foreach field_name in array array['recoveries', 'sampledConstructs', 'lastIndependent', 'lastTotal', 'lastPlayedAt']
+  foreach field_name in array array['recoveries', 'sampledConstructs', 'lastRunSeed', 'lastIndependent', 'lastTotal', 'lastPlayedAt']
   loop
     merged := merged - field_name;
     if latest ? field_name then

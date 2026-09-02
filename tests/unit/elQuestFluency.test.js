@@ -106,6 +106,11 @@ test("Phrase Flow flattens source lines into one trail and offers one defensible
       assert.equal(round.mechanicId, "phraseFlow");
       assert.ok(round.phraseChunks.length >= 2);
       assert.deepEqual(round.trailWords, round.phraseChunks.join(" ").split(/\s+/u));
+      assert.equal(round.displayTrailWords.length, round.trailWords.length);
+      assert.ok(
+        round.displayTrailWords.every(word => !/[.!?,;:]["'’”)]*$/u.test(word)),
+        "the visible trail must not reveal the authored line break with punctuation"
+      );
       assert.ok(round.trailWords.length <= 12, "the trail must fit a short-height play surface");
       assert.ok(Number.isInteger(round.correctBoundary));
       assert.ok(round.boundaryChoices.length >= 2, "needs a real pause-point choice");
@@ -116,6 +121,7 @@ test("Phrase Flow flattens source lines into one trail and offers one defensible
       );
       for (const choice of round.boundaryChoices) {
         assert.equal(choice.afterWord, round.trailWords[choice.position - 1]);
+        assert.match(choice.label, /^After “[^”]+”$/u, "every boundary must use the same visible syntax");
         if (choice.position !== round.correctBoundary) {
           assert.doesNotMatch(
             choice.afterWord,

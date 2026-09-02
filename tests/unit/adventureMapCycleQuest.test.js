@@ -4,6 +4,7 @@ import test from "node:test";
 import {
   buildCycleQuestBlueprint,
   buildStationRounds,
+  isCycleQuestEligibleRound,
   stationsForCycle
 } from "../../src/components/elQuest/elQuestEngine.js";
 import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
@@ -17,6 +18,7 @@ test("Cycle Quest samples every eligible construct before any repeat", () => {
       stationsForCycle(cycle)
         .filter(station => station.id !== "check")
         .flatMap(station => buildStationRounds(cycle, station.id))
+        .filter(isCycleQuestEligibleRound)
         .map(round => round.construct)
     );
     const firstRepeat = blueprint.manifest.findIndex((construct, index, list) => (
@@ -28,6 +30,10 @@ test("Cycle Quest samples every eligible construct before any repeat", () => {
 
     assert.ok(blueprint.rounds.length > 0, `cycle ${cycle.cycleNumber}`);
     assert.ok(blueprint.rounds.length <= 10, `cycle ${cycle.cycleNumber}`);
+    assert.ok(
+      blueprint.rounds.every(isCycleQuestEligibleRound),
+      `cycle ${cycle.cycleNumber} included a support-only round`
+    );
     assert.deepEqual(
       blueprint.manifest,
       blueprint.rounds.map(round => round.construct),
@@ -55,8 +61,19 @@ test("the public check builder returns the balanced blueprint rounds", () => {
       stationsForCycle(cycle)
         .filter(station => station.id !== "check")
         .flatMap(station => buildStationRounds(cycle, station.id))
+        .filter(isCycleQuestEligibleRound)
         .map(round => round.construct)
     ).size;
     assert.equal(uniquePrefixLength, Math.min(availableCount, 10));
+  }
+});
+
+test("a recorded run seed reproduces the same rounds and arrangement", () => {
+  for (const cycleNumber of [1, 15, 25, 27]) {
+    const cycle = cycles.find(item => item.cycleNumber === cycleNumber);
+    const seed = `replay:${cycle.id}:fixed-seed`;
+    const first = buildStationRounds(cycle, "check", { seed });
+    const replay = buildStationRounds(cycle, "check", { seed });
+    assert.deepEqual(replay, first, `cycle ${cycleNumber}`);
   }
 });

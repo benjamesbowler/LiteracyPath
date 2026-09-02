@@ -66,7 +66,7 @@ export function stopCueAudio() {
   stopCuePlayback();
 }
 
-function playCueAudioInternal(src, { volume = 0.95, onUnavailable } = {}, preserveSequence = false) {
+function playCueAudioInternal(src, { volume = 0.95, onUnavailable, onEnded } = {}, preserveSequence = false) {
   stopCuePlayback({ preserveSequence });
   if (!src) {
     onUnavailable?.();
@@ -97,7 +97,11 @@ function playCueAudioInternal(src, { volume = 0.95, onUnavailable } = {}, preser
       onUnavailable?.();
     };
     currentCueFinish = finish;
-    listenForCue("ended", finish, { once: true });
+    const ended = () => {
+      finish();
+      onEnded?.();
+    };
+    listenForCue("ended", ended, { once: true });
     listenForCue("error", unavailable, { once: true });
     if (cueSuspended) {
       cueResumeAfterSuspend = true;

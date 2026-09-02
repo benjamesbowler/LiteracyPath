@@ -52,6 +52,7 @@ test("cycle bests merge forward while latest run evidence stays internally consi
         plays: 4,
         recoveries: 0,
         sampledConstructs: ["visual_letter_identity"],
+        lastRunSeed: "older-seed",
         lastIndependent: 10,
         lastTotal: 10,
         lastPlayedAt: "2026-09-02T09:00:00.000Z"
@@ -69,6 +70,7 @@ test("cycle bests merge forward while latest run evidence stays internally consi
         plays: 5,
         recoveries: 6,
         sampledConstructs: ["heard_phoneme_grapheme_mapping", "orthographic_memory"],
+        lastRunSeed: "newer-seed",
         lastIndependent: 4,
         lastTotal: 10,
         lastPlayedAt: "2026-09-02T10:00:00.000Z"
@@ -83,6 +85,7 @@ test("cycle bests merge forward while latest run evidence stays internally consi
     plays: 5,
     recoveries: 6,
     sampledConstructs: ["heard_phoneme_grapheme_mapping", "orthographic_memory"],
+    lastRunSeed: "newer-seed",
     lastIndependent: 4,
     lastTotal: 10,
     lastPlayedAt: "2026-09-02T10:00:00.000Z"

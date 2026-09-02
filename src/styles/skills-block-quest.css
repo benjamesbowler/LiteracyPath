@@ -2458,6 +2458,29 @@
   gap: 10px;
 }
 
+.sbq-phrase-model {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  width: min(100%, 720px);
+  padding: 12px 16px;
+  border: 3px solid rgba(255, 235, 145, 0.72);
+  border-radius: 18px;
+  background: rgba(23, 31, 54, 0.86);
+}
+
+.sbq-phrase-model p {
+  margin: 2px 0;
+  color: #fff9dc;
+  font: 800 clamp(1rem, 2.2vw, 1.3rem)/1.35 var(--lp-font-reading);
+}
+
+.sbq-phrase-model[data-model-playback="playing"] p {
+  color: #fff0a0;
+  text-shadow: 0 0 14px rgba(255, 230, 117, 0.7);
+}
+
 .sbq-phrase-flow button {
   max-width: 260px;
   font-size: 0.95rem;
@@ -2495,7 +2518,7 @@
   gap: 9px;
 }
 
-.sbq-heart-slots span {
+.sbq-heart-slots > span {
   display: grid;
   place-items: center;
   min-width: 64px;
@@ -2508,7 +2531,7 @@
   font: 900 clamp(1.4rem, 3vw, 2rem)/1 var(--lp-font-reading);
 }
 
-.sbq-heart-slots span.is-first-difference {
+.sbq-heart-slots > span.is-first-difference {
   border-color: #ffe16c;
   background: #fff2a8;
   box-shadow: 0 4px 0 #a27b26, 0 0 20px rgba(255, 224, 93, 0.7);
@@ -2778,6 +2801,11 @@
   .sbq-pattern-sort {
     grid-template-columns: 1fr;
     grid-template-areas: "status" "tile" "bins" "replay";
+  }
+
+  .sbq-phrase-model {
+    grid-template-columns: 1fr;
+    justify-items: center;
   }
 
   .sbq-trace {

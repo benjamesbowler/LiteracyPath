@@ -99,6 +99,8 @@ test("each mechanic receives the explicit data its component needs", () => {
       } else if (mechanicId === "phraseFlow") {
         assert.ok(round.phraseChunks?.length >= 2, where);
         assert.ok(round.trailWords?.length >= 4, where);
+        assert.equal(round.displayTrailWords?.length, round.trailWords.length, where);
+        assert.ok(round.boundaryChoices?.every(choice => /^After “[^”]+”$/u.test(choice.label)), where);
       } else if (mechanicId === "heartWord") {
         assert.ok(round.word && round.graphemes?.join("") === round.word, where);
       }

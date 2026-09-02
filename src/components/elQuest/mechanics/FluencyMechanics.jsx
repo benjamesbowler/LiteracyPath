@@ -52,7 +52,6 @@ export function PatternSortMechanic({
   disabled = false,
   supportLevel = 0,
   onCommit,
-  onRequestReplay,
   reducedMotion = false
 }) {
   const [state, setState] = useState(() => createPatternSortState(round));
@@ -143,14 +142,6 @@ export function PatternSortMechanic({
           ))}
         </div>
       )}
-      <button
-        className="sbq-ghost-button"
-        type="button"
-        disabled={disabled || !onRequestReplay}
-        onClick={onRequestReplay}
-      >
-        Hear the instruction again
-      </button>
     </div>
   );
 }
@@ -160,7 +151,6 @@ export function WordChainMechanic({
   disabled = false,
   supportLevel = 0,
   onCommit,
-  onRequestReplay,
   reducedMotion = false
 }) {
   const [state, setState] = useState(() => createWordChainState(round));
@@ -222,14 +212,6 @@ export function WordChainMechanic({
           ))}
         </div>
       )}
-      <button
-        className="sbq-ghost-button"
-        type="button"
-        disabled={disabled || !onRequestReplay}
-        onClick={onRequestReplay}
-      >
-        Hear the next word again
-      </button>
     </div>
   );
 }
@@ -243,6 +225,7 @@ export function PhraseFlowMechanic({
   reducedMotion = false
 }) {
   const [state, setState] = useState(() => createPhraseFlowState(round));
+  const [modelPlayback, setModelPlayback] = useState("idle");
   const boundaryChoices = round.boundaryChoices || [];
 
   function chooseBoundary(boundary) {
@@ -253,9 +236,24 @@ export function PhraseFlowMechanic({
     );
   }
 
-  function followModel() {
-    onRequestReplay?.();
+  function completeModel() {
     applyTransition(setState, completePhraseModel(state), onCommit);
+  }
+
+  function followModel() {
+    if (state.stage !== "model" || modelPlayback === "playing") return;
+    if (!onRequestReplay) {
+      setModelPlayback("unavailable");
+      return;
+    }
+    setModelPlayback("playing");
+    onRequestReplay({
+      onEnded: () => {
+        setModelPlayback("complete");
+        completeModel();
+      },
+      onUnavailable: () => setModelPlayback("unavailable")
+    });
   }
 
   function finishEcho() {
@@ -276,7 +274,7 @@ export function PhraseFlowMechanic({
         {state.feedback}
       </p>
       <p className="sbq-phrase-trail" aria-label="Continuous poetry word trail">
-        {round.trailWords.map((word, index) => (
+        {(round.displayTrailWords || round.trailWords).map((word, index) => (
           <span className="sbq-phrase-word" key={word + "-" + index}>
             {index > 0 ? " " : ""}{word}
           </span>
@@ -298,13 +296,26 @@ export function PhraseFlowMechanic({
         </div>
       )}
       {state.stage === "model" && (
-        <button
-          type="button"
-          disabled={disabled || !onRequestReplay}
-          onClick={followModel}
-        >
-          Follow the phrase model
-        </button>
+        <div className="sbq-phrase-model" data-model-playback={modelPlayback}>
+          <div aria-label="Visible phrase model">
+            {(round.phraseChunks || []).map((chunk, index) => (
+              <p key={`${chunk}-${index}`}>{chunk}</p>
+            ))}
+          </div>
+          {modelPlayback === "unavailable" ? (
+            <button type="button" disabled={disabled} onClick={completeModel}>
+              I followed the visible model
+            </button>
+          ) : (
+            <button
+              type="button"
+              disabled={disabled || modelPlayback === "playing"}
+              onClick={followModel}
+            >
+              {modelPlayback === "playing" ? "Phrase model playing…" : "Play and follow the phrase model"}
+            </button>
+          )}
+        </div>
       )}
       {state.stage === "echo" && (
         <button type="button" disabled={disabled} onClick={finishEcho}>
@@ -315,10 +326,24 @@ export function PhraseFlowMechanic({
   );
 }
 
+function stableHash(value) {
+  let hash = 2166136261;
+  for (const character of String(value || "")) {
+    hash ^= character.codePointAt(0);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
 function heartWordBank(round) {
-  return round.graphemes
-    .map((grapheme, index) => ({ grapheme, id: index }))
-    .reverse();
+  const tiles = round.graphemes.map((grapheme, index) => ({ grapheme, id: index }));
+  let seed = stableHash(round.roundKey || `${round.word}:${round.graphemes.join("|")}`);
+  for (let index = tiles.length - 1; index > 0; index -= 1) {
+    seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+    const swapIndex = seed % (index + 1);
+    [tiles[index], tiles[swapIndex]] = [tiles[swapIndex], tiles[index]];
+  }
+  return tiles;
 }
 
 export function HeartWordMechanic({
@@ -326,10 +351,10 @@ export function HeartWordMechanic({
   disabled = false,
   supportLevel = 0,
   onCommit,
-  onRequestReplay,
   reducedMotion = false
 }) {
   const [state, setState] = useState(() => createHeartWordState(round));
+  const [chosenTileIds, setChosenTileIds] = useState([]);
   const bank = useMemo(() => heartWordBank(round), [round]);
   const attemptFull = state.attempt.length === round.graphemes.length;
 
@@ -337,15 +362,23 @@ export function HeartWordMechanic({
     applyTransition(setState, hideHeartWord(state), onCommit);
   }
 
-  function chooseGrapheme(grapheme) {
+  function chooseTile(tile) {
+    if (state.phase === "spell" && chosenTileIds.includes(tile.id)) return;
     const transition = state.phase === "repair"
-      ? repairHeartWord(state, round, grapheme, supportLevel)
-      : addHeartGrapheme(state, round, grapheme);
+      ? repairHeartWord(state, round, tile.grapheme, supportLevel)
+      : addHeartGrapheme(state, round, tile.grapheme);
+    if (state.phase === "spell" && transition.state.attempt.length > state.attempt.length) {
+      setChosenTileIds(current => [...current, tile.id]);
+    }
     applyTransition(setState, transition, onCommit);
   }
 
   function removeLast() {
-    applyTransition(setState, removeHeartGrapheme(state), onCommit);
+    const transition = removeHeartGrapheme(state);
+    if (transition.state.attempt.length < state.attempt.length) {
+      setChosenTileIds(current => current.slice(0, -1));
+    }
+    applyTransition(setState, transition, onCommit);
   }
 
   function revealAttempt() {
@@ -407,8 +440,9 @@ export function HeartWordMechanic({
                 <button
                   key={tile.id}
                   type="button"
-                  disabled={disabled || (state.phase === "spell" && attemptFull)}
-                  onClick={() => chooseGrapheme(tile.grapheme)}
+                  data-heart-tile-id={tile.id}
+                  disabled={disabled || (state.phase === "spell" && (attemptFull || chosenTileIds.includes(tile.id)))}
+                  onClick={() => chooseTile(tile)}
                 >
                   {tile.grapheme}
                 </button>
@@ -435,14 +469,6 @@ export function HeartWordMechanic({
           )}
         </>
       )}
-      <button
-        className="sbq-ghost-button"
-        type="button"
-        disabled={disabled || !onRequestReplay}
-        onClick={onRequestReplay}
-      >
-        Hear the heart word again
-      </button>
     </div>
   );
 }

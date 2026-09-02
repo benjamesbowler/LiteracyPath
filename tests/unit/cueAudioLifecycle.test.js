@@ -242,3 +242,53 @@ test("a rejected cue play promise also advances the sequence", async () => {
     globalThis.Audio = originalAudio;
   }
 });
+
+test("a cue completion callback fires only after recorded playback ends", async () => {
+  const originalWindow = globalThis.window;
+  const originalAudio = globalThis.Audio;
+  let cue = null;
+  let audio = null;
+  let ended = 0;
+
+  class FakeAudio {
+    constructor() {
+      this.currentTime = 0;
+      this.listeners = new Map();
+      audio = this;
+    }
+
+    addEventListener(type, handler) {
+      const handlers = this.listeners.get(type) || [];
+      handlers.push(handler);
+      this.listeners.set(type, handlers);
+    }
+
+    removeEventListener(type, handler) {
+      const handlers = this.listeners.get(type) || [];
+      this.listeners.set(type, handlers.filter(candidate => candidate !== handler));
+    }
+
+    emit(type) {
+      for (const handler of this.listeners.get(type) || []) handler();
+    }
+
+    play() { return Promise.resolve(); }
+    pause() {}
+    load() {}
+  }
+
+  globalThis.window = { speechSynthesis: { cancel() {} } };
+  globalThis.Audio = FakeAudio;
+
+  try {
+    cue = await import(`../../src/utils/audio/cuePlayer.js?ended=${Date.now()}`);
+    cue.playCueAudio("/audio/phrase.mp3", { onEnded: () => { ended += 1; } });
+    assert.equal(ended, 0);
+    audio.emit("ended");
+    assert.equal(ended, 1);
+  } finally {
+    cue?.stopCueAudio();
+    globalThis.window = originalWindow;
+    globalThis.Audio = originalAudio;
+  }
+});

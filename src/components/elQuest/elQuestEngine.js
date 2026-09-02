@@ -146,10 +146,39 @@ function closeSpellingDistractors(target, authorisedWords, count = 3) {
   return candidates.slice(0, count);
 }
 
+let activeShuffleRandom = null;
+
+function seededRandom(seedText) {
+  let seed = 2166136261;
+  for (const character of String(seedText || "")) {
+    seed ^= character.codePointAt(0);
+    seed = Math.imul(seed, 16777619);
+  }
+  return () => {
+    seed += 0x6d2b79f5;
+    let value = seed;
+    value = Math.imul(value ^ (value >>> 15), value | 1);
+    value ^= value + Math.imul(value ^ (value >>> 7), value | 61);
+    return ((value ^ (value >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function withShuffleSeed(seed, build) {
+  if (!seed) return build();
+  const previous = activeShuffleRandom;
+  activeShuffleRandom = seededRandom(seed);
+  try {
+    return build();
+  } finally {
+    activeShuffleRandom = previous;
+  }
+}
+
 export function shuffleItems(items) {
   const copy = [...items];
+  const random = activeShuffleRandom || Math.random;
   for (let index = copy.length - 1; index > 0; index -= 1) {
-    const swapIndex = Math.floor(Math.random() * (index + 1));
+    const swapIndex = Math.floor(random() * (index + 1));
     [copy[index], copy[swapIndex]] = [copy[swapIndex], copy[index]];
   }
   return copy;
@@ -1054,7 +1083,9 @@ function endsWithPhrasePunctuation(word) {
 }
 
 function phraseBoundaryWordLabel(word) {
-  return String(word || "").replace(/^["'“‘]+|["'”’]+$/gu, "");
+  return String(word || "")
+    .replace(/^["'“‘]+/gu, "")
+    .replace(/[.!?,;:"'”’…)]+$/gu, "");
 }
 
 const PHRASE_FLOW_MAX_WORDS = 12;
@@ -1103,7 +1134,7 @@ function phraseBoundaryChoices(firstLine, secondLine, authored) {
     },
     ...alternatives.map(choice => ({
       ...choice,
-      label: `Between “${choice.afterWord}” and “${choice.beforeWord}”`
+      label: `After “${phraseBoundaryWordLabel(choice.afterWord)}”`
     }))
   ]);
   return { correctBoundary, boundaryChoices };
@@ -1134,6 +1165,7 @@ function buildPhraseFlowRounds(cycle) {
       instruction: "Read the word trail. Choose where the first poetry line ends, then follow the model and echo-read it.",
       phraseChunks,
       trailWords,
+      displayTrailWords: trailWords.map(phraseBoundaryWordLabel),
       correctBoundary,
       boundaryChoices
     });
@@ -1269,11 +1301,12 @@ export function stationsForCycle(cycle) {
   return definitions;
 }
 
-export function buildCycleQuestBlueprint(cycle, limit = 10) {
+function createCycleQuestBlueprint(cycle, limit = 10) {
   const maximum = Math.max(1, Math.min(10, Number(limit) || 10));
   const candidates = stationsForCycle(cycle)
     .filter(station => station.id !== "check" && station.build)
-    .flatMap(station => station.build(cycle));
+    .flatMap(station => station.build(cycle))
+    .filter(isCycleQuestEligibleRound);
   const byConstruct = new Map();
 
   for (const round of candidates) {
@@ -1304,19 +1337,34 @@ export function buildCycleQuestBlueprint(cycle, limit = 10) {
   };
 }
 
-export function buildStationRounds(cycle, stationId) {
+export function buildCycleQuestBlueprint(cycle, limit = 10, options = {}) {
+  return withShuffleSeed(options.seed, () => createCycleQuestBlueprint(cycle, limit));
+}
+
+export function isCycleQuestEligibleRound(round) {
+  // Phrase Flow is valuable supported oral rehearsal, but its model-and-echo
+  // completion is deliberately support-only and cannot provide an independent
+  // first-attempt result. Keep it in practice without making a perfect Cycle
+  // Quest score mathematically impossible.
+  return round?.mechanicId !== "phraseFlow"
+    && round?.construct !== "supported_phrase_reading";
+}
+
+export function buildStationRounds(cycle, stationId, options = {}) {
   if (stationId === "check") {
-    return buildCycleQuestBlueprint(cycle).rounds;
+    return buildCycleQuestBlueprint(cycle, 10, options).rounds;
   }
-  const station = stationsForCycle(cycle).find(item => item.id === stationId);
-  if (!station?.build) {
-    throw new Error(`Adventure Map station "${stationId}" is unknown or ineligible for cycle ${cycle?.cycleNumber || "unknown"}.`);
-  }
-  const rounds = station.build(cycle);
-  if (!rounds.length) {
-    throw new Error(`Adventure Map station "${stationId}" has no truthful rounds for cycle ${cycle?.cycleNumber || "unknown"}.`);
-  }
-  return rounds;
+  return withShuffleSeed(options.seed, () => {
+    const station = stationsForCycle(cycle).find(item => item.id === stationId);
+    if (!station?.build) {
+      throw new Error(`Adventure Map station "${stationId}" is unknown or ineligible for cycle ${cycle?.cycleNumber || "unknown"}.`);
+    }
+    const rounds = station.build(cycle);
+    if (!rounds.length) {
+      throw new Error(`Adventure Map station "${stationId}" has no truthful rounds for cycle ${cycle?.cycleNumber || "unknown"}.`);
+    }
+    return rounds;
+  });
 }
 
 export function starsForAccuracy(correct, total, wrongs) {

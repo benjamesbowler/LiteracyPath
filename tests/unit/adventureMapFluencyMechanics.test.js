@@ -208,6 +208,14 @@ test("Phrase Flow uses one neutral word trail and records mandatory model suppor
   assert.equal("duration" in completed.outcome.evidence, false);
 });
 
+test("Phrase Flow waits for its recorded model and keeps a visible fallback", async () => {
+  const source = await readFile(componentUrl, "utf8");
+  assert.match(source, /onRequestReplay\(\{[\s\S]*onEnded:[\s\S]*completeModel\(\)/);
+  assert.match(source, /onUnavailable:[\s\S]*setModelPlayback\("unavailable"\)/);
+  assert.match(source, /aria-label="Visible phrase model"/);
+  assert.match(source, /I followed the visible model/);
+});
+
 test("fluency accessibility labels expose graphemes and positions through a real screen-reader-only helper", async () => {
   const { heartSlotLabel, wordChainPositionLabel } = await loadState();
 
@@ -274,6 +282,19 @@ test("Heart Word hides its model, keeps the correct grapheme prefix, and repairs
   assert.equal(complete.state.phase, "complete");
   assert.equal("speed" in complete.outcome.evidence, false);
   assert.equal("duration" in complete.outcome.evidence, false);
+});
+
+test("Heart Word uses a deterministic mixed tile bank and consumes exact tile instances", async () => {
+  const source = await readFile(componentUrl, "utf8");
+  const styles = await readFile(stylesUrl, "utf8");
+
+  assert.match(source, /function stableHash\(/);
+  assert.match(source, /const \[chosenTileIds, setChosenTileIds\] = useState\(\[\]\)/);
+  assert.match(source, /chosenTileIds\.includes\(tile\.id\)/);
+  assert.match(source, /data-heart-tile-id=\{tile\.id\}/);
+  assert.doesNotMatch(source, /round\.graphemes[\s\S]{0,100}\.reverse\(\)/);
+  assert.match(styles, /\.sbq-heart-slots > span\s*\{/);
+  assert.doesNotMatch(styles, /\.sbq-heart-slots span\s*\{/);
 });
 
 test("fluency mechanics contain no timer, countdown, or automatic rate scoring", async () => {

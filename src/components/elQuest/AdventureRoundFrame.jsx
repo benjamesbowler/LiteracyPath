@@ -13,10 +13,14 @@ export function AdventureRoundFrame({
   roundTotal,
   mechanicId,
   instructionText,
+  instructionAudio = "",
   detailText = "",
   supportText = "",
   feedback = "",
   feedbackTone = "ready",
+  announceFeedback = true,
+  shaking = false,
+  sparkle = false,
   disabled = false,
   hasTargetAudio = false,
   hasContentAudio = false,
@@ -24,6 +28,7 @@ export function AdventureRoundFrame({
   onReplayInstruction,
   onReplayTarget,
   onReplayContent,
+  onShakeEnd,
   onStop,
   children
 }) {
@@ -70,7 +75,13 @@ export function AdventureRoundFrame({
             {supportText && <small className="adventure-round-frame__support">{supportText}</small>}
           </div>
           <div className="adventure-round-frame__audio-actions">
-            <button type="button" disabled={disabled} onClick={onReplayInstruction}>
+            <button
+              type="button"
+              aria-label="Hear instructions again"
+              data-instruction-audio={instructionAudio}
+              disabled={disabled}
+              onClick={onReplayInstruction}
+            >
               <SpeakerIcon />
               Hear what to do
             </button>
@@ -89,7 +100,12 @@ export function AdventureRoundFrame({
           </div>
         </aside>
 
-        <div className="adventure-round-frame__stage" data-stage-state={feedbackTone}>
+        <div
+          className={`adventure-round-frame__stage${shaking ? " sbq-shake" : ""}`}
+          data-stage-state={feedbackTone}
+          onAnimationEnd={onShakeEnd}
+        >
+          {sparkle && <span className="sbq-sparkle" aria-hidden="true">✨</span>}
           {children}
           <div className="adventure-round-frame__world-reaction" aria-hidden="true">
             <span />
@@ -101,8 +117,8 @@ export function AdventureRoundFrame({
         <p
           className="adventure-round-frame__feedback"
           data-feedback-tone={feedbackTone}
-          role="status"
-          aria-live="polite"
+          role={announceFeedback ? "status" : undefined}
+          aria-live={announceFeedback ? "polite" : undefined}
         >
           {feedback}
         </p>
