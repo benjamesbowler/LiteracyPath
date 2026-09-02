@@ -4910,7 +4910,7 @@ The pure dependency graph is acyclic and exact. A parsed-import test uses these 
   ],
   "engine/sceneVisualAccess.js": ["engine/connectedTextPresentation.js"],
   "sceneVisualCatalog.js": [
-    "content/chapters/index.js", "content/expeditions.js",
+    "content/chapters/index.js", "content/expeditions.js", "content/connectedText.js",
     "content/sceneVisualSemantics.js", "content/meaningSupport.js",
     "engine/sceneVisualAccess.js", "characterCatalog.js", "visualTokens.js"
   ],
@@ -4920,7 +4920,7 @@ The pure dependency graph is acyclic and exact. A parsed-import test uses these 
 }
 ```
 
-The test canonicalizes relative import specifiers, rejects dynamic imports and extra local edges in these dependency-bound modules, then topologically sorts this graph. It additionally parses named imports and requires `sceneVisualAccess.js` to import exactly `isConnectedTextPresentationTransition` and `projectConnectedTextPresentationTransition` from Task 3—no scene semantic resolver, presentation reducer, Task 2 state/transaction module, renderer, evidence module, or answer-key module. `sceneVisualCatalog.js` imports exactly `validateSceneVisualAccess` from `engine/sceneVisualAccess.js`; access imports no catalog, so the resolver can authenticate a capability and then resolve semantics without a cycle. In particular, neither catalog imports `biomeKits.js`, `characterCatalog.js` does not import `sceneVisualCatalog.js`, and `sceneVisualAccess.js` never becomes a second transition validator. `resolveSceneVisualPresentation()` therefore returns a `kitId`, not a biome object; `SceneVisual.jsx` is the first layer allowed to call `getBiomeKit(kitId)` and join the pure catalogs for rendering.
+The test canonicalizes relative import specifiers, rejects dynamic imports and extra local edges in these dependency-bound modules, then topologically sorts this graph. It additionally parses named imports and requires `sceneVisualAccess.js` to import exactly `isConnectedTextPresentationTransition` and `projectConnectedTextPresentationTransition` from Task 3—no scene semantic resolver, presentation reducer, Task 2 state/transaction module, renderer, evidence module, or answer-key module. `sceneVisualCatalog.js` imports exactly `isConnectedTextChildScene` from `content/connectedText.js` and `validateSceneVisualAccess` from `engine/sceneVisualAccess.js`; it uses the former only to require a genuine Task 3 child projection and reject spread, cloned, serialized, or caller-authored lookalikes. Access imports no catalog, so the resolver can authenticate a capability and then resolve semantics without a cycle. In particular, neither catalog imports `biomeKits.js`, `characterCatalog.js` does not import `sceneVisualCatalog.js`, and `sceneVisualAccess.js` never becomes a second transition validator. `resolveSceneVisualPresentation()` therefore returns a `kitId`, not a biome object; `SceneVisual.jsx` is the first layer allowed to call `getBiomeKit(kitId)` and join the pure catalogs for rendering.
 
 Task 4 declares the exact eight future raster paths, immutable generation briefs, semantic/crop contracts, and code-native renderers, but it never reads or requires a Task 5 file. Task 5 remains the sole producer of v2 raster files. Task 4 must not fail because those eight public files do not exist yet: a Vite build cannot prove that a root-relative public URL exists, and the complete code-native fallback is tested without Task 5.
 
