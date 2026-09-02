@@ -28,6 +28,7 @@ export function AdventureRoundFrame({
   onReplayInstruction,
   onReplayTarget,
   onReplayContent,
+  onStageInteraction,
   onShakeEnd,
   onStop,
   children
@@ -103,6 +104,8 @@ export function AdventureRoundFrame({
         <div
           className={`adventure-round-frame__stage${shaking ? " sbq-shake" : ""}`}
           data-stage-state={feedbackTone}
+          onClickCapture={onStageInteraction}
+          onPointerDownCapture={onStageInteraction}
           onAnimationEnd={onShakeEnd}
         >
           {sparkle && <span className="sbq-sparkle" aria-hidden="true">✨</span>}

@@ -131,9 +131,9 @@ function playRoundInstruction(round, { includeContent = false } = {}) {
   if (sequence.length) playCueSequence(sequence, { gapMs: 180 });
 }
 
-function createRunSeed(scopeKey, cycleId, stationId) {
+function createRunSeed(cycleId, stationId) {
   const nonce = globalThis.crypto?.randomUUID?.() || `${Date.now()}`;
-  return `${scopeKey}:${cycleId}:${stationId}:${nonce}`;
+  return `adventure:${cycleId}:${stationId}:${nonce}`;
 }
 
 function StationLockIcon() {
@@ -177,7 +177,7 @@ export function ElSkillsQuest({
     ? stationsForCycle(initialCycle).find(station => station.id === initialStationId)
     : null;
   const initialRunSeed = initialCycle && initialStation
-    ? `${progressScopeKey}:${initialCycle.id}:${initialStation.id}:initial-v2`
+    ? `adventure:${initialCycle.id}:${initialStation.id}:initial-v3`
     : "";
   const [activeCycleId, setActiveCycleId] = useState(initialCycleId || null);
   const [stationId, setStationId] = useState(initialStation?.id || null);
@@ -193,6 +193,7 @@ export function ElSkillsQuest({
   const [shaking, setShaking] = useState(false);
   const [sparkle, setSparkle] = useState(false);
   const [interactionLocked, setInteractionLocked] = useState(false);
+  const [roundSupportLevel, setRoundSupportLevel] = useState(0);
   const [roundFeedback, setRoundFeedback] = useState("");
   const [feedbackTone, setFeedbackTone] = useState("ready");
   const answerLockRef = useRef(false);
@@ -286,7 +287,7 @@ export function ElSkillsQuest({
     if (cueTimerRef.current !== null) window.clearTimeout(cueTimerRef.current);
     cueTimerRef.current = null;
     stopCueAudio();
-    const nextSeed = createRunSeed(progressScopeKey, cycle.id, id);
+    const nextSeed = createRunSeed(cycle.id, id);
     const nextRounds = buildStationRounds(cycle, id, { seed: nextSeed });
     const freshRun = createAdventureRun(nextRounds.length);
     setStationId(id);
@@ -297,6 +298,7 @@ export function ElSkillsQuest({
     setRunSeed(nextSeed);
     answerLockRef.current = false;
     setInteractionLocked(false);
+    setRoundSupportLevel(0);
     setRoundFeedback("");
     setFeedbackTone("ready");
     setCelebration(null);
@@ -308,7 +310,7 @@ export function ElSkillsQuest({
       // media permission attached to the child's trusted gesture.
       playRoundInstruction(firstRound, { includeContent: firstRound.mechanicId === "poemSpotlight" });
     }
-  }, [cancelPendingTransition, progressScopeKey]);
+  }, [cancelPendingTransition]);
 
   function finishStation(finalRun) {
     cancelPendingTransition();
@@ -413,6 +415,7 @@ export function ElSkillsQuest({
         else {
           answerLockRef.current = false;
           setInteractionLocked(false);
+          setRoundSupportLevel(0);
           setRoundFeedback("");
           setFeedbackTone("ready");
           setRoundIndex(index => index + 1);
@@ -445,6 +448,13 @@ export function ElSkillsQuest({
     setSparkle(false);
     setShaking(false);
     setStationId(null);
+  }
+
+  function acknowledgeRetryInteraction() {
+    if (answerLockRef.current || feedbackTone !== "retry") return;
+    setRoundFeedback("");
+    setFeedbackTone("ready");
+    setShaking(false);
   }
 
   function replayTarget() {
@@ -996,9 +1006,19 @@ export function ElSkillsQuest({
           hasTargetAudio={Boolean(roundAudio?.targetAudio?.length)}
           hasContentAudio={Boolean(roundAudio?.contentAudio)}
           contentReplayLabel={round.mechanicId === "phraseFlow" ? "Hear the phrase" : "Hear the poem"}
-          onReplayInstruction={() => playRoundInstruction(round)}
-          onReplayTarget={replayTarget}
-          onReplayContent={replayContent}
+          onReplayInstruction={() => {
+            setRoundSupportLevel(level => level + 1);
+            playRoundInstruction(round);
+          }}
+          onReplayTarget={() => {
+            setRoundSupportLevel(level => level + 1);
+            replayTarget();
+          }}
+          onReplayContent={() => {
+            setRoundSupportLevel(level => level + 1);
+            replayContent();
+          }}
+          onStageInteraction={acknowledgeRetryInteraction}
           onShakeEnd={() => setShaking(false)}
           onStop={stopStation}
         >
@@ -1006,7 +1026,7 @@ export function ElSkillsQuest({
             key={`${stationId}:${roundIndex}:${round.roundKey || round.mechanicId}`}
             round={round}
             disabled={interactionLocked}
-            supportLevel={runState.attempts?.[roundIndex] || 0}
+            supportLevel={(runState.attempts?.[roundIndex] || 0) + roundSupportLevel}
             onCommit={handleOutcome}
             onRequestReplay={replayFromMechanic}
             onRequestObjectAudio={word => {

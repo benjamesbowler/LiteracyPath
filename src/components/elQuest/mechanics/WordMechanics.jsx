@@ -19,21 +19,6 @@ import {
 const noop = () => {};
 const CONTROL_CLASS = "adventure-mechanic-control adventure-mechanic-control--56";
 
-function ReplayButton({ disabled, label, onReplay }) {
-  return (
-    <button
-      type="button"
-      className={CONTROL_CLASS}
-      data-action="replay"
-      data-target-size="56"
-      disabled={disabled}
-      onClick={onReplay}
-    >
-      {label}
-    </button>
-  );
-}
-
 function LiveStatus({ children }) {
   return (
     <p className="adventure-mechanic-status" role="status" aria-live="polite">
@@ -62,7 +47,6 @@ export function WordWindowMechanic({
   disabled = false,
   supportLevel = 0,
   onCommit = noop,
-  onRequestReplay = noop,
   reducedMotion = false
 }) {
   const [storedState, dispatch] = useReducer(
@@ -73,11 +57,6 @@ export function WordWindowMechanic({
   const state = wordWindowStateForRound(storedState, round, supportLevel);
   const locked = disabled || ["committed", "revealed"].includes(state.phase);
   const revealedOutcome = buildWordWindowOutcome(round, state);
-
-  const replay = () => {
-    dispatch({ type: "REQUEST_REPLAY" });
-    onRequestReplay();
-  };
 
   const choose = value => {
     if (locked || state.phase !== "choose") return;
@@ -152,7 +131,6 @@ export function WordWindowMechanic({
       )}
 
       <div className="adventure-word-window__controls">
-        <ReplayButton disabled={disabled} label="Hear word again" onReplay={replay} />
         {state.phase === "study" && (
           <button
             type="button"
@@ -212,7 +190,6 @@ export function SoundBoxesMechanic({
   disabled = false,
   supportLevel = 0,
   onCommit = noop,
-  onRequestReplay = noop,
   reducedMotion = false
 }) {
   const [storedState, dispatch] = useReducer(
@@ -223,11 +200,6 @@ export function SoundBoxesMechanic({
   const state = soundBoxesStateForRound(storedState, round, supportLevel);
   const locked = disabled || state.committed;
   const ready = state.slots.length > 0 && state.slots.every(Boolean);
-
-  const replay = () => {
-    dispatch({ type: "REQUEST_REPLAY" });
-    onRequestReplay();
-  };
 
   const check = () => {
     if (locked || !ready) return;
@@ -299,7 +271,6 @@ export function SoundBoxesMechanic({
       </div>
 
       <div className="adventure-sound-boxes__controls">
-        <ReplayButton disabled={disabled} label="Hear word again" onReplay={replay} />
         <button
           type="button"
           className={CONTROL_CLASS}
@@ -335,7 +306,6 @@ export function WordMachineMechanic({
   disabled = false,
   supportLevel = 0,
   onCommit = noop,
-  onRequestReplay = noop,
   reducedMotion = false
 }) {
   const pieces = machinePiecesForRound(round);
@@ -349,11 +319,6 @@ export function WordMachineMechanic({
   const ready = round.operation === "joinCompound"
     ? state.selectedPieceIds.length === pieces.length && pieces.length > 0
     : state.selectedPieceIds.length === 1;
-
-  const replay = () => {
-    dispatch({ type: "REQUEST_REPLAY" });
-    onRequestReplay();
-  };
 
   const commit = () => {
     if (locked || !ready) return;
@@ -400,7 +365,8 @@ export function WordMachineMechanic({
               key={piece.id}
               disabled={locked}
               aria-pressed={selected}
-              aria-label={`${piece.action} ${piece.label}${round.operation === "joinCompound" ? `, piece ${index + 1}` : ""}`}
+              aria-label={`${piece.action} ${piece.label}${round.operation === "joinCompound" ? `, piece ${index + 1}` : ""}${round.operation === "removeOnset" ? `, position ${piece.position + 1}` : ""}`}
+              data-piece-position={Number.isInteger(piece.position) ? piece.position + 1 : undefined}
               onClick={() => dispatch({ type: "SELECT_PIECE", pieceId: piece.id })}
             >
               {piece.label}
@@ -424,7 +390,6 @@ export function WordMachineMechanic({
       )}
 
       <div className="adventure-word-machine__controls">
-        <ReplayButton disabled={locked} label="Hear operation again" onReplay={replay} />
         <button
           type="button"
           className={CONTROL_CLASS}

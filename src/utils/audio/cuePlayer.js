@@ -5,7 +5,7 @@ import { setQuestActionSfxInstructionActive } from "../questActionAudio.js";
 import { applyLearnerAudioIntensity } from "../../accessibility/learnerAccessibility.js";
 
 let currentCue = null;
-let currentCueFinish = null;
+let currentCueInterrupted = null;
 let cueSuspended = false;
 let cueResumeAfterSuspend = false;
 let sharedCueElement = null;
@@ -43,6 +43,8 @@ function cancelCueSequence() {
 
 function stopCuePlayback({ preserveSequence = false } = {}) {
   if (!preserveSequence) cancelCueSequence();
+  const interrupted = currentCueInterrupted;
+  currentCueInterrupted = null;
   clearCueListeners();
   if (currentCue) {
     try {
@@ -53,20 +55,24 @@ function stopCuePlayback({ preserveSequence = false } = {}) {
     }
     currentCue = null;
   }
-  currentCueFinish = null;
   cueResumeAfterSuspend = false;
   setQuestActionSfxInstructionActive(false);
   restoreGameMusic();
   if (typeof window !== "undefined" && window.speechSynthesis) {
     window.speechSynthesis.cancel();
   }
+  interrupted?.();
 }
 
 export function stopCueAudio() {
   stopCuePlayback();
 }
 
-function playCueAudioInternal(src, { volume = 0.95, onUnavailable, onEnded } = {}, preserveSequence = false) {
+function playCueAudioInternal(
+  src,
+  { volume = 0.95, onUnavailable, onEnded, onInterrupted } = {},
+  preserveSequence = false
+) {
   stopCuePlayback({ preserveSequence });
   if (!src) {
     onUnavailable?.();
@@ -80,11 +86,12 @@ function playCueAudioInternal(src, { volume = 0.95, onUnavailable, onEnded } = {
     audio.load?.();
     audio.volume = applyLearnerAudioIntensity(volume);
     currentCue = audio;
+    currentCueInterrupted = onInterrupted || null;
     setQuestActionSfxInstructionActive(true);
     const finish = () => {
       if (currentCue !== audio) return;
       currentCue = null;
-      currentCueFinish = null;
+      currentCueInterrupted = null;
       cueResumeAfterSuspend = false;
       setQuestActionSfxInstructionActive(false);
       restoreGameMusic();
@@ -96,7 +103,6 @@ function playCueAudioInternal(src, { volume = 0.95, onUnavailable, onEnded } = {
       finish();
       onUnavailable?.();
     };
-    currentCueFinish = finish;
     const ended = () => {
       finish();
       onEnded?.();
@@ -114,7 +120,7 @@ function playCueAudioInternal(src, { volume = 0.95, onUnavailable, onEnded } = {
     }
   } catch {
     currentCue = null;
-    currentCueFinish = null;
+    currentCueInterrupted = null;
     cueResumeAfterSuspend = false;
     setQuestActionSfxInstructionActive(false);
     restoreGameMusic();
@@ -176,16 +182,15 @@ export function setCueAudioSuspended(suspended = true) {
 
   if (!currentCue || !cueResumeAfterSuspend) return cueSuspended;
   const audio = currentCue;
-  const finish = currentCueFinish;
   cueResumeAfterSuspend = false;
   duckGameMusic();
   try {
     const result = audio.play();
     if (result?.catch) result.catch(() => {
-      if (currentCue === audio) finish?.();
+      if (currentCue === audio) stopCuePlayback();
     });
   } catch {
-    if (currentCue === audio) finish?.();
+    if (currentCue === audio) stopCuePlayback();
   }
   return cueSuspended;
 }

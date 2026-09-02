@@ -85,6 +85,8 @@ test("a live Cover Clue round renders its title strip and cover buttons without 
   });
 
   assert.match(html, /data-quest-view="round"/);
+  assert.match(html, /data-run-seed="adventure:cycle-1:story:initial-v3"/);
+  assert.doesNotMatch(html, /data-run-seed="[^"]*student-1/);
   assert.match(html, /data-mechanic-stage="cover-clue"/);
   assert.match(html, /class="sbq-cover-clue-strip"/);
   assert.match(html, /class="sbq-cover-clue-cover"/);

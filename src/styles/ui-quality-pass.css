@@ -297,7 +297,7 @@
    two-lane body rather than inheriting the old cover/answer grid positions.
    The title strip and support stay together while all three uncropped covers
    remain visible in one rack. */
-.kg-stage .kg-main > .skills-block-quest[data-round-type="story"] .sbq-cover-clue {
+.kg-stage .kg-main > .skills-block-quest[data-round-type="coverClue"] .sbq-cover-clue {
   grid-column: 1 / -1;
   grid-row: 2;
   display: grid;
@@ -790,7 +790,7 @@
     width: 100%;
   }
 
-  .kg-stage .kg-main > .skills-block-quest[data-round-type="story"] .sbq-cover-clue {
+  .kg-stage .kg-main > .skills-block-quest[data-round-type="coverClue"] .sbq-cover-clue {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto auto auto auto;
     height: auto;
@@ -3068,7 +3068,7 @@
 /* A heavily shortened, narrow landscape gets one deliberate player scroll
    route. Nothing is clipped behind the persistent child navigation, and the
    56px actions keep their physical size. */
-@media (max-width: 780px) and (max-height: 700px) and (orientation: landscape) {
+@media (max-width: 700px) and (max-height: 700px) and (orientation: landscape) {
   .kg-stage .kg-main > .skills-block-quest[data-quest-view="round"] {
     overflow-x: hidden;
     overflow-y: auto;

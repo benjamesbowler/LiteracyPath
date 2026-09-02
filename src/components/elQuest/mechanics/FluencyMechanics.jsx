@@ -252,6 +252,7 @@ export function PhraseFlowMechanic({
         setModelPlayback("complete");
         completeModel();
       },
+      onInterrupted: () => setModelPlayback("unavailable"),
       onUnavailable: () => setModelPlayback("unavailable")
     });
   }
@@ -363,11 +364,11 @@ export function HeartWordMechanic({
   }
 
   function chooseTile(tile) {
-    if (state.phase === "spell" && chosenTileIds.includes(tile.id)) return;
+    if (["spell", "repair"].includes(state.phase) && chosenTileIds.includes(tile.id)) return;
     const transition = state.phase === "repair"
       ? repairHeartWord(state, round, tile.grapheme, supportLevel)
       : addHeartGrapheme(state, round, tile.grapheme);
-    if (state.phase === "spell" && transition.state.attempt.length > state.attempt.length) {
+    if (transition.state.attempt.length > state.attempt.length) {
       setChosenTileIds(current => [...current, tile.id]);
     }
     applyTransition(setState, transition, onCommit);
@@ -382,11 +383,11 @@ export function HeartWordMechanic({
   }
 
   function revealAttempt() {
-    applyTransition(
-      setState,
-      revealHeartAttempt(state, round, supportLevel),
-      onCommit
-    );
+    const transition = revealHeartAttempt(state, round, supportLevel);
+    if (transition.state.phase === "repair") {
+      setChosenTileIds(current => current.slice(0, transition.state.attempt.length));
+    }
+    applyTransition(setState, transition, onCommit);
   }
 
   return (
@@ -441,7 +442,7 @@ export function HeartWordMechanic({
                   key={tile.id}
                   type="button"
                   data-heart-tile-id={tile.id}
-                  disabled={disabled || (state.phase === "spell" && (attemptFull || chosenTileIds.includes(tile.id)))}
+                  disabled={disabled || chosenTileIds.includes(tile.id) || (state.phase === "spell" && attemptFull)}
                   onClick={() => chooseTile(tile)}
                 >
                   {tile.grapheme}

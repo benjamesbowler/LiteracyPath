@@ -16,6 +16,13 @@ function belongsToRound(state, round) {
   return !key || state?.roundKey === key;
 }
 
+function retainHighestSupport(state, supportLevel) {
+  const nextSupport = Math.max(support(state?.supportLevel), support(supportLevel));
+  return nextSupport === state?.supportLevel
+    ? state
+    : { ...state, supportLevel: nextSupport };
+}
+
 function list(value) {
   return Array.isArray(value) ? value.map(clean).filter(Boolean) : [];
 }
@@ -78,7 +85,7 @@ export function createWordWindowState(round = {}, supportLevel = 0) {
 
 export function wordWindowStateForRound(state, round = {}, supportLevel = 0) {
   return state && belongsToRound(state, round)
-    ? state
+    ? retainHighestSupport(state, supportLevel)
     : createWordWindowState(round, supportLevel);
 }
 
@@ -202,7 +209,7 @@ export function createSoundBoxesState(round = {}, supportLevel = 0) {
 
 export function soundBoxesStateForRound(state, round = {}, supportLevel = 0) {
   return state && belongsToRound(state, round)
-    ? state
+    ? retainHighestSupport(state, supportLevel)
     : createSoundBoxesState(round, supportLevel);
 }
 
@@ -339,20 +346,28 @@ export function machinePiecesForRound(round = {}) {
     const candidateOnsets = Array.isArray(round.choiceGraphemes)
       ? round.choiceGraphemes.map(choice => list(choice?.graphemes)[0]).filter(Boolean)
       : [before[0], after[0]].filter(Boolean);
-    return [...new Set([...candidateOnsets, after[0]].filter(Boolean))].map((grapheme, index) => ({
-      id: pieceId("swap", [grapheme], index + 1),
-      action: "swap",
-      label: grapheme,
-      graphemes: [grapheme]
-    }));
+    return [...new Set([...candidateOnsets, after[0]].filter(Boolean))].map((grapheme, index) => {
+      const projectedWord = [grapheme, ...before.slice(1)].join("");
+      return {
+        id: pieceId("swap", [grapheme], index + 1),
+        action: "swap",
+        label: grapheme,
+        graphemes: [grapheme],
+        projectedWord,
+        matches: projectedWord === after.join("")
+      };
+    });
   }
   if (round.operation === "removeOnset") {
-    return before[0] ? [{
-      id: pieceId("remove", [before[0]]),
+    return before.map((grapheme, index) => ({
+      id: pieceId("remove", [grapheme], index + 1),
       action: "remove",
-      label: before[0],
-      graphemes: [before[0]]
-    }] : [];
+      label: grapheme,
+      graphemes: [grapheme],
+      position: index,
+      projectedWord: before.filter((_, graphemeIndex) => graphemeIndex !== index).join(""),
+      matches: index === 0
+    }));
   }
   if (round.operation === "joinCompound") {
     const joinAt = before.indexOf("+");
@@ -389,7 +404,7 @@ export function createWordMachineState(round = {}, supportLevel = 0) {
 
 export function wordMachineStateForRound(state, round = {}, supportLevel = 0) {
   return state && belongsToRound(state, round)
-    ? state
+    ? retainHighestSupport(state, supportLevel)
     : createWordMachineState(round, supportLevel);
 }
 
@@ -405,7 +420,10 @@ function resultForMachine(round, selectedPieceIds, pieces) {
     return selected ? [...selected.graphemes, ...before.slice(1)] : null;
   }
   if (round.operation === "removeOnset") {
-    return selectedPieceIds[0] === pieces[0]?.id ? before.slice(1) : null;
+    const selected = pieces.find(piece => piece.id === selectedPieceIds[0]);
+    return Number.isInteger(selected?.position)
+      ? before.filter((_, index) => index !== selected.position)
+      : null;
   }
   if (round.operation === "joinCompound") {
     const selected = selectedPieceIds

@@ -211,6 +211,7 @@ test("Phrase Flow uses one neutral word trail and records mandatory model suppor
 test("Phrase Flow waits for its recorded model and keeps a visible fallback", async () => {
   const source = await readFile(componentUrl, "utf8");
   assert.match(source, /onRequestReplay\(\{[\s\S]*onEnded:[\s\S]*completeModel\(\)/);
+  assert.match(source, /onInterrupted:[\s\S]*setModelPlayback\("unavailable"\)/);
   assert.match(source, /onUnavailable:[\s\S]*setModelPlayback\("unavailable"\)/);
   assert.match(source, /aria-label="Visible phrase model"/);
   assert.match(source, /I followed the visible model/);
@@ -291,6 +292,8 @@ test("Heart Word uses a deterministic mixed tile bank and consumes exact tile in
   assert.match(source, /function stableHash\(/);
   assert.match(source, /const \[chosenTileIds, setChosenTileIds\] = useState\(\[\]\)/);
   assert.match(source, /chosenTileIds\.includes\(tile\.id\)/);
+  assert.match(source, /current\.slice\(0, transition\.state\.attempt\.length\)/);
+  assert.match(source, /transition\.state\.attempt\.length > state\.attempt\.length/);
   assert.match(source, /data-heart-tile-id=\{tile\.id\}/);
   assert.doesNotMatch(source, /round\.graphemes[\s\S]{0,100}\.reverse\(\)/);
   assert.match(styles, /\.sbq-heart-slots > span\s*\{/);

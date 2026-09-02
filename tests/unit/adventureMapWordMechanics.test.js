@@ -208,6 +208,46 @@ test("Word Window replay or reopening raises support and prevents an independent
   assert.equal(outcome.evidence.independent, false);
 });
 
+test("top-frame audio support is retained by every reducer-based word mechanic", () => {
+  let windowState = wordWindowStateForRound(
+    createWordWindowState(wordWindowRound, 0),
+    wordWindowRound,
+    1
+  );
+  windowState = reduceWordWindow(windowState, { type: "CLOSE" }, wordWindowRound);
+  windowState = reduceWordWindow(windowState, { type: "SELECT", value: "said" }, wordWindowRound);
+  windowState = reduceWordWindow(windowState, { type: "REVEAL" }, wordWindowRound);
+  assert.equal(buildWordWindowOutcome(wordWindowRound, windowState).evidence.supportLevel, 1);
+
+  let boxesState = soundBoxesStateForRound(
+    createSoundBoxesState(soundBoxesRound, 0),
+    soundBoxesRound,
+    2
+  );
+  for (const grapheme of soundBoxesRound.graphemes) {
+    const tile = boxesState.tiles.find(item => (
+      item.grapheme === grapheme && !boxesState.usedTileIds.includes(item.id)
+    ));
+    boxesState = reduceSoundBoxes(boxesState, { type: "PLACE_TILE", tileId: tile.id }, soundBoxesRound);
+  }
+  boxesState = reduceSoundBoxes(boxesState, { type: "CHECK" }, soundBoxesRound);
+  assert.equal(buildSoundBoxesOutcome(soundBoxesRound, boxesState).evidence.supportLevel, 2);
+
+  let machineState = wordMachineStateForRound(
+    createWordMachineState(substituteRound, 0),
+    substituteRound,
+    3
+  );
+  const targetPiece = machinePiecesForRound(substituteRound).find(piece => piece.matches);
+  machineState = reduceWordMachine(
+    machineState,
+    { type: "SELECT_PIECE", pieceId: targetPiece.id },
+    substituteRound
+  );
+  machineState = reduceWordMachine(machineState, { type: "COMMIT" }, substituteRound);
+  assert.equal(buildWordMachineOutcome(substituteRound, machineState).evidence.supportLevel, 3);
+});
+
 test("Word Window supports wrong reveal, explicit retry, and later supported success", () => {
   let state = createWordWindowState(wordWindowRound, 0);
   state = reduceWordWindow(state, { type: "CLOSE" }, wordWindowRound);
@@ -372,8 +412,19 @@ test("Word Machine derives swap, remove, and join pieces from declared grapheme 
     ]
   );
   assert.deepEqual(
-    machinePiecesForRound(removeRound).map(piece => ({ action: piece.action, graphemes: piece.graphemes })),
-    [{ action: "remove", graphemes: ["s"] }]
+    machinePiecesForRound(removeRound).map(piece => ({
+      action: piece.action,
+      graphemes: piece.graphemes,
+      position: piece.position,
+      projectedWord: piece.projectedWord,
+      matches: piece.matches
+    })),
+    [
+      { action: "remove", graphemes: ["s"], position: 0, projectedWord: "pin", matches: true },
+      { action: "remove", graphemes: ["p"], position: 1, projectedWord: "sin", matches: false },
+      { action: "remove", graphemes: ["i"], position: 2, projectedWord: "spn", matches: false },
+      { action: "remove", graphemes: ["n"], position: 3, projectedWord: "spi", matches: false }
+    ]
   );
   assert.deepEqual(
     machinePiecesForRound(joinRound).map(piece => ({ action: piece.action, graphemes: piece.graphemes })),
@@ -465,6 +516,31 @@ test("Word Machine commits onset removal and compound joining as different opera
   });
 });
 
+test("Word Machine onset removal requires a real position choice and supports recovery", () => {
+  const pieces = machinePiecesForRound(removeRound);
+  assert.equal(pieces.length, removeRound.beforeGraphemes.length);
+  assert.equal(pieces.filter(piece => piece.matches).length, 1);
+
+  let state = createWordMachineState(removeRound, 0);
+  state = reduceWordMachine(state, {
+    type: "SELECT_PIECE",
+    pieceId: pieces.find(piece => piece.position === 1).id
+  }, removeRound);
+  state = reduceWordMachine(state, { type: "COMMIT" }, removeRound);
+  assert.deepEqual(state.resultGraphemes, ["s", "i", "n"]);
+  assert.equal(buildWordMachineOutcome(removeRound, state).correct, false);
+
+  state = reduceWordMachine(state, { type: "RETRY" }, removeRound);
+  state = reduceWordMachine(state, {
+    type: "SELECT_PIECE",
+    pieceId: pieces.find(piece => piece.matches).id
+  }, removeRound);
+  state = reduceWordMachine(state, { type: "COMMIT" }, removeRound);
+  const recovered = buildWordMachineOutcome(removeRound, state);
+  assert.equal(recovered.correct, true);
+  assert.equal(recovered.evidence.independent, false);
+});
+
 test("generated Word Window rounds use unique one-edit neighbours from authorised print", () => {
   const allHighFrequencyWords = elSkillsBlockCycles
     .flatMap(cycle => cycle.highFrequencyWords || [])
@@ -518,6 +594,25 @@ test("generated onset substitutions cue one exact target and label defensible on
         }
       }
     });
+  }
+});
+
+test("generated onset removals offer one position choice per grapheme", () => {
+  for (const cycle of elSkillsBlockCycles.filter(item => item.cycleNumber)) {
+    if (!stationsForCycle(cycle).some(station => station.id === "play")) continue;
+    for (const round of buildStationRounds(cycle, "play")
+      .filter(item => item.operation === "removeOnset")) {
+      const pieces = machinePiecesForRound(round);
+      assert.equal(pieces.length, round.beforeGraphemes.length, `${cycle.id}/${round.beforeWord}`);
+      assert.ok(pieces.length >= 2, `${cycle.id}/${round.beforeWord} needs a removal decision`);
+      assert.equal(pieces.filter(piece => piece.matches).length, 1);
+      for (const piece of pieces) {
+        assert.equal(
+          piece.projectedWord,
+          round.beforeGraphemes.filter((_, index) => index !== piece.position).join("")
+        );
+      }
+    }
   }
 });
 

@@ -1449,8 +1449,8 @@
 
 .adventure-round-frame__stop,
 .adventure-round-frame__audio-actions button {
-  min-width: 56px;
-  min-height: 56px;
+  min-width: max(56px, var(--kg-physical-hit, 56px));
+  min-height: max(56px, var(--kg-physical-hit, 56px));
   border: 2px solid rgba(255, 255, 255, 0.72);
   border-radius: 17px;
   cursor: pointer;
@@ -1803,7 +1803,7 @@
 }
 
 .am-sound-gate-commit {
-  min-height: 72px !important;
+  min-height: max(72px, var(--kg-physical-hit, 56px)) !important;
   padding: 12px 18px;
   border: 3px solid #fff1c2;
   border-radius: 18px;
@@ -1918,8 +1918,8 @@
 
 /* Shared tactile controls used inside the three word-work apparatuses. */
 .adventure-mechanic-control {
-  min-width: 56px;
-  min-height: 56px;
+  min-width: max(56px, var(--kg-physical-hit, 56px));
+  min-height: max(56px, var(--kg-physical-hit, 56px));
   padding: 10px 16px;
   border: 3px solid rgba(255, 249, 218, 0.92);
   border-radius: 16px;
@@ -1928,6 +1928,11 @@
   color: #293a32;
   cursor: pointer;
   font: 850 1rem/1.15 var(--lp-font-reading);
+}
+
+.adventure-mechanic-control:disabled {
+  min-width: max(56px, var(--kg-physical-hit, 56px)) !important;
+  min-height: max(56px, var(--kg-physical-hit, 56px)) !important;
 }
 
 .adventure-mechanic-control[aria-pressed="true"] {
@@ -2232,7 +2237,7 @@
 .sbq-poem-token,
 .sbq-cover-clue button,
 .sbq-trace button {
-  min-height: 56px;
+  min-height: max(56px, var(--kg-physical-hit, 56px)) !important;
 }
 
 .sbq-pattern-sort {
@@ -2591,7 +2596,7 @@
 
 .sbq-poem-token {
   min-width: 0;
-  min-height: 48px !important;
+  min-height: max(56px, var(--kg-physical-hit, 56px)) !important;
   margin: 2px;
   padding: 6px 9px;
   border: 2px solid transparent;
@@ -2763,7 +2768,7 @@
   }
 }
 
-@media (max-width: 780px) {
+@media (max-width: 700px) {
   .adventure-round-frame__header {
     grid-template-columns: minmax(0, 1fr) auto;
   }
