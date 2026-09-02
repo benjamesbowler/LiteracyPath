@@ -18,6 +18,10 @@ const adventureProgressEpochMigration = fs.readFileSync(
   new URL("../../supabase/migrations/20260902090000_reset_adventure_map_progress_epoch_2.sql", import.meta.url),
   "utf8"
 );
+const forwardMergeSelftest = fs.readFileSync(
+  new URL("../../supabase/verify/progress_forward_merge_selftest.sql", import.meta.url),
+  "utf8"
+);
 const mapStopsSource = fs.readFileSync(
   new URL("../../src/data/mapStops.js", import.meta.url),
   "utf8"
@@ -31,6 +35,14 @@ test("Adventure Map v2 progress is normalized at the database boundary without c
   assert.match(adventureProgressEpochMigration, /update public\.student_progress[\s\S]*set payload = public\.lp_normalize_el_quest\(payload\)[\s\S]*where area = 'el_quest'[\s\S]*and key = '__all__'/i);
   assert.doesNotMatch(adventureProgressEpochMigration, /set[\s\S]{0,100}updated_at\s*=/i);
   assert.doesNotMatch(adventureProgressEpochMigration, /student_focus_session/i);
+});
+
+test("Adventure Map epoch SQL verification exercises the insert trigger and leaves focus sessions unchanged", () => {
+  assert.match(forwardMergeSelftest, /begin;[\s\S]*insert into public\.student_progress[\s\S]*'el_quest'[\s\S]*'__all__'/i);
+  assert.match(forwardMergeSelftest, /select payload into [\w_]+\s+from public\.student_progress/i);
+  assert.match(forwardMergeSelftest, /progressEpoch/i);
+  assert.match(forwardMergeSelftest, /student_focus_sessions/i);
+  assert.match(forwardMergeSelftest, /rollback;/i);
 });
 
 test("student sessions have bounded expiry, one active lock per student and RPC-only membership", () => {

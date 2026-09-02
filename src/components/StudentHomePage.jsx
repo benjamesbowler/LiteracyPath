@@ -57,6 +57,7 @@ import { filterSample } from "../policy/freeTierContent.js";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
 import { stopAtIndex } from "../data/questSequence.js";
 import { currentStopIndex } from "../utils/questProgress.js";
+import { readElQuestLocalProgress } from "../utils/adventureMapLocalProgress.js";
 import { CoinIcon } from "./shared/CurrencyIcons.jsx";
 import { skillBlueprints } from "../content/blueprints/skillBlueprints.js";
 import { TRANSFER_MISSIONS } from "../content/transfer/transferMissionRegistry.js";
@@ -123,6 +124,7 @@ function visibleDoorState(cardState) {
 // storage error. `ok` travels with the value so the screen can say "we could
 // not load this" instead.
 function readJsonArea(area, scopeKey) {
+  if (area === "el_quest") return readElQuestLocalProgress(scopeKey);
   if (typeof window === "undefined") return { ok: true, value: {} };
   const key = localProgressStorageKey(area, scopeKey);
   try {

@@ -1,5 +1,7 @@
 // Little Literacy Guides world themes. Each child-facing surface carries a
 // data-pal-world attribute; these helpers decide which world applies.
+import { normalizeElQuestProgress } from "./adventureMapProgress.js";
+
 export const PAL_WORLDS = {
   meadow: {
     id: "meadow",
@@ -118,7 +120,9 @@ export function worldStyle(world) {
 export function worldForScope(scope) {
   if (typeof window === "undefined") return PAL_WORLDS.meadow;
   try {
-    const quest = JSON.parse(window.localStorage.getItem(`lp-el-quest:${scope || "default"}`) || "null");
+    const quest = normalizeElQuestProgress(
+      JSON.parse(window.localStorage.getItem(`lp-el-quest:${scope || "default"}`) || "null")
+    );
     const done = Object.values(quest?.cycles || {}).filter(item => item?.stars > 0).length;
     return worldForCycle(done + 1);
   } catch {

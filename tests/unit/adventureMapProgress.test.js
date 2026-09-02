@@ -1,9 +1,18 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
+  emptyElQuestProgress,
   mergeElQuestProgress,
   normalizeElQuestProgress
 } from "../../src/utils/adventureMapProgress.js";
+
+test("empty Adventure Map progress is a fresh v2 epoch", () => {
+  const first = emptyElQuestProgress();
+  const second = emptyElQuestProgress();
+  assert.deepEqual(first, { schemaVersion: 2, progressEpoch: 2, cycles: {} });
+  assert.notEqual(first, second);
+  assert.notEqual(first.cycles, second.cycles);
+});
 
 test("v1 Adventure Map progress resets only its cycle records", () => {
   assert.deepEqual(normalizeElQuestProgress({

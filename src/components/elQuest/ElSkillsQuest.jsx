@@ -8,6 +8,7 @@ import {
   mergeElQuestProgress,
   normalizeElQuestProgress
 } from "../../utils/adventureMapProgress.js";
+import { loadElQuestProgress } from "../../utils/adventureMapLocalProgress.js";
 import { notifyMissionTaskDone } from "../../utils/dailyMission.js";
 import { getCompanion } from "../../utils/studentProfile.js";
 import { printCertificate } from "../../utils/printCertificate.js";
@@ -100,12 +101,6 @@ function buildRoutePath(points, w = 1195, h = 1600) {
   return d.join(" ");
 }
 
-
-function loadQuestProgress(scopeKey) {
-  if (typeof window === "undefined") return normalizeElQuestProgress(null);
-  const parsed = JSON.parse(window.localStorage.getItem(`${STORAGE_PREFIX}:${scopeKey}`) || "null");
-  return normalizeElQuestProgress(parsed);
-}
 
 function saveQuestProgress(scopeKey, progress) {
   if (typeof window === "undefined") return;
@@ -579,7 +574,7 @@ export function ElSkillsQuest({
     () => elSkillsBlockCycles.filter(cycle => cycle.cycleNumber),
     []
   );
-  const [progress, setProgress] = useState(() => loadQuestProgress(progressScopeKey));
+  const [progress, setProgress] = useState(() => loadElQuestProgress(progressScopeKey));
   const recommendedCycle = useMemo(() => (
     playableCycles.find(cycle => !(progress.cycles?.[cycle.id]?.stars > 0)) || playableCycles[0]
   ), [playableCycles, progress]);
@@ -631,7 +626,7 @@ export function ElSkillsQuest({
   useEffect(() => {
     function handleHydrated(event) {
       if (event.detail?.studentId && event.detail.studentId !== progressScopeKey) return;
-      const stored = loadQuestProgress(progressScopeKey);
+      const stored = loadElQuestProgress(progressScopeKey);
       setProgress(previous => mergeElQuestProgress(previous, stored));
     }
     window.addEventListener("lp-progress-hydrated", handleHydrated);

@@ -3,7 +3,9 @@
 -- 20260614090000_progress_forward_merge.sql. If everything is correct you'll see
 -- the notice:  ALL FORWARD-MERGE TESTS PASSED
 -- If any line fails, it raises an assertion error naming the failing case.
--- This only calls the pure merge functions - it does NOT touch any real data.
+-- The pure merge checks below do not touch rows. The final transaction-scoped
+-- check creates one reversible first insert so the canonical-row trigger is
+-- exercised without leaving progress or focus-session changes behind.
 
 do $$
 declare
@@ -86,3 +88,63 @@ begin
 
   raise notice 'ALL FORWARD-MERGE TESTS PASSED';
 end $$;
+
+-- The normalizer must work on a stale FIRST insert, not only on an existing
+-- conflict row. Within this transaction, remove one student's canonical row
+-- before inserting the stale record, then roll the whole probe back. The
+-- focus-session byte snapshot proves this
+-- progress-only verification did not alter focus records.
+begin;
+
+do $$
+declare
+  focus_before jsonb;
+  focus_after jsonb;
+  inserted_payload jsonb;
+  fixture_student_id uuid;
+begin
+  select coalesce(jsonb_agg(to_jsonb(focus_session) order by focus_session.id), '[]'::jsonb)
+    into focus_before
+    from public.student_focus_sessions focus_session;
+
+  select student.id into fixture_student_id
+    from public.students student
+   order by student.id
+   limit 1;
+
+  if fixture_student_id is null then
+    raise exception 'forward-merge self-test needs one student fixture';
+  end if;
+
+  delete from public.student_progress
+   where student_id = fixture_student_id
+     and area = 'el_quest'
+     and key = '__all__';
+
+  insert into public.student_progress (student_id, area, key, payload, updated_at)
+  values (
+    fixture_student_id,
+    'el_quest',
+    '__all__',
+    '{"v":1,"cycles":{"cycle-1":{"stars":3}}}'::jsonb,
+    now()
+  );
+
+  select payload into inserted_payload
+    from public.student_progress
+   where student_id = fixture_student_id
+     and area = 'el_quest'
+     and key = '__all__';
+  assert inserted_payload #>> '{schemaVersion}' = '2', 'el_quest first insert missed schema v2';
+  assert inserted_payload #>> '{progressEpoch}' = '2', 'el_quest first insert missed epoch 2';
+  assert inserted_payload -> 'cycles' = '{}'::jsonb, 'el_quest first insert retained legacy cycles';
+
+  select coalesce(jsonb_agg(to_jsonb(focus_session) order by focus_session.id), '[]'::jsonb)
+    into focus_after
+    from public.student_focus_sessions focus_session;
+  assert focus_after = focus_before, 'el_quest verification changed focus-session records';
+
+  raise notice 'ADVENTURE MAP INSERT-TRIGGER TEST PASSED';
+end $$;
+
+rollback;

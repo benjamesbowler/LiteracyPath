@@ -45,7 +45,7 @@ import {
   loadWideMapOverride,
   wideMapPointsFor
 } from "../data/mapStops.js";
-import { localProgressStorageKey } from "../utils/progressKeys.js";
+import { readElQuestLocalProgress } from "../utils/adventureMapLocalProgress.js";
 import { PAL_WORLDS } from "../utils/palWorlds.js";
 import { speakStudentRailLabel } from "../policy/studentRailPolicy.js";
 import {
@@ -114,16 +114,9 @@ function SpeakerGlyph({ size = 22 }) {
 // screen would draw as a map with every stop locked — a claim about the child
 // produced by a storage error. `ok` travels with the value instead.
 function readMapProgress(scopeKey) {
-  if (typeof window === "undefined") return { ok: true, cycles: {} };
-  try {
-    const raw = window.localStorage.getItem(localProgressStorageKey("el_quest", scopeKey));
-    if (!raw) return { ok: true, cycles: {} };
-    const parsed = JSON.parse(raw);
-    const cycles = parsed && typeof parsed === "object" && parsed.cycles;
-    return { ok: true, cycles: cycles && typeof cycles === "object" ? cycles : {} };
-  } catch {
-    return { ok: false, cycles: {} };
-  }
+  const read = readElQuestLocalProgress(scopeKey);
+  const cycles = read.value?.cycles;
+  return { ok: read.ok, cycles: cycles && typeof cycles === "object" ? cycles : {} };
 }
 
 // A function, not a constant: the sample scope is set when a try session starts,
