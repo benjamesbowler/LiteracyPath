@@ -76,6 +76,7 @@
     "build:3d-library": "node tools/build3DAssetLibraryManifest.mjs",
     "check:3d-library": "node tools/check3DAssetLibrary.mjs",
     "check:quest-art": "node tools/checkQuestArt.mjs",
+    "check:sound-seekers-assets": "node tools/checkSoundSeekersV2Assets.mjs",
     "optimise:quest-art": "node tools/optimiseQuestArt.mjs",
     "sheet:quest-art": "node tools/buildQuestArtSheet.mjs",
     "shots": "node tools/shootQuest.mjs",
