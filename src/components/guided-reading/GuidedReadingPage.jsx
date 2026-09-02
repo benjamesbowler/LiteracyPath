@@ -49,6 +49,7 @@ import {
 import {
   buildGuidedReadingCompletionPatch,
   getGuidedReadingCompletionMilestone,
+  mergeGuidedReadingRecord,
   shouldShowGuidedReadingCompletionSummary
 } from "../../utils/guidedReading/completionPolicy.js";
 import {
@@ -963,16 +964,13 @@ export function GuidedReadingPage({
   function updateRecord(patch) {
     if (!selectedBook || isClassMode) return;
     const previous = getWorkingRecord();
-    const nextRecord = {
-      ...previous,
+    const nextRecord = mergeGuidedReadingRecord({
+      previous,
       studentId,
-      bookId: selectedBook.id,
-      title: selectedBook.title,
-      type: selectedBook.type,
-      level: selectedBook.level,
-      updatedAt: new Date().toISOString(),
-      ...patch
-    };
+      book: selectedBook,
+      now: new Date().toISOString(),
+      patch
+    });
     recordDraftRef.current = nextRecord;
     saveGuidedReadingRecord(selectedBook.id, nextRecord);
   }
@@ -983,22 +981,21 @@ export function GuidedReadingPage({
     const totalPages = selectedBook.pages.length;
     const previous = getWorkingRecord();
 
-    const nextRecord = {
-      ...previous,
+    const nextRecord = mergeGuidedReadingRecord({
+      previous,
       studentId,
-      bookId: selectedBook.id,
-      title: selectedBook.title,
-      type: normalizeGuidedReadingType(selectedBook.type),
-      level: selectedBook.level,
-      firstReadAt: previous.firstReadAt || now,
-      lastReadAt: now,
-      completedPages: Math.min(totalPages, Math.max(Number(previous.completedPages || 0), nextPageIndex + 1)),
-      totalPages,
-      completed: Boolean(previous.completed || previous.completedAt),
-      readCount: Number(previous.readCount || (previous.completed || previous.completedAt ? 1 : 0)),
-      updatedAt: now,
-      ...patch
-    };
+      book: { ...selectedBook, type: normalizeGuidedReadingType(selectedBook.type) },
+      now,
+      patch: {
+        firstReadAt: previous.firstReadAt || now,
+        lastReadAt: now,
+        completedPages: Math.min(totalPages, Math.max(Number(previous.completedPages || 0), nextPageIndex + 1)),
+        totalPages,
+        completed: Boolean(previous.completed || previous.completedAt),
+        readCount: Number(previous.readCount || (previous.completed || previous.completedAt ? 1 : 0)),
+        ...patch
+      }
+    });
     recordDraftRef.current = nextRecord;
     saveGuidedReadingRecord(selectedBook.id, nextRecord);
   }

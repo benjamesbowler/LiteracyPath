@@ -1,7 +1,7 @@
 # LiteracyPath Question Design Bible
 
 **Policy version:** `2026-08-01.1`
-**Applies to:** assessments, Guided Reading quizzes, Story Quest questions, EL Quest stations, arcade literacy tasks, worksheets, future poems/animations with scored questions, and teacher-authored question generators.
+**Applies to:** assessments, Story Quest questions, EL Quest stations, arcade literacy tasks, worksheets, future poems/animations with scored questions, and teacher-authored question generators. Scored Guided Reading quizzes are retired; optional teacher discussion support is not a scored question system and is outside this policy gate.
 **Permanent gate:** `npm run check:question-design-policy`
 
 This is the canonical standard for writing and reviewing LiteracyPath questions for learners aged 4–12. It supersedes any older rule that conflicts with it. A question is not publishable because it looks plausible or because an adult can infer the intended answer. It is publishable only when it measures the intended literacy construct, has one defensible answer, removes avoidable language and access barriers, and passes the evidence checks in this document.
@@ -198,7 +198,7 @@ The permanent gate checks:
 - distractor rationales after runtime enrichment;
 - banned option/stem patterns and negative-stem restrictions;
 - media paths and accessible labels where applicable;
-- all Guided Reading quizzes, Story Quest cover questions, numbered EL Quest stations, every level of all 11 visible arcade literacy games, the Sentence Fix bank and worksheet image-backed missing-letter rules;
+- Story Quest cover questions, numbered EL Quest stations, every level of all 11 visible arcade literacy games, the Sentence Fix bank and worksheet image-backed missing-letter rules; scored Guided Reading quizzes are retired, and optional teacher discussion support is not a scored question system;
 - existing specialist gates for story evidence, narration, visual alignment, phonics eligibility, mastery and no-repeat behavior.
 
 Passing means the machine-verifiable policy checks found zero failures. It does **not** claim that software can prove every nuance of validity for every child; it means all declared requirements have evidence and any future observed problem becomes a new test and policy revision.

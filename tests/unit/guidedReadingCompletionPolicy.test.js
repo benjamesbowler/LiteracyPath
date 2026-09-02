@@ -3,6 +3,7 @@ import test from "node:test";
 import {
   buildGuidedReadingCompletionPatch,
   getGuidedReadingCompletionMilestone,
+  mergeGuidedReadingRecord,
   shouldShowGuidedReadingCompletionSummary
 } from "../../src/utils/guidedReading/completionPolicy.js";
 
@@ -34,7 +35,7 @@ test("completion identifies the level milestone using the completed record and n
   );
 });
 
-test("completion persistence preserves historical quiz fields without writing new ones", () => {
+test("record merge preserves raw legacy quiz fields on an existing-record completion update and creates none for a clean completion", () => {
   const patch = buildGuidedReadingCompletionPatch({
     now: "2026-09-02T10:00:00.000Z",
     totalPages: 4,
@@ -42,13 +43,37 @@ test("completion persistence preserves historical quiz fields without writing ne
     readCount: 2,
     completedAt: "2026-08-01T10:00:00.000Z"
   });
-  const legacyReread = {
+  const legacyReread = mergeGuidedReadingRecord({
+    previous: {
+      quizScore: 3,
+      quizTotal: 3,
+      quizAt: "2026-08-01T10:01:00.000Z"
+    },
+    studentId: "student-1",
+    book: { id: "book-1", title: "Book One", type: "fiction", level: "C" },
+    now: "2026-09-02T10:00:00.000Z",
+    patch
+  });
+  const newCompletion = mergeGuidedReadingRecord({
+    previous: {},
+    studentId: "student-2",
+    book: { id: "book-2", title: "Book Two", type: "nonfiction", level: "C" },
+    now: "2026-09-02T10:00:00.000Z",
+    patch
+  });
+
+  assert.deepEqual(legacyReread, {
+    studentId: "student-1",
+    bookId: "book-1",
+    title: "Book One",
+    type: "fiction",
+    level: "C",
+    updatedAt: "2026-09-02T10:00:00.000Z",
     quizScore: 3,
     quizTotal: 3,
     quizAt: "2026-08-01T10:01:00.000Z",
     ...patch
-  };
-  const newCompletion = { ...patch };
+  });
 
   assert.equal(legacyReread.quizScore, 3);
   assert.equal(legacyReread.quizTotal, 3);

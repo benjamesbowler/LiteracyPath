@@ -15,6 +15,8 @@ test.describe("Guided Reading reader", () => {
     await expect(finishBook).toBeVisible();
     await finishBook.click();
 
+    await expect(page.getByRole("region", { name: /full-screen reader$/ })).toHaveCount(0);
+    await expect(page.getByRole("heading", { name: "Reading library" })).toBeVisible();
     await expect(page.getByRole("dialog", { name: /quiz|questions/i })).toHaveCount(0);
     await expect(page.getByText(/talk and write/i)).toHaveCount(0);
     expect(await page.evaluate(bookId => window.__guidedReadingPreviewRecords?.[bookId]?.completed, BOOK_ID)).toBe(true);

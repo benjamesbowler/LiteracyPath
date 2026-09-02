@@ -9,6 +9,25 @@ export function getGuidedReadingCompletionMilestone({ book, levelBooks = [], rec
   return allDone ? { level: book.level, count: levelBooks.length } : null;
 }
 
+export function mergeGuidedReadingRecord({
+  previous = {},
+  studentId = "",
+  book = {},
+  now = new Date().toISOString(),
+  patch = {}
+} = {}) {
+  return {
+    ...previous,
+    studentId,
+    bookId: book.id,
+    title: book.title,
+    type: book.type,
+    level: book.level,
+    updatedAt: now,
+    ...patch
+  };
+}
+
 export function buildGuidedReadingCompletionPatch({
   now = new Date().toISOString(),
   totalPages = 0,
