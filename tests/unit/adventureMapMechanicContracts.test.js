@@ -71,9 +71,14 @@ test("each mechanic receives the explicit data its component needs", () => {
         assert.ok(Number.isInteger(round.targetToken?.lineIndex), where);
         assert.ok(Number.isInteger(round.targetToken?.tokenIndex), where);
       } else if (mechanicId === "coverClue") {
-        assert.ok(round.titleStrip, where);
+        assert.ok(round.strip?.text, where);
+        assert.equal(round.strip?.kind, "title", where);
+        assert.ok(round.targetCover?.cover, where);
         assert.ok(round.covers?.length >= 2, where);
         assert.ok(round.covers.some(cover => cover.matches), where);
+        assert.equal("choices" in round, false, `${where} must not expose a detached answer grid`);
+        assert.equal("answer" in round, false, `${where} must not retain a character-name answer`);
+        assert.equal("choiceStyle" in round, false, `${where} must not retain generic choice metadata`);
       } else if (mechanicId === "letterTrace") {
         assert.ok(round.letter, where);
       } else if (mechanicId === "patternSort") {
@@ -164,6 +169,11 @@ test("every Pattern Sort round supplies labelled bins and a defensible transfer 
     assert.equal(round.bins?.length, 2, `${where} needs two labelled bins`);
     assert.ok(round.bins.every(bin => bin.id && bin.label), `${where} has an unlabelled bin`);
     assert.ok(round.transferWord, `${where} has no transfer word`);
+    assert.equal(
+      round.items.some(item => item.word === round.transferWord),
+      false,
+      `${where} reuses its transfer word in the sort`
+    );
 
     const transferFits = round.targetGrapheme
       ? round.transferWord.includes(round.targetGrapheme)
@@ -173,5 +183,66 @@ test("every Pattern Sort round supplies labelled bins and a defensible transfer 
         || round.patternLabel.includes("have -") && round.transferWord.includes(round.patternLabel.split("-").at(-1))
         || round.patternLabel.includes("start with ") && round.transferWord.startsWith(round.patternLabel.split("start with ").at(-1));
     assert.equal(transferFits, true, `${where} transfer word does not fit ${round.patternLabel}`);
+  }
+});
+
+test("Cover Clue exposes one title strip matched directly to its authoritative cover", () => {
+  for (const { cycle, station, round } of roundsForMechanic("coverClue")) {
+    const where = `cycle ${cycle.cycleNumber}/${station.id}`;
+    assert.deepEqual(
+      round.targetCover,
+      round.covers.find(cover => cover.matches),
+      `${where} matching cover must be the explicit target`
+    );
+    assert.equal(round.strip.text, round.targetCover.title, `${where} strip must name its cover`);
+    assert.equal("choices" in round, false, `${where} detached choices remain`);
+    assert.equal("answer" in round, false, `${where} detached answer remains`);
+  }
+});
+
+test("high-frequency words alone never authorize a Pattern Power family", () => {
+  const authorizedLabels = new Set([
+    "start with sh",
+    "have -ng",
+    "end with -ll"
+  ]);
+
+  for (const cycleNumber of [25, 26, 27]) {
+    const cycle = elSkillsBlockCycles.find(item => item.cycleNumber === cycleNumber);
+    const rounds = buildStationRounds(cycle, "pattern");
+    assert.ok(rounds.length > 0, `cycle ${cycleNumber} lost all taught-pattern review`);
+    for (const round of rounds) {
+      assert.ok(
+        authorizedLabels.has(round.patternLabel),
+        `cycle ${cycleNumber} authorized ${round.patternLabel} from HFW membership alone`
+      );
+    }
+  }
+});
+
+test("Code Spot uses taught-print sort words and a novel authorized transfer", () => {
+  const cycle15 = elSkillsBlockCycles.find(item => item.cycleNumber === 15);
+  for (let pass = 0; pass < 100; pass += 1) {
+    const shRound = buildStationRounds(cycle15, "letters")
+      .find(round => round.targetGrapheme === "sh");
+    assert.ok(shRound, "cycle 15 needs an authorized sh Code Spot round");
+    assert.equal(
+      [...shRound.items.map(item => item.word), shRound.transferWord].includes("shell"),
+      false,
+      "shell contains the untaught ll spelling in cycle 15"
+    );
+  }
+
+  for (const cycleNumber of [23, 24]) {
+    const cycle = elSkillsBlockCycles.find(item => item.cycleNumber === cycleNumber);
+    for (let pass = 0; pass < 20; pass += 1) {
+      for (const round of buildStationRounds(cycle, "letters")) {
+        assert.equal(
+          round.items.some(item => item.word === round.transferWord),
+          false,
+          `cycle ${cycleNumber}/${round.targetGrapheme} repeats ${round.transferWord}`
+        );
+      }
+    }
   }
 });

@@ -205,6 +205,30 @@ const PATTERN_EXAMPLES = {
   ll: ["ball", "fall", "call", "bell"]
 };
 
+// Code Spot uses an explicit authored inventory. Sort and transfer words are
+// separate so the transfer is always novel, and every candidate still has to
+// pass the cycle's taught-print boundary before a round is eligible.
+const CODE_SPOT_WORD_INVENTORY = Object.freeze({
+  sh: { authorizedFromCycle: 15, sort: ["ship", "shop", "shut"], transfer: ["shin"] },
+  ch: { authorizedFromCycle: 15, sort: ["chip", "chin", "chop"], transfer: ["chat"] },
+  th: { authorizedFromCycle: 15, sort: ["thumb", "thin", "that"], transfer: ["then"] },
+  wh: { authorizedFromCycle: 21, sort: ["what", "when", "whisk"], transfer: ["whip"] },
+  nk: { authorizedFromCycle: 22, sort: ["sink", "bank", "pink"], transfer: ["wink"] },
+  ng: { authorizedFromCycle: 23, sort: ["ring", "sing", "song"], transfer: ["long"] },
+  ang: { authorizedFromCycle: 23, sort: ["bang", "sang"], transfer: ["hang"] },
+  ing: { authorizedFromCycle: 23, sort: ["ring", "sing", "king"], transfer: ["wing"] },
+  ong: { authorizedFromCycle: 23, sort: ["song", "long"], transfer: ["gong"] },
+  ung: { authorizedFromCycle: 23, sort: ["hung", "sung"], transfer: ["lung"] },
+  ff: { authorizedFromCycle: 24, sort: ["puff", "off"], transfer: ["huff"] },
+  ss: { authorizedFromCycle: 24, sort: ["miss", "grass"], transfer: ["kiss"] },
+  zz: { authorizedFromCycle: 24, sort: ["buzz", "fizz"], transfer: ["jazz"] },
+  ll: { authorizedFromCycle: 24, sort: ["ball", "fall", "call"], transfer: ["bell"] }
+});
+
+const CODE_SPOT_DECOY_WORDS = Object.freeze([
+  "map", "sun", "dog", "bed", "run", "top", "pig", "cat", "jam", "fox"
+]);
+
 const ENDING_SOUND_PATTERNS = new Set([
   "all", "nk", "ng", "ang", "ing", "ong", "ung", "ff", "ss", "zz", "ll"
 ]);
@@ -283,26 +307,33 @@ function buildLetterRounds(cycle) {
 }
 
 function buildCodeSpotRounds(cycle) {
-  const taughtWords = uniqueChoices([
-    ...Object.values(LETTER_EXAMPLES).flat(),
-    ...Object.values(PATTERN_EXAMPLES).flat()
-  ]);
+  const cycleNumber = cycle.cycleNumber || 1;
   return focusEntries(cycle)
     .filter(entry => entry.spelling.length > 1 && entry.spelling !== "pattern")
     .flatMap(entry => {
-      const matching = uniqueChoices(exampleWordsFor(entry.spelling, 8))
-        .filter(word => word.includes(entry.spelling));
-      const decoys = taughtWords.filter(word => (
-        !word.includes(entry.spelling)
-        && wordUsesTaughtPrint(word, cycle.cycleNumber || 1)
+      const inventory = CODE_SPOT_WORD_INVENTORY[entry.spelling];
+      if (!inventory || cycleNumber < inventory.authorizedFromCycle) return [];
+      const matching = uniqueChoices(inventory.sort).filter(word => (
+        word.includes(entry.spelling)
+        && wordUsesTaughtPrint(word, cycleNumber)
       ));
-      if (matching.length < 2 || !decoys.length) return [];
+      const transferCandidates = uniqueChoices(inventory.transfer).filter(word => (
+        word.includes(entry.spelling)
+        && wordUsesTaughtPrint(word, cycleNumber)
+        && !matching.includes(word)
+      ));
+      const decoys = CODE_SPOT_DECOY_WORDS.filter(word => (
+        !word.includes(entry.spelling)
+        && wordUsesTaughtPrint(word, cycleNumber)
+      ));
+      if (matching.length < 2 || !transferCandidates.length || !decoys.length) return [];
       const items = shuffleItems([
         ...shuffleItems(matching).slice(0, 3).map(word => ({ word, fits: true })),
         ...shuffleItems(decoys).slice(0, 3).map(word => ({ word, fits: false }))
       ]);
-      const transferWord = matching.find(word => !items.some(item => item.word === word))
-        || matching[0];
+      const transferWord = shuffleItems(transferCandidates)
+        .find(word => !items.some(item => item.word === word));
+      if (!transferWord) return [];
       return [{
         type: "pattern",
         mechanicId: "patternSort",
@@ -719,6 +750,12 @@ function buildStoryRounds(cycle) {
       item,
       ...shuffleItems(bank.questions.filter(candidate => candidate.cover !== item.cover)).slice(0, 2)
     ]);
+    const covers = rack.map(candidate => ({
+      cover: candidate.cover || "",
+      title: candidate.title || "",
+      character: candidate.answer || "",
+      matches: candidate.cover === item.cover
+    }));
     return {
       type: "story",
       mechanicId: "coverClue",
@@ -728,21 +765,12 @@ function buildStoryRounds(cycle) {
       prompt: "Place the title strip on its matching cover.",
       instruction: "Read the title strip. Place it on the matching cover.",
       display: "",
-      cover: item.cover || "",
-      bookTitle: item.title || "",
-      titleStrip: item.title || "",
-      covers: rack.map(candidate => ({
-        cover: candidate.cover || "",
-        title: candidate.title || "",
-        character: candidate.answer || "",
-        matches: candidate.cover === item.cover
-      })),
-      choices: shuffleItems([
-        item.answer,
-        ...shuffleItems(bank.names.filter(name => name !== item.answer)).slice(0, 2)
-      ]),
-      answer: item.answer,
-      choiceStyle: "word"
+      strip: {
+        kind: "title",
+        text: item.title || ""
+      },
+      targetCover: covers.find(cover => cover.matches),
+      covers
     };
   });
 }
@@ -783,36 +811,54 @@ function buildTraceRounds(cycle) {
 // words and poems instead of teaching new letter-sounds, so they get their own
 // set of games. Every word is decodable / already taught by this point.
 
-// Curated spelling-pattern families. The child sorts by the PATTERN, not a sound.
-const PATTERN_FAMILIES = [
-  { label: "end with y", members: ["by", "my", "why", "try", "fly", "sky", "cry", "dry"], decoys: ["sun", "map", "run", "top", "bed", "net"] },
-  { label: "end with -ay", members: ["day", "say", "may", "play", "stay", "way"], decoys: ["dog", "sit", "cup", "ten", "mud", "log"] },
-  { label: "end with -ll", members: ["ball", "fall", "call", "tall", "bell", "fill"], decoys: ["bat", "mop", "sun", "net", "rug", "pin"] },
-  { label: "have -ng", members: ["ring", "king", "song", "bang", "hang", "long"], decoys: ["rat", "pig", "cup", "red", "mud", "tap"] },
-  { label: "start with sh", members: ["ship", "shop", "shed", "shell", "shut", "shin"], decoys: ["pig", "top", "run", "bed", "map", "sun"] },
-  { label: "end with -ck", members: ["duck", "sock", "kick", "lock", "back", "pick"], decoys: ["dog", "sun", "map", "ten", "bus", "fan"] }
-];
-
-// Each fluency cycle leads with the pattern its OWN sight words follow
-// (25: again/day/say -> -ay; 26: by/my/why/try -> -y; 27: mixed review),
-// then mixes in review families for variety.
-const CYCLE_PATTERN_LEADS = {
-  25: ["end with -ay", "end with -ll"],
-  26: ["end with y", "have -ng"],
-  27: ["end with -ck", "start with sh"]
-};
+// Pattern Power reviews only patterns explicitly taught in the phonics strand.
+// HFW membership never authorizes a spelling generalization on its own.
+const TAUGHT_PATTERN_REVIEW_INVENTORY = Object.freeze([
+  {
+    id: "initial-sh",
+    label: "start with sh",
+    requiredGraphemes: ["sh"],
+    members: ["ship", "shop", "shed", "shut"],
+    transfer: ["shin"],
+    decoys: ["pig", "top", "run", "bed", "map", "sun"]
+  },
+  {
+    id: "final-ng",
+    label: "have -ng",
+    requiredGraphemes: ["ng"],
+    members: ["ring", "king", "song", "bang", "hang", "long"],
+    transfer: ["wing"],
+    decoys: ["rat", "pig", "cup", "red", "mud", "tap"]
+  },
+  {
+    id: "final-ll",
+    label: "end with -ll",
+    requiredGraphemes: ["ll"],
+    members: ["ball", "fall", "call", "tall", "bell", "fill"],
+    transfer: ["hill"],
+    decoys: ["bat", "mop", "sun", "net", "rug", "pin"]
+  }
+]);
 
 function patternFamiliesForCycle(cycle) {
-  const leads = (CYCLE_PATTERN_LEADS[cycle?.cycleNumber] || [])
-    .map(label => PATTERN_FAMILIES.find(family => family.label === label))
-    .filter(Boolean);
-  const rest = shuffleItems(PATTERN_FAMILIES.filter(family => !leads.includes(family)));
-  return [...leads, ...rest];
+  const cycleNumber = cycle?.cycleNumber || 0;
+  const taught = new Set(taughtGraphemesThrough(cycleNumber));
+  return TAUGHT_PATTERN_REVIEW_INVENTORY.flatMap(family => {
+    if (!family.requiredGraphemes.every(grapheme => taught.has(grapheme))) return [];
+    const members = family.members.filter(word => wordUsesTaughtPrint(word, cycleNumber));
+    const transfer = family.transfer.filter(word => (
+      wordUsesTaughtPrint(word, cycleNumber)
+      && !members.includes(word)
+    ));
+    const decoys = family.decoys.filter(word => wordUsesTaughtPrint(word, cycleNumber));
+    if (members.length < 2 || !transfer.length || !decoys.length) return [];
+    return [{ ...family, members, transfer, decoys }];
+  });
 }
 
 // Station - Pattern Power: tap EVERY word that fits the pattern (multi-select).
 function buildPatternPowerRounds(cycle) {
-  return patternFamiliesForCycle(cycle).slice(0, 4).map(family => {
+  return patternFamiliesForCycle(cycle).map(family => {
     const fits = shuffleItems(family.members).slice(0, 3);
     const decoys = shuffleItems(family.decoys).slice(0, 3);
     const items = shuffleItems([
@@ -833,7 +879,7 @@ function buildPatternPowerRounds(cycle) {
         { id: "not", label: `do not ${family.label}` }
       ],
       items,
-      transferWord: family.members[3] || family.members[0],
+      transferWord: shuffleItems(family.transfer)[0],
       choiceStyle: "pattern"
     };
   });
