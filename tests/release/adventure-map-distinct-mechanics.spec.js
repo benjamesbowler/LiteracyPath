@@ -9,24 +9,27 @@ async function openStation(page, cycle, station) {
     .toBeVisible();
 }
 
-test("Letter Press uses two signs and commits a keyboard-operated press", async ({ page }) => {
+test("Letter Press pairs both signs after a known-correct keyboard press", async ({ page }) => {
   await openStation(page, "cycle-1", "letters");
   const stage = page.locator('[data-mechanic-stage="letter-press"]');
   await expect(stage.locator(".am-code-sign-slot")).toHaveCount(2);
+  await expect(stage.locator(".am-code-sign-slot").first()).toContainText("A");
 
-  const candidate = stage.locator(".am-letter-press-button").first();
-  const selected = (await candidate.textContent())?.trim();
+  // Cycle 1 starts with the authored A -> a visual-letter pair.
+  const candidate = stage.getByRole("button", { name: "a", exact: true });
   await candidate.focus();
   await page.keyboard.press("Enter");
 
   await expect(candidate).toHaveAttribute("aria-pressed", "true");
-  await expect(stage.locator(".am-code-sign-slot").nth(1)).toContainText(selected);
+  await expect(stage.locator('[data-slot-state="paired"]')).toHaveCount(2);
 });
 
-test("Sound Gate previews a keyboard-selected magnet before a separate commit", async ({ page }) => {
-  await openStation(page, "cycle-1", "sounds");
+test("Sound Gate opens for an accepted-equivalent spelling only after gate commit", async ({ page }) => {
+  await openStation(page, "cycle-24", "sounds");
   const stage = page.locator('[data-mechanic-stage="sound-gate"]');
-  const magnet = stage.locator(".am-sound-gate-magnet").first();
+  // Cycle 24's first authored target is ff; f is its accepted equivalent.
+  await expect(stage.getByRole("button", { name: "ff", exact: true })).toBeVisible();
+  const magnet = stage.getByRole("button", { name: "f", exact: true });
   const gate = stage.getByRole("button", { name: "Open sound gate" });
 
   await magnet.focus();
@@ -37,27 +40,34 @@ test("Sound Gate previews a keyboard-selected magnet before a separate commit", 
 
   await gate.focus();
   await page.keyboard.press("Enter");
-  await expect(page.getByRole("status")).not.toBeEmpty();
+  await expect(stage.locator(".am-sound-gate-slot")).toHaveAttribute("data-gate-state", "open");
+  await expect(stage.locator(".am-sound-gate-slot")).toContainText("Gate open");
 });
 
-test("Scene Hunt hides captions, toggles picture tags, and checks the full set", async ({ page }) => {
-  await openStation(page, "cycle-1", "hunt");
+test("Scene Hunt completes only after the exact correct picture set is tagged", async ({ page }) => {
+  await openStation(page, "cycle-22", "hunt");
   const stage = page.locator('[data-mechanic-stage="scene-hunt"]');
   const objects = stage.locator(".am-scene-object");
-  await expect(objects).toHaveCount(3);
+  await expect(objects).toHaveCount(5);
   await expect(stage.locator(".am-scene-object-label")).toHaveCount(0);
 
-  const first = objects.first();
-  await first.focus();
-  await page.keyboard.press("Enter");
-  await expect(first).toHaveAttribute("aria-pressed", "true");
-  await page.keyboard.press("Space");
-  await expect(first).toHaveAttribute("aria-pressed", "false");
+  // Cycle 22 is the authored nk Sound Sort replacement. Select every and
+  // only picture name ending in nk, independent of randomized positions.
+  const correctObjects = [];
+  for (let index = 0; index < await objects.count(); index += 1) {
+    const object = objects.nth(index);
+    const label = await object.getAttribute("aria-label");
+    if (label?.split(" ").at(-1)?.endsWith("nk")) correctObjects.push(object);
+  }
+  expect(correctObjects.length).toBeGreaterThanOrEqual(2);
+  for (const object of correctObjects) {
+    await object.focus();
+    await page.keyboard.press("Enter");
+    await expect(object).toHaveAttribute("aria-pressed", "true");
+  }
 
-  await objects.nth(0).click();
-  await objects.nth(1).click();
   await stage.getByRole("button", { name: "Labels" }).click();
-  await expect(stage.locator(".am-scene-object-label")).toHaveCount(3);
+  await expect(stage.locator(".am-scene-object-label")).toHaveCount(5);
   await stage.getByRole("button", { name: "Check tags" }).click();
-  await expect(page.getByRole("status")).not.toBeEmpty();
+  await expect(stage).toHaveAttribute("data-hunt-state", "complete");
 });

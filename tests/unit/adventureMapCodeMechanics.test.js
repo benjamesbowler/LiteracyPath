@@ -5,11 +5,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { createServer } from "vite";
 
 import { getChildWordAsset } from "../../src/data/childAssets.js";
-import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
-import {
-  buildStationRounds,
-  stationsForCycle
-} from "../../src/components/elQuest/elQuestEngine.js";
+import { VERIFIED_PICTURE_WORDS } from "../../src/data/generated/questStoryQuestions.generated.js";
 
 let LetterPressMechanic;
 let SoundGateMechanic;
@@ -192,21 +188,15 @@ test("showing Scene Hunt labels records one level of support", () => {
   assert.equal(commit.outcome.evidence.supportLevel, 3);
 });
 
-test("every generated Scene Hunt object resolves a default child picture", () => {
-  const missing = [];
-  for (const cycle of elSkillsBlockCycles.filter(item => item.cycleNumber)) {
-    for (const station of stationsForCycle(cycle).filter(item => item.id !== "check")) {
-      for (const round of buildStationRounds(cycle, station.id)) {
-        if (round.mechanicId !== "sceneHunt") continue;
-        for (const object of round.objects) {
-          const asset = getChildWordAsset(object.word);
-          if (!asset?.image && !asset?.fallbackImage) {
-            missing.push(`cycle ${cycle.cycleNumber}/${station.id}/${object.word}`);
-          }
-        }
-      }
-    }
-  }
+test("the complete eligible Scene Hunt inventory resolves default child pictures", () => {
+  const inventory = [...new Set(
+    VERIFIED_PICTURE_WORDS.map(word => String(word || "").toLowerCase())
+  )].sort();
+  assert.ok(inventory.length > 0);
+  const missing = inventory.filter(word => {
+    const asset = getChildWordAsset(word);
+    return !asset?.image && !asset?.fallbackImage;
+  });
   assert.deepEqual(missing, []);
 });
 
