@@ -105,7 +105,8 @@ The new migration defines immutable `public.lp_merge_el_quest(existing, incoming
 
 - [ ] **Step 6: Run focused progress tests**
 
-Run: `node --test tests/unit/adventureMapProgress.test.js tests/unit/progressMerge.test.js tests/unit/progressQueue.test.js tests/unit/studentFocusSessionDatabaseContract.test.js`  
+Run: `node --test tests/unit/adventureMapProgress.test.js tests/unit/progressMerge.test.js tests/unit/progressQueue.test.js tests/unit/studentFocusSessionDatabaseContract.test.js`
+
 Expected: PASS.
 
 - [ ] **Step 7: Commit the boundary**
