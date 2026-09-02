@@ -1,10 +1,36 @@
 import { STORY_CONTENT_POLICY_VERSION } from "./storyContentPolicy.js";
+import { WILLOW_STREET_BOOK_MANIFEST } from "../data/guidedReadingBridgeBooks.manifest.js";
+
+export const GUIDED_READING_RELEASE_READINESS = Object.freeze({
+  status: "release-blocked",
+  blockedBooks: Object.freeze(WILLOW_STREET_BOOK_MANIFEST.map(book => book.id)),
+  expectedImages: 180,
+  expectedNarrationPages: 160,
+  reason: "Final Willow Street images, direct visual review, exact-current-text narration, provenance, and human listening remain incomplete.",
+  authorityFingerprint: "b7667bd42783da0a2dbdc42e04a5cc689fe13ba74ef1e98057e56e2014690d63"
+});
+
+const GUIDED_READING_RELEASE_BLOCK_BY_ID = new Map(
+  GUIDED_READING_RELEASE_READINESS.blockedBooks.map(id => [id, GUIDED_READING_RELEASE_READINESS])
+);
+
+export function getGuidedReadingReleaseBlock(bookOrId) {
+  const id = typeof bookOrId === "string" ? bookOrId : bookOrId?.id;
+  return GUIDED_READING_RELEASE_BLOCK_BY_ID.get(id) || null;
+}
+
+export function classifyGuidedReadingMediaFinding(bookOrId, finding) {
+  return getGuidedReadingReleaseBlock(bookOrId)
+    ? { error: null, releaseBlock: finding }
+    : { error: finding, releaseBlock: null };
+}
 
 export const guidedReadingPolicyBaseline = Object.freeze({
   format: "guided-reading-book",
   itemCount: 226,
-  sourceFingerprint: "2ecd3be8a6ee540849dfdb1aa83778847f6434489ce5a7e91ccae71e9d5f54c4",
-  status: "media-pending",
+  sourceFingerprint: "211ae998197c144e38455d60c8f183549b4900a704a763bf19ff2a7fc874f7e2",
+  contentStatus: "approved",
+  releaseStatus: GUIDED_READING_RELEASE_READINESS.status,
   policyVersion: STORY_CONTENT_POLICY_VERSION,
   reviewedAt: "2026-09-02",
   reviewer: "Editorial and source review",

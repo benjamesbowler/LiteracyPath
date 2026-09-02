@@ -122,6 +122,45 @@ test("procedures publish a complete safe order", () => {
   }
 });
 
+test("food and ramp procedures expose every safety and comparison step to readers", () => {
+  const fruit = GUIDED_READING_BRIDGE_BOOKS.find(book => book.title === "Make Fruit and Yoghurt Cups");
+  assert.match(fruit.pages[0].text, /adult.*check.*allerg/iu);
+  assert.match(fruit.pages[1].text, /wash.*hands.*fruit/iu);
+  assert.match(fruit.pages[2].text, /adult.*cut/iu);
+  assert.doesNotMatch(fruit.pages.map(page => page.text).join(" "), /yoghurt/iu);
+
+  const ramp = GUIDED_READING_BRIDGE_BOOKS.find(book => book.title === "Build a Cardboard Ramp");
+  assert.match(ramp.pages[5].text, /release.*mark.*stop/iu);
+  assert.match(ramp.pages[6].text, /raise.*release.*again/iu);
+  assert.match(ramp.pages[7].text, /compare.*both marks/iu);
+});
+
+test("fiction review evidence matches reader-visible setbacks and resolutions", () => {
+  const eid = GUIDED_READING_BRIDGE_BOOKS.find(book => book.title === "Eid Morning with Samir");
+  assert.match(eid.pages[3].text, /hopes.*Maya/iu);
+  assert.match(eid.pages[4].text, /doorway.*hides Maya/iu);
+  assert.match(eid.pages[6].text, /finds Maya/iu);
+  assert.match(eid.storyBibleReview.storySpine, /hopes.*Maya/iu);
+  assert.match(eid.storyBibleReview.failedAttempt, /doorway.*hide/iu);
+  assert.match(eid.storyBibleReview.resolution, /finds Maya/iu);
+
+  const puddle = GUIDED_READING_BRIDGE_BOOKS.find(book => book.title === "The Puddle Plan");
+  assert.doesNotMatch(puddle.pages[7].text, /clean.*feet/iu);
+  assert.match(puddle.pages[7].text, /safe.*dry (?:way|path|route)/iu);
+  assert.match(puddle.pages[7].imageBrief, /Leo.*muddy boot/iu);
+});
+
+test("child-visible Willow page fields use U.S. English", () => {
+  const nonUs = /\b(?:neighbours?|centres?|centred|vapour|yoghurt|grey|colours?|colourful|organised|organising|fibres?|behaviour)\b/iu;
+  for (const book of GUIDED_READING_BRIDGE_BOOKS) {
+    for (const page of book.pages) {
+      for (const field of ["text", "pageAudioText", "imageAlt", "pageDescription"]) {
+        assert.doesNotMatch(String(page[field] || ""), nonUs, `${book.id} page ${page.pageNumber} ${field}`);
+      }
+    }
+  }
+});
+
 test("product records exclude prohibited topics and outside programme copy", () => {
   const productCopy = JSON.stringify(GUIDED_READING_BRIDGE_BOOKS);
   assert.doesNotMatch(productCopy, /romance|sexuality|gender identity|political|fountas|pinnell|reading recovery|crosswalk/iu);

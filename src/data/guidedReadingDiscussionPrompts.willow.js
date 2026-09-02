@@ -29,7 +29,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WILLOW = Object.freeze({
   ),
   "willow-street-the-puddle-plan": record(
     "What did Leo's muddy boot teach the friends about their first route?",
-    "Recognises that the short edge was soft, so they changed toward dry stones.",
+    "Recognizes that the short edge was soft, so they changed toward dry stones.",
     6,
     "Follow the safe path marked on page 6 from puddle to shed.",
     "Traces the curved dry stones between the two orange cones and the shed."
@@ -46,7 +46,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WILLOW = Object.freeze({
     "Describes finding the stone, closing the gate, moving it, and sweeping grit.",
     3,
     "What exactly prevents the green gate moving on page 3?",
-    "Shows the loose grey stone wedged below the bottom rail."
+    "Shows the loose gray stone wedged below the bottom rail."
   ),
   "willow-street-nanis-chapati-lunch": record(
     "Why did folding the chapatis solve Maya's packing problem?",
@@ -72,8 +72,8 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WILLOW = Object.freeze({
   "willow-street-eid-morning-with-samir": record(
     "How did helping at the welcome table lead Samir to Maya?",
     "Connects carrying the shared food parcel with finding Maya beside the dates.",
-    6,
-    "What is Maya preparing when Samir finds her on page 6?",
+    7,
+    "What is Maya preparing when Samir finds her on page 7?",
     "Identifies the bowl of dates and bright folded napkins on the welcome table."
   ),
   "willow-street-grow-a-bean-in-a-jar": record(
@@ -85,10 +85,10 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WILLOW = Object.freeze({
   ),
   "willow-street-make-a-paper-kite": record(
     "Why does Samir inspect three connections before flying the kite?",
-    "Explains how secure tape, tail, and centred line keep the kite together and balanced.",
+    "Explains how secure tape, tail, and centered line keep the kite together and balanced.",
     6,
     "Which parts does Samir inspect on page 6 before leaving?",
-    "Locates the flat tape strips, tied ribbon tail, centred line, and unbroken paper."
+    "Locates the flat tape strips, tied ribbon tail, centered line, and unbroken paper."
   ),
   "willow-street-build-a-cardboard-ramp": record(
     "How can adding one book change the toy car's journey?",
@@ -98,11 +98,11 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WILLOW = Object.freeze({
     "Points to the red car and two removable counters marking its stopping places."
   ),
   "willow-street-make-fruit-and-yoghurt-cups": record(
-    "Which actions keep the fruit-and-yoghurt cups clean and cold?",
-    "Recalls hand and fruit washing, adult cutting, clean spoons, lids, and refrigeration.",
-    5,
-    "How do the clear cups on page 5 reveal the layer order?",
-    "Traces yoghurt, fruit, then the second yoghurt layer through each cup."
+    "Which actions keep the fruit-and-yogurt cups safe, clean, and cold?",
+    "Recalls the allergy check, hand and fruit washing, adult cutting, clean spoons, lids, and refrigeration.",
+    6,
+    "How do the clear cups on page 6 reveal the layer order?",
+    "Traces yogurt, fruit, then the second yogurt layer through each cup."
   ),
   "willow-street-from-wheat-to-bread": record(
     "Which two changes turn wheat grain into dough that can rise?",
@@ -126,11 +126,11 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WILLOW = Object.freeze({
     "Finds hose reels, water controls, ladders, hand tools, and crew seats."
   ),
   "willow-street-how-paper-is-recycled": record(
-    "How does water help old paper become usable fibres again?",
+    "How does water help old paper become usable fibers again?",
     "Explains that water and mixing separate paper into pulp before screening and pressing.",
     6,
     "What leaves the thin pulp layer as it crosses page 6?",
-    "Observes press rollers squeezing water downward while fibres continue as one mat."
+    "Observes press rollers squeezing water downward while fibers continue as one mat."
   ),
   "willow-street-a-snail-comes-out-at-night": record(
     "How does a damp night help the snail move and feed?",

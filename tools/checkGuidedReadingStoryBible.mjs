@@ -6,17 +6,22 @@ import { fileURLToPath } from "node:url";
 
 import { getRuntimeGuidedReadingBooks } from "../src/utils/guidedReading/runtimeBooks.js";
 import { getGuidedReadingPageAudioPath } from "../src/utils/guidedReading/readAloudPolicy.js";
+import {
+  classifyGuidedReadingMediaFinding,
+  GUIDED_READING_RELEASE_READINESS
+} from "../src/content/storyContentReviews.js";
 
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const failures = [];
 
 const helpRequested = process.argv.includes("--help") || process.argv.includes("-h");
 if (helpRequested) {
-  console.log("Usage: node tools/checkGuidedReadingStoryBible.mjs [--level A|B|C] [--skip-audio]");
+  console.log("Usage: node tools/checkGuidedReadingStoryBible.mjs [--level A|B|C] [--skip-audio] [--release]");
   process.exit(0);
 }
 
 const skipAudio = process.argv.includes("--skip-audio");
+const releaseMode = process.argv.includes("--release");
 
 const levelFlagIndex = process.argv.indexOf("--level");
 const requestedLevel = levelFlagIndex === -1
@@ -105,16 +110,16 @@ const books = getRuntimeGuidedReadingBooks()
 let pageCount = 0;
 let exactAudioCount = 0;
 let reviewedBookCount = 0;
-let scheduledMediaBookCount = 0;
-let scheduledMediaPageCount = 0;
+const releaseBlocks = [];
 
 for (const book of books) {
   const label = `${book.id} (${book.title})`;
   const review = book.storyBibleReview;
-  if (book.mediaStatus === "scheduled") {
-    scheduledMediaBookCount += 1;
-    scheduledMediaPageCount += book.pages?.length || 0;
-  }
+  const recordMediaFinding = (finding) => {
+    const classification = classifyGuidedReadingMediaFinding(book, finding);
+    if (classification.error) failures.push(classification.error);
+    if (classification.releaseBlock) releaseBlocks.push(classification.releaseBlock);
+  };
   const levelRule = book.readingPageProfile === "compact-stable"
     ? COMPACT_STABLE_RULE
     : BAND_PROFILE_RULES[book.readingBandProfile] || LEVEL_RULES[book.level];
@@ -219,19 +224,19 @@ for (const book of books) {
     if (page.pageAudioText && String(page.pageAudioText).trim() !== text) {
       failures.push(`${pageLabel}: pageAudioText differs from visible text`);
     }
-    if (book.mediaStatus !== "scheduled" && !nonEmptyFile(page.image || page.imageUrl || page.pageImage)) {
-      failures.push(`${pageLabel}: page image is missing or empty`);
+    if (!nonEmptyFile(page.image || page.imageUrl || page.pageImage)) {
+      recordMediaFinding(`${pageLabel}: page image is missing or empty`);
     }
 
-    if (!skipAudio && book.mediaStatus !== "scheduled") {
+    if (!skipAudio) {
       const audioPath = getGuidedReadingPageAudioPath(page);
       if (!nonEmptyFile(audioPath)) {
-        failures.push(`${pageLabel}: exact-text Leda narration is missing`);
+        recordMediaFinding(`${pageLabel}: exact-text Leda narration is missing`);
       } else {
         exactAudioCount += 1;
       }
       if (page.narrationNeedsRebuild) {
-        failures.push(`${pageLabel}: narrationNeedsRebuild remains open`);
+        recordMediaFinding(`${pageLabel}: narrationNeedsRebuild remains open`);
       }
     }
   }
@@ -253,7 +258,7 @@ console.log(`Guided Reading Story Bible audit${requestedLevel ? ` - Level ${requ
 console.log(
   `Books: ${books.length}; reviewed: ${reviewedBookCount}; pages: ${pageCount}; `
   + (skipAudio ? "audio checks: skipped." : `exact Leda pages: ${exactAudioCount}; `)
-  + `scheduled media pages: ${scheduledMediaPageCount} across ${scheduledMediaBookCount} books.`
+  + `release-blocking media findings: ${releaseBlocks.length}.`
 );
 console.log(`Failures: ${failures.length}. Visual alignment is enforced by the separate hash-locked page audit.`);
 
@@ -263,7 +268,17 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(
-  `All Guided Reading books pass Story Bible manuscript and level rules. `
-  + `${scheduledMediaPageCount} scheduled pages remain outside image-file and exact-audio verification.`
-);
+console.log("All Guided Reading books pass Story Bible manuscript and level rules.");
+if (releaseBlocks.length) {
+  const blockedBookCount = books.filter(book =>
+    GUIDED_READING_RELEASE_READINESS.blockedBooks.includes(book.id)
+  ).length;
+  console.log(
+    `Release readiness remains blocked for ${blockedBookCount} books: final images, direct visual review, `
+    + "exact-current-text narration, provenance, and human listening are incomplete."
+  );
+  if (releaseMode) {
+    console.error(`Guided Reading release gate FAILED (${releaseBlocks.length} media findings).`);
+    process.exit(1);
+  }
+}

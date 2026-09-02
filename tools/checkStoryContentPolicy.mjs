@@ -19,6 +19,7 @@ import {
   STORY_CONTENT_SCORE_CATEGORIES
 } from "../src/content/storyContentPolicy.js";
 import {
+  GUIDED_READING_RELEASE_READINESS,
   guidedReadingPolicyBaseline,
   storyQuestPolicyReviews
 } from "../src/content/storyContentReviews.js";
@@ -46,8 +47,8 @@ function fingerprint(value) {
 }
 
 function guidedReadingFingerprint() {
-  return fingerprint(
-    getRuntimeGuidedReadingBooks().map(book => ({
+  return fingerprint({
+    books: getRuntimeGuidedReadingBooks().map(book => ({
       id: book.id,
       title: book.title,
       level: book.level,
@@ -59,8 +60,9 @@ function guidedReadingFingerprint() {
         image: page.image || null,
         audio: getGuidedReadingPageAudioPath(page) || null
       }))
-    }))
-  );
+    })),
+    releaseReadiness: GUIDED_READING_RELEASE_READINESS
+  });
 }
 
 function storyQuestFingerprint(quest) {
@@ -144,6 +146,21 @@ if (guidedReadingPolicyBaseline.policyVersion !== STORY_CONTENT_POLICY_VERSION) 
   addError("guided-reading baseline policyVersion does not match the active story policy");
 }
 
+const { authorityFingerprint, ...releaseReadinessAuthority } = GUIDED_READING_RELEASE_READINESS;
+const currentReleaseAuthorityFingerprint = fingerprint(releaseReadinessAuthority);
+if (currentReleaseAuthorityFingerprint !== authorityFingerprint) {
+  addError(
+    "guided-reading release-readiness authority changed without a fingerprint update "
+    + `(expected ${authorityFingerprint}; current ${currentReleaseAuthorityFingerprint})`
+  );
+}
+if (guidedReadingPolicyBaseline.contentStatus !== "approved") {
+  addError("guided-reading authored content must retain an explicit approved content status");
+}
+if (guidedReadingPolicyBaseline.releaseStatus !== GUIDED_READING_RELEASE_READINESS.status) {
+  addError("guided-reading baseline release status does not match the release-readiness authority");
+}
+
 const activeBooks = getRuntimeGuidedReadingBooks();
 for (const book of activeBooks) {
   const label = `${book.id} (${book.title})`;
@@ -190,9 +207,30 @@ if (unflaggedGuidedPagesWithoutExactAudio.length) {
   );
 }
 
-if (guidedReadingPolicyBaseline.status !== "approved") {
+const blockedGuidedBooks = activeBooks.filter(book =>
+  GUIDED_READING_RELEASE_READINESS.blockedBooks.includes(book.id)
+);
+const blockedGuidedIds = new Set(blockedGuidedBooks.map(book => book.id));
+const unknownBlockedIds = GUIDED_READING_RELEASE_READINESS.blockedBooks.filter(id =>
+  !activeBooks.some(book => book.id === id)
+);
+if (unknownBlockedIds.length) {
+  addError(`guided-reading release authority names inactive books: ${unknownBlockedIds.join(", ")}`);
+}
+if (GUIDED_READING_RELEASE_READINESS.status !== "approved") {
+  const missingImages = blockedGuidedBooks.reduce((count, book) =>
+    count
+    + (hasNonEmptyPublicFile(book.coverImage) ? 0 : 1)
+    + (book.pages || []).filter(page => !hasNonEmptyPublicFile(page.image)).length,
+  0);
+  const missingNarrationPages = guidedAudioInventory.pages.filter(page =>
+    blockedGuidedIds.has(page.bookId) && !page.exactLedaAudioResolves
+  ).length;
   releaseBlocks.push(
-    `guided-reading catalogue: manuscript and illustration review is complete for ${activeBooks.length} books; exact-current-text Leda audio resolves, but human listening validation remains open`
+    `guided-reading Willow Street: ${GUIDED_READING_RELEASE_READINESS.status}; content manuscripts are approved, `
+    + `${missingImages}/${GUIDED_READING_RELEASE_READINESS.expectedImages} images and `
+    + `${missingNarrationPages}/${GUIDED_READING_RELEASE_READINESS.expectedNarrationPages} narration pages are not release-ready; `
+    + "direct visual review, provenance, and human listening remain open"
   );
 }
 

@@ -63,7 +63,6 @@ const makeBook = ({ slug, title, type, bridgeGenre, visualTreatment, cast, repea
   ...(safetyNote ? { safetyNote } : {}),
   active: true,
   qaStatus: "approved",
-  mediaStatus: "scheduled",
   pages: makePages(slug, rows, bridgeGenre === "procedure")
 });
 
@@ -169,7 +168,7 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
       ["Samir tests each stone with one careful step.", "Samir takes a careful step along the dry curved stones while Leo watches from firm ground; show stable flat stones, shallow water, and no jumping or risky balancing."],
       ["Leo places cones beside the safe dry way.", "Leo sets the two orange cones on firm ground beside the curved dry route; Samir stands near the shed end, clearly showing the complete safe path around the puddle."],
       ["Their plan guides Maya around the puddle.", "Maya approaches and follows the cone-marked dry stones while Leo gestures along the route and Samir waits ahead; her shoes stay dry and the puddle remains undisturbed."],
-      ["Everyone reaches the garden with clean, dry feet.", "Resolved garden view beyond the puddle: Maya, Leo, and Samir stand by the shed with dry shoes except Leo's small muddy boot mark; the safe coned route remains visible behind them." ]
+      ["Everyone reaches the garden by the safe, dry path.", "Resolved garden view beyond the puddle: Maya, Leo, and Samir stand by the shed; Leo keeps his muddy boot while the others stay dry, and the safe coned route remains visible." ]
     ]
   }),
   makeBook({
@@ -206,7 +205,7 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     visualTreatment: "willow-street-illustrated",
     cast: ["WILLOW-MAYA", "WILLOW-LEO"],
     repeatedLanguage: "The gate",
-    coverBrief: "Illustrated Willow Street community garden entrance, Maya and Leo studying a green wooden gate caught above one small grey stone; watering can and flower beds beyond, clear cause visible, fresh morning light, no text.",
+    coverBrief: "Illustrated Willow Street community garden entrance, Maya and Leo studying a green wooden gate caught above one small gray stone; watering can and flower beds beyond, clear cause visible, fresh morning light, no text.",
     storyBibleReview: fictionReview(
       "Maya and Leo need to open the garden gate and inspect what blocks its swing.",
       "Pulling together fails because a stone is wedged beneath the lower rail.",
@@ -214,9 +213,9 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
       ["WILLOW-MAYA", "WILLOW-LEO"]
     ),
     rows: [
-      ["The gate stops halfway across the garden path.", "Wide illustrated entrance view: the green wooden garden gate is stuck halfway open; Maya holds it gently while Leo looks along the ground, with one grey stone partly hidden below."],
+      ["The gate stops halfway across the garden path.", "Wide illustrated entrance view: the green wooden garden gate is stuck halfway open; Maya holds it gently while Leo looks along the ground, with one gray stone partly hidden below."],
       ["Maya pulls once, but the gate stays still.", "Maya gives one careful pull at the handle while keeping fingers away from hinges; the gate remains fixed, and Leo watches the lower rail instead of adding force."],
-      ["Leo kneels and sees a stone underneath.", "Low close view from the safe latch side: Leo points to a small loose grey stone wedged beneath the gate's bottom rail; Maya steadies the gate and the hinge side stays clear."],
+      ["Leo kneels and sees a stone underneath.", "Low close view from the safe latch side: Leo points to a small loose gray stone wedged beneath the gate's bottom rail; Maya steadies the gate and the hinge side stays clear."],
       ["They close the gate before moving the stone.", "Maya gently returns the gate to its closed position while Leo steps back; show the stone now accessible on the path and both children's hands away from the hinge."],
       ["Leo lifts the loose stone with both hands.", "Leo uses both hands to lift the small manageable stone from the path while Maya holds a garden bucket nearby; posture is safe, and the gate remains fully closed."],
       ["Maya sweeps the gritty path beneath the gate.", "Maya uses a child-size brush to sweep loose grit from the gate's swing path into a small pan; Leo places the stone beside the garden border, not on the path."],
@@ -267,7 +266,7 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     ),
     rows: [
       ["Zoe's family makes dumplings for their New Year meal.", "Illustrated family kitchen: Zoe in coral jacket with sleeves rolled safely joins Aunt Mei at a clean table set with round wrappers and vegetable filling; red decorations hang high without readable writing."],
-      ["Aunt Mei places one small spoonful in the middle.", "Close overhead view of Aunt Mei placing a modest spoonful of vegetable filling in the centre of one round wrapper; Zoe watches, and ingredients remain separated in tidy bowls."],
+      ["Aunt Mei places one small spoonful in the middle.", "Close overhead view of Aunt Mei placing a modest spoonful of vegetable filling in the center of one round wrapper; Zoe watches, and ingredients remain separated in tidy bowls."],
       ["Zoe adds too much, and her wrapper opens.", "Zoe's first wrapper lies open on the tray because a large mound of filling prevents the edges meeting; her expression shows surprise, while Aunt Mei responds calmly."],
       ["Aunt Mei shows a smaller spoonful this time.", "Aunt Mei removes extra filling and demonstrates the smaller amount beside Zoe; show both wrappers for a clear comparison and keep the cooking pot distant with another adult."],
       ["Zoe pinches the curved edge from end to end.", "Close view of Zoe folding the wrapper into a crescent and pinching its curved edge carefully from left to right; filling stays enclosed and Aunt Mei's guiding hand remains nearby."],
@@ -284,7 +283,7 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     visualTreatment: "willow-street-illustrated",
     cast: ["WILLOW-LEO", "WILLOW-MR-BAPTISTE"],
     repeatedLanguage: "Leo plays",
-    coverBrief: "Illustrated Willow Street community hall rehearsal, Leo with a small hand drum beside bandleader Mr Baptiste and a mixed-age percussion group; colourful fabric banners, instruments correctly held, lively but controlled motion, no logos or text.",
+    coverBrief: "Illustrated Willow Street community hall rehearsal, Leo with a small hand drum beside bandleader Mr Baptiste and a mixed-age percussion group; colorful fabric banners, instruments correctly held, lively but controlled motion, no logos or text.",
     storyBibleReview: fictionReview(
       "Leo wants to join a community Carnival rehearsal and must learn where his drum part fits.",
       "Playing continuously covers the leader's call and breaks the group's pattern.",
@@ -292,14 +291,14 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
       ["WILLOW-LEO", "WILLOW-MR-BAPTISTE"]
     ),
     rows: [
-      ["Leo brings his small drum to Carnival practice.", "Illustrated community hall: Leo, in yellow rain vest over striped shirt, enters carrying a child-size hand drum; Mr Baptiste and a mixed-age neighbourhood percussion group prepare beneath colourful fabric banners."],
+      ["Leo brings his small drum to Carnival practice.", "Illustrated community hall: Leo, in yellow rain vest over striped shirt, enters carrying a child-size hand drum; Mr Baptiste and a mixed-age neighborhood percussion group prepare beneath colorful fabric banners."],
       ["Mr Baptiste plays a call for everyone.", "Bandleader Mr Baptiste raises one hand and plays a short call on a barrel drum; the circle watches attentively, instruments held correctly, with Leo ready but not yet playing."],
       ["Leo plays all through the answering beat.", "Leo enthusiastically continues drumming while the group begins its answer; overlapping motion lines and concerned listening faces show the rhythm has become crowded without shaming him."],
       ["The group stops, and Leo listens again.", "The whole percussion circle becomes still as Mr Baptiste calmly repeats the call with a hand cue; Leo lowers his sticks and leans forward to listen closely."],
-      ["Leo plays only when the answering beat begins.", "Mr Baptiste finishes the call and points to the group; Leo joins exactly as the answering beat starts, matching the neighbours' hand drums in coordinated motion."],
+      ["Leo plays only when the answering beat begins.", "Mr Baptiste finishes the call and points to the group; Leo joins exactly as the answering beat starts, matching the neighbors' hand drums in coordinated motion."],
       ["Leo plays softly, then strongly, with the group.", "The percussion group follows two visible hand cues: a small low hand for soft playing and raised open hand for strong playing; Leo mirrors both dynamics attentively."],
       ["Their shared rhythm fills the community hall.", "Wide hall view: Leo, Mr Baptiste, and the full community group sustain one coordinated rhythm; families watch beside bright banners, with joyful expressions and mechanically plausible instruments."],
-      ["Leo marches outside, keeping his part steady.", "Resolved daylight procession outside the community hall: Leo marches safely within the supervised group, keeping his small drum beat steady beneath colourful fabric streamers, with neighbours lining the pedestrian square." ]
+      ["Leo marches outside, keeping his part steady.", "Resolved daylight procession outside the community hall: Leo marches safely within the supervised group, keeping his small drum beat steady beneath colorful fabric streamers, with neighbors lining the pedestrian square." ]
     ]
   }),
   makeBook({
@@ -310,22 +309,22 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     visualTreatment: "willow-street-illustrated",
     cast: ["WILLOW-SAMIR", "WILLOW-MAYA"],
     repeatedLanguage: "Samir's family",
-    coverBrief: "Illustrated Eid morning outside Willow Street community hall, Samir in a cream kurta beside his family and Maya, carrying a covered food parcel and greeting neighbours; crescent bunting, fresh morning light, respectful everyday detail, no text.",
+    coverBrief: "Illustrated Eid morning outside Willow Street community hall, Samir in a cream kurta beside his family and Maya, carrying a covered food parcel and greeting neighbors; crescent bunting, fresh morning light, respectful everyday detail, no text.",
     storyBibleReview: fictionReview(
-      "Samir prepares for an Eid morning gathering while waiting for Maya to arrive.",
-      "He worries when she is delayed and cannot see her in the busy entrance.",
-      "Samir helps with the family food parcel, then finds Maya at the welcome table and celebrates together.",
+      "After prayers and greetings, Samir hopes to find Maya for the shared Eid breakfast.",
+      "The busy doorway hides Maya, so looking there does not work.",
+      "Samir carries the family food parcel to the welcome table, finds Maya there, and they share breakfast.",
       ["WILLOW-SAMIR", "WILLOW-MAYA"]
     ),
     rows: [
       ["Samir's family dresses early for Eid morning.", "Illustrated home hallway in early light: Samir wears a cream kurta and blue waistcoat while family members finish shoes and scarves; a small crescent garland is visible, with natural varied clothing."],
       ["Samir's family walks together to morning prayers.", "Willow Street morning scene: Samir and family walk along the pavement toward the community hall prayer gathering, carrying folded prayer mats; respectful distance, safe crossing, and no readable signs."],
-      ["After prayers, neighbours greet one another warmly.", "Outside the hall after prayers, Samir's family exchanges smiles, handshakes, and friendly greetings with neighbours of different ages; prayer mats are rolled and morning light remains consistent."],
-      ["Samir looks for Maya beside the busy doorway.", "Samir scans the busy but orderly hall entrance for Maya; his family stays close, neighbours pass with food containers, and the welcome table is partly visible beyond the doorway."],
-      ["His family carries a food parcel to share.", "Samir helps an adult family member carry one sealed food parcel toward the community welcome table; show shared responsibility, safe two-handed carrying, and several other donated parcels."],
-      ["Maya waits there with dates and bright napkins.", "At the welcome table, Maya in mustard cardigan arranges a bowl of dates and bright folded napkins with an adult volunteer; Samir spots her and smiles with clear relief."],
-      ["Samir and Maya share sweet dates together.", "Samir and Maya sit with family members and each hold one date from the shared bowl; water cups and the sealed food parcel remain visible, creating a calm communal moment."],
-      ["Then everyone joins the joyful Eid breakfast.", "Wide resolved community breakfast: Samir, Maya, their families, and neighbours share varied dishes at long tables beneath crescent bunting; warm inclusive gathering, concrete cultural setting, no token poses." ]
+      ["After prayers, neighbors greet one another warmly.", "Outside the hall after prayers, Samir's family exchanges smiles, handshakes, and friendly greetings with neighbors of different ages; prayer mats are rolled and morning light remains consistent."],
+      ["Samir hopes Maya will meet him by the doorway.", "Samir pauses near the busy but orderly hall entrance, watching for Maya while his family stays close; neighbors pass with food containers and the welcome table is visible farther inside."],
+      ["The busy doorway hides Maya from his view.", "A respectful crowd crosses the doorway, briefly blocking Samir's sightline; he looks carefully without pushing through, and Maya is not visible from this position."],
+      ["Samir carries his family's food parcel to share.", "Samir helps an adult family member carry one sealed food parcel away from the doorway toward the community welcome table; use safe two-handed carrying and show other shared parcels."],
+      ["At the welcome table, he finds Maya with dates.", "At the welcome table, Maya in mustard cardigan arranges a bowl of dates and bright folded napkins with an adult volunteer; Samir arrives with the parcel and smiles in relief."],
+      ["Together, they share dates at the joyful Eid breakfast.", "Wide resolved community breakfast: Samir and Maya share dates beside their families and neighbors at long tables beneath crescent bunting; the delivered food parcel is open among the shared dishes." ]
     ]
   }),
   makeBook({
@@ -371,11 +370,11 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     ),
     rows: [
       ["Ask an adult to cut a paper diamond.", "Illustrated craft table: an adult cuts thick blue paper into a broad diamond while Samir watches from the other side; scissors stay in adult hands, with ruler, tape, and sticks arranged clearly."],
-      ["Lay two light sticks across the diamond.", "Overhead view of Samir placing one long and one short lightweight stick in a cross on the blue paper diamond; their meeting point is centred and scissors are absent."],
+      ["Lay two light sticks across the diamond.", "Overhead view of Samir placing one long and one short lightweight stick in a cross on the blue paper diamond; their meeting point is centered and scissors are absent."],
       ["Tape both sticks firmly to the paper.", "Samir presses four short tape strips over the stick ends and one at the crossing; the diamond stays flat, supports remain straight, and adult supervision is visible."],
       ["Tie a ribbon tail to the bottom.", "Close view of the adult helping Samir tie a long soft ribbon tail through a reinforced hole at the kite's bottom point; frame and blue paper remain unchanged."],
-      ["Add the flying line at the centre.", "Adult hands attach the kite string securely around the crossed sticks at the centre while Samir holds the spool; show a simple safe knot and no string around fingers."],
-      ["Check the kite's tape, tail, and line together.", "Samir and the adult inspect every connection before leaving: tape strips flat, ribbon tail secure, flying line centred, paper unbroken; present all checks in one uncluttered view."],
+      ["Add the flying line at the center.", "Adult hands attach the kite string securely around the crossed sticks at the center while Samir holds the spool; show a simple safe knot and no string around fingers."],
+      ["Check the kite's tape, tail, and line together.", "Samir and the adult inspect every connection before leaving: tape strips flat, ribbon tail secure, flying line centered, paper unbroken; present all checks in one uncluttered view."],
       ["Choose open ground, far from roads and wires.", "Wide Willow Street Park field with Samir and adult selecting open grass; roads, trees, and any utility lines are far beyond the flying area, under moderate wind."],
       ["Face the breeze and let the kite rise.", "Samir faces the breeze while the adult stands beside him; the blue diamond kite rises on a controlled line, ribbon tail streaming steadily, with safe open space in every direction." ]
     ]
@@ -401,9 +400,9 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
       ["Rest the cardboard across the book stack.", "Side view of Leo placing one end of the cardboard on the low book stack and the other on the floor, forming a gentle slope with full-width support."],
       ["Tape the ramp so it cannot slide.", "The adult helps Leo add paper tape where cardboard meets the books and floor; show broad secure strips, level supports, and no fingers beneath the ramp."],
       ["Clear toys away from the landing space.", "Leo moves blocks and figures out of the wide floor area beyond the ramp; adult points to the now-clear landing path, with the red toy car waiting at the top."],
-      ["Release one toy car from the top.", "Leo places the red toy car at the ramp top and releases it without pushing; side angle shows the full slope and clear landing space as the car begins rolling."],
-      ["Try one more book beneath the ramp.", "With adult help, Leo adds one broad book to make a slightly higher but still low stable stack; tape is replaced securely and both versions are visually comparable."],
-      ["Compare how far the toy car rolls now.", "Overhead finish shows the red car's first and second stopping places marked by two removable wooden counters; Leo compares distances while the safe ramp stays fixed and uncluttered." ]
+      ["Release one car, then mark its stopping point.", "Leo releases the red toy car from the lower ramp without pushing, then places one round blue counter exactly beside its first stopping point; the adult keeps the ramp steady."],
+      ["Raise the ramp, then release the car again.", "With adult help, Leo adds one broad book, retapes the still-low ramp, and releases the same red car again from the same top edge; the first blue mark stays fixed."],
+      ["Compare both marks to see which roll traveled farther.", "Overhead finish shows the first blue counter and second yellow counter at the two stopping points; Leo compares their distance from the ramp while the safe raised ramp stays fixed." ]
     ]
   }),
   makeBook({
@@ -414,22 +413,22 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     visualTreatment: "willow-street-illustrated",
     cast: ["WILLOW-ZOE"],
     repeatedLanguage: "each cup",
-    safetyNote: "Wash hands and fruit; an adult cuts firm fruit, checks allergies, and keeps yoghurt cold until serving.",
-    coverBrief: "Illustrated Willow Street kitchen table, Zoe and an adult displaying four clear reusable cups layered with plain yoghurt, berries, banana, and oats; knife remains at adult counter, cold ingredients and clean hands emphasized, no text.",
+    safetyNote: "An adult checks every ingredient for allergies before food preparation, cuts firm fruit, and keeps yogurt cold until serving.",
+    coverBrief: "Illustrated Willow Street kitchen table, Zoe and an adult displaying four clear reusable cups layered with plain yogurt, berries, and banana; knife remains at adult counter, cold ingredients and clean hands emphasized, no text.",
     storyBibleReview: nonfictionReview(
-      "How can a child assemble safe fruit and yoghurt cups?",
-      "Clean, adult-cut, portion, layer, finish, cover, chill, and serve in food-safe order.",
+      "How can a child assemble safe fruit and yogurt cups?",
+      "Check allergies, clean, adult-cut, portion, layer, cover, chill, and serve in food-safe order.",
       "Clean cold ingredients become an even layered snack when each cup receives the same safe steps."
     ),
     rows: [
+      ["Ask an adult to check every ingredient for allergies.", "Before any food is opened, Zoe shows the adult the plain yogurt, banana, and berries; the adult checks each package's ingredient panel while Zoe waits, with labels kept unreadable."],
       ["Wash your hands and rinse the fruit.", "Illustrated kitchen sink: Zoe washes soapy hands while an adult rinses berries and banana nearby; clean towel, colander, and uncluttered food-safe surfaces are clearly shown."],
       ["Ask an adult to cut the banana.", "At the adult-height counter, the adult slices peeled banana on a board while Zoe waits at the table; knife remains firmly in adult hands and berries stay whole."],
-      ["Spoon plain yoghurt into each cup.", "Overhead table view: Zoe uses one clean spoon to place equal plain yoghurt portions into four clear reusable cups; adult supervises and fruit bowls remain separate."],
-      ["Add banana and berries to each cup.", "Zoe adds visible banana slices and mixed berries evenly to each of the four cups; show matching first fruit layers and keep her hands away from cutting tools."],
-      ["Spoon another yoghurt layer over the fruit.", "Side view through the clear cups as Zoe adds a second plain yoghurt layer that partly covers the fruit; all four cups show the same tidy sequence."],
-      ["Sprinkle oats across the top of each cup.", "Zoe uses a small spoon to sprinkle a light oat layer over every cup; adult checks a plain allergy-information card kept unreadable, with no branded packaging."],
+      ["Spoon plain yogurt into each cup.", "Overhead table view: Zoe uses one clean spoon to place equal plain yogurt portions into four clear reusable cups; adult supervises and fruit bowls remain separate."],
+      ["Add banana and berries to each cup.", "Zoe adds visible banana slices and mixed berries evenly to each of the four cups; show matching fruit layers and keep her hands away from cutting tools."],
+      ["Spoon more yogurt over the fruit.", "Side view through the clear cups as Zoe adds a second plain yogurt layer that partly covers the fruit; all four cups show the same tidy sequence."],
       ["Cover and chill each cup until snack time.", "The adult and Zoe place snug reusable lids on the four cups, then set them together on a refrigerator shelf; cold storage is clear and cups stay upright."],
-      ["Serve the cold cups with clean spoons.", "Resolved kitchen table: Zoe serves the four chilled fruit-and-yoghurt cups with clean spoons to family members; bright fruit layers remain visible and uneaten cups stay cold." ]
+      ["Serve the cold cups with clean spoons.", "Resolved kitchen table: Zoe serves the four chilled fruit-and-yogurt cups with clean spoons to family members; bright fruit layers remain visible and uneaten cups stay cold." ]
     ]
   }),
   makeBook({
@@ -472,14 +471,14 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
       "Rainwater may soak into ground or flow downhill, eventually rejoining waterways and the atmosphere."
     ),
     rows: [
-      ["Rain falls onto roofs, gardens, roads, and rivers.", "Photorealistic neighbourhood landscape during moderate rain: droplets visibly reach tiled roofs, planted garden soil, wet road, and a small river in the distance; safe normal weather, no storm damage."],
+      ["Rain falls onto roofs, gardens, roads, and rivers.", "Photorealistic neighborhood landscape during moderate rain: droplets visibly reach tiled roofs, planted garden soil, wet road, and a small river in the distance; safe normal weather, no storm damage."],
       ["Some rainwater soaks slowly into loose garden soil.", "Photorealistic macro view of rain soaking into dark crumbly garden soil around plant roots, with fewer surface puddles; realistic pore texture and diffuse overcast light."],
       ["Some rainwater runs downhill across hard pavement.", "Photorealistic low-angle view of shallow rainwater following the slope of an unbranded pavement toward the curb; flow direction visible through tiny leaves, no dangerous flood depth."],
       ["Roof gutters carry water into pipes or water butts.", "Photorealistic house detail: clean roof gutter channels rain into a downpipe that branches to a covered rain barrel, with overflow continuing safely toward drainage; accurate fittings, no labels."],
       ["Street drains guide water away from busy roads.", "Photorealistic curb drain receiving a thin sheet of road runoff while vehicles remain distant; grate openings, curb slope, and water direction mechanically plausible, with no person entering the road."],
       ["Small streams join wider rivers moving toward the sea.", "Photorealistic aerial-oblique landscape where two narrow streams visibly meet a broader river winding toward a coastal horizon; natural banks, accurate scale, clear connected flow."],
-      ["Sunlight warms water, and some rises as vapour.", "Photorealistic calm reservoir after rain under returning sunlight; subtle atmospheric haze rises from the surface without cartoon arrows, with warm light glinting on realistic water."],
-      ["Cooling vapour forms clouds that can bring more rain.", "Photorealistic wide sky and landscape: moist air has formed layered rain clouds above the same river basin, with a distant gentle rain shaft completing the cycle plausibly." ]
+      ["Sunlight warms water, and some rises as vapor.", "Photorealistic calm reservoir after rain under returning sunlight; subtle atmospheric haze rises from the surface without cartoon arrows, with warm light glinting on realistic water."],
+      ["Cooling vapor forms clouds that can bring more rain.", "Photorealistic wide sky and landscape: moist air has formed layered rain clouds above the same river basin, with a distant gentle rain shaft completing the cycle plausibly." ]
     ]
   }),
   makeBook({
@@ -494,17 +493,17 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     storyBibleReview: nonfictionReview(
       "What work happens inside a fire station before, during, and after a call?",
       "Readiness, dispatch, protective gear, travel, emergency work, return, equipment care, and training show the complete duty cycle.",
-      "Firefighters prepare, respond as a trained team, maintain equipment, and practise for future emergencies."
+      "Firefighters prepare, respond as a trained team, maintain equipment, and practice for future emergencies."
     ),
     rows: [
       ["Firefighters check their engine, tools, and safety gear.", "Photorealistic station bay at shift start: two firefighters inspect hose couplings, breathing apparatus, and engine compartments; all equipment secured, uniforms unbranded, calm professional daylight."],
       ["A dispatcher sends details when someone needs help.", "Photorealistic communications desk inside the station: adult firefighter receives an alert on a screen shown without readable private details, then points to a wall map with no legible addresses."],
       ["Firefighters pull on protective clothing before they leave.", "Photorealistic gear area: firefighters put on boots, trousers, jackets, helmets, gloves, and breathing equipment in correct sequence; no exposed flames, complete protective kit, realistic adult anatomy."],
-      ["The engine carries people, water, hoses, and tools.", "Photorealistic open-side equipment view of the parked fire engine: hose reels, water controls, ladders, hand tools, and crew seats clearly organised; no brands or misleading loose equipment."],
+      ["The engine carries people, water, hoses, and tools.", "Photorealistic open-side equipment view of the parked fire engine: hose reels, water controls, ladders, hand tools, and crew seats clearly organized; no brands or misleading loose equipment."],
       ["At emergencies, firefighters work together under one leader.", "Photorealistic safe training-ground response: a crew follows one officer's hand signal while positioning a hose line toward a controlled practice target; full gear, no identifiable casualty."],
       ["They may stop fires, rescue people, or give first aid.", "Photorealistic three-part station display using separate real training photographs: hose practice, ladder rescue dummy, and first-aid mannequin; dignified non-graphic scenes with accurate equipment."],
-      ["Back at the station, every tool is cleaned and checked.", "Photorealistic return-to-station scene: firefighters wash hose, inspect breathing apparatus, and replace tools in labelled-by-shape compartments without readable words; wet floor managed safely."],
-      ["Firefighters train often, ready for the next call.", "Photorealistic station drill yard: crew practise carrying a ladder and communicating together under instructor supervision; engine waits in bay, bright daylight, calm readiness rather than alarm." ]
+      ["Back at the station, every tool is cleaned and checked.", "Photorealistic return-to-station scene: firefighters wash hose, inspect breathing apparatus, and replace tools in labeled-by-shape compartments without readable words; wet floor managed safely."],
+      ["Firefighters train often, ready for the next call.", "Photorealistic station drill yard: crew practice carrying a ladder and communicating together under instructor supervision; engine waits in bay, bright daylight, calm readiness rather than alarm." ]
     ]
   }),
   makeBook({
@@ -515,21 +514,21 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     visualTreatment: "willow-street-photorealistic",
     cast: [],
     repeatedLanguage: "The paper",
-    coverBrief: "Photorealistic recycling sequence still life: used clean paper, sorted bales, wet pulp, a new paper roll, and finished plain notebooks arranged left to right; cool industrial daylight, realistic fibres, no logos or printed text.",
+    coverBrief: "Photorealistic recycling sequence still life: used clean paper, sorted bales, wet pulp, a new paper roll, and finished plain notebooks arranged left to right; cool industrial daylight, realistic fibers, no logos or printed text.",
     storyBibleReview: nonfictionReview(
       "How can used paper become new paper?",
       "Collection, sorting, pulping, screening, cleaning, pressing, drying, and remanufacture follow a factual mill sequence.",
-      "Water separates paper into fibres, which are cleaned, flattened, dried, and made useful again."
+      "Water separates paper into fibers, which are cleaned, flattened, dried, and made useful again."
     ),
     rows: [
       ["Clean used paper is collected for recycling.", "Photorealistic community recycling point: plain newspapers without legible print, office paper, and cardboard enter a paper-only bin; clean dry materials, adult hands, no food or plastic contamination."],
       ["Workers sort the paper and remove wrong materials.", "Photorealistic sorting conveyor: trained adult workers and mechanical separators remove plastic film and metal objects from mixed paper; guarded machinery, realistic protective equipment, no brand marks."],
       ["The paper mixes with water to make wet pulp.", "Photorealistic mill pulper seen through a safe viewing panel: paper and water form a thick fibrous slurry under mechanical mixing; accurate vessel, guards, and neutral industrial light."],
-      ["Screens catch staples, tape, and larger unwanted pieces.", "Photorealistic close process view of wet pulp passing through metal screens while staples and tape fragments collect separately; fibre slurry texture and scale are technically plausible."],
-      ["The pulp is cleaned before making new sheets.", "Photorealistic mill cleaning stage: pale pulp flows through covered pipes and tanks designed to remove inks and tiny dirt; sample jars show cleaner fibres without impossible pure whiteness."],
-      ["Rollers press water from the thin pulp layer.", "Photorealistic paper machine: an even wet fibre mat travels between broad press rollers as water drains below; safety guards in place, no worker near moving parts."],
+      ["Screens catch staples, tape, and larger unwanted pieces.", "Photorealistic close process view of wet pulp passing through metal screens while staples and tape fragments collect separately; fiber slurry texture and scale are technically plausible."],
+      ["The pulp is cleaned before making new sheets.", "Photorealistic mill cleaning stage: pale pulp flows through covered pipes and tanks designed to remove inks and tiny dirt; sample jars show cleaner fibers without impossible pure whiteness."],
+      ["Rollers press water from the thin pulp layer.", "Photorealistic paper machine: an even wet fiber mat travels between broad press rollers as water drains below; safety guards in place, no worker near moving parts."],
       ["Heated rollers dry the long sheet of paper.", "Photorealistic guarded drying section where the continuous paper web passes over large heated cylinders and becomes smooth and dry; realistic tension, scale, and warm industrial light."],
-      ["The new paper becomes boxes, notebooks, and more.", "Photorealistic final table with unbranded cardboard boxes, plain notebooks, paper bags, and a large recycled paper roll; fibre colour remains naturally off-white, no labels or claims printed." ]
+      ["The new paper becomes boxes, notebooks, and more.", "Photorealistic final table with unbranded cardboard boxes, plain notebooks, paper bags, and a large recycled paper roll; fiber color remains naturally off-white, no labels or claims printed." ]
     ]
   }),
   makeBook({
@@ -543,7 +542,7 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     coverBrief: "Photorealistic garden snail emerging on a damp leaf at blue hour, spiral shell intact, two upper eye tentacles and two shorter lower tentacles visible, natural slime trail and soft moonlit ambience, anatomically accurate, no text.",
     storyBibleReview: nonfictionReview(
       "What does a garden snail do during a damp night?",
-      "Day shelter, night emergence, sensing, movement, feeding, protection, moisture needs, and dawn shelter form a natural behaviour sequence.",
+      "Day shelter, night emergence, sensing, movement, feeding, protection, moisture needs, and dawn shelter form a natural behavior sequence.",
       "Cool damp nights help the snail move, feed, and avoid drying before it returns to shelter."
     ),
     rows: [

@@ -77,9 +77,15 @@ const NON_US_SPELLING_PATTERNS = Object.freeze([
   { preferred: "traveled", pattern: /\btravelled\b/i },
   { preferred: "traveler", pattern: /\btravellers?\b/i },
   { preferred: "traveling", pattern: /\btravelling\b/i },
+  { preferred: "vapor", pattern: /\bvapours?\b/i },
   { preferred: "while", pattern: /\bwhilst\b/i },
-  { preferred: "among", pattern: /\bamongst\b/i }
+  { preferred: "among", pattern: /\bamongst\b/i },
+  { preferred: "yogurt", pattern: /\byoghurts?\b/i }
 ]);
+
+const APPROVED_TITLE_SPELLING_EXCEPTIONS = Object.freeze({
+  "willow-street-make-fruit-and-yoghurt-cups": Object.freeze(["yogurt"])
+});
 
 function collectStrings(value, result = []) {
   if (typeof value === "string") result.push(value);
@@ -153,7 +159,13 @@ const usSpellingFindings = guidedReadingBooks
       ));
     return [...bookStrings, ...pageStrings].flatMap(entry =>
       NON_US_SPELLING_PATTERNS
-        .filter(rule => rule.pattern.test(entry.text))
+        .filter(rule => {
+          if (!rule.pattern.test(entry.text)) return false;
+          return !(
+            entry.field === "title"
+            && APPROVED_TITLE_SPELLING_EXCEPTIONS[book.id]?.includes(rule.preferred)
+          );
+        })
         .map(rule => ({
           bookId: book.id,
           ...entry,
