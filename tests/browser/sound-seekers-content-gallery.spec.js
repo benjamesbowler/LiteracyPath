@@ -5,7 +5,10 @@ import {
   SOUND_SEEKERS_CONNECTED_TEXT,
   toChildConnectedTextScene
 } from "../../src/features/soundSeekers/content/connectedText.js";
-import { SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX } from "../../tools/lib/soundSeekersV2GalleryManifest.mjs";
+import {
+  SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX,
+  assertSoundSeekersV2GalleryLayout
+} from "../../tools/lib/soundSeekersV2GalleryManifest.mjs";
 
 const INPUT_KINDS = Object.freeze(["mouse", "touch", "Enter", "Space"]);
 const CHILD_SCENES = SOUND_SEEKERS_CONNECTED_TEXT.map(scene =>
@@ -113,6 +116,7 @@ const CHARACTER_GROUPS = Map.groupBy(CHARACTER_SHOTS, record => record.expectedR
 for (const [characterId, shots] of CHARACTER_GROUPS) {
   test(`every ${characterId} pose exposes its exact Task 4 renderer and part structure`, async ({ page }) => {
     test.setTimeout(120_000);
+    const posePixels = new Set();
     for (const shot of shots) {
       await page.goto(shot.url);
       await expect(page.locator("[data-gallery-ready='true']")).toBeVisible();
@@ -126,7 +130,9 @@ for (const [characterId, shots] of CHARACTER_GROUPS) {
       await expect(character).toHaveAttribute("data-character-visual-signature", facts.characterVisualSignature);
       expect(await character.locator("[data-character-part]").evaluateAll(nodes =>
         nodes.map(node => node.getAttribute("data-character-part")))).toEqual(facts.renderedPartIds);
+      posePixels.add(createHash("sha256").update(await character.screenshot({ animations: "disabled" })).digest("hex"));
     }
+    expect(posePixels.size, `${characterId} must render ten visually distinct poses`).toBe(shots.length);
   });
 }
 
@@ -142,14 +148,128 @@ test("every creator option renders byte-identical canonical appearances in previ
     await expect(root).toHaveAttribute("data-creator-serialized", facts.serializedAppearance);
     await expect(root).toHaveAttribute("data-creator-signature", facts.appearanceSignature);
     await expect(root.locator(`[data-option-id="${facts.selectedOptionId}"][aria-pressed="true"]`)).toHaveCount(1);
-    for (const [context, expectedSignature, expectedParts] of [
-      ["creator-preview", facts.previewAppearanceSignature, facts.previewRenderedPartIds],
-      ["gallery-world", facts.worldAppearanceSignature, facts.worldRenderedPartIds]
+    for (const [context, expected] of [
+      ["creator-preview", {
+        serializedAppearance: facts.previewSerializedAppearance,
+        signature: facts.previewAppearanceSignature,
+        bodyShapeId: facts.previewBodyShapeId,
+        computedPaletteValue: facts.previewComputedPaletteValue,
+        accessoryIds: facts.previewAccessoryIds,
+        parts: facts.previewRenderedPartIds
+      }],
+      ["gallery-world", {
+        serializedAppearance: facts.worldSerializedAppearance,
+        signature: facts.worldAppearanceSignature,
+        bodyShapeId: facts.worldBodyShapeId,
+        computedPaletteValue: facts.worldComputedPaletteValue,
+        accessoryIds: facts.worldAccessoryIds,
+        parts: facts.worldRenderedPartIds
+      }]
     ]) {
       const character = root.locator(`[data-character-context="${context}"] [data-sound-seekers-character]`);
-      await expect(character).toHaveAttribute("data-appearance-signature", expectedSignature);
+      await expect(character).toHaveAttribute("data-appearance-signature", expected.signature);
+      expect((await character.getAttribute("data-appearance-signature"))
+        .slice("sound-seekers-appearance:".length)).toBe(expected.serializedAppearance);
+      await expect(character.locator('[data-character-part="torso"]'))
+        .toHaveAttribute("data-body-shape-id", expected.bodyShapeId);
+      expect(await character.evaluate(node =>
+        getComputedStyle(node).getPropertyValue("--ss-character-palette").trim()))
+        .toBe(expected.computedPaletteValue);
+      const accessoryIds = await character.locator("[data-accessory-id]").evaluateAll(nodes =>
+        nodes.map(node => node.getAttribute("data-accessory-id")).sort());
+      expect(accessoryIds.length).toBeGreaterThan(0);
+      expect(accessoryIds).toEqual(expected.accessoryIds);
       expect(await character.locator("[data-character-part]").evaluateAll(nodes =>
-        nodes.map(node => node.getAttribute("data-character-part")))).toEqual(expectedParts);
+        nodes.map(node => node.getAttribute("data-character-part")))).toEqual(expected.parts);
+    }
+  }
+});
+
+test("the zoom profile is real 200 percent browser zoom at one-times device density", async ({ browser }) => {
+  const matrix = SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX.find(record =>
+    record.subjectId === "zoom-200-effective-320x568");
+  const context = await browser.newContext({
+    viewport: { width: 640, height: 1136 },
+    deviceScaleFactor: 1,
+    hasTouch: false
+  });
+  try {
+    const page = await context.newPage();
+    const cdp = await context.newCDPSession(page);
+    await page.goto(matrix.url);
+    await cdp.send("Emulation.setPageScaleFactor", { pageScaleFactor: 2 });
+    await expect(page.locator("[data-gallery-ready='true']")).toBeVisible();
+    await expect(page.locator("[data-gallery-page-scale='2']")).toBeVisible();
+    expect(await page.evaluate(() => ({
+      devicePixelRatio: window.devicePixelRatio,
+      scale: window.visualViewport?.scale,
+      width: Math.round(window.visualViewport?.width || 0),
+      height: Math.round(window.visualViewport?.height || 0)
+    }))).toEqual({ devicePixelRatio: 1, scale: 2, width: 320, height: 568 });
+  } finally {
+    await context.close();
+  }
+});
+
+test("all eight profile records provide exact noncolliding layout evidence", async ({ browser }) => {
+  const profiles = SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX.filter(record =>
+    record.kind === "profile-viewport-zoom");
+  expect(profiles).toHaveLength(8);
+  for (const matrix of profiles) {
+    const context = await browser.newContext({
+      viewport: matrix.viewport,
+      deviceScaleFactor: 1,
+      hasTouch: false
+    });
+    try {
+      const page = await context.newPage();
+      const cdp = await context.newCDPSession(page);
+      await page.goto(matrix.url);
+      await cdp.send("Emulation.setPageScaleFactor", { pageScaleFactor: matrix.browserZoom });
+      await expect(page.locator("[data-gallery-ready='true']")).toBeVisible();
+      if (matrix.browserZoom === 2) {
+        await expect(page.locator("[data-gallery-page-scale='2']")).toBeVisible();
+      }
+      const layout = await page.evaluate(() => {
+        const round = value => Math.round(value * 100) / 100;
+        const rectFacts = rect => ({
+          x: round(rect.x), y: round(rect.y), width: round(rect.width), height: round(rect.height),
+          right: round(rect.right), bottom: round(rect.bottom)
+        });
+        const visibleNodes = selector => [...document.querySelectorAll(selector)].filter(node => {
+          const rect = node.getBoundingClientRect();
+          return rect.width > 0 && rect.height > 0;
+        });
+        const itemFacts = (selector, attribute) => visibleNodes(selector).map(node => ({
+          id: node.getAttribute(attribute), ...rectFacts(node.getBoundingClientRect())
+        }));
+        const union = selector => {
+          const rects = visibleNodes(selector).map(node => node.getBoundingClientRect());
+          const x = Math.min(...rects.map(rect => rect.x));
+          const y = Math.min(...rects.map(rect => rect.y));
+          const right = Math.max(...rects.map(rect => rect.right));
+          const bottom = Math.max(...rects.map(rect => rect.bottom));
+          return rectFacts({ x, y, right, bottom, width: right - x, height: bottom - y });
+        };
+        const viewport = window.visualViewport;
+        const viewportWidth = viewport?.width || window.innerWidth;
+        const viewportHeight = viewport?.height || window.innerHeight;
+        const sceneRect = document.querySelector(".sound-seekers-scene")?.getBoundingClientRect();
+        return {
+          viewport: { width: round(viewportWidth), height: round(viewportHeight) },
+          horizontalOverflow: round(Math.max(0, (sceneRect?.right || 0) - viewportWidth)),
+          verticalOverflow: round(Math.max(0, (sceneRect?.bottom || 0) - viewportHeight)),
+          goal: union("[data-scene-text], [data-scene-prompt]"),
+          actors: itemFacts(".sound-seekers-world__characters > [data-sound-seekers-character]", "data-character-id"),
+          landmark: itemFacts(".sound-seekers-landmark", "data-landmark-id")[0] || null,
+          targets: itemFacts(".sound-seekers-world__props > [data-code-native-semantic]", "data-code-native-semantic"),
+          controls: itemFacts("button[data-option-visual-id]", "data-option-visual-id")
+        };
+      });
+      expect(() => assertSoundSeekersV2GalleryLayout(layout, matrix),
+        `${matrix.subjectId}: ${JSON.stringify(layout)}`).not.toThrow();
+    } finally {
+      await context.close();
     }
   }
 });

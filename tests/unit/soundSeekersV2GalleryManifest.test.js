@@ -7,7 +7,12 @@ import {
   buildSoundSeekersV2GalleryManifest,
   soundSeekersV2GalleryRunId
 } from "../../tools/lib/soundSeekersV2GalleryManifest.mjs";
-import { gallerySourceGraphFromSources } from "../../tools/shootSoundSeekersV2Content.mjs";
+import {
+  galleryBrowserProfile,
+  gallerySourceGraphFromSources
+} from "../../tools/shootSoundSeekersV2Content.mjs";
+import { SOUND_SEEKERS_CHARACTER_CREATOR_OPTIONS } from "../../src/features/soundSeekers/visual/characterCustomization.js";
+import { SOUND_SEEKERS_VISUAL_TOKENS } from "../../src/features/soundSeekers/visual/visualTokens.js";
 
 const SOURCE_HASHES = {
   contentCatalogSha256: "1".repeat(64), visualCatalogSha256: "2".repeat(64),
@@ -22,6 +27,85 @@ function expectedFailures(matrix) {
 }
 
 const fakeHash = value => value.toString(16).padStart(64, "0");
+const LAYOUT_SOURCE_FACTS = Object.freeze({
+  "scene-s1": Object.freeze({
+    actors: Object.freeze(["Bouncy", "Moss"]),
+    landmark: "landmark:s1",
+    targets: Object.freeze(["scene-s1-path-marker", "scene-s1-story-sign"]),
+    controls: Object.freeze([
+      "scene-s1-option-lift-mat", "scene-s1-option-lift-mats", "scene-s1-option-lift-light"
+    ])
+  }),
+  "scene-s11": Object.freeze({
+    actors: Object.freeze(["Fen", "Rook"]),
+    landmark: "landmark:s11",
+    targets: Object.freeze(["scene-s11-post-decision", "amber-trail-visible", "landmark:s11"]),
+    controls: Object.freeze([
+      "scene-s11-option-sit-on-path-rock", "scene-s11-option-pick-rock-off-path",
+      "scene-s11-option-kick-rock-on-path"
+    ])
+  }),
+  "scene-s36": Object.freeze({
+    actors: Object.freeze(["Nova", "Comet"]),
+    landmark: "landmark:s36",
+    targets: Object.freeze(["scene-s36-post-decision", "comet-stair-raised", "landmark:s36"]),
+    controls: Object.freeze([
+      "scene-s36-option-follow-creature", "scene-s36-option-stair-still-dark",
+      "scene-s36-option-make-stair-bright"
+    ])
+  }),
+  "scene-s40-action": Object.freeze({
+    actors: Object.freeze(["Nova", "Dawn"]),
+    landmark: "landmark:s40",
+    targets: Object.freeze([
+      "scene-s40-post-decision-b", "first-reading-star-awake-branch-2-resolved", "landmark:s40"
+    ]),
+    controls: Object.freeze(["scene-s40-option-action-path", "scene-s40-option-fiction-path"])
+  }),
+  "scene-s40-fiction": Object.freeze({
+    actors: Object.freeze(["Nova", "Dawn"]),
+    landmark: "landmark:s40",
+    targets: Object.freeze([
+      "scene-s40-post-decision-a", "first-reading-star-awake-branch-1-resolved", "landmark:s40"
+    ]),
+    controls: Object.freeze(["scene-s40-option-action-path", "scene-s40-option-fiction-path"])
+  })
+});
+
+function rectangle(x, y, width = 56, height = 56) {
+  return { x, y, width, height, right: x + width, bottom: y + height };
+}
+
+function layoutItem(id, index) {
+  return { id, ...rectangle((index % 4) * 64, 64 + (Math.floor(index / 4) * 64)) };
+}
+
+function layoutFor(matrix) {
+  if (matrix.kind !== "profile-viewport-zoom") return null;
+  const suffix = matrix.sceneId === "scene-s40"
+    ? matrix.optionIds.includes("scene-s40-option-action-path") ? "-action" : "-fiction"
+    : "";
+  const facts = LAYOUT_SOURCE_FACTS[`${matrix.sceneId}${suffix}`];
+  if (!facts) throw new TypeError(`missing literal layout fixture for ${matrix.id}`);
+  let index = 0;
+  const actors = facts.actors.map(id => layoutItem(id, index++));
+  const landmark = layoutItem(facts.landmark, index++);
+  const targets = facts.targets.map(id => layoutItem(id, index++));
+  const controls = facts.controls.map(id => layoutItem(id, index++));
+  return {
+    viewport: {
+      width: matrix.viewport.width / matrix.browserZoom,
+      height: matrix.viewport.height / matrix.browserZoom
+    },
+    horizontalOverflow: 0,
+    verticalOverflow: 0,
+    goal: rectangle(0, 0, 120, 40),
+    actors,
+    landmark,
+    targets,
+    controls
+  };
+}
 
 function payoffComparison(matrix) {
   if (matrix.kind !== "boss-branch") return null;
@@ -75,7 +159,8 @@ function validShot(matrix) {
       visibleControlIds: [...(matrix.expectedVisibleControlIds || [])],
       focusTargetId: matrix.expectedFocusTargetId ?? null,
       noAnswerLeak: true,
-      payoffComparison: payoffComparison(matrix)
+      payoffComparison: payoffComparison(matrix),
+      layout: layoutFor(matrix)
     },
     status: "passed"
   };
@@ -124,6 +209,28 @@ test("every matrix URL names the exact replay and presentation axes stored on it
   }
 });
 
+test("the fixed eight profile records bind exact later and longest source scenes", () => {
+  const profiles = SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX.filter(record => record.kind === "profile-viewport-zoom");
+  assert.deepEqual(profiles.map(record => ({
+    id: record.subjectId,
+    chapterId: record.chapterId,
+    stopId: record.stopId,
+    sceneId: record.sceneId,
+    fixtureId: record.fixtureId,
+    optionIds: record.optionIds,
+    option: new URL(record.url, "http://gallery.invalid").searchParams.get("option")
+  })), [
+    { id: "desktop-full-full", chapterId: "fossil-canyon", stopId: "s11", sceneId: "scene-s11", fixtureId: "assessed-correct-resolved", optionIds: [...LAYOUT_SOURCE_FACTS["scene-s11"].controls], option: null },
+    { id: "desktop-simplified-full", chapterId: "star-reach", stopId: "s36", sceneId: "scene-s36", fixtureId: "assessed-correct-resolved", optionIds: [...LAYOUT_SOURCE_FACTS["scene-s36"].controls], option: null },
+    { id: "desktop-full-reduced", chapterId: "star-reach", stopId: "s40", sceneId: "scene-s40", fixtureId: "boss-resolved", optionIds: ["scene-s40-option-action-path"], option: "scene-s40-option-action-path" },
+    { id: "desktop-simplified-reduced", chapterId: "fossil-canyon", stopId: "s11", sceneId: "scene-s11", fixtureId: "assessed-correct-resolved", optionIds: [...LAYOUT_SOURCE_FACTS["scene-s11"].controls], option: null },
+    { id: "portrait-320x568", chapterId: "fossil-canyon", stopId: "s11", sceneId: "scene-s11", fixtureId: "assessed-correct-resolved", optionIds: [...LAYOUT_SOURCE_FACTS["scene-s11"].controls], option: null },
+    { id: "landscape-568x320", chapterId: "star-reach", stopId: "s36", sceneId: "scene-s36", fixtureId: "assessed-correct-resolved", optionIds: [...LAYOUT_SOURCE_FACTS["scene-s36"].controls], option: null },
+    { id: "tablet-1194x834", chapterId: "star-reach", stopId: "s40", sceneId: "scene-s40", fixtureId: "boss-resolved", optionIds: ["scene-s40-option-fiction-path"], option: "scene-s40-option-fiction-path" },
+    { id: "zoom-200-effective-320x568", chapterId: "star-reach", stopId: "s36", sceneId: "scene-s36", fixtureId: "assessed-correct-resolved", optionIds: [...LAYOUT_SOURCE_FACTS["scene-s36"].controls], option: null }
+  ]);
+});
+
 test("character and creator records bind exact renderer, pose, appearance, and rendered-part facts", () => {
   const character = SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX.find(record => record.kind === "character-pose");
   const creator = SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX.find(record => record.kind === "creator-option");
@@ -140,12 +247,57 @@ test("character and creator records bind exact renderer, pose, appearance, and r
   assert.match(character.expectedRenderedFacts.characterVisualSignature, /^character-visual:/u);
   assert.equal(character.expectedRenderedFacts.renderedPartIds.length, 14);
   const creatorFacts = creator.expectedRenderedFacts;
+  assert.deepEqual(Object.keys(creatorFacts), [
+    "kind", "selectedOptionId", "serializedAppearance", "appearanceSignature",
+    "previewSerializedAppearance", "worldSerializedAppearance",
+    "previewAppearanceSignature", "worldAppearanceSignature",
+    "previewBodyShapeId", "worldBodyShapeId",
+    "previewComputedPaletteValue", "worldComputedPaletteValue",
+    "previewAccessoryIds", "worldAccessoryIds",
+    "previewRenderedPartIds", "worldRenderedPartIds"
+  ]);
   assert.equal(creatorFacts.selectedOptionId, creator.subjectId);
   assert.equal(JSON.stringify(JSON.parse(creatorFacts.serializedAppearance)), creatorFacts.serializedAppearance);
   assert.equal(creatorFacts.appearanceSignature, `sound-seekers-appearance:${creatorFacts.serializedAppearance}`);
+  assert.equal(creatorFacts.previewSerializedAppearance, creatorFacts.serializedAppearance);
+  assert.equal(creatorFacts.worldSerializedAppearance, creatorFacts.serializedAppearance);
   assert.equal(creatorFacts.previewAppearanceSignature, creatorFacts.appearanceSignature);
   assert.equal(creatorFacts.worldAppearanceSignature, creatorFacts.appearanceSignature);
+  assert.equal(creatorFacts.previewBodyShapeId, JSON.parse(creatorFacts.serializedAppearance).bodyShapeId);
+  assert.equal(creatorFacts.worldBodyShapeId, creatorFacts.previewBodyShapeId);
+  assert.match(creatorFacts.previewComputedPaletteValue, /^#[a-f0-9]{6}$/iu);
+  assert.equal(creatorFacts.worldComputedPaletteValue, creatorFacts.previewComputedPaletteValue);
+  assert.equal(creatorFacts.previewAccessoryIds.length, 4);
+  assert.deepEqual(creatorFacts.worldAccessoryIds, creatorFacts.previewAccessoryIds);
   assert.deepEqual(creatorFacts.previewRenderedPartIds, creatorFacts.worldRenderedPartIds);
+});
+
+test("each creator option is bound to the specific rendered appearance dimension it selects", () => {
+  for (const record of SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX.filter(item => item.kind === "creator-option")) {
+    const facts = record.expectedRenderedFacts;
+    const appearance = JSON.parse(facts.serializedAppearance);
+    if (SOUND_SEEKERS_CHARACTER_CREATOR_OPTIONS.bodyShapes.includes(record.subjectId)) {
+      assert.equal(appearance.bodyShapeId, record.subjectId, record.id);
+      assert.equal(facts.previewBodyShapeId, record.subjectId, record.id);
+    } else if (SOUND_SEEKERS_CHARACTER_CREATOR_OPTIONS.palettes.includes(record.subjectId)) {
+      assert.equal(appearance.paletteTokenId, record.subjectId, record.id);
+      assert.equal(facts.previewComputedPaletteValue, SOUND_SEEKERS_VISUAL_TOKENS[record.subjectId], record.id);
+    } else {
+      assert.equal(Object.values(appearance.accessories).includes(record.subjectId), true, record.id);
+      assert.equal(facts.previewAccessoryIds.includes(record.subjectId), true, record.id);
+    }
+  }
+});
+
+test("the true 200 percent gallery profile uses CSS zoom rather than device density", () => {
+  const matrix = SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX.find(record =>
+    record.subjectId === "zoom-200-effective-320x568");
+  assert.deepEqual(galleryBrowserProfile(matrix), {
+    viewport: { width: 640, height: 1136 },
+    deviceScaleFactor: 1,
+    pageScaleFactor: 2,
+    effectiveViewport: { width: 320, height: 568 }
+  });
 });
 
 test("all sixteen boss branches bind selected-option rendered facts for ordinary, Wonder, and boss pixels", () => {
@@ -278,6 +430,39 @@ test("every source-hash/header mutation, failure cardinality, path traversal, an
   }
 });
 
+test("all ten pose pixels per character must be independently rendered", () => {
+  const manifest = mutableManifest();
+  const pair = manifest.shots.filter(shot => shot.kind === "character-pose"
+    && shot.expectedRenderedFacts.characterId === "Bouncy").slice(0, 2);
+  assert.equal(pair.length, 2);
+  pair[1].png.sha256 = pair[0].png.sha256;
+  assert.throws(() => assertSoundSeekersV2GalleryManifest(manifest), /pose pixels/u);
+});
+
+test("creator render evidence rejects every missing or wrapper-only appearance fact", () => {
+  const creatorIndex = SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX.findIndex(record =>
+    record.kind === "creator-option");
+  const fields = [
+    "selectedOptionId", "serializedAppearance", "appearanceSignature",
+    "previewSerializedAppearance", "worldSerializedAppearance",
+    "previewAppearanceSignature", "worldAppearanceSignature",
+    "previewBodyShapeId", "worldBodyShapeId",
+    "previewComputedPaletteValue", "worldComputedPaletteValue",
+    "previewAccessoryIds", "worldAccessoryIds",
+    "previewRenderedPartIds", "worldRenderedPartIds"
+  ];
+  for (const field of fields) {
+    const manifest = mutableManifest();
+    delete manifest.shots[creatorIndex].expectedRenderedFacts[field];
+    assert.throws(() => assertSoundSeekersV2GalleryManifest(manifest), undefined, field);
+  }
+  for (const field of ["previewAccessoryIds", "worldAccessoryIds"]) {
+    const manifest = mutableManifest();
+    manifest.shots[creatorIndex].expectedRenderedFacts[field] = ["back-accessory", "head-accessory"];
+    assert.throws(() => assertSoundSeekersV2GalleryManifest(manifest), undefined, `${field} wrappers`);
+  }
+});
+
 test("every boss option requires its own exact three-mode pixel and composition comparison", () => {
   const bosses = SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX.filter(record => record.kind === "boss-branch");
   for (const matrix of bosses) {
@@ -303,6 +488,62 @@ test("every boss option requires its own exact three-mode pixel and composition 
   }
 });
 
+function placeWithGap(item, anchor, gap = 4) {
+  item.x = anchor.right + gap;
+  item.y = anchor.y;
+  item.right = item.x + item.width;
+  item.bottom = item.y + item.height;
+}
+
+function moveOutside(item) {
+  item.x = -2;
+  item.right = item.x + item.width;
+}
+
+test("layout evidence is mandatory and every identity, size, bound, spacing, and collision pair fails closed", () => {
+  const withoutLayout = mutableManifest();
+  for (const shot of withoutLayout.shots) delete shot.checks.layout;
+  assert.throws(() => assertSoundSeekersV2GalleryManifest(withoutLayout), undefined, "all layout keys removed");
+
+  const profileIndex = SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX.find(record => record.subjectId === "portrait-320x568").ordinal - 1;
+  const cases = [
+    ["null profile", () => null],
+    ["missing key", layout => { delete layout.targets; return layout; }],
+    ["unknown key", layout => ({ ...layout, extra: true })],
+    ["wrong viewport", layout => { layout.viewport.width += 2; return layout; }],
+    ["horizontal overflow", layout => { layout.horizontalOverflow = 2; return layout; }],
+    ["vertical overflow", layout => { layout.verticalOverflow = 2; return layout; }],
+    ["goal outside", layout => { moveOutside(layout.goal); return layout; }],
+    ["small target", layout => { layout.targets[0].width = 55; layout.targets[0].right = layout.targets[0].x + 55; return layout; }],
+    ["small control", layout => { layout.controls[0].height = 55; layout.controls[0].bottom = layout.controls[0].y + 55; return layout; }],
+    ["wrong actor", layout => { layout.actors[0].id = "forged"; return layout; }],
+    ["wrong landmark", layout => { layout.landmark.id = "forged"; return layout; }],
+    ["wrong target", layout => { layout.targets[0].id = "forged"; return layout; }],
+    ["wrong control", layout => { layout.controls[0].id = "forged"; return layout; }],
+    ["actor-target spacing", layout => { placeWithGap(layout.targets[0], layout.actors[0]); return layout; }],
+    ["actor-landmark spacing", layout => { placeWithGap(layout.landmark, layout.actors[0]); return layout; }],
+    ["actor-control spacing", layout => { placeWithGap(layout.controls[0], layout.actors[0]); return layout; }],
+    ["landmark-target spacing", layout => { placeWithGap(layout.targets[0], layout.landmark); return layout; }],
+    ["landmark-control spacing", layout => { placeWithGap(layout.controls[0], layout.landmark); return layout; }],
+    ["target-target spacing", layout => { placeWithGap(layout.targets[1], layout.targets[0]); return layout; }],
+    ["target-control spacing", layout => { placeWithGap(layout.controls[0], layout.targets[0]); return layout; }],
+    ["control-control spacing", layout => { placeWithGap(layout.controls[1], layout.controls[0]); return layout; }],
+    ["actor outside", layout => { moveOutside(layout.actors[0]); return layout; }],
+    ["landmark outside", layout => { moveOutside(layout.landmark); return layout; }],
+    ["target outside", layout => { moveOutside(layout.targets[0]); return layout; }],
+    ["control outside", layout => { moveOutside(layout.controls[0]); return layout; }]
+  ];
+  for (const [label, mutate] of cases) {
+    const manifest = mutableManifest();
+    manifest.shots[profileIndex].checks.layout = mutate(manifest.shots[profileIndex].checks.layout);
+    assert.throws(() => assertSoundSeekersV2GalleryManifest(manifest), undefined, label);
+  }
+
+  const nonProfile = mutableManifest();
+  nonProfile.shots[0].checks.layout = layoutFor(SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX[profileIndex]);
+  assert.throws(() => assertSoundSeekersV2GalleryManifest(nonProfile), undefined, "layout on non-profile");
+});
+
 test("gallery source graph hashes exact JS, TS, TSX, HTML, and CSS import closure", () => {
   const rootPaths = ["preview/root.html"];
   const sources = {
@@ -315,6 +556,13 @@ test("gallery source graph hashes exact JS, TS, TSX, HTML, and CSS import closur
   };
   const baseline = gallerySourceGraphFromSources({ rootPaths, sources });
   assert.deepEqual(baseline.map(record => record.path), Object.keys(sources).sort());
+
+  const unquotedHtmlSources = structuredClone(sources);
+  unquotedHtmlSources["preview/root.html"] = "<script type=module src=./entry.tsx></script><link rel=stylesheet href=./style.css>";
+  assert.deepEqual(
+    gallerySourceGraphFromSources({ rootPaths, sources: unquotedHtmlSources }).map(record => record.path),
+    Object.keys(sources).sort()
+  );
 
   const changedSources = structuredClone(sources);
   changedSources["preview/value.ts"] = "export const value: string = 'two';";
@@ -341,4 +589,42 @@ test("gallery source graph hashes exact JS, TS, TSX, HTML, and CSS import closur
     () => gallerySourceGraphFromSources({ rootPaths, sources: nonliteralSources }),
     /non-literal dynamic import/u
   );
+
+  const dynamicHtmlSources = structuredClone(sources);
+  dynamicHtmlSources["preview/root.html"] = "<script type=module src=${entry}></script>";
+  assert.throws(
+    () => gallerySourceGraphFromSources({ rootPaths, sources: dynamicHtmlSources }),
+    /non-literal HTML/u
+  );
+
+  for (const [label, css] of [
+    ["quoted import", "@import './tokens.css';"],
+    ["quoted import with media", "@import './tokens.css' screen and (min-width: 20rem);"],
+    ["quoted import with layer", "@import \"./tokens.css\" layer(gallery);"],
+    ["quoted url import", "@import url(\"./tokens.css\");"],
+    ["quoted url import with supports", "@import url(\"./tokens.css\") supports(display: grid);"],
+    ["unquoted url import", "@import url(./tokens.css);"],
+    ["quoted url", ".card { background: url('./tokens.css'); }"],
+    ["unquoted url", ".card { background: url(./tokens.css); }"]
+  ]) {
+    const cssSources = {
+      "preview/style.css": css,
+      "preview/tokens.css": ":root { --token: green; }"
+    };
+    assert.deepEqual(
+      gallerySourceGraphFromSources({ rootPaths: ["preview/style.css"], sources: cssSources })
+        .map(record => record.path),
+      Object.keys(cssSources).sort(),
+      label
+    );
+  }
+  for (const [label, css] of [
+    ["variable URL", ".card { background: url(var(--asset)); }"],
+    ["interpolated URL", ".card { background: url(${asset}); }"],
+    ["dynamic import URL", "@import url(var(--theme));"]
+  ]) {
+    assert.throws(() => gallerySourceGraphFromSources({
+      rootPaths: ["preview/style.css"], sources: { "preview/style.css": css }
+    }), /non-literal CSS/u, label);
+  }
 });

@@ -31,6 +31,7 @@ import {
   SOUND_SEEKERS_ROUTE_SPECS,
   SOUND_SEEKERS_SCENE_RENDER_SPECS
 } from "../../src/features/soundSeekers/visual/sceneVisualCatalog.js";
+import { SOUND_SEEKERS_VISUAL_TOKENS } from "../../src/features/soundSeekers/visual/visualTokens.js";
 import { readSoundSeekersV2AssetManifest } from "./soundSeekersV2AssetManifest.mjs";
 
 function deepFreeze(value) {
@@ -105,11 +106,15 @@ function shot(id, kind, fields = {}) {
 }
 
 function creatorAppearance(optionId) {
+  const defaultAccessories = Object.fromEntries(["back", "head", "neck", "held"].map(slot => [
+    slot,
+    SOUND_SEEKERS_CHARACTER_CREATOR_OPTIONS.accessoriesBySlot[slot].find(value => value !== null)
+  ]));
   const raw = {
     schemaVersion: 1,
     bodyShapeId: SOUND_SEEKERS_CHARACTER_CREATOR_OPTIONS.bodyShapes[0],
     paletteTokenId: SOUND_SEEKERS_CHARACTER_CREATOR_OPTIONS.palettes[0],
-    accessories: { back: null, head: null, neck: null, held: null }
+    accessories: defaultAccessories
   };
   if (SOUND_SEEKERS_CHARACTER_CREATOR_OPTIONS.bodyShapes.includes(optionId)) raw.bodyShapeId = optionId;
   if (SOUND_SEEKERS_CHARACTER_CREATOR_OPTIONS.palettes.includes(optionId)) raw.paletteTokenId = optionId;
@@ -146,8 +151,16 @@ function expectedRenderedFacts(record) {
       selectedOptionId: record.subjectId,
       serializedAppearance,
       appearanceSignature: signature,
+      previewSerializedAppearance: serializedAppearance,
+      worldSerializedAppearance: serializedAppearance,
       previewAppearanceSignature: signature,
       worldAppearanceSignature: signature,
+      previewBodyShapeId: appearance.bodyShapeId,
+      worldBodyShapeId: appearance.bodyShapeId,
+      previewComputedPaletteValue: SOUND_SEEKERS_VISUAL_TOKENS[appearance.paletteTokenId],
+      worldComputedPaletteValue: SOUND_SEEKERS_VISUAL_TOKENS[appearance.paletteTokenId],
+      previewAccessoryIds: Object.values(appearance.accessories).sort(),
+      worldAccessoryIds: Object.values(appearance.accessories).sort(),
       previewRenderedPartIds: [...characterPartIds],
       worldRenderedPartIds: [...characterPartIds]
     };
@@ -374,20 +387,31 @@ function buildMatrix() {
     }
   }
   const profiles = [
-    ["desktop-full-full", 1280, 800, "full", "full", 1],
-    ["desktop-simplified-full", 1280, 800, "simplified", "full", 1],
-    ["desktop-full-reduced", 1280, 800, "full", "reduced", 1],
-    ["desktop-simplified-reduced", 1280, 800, "simplified", "reduced", 1],
-    ["portrait-320x568", 320, 568, "full", "reduced", 1],
-    ["landscape-568x320", 568, 320, "full", "reduced", 1],
-    ["tablet-1194x834", 1194, 834, "full", "reduced", 1],
-    ["zoom-200-effective-320x568", 640, 1136, "full", "reduced", 2]
+    ["desktop-full-full", 1280, 800, "full", "full", 1, "s11", "assessed-correct-resolved", null],
+    ["desktop-simplified-full", 1280, 800, "simplified", "full", 1, "s36", "assessed-correct-resolved", null],
+    ["desktop-full-reduced", 1280, 800, "full", "reduced", 1, "s40", "boss-resolved", "scene-s40-option-action-path"],
+    ["desktop-simplified-reduced", 1280, 800, "simplified", "reduced", 1, "s11", "assessed-correct-resolved", null],
+    ["portrait-320x568", 320, 568, "full", "reduced", 1, "s11", "assessed-correct-resolved", null],
+    ["landscape-568x320", 568, 320, "full", "reduced", 1, "s36", "assessed-correct-resolved", null],
+    ["tablet-1194x834", 1194, 834, "full", "reduced", 1, "s40", "boss-resolved", "scene-s40-option-fiction-path"],
+    ["zoom-200-effective-320x568", 640, 1136, "full", "reduced", 2, "s36", "assessed-correct-resolved", null]
   ];
-  for (const [profileId, width, height, densityProfile, motionProfile, browserZoom] of profiles) {
+  for (const [
+    profileId, width, height, densityProfile, motionProfile, browserZoom,
+    stopId, fixtureId, selectedOptionId
+  ] of profiles) {
+    const scene = sceneForStop(stopId);
+    const optionIds = selectedOptionId
+      ? [selectedOptionId]
+      : toChildConnectedTextScene(scene.id, "gallery:11").choice.options.map(option => option.visualSemanticId);
     matrix.push(shot(`profile-${profileId}`, "profile-viewport-zoom", {
-      stopId: "s1", sceneId: "scene-s1", subjectId: profileId,
+      chapterId: scene.chapterId, stopId, sceneId: scene.id, subjectId: profileId,
+      fixtureId, optionIds,
       densityProfile, motionProfile, viewport: { width, height }, browserZoom,
-      url: url({ stop: "s1", fixture: "pre-choice", density: densityProfile, motion: motionProfile, labels: "shown", seed: "11" })
+      url: url({
+        stop: stopId, fixture: fixtureId, density: densityProfile, motion: motionProfile,
+        labels: "shown", seed: "11", ...(selectedOptionId ? { option: selectedOptionId } : {})
+      })
     }));
   }
   for (const inputKind of ["pointer", "touch", "Enter", "Space"]) {
@@ -455,7 +479,11 @@ const CHARACTER_RENDER_KEYS = [
 ];
 const CREATOR_RENDER_KEYS = [
   "kind", "selectedOptionId", "serializedAppearance", "appearanceSignature",
+  "previewSerializedAppearance", "worldSerializedAppearance",
   "previewAppearanceSignature", "worldAppearanceSignature",
+  "previewBodyShapeId", "worldBodyShapeId",
+  "previewComputedPaletteValue", "worldComputedPaletteValue",
+  "previewAccessoryIds", "worldAccessoryIds",
   "previewRenderedPartIds", "worldRenderedPartIds"
 ];
 const BOSS_RENDER_KEYS = [
@@ -467,15 +495,12 @@ const PAYOFF_COMPARISON_KEYS = ["selectedOptionVisualId", "resolvedVisualStateId
 const PAYOFF_VARIANT_KEYS = ["mode", "compositionSignature", "pngSha256"];
 const PAYOFF_MODES = ["ordinary", "wonder", "boss-resolved"];
 const FAILURE_KEYS = ["url", "method", "reason"];
-const CONSTRAINED_PROFILE_IDS = new Set([
-  "portrait-320x568", "landscape-568x320", "tablet-1194x834",
-  "zoom-200-effective-320x568"
-]);
 const LAYOUT_KEYS = [
-  "viewport", "horizontalOverflow", "verticalOverflow", "goal", "target",
-  "actors", "landmark", "controls"
+  "viewport", "horizontalOverflow", "verticalOverflow", "goal", "actors",
+  "landmark", "targets", "controls"
 ];
 const RECT_KEYS = ["x", "y", "width", "height", "right", "bottom"];
+const LAYOUT_ITEM_KEYS = ["id", ...RECT_KEYS];
 
 function hasExactKeys(value, keys) {
   return Boolean(value && typeof value === "object" && !Array.isArray(value)
@@ -491,29 +516,77 @@ function finiteNumber(value) {
   return typeof value === "number" && Number.isFinite(value);
 }
 
-function validRect(rect) {
-  return hasExactKeys(rect, RECT_KEYS)
-    && RECT_KEYS.every(key => finiteNumber(rect[key]))
+function validRectCoordinates(rect) {
+  return RECT_KEYS.every(key => finiteNumber(rect?.[key]))
     && rect.width > 0 && rect.height > 0
     && Math.abs(rect.right - rect.x - rect.width) <= 0.1
     && Math.abs(rect.bottom - rect.y - rect.height) <= 0.1;
 }
 
-function intersects(left, right) {
-  return Math.min(left.right, right.right) - Math.max(left.x, right.x) > 2
-    && Math.min(left.bottom, right.bottom) - Math.max(left.y, right.y) > 2;
+function validRect(rect) {
+  return hasExactKeys(rect, RECT_KEYS) && validRectCoordinates(rect);
+}
+
+function validLayoutItem(item) {
+  return hasExactKeys(item, LAYOUT_ITEM_KEYS)
+    && typeof item.id === "string" && item.id.length > 0
+    && validRectCoordinates(item);
+}
+
+function separatedBy(left, right, minimum = 8) {
+  const horizontalGap = Math.max(right.x - left.right, left.x - right.right);
+  const verticalGap = Math.max(right.y - left.bottom, left.y - right.bottom);
+  return Math.max(horizontalGap, verticalGap) >= minimum;
+}
+
+function crossGroupSeparated(left, right) {
+  return left.every(leftItem => right.every(rightItem => separatedBy(leftItem, rightItem)));
+}
+
+function withinGroupSeparated(items) {
+  return items.every((item, index) => items.slice(index + 1).every(other => separatedBy(item, other)));
+}
+
+function expectedLayoutIdentities(matrix) {
+  const scene = SCENE_BY_ID.get(matrix.sceneId);
+  const renderSpec = renderBySceneId.get(matrix.sceneId);
+  const landmark = landmarkBySceneId.get(matrix.sceneId);
+  const preChoice = semanticById.get(renderSpec?.preChoiceSemanticId);
+  const postDecision = scene && renderSpec ? postDecisionFor(matrix, scene, renderSpec) : null;
+  if (!scene || !renderSpec || !landmark || !preChoice) return null;
+  const visualStateId = postDecision
+    ? (matrix.fixtureId.endsWith("action") ? postDecision.actionStateId : postDecision.resolvedStateId)
+    : preChoice.neutralStateId;
+  return {
+    actors: renderSpec.characterBindings.map(binding => binding.characterId),
+    landmark: landmark.id,
+    targets: postDecision
+      ? [postDecision.id, visualStateId, landmark.id]
+      : [...preChoice.neutralPropIds],
+    controls: toChildConnectedTextScene(scene.id, `gallery:${matrix.seed}`).choice.options
+      .map(option => option.visualSemanticId)
+  };
 }
 
 function validConstrainedLayout(layout, matrix) {
+  const identities = expectedLayoutIdentities(matrix);
   if (!hasExactKeys(layout, LAYOUT_KEYS)
     || !hasExactKeys(layout.viewport, VIEWPORT_KEYS)
     || !finiteNumber(layout.viewport.width) || !finiteNumber(layout.viewport.height)
     || !finiteNumber(layout.horizontalOverflow) || layout.horizontalOverflow < 0
     || !finiteNumber(layout.verticalOverflow) || layout.verticalOverflow < 0
-    || !validRect(layout.goal) || !validRect(layout.target)
-    || !validRect(layout.actors) || !validRect(layout.landmark)
-    || !Array.isArray(layout.controls) || layout.controls.length !== matrix.expectedVisibleControlIds.length
-    || layout.controls.some(control => !validRect(control) || control.width < 56 || control.height < 56)) {
+    || !validRect(layout.goal)
+    || !Array.isArray(layout.actors) || layout.actors.some(actor => !validLayoutItem(actor))
+    || !validLayoutItem(layout.landmark)
+    || !Array.isArray(layout.targets)
+    || layout.targets.some(target => !validLayoutItem(target) || target.width < 56 || target.height < 56)
+    || !Array.isArray(layout.controls)
+    || layout.controls.some(control => !validLayoutItem(control) || control.width < 56 || control.height < 56)
+    || !identities
+    || canonicalJson(layout.actors.map(actor => actor.id)) !== canonicalJson(identities.actors)
+    || layout.landmark.id !== identities.landmark
+    || canonicalJson(layout.targets.map(target => target.id)) !== canonicalJson(identities.targets)
+    || canonicalJson(layout.controls.map(control => control.id)) !== canonicalJson(identities.controls)) {
     return false;
   }
   const expectedWidth = matrix.viewport.width / matrix.browserZoom;
@@ -521,21 +594,28 @@ function validConstrainedLayout(layout, matrix) {
   if (Math.abs(layout.viewport.width - expectedWidth) > 1
     || Math.abs(layout.viewport.height - expectedHeight) > 1
     || layout.horizontalOverflow > 1
-    || (matrix.subjectId === "landscape-568x320" && layout.verticalOverflow > 1)) {
+    || layout.verticalOverflow > 1) {
     return false;
   }
-  const bounded = [layout.goal, layout.target, layout.actors, layout.landmark, ...layout.controls]
+  const bounded = [layout.goal, ...layout.actors, layout.landmark, ...layout.targets, ...layout.controls]
     .every(rect => rect.x >= -1 && rect.y >= -1
       && rect.right <= layout.viewport.width + 1 && rect.bottom <= layout.viewport.height + 1);
-  const separated = layout.controls.every((control, index) => index === 0
-    || Math.max(
-      control.x - layout.controls[index - 1].right,
-      control.y - layout.controls[index - 1].bottom
-    ) >= 8);
-  return bounded && separated
-    && !intersects(layout.actors, layout.target)
-    && !intersects(layout.actors, layout.landmark)
-    && !intersects(layout.target, layout.landmark);
+  return bounded
+    && crossGroupSeparated(layout.actors, layout.targets)
+    && crossGroupSeparated(layout.actors, [layout.landmark])
+    && crossGroupSeparated(layout.actors, layout.controls)
+    && crossGroupSeparated([layout.landmark], layout.targets)
+    && crossGroupSeparated([layout.landmark], layout.controls)
+    && withinGroupSeparated(layout.targets)
+    && crossGroupSeparated(layout.targets, layout.controls)
+    && withinGroupSeparated(layout.controls);
+}
+
+export function assertSoundSeekersV2GalleryLayout(layout, matrix) {
+  if (!matrix || matrix.kind !== "profile-viewport-zoom" || !validConstrainedLayout(layout, matrix)) {
+    throw new TypeError("Sound Seekers gallery constrained layout evidence is invalid");
+  }
+  return true;
 }
 
 function renderedFactKeys(kind) {
@@ -586,7 +666,6 @@ export function assertSoundSeekersV2GalleryManifest(manifest) {
     || !Array.isArray(manifest.shots) || manifest.shots.length !== manifest.shotCount) {
     throw new TypeError("Sound Seekers gallery manifest header is invalid");
   }
-  const hasLayoutEvidence = manifest.shots.some(record => Object.hasOwn(record?.checks || {}, "layout"));
   for (let index = 0; index < manifest.shots.length; index += 1) {
     const record = manifest.shots[index];
     const matrix = SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX[index];
@@ -611,11 +690,10 @@ export function assertSoundSeekersV2GalleryManifest(manifest) {
       expectedRenderedFacts: matrix.expectedRenderedFacts
     };
     const recordProjection = Object.fromEntries(Object.keys(matrixProjection).map(key => [key, record?.[key]]));
-    const layoutRequired = matrix.kind === "profile-viewport-zoom"
-      && CONSTRAINED_PROFILE_IDS.has(matrix.subjectId);
-    const layoutInvalid = hasLayoutEvidence && (layoutRequired
+    const layoutRequired = matrix.kind === "profile-viewport-zoom";
+    const layoutInvalid = layoutRequired
       ? !validConstrainedLayout(record?.checks?.layout, matrix)
-      : record?.checks?.layout !== null);
+      : record?.checks?.layout !== null;
     if (!hasExactKeys(record, SHOT_KEYS)
       || record.ordinal !== index + 1 || record.id !== matrix.id || record.kind !== matrix.kind
       || record.relativePngPath !== expectedPath || record.status !== "passed"
@@ -629,7 +707,7 @@ export function assertSoundSeekersV2GalleryManifest(manifest) {
       || record.png.width !== matrix.viewport.width || record.png.height !== matrix.viewport.height
       || !Number.isInteger(record.png.byteLength) || record.png.byteLength <= 0
       || !/^[a-f0-9]{64}$/u.test(record.png.sha256 || "")
-      || !(hasExactKeys(record.checks, hasLayoutEvidence ? CHECK_KEYS : BASE_CHECK_KEYS))
+      || !hasExactKeys(record.checks, CHECK_KEYS)
       || record.checks.noAnswerLeak !== true
       || !Array.isArray(record.checks.consoleErrors) || record.checks.consoleErrors.length
       || !Array.isArray(record.checks.pageErrors) || record.checks.pageErrors.length
@@ -671,6 +749,15 @@ export function assertSoundSeekersV2GalleryManifest(manifest) {
       if (left.compositionSignature === right.compositionSignature || left.pngSha256 === right.pngSha256) {
         throw new TypeError(`Sound Seekers boss comparison ${records[0].sceneId} reused ${PAYOFF_MODES[variantIndex]} evidence across options`);
       }
+    }
+  }
+  for (const [characterId, records] of Map.groupBy(
+    manifest.shots.filter(record => record.kind === "character-pose"),
+    record => record.expectedRenderedFacts.characterId
+  )) {
+    if (records.length !== SOUND_SEEKERS_POSE_IDS.length
+      || new Set(records.map(record => record.png.sha256)).size !== SOUND_SEEKERS_POSE_IDS.length) {
+      throw new TypeError(`Sound Seekers ${characterId} pose pixels are not independently rendered`);
     }
   }
   return true;

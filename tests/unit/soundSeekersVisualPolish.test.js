@@ -5,7 +5,14 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { createServer } from "vite";
 
 import { SOUND_SEEKERS_CHAPTERS } from "../../src/features/soundSeekers/content/chapters/index.js";
-import { SOUND_SEEKERS_CONNECTED_TEXT } from "../../src/features/soundSeekers/content/connectedText.js";
+import {
+  SOUND_SEEKERS_CONNECTED_TEXT,
+  toChildConnectedTextScene
+} from "../../src/features/soundSeekers/content/connectedText.js";
+import {
+  SOUND_SEEKERS_NARRATIVE_BRANCH_OUTCOMES,
+  SOUND_SEEKERS_VISUAL_SEMANTIC_REGISTRY
+} from "../../src/features/soundSeekers/content/sceneVisualSemantics.js";
 import {
   SOUND_SEEKERS_CHARACTER_ART_PROFILES,
   SOUND_SEEKERS_CHARACTER_VISUALS,
@@ -13,7 +20,8 @@ import {
 } from "../../src/features/soundSeekers/visual/characterCatalog.js";
 import {
   SOUND_SEEKERS_LANDMARK_BINDINGS,
-  SOUND_SEEKERS_ROUTE_SPECS
+  SOUND_SEEKERS_ROUTE_SPECS,
+  SOUND_SEEKERS_SCENE_RENDER_SPECS
 } from "../../src/features/soundSeekers/visual/sceneVisualCatalog.js";
 import {
   createCharacterAppearance,
@@ -104,14 +112,66 @@ function sourceHashes() {
   };
 }
 
-function rectangle(x, y) {
-  return { x, y, width: 56, height: 56, right: x + 56, bottom: y + 56 };
+function rectangle(x, y, width = 56, height = 56) {
+  return { x, y, width, height, right: x + width, bottom: y + height };
 }
 
-const CONSTRAINED_PROFILE_IDS = new Set([
-  "portrait-320x568", "landscape-568x320", "tablet-1194x834",
-  "zoom-200-effective-320x568"
-]);
+function layoutItem(id, index) {
+  return { id, ...rectangle((index % 4) * 64, 64 + (Math.floor(index / 4) * 64)) };
+}
+
+function layoutIdentities(matrix) {
+  const scene = SOUND_SEEKERS_CONNECTED_TEXT.find(item => item.id === matrix.sceneId);
+  const renderSpec = SOUND_SEEKERS_SCENE_RENDER_SPECS.find(item => item.sceneId === matrix.sceneId);
+  const landmark = SOUND_SEEKERS_LANDMARK_BINDINGS.find(item => item.sceneId === matrix.sceneId);
+  const semanticById = new Map(SOUND_SEEKERS_VISUAL_SEMANTIC_REGISTRY.map(item => [item.id, item]));
+  const preChoice = semanticById.get(renderSpec.preChoiceSemanticId);
+  let postDecision = null;
+  if (matrix.fixtureId !== "pre-choice" && !matrix.fixtureId.includes("correction")) {
+    if (scene.choice.kind === "narrative_bridge") {
+      const selectedOptionId = new URL(matrix.url, "http://gallery.invalid").searchParams.get("option");
+      const childScene = toChildConnectedTextScene(scene.id, `gallery:${matrix.seed}`);
+      const selectedOption = childScene.choice.options.find(option =>
+        option.visualSemanticId === selectedOptionId);
+      const branch = SOUND_SEEKERS_NARRATIVE_BRANCH_OUTCOMES.find(item =>
+        item.sceneId === scene.id && item.token === selectedOption.token);
+      postDecision = semanticById.get(branch.postDecisionSemanticId);
+    } else {
+      postDecision = semanticById.get(renderSpec.postDecisionSemanticIds[0]);
+    }
+  }
+  const visualStateId = postDecision
+    ? matrix.fixtureId.endsWith("action") ? postDecision.actionStateId : postDecision.resolvedStateId
+    : preChoice.neutralStateId;
+  return {
+    actors: renderSpec.characterBindings.map(binding => binding.characterId),
+    landmark: landmark.id,
+    targets: postDecision
+      ? [postDecision.id, visualStateId, landmark.id]
+      : [...preChoice.neutralPropIds],
+    controls: toChildConnectedTextScene(scene.id, `gallery:${matrix.seed}`).choice.options
+      .map(option => option.visualSemanticId)
+  };
+}
+
+function completeLayout(matrix) {
+  if (matrix.kind !== "profile-viewport-zoom") return null;
+  const identities = layoutIdentities(matrix);
+  let index = 0;
+  return {
+    viewport: {
+      width: matrix.viewport.width / matrix.browserZoom,
+      height: matrix.viewport.height / matrix.browserZoom
+    },
+    horizontalOverflow: 0,
+    verticalOverflow: 0,
+    goal: rectangle(0, 0, 120, 40),
+    actors: identities.actors.map(id => layoutItem(id, index++)),
+    landmark: layoutItem(identities.landmark, index++),
+    targets: identities.targets.map(id => layoutItem(id, index++)),
+    controls: identities.controls.map(id => layoutItem(id, index++))
+  };
+}
 
 function completeShots() {
   return SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX.map(matrix => {
@@ -177,20 +237,7 @@ function completeShots() {
       focusTargetId: matrix.expectedFocusTargetId,
       noAnswerLeak: true,
       payoffComparison,
-      layout: matrix.kind === "profile-viewport-zoom"
-        && CONSTRAINED_PROFILE_IDS.has(matrix.subjectId) ? {
-        viewport: {
-          width: matrix.viewport.width / matrix.browserZoom,
-          height: matrix.viewport.height / matrix.browserZoom
-        },
-        horizontalOverflow: 0,
-        verticalOverflow: 0,
-        goal: rectangle(4, 4),
-        target: rectangle(4, 72),
-        actors: rectangle(72, 72),
-        landmark: rectangle(140, 72),
-        controls: matrix.expectedVisibleControlIds.map((_, index) => rectangle(4 + (index * 64), 150))
-      } : null
+      layout: completeLayout(matrix)
     },
     status: "passed"
     });

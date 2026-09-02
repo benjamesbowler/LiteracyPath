@@ -40,6 +40,7 @@ import {
 } from "../../src/features/soundSeekers/engine/stateV2.js";
 import {
   SOUND_SEEKERS_GALLERY_REPLAY_RECIPE_IDS,
+  deriveGalleryNarrativeChoiceFromState,
   parseSoundSeekersGalleryQuery,
   replaySoundSeekersGalleryFixture
 } from "../../src/features/soundSeekers/preview/galleryReplayRecipes.js";
@@ -72,21 +73,36 @@ function commitDecision(state, transactionId, challenge, token, minute) {
   });
 }
 
-export function exerciseCanonicalWrongReloadCorrect({ sceneId, wrongCount, seed = 11 }) {
+export function exerciseCanonicalWrongReloadCorrect({ sceneId, wrongCount, seed = 11, optionId = null }) {
   if (![1, 3].includes(wrongCount)) throw new TypeError("gallery smoke requires one or three misses");
   const scene = SOUND_SEEKERS_CONNECTED_TEXT.find(item => item.id === sceneId);
   const journeyStep = Number(scene.stopId.slice(1));
-  const narrativeChoiceToken = scene.choice.kind === "narrative_bridge"
-    ? toChildConnectedTextScene(scene.id, "gallery-smoke").choice.options[0].token
-    : null;
-  const begun = beginStoryTransferTransaction(createSoundSeekersState(), {
+  const childScene = toChildConnectedTextScene(scene.id, "gallery-smoke");
+  const initial = createSoundSeekersState();
+  const current = normalizeSoundSeekersState({
+    ...initial,
+    trail: { ...initial.trail, journeyStep }
+  });
+  const begun = beginStoryTransferTransaction(current, {
     stopId: scene.stopId, journeyStep, seed
   });
   const transactionId = begun.transaction.transactionId;
-  let state = checkpointStoryTransferTransaction(begun.nextState, {
-    transactionId, narrativeChoiceToken
-  });
-  let presentation = beginConnectedTextPresentation({ sceneId, transactionId });
+  let state;
+  {
+    const selectedOption = scene.choice.kind === "narrative_bridge"
+      ? optionId
+        ? childScene.choice.options.find(option => option.visualSemanticId === optionId)
+        : childScene.choice.options[0]
+      : null;
+    if (scene.choice.kind === "narrative_bridge" && !selectedOption) {
+      throw new TypeError("gallery smoke boss option is not canonical");
+    }
+    state = checkpointStoryTransferTransaction(begun.nextState, {
+      transactionId, narrativeChoiceToken: selectedOption?.token || null
+    });
+  }
+  let persistedNarrativeChoiceToken = deriveGalleryNarrativeChoiceFromState(state, sceneId, transactionId);
+  let presentation = beginConnectedTextPresentation({ sceneId, transactionId, state });
   let correction = null;
   let wrong = null;
   const phases = [];
@@ -204,17 +220,18 @@ export function exerciseCanonicalWrongReloadCorrect({ sceneId, wrongCount, seed 
     mutate(forgedCheckpoint);
     assert.throws(() => rehydrateConnectedTextPresentation(state, forgedCheckpoint));
   }
-  if (narrativeChoiceToken) {
+  persistedNarrativeChoiceToken = deriveGalleryNarrativeChoiceFromState(state, sceneId, transactionId);
+  if (persistedNarrativeChoiceToken) {
     const reciprocal = Object.values(state.contentDecks.stories.uses)
       .concat(Object.values(state.contentDecks.transfer.uses))
-      .filter(use => use.narrativeChoiceToken === narrativeChoiceToken);
+      .filter(use => use.narrativeChoiceToken === persistedNarrativeChoiceToken);
     assert.equal(reciprocal.length, 2);
     assert.equal(JSON.stringify([wrong.event, completed.event, ...Object.values(state.attemptReceipts)])
-      .includes(narrativeChoiceToken), false);
+      .includes(persistedNarrativeChoiceToken), false);
     const mismatched = serialized(state);
     const transferUse = Object.values(mismatched.contentDecks.transfer.uses)
-      .find(use => use.narrativeChoiceToken === narrativeChoiceToken);
-    transferUse.narrativeChoiceToken = `${narrativeChoiceToken}:mismatch`;
+      .find(use => use.narrativeChoiceToken === persistedNarrativeChoiceToken);
+    transferUse.narrativeChoiceToken = `${persistedNarrativeChoiceToken}:mismatch`;
     assert.throws(() => rehydrateConnectedTextPresentation(mismatched, actionCheckpoint));
   }
   const actionReload = rehydrateConnectedTextPresentation(state, actionCheckpoint);
@@ -255,9 +272,25 @@ export function exerciseCanonicalWrongReloadCorrect({ sceneId, wrongCount, seed 
   const beforeNextScene = rehydrateConnectedTextPresentation(state, meaningCheckpoint);
   const beforeNextContext = transitionContext(beforeNextScene.transition);
   const beforeNextAccess = issueSceneVisualAccess(beforeNextScene.transition, beforeNextContext);
+  const nextJourneyStep = sceneId === "scene-s1" ? 2 : 1;
+  const nextInitial = createSoundSeekersState();
+  const nextCurrent = normalizeSoundSeekersState({
+    ...nextInitial,
+    trail: { ...nextInitial.trail, journeyStep: nextJourneyStep }
+  });
+  const nextBegun = beginStoryTransferTransaction(nextCurrent, {
+    stopId: sceneId === "scene-s1" ? "s2" : "s1",
+    journeyStep: nextJourneyStep,
+    seed: seed + 1
+  });
+  const nextState = checkpointStoryTransferTransaction(nextBegun.nextState, {
+    transactionId: nextBegun.transaction.transactionId,
+    narrativeChoiceToken: null
+  });
   const next = beginConnectedTextPresentation({
     sceneId: sceneId === "scene-s1" ? "scene-s2" : "scene-s1",
-    transactionId: sceneId === "scene-s1" ? "story-transfer:2:s2" : "story-transfer:1:s1"
+    transactionId: nextBegun.transaction.transactionId,
+    state: nextState
   });
   assert.equal(validateSceneVisualAccess(beforeNextAccess, beforeNextContext), false);
   closeConnectedTextPresentation(next);
@@ -278,6 +311,32 @@ export function exerciseCanonicalWrongReloadCorrect({ sceneId, wrongCount, seed 
   });
 }
 
+test("boss choice derivation rejects stale and cross-scene checkpoint state", () => {
+  const scene = SOUND_SEEKERS_CONNECTED_TEXT.find(item => item.id === "scene-s5");
+  const child = toChildConnectedTextScene(scene.id, "gallery-smoke");
+  const initial = createSoundSeekersState();
+  const current = normalizeSoundSeekersState({
+    ...initial,
+    trail: { ...initial.trail, journeyStep: 5 }
+  });
+  const begun = beginStoryTransferTransaction(current, {
+    stopId: scene.stopId, journeyStep: 5, seed: 11
+  });
+  const state = checkpointStoryTransferTransaction(begun.nextState, {
+    transactionId: begun.transaction.transactionId,
+    narrativeChoiceToken: child.choice.options[1].token
+  });
+  assert.equal(deriveGalleryNarrativeChoiceFromState(
+    state, scene.id, begun.transaction.transactionId
+  ), child.choice.options[1].token);
+  assert.throws(() => deriveGalleryNarrativeChoiceFromState(
+    state, scene.id, `${begun.transaction.transactionId}:stale`
+  ));
+  assert.throws(() => deriveGalleryNarrativeChoiceFromState(
+    state, "scene-s10", begun.transaction.transactionId
+  ));
+});
+
 test("canonical gallery smoke exercises wrong, reload, correct, action, meaning, and invalidation", () => {
   for (const [sceneId, wrongCount] of [["scene-s1", 1], ["scene-s5", 3]]) {
     const audit = exerciseCanonicalWrongReloadCorrect({ sceneId, wrongCount, seed: 11 });
@@ -286,6 +345,55 @@ test("canonical gallery smoke exercises wrong, reload, correct, action, meaning,
       if (key !== "phases" && key !== "modelConsumed") assert.equal(value, true, key);
     }
     assert.equal(audit.modelConsumed, wrongCount === 3);
+  }
+});
+
+test("both choices of all eight bosses survive correction, action, resolved, and meaning reloads", () => {
+  const bosses = SOUND_SEEKERS_CONNECTED_TEXT.filter(scene => scene.choice.kind === "narrative_bridge");
+  assert.equal(bosses.length, 8);
+  for (const [sceneIndex, scene] of bosses.entries()) {
+    const child = toChildConnectedTextScene(scene.id, "gallery-smoke");
+    for (const option of child.choice.options) {
+      const audit = exerciseCanonicalWrongReloadCorrect({
+        sceneId: scene.id,
+        wrongCount: sceneIndex % 2 === 0 ? 1 : 3,
+        seed: 11,
+        optionId: option.visualSemanticId
+      });
+      assert.equal(audit.oldCorrectionPresentationRejected, true);
+      assert.equal(audit.oldActionPresentationRejectedAfterSecondReload, true);
+      assert.equal(audit.freshResolvedAccessValid, true);
+    }
+  }
+});
+
+test("the public gallery replay rederives both branches of every boss at every persisted phase", () => {
+  const bosses = SOUND_SEEKERS_CONNECTED_TEXT.filter(scene => scene.choice.kind === "narrative_bridge");
+  for (const scene of bosses) {
+    const child = toChildConnectedTextScene(scene.id, "gallery:11");
+    for (const option of child.choice.options) {
+      const expectedBranch = resolveNarrativeBranchOutcome(scene.id, option.token);
+      for (const [recipeId, expectedPhase] of [
+        ["boss-three-miss-correction", "correction"],
+        ["boss-action", "action"],
+        ["boss-resolved", "resolved"],
+        ["boss-direct-meaning", "meaning_support"]
+      ]) {
+        const replay = replaySoundSeekersGalleryFixture({
+          recipeId,
+          sceneId: scene.id,
+          seed: 11,
+          optionId: option.visualSemanticId
+        });
+        assert.equal(replay.persistedNarrativeChoiceToken, option.token);
+        assert.equal(replay.phase, expectedPhase);
+        if (expectedPhase === "correction") {
+          assert.equal(replay.presentationTransition.storyOutcomeId, null);
+        } else if (replay.presentationTransition) {
+          assert.equal(replay.presentationTransition.storyOutcomeId, expectedBranch.storyOutcomeId);
+        }
+      }
+    }
   }
 });
 

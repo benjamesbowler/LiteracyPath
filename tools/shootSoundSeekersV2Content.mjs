@@ -60,6 +60,7 @@ import { SOUND_SEEKERS_CHARACTER_CREATOR_OPTIONS } from "../src/features/soundSe
 import { readSoundSeekersV2AssetManifest } from "./lib/soundSeekersV2AssetManifest.mjs";
 import {
   SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX,
+  assertSoundSeekersV2GalleryLayout,
   assertSoundSeekersV2GalleryManifest,
   buildSoundSeekersV2GalleryManifest,
   canonicalJson,
@@ -80,10 +81,6 @@ const GALLERY_ROOTS = [
   "src/features/soundSeekers/preview/ContentArtGallery.jsx",
   "src/features/soundSeekers/preview/content-art-gallery.css"
 ];
-const CONSTRAINED_PROFILE_IDS = new Set([
-  "portrait-320x568", "landscape-568x320", "tablet-1194x834",
-  "zoom-200-effective-320x568"
-]);
 const GALLERY_SOURCE_EXTENSIONS = Object.freeze([".js", ".jsx", ".mjs", ".ts", ".tsx", ".html", ".css"]);
 const GALLERY_SOURCE_INDEXES = Object.freeze(GALLERY_SOURCE_EXTENSIONS.map(extension => `index${extension}`));
 
@@ -218,17 +215,91 @@ function scriptSourceEdges(filePath, source) {
   return edges;
 }
 
+function cssLiteral(token, filePath) {
+  const value = token.trim();
+  if (!value || /\$\{|\bvar\s*\(/iu.test(value)) {
+    throw new Error(`${filePath} contains a non-literal CSS reference`);
+  }
+  const quote = value[0];
+  if (quote === "\"" || quote === "'") {
+    if (value.length < 2 || value.at(-1) !== quote) {
+      throw new Error(`${filePath} contains a non-literal CSS reference`);
+    }
+    return value.slice(1, -1);
+  }
+  if (/['"()\s]/u.test(value)) {
+    throw new Error(`${filePath} contains a non-literal CSS reference`);
+  }
+  return value;
+}
+
+function cssSourceEdges(filePath, source) {
+  const edges = [];
+  const imports = [...source.matchAll(/@import\s+([^;]+);/giu)];
+  for (const match of imports) {
+    const raw = match[1].trim();
+    if (/^url\s*\(/iu.test(raw)) continue;
+    const stringTarget = /^(?<quote>["'])(?<target>[^"'\\\r\n]+)\k<quote>(?:\s+.+)?$/u.exec(raw);
+    if (!stringTarget?.groups?.target) {
+      throw new Error(`${filePath} contains a non-literal CSS reference`);
+    }
+    edges.push(stringTarget.groups.target);
+  }
+  for (const match of source.matchAll(/url\s*\(\s*([^)]*)\)/giu)) {
+    edges.push(cssLiteral(match[1], filePath));
+  }
+  if (/@import\s+(?![^;]+;)/iu.test(source)) {
+    throw new Error(`${filePath} contains a non-literal CSS reference`);
+  }
+  return [...new Set(edges)];
+}
+
+function htmlSourceEdges(filePath, source) {
+  const edges = [];
+  for (const tagMatch of source.matchAll(/<(?:script|link)\b[^>]*>/giu)) {
+    const tag = tagMatch[0];
+    let matchedAttributes = 0;
+    for (const attribute of tag.matchAll(/\b(?:src|href)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/giu)) {
+      matchedAttributes += 1;
+      const value = attribute[1] ?? attribute[2] ?? attribute[3];
+      if (!value || /\$\{|[{}]/u.test(value)) {
+        throw new Error(`${filePath} contains a non-literal HTML reference`);
+      }
+      edges.push(value);
+    }
+    const declaredAttributes = [...tag.matchAll(/\b(?:src|href)\s*=/giu)].length;
+    if (matchedAttributes !== declaredAttributes) {
+      throw new Error(`${filePath} contains a non-literal HTML reference`);
+    }
+  }
+  return [...new Set(edges)];
+}
+
 function gallerySourceEdges(filePath, source) {
   const extension = path.posix.extname(filePath);
   if (extension === ".html") {
-    return [...source.matchAll(/<(?:script|link)\b[^>]*?\b(?:src|href)\s*=\s*["']([^"']+)["'][^>]*>/giu)]
-      .map(match => match[1]);
+    return htmlSourceEdges(filePath, source);
   }
   if (extension === ".css") {
-    return [...source.matchAll(/@import\s+(?:url\(\s*)?["']([^"']+)["']\s*\)?/giu)]
-      .map(match => match[1]);
+    return cssSourceEdges(filePath, source);
   }
   return scriptSourceEdges(filePath, source);
+}
+
+export function galleryBrowserProfile(matrix) {
+  if (!matrix || !Number.isInteger(matrix.viewport?.width) || !Number.isInteger(matrix.viewport?.height)
+    || ![1, 2].includes(matrix.browserZoom)) {
+    throw new TypeError("gallery browser profile requires a canonical viewport and zoom");
+  }
+  return {
+    viewport: { width: matrix.viewport.width, height: matrix.viewport.height },
+    deviceScaleFactor: 1,
+    pageScaleFactor: matrix.browserZoom,
+    effectiveViewport: {
+      width: matrix.viewport.width / matrix.browserZoom,
+      height: matrix.viewport.height / matrix.browserZoom
+    }
+  };
 }
 
 function resolveGallerySourceEdge(fromPath, specifier, sourcePaths) {
@@ -393,11 +464,9 @@ async function stopServer(server) {
 }
 
 async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
-  await page.setViewportSize({
-    width: matrix.viewport.width / matrix.browserZoom,
-    height: matrix.viewport.height / matrix.browserZoom
-  });
-  await cdp.send("Emulation.setPageScaleFactor", { pageScaleFactor: 1 });
+  const browserProfile = galleryBrowserProfile(matrix);
+  await page.setViewportSize(browserProfile.viewport);
+  await cdp.send("Emulation.setPageScaleFactor", { pageScaleFactor: browserProfile.pageScaleFactor });
   const consoleErrors = [];
   const pageErrors = [];
   const rawFailures = [];
@@ -418,7 +487,11 @@ async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
   try {
     const navigateGallery = async relativeUrl => {
       await withTimeout(page.goto(`${baseUrl}${relativeUrl}`, { waitUntil: "domcontentloaded", timeout: 30_000 }), 30_000, "gallery navigation");
+      await cdp.send("Emulation.setPageScaleFactor", { pageScaleFactor: browserProfile.pageScaleFactor });
       await withTimeout(page.locator("[data-gallery-ready='true']").waitFor({ state: "visible" }), 15_000, "gallery ready");
+      if (browserProfile.pageScaleFactor === 2) {
+        await withTimeout(page.locator('[data-gallery-page-scale="2"]').waitFor(), 5_000, "gallery zoom reflow");
+      }
       await withTimeout(page.evaluate(() => document.fonts.ready), 5_000, "gallery fonts");
       await withTimeout(page.waitForFunction(() => [...document.images].every(image => image.complete)), 10_000, "gallery images");
     };
@@ -498,8 +571,9 @@ async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
       height: window.visualViewport?.height || window.innerHeight,
       devicePixelRatio: window.devicePixelRatio
     }));
-    if (matrix.browserZoom === 2 && (zoom.devicePixelRatio !== 2
-      || Math.round(zoom.width) !== 320 || Math.round(zoom.height) !== 568)) {
+    if (matrix.browserZoom === 2 && (zoom.devicePixelRatio !== 1 || zoom.scale !== 2
+      || Math.round(zoom.width) !== browserProfile.effectiveViewport.width
+      || Math.round(zoom.height) !== browserProfile.effectiveViewport.height)) {
       throw new Error(`CDP zoom evidence drifted: ${JSON.stringify(zoom)}`);
     }
     const observedCodeNative = await page.locator("[data-task4-rendered-subtree]").evaluate(root => {
@@ -543,8 +617,18 @@ async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
         ? await page.locator("[data-task4-rendered-subtree]").evaluate((root, selectedOptionId) => {
           const factsFor = context => {
             const node = root.querySelector(`[data-character-context="${context}"] [data-sound-seekers-character]`);
+            const signature = node?.getAttribute("data-appearance-signature") || null;
+            const signaturePrefix = "sound-seekers-appearance:";
             return {
-              signature: node?.getAttribute("data-appearance-signature") || null,
+              serializedAppearance: signature?.startsWith(signaturePrefix)
+                ? signature.slice(signaturePrefix.length) : null,
+              signature,
+              bodyShapeId: node?.querySelector('[data-character-part="torso"]')
+                ?.getAttribute("data-body-shape-id") || null,
+              computedPaletteValue: node
+                ? getComputedStyle(node).getPropertyValue("--ss-character-palette").trim() : null,
+              accessoryIds: [...(node?.querySelectorAll("[data-accessory-id]") || [])]
+                .map(accessory => accessory.getAttribute("data-accessory-id")).sort(),
               parts: [...(node?.querySelectorAll("[data-character-part]") || [])]
                 .map(part => part.getAttribute("data-character-part"))
             };
@@ -557,8 +641,16 @@ async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
             selectedOptionId: selected?.getAttribute("data-option-id") || null,
             serializedAppearance: root.getAttribute("data-creator-serialized"),
             appearanceSignature: root.getAttribute("data-creator-signature"),
+            previewSerializedAppearance: preview.serializedAppearance,
+            worldSerializedAppearance: world.serializedAppearance,
             previewAppearanceSignature: preview.signature,
             worldAppearanceSignature: world.signature,
+            previewBodyShapeId: preview.bodyShapeId,
+            worldBodyShapeId: world.bodyShapeId,
+            previewComputedPaletteValue: preview.computedPaletteValue,
+            worldComputedPaletteValue: world.computedPaletteValue,
+            previewAccessoryIds: preview.accessoryIds,
+            worldAccessoryIds: world.accessoryIds,
             previewRenderedPartIds: preview.parts,
             worldRenderedPartIds: world.parts
           };
@@ -575,8 +667,7 @@ async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
             bossCompositionSignature: payoffComparison.variants[2].compositionSignature
           }
           : null;
-    const layout = matrix.kind === "profile-viewport-zoom"
-      && CONSTRAINED_PROFILE_IDS.has(matrix.subjectId) ? await page.evaluate(() => {
+    const layout = matrix.kind === "profile-viewport-zoom" ? await page.evaluate(() => {
       const round = value => Math.round(value * 100) / 100;
       const rectFacts = rect => ({
         x: round(rect.x),
@@ -586,9 +677,16 @@ async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
         right: round(rect.right),
         bottom: round(rect.bottom)
       });
-      const visibleRects = selector => [...document.querySelectorAll(selector)]
-        .map(node => node.getBoundingClientRect())
-        .filter(rect => rect.width > 0 && rect.height > 0);
+      const visibleNodes = selector => [...document.querySelectorAll(selector)]
+        .filter(node => {
+          const rect = node.getBoundingClientRect();
+          return rect.width > 0 && rect.height > 0;
+        });
+      const visibleRects = selector => visibleNodes(selector).map(node => node.getBoundingClientRect());
+      const itemFacts = (selector, identityAttribute) => visibleNodes(selector).map(node => ({
+        id: node.getAttribute(identityAttribute),
+        ...rectFacts(node.getBoundingClientRect())
+      }));
       const union = selector => {
         const rects = visibleRects(selector);
         if (!rects.length) return null;
@@ -601,19 +699,19 @@ async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
       const viewport = window.visualViewport;
       const viewportWidth = viewport?.width || window.innerWidth;
       const viewportHeight = viewport?.height || window.innerHeight;
+      const sceneRect = document.querySelector(".sound-seekers-scene")?.getBoundingClientRect();
       return {
         viewport: { width: round(viewportWidth), height: round(viewportHeight) },
-        horizontalOverflow: round(Math.max(0,
-          document.documentElement.scrollWidth - document.documentElement.clientWidth)),
-        verticalOverflow: round(Math.max(0,
-          document.documentElement.scrollHeight - viewportHeight)),
+        horizontalOverflow: round(Math.max(0, (sceneRect?.right || 0) - viewportWidth)),
+        verticalOverflow: round(Math.max(0, (sceneRect?.bottom || 0) - viewportHeight)),
         goal: union("[data-scene-text], [data-scene-prompt]"),
-        target: union(".sound-seekers-world__props"),
-        actors: union(".sound-seekers-world__characters"),
-        landmark: union(".sound-seekers-landmark"),
-        controls: visibleRects("[data-option-visual-id]").map(rectFacts)
+        actors: itemFacts(".sound-seekers-world__characters > [data-sound-seekers-character]", "data-character-id"),
+        landmark: itemFacts(".sound-seekers-landmark", "data-landmark-id")[0] || null,
+        targets: itemFacts(".sound-seekers-world__props > [data-code-native-semantic]", "data-code-native-semantic"),
+        controls: itemFacts("button[data-option-visual-id]", "data-option-visual-id")
       };
     }) : null;
+    if (layout) assertSoundSeekersV2GalleryLayout(layout, matrix);
     if (bossPngBytes) writeFileSync(targetPath, bossPngBytes, { flag: "wx" });
     else await withTimeout(page.screenshot({ path: targetPath, fullPage: false, animations: "disabled" }), 15_000, "gallery screenshot");
     const failedRequests = matrix.kind === "background-failure" && abortCount === 1
@@ -690,10 +788,10 @@ async function shoot() {
     }
     if (existsSync(partialDirectory)) rmSync(partialDirectory, { recursive: true });
     mkdirSync(path.join(partialDirectory, "shots"), { recursive: true });
-    const openContext = async (hasTouch, deviceScaleFactor) => {
+    const openContext = async hasTouch => {
       context = await browser.newContext({
         viewport: { width: 1280, height: 800 },
-        deviceScaleFactor,
+        deviceScaleFactor: 1,
         hasTouch,
         isMobile: hasTouch
       });
@@ -701,19 +799,16 @@ async function shoot() {
       return context.newCDPSession(page);
     };
     let contextHasTouch = false;
-    let contextDeviceScaleFactor = 1;
-    let cdp = await openContext(contextHasTouch, contextDeviceScaleFactor);
+    let cdp = await openContext(contextHasTouch);
     const records = [];
     for (const matrix of SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX) {
       const needsTouch = matrix.kind === "input-focus" && matrix.inputKind === "touch";
-      const neededDeviceScaleFactor = matrix.browserZoom;
       if ((matrix.ordinal > 1 && (matrix.ordinal - 1) % 100 === 0)
-        || needsTouch !== contextHasTouch || neededDeviceScaleFactor !== contextDeviceScaleFactor) {
+        || needsTouch !== contextHasTouch) {
         await withTimeout(page.close(), 10_000, "gallery page rotation");
         await withTimeout(context.close(), 10_000, "gallery context rotation");
         contextHasTouch = needsTouch;
-        contextDeviceScaleFactor = neededDeviceScaleFactor;
-        cdp = await openContext(contextHasTouch, contextDeviceScaleFactor);
+        cdp = await openContext(contextHasTouch);
       }
       await withTimeout((async () => {
         const relativePngPath = `shots/${String(matrix.ordinal).padStart(4, "0")}-${matrix.id}.png`;

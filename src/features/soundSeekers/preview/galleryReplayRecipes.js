@@ -6,7 +6,8 @@ import {
   SOUND_SEEKERS_MEANING_VISUAL_OWNERS,
   SOUND_SEEKERS_NARRATIVE_BRANCH_OUTCOMES,
   SOUND_SEEKERS_SCENE_VISUAL_SEMANTICS,
-  resolveNarrativeBranchOutcome
+  resolveNarrativeBranchOutcome,
+  resolveSceneVisualSemantic
 } from "../content/sceneVisualSemantics.js";
 import {
   beginStoryTransferTransaction,
@@ -25,6 +26,7 @@ import {
 } from "../engine/connectedTextPresentation.js";
 import { issueSceneVisualAccess } from "../engine/sceneVisualAccess.js";
 import { createSoundSeekersState, normalizeSoundSeekersState } from "../engine/stateV2.js";
+import { validContentDeckUses } from "../engine/contentCoverage.js";
 import { SOUND_SEEKERS_CHARACTER_CREATOR_OPTIONS } from "../visual/characterCustomization.js";
 import { SOUND_SEEKERS_CHARACTER_VISUALS, SOUND_SEEKERS_PLAYER_VISUAL, SOUND_SEEKERS_POSE_IDS } from "../visual/characterCatalog.js";
 import { SOUND_SEEKERS_MEANING_VISUALS } from "../visual/sceneVisualCatalog.js";
@@ -196,6 +198,41 @@ function transitionContext(transition) {
   });
 }
 
+export function deriveGalleryNarrativeChoiceFromState(rawState, sceneId, transactionId) {
+  const scene = SCENES.get(String(sceneId || ""));
+  if (!scene) throw new TypeError("gallery replay cannot derive a branch for an unknown scene");
+  const state = normalizeSoundSeekersState(rawState);
+  const checkpoint = state.checkpoint?.storyTransfer;
+  const checkpointToken = checkpoint?.transactionId === transactionId
+    ? checkpoint.narrativeChoiceToken : null;
+  const storyUses = validContentDeckUses(state, "stories")
+    .filter(use => use.transactionId === transactionId);
+  const transferUses = validContentDeckUses(state, "transfer")
+    .filter(use => use.transactionId === transactionId);
+  let finalToken = null;
+  if (storyUses.length || transferUses.length) {
+    if (storyUses.length !== 1 || transferUses.length !== 1
+      || storyUses[0].pairedUseId !== transferUses[0].useId
+      || transferUses[0].pairedUseId !== storyUses[0].useId
+      || storyUses[0].narrativeChoiceToken !== transferUses[0].narrativeChoiceToken) {
+      throw new TypeError("gallery replay narrative choice uses are not reciprocal");
+    }
+    finalToken = storyUses[0].narrativeChoiceToken;
+  }
+  if (checkpointToken !== null && finalToken !== null && checkpointToken !== finalToken) {
+    throw new TypeError("gallery replay checkpoint and final narrative choice disagree");
+  }
+  const token = finalToken ?? checkpointToken;
+  if (scene.choice.kind === "narrative_bridge") {
+    if (typeof token !== "string" || !resolveNarrativeBranchOutcome(scene.id, token)) {
+      throw new TypeError("gallery replay has no canonical persisted boss branch");
+    }
+    return token;
+  }
+  if (token !== null) throw new TypeError("assessed gallery replay persisted a narrative choice");
+  return null;
+}
+
 export function replaySoundSeekersGalleryFixture({ recipeId, sceneId, seed, optionId = null, meaningSemanticId = null } = {}) {
   if (!RECIPE_IDS.has(recipeId)) throw new TypeError("unknown gallery replay recipe");
   const scene = SCENES.get(String(sceneId || ""));
@@ -206,27 +243,36 @@ export function replaySoundSeekersGalleryFixture({ recipeId, sceneId, seed, opti
   }
   const routeSeed = `gallery:${exactInteger(String(seed ?? 11), "seed")}`;
   const childScene = toChildConnectedTextScene(scene.id, routeSeed);
-  let narrativeChoice = null;
-  if (boss) {
-    narrativeChoice = optionId
-      ? childScene.choice.options.find(option => option.visualSemanticId === optionId)
-      : childScene.choice.options[0];
-    if (!narrativeChoice) throw new TypeError("boss branch option is not part of the child scene");
-  } else if (optionId && !childScene.choice.options.some(option => option.visualSemanticId === optionId)) {
-    throw new TypeError("option is not part of the child scene");
-  }
   const journeyStep = Number(scene.stopId.slice(1));
-  const begun = beginStoryTransferTransaction(createSoundSeekersState(), {
+  const initial = createSoundSeekersState();
+  const current = normalizeSoundSeekersState({
+    ...initial,
+    trail: { ...initial.trail, journeyStep }
+  });
+  const begun = beginStoryTransferTransaction(current, {
     stopId: scene.stopId,
     journeyStep,
     seed: exactInteger(String(seed ?? 11), "seed")
   });
   const transactionId = begun.transaction.transactionId;
-  let state = checkpointStoryTransferTransaction(begun.nextState, {
-    transactionId,
-    narrativeChoiceToken: narrativeChoice?.token || null
-  });
-  let presentation = beginConnectedTextPresentation({ sceneId: scene.id, transactionId });
+  let state;
+  {
+    const narrativeChoice = boss
+      ? optionId
+        ? childScene.choice.options.find(option => option.visualSemanticId === optionId)
+        : childScene.choice.options[0]
+      : null;
+    if (boss && !narrativeChoice) throw new TypeError("boss branch option is not part of the child scene");
+    if (!boss && optionId && !childScene.choice.options.some(option => option.visualSemanticId === optionId)) {
+      throw new TypeError("option is not part of the child scene");
+    }
+    state = checkpointStoryTransferTransaction(begun.nextState, {
+      transactionId,
+      narrativeChoiceToken: narrativeChoice?.token || null
+    });
+  }
+  let persistedNarrativeChoiceToken = deriveGalleryNarrativeChoiceFromState(state, scene.id, transactionId);
+  let presentation = beginConnectedTextPresentation({ sceneId: scene.id, transactionId, state });
   if (recipeId === "pre-choice") {
     return Object.freeze({
       recipeId,
@@ -236,12 +282,11 @@ export function replaySoundSeekersGalleryFixture({ recipeId, sceneId, seed, opti
       sceneAccess: null,
       context: null,
       canonicalEvidenceDomain: boss ? "novel_decoding" : "connected_text_transfer",
-      persistedNarrativeChoiceToken: narrativeChoice?.token || null,
+      persistedNarrativeChoiceToken,
       phase: "pre_choice"
     });
   }
 
-  let transition = null;
   const wrongCount = requiredWrongCount(recipeId);
   for (let index = 0; index < wrongCount; index += 1) {
     const challenge = challengeFor(state, transactionId, scene, routeSeed);
@@ -261,13 +306,13 @@ export function replaySoundSeekersGalleryFixture({ recipeId, sceneId, seed, opti
       evidenceEventId: result.event.id
     }, { state });
     presentation = reduced.nextPresentation;
-    transition = reduced.transition;
   }
 
   let restored = rehydrateEnvelope(envelope(state, presentation));
   state = restored.state;
   presentation = restored.presentation;
-  transition = restored.transition;
+  let transition = restored.transition;
+  persistedNarrativeChoiceToken = deriveGalleryNarrativeChoiceFromState(state, scene.id, transactionId);
   if (state.checkpoint.storyTransfer.stage === "model_pending") {
     state = completeStoryTransferCorrectionModel(state, { transactionId }).nextState;
   }
@@ -280,7 +325,7 @@ export function replaySoundSeekersGalleryFixture({ recipeId, sceneId, seed, opti
       sceneAccess: null,
       context: null,
       canonicalEvidenceDomain: boss ? "novel_decoding" : "connected_text_transfer",
-      persistedNarrativeChoiceToken: narrativeChoice?.token || null,
+      persistedNarrativeChoiceToken,
       phase: "correction"
     });
   }
@@ -295,6 +340,7 @@ export function replaySoundSeekersGalleryFixture({ recipeId, sceneId, seed, opti
     sessionDay: "2026-09-02"
   });
   state = completed.nextState;
+  persistedNarrativeChoiceToken = deriveGalleryNarrativeChoiceFromState(state, scene.id, transactionId);
   let reduced = reduceConnectedTextPresentation(presentation, {
     type: "decision_committed",
     reducerRevision: presentation.reducerRevision,
@@ -319,20 +365,21 @@ export function replaySoundSeekersGalleryFixture({ recipeId, sceneId, seed, opti
     sceneAccess = issueSceneVisualAccess(transition, context);
   }
   if (requestedPhase(recipeId) === "meaning_support") {
-    const owner = SOUND_SEEKERS_MEANING_VISUAL_OWNERS.find(record =>
-      record.sceneId === scene.id && record.postDecisionSemanticId === transition.postDecisionSemanticId
-      && (!meaningSemanticId || record.meaningSemanticId === meaningSemanticId));
-    if (!owner) throw new TypeError("scene branch has no direct meaning owner");
+    const postDecision = resolveSceneVisualSemantic(transition.postDecisionSemanticId);
+    const canonicalMeaningSemanticId = meaningSemanticId
+      ? postDecision?.meaningSemanticIds.includes(meaningSemanticId) && meaningSemanticId
+      : postDecision?.meaningSemanticIds[0];
+    if (!canonicalMeaningSemanticId) throw new TypeError("scene branch has no canonical direct meaning");
     reduced = reduceConnectedTextPresentation(presentation, {
       type: "meaning_requested",
       reducerRevision: presentation.reducerRevision,
-      meaningSemanticId: owner.meaningSemanticId
+      meaningSemanticId: canonicalMeaningSemanticId
     }, { state });
     transition = reduced.transition;
     context = transitionContext(transition);
     sceneAccess = issueSceneVisualAccess(transition, context);
   }
-  if (boss && !resolveNarrativeBranchOutcome(scene.id, narrativeChoice.token)) {
+  if (boss && !resolveNarrativeBranchOutcome(scene.id, persistedNarrativeChoiceToken)) {
     throw new TypeError("boss branch did not resolve from its canonical child token");
   }
   return Object.freeze({
@@ -343,7 +390,7 @@ export function replaySoundSeekersGalleryFixture({ recipeId, sceneId, seed, opti
     sceneAccess,
     context,
     canonicalEvidenceDomain: boss ? "novel_decoding" : "connected_text_transfer",
-    persistedNarrativeChoiceToken: narrativeChoice?.token || null,
+    persistedNarrativeChoiceToken,
     phase: transition.phase
   });
 }
