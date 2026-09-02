@@ -14,6 +14,7 @@ async function openFirstLetterTrace(page) {
   await page.getByRole("button", { name: /Letter Trace/i }).click();
 
   await expect(page.getByRole("heading", { name: "1 of 4" })).toBeVisible();
+  await expect(page.locator('[data-mechanic-stage="letter-trace"]')).toHaveAttribute("data-trace-phase", "guided");
   await expect(page.locator(TRACE_CANVAS)).toBeVisible();
   await expect(page.getByRole("button", { name: "Check my letter" })).toBeDisabled();
 }
@@ -287,10 +288,10 @@ function inputDriver(page, projectName) {
   };
 }
 
-async function expectRejected(page) {
+async function expectRejected(page, dimension) {
   await expect(page.getByRole("button", { name: "Check my letter" })).toBeEnabled();
   await page.getByRole("button", { name: "Check my letter" }).click();
-  await expect(page.locator(TRACE_STATUS)).toHaveText("Follow the grey letter.");
+  await expect(page.locator(TRACE_STATUS)).toHaveAttribute("data-trace-failure-dimension", dimension);
   await expect(page.getByRole("heading", { name: "1 of 4" })).toBeVisible();
   await expect(page.getByText("That looks like the letter!", { exact: true })).toHaveCount(0);
 }
@@ -334,13 +335,13 @@ test("Letter Trace requires ordered formation through real mouse or touch input"
 
     // Covering/filling the whole writing area used to earn credit. It must not.
     await driver.draw(highCoverageScribble(canvasBox));
-    await expectRejected(page);
+    await expectRejected(page, "path");
     await clearTrace(page);
 
     // The right geometry in reverse formation direction must not earn credit.
     targetStrokes = await renderedTargetStrokes(page);
     await driver.draw(targetStrokes.map(stroke => [...stroke].reverse()));
-    await expectRejected(page);
+    await expectRejected(page, "direction");
     await clearTrace(page);
 
     // Correctly directed strokes in a wrong pedagogic order must not earn credit.
@@ -350,13 +351,13 @@ test("Letter Trace requires ordered formation through real mouse or touch input"
       targetStrokes[0],
       ...targetStrokes.slice(2)
     ]);
-    await expectRejected(page);
+    await expectRejected(page, "order");
     await clearTrace(page);
 
     // A neat but incomplete pair of strokes must not earn credit.
     targetStrokes = await renderedTargetStrokes(page);
     await driver.draw(targetStrokes.slice(0, 2));
-    await expectRejected(page);
+    await expectRejected(page, "coverage");
     await clearTrace(page);
 
     // The complete modelled shape is accepted even when a child keeps one
@@ -384,9 +385,33 @@ test("Letter Trace requires ordered formation through real mouse or touch input"
     ]);
     expect(pointerEvidence.every(event => event.isTrusted)).toBe(true);
     await page.getByRole("button", { name: "Check my letter" }).click();
+    await expect(page.locator('[data-mechanic-stage="letter-trace"]')).toHaveAttribute("data-trace-phase", "faded");
+    await expect(page.locator(TRACE_STATUS)).toHaveText("Now trace again with the faded model.");
+    await expect(page.getByRole("heading", { name: "1 of 4" })).toBeVisible();
+
+    targetStrokes = await renderedTargetStrokes(page);
+    await driver.draw([targetStrokes.flat()]);
+    await page.getByRole("button", { name: "Check my letter" }).click();
     await expect(page.locator(TRACE_STATUS)).toHaveText("That looks like the letter!");
     await expect(page.getByRole("heading", { name: "2 of 4" })).toBeVisible();
   } finally {
     await driver.close();
   }
+});
+
+test("Letter Trace offers a keyboard-completable supported formation route", async ({ page }) => {
+  await openFirstLetterTrace(page);
+
+  const supportedRoute = page.getByRole("button", { name: "Use supported formation practice" });
+  await supportedRoute.focus();
+  await page.keyboard.press("Enter");
+  await expect(page.locator('[data-support-route="formation-practice"]')).toContainText(
+    "This records supported formation practice."
+  );
+
+  while (await page.getByRole("button", { name: "Next stroke" }).count()) {
+    await page.getByRole("button", { name: "Next stroke" }).press("Enter");
+  }
+  await page.getByRole("button", { name: "Finish supported practice" }).press("Enter");
+  await expect(page.getByRole("heading", { name: "2 of 4" })).toBeVisible();
 });

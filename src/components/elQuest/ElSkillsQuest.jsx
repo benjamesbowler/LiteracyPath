@@ -12,10 +12,6 @@ import { loadElQuestProgress } from "../../utils/adventureMapLocalProgress.js";
 import { notifyMissionTaskDone } from "../../utils/dailyMission.js";
 import { getCompanion } from "../../utils/studentProfile.js";
 import { printCertificate } from "../../utils/printCertificate.js";
-import { LetterWriter } from "../shared/LetterWriter.jsx";
-import { LETTER_GUIDES, LETTER_STROKES } from "../../data/letterStrokes.js";
-import { CHILD_COPY } from "../../copy/childCopy.js";
-import { scoreLetterTrace } from "../../utils/traceLetterScoring.js";
 import { worldForCycle, worldStyle, sceneForKey } from "../../utils/palWorlds.js";
 import {
   WORLD_LANDMARKS_WIDE,
@@ -36,6 +32,11 @@ import {
   shuffleItems
 } from "./elQuestEngine.js";
 import { resolveAdventureRoundAudio } from "./adventureRoundAudio.js";
+import {
+  CoverClueMechanic,
+  LetterTraceMechanic,
+  PoemSpotlightMechanic
+} from "./mechanics/TextMechanics.jsx";
 import "../../styles/skills-block-quest.css";
 
 const STORAGE_PREFIX = "lp-el-quest";
@@ -169,228 +170,6 @@ function PictureChoice({ word }) {
   );
 }
 
-// Letter tracing: a big faint letter with a finger-paint canvas on top.
-// "Done" only enables once the child has actually traced across the letter —
-// enough ink AND covering most of the letter's height and some of its width,
-// so a single quick stroke no longer counts.
-function TraceRound({ round, onResult }) {
-  const canvasRef = useRef(null);
-  const targetRef = useRef(null);
-  const drawing = useRef(false);
-  const currentStrokeRef = useRef([]);
-  const drawnStrokesRef = useRef([]);
-  const lastPointRef = useRef(null);
-  const activePointerIdRef = useRef(null);
-  const [pointCount, setPointCount] = useState(0);
-  const [traceMessage, setTraceMessage] = useState(CHILD_COPY.tracing.prompt);
-  const [demoKey, setDemoKey] = useState(0);
-  const chars = useMemo(
-    () => String(round.letter).split("").filter(char => LETTER_STROKES[char]),
-    [round.letter]
-  );
-  const traceLayout = useMemo(() => {
-    const contentWidth = Math.max(1, chars.length) * LETTER_GUIDES.width;
-    const scale = Math.min((460 - 72) / contentWidth, (300 - 34) / 140);
-    return {
-      contentWidth,
-      offsetX: (460 - (contentWidth * scale)) / 2,
-      offsetY: (300 - (140 * scale)) / 2,
-      scale
-    };
-  }, [chars.length]);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return undefined;
-    const keepTraceGestureInsideCanvas = event => {
-      if (event.cancelable) event.preventDefault();
-    };
-    const listenerOptions = { passive: false };
-    canvas.addEventListener("touchstart", keepTraceGestureInsideCanvas, listenerOptions);
-    canvas.addEventListener("touchmove", keepTraceGestureInsideCanvas, listenerOptions);
-    return () => {
-      canvas.removeEventListener("touchstart", keepTraceGestureInsideCanvas, listenerOptions);
-      canvas.removeEventListener("touchmove", keepTraceGestureInsideCanvas, listenerOptions);
-    };
-  }, []);
-
-  function pointFrom(event) {
-    const canvas = canvasRef.current;
-    const rect = canvas.getBoundingClientRect();
-    return [
-      ((event.clientX - rect.left) * canvas.width) / rect.width,
-      ((event.clientY - rect.top) * canvas.height) / rect.height
-    ];
-  }
-
-  function drawPoint(point) {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    ctx.strokeStyle = "#2F9E62";
-    ctx.lineWidth = 20;
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
-    ctx.beginPath();
-    if (lastPointRef.current) {
-      ctx.moveTo(lastPointRef.current[0], lastPointRef.current[1]);
-    } else {
-      ctx.moveTo(point[0], point[1]);
-    }
-    ctx.lineTo(point[0], point[1]);
-    ctx.stroke();
-    lastPointRef.current = point;
-    currentStrokeRef.current.push(point);
-    setPointCount(value => value + 1);
-  }
-
-  function beginStroke(event) {
-    if (activePointerIdRef.current !== null) return;
-    event.preventDefault();
-    activePointerIdRef.current = event.pointerId;
-    drawing.current = true;
-    lastPointRef.current = null;
-    currentStrokeRef.current = [];
-    event.currentTarget.setPointerCapture?.(event.pointerId);
-    drawPoint(pointFrom(event));
-  }
-
-  function paint(event) {
-    if (!drawing.current || activePointerIdRef.current !== event.pointerId) return;
-    event.preventDefault();
-    drawPoint(pointFrom(event));
-  }
-
-  function finishStroke(event) {
-    if (activePointerIdRef.current !== event.pointerId) return;
-    event.preventDefault();
-    if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
-      event.currentTarget.releasePointerCapture(event.pointerId);
-    }
-    activePointerIdRef.current = null;
-    if (!drawing.current) return;
-    drawing.current = false;
-    lastPointRef.current = null;
-    if (currentStrokeRef.current.length) {
-      drawnStrokesRef.current.push(currentStrokeRef.current);
-    }
-    currentStrokeRef.current = [];
-  }
-
-  function abandonStroke(event) {
-    if (activePointerIdRef.current !== event.pointerId) return;
-    activePointerIdRef.current = null;
-    drawing.current = false;
-    lastPointRef.current = null;
-    if (currentStrokeRef.current.length) {
-      drawnStrokesRef.current.push(currentStrokeRef.current);
-    }
-    currentStrokeRef.current = [];
-  }
-
-  function clearInk() {
-    const canvas = canvasRef.current;
-    canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
-    drawing.current = false;
-    activePointerIdRef.current = null;
-    currentStrokeRef.current = [];
-    drawnStrokesRef.current = [];
-    lastPointRef.current = null;
-    setPointCount(0);
-    setTraceMessage(CHILD_COPY.tracing.prompt);
-  }
-
-  function expectedStrokes() {
-    const paths = Array.from(targetRef.current?.querySelectorAll("[data-trace-target]") || []);
-    return paths.map(path => {
-      const length = path.getTotalLength();
-      const charIndex = Number(path.dataset.charIndex || 0);
-      const points = [];
-      for (let distance = 0; distance <= length; distance += 5) {
-        const point = path.getPointAtLength(Math.min(distance, length));
-        points.push([
-          traceLayout.offsetX + ((point.x + (charIndex * LETTER_GUIDES.width)) * traceLayout.scale),
-          traceLayout.offsetY + (point.y * traceLayout.scale)
-        ]);
-      }
-      return points;
-    });
-  }
-
-  function checkTrace() {
-    const expected = expectedStrokes();
-    const result = scoreLetterTrace({
-      drawnStrokes: drawnStrokesRef.current,
-      expectedStrokes: expected
-    });
-    if (result.pass) {
-      setTraceMessage(CHILD_COPY.tracing.good);
-      onResult(true);
-      return;
-    }
-    setTraceMessage(CHILD_COPY.tracing.tryAgain);
-    onResult(false);
-  }
-
-  return (
-    <div className="sbq-trace">
-      <div className="sbq-trace-demo">
-        <LetterWriter text={round.letter} height={130} playKey={demoKey} />
-        <button className="sbq-ghost-button" type="button" onClick={() => setDemoKey(key => key + 1)}>
-          ✏️ {CHILD_COPY.tracing.watch}
-        </button>
-      </div>
-      <div className="sbq-trace-stage">
-        <svg
-          ref={targetRef}
-          aria-hidden="true"
-          className="sbq-trace-letter"
-          viewBox="0 0 460 300"
-        >
-          <g transform={`translate(${traceLayout.offsetX} ${traceLayout.offsetY}) scale(${traceLayout.scale})`}>
-            {chars.map((char, charIndex) => (
-              <g key={`${char}-${charIndex}`} transform={`translate(${charIndex * LETTER_GUIDES.width} 0)`}>
-                {LETTER_STROKES[char].map((path, pathIndex) => (
-                  <path
-                    key={`${char}-${pathIndex}`}
-                    d={path}
-                    data-char-index={charIndex}
-                    data-trace-target=""
-                  />
-                ))}
-              </g>
-            ))}
-          </g>
-        </svg>
-        <canvas
-          ref={canvasRef}
-          width={460}
-          height={300}
-          aria-label={`Trace the letter ${round.letter}`}
-          onPointerDown={beginStroke}
-          onPointerMove={paint}
-          onPointerUp={finishStroke}
-          onPointerCancel={finishStroke}
-          onLostPointerCapture={abandonStroke}
-        />
-      </div>
-      <p className="sbq-trace-message" role="status">{traceMessage}</p>
-      <div className="sbq-trace-actions">
-        <button className="sbq-ghost-button" type="button" onClick={clearInk}>
-          {CHILD_COPY.tracing.clear}
-        </button>
-        <button
-          className="sbq-primary-button"
-          type="button"
-          disabled={pointCount < 20}
-          onClick={checkTrace}
-        >
-          {CHILD_COPY.tracing.check}
-        </button>
-      </div>
-    </div>
-  );
-}
-
 function BuildRound({ round, onResult }) {
   // placed = [{ letter, tileIndex }] so duplicate letters keep their own tile.
   const [placed, setPlaced] = useState([]);
@@ -518,68 +297,6 @@ function PatternRound({ round, onResult }) {
   );
 }
 
-function CoverClueRound({ round, onResult }) {
-  const [stripSelected, setStripSelected] = useState(false);
-  const [revealTitles, setRevealTitles] = useState(false);
-  const stripText = round.strip?.text || "Story title";
-
-  function toggleStrip() {
-    setStripSelected(selected => !selected);
-  }
-
-  function placeStrip(cover) {
-    if (!stripSelected) return;
-    onResult(Boolean(cover?.matches));
-  }
-
-  return (
-    <div className="sbq-cover-clue" data-mechanic-stage="cover-clue">
-      <button
-        className="sbq-cover-clue-strip"
-        type="button"
-        aria-pressed={stripSelected}
-        onClick={toggleStrip}
-      >
-        {stripText}
-      </button>
-      <p className="sbq-cover-clue-status" role="status" aria-live="polite">
-        {stripSelected ? "Now place the title strip on the matching cover." : "Pick up the title strip first."}
-      </p>
-      <div className="sbq-cover-clue-rack" aria-label="Book covers">
-        {round.covers.map(cover => (
-          <button
-            key={cover.cover || cover.title}
-            className="sbq-cover-clue-cover"
-            type="button"
-            data-strip-selected={stripSelected ? "true" : "false"}
-            aria-label={`${stripSelected ? "Place the title strip on" : "Look at"} ${cover.title || "this cover"}`}
-            onClick={() => placeStrip(cover)}
-          >
-            {cover.cover ? (
-              <img src={cover.cover} alt="" loading="lazy" />
-            ) : (
-              <span className="sbq-cover-clue-cover-art" aria-hidden="true">Book cover</span>
-            )}
-            <span
-              className="sbq-cover-clue-cover-title"
-              data-revealed={revealTitles ? "true" : "false"}
-            >
-              {revealTitles ? (cover.title || "Book title") : "?"}
-            </span>
-          </button>
-        ))}
-      </div>
-      <button
-        className="sbq-ghost-button"
-        type="button"
-        onClick={() => setRevealTitles(value => !value)}
-      >
-        {revealTitles ? "Hide cover titles" : "Show cover titles"}
-      </button>
-    </div>
-  );
-}
-
 // Speedy Words: read the word and tap it before the gentle timer runs out.
 // The timer is encouraging, never punishing - on time-out it just replays the
 // word as a hint and the child can keep going.
@@ -679,6 +396,8 @@ export function ElSkillsQuest({
     () => (round ? resolveAdventureRoundAudio(round) : null),
     [round]
   );
+  const reducedMotion = typeof window !== "undefined"
+    && Boolean(window.matchMedia?.("(prefers-reduced-motion: reduce)").matches);
 
   useEffect(() => {
     if (!cycleLock.locked) return;
@@ -854,6 +573,14 @@ export function ElSkillsQuest({
 
   function chooseTile(choice) {
     handleAnswer(choice === round.answer);
+  }
+
+  function commitMechanicOutcome(outcome) {
+    // Task 4 will hand the full semantic outcome to the run-state controller.
+    // Until that registry cutover, keep this controller playable through its
+    // existing boolean transition while each extracted mechanic emits the
+    // complete outcome contract.
+    handleAnswer(Boolean(outcome?.correct));
   }
 
   // ── Cycle map ──────────────────────────────────────────────────────────────
@@ -1438,19 +1165,47 @@ export function ElSkillsQuest({
             </figure>
           )}
 
-          {round.poem && round.poemTitle && <p className="sbq-poem-title">{round.poemTitle}</p>}
-          {round.display && (
+          {round.mechanicId !== "poemSpotlight" && round.poem && round.poemTitle && (
+            <p className="sbq-poem-title">{round.poemTitle}</p>
+          )}
+          {round.mechanicId !== "poemSpotlight" && round.display && (
             <div className={`sbq-round-display${round.poem ? " sbq-poem" : ""}`}>{round.display}</div>
           )}
 
-          {round.type === "build" ? (
+          {round.mechanicId === "poemSpotlight" ? (
+            <PoemSpotlightMechanic
+              key={`poem-${roundIndex}`}
+              round={round}
+              disabled={sparkle}
+              supportLevel={wrongs}
+              onCommit={commitMechanicOutcome}
+              onRequestReplay={() => playRoundInstruction(round, { includeContent: true })}
+              reducedMotion={reducedMotion}
+            />
+          ) : round.mechanicId === "coverClue" ? (
+            <CoverClueMechanic
+              key={`cover-${roundIndex}`}
+              round={round}
+              disabled={sparkle}
+              supportLevel={wrongs}
+              onCommit={commitMechanicOutcome}
+              onRequestReplay={() => playRoundInstruction(round)}
+              reducedMotion={reducedMotion}
+            />
+          ) : round.mechanicId === "letterTrace" ? (
+            <LetterTraceMechanic
+              key={`${round.letter}-${roundIndex}`}
+              round={round}
+              disabled={sparkle}
+              supportLevel={wrongs}
+              onCommit={commitMechanicOutcome}
+              onRequestReplay={() => playRoundInstruction(round)}
+              reducedMotion={reducedMotion}
+            />
+          ) : round.type === "build" ? (
             <BuildRound key={`${round.word}-${roundIndex}`} round={round} onResult={handleAnswer} />
-          ) : round.type === "trace" ? (
-            <TraceRound key={`${round.letter}-${roundIndex}`} round={round} onResult={handleAnswer} />
           ) : round.type === "pattern" ? (
             <PatternRound key={`pattern-${roundIndex}`} round={round} onResult={handleAnswer} />
-          ) : round.mechanicId === "coverClue" ? (
-            <CoverClueRound key={`cover-${roundIndex}`} round={round} onResult={handleAnswer} />
           ) : round.type === "speed" ? (
             <SpeedRound key={`speed-${roundIndex}`} round={round} onResult={handleAnswer} onHint={() => playCue(round)} />
           ) : (
