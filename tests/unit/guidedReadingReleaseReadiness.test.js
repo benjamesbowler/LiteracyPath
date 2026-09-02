@@ -6,6 +6,21 @@ import {
   classifyGuidedReadingMediaFinding,
   getGuidedReadingReleaseBlock
 } from "../../src/content/storyContentReviews.js";
+import { RELEASE_GATES } from "../../tools/releaseGate.mjs";
+
+test("the official release gate strictly enforces both guided-reading release verdicts", () => {
+  const storyPolicy = RELEASE_GATES.find(gate => gate.id === "story-content-policy");
+  const storyBible = RELEASE_GATES.find(gate => gate.id === "guided-reading-story-bible");
+
+  assert.deepEqual(
+    storyPolicy?.command,
+    ["npm", "run", "check:story-content-policy", "--", "--release"]
+  );
+  assert.deepEqual(
+    storyBible?.command,
+    ["npm", "run", "check:guided-reading-story-bible", "--", "--release"]
+  );
+});
 
 test("a book field cannot bypass missing-media enforcement", () => {
   const spoofedBook = {

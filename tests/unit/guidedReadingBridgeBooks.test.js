@@ -131,7 +131,7 @@ test("food and ramp procedures expose every safety and comparison step to reader
 
   const ramp = GUIDED_READING_BRIDGE_BOOKS.find(book => book.title === "Build a Cardboard Ramp");
   assert.match(ramp.pages[5].text, /release.*mark.*stop/iu);
-  assert.match(ramp.pages[6].text, /raise.*release.*again/iu);
+  assert.match(ramp.pages[6].text, /raise.*release.*again.*mark/iu);
   assert.match(ramp.pages[7].text, /compare.*both marks/iu);
 });
 

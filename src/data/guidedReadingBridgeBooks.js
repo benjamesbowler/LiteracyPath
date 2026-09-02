@@ -401,7 +401,7 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
       ["Tape the ramp so it cannot slide.", "The adult helps Leo add paper tape where cardboard meets the books and floor; show broad secure strips, level supports, and no fingers beneath the ramp."],
       ["Clear toys away from the landing space.", "Leo moves blocks and figures out of the wide floor area beyond the ramp; adult points to the now-clear landing path, with the red toy car waiting at the top."],
       ["Release one car, then mark its stopping point.", "Leo releases the red toy car from the lower ramp without pushing, then places one round blue counter exactly beside its first stopping point; the adult keeps the ramp steady."],
-      ["Raise the ramp, then release the car again.", "With adult help, Leo adds one broad book, retapes the still-low ramp, and releases the same red car again from the same top edge; the first blue mark stays fixed."],
+      ["Raise the ramp, release the car again, then mark its second stop.", "With adult help, Leo adds one broad book, retapes the still-low ramp, and releases the same red car again from the same top edge; the first blue counter stays fixed while Leo places a yellow counter at the second stopping point."],
       ["Compare both marks to see which roll traveled farther.", "Overhead finish shows the first blue counter and second yellow counter at the two stopping points; Leo compares their distance from the ramp while the safe raised ramp stays fixed." ]
     ]
   }),

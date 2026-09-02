@@ -95,7 +95,7 @@ export const GUIDED_READING_DISCUSSION_PROMPTS_WILLOW = Object.freeze({
     "Predicts that a slightly higher stable ramp can change how far the released car rolls.",
     8,
     "What evidence on page 8 lets Leo compare both rolls?",
-    "Points to the red car and two removable counters marking its stopping places."
+    "Points to the first blue mark and second yellow mark at the two stopping places."
   ),
   "willow-street-make-fruit-and-yoghurt-cups": record(
     "Which actions keep the fruit-and-yogurt cups safe, clean, and cold?",
