@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { createRoot } from "react-dom/client";
+import { getMeaningSupport } from "../../src/features/soundSeekers/content/meaningSupport.js";
+import { getPronunciation } from "../../src/features/soundSeekers/content/pronunciationLexicon.js";
 import WordWorkbench from "../../src/features/soundSeekers/ui/WordWorkbench.jsx";
+import { resolveMeaningVisual } from "../../src/features/soundSeekers/visual/sceneVisualCatalog.js";
 
 const parameters = new URLSearchParams(window.location.search);
 const mode = parameters.get("mode") || "ship";
-const browserZoom = parameters.get("zoom") === "2" ? 2 : 1;
+const shipPronunciation = getPronunciation("ship");
 
 const shipRack = Object.freeze([
   Object.freeze({ id: "workbench-ship-rack-sh", label: "sh" }),
@@ -51,7 +54,7 @@ const shipSweepReady = Object.freeze({
 });
 
 const morphologyReady = Object.freeze({
-  challengeId: "workbench-morphology-challenge",
+  challengeId: "content-placement-attempt:visit:morphology:s38-morphology:0:0:challenge:0:morphology",
   powerId: "word_forge",
   instructionLabel: "Endings can change or extend a word.",
   visualCue: Object.freeze({ kind: "morphology" }),
@@ -83,16 +86,17 @@ const morphologyAdvanced = Object.freeze({
 });
 
 const meaningPayoff = Object.freeze({
-  support: Object.freeze({
-    wordId: "ship",
-    childDefinition: "A ship is a large boat made to travel on water.",
-    actionPrompt: "Move both hands forward like a ship at sea."
-  }),
-  visual: Object.freeze({
-    accessibleLabel: "A ship travelling across blue water",
-    glyph: "ship"
-  }),
+  support: getMeaningSupport("ship"),
+  visual: resolveMeaningVisual(getMeaningSupport("ship").visualSemanticId),
   reducedMotion: parameters.get("motion") === "reduced"
+});
+
+const correctionPresentation = Object.freeze({
+  mode: "retry",
+  replayContrast: true,
+  selectedContrast: "ch",
+  visibleText: "You chose ch. Listen to ch and sh, then try again.",
+  spokenText: "You chose ch. Listen to ch and sh, then try again."
 });
 
 window.__soundSeekersWorkbenchInputs = [];
@@ -108,13 +112,12 @@ function WorkbenchHarness() {
     if (next === "morphology-advanced") setModel(morphologyAdvanced);
   };
   return (
-    <div
-      data-workbench-harness="task2-controlled-v2"
-      style={{ width: `calc(100vw / ${browserZoom})` }}
-    >
+    <div data-workbench-harness="task2-controlled-v2">
       <WordWorkbench
         model={model}
+        pronunciation={mode === "morphology" ? null : shipPronunciation}
         meaningPayoff={mode === "meaning" ? meaningPayoff : null}
+        correctionPresentation={mode === "correction" ? correctionPresentation : null}
         onInput={input => window.__soundSeekersWorkbenchInputs.push(input)}
         onReplayWholeWord={() => window.__soundSeekersWorkbenchReplays.push("whole-word")}
         onReplayMeaning={() => window.__soundSeekersWorkbenchReplays.push("meaning")}

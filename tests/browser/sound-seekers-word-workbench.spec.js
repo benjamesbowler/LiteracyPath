@@ -42,7 +42,15 @@ test("pointer placement emits one semantic intent and leaves controlled slots un
   expect(await page.evaluate(() => window.__soundSeekersWorkbenchInputs)).toEqual([
     { type: "place_tile", tileId: "workbench-ship-rack-sh" }
   ]);
-  await expect(page.getByRole("button", { name: "sh grapheme tile" })).toBeDisabled();
+  const retained = page.getByRole("button", { name: "sh grapheme tile, placed" });
+  await expect(retained).toHaveAttribute("aria-disabled", "true");
+  await retained.focus();
+  await expect(retained).toBeFocused();
+  await page.keyboard.press("Enter");
+  expect(await page.evaluate(() => window.__soundSeekersWorkbenchInputs)).toEqual([
+    { type: "place_tile", tileId: "workbench-ship-rack-sh" }
+  ]);
+  await expect(page.getByRole("img", { name: "Sound box 1, sh, placed" })).toBeVisible();
 });
 
 test("keyboard and switch-compatible focus activate the same semantic buttons once", async ({ page }) => {
@@ -86,6 +94,7 @@ test("whole-word replay requests only replay and never exposes an answer cue", a
   const html = await page.locator(".ss-workbench").evaluate(node => node.outerHTML);
   expect(html).not.toMatch(/expected-token|correct|answer|wordId|workbench-ship-challenge/iu);
   await expect(page.locator("audio, [data-audio-key], [data-sound-key]")).toHaveCount(0);
+  await expect(page.getByRole("img", { name: "A large boat that carries people or things across water." })).toBeVisible();
 });
 
 test("post-commit meaning is immediate, replayable, and absent from the ordinary model", async ({ page }) => {
@@ -94,9 +103,19 @@ test("post-commit meaning is immediate, replayable, and absent from the ordinary
   await page.goto(`${HARNESS}?mode=meaning&motion=reduced`);
   await expect(page.getByRole("heading", { name: "ship" })).toBeVisible();
   await expect(page.getByText("A ship is a large boat made to travel on water.")).toBeVisible();
-  await expect(page.getByLabel("A ship travelling across blue water")).toBeVisible();
+  await expect(page.getByLabel("A ship is a large boat made to travel on water.")).toBeVisible();
   await page.getByRole("button", { name: "Hear the meaning again" }).click();
   expect(await page.evaluate(() => window.__soundSeekersWorkbenchReplays)).toEqual(["meaning"]);
+});
+
+test("correction uses the controller transcript and selected contrast without component-authored fallback", async ({ page }) => {
+  await page.goto(`${HARNESS}?mode=correction`);
+  const status = page.getByRole("status");
+  await expect(status).toHaveText("You chose ch. Listen to ch and sh, then try again.");
+  await expect(status).toHaveAttribute("data-correction-mode", "retry");
+  await expect(status).toHaveAttribute("data-replay-contrast", "true");
+  await expect(status).toHaveAttribute("data-selected-contrast", "ch");
+  await expect(page.getByText("Look at the highlighted sound box. Try again.")).toHaveCount(0);
 });
 
 test("the unscored morphology tile emits place_tile and result waits for parent advance", async ({ page }) => {
@@ -129,7 +148,7 @@ for (const profile of [
   test(`controls and state remain reachable at ${profile.name}`, async ({ page, context }) => {
     await page.setViewportSize(profile.viewport);
     const cdp = await context.newCDPSession(page);
-    await page.goto(`${HARNESS}?mode=meaning&motion=reduced&zoom=${profile.zoom}`);
+    await page.goto(`${HARNESS}?mode=meaning&motion=reduced`);
     await cdp.send("Emulation.setPageScaleFactor", { pageScaleFactor: profile.zoom });
     const viewport = await page.evaluate(() => ({
       width: window.visualViewport?.width || innerWidth,
@@ -139,13 +158,13 @@ for (const profile of [
     }));
     expect(viewport.scale).toBe(profile.zoom);
     expect(viewport.overflow).toBeLessThanOrEqual(1);
+    await expect(page.locator("[data-workbench-harness]"))
+      .not.toHaveAttribute("style", /calc\(100vw/u);
     const boxes = await controls(page);
     expect(boxes.length).toBeGreaterThanOrEqual(6);
     for (const box of boxes) {
       expect(box.width).toBeGreaterThanOrEqual(56);
       expect(box.height).toBeGreaterThanOrEqual(56);
-      expect(box.x).toBeGreaterThanOrEqual(-1);
-      expect(box.right).toBeLessThanOrEqual(viewport.width + 1);
     }
     for (let index = 1; index < boxes.length; index += 1) {
       const previous = boxes[index - 1];
@@ -153,8 +172,29 @@ for (const profile of [
       const verticalGap = boxes[index].y - previous.bottom;
       expect(Math.max(horizontalGap, verticalGap)).toBeGreaterThanOrEqual(8);
     }
-    await expect(page.getByRole("group", { name: "Sound boxes" })).toBeInViewport();
-    await expect(page.getByRole("group", { name: "Grapheme tiles" })).toBeInViewport();
+    const essentials = [
+      page.getByRole("img", { name: "A large boat that carries people or things across water." }).first(),
+      page.getByRole("heading", { name: "Choose the letter or letter team for this sound." }),
+      page.getByRole("button", { name: "Hear the whole word again" }),
+      page.getByRole("group", { name: "Sound boxes" }),
+      page.getByRole("group", { name: "Grapheme tiles" }),
+      page.getByRole("button", { name: "Hear the meaning again" })
+    ];
+    for (const item of essentials) {
+      await item.evaluate(node => node.scrollIntoView({ block: "center", inline: "center" }));
+      const visible = await item.evaluate(node => {
+        const box = node.getBoundingClientRect();
+        const view = window.visualViewport;
+        const left = view?.offsetLeft || 0;
+        const top = view?.offsetTop || 0;
+        const width = view?.width || innerWidth;
+        const height = view?.height || innerHeight;
+        return box.right > left && box.left < left + width && box.bottom > top && box.top < top + height;
+      });
+      expect(visible).toBe(true);
+    }
+    await page.getByRole("button", { name: "Hear the whole word again" }).click();
+    await expect.poll(() => page.evaluate(() => window.__soundSeekersWorkbenchReplays)).toEqual(["whole-word"]);
   });
 }
 
