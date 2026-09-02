@@ -26,8 +26,8 @@ export function createPoemSpotlightOutcome(round = {}, selectedToken = {}, suppo
     correct,
     selected,
     feedback: correct
-      ? `You found ${target} in the poem.`
-      : `You chose ${selected || "that token"}. Keep the poem in view and find ${target || "the target word"}${lineNumber > 0 ? ` in line ${lineNumber}` : ""}.`,
+      ? `You found ${target}${lineNumber > 0 ? ` in line ${lineNumber}` : ""}.`
+      : `You chose ${selected || "that token"}. Find ${target || "the target word"}${lineNumber > 0 ? ` in line ${lineNumber}` : ""}.`,
     evidence: {
       construct: cleanText(round.construct) || "connected_print_tracking",
       target,
@@ -37,11 +37,30 @@ export function createPoemSpotlightOutcome(round = {}, selectedToken = {}, suppo
   };
 }
 
+export function createPoemSpotlightState() {
+  return { completed: false };
+}
+
+export function updatePoemSpotlightState(
+  state = createPoemSpotlightState(),
+  round = {},
+  selectedToken = {},
+  supportLevel = 0
+) {
+  if (state.completed) return { state, outcome: null };
+  const outcome = createPoemSpotlightOutcome(round, selectedToken, supportLevel);
+  return {
+    state: outcome.correct ? { ...state, completed: true } : state,
+    outcome
+  };
+}
+
 export function createCoverClueState() {
   return {
     stripSelected: false,
     titlesRevealed: false,
-    titleRevealUsed: false
+    titleRevealUsed: false,
+    completed: false
   };
 }
 
@@ -83,6 +102,7 @@ export function updateCoverClueState(
   round = {},
   supportLevel = 0
 ) {
+  if (state.completed) return { state, outcome: null };
   switch (action.type) {
     case "selectStrip":
       return {
@@ -100,17 +120,24 @@ export function updateCoverClueState(
       };
     case "placeCover":
       if (!state.stripSelected) return { state, outcome: null };
-      return {
-        state,
-        outcome: coverClueOutcome(state, round, action.cover, supportLevel)
-      };
+      {
+        const outcome = coverClueOutcome(state, round, action.cover, supportLevel);
+        return {
+          state: outcome.correct ? { ...state, completed: true } : state,
+          outcome
+        };
+      }
     default:
       return { state, outcome: null };
   }
 }
 
 export function createLetterTraceState() {
-  return { phase: "guided" };
+  return {
+    phase: "guided",
+    modelReplayUsed: false,
+    completed: false
+  };
 }
 
 export function traceFailureDimension(result = {}) {
@@ -172,6 +199,19 @@ export function updateLetterTraceState(
   round = {},
   supportLevel = 0
 ) {
+  if (state.completed) return { state, outcome: null };
+  if (action.type === "replayModel") {
+    return {
+      state: { ...state, modelReplayUsed: true },
+      outcome: null
+    };
+  }
+  if (action.type === "finishSupportedPractice") {
+    return {
+      state: { ...state, completed: true },
+      outcome: createSupportedFormationOutcome(round, supportLevel)
+    };
+  }
   if (action.type !== "score" || !action.result) return { state, outcome: null };
   if (action.result.pass && state.phase === "guided") {
     return {
@@ -179,9 +219,14 @@ export function updateLetterTraceState(
       outcome: null
     };
   }
+  const effectiveSupportLevel = Math.max(
+    supportLevelValue(supportLevel),
+    state.modelReplayUsed ? 1 : 0
+  );
+  const outcome = traceOutcome(round, action.result, state.phase, effectiveSupportLevel);
   return {
-    state,
-    outcome: traceOutcome(round, action.result, state.phase, supportLevel)
+    state: outcome.correct ? { ...state, completed: true } : state,
+    outcome
   };
 }
 

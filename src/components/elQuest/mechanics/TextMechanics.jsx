@@ -7,10 +7,10 @@ import { LetterWriter } from "../../shared/LetterWriter.jsx";
 import {
   createCoverClueState,
   createLetterTraceState,
-  createPoemSpotlightOutcome,
-  createSupportedFormationOutcome,
+  createPoemSpotlightState,
   updateCoverClueState,
-  updateLetterTraceState
+  updateLetterTraceState,
+  updatePoemSpotlightState
 } from "./textMechanicState.js";
 
 function fallbackTokens(line, lineIndex) {
@@ -32,14 +32,19 @@ export function PoemSpotlightMechanic({
   onCommit,
   reducedMotion = false
 }) {
+  const completionLockRef = useRef(false);
+  const [state, setState] = useState(createPoemSpotlightState);
   const [feedback, setFeedback] = useState("");
   const lines = Array.isArray(round?.lines) ? round.lines : [];
 
   function chooseToken(token) {
-    if (disabled) return;
-    const outcome = createPoemSpotlightOutcome(round, token, supportLevel);
-    setFeedback(outcome.feedback);
-    onCommit?.(outcome);
+    if (disabled || completionLockRef.current) return;
+    const transition = updatePoemSpotlightState(state, round, token, supportLevel);
+    setState(transition.state);
+    if (!transition.outcome) return;
+    if (transition.outcome.correct) completionLockRef.current = true;
+    setFeedback(transition.outcome.feedback);
+    onCommit?.(transition.outcome);
   }
 
   return (
@@ -49,11 +54,16 @@ export function PoemSpotlightMechanic({
       data-reduced-motion={reducedMotion ? "true" : "false"}
     >
       {round?.poemTitle && <p className="sbq-poem-title">{round.poemTitle}</p>}
-      <div className="sbq-round-display sbq-poem" aria-label={round?.poemTitle || "Poem"}>
+      <div
+        className="sbq-round-display sbq-poem"
+        role="group"
+        aria-label={round?.poemTitle || "Poem"}
+      >
         {lines.map((line, lineIndex) => {
           const tokens = round?.tokens?.[lineIndex] || fallbackTokens(line, lineIndex);
           return (
-            <p className="sbq-poem-line" aria-label={line} key={`line-${lineIndex}`}>
+            <p className="sbq-poem-line" data-poem-line={lineIndex} key={`line-${lineIndex}`}>
+              <span className="kg-visually-hidden">Line {lineIndex + 1}: </span>
               {tokens.map((token, tokenIndex) => (
                 <span key={`${lineIndex}-${tokenIndex}`}>
                   {tokenIndex > 0 ? " " : ""}
@@ -84,16 +94,18 @@ export function CoverClueMechanic({
   onCommit,
   reducedMotion = false
 }) {
+  const completionLockRef = useRef(false);
   const [state, setState] = useState(createCoverClueState);
   const [feedback, setFeedback] = useState("");
   const covers = Array.isArray(round?.covers) ? round.covers : [];
   const stripText = round?.strip?.text || "Story title";
 
   function act(action) {
-    if (disabled) return;
+    if (disabled || completionLockRef.current) return;
     const transition = updateCoverClueState(state, action, round, supportLevel);
     setState(transition.state);
     if (transition.outcome) {
+      if (transition.outcome.correct) completionLockRef.current = true;
       setFeedback(transition.outcome.feedback);
       onCommit?.(transition.outcome);
     }
@@ -122,7 +134,7 @@ export function CoverClueMechanic({
         {stripText}
       </button>
       <p className="sbq-cover-clue-status" role="status" aria-live="polite">{status}</p>
-      <div className="sbq-cover-clue-rack" aria-label="Book covers">
+      <div className="sbq-cover-clue-rack" role="group" aria-label="Book covers">
         {covers.map((cover, index) => (
           <button
             key={cover.cover || cover.id || `${cover.title}-${index}`}
@@ -222,6 +234,7 @@ export function LetterTraceMechanic({
   const drawnStrokesRef = useRef([]);
   const lastPointRef = useRef(null);
   const activePointerIdRef = useRef(null);
+  const completionLockRef = useRef(false);
   const [pointCount, setPointCount] = useState(0);
   const [traceMessage, setTraceMessage] = useState(CHILD_COPY.tracing.prompt);
   const [traceDimension, setTraceDimension] = useState("");
@@ -300,24 +313,23 @@ export function LetterTraceMechanic({
   function finishStroke(event) {
     if (activePointerIdRef.current !== event.pointerId) return;
     event.preventDefault();
+    activePointerIdRef.current = null;
+    const wasDrawing = drawing.current;
+    drawing.current = false;
+    lastPointRef.current = null;
+    if (wasDrawing && currentStrokeRef.current.length) {
+      drawnStrokesRef.current.push(currentStrokeRef.current);
+    }
+    currentStrokeRef.current = [];
     if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
       event.currentTarget.releasePointerCapture(event.pointerId);
     }
-    activePointerIdRef.current = null;
-    if (!drawing.current) return;
-    drawing.current = false;
-    lastPointRef.current = null;
-    if (currentStrokeRef.current.length) drawnStrokesRef.current.push(currentStrokeRef.current);
-    currentStrokeRef.current = [];
   }
 
   function abandonStroke(event) {
     if (activePointerIdRef.current !== event.pointerId) return;
-    activePointerIdRef.current = null;
-    drawing.current = false;
-    lastPointRef.current = null;
-    if (currentStrokeRef.current.length) drawnStrokesRef.current.push(currentStrokeRef.current);
-    currentStrokeRef.current = [];
+    if (event.cancelable) event.preventDefault();
+    resetInk("The touch stopped. Start the letter again.");
   }
 
   function resetInk(message) {
@@ -359,6 +371,7 @@ export function LetterTraceMechanic({
   }
 
   function checkTrace() {
+    if (completionLockRef.current) return;
     const result = scoreLetterTrace({
       drawnStrokes: drawnStrokesRef.current,
       expectedStrokes: expectedStrokes()
@@ -375,12 +388,20 @@ export function LetterTraceMechanic({
       return;
     }
     if (!transition.outcome) return;
+    if (transition.outcome.correct) completionLockRef.current = true;
+    setTraceState(transition.state);
     setTraceMessage(transition.outcome.feedback);
     setTraceDimension(transition.outcome.errorDimension || "");
     onCommit?.(transition.outcome);
   }
 
   function replayModel() {
+    setTraceState(state => updateLetterTraceState(
+      state,
+      { type: "replayModel" },
+      round,
+      supportLevel
+    ).state);
     setDemoKey(key => key + 1);
     onRequestReplay?.();
   }
@@ -392,9 +413,18 @@ export function LetterTraceMechanic({
   }
 
   function finishSupportedPractice() {
-    const outcome = createSupportedFormationOutcome(round, supportLevel);
-    setTraceMessage(outcome.feedback);
-    onCommit?.(outcome);
+    if (completionLockRef.current) return;
+    const transition = updateLetterTraceState(
+      traceState,
+      { type: "finishSupportedPractice" },
+      round,
+      supportLevel
+    );
+    setTraceState(transition.state);
+    if (!transition.outcome) return;
+    completionLockRef.current = true;
+    setTraceMessage(transition.outcome.feedback);
+    onCommit?.(transition.outcome);
   }
 
   return (
@@ -440,7 +470,7 @@ export function LetterTraceMechanic({
               onPointerDown={beginStroke}
               onPointerMove={paint}
               onPointerUp={finishStroke}
-              onPointerCancel={finishStroke}
+              onPointerCancel={abandonStroke}
               onLostPointerCapture={abandonStroke}
             />
           </div>

@@ -231,6 +231,139 @@
   line-height: 1.35;
 }
 
+/* Poem Spotlight keeps every word in its authored line while preserving the
+   physical 56px target floor. The old shrink-to-fit poem made long lines wrap
+   into stacks of large generic buttons, which pushed later lines outside the
+   clipped round card at classroom browser heights. */
+.kg-stage .kg-main > .skills-block-quest .sbq-poem-spotlight {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1px 8px;
+  width: min(100%, 860px);
+  min-height: 0;
+}
+
+.kg-stage .kg-main > .skills-block-quest[data-round-type="poem"] > .sbq-round-card {
+  gap: 4px;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-poem-spotlight .sbq-poem-title {
+  grid-column: 1;
+  grid-row: 1;
+  margin: 0;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-poem-spotlight .sbq-round-display.sbq-poem {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: grid;
+  gap: 1px;
+  width: 100%;
+  max-width: none;
+  padding: 0 10px;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-poem-spotlight > .sbq-trace-message {
+  grid-column: 2;
+  grid-row: 1;
+  min-height: 0;
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.15;
+  text-align: right;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-poem-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  gap: 3px;
+  min-height: var(--kg-physical-hit, 56px);
+  margin: 0;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-poem-token {
+  min-width: var(--kg-physical-hit, 56px);
+  min-height: var(--kg-physical-hit, 56px);
+  padding: 2px 6px;
+  border-radius: 12px;
+  line-height: 1.05;
+}
+
+/* Cover Clue replaced the former single-cover Story Stop, so it needs a
+   two-lane body rather than inheriting the old cover/answer grid positions.
+   The title strip and support stay together while all three uncropped covers
+   remain visible in one rack. */
+.kg-stage .kg-main > .skills-block-quest[data-round-type="story"] .sbq-cover-clue {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: minmax(190px, 250px) minmax(0, 1fr);
+  grid-template-rows: minmax(var(--kg-physical-hit, 56px), auto) auto minmax(var(--kg-physical-hit, 56px), auto);
+  align-items: center;
+  align-self: stretch;
+  gap: 6px 12px;
+  width: min(100%, 860px);
+  height: 100%;
+  min-height: 0;
+  justify-self: center;
+  overflow: hidden;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-cover-clue-strip {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  min-width: 0;
+  height: var(--kg-physical-hit, 56px);
+  min-height: var(--kg-physical-hit, 56px) !important;
+  padding: 8px 12px;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-cover-clue-status {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-cover-clue-rack {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 0;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-cover-clue-cover {
+  gap: 4px;
+  min-width: 0;
+  min-height: var(--kg-physical-hit, 56px);
+  padding: 8px;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-cover-clue-cover img,
+.kg-stage .kg-main > .skills-block-quest .sbq-cover-clue-cover-art {
+  height: min(24vh, 160px);
+  min-height: 0;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-cover-clue-cover-title {
+  min-height: 1.25em;
+  line-height: 1.15;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-cover-clue > .sbq-ghost-button {
+  grid-column: 1;
+  grid-row: 3;
+  width: 100%;
+}
+
 .kg-stage .kg-main > .skills-block-quest .sbq-trace-stage {
   grid-column: 2;
   grid-row: 1;
@@ -655,6 +788,37 @@
     grid-row: 3;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     width: 100%;
+  }
+
+  .kg-stage .kg-main > .skills-block-quest[data-round-type="story"] .sbq-cover-clue {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto auto;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .kg-stage .kg-main > .skills-block-quest .sbq-cover-clue-strip,
+  .kg-stage .kg-main > .skills-block-quest .sbq-cover-clue-status,
+  .kg-stage .kg-main > .skills-block-quest .sbq-cover-clue-rack,
+  .kg-stage .kg-main > .skills-block-quest .sbq-cover-clue > .sbq-ghost-button {
+    grid-column: 1;
+  }
+
+  .kg-stage .kg-main > .skills-block-quest .sbq-cover-clue-strip {
+    grid-row: 1;
+  }
+
+  .kg-stage .kg-main > .skills-block-quest .sbq-cover-clue-status {
+    grid-row: 2;
+  }
+
+  .kg-stage .kg-main > .skills-block-quest .sbq-cover-clue-rack {
+    grid-row: 3;
+  }
+
+  .kg-stage .kg-main > .skills-block-quest .sbq-cover-clue > .sbq-ghost-button {
+    grid-row: 4;
   }
 
   .kg-stage .kg-main > .skills-block-quest[data-round-type="story"] .sbq-answer-grid button {

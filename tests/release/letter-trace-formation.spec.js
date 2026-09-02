@@ -19,6 +19,127 @@ async function openFirstLetterTrace(page) {
   await expect(page.getByRole("button", { name: "Check my letter" })).toBeDisabled();
 }
 
+async function expectTextMechanicFits(page, station, viewport) {
+  const card = page.locator(".sbq-round-card");
+  const stage = page.locator("[data-mechanic-stage]");
+  const geometry = await card.evaluate((root, viewportSize) => {
+    const rootRect = root.getBoundingClientRect();
+    const instructionRect = root.querySelector(".sbq-instruction-block")?.getBoundingClientRect();
+    const stageRect = root.querySelector("[data-mechanic-stage]")?.getBoundingClientRect();
+    const controls = [...root.querySelectorAll("button:not([disabled]), canvas")]
+      .filter(element => {
+        const style = getComputedStyle(element);
+        const rect = element.getBoundingClientRect();
+        return style.display !== "none" && style.visibility !== "hidden" && rect.width > 0 && rect.height > 0;
+      })
+      .map(element => {
+        const rect = element.getBoundingClientRect();
+        return {
+          label: element.getAttribute("aria-label") || element.textContent?.trim() || element.tagName,
+          width: Math.round(rect.width),
+          height: Math.round(rect.height),
+          inside: rect.left >= rootRect.left - 1
+            && rect.right <= rootRect.right + 1
+            && rect.top >= rootRect.top - 1
+            && rect.bottom <= rootRect.bottom + 1
+        };
+      });
+    return {
+      cardOverflowX: root.scrollWidth - root.clientWidth,
+      cardOverflowY: root.scrollHeight - root.clientHeight,
+      stageInsideViewport: Boolean(stageRect)
+        && stageRect.left >= 0
+        && stageRect.right <= viewportSize.width
+        && stageRect.top >= 0
+        && stageRect.bottom <= viewportSize.height,
+      instructionStageOverlap: instructionRect && stageRect
+        ? Math.max(0, Math.min(instructionRect.right, stageRect.right) - Math.max(instructionRect.left, stageRect.left))
+          * Math.max(0, Math.min(instructionRect.bottom, stageRect.bottom) - Math.max(instructionRect.top, stageRect.top))
+        : 0,
+      controls
+    };
+  }, viewport);
+
+  expect(geometry.cardOverflowX, `${station} must not overflow sideways at ${viewport.width}x${viewport.height}`).toBeLessThanOrEqual(1);
+  expect(geometry.cardOverflowY, `${station} must not overflow vertically at ${viewport.width}x${viewport.height}`).toBeLessThanOrEqual(1);
+  expect(geometry.stageInsideViewport, `${station} stage must remain visible at ${viewport.width}x${viewport.height}`).toBe(true);
+  expect(geometry.instructionStageOverlap, `${station} must not overlap its instruction`).toBe(0);
+  expect(
+    geometry.controls.filter(control => control.width < 56 || control.height < 56),
+    `${station} controls must keep the 56px floor at ${viewport.width}x${viewport.height}`
+  ).toEqual([]);
+  expect(
+    geometry.controls.filter(control => !control.inside),
+    `${station} controls must stay inside the activity card at ${viewport.width}x${viewport.height}`
+  ).toEqual([]);
+  await expect(stage).toBeVisible();
+}
+
+test("Task7 text mechanics fit max-content rounds at both short classroom viewports", async ({ page }) => {
+  for (const viewport of [
+    { width: 1024, height: 650 },
+    { width: 768, height: 650 }
+  ]) {
+    await page.setViewportSize(viewport);
+    await page.emulateMedia({ reducedMotion: "reduce" });
+
+    for (const [cycle, station] of [
+      ["cycle-4", "poem"],
+      ["cycle-1", "story"],
+      ["cycle-1", "trace"]
+    ]) {
+      await page.goto(`/preview/child-surfaces.html?surface=adventure-map&quest=${cycle}&station=${station}`);
+      await expect(page.locator(`[data-station-id="${station}"] [data-mechanic-stage]`)).toBeVisible();
+      await expectTextMechanicFits(page, station, viewport);
+      if (station === "poem") {
+        await expect(page.locator("[data-poem-token]")).toHaveCount(30);
+        await expect(page.locator("[data-poem-line]")).toHaveCount(4);
+      }
+    }
+  }
+});
+
+async function chooseCurrentPoemTarget(page) {
+  const prompt = await page.locator(".sbq-instruction-copy").textContent();
+  const position = prompt?.match(/word (\d+) in line (\d+)/i);
+  expect(position, "Poem Spotlight must name an exact word occurrence").toBeTruthy();
+  const [, word, line] = position;
+  await page.locator(`[data-poem-token="${Number(line) - 1}:${Number(word) - 1}"]`).click();
+}
+
+test("Poem Spotlight resets after each same-mechanic round", async ({ page }) => {
+  await page.goto("/preview/child-surfaces.html?surface=adventure-map&quest=cycle-4&station=poem");
+  await chooseCurrentPoemTarget(page);
+  await expect(page.getByRole("heading", { name: "2 of 3" })).toBeVisible();
+  await expect(page.locator('[data-mechanic-stage="poem-spotlight"] [role="status"]')).toBeEmpty();
+
+  await chooseCurrentPoemTarget(page);
+  await expect(page.getByRole("heading", { name: "3 of 3" })).toBeVisible();
+});
+
+test("Cover Clue keeps a revealed-title retry available", async ({ page }) => {
+  await page.setViewportSize({ width: 1024, height: 650 });
+  await page.goto("/preview/child-surfaces.html?surface=adventure-map&quest=cycle-1&station=story");
+
+  const stripText = (await page.locator("[data-cover-strip]").textContent())?.trim();
+  await page.locator("[data-cover-strip]").click();
+  await page.getByRole("button", { name: "Show cover titles" }).click();
+  const covers = page.locator("[data-cover-piece]");
+  const labels = await covers.evaluateAll(elements => elements.map(element => element.getAttribute("aria-label")));
+  const wrongIndex = labels.findIndex(label => !label?.endsWith(`: ${stripText}`));
+  const correctIndex = labels.findIndex(label => label?.endsWith(`: ${stripText}`));
+  expect(wrongIndex).toBeGreaterThanOrEqual(0);
+  expect(correctIndex).toBeGreaterThanOrEqual(0);
+
+  await covers.nth(wrongIndex).click();
+  await expect(page.locator(".sbq-cover-clue-status")).toContainText("try another cover");
+  await covers.nth(correctIndex).click();
+  await expect(page.getByRole("heading", { name: "2 of 4" })).toBeVisible();
+  await expect(page.locator("[data-cover-strip]")).toHaveAttribute("aria-pressed", "false");
+  await expect(page.getByRole("button", { name: "Show cover titles" })).toBeVisible();
+  await expect(page.locator(".sbq-cover-clue-status")).toHaveText("Pick up the title strip first.");
+});
+
 test("Adventure Map traces one letter form at a time and owns the iPad gesture", async ({
   page
 }, testInfo) => {
@@ -97,6 +218,32 @@ test("Adventure Map traces one letter form at a time and owns the iPad gesture",
   expect(evidence.pointerEvents.every(event => event.isTrusted)).toBe(true);
   expect(evidence.touchMoves.length).toBeGreaterThan(4);
   expect(evidence.touchMoves.every(event => event.isTrusted && event.defaultPrevented)).toBe(true);
+});
+
+test("an interrupted trace gesture is discarded instead of becoming scoreable ink", async ({ page }) => {
+  await openFirstLetterTrace(page);
+  const canvas = page.locator(TRACE_CANVAS);
+  const box = await canvas.boundingBox();
+  expect(box).toBeTruthy();
+
+  await canvas.evaluate((element, canvasBox) => {
+    element.setPointerCapture = () => {};
+    element.hasPointerCapture = () => false;
+    const dispatch = (type, index) => element.dispatchEvent(new PointerEvent(type, {
+      bubbles: true,
+      cancelable: true,
+      clientX: canvasBox.x + 30 + index,
+      clientY: canvasBox.y + 30 + index,
+      pointerId: 41,
+      pointerType: "touch"
+    }));
+    dispatch("pointerdown", 0);
+    for (let index = 1; index <= 24; index += 1) dispatch("pointermove", index);
+    dispatch("pointercancel", 25);
+  }, box);
+
+  await expect(page.locator(TRACE_STATUS)).toHaveText("The touch stopped. Start the letter again.");
+  await expect(page.getByRole("button", { name: "Check my letter" })).toBeDisabled();
 });
 
 /**
@@ -394,6 +541,8 @@ test("Letter Trace requires ordered formation through real mouse or touch input"
     await page.getByRole("button", { name: "Check my letter" }).click();
     await expect(page.locator(TRACE_STATUS)).toHaveText("That looks like the letter!");
     await expect(page.getByRole("heading", { name: "2 of 4" })).toBeVisible();
+    await expect(page.locator('[data-mechanic-stage="letter-trace"]')).toHaveAttribute("data-trace-phase", "guided");
+    await expect(page.getByRole("button", { name: "Check my letter" })).toBeDisabled();
   } finally {
     await driver.close();
   }
