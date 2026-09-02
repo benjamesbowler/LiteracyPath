@@ -56,6 +56,9 @@ export function PatternSortMechanic({
 }) {
   const [state, setState] = useState(() => createPatternSortState(round));
   const activeItem = round.items[state.activeIndex];
+  const visiblePlacements = state.transferPlacement
+    ? [...state.placements, state.transferPlacement]
+    : state.placements;
 
   function selectTile() {
     applyTransition(setState, selectPatternTile(state, round), onCommit);
@@ -91,7 +94,7 @@ export function PatternSortMechanic({
           <section className="sbq-pattern-bin" key={bin.id} aria-labelledby={"pattern-bin-" + bin.id}>
             <h3 id={"pattern-bin-" + bin.id}>{bin.label}</h3>
             <ul aria-label={"Words that " + bin.label}>
-              {state.placements
+              {visiblePlacements
                 .filter(placement => placement.binId === bin.id)
                 .map(placement => (
                   <li key={placement.word}>
@@ -119,13 +122,13 @@ export function PatternSortMechanic({
           disabled={disabled}
           onClick={selectTile}
         >
-          <MarkedWord word={activeItem.word} round={round} />
+          {activeItem.word}
         </button>
       )}
       {state.stage === "transfer" && (
         <div className="sbq-pattern-transfer" role="group" aria-label="Transfer the pattern to a new word">
           <p>
-            Put the new word <strong><MarkedWord word={round.transferWord} round={round} /></strong> in its bin.
+            Put the new word <strong>{round.transferWord}</strong> in its bin.
           </p>
           {round.bins.map(bin => (
             <button
@@ -239,10 +242,7 @@ export function PhraseFlowMechanic({
   reducedMotion = false
 }) {
   const [state, setState] = useState(() => createPhraseFlowState(round));
-  const boundaryChoices = Array.from(
-    { length: Math.max(0, round.phraseChunks.length - 1) },
-    (_, index) => index + 1
-  );
+  const boundaryChoices = round.boundaryChoices || [];
 
   function revealNext() {
     applyTransition(setState, revealNextPhraseChunk(state, round), onCommit);
@@ -292,15 +292,15 @@ export function PhraseFlowMechanic({
       )}
       {state.stage === "boundary" && (
         <div className="sbq-phrase-boundaries" role="group" aria-label="Choose the natural phrase boundary">
-          {boundaryChoices.map(boundary => (
+          {boundaryChoices.map(choice => (
             <button
-              key={boundary}
+              key={choice.position}
               type="button"
-              aria-pressed={state.chosenBoundary === boundary}
+              aria-pressed={state.chosenBoundary === choice.position}
               disabled={disabled}
-              onClick={() => chooseBoundary(boundary)}
+              onClick={() => chooseBoundary(choice.position)}
             >
-              Pause after chunk {boundary}
+              Pause after “{choice.afterWord}”
             </button>
           ))}
         </div>

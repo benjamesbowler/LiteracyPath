@@ -1026,6 +1026,26 @@ function buildWordChainRounds(cycle) {
 
 // Station - Phrase Flow: follow authored poem-line chunks without a timer or
 // an oral-fluency score.
+function phraseWords(text) {
+  return String(text || "").trim().split(/\s+/u).filter(Boolean);
+}
+
+function phraseBoundaryChoices(firstLine, secondLine) {
+  const firstWords = phraseWords(firstLine);
+  const secondWords = phraseWords(secondLine);
+  const words = [...firstWords, ...secondWords];
+  const correctBoundary = firstWords.length;
+  const positions = [
+    Math.max(1, Math.floor(firstWords.length / 2)),
+    correctBoundary,
+    correctBoundary + Math.max(1, Math.floor(secondWords.length / 2))
+  ].filter(position => position > 0 && position < words.length);
+  const boundaryChoices = [...new Set(positions)]
+    .sort((left, right) => left - right)
+    .map(position => ({ position, afterWord: words[position - 1] }));
+  return { correctBoundary, boundaryChoices };
+}
+
 function buildPhraseFlowRounds(cycle) {
   const poem = EL_CYCLE_POEMS.find(item => item.cycle === cycle.cycleNumber);
   if (!poem?.lines?.length) return [];
@@ -1033,6 +1053,11 @@ function buildPhraseFlowRounds(cycle) {
   for (let index = 0; index < poem.lines.length; index += 2) {
     const phraseChunks = poem.lines.slice(index, index + 2);
     if (phraseChunks.length < 2) continue;
+    const { correctBoundary, boundaryChoices } = phraseBoundaryChoices(
+      phraseChunks[0],
+      phraseChunks[1]
+    );
+    if (boundaryChoices.length < 2) continue;
     pairs.push({
       type: "speed",
       mechanicId: "phraseFlow",
@@ -1042,7 +1067,8 @@ function buildPhraseFlowRounds(cycle) {
       prompt: "Follow the phrase trail. Pause where the line changes.",
       instruction: "Follow the phrase trail. Pause where the line changes.",
       phraseChunks,
-      correctBoundary: 1,
+      correctBoundary,
+      boundaryChoices,
       choices: phraseChunks,
       answer: phraseChunks[1],
       choiceStyle: "phrase"

@@ -77,12 +77,24 @@ test("Pattern Sort requires word then bin, retains every tile, and finishes with
   assert.equal(transferMiss.state.stage, "transfer");
   const transfer = choosePatternTransfer(transferMiss.state, round, "fits", 1);
   assert.equal(transfer.state.stage, "complete");
+  assert.deepEqual(transfer.state.transferPlacement, { word: "shin", binId: "fits" });
   assert.deepEqual(transfer.outcome.evidence, {
     construct: "orthographic_pattern_sort",
     target: "start with sh",
     response: ["shin", "fits"],
     supportLevel: 1
   });
+});
+
+test("Pattern Sort reveals pattern marking only after a placement is committed", async () => {
+  const source = await readFile(componentUrl, "utf8");
+
+  assert.match(source, /const visiblePlacements = state\.transferPlacement/);
+  assert.match(source, /visiblePlacements[\s\S]*<MarkedWord word=\{placement\.word\}/);
+  assert.match(source, /sbq-pattern-active-tile[\s\S]*\{activeItem\.word\}/);
+  assert.match(source, /Put the new word <strong>\{round\.transferWord\}<\/strong>/);
+  assert.doesNotMatch(source, /sbq-pattern-active-tile[\s\S]{0,300}<MarkedWord/);
+  assert.doesNotMatch(source, /Put the new word <strong><MarkedWord/);
 });
 
 test("Word Chain commits the position before the grapheme and preserves the chain on misses", async () => {
@@ -131,7 +143,12 @@ test("Phrase Flow reveals authored chunks at the child's pace and records model 
   const round = {
     construct: "supported_phrase_reading",
     phraseChunks: ["In the tree", "the small owl", "waits for dawn."],
-    correctBoundary: 2
+    correctBoundary: 4,
+    boundaryChoices: [
+      { position: 2, afterWord: "the" },
+      { position: 4, afterWord: "tree" },
+      { position: 7, afterWord: "owl" }
+    ]
   };
 
   let state = createPhraseFlowState(round);
@@ -141,10 +158,10 @@ test("Phrase Flow reveals authored chunks at the child's pace and records model 
   state = revealNextPhraseChunk(state, round).state;
   assert.equal(state.stage, "boundary");
 
-  const wrongBoundary = choosePhraseBoundary(state, round, 1);
+  const wrongBoundary = choosePhraseBoundary(state, round, 2);
   assert.equal(wrongBoundary.outcome.correct, false);
   assert.equal(wrongBoundary.state.stage, "boundary");
-  state = choosePhraseBoundary(wrongBoundary.state, round, 2).state;
+  state = choosePhraseBoundary(wrongBoundary.state, round, 4).state;
   assert.equal(state.stage, "model");
   state = completePhraseModel(state).state;
   assert.equal(state.stage, "echo");

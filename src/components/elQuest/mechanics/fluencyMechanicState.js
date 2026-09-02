@@ -23,6 +23,7 @@ export function createPatternSortState() {
     activeIndex: 0,
     tileSelected: false,
     placements: [],
+    transferPlacement: null,
     feedback: "Pick up the word tile, then choose its pattern bin."
   };
 }
@@ -95,6 +96,7 @@ export function choosePatternTransfer(state, round, binId, supportLevel = 0) {
     state: {
       ...state,
       stage: correct ? "complete" : "transfer",
+      transferPlacement: correct ? { word: round.transferWord, binId } : null,
       feedback
     },
     outcome: outcome(

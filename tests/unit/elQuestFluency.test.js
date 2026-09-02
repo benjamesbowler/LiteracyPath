@@ -67,6 +67,16 @@ test("Phrase Flow uses authored chunks and has no timing or rate score", () => {
     assert.equal(round.mechanicId, "phraseFlow");
     assert.ok(round.phraseChunks.length >= 2);
     assert.ok(Number.isInteger(round.correctBoundary));
+    assert.ok(round.boundaryChoices.length >= 2, "needs a real pause-point choice");
+    assert.equal(
+      round.boundaryChoices.filter(choice => choice.position === round.correctBoundary).length,
+      1,
+      "the authored line break must appear exactly once"
+    );
+    assert.ok(
+      round.boundaryChoices.some(choice => choice.position !== round.correctBoundary),
+      "needs at least one plausible alternative pause point"
+    );
     assert.equal("timerMs" in round, false);
     assert.equal("timeLimit" in round, false);
     assert.ok(!/fast|speed|timer|countdown/i.test(round.prompt));
