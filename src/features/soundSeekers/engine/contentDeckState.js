@@ -15,7 +15,7 @@ export const CONTENT_DECK_CATEGORIES = Object.freeze([
 
 const CATEGORY_SET = new Set(CONTENT_DECK_CATEGORIES);
 const COMPOSITE_CATEGORIES = new Set(["stories", "transfer"]);
-const CHECKPOINT_STAGES = new Set(["response_pending", "model_pending"]);
+const CHECKPOINT_STAGES = new Set(["narrative_choice_pending", "response_pending", "model_pending"]);
 
 function asObject(value) {
   return value && typeof value === "object" && !Array.isArray(value) ? value : {};
@@ -468,8 +468,9 @@ function exactStoryDescriptor(raw, contentDecks) {
     || transferVisit.stopId !== stopId
     || storyVisit.journeyStep !== journeyStep
     || transferVisit.journeyStep !== journeyStep
-    || (transferVisit.wordId === null && narrativeChoiceToken !== null)
-    || (transferVisit.wordId !== null && narrativeChoiceToken === null)) return null;
+    || (transferVisit.wordId === null && (narrativeChoiceToken !== null || stage === "narrative_choice_pending"))
+    || (transferVisit.wordId !== null
+      && ((stage === "narrative_choice_pending") !== (narrativeChoiceToken === null)))) return null;
   return Object.freeze({
     kind: "story_transfer",
     transactionId,

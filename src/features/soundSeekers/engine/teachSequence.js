@@ -128,6 +128,39 @@ function normalizeIndex(value, length) {
   return Number.isInteger(index) && index >= 0 && index <= length ? index : 0;
 }
 
+function completedAudioFor(state, item, input) {
+  if (!input || typeof input !== "object" || Array.isArray(input)
+    || Object.keys(input).length !== 4
+    || !["type", "teachIndex", "targetId", "audioDeliveries"]
+      .every(key => Object.hasOwn(input, key))
+    || input.type !== "complete-teach"
+    || input.teachIndex !== (item?.teachIndex ?? state.teachIndex)
+    || input.targetId !== (item?.targetId ?? null)
+    || !Array.isArray(input.audioDeliveries)) return false;
+  if (!item) return input.audioDeliveries.length === 0;
+  const required = [...new Set([
+    item.childAudio,
+    item.targetAudio,
+    ...item.targetAudioSequence,
+    ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)
+  ].filter(Boolean))];
+  if (input.audioDeliveries.length !== required.length) return false;
+  const delivered = new Map();
+  for (const delivery of input.audioDeliveries) {
+    if (!delivery || typeof delivery !== "object" || Array.isArray(delivery)
+      || Object.keys(delivery).length !== 5
+      || !["id", "status", "session", "startedAt", "completedAt"]
+        .every(key => Object.hasOwn(delivery, key))
+      || !required.includes(delivery.id) || delivered.has(delivery.id)
+      || delivery.status !== "completed"
+      || !Number.isInteger(delivery.session) || delivery.session < 1
+      || !Number.isFinite(delivery.startedAt) || !Number.isFinite(delivery.completedAt)
+      || delivery.completedAt < delivery.startedAt) return false;
+    delivered.set(delivery.id, delivery);
+  }
+  return required.every(id => delivered.has(id));
+}
+
 function sequenceAtCursor(state, rawIndex, rawTargetId = null) {
   const suppliedTeachCount = Number(state?.teachCount);
   const teachCount = Number.isInteger(suppliedTeachCount) && suppliedTeachCount >= 0
@@ -174,6 +207,7 @@ export function reduceTeachSequence(state, input = {}) {
     return sequenceAtCursor(current, input.checkpoint?.teachIndex, input.checkpoint?.teachTargetId);
   }
   if (input.type === "complete-teach") {
+    if (!completedAudioFor(current, current.currentItem, input)) return current;
     return sequenceAtCursor(current, current.teachIndex + 1);
   }
   return current;

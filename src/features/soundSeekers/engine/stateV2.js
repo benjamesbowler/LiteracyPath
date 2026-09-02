@@ -224,15 +224,46 @@ function canonicalPowerCheckpoint(raw) {
     memory_delivery: ["cueReceived", "cueVisible", "replayCount", "routeProgress", "arrived", "recipients"],
     story_power: ["textRead", "choices", "narrativeChoiceToken"]
   }[value.powerId];
-  const correctionKeys = new Set([
-    "missCount", "supportLevel", "mode", "replayContrast", "isolatePosition",
-    "reduceIrrelevantLoad", "modelOnce", "requiresFreshAttempt", "queueIsomorphicReview"
-  ]);
-  const correction = value.correction;
-  const safeCorrection = correction === null || (asObject(correction) === correction
-    && Object.keys(correction).every(key => correctionKeys.has(key))
-    && Object.values(correction).every(item => item === null
-      || ["string", "number", "boolean"].includes(typeof item)));
+  const exactRecords = (records, keys, validate) => Array.isArray(records)
+    && records.every(record => exactKeys(record, keys) && validate(record));
+  const idLabel = record => typeof record.id === "string" && Boolean(record.id)
+    && typeof record.label === "string" && Boolean(record.label);
+  const extraShapeIsValid = (() => {
+    if (value.powerId === "echo_search") return exactRecords(value.candidates,
+      ["id", "label", "revealed"], record => idLabel(record) && typeof record.revealed === "boolean")
+      && (value.foundCandidateId === null || typeof value.foundCandidateId === "string")
+      && typeof value.sourceRevealed === "boolean";
+    if (value.powerId === "contrast_sort") return exactRecords(value.items, ["id", "label"], idLabel)
+      && exactRecords(value.bins, ["id", "label"], idLabel)
+      && asObject(value.placements) === value.placements
+      && Object.entries(value.placements).every(([itemId, binId]) => itemId && typeof binId === "string" && binId);
+    if (value.powerId === "word_forge") {
+      const morphology = value.morphology;
+      const validMorphology = morphology === null || (exactKeys(morphology,
+        ["kind", "baseWord", "ending", "derivedWord", "meaning"])
+        && morphology.kind === "morphology_introduction"
+        && ["baseWord", "ending", "derivedWord", "meaning"]
+          .every(key => typeof morphology[key] === "string" && Boolean(morphology[key]))
+        && `${morphology.baseWord}${morphology.ending}` === morphology.derivedWord);
+      return exactRecords(value.slots, ["id", "tileId"], record => typeof record.id === "string" && Boolean(record.id)
+        && (record.tileId === null || (typeof record.tileId === "string" && Boolean(record.tileId))))
+        && exactRecords(value.rack, ["id", "label", "placed"], record => idLabel(record)
+          && typeof record.placed === "boolean")
+        && ["not_ready", "meaning_ready"].includes(value.sweep) && validMorphology;
+    }
+    if (value.powerId === "blend_bridge") return exactRecords(value.segments,
+      ["id", "label", "active"], record => idLabel(record) && typeof record.active === "boolean")
+      && exactRecords(value.choices, ["id", "label"], idLabel)
+      && Number.isSafeInteger(value.nextSegmentIndex) && value.nextSegmentIndex >= 0
+      && typeof value.sweepComplete === "boolean";
+    if (value.powerId === "memory_delivery") return exactRecords(value.recipients,
+      ["id", "label"], idLabel)
+      && ["cueReceived", "cueVisible", "arrived"].every(key => typeof value[key] === "boolean")
+      && ["replayCount", "routeProgress"].every(key => Number.isSafeInteger(value[key]) && value[key] >= 0);
+    if (value.powerId === "story_power") return exactRecords(value.choices, ["id", "label"], idLabel)
+      && typeof value.textRead === "boolean" && value.narrativeChoiceToken === null;
+    return false;
+  })();
   const forbiddenKeys = new Set([
     "answer", "expectedToken", "response", "responseIntent", "responseIntents",
     "capability", "commitResult", "presentationTransition", "evidence"
@@ -242,10 +273,17 @@ function canonicalPowerCheckpoint(raw) {
       || hasForbiddenAuthority(item)));
   if (!extras || !exactKeys(value, [...common, ...extras])
     || value.kind !== `${value.powerId}_state`
-    || !["active", "awaiting_mission_commit"].includes(value.status)
+    || !["active", "awaiting_mission_commit", "model_pending"].includes(value.status)
     || !Number.isSafeInteger(value.revision) || value.revision < 0
     || !Array.isArray(value.semanticSteps) || value.semanticSteps.length !== value.revision
-    || !safeCorrection || hasForbiddenAuthority(value)) return undefined;
+    || value.semanticSteps.some(step => typeof step !== "string" || !step)
+    || value.correction !== null
+    || typeof value.challengeId !== "string" || !value.challengeId
+    || typeof value.instructionId !== "string" || !value.instructionId
+    || typeof value.expectedAction !== "string" || !value.expectedAction
+    || (value.recordsDomain !== null && typeof value.recordsDomain !== "string")
+    || (value.interactionContextId !== null && typeof value.interactionContextId !== "string")
+    || !extraShapeIsValid || hasForbiddenAuthority(value)) return undefined;
   return structuredClone(value);
 }
 
@@ -263,10 +301,12 @@ function canonicalActiveContent(raw) {
 
 function normalizeMissionCheckpoint(raw) {
   const value = asObject(raw);
+  const missionMatch = /^mission:([1-9][0-9]*):(s(?:[1-9]|[1-3][0-9]|40)):([0-9]+):(-?[0-9]+)$/u
+    .exec(value.missionId || "");
   if (!exactKeys(value, MISSION_KEYS)
     || value.schemaVersion !== 1 || value.kind !== "sound_seekers_mission"
     || value.contentVersion !== SOUND_SEEKERS_CONTENT_VERSION
-    || !/^mission:[1-9][0-9]*:s(?:[1-9]|[1-3][0-9]|40):[0-9]+:-?[0-9]+$/u.test(value.missionId || "")
+    || !missionMatch
     || !/^s(?:[1-9]|[1-3][0-9]|40)$/u.test(value.stopId || "")
     || !Number.isSafeInteger(value.journeyStep) || value.journeyStep < 1
     || !Number.isSafeInteger(value.attemptOrdinal) || value.attemptOrdinal < 0
@@ -274,7 +314,12 @@ function normalizeMissionCheckpoint(raw) {
     || !Number.isSafeInteger(value.seed) || !Number.isSafeInteger(value.replayOrdinal) || value.replayOrdinal < 0
     || typeof value.phaseId !== "string" || !value.phaseId
     || typeof value.attemptId !== "string" || !value.attemptId
+    || Number(missionMatch?.[1]) !== value.journeyStep
+    || missionMatch?.[2] !== value.stopId
+    || Number(missionMatch?.[3]) !== value.replayOrdinal
+    || Number(missionMatch?.[4]) !== value.seed
     || !Array.isArray(value.completedPhaseIds) || value.completedPhaseIds.some(item => typeof item !== "string" || !item)
+    || new Set(value.completedPhaseIds).size !== value.completedPhaseIds.length
     || !exactKeys(value.teach, ["teachIndex", "teachTargetId"])
     || !Number.isSafeInteger(value.teach.teachIndex) || value.teach.teachIndex < 0
     || (value.teach.teachTargetId !== null && (typeof value.teach.teachTargetId !== "string" || !value.teach.teachTargetId))

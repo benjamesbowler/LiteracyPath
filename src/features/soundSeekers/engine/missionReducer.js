@@ -1,6 +1,9 @@
 import { QUEST_STOPS } from "../../../data/questSequence.js";
+import { nextCorrection } from "../../../utils/questCorrection.js";
 import { SOUND_SEEKERS_INTERACTION_CONTEXTS, getExpedition } from "../content/expeditions.js";
 import { getContentDeckCatalogRecord } from "../content/contentDeckCatalogs.js";
+import { getContentDeckPlacements } from "../content/contentDeckBindings.js";
+import { getPronunciation } from "../content/pronunciationLexicon.js";
 import {
   beginContentPlacementAttempt,
   beginStoryTransferTransaction,
@@ -32,20 +35,28 @@ import {
   createStoryTransferChallenge
 } from "./createChallenge.js";
 import { currentGameStateForMissionPlan } from "./createMissionPlan.js";
-import {
-  consumeMissionCommitCandidate,
-  commitMissionResponse,
-  markMissionCommitApplied
-} from "./missionResponseCommit.js";
+import { advanceJourney } from "./journeyClock.js";
+import { validContentDeckUses } from "./contentCoverage.js";
+import { createMissionRuntimeAuthority } from "./missionResponseCommit.js";
 import { SOUND_POWER_REGISTRY } from "./powers/index.js";
 import { normalizeSoundSeekersState } from "./stateV2.js";
 import { createTeachSequence, reduceTeachSequence } from "./teachSequence.js";
-import { registerCurrentWorkbenchMissionState } from "./workbenchAccess.js";
+import { projectCorrection } from "./powers/contracts.js";
 
-const missionBrands = new WeakSet();
-const currentByMissionId = new Map();
+const missionAuthority = createMissionRuntimeAuthority();
+const {
+  assertCurrentMissionState: assertCurrent,
+  brandState: brandMissionState,
+  commitMissionResponse,
+  finalizeMissionCommit
+} = missionAuthority;
+const missionByPowerState = new WeakMap();
 const completionBrands = new WeakSet();
 const completionMetadata = new WeakMap();
+const workbenchModels = new WeakMap();
+const workbenchAccesses = new WeakMap();
+const MISSION_COMMIT_CAPABILITY = Object.freeze({});
+const MISSION_CONTEXT_KEYS = new Set(["gameState", "at", "sessionDay", "audio", "assists"]);
 
 function deepFreeze(value) {
   if (!value || typeof value !== "object" || Object.isFrozen(value)) return value;
@@ -54,17 +65,9 @@ function deepFreeze(value) {
 }
 
 function brandState(value) {
-  const state = deepFreeze(value);
-  missionBrands.add(state);
-  currentByMissionId.set(state.plan.id, state);
-  registerCurrentWorkbenchMissionState(state);
+  const state = brandMissionState(deepFreeze(value));
+  if (state.activity && typeof state.activity === "object") missionByPowerState.set(state.activity, state);
   return state;
-}
-
-function assertCurrent(state) {
-  if (!missionBrands.has(state) || currentByMissionId.get(state?.plan?.id) !== state) {
-    throw new Error("mission state is not the exact current revision");
-  }
 }
 
 function passiveActivity(phase) {
@@ -73,6 +76,53 @@ function passiveActivity(phase) {
 
 function interactionFor(action) {
   return deepFreeze({ action, context: SOUND_SEEKERS_INTERACTION_CONTEXTS[action.contextId] });
+}
+
+function storyInteraction(phase, stopId) {
+  const action = getExpedition(stopId).phases.find(item => item.id === phase.id);
+  if (!action) throw new Error("story transfer action is not canonical");
+  return interactionFor(action);
+}
+
+function storyPowerChallenge(challenge, phase, child, gameState, activeContent) {
+  if (!challenge) return null;
+  const id = suffix => `${phase.contextId}:${challenge.challengeId}:${suffix}`;
+  let presentation;
+  if (phase.powerId === "blend_bridge") {
+    const pronunciation = getPronunciation(challenge.wordId);
+    const options = projectBossTransferOptionsForChild(gameState, activeContent);
+    if (!pronunciation || !options.length) throw new Error("boss transfer power presentation is incomplete");
+    presentation = {
+      segments: pronunciation.units.map((unit, index) => ({
+        id: id(`segment:${index}`), label: unit.grapheme
+      })),
+      choices: options.map((option, index) => ({
+        id: id(`choice:${index}`), label: option.childText, token: option.token
+      }))
+    };
+  } else {
+    const choices = child.choice.options.map((option, index) => ({
+      id: id(`${phase.powerId === "memory_delivery" ? "recipient" : "choice"}:${index}`),
+      label: option.childLabel, token: option.token
+    }));
+    presentation = phase.powerId === "memory_delivery" ? { recipients: choices } : { choices };
+  }
+  return deepFreeze({ ...challenge, presentation });
+}
+
+function storyPowerActivity({ phase, stopId, challenge, child, gameState, activeContent, seed, resume, presentation }) {
+  if (!challenge) return deepFreeze({
+    kind: "story_transfer_activity", powerId: phase.powerId,
+    challengeId: null,
+    status: child.choice.kind === "narrative_bridge" ? "narrative_choice_pending" : "model_pending",
+    childScene: child,
+    correction: null, presentation
+  });
+  const powerChallenge = storyPowerChallenge(challenge, phase, child, gameState, activeContent);
+  const powerState = SOUND_POWER_REGISTRY[phase.powerId].createState(powerChallenge, {
+    seed, resume, interaction: storyInteraction(phase, stopId)
+  });
+  return deepFreeze({ ...powerState, childScene: child, presentation, powerChallenge });
 }
 
 function heartChallenge(phase, plan, served, attemptOrdinal = 0) {
@@ -108,6 +158,67 @@ function contentState(base, context) {
   return context.gameState || base.gameState;
 }
 
+function exactPriorChallenge(state, phase, attemptOrdinal) {
+  if (phase.kind === "content_opportunity") {
+    return heartChallenge(phase, state.plan, state.activeContent.served, attemptOrdinal);
+  }
+  const sharedHeart = phase.contentBinding?.category === "heartWords"
+    && phase.contentBinding.isVisitOwner === false;
+  return createChallenge({
+    action: phase,
+    missionId: state.plan.id,
+    attemptOrdinal,
+    seed: state.plan.seed,
+    contentSource: sharedHeart
+      ? projectBoundContentResolverInputs(state.activeContent.served) : null
+  });
+}
+
+function deriveOrdinaryResumeCorrection(state, phase) {
+  if (!state.attemptOrdinal || !["challenge", "content_opportunity"].includes(phase.kind)) return null;
+  let correction = null;
+  for (let attemptOrdinal = 0; attemptOrdinal < state.attemptOrdinal; attemptOrdinal += 1) {
+    const challenge = exactPriorChallenge(state, phase, attemptOrdinal);
+    const events = state.gameState.evidence.filter(event => event.id.startsWith(`${challenge.attemptId}:`));
+    const event = events.length === 1 ? events[0] : null;
+    const supportLevel = Math.min(attemptOrdinal, 3);
+    const decisionOrdinal = state.nextDecisionOrdinal - state.attemptOrdinal + attemptOrdinal;
+    const responseTokens = new Set([
+      ...challenge.optionTokens,
+      ...Object.values(challenge.presentation).flatMap(value => Array.isArray(value)
+        ? value.map(item => item.token).filter(token => token !== undefined) : [])
+    ]);
+    if (!event || decisionOrdinal < 0
+      || event.id !== `${challenge.attemptId}:${decisionOrdinal}`
+      || event.correct !== false || event.target !== challenge.targetId
+      || event.domain !== challenge.recordsDomain || event.supportLevel !== supportLevel
+      || event.revealed !== (supportLevel >= 3) || event.word !== (challenge.wordId || null)
+      || event.position !== (challenge.position ?? null)
+      || event.connectedTextId !== (challenge.connectedTextId || null)
+      || event.bossTransferId !== (challenge.bossTransferId || null)
+      || event.mechanic !== challenge.powerId || event.journeyStep !== state.plan.journeyStep
+      || event.audioRequired !== (challenge.requiresAudio !== false)
+      || event.evidenceKind !== "practice"
+      || !responseTokens.has(event.confusion)) {
+      throw new Error("mission resume correction evidence is incomplete or non-canonical");
+    }
+    correction = nextCorrection(correction || {}, {
+      selected: event.confusion,
+      intended: challenge.expectedToken,
+      targetId: challenge.targetId,
+      domain: challenge.recordsDomain,
+      wordId: challenge.wordId || null,
+      position: challenge.position ?? null,
+      activityType: challenge.activityType || null,
+      connectedTextId: challenge.connectedTextId || null,
+      bossTransferId: challenge.bossTransferId || null,
+      evidenceKind: "practice"
+    });
+    if (!correction) throw new Error("mission resume correction could not be rederived");
+  }
+  return correction;
+}
+
 function enteredState(base, phaseIndex, context = {}) {
   const phase = base.plan.phases[phaseIndex] || null;
   const resume = context.resume || null;
@@ -121,6 +232,35 @@ function enteredState(base, phaseIndex, context = {}) {
       phaseIndex, phaseId: phase.id, challenge: null, interaction: null,
       activity: deepFreeze({ kind: "teach", actionId: phase.id,
         sequence: createTeachSequence(stop, taught, resume?.teach) })
+    };
+  }
+  if (phase.kind === "power_onboarding") {
+    const owner = base.plan.phases[phaseIndex + 1];
+    if (!owner || owner.id !== phase.ownerActionId || owner.powerId !== phase.powerId) {
+      throw new Error("power onboarding must immediately precede its owning action");
+    }
+    const rehearsal = enteredState({
+      ...base,
+      gameState: contentState(base, context),
+      attemptOrdinal: 0,
+      attemptId: `${base.plan.id}:${owner.id}:onboarding:attempt:0`
+    }, phaseIndex + 1, { gameState: contentState(base, context) });
+    if (!rehearsal.challenge || rehearsal.activity?.powerId !== phase.powerId) {
+      throw new Error("power onboarding could not instantiate its owning power");
+    }
+    return {
+      ...base,
+      gameState: contentState(base, context),
+      phaseIndex,
+      phaseId: phase.id,
+      challenge: rehearsal.challenge,
+      interaction: rehearsal.interaction,
+      activity: deepFreeze({
+        ...rehearsal.activity,
+        onboardingOwnerActionId: owner.id,
+        onboarding: true
+      }),
+      activeContent: null
     };
   }
   if (phase.kind === "challenge") {
@@ -142,6 +282,12 @@ function enteredState(base, phaseIndex, context = {}) {
     });
     const interaction = interactionFor(phase);
     const power = SOUND_POWER_REGISTRY[phase.powerId];
+    const powerState = power.createState(challenge, {
+      seed: base.plan.seed,
+      resume: resume?.activity?.powerCheckpoint?.status === "model_pending"
+        ? null : resume?.activity?.powerCheckpoint || null,
+      interaction
+    });
     return {
       ...base, gameState: gameState || null,
       phaseIndex, phaseId: phase.id, challenge, interaction,
@@ -149,9 +295,8 @@ function enteredState(base, phaseIndex, context = {}) {
       activeContent: sharedHeart
         ? deepFreeze({ kind: "heart", served, binding: phase.contentBinding })
         : base.activeContent || null,
-      activity: power.createState(challenge, {
-        seed: base.plan.seed, resume: resume?.activity?.powerCheckpoint || null, interaction
-      })
+      activity: resume?.activity?.powerCheckpoint?.status === "model_pending"
+        ? deepFreeze({ ...powerState, status: "model_pending" }) : powerState
     };
   }
   if (phase.kind === "content_opportunity") {
@@ -218,11 +363,14 @@ function enteredState(base, phaseIndex, context = {}) {
         seed: base.plan.seed, resume: resume?.activity?.powerCheckpoint || null, interaction
       });
     } else {
-      activity = deepFreeze({
-        kind: "content_placement_activity", powerId: phase.powerId,
-        challengeId: challenge?.challengeId || null,
-        status: challenge ? "active" : "model_pending", correction: begun.correction
-      });
+      activity = challenge
+        ? SOUND_POWER_REGISTRY[phase.powerId].createState(challenge, {
+          seed: base.plan.seed, resume: resume?.activity?.powerCheckpoint || null, interaction: null
+        })
+        : deepFreeze({
+          kind: "content_placement_activity", powerId: phase.powerId,
+          challengeId: null, status: "model_pending", correction: begun.correction
+        });
     }
     return {
       ...base, gameState: begun.nextState, phaseIndex, phaseId: phase.id,
@@ -242,8 +390,7 @@ function enteredState(base, phaseIndex, context = {}) {
         stopId: base.plan.stopId, journeyStep: base.plan.journeyStep, seed: base.plan.seed
       });
     const child = createStoryChildScene(phase.connectedTextId, `${base.plan.id}:route`);
-    const narrativeChoiceToken = getExpedition(base.plan.stopId).transfer.boss
-      ? child.choice.options[Math.abs(base.plan.seed) % child.choice.options.length].token : null;
+    const narrativeChoiceToken = null;
     const pending = resume ? begun.nextState : checkpointStoryTransferTransaction(begun.nextState, {
       transactionId: begun.transaction.transactionId, narrativeChoiceToken
     });
@@ -267,13 +414,12 @@ function enteredState(base, phaseIndex, context = {}) {
     });
     return {
       ...base, gameState: pending, phaseIndex, phaseId: phase.id,
-      challenge, interaction: null,
+      challenge, interaction: storyInteraction(phase, base.plan.stopId),
       attemptId: begun.attempt?.attemptId || challenge?.attemptId || base.attemptId,
-      activity: deepFreeze({
-        kind: "story_transfer_activity", powerId: phase.powerId,
-        challengeId: challenge?.challengeId || null,
-        status: challenge ? "active" : "model_pending", childScene: child,
-        correction: null, presentation
+      activity: storyPowerActivity({
+        phase, stopId: base.plan.stopId, challenge, child, gameState: pending,
+        activeContent: { transactionId: begun.transaction.transactionId },
+        seed: base.plan.seed, resume: resume?.activity?.powerCheckpoint || null, presentation
       }),
       activeContent: deepFreeze({ kind: "story_transfer", transactionId: begun.transaction.transactionId })
     };
@@ -289,24 +435,45 @@ export function createMissionState(plan, resume = null) {
     throw new Error("mission state requires an exact frozen plan");
   }
   if (resume !== null) {
+    const savedState = currentGameStateForMissionPlan(plan);
+    if (savedState?.checkpoint?.mission !== resume) {
+      throw new Error("mission resume must be the exact normalized current checkpoint");
+    }
     if (resume.kind !== "sound_seekers_mission" || resume.missionId !== plan.id
       || resume.contentVersion !== plan.contentVersion || resume.stopId !== plan.stopId
       || resume.journeyStep !== plan.journeyStep) throw new Error("mission resume does not match its plan");
     const phaseIndex = plan.phases.findIndex(phase => phase.id === resume.phaseId);
     if (phaseIndex < 0) throw new Error("mission resume phase is not canonical");
-    return brandState(enteredState({
+    const expectedCompleted = plan.phases.slice(0, phaseIndex).map(phase => phase.id);
+    if (resume.completedPhaseIds.length !== expectedCompleted.length
+      || resume.completedPhaseIds.some((id, index) => id !== expectedCompleted[index])) {
+      throw new Error("mission resume completed phases are not the contiguous canonical prefix");
+    }
+    const entered = enteredState({
       kind: "sound_seekers_mission_state", plan, phaseIndex,
       completedPhaseIds: [...resume.completedPhaseIds], missionRevision: resume.missionRevision,
       attemptOrdinal: resume.attemptOrdinal, attemptId: resume.attemptId,
       nextDecisionOrdinal: resume.nextDecisionOrdinal,
       presentationTransition: null,
-      modelPending: resume.activity?.powerCheckpoint?.correction?.modelOnce === true,
-      correctionState: resume.activity?.powerCheckpoint?.correction || null,
+      modelPending: resume.activity?.powerCheckpoint?.status === "model_pending",
+      correctionState: null,
       gameState: currentGameStateForMissionPlan(plan)
     }, phaseIndex, {
       gameState: currentGameStateForMissionPlan(plan),
       resume: resume.activity ? resume : null
-    }));
+    });
+    const correctionState = deriveOrdinaryResumeCorrection(entered, plan.phases[phaseIndex]);
+    const modelPending = Boolean(correctionState?.modelOnce);
+    return brandState({
+      ...entered,
+      correctionState,
+      modelPending,
+      activity: correctionState ? deepFreeze({
+        ...entered.activity,
+        status: modelPending ? "model_pending" : "active",
+        correction: projectCorrection(correctionState)
+      }) : entered.activity
+    });
   }
   return brandState(enteredState({
     kind: "sound_seekers_mission_state", plan, phaseIndex: 0,
@@ -320,6 +487,15 @@ export function createMissionState(plan, resume = null) {
 
 function emptyResult(state) {
   return deepFreeze({ state, responseIntents: [], transition: null, completion: null });
+}
+
+function finalizeResponseCommit(result, pending, buildOutput) {
+  let output = null;
+  finalizeMissionCommit(result, pending, MISSION_COMMIT_CAPABILITY, metadata => {
+    output = buildOutput(metadata);
+    return output.state;
+  });
+  return deepFreeze(output);
 }
 
 function completionFor(state, gameState) {
@@ -341,7 +517,7 @@ function advance(state, context) {
   const revision = state.missionRevision + 1;
   if (state.phaseIndex === state.plan.phases.length - 1) {
     const final = brandState({ ...state, completedPhaseIds, missionRevision: revision });
-    return { state: final, completion: completionFor(final, context.gameState) };
+    return { state: final, completion: completionFor(final, final.gameState) };
   }
   return {
     state: brandState(enteredState({
@@ -360,6 +536,10 @@ function advance(state, context) {
 
 export function reduceMission(state, input = {}, context = {}) {
   assertCurrent(state);
+  if (!context || typeof context !== "object" || Array.isArray(context)
+    || Object.keys(context).some(key => !MISSION_CONTEXT_KEYS.has(key))) {
+    throw new Error("mission context contains unknown caller authority");
+  }
   const phase = state.plan.phases[state.phaseIndex];
   if (!phase) return emptyResult(state);
   if (state.modelPending === true) {
@@ -367,11 +547,13 @@ export function reduceMission(state, input = {}, context = {}) {
     return emptyResult(brandState({
       ...state,
       modelPending: false,
-      activity: deepFreeze({ ...state.activity, correction: null }),
+      activity: deepFreeze({ ...state.activity, status: "active", correction: null }),
       correctionState: null,
       missionRevision: state.missionRevision + 1
     }));
   }
+  if (state.activity?.status === "model_pending"
+    && input.type !== "complete_correction_model") return emptyResult(state);
   if (phase.kind === "teach") {
     if (input.type !== "complete-teach") return emptyResult(state);
     const sequence = reduceTeachSequence(state.activity.sequence, input);
@@ -383,8 +565,25 @@ export function reduceMission(state, input = {}, context = {}) {
     const moved = advance(state, context);
     return deepFreeze({ state: moved.state, responseIntents: [], transition: null, completion: moved.completion });
   }
-  if (["arrival", "wonder", "power_onboarding", "payoff"].includes(phase.kind)) {
-    const expected = phase.kind === "power_onboarding" ? "complete_onboarding" : `complete_${phase.kind}`;
+  if (phase.kind === "power_onboarding") {
+    const power = SOUND_POWER_REGISTRY[phase.powerId];
+    const reduced = power.reduce(state.activity, input, {
+      challenge: state.activity.powerChallenge || state.challenge,
+      assists: context.assists
+    });
+    if (!reduced.responseIntents.length) {
+      if (reduced.state === state.activity) return emptyResult(state);
+      return emptyResult(brandState({
+        ...state,
+        activity: deepFreeze({ ...reduced.state, onboardingOwnerActionId: phase.ownerActionId, onboarding: true }),
+        missionRevision: state.missionRevision + 1
+      }));
+    }
+    const moved = advance(state, { ...context, gameState: state.gameState });
+    return deepFreeze({ state: moved.state, responseIntents: [], transition: null, completion: moved.completion });
+  }
+  if (["arrival", "wonder", "payoff"].includes(phase.kind)) {
+    const expected = `complete_${phase.kind}`;
     if (input.type !== expected) return emptyResult(state);
     const moved = advance(state, context);
     return deepFreeze({ state: moved.state, responseIntents: [], transition: null, completion: moved.completion });
@@ -402,6 +601,36 @@ export function reduceMission(state, input = {}, context = {}) {
     });
     return emptyResult(next);
   }
+  if (phase.kind === "story_transfer" && state.activity.status === "narrative_choice_pending") {
+    if (!input || typeof input !== "object" || Array.isArray(input)
+      || Object.keys(input).length !== 2
+      || input.type !== "choose_narrative_route" || typeof input.choiceId !== "string") {
+      return emptyResult(state);
+    }
+    const choice = state.activity.childScene.choice.options
+      .find(option => option.visualSemanticId === input.choiceId);
+    if (!choice) return emptyResult(state);
+    const gameState = checkpointStoryTransferTransaction(state.gameState, {
+      transactionId: state.activeContent.transactionId,
+      narrativeChoiceToken: choice.token
+    });
+    const challenge = materializeBossTransferChallenge(gameState, state.activeContent);
+    const activity = storyPowerActivity({
+      phase,
+      stopId: state.plan.stopId,
+      challenge,
+      child: state.activity.childScene,
+      gameState,
+      activeContent: state.activeContent,
+      seed: state.plan.seed,
+      resume: null,
+      presentation: state.activity.presentation
+    });
+    return emptyResult(brandState({
+      ...state, gameState, challenge, activity, attemptId: challenge.attemptId,
+      missionRevision: state.missionRevision + 1
+    }));
+  }
   if (phase.kind === "story_transfer" && input.type === "complete_story_transfer"
     && state.activity.presentation.phase === "meaning_support") {
     closeConnectedTextPresentation(state.activity.presentation);
@@ -416,14 +645,23 @@ export function reduceMission(state, input = {}, context = {}) {
     const challenge = phase.kind === "content_placement"
       ? materializeContentPlacementChallenge(modeled.nextState, state.activeContent)
       : materializeStoryTransferChallenge(modeled.nextState, state.activeContent);
+    const freshActivity = phase.kind === "story_transfer"
+      ? storyPowerActivity({
+        phase, stopId: state.plan.stopId, challenge,
+        child: state.activity.childScene, gameState: modeled.nextState,
+        activeContent: state.activeContent, seed: state.plan.seed, resume: null,
+        presentation: state.activity.presentation
+      })
+      : SOUND_POWER_REGISTRY[phase.powerId].createState(challenge, {
+        seed: state.plan.seed, resume: null, interaction: state.interaction
+      });
     const next = brandState({
       ...state,
       gameState: modeled.nextState,
       challenge,
       attemptId: challenge.attemptId,
       missionRevision: state.missionRevision + 1,
-      activity: deepFreeze({ ...state.activity, challengeId: challenge.challengeId,
-        status: "active", correction: modeled.correction })
+      activity: deepFreeze({ ...freshActivity, correction: modeled.correction })
     });
     return emptyResult(next);
   }
@@ -438,40 +676,45 @@ export function reduceMission(state, input = {}, context = {}) {
     return emptyResult(state);
   }
   const power = SOUND_POWER_REGISTRY[phase.powerId];
-  let reduced;
-  if (phase.kind === "content_placement" && phase.category !== "morphology") {
-    if (state.activity.status !== "active" || input.type !== "content_response"
-      || input.response?.kind !== "literacy-answer") return emptyResult(state);
-    reduced = deepFreeze({
-      state: { ...state.activity, status: "awaiting_mission_commit" },
-      responseIntents: [{ kind: "challenge_response", challengeId: state.challenge.challengeId,
-        response: input.response }]
-    });
-  } else if (phase.kind === "story_transfer") {
-    if (state.activity.status !== "active" || input.type !== "story_response"
-      || input.response?.kind !== "literacy-answer") return emptyResult(state);
-    reduced = deepFreeze({
-      state: { ...state.activity, status: "awaiting_mission_commit" },
-      responseIntents: [{ kind: "challenge_response", challengeId: state.challenge.challengeId,
-        response: input.response }]
-    });
-  } else {
-    reduced = power.reduce(state.activity, input, { challenge: state.challenge, assists: context.assists });
-  }
+  const reduced = power.reduce(state.activity, input, {
+    challenge: state.activity.powerChallenge || state.challenge,
+    assists: context.assists
+  });
+  const reducedActivity = phase.kind === "story_transfer"
+    ? deepFreeze({
+      ...reduced.state,
+      childScene: state.activity.childScene,
+      presentation: state.activity.presentation,
+      powerChallenge: state.activity.powerChallenge
+    })
+    : reduced.state;
   if (!reduced.responseIntents.length) {
     if (reduced.state === state.activity) return emptyResult(state);
-    return emptyResult(brandState({ ...state, activity: reduced.state, missionRevision: state.missionRevision + 1 }));
+    return emptyResult(brandState({ ...state, activity: reducedActivity, missionRevision: state.missionRevision + 1 }));
   }
-  const pending = brandState({ ...state, activity: reduced.state, missionRevision: state.missionRevision + 1 });
+  const pending = brandState({ ...state, activity: reducedActivity, missionRevision: state.missionRevision + 1 });
   const result = commitMissionResponse(pending, reduced.responseIntents, {
     challenge: pending.challenge,
     gameState: context.gameState,
     at: context.at,
     sessionDay: context.sessionDay,
     audio: context.audio
-  });
-  const metadata = consumeMissionCommitCandidate(result, pending);
-  if (phase.kind === "story_transfer") {
+  }, MISSION_COMMIT_CAPABILITY);
+  return finalizeResponseCommit(result, pending, metadata => {
+    if (phase.kind === "story_transfer") {
+    const transactionCheckpoint = metadata.candidateState.checkpoint?.storyTransfer;
+    const nextPowerChallenge = transactionCheckpoint?.stage === "response_pending"
+      ? storyPowerChallenge(
+        materializeStoryTransferChallenge(metadata.candidateState, pending.activeContent),
+        phase, pending.activity.childScene, metadata.candidateState, pending.activeContent
+      ) : null;
+    const appliedPower = power.applyMissionCommitResult(pending.activity, result, {
+      assertCommitResult: missionAuthority.assertCurrentMissionCommitResult,
+      missionId: pending.plan.id, phaseId: pending.phaseId,
+      attemptId: pending.attemptId, attemptOrdinal: pending.attemptOrdinal,
+      revision: pending.missionRevision, nextChallenge: nextPowerChallenge,
+      interaction: pending.interaction, seed: pending.plan.seed, correction: metadata.correction
+    });
     const presented = reduceConnectedTextPresentation(pending.activity.presentation, {
       type: "decision_committed",
       reducerRevision: pending.activity.presentation.reducerRevision,
@@ -484,10 +727,12 @@ export function reduceMission(state, input = {}, context = {}) {
       ...pending,
       gameState: metadata.candidateState,
       activity: deepFreeze({
-        ...pending.activity,
+        ...appliedPower,
+        powerChallenge: nextPowerChallenge,
+        childScene: pending.activity.childScene,
         challengeId: challenge.challengeId,
         status: result.outcome === "model_required" ? "model_pending"
-          : result.outcome === "advance" ? "resolved_response" : "active",
+          : result.outcome === "advance" ? appliedPower.status : "active",
         correction: metadata.correction,
         presentation: presented.nextPresentation
       }),
@@ -498,43 +743,53 @@ export function reduceMission(state, input = {}, context = {}) {
       missionRevision: pending.missionRevision + 1,
       presentationTransition: presented.transition
     });
-    markMissionCommitApplied(result, next);
-    return deepFreeze({ state: next, responseIntents: [], transition: result, completion: null });
-  }
-  if (phase.kind === "content_placement" && phase.category === "morphology"
-    && result.outcome === "advance") {
+      return { state: next, responseIntents: [], transition: result, completion: null };
+    }
+    if (phase.kind === "content_placement" && phase.category === "morphology"
+      && result.outcome === "advance") {
+    power.applyMissionCommitResult(pending.activity, result, {
+      assertCommitResult: missionAuthority.assertCurrentMissionCommitResult,
+      missionId: pending.plan.id, phaseId: pending.phaseId,
+      attemptId: pending.attemptId, attemptOrdinal: pending.attemptOrdinal,
+      revision: pending.missionRevision
+    });
     const next = brandState({
       ...pending,
       gameState: metadata.candidateState,
       nextDecisionOrdinal: pending.nextDecisionOrdinal + 1,
       missionRevision: pending.missionRevision + 1
     });
-    markMissionCommitApplied(result, next);
-    return deepFreeze({ state: next, responseIntents: [], transition: result, completion: null });
-  }
-  if (result.outcome === "advance") {
+      return { state: next, responseIntents: [], transition: result, completion: null };
+    }
+    if (result.outcome === "advance") {
+    power.applyMissionCommitResult(pending.activity, result, {
+      assertCommitResult: missionAuthority.assertCurrentMissionCommitResult,
+      missionId: pending.plan.id, phaseId: pending.phaseId,
+      attemptId: pending.attemptId, attemptOrdinal: pending.attemptOrdinal,
+      revision: pending.missionRevision
+    });
     const moved = advance({
       ...pending,
       nextDecisionOrdinal: pending.nextDecisionOrdinal + 1,
       correctionState: null
     }, { ...context, gameState: metadata.candidateState });
-    markMissionCommitApplied(result, moved.state);
-    return deepFreeze({ state: moved.state, responseIntents: [], transition: result, completion: moved.completion });
-  }
-  const attemptOrdinal = pending.attemptOrdinal + 1;
-  let nextChallenge;
-  let activity;
-  if (phase.kind === "content_placement") {
+      return { state: moved.state, responseIntents: [], transition: result, completion: moved.completion };
+    }
+    const attemptOrdinal = pending.attemptOrdinal + 1;
+    let nextChallenge;
+    let activity;
+    if (phase.kind === "content_placement") {
     const descriptor = metadata.candidateState.checkpoint?.contentPlacement;
     nextChallenge = descriptor?.stage === "response_pending"
       ? materializeContentPlacementChallenge(metadata.candidateState, pending.activeContent) : pending.challenge;
-    activity = deepFreeze({
-      ...pending.activity,
-      challengeId: nextChallenge.challengeId,
-      status: result.outcome === "model_required" ? "model_pending" : "active",
-      correction: metadata.correction
+    activity = power.applyMissionCommitResult(pending.activity, result, {
+      assertCommitResult: missionAuthority.assertCurrentMissionCommitResult,
+      missionId: pending.plan.id, phaseId: pending.phaseId,
+      attemptId: pending.attemptId, attemptOrdinal: pending.attemptOrdinal,
+      revision: pending.missionRevision, nextChallenge,
+      interaction: null, seed: pending.plan.seed, correction: metadata.correction
     });
-  } else {
+    } else {
     nextChallenge = phase.kind === "content_opportunity"
       ? heartChallenge(phase, pending.plan, pending.activeContent.served, attemptOrdinal)
       : createChallenge({
@@ -543,6 +798,7 @@ export function reduceMission(state, input = {}, context = {}) {
           ? projectBoundContentResolverInputs(pending.activeContent.served) : null
       });
     activity = power.applyMissionCommitResult(pending.activity, result, {
+      assertCommitResult: missionAuthority.assertCurrentMissionCommitResult,
       missionId: pending.plan.id,
       phaseId: pending.phaseId,
       attemptId: pending.attemptId,
@@ -553,8 +809,9 @@ export function reduceMission(state, input = {}, context = {}) {
       seed: pending.plan.seed,
       correction: metadata.correction
     });
-  }
-  const next = brandState({
+    }
+    if (result.outcome === "model_required") activity = deepFreeze({ ...activity, status: "model_pending" });
+    const next = brandState({
     ...pending, activity, challenge: nextChallenge,
     attemptOrdinal: phase.kind === "content_placement"
       ? metadata.candidateState.checkpoint?.contentPlacement?.attemptOrdinal ?? attemptOrdinal : attemptOrdinal,
@@ -566,16 +823,22 @@ export function reduceMission(state, input = {}, context = {}) {
     modelPending: result.outcome === "model_required"
       && !["content_placement", "story_transfer"].includes(phase.kind)
   });
-  markMissionCommitApplied(result, next);
-  return deepFreeze({ state: next, responseIntents: [], transition: result, completion: null });
+    return { state: next, responseIntents: [], transition: result, completion: null };
+  });
 }
 
 export function checkpointMission(state) {
   assertCurrent(state);
   const phase = state.plan.phases[state.phaseIndex];
-  const power = phase?.kind === "challenge" || phase?.kind === "content_opportunity"
-    || (phase?.kind === "content_placement" && phase.category === "morphology")
+  const power = phase?.powerId && state.activity?.powerId === phase.powerId
+    && state.activity.kind === `${phase.powerId}_state`
     ? SOUND_POWER_REGISTRY[phase.powerId] : null;
+  const rawPowerCheckpoint = power ? power.checkpoint(state.activity) : null;
+  const powerCheckpoint = rawPowerCheckpoint ? deepFreeze({
+    ...rawPowerCheckpoint,
+    correction: null,
+    ...(rawPowerCheckpoint.powerId === "story_power" ? { narrativeChoiceToken: null } : {})
+  }) : null;
   const activeContent = state.activeContent?.kind === "heart"
     ? { kind: "heart", category: "heartWords", visitId: state.activeContent.served.visitId,
       actionUseId: state.activeContent.binding.actionUseId }
@@ -607,7 +870,7 @@ export function checkpointMission(state) {
       kind: phase.kind,
       actionId: phase.id,
       challengeId: state.challenge?.challengeId || null,
-      powerCheckpoint: power ? power.checkpoint(state.activity) : null
+      powerCheckpoint
     },
     activeContent,
     connectedTextPresentation: phase?.kind === "story_transfer"
@@ -624,12 +887,25 @@ export function completeMission(gameState, completion) {
   }
   if (gameState !== metadata.gameState) throw new Error("mission completion is bound to another game state");
   const expedition = getExpedition(completion.stopId);
+  const placementCategories = new Set(getContentDeckPlacements(expedition.stopId).map(item => item.category));
+  for (const category of placementCategories) {
+    const required = getContentDeckPlacements(expedition.stopId).filter(item => item.category === category);
+    const uses = validContentDeckUses(gameState, category);
+    if (required.some(placement => !uses.some(use => use.actionUseId === placement.contentBinding.actionUseId
+      && use.journeyStep === completion.journeyStep))) {
+      throw new Error("mission completion is missing a required canonical content placement use");
+    }
+  }
+  for (const category of ["stories", "transfer"]) {
+    if (!validContentDeckUses(gameState, category).some(use => use.journeyStep === completion.journeyStep)) {
+      throw new Error("mission completion is missing its canonical story transaction use");
+    }
+  }
+  const advancedTrail = advanceJourney(gameState.trail, expedition.stopId);
   const nextState = deepFreeze(normalizeSoundSeekersState({
     ...gameState,
     trail: {
-      ...gameState.trail,
-      journeyStep: Math.max(gameState.trail.journeyStep, completion.journeyStep + 1),
-      routeCursor: Math.min(40, Number(expedition.stopId.slice(1)) + 1),
+      ...advancedTrail,
       completedStopIds: [...new Set([...gameState.trail.completedStopIds, expedition.stopId])].sort(),
       repairs: { ...gameState.trail.repairs, [expedition.payoff.repairId]: true },
       chapterCoverage: {
@@ -659,6 +935,88 @@ export function completeMission(gameState, completion) {
   return metadata.result;
 }
 
-export function isCurrentMissionState(state) {
-  return missionBrands.has(state) && currentByMissionId.get(state?.plan?.id) === state;
+export function currentMissionOwnsPowerPair(powerState, challenge) {
+  const mission = missionByPowerState.get(powerState);
+  return Boolean(mission && missionAuthority.isCurrentMissionState(mission)
+    && mission.activity === powerState && mission.challenge === challenge);
+}
+
+export function exactCurrentMissionPowerBinding(missionState, powerState, challenge) {
+  return missionAuthority.isCurrentMissionState(missionState)
+    && missionState.activity === powerState && missionState.challenge === challenge;
+}
+
+export function validateCurrentMissionTransition(result, expected = {}) {
+  return missionAuthority.validateCurrentMissionTransition(result, expected);
+}
+
+export function projectMissionWorkbenchAuthority(result, expected = {}, binding = {}) {
+  return missionAuthority.projectMissionWorkbenchAuthority(result, expected, binding);
+}
+
+export function projectCurrentWordWorkbenchModel(missionState) {
+  assertCurrent(missionState);
+  const phase = missionState.plan.phases[missionState.phaseIndex];
+  if (phase?.powerId !== "word_forge" || missionState.activity?.powerId !== "word_forge"
+    || missionState.challenge?.powerId !== "word_forge") {
+    throw new Error("workbench model requires the exact current Word Forge mission state");
+  }
+  const model = SOUND_POWER_REGISTRY.word_forge.view(missionState.activity, missionState.challenge);
+  workbenchModels.set(model, {
+    missionState, powerState: missionState.activity, challenge: missionState.challenge
+  });
+  return model;
+}
+
+export function issueWordWorkbenchAccess({
+  missionState, model, pronunciation = null, transition = null, meaningPayoff = null
+} = {}) {
+  assertCurrent(missionState);
+  const binding = workbenchModels.get(model);
+  if (!binding || binding.missionState !== missionState
+    || binding.powerState !== missionState.activity || binding.challenge !== missionState.challenge) {
+    throw new Error("workbench access requires the exact final current mission child view");
+  }
+  let cue = null;
+  if (pronunciation !== null) {
+    const canonical = getPronunciation(pronunciation.id || pronunciation.word);
+    if (canonical !== pronunciation || binding.challenge.wordId !== canonical?.id) {
+      throw new Error("workbench pronunciation is not bound to the current word challenge");
+    }
+    cue = canonical;
+  }
+  let correctionPresentation = null;
+  let morphology = null;
+  if (transition !== null) {
+    const expected = {
+      missionId: missionState.plan.id,
+      phaseId: transition.phaseId,
+      revision: missionState.missionRevision
+    };
+    if (!missionAuthority.validateCurrentMissionTransition(transition, expected)) {
+      throw new Error("workbench transition is stale or cross-mission");
+    }
+    const authority = missionAuthority.projectMissionWorkbenchAuthority(transition, expected, binding);
+    if (!authority) throw new Error("workbench transition does not own this final child view");
+    correctionPresentation = authority.correctionPresentation;
+    if (authority.outcome === "advance" && authority.morphology) morphology = authority.morphology;
+  }
+  if (meaningPayoff !== null) throw new Error("workbench meaning payoff awaits authenticated visual access");
+  const access = deepFreeze({ kind: "sound_seekers_workbench_access" });
+  workbenchAccesses.set(access, {
+    missionState, model, cue, correctionPresentation, morphology, meaningPayoff: null
+  });
+  return access;
+}
+
+export function projectWordWorkbenchAccess(access, model) {
+  const authority = workbenchAccesses.get(access);
+  if (!authority || authority.model !== model
+    || !missionAuthority.isCurrentMissionState(authority.missionState)) return null;
+  return deepFreeze({
+    pronunciation: authority.cue,
+    correctionPresentation: authority.correctionPresentation,
+    morphology: authority.morphology,
+    meaningPayoff: authority.meaningPayoff
+  });
 }

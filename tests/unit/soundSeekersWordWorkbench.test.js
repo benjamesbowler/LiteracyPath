@@ -26,9 +26,10 @@ let getRuntimePronunciation;
 let resolveRuntimeMeaningVisual;
 let createRuntimeMissionPlan;
 let createRuntimeMissionState;
+let reduceRuntimeMission;
 let createRuntimeState;
 let issueRuntimeWorkbenchAccess;
-let runtimeWordForge;
+let projectRuntimeWorkbenchModel;
 let vite;
 
 function deepFreeze(value) {
@@ -64,17 +65,20 @@ test.before(async () => {
   ({ createMissionPlan: createRuntimeMissionPlan } = await vite.ssrLoadModule(
     "/src/features/soundSeekers/engine/createMissionPlan.js"
   ));
-  ({ createMissionState: createRuntimeMissionState } = await vite.ssrLoadModule(
+  ({
+    createMissionState: createRuntimeMissionState,
+    reduceMission: reduceRuntimeMission
+  } = await vite.ssrLoadModule(
     "/src/features/soundSeekers/engine/missionReducer.js"
   ));
   ({ createSoundSeekersState: createRuntimeState } = await vite.ssrLoadModule(
     "/src/features/soundSeekers/engine/stateV2.js"
   ));
-  ({ issueWordWorkbenchAccess: issueRuntimeWorkbenchAccess } = await vite.ssrLoadModule(
+  ({
+    issueWordWorkbenchAccess: issueRuntimeWorkbenchAccess,
+    projectCurrentWordWorkbenchModel: projectRuntimeWorkbenchModel
+  } = await vite.ssrLoadModule(
     "/src/features/soundSeekers/engine/workbenchAccess.js"
-  ));
-  ({ wordForge: runtimeWordForge } = await vite.ssrLoadModule(
-    "/src/features/soundSeekers/engine/powers/index.js"
   ));
 });
 
@@ -144,20 +148,56 @@ function authorizedWord(word) {
   const plan = createRuntimeMissionPlan({
     stopId: action.id.split("-")[0], state: gameState, seed: 7, replayOrdinal: 0
   });
-  const mission = createRuntimeMissionState(plan, {
-    kind: "sound_seekers_mission",
-    missionId: plan.id,
-    contentVersion: plan.contentVersion,
-    stopId: plan.stopId,
-    journeyStep: plan.journeyStep,
-    phaseId: action.id,
-    completedPhaseIds: [],
-    missionRevision: 3,
-    attemptOrdinal: 0,
-    attemptId: `${plan.id}:${action.id}:attempt:0`,
-    nextDecisionOrdinal: 0
-  });
-  const model = runtimeWordForge.view(mission.activity, mission.challenge);
+  let mission = createRuntimeMissionState(plan);
+  for (let guard = 0; guard < 100 && mission.phaseId !== action.id; guard += 1) {
+    const phase = plan.phases[mission.phaseIndex];
+    if (["arrival", "wonder", "payoff"].includes(phase.kind)) {
+      mission = reduceRuntimeMission(mission, { type: `complete_${phase.kind}` }, {
+        gameState: mission.gameState
+      }).state;
+      continue;
+    }
+    if (phase.kind === "teach") {
+      const item = mission.activity.sequence.currentItem;
+      const audioIds = [item.childAudio, item.targetAudio, ...item.targetAudioSequence,
+        ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)].filter(Boolean);
+      mission = reduceRuntimeMission(mission, {
+        type: "complete-teach",
+        teachIndex: item.teachIndex,
+        targetId: item.targetId,
+        audioDeliveries: audioIds.map((id, index) => ({
+          id,
+          status: "completed",
+          session: index + 1,
+          startedAt: index * 10,
+          completedAt: index * 10 + 5
+        }))
+      }, { gameState: mission.gameState }).state;
+      continue;
+    }
+    const challenge = mission.activity.powerChallenge || mission.challenge;
+    if (!["power_onboarding", "challenge", "content_opportunity"].includes(phase.kind)
+      || challenge.powerId !== "memory_delivery") {
+      throw new Error(`${word}: unsupported pre-workbench phase ${phase.id}`);
+    }
+    const recipient = challenge.presentation.recipients
+      .find(item => item.token === challenge.expectedToken);
+    for (const input of [
+      { type: "receive_cue" },
+      { type: "move", dx: 1, dy: 0 },
+      { type: "arrive" },
+      { type: challenge.expectedAction, recipientId: recipient.id }
+    ]) {
+      mission = reduceRuntimeMission(mission, input, {
+        gameState: mission.gameState,
+        at: "2026-09-03T00:00:00.000Z",
+        sessionDay: "2026-09-03",
+        audio: { status: "completed" }
+      }).state;
+    }
+  }
+  assert.equal(mission.phaseId, action.id);
+  const model = projectRuntimeWorkbenchModel(mission);
   const access = issueRuntimeWorkbenchAccess({
     missionState: mission,
     model,

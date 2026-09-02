@@ -17,8 +17,83 @@ import {
 import { createSoundSeekersState } from "../../src/features/soundSeekers/engine/stateV2.js";
 import { normalizeSoundSeekersState } from "../../src/features/soundSeekers/engine/stateV2.js";
 import { resolveSceneVisualSemantic } from "../../src/features/soundSeekers/content/sceneVisualSemantics.js";
-import { wordForge } from "../../src/features/soundSeekers/engine/powers/index.js";
-import { issueWordWorkbenchAccess, projectWordWorkbenchAccess } from "../../src/features/soundSeekers/engine/workbenchAccess.js";
+import {
+  issueWordWorkbenchAccess,
+  projectCurrentWordWorkbenchModel,
+  projectWordWorkbenchAccess
+} from "../../src/features/soundSeekers/engine/workbenchAccess.js";
+
+function completedTeachInput(item, sequence = null) {
+  return {
+    type: "complete-teach", teachIndex: item?.teachIndex ?? sequence?.teachIndex,
+    targetId: item?.targetId ?? null,
+    audioDeliveries: item ? [item.childAudio, item.targetAudio, ...item.targetAudioSequence,
+      ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)]
+      .filter(Boolean).map((id, index) => ({
+        id, status: "completed", session: index + 1,
+        startedAt: index * 10, completedAt: index * 10 + 5
+      })) : []
+  };
+}
+
+function driveInputs(mission, inputs, context) {
+  let result = null;
+  for (const input of inputs) {
+    result = reduceMission(mission, input, { ...context, gameState: mission.gameState });
+    mission = result.state;
+  }
+  return { mission, result };
+}
+
+function driveToPhase(plan, targetPhaseId) {
+  let mission = createMissionState(plan);
+  let clock = 0;
+  for (let guard = 0; guard < 200 && mission.phaseId !== targetPhaseId; guard += 1) {
+    const phase = plan.phases[mission.phaseIndex];
+    const context = {
+      gameState: mission.gameState,
+      at: new Date(Date.UTC(2026, 8, 3) + clock++ * 1000).toISOString(),
+      sessionDay: "2026-09-03",
+      audio: { status: "completed" }
+    };
+    let inputs;
+    if (phase.kind === "teach") inputs = [completedTeachInput(
+      mission.activity.sequence.currentItem, mission.activity.sequence
+    )];
+    else if (phase.kind === "power_onboarding" || phase.kind === "challenge"
+      || phase.kind === "content_opportunity") inputs = correctPowerInputs(mission);
+    else if (phase.kind === "content_placement") inputs = phase.category === "morphology"
+      ? [{ type: "place_tile", tileId: "morphology-ending-tile" }]
+      : correctPowerInputs(mission);
+    else if (phase.kind === "story_transfer") inputs = mission.challenge
+      ? correctPowerInputs(mission)
+      : [{ type: "choose_narrative_route",
+        choiceId: mission.activity.childScene.choice.options[0].visualSemanticId }];
+    else inputs = [{ type: `complete_${phase.kind}` }];
+    mission = driveInputs(mission, inputs, context).mission;
+    if (phase.kind === "content_placement" && phase.category === "morphology"
+      && mission.phaseId === phase.id) {
+      mission = reduceMission(mission, { type: "complete_morphology_payoff" }, {
+        ...context, gameState: mission.gameState
+      }).state;
+    }
+    if (phase.kind === "story_transfer" && mission.phaseId === phase.id
+      && mission.activity.presentation.phase === "action") {
+      mission = reduceMission(mission, { type: "action_completed" }, {
+        ...context, gameState: mission.gameState
+      }).state;
+      const semantic = resolveSceneVisualSemantic(mission.presentationTransition.postDecisionSemanticId);
+      mission = reduceMission(mission, {
+        type: "meaning_requested", meaningSemanticId: semantic.meaningSemanticIds[0]
+      }, { ...context, gameState: mission.gameState }).state;
+      mission = reduceMission(mission, { type: "complete_story_transfer" }, {
+        ...context, gameState: mission.gameState
+      }).state;
+    }
+  }
+  assert.equal(mission.phaseId, targetPhaseId);
+  return mission;
+}
 
 test("the two-route circuit preserves a monotonic visit clock", () => {
   let state = createSoundSeekersState();
@@ -45,12 +120,14 @@ test("the first ordinary and heart-word loops commit one response and one owner 
     audio: { status: "completed" }
   };
   mission = reduceMission(mission, { type: "complete_arrival" }, context).state;
-  while (mission.phaseId === "s1-teach") mission = reduceMission(mission, { type: "complete-teach" }, context).state;
-  mission = reduceMission(mission, { type: "complete_onboarding" }, context).state;
+  while (mission.phaseId === "s1-teach") mission = reduceMission(mission,
+    completedTeachInput(mission.activity.sequence.currentItem), context).state;
+  assert.equal(reduceMission(mission, { type: "complete_onboarding" }, context).state, mission);
+  mission = driveInputs(mission, correctPowerInputs(mission), context).mission;
   const echoChoice = mission.challenge.presentation.candidates.find(item => item.token === mission.challenge.expectedToken);
   mission = reduceMission(mission, { type: "probe", candidateId: echoChoice.id }, context).state;
   mission = reduceMission(mission, { type: "confirm_candidate", candidateId: echoChoice.id }, context).state;
-  mission = reduceMission(mission, { type: "complete_onboarding" }, { ...context, gameState: mission.gameState }).state;
+  mission = driveInputs(mission, correctPowerInputs(mission), context).mission;
   mission = reduceMission(mission, { type: "receive_cue" }, context).state;
   mission = reduceMission(mission, { type: "move", dx: 1, dy: 0 }, context).state;
   mission = reduceMission(mission, { type: "arrive" }, context).state;
@@ -67,12 +144,7 @@ test("a heart-word miss keeps the owner visit and issues a fresh canonical attem
   const gameState = createSoundSeekersState();
   const plan = createMissionPlan({ stopId: "s1", state: gameState, seed: 1, replayOrdinal: 0 });
   const heart = plan.phases.find(item => item.kind === "content_opportunity");
-  let mission = createMissionState(plan, {
-    kind: "sound_seekers_mission", missionId: plan.id, contentVersion: plan.contentVersion,
-    stopId: plan.stopId, journeyStep: plan.journeyStep, phaseId: heart.id,
-    completedPhaseIds: [], missionRevision: 5, attemptOrdinal: 0,
-    attemptId: `${plan.id}:${heart.id}:attempt:0`, nextDecisionOrdinal: 0
-  });
+  let mission = driveToPhase(plan, heart.id);
   const visitId = mission.activeContent.served.visitId;
   const context = {
     gameState: mission.gameState,
@@ -111,12 +183,7 @@ test("s6 primary reuses its owner heart visit and records only the distinct shar
     contentDecks: recordContentDeckUse(served.nextState, served, owner.contentBinding)
   });
   const plan = createMissionPlan({ stopId: "s6", state: seeded, seed: 6, replayOrdinal: 0 });
-  let mission = createMissionState(plan, {
-    kind: "sound_seekers_mission", missionId: plan.id, contentVersion: plan.contentVersion,
-    stopId: plan.stopId, journeyStep: plan.journeyStep, phaseId: action.id,
-    completedPhaseIds: [], missionRevision: 4, attemptOrdinal: 0,
-    attemptId: `${plan.id}:${action.id}:attempt:0`, nextDecisionOrdinal: 0
-  });
+  let mission = driveToPhase(plan, action.id);
   assert.equal(Object.keys(mission.gameState.contentDecks.heartWords.visits).length, 1);
   const bin = mission.challenge.presentation.bins.find(item => item.token === mission.challenge.expectedToken);
   const result = reduceMission(mission, {
@@ -142,28 +209,32 @@ test("a placement commits each target immediately and records its use only after
   });
   const plan = createMissionPlan({ stopId: "s16", state: gameState, seed: 16, replayOrdinal: 0 });
   const placement = plan.phases.find(item => item.kind === "content_placement");
-  let mission = createMissionState(plan, {
-    kind: "sound_seekers_mission", missionId: plan.id, contentVersion: plan.contentVersion,
-    stopId: plan.stopId, journeyStep: plan.journeyStep, phaseId: placement.id,
-    completedPhaseIds: [], missionRevision: 2, attemptOrdinal: 0,
-    attemptId: "unused", nextDecisionOrdinal: 0
-  });
+  let mission = driveToPhase(plan, placement.id);
+  assert.equal(mission.activity.kind, "contrast_sort_state");
+  assert.equal(mission.challenge.presentation.items.length >= 4, true);
+  assert.equal(mission.challenge.presentation.bins.length, 3);
   const context = {
     gameState: mission.gameState,
     at: "2026-09-03T03:00:00.000Z",
     sessionDay: "2026-09-03",
     audio: { status: "completed" }
   };
+  const firstBin = mission.challenge.presentation.bins
+    .find(bin => bin.token === mission.challenge.expectedToken);
   const first = reduceMission(mission, {
-    type: "content_response",
-    response: { kind: "literacy-answer", token: mission.challenge.expectedToken }
+    type: mission.challenge.expectedAction,
+    itemId: mission.challenge.presentation.items[0].id,
+    binId: firstBin.id
   }, context);
   assert.equal(first.transition.outcome, "continue");
   assert.equal(validContentDeckUses(first.state.gameState, "alternatives").length, 0);
   mission = first.state;
+  const secondBin = mission.challenge.presentation.bins
+    .find(bin => bin.token === mission.challenge.expectedToken);
   const second = reduceMission(mission, {
-    type: "content_response",
-    response: { kind: "literacy-answer", token: mission.challenge.expectedToken }
+    type: mission.challenge.expectedAction,
+    itemId: mission.challenge.presentation.items[0].id,
+    binId: secondBin.id
   }, { ...context, gameState: mission.gameState });
   assert.equal(second.transition.outcome, "advance");
   assert.equal(validContentDeckUses(second.state.gameState, "alternatives").length, 1);
@@ -174,24 +245,20 @@ test("story transfer remains one composite through action, resolution, and meani
   const gameState = createSoundSeekersState();
   const plan = createMissionPlan({ stopId: "s1", state: gameState, seed: 1, replayOrdinal: 0 });
   const story = plan.phases.find(item => item.kind === "story_transfer");
-  let mission = createMissionState(plan, {
-    kind: "sound_seekers_mission", missionId: plan.id, contentVersion: plan.contentVersion,
-    stopId: plan.stopId, journeyStep: plan.journeyStep, phaseId: story.id,
-    completedPhaseIds: [], missionRevision: 8, attemptOrdinal: 0,
-    attemptId: "unused", nextDecisionOrdinal: 0
-  });
+  let mission = driveToPhase(plan, story.id);
   const context = {
     gameState: mission.gameState,
     at: "2026-09-03T04:00:00.000Z",
     sessionDay: "2026-09-03",
     audio: { status: "completed" }
   };
-  const answered = reduceMission(mission, {
-    type: "story_response",
-    response: { kind: "literacy-answer", token: mission.challenge.expectedToken }
-  }, context);
+  assert.equal(mission.activity.kind, "story_power_state");
+  let answered;
+  for (const input of correctPowerInputs(mission)) {
+    answered = reduceMission(mission, input, { ...context, gameState: mission.gameState });
+    mission = answered.state;
+  }
   assert.equal(answered.transition.outcome, "advance");
-  mission = answered.state;
   assert.equal(mission.activity.presentation.phase, "action");
   mission = reduceMission(mission, { type: "action_completed" }, context).state;
   assert.equal(mission.activity.presentation.phase, "resolved");
@@ -206,6 +273,36 @@ test("story transfer remains one composite through action, resolution, and meani
   assert.equal(validContentDeckUses(mission.gameState, "transfer").length, 1);
 });
 
+test("a boss waits for an authenticated child narrative choice and preserves it across reload", () => {
+  const base = createSoundSeekersState();
+  const gameState = normalizeSoundSeekersState({ ...base, trail: { ...base.trail, journeyStep: 5 } });
+  const plan = createMissionPlan({ stopId: "s5", state: gameState, seed: 5, replayOrdinal: 0 });
+  const story = plan.phases.find(item => item.kind === "story_transfer");
+  let mission = driveToPhase(plan, story.id);
+  assert.equal(mission.challenge, null);
+  assert.equal(mission.activity.status, "narrative_choice_pending");
+  const choice = mission.activity.childScene.choice.options[1];
+  assert.equal(reduceMission(mission, {
+    type: "choose_narrative_route", choiceId: "forged"
+  }, { gameState: mission.gameState }).state, mission);
+  mission = reduceMission(mission, {
+    type: "choose_narrative_route", choiceId: choice.visualSemanticId
+  }, { gameState: mission.gameState }).state;
+  assert.equal(mission.challenge.powerId, "blend_bridge");
+  assert.equal(mission.gameState.checkpoint.storyTransfer.narrativeChoiceToken, choice.token);
+  const checkpoint = checkpointMission(mission);
+  const saved = normalizeSoundSeekersState({
+    ...mission.gameState,
+    checkpoint: { ...mission.gameState.checkpoint, contentVersion: mission.gameState.contentVersion,
+      mission: checkpoint }
+  });
+  assert.ok(saved.checkpoint, JSON.stringify(checkpoint));
+  const restoredPlan = createMissionPlan({ stopId: "s5", state: saved, seed: 5, replayOrdinal: 0 });
+  const restored = createMissionState(restoredPlan, saved.checkpoint.mission);
+  assert.equal(restored.gameState.checkpoint.storyTransfer.narrativeChoiceToken, choice.token);
+  assert.equal(restored.challenge.powerId, "blend_bridge");
+});
+
 test("placement and story reload retain exact Task 2 progress but reissue object authority", () => {
   const initial = createSoundSeekersState();
   const placementState = normalizeSoundSeekersState({
@@ -213,20 +310,12 @@ test("placement and story reload retain exact Task 2 progress but reissue object
   });
   const placementPlan = createMissionPlan({ stopId: "s16", state: placementState, seed: 16, replayOrdinal: 0 });
   const placement = placementPlan.phases.find(item => item.kind === "content_placement");
-  let mission = createMissionState(placementPlan, {
-    kind: "sound_seekers_mission", missionId: placementPlan.id, contentVersion: placementPlan.contentVersion,
-    stopId: placementPlan.stopId, journeyStep: placementPlan.journeyStep, phaseId: placement.id,
-    completedPhaseIds: [], missionRevision: 2, attemptOrdinal: 0,
-    attemptId: "unused", nextDecisionOrdinal: 0
-  });
-  const placed = reduceMission(mission, {
-    type: "content_response",
-    response: { kind: "literacy-answer", token: mission.challenge.expectedToken }
-  }, {
+  let mission = driveToPhase(placementPlan, placement.id);
+  const placementDriven = driveInputs(mission, correctPowerInputs(mission), {
     gameState: mission.gameState, at: "2026-09-03T07:00:00.000Z",
     sessionDay: "2026-09-03", audio: { status: "completed" }
   });
-  mission = placed.state;
+  mission = placementDriven.mission;
   const oldPlacementChallenge = mission.challenge;
   const placementCheckpoint = checkpointMission(mission);
   const savedPlacement = normalizeSoundSeekersState({
@@ -243,19 +332,12 @@ test("placement and story reload retain exact Task 2 progress but reissue object
   const storyState = createSoundSeekersState();
   const storyPlan = createMissionPlan({ stopId: "s1", state: storyState, seed: 1, replayOrdinal: 0 });
   const story = storyPlan.phases.find(item => item.kind === "story_transfer");
-  mission = createMissionState(storyPlan, {
-    kind: "sound_seekers_mission", missionId: storyPlan.id, contentVersion: storyPlan.contentVersion,
-    stopId: storyPlan.stopId, journeyStep: storyPlan.journeyStep, phaseId: story.id,
-    completedPhaseIds: [], missionRevision: 8, attemptOrdinal: 0,
-    attemptId: "unused", nextDecisionOrdinal: 0
-  });
+  mission = driveToPhase(storyPlan, story.id);
   const wrong = mission.challenge.optionTokens.find(token => token !== mission.challenge.expectedToken);
-  mission = reduceMission(mission, {
-    type: "story_response", response: { kind: "literacy-answer", token: wrong }
-  }, {
+  mission = driveInputs(mission, powerInputsForToken(mission, wrong), {
     gameState: mission.gameState, at: "2026-09-03T07:30:00.000Z",
     sessionDay: "2026-09-03", audio: { status: "completed" }
-  }).state;
+  }).mission;
   const oldPresentation = mission.activity.presentation;
   const oldStoryChallenge = mission.challenge;
   const storyCheckpoint = checkpointMission(mission);
@@ -271,16 +353,44 @@ test("placement and story reload retain exact Task 2 progress but reissue object
   assert.notStrictEqual(restoredStory.challenge, oldStoryChallenge);
 });
 
+test("ordinary reload rederives correction and model state from exact canonical attempt evidence", () => {
+  const gameState = createSoundSeekersState();
+  const plan = createMissionPlan({ stopId: "s1", state: gameState, seed: 1, replayOrdinal: 0 });
+  const ordinary = plan.phases.find(item => item.id === "s1-primary");
+  let mission = driveToPhase(plan, ordinary.id);
+  const wrong = mission.challenge.optionTokens.find(token => token !== mission.challenge.expectedToken);
+  mission = driveInputs(mission, powerInputsForToken(mission, wrong), {
+    gameState: mission.gameState,
+    at: "2026-09-03T07:45:00.000Z",
+    sessionDay: "2026-09-03",
+    audio: { status: "completed" }
+  }).mission;
+  const checkpoint = checkpointMission(mission);
+  assert.equal(checkpoint.activity.powerCheckpoint.correction, null);
+  const saved = normalizeSoundSeekersState({
+    ...mission.gameState,
+    checkpoint: { ...mission.gameState.checkpoint, contentVersion: mission.gameState.contentVersion,
+      mission: checkpoint }
+  });
+  assert.ok(saved.checkpoint, JSON.stringify(checkpoint));
+  const restoredPlan = createMissionPlan({ stopId: "s1", state: saved, seed: 1, replayOrdinal: 0 });
+  const restored = createMissionState(restoredPlan, saved.checkpoint.mission);
+  assert.equal(restored.correctionState.missCount, 1);
+  assert.equal(restored.activity.correction.supportLevel, 1);
+  assert.equal(restored.modelPending, false);
+
+  const forgedEvidence = saved.evidence.map((event, index) => index === saved.evidence.length - 1
+    ? { ...event, supportLevel: 3 } : event);
+  const forged = normalizeSoundSeekersState({ ...saved, evidence: forgedEvidence });
+  const forgedPlan = createMissionPlan({ stopId: "s1", state: forged, seed: 1, replayOrdinal: 0 });
+  assert.throws(() => createMissionState(forgedPlan, forged.checkpoint.mission), /correction evidence/u);
+});
+
 test("a story third miss blocks responses until one zero-evidence Task 2 model step", () => {
   const gameState = createSoundSeekersState();
   const plan = createMissionPlan({ stopId: "s1", state: gameState, seed: 1, replayOrdinal: 0 });
   const story = plan.phases.find(item => item.kind === "story_transfer");
-  let mission = createMissionState(plan, {
-    kind: "sound_seekers_mission", missionId: plan.id, contentVersion: plan.contentVersion,
-    stopId: plan.stopId, journeyStep: plan.journeyStep, phaseId: story.id,
-    completedPhaseIds: [], missionRevision: 8, attemptOrdinal: 0,
-    attemptId: "unused", nextDecisionOrdinal: 0
-  });
+  let mission = driveToPhase(plan, story.id);
   const context = {
     gameState: mission.gameState, at: "2026-09-03T08:00:00.000Z",
     sessionDay: "2026-09-03", audio: { status: "completed" }
@@ -288,28 +398,25 @@ test("a story third miss blocks responses until one zero-evidence Task 2 model s
   const outcomes = [];
   for (let index = 0; index < 3; index += 1) {
     const wrong = mission.challenge.optionTokens.find(token => token !== mission.challenge.expectedToken);
-    const result = reduceMission(mission, {
-      type: "story_response", response: { kind: "literacy-answer", token: wrong }
-    }, { ...context, gameState: mission.gameState });
+    const driven = driveInputs(mission, powerInputsForToken(mission, wrong), context);
+    const result = driven.result;
     outcomes.push(result.transition.outcome);
-    mission = result.state;
+    mission = driven.mission;
   }
   assert.deepEqual(outcomes, ["retry", "retry", "model_required"]);
   assert.equal(mission.activity.status, "model_pending");
   assert.equal(mission.gameState.checkpoint.storyTransfer.stage, "model_pending");
   const eventCount = mission.gameState.evidence.length;
-  const blocked = reduceMission(mission, {
-    type: "story_response", response: { kind: "literacy-answer", token: "anything" }
-  }, context);
+  const blocked = reduceMission(mission, { type: "read_text" }, context);
   assert.strictEqual(blocked.state, mission);
   const modeled = reduceMission(mission, { type: "complete_correction_model" }, context);
   assert.equal(modeled.state.activity.status, "active");
   assert.equal(modeled.state.gameState.evidence.length, eventCount);
   assert.equal(modeled.state.gameState.checkpoint.storyTransfer.attemptId, mission.attemptId);
   const correct = modeled.state.challenge.expectedToken;
-  const completed = reduceMission(modeled.state, {
-    type: "story_response", response: { kind: "literacy-answer", token: correct }
-  }, { ...context, gameState: modeled.state.gameState });
+  const completedDriven = driveInputs(modeled.state,
+    powerInputsForToken(modeled.state, correct), context);
+  const completed = completedDriven.result;
   assert.equal(completed.transition.outcome, "advance");
   assert.equal(completed.state.activity.presentation.phase, "action");
 });
@@ -321,13 +428,8 @@ test("s38 morphology stays unscored and reveals its derivation only after the ap
   });
   const plan = createMissionPlan({ stopId: "s38", state: gameState, seed: 38, replayOrdinal: 0 });
   const phase = plan.phases.find(item => item.placementId === "s38-morphology");
-  let mission = createMissionState(plan, {
-    kind: "sound_seekers_mission", missionId: plan.id, contentVersion: plan.contentVersion,
-    stopId: plan.stopId, journeyStep: plan.journeyStep, phaseId: phase.id,
-    completedPhaseIds: [], missionRevision: 2, attemptOrdinal: 0,
-    attemptId: "unused", nextDecisionOrdinal: 0
-  });
-  const beforeModel = wordForge.view(mission.activity, mission.challenge);
+  let mission = driveToPhase(plan, phase.id);
+  const beforeModel = projectCurrentWordWorkbenchModel(mission);
   assert.throws(() => issueWordWorkbenchAccess({ missionState: mission, model: beforeModel,
     transition: Object.freeze({}) }));
   const committed = reduceMission(mission, {
@@ -343,7 +445,7 @@ test("s38 morphology stays unscored and reveals its derivation only after the ap
   assert.equal(mission.phaseId, "s38-morphology");
   assert.equal(mission.gameState.evidence.length, 0);
   assert.equal(validContentDeckUses(mission.gameState, "morphology").length, 1);
-  const model = wordForge.view(mission.activity, mission.challenge);
+  const model = projectCurrentWordWorkbenchModel(mission);
   const access = issueWordWorkbenchAccess({
     missionState: mission, model, transition: committed.transition
   });
@@ -359,14 +461,19 @@ test("s38 morphology stays unscored and reveals its derivation only after the ap
 });
 
 function correctPowerInputs(mission) {
-  const challenge = mission.challenge;
+  const challenge = mission.activity.powerChallenge || mission.challenge;
+  return powerInputsForToken(mission, challenge.expectedToken);
+}
+
+function powerInputsForToken(mission, token) {
+  const challenge = mission.activity.powerChallenge || mission.challenge;
   if (challenge.powerId === "echo_search") {
-    const candidate = challenge.presentation.candidates.find(item => item.token === challenge.expectedToken);
+    const candidate = challenge.presentation.candidates.find(item => item.token === token);
     return [{ type: "probe", candidateId: candidate.id },
       { type: "confirm_candidate", candidateId: candidate.id }];
   }
   if (challenge.powerId === "contrast_sort") {
-    const bin = challenge.presentation.bins.find(item => item.token === challenge.expectedToken);
+    const bin = challenge.presentation.bins.find(item => item.token === token);
     return [{
       type: challenge.expectedAction,
       itemId: challenge.presentation.items[0].id,
@@ -374,11 +481,11 @@ function correctPowerInputs(mission) {
     }];
   }
   if (challenge.powerId === "word_forge") {
-    const tile = challenge.presentation.rack.find(item => item.token === challenge.expectedToken);
+    const tile = challenge.presentation.rack.find(item => item.token === token);
     return [{ type: "place_tile", tileId: tile.id }];
   }
   if (challenge.powerId === "blend_bridge") {
-    const choice = challenge.presentation.choices.find(item => item.token === challenge.expectedToken);
+    const choice = challenge.presentation.choices.find(item => item.token === token);
     return [
       ...challenge.presentation.segments.map(segment => ({ type: "activate_segment", segmentId: segment.id })),
       { type: "sweep_blend" },
@@ -386,12 +493,19 @@ function correctPowerInputs(mission) {
     ];
   }
   if (challenge.powerId === "memory_delivery") {
-    const recipient = challenge.presentation.recipients.find(item => item.token === challenge.expectedToken);
+    const recipient = challenge.presentation.recipients.find(item => item.token === token);
     return [
       { type: "receive_cue" },
       { type: "move", dx: 1, dy: 0 },
       { type: "arrive" },
       { type: challenge.expectedAction, recipientId: recipient.id }
+    ];
+  }
+  if (challenge.powerId === "story_power") {
+    const choice = challenge.presentation.choices.find(item => item.token === token);
+    return [
+      { type: "read_text" },
+      { type: challenge.expectedAction, choiceId: choice.id, token: choice.token }
     ];
   }
   throw new Error(`unsupported power in route fixture: ${challenge.powerId}`);
@@ -419,27 +533,36 @@ test("all forty public missions complete two accumulating routes with exact deck
         sessionDay: "2026-09-03",
         audio: { status: "completed" }
       };
+      const onboardingEvidenceCount = phase.kind === "power_onboarding"
+        ? mission.gameState.evidence.length : null;
+      const onboardingUseCount = phase.kind === "power_onboarding"
+        ? ["heartWords", "stories", "alternatives", "morphology", "transfer"]
+          .reduce((count, category) => count + validContentDeckUses(mission.gameState, category).length, 0)
+        : null;
       let inputs;
       if (phase.kind === "teach") {
         if (mission.activity.sequence.currentItem) teachCount += 1;
-        inputs = [{ type: "complete-teach" }];
+        inputs = [completedTeachInput(mission.activity.sequence.currentItem, mission.activity.sequence)];
       } else if (phase.kind === "power_onboarding") {
         onboarding.add(phase.powerId);
         assert.equal(phase.consequenceFree, true);
         assert.equal(phase.recordsDomain, null);
-        inputs = [{ type: "complete_onboarding" }];
+        assert.equal(mission.activity.powerId, phase.powerId);
+        assert.match(mission.activity.kind, /_state$/u);
+        inputs = correctPowerInputs(mission);
       } else if (phase.kind === "challenge" || phase.kind === "content_opportunity") {
         inputs = correctPowerInputs(mission);
       } else if (phase.kind === "content_placement") {
         inputs = phase.category === "morphology"
           ? [{ type: "place_tile", tileId: "morphology-ending-tile" }]
-          : [{ type: "content_response", response: {
-            kind: "literacy-answer", token: mission.challenge.expectedToken
-          } }];
+          : correctPowerInputs(mission);
       } else if (phase.kind === "story_transfer") {
-        inputs = [{ type: "story_response", response: {
-          kind: "literacy-answer", token: mission.challenge.expectedToken
-        } }];
+        inputs = mission.challenge
+          ? correctPowerInputs(mission)
+          : [{
+            type: "choose_narrative_route",
+            choiceId: mission.activity.childScene.choice.options[0].visualSemanticId
+          }];
       } else {
         inputs = [{ type: `complete_${phase.kind}` }];
       }
@@ -447,6 +570,12 @@ test("all forty public missions complete two accumulating routes with exact deck
         const reduced = reduceMission(mission, input, { ...context, gameState: mission.gameState });
         mission = reduced.state;
         completion = reduced.completion || completion;
+      }
+      if (onboardingEvidenceCount !== null) {
+        assert.equal(mission.gameState.evidence.length, onboardingEvidenceCount);
+        assert.equal(["heartWords", "stories", "alternatives", "morphology", "transfer"]
+          .reduce((count, category) => count + validContentDeckUses(mission.gameState, category).length, 0),
+        onboardingUseCount);
       }
       if (phase.kind === "content_placement" && phase.category === "morphology"
         && mission.phaseId === phase.id && mission.activity.status === "awaiting_mission_commit") {
@@ -470,8 +599,12 @@ test("all forty public missions complete two accumulating routes with exact deck
         completion = left.completion || completion;
       }
     }
-    assert.ok(completion, `${expedition.stopId} did not complete`);
+    assert.ok(completion, `${expedition.stopId} did not complete at ${mission.phaseId}:${mission.activity?.status}:${mission.challenge?.targetId}`);
     campaign = completeMission(mission.gameState, completion).nextState;
+    if (expedition.stopId === "s40") {
+      assert.equal(campaign.trail.routeCursor, 1);
+      assert.equal(campaign.trail.journeyStep, route === 0 ? 41 : 81);
+    }
   }
   assert.equal(teachCount, 103);
   assert.deepEqual([...onboarding].sort(), [

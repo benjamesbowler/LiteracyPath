@@ -11,6 +11,18 @@ import { getPronunciation } from "../../src/features/soundSeekers/content/pronun
 import { SOUND_SEEKERS_TEACH_TARGETS } from "../../src/features/soundSeekers/content/teachTargetMetadata.js";
 
 const stop = id => QUEST_STOPS.find(item => item.id === id);
+const completedTeachInput = item => ({
+  type: "complete-teach",
+  teachIndex: item.teachIndex,
+  targetId: item.targetId,
+  audioDeliveries: [item.childAudio, item.targetAudio, ...item.targetAudioSequence,
+    ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)]
+    .filter(Boolean)
+    .map((id, index) => ({
+      id, status: "completed", session: index + 1,
+      startedAt: index * 10, completedAt: index * 10 + 5
+    }))
+});
 
 test("all six targets at s7 are taught before its first scored challenge", () => {
   const sequence = createTeachSequence(stop("s7"), []);
@@ -39,7 +51,13 @@ test("a checkpoint retains the teach index and a replay cannot create scored evi
   assert.equal(afterReplay.teachIndex, 0);
   assert.equal(afterReplay.scored, false);
 
-  const afterTeach = reduceTeachSequence(afterReplay, { type: "complete-teach" });
+  assert.strictEqual(reduceTeachSequence(afterReplay, { type: "complete-teach" }), afterReplay);
+  const valid = completedTeachInput(afterReplay.currentItem);
+  assert.strictEqual(reduceTeachSequence(afterReplay, { ...valid, targetId: "wrong" }), afterReplay);
+  assert.strictEqual(reduceTeachSequence(afterReplay, {
+    ...valid, audioDeliveries: valid.audioDeliveries.map(item => ({ ...item, status: "started" }))
+  }), afterReplay);
+  const afterTeach = reduceTeachSequence(afterReplay, valid);
   assert.equal(afterTeach.teachIndex, 1);
   const restored = reduceTeachSequence(afterTeach, { type: "restore", checkpoint: afterTeach });
   assert.equal(restored.teachIndex, 1);
@@ -69,7 +87,7 @@ test("the teach checkpoint is an absolute stop cursor and never double-skips tau
   assert.equal(resumed.teachTargetId, "ff");
   assert.equal(resumed.currentItem.targetId, "ff");
 
-  const afterFf = reduceTeachSequence(resumed, { type: "complete-teach" });
+  const afterFf = reduceTeachSequence(resumed, completedTeachInput(resumed.currentItem));
   assert.equal(afterFf.teachIndex, 3);
   assert.equal(afterFf.teachTargetId, "ll");
   assert.equal(afterFf.currentItem.targetId, "ll");

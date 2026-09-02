@@ -15,6 +15,80 @@ import {
   deriveWorldState
 } from "../../src/features/soundSeekers/engine/worldState.js";
 import { createSoundSeekersState } from "../../src/features/soundSeekers/engine/stateV2.js";
+import { resolveSceneVisualSemantic } from "../../src/features/soundSeekers/content/sceneVisualSemantics.js";
+
+function teachInput(item) {
+  return {
+    type: "complete-teach", teachIndex: item.teachIndex, targetId: item.targetId,
+    audioDeliveries: [item.childAudio, item.targetAudio, ...item.targetAudioSequence,
+      ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)]
+      .filter(Boolean).map((id, index) => ({
+        id, status: "completed", session: index + 1,
+        startedAt: index * 10, completedAt: index * 10 + 5
+      }))
+  };
+}
+
+function correctInputs(mission) {
+  const challenge = mission.activity.powerChallenge || mission.challenge;
+  if (challenge.powerId === "echo_search") {
+    const candidate = challenge.presentation.candidates.find(item => item.token === challenge.expectedToken);
+    return [{ type: "probe", candidateId: candidate.id },
+      { type: "confirm_candidate", candidateId: candidate.id }];
+  }
+  if (challenge.powerId === "memory_delivery") {
+    const recipient = challenge.presentation.recipients.find(item => item.token === challenge.expectedToken);
+    return [{ type: "receive_cue" }, { type: "move", dx: 1, dy: 0 }, { type: "arrive" },
+      { type: challenge.expectedAction, recipientId: recipient.id }];
+  }
+  if (challenge.powerId === "word_forge") {
+    const tile = challenge.presentation.rack.find(item => item.token === challenge.expectedToken);
+    return [{ type: "place_tile", tileId: tile.id }];
+  }
+  if (challenge.powerId === "story_power") {
+    const choice = challenge.presentation.choices.find(item => item.token === challenge.expectedToken);
+    return [{ type: "read_text" },
+      { type: challenge.expectedAction, choiceId: choice.id, token: choice.token }];
+  }
+  throw new Error(`unsupported s1 power ${challenge.powerId}`);
+}
+
+function completeS1(plan) {
+  let mission = createMissionState(plan);
+  let completion = null;
+  for (let guard = 0; guard < 100 && !completion; guard += 1) {
+    const phase = plan.phases[mission.phaseIndex];
+    const context = {
+      gameState: mission.gameState,
+      at: new Date(Date.UTC(2026, 8, 3) + guard * 1000).toISOString(),
+      sessionDay: "2026-09-03", audio: { status: "completed" }
+    };
+    const inputs = phase.kind === "teach" ? [teachInput(mission.activity.sequence.currentItem)]
+      : ["power_onboarding", "challenge", "content_opportunity", "story_transfer"].includes(phase.kind)
+        ? correctInputs(mission) : [{ type: `complete_${phase.kind}` }];
+    for (const input of inputs) {
+      const reduced = reduceMission(mission, input, { ...context, gameState: mission.gameState });
+      mission = reduced.state;
+      completion = reduced.completion || completion;
+    }
+    if (phase.kind === "story_transfer" && mission.phaseId === phase.id
+      && mission.activity.presentation.phase === "action") {
+      mission = reduceMission(mission, { type: "action_completed" }, {
+        ...context, gameState: mission.gameState
+      }).state;
+      const semantic = resolveSceneVisualSemantic(mission.presentationTransition.postDecisionSemanticId);
+      mission = reduceMission(mission, {
+        type: "meaning_requested", meaningSemanticId: semantic.meaningSemanticIds[0]
+      }, { ...context, gameState: mission.gameState }).state;
+      const reduced = reduceMission(mission, { type: "complete_story_transfer" }, {
+        ...context, gameState: mission.gameState
+      });
+      mission = reduced.state;
+      completion = reduced.completion || completion;
+    }
+  }
+  return { mission, completion };
+}
 
 test("world state exposes only canonical repaired consequences", () => {
   const initial = createSoundSeekersState();
@@ -63,18 +137,10 @@ test("narrative branch state fails closed without reciprocal authenticated histo
 test("mission completion applies one canonical normalized repair and rejects forged completion", () => {
   const initial = createSoundSeekersState();
   const plan = createMissionPlan({ stopId: "s1", state: initial, seed: 1, replayOrdinal: 0 });
-  const payoff = plan.phases.at(-1);
-  const mission = createMissionState(plan, {
-    kind: "sound_seekers_mission", missionId: plan.id, contentVersion: plan.contentVersion,
-    stopId: plan.stopId, journeyStep: plan.journeyStep, phaseId: payoff.id,
-    completedPhaseIds: plan.phases.slice(0, -1).map(phase => phase.id),
-    missionRevision: 20, attemptOrdinal: 0,
-    attemptId: `${plan.id}:${payoff.id}:attempt:0`, nextDecisionOrdinal: 8
-  });
-  const finished = reduceMission(mission, { type: "complete_payoff" }, { gameState: initial });
+  const finished = completeS1(plan);
   assert.equal(Object.isFrozen(finished.completion), true);
   assert.throws(() => completeMission(initial, { ...finished.completion }));
-  const committed = completeMission(initial, finished.completion);
+  const committed = completeMission(finished.mission.gameState, finished.completion);
   assert.equal(committed.nextState.trail.repairs["wake-seeds"], true);
   assert.equal(committed.nextState.trail.journeyStep, 2);
   assert.equal(committed.nextState.checkpoint, null);

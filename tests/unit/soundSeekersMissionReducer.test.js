@@ -8,13 +8,79 @@ import { createMissionPlan } from "../../src/features/soundSeekers/engine/create
 import {
   checkpointMission,
   createMissionState,
-  reduceMission
+  reduceMission,
+  validateCurrentMissionTransition
 } from "../../src/features/soundSeekers/engine/missionReducer.js";
-import { validateCurrentMissionTransition } from "../../src/features/soundSeekers/engine/missionResponseCommit.js";
-import { issueWordWorkbenchAccess, projectWordWorkbenchAccess } from "../../src/features/soundSeekers/engine/workbenchAccess.js";
-import { wordForge } from "../../src/features/soundSeekers/engine/powers/index.js";
+import * as missionCommitModule from "../../src/features/soundSeekers/engine/missionResponseCommit.js";
+import {
+  issueWordWorkbenchAccess,
+  projectCurrentWordWorkbenchModel,
+  projectWordWorkbenchAccess
+} from "../../src/features/soundSeekers/engine/workbenchAccess.js";
+import * as workbenchAccessModule from "../../src/features/soundSeekers/engine/workbenchAccess.js";
+import { echoSearch } from "../../src/features/soundSeekers/engine/powers/index.js";
 import { getPronunciation } from "../../src/features/soundSeekers/content/pronunciationLexicon.js";
 import { createSoundSeekersState, normalizeSoundSeekersState } from "../../src/features/soundSeekers/engine/stateV2.js";
+
+function recursivelyFreeze(value) {
+  if (!value || typeof value !== "object" || Object.isFrozen(value)) return value;
+  Object.values(value).forEach(recursivelyFreeze);
+  return Object.freeze(value);
+}
+
+function completedTeachInput(item) {
+  return {
+    type: "complete-teach", teachIndex: item.teachIndex, targetId: item.targetId,
+    audioDeliveries: [item.childAudio, item.targetAudio, ...item.targetAudioSequence,
+      ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)]
+      .filter(Boolean).map((id, index) => ({
+        id, status: "completed", session: index + 1,
+        startedAt: index * 10, completedAt: index * 10 + 5
+      }))
+  };
+}
+
+function finishEchoOnboarding(mission, gameState) {
+  const candidate = mission.challenge.presentation.candidates
+    .find(item => item.token === mission.challenge.expectedToken);
+  mission = reduceMission(mission, { type: "probe", candidateId: candidate.id }, { gameState }).state;
+  return reduceMission(mission, { type: "confirm_candidate", candidateId: candidate.id }, { gameState }).state;
+}
+
+function driveToPhase(plan, phaseId) {
+  let mission = createMissionState(plan);
+  for (let guard = 0; guard < 100 && mission.phaseId !== phaseId; guard += 1) {
+    const phase = plan.phases[mission.phaseIndex];
+    if (phase.kind === "arrival" || phase.kind === "wonder" || phase.kind === "payoff") {
+      mission = reduceMission(mission, { type: `complete_${phase.kind}` }, {
+        gameState: mission.gameState
+      }).state;
+    } else if (phase.kind === "teach") {
+      mission = reduceMission(mission, completedTeachInput(mission.activity.sequence.currentItem), {
+        gameState: mission.gameState
+      }).state;
+    } else if (["power_onboarding", "challenge", "content_opportunity"].includes(phase.kind)) {
+      const challenge = mission.activity.powerChallenge || mission.challenge;
+      let inputs;
+      if (challenge.powerId === "word_forge") {
+        const tile = challenge.presentation.rack.find(item => item.token === challenge.expectedToken);
+        inputs = [{ type: "place_tile", tileId: tile.id }];
+      } else if (challenge.powerId === "memory_delivery") {
+        const recipient = challenge.presentation.recipients.find(item => item.token === challenge.expectedToken);
+        inputs = [{ type: "receive_cue" }, { type: "move", dx: 1, dy: 0 },
+          { type: "arrive" }, { type: challenge.expectedAction, recipientId: recipient.id }];
+      } else throw new Error(`unsupported power ${challenge.powerId}`);
+      for (const input of inputs) mission = reduceMission(mission, input, {
+        gameState: mission.gameState,
+        at: "2026-09-03T00:00:00.000Z",
+        sessionDay: "2026-09-03",
+        audio: { status: "completed" }
+      }).state;
+    } else throw new Error(`unsupported pre-target phase ${phase.id}`);
+  }
+  assert.equal(mission.phaseId, phaseId);
+  return mission;
+}
 
 test("mission plans preserve the expedition and insert every canonical learning opportunity", () => {
   const onboardingPowers = new Set();
@@ -117,17 +183,17 @@ test("an ordinary response commits once, advances, and exposes only an applied t
   let mission = createMissionState(plan);
   mission = reduceMission(mission, { type: "complete_arrival" }, { gameState }).state;
   while (mission.phaseId === "s1-teach") {
-    mission = reduceMission(mission, { type: "complete-teach" }, { gameState }).state;
+    mission = reduceMission(mission, completedTeachInput(mission.activity.sequence.currentItem), { gameState }).state;
   }
-  assert.equal(mission.activity.kind, "power_onboarding");
-  mission = reduceMission(mission, { type: "complete_onboarding" }, { gameState }).state;
+  assert.equal(mission.activity.onboarding, true);
+  mission = finishEchoOnboarding(mission, gameState);
   const answerCandidate = mission.challenge.presentation.candidates
     .find(candidate => candidate.token === mission.challenge.expectedToken);
   mission = reduceMission(mission, { type: "probe", candidateId: answerCandidate.id }, { gameState }).state;
   const committed = reduceMission(mission, {
     type: "confirm_candidate", candidateId: answerCandidate.id
   }, {
-    gameState,
+    gameState: mission.gameState,
     at: "2026-09-03T00:00:00.000Z",
     sessionDay: "2026-09-03",
     audio: { status: "completed" }
@@ -146,21 +212,53 @@ test("an ordinary response commits once, advances, and exposes only an applied t
   assert.equal(checkpointMission(committed.state).phaseId, "s1-heart-1-onboarding");
 });
 
+test("mission commits reject frozen literal state, caller authority, and public candidate access", () => {
+  const gameState = createSoundSeekersState();
+  const plan = createMissionPlan({ stopId: "s1", state: gameState, seed: 1, replayOrdinal: 0 });
+  let mission = createMissionState(plan);
+  mission = reduceMission(mission, { type: "complete_arrival" }, { gameState }).state;
+  while (mission.phaseId === "s1-teach") {
+    mission = reduceMission(mission, completedTeachInput(mission.activity.sequence.currentItem), { gameState }).state;
+  }
+  mission = finishEchoOnboarding(mission, gameState);
+  const candidate = mission.challenge.presentation.candidates
+    .find(item => item.token === mission.challenge.expectedToken);
+  const probed = echoSearch.reduce(mission.activity, { type: "probe", candidateId: candidate.id }, {
+    challenge: mission.challenge
+  });
+  const answered = echoSearch.reduce(probed.state, {
+    type: "confirm_candidate", candidateId: candidate.id
+  }, { challenge: mission.challenge });
+  const forgedState = recursivelyFreeze({ ...mission, activity: answered.state });
+  const commitContext = recursivelyFreeze({
+    challenge: mission.challenge,
+    gameState: mission.gameState,
+    at: "2026-09-03T00:00:00.000Z",
+    sessionDay: "2026-09-03",
+    audio: { status: "completed" }
+  });
+  void forgedState;
+  void commitContext;
+  assert.equal(Object.hasOwn(missionCommitModule, "commitMissionResponse"), false);
+  assert.equal(Object.hasOwn(missionCommitModule, "finalizeMissionCommit"), false);
+  assert.equal(Object.hasOwn(missionCommitModule, "consumeMissionCommitCandidate"), false);
+  assert.equal(Object.hasOwn(missionCommitModule, "markMissionCommitApplied"), false);
+
+  assert.throws(() => reduceMission(mission, { type: "probe", candidateId: candidate.id }, {
+    gameState, correct: true
+  }), /caller|context|authority|unknown/i);
+});
+
 test("a Word Forge miss reissues a fresh attempt and only its exact current view gets correction access", () => {
   const gameState = createSoundSeekersState();
   const plan = createMissionPlan({ stopId: "s3", state: gameState, seed: 3, replayOrdinal: 0 });
   const action = plan.phases.find(item => item.powerId === "word_forge" && item.kind === "challenge");
-  let mission = createMissionState(plan, {
-    kind: "sound_seekers_mission", missionId: plan.id, contentVersion: plan.contentVersion,
-    stopId: plan.stopId, journeyStep: plan.journeyStep, phaseId: action.id,
-    completedPhaseIds: [], missionRevision: 4, attemptOrdinal: 0,
-    attemptId: `${plan.id}:${action.id}:attempt:0`, nextDecisionOrdinal: 0
-  });
-  const staleModel = wordForge.view(mission.activity, mission.challenge);
+  let mission = driveToPhase(plan, action.id);
+  const staleModel = projectCurrentWordWorkbenchModel(mission);
   const wrongTile = mission.challenge.presentation.rack
     .find(tile => tile.token !== mission.challenge.expectedToken);
   const committed = reduceMission(mission, { type: "place_tile", tileId: wrongTile.id }, {
-    gameState,
+    gameState: mission.gameState,
     at: "2026-09-03T02:00:00.000Z",
     sessionDay: "2026-09-03",
     audio: { status: "completed" }
@@ -168,7 +266,15 @@ test("a Word Forge miss reissues a fresh attempt and only its exact current view
   mission = committed.state;
   assert.equal(committed.transition.outcome, "retry");
   assert.equal(mission.attemptOrdinal, 1);
-  const currentModel = wordForge.view(mission.activity, mission.challenge);
+  const currentModel = projectCurrentWordWorkbenchModel(mission);
+  assert.throws(() => issueWordWorkbenchAccess({
+    missionState: mission,
+    model: recursivelyFreeze(structuredClone(currentModel)),
+    pronunciation: getPronunciation(action.wordId),
+    transition: committed.transition
+  }), /exact final current mission child view/u);
+  assert.equal(Object.hasOwn(workbenchAccessModule, "registerCurrentWorkbenchMissionState"), false);
+  assert.equal(Object.hasOwn(workbenchAccessModule, "registerWordWorkbenchModel"), false);
   const access = issueWordWorkbenchAccess({
     missionState: mission,
     model: currentModel,
@@ -188,12 +294,7 @@ test("an ordinary third miss creates one fresh model-only attempt before a suppo
   const gameState = createSoundSeekersState();
   const plan = createMissionPlan({ stopId: "s3", state: gameState, seed: 3, replayOrdinal: 0 });
   const action = plan.phases.find(item => item.powerId === "word_forge" && item.kind === "challenge");
-  let mission = createMissionState(plan, {
-    kind: "sound_seekers_mission", missionId: plan.id, contentVersion: plan.contentVersion,
-    stopId: plan.stopId, journeyStep: plan.journeyStep, phaseId: action.id,
-    completedPhaseIds: [], missionRevision: 4, attemptOrdinal: 0,
-    attemptId: `${plan.id}:${action.id}:attempt:0`, nextDecisionOrdinal: 0
-  });
+  let mission = driveToPhase(plan, action.id);
   const context = {
     gameState,
     at: "2026-09-03T06:00:00.000Z",
@@ -231,31 +332,39 @@ test("an ordinary third miss creates one fresh model-only attempt before a suppo
   assert.equal(modeled.state.modelPending, false);
   assert.equal(modeled.state.attemptId, mission.attemptId);
   assert.equal(modeled.state.gameState.evidence.length, evidenceCount);
-  assert.equal(checkpointMission(modeled.state).activity.powerCheckpoint.correction, null);
-  const finished = reduceMission(modeled.state, { type: "place_tile", tileId: correct.id }, {
-    ...context, gameState: modeled.state.gameState
+  const modeledCheckpoint = checkpointMission(modeled.state);
+  assert.equal(modeledCheckpoint.activity.powerCheckpoint.correction, null);
+  const modeledSave = normalizeSoundSeekersState({
+    ...modeled.state.gameState,
+    checkpoint: { contentVersion: modeled.state.gameState.contentVersion, mission: modeledCheckpoint }
+  });
+  const modeledPlan = createMissionPlan({ stopId: "s3", state: modeledSave, seed: 3, replayOrdinal: 0 });
+  const failClosedReload = createMissionState(modeledPlan, modeledSave.checkpoint.mission);
+  assert.equal(failClosedReload.modelPending, true);
+  const remodeled = reduceMission(failClosedReload, { type: "complete_correction_model" }, context).state;
+  const restoredCorrect = remodeled.challenge.presentation.rack
+    .find(tile => tile.token === remodeled.challenge.expectedToken);
+  const finished = reduceMission(remodeled, { type: "place_tile", tileId: restoredCorrect.id }, {
+    ...context, gameState: remodeled.gameState
   });
   assert.equal(finished.transition.outcome, "advance");
-  assert.deepEqual(finished.state.gameState.evidence.map(event => event.supportLevel), [0, 1, 2, 3]);
+  assert.deepEqual(finished.state.gameState.evidence.slice(-4).map(event => event.supportLevel), [0, 1, 2, 3]);
 });
 
 test("checkpoint reload rehydrates a fresh ordinary power authority", () => {
   const gameState = createSoundSeekersState();
   const plan = createMissionPlan({ stopId: "s3", state: gameState, seed: 3, replayOrdinal: 0 });
   const action = plan.phases.find(item => item.powerId === "word_forge" && item.kind === "challenge");
-  const mission = createMissionState(plan, {
-    kind: "sound_seekers_mission", missionId: plan.id, contentVersion: plan.contentVersion,
-    stopId: plan.stopId, journeyStep: plan.journeyStep, phaseId: action.id,
-    completedPhaseIds: [], missionRevision: 4, attemptOrdinal: 0,
-    attemptId: `${plan.id}:${action.id}:attempt:0`, nextDecisionOrdinal: 0
-  });
-  const oldModel = wordForge.view(mission.activity, mission.challenge);
+  const mission = driveToPhase(plan, action.id);
+  const oldModel = projectCurrentWordWorkbenchModel(mission);
   const savedMission = checkpointMission(mission);
   const savedState = normalizeSoundSeekersState({
     ...gameState,
     checkpoint: { contentVersion: gameState.contentVersion, mission: savedMission }
   });
   const restoredPlan = createMissionPlan({ stopId: "s3", state: savedState, seed: 3, replayOrdinal: 0 });
+  assert.throws(() => createMissionState(restoredPlan, recursivelyFreeze(structuredClone(savedState.checkpoint.mission))),
+    /exact normalized current checkpoint/u);
   const restored = createMissionState(restoredPlan, savedState.checkpoint.mission);
   assert.notStrictEqual(restored.activity, mission.activity);
   assert.notStrictEqual(restored.challenge, mission.challenge);
@@ -266,6 +375,25 @@ test("checkpoint reload rehydrates a fresh ordinary power authority", () => {
     model: oldModel,
     pronunciation: getPronunciation(action.wordId)
   }));
+  const checkpointMutations = [
+    checkpoint => { checkpoint.activity.powerCheckpoint.rack[0].selected = true; },
+    checkpoint => { checkpoint.activity.powerCheckpoint.slots[0].token = "private"; },
+    checkpoint => { checkpoint.activity.powerCheckpoint.correction = { mode: "caller" }; },
+    checkpoint => {
+      checkpoint.activity.powerCheckpoint.revision = 1;
+      checkpoint.activity.powerCheckpoint.semanticSteps = [{ type: "place_tile" }];
+    },
+    checkpoint => { checkpoint.completedPhaseIds.push(checkpoint.completedPhaseIds[0]); }
+  ];
+  for (const mutate of checkpointMutations) {
+    const changed = structuredClone(savedMission);
+    mutate(changed);
+    const normalized = normalizeSoundSeekersState({
+      ...mission.gameState,
+      checkpoint: { contentVersion: mission.gameState.contentVersion, mission: changed }
+    });
+    assert.equal(normalized.checkpoint.mission, undefined);
+  }
   const forgedMission = structuredClone(savedMission);
   forgedMission.activity.powerCheckpoint.correction = { answer: "ship" };
   const rejected = normalizeSoundSeekersState({

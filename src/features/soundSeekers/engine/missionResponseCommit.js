@@ -7,10 +7,6 @@ import {
   completeStoryTransferTransaction
 } from "./contentDeckTransactions.js";
 
-const issuedResults = new WeakSet();
-const resultMetadata = new WeakMap();
-const cachedByIntentSet = new WeakMap();
-
 function deepFreeze(value) {
   if (!value || typeof value !== "object" || Object.isFrozen(value)) return value;
   for (const child of Object.values(value)) deepFreeze(child);
@@ -22,13 +18,31 @@ function exactKeys(value, keys) {
     && Object.keys(value).length === keys.length && keys.every(key => Object.hasOwn(value, key));
 }
 
-function assertCommitContext(state, intents, context) {
-  if (!Object.isFrozen(state) || !Object.isFrozen(intents) || intents.length !== 1
+function sameValue(left, right) {
+  if (Object.is(left, right)) return true;
+  if (Array.isArray(left) || Array.isArray(right)) {
+    return Array.isArray(left) && Array.isArray(right) && left.length === right.length
+      && left.every((item, index) => sameValue(item, right[index]));
+  }
+  if (left && right && typeof left === "object" && typeof right === "object") {
+    const leftKeys = Object.keys(left);
+    const rightKeys = Object.keys(right);
+    return leftKeys.length === rightKeys.length
+      && leftKeys.every(key => Object.hasOwn(right, key) && sameValue(left[key], right[key]));
+  }
+  return false;
+}
+
+function assertCommitContext(state, intents, context, isCurrentMissionState) {
+  if (!isCurrentMissionState(state)
+    || !Object.isFrozen(state) || !Object.isFrozen(intents) || intents.length !== 1
     || !Object.isFrozen(intents[0]) || !context?.challenge || !context?.gameState
+    || !exactKeys(context, ["challenge", "gameState", "at", "sessionDay", "audio"])
     || !exactKeys(intents[0], ["kind", "challengeId", "response"])
     || !["challenge_response", "content_response"].includes(intents[0].kind)
     || intents[0].challengeId !== context.challenge.challengeId
     || state.challenge !== context.challenge
+    || state.gameState !== context.gameState
     || state.activity?.status !== "awaiting_mission_commit"
     || state.attemptId !== context.challenge.attemptId
     || (intents[0].kind === "challenge_response"
@@ -38,12 +52,44 @@ function assertCommitContext(state, intents, context) {
   }
 }
 
-export function commitMissionResponse(state, responseIntents, context = {}) {
-  assertCommitContext(state, responseIntents, context);
+export function createMissionRuntimeAuthority() {
+  const missionBrands = new WeakSet();
+  const currentByMissionId = new Map();
+  const issuedResults = new WeakSet();
+  const resultMetadata = new WeakMap();
+  const cachedByIntentSet = new WeakMap();
+
+  function brandState(value) {
+    const state = deepFreeze(value);
+    missionBrands.add(state);
+    currentByMissionId.set(state.plan.id, state);
+    return state;
+  }
+
+  function isCurrentMissionState(state) {
+    return missionBrands.has(state) && currentByMissionId.get(state?.plan?.id) === state;
+  }
+
+  function assertCurrentMissionState(state) {
+    if (!isCurrentMissionState(state)) throw new Error("mission state is not the exact current revision");
+  }
+
+function commitMissionResponse(state, responseIntents, context = {}, reducerCapability = null) {
+  assertCommitContext(state, responseIntents, context, isCurrentMissionState);
   const cached = cachedByIntentSet.get(responseIntents);
-  if (cached && resultMetadata.get(cached)?.missionState === state) return cached;
   if (!["at", "sessionDay", "audio"].every(key => Object.hasOwn(context, key))) {
     throw new Error("mission response commit needs canonical time, session, and audio inputs");
+  }
+  if (cached) {
+    const metadata = resultMetadata.get(cached);
+    if (!metadata || metadata.missionState !== state
+      || metadata.reducerCapability !== reducerCapability
+      || metadata.at !== context.at
+      || metadata.sessionDay !== context.sessionDay
+      || !sameValue(metadata.audio, context.audio)) {
+      throw new Error("cached mission response context is stale or changed");
+    }
+    return cached;
   }
   const attemptSupportLevel = Math.min(state.attemptOrdinal, 3);
   const phase = state.plan.phases[state.phaseIndex];
@@ -140,13 +186,17 @@ export function commitMissionResponse(state, responseIntents, context = {}) {
     candidateState,
     event,
     correction,
-    finalizedRevision: null
+    finalizedRevision: null,
+    reducerCapability,
+    at: context.at,
+    sessionDay: context.sessionDay,
+    audio: structuredClone(context.audio)
   });
   cachedByIntentSet.set(responseIntents, result);
   return result;
 }
 
-export function assertCurrentMissionCommitResult(result, expected = {}) {
+function assertCurrentMissionCommitResult(result, expected = {}) {
   const metadata = resultMetadata.get(result);
   if (!issuedResults.has(result) || !metadata || metadata.status !== "issued") {
     throw new Error("mission commit result is forged, stale, or consumed");
@@ -166,7 +216,7 @@ export function assertCurrentMissionCommitResult(result, expected = {}) {
   return true;
 }
 
-export function validateCurrentMissionTransition(result, expected = {}) {
+function validateCurrentMissionTransition(result, expected = {}) {
   const metadata = resultMetadata.get(result);
   if (!issuedResults.has(result) || !metadata || metadata.status !== "applied") return false;
   if (expected.missionId !== undefined && result.missionId !== expected.missionId) return false;
@@ -175,7 +225,7 @@ export function validateCurrentMissionTransition(result, expected = {}) {
   return true;
 }
 
-export function projectMissionWorkbenchAuthority(result, expected = {}, binding = {}) {
+function projectMissionWorkbenchAuthority(result, expected = {}, binding = {}) {
   if (!validateCurrentMissionTransition(result, expected)) return null;
   const metadata = resultMetadata.get(result);
   const missionState = metadata.missionState;
@@ -211,21 +261,36 @@ export function projectMissionWorkbenchAuthority(result, expected = {}, binding 
   });
 }
 
-export function consumeMissionCommitCandidate(result, state) {
+function finalizeMissionCommit(result, state, reducerCapability, finalize) {
   const metadata = resultMetadata.get(result);
-  if (!metadata || metadata.status !== "issued" || metadata.missionState !== state) {
-    throw new Error("mission commit candidate is not current");
+  if (!metadata || metadata.status !== "issued" || metadata.missionState !== state
+    || !reducerCapability || metadata.reducerCapability !== reducerCapability
+    || typeof finalize !== "function") {
+    throw new Error("mission commit finalization capability is forged or stale");
   }
-  return metadata;
-}
-
-export function markMissionCommitApplied(result, finalizedState) {
-  const metadata = resultMetadata.get(result);
-  if (!metadata || metadata.status !== "issued" || !Number.isInteger(finalizedState?.missionRevision)) {
+  const finalizedState = finalize(Object.freeze({
+    candidateState: metadata.candidateState,
+    event: metadata.event,
+    correction: metadata.correction
+  }));
+  if (!isCurrentMissionState(finalizedState)
+    || !Number.isInteger(finalizedState.missionRevision)) {
     throw new Error("mission commit result cannot be finalized");
   }
   metadata.status = "applied";
   metadata.finalizedRevision = finalizedState.missionRevision;
   metadata.finalMissionState = finalizedState;
-  return result;
+  return finalizedState;
+}
+
+  return Object.freeze({
+    brandState,
+    assertCurrentMissionState,
+    isCurrentMissionState,
+    commitMissionResponse,
+    finalizeMissionCommit,
+    assertCurrentMissionCommitResult,
+    validateCurrentMissionTransition,
+    projectMissionWorkbenchAuthority
+  });
 }

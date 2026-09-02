@@ -11,7 +11,7 @@ import {
   SOUND_SEEKERS_EXPEDITIONS,
   SOUND_SEEKERS_INTERACTION_CONTEXTS
 } from "../../content/expeditions.js";
-import { assertCurrentMissionCommitResult } from "../missionResponseCommit.js";
+import { CONTENT_DECK_PLACEMENTS } from "../../content/contentDeckBindings.js";
 
 const INTERACTION_CONTEXT_FIELDS = Object.freeze([
   "id", "chapterId", "semanticRule", "childDecision", "decisionSteps", "objectIds",
@@ -233,6 +233,35 @@ function validateMorphologyInteraction(interaction) {
   return interaction;
 }
 
+function placementRuntime(challenge, powerId) {
+  const match = /^content-placement-attempt:(.+):(s\d+-alternative):(\d+):(\d+)$/u
+    .exec(String(challenge?.attemptId || ""));
+  if (!match || powerId !== "contrast_sort") return null;
+  const placement = CONTENT_DECK_PLACEMENTS.find(item => item.placementId === match[2]);
+  if (!placement || placement.powerId !== powerId
+    || placement.instructionId !== challenge.instructionId
+    || placement.expectedAction !== challenge.expectedAction
+    || placement.recordsDomain !== challenge.recordsDomain
+    || placement.challengeTargetIds[Number(match[3])] !== challenge.targetId) return null;
+  const validInputs = Object.freeze(["reverse_placement", "replay_cue", challenge.expectedAction]);
+  const semanticInputAllowlist = Object.freeze(validInputs.map(type => Object.freeze({
+    type,
+    semanticRequirement: `content-placement:${placement.placementId}:${challenge.targetId}:${type}`
+  })));
+  return Object.freeze({
+    kind: "sound_seekers_content_placement_runtime",
+    actionId: placement.placementId,
+    powerId,
+    instructionId: challenge.instructionId,
+    expectedAction: challenge.expectedAction,
+    recordsDomain: challenge.recordsDomain,
+    contextId: challenge.attemptId,
+    validInputs,
+    semanticRequirement: Object.freeze({ placementId: placement.placementId, targetId: challenge.targetId }),
+    semanticInputAllowlist
+  });
+}
+
 export function validatePowerChallenge(challenge, powerId, interaction) {
   const validation = validateQuestChallenge(challenge);
   if (!validation.valid) throw new Error(`invalid power challenge: ${validation.errors.join("; ")}`);
@@ -242,6 +271,8 @@ export function validatePowerChallenge(challenge, powerId, interaction) {
   if (challenge.powerId !== powerId) throw new Error(`${powerId}: challenge belongs to another power`);
   if (isRecordableQuestChallenge(challenge)) {
     if (instruction.phase !== "decision") throw new Error(`${powerId}: recordable challenge needs a decision instruction`);
+    const placement = placementRuntime(challenge, powerId);
+    if (placement) return Object.freeze({ instruction, runtime: placement, morphology: null });
     if (!isPlainObject(interaction) || !interaction.action || !interaction.context) {
       throw new Error(`${powerId}: exact authored interaction is required`);
     }
@@ -530,16 +561,20 @@ export function applyMissionCommitToPower(state, result, context, createState) {
   if (!state || state.status !== "awaiting_mission_commit" || typeof createState !== "function") {
     throw new Error("power must be awaiting its exact mission commit");
   }
-  assertCurrentMissionCommitResult(result, {
+  if (typeof context?.assertCommitResult !== "function") {
+    throw new Error("power commit application needs reducer authority");
+  }
+  context.assertCommitResult(result, {
     missionId: context?.missionId,
     phaseId: context?.phaseId,
     attemptId: context?.attemptId,
     attemptOrdinal: context?.attemptOrdinal,
     revision: context?.revision
   });
-  if (result.outcome === "advance" || result.outcome === "continue") return state;
+  if (result.outcome === "advance") return state;
+  if (result.outcome === "model_required" && !context?.nextChallenge) return state;
   if (!context?.nextChallenge || context.nextChallenge.attemptId !== result.nextAttemptId) {
-    throw new Error("power retry needs the exact fresh challenge");
+    throw new Error("power continuation needs the exact fresh challenge");
   }
   const fresh = createState(context.nextChallenge, {
     seed: context.seed,

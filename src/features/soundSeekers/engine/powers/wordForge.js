@@ -14,7 +14,6 @@ import {
   publicEntries,
   semanticStepFor
 } from "./contracts.js";
-import { registerWordWorkbenchModel } from "../workbenchAccess.js";
 
 const POWER_ID = "word_forge";
 
@@ -207,7 +206,7 @@ export const wordForge = Object.freeze({
       sweep: state.sweep,
       morphology: state.morphology
     });
-    return registerWordWorkbenchModel(model, state, challenge);
+    return model;
   },
 
   checkpoint(state) {

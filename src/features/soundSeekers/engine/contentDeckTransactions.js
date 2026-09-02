@@ -332,7 +332,18 @@ function placementChallengeForDescriptor(state, descriptor) {
     optionTokens: decision.optionTokens,
     expectedToken: decision.expectedToken,
     childText: "Put this item with the matching sound.",
-    requiresAudio: true
+    requiresAudio: true,
+    presentation: {
+      items: [targetId, ...decision.optionTokens].map((label, index) => ({
+        id: `${descriptor.attemptId}:item:${index}`,
+        label: index === 0 ? `Sound ${targetId}` : `Compare sound ${index}`
+      })),
+      bins: decision.optionTokens.map((token, index) => ({
+        id: `${descriptor.attemptId}:bin:${index}`,
+        label: `Sound place ${index + 1}`,
+        token
+      }))
+    }
   });
   assertInstructionMatchesChallenge(getInstructionContract(challenge.instructionId), challenge);
   return challenge;
@@ -925,7 +936,20 @@ export function checkpointStoryTransferTransaction(rawState, {
   narrativeChoiceToken
 } = {}) {
   const state = normalizedState(rawState);
-  if (state.checkpoint?.storyTransfer || state.checkpoint?.contentPlacement) {
+  const existing = state.checkpoint?.storyTransfer;
+  if (existing) {
+    const chosen = stringId(narrativeChoiceToken);
+    if (existing.transactionId !== transactionId
+      || existing.stage !== "narrative_choice_pending" || !chosen) {
+      throw new Error("another content transaction is already pending");
+    }
+    return withCheckpoint(state, "storyTransfer", Object.freeze({
+      ...existing,
+      stage: "response_pending",
+      narrativeChoiceToken: chosen
+    }));
+  }
+  if (state.checkpoint?.contentPlacement) {
     throw new Error("another content transaction is already pending");
   }
   const match = /^story-transfer:(\d+):(s(?:[1-9]|[1-3][0-9]|40))$/u.exec(String(transactionId || ""));
@@ -934,7 +958,7 @@ export function checkpointStoryTransferTransaction(rawState, {
   const stopId = match[2];
   const expedition = expeditionByStop(stopId);
   const token = stringId(narrativeChoiceToken);
-  if (expedition.transfer.boss ? !token : narrativeChoiceToken !== null) {
+  if (!expedition.transfer.boss && narrativeChoiceToken !== null) {
     throw new Error(expedition.transfer.boss
       ? "boss story transfer needs a nonempty narrative token"
       : "non-boss story transfer narrative token must be null");
@@ -956,7 +980,7 @@ export function checkpointStoryTransferTransaction(rawState, {
     transactionId,
     stopId,
     journeyStep,
-    stage: "response_pending",
+    stage: expedition.transfer.boss && !token ? "narrative_choice_pending" : "response_pending",
     storyVisitId,
     transferVisitId,
     narrativeChoiceToken: expedition.transfer.boss ? token : null,
@@ -1056,7 +1080,8 @@ export function resumeStoryTransferTransaction(rawState, { transactionId } = {})
     || descriptor.attemptId !== storyAttemptId(transactionId, descriptor.attemptOrdinal)) {
     throw new Error("story transfer resume identity is invalid");
   }
-  const history = assertStoryDescriptorHistory(state, descriptor);
+  const history = descriptor.stage === "narrative_choice_pending"
+    ? { previousCorrection: null } : assertStoryDescriptorHistory(state, descriptor);
   const storyServed = rehydrateServedContentInstance(state.contentDecks, {
     category: "stories", visitId: descriptor.storyVisitId
   });
@@ -1072,6 +1097,10 @@ export function resumeStoryTransferTransaction(rawState, { transactionId } = {})
     transferServed,
     correction: history.previousCorrection
   };
+  if (descriptor.stage === "narrative_choice_pending") {
+    result.attempt = null;
+    result.challenge = null;
+  }
   return deepFreeze(result);
 }
 
