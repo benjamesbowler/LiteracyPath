@@ -1,0 +1,82 @@
+.sound-seekers-content-gallery {
+  min-height: 100dvh;
+  box-sizing: border-box;
+  padding: 16px;
+  color: var(--ss-token-ink-deep);
+  background: var(--ss-token-surface-warm);
+  font-family: ui-rounded, "Arial Rounded MT Bold", system-ui, sans-serif;
+}
+
+.sound-seekers-content-gallery *,
+.sound-seekers-content-gallery *::before,
+.sound-seekers-content-gallery *::after {
+  box-sizing: border-box;
+}
+
+.sound-seekers-content-gallery__header {
+  max-width: 1194px;
+  margin: 0 auto 12px;
+}
+
+.sound-seekers-content-gallery__header p,
+.sound-seekers-content-gallery__header h1 {
+  margin: 0;
+}
+
+.sound-seekers-content-gallery__header p {
+  color: var(--ss-token-ink-muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sound-seekers-content-gallery__scene-wrap,
+.sound-seekers-content-gallery__creator,
+.sound-seekers-content-gallery__character-stage {
+  width: min(1194px, 100%);
+  margin: 0 auto;
+}
+
+.sound-seekers-content-gallery__character-stage {
+  min-height: min(720px, 80dvh);
+  display: grid;
+  place-items: center;
+  border-radius: 28px;
+  background: var(--ss-token-surface-white);
+}
+
+.sound-seekers-content-gallery__character-stage .sound-seekers-character {
+  width: min(360px, 82vw);
+}
+
+.sound-seekers-content-gallery__creator {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr);
+  gap: 16px;
+}
+
+.sound-seekers-content-gallery__creator > [data-character-context="gallery-world"] {
+  display: grid;
+  place-items: center;
+  border-radius: 24px;
+  background: var(--ss-token-surface-white);
+}
+
+.sound-seekers-content-gallery--labels-hidden .sound-seekers-scene__story,
+.sound-seekers-content-gallery--labels-hidden .sound-seekers-scene__option > span {
+  visibility: hidden;
+}
+
+[data-gallery-semantic-inventory] {
+  display: none;
+}
+
+@media (max-width: 680px) {
+  .sound-seekers-content-gallery {
+    padding: 8px;
+  }
+
+  .sound-seekers-content-gallery__creator {
+    grid-template-columns: 1fr;
+  }
+}

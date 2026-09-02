@@ -34,11 +34,18 @@ const {
 } = await import(path.join(ROOT, "src/features/soundSeekers/content/pronunciationLexicon.js"));
 const { assertPronunciationsMatchReference } = await import(path.join(ROOT, "tools/soundSeekersPronunciationAudit.mjs"));
 const { SOUND_SEEKERS_INSTRUCTIONS } = await import(path.join(ROOT, "src/features/soundSeekers/content/instructionContracts.js"));
+const { assertSoundSeekersV2Content } = await import(path.join(ROOT, "tools/checkSoundSeekersV2Content.mjs"));
 
 const errors = [];
 const warnings = [];
 const fail = msg => errors.push(msg);
 const warn = msg => warnings.push(msg);
+
+try {
+  assertSoundSeekersV2Content();
+} catch (error) {
+  fail(`Sound Seekers v2 aggregate: ${error.message}`);
+}
 
 // ── 1. Every word is decodable with only what has been taught ───────────────
 for (const stop of QUEST_STOPS) {

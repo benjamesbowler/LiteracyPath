@@ -1,7 +1,49 @@
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const outputDir = path.resolve(process.env.QUEST_OFFLINE_DIST || "dist");
+export function selectQuestExecutablePolicy(precache, executable) {
+  if (!Array.isArray(precache)) throw new TypeError("offline precache is required");
+  const legacyRoutes = precache.filter(url => /\/QuestRoot-[\w-]+\.js$/u.test(url));
+  const legacyRuntimes = precache.filter(url => /\/QuestPixelWorld-[\w-]+\.js$/u.test(url));
+  const v2Routes = precache.filter(url => /\/SoundSeekersRoute-[\w-]+\.js$/u.test(url));
+  if (!executable || !["legacy", "v2"].includes(executable.mode)
+    || !Array.isArray(executable.roots) || !Array.isArray(executable.graph)) {
+    throw new Error("offline executable graph is missing or malformed");
+  }
+  if (new Set(executable.roots).size !== executable.roots.length
+    || new Set(executable.graph.map(record => record?.url)).size !== executable.graph.length) {
+    throw new Error("offline executable graph contains duplicate identities");
+  }
+  const graph = new Map(executable.graph.map(record => {
+    if (!record || Object.keys(record).join(",") !== "url,imports" || typeof record.url !== "string"
+      || !Array.isArray(record.imports) || record.imports.some(value => typeof value !== "string")) {
+      throw new Error("offline executable graph record is malformed");
+    }
+    return [record.url, record.imports];
+  }));
+  const closure = new Set();
+  const visit = url => {
+    if (closure.has(url)) return;
+    if (!precache.includes(url) || !graph.has(url)) throw new Error(`offline executable closure is missing ${url}`);
+    closure.add(url);
+    for (const imported of graph.get(url)) visit(imported);
+  };
+  for (const root of executable.roots) visit(root);
+  if (closure.size !== graph.size) throw new Error("offline executable graph contains an unreachable chunk");
+  if (executable.mode === "v2") {
+    if (!v2Routes.length || executable.roots.some(root => !v2Routes.includes(root))) {
+      throw new Error("v2 offline executable graph is not rooted at SoundSeekersRoute");
+    }
+    if (legacyRoutes.length || legacyRuntimes.length) throw new Error("v2 offline shell contains legacy QuestRoot/QuestPixelWorld chunks");
+  } else if (!legacyRoutes.length || !legacyRuntimes.length
+    || executable.roots.some(root => !legacyRoutes.includes(root) && !legacyRuntimes.includes(root))) {
+    throw new Error("legacy offline executable graph is incomplete");
+  }
+  return { mode: executable.mode, roots: [...executable.roots], closure: [...closure].sort() };
+}
+
+export function assertQuestOfflineBuild({ outputDir = path.resolve(process.env.QUEST_OFFLINE_DIST || "dist") } = {}) {
 const failures = [];
 
 function fail(message) {
@@ -49,8 +91,12 @@ if (precache.join("\n") !== [...precache].sort().join("\n")) fail("offline shell
 for (const required of ["/index.html", "/manifest.webmanifest", "/favicon.svg", "/icons.svg"]) {
   if (!precache.includes(required)) fail(`${required} is missing from the offline shell`);
 }
-if (!precache.some(url => /\/QuestRoot-[\w-]+\.js$/.test(url))) fail("QuestRoot executable is missing from the offline shell");
-if (!precache.some(url => /\/QuestPixelWorld-[\w-]+\.js$/.test(url))) fail("QuestPixelWorld executable is missing from the offline shell");
+let executablePolicy = null;
+try {
+  executablePolicy = selectQuestExecutablePolicy(precache, build.questExecutable);
+} catch (error) {
+  fail(error.message);
+}
 if (!precache.some(url => url.endsWith(".css"))) fail("compiled styles are missing from the offline shell");
 if (evidenceEntryExists) {
   if (!precache.includes("/preview/quest-evidence.html")) fail("field-console navigation is missing from the offline shell");
@@ -59,6 +105,13 @@ if (evidenceEntryExists) {
 }
 if (precache.some(url => url.startsWith("/game-assets/") || url.startsWith("/audio/"))) {
   fail("quest media leaked into the build-versioned executable cache");
+}
+if (!worker.includes('"/game-assets/sound-seekers/v2/"') || !worker.includes('"/audio/quest-v2/"')) {
+  fail("Sound Seekers v2 media prefixes are missing from the warmable media policy");
+}
+if (precache.some(url => /sound-seekers-v2-content|ContentArtGallery|galleryReplayRecipes/u.test(url))
+  || fs.existsSync(path.join(outputDir, "preview/sound-seekers-v2-content.html"))) {
+  fail("dev-only Sound Seekers content gallery leaked into the offline build or precache");
 }
 
 for (const url of precache) {
@@ -82,7 +135,11 @@ const workerRequirements = [
 for (const [pattern, message] of workerRequirements) {
   if (!pattern.test(worker)) fail(message);
 }
-if (/skipWaiting\s*\(/.test(worker)) fail("worker forces activation and can mix old runtime code with new chunks");
+const skipWaitingCalls = [...worker.matchAll(/self\.skipWaiting\s*\(/gu)];
+if (skipWaitingCalls.length > 1 || (skipWaitingCalls.length === 1
+  && !/if \(data\.type === "LP_ACTIVATE_UPDATE"\) \{[\s\S]{0,180}self\.skipWaiting\s*\(\)/u.test(worker))) {
+  fail("worker forces activation outside the explicit recovery protocol and can mix executable builds");
+}
 if (Buffer.byteLength(worker) > 16_000) fail("generated service worker exceeds the 16 KB release budget");
 
 const shellRuntimePath = path.resolve("src/utils/offlineShell.js");
@@ -106,10 +163,26 @@ if (!/<link\s+rel="manifest"\s+href="\/manifest\.webmanifest"\s*\/?\s*>/.test(in
   fail("built app does not link its web app manifest");
 }
 
+for (const url of precache.filter(value => /\.(?:js|css|html)$/u.test(value))) {
+  const source = fs.readFileSync(path.join(outputDir, url.replace(/^\//u, "")), "utf8");
+  if (/sound-seekers-v2-content|ContentArtGallery|galleryReplayRecipes|data-gallery-root/u.test(source)) {
+    fail(`${url} contains the dev-only Sound Seekers content gallery`);
+  }
+}
+
 if (failures.length) {
-  console.error("Sound Seekers offline release check failed:\n");
-  for (const message of failures) console.error(`- ${message}`);
-  process.exit(1);
+  throw new Error(`Sound Seekers offline release check failed:\n${failures.map(message => `- ${message}`).join("\n")}`);
 }
 
 console.log(`Sound Seekers offline release check passed (${build.buildId}, ${precache.length} shell files, ${Buffer.byteLength(worker)} byte worker).`);
+return { buildId: build.buildId, precacheCount: precache.length, workerBytes: Buffer.byteLength(worker), executablePolicy };
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  try {
+    assertQuestOfflineBuild();
+  } catch (error) {
+    console.error(error.message);
+    process.exitCode = 1;
+  }
+}

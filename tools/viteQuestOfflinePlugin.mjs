@@ -1,14 +1,17 @@
 import { createHash } from "node:crypto";
 import { PRODUCT_NAME } from "../src/data/teacherBrand.js";
 
-function collectChunkClosure(bundle, seeds) {
+function collectChunkClosure(bundle, seeds, { includeDynamic = false } = {}) {
   const selected = new Set();
   const visit = fileName => {
     if (!fileName || selected.has(fileName)) return;
     const item = bundle[fileName];
     if (!item || item.type !== "chunk") return;
     selected.add(fileName);
-    for (const imported of item.imports || []) visit(imported);
+    const imports = includeDynamic
+      ? [...(item.imports || []), ...(item.dynamicImports || [])]
+      : item.imports || [];
+    for (const imported of imports) visit(imported);
   };
   for (const seed of seeds) visit(seed);
   return selected;
@@ -26,7 +29,9 @@ const QUEST_MEDIA_PREFIXES = [
   "/audio/production/en-US/guided_page/",
   "/game-assets/quest-pixel/",
   "/game-assets/sound-seekers/worlds/",
-  "/audio/music/quest/"
+  "/audio/music/quest/",
+  "/game-assets/sound-seekers/v2/",
+  "/audio/quest-v2/"
 ];
 
 function isQuestMedia(pathname) {
@@ -187,7 +192,29 @@ export function questOfflinePlugin({ includeQuestPreview = false, buildVariant =
         .filter(chunk => /QuestRoot|QuestPixelWorld/.test(chunk.fileName)
           || /\/QuestRoot\.jsx$|\/QuestPixelWorld\.jsx$/.test(chunk.facadeModuleId || ""))
         .map(chunk => chunk.fileName);
-      const selectedChunks = collectChunkClosure(bundle, [...entries, ...questEntries]);
+      const v2QuestEntries = chunks
+        .filter(chunk => /SoundSeekersRoute/.test(chunk.fileName)
+          || /\/SoundSeekersRoute\.jsx$/.test(chunk.facadeModuleId || ""))
+        .map(chunk => chunk.fileName);
+      const legacyQuestEntries = questEntries.filter(fileName => !v2QuestEntries.includes(fileName));
+      const questExecutableMode = v2QuestEntries.length ? "v2" : "legacy";
+      const questExecutableRoots = questExecutableMode === "v2" ? v2QuestEntries : legacyQuestEntries;
+      const questExecutableClosure = collectChunkClosure(bundle, questExecutableRoots, { includeDynamic: true });
+      const questExecutable = {
+        mode: questExecutableMode,
+        roots: questExecutableRoots.map(fileName => `/${fileName}`).sort(),
+        graph: [...questExecutableClosure].sort().map(fileName => {
+          const chunk = bundle[fileName];
+          return {
+            url: `/${fileName}`,
+            imports: [...new Set([...(chunk.imports || []), ...(chunk.dynamicImports || [])]
+              .filter(imported => questExecutableClosure.has(imported)))]
+              .map(imported => `/${imported}`).sort()
+          };
+        })
+      };
+      const selectedChunks = collectChunkClosure(bundle, [...entries, ...questEntries, ...v2QuestEntries]);
+      for (const fileName of questExecutableClosure) selectedChunks.add(fileName);
       const selected = new Set([...selectedChunks].map(fileName => `/${fileName}`));
       selected.add("/index.html");
       if (includeQuestPreview) {
@@ -235,7 +262,8 @@ export function questOfflinePlugin({ includeQuestPreview = false, buildVariant =
           precache,
           executablePolicy: "build-versioned",
           questMediaPolicy: "cache-while-revalidate",
-          updatePolicy: "activate-after-existing-clients-close"
+          updatePolicy: "activate-after-existing-clients-close",
+          questExecutable
         }, null, 2)}\n`
       });
       this.emitFile({ type: "asset", fileName: "sw.js", source: serviceWorkerSource({ buildId, precache }) });
