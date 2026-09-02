@@ -11,8 +11,32 @@ import {
 import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
 import { isKnownBadAudioPath, KNOWN_BAD_AUDIO_PATHS } from "../../src/data/knownBadWordAudio.js";
 import { DEFERRED_ATOMIC_SOUND_KEYS } from "../../src/data/phonemeAudioBank.js";
+import {
+  scoreCycleQuest,
+  segmentTaughtGraphemes
+} from "../../src/components/elQuest/adventureRoundModel.js";
 
 const cycle1 = elSkillsBlockCycles.find(c => c.id === "cycle-1");
+
+test("taught multi-letter graphemes occupy one segment", () => {
+  assert.deepEqual(
+    segmentTaughtGraphemes("shell", ["sh", "ll"]),
+    ["sh", "e", "ll"]
+  );
+  assert.deepEqual(
+    segmentTaughtGraphemes("shell", ["sh"]),
+    ["sh", "e", "l", "l"]
+  );
+});
+
+test("Cycle Quest scores completed first attempts without rewarding eventual retries", () => {
+  assert.equal(scoreCycleQuest([true, true, true], 3), 3);
+  assert.equal(scoreCycleQuest([true, true, true, true, true, true, true, false, false, false], 10), 2);
+  assert.equal(scoreCycleQuest([true, false, false], 3), 1);
+  assert.equal(scoreCycleQuest([true, false], 3), 0);
+  assert.equal(scoreCycleQuest([true, false, undefined], 3), 0);
+  assert.equal(scoreCycleQuest([], 0), 0);
+});
 
 test("graphemeAudioPath never returns a blocklisted clip; resolves when unblocked", () => {
   const letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k", "l", "m", "n", "o", "p", "s", "t", "sh", "ch"];

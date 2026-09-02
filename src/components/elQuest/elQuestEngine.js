@@ -1,6 +1,6 @@
 // Builds real, playable rounds for the EL Skills Quest from the EL cycle
-// curriculum data. Every round has a spoken cue, real choices, and one
-// correct answer - mirroring how the EL skills block is taught:
+// curriculum data. Every returned round declares its literacy construct,
+// mechanic-specific data, and every response that the prompt makes valid:
 // hear the sound -> find the sound in words -> read quick words -> build words.
 import { LETTER_EXAMPLES, elSkillsBlockCycles } from "../../data/elSkillsBlockCycles.js";
 import { EL_CYCLE_POEMS } from "../../data/elCyclePoems.js";
@@ -13,22 +13,32 @@ import {
   getLedaProductionAudioPath,
   getLedaWordAudioPath
 } from "../../data/ledaProductionAudio.js";
+import { segmentTaughtGraphemes } from "./adventureRoundModel.js";
+
+export { ADVENTURE_MECHANIC_IDS } from "./adventureRoundModel.js";
 
 const ALL_GRAPHEMES = Object.keys(LETTER_EXAMPLES).filter(g => g.length <= 2 && g !== "qu");
 
 // Graphemes that make the SAME phoneme in this curriculum. A sound-based round
-// cues ONE sound, so two letters that both make it would BOTH be correct - they
-// must never appear together as choices (c/k both /k/, w/wh both /w/).
-const SAME_SOUND_GRAPHEMES = {
-  c: ["k"],
-  k: ["c"],
-  w: ["wh"],
-  wh: ["w"]
-};
+// cues ONE sound, so two spellings that both make it must be accepted together
+// whenever they appear (c/k, w/wh, and the final doubled spellings).
+const SAME_SOUND_GROUPS = [
+  ["c", "k"],
+  ["w", "wh"],
+  ["f", "ff"],
+  ["s", "ss"],
+  ["z", "zz"],
+  ["l", "ll"]
+];
 export function sharesSound(a, b) {
   const x = String(a || "").toLowerCase();
   const y = String(b || "").toLowerCase();
-  return x === y || (SAME_SOUND_GRAPHEMES[x] || []).includes(y);
+  return x === y || SAME_SOUND_GROUPS.some(group => group.includes(x) && group.includes(y));
+}
+
+function acceptedSoundSpellings(target, cycleNumber) {
+  const taught = taughtGraphemesThrough(cycleNumber);
+  return uniqueChoices([target, ...taught.filter(grapheme => sharesSound(grapheme, target))]);
 }
 
 // The leading grapheme a word actually STARTS with (digraph-aware). Used so
@@ -195,6 +205,10 @@ const PATTERN_EXAMPLES = {
   ll: ["ball", "fall", "call", "bell"]
 };
 
+const ENDING_SOUND_PATTERNS = new Set([
+  "all", "nk", "ng", "ang", "ing", "ong", "ung", "ff", "ss", "zz", "ll"
+]);
+
 function exampleWordsFor(spelling, limit = 4) {
   const own = LETTER_EXAMPLES[spelling] || [];
   const list = own.length ? own : (PATTERN_EXAMPLES[spelling] || []);
@@ -208,8 +222,7 @@ function hasPicture(word) {
 
 function pictureWordsFor(spelling, limit = 4) {
   const all = LETTER_EXAMPLES[spelling] || [];
-  const withImages = all.filter(hasPicture);
-  return (withImages.length ? withImages : all).slice(0, limit);
+  return all.filter(hasPicture).slice(0, limit);
 }
 
 // Station - Letter Spot: match big and small letters. The cue speaks the
@@ -234,9 +247,15 @@ function buildLetterRounds(cycle) {
     return [
       {
         type: "letter",
+        mechanicId: "letterPair",
+        construct: "visual_letter_identity",
         audio: letterNameAudioPath(lower),
         speechFallback: lower,
         prompt: `This is big ${upper}. Find its small letter.`,
+        instruction: `This is big ${upper}. Find its small letter.`,
+        targetGrapheme: lower,
+        modelForm: upper,
+        partnerForm: lower,
         display: upper,
         choices: shuffleItems([lower, ...others]),
         answer: lower,
@@ -244,9 +263,15 @@ function buildLetterRounds(cycle) {
       },
       {
         type: "letter",
+        mechanicId: "letterPair",
+        construct: "visual_letter_identity",
         audio: letterNameAudioPath(lower),
         speechFallback: lower,
         prompt: `This is small ${lower}. Find its big letter.`,
+        instruction: `This is small ${lower}. Find its big letter.`,
+        targetGrapheme: lower,
+        modelForm: lower,
+        partnerForm: upper,
         display: lower,
         choices: shuffleItems([upper, ...others.map(g => g.toUpperCase())]),
         answer: upper,
@@ -254,32 +279,88 @@ function buildLetterRounds(cycle) {
       }
     ];
   });
-  return rounds.length ? rounds : buildSoundRounds(cycle);
+  return rounds;
+}
+
+function buildCodeSpotRounds(cycle) {
+  const taughtWords = uniqueChoices([
+    ...Object.values(LETTER_EXAMPLES).flat(),
+    ...Object.values(PATTERN_EXAMPLES).flat()
+  ]);
+  return focusEntries(cycle)
+    .filter(entry => entry.spelling.length > 1 && entry.spelling !== "pattern")
+    .flatMap(entry => {
+      const matching = uniqueChoices(exampleWordsFor(entry.spelling, 8))
+        .filter(word => word.includes(entry.spelling));
+      const decoys = taughtWords.filter(word => (
+        !word.includes(entry.spelling)
+        && wordUsesTaughtPrint(word, cycle.cycleNumber || 1)
+      ));
+      if (matching.length < 2 || !decoys.length) return [];
+      const items = shuffleItems([
+        ...shuffleItems(matching).slice(0, 3).map(word => ({ word, fits: true })),
+        ...shuffleItems(decoys).slice(0, 3).map(word => ({ word, fits: false }))
+      ]);
+      const transferWord = matching.find(word => !items.some(item => item.word === word))
+        || matching[0];
+      return [{
+        type: "pattern",
+        mechanicId: "patternSort",
+        construct: "visual_grapheme_identity",
+        audio: "",
+        speechFallback: "",
+        prompt: `Find every word with ${entry.spelling}.`,
+        instruction: `Find every word with ${entry.spelling}.`,
+        targetGrapheme: entry.spelling,
+        patternLabel: `has ${entry.spelling}`,
+        bins: [
+          { id: "fits", label: `has ${entry.spelling}` },
+          { id: "not", label: `does not have ${entry.spelling}` }
+        ],
+        items,
+        transferWord,
+        choiceStyle: "pattern"
+      }];
+    });
 }
 
 // Station - Sound Catch: hear the sound, tap the matching letter tile.
 function buildSoundRounds(cycle) {
   // Two passes per focus sound with fresh distractors each time. Pattern
   // sounds without a recorded phoneme cue with a real word instead.
-  return focusEntries(cycle).flatMap(entry => [0, 1].map(() => {
+  return focusEntries(cycle).flatMap(entry => [0, 1].flatMap(() => {
     const phoneme = graphemeAudioPath(entry.spelling);
     // The word cue must be a word that actually HAS a good recording.
     const exampleWord = shuffleItems(exampleWordsFor(entry.spelling)).find(word => wordAudioPath(word)) || "";
     const wordCue = exampleWord ? wordAudioPath(exampleWord) : "";
-    return {
+    const audio = phoneme || wordCue;
+    if (!audio) return [];
+    const acceptedAnswers = acceptedSoundSpellings(entry.spelling, cycle.cycleNumber || 1);
+    const choices = shuffleItems(uniqueChoices([
+      ...acceptedAnswers,
+      ...distractorGraphemes(entry.spelling, 2, cycle.cycleNumber)
+    ]));
+    const prompt = acceptedAnswers.length > 1
+      ? "Listen. Put either spelling for this sound in the gate."
+      : "Listen. Put the spelling for this sound in the gate.";
+    return [{
       type: "sound",
-      audio: phoneme || wordCue,
+      mechanicId: "soundGate",
+      construct: ENDING_SOUND_PATTERNS.has(entry.spelling)
+        ? "heard_ending_sound_family_mapping"
+        : "heard_phoneme_grapheme_mapping",
+      audio,
       speechFallback: "",
-      prompt: phoneme
-        ? "Tap the letter that makes this sound."
-        : exampleWord
-          ? `Listen to the word. Tap the letters you hear in "${exampleWord}".`
-          : `Find the letters that say "${entry.grapheme}".`,
+      prompt,
+      instruction: prompt,
       display: "",
-      choices: shuffleItems([entry.spelling, ...distractorGraphemes(entry.spelling, 2, cycle.cycleNumber)]),
+      targetGrapheme: entry.spelling,
+      acceptedAnswers,
+      cueWord: phoneme ? "" : exampleWord,
+      choices,
       answer: entry.spelling,
       choiceStyle: "letter"
-    };
+    }];
   }));
 }
 
@@ -292,7 +373,8 @@ function buildHuntRounds(cycle) {
     // sharesSound filter below, keeps homophones (c/k, w/wh) out of the choices.
     .map(entry => ({
       entry,
-      pool: pictureWordsFor(entry.spelling).filter(word => onsetGrapheme(word) === entry.spelling)
+      pool: pictureWordsFor(entry.spelling)
+        .filter(word => sharesSound(onsetGrapheme(word), entry.spelling) && wordAudioPath(word))
     }))
     .filter(({ pool }) => pool.length)
     .flatMap(({ entry, pool }) => {
@@ -302,23 +384,66 @@ function buildHuntRounds(cycle) {
           ALL_GRAPHEMES
             .filter(g => !sharesSound(g, entry.spelling))
             .flatMap(g => pictureWordsFor(g, 1))
-            .filter(word => !sharesSound(onsetGrapheme(word), entry.spelling))
+            .filter(word => (
+              wordAudioPath(word)
+              && !sharesSound(onsetGrapheme(word), entry.spelling)
+            ))
         ).slice(0, 2);
+        const choices = uniqueChoices(shuffleItems([answer, ...others]));
+        if (choices.length < 3) return null;
         return {
           type: "hunt",
+          mechanicId: "sceneHunt",
+          construct: "initial_phoneme_discrimination",
           audio: graphemeAudioPath(entry.spelling),
-          speechFallback: entry.spelling,
+          speechFallback: "",
           prompt: "Which one starts with this sound?",
+          instruction: "Listen to each picture name. Tag every word that starts with this sound.",
           display: "",
-          choices: shuffleItems([answer, ...others]),
+          targetGrapheme: entry.spelling,
+          objects: choices.map(word => ({
+            word,
+            matches: sharesSound(onsetGrapheme(word), entry.spelling)
+          })),
+          choices,
           answer,
           choiceStyle: "picture"
         };
       });
+    })
+    .filter(Boolean);
+  return rounds;
+}
+
+function buildSoundSortRounds(cycle) {
+  return focusEntries(cycle)
+    .filter(entry => ENDING_SOUND_PATTERNS.has(entry.spelling))
+    .flatMap(entry => {
+      const matches = pictureWordsFor(entry.spelling, 8)
+        .filter(word => hasPicture(word) && wordAudioPath(word) && word.endsWith(entry.spelling));
+      const decoys = [...PICTURE_WORDS]
+        .filter(word => wordAudioPath(word) && !word.endsWith(entry.spelling));
+      if (!matches.length || decoys.length < 2) return [];
+      const choices = uniqueChoices([
+        ...shuffleItems(matches).slice(0, 2),
+        ...shuffleItems(decoys).slice(0, 3)
+      ]);
+      return [{
+        type: "hunt",
+        mechanicId: "sceneHunt",
+        construct: "ending_grapheme_pattern_discrimination",
+        variant: "soundSort",
+        audio: graphemeAudioPath(entry.spelling),
+        speechFallback: "",
+        prompt: `Tag every picture whose word ends with ${entry.spelling}.`,
+        instruction: `Listen to each picture name. Tag the words ending with ${entry.spelling}.`,
+        targetGrapheme: entry.spelling,
+        objects: choices.map(word => ({ word, matches: word.endsWith(entry.spelling) })),
+        choices,
+        answer: choices.find(word => word.endsWith(entry.spelling)),
+        choiceStyle: "picture"
+      }];
     });
-  // A station must never open empty: if no focus grapheme has picture
-  // words (e.g. double-letter patterns), hunt becomes a Sound Catch run.
-  return rounds.length ? rounds : buildSoundRounds(cycle);
 }
 
 // Station - Quick Words is the parallel high-frequency/sight-word strand.
@@ -343,9 +468,13 @@ function buildQuickWordRounds(cycle) {
     ]).slice(0, Math.min(3, Math.max(1, hfw.length - 1 + earlier.length)));
     return {
       type: "quick",
+      mechanicId: "wordWindow",
+      construct: "high_frequency_word_recognition",
       audio: wordAudioPath(word),
       speechFallback: word,
       prompt: "Listen. Find the whole word. Tap it.",
+      instruction: "Study the word, close the window, then find it again.",
+      studyWord: word,
       support: "Learn this high-frequency word as its own word.",
       display: "",
       choices: shuffleItems([word, ...distractors]),
@@ -370,17 +499,21 @@ function buildWordBuildRounds(cycle) {
     // And only words with a real recording - the round says the word aloud.
     .filter(word => /^[a-z]{2,5}$/.test(word) && wordAudioPath(word));
   // Building print is decoding/encoding practice, so it never falls forward
-  // to untaught letters merely to fill a station. An empty build station falls
-  // back to a sound round in buildStationRounds().
+  // to untaught letters merely to fill a station.
   const candidates = pool.filter(word => wordUsesTaughtPrint(word, cycle.cycleNumber || 1));
   const words = shuffleItems([...new Set(candidates)]).slice(0, 4);
+  const taughtGraphemes = taughtGraphemesThrough(cycle.cycleNumber || 1);
   return words.map(word => ({
     type: "build",
+    mechanicId: "soundBoxes",
+    construct: "phoneme_grapheme_encoding",
     audio: wordAudioPath(word),
     speechFallback: word,
     prompt: "Build the word you hear.",
+    instruction: "Build the word you hear. Put one grapheme in each sound box.",
     display: "",
     word,
+    graphemes: segmentTaughtGraphemes(word, taughtGraphemes),
     choiceStyle: "build"
   }));
 }
@@ -398,6 +531,7 @@ function uniqueChoices(items) {
 
 function buildWordPlayRounds(cycle) {
   const rounds = [];
+  const taughtGraphemes = taughtGraphemesThrough(cycle.cycleNumber || 1);
   const focusWords = uniqueChoices(
     [
       ...focusEntries(cycle).flatMap(entry => exampleWordsFor(entry.spelling)),
@@ -409,26 +543,49 @@ function buildWordPlayRounds(cycle) {
       /^[a-z]{2,5}$/.test(word)
       && wordUsesTaughtPrint(word, cycle.cycleNumber || 1)
     ));
+  const sourceWords = uniqueChoices([...focusWords, ...allWords]);
 
   // Change the first sound: same rime, different onset.
-  for (const word of shuffleItems(focusWords)) {
-    const partner = allWords.find(other =>
-      other !== word && other.slice(1) === word.slice(1) && other[0] !== word[0]);
+  for (const word of shuffleItems(sourceWords)) {
+    const beforeGraphemes = segmentTaughtGraphemes(word, taughtGraphemes);
+    const rime = beforeGraphemes.slice(1).join("");
+    const partner = allWords.find(other => {
+      const otherGraphemes = segmentTaughtGraphemes(other, taughtGraphemes);
+      return other !== word
+        && otherGraphemes[0] !== beforeGraphemes[0]
+        && otherGraphemes.slice(1).join("") === rime;
+    });
     if (!partner || !wordAudioPath(partner)) continue;
     // The decoy must NOT share the target's rime, or it would be a second
     // valid "change the first sound" answer (e.g. ring -> sing AND king).
     const decoy = shuffleItems(
-      allWords.filter(o => o !== word && o !== partner && o.slice(1) !== word.slice(1))
+      allWords.filter(other => (
+        other !== word
+        && other !== partner
+        && segmentTaughtGraphemes(other, taughtGraphemes).slice(1).join("") !== rime
+      ))
     )[0];
     const choices = uniqueChoices([partner, word, decoy]);
     if (choices.length < 3) continue;
     rounds.push({
       type: "play",
+      mechanicId: "wordMachine",
+      construct: "onset_substitution",
+      operation: "substituteOnset",
       audio: wordAudioPath(word),
       speechFallback: word,
       prompt: `Change the first sound of "${word}". Which new word can you make?`,
+      instruction: `Change the first sound of "${word}" to make a new word.`,
+      beforeWord: word,
+      afterWord: partner,
+      beforeGraphemes,
+      afterGraphemes: segmentTaughtGraphemes(partner, taughtGraphemes),
       display: word,
       choices: shuffleItems(choices),
+      choiceGraphemes: choices.map(choice => ({
+        word: choice,
+        graphemes: segmentTaughtGraphemes(choice, taughtGraphemes)
+      })),
       answer: partner,
       choiceStyle: "word"
     });
@@ -436,16 +593,29 @@ function buildWordPlayRounds(cycle) {
   }
 
   // Take the first sound away.
-  for (const word of shuffleItems(focusWords)) {
-    const rest = word.slice(1);
+  for (const word of shuffleItems(sourceWords)) {
+    const beforeGraphemes = segmentTaughtGraphemes(word, taughtGraphemes);
+    const rest = beforeGraphemes.slice(1).join("");
     if (rest.length < 2) continue;
-    const choices = uniqueChoices([rest, word.slice(0, 2), word[0] + word.slice(-1)]);
+    const choices = uniqueChoices([
+      rest,
+      beforeGraphemes.slice(0, -1).join(""),
+      `${beforeGraphemes[0]}${beforeGraphemes.at(-1)}`
+    ]);
     if (choices.length < 3) continue;
     rounds.push({
       type: "play",
+      mechanicId: "wordMachine",
+      construct: "onset_removal",
+      operation: "removeOnset",
       audio: wordAudioPath(word),
       speechFallback: word,
       prompt: `Take the first sound away from "${word}". What is left?`,
+      instruction: `Take the first sound away from "${word}".`,
+      beforeWord: word,
+      afterWord: rest,
+      beforeGraphemes,
+      afterGraphemes: beforeGraphemes.slice(1),
       display: word,
       choices: shuffleItems(choices),
       answer: rest,
@@ -464,13 +634,28 @@ function buildWordPlayRounds(cycle) {
   if (pair) {
     const full = pair[0] + pair[1];
     const decoys = shuffleItems(
-      COMPOUND_WORDS.filter(p => p !== pair).map(([a, b]) => a + b)
+      COMPOUND_WORDS
+        .filter(p => p !== pair)
+        .map(([a, b]) => a + b)
+        .filter(word => wordUsesTaughtPrint(word, cycle.cycleNumber || 1))
     ).slice(0, 2);
     rounds.push({
       type: "play",
+      mechanicId: "wordMachine",
+      construct: "compound_word_joining",
+      operation: "joinCompound",
       audio: wordAudioPath(full),
       speechFallback: full,
       prompt: `"${pair[0]}" and "${pair[1]}" join to make one big word. Which is it?`,
+      instruction: `Join "${pair[0]}" and "${pair[1]}" to make one word.`,
+      beforeWord: `${pair[0]} + ${pair[1]}`,
+      afterWord: full,
+      beforeGraphemes: [
+        ...segmentTaughtGraphemes(pair[0], taughtGraphemes),
+        "+",
+        ...segmentTaughtGraphemes(pair[1], taughtGraphemes)
+      ],
+      afterGraphemes: segmentTaughtGraphemes(full, taughtGraphemes),
       display: `${pair[0]} + ${pair[1]}`,
       choices: shuffleItems([full, ...decoys]),
       answer: full,
@@ -478,52 +663,84 @@ function buildWordPlayRounds(cycle) {
     });
   }
 
-  return rounds.length ? rounds : buildQuickWordRounds(cycle);
+  return rounds;
 }
 
 // Station - Poem Time: read the cycle poem, then find words inside it.
 function buildPoemRounds(cycle) {
   const poem = EL_CYCLE_POEMS.find(p => p.cycle === cycle.cycleNumber);
-  if (!poem) return buildQuickWordRounds(cycle);
+  if (!poem) return [];
   const text = poem.lines.join("\n");
-  const poemWords = uniqueChoices(
-    text.toLowerCase().replace(/[^a-z\s]/g, " ").split(/\s+/).filter(w => w.length > 1)
-  );
+  const tokens = poem.lines.map((line, lineIndex) => (
+    line.split(/\s+/).filter(Boolean).map((token, tokenIndex) => ({
+      text: token,
+      normalized: token.toLowerCase().replace(/[^a-z']/g, ""),
+      lineIndex,
+      tokenIndex
+    }))
+  ));
+  const poemWords = uniqueChoices(tokens.flat().map(token => token.normalized).filter(word => word.length > 1));
   const poemAudio = getLedaInstructionAudioPath(text);
-  return poem.findWords.map(word => ({
-    type: "poem",
-    audio: poemAudio || wordAudioPath(word),
-    speechFallback: word,
-    prompt: `Read the poem, then tap the word "${word}".`,
-    display: text,
-    poem: true,
-    poemTitle: poem.title,
-    choices: shuffleItems([word, ...shuffleItems(poemWords.filter(w => w !== word)).slice(0, 3)]),
-    answer: word,
-    choiceStyle: "word"
-  }));
+  return poem.findWords.flatMap(word => {
+    const targetToken = tokens.flat().find(token => token.normalized === word.toLowerCase());
+    if (!targetToken) return [];
+    const prompt = `Tap word ${targetToken.tokenIndex + 1} in line ${targetToken.lineIndex + 1}.`;
+    return [{
+      type: "poem",
+      mechanicId: "poemSpotlight",
+      construct: "connected_print_tracking",
+      audio: poemAudio || wordAudioPath(word),
+      speechFallback: "",
+      prompt,
+      instruction: prompt,
+      display: text,
+      poem: true,
+      poemTitle: poem.title,
+      lines: [...poem.lines],
+      tokens,
+      targetToken,
+      choices: shuffleItems([word, ...shuffleItems(poemWords.filter(item => item !== word)).slice(0, 3)]),
+      answer: word,
+      choiceStyle: "word"
+    }];
+  });
 }
 
-// Station - Story Stop: cover-reading riddles from the world's own books.
-// Each round SHOWS the book's cover with its printed title, so the child
-// answers by reading the title in front of them - no prior reading assumed.
+// Station - Cover Clue: associate an authoritative title strip with its cover.
+// This is supported cover/title association, never story comprehension.
 function buildStoryRounds(cycle) {
   const n = cycle.cycleNumber || 1;
   const world = n >= 19 ? "moonwood" : n >= 10 ? "dino" : "meadow";
   const bank = QUEST_STORY_QUESTIONS[world];
-  if (!bank?.questions?.length) return buildQuickWordRounds(cycle);
+  if (!bank?.questions?.length) return [];
   const picks = shuffleItems(bank.questions).slice(0, 4);
   return picks.map(item => {
-    const decoys = shuffleItems(bank.names.filter(name => name !== item.answer)).slice(0, 2);
+    const rack = shuffleItems([
+      item,
+      ...shuffleItems(bank.questions.filter(candidate => candidate.cover !== item.cover)).slice(0, 2)
+    ]);
     return {
       type: "story",
+      mechanicId: "coverClue",
+      construct: "supported_cover_title_association",
       audio: "",
       speechFallback: "",
-      prompt: item.prompt,
+      prompt: "Place the title strip on its matching cover.",
+      instruction: "Read the title strip. Place it on the matching cover.",
       display: "",
       cover: item.cover || "",
       bookTitle: item.title || "",
-      choices: shuffleItems([item.answer, ...decoys]),
+      titleStrip: item.title || "",
+      covers: rack.map(candidate => ({
+        cover: candidate.cover || "",
+        title: candidate.title || "",
+        character: candidate.answer || "",
+        matches: candidate.cover === item.cover
+      })),
+      choices: shuffleItems([
+        item.answer,
+        ...shuffleItems(bank.names.filter(name => name !== item.answer)).slice(0, 2)
+      ]),
       answer: item.answer,
       choiceStyle: "word"
     };
@@ -541,15 +758,24 @@ function buildTraceRounds(cycle) {
 
       return letterForms.map(letterForm => ({
         type: "trace",
+        mechanicId: "letterTrace",
+        construct: entry.spelling.length === 1
+          ? "letter_formation_practice"
+          : "grapheme_pattern_formation_practice",
         audio: graphemeAudioPath(entry.spelling),
         speechFallback: entry.spelling,
-        prompt: "Trace the letter with your finger.",
+        prompt: entry.spelling.length === 1
+          ? "Trace the letter with your finger."
+          : "Trace the whole grapheme with your finger.",
+        instruction: entry.spelling.length === 1
+          ? "Watch the letter path, then trace it."
+          : "Watch the whole grapheme path, then trace it.",
         display: "",
         letter: letterForm,
         choiceStyle: "trace"
       }));
     });
-  return rounds.length ? rounds : buildLetterRounds(cycle);
+  return rounds;
 }
 
 // ── Fluency & Patterns games (cycles 25-27: no new letters) ──────────────────
@@ -595,11 +821,19 @@ function buildPatternPowerRounds(cycle) {
     ]);
     return {
       type: "pattern",
+      mechanicId: "patternSort",
+      construct: "orthographic_pattern_sort",
       audio: "",
       speechFallback: "",
       prompt: `Tap all the words that ${family.label}.`,
+      instruction: `Sort the words that ${family.label}.`,
       patternLabel: family.label,
+      bins: [
+        { id: "fits", label: family.label },
+        { id: "not", label: `do not ${family.label}` }
+      ],
       items,
+      transferWord: family.members[3] || family.members[0],
       choiceStyle: "pattern"
     };
   });
@@ -629,21 +863,32 @@ function buildWordChainRounds(cycle) {
   const offset = ((n - 25) * 2) % WORD_CHAINS.length;
   const pool = [...WORD_CHAINS.slice(offset), ...WORD_CHAINS.slice(0, offset)].slice(0, 4);
   const rounds = [];
+  const taughtGraphemes = taughtGraphemesThrough(cycle.cycleNumber || 1);
   for (const chain of shuffleItems(pool).slice(0, 2)) {
     for (let i = 0; i < chain.length - 1; i += 1) {
       const from = chain[i];
       const to = chain[i + 1];
-      const slot = changedSlot(from, to);
-      if (slot < 0 || from.length !== to.length) continue;
-      const answer = to[slot];
+      const fromGraphemes = segmentTaughtGraphemes(from, taughtGraphemes);
+      const toGraphemes = segmentTaughtGraphemes(to, taughtGraphemes);
+      const slot = changedSlot(fromGraphemes, toGraphemes);
+      if (slot < 0 || fromGraphemes.length !== toGraphemes.length) continue;
+      const answer = toGraphemes[slot];
       const distractors = shuffleItems("aeioubdgmnpst".split("")
-        .filter(l => l !== answer && l !== from[slot])).slice(0, 2);
+        .filter(l => l !== answer && l !== fromGraphemes[slot])).slice(0, 2);
       rounds.push({
         type: "chain",
+        mechanicId: "wordChain",
+        construct: "grapheme_substitution_chain",
         audio: wordAudioPath(to),
         speechFallback: to,
-        prompt: `Change "${from}" into "${to}". Tap the missing letter.`,
-        display: to.split("").map((ch, idx) => (idx === slot ? "_" : ch)).join(" "),
+        prompt: `Change one grapheme in "${from}". Listen for the next word.`,
+        instruction: `Listen to the next word. Change one grapheme in "${from}".`,
+        fromWord: from,
+        toWord: to,
+        fromGraphemes,
+        toGraphemes,
+        changeIndex: slot,
+        display: toGraphemes.map((grapheme, idx) => (idx === slot ? "_" : grapheme)).join(" "),
         choices: shuffleItems([answer, ...distractors]),
         answer,
         choiceStyle: "letter"
@@ -653,57 +898,79 @@ function buildWordChainRounds(cycle) {
   return rounds;
 }
 
-// Station - Speedy Words: read the sight word and tap it fast (gentle timer).
-function buildSpeedyWordRounds(cycle) {
-  return buildQuickWordRounds(cycle).map(round => ({
-    ...round,
-    type: "speed",
-    prompt: "Read the whole word, then tap it.",
-    support: "Use the sounds and spelling, not its shape.",
-    display: round.answer
-  }));
+// Station - Phrase Flow: follow authored poem-line chunks without a timer or
+// an oral-fluency score.
+function buildPhraseFlowRounds(cycle) {
+  const poem = EL_CYCLE_POEMS.find(item => item.cycle === cycle.cycleNumber);
+  if (!poem?.lines?.length) return [];
+  const pairs = [];
+  for (let index = 0; index < poem.lines.length; index += 2) {
+    const phraseChunks = poem.lines.slice(index, index + 2);
+    if (phraseChunks.length < 2) continue;
+    pairs.push({
+      type: "speed",
+      mechanicId: "phraseFlow",
+      construct: "supported_phrase_reading",
+      audio: getLedaInstructionAudioPath(phraseChunks.join(" ")),
+      speechFallback: "",
+      prompt: "Follow the phrase trail. Pause where the line changes.",
+      instruction: "Follow the phrase trail. Pause where the line changes.",
+      phraseChunks,
+      correctBoundary: 1,
+      choices: phraseChunks,
+      answer: phraseChunks[1],
+      choiceStyle: "phrase"
+    });
+  }
+  return pairs;
 }
 
-// Station - Spell It: hear (or read) a sight word and build its spelling.
+// Station - Heart Word Studio: study, hide, and rebuild an authorised HFW.
 function buildSpellRounds(cycle) {
   const words = uniqueChoices((cycle.highFrequencyWords || []).map(w => w.toLowerCase()))
     .filter(word => /^[a-z]{2,6}$/.test(word));
-  if (!words.length) return buildWordBuildRounds(cycle);
+  if (!words.length) return [];
   return words.slice(0, 5).map(word => {
     const audio = wordAudioPath(word);
+    const graphemes = segmentTaughtGraphemes(
+      word,
+      taughtGraphemesThrough(cycle.cycleNumber || 1)
+    );
     return {
       type: "build",
+      mechanicId: "heartWord",
+      construct: "orthographic_memory",
       audio,
       speechFallback: word,
-      prompt: audio ? "Spell the word you hear." : "Spell this word.",
-      display: audio ? "" : word,
+      prompt: "Study the heart word. Hide it, then spell it from memory.",
+      instruction: "Study the heart word. Hide it, then spell it from memory.",
+      display: word,
       word,
+      graphemes,
       choiceStyle: "build"
     };
   });
 }
 
 const STANDARD_STATIONS = [
-  { id: "letters", title: "Letter Spot", subtitle: "Big and small letters", icon: "🔤", build: buildLetterRounds },
-  { id: "sounds", title: "Sound Catch", subtitle: "Hear it, find it", icon: "👂", build: buildSoundRounds },
-  { id: "hunt", title: "Sound Hunt", subtitle: "Pictures and first sounds", icon: "🔎", build: buildHuntRounds },
-  { id: "quick", title: "Quick Words", subtitle: "Words you just know", icon: "⚡", build: buildQuickWordRounds },
-  { id: "build", title: "Word Build", subtitle: "Make it yourself", icon: "🧱", build: buildWordBuildRounds },
-  { id: "play", title: "Word Play", subtitle: "Change it, shrink it, join it", icon: "🎲", build: buildWordPlayRounds },
-  { id: "poem", title: "Poem Time", subtitle: "Read it, find the words", icon: "📜", build: buildPoemRounds },
-  { id: "story", title: "Story Stop", subtitle: "Read the cover, solve the riddle", icon: "📚", build: buildStoryRounds },
-  { id: "trace", title: "Letter Trace", subtitle: "Write it with your finger", icon: "✏️", build: buildTraceRounds },
-  { id: "check", title: "Cycle Check", subtitle: "Show what you know", icon: "⭐", build: null }
+  { id: "letters", title: "Letter Spot", subtitle: "Big and small letters", icon: "🔤", mechanicIds: ["letterPair"], build: buildLetterRounds },
+  { id: "sounds", title: "Sound Catch", subtitle: "Hear it, find it", icon: "👂", mechanicIds: ["soundGate"], build: buildSoundRounds },
+  { id: "hunt", title: "Sound Hunt", subtitle: "Pictures and first sounds", icon: "🔎", mechanicIds: ["sceneHunt"], build: buildHuntRounds },
+  { id: "quick", title: "Quick Words", subtitle: "Remember the whole word", icon: "⚡", mechanicIds: ["wordWindow"], build: buildQuickWordRounds },
+  { id: "build", title: "Word Build", subtitle: "Build with sound boxes", icon: "🧱", mechanicIds: ["soundBoxes"], build: buildWordBuildRounds },
+  { id: "play", title: "Word Play", subtitle: "Change, remove, or join word parts", icon: "🎲", mechanicIds: ["wordMachine"], build: buildWordPlayRounds },
+  { id: "poem", title: "Poem Time", subtitle: "Follow the poem's print", icon: "📜", mechanicIds: ["poemSpotlight"], build: buildPoemRounds },
+  { id: "story", title: "Cover Clue", subtitle: "Match a title to its cover", icon: "📚", mechanicIds: ["coverClue"], build: buildStoryRounds },
+  { id: "trace", title: "Letter Trace", subtitle: "Practise the letter path", icon: "✏️", mechanicIds: ["letterTrace"], build: buildTraceRounds }
 ];
 
 // Cycles 25-27 swap the letter-sound games for fluency, pattern and poem games.
 const FLUENCY_STATIONS = [
-  { id: "pattern", title: "Pattern Power", subtitle: "Sort the word patterns", icon: "🧩", build: buildPatternPowerRounds },
-  { id: "chain", title: "Word Chains", subtitle: "Change one sound", icon: "🔗", build: buildWordChainRounds },
-  { id: "speed", title: "Speedy Words", subtitle: "Read them fast", icon: "🚀", build: buildSpeedyWordRounds },
-  { id: "poem", title: "Poem Play", subtitle: "Read it, find the words", icon: "📜", build: buildPoemRounds },
-  { id: "spell", title: "Spell It", subtitle: "Build the word", icon: "🐝", build: buildSpellRounds },
-  { id: "check", title: "Cycle Check", subtitle: "Show what you know", icon: "⭐", build: null }
+  { id: "pattern", title: "Pattern Power", subtitle: "Sort the word patterns", icon: "🧩", mechanicIds: ["patternSort"], build: buildPatternPowerRounds },
+  { id: "chain", title: "Word Chains", subtitle: "Change one grapheme", icon: "🔗", mechanicIds: ["wordChain"], build: buildWordChainRounds },
+  { id: "speed", title: "Phrase Flow", subtitle: "Follow a phrase trail", icon: "🚀", mechanicIds: ["phraseFlow"], build: buildPhraseFlowRounds },
+  { id: "poem", title: "Poem Play", subtitle: "Follow the poem's print", icon: "📜", mechanicIds: ["poemSpotlight"], build: buildPoemRounds },
+  { id: "spell", title: "Heart Word Studio", subtitle: "Study, hide, spell, repair", icon: "🐝", mechanicIds: ["heartWord"], build: buildSpellRounds }
 ];
 
 // Backwards-compatible default export (the standard letter-sound set).
@@ -715,33 +982,93 @@ export function isFluencyCycle(cycle) {
 }
 
 export function stationsForCycle(cycle) {
-  return isFluencyCycle(cycle) ? FLUENCY_STATIONS : STANDARD_STATIONS;
+  const templates = isFluencyCycle(cycle) ? FLUENCY_STATIONS : STANDARD_STATIONS;
+  const focus = focusEntries(cycle);
+  const hasSingleFocus = focus.some(entry => entry.spelling.length === 1);
+  const hasMultiTraceFocus = focus.some(entry => entry.spelling.length === 2);
+  const hasOnlyEndingSoundFocus = focus.length > 0
+    && focus.every(entry => ENDING_SOUND_PATTERNS.has(entry.spelling));
+  const hasEndingSoundFocus = focus.some(entry => ENDING_SOUND_PATTERNS.has(entry.spelling));
+  const definitions = templates.map(template => {
+    if (template.id === "sounds" && hasOnlyEndingSoundFocus) {
+      return {
+        ...template,
+        title: "Ending Sound Gate",
+        subtitle: "Hear an ending sound family"
+      };
+    }
+    if (template.id === "sounds" && hasEndingSoundFocus) {
+      return {
+        ...template,
+        title: "Sound & Ending Gate",
+        subtitle: "Hear a sound or ending family"
+      };
+    }
+    if (template.id === "letters" && buildLetterRounds(cycle).length === 0) {
+      return {
+        ...template,
+        title: "Code Spot",
+        subtitle: "Find the whole grapheme in words",
+        mechanicIds: ["patternSort"],
+        build: buildCodeSpotRounds
+      };
+    }
+    if (template.id === "hunt" && buildHuntRounds(cycle).length === 0) {
+      return {
+        ...template,
+        title: "Sound Sort",
+        subtitle: "Sort words by their ending spelling",
+        mechanicIds: ["sceneHunt"],
+        build: buildSoundSortRounds
+      };
+    }
+    if (template.id === "trace" && !hasSingleFocus) {
+      return {
+        ...template,
+        title: "Code Trace",
+        subtitle: "Practise the whole grapheme path"
+      };
+    }
+    if (template.id === "trace" && hasMultiTraceFocus) {
+      return {
+        ...template,
+        title: "Letter & Code Trace",
+        subtitle: "Practise a letter or whole grapheme path"
+      };
+    }
+    return template;
+  }).filter(definition => definition.build(cycle).length > 0);
+
+  const mechanicIds = uniqueChoices(definitions.flatMap(station => station.mechanicIds));
+  if (mechanicIds.length) {
+    definitions.push({
+      id: "check",
+      title: "Cycle Quest",
+      subtitle: "Show what you can do, then recover with support",
+      icon: "⭐",
+      mechanicIds,
+      build: null
+    });
+  }
+  return definitions;
 }
 
 export function buildStationRounds(cycle, stationId) {
   if (stationId === "check") {
-    const everything = isFluencyCycle(cycle)
-      ? [
-          ...buildPatternPowerRounds(cycle),
-          ...buildWordChainRounds(cycle),
-          ...buildSpeedyWordRounds(cycle),
-          ...buildSpellRounds(cycle),
-          ...buildPoemRounds(cycle)
-        ]
-      : [
-          ...buildLetterRounds(cycle),
-          ...buildSoundRounds(cycle),
-          ...buildHuntRounds(cycle),
-          ...buildQuickWordRounds(cycle),
-          ...buildWordBuildRounds(cycle),
-          ...buildWordPlayRounds(cycle)
-        ];
+    const everything = stationsForCycle(cycle)
+      .filter(station => station.id !== "check")
+      .flatMap(station => station.build(cycle));
     return shuffleItems(everything).slice(0, 10);
   }
-  const station = [...STANDARD_STATIONS, ...FLUENCY_STATIONS].find(item => item.id === stationId);
-  const rounds = station?.build ? station.build(cycle) : [];
-  if (rounds.length) return rounds;
-  return isFluencyCycle(cycle) ? buildSpeedyWordRounds(cycle) : buildSoundRounds(cycle);
+  const station = stationsForCycle(cycle).find(item => item.id === stationId);
+  if (!station?.build) {
+    throw new Error(`Adventure Map station "${stationId}" is unknown or ineligible for cycle ${cycle?.cycleNumber || "unknown"}.`);
+  }
+  const rounds = station.build(cycle);
+  if (!rounds.length) {
+    throw new Error(`Adventure Map station "${stationId}" has no truthful rounds for cycle ${cycle?.cycleNumber || "unknown"}.`);
+  }
+  return rounds;
 }
 
 export function starsForAccuracy(correct, total, wrongs) {

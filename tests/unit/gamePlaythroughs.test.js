@@ -17,26 +17,45 @@ test("every quest round in every cycle is winnable and well-formed", () => {
         const rounds = station.build(cycle);
         assert.ok(rounds.length > 0, `${cycle.id}/${station.id} built no rounds`);
         for (const round of rounds) {
-          const where = `${cycle.id}/${station.id}/${round.type}`;
-          if (round.type === "build") {
-            assert.match(round.word, /^[a-z]{2,6}$/, `${where} bad build word "${round.word}"`); // Word Build is 2-5 (own test); Spell It allows 6
-            assert.ok(round.audio, `${where} build round without audio for "${round.word}"`);
+          const where = `${cycle.id}/${station.id}/${round.mechanicId}`;
+          if (round.mechanicId === "soundBoxes" || round.mechanicId === "heartWord") {
+            assert.match(round.word, /^[a-z]{2,6}$/, `${where} bad build word "${round.word}"`);
+            assert.equal(round.graphemes.join(""), round.word, `${where} grapheme boxes do not rebuild the word`);
             continue;
           }
-          if (round.type === "trace") {
+          if (round.mechanicId === "letterTrace") {
             for (const ch of String(round.letter)) {
               assert.ok(strokesForChar(ch), `${where} no strokes for "${ch}"`);
             }
             continue;
           }
-          if (round.type === "pattern") {
+          if (round.mechanicId === "patternSort") {
             const fits = (round.items || []).filter(item => item.fits);
             const decoys = (round.items || []).filter(item => !item.fits);
             assert.ok(fits.length >= 2 && decoys.length >= 1, `${where} unsortable pattern round`);
             continue;
           }
-          if (round.type === "chain") {
+          if (round.mechanicId === "wordChain") {
             assert.ok(round.choices.includes(round.answer), `${where} chain answer missing from choices`);
+            continue;
+          }
+          if (round.mechanicId === "phraseFlow") {
+            assert.ok(round.phraseChunks.length >= 2, `${where} has no phrase trail`);
+            continue;
+          }
+          if (round.mechanicId === "poemSpotlight") {
+            const token = round.tokens[round.targetToken.lineIndex]?.[round.targetToken.tokenIndex];
+            assert.equal(token?.normalized, round.answer, `${where} poem target is not in the poem`);
+            continue;
+          }
+          if (round.mechanicId === "coverClue") {
+            assert.ok(round.covers.length >= 2, `${where} needs a book rack`);
+            assert.equal(round.covers.filter(cover => cover.matches).length, 1, `${where} needs one matching cover`);
+            continue;
+          }
+          if (round.mechanicId === "sceneHunt") {
+            assert.ok(round.objects.length >= 3, `${where} needs at least three picture objects`);
+            assert.ok(round.objects.some(object => object.matches), `${where} has no object to find`);
             continue;
           }
           // Generic choice rounds: answer present, no duplicate choices,
@@ -156,43 +175,53 @@ test("Word Play 'change the first sound' rounds have exactly one valid answer", 
       for (let pass = 0; pass < 8; pass += 1) {
         for (const round of station.build(cycle)) {
           if (round.type !== "play" || !/Change the first sound/.test(round.prompt || "")) continue;
-          const rime = round.display.slice(1);
-          const sameRime = round.choices.filter(c => c !== round.display && c.slice(1) === rime);
+          const rime = round.beforeGraphemes.slice(1).join("");
+          const sameRime = round.choiceGraphemes.filter(choice => (
+            choice.word !== round.beforeWord
+            && choice.graphemes.slice(1).join("") === rime
+          ));
           assert.equal(sameRime.length, 1,
-            `${cycle.id}: "${round.display}" -> ${sameRime.length} same-rime answers in ${JSON.stringify(round.choices)}`);
+            `${cycle.id}: "${round.beforeWord}" -> ${sameRime.length} same-rime answers in ${JSON.stringify(round.choices)}`);
         }
       }
     }
   }
 });
 
-test("Sound Catch never offers two letters that make the same sound", () => {
+test("Sound Gate never marks an equivalent spelling wrong", () => {
   for (const cycle of cycles) {
     for (const station of stationsForCycle(cycle)) {
       if (!station.build) continue;
       for (let pass = 0; pass < 8; pass += 1) {
         for (const round of station.build(cycle)) {
           if (round.type !== "sound" || round.choiceStyle !== "letter") continue;
-          const homo = round.choices.filter(c => c !== round.answer && sharesSound(c, round.answer));
-          assert.equal(homo.length, 0,
-            `${cycle.id}: sound "${round.answer}" also accepts ${JSON.stringify(homo)}`);
+          const rejectedEquivalents = round.choices.filter(choice => (
+            sharesSound(choice, round.targetGrapheme)
+            && !round.acceptedAnswers.includes(choice)
+          ));
+          assert.equal(rejectedEquivalents.length, 0,
+            `${cycle.id}: sound "${round.targetGrapheme}" rejects ${JSON.stringify(rejectedEquivalents)}`);
         }
       }
     }
   }
 });
 
-test("Sound Hunt has exactly one choice that starts with the cued sound", () => {
+test("Sound Hunt and Sound Sort label every picture by their declared rule", () => {
   for (const cycle of cycles) {
     for (const station of stationsForCycle(cycle)) {
       if (!station.build) continue;
       for (let pass = 0; pass < 8; pass += 1) {
         for (const round of station.build(cycle)) {
           if (round.type !== "hunt") continue;
-          const cue = onsetGrapheme(round.answer);
-          const matches = round.choices.filter(c => sharesSound(onsetGrapheme(c), cue));
-          assert.equal(matches.length, 1,
-            `${cycle.id}: hunt cue "${cue}" matched ${JSON.stringify(matches)} in ${JSON.stringify(round.choices)}`);
+          const expected = round.objects.filter(object => round.variant === "soundSort"
+            ? object.word.endsWith(round.targetGrapheme)
+            : sharesSound(onsetGrapheme(object.word), round.targetGrapheme));
+          assert.ok(expected.length >= 1, `${cycle.id}: ${round.construct} has no correct object`);
+          for (const object of round.objects) {
+            const shouldMatch = expected.some(item => item.word === object.word);
+            assert.equal(object.matches, shouldMatch, `${cycle.id}: ${object.word} is mislabeled`);
+          }
         }
       }
     }
