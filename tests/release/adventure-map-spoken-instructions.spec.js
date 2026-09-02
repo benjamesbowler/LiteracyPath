@@ -1,29 +1,107 @@
 import { expect, test } from "@playwright/test";
 
 import { QUEST_STORY_QUESTIONS } from "../../src/data/generated/questStoryQuestions.generated.js";
+import { ADVENTURE_MAP_INSTRUCTIONS } from "../../src/components/elQuest/adventureRoundAudio.js";
 
-const STATIONS = [
-  ["cycle-1", "letters"],
-  ["cycle-1", "sounds"],
-  ["cycle-1", "hunt"],
-  ["cycle-1", "quick"],
-  ["cycle-1", "build"],
-  ["cycle-1", "play"],
-  ["cycle-1", "poem"],
-  ["cycle-1", "story"],
-  ["cycle-1", "trace"],
-  ["cycle-1", "check"],
-  ["cycle-25", "pattern"],
-  ["cycle-25", "chain"],
-  ["cycle-25", "speed"],
-  ["cycle-25", "poem"],
-  ["cycle-25", "spell"],
-  ["cycle-25", "check"]
+const MECHANIC_ROUTES = [
+  {
+    cycle: "cycle-1",
+    station: "letters",
+    mechanic: "letterPair",
+    stage: "letter-press",
+    instruction: ADVENTURE_MAP_INSTRUCTIONS.letterPair
+  },
+  {
+    cycle: "cycle-1",
+    station: "sounds",
+    mechanic: "soundGate",
+    stage: "sound-gate",
+    instruction: ADVENTURE_MAP_INSTRUCTIONS.soundGate
+  },
+  {
+    cycle: "cycle-1",
+    station: "hunt",
+    mechanic: "sceneHunt",
+    stage: "scene-hunt",
+    instruction: ADVENTURE_MAP_INSTRUCTIONS.sceneHunt
+  },
+  {
+    cycle: "cycle-1",
+    station: "quick",
+    mechanic: "wordWindow",
+    stage: "word-window",
+    instruction: ADVENTURE_MAP_INSTRUCTIONS.wordWindow
+  },
+  {
+    cycle: "cycle-1",
+    station: "build",
+    mechanic: "soundBoxes",
+    stage: "sound-boxes",
+    instruction: ADVENTURE_MAP_INSTRUCTIONS.soundBoxes
+  },
+  {
+    cycle: "cycle-2",
+    station: "play",
+    mechanic: "wordMachine",
+    stage: "word-machine",
+    instruction: ADVENTURE_MAP_INSTRUCTIONS.wordMachineRemove
+  },
+  {
+    cycle: "cycle-1",
+    station: "poem",
+    mechanic: "poemSpotlight",
+    stage: "poem-spotlight",
+    instruction: ADVENTURE_MAP_INSTRUCTIONS.poemSpotlight
+  },
+  {
+    cycle: "cycle-1",
+    station: "story",
+    mechanic: "coverClue",
+    stage: "cover-clue",
+    instruction: ADVENTURE_MAP_INSTRUCTIONS.coverClue
+  },
+  {
+    cycle: "cycle-1",
+    station: "trace",
+    mechanic: "letterTrace",
+    stage: "letter-trace",
+    instruction: ADVENTURE_MAP_INSTRUCTIONS.letterTrace
+  },
+  {
+    cycle: "cycle-25",
+    station: "pattern",
+    mechanic: "patternSort",
+    stage: "pattern-sort",
+    instruction: ADVENTURE_MAP_INSTRUCTIONS.patternSort
+  },
+  {
+    cycle: "cycle-25",
+    station: "chain",
+    mechanic: "wordChain",
+    stage: "word-chain",
+    instruction: ADVENTURE_MAP_INSTRUCTIONS.wordChain
+  },
+  {
+    cycle: "cycle-25",
+    station: "speed",
+    mechanic: "phraseFlow",
+    stage: "phrase-flow",
+    instruction: ADVENTURE_MAP_INSTRUCTIONS.phraseFlow
+  },
+  {
+    cycle: "cycle-25",
+    station: "spell",
+    mechanic: "heartWord",
+    stage: "heart-word-studio",
+    instruction: ADVENTURE_MAP_INSTRUCTIONS.heartWord
+  }
 ];
 
 async function installAudioRecorder(page) {
   await page.addInitScript(() => {
     window.__adventurePlayedAudio = [];
+    window.__adventurePausedAudio = [];
+    window.__adventureAudioEndMs = 5;
     window.Audio = class TestAudio extends EventTarget {
       constructor(src = "") {
         super();
@@ -31,17 +109,33 @@ async function installAudioRecorder(page) {
         this.currentTime = 0;
         this.volume = 1;
         this.preload = "";
+        this.playing = false;
+        this.endTimer = null;
       }
 
       load() {}
 
       play() {
-        window.__adventurePlayedAudio.push(new URL(this.src, window.location.href).pathname);
-        window.setTimeout(() => this.dispatchEvent(new Event("ended")), 5);
+        const path = new URL(this.src, window.location.href).pathname;
+        window.__adventurePlayedAudio.push(path);
+        this.playing = true;
+        if (this.endTimer !== null) window.clearTimeout(this.endTimer);
+        this.endTimer = window.setTimeout(() => {
+          this.endTimer = null;
+          this.playing = false;
+          this.dispatchEvent(new Event("ended"));
+        }, window.__adventureAudioEndMs);
         return Promise.resolve();
       }
 
-      pause() {}
+      pause() {
+        if (this.endTimer !== null) window.clearTimeout(this.endTimer);
+        this.endTimer = null;
+        if (this.playing && this.src) {
+          window.__adventurePausedAudio.push(new URL(this.src, window.location.href).pathname);
+        }
+        this.playing = false;
+      }
     };
   });
 }
@@ -50,56 +144,96 @@ async function playedAudio(page) {
   return page.evaluate(() => window.__adventurePlayedAudio || []);
 }
 
-async function clearPlayedAudio(page) {
-  await page.evaluate(() => { window.__adventurePlayedAudio = []; });
+async function pausedAudio(page) {
+  return page.evaluate(() => window.__adventurePausedAudio || []);
 }
 
-test("every Adventure Map station speaks its instruction automatically and can replay it", async ({ page }) => {
+async function clearAudioLog(page) {
+  await page.evaluate(() => {
+    window.__adventurePlayedAudio = [];
+    window.__adventurePausedAudio = [];
+  });
+}
+
+async function openMechanic(page, { cycle, station, mechanic, stage }) {
+  await page.goto(`/preview/child-surfaces.html?surface=adventure-map&quest=${cycle}&station=${station}`);
+  const round = page.locator(
+    `[data-quest-view="round"][data-station-id="${station}"][data-round-type="${mechanic}"]`
+  );
+  await expect(round).toBeVisible();
+  await expect(round.locator(`[data-mechanic-stage="${stage}"]`)).toBeVisible();
+  return round;
+}
+
+test("all 13 Adventure Map mechanics speak their exact instruction automatically and replay it", async ({ page }) => {
   test.setTimeout(120_000);
   await installAudioRecorder(page);
 
-  for (const [cycle, station] of STATIONS) {
-    await page.goto(`/preview/child-surfaces.html?surface=adventure-map&quest=${cycle}&station=${station}`);
-    await expect(page.locator(`[data-quest-view="round"][data-station-id="${station}"]`)).toBeVisible();
-    const replay = page.getByRole("button", { name: "Hear instructions again" });
-    await expect(replay, `${cycle} ${station} needs a persistent instruction replay`).toBeVisible();
-    await expect(replay).toHaveAttribute("data-instruction-audio", /\S/);
+  for (const route of MECHANIC_ROUTES) {
+    const round = await openMechanic(page, route);
+    const replay = round.getByRole("button", { name: "Hear instructions again" });
+    const instruction = round.locator('[aria-label="What to do"] .adventure-round-frame__instruction > p');
+    await expect(instruction).toHaveText(route.instruction);
+    await expect(replay, `${route.mechanic} needs a persistent instruction replay`).toBeVisible();
+    await expect(replay).toHaveAttribute("data-instruction-audio", /\/audio\/production\/en-US\/instruction\/.+\.mp3$/);
+    const instructionPath = await replay.getAttribute("data-instruction-audio");
 
     await expect.poll(() => playedAudio(page), {
-      message: `${cycle} ${station} must speak on entry`
-    }).not.toEqual([]);
+      message: `${route.mechanic} must speak on entry`
+    }).toContain(instructionPath);
     const automatic = await playedAudio(page);
+    expect(automatic[0], `${route.mechanic} must begin with its recorded instruction`).toBe(instructionPath);
 
-    // Let the mocked entry sequence finish before isolating the replay. The
-    // real clips are several seconds long; the test double ends each clip in
-    // 5ms but preserves the production 180ms breath between clips.
+    // Let the mocked entry sequence finish before isolating replay. The test
+    // double preserves the production breath between instruction and target.
     await page.waitForTimeout(450);
-    await clearPlayedAudio(page);
+    await clearAudioLog(page);
     await replay.click();
     await expect.poll(() => playedAudio(page), {
-      message: `${cycle} ${station} must replay its instruction`
-    }).not.toEqual([]);
+      message: `${route.mechanic} must replay its instruction`
+    }).toContain(instructionPath);
     const replayed = await playedAudio(page);
-    expect(replayed[0], `${cycle} ${station} must replay the same instruction first`).toBe(automatic[0]);
+    expect(replayed[0], `${route.mechanic} must replay the same recorded instruction first`).toBe(instructionPath);
   }
 });
 
-test("Letter Spot keeps directions separate from the target letter-name cue", async ({ page }) => {
+test("instruction, target, and connected-text recordings remain separate controls", async ({ page }) => {
   await installAudioRecorder(page);
-  await page.goto("/preview/child-surfaces.html?surface=adventure-map&quest=cycle-1&station=letters");
-  await expect(page.locator('[data-quest-view="round"][data-station-id="letters"]')).toBeVisible();
 
-  await clearPlayedAudio(page);
-  await page.getByRole("button", { name: "Hear instructions again" }).click();
+  const letterRound = await openMechanic(page, MECHANIC_ROUTES[0]);
+  const letterInstruction = await letterRound
+    .getByRole("button", { name: "Hear instructions again" })
+    .getAttribute("data-instruction-audio");
+  await page.waitForTimeout(450);
+  await clearAudioLog(page);
+  await letterRound.getByRole("button", { name: "Listen", exact: true }).click();
   await expect.poll(() => playedAudio(page)).not.toEqual([]);
-  const instructionPaths = await playedAudio(page);
+  const [letterTarget] = await playedAudio(page);
+  expect(letterTarget).not.toBe(letterInstruction);
 
-  await clearPlayedAudio(page);
-  await page.getByRole("button", { name: "Listen" }).click();
+  const poemRoute = MECHANIC_ROUTES.find(route => route.mechanic === "poemSpotlight");
+  const poemRound = await openMechanic(page, poemRoute);
+  const poemInstruction = await poemRound
+    .getByRole("button", { name: "Hear instructions again" })
+    .getAttribute("data-instruction-audio");
+  await page.waitForTimeout(450);
+  await clearAudioLog(page);
+  await poemRound.getByRole("button", { name: "Hear the poem", exact: true }).click();
   await expect.poll(() => playedAudio(page)).not.toEqual([]);
-  const targetPaths = await playedAudio(page);
+  const [poemContent] = await playedAudio(page);
+  expect(poemContent).not.toBe(poemInstruction);
 
-  expect(instructionPaths[0]).not.toBe(targetPaths[0]);
+  const phraseRoute = MECHANIC_ROUTES.find(route => route.mechanic === "phraseFlow");
+  const phraseRound = await openMechanic(page, phraseRoute);
+  const phraseInstruction = await phraseRound
+    .getByRole("button", { name: "Hear instructions again" })
+    .getAttribute("data-instruction-audio");
+  await page.waitForTimeout(450);
+  await clearAudioLog(page);
+  await phraseRound.getByRole("button", { name: "Hear the phrase", exact: true }).click();
+  await expect.poll(() => playedAudio(page)).not.toEqual([]);
+  const [phraseContent] = await playedAudio(page);
+  expect(phraseContent).not.toBe(phraseInstruction);
 });
 
 test("a station tap starts its recorded direction once from the trusted gesture", async ({ page }) => {
@@ -107,79 +241,97 @@ test("a station tap starts its recorded direction once from the trusted gesture"
   await page.goto("/preview/child-surfaces.html?surface=adventure-map&quest=cycle-1");
   await expect(page.getByRole("button", { name: /Letter Spot/i })).toBeVisible();
 
-  await clearPlayedAudio(page);
+  await clearAudioLog(page);
   await page.getByRole("button", { name: /Letter Spot/i }).click();
-  const replay = page.getByRole("button", { name: "Hear instructions again" });
-  await expect(replay).toBeVisible();
+  const round = page.locator('[data-quest-view="round"][data-round-type="letterPair"]');
+  await expect(round.locator('[data-mechanic-stage="letter-press"]')).toBeVisible();
+  const replay = round.getByRole("button", { name: "Hear instructions again" });
   const instructionPath = await replay.getAttribute("data-instruction-audio");
-  await expect.poll(() => playedAudio(page)).not.toEqual([]);
+  await expect.poll(() => playedAudio(page)).toContain(instructionPath);
   const automatic = await playedAudio(page);
 
   expect(automatic[0]).toBe(instructionPath);
   expect(automatic.filter(path => path === instructionPath)).toHaveLength(1);
 });
 
-test("Stop cancels a pending wrong-answer coaching cue", async ({ page }) => {
+test("Stop during a wrong Letter Press feedback beat cancels the pending coaching cue", async ({ page }) => {
   await installAudioRecorder(page);
-  await page.goto("/preview/child-surfaces.html?surface=adventure-map&quest=cycle-1&station=letters");
-  await expect(page.locator('[data-quest-view="round"][data-station-id="letters"]')).toBeVisible();
+  const round = await openMechanic(page, MECHANIC_ROUTES[0]);
 
-  // Let the automatic direction/target sequence finish, then capture the
-  // current round's target cue independently from the mocked player.
+  // Let entry audio finish, then capture the current target cue separately.
   await page.waitForTimeout(450);
-  await clearPlayedAudio(page);
-  await page.getByRole("button", { name: "Listen" }).click();
+  await clearAudioLog(page);
+  await round.getByRole("button", { name: "Listen", exact: true }).click();
   await expect.poll(() => playedAudio(page)).not.toEqual([]);
   const [targetPath] = await playedAudio(page);
   await page.waitForTimeout(30);
-  await clearPlayedAudio(page);
+  await clearAudioLog(page);
 
-  const shownLetter = (await page.locator(".sbq-round-display").textContent())?.trim().toLowerCase();
-  const choices = page.locator(".sbq-answer-grid button");
-  const choiceLabels = (await choices.allTextContents()).map(label => label.trim().toLowerCase());
-  const wrongIndex = choiceLabels.findIndex(label => label !== shownLetter);
+  const stage = round.locator('[data-mechanic-stage="letter-press"]');
+  const shownLetter = (await stage.locator(".am-code-sign-slot").first().locator("strong").textContent())
+    ?.trim()
+    .toLowerCase();
+  const choices = stage.locator(".am-letter-press-choices").getByRole("button");
+  const labels = (await choices.allTextContents()).map(label => label.trim().toLowerCase());
+  const wrongIndex = labels.findIndex(label => label !== shownLetter);
   expect(wrongIndex).toBeGreaterThanOrEqual(0);
 
   await choices.nth(wrongIndex).click();
-  await page.getByRole("button", { name: "Stop", exact: true }).click();
+  await round.getByRole("button", { name: "Stop", exact: true }).click();
   await expect(page.locator('[data-quest-view="cycle"]')).toBeVisible();
   await page.waitForTimeout(850);
 
   expect(await playedAudio(page)).not.toContain(targetPath);
 });
 
-test("directions stay stopped after leaving or completing a station", async ({ page }) => {
+test("leaving and Cover Clue completion stop active directions", async ({ page }) => {
   await installAudioRecorder(page);
+  await page.addInitScript(() => { window.__adventureAudioEndMs = 5_000; });
 
-  await page.goto("/preview/child-surfaces.html?surface=adventure-map&quest=cycle-1&station=letters");
-  const letterReplay = page.getByRole("button", { name: "Hear instructions again" });
-  await expect(letterReplay).toBeVisible();
-  const letterInstruction = await letterReplay.getAttribute("data-instruction-audio");
-  await page.waitForTimeout(450);
-  await clearPlayedAudio(page);
-  await page.getByRole("button", { name: "Stop", exact: true }).click();
+  const letterRound = await openMechanic(page, MECHANIC_ROUTES[0]);
+  const letterInstruction = await letterRound
+    .getByRole("button", { name: "Hear instructions again" })
+    .getAttribute("data-instruction-audio");
+  await expect.poll(() => playedAudio(page)).toContain(letterInstruction);
+  await clearAudioLog(page);
+  await letterRound.getByRole("button", { name: "Stop", exact: true }).click();
   await expect(page.locator('[data-quest-view="cycle"]')).toBeVisible();
+  await expect.poll(() => pausedAudio(page)).toContain(letterInstruction);
   await page.waitForTimeout(300);
   expect(await playedAudio(page)).not.toContain(letterInstruction);
 
-  await page.goto("/preview/child-surfaces.html?surface=adventure-map&quest=cycle-1&station=story");
-  const storyReplay = page.getByRole("button", { name: "Hear instructions again" });
-  await expect(storyReplay).toBeVisible();
-  const storyInstruction = await storyReplay.getAttribute("data-instruction-audio");
-  const answerByTitle = new Map(
+  const coverRoute = MECHANIC_ROUTES.find(route => route.mechanic === "coverClue");
+  const storyRound = await openMechanic(page, coverRoute);
+  const storyInstruction = await storyRound
+    .getByRole("button", { name: "Hear instructions again" })
+    .getAttribute("data-instruction-audio");
+  const coverByTitle = new Map(
     Object.values(QUEST_STORY_QUESTIONS).flatMap(bank => (
-      bank.questions.map(question => [question.title, question.answer])
+      bank.questions.map(question => [question.title, question.cover])
     ))
   );
-  for (let round = 1; round <= 4; round += 1) {
-    await expect(page.getByRole("heading", { name: `${round} of 4` })).toBeVisible();
-    const title = await page.locator(".sbq-story-cover figcaption").textContent();
-    const answer = answerByTitle.get(title?.trim());
-    expect(answer, `story title ${title} needs a known answer`).toBeTruthy();
-    await page.locator(".sbq-answer-grid").getByRole("button", { name: answer, exact: true }).click();
+
+  for (let roundNumber = 1; roundNumber <= 4; roundNumber += 1) {
+    await expect(page.getByRole("heading", { name: `${roundNumber} of 4` })).toBeVisible();
+    const stage = page.locator('[data-mechanic-stage="cover-clue"]');
+    const strip = stage.locator('[data-cover-strip="title"]');
+    const title = (await strip.textContent())?.trim();
+    const expectedCover = coverByTitle.get(title);
+    expect(expectedCover, `title strip ${title} needs a known cover`).toBeTruthy();
+
+    await strip.click();
+    const coverButtons = stage.locator('[data-cover-piece]');
+    const coverPaths = await coverButtons.locator("img").evaluateAll(images => (
+      images.map(image => image.getAttribute("src"))
+    ));
+    const answerIndex = coverPaths.findIndex(path => path === expectedCover);
+    expect(answerIndex, `title strip ${title} must have its matching cover in the rack`).toBeGreaterThanOrEqual(0);
+    await coverButtons.nth(answerIndex).click();
   }
+
   await expect(page.locator('[data-quest-view="celebration"]')).toBeVisible();
-  await clearPlayedAudio(page);
+  await expect.poll(() => pausedAudio(page)).toContain(storyInstruction);
+  await clearAudioLog(page);
   await page.waitForTimeout(300);
   expect(await playedAudio(page)).not.toContain(storyInstruction);
 });
