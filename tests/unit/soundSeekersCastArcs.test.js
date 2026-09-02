@@ -27,6 +27,7 @@ test("eight identity-only cast arcs retain thirty-two committed characters", () 
 
 test("forty beats carry ordered same-chapter callback lines", () => {
   const beats = Object.values(SOUND_SEEKERS_CAST_ARCS).flatMap(arc => arc.relationshipBeats);
+  const callbackTexts = new Set();
   assert.equal(beats.length, 40);
   for (const chapter of SOUND_SEEKERS_CHAPTERS) {
     const expeditions = SOUND_SEEKERS_EXPEDITIONS.filter(item => item.chapterId === chapter.id);
@@ -51,7 +52,19 @@ test("forty beats carry ordered same-chapter callback lines", () => {
       for (const line of beat.callbackLines) {
         assert.deepEqual(Object.keys(line), ["repairId", "text"]);
         assert.equal(line.text.trim().length > 12, true);
+        assert.doesNotMatch(line.text, /we remember|path it restored/iu);
+        assert.equal(line.text.includes(line.repairId), false);
+        const concreteNouns = line.repairId.split("-")
+          .filter(word => !["align", "bridge", "calm", "clear", "complete", "ignite", "join",
+            "light", "mark", "mend", "moor", "open", "raise", "rebuild", "release", "relaunch",
+            "relight", "reopen", "restart", "restore", "reveal", "secure", "turn", "tune", "unlock", "wake"]
+            .includes(word));
+        assert.equal(concreteNouns.some(word => line.text.toLowerCase().includes(word.replace(/s$/u, ""))), true,
+          `${beat.id}:${line.repairId} must name the earlier repair or result`);
+        assert.equal(callbackTexts.has(line.text), false);
+        callbackTexts.add(line.text);
       }
     });
   }
+  assert.equal(callbackTexts.size, 40);
 });

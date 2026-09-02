@@ -5,12 +5,17 @@ import { SOUND_SEEKERS_EXPEDITIONS } from "../../src/features/soundSeekers/conte
 import { SOUND_SEEKERS_CONNECTED_TEXT } from "../../src/features/soundSeekers/content/connectedText.js";
 import {
   MEANING_SUPPORT_RECORDS,
-  REQUIRED_ACTION_MEANING_WORD_IDS
+  REQUIRED_ACTION_MEANING_WORD_IDS as REQUIRED_ACTION_MEANING_WORD_IDS_SOURCE
 } from "../../src/features/soundSeekers/content/meaningSupportRecords.js";
 import {
+  ADVANCED_SCENE_TOKEN_IDS,
+  REQUIRED_ACTION_MEANING_WORD_IDS,
   SOUND_SEEKERS_MEANING_SUPPORT,
   getMeaningSupport
 } from "../../src/features/soundSeekers/content/meaningSupport.js";
+import {
+  ADVANCED_SCENE_TOKEN_IDS as ADVANCED_SCENE_TOKEN_IDS_SOURCE
+} from "../../src/features/soundSeekers/content/connectedTextUsage.generated.js";
 
 const exactActionIds = [
   "action", "bike", "bird", "boat", "book", "box", "bun", "by", "cake", "car", "cat", "cats",
@@ -23,14 +28,22 @@ test("meaning support exactly covers forty-eight action uses and authored advanc
   const uses = SOUND_SEEKERS_EXPEDITIONS.flatMap(expedition => expedition.phases)
     .filter(phase => ["word_forge", "blend_bridge"].includes(phase.powerId) && phase.wordId);
   assert.equal(uses.length, 48);
+  assert.strictEqual(REQUIRED_ACTION_MEANING_WORD_IDS, REQUIRED_ACTION_MEANING_WORD_IDS_SOURCE);
+  assert.strictEqual(ADVANCED_SCENE_TOKEN_IDS, ADVANCED_SCENE_TOKEN_IDS_SOURCE);
   assert.deepEqual(REQUIRED_ACTION_MEANING_WORD_IDS, exactActionIds);
   assert.deepEqual([...new Set(uses.map(phase => phase.wordId))].sort(), exactActionIds);
   const required = [...new Set([
     ...exactActionIds,
-    ...SOUND_SEEKERS_CONNECTED_TEXT.flatMap(scene => scene.advancedTokenIds)
+    ...SOUND_SEEKERS_CONNECTED_TEXT.flatMap(scene => [
+      ...scene.advancedTokenIds,
+      ...scene.advancedChildLabelTokenIds
+    ])
   ])].sort();
   assert.deepEqual(MEANING_SUPPORT_RECORDS.map(record => record.wordId).sort(), required);
   assert.equal(SOUND_SEEKERS_MEANING_SUPPORT.length, required.length);
+  for (const wordId of ADVANCED_SCENE_TOKEN_IDS) {
+    assert.equal(getMeaningSupport(wordId).advancedReason, "new_concept");
+  }
 });
 
 test("every support record is concrete, frozen, uniquely addressable, and post-decision gated", () => {

@@ -14,6 +14,7 @@ import {
   createConnectedTextChallenge,
   evaluateConnectedTextDecision,
   getConnectedText,
+  isConnectedTextChildScene,
   readabilityBandForStop,
   toChildConnectedTextScene,
   tokenizeConnectedText,
@@ -37,6 +38,7 @@ import { MEANING_SUPPORT_RECORDS } from "../../src/features/soundSeekers/content
 import {
   SOUND_SEEKERS_EXPEDITIONS
 } from "../../src/features/soundSeekers/content/expeditions.js";
+import { SOUND_SEEKERS_CHAPTERS } from "../../src/features/soundSeekers/content/chapters/index.js";
 import {
   getContentDeckCatalog
 } from "../../src/features/soundSeekers/content/contentDeckCatalogs.js";
@@ -168,6 +170,10 @@ test("assessed and narrative choices have one child-safe shape and private keys"
     for (const option of scene.choice.options) assert.deepEqual(Object.keys(option), optionKeys);
     const childA = toChildConnectedTextScene(scene.id, "route-a");
     const childARepeat = toChildConnectedTextScene(scene.id, "route-a");
+    assert.equal(isConnectedTextChildScene(childA), true);
+    assert.equal(isConnectedTextChildScene(childARepeat), true);
+    assert.equal(isConnectedTextChildScene(Object.freeze({ ...childA })), false);
+    assert.equal(isConnectedTextChildScene(structuredClone(childA)), false);
     assert.deepEqual(Object.keys(childA).sort(), childKeys);
     assert.deepEqual(childA, childARepeat);
     assert.equal(childA.preChoiceSemanticId, getSceneVisualSemantics(scene.id).preChoiceSemanticId);
@@ -198,6 +204,71 @@ test("assessed and narrative choices have one child-safe shape and private keys"
       }
       assert.equal(new Set(scene.narrativeBranches.map(branch => branch.storyOutcomeId)).size, 2);
       assert.equal(new Set(scene.narrativeBranches.map(branch => branch.postDecisionSemanticId)).size, 2);
+    }
+  }
+});
+
+test("every assessed decision is explicitly scene-grounded without a wording answer cue", () => {
+  const assessed = SOUND_SEEKERS_CONNECTED_TEXT
+    .filter(scene => scene.choice.kind === "assessed_connected_text");
+  const firstCorrectWords = new Map();
+  const normalize = value => tokenizeConnectedText(value)
+    .filter(word => !["a", "the", "it", "can", "we", "is"].includes(word));
+  const containsOrdered = (haystack, needle) => {
+    let cursor = 0;
+    for (const word of haystack) if (word === needle[cursor]) cursor += 1;
+    return cursor === needle.length;
+  };
+  const containsContiguous = (haystack, needle) => haystack.join(" ")
+    .includes(needle.join(" "));
+  for (const scene of assessed) {
+    const evaluator = CONNECTED_TEXT_EVALUATORS[scene.id];
+    const correct = scene.choice.options.find(option => option.token === evaluator.expectedToken);
+    const distractors = scene.choice.options.filter(option => option.token !== evaluator.expectedToken);
+    const running = normalize(scene.text);
+    const correctWords = normalize(correct.childLabel);
+    assert.equal(containsOrdered(running, correctWords), true,
+      `${scene.id}: correct action must follow directly from the text`);
+    assert.equal(scene.choice.options.every(option =>
+      !/^(?:use|move past|wait by)\b/iu.test(option.childLabel)), true, scene.id);
+    assert.equal(new Set(scene.choice.options.map(option => option.childLabel)).size, 3, scene.id);
+    for (const distractor of distractors) {
+      assert.equal(containsContiguous(running, normalize(distractor.childLabel)), false,
+        `${scene.id}: distractor must be contradicted or unsupported by the text`);
+      assert.match(evaluator.misconceptionByToken[distractor.token], /\s/u);
+      assert.match(evaluator.correctionByToken[distractor.token], /\s/u);
+    }
+    const firstWord = correctWords[0];
+    firstCorrectWords.set(firstWord, (firstCorrectWords.get(firstWord) || 0) + 1);
+  }
+  assert.equal(firstCorrectWords.size >= 18, true);
+  assert.equal(Math.max(...firstCorrectWords.values()) <= 3, true);
+});
+
+test("child-label vocabulary, canonical guides, and direct meaning payoffs fail closed", () => {
+  const chapters = new Map(SOUND_SEEKERS_CHAPTERS.map(chapter => [chapter.id, chapter]));
+  for (const scene of SOUND_SEEKERS_CONNECTED_TEXT) {
+    assert.deepEqual(scene.preChoiceCharacterIds,
+      [chapters.get(scene.chapterId).cast.guide.name, scene.residentId]);
+    assert.deepEqual(validateSceneAtStop(scene, scene.stopId), []);
+    assert.equal(scene.choice.options.every(option => tokenizeConnectedText(option.childLabel).length <= 6), true);
+    const auditedIds = [...new Set(scene.advancedChildLabelAudit.map(entry => entry.tokenId))].sort();
+    assert.deepEqual(scene.advancedChildLabelTokenIds, auditedIds);
+    assert.equal(scene.advancedChildLabelAuditDecision.status,
+      auditedIds.length ? "reviewed" : "reviewed_none_required");
+
+    const forgedCast = { ...scene, preChoiceCharacterIds: [`${scene.chapterId}-guide`, scene.residentId] };
+    assert.equal(validateSceneAtStop(forgedCast, scene.stopId)
+      .includes("pre-choice cast identity mismatch"), true);
+
+    const forgedMeanings = {
+      ...scene,
+      postDecisionMeaningWordIds: scene.postDecisionMeaningWordIds.map((ids, index) =>
+        index === 0 ? ["fiction"] : ids)
+    };
+    if (scene.stopId !== "s40") {
+      assert.equal(validateSceneAtStop(forgedMeanings, scene.stopId)
+        .includes("post-decision meaning is not directly justified"), true);
     }
   }
 });
@@ -246,9 +317,12 @@ test("split visual semantics remain answer-neutral before choice and complete af
   assert.equal(SOUND_SEEKERS_OPTION_VISUAL_SEMANTICS.length, 112);
   assert.equal(SOUND_SEEKERS_POST_DECISION_VISUAL_SEMANTICS.length, 48);
   assert.equal(SOUND_SEEKERS_NARRATIVE_BRANCH_OUTCOMES.length, 16);
-  assert.equal(SOUND_SEEKERS_MEANING_VISUAL_SEMANTICS.length, 46);
-  assert.equal(SOUND_SEEKERS_VISUAL_SEMANTIC_REGISTRY.length, 286);
-  assert.equal(new Set(SOUND_SEEKERS_VISUAL_SEMANTIC_REGISTRY.map(record => record.id)).size, 286);
+  assert.equal(SOUND_SEEKERS_MEANING_VISUAL_SEMANTICS.length,
+    SOUND_SEEKERS_MEANING_SUPPORT.length);
+  const expectedRegistryCount = 40 + 40 + 112 + 48 + SOUND_SEEKERS_MEANING_SUPPORT.length;
+  assert.equal(SOUND_SEEKERS_VISUAL_SEMANTIC_REGISTRY.length, expectedRegistryCount);
+  assert.equal(new Set(SOUND_SEEKERS_VISUAL_SEMANTIC_REGISTRY.map(record => record.id)).size,
+    expectedRegistryCount);
   for (const record of SOUND_SEEKERS_VISUAL_SEMANTIC_REGISTRY) {
     assert.strictEqual(resolveSceneVisualSemantic(record.id), record);
   }
@@ -318,6 +392,32 @@ test("the production graph keeps one narrow connected-text boundary", () => {
     ])],
     ["src/features/soundSeekers/engine/connectedTextPresentation.js", new Map([
       ["../content/connectedText.js", ["evaluateConnectedTextDecision", "getConnectedText"]]
+    ])],
+    ["src/features/soundSeekers/engine/createChallenge.js", new Map([
+      ["../content/connectedText.js", ["createConnectedTextChallenge", "toChildConnectedTextScene"]]
+    ])],
+    ["src/features/soundSeekers/engine/sceneVisualAccess.js", new Map([
+      ["./connectedTextPresentation.js", [
+        "isConnectedTextPresentationTransition", "projectConnectedTextPresentationTransition"
+      ]]
+    ])],
+    ["src/features/soundSeekers/engine/missionReducer.js", new Map([
+      ["./connectedTextPresentation.js", [
+        "beginConnectedTextPresentation", "checkpointConnectedTextPresentation",
+        "closeConnectedTextPresentation", "reduceConnectedTextPresentation",
+        "rehydrateConnectedTextPresentation"
+      ]]
+    ])],
+    ["src/features/soundSeekers/preview/galleryReplayRecipes.js", new Map([
+      ["../content/connectedText.js", ["createConnectedTextChallenge", "toChildConnectedTextScene"]],
+      ["../engine/connectedTextPresentation.js", [
+        "beginConnectedTextPresentation", "checkpointConnectedTextPresentation",
+        "closeConnectedTextPresentation", "reduceConnectedTextPresentation",
+        "rehydrateConnectedTextPresentation"
+      ]]
+    ])],
+    ["src/features/soundSeekers/visual/sceneVisualCatalog.js", new Map([
+      ["../content/connectedText.js", ["isConnectedTextChildScene"]]
     ])]
   ]);
   for (const path of files) {

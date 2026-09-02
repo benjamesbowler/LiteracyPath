@@ -1,4 +1,7 @@
-import { getContentDeckCatalogRecord } from "../content/contentDeckCatalogs.js";
+import {
+  CONTENT_DECK_CATEGORIES,
+  getContentDeckCatalogRecord
+} from "../content/contentDeckCatalogs.js";
 import {
   evaluateConnectedTextDecision,
   getConnectedText
@@ -14,6 +17,8 @@ import {
   validContentDeckUses
 } from "./contentCoverage.js";
 import { rehydrateServedContentInstance } from "./contentDeckScheduler.js";
+import { completeStoryTransferTransaction } from "./contentDeckTransactions.js";
+import { isSoundSeekersV2 } from "./stateV2.js";
 
 const stateBrands = new WeakSet();
 const transitionBrands = new WeakSet();
@@ -90,13 +95,69 @@ function eventShape(event) {
   return null;
 }
 
-function sceneTuple(scene) {
-  return {
-    instructionId: scene.transferRef.instructionId,
-    powerId: scene.transferRef.powerId,
-    expectedAction: scene.transferRef.expectedAction,
-    recordsDomain: scene.transferRef.recordsDomain
-  };
+const STATE_KEYS = [
+  "v", "contentVersion", "reset", "trail", "evidence", "confusions", "contentDecks",
+  "attemptReceipts", "journal", "rewards", "checkpoint", "assignment", "settings"
+];
+
+function assertCompleteStateShape(state) {
+  if (!plainObject(state) || !isSoundSeekersV2(state)
+    || !exactKeys(state, STATE_KEYS)
+    || !plainObject(state.contentDecks)
+    || JSON.stringify(Object.keys(state.contentDecks)) !== JSON.stringify(CONTENT_DECK_CATEGORIES)
+    || !plainObject(state.attemptReceipts)
+    || (state.checkpoint !== null && (!plainObject(state.checkpoint)
+      || state.checkpoint.contentVersion !== state.contentVersion))) {
+    throw new Error("presentation requires one complete canonical Sound Seekers state");
+  }
+  for (const category of CONTENT_DECK_CATEGORIES) {
+    const deck = state.contentDecks[category];
+    if (!exactKeys(deck, ["visits", "uses"])
+      || !plainObject(deck.visits) || !plainObject(deck.uses)) {
+      throw new Error("presentation requires all five canonical content decks");
+    }
+  }
+}
+
+function challengeForReceipt(scene, receipt) {
+  const record = getContentDeckCatalogRecord("transfer", scene.transferRef.recordId);
+  const boss = scene.choice.kind === "narrative_bridge";
+  return deepFreeze({
+    challengeId: `${receipt.attemptId}:${boss ? "boss" : "transfer"}`,
+    attemptId: receipt.attemptId,
+    targetId: record.targetId,
+    recordsDomain: record.recordsDomain,
+    powerId: record.powerId,
+    expectedAction: record.expectedAction,
+    instructionId: record.instructionId,
+    ...(boss ? {
+      wordId: record.wordId,
+      position: "whole",
+      bossTransferId: record.bossTransferId,
+      connectedTextId: null
+    } : { connectedTextId: record.connectedTextId }),
+    optionTokens: record.decisionContract.optionTokens,
+    expectedToken: record.decisionContract.expectedToken,
+    childText: boss
+      ? "Blend the new word. Choose its picture."
+      : "Choose the action that matches the story.",
+    requiresAudio: false
+  });
+}
+
+function assertReceiptInputHash(state, scene, receipt, event) {
+  const challenge = challengeForReceipt(scene, receipt);
+  completeStoryTransferTransaction(state, {
+    transactionId: receipt.subjectId,
+    challenge,
+    response: {
+      kind: "literacy-answer",
+      token: event.correct ? challenge.expectedToken : event.confusion
+    },
+    audio: { status: event.cueDelivery },
+    at: event.at,
+    sessionDay: event.sessionDay
+  });
 }
 
 function verifyCanonicalVisits(state, scene, transactionId, journeyStep) {
@@ -137,19 +198,24 @@ function verifyEventForScene(scene, event) {
     if (result.correct !== event.correct || (event.correct ? event.confusion !== null : event.confusion !== selected)) {
       throw new Error("connected-text evidence decision is inconsistent");
     }
-  } else if (event.domain !== "novel_decoding"
-    || event.target !== getContentDeckCatalogRecord("transfer", scene.transferRef.recordId).targetId
+  } else {
+    const record = getContentDeckCatalogRecord("transfer", scene.transferRef.recordId);
+    if (event.domain !== "novel_decoding"
+    || event.target !== record.targetId
     || event.word !== scene.transferRef.wordId || event.position !== "whole"
     || event.connectedTextId !== null || event.bossTransferId !== scene.transferRef.bossTransferId
-    || Object.hasOwn(event, "activityType")) {
-    throw new Error("boss presentation evidence identity is invalid");
+    || Object.hasOwn(event, "activityType")
+    || (event.correct
+      ? event.confusion !== null
+      : !record.decisionContract.optionTokens.includes(event.confusion)
+        || event.confusion === record.decisionContract.expectedToken)) {
+      throw new Error("boss presentation evidence identity is invalid");
+    }
   }
 }
 
 function verifyConnectedTextHistoryAgainstTask2(state, { sceneId, transactionId, history }) {
-  if (!state || !state.contentDecks || !Array.isArray(state.evidence)) {
-    throw new Error("presentation requires a complete Sound Seekers state");
-  }
+  assertCompleteStateShape(state);
   const scene = getConnectedText(sceneId);
   if (!scene) throw new Error("presentation scene is unknown");
   const match = /^story-transfer:(\d+):(s(?:[1-9]|[1-3][0-9]|40))$/u.exec(transactionId);
@@ -166,10 +232,17 @@ function verifyConnectedTextHistoryAgainstTask2(state, { sceneId, transactionId,
   const evidenceIds = new Set();
   const verified = decisions.map((decision, ordinal) => {
     const receipt = receipts[ordinal];
+    const rawReceipt = state.attemptReceipts[receipt?.attemptId];
     if (receipt.attemptOrdinal !== ordinal || receipt.decisionOrdinal !== 0
       || receipt.completed !== (ordinal === receipts.length - 1 && receipt.useIds.length === 2)
       || receipt.eventIds.length !== 1 || receipt.eventIds[0] !== decision.evidenceEventId) {
       throw new Error("presentation attempt receipts are not contiguous and canonical");
+    }
+    if (!rawReceipt || !exactKeys(rawReceipt, [
+      "kind", "attemptId", "operation", "subjectId", "decisionOrdinal", "attemptOrdinal",
+      "inputSha256", "completed", "correctionRecordIds", "eventIds", "useIds"
+    ]) || JSON.stringify(rawReceipt) !== JSON.stringify(receipt)) {
+      throw new Error("presentation receipt differs from canonical Task 2 history");
     }
     const matches = state.evidence.filter(event => event.id === decision.evidenceEventId);
     if (matches.length !== 1 || evidenceIds.has(decision.evidenceEventId)) {
@@ -184,6 +257,7 @@ function verifyConnectedTextHistoryAgainstTask2(state, { sceneId, transactionId,
     if (!event.correct && (receipt.correctionRecordIds.length !== 1 || receipt.useIds.length !== 0)) {
       throw new Error("presentation correction receipt is invalid");
     }
+    assertReceiptInputHash(state, scene, receipt, event);
     return { decision, receipt, event };
   });
   const newest = verified.at(-1);
@@ -192,7 +266,7 @@ function verifyConnectedTextHistoryAgainstTask2(state, { sceneId, transactionId,
   const transferUses = validContentDeckUses(state, "transfer")
     .filter(use => use.transactionId === transactionId);
   const descriptor = state.checkpoint?.storyTransfer;
-  let narrativeChoiceToken = null;
+  let narrativeChoiceToken;
   if (newest.event.correct) {
     if (descriptor || storyUses.length !== 1 || transferUses.length !== 1) {
       throw new Error("completed presentation lacks one reciprocal final use pair");
@@ -208,9 +282,19 @@ function verifyConnectedTextHistoryAgainstTask2(state, { sceneId, transactionId,
     }
     narrativeChoiceToken = storyUse.narrativeChoiceToken;
   } else {
-    if (!descriptor || descriptor.transactionId !== transactionId || storyUses.length || transferUses.length
+    if (!descriptor || !exactKeys(descriptor, [
+      "kind", "transactionId", "stopId", "journeyStep", "stage", "storyVisitId",
+      "transferVisitId", "narrativeChoiceToken", "attemptOrdinal", "attemptId"
+    ]) || descriptor.kind !== "story_transfer"
+      || descriptor.transactionId !== transactionId || descriptor.stopId !== scene.stopId
+      || descriptor.journeyStep !== journeyStep
+      || descriptor.storyVisitId !== `visit:${transactionId}:story`
+      || descriptor.transferVisitId !== `visit:${transactionId}:transfer`
+      || descriptor.attemptId !== `story-transfer-attempt:${transactionId}:${receipts.length}`
+      || storyUses.length || transferUses.length
       || descriptor.attemptOrdinal !== receipts.length
-      || !["response_pending", "model_pending"].includes(descriptor.stage)) {
+      || !["response_pending", "model_pending"].includes(descriptor.stage)
+      || (descriptor.stage === "model_pending" && descriptor.attemptOrdinal !== 3)) {
       throw new Error("pending presentation checkpoint is inconsistent");
     }
     narrativeChoiceToken = descriptor.narrativeChoiceToken;
@@ -294,7 +378,10 @@ function installNext(presentation, event, verification, phase, extras = {}) {
 }
 
 export function beginConnectedTextPresentation({ sceneId, transactionId } = {}) {
-  if (!stringId(sceneId) || !stringId(transactionId) || !getConnectedText(sceneId)) {
+  const scene = getConnectedText(sceneId);
+  const match = /^story-transfer:(\d+):(s(?:[1-9]|[1-3][0-9]|40))$/u.exec(transactionId || "");
+  if (!stringId(sceneId) || !stringId(transactionId) || !scene || !match
+    || match[2] !== scene.stopId || Number(match[1]) !== Number(scene.stopId.slice(1))) {
     throw new Error("connected-text presentation identity is invalid");
   }
   invalidateActive();
@@ -423,7 +510,7 @@ export function rehydrateConnectedTextPresentation(state, checkpoint) {
     || checkpoint.schemaVersion !== 1
     || checkpoint.kind !== "connected_text_presentation_checkpoint"
     || !stringId(checkpoint.sceneId) || !stringId(checkpoint.transactionId)
-    || !Array.isArray(checkpoint.history)) {
+    || !Array.isArray(checkpoint.history) || checkpoint.history.length === 0) {
     throw new Error("presentation checkpoint shape is invalid");
   }
   checkpoint.history.forEach((event, index) => {
@@ -431,24 +518,17 @@ export function rehydrateConnectedTextPresentation(state, checkpoint) {
       throw new Error("presentation checkpoint revisions are not contiguous");
     }
   });
-  let verification = null;
-  let replay = { phase: "pre_choice", meaningSemanticId: null };
-  if (checkpoint.history.length) {
-    verification = verifyConnectedTextHistoryAgainstTask2(state, {
-      sceneId: checkpoint.sceneId,
-      transactionId: checkpoint.transactionId,
-      history: checkpoint.history
-    });
-    replay = replayPhase(checkpoint, verification);
-  } else if (!getConnectedText(checkpoint.sceneId)) {
-    throw new Error("presentation checkpoint scene is unknown");
-  }
+  const verification = verifyConnectedTextHistoryAgainstTask2(state, {
+    sceneId: checkpoint.sceneId,
+    transactionId: checkpoint.transactionId,
+    history: checkpoint.history
+  });
+  const replay = replayPhase(checkpoint, verification);
   invalidateActive();
   const generation = Object.freeze({});
   const history = deepFreeze(checkpoint.history.map(freezeEvent));
   let transition = null;
   if (history.length) {
-    const last = history.at(-1);
     const newestDecision = [...history].reverse().find(event => event.type === "decision_committed");
     const newest = verification.verified.find(item => item.event.id === newestDecision.evidenceEventId);
     const correctionRecordId = replay.phase === "correction"

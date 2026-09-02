@@ -51,7 +51,18 @@ const COPY = Object.freeze({
   thin: ["Thin means having little distance from one side to the other.", "Hold finger and thumb close to show something thin.", "Thin has little width; thick has more width.", "A thin object has narrow edges.", "Bring thumb and finger close with a tiny gap.", "small-width-between-sides"],
   thing: ["A thing is an object, idea, event, or action being named.", "Point to one thing you can see nearby.", "Thing names something; person names a human being.", "We use the word when the exact name is not needed yet.", "Hold up one finger, then point to one object.", "something-being-named"],
   tree: ["A tree is a tall plant with a trunk, branches, and leaves.", "Stand one arm like a trunk and spread branch fingers.", "A tree has a woody trunk; grass has soft blades.", "Roots hold the tree while branches reach upward.", "Raise both arms and spread fingers like branches.", "tall-trunked-plant"],
-  truck: ["A truck is a road vehicle made to carry heavy loads.", "Pretend to steer a truck carrying a load.", "A truck carries loads on land; a ship carries them on water.", "The back or trailer gives a truck room for cargo.", "Hold a steering wheel, then gesture to a load behind it.", "road-vehicle-for-loads"]
+  truck: ["A truck is a road vehicle made to carry heavy loads.", "Pretend to steer a truck carrying a load.", "A truck carries loads on land; a ship carries them on water.", "The back or trailer gives a truck room for cargo.", "Hold a steering wheel, then gesture to a load behind it.", "road-vehicle-for-loads"],
+  buzz: ["A buzz is a low humming sound like a bee makes.", "Hum softly and move one finger like a flying bee.", "A buzz is a sound; a light is something we see.", "Bees and small machines can make a steady buzz.", "Circle one finger while humming softly.", "low-humming-bee-sound"],
+  lift: ["Lift means move something upward.", "Raise both hands as if lifting a light object.", "Lift moves up; put down moves toward the ground.", "Hands can lift an object from a lower place to a higher place.", "Start with low hands and raise them together.", "move-something-upward"]
+});
+
+const ADVANCED_REASON = Object.freeze({
+  buzz: "new_concept",
+  home: "new_concept",
+  lift: "new_concept",
+  rain: "new_concept",
+  rock: "new_concept",
+  sit: "new_concept"
 });
 
 function record(wordId) {
@@ -66,11 +77,11 @@ function record(wordId) {
     audioKey: `quest/meaning/${wordId}`,
     ageBand: "5-8",
     ellSupport: Object.freeze({ oralBridge, gesturePrompt }),
-    advancedReason: null,
+    advancedReason: ADVANCED_REASON[wordId] || null,
     answerLeakPolicy: "post_decision_or_non_assessed_help"
   });
 }
 
 export const MEANING_SUPPORT_RECORDS = Object.freeze(
-  REQUIRED_ACTION_MEANING_WORD_IDS.map(record)
+  [...REQUIRED_ACTION_MEANING_WORD_IDS, "buzz", "lift"].sort().map(record)
 );

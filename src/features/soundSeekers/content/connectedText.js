@@ -1,11 +1,13 @@
 import { SOUND_SEEKERS_EXPEDITIONS } from "./expeditions.js";
 import { SOUND_SEEKERS_HEART_WORDS } from "./heartWords.js";
+import { SOUND_SEEKERS_CHAPTERS } from "./chapters/index.js";
 import { getPronunciation } from "./pronunciationLexicon.js";
 import {
   getContentDeckCatalogRecord
 } from "./contentDeckCatalogs.js";
 import { CONNECTED_TEXT_RECORDS } from "./connectedTextRecords.js";
 import { CONNECTED_TEXT_DECISION_FEEDBACK } from "./connectedTextAnswerKeys.js";
+import { MEANING_SUPPORT_RECORDS } from "./meaningSupportRecords.js";
 import {
   ADVANCED_SCENE_TOKEN_CONTENT_HASH,
   ADVANCED_SCENE_TOKEN_COUNT,
@@ -49,6 +51,7 @@ export function readabilityBandForStop(stopIndex) {
 
 const heartIntroduction = new Map(SOUND_SEEKERS_HEART_WORDS
   .map(record => [record.recordId, Number(record.introductionStopId.slice(1))]));
+const meaningSupportWordIds = new Set(MEANING_SUPPORT_RECORDS.map(record => record.wordId));
 
 function sentenceCount(text) {
   return (String(text || "").match(/[.!?]+(?=\s|$)/gu) || []).length;
@@ -75,6 +78,74 @@ function validateAdvancedAudit(scene, errors) {
   }
 }
 
+function validateChildLabelAudit(scene, stopIndex, errors) {
+  const actualAdvanced = [];
+  for (const option of scene.choice?.options || []) {
+    const labelTokens = tokenizeConnectedText(option.childLabel);
+    if (labelTokens.length === 0 || labelTokens.length > 6) {
+      errors.push("child label token count mismatch");
+    }
+    labelTokens.forEach((surface, tokenOrdinal) => {
+      const pronunciation = getPronunciation(surface);
+      if (!pronunciation || pronunciation.word !== surface) {
+        errors.push(`unresolved child label token ${option.token}:${tokenOrdinal}`);
+        return;
+      }
+      const heartStop = heartIntroduction.get(`hw:${surface}`) || Infinity;
+      const targetStop = Math.min(...pronunciation.taughtAt.map(value => Number(value.slice(1))));
+      if (Math.min(heartStop, targetStop) > stopIndex) {
+        actualAdvanced.push({
+          optionToken: option.token,
+          tokenId: surface,
+          tokenOrdinal,
+          advancedReason: "new_concept"
+        });
+      }
+    });
+  }
+  if (JSON.stringify(actualAdvanced) !== JSON.stringify(scene.advancedChildLabelAudit)) {
+    errors.push("advanced child label audit mismatch");
+  }
+  const projected = [...new Set(actualAdvanced.map(entry => entry.tokenId))].sort();
+  if (!sameMembers(projected, scene.advancedChildLabelTokenIds)) {
+    errors.push("advanced child label projection mismatch");
+  }
+  if (projected.some(wordId => !meaningSupportWordIds.has(wordId))) {
+    errors.push("unsupported advanced child label token");
+  }
+  const status = projected.length ? "reviewed" : "reviewed_none_required";
+  if (scene.advancedChildLabelAuditDecision?.status !== status
+    || !Number.isFinite(Date.parse(scene.advancedChildLabelAuditDecision?.reviewedAt || ""))) {
+    errors.push("advanced child label audit decision mismatch");
+  }
+}
+
+function validatePostDecisionMeaning(scene, errors) {
+  const expectedCount = scene.choice?.kind === "narrative_bridge" ? 2 : 1;
+  if (!Array.isArray(scene.postDecisionMeaningWordIds)
+    || scene.postDecisionMeaningWordIds.length !== expectedCount) {
+    errors.push("post-decision meaning ownership mismatch");
+    return;
+  }
+  const runningWords = new Set(tokenizeConnectedText(scene.text));
+  const transferRecord = getContentDeckCatalogRecord("transfer", scene.transferRef?.recordId);
+  scene.postDecisionMeaningWordIds.forEach((wordIds, index) => {
+    const option = scene.choice.kind === "narrative_bridge"
+      ? scene.choice.options.find(item => item.token === scene.narrativeBranches[index]?.token)
+      : scene.choice.options.find(item => item.token === transferRecord?.decisionContract?.expectedToken);
+    const directlyJustified = new Set([
+      ...runningWords,
+      ...tokenizeConnectedText(option?.childLabel),
+      ...tokenizeConnectedText(option?.accessibleLabel)
+    ]);
+    if (!Array.isArray(wordIds) || wordIds.length === 0
+      || wordIds.some(wordId => !meaningSupportWordIds.has(wordId)
+        || !directlyJustified.has(wordId))) {
+      errors.push("post-decision meaning is not directly justified");
+    }
+  });
+}
+
 export function validateSceneAtStop(scene, stopId) {
   const errors = [];
   const stopIndex = Number(String(stopId || "").replace(/^s/u, ""));
@@ -95,14 +166,19 @@ export function validateSceneAtStop(scene, stopId) {
     const tokenId = scene.tokenIds[ordinal];
     const normalizedId = String(tokenId || "").replace(/^hw:/u, "");
     const pronunciation = getPronunciation(normalizedId);
+    const auditedAdvanced = scene.advancedTokenAudit.some(entry =>
+      entry.tokenId === tokenId && entry.tokenOrdinal === ordinal);
     if (!pronunciation || pronunciation.word !== surface) errors.push(`unresolved token ${ordinal}`);
     if (tokenId.startsWith("hw:")) {
-      if (!scene.heartWordIds.includes(tokenId) || (heartIntroduction.get(tokenId) || Infinity) > stopIndex) {
+      if (!scene.heartWordIds.includes(tokenId)
+        || ((heartIntroduction.get(tokenId) || Infinity) > stopIndex && !auditedAdvanced)) {
         errors.push(`unavailable heart word ${tokenId}`);
       }
     } else {
       const firstStop = Math.min(...(pronunciation?.taughtAt || []).map(value => Number(value.slice(1))));
-      if (!Number.isFinite(firstStop) || firstStop > stopIndex) errors.push(`untaught token ${tokenId}`);
+      if (!Number.isFinite(firstStop) || (firstStop > stopIndex && !auditedAdvanced)) {
+        errors.push(`untaught token ${tokenId}`);
+      }
     }
   });
   if (tokenizeConnectedText(scene.prompt?.text).length > 10 || sentenceCount(scene.prompt?.text) !== 1) {
@@ -116,10 +192,18 @@ export function validateSceneAtStop(scene, stopId) {
     }
   }
   validateAdvancedAudit(scene, errors);
+  validateChildLabelAudit(scene, stopIndex, errors);
+  const chapter = chapterById.get(scene.chapterId);
+  if (!chapter || JSON.stringify(scene.preChoiceCharacterIds)
+    !== JSON.stringify([chapter.cast.guide.name, scene.residentId])) {
+    errors.push("pre-choice cast identity mismatch");
+  }
+  validatePostDecisionMeaning(scene, errors);
   return errors;
 }
 
 const expeditionByStop = new Map(SOUND_SEEKERS_EXPEDITIONS.map(record => [record.stopId, record]));
+const chapterById = new Map(SOUND_SEEKERS_CHAPTERS.map(record => [record.id, record]));
 
 function buildEvaluator(scene) {
   if (scene.choice.kind !== "assessed_connected_text") return null;
@@ -155,6 +239,7 @@ for (const scene of CONNECTED_TEXT_RECORDS) {
   const transfer = expedition?.phases.find(phase => phase.id === `${scene.stopId}-transfer`);
   const transferRecord = getContentDeckCatalogRecord("transfer", scene.transferRef.recordId);
   const storyRecord = getContentDeckCatalogRecord("stories", scene.storyRef.recordId);
+  const chapter = chapterById.get(scene.chapterId);
   if (!expedition || !transfer || !transferRecord || !storyRecord
     || storyRecord.contentId !== scene.id || transferRecord.connectedTextId !== scene.id
     || scene.chapterId !== expedition.chapterId || scene.residentId !== expedition.residentId
@@ -166,7 +251,10 @@ for (const scene of CONNECTED_TEXT_RECORDS) {
     || scene.transferRef.instructionId !== transfer.instructionId
     || scene.transferRef.powerId !== transfer.powerId
     || scene.transferRef.expectedAction !== transfer.expectedAction
-    || scene.transferRef.recordsDomain !== transfer.recordsDomain) {
+    || scene.transferRef.recordsDomain !== transfer.recordsDomain
+    || !chapter
+    || JSON.stringify(scene.preChoiceCharacterIds)
+      !== JSON.stringify([chapter.cast.guide.name, scene.residentId])) {
     throw new Error(`${scene.id}: committed expedition/deck join mismatch`);
   }
   const validationErrors = validateSceneAtStop(scene, scene.stopId);
@@ -174,7 +262,7 @@ for (const scene of CONNECTED_TEXT_RECORDS) {
 }
 
 const authoredAdvancedTokenIds = [...new Set(CONNECTED_TEXT_RECORDS
-  .flatMap(scene => scene.advancedTokenIds))].sort();
+  .flatMap(scene => [...scene.advancedTokenIds, ...scene.advancedChildLabelTokenIds]))].sort();
 if (!sameMembers(authoredAdvancedTokenIds, ADVANCED_SCENE_TOKEN_IDS)
   || authoredAdvancedTokenIds.length !== ADVANCED_SCENE_TOKEN_COUNT
   || !/^[a-f0-9]{64}$/u.test(ADVANCED_SCENE_TOKEN_CONTENT_HASH)) {
@@ -183,11 +271,31 @@ if (!sameMembers(authoredAdvancedTokenIds, ADVANCED_SCENE_TOKEN_IDS)
 
 export const SOUND_SEEKERS_CONNECTED_TEXT = CONNECTED_TEXT_RECORDS;
 const sceneById = new Map(SOUND_SEEKERS_CONNECTED_TEXT.map(scene => [scene.id, scene]));
+const childSceneBrands = new WeakSet();
 
 export const CONNECTED_TEXT_EVALUATORS = deepFreeze(Object.fromEntries(
   SOUND_SEEKERS_CONNECTED_TEXT.filter(scene => scene.choice.kind === "assessed_connected_text")
     .map(scene => [scene.id, buildEvaluator(scene)])
 ));
+
+for (const scene of SOUND_SEEKERS_CONNECTED_TEXT) {
+  const postCount = scene.choice.kind === "narrative_bridge" ? 2 : 1;
+  if (!Array.isArray(scene.postDecisionMeaningWordIds)
+    || scene.postDecisionMeaningWordIds.length !== postCount
+    || scene.postDecisionMeaningWordIds.some(ids => !Array.isArray(ids) || ids.length === 0)) {
+    throw new Error(`${scene.id}: post-decision meaning ownership is invalid`);
+  }
+  const textWords = new Set(tokenizeConnectedText(scene.text));
+  scene.postDecisionMeaningWordIds.forEach((wordIds, index) => {
+    const option = scene.choice.kind === "narrative_bridge"
+      ? scene.choice.options.find(item => item.token === scene.narrativeBranches[index].token)
+      : scene.choice.options.find(item => item.token === CONNECTED_TEXT_EVALUATORS[scene.id].expectedToken);
+    const justifiedWords = new Set([...textWords, ...tokenizeConnectedText(option?.childLabel)]);
+    if (wordIds.some(wordId => !justifiedWords.has(wordId))) {
+      throw new Error(`${scene.id}: post-decision meaning is not justified by scene text/action`);
+    }
+  });
+}
 
 export function getConnectedText(sceneId) {
   return sceneById.get(String(sceneId || "").trim()) || null;
@@ -213,7 +321,7 @@ export function toChildConnectedTextScene(sceneId, routeSeed) {
   if (!scene || typeof routeSeed !== "string" || !routeSeed.trim()) {
     throw new Error("child connected-text scene identity is invalid");
   }
-  return deepFreeze({
+  const childScene = deepFreeze({
     id: scene.id,
     stopId: scene.stopId,
     chapterId: scene.chapterId,
@@ -235,6 +343,12 @@ export function toChildConnectedTextScene(sceneId, routeSeed) {
     preChoiceSemanticId: `${scene.id}-pre-choice`,
     visualSemanticId: scene.visualSemanticId
   });
+  childSceneBrands.add(childScene);
+  return childScene;
+}
+
+export function isConnectedTextChildScene(value) {
+  return Boolean(value && typeof value === "object" && childSceneBrands.has(value));
 }
 
 export function evaluateConnectedTextDecision(sceneId, selectedToken) {

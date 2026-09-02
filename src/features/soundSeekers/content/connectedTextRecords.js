@@ -67,62 +67,95 @@ const IDENTITIES = [
   ["star-reach", "Dawn", "first-reading-star-dim", "sky-road-disconnected", "wake-first-reading-star", "star-s40-dawn-celebration", "first-reading-star-awake"]
 ];
 
-const TEXTS = [
-  "A mat.", "Dad sat.", "The hot lid.", "A bun is hot.", "A cat can sit.",
-  "The fox is in.", "Fix the bell.", "The bell is on.",
-  "The fish sat in the box.", "You can sing with the bell.",
-  "The duck can pick the rock.", "The hand can lift the lamp.",
-  "We can sit on the rock.", "The flag is on the black block.",
-  "The frog can jump from the truck.", "The sky is sunny by the shop.",
-  "The big frog can jump. The red fox can run.",
-  "The whale can swim. The snake can run.",
-  "The white bike can ride. The kite can fly.",
-  "The stone is by the rope. We can lift it.",
-  "The cute mule can use the gate. The huge cube can fit.",
-  "The athlete can complete the run. We can use these.",
-  "The train can stay. The rain is on the tray.",
-  "The sheep eat. The green leaf is by the tree.",
-  "The bright light is high. The night is black. We can read the right path.",
-  "The boat is slow. The goat can go on the road. The snow is white.",
-  "The moon is blue. We can sit in the room. The food is hot.",
-  "The cook took the book. Look at the good food. We can eat.",
-  "The loud sound is down. The brown cow is out. We can sit now.",
-  "The boy can point. We can pick the coin. The toy is on.",
-  "The star is bright. The car can start. We can park by the farm.",
-  "The claw is sharp. The storm can grow. We should store the corn.",
-  "The bird can turn by the fern. The girl can look at it. We can sit by the bird.",
-  "The chair is by the stair. The girl can sit there. We can share the fair cake with friends.",
-  "The bird is near the tree. The girl can hear it sing. We can sit near the fern.",
-  "The creature is here. It can follow the light. We can wait and look at the picture. The path is secure.",
-  "The giant can climb the dark rock. Its magic light is ready. We can read the words and rest at school.",
-  "The cats jumped up. The dogs had landed by the stars. We keep reading as the birds are singing.",
-  "We cross the bridge. The apple is in the middle of the table. Take the simple puzzle and leave the rocks.",
-  "Every quest is an action. We read the whole book and listen. We reach the station as the stars shout yes."
+const option = (stopId, letter, childLabel, accessibleLabel = childLabel) => ({
+  token: `ct-${stopId}-${letter}`,
+  presentation: "image",
+  childLabel,
+  accessibleLabel,
+  visualSemanticId: `scene-${stopId}-option-${slug(childLabel)}`
+});
+
+const ASSESSED_CONTENT = [
+  ["s1", "Wake the Seed Lanterns", "Lift mat.", "What action wakes the light?", ["lift", "mat"], [["a", "Sit at mat."], ["b", "Lift mat."], ["c", "Mat sat."]], [["lift", 0, "new_concept"]], [["ct-s1-a", "sit", 0, "new_concept"], ["ct-s1-b", "lift", 0, "new_concept"]]],
+  ["s2", "Rebuild the Fern-Step Song", "Sit at fin.", "How can Tumble set the step?", "sit", [["a", "Sit at fin."], ["b", "Fit fin."], ["c", "Fan fin."]]],
+  ["s3", "Turn the Rook Wind Stones", "Hit hot rock.", "What turns the hot wind stone?", ["hot", "rock"], [["a", "Sit on rock."], ["b", "Hit hot hat."], ["c", "Hit hot rock."]], [["rock", 2, "new_concept"]], [["ct-s3-a", "rock", 2, "new_concept"], ["ct-s3-c", "rock", 2, "new_concept"]]],
+  ["s4", "Raise the Otter Ford", "Fit bun in bin.", "How can Tumble fill the ford gap?", "bun", [["a", "Fit bun on bin."], ["b", "Fit bun in bin."], ["c", "Fit bud in bin."]]],
+  ["s6", "Guide the Bluff Bees Home", "Get buzz home in box.", "How can Fizz guide the buzz home?", ["buzz", "box", "home"], [["a", "Get buzz in net."], ["b", "Get box in van."], ["c", "Get buzz home in box."]], [["buzz", 1, "new_concept"], ["home", 2, "new_concept"]], [["ct-s6-a", "buzz", 1, "new_concept"], ["ct-s6-c", "buzz", 1, "new_concept"], ["ct-s6-c", "home", 2, "new_concept"]]],
+  ["s7", "Relaunch the Lily Ferry", "Get jam off bell.", "What frees the ferry bell?", "jam", [["a", "Get jam off bell."], ["b", "Get bell off mat."], ["c", "Get jam on bell."]]],
+  ["s8", "Clear Fishpool Reach", "Mat can fix net.", "What can patch the fish net?", "mat", [["a", "Box can fix net."], ["b", "Mat can fix net."], ["c", "Mat can fix bell."]]],
+  ["s9", "Mend Wheelhouse Bend", "We can fix the ship.", "What gets the wheelhouse moving?", "ship", [["a", "Fix fish."], ["b", "Fix net."], ["c", "Fix ship."]]],
+  ["s11", "Raise the Amber Trail Markers", "Pick the rock on the path.", "What reveals the amber path?", "rock", [["a", "Pick rock on path."], ["b", "Kick path rock."], ["c", "Sit on path rock."]]],
+  ["s12", "Rebuild the Rattlebones Lift", "Lift the lamp with a hand.", "How can Amber raise the lift lamp?", "hand", [["a", "Kick lamp."], ["b", "Pick lamp."], ["c", "Lift lamp."]]],
+  ["s13", "Reveal the Ash-Flat Trail", "Spin at the spot on the path.", "What reveals the ash-flat mark?", "spin", [["a", "Sit at spot."], ["b", "Spin at spot."], ["c", "Skip at spot."]]],
+  ["s14", "Bridge Fern Canyon", "Clap at the flag on the block.", "What calls the fern bridge?", "clap", [["a", "Clap at flag."], ["b", "Flip flag."], ["c", "Clap at block."]]],
+  ["s16", "Unlock Gearworks Gate", "Click the lock by it.", "Which action opens Bolt's lane?", "by", [["a", "Click flag."], ["b", "Click lock."], ["c", "Fly by lock."]]],
+  ["s17", "Restart the Ore Hopper", "A big rock is on the ship. Lift the rock off.", "What unjams Soot's hopper?", "ship", [["a", "Kick rock."], ["b", "Sit on rock."], ["c", "Lift rock."]]],
+  ["s18", "Relight the Plate Foundry", "The cake plate is not hot. Make the flame hot.", "What relights the foundry?", "cake", [["a", "Make flame hot."], ["b", "Make cake hot."], ["c", "Make plate hot."]]],
+  ["s19", "Release the Night Train", "Slide the bike off the ship. It can run.", "What clears the train brake?", "bike", [["a", "Hide bike."], ["b", "Slide bike off."], ["c", "Ride bike."]]],
+  ["s21", "Moor the Reedlight Ferry", "The cube is by the ship. The rope is on the cube.", "Where should Ripple fasten the rope?", "cube", [["a", "Rope on mule."], ["b", "Rope on gate."], ["c", "Rope on cube."]]],
+  ["s22", "Clear Ripple Pool", "The theme is rain. Pick rain, not flame.", "Which picture clears the doubled signal?", "theme", [["a", "Pick rain."], ["b", "Pick run."], ["c", "Pick flame."]], [["rain", 3, "new_concept"], ["rain", 5, "new_concept"]], [["ct-s22-a", "rain", 1, "new_concept"]]],
+  ["s23", "Raise the Mica Steps", "The train can stay. The rain tray can sit by the train.", "Where should Glint set the rain tray?", "rain", [["a", "Tray on train."], ["b", "Rain tray by train."], ["c", "Tray in train."]]],
+  ["s24", "Tune Glint Causeway", "The tree can sing. Clap with the tree.", "What tunes the causeway song?", "tree", [["a", "Sing with tree."], ["b", "Sit by tree."], ["c", "Clap with tree."]]],
+  ["s26", "Secure Galecliff Path", "Show the road by the coat. The boat can go that way.", "Which marker keeps the boat on course?", "boat", [["a", "Road by coat."], ["b", "Road by snow."], ["c", "Road by goat."]]],
+  ["s27", "Rebuild Shellhaven Roof", "Snow is on the room. Glue the blue moon coat on the room.", "What covers Boom's shelter?", "moon", [["a", "Food in room."], ["b", "Glue blue moon coat."], ["c", "Snow in room."]]],
+  ["s28", "Restore Signal Harbour", "The ship is by the boat. Look in the book. Hook the light.", "How can Prism relight the harbour signal?", "book", [["a", "Hook book on boat."], ["b", "Hide light in book."], ["c", "Hook light."]]],
+  ["s29", "Calm Stormglass Cove", "The loud sound is by the rock. Sit now. The sound can stop.", "What helps the cove grow calm?", "sound", [["a", "Sit now."], ["b", "Bang rock."], ["c", "Make sound loud."]]],
+  ["s31", "Open Mothlight Gate", "The dark path is by the park. Park the car by the gate. The car can stop.", "Where should Luma stop the car?", "car", [["a", "Start car."], ["b", "Park car by gate."], ["c", "Hide car at farm."]]],
+  ["s32", "Wake the Echo Roots", "The storm hit the tree. A dark star is on it. Draw the star on the tree.", "What wakes Wisp's folded root stair?", "storm", [["a", "Saw tree."], ["b", "Store star."], ["c", "Draw star on tree."]]],
+  ["s33", "Mark Wispwood Turn", "The bird can turn by the fern. The girl can look at it. Draw the turn so the girl can look.", "What completes Orbit's living map?", "bird", [["a", "Draw turn."], ["b", "Look at bird."], ["c", "Sit by fern."]]],
+  ["s34", "Align Orbit Hollow", "The chair is by the stair. The girl can share the fair cake there. Pair the chair with the stair.", "Which pairing lines up the hollow rings?", "chair", [["a", "Pair chair with hair."], ["b", "Pair chair with stair."], ["c", "Pair stair with hair."]]],
+  ["s36", "Raise Comet Stair", "The creature is here. It can follow the pure light. Make the dark stair bright so the path is secure.", "What raises Comet's faded stair?", "pure", [["a", "Follow creature."], ["b", "Stair still dark."], ["c", "Make stair bright."]]],
+  ["s37", "Open Aster Archive", "The giant can climb to the dark city cell. The magic words are ready. Read the magic words at the lock.", "What opens Aster's archive?", "city", [["a", "Read magic words."], ["b", "Climb city cell."], ["c", "Rest by lock."]]],
+  ["s38", "Join Dawn Causeway", "The cats jumped up. The dogs landed by the stars. Join the star path so the cats can step on it.", "What joins Dawn's divided path?", "cats", [["a", "Follow dogs."], ["b", "Join star path."], ["c", "Sit by stars."]]],
+  ["s39", "Complete Reading Skybridge", "We can cross the bridge. Take the little puzzle over it, and leave the rocks by the table.", "What completes Comet's skybridge?", "little", [["a", "Leave puzzle by table."], ["b", "Take rocks over bridge."], ["c", "Take little puzzle."]]]
 ];
 
-const CORRECT_TOKENS = [
-  "b", "a", "c", "b", null, "c", "a", "b", "c", null,
-  "a", "c", "b", "a", null, "b", "c", "a", "b", null,
-  "c", "a", "b", "c", null, "a", "b", "c", "a", null,
-  "b", "c", "a", "b", null, "c", "a", "b", "c", null
-];
+const ASSESSED_SCENE_CONTENT = Object.freeze(Object.fromEntries(ASSESSED_CONTENT.map(
+  ([stopId, title, text, prompt, meaningWordId, choices, advanced = [], labelAdvanced = []]) => [stopId, Object.freeze({
+    title,
+    text,
+    prompt,
+    meaningWordIds: Object.freeze(Array.isArray(meaningWordId) ? meaningWordId : [meaningWordId]),
+    options: Object.freeze(choices.map(([letter, label, accessibleLabel]) =>
+      Object.freeze(option(stopId, letter, label, accessibleLabel)))),
+    advanced: Object.freeze(advanced.map(([tokenId, tokenOrdinal, advancedReason]) =>
+      Object.freeze({ tokenId, tokenOrdinal, advancedReason }))),
+    labelAdvanced: Object.freeze(labelAdvanced.map(([optionToken, tokenId, tokenOrdinal, advancedReason]) =>
+      Object.freeze({ optionToken, tokenId, tokenOrdinal, advancedReason })))
+  })]
+)));
 
-const FOCUS = [
-  "mat", "dad", "lid", "bun", "cat", "fox", "bell", "fish", "box", "song",
-  "rock", "lamp", "swim", "flag", "truck", "sky", "train", "whale", "bike", "stone",
-  "mule", "run", "rain", "tree", "light", "boat", "moon", "book", "sound", "point",
-  "star", "storm", "bird", "chair", "near", "picture", "words", "cats", "bridge", "quest"
-];
+const BOSS_TEXTS = Object.freeze({
+  s5: "Cat at cup.",
+  s10: "The thin thing can ring.",
+  s15: "The frog can jump from the truck.",
+  s20: "The stone is by home. We can lift it.",
+  s25: "The bright light is high. The night is black. We can read the right path.",
+  s30: "The boy can point. We can pick the coin. The toy is on.",
+  s35: "The bird is near the tree. The girl can hear it sing. We can sit near the fern.",
+  s40: "Every fiction quest is an action. We read the whole book and listen. We reach the station as the stars shout yes."
+});
+
+const BOSS_MEANING_WORD_IDS = Object.freeze({
+  s5: Object.freeze([["cat"], ["cup"]]),
+  s10: Object.freeze([["thin"], ["thing"]]),
+  s15: Object.freeze([["frog"], ["truck"]]),
+  s20: Object.freeze([["home"], ["stone"]]),
+  s25: Object.freeze([["light"], ["night"]]),
+  s30: Object.freeze([["coin"], ["point"]]),
+  s35: Object.freeze([["hear"], ["near"]]),
+  s40: Object.freeze([["fiction"], ["action"]])
+});
 
 const BOSS_DETAILS = Object.freeze({
-  5: { wordId: "cat", contextId: "bramble-gate-novel-decode", options: ["Take the flower path.", "Take the stream path."] },
-  10: { wordId: "thing", contextId: "singing-weir-novel-decode", options: ["Ring the high bell.", "Ring the low bell."] },
-  15: { wordId: "truck", contextId: "claw-pass-novel-decode", options: ["Open the rock road.", "Open the fern road."] },
-  20: { wordId: "stone", contextId: "word-forge-novel-decode", options: ["Light the blue forge.", "Light the red forge."] },
-  25: { wordId: "night", contextId: "mirror-fen-novel-decode", options: ["Wake the moon light.", "Wake the reed light."] },
-  30: { wordId: "point", contextId: "thunder-lighthouse-novel-decode", options: ["Turn the sea beam.", "Turn the sky beam."] },
-  35: { wordId: "near", contextId: "observatory-novel-decode", options: ["Turn the near ring.", "Turn the far ring."] },
-  40: { wordId: "action", contextId: "first-reading-star-novel-decode", options: ["Wake the dawn road.", "Wake the star road."] }
+  5: { wordId: "cat", contextId: "bramble-gate-novel-decode", options: [["Cat gap.", "Follow the gate path beside the cat."], ["Cup gap.", "Follow the gate path beside the cup."]] },
+  10: { wordId: "thing", contextId: "singing-weir-novel-decode", options: [["Thin bell.", "Ring the thin silver bell."], ["Thing bell.", "Ring the bell beside the singing thing."]] },
+  15: { wordId: "truck", contextId: "claw-pass-novel-decode", options: [["Frog path.", "Open the canyon road beside the frog."], ["Truck path.", "Open the canyon road beside the truck."]] },
+  20: { wordId: "stone", contextId: "word-forge-novel-decode", options: [["Home lamp.", "Carry the forge light home."], ["Stone lamp.", "Set the forge light beside the stone."]] },
+  25: { wordId: "night", contextId: "mirror-fen-novel-decode", options: [["Light path.", "Follow the bright light path."], ["Night path.", "Follow the quiet night path."]] },
+  30: { wordId: "point", contextId: "thunder-lighthouse-novel-decode", options: [["Coin light.", "Aim the lighthouse beam at the coin marker."], ["Point light.", "Point the lighthouse beam toward the toy marker."]] },
+  35: { wordId: "near", contextId: "observatory-novel-decode", options: [["Hear ring.", "Turn the ring toward the song we hear."], ["Near ring.", "Turn the ring nearest the bird."]] },
+  40: { wordId: "action", contextId: "first-reading-star-novel-decode", options: [["Fiction path.", "Open the imagined fiction path."], ["Action path.", "Open the path that shows every action."]] }
 });
 
 function levelFor(index) {
@@ -157,30 +190,13 @@ function transferRef(index, boss) {
 
 function assessedChoice(index) {
   const stopId = `s${index}`;
-  const focus = FOCUS[index - 1];
-  const correct = CORRECT_TOKENS[index - 1];
-  const labelByRole = {
-    correct: `Use the ${focus}.`,
-    first: `Move past the ${focus}.`,
-    second: `Wait by the ${focus}.`
-  };
-  let miss = 0;
-  const options = ["a", "b", "c"].map(letter => {
-    const role = letter === correct ? "correct" : miss++ === 0 ? "first" : "second";
-    const childLabel = labelByRole[role];
-    return {
-      token: `ct-${stopId}-${letter}`,
-      presentation: "image",
-      childLabel,
-      accessibleLabel: childLabel,
-      visualSemanticId: `scene-${stopId}-option-${slug(childLabel)}`
-    };
-  });
+  const authored = ASSESSED_SCENE_CONTENT[stopId];
+  if (!authored) throw new Error(`${stopId}: missing explicit assessed scene content`);
   return {
     choice: {
       kind: "assessed_connected_text",
       comparisonFamilyId: `scene-${stopId}-repair-actions`,
-      options
+      options: authored.options
     },
     narrativeBranches: []
   };
@@ -188,11 +204,11 @@ function assessedChoice(index) {
 
 function narrativeChoice(index) {
   const stopId = `s${index}`;
-  const options = BOSS_DETAILS[index].options.map((childLabel, offset) => ({
+  const options = BOSS_DETAILS[index].options.map(([childLabel, accessibleLabel], offset) => ({
     token: `story-${stopId}-${offset === 0 ? "a" : "b"}`,
     presentation: "image",
     childLabel,
-    accessibleLabel: childLabel,
+    accessibleLabel,
     visualSemanticId: `scene-${stopId}-option-${slug(childLabel)}`
   }));
   return {
@@ -216,7 +232,8 @@ export const CONNECTED_TEXT_RECORDS = deepFreeze(IDENTITIES.map((identity, offse
   const [chapterId, residentId, problemId, consequencePreviewId, repairId,
     relationshipBeatId, consequenceId] = identity;
   const boss = Boolean(BOSS_DETAILS[index]);
-  const text = TEXTS[offset];
+  const assessedContent = ASSESSED_SCENE_CONTENT[stopId] || null;
+  const text = boss ? BOSS_TEXTS[stopId] : assessedContent.text;
   const surfaces = tokenize(text);
   const tokenIds = surfaces.map(surface => HEART_WORDS.has(surface) ? `hw:${surface}` : surface);
   const choiceData = boss ? narrativeChoice(index) : assessedChoice(index);
@@ -241,20 +258,38 @@ export const CONNECTED_TEXT_RECORDS = deepFreeze(IDENTITIES.map((identity, offse
     text,
     tokenIds,
     heartWordIds: [...new Set(tokenIds.filter(id => id.startsWith("hw:")))],
-    advancedTokenIds: [],
-    advancedTokenAudit: [],
+    advancedTokenIds: boss ? [] : [...new Set(assessedContent.advanced.map(entry => entry.tokenId))].sort(),
+    advancedTokenAudit: boss ? [] : assessedContent.advanced,
     advancedTokenAuditDecision: {
-      status: "reviewed_none_required",
+      status: !boss && assessedContent.advanced.length ? "reviewed" : "reviewed_none_required",
       reviewerRole: "literacy-content-review",
       reviewedAt: REVIEWED_AT,
       evidenceRef: `task3:${sceneId}:advanced-token-audit`
     },
+    advancedChildLabelTokenIds: boss ? []
+      : [...new Set(assessedContent.labelAdvanced.map(entry => entry.tokenId))].sort(),
+    advancedChildLabelAudit: boss ? [] : assessedContent.labelAdvanced,
+    advancedChildLabelAuditDecision: {
+      status: !boss && assessedContent.labelAdvanced.length ? "reviewed" : "reviewed_none_required",
+      reviewerRole: "literacy-content-review",
+      reviewedAt: REVIEWED_AT,
+      evidenceRef: `task3:${sceneId}:advanced-child-label-audit`
+    },
     textAudioKey: `quest/scenes/${sceneId}/text`,
     prompt: {
-      text: boss ? "Which path should we take?" : "Which repair matches the words?",
+      text: boss ? "Which path should we take?" : assessedContent.prompt,
       audioKey: `quest/scenes/${sceneId}/prompt`
     },
     ...choiceData,
+    postDecisionMeaningWordIds: boss
+      ? BOSS_MEANING_WORD_IDS[stopId]
+      : [assessedContent.meaningWordIds],
+    preChoiceCharacterIds: [
+      ({ "seedwake-meadow": "Bouncy", "river-gardens": "Nori", "fossil-canyon": "Fen",
+        "forge-settlement": "Cinder", "glass-marsh": "Vale", "storm-coast": "Skiff",
+        "lantern-forest": "Echo", "star-reach": "Nova" })[chapterId],
+      residentId
+    ],
     visualSemanticId: `${sceneId}-visual`
   };
 }));

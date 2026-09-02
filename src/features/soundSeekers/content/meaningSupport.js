@@ -5,6 +5,8 @@ import {
   REQUIRED_ACTION_MEANING_WORD_IDS
 } from "./meaningSupportRecords.js";
 
+export { ADVANCED_SCENE_TOKEN_IDS, REQUIRED_ACTION_MEANING_WORD_IDS };
+
 const derivedActionIds = [...new Set(SOUND_SEEKERS_EXPEDITIONS
   .flatMap(expedition => expedition.phases)
   .filter(phase => ["word_forge", "blend_bridge"].includes(phase.powerId) && phase.wordId)

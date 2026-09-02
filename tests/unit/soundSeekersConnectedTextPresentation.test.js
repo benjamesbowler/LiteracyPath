@@ -139,7 +139,9 @@ test("replacement invalidates every old state and transition identity", () => {
   const action = reduceConnectedTextPresentation(fixture.presentation, {
     type: "decision_committed", reducerRevision: 0, evidenceEventId: completed.event.id
   }, { state: completed.nextState });
-  const replacement = beginConnectedTextPresentation({ sceneId: "scene-s2", transactionId: "replacement:s2" });
+  const replacement = beginConnectedTextPresentation({
+    sceneId: "scene-s2", transactionId: "story-transfer:2:s2"
+  });
   assert.equal(isConnectedTextPresentationTransition(action.transition), false);
   assert.throws(() => checkpointConnectedTextPresentation(action.nextPresentation));
   assert.equal(closeConnectedTextPresentation(replacement), true);
@@ -217,10 +219,13 @@ test("all forty real Task 2 completions survive correction, action, resolved, an
     }, { state: completedState });
     assert.equal(resolved.transition.phase, "resolved");
     const post = resolveSceneVisualSemantic(resolved.transition.postDecisionSemanticId);
+    const resolvedCheckpoint = JSON.parse(JSON.stringify(
+      checkpointConnectedTextPresentation(resolved.nextPresentation)
+    ));
     for (const meaningSemanticId of post.meaningSemanticIds) {
       const resolvedReload = rehydrateConnectedTextPresentation(
         completedState,
-        JSON.parse(JSON.stringify(checkpointConnectedTextPresentation(resolved.nextPresentation)))
+        resolvedCheckpoint
       );
       const meaning = reduceConnectedTextPresentation(resolvedReload.presentation, {
         type: "meaning_requested",
@@ -293,9 +298,128 @@ test("two and three misses rehydrate without granting an early payoff", () => {
         presentationCheckpoint
       );
       assert.equal(resumed.presentation.phase, "correction");
-      closeConnectedTextPresentation(resumed.presentation);
-    } else {
-      closeConnectedTextPresentation(presentation);
+      state = normalizeSoundSeekersState(JSON.parse(JSON.stringify(modeled.nextState)));
+      presentation = resumed.presentation;
     }
+    const finalChallenge = createConnectedTextChallenge(state, {
+      transactionId: fixture.transactionId, routeSeed: "retry-route"
+    });
+    const completed = completeStoryTransferTransaction(state, {
+      transactionId: fixture.transactionId,
+      challenge: finalChallenge,
+      response: { kind: "literacy-answer", token: finalChallenge.expectedToken },
+      audio: { status: "completed" },
+      at: `2026-09-02T04:0${missCount}:00.000Z`,
+      sessionDay: "2026-09-02"
+    });
+    const completedState = normalizeSoundSeekersState(
+      JSON.parse(JSON.stringify(completed.nextState))
+    );
+    const action = reduceConnectedTextPresentation(presentation, {
+      type: "decision_committed",
+      reducerRevision: presentation.reducerRevision,
+      evidenceEventId: completed.event.id
+    }, { state: completedState });
+    assert.equal(action.transition.phase, "action");
+    assert.equal(action.nextPresentation.history
+      .filter(event => event.type === "decision_committed").length, missCount + 1);
+    assert.equal(validAttemptReceipts(completedState).length, missCount + 1);
+    assert.equal(validContentDeckUses(completedState, "stories").length, 1);
+    assert.equal(validContentDeckUses(completedState, "transfer").length, 1);
+    closeConnectedTextPresentation(action.nextPresentation);
+  }
+});
+
+test("both narrative branches at every boss remain distinct after Task 2 and presentation reload", () => {
+  for (const scene of SOUND_SEEKERS_CONNECTED_TEXT
+    .filter(item => item.choice.kind === "narrative_bridge")) {
+    const journeyStep = Number(scene.stopId.slice(1));
+    const observed = [];
+    for (const option of scene.choice.options) {
+      const branch = resolveNarrativeBranchOutcome(scene.id, option.token);
+      const fixture = start(scene.id, journeyStep, option.token);
+      const completed = submit(fixture, fixture.challenge.expectedToken, journeyStep);
+      const state = normalizeSoundSeekersState(JSON.parse(JSON.stringify(completed.nextState)));
+      const action = reduceConnectedTextPresentation(fixture.presentation, {
+        type: "decision_committed", reducerRevision: 0, evidenceEventId: completed.event.id
+      }, { state });
+      const checkpoint = JSON.parse(JSON.stringify(
+        checkpointConnectedTextPresentation(action.nextPresentation)
+      ));
+      const rehydrated = rehydrateConnectedTextPresentation(state, checkpoint);
+      assert.equal(rehydrated.transition.storyOutcomeId, branch.storyOutcomeId);
+      assert.equal(rehydrated.transition.postDecisionSemanticId, branch.postDecisionSemanticId);
+      assert.equal(rehydrated.presentation.history.some(event =>
+        Object.hasOwn(event, "narrativeChoiceToken")
+        || Object.hasOwn(event, "storyOutcomeId")), false);
+      observed.push([rehydrated.transition.storyOutcomeId,
+        rehydrated.transition.postDecisionSemanticId]);
+      closeConnectedTextPresentation(rehydrated.presentation);
+    }
+    assert.equal(new Set(observed.map(item => item[0])).size, 2);
+    assert.equal(new Set(observed.map(item => item[1])).size, 2);
+  }
+});
+
+test("rehydration rejects empty, partial, fingerprint-forged, and checkpoint-forged authority", () => {
+  const empty = beginConnectedTextPresentation({
+    sceneId: "scene-s1", transactionId: "story-transfer:1:s1"
+  });
+  const emptyCheckpoint = checkpointConnectedTextPresentation(empty);
+  assert.throws(() => rehydrateConnectedTextPresentation(createSoundSeekersState(), null));
+  assert.throws(() => rehydrateConnectedTextPresentation(createSoundSeekersState(), emptyCheckpoint));
+
+  const completeFixture = start("scene-s1", 1);
+  const completed = submit(completeFixture, completeFixture.challenge.expectedToken, 1);
+  const completedState = normalizeSoundSeekersState(JSON.parse(JSON.stringify(completed.nextState)));
+  const action = reduceConnectedTextPresentation(completeFixture.presentation, {
+    type: "decision_committed", reducerRevision: 0, evidenceEventId: completed.event.id
+  }, { state: completedState });
+  const actionCheckpoint = JSON.parse(JSON.stringify(
+    checkpointConnectedTextPresentation(action.nextPresentation)
+  ));
+  const partial = JSON.parse(JSON.stringify(completedState));
+  delete partial.contentDecks.heartWords;
+  delete partial.contentDecks.morphology;
+  assert.throws(() => rehydrateConnectedTextPresentation(partial, actionCheckpoint));
+  const forgedHash = JSON.parse(JSON.stringify(completedState));
+  forgedHash.attemptReceipts[action.transition.attemptId].inputSha256 = "0".repeat(64);
+  assert.throws(() => rehydrateConnectedTextPresentation(forgedHash, actionCheckpoint));
+
+  const wrongFixture = start("scene-s1", 1);
+  const wrong = submit(wrongFixture,
+    wrongFixture.challenge.optionTokens.find(token => token !== wrongFixture.challenge.expectedToken), 2);
+  const wrongState = normalizeSoundSeekersState(JSON.parse(JSON.stringify(wrong.nextState)));
+  const correction = reduceConnectedTextPresentation(wrongFixture.presentation, {
+    type: "decision_committed", reducerRevision: 0, evidenceEventId: wrong.event.id
+  }, { state: wrongState });
+  const correctionCheckpoint = JSON.parse(JSON.stringify(
+    checkpointConnectedTextPresentation(correction.nextPresentation)
+  ));
+  for (const mutation of [
+    state => { state.checkpoint.storyTransfer.storyVisitId += ":forged"; },
+    state => { state.checkpoint.storyTransfer.attemptId += ":forged"; },
+    state => { state.checkpoint.storyTransfer.stage = "model_pending"; }
+  ]) {
+    const forged = JSON.parse(JSON.stringify(wrongState));
+    mutation(forged);
+    assert.throws(() => rehydrateConnectedTextPresentation(forged, correctionCheckpoint));
+  }
+
+  const bossFixture = start("scene-s5", 5,
+    toChildConnectedTextScene("scene-s5", "tamper-route").choice.options[0].token);
+  const bossWrong = submit(bossFixture,
+    bossFixture.challenge.optionTokens.find(token => token !== bossFixture.challenge.expectedToken), 5);
+  const bossState = normalizeSoundSeekersState(JSON.parse(JSON.stringify(bossWrong.nextState)));
+  const bossCorrection = reduceConnectedTextPresentation(bossFixture.presentation, {
+    type: "decision_committed", reducerRevision: 0, evidenceEventId: bossWrong.event.id
+  }, { state: bossState });
+  const bossCheckpoint = JSON.parse(JSON.stringify(
+    checkpointConnectedTextPresentation(bossCorrection.nextPresentation)
+  ));
+  for (const confusion of [" arbitrary-boss-token ", `${bossWrong.event.confusion} `]) {
+    const forged = JSON.parse(JSON.stringify(bossState));
+    forged.evidence.find(event => event.id === bossWrong.event.id).confusion = confusion;
+    assert.throws(() => rehydrateConnectedTextPresentation(forged, bossCheckpoint));
   }
 });

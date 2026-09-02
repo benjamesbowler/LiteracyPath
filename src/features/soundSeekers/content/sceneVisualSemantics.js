@@ -34,7 +34,7 @@ export const SOUND_SEEKERS_PRE_CHOICE_VISUAL_SEMANTICS = deepFreeze(
     sceneId: scene.id,
     chapterId: scene.chapterId,
     settingId: `${scene.chapterId}-story-setting`,
-    characterIds: Object.freeze([`${scene.chapterId}-guide`, scene.residentId]),
+    characterIds: Object.freeze([...scene.preChoiceCharacterIds]),
     neutralPropIds: Object.freeze([`${scene.id}-path-marker`, `${scene.id}-story-sign`]),
     neutralStateId: scene.consequencePreviewId,
     answerNeutral: true
@@ -60,9 +60,11 @@ export const SOUND_SEEKERS_OPTION_VISUAL_SEMANTICS = deepFreeze(
 const postDescriptors = CONNECTED_TEXT_RECORDS.flatMap(scene =>
   postIdsForScene(scene).map((id, branchIndex) => ({ scene, id, branchIndex }))
 );
+const meaningByWordId = new Map(MEANING_SUPPORT_RECORDS
+  .map(record => [record.wordId, record.visualSemanticId]));
 
 export const SOUND_SEEKERS_POST_DECISION_VISUAL_SEMANTICS = deepFreeze(
-  postDescriptors.map(({ scene, id, branchIndex }, index) => {
+  postDescriptors.map(({ scene, id, branchIndex }) => {
     const branch = scene.choice.kind === "narrative_bridge"
       ? scene.narrativeBranches[branchIndex] : null;
     const branchSuffix = branch ? `branch-${branchIndex + 1}` : "assessed";
@@ -75,9 +77,12 @@ export const SOUND_SEEKERS_POST_DECISION_VISUAL_SEMANTICS = deepFreeze(
       resolvedStateId: branch ? `${scene.consequenceId}-${branchSuffix}-resolved` : scene.consequenceId,
       consequenceId: branch ? `${scene.consequenceId}-${branchSuffix}` : scene.consequenceId,
       storyOutcomeId: branch?.storyOutcomeId || null,
-      meaningSemanticIds: Object.freeze([
-        MEANING_SUPPORT_RECORDS[index % MEANING_SUPPORT_RECORDS.length].visualSemanticId
-      ])
+      meaningSemanticIds: Object.freeze(scene.postDecisionMeaningWordIds[branchIndex]
+        .map(wordId => {
+          const semanticId = meaningByWordId.get(wordId);
+          if (!semanticId) throw new Error(`${scene.id}: unresolved post-decision meaning ${wordId}`);
+          return semanticId;
+        }))
     };
   })
 );

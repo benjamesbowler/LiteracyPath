@@ -22,7 +22,10 @@ const protectedPaths = [
 const hash = value => createHash("sha256").update(value).digest("hex");
 
 test("generated usage is sorted, occurrence-preserving, and hash-bound", () => {
-  const advanced = [...new Set(SOUND_SEEKERS_CONNECTED_TEXT.flatMap(scene => scene.advancedTokenIds))].sort();
+  const advanced = [...new Set(SOUND_SEEKERS_CONNECTED_TEXT.flatMap(scene => [
+    ...scene.advancedTokenIds,
+    ...scene.advancedChildLabelTokenIds
+  ]))].sort();
   assert.deepEqual(ADVANCED_SCENE_TOKEN_IDS, advanced);
   assert.equal(ADVANCED_SCENE_TOKEN_COUNT, advanced.length);
   assert.equal(ADVANCED_SCENE_TOKEN_CONTENT_HASH, hash(JSON.stringify(advanced)));
