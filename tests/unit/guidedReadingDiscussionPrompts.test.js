@@ -118,6 +118,84 @@ test("the discussion gate rejects missing, orphaned, generic, unsupported, and a
   );
 });
 
+test("the discussion gate rejects a catalogue built by substituting nouns into seven reusable frames", () => {
+  const oralFrames = [
+    name => `What happened when ${name} reached the bridge?`,
+    name => `How did ${name} solve the bridge problem?`,
+    name => `Why did ${name} stop beside the bridge?`,
+    name => `Tell how ${name} crossed the bridge safely.`,
+    name => `What changed after ${name} crossed the bridge?`,
+    name => `Compare ${name} before and after the bridge.`,
+    name => `Which event helped ${name} cross the bridge?`
+  ];
+  const visualFrames = [
+    name => `Study page 1. How does the picture show ${name} crossing the bridge?`,
+    name => `What can you point to on page 1 to explain ${name}'s crossing?`,
+    name => `Which picture details on page 1 help show ${name} crossing?`,
+    name => `Use page 1's picture to describe ${name} at the bridge.`,
+    name => `Look closely at ${name} on page 1. What is happening?`,
+    name => `On page 1, find ${name} and the bridge. What do you notice?`,
+    name => `Where can you see ${name} crossing the bridge on page 1?`
+  ];
+  const fixtureBooks = Array.from({ length: 28 }, (_, index) => ({
+    id: `bridge-book-${index}`,
+    title: `Bridge Book ${index}`,
+    pages: [{
+      pageNumber: 1,
+      text: `Mara ${index} crosses the wooden bridge beside a silver stream.`,
+      image: `/bridge-${index}.webp`,
+      imageAlt: `Mara ${index} crossing a wooden bridge beside a silver stream.`
+    }]
+  }));
+  const records = Object.fromEntries(fixtureBooks.map((book, index) => {
+    const name = `Mara ${index}`;
+    return [book.id, Object.freeze({
+      oral: Object.freeze({
+        prompt: oralFrames[index % oralFrames.length](name),
+        listenFor: `Mentions ${name}, the wooden bridge, and the silver stream.`
+      }),
+      visual: Object.freeze({
+        page: 1,
+        prompt: visualFrames[index % visualFrames.length](name),
+        lookFor: `Notices ${name} crossing the wooden bridge beside the silver stream.`
+      })
+    })];
+  }));
+
+  const issues = validateGuidedReadingDiscussionPrompts(fixtureBooks, records).join("\n");
+  assert.match(issues, /oral prompts: excessive template reuse/i);
+  assert.match(issues, /visual prompts: excessive template reuse/i);
+  assert.match(issues, /oral cues: excessive template reuse/i);
+  assert.match(issues, /visual cues: excessive template reuse/i);
+});
+
+test("the discussion gate rejects full duplicate teacher cues", () => {
+  const fixtureBooks = ["one", "two"].map(id => ({
+    id,
+    title: `Book ${id}`,
+    pages: [{ pageNumber: 1, text: `A ${id} bird carries a blue ribbon.`, image: `/${id}.webp` }]
+  }));
+  const makeRecord = id => Object.freeze({
+    oral: Object.freeze({
+      prompt: `Book ${id}: Why does the bird carry a blue ribbon?`,
+      listenFor: "Names the bird and its blue ribbon."
+    }),
+    visual: Object.freeze({
+      page: 1,
+      prompt: `Book ${id}, page 1: Where is the blue ribbon?`,
+      lookFor: `Points to the ${id} bird and ribbon.`
+    })
+  });
+
+  assert.match(
+    validateGuidedReadingDiscussionPrompts(fixtureBooks, {
+      one: makeRecord("one"),
+      two: makeRecord("two")
+    }).join("\n"),
+    /oral cues: full duplicate cue or prompt appears/i
+  );
+});
+
 test("current prompts pass the coverage, evidence, and excessive-template gate", () => {
   assert.deepEqual(
     validateGuidedReadingDiscussionPrompts(guidedReadingBooks, GUIDED_READING_DISCUSSION_PROMPTS),

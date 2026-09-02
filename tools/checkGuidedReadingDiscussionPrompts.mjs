@@ -37,16 +37,18 @@ function exactKeys(value, expected) {
     && JSON.stringify(Object.keys(value).sort()) === JSON.stringify([...expected].sort());
 }
 
-function normalizedOpening(value = "") {
+function normalizedWords(value = "") {
   return String(value)
     .toLowerCase()
     .replace(/[“”"'’]/g, "")
     .replace(/\b\d+\b/g, "#")
     .replace(/[^a-z#]+/g, " ")
     .trim()
-    .split(/\s+/)
-    .slice(0, 5)
-    .join(" ");
+    .split(/\s+/);
+}
+
+function normalizedOpening(value = "") {
+  return normalizedWords(value).slice(0, 4).join(" ");
 }
 
 function duplicateIssues(records, fieldPath, label) {
@@ -63,10 +65,10 @@ function duplicateIssues(records, fieldPath, label) {
   }
   const issues = [];
   for (const [value, count] of exactCounts) {
-    if (count > 1) issues.push(`${label}: exact sentence is duplicated ${count} times: ${value}`);
+    if (count > 1) issues.push(`${label}: full duplicate cue or prompt appears ${count} times: ${value}`);
   }
   for (const [opening, count] of openingCounts) {
-    if (count > 32) issues.push(`${label}: excessive template reuse begins “${opening}” in ${count} records`);
+    if (count > 3) issues.push(`${label}: excessive template reuse begins “${opening}” in ${count} records`);
   }
   return issues;
 }
@@ -147,6 +149,8 @@ export function validateGuidedReadingDiscussionPrompts(books, records) {
 
   issues.push(...duplicateIssues(records || {}, ["oral", "prompt"], "oral prompts"));
   issues.push(...duplicateIssues(records || {}, ["visual", "prompt"], "visual prompts"));
+  issues.push(...duplicateIssues(records || {}, ["oral", "listenFor"], "oral cues"));
+  issues.push(...duplicateIssues(records || {}, ["visual", "lookFor"], "visual cues"));
   return [...new Set(issues)];
 }
 
