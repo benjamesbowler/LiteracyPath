@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { CHILD_COPY } from "../../../copy/childCopy.js";
 import { LETTER_GUIDES, LETTER_STROKES } from "../../../data/letterStrokes.js";
@@ -64,20 +64,29 @@ export function PoemSpotlightMechanic({
           return (
             <p className="sbq-poem-line" data-poem-line={lineIndex} key={`line-${lineIndex}`}>
               <span className="kg-visually-hidden">Line {lineIndex + 1}: </span>
-              {tokens.map((token, tokenIndex) => (
-                <span key={`${lineIndex}-${tokenIndex}`}>
-                  {tokenIndex > 0 ? " " : ""}
-                  <button
-                    className="sbq-poem-token sbq-ghost-button"
-                    type="button"
-                    disabled={disabled}
-                    data-poem-token={`${lineIndex}:${tokenIndex}`}
-                    onClick={() => chooseToken(token)}
-                  >
-                    {token.text}
-                  </button>
-                </span>
-              ))}
+              <span
+                aria-hidden="true"
+                className="sbq-poem-line-marker"
+                data-poem-line-marker={lineIndex}
+              >
+                <span>Line</span>
+                <strong>{lineIndex + 1}</strong>
+              </span>
+              <span className="sbq-poem-line-words" data-poem-line-words={lineIndex}>
+                {tokens.map((token, tokenIndex) => (
+                  <span className="sbq-poem-word" key={`${lineIndex}-${tokenIndex}`}>
+                    <button
+                      className="sbq-poem-token sbq-ghost-button"
+                      type="button"
+                      disabled={disabled}
+                      data-poem-token={`${lineIndex}:${tokenIndex}`}
+                      onClick={() => chooseToken(token)}
+                    >
+                      {token.text}
+                    </button>
+                  </span>
+                ))}
+              </span>
             </p>
           );
         })}
@@ -189,7 +198,21 @@ function traceLayoutFor(chars) {
   };
 }
 
-function TracePaths({ chars, traceLayout, currentStroke = null, targetPaths = false }) {
+function strokeDirection(path) {
+  const numbers = String(path).match(/-?\d+(?:\.\d+)?/g)?.map(Number) || [];
+  if (numbers.length < 4) return null;
+  const [x, y, nextX, nextY] = numbers;
+  const angle = Math.atan2(nextY - y, nextX - x) * (180 / Math.PI);
+  return { x, y, angle };
+}
+
+function TracePaths({
+  chars,
+  traceLayout,
+  currentStroke = null,
+  targetPaths = false,
+  showStrokeOrder = false
+}) {
   return (
     <g transform={`translate(${traceLayout.offsetX} ${traceLayout.offsetY}) scale(${traceLayout.scale})`}>
       {chars.map((char, charIndex) => (
@@ -199,18 +222,38 @@ function TracePaths({ chars, traceLayout, currentStroke = null, targetPaths = fa
               (total, priorChar) => total + LETTER_STROKES[priorChar].length,
               pathIndex
             );
+            const direction = strokeDirection(path);
             return (
-              <path
-                key={`${char}-${pathIndex}`}
-                d={path}
-                data-char-index={charIndex}
-                data-trace-target={targetPaths ? "" : undefined}
-                fill="none"
-                stroke={currentStroke === null || currentStroke === thisStroke ? "currentColor" : "rgba(15, 23, 42, 0.12)"}
-                strokeWidth="12"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+              <g key={`${char}-${pathIndex}`} data-stroke-order={showStrokeOrder ? thisStroke + 1 : undefined}>
+                <path
+                  d={path}
+                  data-char-index={charIndex}
+                  data-trace-target={targetPaths ? "" : undefined}
+                  fill="none"
+                  stroke={currentStroke === null || currentStroke === thisStroke ? "currentColor" : "rgba(15, 23, 42, 0.12)"}
+                  strokeWidth="12"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                {showStrokeOrder && direction && (
+                  <g
+                    className="sbq-trace-order-marker"
+                    transform={`translate(${direction.x} ${direction.y})`}
+                    aria-hidden="true"
+                  >
+                    <circle r="11" />
+                    <text x="0" y="4">{thisStroke + 1}</text>
+                    <text
+                      className="sbq-trace-direction-arrow"
+                      x="15"
+                      y="5"
+                      transform={`rotate(${direction.angle} 15 5)`}
+                    >
+                      ➜
+                    </text>
+                  </g>
+                )}
+              </g>
             );
           })}
         </g>
@@ -222,8 +265,10 @@ function TracePaths({ chars, traceLayout, currentStroke = null, targetPaths = fa
 export function LetterTraceMechanic({
   round,
   disabled = false,
+  correctionModel = null,
   supportLevel = 0,
   onCommit,
+  onCorrectionModelAcknowledged,
   onRequestReplay,
   reducedMotion = false
 }) {
@@ -235,10 +280,12 @@ export function LetterTraceMechanic({
   const lastPointRef = useRef(null);
   const activePointerIdRef = useRef(null);
   const completionLockRef = useRef(false);
+  const correctionModelRef = useRef(null);
   const [pointCount, setPointCount] = useState(0);
   const [traceMessage, setTraceMessage] = useState(CHILD_COPY.tracing.prompt);
   const [traceDimension, setTraceDimension] = useState("");
   const [demoKey, setDemoKey] = useState(0);
+  const [completedModelKey, setCompletedModelKey] = useState("");
   const [traceState, setTraceState] = useState(createLetterTraceState);
   const [supportedMode, setSupportedMode] = useState(false);
   const [supportedStep, setSupportedStep] = useState(0);
@@ -248,6 +295,50 @@ export function LetterTraceMechanic({
     () => chars.reduce((total, char) => total + LETTER_STROKES[char].length, 0),
     [chars]
   );
+  const nativeCorrectionActive = correctionModel?.mode === "native-formation";
+  const correctionReplayKey = correctionModel?.replayKey || "ready";
+  const nativeModelPending = nativeCorrectionActive
+    && completedModelKey !== correctionReplayKey;
+  const correctionStatusRef = useRef({ active: false, key: "ready", letter: "" });
+  correctionStatusRef.current = {
+    active: nativeCorrectionActive,
+    key: correctionReplayKey,
+    letter: round.letter
+  };
+  const handleModelDone = useCallback(() => {
+    const currentCorrection = correctionStatusRef.current;
+    setCompletedModelKey(currentCorrection.key);
+    if (!currentCorrection.active) return;
+    canvasRef.current?.getContext("2d")?.clearRect(0, 0, 460, 300);
+    drawing.current = false;
+    activePointerIdRef.current = null;
+    currentStrokeRef.current = [];
+    drawnStrokesRef.current = [];
+    lastPointRef.current = null;
+    setPointCount(0);
+    setTraceDimension("");
+    setTraceMessage(`Now trace ${currentCorrection.letter} again after the model.`);
+  }, []);
+
+  useEffect(() => {
+    if (!nativeCorrectionActive) return undefined;
+    const model = correctionModelRef.current;
+    if (!model) return undefined;
+
+    const frame = window.requestAnimationFrame(() => {
+      const stage = model.closest(".adventure-round-frame__stage");
+      if (stage) {
+        const stageRect = stage.getBoundingClientRect();
+        const modelRect = model.getBoundingClientRect();
+        stage.scrollTop = Math.max(0, stage.scrollTop + modelRect.top - stageRect.top - 8);
+      } else {
+        model.scrollIntoView?.({ block: "nearest", inline: "nearest" });
+      }
+      model.focus({ preventScroll: true });
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [correctionReplayKey, nativeCorrectionActive]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -294,7 +385,7 @@ export function LetterTraceMechanic({
   }
 
   function beginStroke(event) {
-    if (disabled || supportedMode || activePointerIdRef.current !== null) return;
+    if (disabled || nativeModelPending || supportedMode || activePointerIdRef.current !== null) return;
     event.preventDefault();
     activePointerIdRef.current = event.pointerId;
     drawing.current = true;
@@ -351,6 +442,9 @@ export function LetterTraceMechanic({
         ? "Trace the faded letter model."
         : CHILD_COPY.tracing.prompt
     );
+    if (nativeCorrectionActive && !nativeModelPending) {
+      onCorrectionModelAcknowledged?.();
+    }
   }
 
   function expectedStrokes() {
@@ -402,6 +496,7 @@ export function LetterTraceMechanic({
       round,
       supportLevel
     ).state);
+    setCompletedModelKey("");
     setDemoKey(key => key + 1);
     onRequestReplay?.();
   }
@@ -436,13 +531,54 @@ export function LetterTraceMechanic({
     >
       {!supportedMode && (
         <>
-          <div className="sbq-trace-demo">
+          <div
+            className="sbq-trace-demo"
+            ref={nativeCorrectionActive ? correctionModelRef : null}
+            role={nativeCorrectionActive ? "group" : undefined}
+            aria-label={nativeCorrectionActive ? `Correct stroke model for ${round.letter}` : undefined}
+            tabIndex={nativeCorrectionActive ? -1 : undefined}
+            data-correction-model={nativeCorrectionActive ? "true" : undefined}
+            data-correction-model-key={nativeCorrectionActive ? correctionReplayKey : undefined}
+            data-correction-model-state={nativeCorrectionActive
+              ? (nativeModelPending ? "playing" : "complete")
+              : undefined}
+          >
+            {nativeCorrectionActive && (
+              <p className="sbq-trace-correction-label" role="status" aria-live="assertive">
+                Correct stroke model
+              </p>
+            )}
             {reducedMotion ? (
-              <svg viewBox="0 0 460 300" height="130" role="img" aria-label={`Formation model for ${round.letter}`}>
-                <TracePaths chars={chars} traceLayout={traceLayout} />
+              <svg
+                viewBox="0 0 460 300"
+                height="130"
+                role="img"
+                aria-label={`Ordered formation model for ${round.letter}`}
+                data-static-ordered-model={nativeCorrectionActive ? "true" : undefined}
+              >
+                <TracePaths
+                  chars={chars}
+                  traceLayout={traceLayout}
+                  showStrokeOrder={nativeCorrectionActive}
+                />
               </svg>
             ) : (
-              <LetterWriter text={round.letter} height={130} playKey={demoKey} />
+              <LetterWriter
+                text={round.letter}
+                height={130}
+                playKey={`${demoKey}:${correctionReplayKey}`}
+                onDone={handleModelDone}
+              />
+            )}
+            {nativeCorrectionActive && reducedMotion && nativeModelPending && (
+              <button
+                className="sbq-ghost-button"
+                type="button"
+                disabled={disabled}
+                onClick={handleModelDone}
+              >
+                I followed the numbered model
+              </button>
             )}
             <button className="sbq-ghost-button" type="button" disabled={disabled} onClick={replayModel}>
               ✏️ {CHILD_COPY.tracing.watch}
@@ -466,7 +602,7 @@ export function LetterTraceMechanic({
               width={460}
               height={300}
               aria-label={`Trace the letter ${round.letter}${traceState.phase === "faded" ? " with the faded model" : ""}`}
-              aria-disabled={disabled ? "true" : undefined}
+              aria-disabled={disabled || nativeModelPending ? "true" : undefined}
               onPointerDown={beginStroke}
               onPointerMove={paint}
               onPointerUp={finishStroke}
@@ -482,13 +618,13 @@ export function LetterTraceMechanic({
             {traceMessage}
           </p>
           <div className="sbq-trace-actions">
-            <button className="sbq-ghost-button" type="button" disabled={disabled} onClick={clearInk}>
+            <button className="sbq-ghost-button" type="button" disabled={disabled || nativeModelPending} onClick={clearInk}>
               {CHILD_COPY.tracing.clear}
             </button>
             <button
               className="sbq-primary-button"
               type="button"
-              disabled={disabled || pointCount < 20}
+              disabled={disabled || nativeModelPending || pointCount < 20}
               onClick={checkTrace}
             >
               {CHILD_COPY.tracing.check}
@@ -497,7 +633,7 @@ export function LetterTraceMechanic({
           <button
             className="sbq-ghost-button"
             type="button"
-            disabled={disabled}
+            disabled={disabled || nativeModelPending}
             onClick={openSupportedPractice}
           >
             Use supported formation practice

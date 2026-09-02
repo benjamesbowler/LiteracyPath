@@ -259,6 +259,46 @@ test("Letter Trace advances from guided to faded before committing a successful 
   assert.equal(transition.outcome.evidence.phase, "faded");
 });
 
+test("third-miss Letter Trace exposes the native ordered model in motion and reduced-motion modes", async () => {
+  const { LetterTraceMechanic } = await loadTextMechanics();
+  const round = {
+    mechanicId: "letterTrace",
+    construct: "letter_formation_practice",
+    letter: "A"
+  };
+  const correctionModel = {
+    label: "Correct model",
+    instruction: "Watch each stroke of A in order, then trace it again.",
+    units: ["A"],
+    mode: "native-formation",
+    replayKey: "0:3"
+  };
+  const render = reducedMotion => renderToStaticMarkup(React.createElement(LetterTraceMechanic, {
+    round,
+    disabled: false,
+    supportLevel: 3,
+    correctionModel,
+    onCommit() {},
+    onRequestReplay() {},
+    reducedMotion
+  }));
+
+  const animated = render(false);
+  assert.match(animated, /data-correction-model="true"/);
+  assert.match(animated, /data-correction-model-state="playing"/);
+  assert.match(animated, /Correct stroke model/);
+  assert.match(animated, /class="letter-writer/);
+  assert.match(animated, /data-stroke=""/);
+  assert.match(animated, /aria-label="Trace the letter A" aria-disabled="true"/);
+
+  const staticModel = render(true);
+  assert.match(staticModel, /data-correction-model-state="playing"/);
+  assert.match(staticModel, /data-static-ordered-model="true"/);
+  assert.match(staticModel, /data-stroke-order="1"/);
+  assert.match(staticModel, /sbq-trace-direction-arrow/);
+  assert.match(staticModel, /I followed the numbered model/);
+});
+
 test("replaying the trace model marks faded success as supported and completion is single-shot", async () => {
   const { createLetterTraceState, updateLetterTraceState } = await loadTextState();
   const round = {

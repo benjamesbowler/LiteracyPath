@@ -63,9 +63,13 @@ test("every quest round in every cycle is winnable and well-formed", () => {
             const pieces = machinePiecesForRound(round);
             assert.ok(pieces.length > 0, `${where} has no operation pieces`);
             let state = createWordMachineState(round);
-            const chosen = round.operation === "substituteOnset"
+            const chosen = ["substituteOnset", "removeOnset"].includes(round.operation)
               ? [pieces.find(piece => piece.projectedWord === round.afterWord)]
-              : pieces;
+              : round.operation === "joinCompound"
+                ? pieces
+                  .filter(piece => Number.isInteger(piece.semanticIndex))
+                  .sort((left, right) => left.semanticIndex - right.semanticIndex)
+                : pieces;
             assert.ok(chosen.every(Boolean), `${where} has no path to ${round.afterWord}`);
             for (const piece of chosen) {
               state = reduceWordMachine(state, { type: "SELECT_PIECE", pieceId: piece.id }, round);

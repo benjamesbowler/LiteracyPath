@@ -10,6 +10,7 @@ import {
   createPhraseFlowState,
   createWordChainState,
   heartSlotLabel,
+  heartWordTilesForRound,
   hideHeartWord,
   placePatternTile,
   removeHeartGrapheme,
@@ -327,26 +328,6 @@ export function PhraseFlowMechanic({
   );
 }
 
-function stableHash(value) {
-  let hash = 2166136261;
-  for (const character of String(value || "")) {
-    hash ^= character.codePointAt(0);
-    hash = Math.imul(hash, 16777619);
-  }
-  return hash >>> 0;
-}
-
-function heartWordBank(round) {
-  const tiles = round.graphemes.map((grapheme, index) => ({ grapheme, id: index }));
-  let seed = stableHash(round.roundKey || `${round.word}:${round.graphemes.join("|")}`);
-  for (let index = tiles.length - 1; index > 0; index -= 1) {
-    seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
-    const swapIndex = seed % (index + 1);
-    [tiles[index], tiles[swapIndex]] = [tiles[swapIndex], tiles[index]];
-  }
-  return tiles;
-}
-
 export function HeartWordMechanic({
   round,
   disabled = false,
@@ -356,7 +337,7 @@ export function HeartWordMechanic({
 }) {
   const [state, setState] = useState(() => createHeartWordState(round));
   const [chosenTileIds, setChosenTileIds] = useState([]);
-  const bank = useMemo(() => heartWordBank(round), [round]);
+  const bank = useMemo(() => heartWordTilesForRound(round), [round]);
   const attemptFull = state.attempt.length === round.graphemes.length;
 
   function hideModel() {

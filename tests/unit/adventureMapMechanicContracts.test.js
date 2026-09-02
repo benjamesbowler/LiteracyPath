@@ -175,6 +175,35 @@ test("multi-letter ending rounds declare an ending construct", () => {
   assert.ok(allRounds.every(round => round.construct === "heard_ending_sound_family_mapping"));
 });
 
+test("Sound Sort mixes matching pictures with decoys under the seeded run", () => {
+  for (const cycleNumber of [22, 23]) {
+    const cycle = elSkillsBlockCycles.find(item => item.cycleNumber === cycleNumber);
+    const layouts = new Set();
+    const matchingPositions = new Set();
+    let sawDecoyBeforeMatch = false;
+
+    for (let seed = 1; seed <= 24; seed += 1) {
+      const seedText = `sound-sort-order-${cycleNumber}-${seed}`;
+      const [round] = buildStationRounds(cycle, "hunt", { seed: seedText });
+      const [repeat] = buildStationRounds(cycle, "hunt", { seed: seedText });
+      assert.deepEqual(repeat, round, `cycle ${cycleNumber}, seed ${seed} must reproduce its layout`);
+
+      const layout = round.objects.map(object => object.matches);
+      layouts.add(layout.map(matches => matches ? "target" : "decoy").join("|"));
+      layout.forEach((matches, index) => {
+        if (matches) matchingPositions.add(index);
+      });
+      sawDecoyBeforeMatch ||= layout.some((matches, index) => (
+        !matches && layout.slice(index + 1).some(Boolean)
+      ));
+    }
+
+    assert.ok(layouts.size > 1, `cycle ${cycleNumber} must vary the picture layout across seeds`);
+    assert.ok(matchingPositions.size > 2, `cycle ${cycleNumber} targets must not stay in a fixed prefix`);
+    assert.equal(sawDecoyBeforeMatch, true, `cycle ${cycleNumber} must mix a decoy before a target`);
+  }
+});
+
 test("every Pattern Sort round declares a novel transfer and its expected bin", () => {
   for (const { cycle, station, round } of roundsForMechanic("patternSort")) {
     const where = `cycle ${cycle.cycleNumber}/${station.id}`;

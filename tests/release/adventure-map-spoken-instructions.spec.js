@@ -40,7 +40,7 @@ const MECHANIC_ROUTES = [
     instruction: ADVENTURE_MAP_INSTRUCTIONS.soundBoxes
   },
   {
-    cycle: "cycle-4",
+    cycle: "cycle-8",
     station: "play",
     mechanic: "wordMachine",
     stage: "word-machine",

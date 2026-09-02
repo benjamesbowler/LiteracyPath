@@ -12,7 +12,7 @@ const QUEST_STATIONS = [
   ["cycle-1", "hunt"],
   ["cycle-1", "quick"],
   ["cycle-1", "build"],
-  ["cycle-4", "play"],
+  ["cycle-8", "play"],
   ["cycle-1", "poem"],
   ["cycle-1", "story"],
   ["cycle-1", "trace"],
@@ -212,6 +212,124 @@ test("all Adventure Map and Letter station types fit an iPad without scrolling",
     await expectFullSizeChildControls(activity, `${cycle} ${station}`);
     await expectReadableMechanicControls(activity, `${cycle} ${station}`);
   }
+});
+
+test("one-letter poem tokens stay full size while the answer is locked", async ({ page }) => {
+  await page.setViewportSize({ width: 1024, height: 650 });
+  await page.goto(
+    "/preview/child-surfaces.html?surface=adventure-map&quest=cycle-1&station=poem",
+    { waitUntil: "domcontentloaded" }
+  );
+  const activity = page.locator('[data-quest-view="round"][data-station-id="poem"]');
+  await expect(activity).toBeVisible();
+  await waitForChildStageSizing(page);
+
+  const tokens = activity.locator(".sbq-poem-token");
+  const shortIndex = await tokens.evaluateAll(buttons => buttons.findIndex(button => (
+    String(button.textContent || "").replace(/[^a-z]/gi, "").length === 1
+  )));
+  expect(shortIndex, "cycle 1 needs an actual one-letter poem token fixture").toBeGreaterThanOrEqual(0);
+  const shortToken = tokens.nth(shortIndex);
+  await shortToken.click();
+  await expect(shortToken).toBeDisabled();
+
+  const size = await shortToken.evaluate(button => {
+    const rect = button.getBoundingClientRect();
+    return { width: rect.width, height: rect.height };
+  });
+  expect(size.width).toBeGreaterThanOrEqual(55.9);
+  expect(size.height).toBeGreaterThanOrEqual(55.9);
+  await boundedGeometry(activity.locator(".adventure-round-frame"), "locked one-letter poem token");
+});
+
+test("Poem Spotlight keeps authored line numbers clear when poem lines wrap on a phone", async ({ page }) => {
+  const viewport = { width: 390, height: 844 };
+  await page.setViewportSize(viewport);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto(
+    "/preview/child-surfaces.html?surface=adventure-map&quest=cycle-4&station=poem",
+    { waitUntil: "domcontentloaded" }
+  );
+
+  const activity = page.locator('[data-quest-view="round"][data-station-id="poem"]');
+  const poem = activity.locator('[data-mechanic-stage="poem-spotlight"] .sbq-poem');
+  const lines = poem.locator("[data-poem-line]");
+  const markers = poem.locator("[data-poem-line-marker]");
+  await expect(activity).toBeVisible();
+  await waitForChildStageSizing(page);
+  await expect(lines).toHaveCount(4);
+  await expect(markers).toHaveCount(4);
+
+  for (let lineIndex = 0; lineIndex < 4; lineIndex += 1) {
+    const line = lines.nth(lineIndex);
+    const marker = markers.nth(lineIndex);
+    await expect(marker).toBeVisible();
+    await expect(marker).toContainText(`Line${lineIndex + 1}`);
+    await expect(line.locator(`[data-poem-line-words="${lineIndex}"]`)).toBeVisible();
+  }
+
+  const prompt = await activity.locator(".adventure-round-frame__instruction").textContent();
+  const position = prompt?.match(/word (\d+) in line (\d+)/i);
+  expect(position, "Poem Spotlight must name an exact authored line and word").toBeTruthy();
+  const targetLine = Number(position[2]) - 1;
+  const targetWord = Number(position[1]) - 1;
+  const target = poem.locator(`[data-poem-token="${targetLine}:${targetWord}"]`);
+  await expect(target).toHaveCount(1);
+  await expect(target.locator("xpath=ancestor::*[@data-poem-line][1]")).toHaveAttribute(
+    "data-poem-line",
+    String(targetLine)
+  );
+
+  const geometry = await poem.evaluate(root => {
+    const rootRect = root.getBoundingClientRect();
+    const stage = root.closest(".adventure-round-frame__stage");
+    const lines = [...root.querySelectorAll("[data-poem-line]")];
+    const controls = [...root.querySelectorAll("button")];
+    const overlapArea = (left, right) => (
+      Math.max(0, Math.min(left.right, right.right) - Math.max(left.left, right.left))
+      * Math.max(0, Math.min(left.bottom, right.bottom) - Math.max(left.top, right.top))
+    );
+    return {
+      horizontalOverflow: root.scrollWidth - root.clientWidth,
+      poemOverflowY: getComputedStyle(root).overflowY,
+      poemHasOwnScroll: root.scrollHeight > root.clientHeight + 1,
+      stageOverflowY: stage ? getComputedStyle(stage).overflowY : "missing",
+      stageHasScroll: Boolean(stage) && stage.scrollHeight > stage.clientHeight + 1,
+      clippedMarkers: lines.filter(line => {
+        const marker = line.querySelector("[data-poem-line-marker]");
+        if (!marker) return true;
+        const rect = marker.getBoundingClientRect();
+        return rect.left < rootRect.left - 1 || rect.right > rootRect.right + 1;
+      }).length,
+      markerTokenOverlaps: lines.flatMap(line => {
+        const markerRect = line.querySelector("[data-poem-line-marker]")?.getBoundingClientRect();
+        if (!markerRect) return [1];
+        return [...line.querySelectorAll("button")]
+          .map(button => overlapArea(markerRect, button.getBoundingClientRect()))
+          .filter(area => area > 1);
+      }),
+      lineOverlaps: lines.flatMap((line, index) => lines.slice(index + 1)
+        .map(other => overlapArea(line.getBoundingClientRect(), other.getBoundingClientRect()))
+        .filter(area => area > 1)),
+      undersizedControls: controls.map(button => {
+        const rect = button.getBoundingClientRect();
+        return { width: rect.width, height: rect.height };
+      }).filter(control => control.width < 55.9 || control.height < 55.9)
+    };
+  });
+
+  expect(geometry.horizontalOverflow, "phone poem must not scroll sideways").toBeLessThanOrEqual(1);
+  expect(geometry.poemOverflowY, "phone poem must expand inside the stage scroller").toBe("visible");
+  expect(geometry.poemHasOwnScroll, "phone poem must not create a nested scroll route").toBe(false);
+  expect(geometry.stageOverflowY, "the stage owns the phone's poem scroll route").toBe("auto");
+  expect(geometry.stageHasScroll, "the full wrapped poem must remain reachable through the stage").toBe(true);
+  expect(geometry.clippedMarkers, "every line marker must stay in its visible gutter").toBe(0);
+  expect(geometry.markerTokenOverlaps, "line markers must not cover poem words").toEqual([]);
+  expect(geometry.lineOverlaps, "authored line groups must not overlap").toEqual([]);
+  expect(geometry.undersizedControls, "wrapped poem words must keep the 56px target floor").toEqual([]);
+
+  await target.click();
+  await expect(page.getByRole("heading", { name: "2 of 3" })).toBeVisible();
 });
 
 test("Adventure Map answers stay readable when iPad browser chrome shortens the view", async ({ page }) => {

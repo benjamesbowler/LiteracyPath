@@ -3,6 +3,7 @@ import test from "node:test";
 
 import { buildStudentHomeCardState } from "../../src/policy/learningPolicy.js";
 import {
+  clearElQuestLocalProgress,
   loadElQuestProgress,
   readElQuestLocalProgress
 } from "../../src/utils/adventureMapLocalProgress.js";
@@ -15,11 +16,12 @@ function withLocalProgress(scope, payload, callback) {
   globalThis.window = {
     localStorage: {
       getItem: key => values.get(key) ?? null,
-      setItem: (key, value) => values.set(key, String(value))
+      setItem: (key, value) => values.set(key, String(value)),
+      removeItem: key => values.delete(key)
     }
   };
   try {
-    return callback();
+    return callback(values);
   } finally {
     if (previousWindow === undefined) delete globalThis.window;
     else globalThis.window = previousWindow;
@@ -70,9 +72,60 @@ test("v2 Adventure Map progress still drives pre-hydration local readers", () =>
   });
 });
 
-test("Adventure Map loaders keep their established corrupt-data behavior", () => {
-  withLocalProgress("child-1", "{not json", () => {
+test("corrupt Adventure Map progress stays explicit until its exact local record is reset", () => {
+  withLocalProgress("child-1", "{not json", values => {
+    values.set("lp-quest:child-1", JSON.stringify({ untouched: true }));
     assert.deepEqual(readElQuestLocalProgress("child-1"), { ok: false, value: {} });
     assert.throws(() => loadElQuestProgress("child-1"), SyntaxError);
+    assert.equal(clearElQuestLocalProgress("child-1"), true);
+    assert.deepEqual(readElQuestLocalProgress("child-1"), {
+      ok: true,
+      value: { schemaVersion: 2, progressEpoch: 2, cycles: {} }
+    });
+    assert.equal(values.get("lp-quest:child-1"), JSON.stringify({ untouched: true }));
+  });
+});
+
+test("an existing empty Adventure Map record is corrupt, not a missing save", () => {
+  withLocalProgress("child-empty", "", values => {
+    assert.deepEqual(readElQuestLocalProgress("child-empty"), { ok: false, value: {} });
+    assert.throws(() => loadElQuestProgress("child-empty"), SyntaxError);
+    assert.equal(values.get("lp-el-quest:child-empty"), "");
+  });
+});
+
+test("current Adventure Map progress with null or array cycles stays unreadable and byte-exact", () => {
+  const raws = [
+    '{ "schemaVersion" : 2, "progressEpoch" : 2, "cycles" : null }',
+    '{ "schemaVersion" : 2, "progressEpoch" : 2, "cycles" : [] }'
+  ];
+  raws.forEach((raw, index) => {
+    const scope = `malformed-current-${index}`;
+    withLocalProgress(scope, raw, values => {
+      assert.deepEqual(readElQuestLocalProgress(scope), { ok: false, value: {} });
+      assert.throws(() => loadElQuestProgress(scope), SyntaxError);
+      assert.equal(values.get(`lp-el-quest:${scope}`), raw);
+    });
+  });
+});
+
+test("future Adventure Map progress is blocked as unsupported and kept byte-for-byte intact", () => {
+  const raw = JSON.stringify({
+    schemaVersion: 3,
+    progressEpoch: 2,
+    cycles: { "cycle-1": { stars: 3 } },
+    futureOnly: { checkpoint: "keep-exactly" }
+  });
+  withLocalProgress("child-1", raw, values => {
+    assert.deepEqual(readElQuestLocalProgress("child-1"), {
+      ok: false,
+      reason: "unsupported_version",
+      value: {}
+    });
+    assert.throws(
+      () => loadElQuestProgress("child-1"),
+      error => error?.code === "el_quest_progress_unsupported_version"
+    );
+    assert.equal(values.get("lp-el-quest:child-1"), raw);
   });
 });

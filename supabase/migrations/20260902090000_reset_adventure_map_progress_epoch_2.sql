@@ -21,19 +21,59 @@ returns numeric language sql immutable as $$
   select public.lp_el_quest_number(payload, 'progressEpoch');
 $$;
 
+create or replace function public.lp_el_quest_schema(payload jsonb)
+returns numeric language sql immutable as $$
+  select public.lp_el_quest_number(payload, 'schemaVersion');
+$$;
+
+create or replace function public.lp_has_canonical_el_quest_cycles(payload jsonb)
+returns boolean language plpgsql immutable as $$
+declare
+  cycle_record record;
+begin
+  if coalesce(jsonb_typeof(payload), '') <> 'object'
+    or coalesce(jsonb_typeof(payload -> 'cycles'), '') <> 'object'
+  then
+    return false;
+  end if;
+
+  for cycle_record in select value from jsonb_each(payload -> 'cycles')
+  loop
+    if coalesce(jsonb_typeof(cycle_record.value), '') <> 'object' then
+      return false;
+    end if;
+    if cycle_record.value ? 'stations'
+      and coalesce(jsonb_typeof(cycle_record.value -> 'stations'), '') <> 'object'
+    then
+      return false;
+    end if;
+  end loop;
+  return true;
+end;
+$$;
+
 create or replace function public.lp_is_current_el_quest(payload jsonb)
 returns boolean language sql immutable as $$
-  select public.lp_el_quest_number(payload, 'schemaVersion') = 2
-    and public.lp_el_quest_epoch(payload) = 2;
+  select public.lp_el_quest_schema(payload) = 2
+    and public.lp_el_quest_epoch(payload) = 2
+    and public.lp_has_canonical_el_quest_cycles(payload);
 $$;
 
 create or replace function public.lp_normalize_el_quest(payload jsonb)
 returns jsonb language sql immutable as $$
   select case
-    when public.lp_el_quest_epoch(payload) > 2 then coalesce(payload, '{}'::jsonb)
+    when public.lp_el_quest_schema(payload) > 2
+      or public.lp_el_quest_epoch(payload) > 2
+      then coalesce(payload, '{}'::jsonb)
     when public.lp_is_current_el_quest(payload) then
-      '{"cycles":{}}'::jsonb || coalesce(payload, '{}'::jsonb)
-    else coalesce(payload, '{}'::jsonb) ||
+      '{"cycles":{}}'::jsonb || case
+        when jsonb_typeof(payload) = 'object' then payload
+        else '{}'::jsonb
+      end
+    else case
+      when jsonb_typeof(payload) = 'object' then payload
+      else '{}'::jsonb
+    end ||
       jsonb_build_object('schemaVersion', 2, 'progressEpoch', 2, 'cycles', '{}'::jsonb)
   end;
 $$;
@@ -97,13 +137,23 @@ returns jsonb language plpgsql immutable as $$
 declare
   existing_epoch numeric := public.lp_el_quest_epoch(existing);
   incoming_epoch numeric := public.lp_el_quest_epoch(incoming);
+  existing_schema numeric := public.lp_el_quest_schema(existing);
+  incoming_schema numeric := public.lp_el_quest_schema(incoming);
+  existing_is_future boolean := existing_epoch > 2 or existing_schema > 2;
+  incoming_is_future boolean := incoming_epoch > 2 or incoming_schema > 2;
   local_payload jsonb := public.lp_normalize_el_quest(existing);
   incoming_payload jsonb := public.lp_normalize_el_quest(incoming);
 begin
-  -- An unknown future epoch is opaque to this release. Keep the winning payload
-  -- intact instead of accidentally applying this release's v2 merge rules.
-  if existing_epoch > 2 or incoming_epoch > 2 then
-    if existing_epoch > incoming_epoch then return existing; end if;
+  -- An unknown future schema or epoch is opaque to this release. Keep the
+  -- winning payload intact instead of applying this release's v2 merge rules.
+  if existing_is_future or incoming_is_future then
+    if not incoming_is_future then return existing; end if;
+    if not existing_is_future then return incoming; end if;
+    if existing_epoch <> incoming_epoch then
+      if existing_epoch > incoming_epoch then return existing; end if;
+      return incoming;
+    end if;
+    if existing_schema > incoming_schema then return existing; end if;
     return incoming;
   end if;
 
@@ -164,6 +214,8 @@ where area = 'el_quest'
 
 grant execute on function public.lp_el_quest_epoch(jsonb) to anon, authenticated;
 grant execute on function public.lp_el_quest_number(jsonb, text) to anon, authenticated;
+grant execute on function public.lp_el_quest_schema(jsonb) to anon, authenticated;
+grant execute on function public.lp_has_canonical_el_quest_cycles(jsonb) to anon, authenticated;
 grant execute on function public.lp_is_current_el_quest(jsonb) to anon, authenticated;
 grant execute on function public.lp_normalize_el_quest(jsonb) to anon, authenticated;
 grant execute on function public.lp_merge_el_quest_cycle(jsonb, jsonb) to anon, authenticated;

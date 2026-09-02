@@ -456,6 +456,7 @@ async function expectRejected(page, dimension) {
 
 async function clearTrace(page) {
   await page.getByRole("button", { name: "Start again" }).click();
+  await expect(page.locator('.sbq-trace-demo[data-correction-model="true"]')).toHaveCount(0);
   await expect(page.locator(TRACE_STATUS)).toHaveText("Trace the grey letter.");
   await expect(page.getByRole("button", { name: "Check my letter" })).toBeDisabled();
   await expect(page.locator(".sbq-sparkle")).toHaveCount(0);
@@ -478,10 +479,116 @@ function highCoverageScribble(canvasBox) {
   });
 }
 
+test("third trace miss finishes the native stroke model before enabling a clean retry", async ({
+  page
+}, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "One browser run proves the timed visual model gate.");
+  test.setTimeout(60_000);
+  await openFirstLetterTrace(page);
+  const driver = inputDriver(page, testInfo.project.name);
+  try {
+    for (let attempt = 1; attempt <= 3; attempt += 1) {
+      await page.locator(TRACE_CANVAS).scrollIntoViewIfNeeded();
+      const canvasBox = await page.locator(TRACE_CANVAS).boundingBox();
+      expect(canvasBox).toBeTruthy();
+      await driver.draw([highCoverageScribble(canvasBox)[0]]);
+      await expectRejected(page, "path");
+      if (attempt < 3) await clearTrace(page);
+    }
+
+    const model = page.locator('.sbq-trace-demo[data-correction-model="true"]');
+    await expect(model).toHaveAttribute("data-correction-model-state", "playing");
+    await expect(page.locator(TRACE_CANVAS)).toHaveAttribute("aria-disabled", "true");
+    await expect(page.getByRole("button", { name: "Check my letter" })).toBeDisabled();
+
+    await expect(model).toHaveAttribute("data-correction-model-state", "complete", { timeout: 12_000 });
+    await expect(page.locator(TRACE_CANVAS)).not.toHaveAttribute("aria-disabled", "true");
+    await expect(page.getByRole("button", { name: "Check my letter" })).toBeDisabled();
+    await expect(page.locator(TRACE_STATUS)).toHaveText("Now trace A again after the model.");
+
+    const targetStrokes = await renderedTargetStrokes(page);
+    await driver.draw([targetStrokes.flat()]);
+    await page.getByRole("button", { name: "Check my letter" }).click();
+    await expect(page.locator('[data-mechanic-stage="letter-trace"]')).toHaveAttribute("data-trace-phase", "faded");
+  } finally {
+    await driver.close();
+  }
+});
+
+test("phone trace brings every third-miss correction model into view and allows another try", async ({
+  page
+}, testInfo) => {
+  test.skip(testInfo.project.name !== "mobile", "This gate covers the trusted phone touch path.");
+  test.setTimeout(60_000);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await openFirstLetterTrace(page);
+
+  const driver = inputDriver(page, testInfo.project.name);
+  const model = page.locator('.sbq-trace-demo[data-correction-model="true"]');
+  const acknowledgement = page.getByRole("button", { name: "I followed the numbered model" });
+
+  async function expectModelInsideStage(replayKey) {
+    await expect(model).toHaveAttribute("data-correction-model-key", replayKey);
+    await expect(model).toBeFocused();
+    const visibility = await model.evaluate(element => {
+      const stage = element.closest(".adventure-round-frame__stage");
+      const modelRect = element.getBoundingClientRect();
+      const stageRect = stage?.getBoundingClientRect();
+      if (!stageRect) return { intersectionHeight: 0, stageScrollTop: -1 };
+      return {
+        intersectionHeight: Math.max(
+          0,
+          Math.min(modelRect.bottom, stageRect.bottom) - Math.max(modelRect.top, stageRect.top)
+        ),
+        stageScrollTop: stage.scrollTop
+      };
+    });
+    expect(visibility.intersectionHeight, "the correction model must intersect the stage viewport").toBeGreaterThan(40);
+    expect(visibility.stageScrollTop, "the stage must return to the correction model").toBeLessThan(20);
+    await expect(acknowledgement).toBeVisible();
+  }
+
+  try {
+    for (let attempt = 1; attempt <= 3; attempt += 1) {
+      await page.locator(TRACE_CANVAS).scrollIntoViewIfNeeded();
+      const canvasBox = await page.locator(TRACE_CANVAS).boundingBox();
+      expect(canvasBox).toBeTruthy();
+      await driver.draw([highCoverageScribble(canvasBox)[0]]);
+      await expectRejected(page, "path");
+      if (attempt < 3) await clearTrace(page);
+    }
+
+    await expect(model).toHaveAttribute("data-correction-model-state", "playing");
+    await expectModelInsideStage("0:3");
+    await acknowledgement.click();
+    await expect(model).toHaveAttribute("data-correction-model-state", "complete");
+    await expect(page.locator(TRACE_CANVAS)).not.toHaveAttribute("aria-disabled", "true");
+
+    await page.locator(TRACE_CANVAS).scrollIntoViewIfNeeded();
+    const canvasBox = await page.locator(TRACE_CANVAS).boundingBox();
+    expect(canvasBox).toBeTruthy();
+    await driver.draw([highCoverageScribble(canvasBox)[0]]);
+    await expect(page.getByRole("button", { name: "Check my letter" })).toBeEnabled();
+    await expectRejected(page, "path");
+
+    await expect(model).toHaveAttribute("data-correction-model-state", "playing");
+    await expectModelInsideStage("0:4");
+    await acknowledgement.click();
+    await expect(model).toHaveAttribute("data-correction-model-state", "complete");
+    await expect(page.locator(TRACE_CANVAS)).not.toHaveAttribute("aria-disabled", "true");
+  } finally {
+    await driver.close();
+  }
+});
+
 test("Letter Trace requires ordered formation through real mouse or touch input", async ({
   page
 }, testInfo) => {
-  test.setTimeout(60_000);
+  // This deliberately drives five dense, trusted pointer traces. Retained
+  // trace capture can push the desktop run just past one minute on CI even
+  // when every formation assertion completes successfully.
+  test.setTimeout(90_000);
   await openFirstLetterTrace(page);
   let targetStrokes = await renderedTargetStrokes(page);
   expect(targetStrokes.length).toBeGreaterThanOrEqual(3);

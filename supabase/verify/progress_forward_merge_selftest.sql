@@ -63,12 +63,52 @@ begin
     '{"schemaVersion":2,"progressEpoch":2,"cycles":{}}'::jsonb
   ) #>> '{progressEpoch}' = '3', 'el_quest future epoch was downgraded';
   assert public.lp_normalize_el_quest(
+    '{"schemaVersion":3,"progressEpoch":2,"cycles":{"future":{"stars":1}},"futureOnly":{"checkpoint":"keep-exactly"}}'::jsonb
+  ) = '{"schemaVersion":3,"progressEpoch":2,"cycles":{"future":{"stars":1}},"futureOnly":{"checkpoint":"keep-exactly"}}'::jsonb,
+    'el_quest future schema at current epoch was normalized';
+  assert public.lp_merge_el_quest(
+    '{"schemaVersion":3,"progressEpoch":2,"cycles":{"future":{"stars":1}},"futureOnly":{"checkpoint":"keep-exactly"}}'::jsonb,
+    '{"schemaVersion":2,"progressEpoch":2,"cycles":{"current":{"stars":3}}}'::jsonb
+  ) = '{"schemaVersion":3,"progressEpoch":2,"cycles":{"future":{"stars":1}},"futureOnly":{"checkpoint":"keep-exactly"}}'::jsonb,
+    'el_quest future schema existing-first was downgraded';
+  assert public.lp_merge_el_quest(
+    '{"schemaVersion":2,"progressEpoch":2,"cycles":{"current":{"stars":3}}}'::jsonb,
+    '{"schemaVersion":3,"progressEpoch":2,"cycles":{"future":{"stars":1}},"futureOnly":{"checkpoint":"keep-exactly"}}'::jsonb
+  ) = '{"schemaVersion":3,"progressEpoch":2,"cycles":{"future":{"stars":1}},"futureOnly":{"checkpoint":"keep-exactly"}}'::jsonb,
+    'el_quest future schema incoming-first was downgraded';
+  assert public.lp_normalize_el_quest(
     '{"v":1,"cycles":{"c-1":{"stars":3}}}'::jsonb
   ) = '{"v":1,"schemaVersion":2,"progressEpoch":2,"cycles":{}}'::jsonb,
     'el_quest stale first insert was not normalized';
   assert public.lp_normalize_el_quest(
     '{"schemaVersion":"2","progressEpoch":"2","cycles":{"c-1":{"stars":3}}}'::jsonb
   ) #>> '{cycles,c-1,stars}' = '3', 'el_quest numeric-string current epoch was reset';
+  assert not public.lp_is_current_el_quest(
+    '{"schemaVersion":2,"progressEpoch":2,"cycles":null}'::jsonb
+  ), 'el_quest null cycles was accepted as canonical';
+  assert not public.lp_is_current_el_quest(
+    '{"schemaVersion":2,"progressEpoch":2,"cycles":[]}'::jsonb
+  ), 'el_quest array cycles was accepted as canonical';
+  assert not public.lp_is_current_el_quest(
+    '{"schemaVersion":2,"progressEpoch":2,"cycles":{"c-1":null}}'::jsonb
+  ), 'el_quest null cycle record was accepted as canonical';
+  assert not public.lp_is_current_el_quest(
+    '{"schemaVersion":2,"progressEpoch":2,"cycles":{"c-1":{"stations":[]}}}'::jsonb
+  ), 'el_quest array stations record was accepted as canonical';
+  assert public.lp_normalize_el_quest(
+    '{"schemaVersion":2,"progressEpoch":2,"cycles":null,"unrelatedMarker":"keep"}'::jsonb
+  ) = '{"schemaVersion":2,"progressEpoch":2,"cycles":{},"unrelatedMarker":"keep"}'::jsonb,
+    'el_quest malformed current payload did not reset to a canonical server record';
+  assert public.lp_normalize_el_quest(
+    '{"schemaVersion":2,"progressEpoch":2,"cycles":[]}'::jsonb
+  ) = '{"schemaVersion":2,"progressEpoch":2,"cycles":{}}'::jsonb,
+    'el_quest array cycles did not reset to a canonical server record';
+  assert public.lp_normalize_el_quest('[]'::jsonb)
+    = '{"schemaVersion":2,"progressEpoch":2,"cycles":{}}'::jsonb,
+    'el_quest array payload did not normalize to a canonical object';
+  assert public.lp_normalize_el_quest('"invalid"'::jsonb)
+    = '{"schemaVersion":2,"progressEpoch":2,"cycles":{}}'::jsonb,
+    'el_quest scalar payload did not normalize to a canonical object';
 
   -- A non-Adventure area keeps its existing forward behavior. This migration
   -- touches neither focus-session rows nor their routines.

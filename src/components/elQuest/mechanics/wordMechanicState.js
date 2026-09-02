@@ -1,3 +1,5 @@
+import { constrainedIndexOrder, seededIndexOrder } from "../adventureRoundModel.js";
+
 function clean(value) {
   return String(value ?? "").trim();
 }
@@ -179,16 +181,37 @@ export function buildWordWindowOutcome(round = {}, state) {
   };
 }
 
-function graphemeTiles(graphemes) {
+function graphemeTiles(graphemes, round = {}) {
+  const declaredBank = list(round.bankGraphemes);
+  const hasValidDeclaredBank = declaredBank.length >= graphemes.length
+    && graphemes.every((grapheme, index) => declaredBank[index] === grapheme);
+  const bankGraphemes = hasValidDeclaredBank ? declaredBank : graphemes;
   const occurrences = new Map();
-  return graphemes.map(grapheme => {
+  const tiles = bankGraphemes.map((grapheme, index) => {
     const occurrence = (occurrences.get(grapheme) || 0) + 1;
     occurrences.set(grapheme, occurrence);
     return {
       id: `grapheme-${encodeURIComponent(grapheme)}-${occurrence}`,
-      grapheme
+      grapheme,
+      isDistractor: index >= graphemes.length
     };
-  }).reverse();
+  });
+  const proposedOrder = Array.isArray(round.tileOrder)
+    ? round.tileOrder
+    : seededIndexOrder(
+        bankGraphemes.length,
+        round.roundKey || `${round.word}:${bankGraphemes.join("|")}`
+      );
+  const exactProposedOrder = proposedOrder.length === bankGraphemes.length
+    && new Set(proposedOrder).size === bankGraphemes.length
+    && proposedOrder.every(index => (
+      Number.isInteger(index) && index >= 0 && index < bankGraphemes.length
+    ));
+  const tileOrder = round.tileBankPolicy === "cycle-one-target-only-permutation"
+    && exactProposedOrder
+    ? proposedOrder
+    : constrainedIndexOrder(bankGraphemes, proposedOrder, { avoidReverse: true });
+  return tileOrder.map(index => tiles[index]);
 }
 
 export function createSoundBoxesState(round = {}, supportLevel = 0) {
@@ -196,7 +219,7 @@ export function createSoundBoxesState(round = {}, supportLevel = 0) {
   return {
     roundKey: roundKey(round),
     slots: graphemes.map(() => null),
-    tiles: graphemeTiles(graphemes),
+    tiles: graphemeTiles(graphemes, round),
     usedTileIds: [],
     supportLevel: support(supportLevel),
     committed: false,
@@ -360,7 +383,7 @@ export function machinePiecesForRound(round = {}) {
   }
   if (round.operation === "removeOnset") {
     const projectedWords = new Set();
-    return before.flatMap((grapheme, index) => {
+    const pieces = before.flatMap((grapheme, index) => {
       const projectedWord = before
         .filter((_, graphemeIndex) => graphemeIndex !== index)
         .join("");
@@ -376,17 +399,56 @@ export function machinePiecesForRound(round = {}) {
         matches: index === 0
       }];
     });
+    const bySourcePosition = new Map(pieces.map(piece => [piece.position, piece]));
+    const declaredOrder = Array.isArray(round.pieceOrder) ? round.pieceOrder : [];
+    const hasExactDeclaredOrder = declaredOrder.length === pieces.length
+      && new Set(declaredOrder).size === pieces.length
+      && declaredOrder.every(position => bySourcePosition.has(position));
+    if (hasExactDeclaredOrder) {
+      return declaredOrder.map(position => bySourcePosition.get(position));
+    }
+    return seededIndexOrder(
+      pieces.length,
+      round.roundKey || `${round.beforeWord}:${round.afterWord}`
+    ).map(index => pieces[index]);
   }
   if (round.operation === "joinCompound") {
     const joinAt = before.indexOf("+");
     if (joinAt < 1 || joinAt >= before.length - 1) return [];
     const chunks = [before.slice(0, joinAt), before.slice(joinAt + 1)];
-    return chunks.map((graphemes, index) => ({
-      id: `machine-join-${index === 0 ? "left" : "right"}`,
-      action: "join",
-      label: graphemes.join(""),
-      graphemes
-    }));
+    const declaredPieces = Array.isArray(round.compoundPieces)
+      ? round.compoundPieces.map((piece, index) => ({
+          id: `machine-join-${clean(piece?.id) || index + 1}`,
+          action: "join",
+          label: clean(piece?.label || piece?.word),
+          graphemes: list(piece?.graphemes),
+          semanticIndex: Number.isInteger(piece?.semanticIndex) ? piece.semanticIndex : null
+        })).filter(piece => piece.label && piece.graphemes.length)
+      : [];
+    const declaredTargetIndexes = new Set(
+      declaredPieces
+        .filter(piece => Number.isInteger(piece.semanticIndex))
+        .map(piece => piece.semanticIndex)
+    );
+    const pieces = declaredPieces.length >= 3
+      && declaredTargetIndexes.size === 2
+      && declaredTargetIndexes.has(0)
+      && declaredTargetIndexes.has(1)
+      ? declaredPieces
+      : chunks.map((graphemes, index) => ({
+          id: `machine-join-${index === 0 ? "left" : "right"}`,
+          action: "join",
+          label: graphemes.join(""),
+          graphemes,
+          semanticIndex: index
+        }));
+    const proposedOrder = Array.isArray(round.pieceOrder)
+      ? round.pieceOrder
+      : seededIndexOrder(pieces.length, round.roundKey || pieces.map(piece => piece.label).join("|"));
+    return constrainedIndexOrder(
+      pieces.map(piece => piece.label),
+      proposedOrder
+    ).map(index => pieces[index]);
   }
   return [];
 }
@@ -416,8 +478,15 @@ export function wordMachineStateForRound(state, round = {}, supportLevel = 0) {
     : createWordMachineState(round, supportLevel);
 }
 
-function machineReady(operation, selectedPieceIds, pieceCount) {
-  if (operation === "joinCompound") return pieceCount > 0 && selectedPieceIds.length === pieceCount;
+function compoundTargetCount(pieces) {
+  return pieces.filter(piece => Number.isInteger(piece.semanticIndex)).length;
+}
+
+function machineReady(operation, selectedPieceIds, pieces) {
+  if (operation === "joinCompound") {
+    const targetCount = compoundTargetCount(pieces);
+    return targetCount > 0 && selectedPieceIds.length === targetCount;
+  }
   return selectedPieceIds.length === 1;
 }
 
@@ -437,7 +506,7 @@ function resultForMachine(round, selectedPieceIds, pieces) {
     const selected = selectedPieceIds
       .map(id => pieces.find(piece => piece.id === id))
       .filter(Boolean);
-    return selected.length === pieces.length
+    return selected.length === compoundTargetCount(pieces)
       ? selected.flatMap(piece => piece.graphemes)
       : null;
   }
@@ -469,9 +538,13 @@ export function reduceWordMachine(state, action = {}, round = {}) {
       if (!piece) return state;
       let selectedPieceIds;
       if (round.operation === "joinCompound") {
-        selectedPieceIds = state.selectedPieceIds.includes(piece.id)
+        const selected = state.selectedPieceIds.includes(piece.id);
+        const targetCount = compoundTargetCount(pieces);
+        selectedPieceIds = selected
           ? state.selectedPieceIds.filter(id => id !== piece.id)
-          : [...state.selectedPieceIds, piece.id];
+          : state.selectedPieceIds.length < targetCount
+            ? [...state.selectedPieceIds, piece.id]
+            : state.selectedPieceIds;
       } else {
         selectedPieceIds = [piece.id];
       }
@@ -479,7 +552,7 @@ export function reduceWordMachine(state, action = {}, round = {}) {
         ...state,
         selectedPieceIds,
         status: round.operation === "joinCompound"
-          ? `${selectedPieceIds.length} of ${pieces.length} word pieces selected.`
+          ? `${selectedPieceIds.length} of ${compoundTargetCount(pieces)} word pieces selected.`
           : `${piece.label} is ready for the ${piece.action}.`
       };
     }
@@ -490,7 +563,7 @@ export function reduceWordMachine(state, action = {}, round = {}) {
         status: "The word operation was replayed. This try now includes support."
       };
     case "COMMIT": {
-      if (!machineReady(round.operation, state.selectedPieceIds, pieces.length)) {
+      if (!machineReady(round.operation, state.selectedPieceIds, pieces)) {
         return {
           ...state,
           status: machineInstruction(round.operation)
@@ -526,7 +599,10 @@ function machineFeedback(round, response, correct) {
       : `You made ${made}. Remove only the first grapheme from ${clean(round.beforeWord)}.`;
   }
   if (round.operation === "joinCompound") {
-    const pieces = machinePiecesForRound(round).map(piece => piece.label);
+    const pieces = [...machinePiecesForRound(round)]
+      .filter(piece => Number.isInteger(piece.semanticIndex))
+      .sort((left, right) => left.semanticIndex - right.semanticIndex)
+      .map(piece => piece.label);
     return correct
       ? `You joined ${pieces[0]} and ${pieces[1]} to make ${target}.`
       : `You made ${made}. Put ${pieces[0]} before ${pieces[1]} and join them.`;

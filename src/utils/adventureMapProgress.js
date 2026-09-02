@@ -9,14 +9,40 @@ export function emptyElQuestProgress() {
   };
 }
 
-export function isCurrentElQuestProgress(value) {
+function isRecord(value) {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}
+
+function isCanonicalCycleRecord(value) {
+  if (!isRecord(value)) return false;
+  return !Object.prototype.hasOwnProperty.call(value, "stations")
+    || isRecord(value.stations);
+}
+
+export function hasCanonicalElQuestCycles(value) {
+  if (!isRecord(value?.cycles)) return false;
+  return Object.values(value.cycles).every(isCanonicalCycleRecord);
+}
+
+function claimsCurrentElQuestVersion(value) {
   return Number(value?.schemaVersion) === EL_QUEST_SCHEMA_VERSION
     && Number(value?.progressEpoch) === EL_QUEST_PROGRESS_EPOCH;
 }
 
+export function isCurrentElQuestProgress(value) {
+  return claimsCurrentElQuestVersion(value) && hasCanonicalElQuestCycles(value);
+}
+
+export function isMalformedCurrentElQuestProgress(value) {
+  return claimsCurrentElQuestVersion(value) && !hasCanonicalElQuestCycles(value);
+}
+
 export function normalizeElQuestProgress(value) {
-  const source = value && typeof value === "object" ? value : {};
-  if (Number(source.progressEpoch) > EL_QUEST_PROGRESS_EPOCH) return source;
+  const source = value && typeof value === "object" && !Array.isArray(value) ? value : {};
+  if (
+    Number(source.schemaVersion) > EL_QUEST_SCHEMA_VERSION
+    || Number(source.progressEpoch) > EL_QUEST_PROGRESS_EPOCH
+  ) return source;
   if (isCurrentElQuestProgress(source)) return { cycles: {}, ...source };
   return {
     ...source,
@@ -50,6 +76,15 @@ function mergeForward(left, right) {
 
 function sourceEpoch(value) {
   return Number(value?.progressEpoch) || 0;
+}
+
+function sourceSchema(value) {
+  return Number(value?.schemaVersion) || 0;
+}
+
+export function isFutureElQuestProgress(value) {
+  return sourceSchema(value) > EL_QUEST_SCHEMA_VERSION
+    || sourceEpoch(value) > EL_QUEST_PROGRESS_EPOCH;
 }
 
 const LATEST_RUN_FIELDS = Object.freeze([
@@ -106,8 +141,15 @@ function mergeCycles(left = {}, right = {}) {
 export function mergeElQuestProgress(existing, incoming) {
   const existingEpoch = sourceEpoch(existing);
   const incomingEpoch = sourceEpoch(incoming);
-  if (existingEpoch > EL_QUEST_PROGRESS_EPOCH || incomingEpoch > EL_QUEST_PROGRESS_EPOCH) {
-    if (existingEpoch > incomingEpoch) return existing;
+  const existingSchema = sourceSchema(existing);
+  const incomingSchema = sourceSchema(incoming);
+  const existingIsFuture = isFutureElQuestProgress(existing);
+  const incomingIsFuture = isFutureElQuestProgress(incoming);
+  if (existingIsFuture || incomingIsFuture) {
+    if (!incomingIsFuture) return existing;
+    if (!existingIsFuture) return incoming;
+    if (existingEpoch !== incomingEpoch) return existingEpoch > incomingEpoch ? existing : incoming;
+    if (existingSchema > incomingSchema) return existing;
     return incoming;
   }
 

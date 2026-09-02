@@ -8,11 +8,14 @@ import {
   recordAdventureOutcome
 } from "../../src/components/elQuest/adventureRunState.js";
 import {
+  ADVENTURE_WORD_BUILD_INVENTORY,
   buildStationRounds,
+  REVIEWED_ONSET_REMOVAL_PAIRS,
+  REVIEWED_ONSET_SUBSTITUTION_FAMILIES,
   stationsForCycle,
   wordAudioPath
 } from "../../src/components/elQuest/elQuestEngine.js";
-import { LETTER_EXAMPLES, elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
+import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
 import {
   buildSoundBoxesOutcome,
   buildWordMachineOutcome,
@@ -73,13 +76,20 @@ const removeRound = Object.freeze({
   beforeWord: "spin",
   afterWord: "pin",
   beforeGraphemes: ["s", "p", "i", "n"],
-  afterGraphemes: ["p", "i", "n"]
+  afterGraphemes: ["p", "i", "n"],
+  pieceOrder: [2, 0, 3, 1]
 });
 
 const joinRound = Object.freeze({
   mechanicId: "wordMachine",
   construct: "compound_word_joining",
   operation: "joinCompound",
+  pieceOrder: [2, 1, 0],
+  compoundPieces: [
+    { id: "sun", label: "sun", graphemes: ["s", "u", "n"], semanticIndex: 0 },
+    { id: "set", label: "set", graphemes: ["s", "e", "t"], semanticIndex: 1 },
+    { id: "hat", label: "hat", graphemes: ["h", "a", "t"], semanticIndex: null }
+  ],
   beforeWord: "sun + set",
   afterWord: "sunset",
   beforeGraphemes: ["s", "u", "n", "+", "s", "e", "t"],
@@ -147,6 +157,19 @@ function withSeed(seed, callback) {
   } finally {
     Math.random = original;
   }
+}
+
+function taughtPrintThrough(cycleNumber) {
+  const taught = new Set();
+  for (const cycle of elSkillsBlockCycles) {
+    if (!cycle.cycleNumber || cycle.cycleNumber > cycleNumber) continue;
+    for (const item of cycle.focusLetters || []) {
+      for (const grapheme of String(item.spelling || "").toLowerCase().split(/[\s/,+]+/u)) {
+        if (/^[a-z]{1,2}$/u.test(grapheme)) taught.add(grapheme);
+      }
+    }
+  }
+  return taught;
 }
 
 test("Word Window blocks choices until the study shutter is closed", () => {
@@ -287,11 +310,12 @@ test("Sound Boxes creates one slot per declared grapheme and stable duplicate ti
   const state = createSoundBoxesState({
     ...soundBoxesRound,
     word: "mammal",
-    graphemes: ["m", "a", "m", "m", "a", "l"]
+    graphemes: ["m", "a", "m", "m", "a", "l"],
+    tileOrder: [1, 3, 5, 0, 2, 4]
   }, 0);
 
   assert.equal(state.slots.length, 6);
-  assert.deepEqual(state.tiles.map(tile => tile.grapheme), ["l", "a", "m", "m", "a", "m"]);
+  assert.deepEqual(state.tiles.map(tile => tile.grapheme), ["a", "m", "l", "m", "m", "a"]);
   assert.equal(new Set(state.tiles.map(tile => tile.id)).size, 6);
   assert.deepEqual(
     state.tiles.filter(tile => tile.grapheme === "m").map(tile => tile.id).sort(),
@@ -420,17 +444,22 @@ test("Word Machine derives swap, remove, and join pieces from declared grapheme 
       matches: piece.matches
     })),
     [
-      { action: "remove", graphemes: ["s"], position: 0, projectedWord: "pin", matches: true },
-      { action: "remove", graphemes: ["p"], position: 1, projectedWord: "sin", matches: false },
       { action: "remove", graphemes: ["i"], position: 2, projectedWord: "spn", matches: false },
-      { action: "remove", graphemes: ["n"], position: 3, projectedWord: "spi", matches: false }
+      { action: "remove", graphemes: ["s"], position: 0, projectedWord: "pin", matches: true },
+      { action: "remove", graphemes: ["n"], position: 3, projectedWord: "spi", matches: false },
+      { action: "remove", graphemes: ["p"], position: 1, projectedWord: "sin", matches: false }
     ]
   );
   assert.deepEqual(
-    machinePiecesForRound(joinRound).map(piece => ({ action: piece.action, graphemes: piece.graphemes })),
+    machinePiecesForRound(joinRound).map(piece => ({
+      action: piece.action,
+      graphemes: piece.graphemes,
+      semanticIndex: piece.semanticIndex
+    })),
     [
-      { action: "join", graphemes: ["s", "u", "n"] },
-      { action: "join", graphemes: ["s", "e", "t"] }
+      { action: "join", graphemes: ["h", "a", "t"], semanticIndex: null },
+      { action: "join", graphemes: ["s", "e", "t"], semanticIndex: 1 },
+      { action: "join", graphemes: ["s", "u", "n"], semanticIndex: 0 }
     ]
   );
 });
@@ -489,7 +518,7 @@ test("Word Machine commits onset removal and compound joining as different opera
   let removing = createWordMachineState(removeRound, 0);
   removing = reduceWordMachine(removing, {
     type: "SELECT_PIECE",
-    pieceId: machinePiecesForRound(removeRound)[0].id
+    pieceId: machinePiecesForRound(removeRound).find(piece => piece.matches).id
   }, removeRound);
   removing = reduceWordMachine(removing, { type: "COMMIT" }, removeRound);
   assert.deepEqual(buildWordMachineOutcome(removeRound, removing).evidence, {
@@ -502,7 +531,10 @@ test("Word Machine commits onset removal and compound joining as different opera
   });
 
   let joining = createWordMachineState(joinRound, 0);
-  for (const piece of machinePiecesForRound(joinRound)) {
+  const semanticPieces = [...machinePiecesForRound(joinRound)]
+    .filter(piece => Number.isInteger(piece.semanticIndex))
+    .sort((left, right) => left.semanticIndex - right.semanticIndex);
+  for (const piece of semanticPieces) {
     joining = reduceWordMachine(joining, { type: "SELECT_PIECE", pieceId: piece.id }, joinRound);
   }
   joining = reduceWordMachine(joining, { type: "COMMIT" }, joinRound);
@@ -514,6 +546,67 @@ test("Word Machine commits onset removal and compound joining as different opera
     independent: true,
     operation: "joinCompound"
   });
+});
+
+test("Word Machine scrambles compound pieces but scores the child's semantic order", () => {
+  const spatialPieces = machinePiecesForRound(joinRound);
+  assert.deepEqual(spatialPieces.map(piece => piece.label), ["hat", "set", "sun"]);
+
+  let spatialOrder = createWordMachineState(joinRound, 0);
+  for (const piece of spatialPieces.slice(0, 2)) {
+    spatialOrder = reduceWordMachine(
+      spatialOrder,
+      { type: "SELECT_PIECE", pieceId: piece.id },
+      joinRound
+    );
+  }
+  spatialOrder = reduceWordMachine(spatialOrder, { type: "COMMIT" }, joinRound);
+  assert.equal(buildWordMachineOutcome(joinRound, spatialOrder).correct, false);
+  assert.deepEqual(spatialOrder.resultGraphemes, ["h", "a", "t", "s", "e", "t"]);
+
+  let semanticOrder = createWordMachineState(joinRound, 0);
+  for (const piece of spatialPieces
+    .filter(item => Number.isInteger(item.semanticIndex))
+    .sort((left, right) => left.semanticIndex - right.semanticIndex)) {
+    semanticOrder = reduceWordMachine(
+      semanticOrder,
+      { type: "SELECT_PIECE", pieceId: piece.id },
+      joinRound
+    );
+  }
+  semanticOrder = reduceWordMachine(semanticOrder, { type: "COMMIT" }, joinRound);
+  assert.equal(buildWordMachineOutcome(joinRound, semanticOrder).correct, true);
+  assert.deepEqual(semanticOrder.resultGraphemes, joinRound.afterGraphemes);
+});
+
+test("Word Machine rejects a compound distractor and supports a corrected target join", () => {
+  const pieces = machinePiecesForRound(joinRound);
+  const left = pieces.find(piece => piece.semanticIndex === 0);
+  const right = pieces.find(piece => piece.semanticIndex === 1);
+  const distractor = pieces.find(piece => !Number.isInteger(piece.semanticIndex));
+  assert.ok(left && right && distractor, "the join needs two targets and a distractor");
+
+  let state = createWordMachineState(joinRound, 0);
+  for (const piece of [left, distractor]) {
+    state = reduceWordMachine(state, { type: "SELECT_PIECE", pieceId: piece.id }, joinRound);
+  }
+  state = reduceWordMachine(state, { type: "COMMIT" }, joinRound);
+  const wrong = buildWordMachineOutcome(joinRound, state);
+  assert.equal(wrong.correct, false);
+  assert.equal(wrong.evidence.independent, false);
+  assert.equal(wrong.feedback, "You made sunhat. Put sun before set and join them.");
+  assert.deepEqual(state.resultGraphemes, ["s", "u", "n", "h", "a", "t"]);
+
+  state = reduceWordMachine(state, { type: "RETRY" }, joinRound);
+  for (const piece of [left, right]) {
+    state = reduceWordMachine(state, { type: "SELECT_PIECE", pieceId: piece.id }, joinRound);
+  }
+  state = reduceWordMachine(state, { type: "COMMIT" }, joinRound);
+  const recovered = buildWordMachineOutcome(joinRound, state);
+  assert.equal(recovered.correct, true);
+  assert.equal(recovered.evidence.supportLevel, 1);
+  assert.equal(recovered.evidence.independent, false);
+  assert.deepEqual(state.resultGraphemes, joinRound.afterGraphemes);
 });
 
 test("Word Machine onset removal requires a real position choice and supports recovery", () => {
@@ -555,6 +648,233 @@ test("Word Machine collapses removal positions that would make the same result",
   assert.equal(pieces.filter(piece => piece.matches).length, 1);
 });
 
+test("generated Sound Boxes use only reviewed phoneme-grapheme segmentations", () => {
+  const inventoryByWord = new Map(
+    ADVENTURE_WORD_BUILD_INVENTORY.map(entry => [entry.word, entry])
+  );
+  assert.equal(inventoryByWord.size, ADVENTURE_WORD_BUILD_INVENTORY.length);
+
+  const rejectedSpellingOnlyExamples = new Set([
+    "moon", "said", "into", "wolf", "of", "goat", "igloo", "exit"
+  ]);
+  for (const entry of ADVENTURE_WORD_BUILD_INVENTORY) {
+    assert.equal(entry.graphemes.join(""), entry.word, entry.word);
+    assert.ok(wordAudioPath(entry.word), `${entry.word} needs reviewed audio`);
+    assert.ok(entry.authorizedFromCycle >= 1 && entry.authorizedFromCycle <= 24);
+  }
+
+  for (let seed = 1; seed <= 64; seed += 1) {
+    withSeed(seed, () => {
+      for (const cycle of elSkillsBlockCycles.filter(item => item.cycleNumber && item.cycleNumber <= 24)) {
+        const rounds = buildStationRounds(cycle, "build");
+        assert.ok(rounds.length > 0, `${cycle.id} needs a reviewed build round`);
+        for (const round of rounds) {
+          const reviewed = inventoryByWord.get(round.word);
+          assert.ok(reviewed, `${cycle.id}/${round.word} is not reviewed for encoding`);
+          assert.ok(reviewed.authorizedFromCycle <= cycle.cycleNumber, `${cycle.id}/${round.word} runs ahead`);
+          assert.deepEqual(round.graphemes, reviewed.graphemes, `${cycle.id}/${round.word} changed segmentation`);
+          assert.equal(round.inventoryAuthorization, "reviewed-phoneme-grapheme-v1");
+          assert.equal(rejectedSpellingOnlyExamples.has(round.word), false, `${round.word} is not box-safe`);
+        }
+      }
+    });
+  }
+});
+
+test("generated Sound Box banks are seeded, mixed, and never a fixed reverse solve", () => {
+  const playableCycles = elSkillsBlockCycles.filter(cycle => (
+    cycle.cycleNumber >= 1 && cycle.cycleNumber <= 24
+  ));
+  const matOrders = new Set();
+
+  for (let seed = 1; seed <= 24; seed += 1) {
+    for (const cycle of playableCycles) {
+      const rounds = buildStationRounds(cycle, "build", { seed: `sound-box-order-${seed}` });
+      for (const round of rounds) {
+        const canonicalBank = round.bankGraphemes || round.graphemes;
+        assert.deepEqual(
+          [...round.tileOrder].sort((left, right) => left - right),
+          canonicalBank.map((_, index) => index),
+          `${cycle.id}/${round.word} needs an exact tile permutation`
+        );
+        const visible = createSoundBoxesState(round).tiles.map(tile => tile.grapheme);
+        if (round.graphemes.length >= 3) {
+          const state = createSoundBoxesState(round);
+          assert.equal(state.tiles.length, round.graphemes.length);
+          assert.equal(state.tiles.some(tile => tile.isDistractor), false);
+          assert.equal(round.tileBankPolicy, undefined);
+        }
+        if (
+          new Set(canonicalBank).size > 1
+          && round.tileBankPolicy !== "cycle-one-target-only-permutation"
+        ) {
+          assert.notDeepEqual(visible, canonicalBank, `${cycle.id}/${round.word} exposed the answer order`);
+        }
+        if (canonicalBank.length > 2 && new Set(canonicalBank).size > 1) {
+          assert.notDeepEqual(
+            visible,
+            [...canonicalBank].reverse(),
+            `${cycle.id}/${round.word} retained the fixed right-to-left solve`
+          );
+        }
+        if (round.word === "mat") matOrders.add(visible.join("|"));
+      }
+    }
+  }
+
+  const cycleTwo = playableCycles.find(cycle => cycle.cycleNumber === 2);
+  assert.deepEqual(
+    buildStationRounds(cycleTwo, "build", { seed: "repeatable-sound-box-run" }),
+    buildStationRounds(cycleTwo, "build", { seed: "repeatable-sound-box-run" })
+  );
+  assert.ok(matOrders.size > 1, "a new run seed should vary the mat tile bank");
+});
+
+test("two-unit Sound Boxes use reviewed taught distractors after the explicit cycle-one exception", () => {
+  const layoutsByWord = new Map();
+  const cycleOneLayouts = new Set();
+
+  for (let seed = 1; seed <= 32; seed += 1) {
+    for (const cycle of elSkillsBlockCycles.filter(item => (
+      item.cycleNumber >= 1 && item.cycleNumber <= 24
+    ))) {
+      const seedText = `two-unit-sound-box-${seed}`;
+      const rounds = buildStationRounds(cycle, "build", { seed: seedText });
+      const repeat = buildStationRounds(cycle, "build", { seed: seedText });
+      assert.deepEqual(repeat, rounds, `${cycle.id} seed ${seed} must reproduce its tile banks`);
+
+      for (const round of rounds.filter(item => item.graphemes.length === 2)) {
+        const state = createSoundBoxesState(round);
+        const layoutKey = round.word;
+        if (!layoutsByWord.has(layoutKey)) layoutsByWord.set(layoutKey, new Set());
+        layoutsByWord.get(layoutKey).add(state.tiles.map(tile => tile.grapheme).join("|"));
+
+        assert.equal(state.slots.length, 2, `${cycle.cycleNumber}:${layoutKey} keeps exactly two target slots`);
+        assert.equal(new Set(state.tiles.map(tile => tile.id)).size, state.tiles.length);
+        if (cycle.cycleNumber === 1 && round.word === "am") {
+          assert.equal(round.tileBankPolicy, "cycle-one-target-only-permutation");
+          assert.equal(state.tiles.length, 2);
+          assert.equal(state.tiles.some(tile => tile.isDistractor), false);
+          assert.equal(round.distractorGrapheme, undefined);
+          cycleOneLayouts.add(state.tiles.map(tile => tile.grapheme).join("|"));
+        } else {
+          assert.equal(round.tileBankPolicy, "target-plus-reviewed-distractor");
+          assert.equal(state.tiles.length, 3, `${cycle.cycleNumber}:${layoutKey} needs one extra decision tile`);
+          assert.equal(state.tiles.filter(tile => tile.isDistractor).length, 1);
+          assert.ok(round.distractorGrapheme);
+          assert.equal(round.graphemes.includes(round.distractorGrapheme), false);
+          assert.ok(
+            taughtPrintThrough(cycle.cycleNumber).has(round.distractorGrapheme),
+            `${cycle.cycleNumber}:${layoutKey}/${round.distractorGrapheme} must already be taught`
+          );
+        }
+        assert.deepEqual(
+          [...round.tileOrder].sort((left, right) => left - right),
+          state.tiles.map((_, index) => index),
+          `${cycle.cycleNumber}:${layoutKey} needs an exact bank permutation`
+        );
+      }
+    }
+  }
+
+  for (const [word, layouts] of layoutsByWord) {
+    assert.ok(layouts.size > 1, `${word} cannot retain one positional solve across runs`);
+  }
+  assert.deepEqual(
+    [...cycleOneLayouts].sort(),
+    ["a|m", "m|a"],
+    "cycle-one am must vary only between its two truthful target layouts"
+  );
+});
+
+test("Sound Boxes records a reviewed distractor miss and remains open for recovery", () => {
+  const cycle = elSkillsBlockCycles.find(item => item.cycleNumber === 2);
+  const round = buildStationRounds(cycle, "build", { seed: "sound-box-distractor-recovery" })
+    .find(item => item.graphemes.length === 2 && item.distractorGrapheme);
+  assert.ok(round, "cycle 2 needs a two-unit round with a taught distractor");
+
+  let state = createSoundBoxesState(round);
+  const distractor = state.tiles.find(tile => tile.isDistractor);
+  const outcomes = [];
+  const firstTarget = state.tiles.find(tile => (
+    !tile.isDistractor && tile.grapheme === round.graphemes[0]
+  ));
+  state = commitSoundBoxPlacement(state, firstTarget.id, round);
+  state = commitSoundBoxPlacement(state, distractor.id, round, outcome => outcomes.push(outcome));
+  assert.equal(outcomes.length, 1);
+  assert.equal(outcomes[0].correct, false);
+  assert.equal(outcomes[0].evidence.independent, false);
+  assert.equal(state.slots[0].grapheme, round.graphemes[0]);
+  assert.equal(state.slots[1], null);
+  assert.equal(state.committed, false);
+
+  for (const expected of round.graphemes.slice(1)) {
+    const targetTile = state.tiles.find(tile => (
+      !tile.isDistractor
+      && tile.grapheme === expected
+      && !state.usedTileIds.includes(tile.id)
+    ));
+    assert.ok(targetTile, `recovery needs target grapheme ${expected}`);
+    state = commitSoundBoxPlacement(state, targetTile.id, round);
+  }
+  state = reduceSoundBoxes(state, { type: "CHECK" }, round);
+  const recovered = buildSoundBoxesOutcome(round, state);
+  assert.equal(recovered.correct, true);
+  assert.equal(recovered.evidence.independent, false);
+  assert.equal(recovered.evidence.supportLevel, 1);
+});
+
+test("generated compound joins mix two targets with a distractor across seeded layouts", () => {
+  const cycle = elSkillsBlockCycles.find(item => item.cycleNumber === 12);
+  const layouts = new Set();
+  const targetPositions = new Set();
+
+  for (let seed = 1; seed <= 24; seed += 1) {
+    const seedText = `compound-order-${seed}`;
+    const [round] = buildStationRounds(cycle, "play", { seed: seedText })
+      .filter(item => item.operation === "joinCompound");
+    const [repeat] = buildStationRounds(cycle, "play", { seed: seedText })
+      .filter(item => item.operation === "joinCompound");
+    assert.ok(round, `seed ${seed} needs a compound round`);
+    assert.deepEqual(repeat, round, `seed ${seed} must reproduce its layout`);
+
+    const pieces = machinePiecesForRound(round);
+    assert.ok(pieces.length >= 3, `seed ${seed} needs a real part decision`);
+    assert.equal(pieces.filter(piece => Number.isInteger(piece.semanticIndex)).length, 2);
+    const distractors = pieces.filter(piece => !Number.isInteger(piece.semanticIndex));
+    assert.ok(distractors.length >= 1);
+    for (const distractor of distractors) {
+      assert.ok(["hat", "tan"].includes(distractor.label));
+      assert.equal(distractor.graphemes.join(""), distractor.label);
+    }
+    assert.deepEqual(
+      [...round.pieceOrder].sort((left, right) => left - right),
+      pieces.map((_, index) => index)
+    );
+    layouts.add(pieces.map(piece => piece.label).join("|"));
+    targetPositions.add([
+      pieces.findIndex(piece => piece.semanticIndex === 0),
+      pieces.findIndex(piece => piece.semanticIndex === 1)
+    ].join(">"));
+  }
+
+  assert.ok(layouts.size > 1, "new run seeds must vary the full piece bank");
+  assert.ok(targetPositions.size > 1, "target pieces must not keep one positional solve");
+});
+
+test("Sound Boxes reaches the cycle 21 wh and cycle 22 nk focus without collapsing phonemes", () => {
+  const cycle21 = elSkillsBlockCycles.find(cycle => cycle.cycleNumber === 21);
+  const cycle22 = elSkillsBlockCycles.find(cycle => cycle.cycleNumber === 22);
+  const whRounds = withSeed(21, () => buildStationRounds(cycle21, "build"));
+  const nkRounds = withSeed(22, () => buildStationRounds(cycle22, "build"));
+
+  assert.ok(whRounds.some(round => round.graphemes.includes("wh")));
+  const nkFocus = nkRounds.find(round => ["sink", "bank", "pink", "wink"].includes(round.word));
+  assert.ok(nkFocus);
+  assert.equal(nkFocus.graphemes.includes("nk"), false);
+  assert.deepEqual(nkFocus.graphemes.slice(-2), ["n", "k"]);
+});
+
 test("generated Word Window rounds use unique one-edit neighbours from authorised print", () => {
   const allHighFrequencyWords = elSkillsBlockCycles
     .flatMap(cycle => cycle.highFrequencyWords || [])
@@ -588,15 +908,29 @@ test("generated Word Window rounds use unique one-edit neighbours from authorise
 });
 
 test("generated onset substitutions cue one exact target and label defensible onset pieces", () => {
+  assert.equal(
+    REVIEWED_ONSET_SUBSTITUTION_FAMILIES.some(family => (
+      family.words.includes("dog") && family.words.includes("log")
+    )),
+    false,
+    "dog/log remains quarantined until same-speaker human listening approval"
+  );
   for (let seed = 1; seed <= 64; seed += 1) {
     withSeed(seed, () => {
       for (const cycle of elSkillsBlockCycles.filter(item => item.cycleNumber)) {
         if (!stationsForCycle(cycle).some(station => station.id === "play")) continue;
         for (const round of buildStationRounds(cycle, "play")
           .filter(item => item.operation === "substituteOnset")) {
+          const reviewedFamily = REVIEWED_ONSET_SUBSTITUTION_FAMILIES.find(family => (
+            family.authorizedFromCycle <= cycle.cycleNumber
+            && family.words.includes(round.beforeWord)
+            && family.words.includes(round.afterWord)
+          ));
+          assert.ok(reviewedFamily, `${cycle.id}/${round.beforeWord}->${round.afterWord} needs a reviewed spoken rime`);
           assert.match(round.prompt, new RegExp(`make [“"]?${round.afterWord}[”"]?`, "i"));
           assert.equal(round.audio, wordAudioPath(round.afterWord));
           assert.equal(round.speechFallback, round.afterWord);
+          assert.equal(round.inventoryAuthorization, "reviewed-onset-substitution-v1");
           assert.ok(round.onsetPieces.length >= 2);
           assert.equal(round.onsetPieces.filter(piece => piece.matches).length, 1);
           assert.equal(new Set(round.onsetPieces.map(piece => piece.grapheme)).size, round.onsetPieces.length);
@@ -612,16 +946,19 @@ test("generated onset substitutions cue one exact target and label defensible on
 });
 
 test("generated onset removals make a known recorded word with unique position outcomes", () => {
-  const authorisedWords = new Set([
-    ...Object.values(LETTER_EXAMPLES).flat(),
-    ...elSkillsBlockCycles.flatMap(cycle => cycle.highFrequencyWords || [])
-  ].map(word => String(word).toLowerCase()));
+  const authorisedWords = new Set(REVIEWED_ONSET_REMOVAL_PAIRS.map(pair => pair.after));
   for (let seed = 1; seed <= 64; seed += 1) {
     withSeed(seed, () => {
       for (const cycle of elSkillsBlockCycles.filter(item => item.cycleNumber)) {
         if (!stationsForCycle(cycle).some(station => station.id === "play")) continue;
         for (const round of buildStationRounds(cycle, "play")
           .filter(item => item.operation === "removeOnset")) {
+          const reviewedPair = REVIEWED_ONSET_REMOVAL_PAIRS.find(pair => (
+            pair.authorizedFromCycle <= cycle.cycleNumber
+            && pair.before === round.beforeWord
+            && pair.after === round.afterWord
+          ));
+          assert.ok(reviewedPair, `${cycle.id}/${round.beforeWord}->${round.afterWord} is not reviewed`);
           const pieces = machinePiecesForRound(round);
           assert.ok(pieces.length >= 2, `${cycle.id}/${round.beforeWord} needs a removal decision`);
           assert.equal(new Set(pieces.map(piece => piece.projectedWord)).size, pieces.length);
@@ -630,6 +967,10 @@ test("generated onset removals make a known recorded word with unique position o
           assert.ok(authorisedWords.has(round.afterWord), `${cycle.id}/${round.afterWord} must be a known word`);
           assert.ok(wordAudioPath(round.beforeWord), `${cycle.id}/${round.beforeWord} needs recorded audio`);
           assert.ok(wordAudioPath(round.afterWord), `${cycle.id}/${round.afterWord} needs recorded audio`);
+          assert.deepEqual(round.beforeGraphemes, reviewedPair.beforeGraphemes);
+          assert.deepEqual(round.afterGraphemes, reviewedPair.afterGraphemes);
+          assert.equal(round.inventoryAuthorization, "reviewed-onset-removal-v1");
+          assert.notEqual(`${round.beforeWord}->${round.afterWord}`, "was->as");
           for (const piece of pieces) {
             assert.equal(
               piece.projectedWord,
@@ -640,6 +981,37 @@ test("generated onset removals make a known recorded word with unique position o
       }
     });
   }
+});
+
+test("generated onset-removal trays vary the correct visual position deterministically", () => {
+  const cycle = elSkillsBlockCycles.find(item => item.cycleNumber === 12);
+  const correctVisualPositions = new Set();
+  const layouts = new Set();
+
+  for (let seed = 1; seed <= 32; seed += 1) {
+    const seedText = `remove-onset-order-${seed}`;
+    const [round] = buildStationRounds(cycle, "play", { seed: seedText })
+      .filter(item => item.operation === "removeOnset");
+    const [repeat] = buildStationRounds(cycle, "play", { seed: seedText })
+      .filter(item => item.operation === "removeOnset");
+    assert.ok(round, `seed ${seed} needs an onset-removal round`);
+    assert.deepEqual(repeat, round, `seed ${seed} must reproduce its removal tray`);
+
+    const pieces = machinePiecesForRound(round);
+    assert.deepEqual(
+      [...round.pieceOrder].sort((left, right) => left - right),
+      pieces.map(piece => piece.position).sort((left, right) => left - right),
+      `seed ${seed} needs an exact source-position permutation`
+    );
+    const correctIndex = pieces.findIndex(piece => piece.matches);
+    assert.ok(correctIndex >= 0, `seed ${seed} needs one removable onset`);
+    assert.equal(pieces[correctIndex].position, 0, "scoring must retain the source onset position");
+    correctVisualPositions.add(correctIndex);
+    layouts.add(pieces.map(piece => piece.position).join("|"));
+  }
+
+  assert.ok(correctVisualPositions.size > 1, "the correct onset cannot stay in one tray position");
+  assert.ok(layouts.size > 1, "new run seeds must vary the onset-removal tray");
 });
 
 test("word mechanics reset local state when a new round keeps the same mechanic", () => {
@@ -663,13 +1035,14 @@ test("word mechanics reset local state when a new round keeps the same mechanic"
     ...soundBoxesRound,
     roundKey: "sound-boxes:second",
     word: "chat",
-    graphemes: ["ch", "a", "t"]
+    graphemes: ["ch", "a", "t"],
+    tileOrder: [1, 0, 2]
   };
   const completedBoxes = { ...createSoundBoxesState({ ...soundBoxesRound, roundKey: "sound-boxes:first" }), committed: true };
   const resetBoxes = soundBoxesStateForRound(completedBoxes, nextBoxesRound, 0);
   assert.equal(resetBoxes.committed, false);
   assert.deepEqual(resetBoxes.slots, [null, null, null]);
-  assert.deepEqual(resetBoxes.tiles.map(tile => tile.grapheme), ["t", "a", "ch"]);
+  assert.deepEqual(resetBoxes.tiles.map(tile => tile.grapheme), ["a", "ch", "t"]);
 
   const nextMachineRound = {
     ...removeRound,

@@ -1,6 +1,8 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { buildStationRounds } from "../../src/components/elQuest/elQuestEngine.js";
+import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
 
 const componentUrl = new URL(
   "../../src/components/elQuest/mechanics/FluencyMechanics.jsx",
@@ -13,6 +15,19 @@ const stylesUrl = new URL(
 
 async function loadState() {
   return import("../../src/components/elQuest/mechanics/fluencyMechanicState.js");
+}
+
+function taughtPrintThrough(cycleNumber) {
+  const taught = new Set();
+  for (const cycle of elSkillsBlockCycles) {
+    if (!cycle.cycleNumber || cycle.cycleNumber > cycleNumber) continue;
+    for (const item of cycle.focusLetters || []) {
+      for (const grapheme of String(item.spelling || "").toLowerCase().split(/[\s/,+]+/u)) {
+        if (/^[a-z]{1,2}$/u.test(grapheme)) taught.add(grapheme);
+      }
+    }
+  }
+  return taught;
 }
 
 test("fluency components expose four distinct button-operated stages and live statuses", async () => {
@@ -289,7 +304,7 @@ test("Heart Word uses a deterministic mixed tile bank and consumes exact tile in
   const source = await readFile(componentUrl, "utf8");
   const styles = await readFile(stylesUrl, "utf8");
 
-  assert.match(source, /function stableHash\(/);
+  assert.match(source, /heartWordTilesForRound\(round\)/);
   assert.match(source, /const \[chosenTileIds, setChosenTileIds\] = useState\(\[\]\)/);
   assert.match(source, /chosenTileIds\.includes\(tile\.id\)/);
   assert.match(source, /current\.slice\(0, transition\.state\.attempt\.length\)/);
@@ -298,6 +313,115 @@ test("Heart Word uses a deterministic mixed tile bank and consumes exact tile in
   assert.doesNotMatch(source, /round\.graphemes[\s\S]{0,100}\.reverse\(\)/);
   assert.match(styles, /\.sbq-heart-slots > span\s*\{/);
   assert.doesNotMatch(styles, /\.sbq-heart-slots span\s*\{/);
+});
+
+test("every generated Heart Word bank is a seeded non-identity permutation", async () => {
+  const { heartWordTilesForRound } = await loadState();
+  assert.equal(typeof heartWordTilesForRound, "function");
+  const fluencyCycles = elSkillsBlockCycles.filter(cycle => cycle.cycleNumber >= 25);
+  const againOrders = new Set();
+
+  for (let seed = 1; seed <= 24; seed += 1) {
+    for (const cycle of fluencyCycles) {
+      const rounds = buildStationRounds(cycle, "spell", { seed: `heart-word-order-${seed}` });
+      for (const round of rounds) {
+        assert.match(round.roundKey, /^heart-word:/);
+        const canonicalBank = round.bankGraphemes || round.graphemes;
+        assert.deepEqual(
+          [...round.tileOrder].sort((left, right) => left - right),
+          canonicalBank.map((_, index) => index),
+          `${cycle.id}/${round.word} needs an exact tile permutation`
+        );
+        const bank = heartWordTilesForRound(round);
+        assert.equal(new Set(bank.map(tile => tile.id)).size, canonicalBank.length);
+        if (new Set(canonicalBank).size > 1) {
+          assert.notDeepEqual(
+            bank.map(tile => tile.grapheme),
+            canonicalBank,
+            `${cycle.id}/${round.word} exposed the model order`
+          );
+        }
+        if (round.word === "again") {
+          againOrders.add(bank.map(tile => tile.grapheme).join("|"));
+        }
+      }
+    }
+  }
+
+  const cycleTwentyFive = fluencyCycles.find(cycle => cycle.cycleNumber === 25);
+  assert.deepEqual(
+    buildStationRounds(cycleTwentyFive, "spell", { seed: "repeatable-heart-word-run" }),
+    buildStationRounds(cycleTwentyFive, "spell", { seed: "repeatable-heart-word-run" })
+  );
+  assert.ok(againOrders.size > 1, "a new run seed should vary the again tile bank");
+});
+
+test("two-unit Heart Word banks add one reviewed taught distractor with varied seeded layouts", async () => {
+  const {
+    addHeartGrapheme,
+    createHeartWordState,
+    heartWordTilesForRound,
+    hideHeartWord,
+    repairHeartWord,
+    revealHeartAttempt
+  } = await loadState();
+  const cycle = elSkillsBlockCycles.find(item => item.cycleNumber === 26);
+  const layoutsByWord = new Map();
+
+  for (let seed = 1; seed <= 32; seed += 1) {
+    const seedText = `two-unit-heart-word-${seed}`;
+    const rounds = buildStationRounds(cycle, "spell", { seed: seedText });
+    const repeat = buildStationRounds(cycle, "spell", { seed: seedText });
+    assert.deepEqual(repeat, rounds, `seed ${seed} must reproduce its heart-word banks`);
+    for (const round of rounds.filter(item => item.graphemes.length === 2)) {
+      const bank = heartWordTilesForRound(round);
+      assert.equal(round.tileBankPolicy, "target-plus-reviewed-distractor");
+      assert.equal(bank.length, 3, `${round.word} needs one extra decision tile`);
+      assert.equal(new Set(bank.map(tile => tile.id)).size, 3);
+      assert.equal(bank.filter(tile => tile.isDistractor).length, 1);
+      assert.ok(round.distractorGrapheme);
+      assert.equal(round.graphemes.includes(round.distractorGrapheme), false);
+      assert.ok(
+        taughtPrintThrough(cycle.cycleNumber).has(round.distractorGrapheme),
+        `${round.word}/${round.distractorGrapheme} must already be taught`
+      );
+      if (!layoutsByWord.has(round.word)) layoutsByWord.set(round.word, new Set());
+      layoutsByWord.get(round.word).add(bank.map(tile => tile.id).join("|"));
+    }
+  }
+
+  for (const [word, layouts] of layoutsByWord) {
+    assert.ok(layouts.size > 1, `${word} cannot retain one positional solve across runs`);
+  }
+
+  const round = buildStationRounds(cycle, "spell", { seed: "heart-distractor-recovery" })
+    .find(item => item.word === "by");
+  const bank = heartWordTilesForRound(round);
+  const distractor = bank.find(tile => tile.isDistractor);
+  let state = hideHeartWord(createHeartWordState(round)).state;
+  state = addHeartGrapheme(state, round, distractor.grapheme).state;
+  state = addHeartGrapheme(state, round, round.graphemes[1]).state;
+  const miss = revealHeartAttempt(state, round, 0);
+  assert.equal(miss.outcome.correct, false);
+  assert.equal(miss.state.phase, "repair");
+
+  state = repairHeartWord(miss.state, round, round.graphemes[0], 1).state;
+  state = addHeartGrapheme(state, round, round.graphemes[1]).state;
+  const recovered = revealHeartAttempt(state, round, 1);
+  assert.equal(recovered.outcome.correct, true);
+  assert.equal(recovered.outcome.evidence.supportLevel, 1);
+});
+
+test("three-plus-unit Sound and Heart banks retain target-only behavior", async () => {
+  const { heartWordTilesForRound } = await loadState();
+  const cycle25 = elSkillsBlockCycles.find(item => item.cycleNumber === 25);
+  for (const round of buildStationRounds(cycle25, "spell", { seed: "long-heart-bank" })
+    .filter(item => item.graphemes.length >= 3)) {
+    const bank = heartWordTilesForRound(round);
+    assert.equal(bank.length, round.graphemes.length);
+    assert.equal(bank.some(tile => tile.isDistractor), false);
+    assert.equal(round.tileBankPolicy, undefined);
+  }
 });
 
 test("fluency mechanics contain no timer, countdown, or automatic rate scoring", async () => {

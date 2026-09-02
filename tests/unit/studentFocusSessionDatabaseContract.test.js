@@ -43,6 +43,9 @@ test("Adventure Map epoch SQL verification exercises the insert trigger and leav
   assert.match(forwardMergeSelftest, /begin;[\s\S]*insert into public\.student_progress[\s\S]*'el_quest'[\s\S]*'__all__'/i);
   assert.match(forwardMergeSelftest, /select payload into [\w_]+\s+from public\.student_progress/i);
   assert.match(forwardMergeSelftest, /progressEpoch/i);
+  assert.match(forwardMergeSelftest, /future schema at current epoch was normalized/i);
+  assert.match(forwardMergeSelftest, /future schema existing-first was downgraded/i);
+  assert.match(forwardMergeSelftest, /future schema incoming-first was downgraded/i);
   assert.match(forwardMergeSelftest, /latest construct manifest was unioned/i);
   assert.match(forwardMergeSelftest, /reverse merge lost latest recovery count/i);
   assert.match(forwardMergeSelftest, /student_focus_sessions/i);

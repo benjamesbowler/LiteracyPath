@@ -455,7 +455,7 @@ test("only stars and coins are countable on either screen", () => {
 
 test("a read that failed says so instead of drawing an empty journey", () => {
   for (const [name, code] of [["Adventure Map", mapCode]]) {
-    assert.match(code, /ok:\s*false/, `${name} must be able to report an unreadable record`);
+    assert.match(code, /ok:\s*read\.ok/, `${name} must preserve the shared reader's unreadable state`);
     assert.match(code, /data-read-state=\{read\.ok \? "ready" : "unreadable"\}/, name);
     assert.match(code, /We could not open your/, name);
   }
@@ -477,7 +477,8 @@ test("every displayed value on the Adventure Map comes from a named source", () 
   // Still derived from the named source and still filtered by cycleNumber — the
   // sample filter now wraps it, so a try session sees a slice while a normal
   // child sees the same array untouched.
-  assert.match(mapCode, /filterSample\("cycles", elSkillsBlockCycles\)\.filter\(cycle => cycle\.cycleNumber\)/);
+  assert.match(mapCode, /allAdventureCycles = \(\) => elSkillsBlockCycles\.filter\(cycle => cycle\.cycleNumber\)/);
+  assert.match(mapCode, /filterSample\("cycles", allAdventureCycles\(\)\)/);
   assert.match(mapCode, /WORLD_LANDMARKS_WIDE\[part\.id\]/);
   assert.match(mapCode, /WIDE_WORLDS\.find/);
   assert.match(mapCode, /read\.cycles\?\.\[cycleId\]\?\.stars/);

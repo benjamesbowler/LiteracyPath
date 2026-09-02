@@ -1,3 +1,5 @@
+import { constrainedIndexOrder, seededIndexOrder } from "../adventureRoundModel.js";
+
 function unchanged(state) {
   return { state, outcome: null };
 }
@@ -290,6 +292,26 @@ export function heartSlotLabel(grapheme, index, isDifference = false) {
   if (!grapheme) return `Empty grapheme slot, position ${index + 1}`;
   const difference = isDifference ? ", first differing position" : "";
   return `${grapheme}, position ${index + 1}${difference}`;
+}
+
+export function heartWordTilesForRound(round = {}) {
+  const graphemes = Array.isArray(round.graphemes) ? round.graphemes : [];
+  const declaredBank = Array.isArray(round.bankGraphemes) ? round.bankGraphemes : [];
+  const hasValidDeclaredBank = declaredBank.length >= graphemes.length
+    && graphemes.every((grapheme, index) => declaredBank[index] === grapheme);
+  const bankGraphemes = hasValidDeclaredBank ? declaredBank : graphemes;
+  const tiles = bankGraphemes.map((grapheme, index) => ({
+    grapheme,
+    id: index,
+    isDistractor: index >= graphemes.length
+  }));
+  const proposedOrder = Array.isArray(round.tileOrder)
+    ? round.tileOrder
+    : seededIndexOrder(
+        bankGraphemes.length,
+        round.roundKey || `${round.word}:${bankGraphemes.join("|")}`
+      );
+  return constrainedIndexOrder(bankGraphemes, proposedOrder).map(index => tiles[index]);
 }
 
 export function createHeartWordState() {

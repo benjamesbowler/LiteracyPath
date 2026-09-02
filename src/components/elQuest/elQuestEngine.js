@@ -13,7 +13,7 @@ import {
   getLedaProductionAudioPath,
   getLedaWordAudioPath
 } from "../../data/ledaProductionAudio.js";
-import { segmentTaughtGraphemes } from "./adventureRoundModel.js";
+import { constrainedIndexOrder, segmentTaughtGraphemes } from "./adventureRoundModel.js";
 
 export { ADVENTURE_MECHANIC_IDS } from "./adventureRoundModel.js";
 
@@ -565,10 +565,10 @@ function buildSoundSortRounds(cycle) {
       const decoys = [...PICTURE_WORDS]
         .filter(word => wordAudioPath(word) && !word.endsWith(entry.spelling));
       if (!matches.length || decoys.length < 2) return [];
-      const choices = uniqueChoices([
+      const choices = shuffleItems(uniqueChoices([
         ...shuffleItems(matches).slice(0, 2),
         ...shuffleItems(decoys).slice(0, 3)
-      ]);
+      ]));
       return [{
         type: "hunt",
         mechanicId: "sceneHunt",
@@ -630,47 +630,262 @@ function buildQuickWordRounds(cycle) {
   });
 }
 
-// Station - Word Build is phonics/encoding practice. A high-frequency word may
-// appear here only when its print also uses code taught through this cycle; the
-// dedicated Quick Words station remains free to teach it earlier.
+// Word Build is encoding practice, so its content cannot be inferred from
+// spelling alone. Each entry below is a reviewed spoken-word segmentation: one
+// tile per sound-spelling unit the child has met by `authorizedFromCycle`.
+// Irregular HFWs and picture-bank words stay out unless this inventory names an
+// exact defensible segmentation.
+export const ADVENTURE_WORD_BUILD_INVENTORY = Object.freeze([
+  { word: "am", graphemes: ["a", "m"], authorizedFromCycle: 1 },
+  { word: "at", graphemes: ["a", "t"], authorizedFromCycle: 2 },
+  { word: "mat", graphemes: ["m", "a", "t"], authorizedFromCycle: 2 },
+  { word: "sat", graphemes: ["s", "a", "t"], authorizedFromCycle: 2 },
+  { word: "sit", graphemes: ["s", "i", "t"], authorizedFromCycle: 3 },
+  { word: "tin", graphemes: ["t", "i", "n"], authorizedFromCycle: 3 },
+  { word: "man", graphemes: ["m", "a", "n"], authorizedFromCycle: 3 },
+  { word: "ant", graphemes: ["a", "n", "t"], authorizedFromCycle: 3 },
+  { word: "fan", graphemes: ["f", "a", "n"], authorizedFromCycle: 4 },
+  { word: "fin", graphemes: ["f", "i", "n"], authorizedFromCycle: 4 },
+  { word: "fit", graphemes: ["f", "i", "t"], authorizedFromCycle: 4 },
+  { word: "did", graphemes: ["d", "i", "d"], authorizedFromCycle: 4 },
+  { word: "log", graphemes: ["l", "o", "g"], authorizedFromCycle: 10 },
+  { word: "lot", graphemes: ["l", "o", "t"], authorizedFromCycle: 5 },
+  { word: "on", graphemes: ["o", "n"], authorizedFromCycle: 5 },
+  { word: "hat", graphemes: ["h", "a", "t"], authorizedFromCycle: 6 },
+  { word: "hot", graphemes: ["h", "o", "t"], authorizedFromCycle: 6 },
+  { word: "ram", graphemes: ["r", "a", "m"], authorizedFromCycle: 6 },
+  { word: "rat", graphemes: ["r", "a", "t"], authorizedFromCycle: 6 },
+  { word: "bat", graphemes: ["b", "a", "t"], authorizedFromCycle: 8 },
+  { word: "win", graphemes: ["w", "i", "n"], authorizedFromCycle: 8 },
+  { word: "wig", graphemes: ["w", "i", "g"], authorizedFromCycle: 10 },
+  { word: "sun", graphemes: ["s", "u", "n"], authorizedFromCycle: 9 },
+  { word: "fun", graphemes: ["f", "u", "n"], authorizedFromCycle: 9 },
+  { word: "run", graphemes: ["r", "u", "n"], authorizedFromCycle: 9 },
+  { word: "mug", graphemes: ["m", "u", "g"], authorizedFromCycle: 10 },
+  { word: "hum", graphemes: ["h", "u", "m"], authorizedFromCycle: 9 },
+  { word: "cat", graphemes: ["c", "a", "t"], authorizedFromCycle: 10 },
+  { word: "can", graphemes: ["c", "a", "n"], authorizedFromCycle: 10 },
+  { word: "cup", graphemes: ["c", "u", "p"], authorizedFromCycle: 11 },
+  { word: "gum", graphemes: ["g", "u", "m"], authorizedFromCycle: 10 },
+  { word: "gap", graphemes: ["g", "a", "p"], authorizedFromCycle: 11 },
+  { word: "got", graphemes: ["g", "o", "t"], authorizedFromCycle: 10 },
+  { word: "pan", graphemes: ["p", "a", "n"], authorizedFromCycle: 11 },
+  { word: "pig", graphemes: ["p", "i", "g"], authorizedFromCycle: 11 },
+  { word: "pin", graphemes: ["p", "i", "n"], authorizedFromCycle: 11 },
+  { word: "pot", graphemes: ["p", "o", "t"], authorizedFromCycle: 11 },
+  { word: "pup", graphemes: ["p", "u", "p"], authorizedFromCycle: 11 },
+  { word: "yum", graphemes: ["y", "u", "m"], authorizedFromCycle: 11 },
+  { word: "vet", graphemes: ["v", "e", "t"], authorizedFromCycle: 12 },
+  { word: "van", graphemes: ["v", "a", "n"], authorizedFromCycle: 12 },
+  { word: "hen", graphemes: ["h", "e", "n"], authorizedFromCycle: 12 },
+  { word: "net", graphemes: ["n", "e", "t"], authorizedFromCycle: 12 },
+  { word: "red", graphemes: ["r", "e", "d"], authorizedFromCycle: 12 },
+  { word: "ten", graphemes: ["t", "e", "n"], authorizedFromCycle: 12 },
+  { word: "kit", graphemes: ["k", "i", "t"], authorizedFromCycle: 13 },
+  { word: "kid", graphemes: ["k", "i", "d"], authorizedFromCycle: 13 },
+  { word: "jam", graphemes: ["j", "a", "m"], authorizedFromCycle: 13 },
+  { word: "jet", graphemes: ["j", "e", "t"], authorizedFromCycle: 13 },
+  { word: "zip", graphemes: ["z", "i", "p"], authorizedFromCycle: 13 },
+  { word: "zap", graphemes: ["z", "a", "p"], authorizedFromCycle: 13 },
+  { word: "ship", graphemes: ["sh", "i", "p"], authorizedFromCycle: 15 },
+  { word: "shop", graphemes: ["sh", "o", "p"], authorizedFromCycle: 15 },
+  { word: "shut", graphemes: ["sh", "u", "t"], authorizedFromCycle: 15 },
+  { word: "chat", graphemes: ["ch", "a", "t"], authorizedFromCycle: 15 },
+  { word: "chop", graphemes: ["ch", "o", "p"], authorizedFromCycle: 15 },
+  { word: "thin", graphemes: ["th", "i", "n"], authorizedFromCycle: 15 },
+  { word: "that", graphemes: ["th", "a", "t"], authorizedFromCycle: 15 },
+  { word: "when", graphemes: ["wh", "e", "n"], authorizedFromCycle: 21 },
+  { word: "which", graphemes: ["wh", "i", "ch"], authorizedFromCycle: 21 },
+  { word: "whisk", graphemes: ["wh", "i", "s", "k"], authorizedFromCycle: 21 },
+  // In -nk words, the n tile records the contextual /ŋ/ sound and k records
+  // /k/: four phonemes and four boxes, while `focusSpellings` retains the
+  // taught visual nk pattern for cycle selection.
+  {
+    word: "sink",
+    graphemes: ["s", "i", "n", "k"],
+    focusSpellings: ["nk"],
+    authorizedFromCycle: 22
+  },
+  {
+    word: "bank",
+    graphemes: ["b", "a", "n", "k"],
+    focusSpellings: ["nk"],
+    authorizedFromCycle: 22
+  },
+  {
+    word: "pink",
+    graphemes: ["p", "i", "n", "k"],
+    focusSpellings: ["nk"],
+    authorizedFromCycle: 22
+  },
+  {
+    word: "wink",
+    graphemes: ["w", "i", "n", "k"],
+    focusSpellings: ["nk"],
+    authorizedFromCycle: 22
+  },
+  { word: "ring", graphemes: ["r", "i", "ng"], authorizedFromCycle: 23 },
+  { word: "sing", graphemes: ["s", "i", "ng"], authorizedFromCycle: 23 },
+  { word: "king", graphemes: ["k", "i", "ng"], authorizedFromCycle: 23 },
+  { word: "song", graphemes: ["s", "o", "ng"], authorizedFromCycle: 23 },
+  { word: "long", graphemes: ["l", "o", "ng"], authorizedFromCycle: 23 },
+  { word: "hung", graphemes: ["h", "u", "ng"], authorizedFromCycle: 23 },
+  { word: "puff", graphemes: ["p", "u", "ff"], authorizedFromCycle: 24 },
+  { word: "miss", graphemes: ["m", "i", "ss"], authorizedFromCycle: 24 },
+  { word: "buzz", graphemes: ["b", "u", "zz"], authorizedFromCycle: 24 },
+  { word: "will", graphemes: ["w", "i", "ll"], authorizedFromCycle: 24 }
+]);
+
+// Two-box words need special handling: after cycle 1, an already-taught third
+// tile prevents the bank position from becoming an answer key. Cycle 1 has
+// only a and m available, so `am` truthfully varies its two target tiles rather
+// than presenting an indistinguishable duplicate as a wrong answer.
+export const ADVENTURE_TWO_UNIT_SOUND_BOX_BANKS = Object.freeze({
+  am: Object.freeze({
+    authorizedFromCycle: 1,
+    cycleOneTargetOnly: true,
+    distractors: Object.freeze(["t"])
+  }),
+  at: Object.freeze({
+    authorizedFromCycle: 2,
+    distractors: Object.freeze(["m"])
+  }),
+  on: Object.freeze({
+    authorizedFromCycle: 5,
+    distractors: Object.freeze(["m"])
+  })
+});
+
+// Station - Word Build is phonics/encoding practice. The dedicated Quick
+// Words station remains responsible for irregular whole-word recognition.
 function buildWordBuildRounds(cycle) {
-  const pool = [
-    ...focusEntries(cycle).flatMap(entry => exampleWordsFor(entry.spelling)),
-    ...(cycle.highFrequencyWords || []).map(word => String(word || "").toLowerCase()),
-    ...Object.values(LETTER_EXAMPLES).flat(),
-    ...taughtHfwThrough(cycle.cycleNumber || 1)
-  ]
-    // Only clean 2-5 letter words: a single letter or a stray space would
-    // render the wrong number of boxes and make the round impossible to pass.
-    // And only words with a real recording - the round says the word aloud.
-    .filter(word => /^[a-z]{2,5}$/.test(word) && wordAudioPath(word));
-  // Building print is decoding/encoding practice, so it never falls forward
-  // to untaught letters merely to fill a station.
-  const candidates = pool.filter(word => wordUsesTaughtPrint(word, cycle.cycleNumber || 1));
-  const words = shuffleItems([...new Set(candidates)]).slice(0, 4);
-  const taughtGraphemes = taughtGraphemesThrough(cycle.cycleNumber || 1);
-  return words.map((word, roundIndex) => ({
-    type: "build",
-    mechanicId: "soundBoxes",
-    roundKey: `sound-boxes:${cycle.id}:${roundIndex}:${word}`,
-    construct: "phoneme_grapheme_encoding",
-    audio: wordAudioPath(word),
-    speechFallback: word,
-    prompt: "Build the word you hear.",
-    instruction: "Build the word you hear. Put one grapheme in each sound box.",
-    display: "",
-    word,
-    graphemes: segmentTaughtGraphemes(word, taughtGraphemes),
-    choiceStyle: "build"
-  }));
+  const cycleNumber = cycle.cycleNumber || 1;
+  const focus = new Set(focusEntries(cycle).map(entry => entry.spelling));
+  const eligible = ADVENTURE_WORD_BUILD_INVENTORY.filter(entry => (
+    entry.authorizedFromCycle <= cycleNumber && wordAudioPath(entry.word)
+  ));
+  const focused = eligible.filter(entry => (
+    entry.graphemes.some(grapheme => focus.has(grapheme))
+    || entry.focusSpellings?.some(spelling => focus.has(spelling))
+  ));
+  const review = eligible.filter(entry => !focused.includes(entry));
+  const entries = [...shuffleItems(focused), ...shuffleItems(review)].slice(0, 4);
+  return entries.flatMap((entry, roundIndex) => {
+    const graphemes = [...entry.graphemes];
+    const twoUnitBank = graphemes.length === 2
+      ? ADVENTURE_TWO_UNIT_SOUND_BOX_BANKS[entry.word]
+      : null;
+    if (graphemes.length === 2 && (
+      !twoUnitBank
+      || twoUnitBank.authorizedFromCycle > cycleNumber
+    )) return [];
+    const tileBankPolicy = twoUnitBank?.cycleOneTargetOnly && cycleNumber === 1
+      ? "cycle-one-target-only-permutation"
+      : twoUnitBank
+        ? "target-plus-reviewed-distractor"
+        : undefined;
+    const eligibleDistractors = twoUnitBank?.distractors.filter(grapheme => (
+      taughtGraphemesThrough(cycleNumber).includes(grapheme)
+      && !graphemes.includes(grapheme)
+    )) || [];
+    const distractorGrapheme = tileBankPolicy === "target-plus-reviewed-distractor"
+      ? shuffleItems(eligibleDistractors)[0]
+      : undefined;
+    if (tileBankPolicy === "target-plus-reviewed-distractor" && !distractorGrapheme) {
+      return [];
+    }
+    const bankGraphemes = twoUnitBank
+      ? [...graphemes, ...(distractorGrapheme ? [distractorGrapheme] : [])]
+      : graphemes;
+    const proposedOrder = shuffleItems(bankGraphemes.map((_, index) => index));
+    const tileOrder = tileBankPolicy === "cycle-one-target-only-permutation"
+      ? proposedOrder
+      : constrainedIndexOrder(bankGraphemes, proposedOrder, { avoidReverse: true });
+    return [{
+      type: "build",
+      mechanicId: "soundBoxes",
+      roundKey: `sound-boxes:${cycle.id}:${roundIndex}:${entry.word}:${distractorGrapheme || "targets-only"}:${tileOrder.join("-")}`,
+      construct: "phoneme_grapheme_encoding",
+      audio: wordAudioPath(entry.word),
+      speechFallback: entry.word,
+      prompt: "Build the word you hear.",
+      instruction: "Build the word you hear. Put one grapheme in each sound box.",
+      display: "",
+      word: entry.word,
+      graphemes,
+      ...(twoUnitBank ? {
+        bankGraphemes,
+        tileBankPolicy
+      } : {}),
+      ...(distractorGrapheme ? { distractorGrapheme } : {}),
+      tileOrder,
+      inventoryAuthorization: "reviewed-phoneme-grapheme-v1",
+      choiceStyle: "build"
+    }];
+  });
 }
 
 // Station - Word Play: change the first sound, take it away, join words.
-const COMPOUND_WORDS = [
-  ["sun", "set"], ["star", "fish"], ["cup", "cake"], ["pan", "cake"],
-  ["back", "pack"], ["pop", "corn"], ["bed", "time"], ["sand", "box"],
-  ["rain", "coat"], ["dog", "house"]
-];
+export const REVIEWED_ONSET_SUBSTITUTION_FAMILIES = Object.freeze([
+  { rime: "at", authorizedFromCycle: 15, words: ["mat", "bat", "cat", "hat", "rat", "chat"] },
+  { rime: "ap", authorizedFromCycle: 15, words: ["map", "tap", "nap", "cap", "lap"] },
+  { rime: "it", authorizedFromCycle: 15, words: ["sit", "fit", "kit"] },
+  { rime: "an", authorizedFromCycle: 15, words: ["fan", "can", "pan", "van"] },
+  { rime: "ig", authorizedFromCycle: 15, words: ["fig", "dig", "pig", "wig"] },
+  { rime: "ox", authorizedFromCycle: 15, words: ["fox", "box"] },
+  { rime: "un", authorizedFromCycle: 15, words: ["run", "sun"] },
+  { rime: "ed", authorizedFromCycle: 15, words: ["red", "bed"] },
+  { rime: "ug", authorizedFromCycle: 15, words: ["rug", "mug"] },
+  { rime: "op", authorizedFromCycle: 15, words: ["hop", "top", "chop", "shop"] },
+  { rime: "ish", authorizedFromCycle: 15, words: ["fish", "dish"] },
+  { rime: "et", authorizedFromCycle: 15, words: ["jet", "net"] },
+  { rime: "up", authorizedFromCycle: 15, words: ["cup", "pup"] },
+  { rime: "ip", authorizedFromCycle: 15, words: ["ship", "chip", "lip"] },
+  { rime: "in", authorizedFromCycle: 15, words: ["thin", "fin", "pin", "chin"] },
+  { rime: "ing", authorizedFromCycle: 23, words: ["ring", "sing", "king"] },
+  { rime: "ong", authorizedFromCycle: 23, words: ["song", "long"] },
+  { rime: "all", authorizedFromCycle: 24, words: ["ball", "fall", "call"] }
+]);
+
+export const REVIEWED_ONSET_REMOVAL_PAIRS = Object.freeze([
+  { before: "fan", after: "an", beforeGraphemes: ["f", "a", "n"], afterGraphemes: ["a", "n"], authorizedFromCycle: 8 },
+  { before: "man", after: "an", beforeGraphemes: ["m", "a", "n"], afterGraphemes: ["a", "n"], authorizedFromCycle: 8 },
+  { before: "mat", after: "at", beforeGraphemes: ["m", "a", "t"], afterGraphemes: ["a", "t"], authorizedFromCycle: 8 },
+  { before: "hat", after: "at", beforeGraphemes: ["h", "a", "t"], afterGraphemes: ["a", "t"], authorizedFromCycle: 8 },
+  { before: "bat", after: "at", beforeGraphemes: ["b", "a", "t"], afterGraphemes: ["a", "t"], authorizedFromCycle: 8 },
+  { before: "sit", after: "it", beforeGraphemes: ["s", "i", "t"], afterGraphemes: ["i", "t"], authorizedFromCycle: 8 },
+  { before: "fit", after: "it", beforeGraphemes: ["f", "i", "t"], afterGraphemes: ["i", "t"], authorizedFromCycle: 8 },
+  { before: "cat", after: "at", beforeGraphemes: ["c", "a", "t"], afterGraphemes: ["a", "t"], authorizedFromCycle: 10 },
+  { before: "can", after: "an", beforeGraphemes: ["c", "a", "n"], afterGraphemes: ["a", "n"], authorizedFromCycle: 10 },
+  { before: "cup", after: "up", beforeGraphemes: ["c", "u", "p"], afterGraphemes: ["u", "p"], authorizedFromCycle: 11 },
+  { before: "pan", after: "an", beforeGraphemes: ["p", "a", "n"], afterGraphemes: ["a", "n"], authorizedFromCycle: 11 },
+  { before: "pin", after: "in", beforeGraphemes: ["p", "i", "n"], afterGraphemes: ["i", "n"], authorizedFromCycle: 11 },
+  { before: "pup", after: "up", beforeGraphemes: ["p", "u", "p"], afterGraphemes: ["u", "p"], authorizedFromCycle: 11 },
+  { before: "box", after: "ox", beforeGraphemes: ["b", "o", "x"], afterGraphemes: ["o", "x"], authorizedFromCycle: 11 },
+  { before: "fox", after: "ox", beforeGraphemes: ["f", "o", "x"], afterGraphemes: ["o", "x"], authorizedFromCycle: 11 },
+  { before: "van", after: "an", beforeGraphemes: ["v", "a", "n"], afterGraphemes: ["a", "n"], authorizedFromCycle: 12 },
+  { before: "jam", after: "am", beforeGraphemes: ["j", "a", "m"], afterGraphemes: ["a", "m"], authorizedFromCycle: 13 },
+  { before: "kit", after: "it", beforeGraphemes: ["k", "i", "t"], afterGraphemes: ["i", "t"], authorizedFromCycle: 13 },
+  { before: "thin", after: "in", beforeGraphemes: ["th", "i", "n"], afterGraphemes: ["i", "n"], authorizedFromCycle: 15 },
+  { before: "chat", after: "at", beforeGraphemes: ["ch", "a", "t"], afterGraphemes: ["a", "t"], authorizedFromCycle: 15 },
+  { before: "ball", after: "all", beforeGraphemes: ["b", "all"], afterGraphemes: ["all"], authorizedFromCycle: 16 },
+  { before: "fall", after: "all", beforeGraphemes: ["f", "all"], afterGraphemes: ["all"], authorizedFromCycle: 16 },
+  { before: "call", after: "all", beforeGraphemes: ["c", "all"], afterGraphemes: ["all"], authorizedFromCycle: 16 },
+  { before: "sink", after: "ink", beforeGraphemes: ["s", "i", "nk"], afterGraphemes: ["i", "nk"], authorizedFromCycle: 22 },
+  { before: "pink", after: "ink", beforeGraphemes: ["p", "i", "nk"], afterGraphemes: ["i", "nk"], authorizedFromCycle: 22 },
+  { before: "wink", after: "ink", beforeGraphemes: ["w", "i", "nk"], afterGraphemes: ["i", "nk"], authorizedFromCycle: 22 },
+  { before: "think", after: "ink", beforeGraphemes: ["th", "i", "nk"], afterGraphemes: ["i", "nk"], authorizedFromCycle: 22 },
+  { before: "will", after: "ill", beforeGraphemes: ["w", "i", "ll"], afterGraphemes: ["i", "ll"], authorizedFromCycle: 24 }
+]);
+
+const REVIEWED_COMPOUND_WORDS = Object.freeze([
+  {
+    parts: ["sun", "set"],
+    distractors: ["hat", "tan"],
+    word: "sunset",
+    authorizedFromCycle: 12
+  }
+]);
 
 function uniqueChoices(items) {
   return [...new Set(items)];
@@ -678,44 +893,28 @@ function uniqueChoices(items) {
 
 function buildWordPlayRounds(cycle) {
   const rounds = [];
+  const cycleNumber = cycle.cycleNumber || 1;
   const taughtGraphemes = taughtGraphemesThrough(cycle.cycleNumber || 1);
-  const focusWords = uniqueChoices(
-    [
-      ...focusEntries(cycle).flatMap(entry => exampleWordsFor(entry.spelling)),
-      ...(cycle.highFrequencyWords || []).map(word => String(word || "").toLowerCase())
-    ]
-  ).filter(word => /^[a-z]{2,5}$/.test(word) && wordUsesTaughtPrint(word, cycle.cycleNumber || 1));
-  const allWords = uniqueChoices(Object.values(LETTER_EXAMPLES).flat())
-    .filter(word => (
-      /^[a-z]{2,5}$/.test(word)
-      && wordUsesTaughtPrint(word, cycle.cycleNumber || 1)
-    ));
-  const sourceWords = uniqueChoices([...focusWords, ...allWords]);
-  const authorisedRemovalWords = new Set(
-    uniqueChoices([
-      ...allWords,
-      ...taughtHfwThrough(cycle.cycleNumber || 1)
-    ]).filter(word => (
-      /^[a-z]{2,5}$/.test(word)
-      && wordUsesTaughtPrint(word, cycle.cycleNumber || 1)
-      && wordAudioPath(word)
-    ))
-  );
+  const substitutionPairs = REVIEWED_ONSET_SUBSTITUTION_FAMILIES
+    .filter(family => family.authorizedFromCycle <= cycleNumber)
+    .flatMap(family => {
+      const words = family.words.filter(word => wordAudioPath(word));
+      return words.flatMap(word => words
+        .filter(partner => partner !== word)
+        .map(partner => ({ word, partner, familyWords: words })));
+    });
 
   // Change the first sound: same rime, different onset.
-  for (const word of shuffleItems(sourceWords)) {
+  for (const { word, partner, familyWords } of shuffleItems(substitutionPairs)) {
     const beforeGraphemes = segmentTaughtGraphemes(word, taughtGraphemes);
     const rime = beforeGraphemes.slice(1).join("");
-    const partner = allWords.find(other => {
-      const otherGraphemes = segmentTaughtGraphemes(other, taughtGraphemes);
-      return other !== word
-        && otherGraphemes[0] !== beforeGraphemes[0]
-        && otherGraphemes.slice(1).join("") === rime;
-    });
-    if (!partner || !wordAudioPath(partner)) continue;
     const afterGraphemes = segmentTaughtGraphemes(partner, taughtGraphemes);
+    if (
+      beforeGraphemes[0] === afterGraphemes[0]
+      || afterGraphemes.slice(1).join("") !== rime
+    ) continue;
     const decoyOnsets = shuffleItems(uniqueChoices(
-      allWords.map(other => segmentTaughtGraphemes(other, taughtGraphemes)[0])
+      familyWords.map(other => segmentTaughtGraphemes(other, taughtGraphemes)[0])
     ).filter(onset => onset && onset !== beforeGraphemes[0] && onset !== afterGraphemes[0]));
     const onsetChoices = uniqueChoices([
       afterGraphemes[0],
@@ -751,82 +950,127 @@ function buildWordPlayRounds(cycle) {
       onsetPieces,
       display: word,
       answer: partner,
+      inventoryAuthorization: "reviewed-onset-substitution-v1",
       choiceStyle: "onset-piece"
     });
     if (rounds.length >= 2) break;
   }
 
   // Take the first sound away.
-  for (const word of shuffleItems(sourceWords)) {
-    const beforeGraphemes = segmentTaughtGraphemes(word, taughtGraphemes);
-    const rest = beforeGraphemes.slice(1).join("");
-    const removalChoices = uniqueChoices(beforeGraphemes.map((_, index) => (
-      beforeGraphemes.filter((__, graphemeIndex) => graphemeIndex !== index).join("")
-    )));
+  const removalPairs = REVIEWED_ONSET_REMOVAL_PAIRS.filter(pair => (
+    pair.authorizedFromCycle <= cycleNumber
+    && wordAudioPath(pair.before)
+    && wordAudioPath(pair.after)
+  ));
+  for (const pair of shuffleItems(removalPairs)) {
+    const beforeGraphemes = [...pair.beforeGraphemes];
+    const afterGraphemes = [...pair.afterGraphemes];
+    const rest = afterGraphemes.join("");
+    const projectedWords = new Set();
+    const removablePositions = beforeGraphemes.flatMap((_, position) => {
+      const projectedWord = beforeGraphemes
+        .filter((__, graphemeIndex) => graphemeIndex !== position)
+        .join("");
+      if (projectedWords.has(projectedWord)) return [];
+      projectedWords.add(projectedWord);
+      return [{ position, projectedWord }];
+    });
+    const removalChoices = removablePositions.map(choice => choice.projectedWord);
     if (
-      rest.length < 2
-      || !wordAudioPath(word)
-      || !authorisedRemovalWords.has(rest)
+      beforeGraphemes.slice(1).join("") !== rest
       || removalChoices.length < 2
     ) continue;
+    const pieceOrder = shuffleItems(removablePositions.map(choice => choice.position));
     rounds.push({
       type: "play",
       mechanicId: "wordMachine",
-      roundKey: `word-machine:${cycle.id}:removeOnset:${rounds.length}:${word}:${rest}`,
+      roundKey: `word-machine:${cycle.id}:removeOnset:${rounds.length}:${pair.before}:${rest}:${pieceOrder.join("-")}`,
       construct: "onset_removal",
       operation: "removeOnset",
-      audio: wordAudioPath(word),
-      speechFallback: word,
-      prompt: `Take the first sound away from "${word}". What is left?`,
-      instruction: `Take the first sound away from "${word}".`,
-      beforeWord: word,
+      audio: wordAudioPath(pair.before),
+      speechFallback: pair.before,
+      prompt: `Take the first sound away from "${pair.before}". What is left?`,
+      instruction: `Take the first sound away from "${pair.before}".`,
+      beforeWord: pair.before,
       afterWord: rest,
       beforeGraphemes,
-      afterGraphemes: beforeGraphemes.slice(1),
-      display: word,
+      afterGraphemes,
+      pieceOrder,
+      display: pair.before,
       choices: shuffleItems(removalChoices),
       answer: rest,
+      inventoryAuthorization: "reviewed-onset-removal-v1",
       choiceStyle: "word"
     });
     break;
   }
 
   // Join two small words into one big compound word.
-  const pair = shuffleItems(COMPOUND_WORDS).find(([a, b]) => (
-    wordAudioPath(a + b)
-    && wordUsesTaughtPrint(a, cycle.cycleNumber || 1)
-    && wordUsesTaughtPrint(b, cycle.cycleNumber || 1)
-    && wordUsesTaughtPrint(a + b, cycle.cycleNumber || 1)
+  const compound = shuffleItems(REVIEWED_COMPOUND_WORDS).find(candidate => (
+    candidate.authorizedFromCycle <= cycleNumber
+    && wordAudioPath(candidate.parts[0])
+    && wordAudioPath(candidate.parts[1])
+    && wordAudioPath(candidate.word)
+    && candidate.distractors?.some(part => wordAudioPath(part))
   ));
-  if (pair) {
-    const full = pair[0] + pair[1];
-    const decoys = shuffleItems(
-      COMPOUND_WORDS
-        .filter(p => p !== pair)
-        .map(([a, b]) => a + b)
-        .filter(word => wordUsesTaughtPrint(word, cycle.cycleNumber || 1))
-    ).slice(0, 2);
+  if (compound) {
+    const [left, right] = compound.parts;
+    const full = compound.word;
+    const distractor = shuffleItems(
+      compound.distractors.filter(part => (
+        part !== left && part !== right && wordAudioPath(part)
+      ))
+    )[0];
+    const leftGraphemes = segmentTaughtGraphemes(left, taughtGraphemes);
+    const rightGraphemes = segmentTaughtGraphemes(right, taughtGraphemes);
+    const compoundPieces = [
+      {
+        id: "target-left",
+        label: left,
+        graphemes: leftGraphemes,
+        semanticIndex: 0
+      },
+      {
+        id: "target-right",
+        label: right,
+        graphemes: rightGraphemes,
+        semanticIndex: 1
+      },
+      {
+        id: `distractor-${distractor}`,
+        label: distractor,
+        graphemes: segmentTaughtGraphemes(distractor, taughtGraphemes),
+        semanticIndex: null
+      }
+    ];
+    const pieceOrder = constrainedIndexOrder(
+      compoundPieces.map(piece => piece.label),
+      shuffleItems(compoundPieces.map((_, index) => index))
+    );
     rounds.push({
       type: "play",
       mechanicId: "wordMachine",
-      roundKey: `word-machine:${cycle.id}:joinCompound:${rounds.length}:${full}`,
+      roundKey: `word-machine:${cycle.id}:joinCompound:${rounds.length}:${full}:${distractor}:${pieceOrder.join("-")}`,
       construct: "compound_word_joining",
       operation: "joinCompound",
       audio: wordAudioPath(full),
       speechFallback: full,
-      prompt: `"${pair[0]}" and "${pair[1]}" join to make one big word. Which is it?`,
-      instruction: `Join "${pair[0]}" and "${pair[1]}" to make one word.`,
-      beforeWord: `${pair[0]} + ${pair[1]}`,
+      prompt: `"${left}" and "${right}" join to make one big word. Which is it?`,
+      instruction: `Join "${left}" and "${right}" to make one word.`,
+      beforeWord: `${left} + ${right}`,
       afterWord: full,
       beforeGraphemes: [
-        ...segmentTaughtGraphemes(pair[0], taughtGraphemes),
+        ...leftGraphemes,
         "+",
-        ...segmentTaughtGraphemes(pair[1], taughtGraphemes)
+        ...rightGraphemes
       ],
       afterGraphemes: segmentTaughtGraphemes(full, taughtGraphemes),
-      display: `${pair[0]} + ${pair[1]}`,
-      choices: shuffleItems([full, ...decoys]),
+      compoundPieces,
+      pieceOrder,
+      display: `${left} + ${right}`,
+      choices: [full],
       answer: full,
+      inventoryAuthorization: "reviewed-compound-v1",
       choiceStyle: "word"
     });
   }
@@ -1186,19 +1430,46 @@ function buildPhraseFlowRounds(cycle) {
 }
 
 // Station - Heart Word Studio: study, hide, and rebuild an authorised HFW.
+export const ADVENTURE_TWO_UNIT_HEART_WORD_BANKS = Object.freeze({
+  by: Object.freeze({ authorizedFromCycle: 26, distractors: Object.freeze(["m"]) }),
+  my: Object.freeze({ authorizedFromCycle: 26, distractors: Object.freeze(["b"]) }),
+  why: Object.freeze({ authorizedFromCycle: 26, distractors: Object.freeze(["w"]) })
+});
+
 function buildSpellRounds(cycle) {
   const words = uniqueChoices((cycle.highFrequencyWords || []).map(w => w.toLowerCase()))
     .filter(word => /^[a-z]{2,6}$/.test(word));
   if (!words.length) return [];
-  return words.slice(0, 5).map(word => {
+  return words.slice(0, 5).flatMap((word, roundIndex) => {
     const audio = wordAudioPath(word);
     const graphemes = segmentTaughtGraphemes(
       word,
       taughtGraphemesThrough(cycle.cycleNumber || 1)
     );
-    return {
+    const twoUnitBank = graphemes.length === 2
+      ? ADVENTURE_TWO_UNIT_HEART_WORD_BANKS[word]
+      : null;
+    const eligibleDistractors = twoUnitBank?.authorizedFromCycle <= (cycle.cycleNumber || 1)
+      ? twoUnitBank.distractors.filter(grapheme => (
+          taughtGraphemesThrough(cycle.cycleNumber || 1).includes(grapheme)
+          && !graphemes.includes(grapheme)
+        ))
+      : [];
+    const distractorGrapheme = graphemes.length === 2
+      ? shuffleItems(eligibleDistractors)[0]
+      : undefined;
+    if (graphemes.length === 2 && !distractorGrapheme) return [];
+    const bankGraphemes = distractorGrapheme
+      ? [...graphemes, distractorGrapheme]
+      : graphemes;
+    const tileOrder = constrainedIndexOrder(
+      bankGraphemes,
+      shuffleItems(bankGraphemes.map((_, index) => index))
+    );
+    return [{
       type: "build",
       mechanicId: "heartWord",
+      roundKey: `heart-word:${cycle.id}:${roundIndex}:${word}:${distractorGrapheme || "targets-only"}:${tileOrder.join("-")}`,
       construct: "orthographic_memory",
       audio,
       speechFallback: word,
@@ -1207,8 +1478,14 @@ function buildSpellRounds(cycle) {
       display: word,
       word,
       graphemes,
+      ...(distractorGrapheme ? {
+        bankGraphemes,
+        distractorGrapheme,
+        tileBankPolicy: "target-plus-reviewed-distractor"
+      } : {}),
+      tileOrder,
       choiceStyle: "build"
-    };
+    }];
   });
 }
 
@@ -1314,7 +1591,7 @@ export function stationsForCycle(cycle) {
 }
 
 function createCycleQuestBlueprint(cycle, limit = 10) {
-  const maximum = Math.max(1, Math.min(10, Number(limit) || 10));
+  const requestedLength = Math.max(1, Math.floor(Number(limit) || 10));
   const candidates = stationsForCycle(cycle)
     .filter(station => station.id !== "check" && station.build)
     .flatMap(station => station.build(cycle))
@@ -1328,13 +1605,17 @@ function createCycleQuestBlueprint(cycle, limit = 10) {
     byConstruct.get(construct).push(round);
   }
 
+  // Ten is the normal run length, not a licence to drop an available
+  // construct. Later cycles expose up to twelve distinct eligible constructs,
+  // so extend those quests until every construct has one representative.
+  const maximum = Math.max(requestedLength, byConstruct.size);
+
   // Sample every eligible literacy construct before adding a second example
   // of any construct. This keeps the Cycle Quest broad even when one station
   // happens to generate many more rounds than its neighbours.
   const firstPass = [...byConstruct.values()]
     .map(rounds => rounds[0])
-    .filter(Boolean)
-    .slice(0, maximum);
+    .filter(Boolean);
   const selected = new Set(firstPass);
   const remaining = shuffleItems(candidates.filter(round => !selected.has(round)));
   const rounds = [...firstPass, ...remaining].slice(0, maximum);
@@ -1357,7 +1638,7 @@ export function isCycleQuestEligibleRound(round) {
   // Phrase Flow is valuable supported oral rehearsal, but its model-and-echo
   // completion is deliberately support-only and cannot provide an independent
   // first-attempt result. Keep it in practice without making a perfect Cycle
-  // Quest score mathematically impossible.
+  // Quest score impossible by construction.
   return round?.mechanicId !== "phraseFlow"
     && round?.construct !== "supported_phrase_reading";
 }

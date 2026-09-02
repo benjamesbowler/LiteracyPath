@@ -1,3 +1,5 @@
+import { useEffect, useRef } from "react";
+
 function SpeakerIcon() {
   return (
     <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -18,6 +20,7 @@ export function AdventureRoundFrame({
   supportText = "",
   feedback = "",
   feedbackTone = "ready",
+  correctionModel = null,
   announceFeedback = true,
   shaking = false,
   sparkle = false,
@@ -36,6 +39,36 @@ export function AdventureRoundFrame({
   const current = Math.max(1, Number(roundNumber) || 1);
   const total = Math.max(current, Number(roundTotal) || current);
   const progress = Math.round(((current - 1) / total) * 100);
+  const correctionModelRef = useRef(null);
+  const genericCorrectionActive = Boolean(correctionModel && correctionModel.mode !== "native-formation");
+  const correctionReplayKey = correctionModel?.replayKey || "ready";
+
+  useEffect(() => {
+    if (!genericCorrectionActive) return undefined;
+    const model = correctionModelRef.current;
+    if (!model) return undefined;
+
+    const frame = window.requestAnimationFrame(() => {
+      const stage = model.closest(".adventure-round-frame__stage");
+      if (stage) {
+        const stageRect = stage.getBoundingClientRect();
+        const modelRect = model.getBoundingClientRect();
+        const inset = 8;
+        let nextScrollTop = stage.scrollTop;
+        if (modelRect.top < stageRect.top + inset) {
+          nextScrollTop -= (stageRect.top + inset) - modelRect.top;
+        } else if (modelRect.bottom > stageRect.bottom - inset) {
+          nextScrollTop += modelRect.bottom - (stageRect.bottom - inset);
+        }
+        stage.scrollTop = Math.max(0, nextScrollTop);
+      } else {
+        model.scrollIntoView?.({ block: "nearest", inline: "nearest" });
+      }
+      model.focus({ preventScroll: true });
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [correctionReplayKey, genericCorrectionActive]);
 
   return (
     <section
@@ -105,11 +138,43 @@ export function AdventureRoundFrame({
           className={`adventure-round-frame__stage${shaking ? " sbq-shake" : ""}`}
           data-stage-state={feedbackTone}
           onClickCapture={onStageInteraction}
-          onPointerDownCapture={onStageInteraction}
           onAnimationEnd={onShakeEnd}
         >
           {sparkle && <span className="sbq-sparkle" aria-hidden="true">✨</span>}
           {children}
+          {correctionModel && correctionModel.mode !== "native-formation" && (
+            <aside
+              ref={correctionModelRef}
+              className="adventure-round-frame__correction-model"
+              data-correction-model="true"
+              data-correction-model-key={correctionReplayKey}
+              role="status"
+              aria-live="assertive"
+              aria-label={correctionModel.label || "Correct model"}
+              tabIndex={-1}
+            >
+              <strong>{correctionModel.label || "Correct model"}</strong>
+              <p>{correctionModel.instruction}</p>
+              <div className="adventure-round-frame__correction-units">
+                {correctionModel.units.map((unit, index) => (
+                  <span
+                    className={unit === "→" || unit === "|" ? "is-separator" : ""}
+                    data-correction-unit={unit}
+                    key={`${unit}:${index}`}
+                  >
+                    {unit}
+                  </span>
+                ))}
+                {correctionModel.image?.src && (
+                  <img
+                    data-correction-target-image="true"
+                    src={correctionModel.image.src}
+                    alt={correctionModel.image.alt || ""}
+                  />
+                )}
+              </div>
+            </aside>
+          )}
           <div className="adventure-round-frame__world-reaction" aria-hidden="true">
             <span />
             <span />

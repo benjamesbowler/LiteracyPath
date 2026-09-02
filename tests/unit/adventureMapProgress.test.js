@@ -2,6 +2,9 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
   emptyElQuestProgress,
+  hasCanonicalElQuestCycles,
+  isCurrentElQuestProgress,
+  isMalformedCurrentElQuestProgress,
   mergeElQuestProgress,
   normalizeElQuestProgress
 } from "../../src/utils/adventureMapProgress.js";
@@ -33,11 +36,73 @@ test("v2 Adventure Map progress survives normalisation", () => {
   assert.deepEqual(normalizeElQuestProgress(current), current);
 });
 
+test("current Adventure Map progress requires canonical cycle and station record objects", () => {
+  const valid = {
+    schemaVersion: 2,
+    progressEpoch: 2,
+    cycles: {
+      cycle1: { stars: 2 },
+      cycle2: { stations: { letters: true } }
+    }
+  };
+  assert.equal(hasCanonicalElQuestCycles(valid), true);
+  assert.equal(isCurrentElQuestProgress(valid), true);
+  assert.equal(isMalformedCurrentElQuestProgress(valid), false);
+
+  for (const cycles of [null, [], { cycle1: null }, { cycle1: [] }, { cycle1: { stations: [] } }]) {
+    const malformed = { schemaVersion: 2, progressEpoch: 2, cycles };
+    assert.equal(hasCanonicalElQuestCycles(malformed), false);
+    assert.equal(isCurrentElQuestProgress(malformed), false);
+    assert.equal(isMalformedCurrentElQuestProgress(malformed), true);
+  }
+});
+
+test("non-object Adventure Map payloads normalize to a canonical empty record", () => {
+  assert.deepEqual(normalizeElQuestProgress(["not", "a", "progress", "object"]), {
+    schemaVersion: 2,
+    progressEpoch: 2,
+    cycles: {}
+  });
+  assert.deepEqual(normalizeElQuestProgress("not a progress object"), {
+    schemaVersion: 2,
+    progressEpoch: 2,
+    cycles: {}
+  });
+});
+
+test("a future Adventure Map schema at the current epoch stays opaque during normalisation", () => {
+  const future = {
+    schemaVersion: 3,
+    progressEpoch: 2,
+    cycles: { futureCycle: { stars: 1 } },
+    futureOnly: { checkpoint: "keep-exactly" }
+  };
+
+  assert.deepEqual(normalizeElQuestProgress(future), future);
+});
+
 test("epoch 2 beats stale legacy progress in either orientation", () => {
   const current = { schemaVersion: 2, progressEpoch: 2, cycles: {} };
   const legacy = { v: 1, cycles: { cycle1: { stars: 3 } } };
   assert.deepEqual(mergeElQuestProgress(current, legacy), current);
   assert.deepEqual(mergeElQuestProgress(legacy, current), current);
+});
+
+test("a future Adventure Map schema wins current progress in either merge orientation", () => {
+  const current = {
+    schemaVersion: 2,
+    progressEpoch: 2,
+    cycles: { currentCycle: { stars: 3 } }
+  };
+  const future = {
+    schemaVersion: 3,
+    progressEpoch: 2,
+    cycles: { futureCycle: { stars: 1 } },
+    futureOnly: { checkpoint: "keep-exactly" }
+  };
+
+  assert.deepEqual(mergeElQuestProgress(future, current), future);
+  assert.deepEqual(mergeElQuestProgress(current, future), future);
 });
 
 test("cycle bests merge forward while latest run evidence stays internally consistent", () => {

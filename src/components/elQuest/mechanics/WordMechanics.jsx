@@ -260,7 +260,7 @@ export function SoundBoxesMechanic({
               data-tile-id={tile.id}
               data-grapheme={tile.grapheme}
               key={tile.id}
-              disabled={locked || used}
+              disabled={locked || ready || used}
               aria-label={`Place grapheme ${tile.grapheme}`}
               onClick={() => place(tile.id)}
             >
@@ -316,8 +316,9 @@ export function WordMachineMechanic({
   );
   const state = wordMachineStateForRound(storedState, round, supportLevel);
   const locked = disabled || state.committed;
+  const compoundTargetCount = pieces.filter(piece => Number.isInteger(piece.semanticIndex)).length;
   const ready = round.operation === "joinCompound"
-    ? state.selectedPieceIds.length === pieces.length && pieces.length > 0
+    ? state.selectedPieceIds.length === compoundTargetCount && compoundTargetCount > 0
     : state.selectedPieceIds.length === 1;
 
   const commit = () => {
@@ -353,7 +354,7 @@ export function WordMachineMechanic({
         role="group"
         aria-label={`${machineActionLabel(round.operation)} pieces`}
       >
-        {pieces.map((piece, index) => {
+        {pieces.map(piece => {
           const selected = state.selectedPieceIds.includes(piece.id);
           return (
             <button
@@ -363,9 +364,13 @@ export function WordMachineMechanic({
               data-machine-piece={piece.id}
               data-piece-action={piece.action}
               key={piece.id}
-              disabled={locked}
+              disabled={locked || (
+                round.operation === "joinCompound"
+                && ready
+                && !selected
+              )}
               aria-pressed={selected}
-              aria-label={`${piece.action} ${piece.label}${round.operation === "joinCompound" ? `, piece ${index + 1}` : ""}${round.operation === "removeOnset" ? `, position ${piece.position + 1}` : ""}`}
+              aria-label={`${piece.action} ${piece.label}${round.operation === "removeOnset" ? `, position ${piece.position + 1}` : ""}`}
               data-piece-position={Number.isInteger(piece.position) ? piece.position + 1 : undefined}
               onClick={() => dispatch({ type: "SELECT_PIECE", pieceId: piece.id })}
             >

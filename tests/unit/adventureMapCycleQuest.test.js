@@ -29,7 +29,11 @@ test("Cycle Quest samples every eligible construct before any repeat", () => {
       : new Set(blueprint.manifest.slice(0, firstRepeat));
 
     assert.ok(blueprint.rounds.length > 0, `cycle ${cycle.cycleNumber}`);
-    assert.ok(blueprint.rounds.length <= 10, `cycle ${cycle.cycleNumber}`);
+    assert.equal(
+      blueprint.rounds.length,
+      Math.max(10, available.size),
+      `cycle ${cycle.cycleNumber}`
+    );
     assert.ok(
       blueprint.rounds.every(isCycleQuestEligibleRound),
       `cycle ${cycle.cycleNumber} included a support-only round`
@@ -41,7 +45,7 @@ test("Cycle Quest samples every eligible construct before any repeat", () => {
     );
     assert.deepEqual(
       [...uniquePrefix].sort(),
-      [...available].slice(0, Math.min(available.size, 10)).sort(),
+      [...available].sort(),
       `cycle ${cycle.cycleNumber} repeated a construct before covering the eligible set`
     );
   }
@@ -64,7 +68,7 @@ test("the public check builder returns the balanced blueprint rounds", () => {
         .filter(isCycleQuestEligibleRound)
         .map(round => round.construct)
     ).size;
-    assert.equal(uniquePrefixLength, Math.min(availableCount, 10));
+    assert.equal(uniquePrefixLength, availableCount);
   }
 });
 

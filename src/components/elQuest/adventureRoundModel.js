@@ -35,6 +35,67 @@ export function segmentTaughtGraphemes(word, taught = []) {
   return result;
 }
 
+function exactIndexPermutation(order, length) {
+  return Array.isArray(order)
+    && order.length === length
+    && order.every(index => Number.isInteger(index) && index >= 0 && index < length)
+    && new Set(order).size === length;
+}
+
+function sameVisibleOrder(values, order, comparison) {
+  return order.every((sourceIndex, visibleIndex) => (
+    values[sourceIndex] === comparison[visibleIndex]
+  ));
+}
+
+// Keep authored tile instances stable while preventing their visual bank from
+// becoming an answer key. A seeded caller supplies the proposed permutation;
+// pair swaps provide a deterministic safety net if it happens to be identity
+// (or the fixed reverse traversal that previously solved every Sound Box).
+export function constrainedIndexOrder(values = [], proposedOrder = [], options = {}) {
+  const items = Array.isArray(values) ? values : [];
+  const identity = items.map((_, index) => index);
+  const proposed = exactIndexPermutation(proposedOrder, items.length)
+    ? [...proposedOrder]
+    : identity;
+  if (items.length < 2) return proposed;
+
+  const candidates = [proposed];
+  for (let left = 0; left < proposed.length - 1; left += 1) {
+    for (let right = left + 1; right < proposed.length; right += 1) {
+      const candidate = [...proposed];
+      [candidate[left], candidate[right]] = [candidate[right], candidate[left]];
+      candidates.push(candidate);
+    }
+  }
+
+  const reversed = [...items].reverse();
+  const isNonIdentity = order => !sameVisibleOrder(items, order, items);
+  if (options.avoidReverse) {
+    const nonFixed = candidates.find(order => (
+      isNonIdentity(order) && !sameVisibleOrder(items, order, reversed)
+    ));
+    if (nonFixed) return nonFixed;
+  }
+  return candidates.find(isNonIdentity) || proposed;
+}
+
+export function seededIndexOrder(length, seedText) {
+  const size = Math.max(0, Math.floor(Number(length) || 0));
+  const order = Array.from({ length: size }, (_, index) => index);
+  let seed = 2166136261;
+  for (const character of String(seedText || "")) {
+    seed ^= character.codePointAt(0);
+    seed = Math.imul(seed, 16777619);
+  }
+  for (let index = order.length - 1; index > 0; index -= 1) {
+    seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+    const swapIndex = seed % (index + 1);
+    [order[index], order[swapIndex]] = [order[swapIndex], order[index]];
+  }
+  return order;
+}
+
 export function scoreCycleQuest(firstAttempts, total) {
   const expected = Math.max(0, Number(total) || 0);
   const attempts = Array.isArray(firstAttempts) ? firstAttempts.slice(0, expected) : [];

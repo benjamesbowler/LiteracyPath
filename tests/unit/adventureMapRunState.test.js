@@ -1,8 +1,10 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {
+  correctionModelForOutcome,
   createAdventureRun,
   recordAdventureOutcome,
+  feedbackForCommittedOutcome,
   feedbackForOutcome,
   cycleQuestResult
 } from "../../src/components/elQuest/adventureRunState.js";
@@ -11,6 +13,15 @@ import {
   stationsForCycle
 } from "../../src/components/elQuest/elQuestEngine.js";
 import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
+import {
+  commitSoundBoxPlacement,
+  createSoundBoxesState
+} from "../../src/components/elQuest/mechanics/wordMechanicState.js";
+import {
+  createWordChainState,
+  replaceChainGrapheme,
+  selectChainPosition
+} from "../../src/components/elQuest/mechanics/fluencyMechanicState.js";
 
 const GENERATED_CONSTRUCT_CASES = [
   ["visual_letter_identity", /big|small/],
@@ -89,23 +100,53 @@ test("feedback names the selected onset and the target contrast", () => {
       { word: "sun", matches: true }
     ]
   };
-  assert.equal(
-    feedbackForOutcome(round, { correct: false, selected: "m" }, 1),
-    "m starts moon. Listen for /s/ at the start of sun."
-  );
+  const feedback = feedbackForOutcome(round, { correct: false, selected: "m" }, 1);
+  assert.match(feedback, /remove moon/i);
+  assert.match(feedback, /tag sun/i);
+  assert.match(feedback, /\/s\//i);
 });
 
 test("feedback remains construct-specific on later coaching attempts", () => {
   const round = {
     construct: "ending_grapheme_pattern_discrimination",
     targetGrapheme: "ng",
-    answer: "ring"
+    answer: "ring",
+    objects: [
+      { word: "ball", matches: false },
+      { word: "ring", matches: true }
+    ]
   };
   const feedback = feedbackForOutcome(round, { correct: false, selected: "ball" }, 2);
-  assert.match(feedback, /ball/);
+  assert.match(feedback, /ring/);
   assert.match(feedback, /ng/);
   assert.match(feedback, /end/);
   assert.doesNotMatch(feedback, /Almost! Try again\./);
+});
+
+test("committed misses use three escalating controller tiers before a child repeats the action", () => {
+  const round = {
+    construct: "heard_phoneme_grapheme_mapping",
+    targetGrapheme: "s",
+    answer: "s"
+  };
+  const outcome = {
+    correct: false,
+    selected: "m",
+    feedback: "A fixed mechanic message that must not mask coaching."
+  };
+  const messages = [1, 2, 3].map(attempt => (
+    feedbackForCommittedOutcome(round, outcome, attempt)
+  ));
+
+  assert.equal(new Set(messages).size, 3);
+  assert.match(messages[0], /you chose m/i);
+  assert.match(messages[1], /say the sound slowly/i);
+  assert.match(messages[2], /watch the correct model/i);
+  assert.ok(messages.every(message => /s/.test(message)));
+  assert.equal(
+    feedbackForCommittedOutcome(round, { ...outcome, correct: true, feedback: "The gate opened." }, 4),
+    "The gate opened."
+  );
 });
 
 test("Pattern Sort feedback truthfully names fit and non-fit relationships", () => {
@@ -139,21 +180,160 @@ test("Pattern Sort feedback truthfully names fit and non-fit relationships", () 
   );
   assert.equal(
     feedbackForOutcome(round, { correct: false, selected: ["map", "fits"] }, 2),
-    "map does not fit “start with sh”. Put it in “do not start with sh”."
+    "Compare map with “start with sh”; the pattern is missing, so choose “do not start with sh”."
   );
+});
+
+test("Code Spot uses the truthful bin relationship for both kinds of miss", () => {
+  const round = {
+    mechanicId: "patternSort",
+    construct: "visual_grapheme_identity",
+    targetGrapheme: "sh",
+    patternLabel: "has sh",
+    bins: [
+      { id: "fits", label: "has sh" },
+      { id: "not", label: "does not have sh" }
+    ],
+    items: [
+      { word: "ship", fits: true },
+      { word: "map", fits: false }
+    ]
+  };
+
+  assert.equal(
+    feedbackForOutcome(round, { correct: false, selected: ["ship", "not"] }, 1),
+    "ship fits “has sh”. Put it in “has sh”."
+  );
+  assert.equal(
+    feedbackForOutcome(round, { correct: false, selected: ["map", "fits"] }, 1),
+    "map does not fit “has sh”. Put it in “does not have sh”."
+  );
+});
+
+test("Scene Hunt correction names extra and missing tags without inventing a choice", () => {
+  const initialRound = {
+    construct: "initial_phoneme_discrimination",
+    targetGrapheme: "a",
+    objects: [
+      { word: "apple", matches: true },
+      { word: "sink", matches: false }
+    ]
+  };
+  const mixed = feedbackForOutcome(initialRound, {
+    correct: false,
+    selected: ["apple", "sink"]
+  }, 1);
+  assert.match(mixed, /remove sink/i);
+  assert.doesNotMatch(mixed, /remove apple/i);
+
+  const empty = feedbackForOutcome(initialRound, { correct: false, selected: [] }, 1);
+  assert.match(empty, /tagged no pictures/i);
+  assert.match(empty, /tag apple/i);
+  assert.doesNotMatch(empty, /the word you chose/i);
+
+  const endingRound = {
+    construct: "ending_grapheme_pattern_discrimination",
+    targetGrapheme: "nk",
+    objects: [
+      { word: "pink", matches: true },
+      { word: "bank", matches: true },
+      { word: "moon", matches: false }
+    ]
+  };
+  const missing = feedbackForOutcome(endingRound, {
+    correct: false,
+    selected: ["pink"]
+  }, 1);
+  assert.match(missing, /tag bank/i);
+  assert.doesNotMatch(missing, /pink does not/i);
+});
+
+test("Sound Boxes correction names the tile, exact box, and expected grapheme", () => {
+  const round = {
+    construct: "phoneme_grapheme_encoding",
+    word: "sat",
+    graphemes: ["s", "a", "t"]
+  };
+  let outcome;
+  const state = createSoundBoxesState(round);
+  const wrongTile = state.tiles.find(tile => tile.grapheme === "t");
+  commitSoundBoxPlacement(state, wrongTile.id, round, value => { outcome = value; });
+  const feedback = feedbackForCommittedOutcome(round, outcome, 1);
+  assert.match(feedback, /t does not fit sound box 1/i);
+  assert.match(feedback, /put s in that box/i);
+  assert.doesNotMatch(feedback, /t is not the word/i);
+});
+
+test("Word Chain correction distinguishes a wrong position from a wrong replacement", () => {
+  const round = {
+    construct: "grapheme_substitution_chain",
+    fromWord: "man",
+    toWord: "mat",
+    fromGraphemes: ["m", "a", "n"],
+    toGraphemes: ["m", "a", "t"],
+    changeIndex: 2,
+    answer: "t",
+    choices: ["t", "s"]
+  };
+  const initial = createWordChainState(round);
+  const wrongPosition = selectChainPosition(initial, round, 0).outcome;
+  const positionFeedback = feedbackForCommittedOutcome(round, wrongPosition, 1);
+  assert.match(positionFeedback, /m at position 1/i);
+  assert.match(positionFeedback, /position 3 changes/i);
+
+  const replacementStage = selectChainPosition(initial, round, 2).state;
+  const wrongReplacement = replaceChainGrapheme(replacementStage, round, "s").outcome;
+  const replacementFeedback = feedbackForCommittedOutcome(round, wrongReplacement, 1);
+  assert.match(replacementFeedback, /s at position 3/i);
+  assert.match(replacementFeedback, /use t/i);
+});
+
+test("third-tier models carry the actual cover, compound chunks, and native formation route", () => {
+  const coverModel = correctionModelForOutcome({
+    mechanicId: "coverClue",
+    construct: "supported_cover_title_association",
+    strip: { text: "Tiny and Brave" },
+    targetCover: { title: "Tiny and Brave", cover: "/tiny.webp" }
+  }, { correct: false, selected: "Moon Picnic" });
+  assert.equal(coverModel.image.src, "/tiny.webp");
+  assert.equal(coverModel.image.alt, "Cover for Tiny and Brave");
+  assert.deepEqual(coverModel.units, ["Tiny and Brave", "→"]);
+
+  const compoundModel = correctionModelForOutcome({
+    mechanicId: "wordMachine",
+    construct: "compound_word_joining",
+    beforeWord: "sun + set",
+    afterWord: "sunset",
+    beforeGraphemes: ["s", "u", "n", "+", "s", "e", "t"]
+  }, { correct: false, selected: "sun" });
+  assert.deepEqual(compoundModel.units, ["sun + set", "→", "sunset"]);
+
+  const traceModel = correctionModelForOutcome({
+    mechanicId: "letterTrace",
+    construct: "letter_formation_practice",
+    letter: "A"
+  }, { correct: false, selected: "A", errorDimension: "direction" });
+  assert.equal(traceModel.mode, "native-formation");
+  assert.match(traceModel.instruction, /each stroke.*in order/i);
 });
 
 test("Phrase Flow coaching names the continuous word trail and authored poetry-line boundary", () => {
   const round = {
     construct: "supported_phrase_reading",
     trailWords: ["Fern", "flies", "high,", "and", "waves", "goodbye."],
-    correctBoundary: 3
+    correctBoundary: 3,
+    boundaryChoices: [
+      { position: 3, afterWord: "high," },
+      { position: 4, afterWord: "and" }
+    ]
   };
 
   for (const attempt of [1, 2]) {
     const feedback = feedbackForOutcome(round, { correct: false, selected: 4 }, attempt);
     assert.match(feedback, /continuous word trail/i);
     assert.match(feedback, /first poetry line/i);
+    assert.match(feedback, /after “and”/i);
+    assert.doesNotMatch(feedback, /after word 4/i);
     assert.doesNotMatch(feedback, /phrase chunk|phrase line/i);
   }
 });
@@ -182,6 +362,42 @@ test("feedback coverage matches every construct currently generated by Adventure
     [...generatedConstructs].sort(),
     GENERATED_CONSTRUCT_CASES.map(([construct]) => construct).sort()
   );
+});
+
+test("every generated mechanic can provide a structured visible correction model", () => {
+  const seenMechanics = new Set();
+  for (const cycle of elSkillsBlockCycles.filter(item => item.cycleNumber)) {
+    for (const station of stationsForCycle(cycle).filter(item => item.id !== "check")) {
+      for (const round of buildStationRounds(cycle, station.id)) {
+        seenMechanics.add(round.mechanicId);
+        const firstItem = round.items?.[0]?.word || round.objects?.[0]?.word || "wrong";
+        const model = correctionModelForOutcome(round, {
+          correct: false,
+          selected: [firstItem, "not"]
+        });
+        assert.ok(model, `${cycle.id}/${station.id}/${round.mechanicId}`);
+        assert.equal(model.label, "Correct model");
+        assert.ok(model.instruction.length > 0);
+        assert.ok(model.units.length > 0);
+        assert.ok(model.units.every(Boolean));
+      }
+    }
+  }
+  assert.deepEqual([...seenMechanics].sort(), [
+    "coverClue",
+    "heartWord",
+    "letterPair",
+    "letterTrace",
+    "patternSort",
+    "phraseFlow",
+    "poemSpotlight",
+    "sceneHunt",
+    "soundBoxes",
+    "soundGate",
+    "wordChain",
+    "wordMachine",
+    "wordWindow"
+  ]);
 });
 
 function failedOutcomeForRound(round) {

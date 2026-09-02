@@ -276,18 +276,27 @@
 }
 
 .kg-stage .kg-main > .skills-block-quest .sbq-poem-line {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
   align-items: stretch;
-  justify-content: center;
-  gap: 3px;
+  gap: 6px;
   min-height: var(--kg-physical-hit, 56px);
   margin: 0;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-poem-line-words {
+  display: flex;
+  align-content: flex-start;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 3px;
+  min-width: 0;
 }
 
 .kg-stage .kg-main > .skills-block-quest .sbq-poem-token {
   min-width: var(--kg-physical-hit, 56px);
   min-height: var(--kg-physical-hit, 56px);
+  margin: 0;
   padding: 2px 6px;
   border-radius: 12px;
   line-height: 1.05;
@@ -394,7 +403,7 @@
   justify-content: center;
   width: 100%;
   min-height: 0;
-  gap: 6px 12px;
+  gap: 5px 12px;
   overflow: hidden;
 }
 
@@ -411,6 +420,11 @@
 .kg-stage .kg-main > .skills-block-quest .sbq-trace-message {
   grid-column: 1 / -1;
   grid-row: 2;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-trace > .sbq-ghost-button {
+  grid-column: 1 / -1;
+  grid-row: 4;
 }
 
 /* Completion is a single bounded state, not a three-row round player. The old
@@ -793,7 +807,8 @@
   .kg-stage .kg-main > .skills-block-quest[data-round-type="coverClue"] .sbq-cover-clue {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto auto auto auto;
-    height: auto;
+    align-self: start;
+    height: max-content;
     max-height: none;
     overflow: visible;
   }
@@ -824,6 +839,56 @@
   .kg-stage .kg-main > .skills-block-quest[data-round-type="story"] .sbq-answer-grid button {
     width: 100%;
     min-width: 0 !important;
+  }
+
+  /* The stage is the phone's one deliberate vertical scroll route. Let the
+     complete authored poem flow inside it instead of nesting another scroller
+     around the line-number gutters and partially hiding a word at each edge. */
+  .kg-stage .kg-main > .skills-block-quest .sbq-poem-spotlight .sbq-round-display.sbq-poem {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .kg-stage .kg-main > .skills-block-quest .sbq-trace {
+    grid-template-columns: minmax(0, 360px);
+    grid-template-rows: auto auto auto auto auto auto;
+    grid-template-areas: "demo" "status" "canvas" "message" "actions" "support";
+    justify-items: stretch;
+    height: auto;
+    overflow: visible;
+  }
+
+  .kg-stage .kg-main > .skills-block-quest .sbq-trace-demo {
+    grid-area: demo;
+  }
+
+  .kg-stage .kg-main > .skills-block-quest .sbq-trace > .sbq-cover-clue-status {
+    grid-area: status;
+  }
+
+  .kg-stage .kg-main > .skills-block-quest .sbq-trace-stage {
+    grid-area: canvas;
+    width: min(100%, 360px);
+    height: auto;
+    max-height: none;
+    aspect-ratio: auto;
+    justify-self: center;
+  }
+
+  .kg-stage .kg-main > .skills-block-quest .sbq-trace-stage canvas {
+    height: auto;
+  }
+
+  .kg-stage .kg-main > .skills-block-quest .sbq-trace-message {
+    grid-area: message;
+  }
+
+  .kg-stage .kg-main > .skills-block-quest .sbq-trace-actions {
+    grid-area: actions;
+  }
+
+  .kg-stage .kg-main > .skills-block-quest .sbq-trace > .sbq-ghost-button {
+    grid-area: support;
   }
 
   .kg-stage .kg-tabbar {

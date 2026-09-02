@@ -35,6 +35,7 @@ import { StudentStoryQuestsPage } from "./components/StudentStoryQuestsPage.jsx"
 import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
 import { StudentSessionNotice } from "./components/student-sessions/StudentSessionNotice.jsx";
 import { GUIDED_READING_BOOK_INDEX } from "./data/generated/guidedReadingBookIndex.generated.js";
+import { setSampleContentScope } from "./policy/freeTierContent.js";
 import { localProgressStorageKey } from "./utils/progressKeys.js";
 import { COMPANIONS, setCompanion } from "./utils/studentProfile.js";
 
@@ -42,6 +43,7 @@ const PREVIEW_PARAMS = new URLSearchParams(window.location.search);
 const SURFACE_ID = PREVIEW_PARAMS.get("surface") || "student-home";
 const PREVIEW_SCOPE = "child-surface-preview";
 const LOCKED_ADVENTURE_CYCLE = PREVIEW_PARAMS.get("lockedCycle");
+setSampleContentScope(PREVIEW_PARAMS.get("sampleContent") === "1");
 const PREVIEW_LEADERBOARD_TOKEN = "preview-leaderboard-token";
 const PREVIEW_LEADERBOARD_MODE = PREVIEW_PARAMS.get("leaderboard")
   || (SURFACE_ID === "arcade" ? "populated" : "");
@@ -84,8 +86,33 @@ window.localStorage.removeItem(localProgressStorageKey("phonics_quest", PREVIEW_
 window.localStorage.removeItem(localProgressStorageKey("phonics", PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("cvc", PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("learn_games", PREVIEW_SCOPE));
-window.localStorage.removeItem(localProgressStorageKey("el_quest", PREVIEW_SCOPE));
+const FUTURE_ADVENTURE_FIXTURE = PREVIEW_PARAMS.get("futureAdventure") === "1";
+if (!FUTURE_ADVENTURE_FIXTURE) {
+  window.localStorage.removeItem(localProgressStorageKey("el_quest", PREVIEW_SCOPE));
+}
 window.localStorage.removeItem(localProgressStorageKey("story_quests", PREVIEW_SCOPE));
+if (PREVIEW_PARAMS.get("corruptAdventure") === "1") {
+  window.localStorage.setItem(localProgressStorageKey("el_quest", PREVIEW_SCOPE), "{not json");
+  window.localStorage.setItem(
+    localProgressStorageKey("phonics_quest", PREVIEW_SCOPE),
+    JSON.stringify({ untouched: true })
+  );
+}
+if (
+  FUTURE_ADVENTURE_FIXTURE
+  && window.sessionStorage.getItem("future-adventure-fixture-installed") !== "true"
+) {
+  window.sessionStorage.setItem("future-adventure-fixture-installed", "true");
+  window.localStorage.setItem(
+    localProgressStorageKey("el_quest", PREVIEW_SCOPE),
+    JSON.stringify({
+      schemaVersion: 3,
+      progressEpoch: 2,
+      cycles: { "cycle-1": { stars: 3 } },
+      futureOnly: { checkpoint: "keep-exactly" }
+    })
+  );
+}
 if (PREVIEW_PARAMS.get("unlockWords") === "1") {
   window.localStorage.setItem(
     `lp_phonics_progress_${PREVIEW_SCOPE}`,

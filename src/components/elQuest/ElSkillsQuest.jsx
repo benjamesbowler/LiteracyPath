@@ -7,7 +7,10 @@ import {
   mergeElQuestProgress,
   normalizeElQuestProgress
 } from "../../utils/adventureMapProgress.js";
-import { loadElQuestProgress } from "../../utils/adventureMapLocalProgress.js";
+import {
+  clearElQuestLocalProgress,
+  readElQuestLocalProgress
+} from "../../utils/adventureMapLocalProgress.js";
 import { notifyMissionTaskDone } from "../../utils/dailyMission.js";
 import { getCompanion } from "../../utils/studentProfile.js";
 import { printCertificate } from "../../utils/printCertificate.js";
@@ -22,6 +25,7 @@ import { ConfettiCelebration } from "../learn/games/shared/ConfettiCelebration.j
 import { ProgressStars } from "../learn/games/shared/ProgressStars.jsx";
 import { ChildRecommendationExplanation } from "../recommendations/RecommendationExplanation.jsx";
 import { resolveAdventureMapCycleLock } from "../../policy/childTrailPolicy.js";
+import { filterSample } from "../../policy/freeTierContent.js";
 import {
   stationsForCycle,
   buildStationRounds,
@@ -29,9 +33,10 @@ import {
 } from "./elQuestEngine.js";
 import { resolveAdventureRoundAudio } from "./adventureRoundAudio.js";
 import {
+  correctionModelForOutcome,
   createAdventureRun,
   cycleQuestResult,
-  feedbackForOutcome,
+  feedbackForCommittedOutcome,
   recordAdventureOutcome
 } from "./adventureRunState.js";
 import { AdventureRoundFrame } from "./AdventureRoundFrame.jsx";
@@ -157,20 +162,38 @@ export function ElSkillsQuest({
   lockedCycleId = null,
   onLockedCycleAvailabilityChange = null
 }) {
-  const playableCycles = useMemo(
+  const allPlayableCycles = useMemo(
     () => elSkillsBlockCycles.filter(cycle => cycle.cycleNumber),
     []
   );
-  const [progress, setProgress] = useState(() => loadElQuestProgress(progressScopeKey));
+  const playableCycles = useMemo(
+    () => filterSample("cycles", allPlayableCycles),
+    [allPlayableCycles]
+  );
+  const [initialProgressRead] = useState(() => readElQuestLocalProgress(progressScopeKey));
+  const [progressReadIssue, setProgressReadIssue] = useState(() => (
+    initialProgressRead.ok ? "" : initialProgressRead.reason || "unreadable"
+  ));
+  const progressWritesBlockedRef = useRef(!initialProgressRead.ok);
+  const [progressRecoveryFailed, setProgressRecoveryFailed] = useState(false);
+  const [progress, setProgress] = useState(() => (
+    initialProgressRead.ok ? initialProgressRead.value : normalizeElQuestProgress(null)
+  ));
+  const progressRef = useRef(progress);
   const recommendedCycle = useMemo(() => (
     playableCycles.find(cycle => !(progress.cycles?.[cycle.id]?.stars > 0)) || playableCycles[0]
   ), [playableCycles, progress]);
 
   const cycleLock = useMemo(() => resolveAdventureMapCycleLock({
-    cycles: playableCycles,
+    // A teacher assignment is an exact classroom target, not ordinary map
+    // browsing. Resolve it against the full curriculum while the child-owned
+    // map and direct route remain inside the current sample entitlement.
+    cycles: allPlayableCycles,
     lockedCycleId
-  }), [lockedCycleId, playableCycles]);
-  const initialCycle = cycleLock.locked
+  }), [allPlayableCycles, lockedCycleId]);
+  const initialCycle = progressReadIssue
+    ? null
+    : cycleLock.locked
     ? cycleLock.cycle
     : playableCycles.find(cycle => cycle.id === initialCycleId) || null;
   const initialStation = initialCycle
@@ -195,6 +218,7 @@ export function ElSkillsQuest({
   const [interactionLocked, setInteractionLocked] = useState(false);
   const [roundSupportLevel, setRoundSupportLevel] = useState(0);
   const [roundFeedback, setRoundFeedback] = useState("");
+  const [correctionModel, setCorrectionModel] = useState(null);
   const [feedbackTone, setFeedbackTone] = useState("ready");
   const answerLockRef = useRef(false);
   const [celebration, setCelebration] = useState(null);
@@ -229,12 +253,53 @@ export function ElSkillsQuest({
   useEffect(() => {
     function handleHydrated(event) {
       if (event.detail?.studentId && event.detail.studentId !== progressScopeKey) return;
-      const stored = loadElQuestProgress(progressScopeKey);
-      setProgress(previous => mergeElQuestProgress(previous, stored));
+      const stored = readElQuestLocalProgress(progressScopeKey);
+      if (!stored.ok) {
+        progressWritesBlockedRef.current = true;
+        answerLockRef.current = true;
+        cancelPendingTransition();
+        if (cueTimerRef.current !== null) window.clearTimeout(cueTimerRef.current);
+        cueTimerRef.current = null;
+        stopCueAudio();
+        setInteractionLocked(true);
+        setSparkle(false);
+        setShaking(false);
+        setCorrectionModel(null);
+        setProgressReadIssue(stored.reason || "unreadable");
+        return;
+      }
+      progressWritesBlockedRef.current = false;
+      setProgressReadIssue("");
+      const merged = mergeElQuestProgress(progressRef.current, stored.value);
+      progressRef.current = merged;
+      setProgress(merged);
     }
     window.addEventListener("lp-progress-hydrated", handleHydrated);
     return () => window.removeEventListener("lp-progress-hydrated", handleHydrated);
-  }, [progressScopeKey]);
+  }, [cancelPendingTransition, progressScopeKey]);
+
+  function recoverUnreadableProgress() {
+    if (!clearElQuestLocalProgress(progressScopeKey)) {
+      setProgressRecoveryFailed(true);
+      return;
+    }
+    const recovered = readElQuestLocalProgress(progressScopeKey);
+    if (!recovered.ok) {
+      progressWritesBlockedRef.current = true;
+      answerLockRef.current = true;
+      setProgressRecoveryFailed(false);
+      setInteractionLocked(true);
+      setProgressReadIssue(recovered.reason || "unreadable");
+      return;
+    }
+    setProgressRecoveryFailed(false);
+    progressWritesBlockedRef.current = false;
+    answerLockRef.current = false;
+    setInteractionLocked(false);
+    progressRef.current = recovered.value;
+    setProgress(recovered.value);
+    setProgressReadIssue("");
+  }
 
   useEffect(() => {
     if (!stationId || celebration || !round) return undefined;
@@ -242,6 +307,7 @@ export function ElSkillsQuest({
     if (roundAudio?.instructionAudio && playedInstructionKeyRef.current !== instructionKey) {
       cueTimerRef.current = window.setTimeout(() => {
         cueTimerRef.current = null;
+        if (progressWritesBlockedRef.current) return;
         playedInstructionKeyRef.current = instructionKey;
         playRoundInstruction(round, {
           includeContent: round.mechanicId === "poemSpotlight" && roundIndex === 0
@@ -275,14 +341,16 @@ export function ElSkillsQuest({
   }, [cancelPendingTransition]);
 
   function openCycle(cycle) {
-    if (cycleLock.locked) return;
+    if (cycleLock.locked || progressWritesBlockedRef.current) return;
     setActiveCycleId(cycle.id);
     setStationId(null);
     setCelebration(null);
     setSessionStations({});
+    setCorrectionModel(null);
   }
 
   const startStation = useCallback((cycle, id) => {
+    if (progressWritesBlockedRef.current) return;
     cancelPendingTransition();
     if (cueTimerRef.current !== null) window.clearTimeout(cueTimerRef.current);
     cueTimerRef.current = null;
@@ -300,6 +368,7 @@ export function ElSkillsQuest({
     setInteractionLocked(false);
     setRoundSupportLevel(0);
     setRoundFeedback("");
+    setCorrectionModel(null);
     setFeedbackTone("ready");
     setCelebration(null);
     const firstRound = nextRounds[0];
@@ -313,9 +382,11 @@ export function ElSkillsQuest({
   }, [cancelPendingTransition]);
 
   function finishStation(finalRun) {
+    if (progressWritesBlockedRef.current) return;
     cancelPendingTransition();
     stopCueAudio();
     const total = rounds.length;
+    const currentProgress = progressRef.current;
     if (stationId === "check") {
       // The mission's quest task = a full cycle, sealed by the Cycle Check.
       // deferReturn: the cycle celebration (stars, certificate) follows -
@@ -325,11 +396,11 @@ export function ElSkillsQuest({
       const result = cycleQuestResult(finalRun);
       const independent = finalRun.firstAttempts.filter(value => value === true).length;
       const playedAt = new Date().toISOString();
-      const previous = progress.cycles?.[activeCycle.id] || {};
+      const previous = currentProgress.cycles?.[activeCycle.id] || {};
       const nextProgress = {
-        ...progress,
+        ...currentProgress,
         cycles: {
-          ...progress.cycles,
+          ...currentProgress.cycles,
           [activeCycle.id]: {
             ...previous,
             stars: Math.max(previous.stars || 0, result.stars),
@@ -345,6 +416,7 @@ export function ElSkillsQuest({
           }
         }
       };
+      progressRef.current = nextProgress;
       setProgress(nextProgress);
       saveQuestProgress(progressScopeKey, nextProgress);
       playCelebrationFanfare();
@@ -361,19 +433,20 @@ export function ElSkillsQuest({
       setSessionStations(doneNow);
       // Persist which stations are done so progress survives sign-out.
       const savedStations = {
-        ...(progress.cycles?.[activeCycle.id]?.stations || {}),
+        ...(currentProgress.cycles?.[activeCycle.id]?.stations || {}),
         [stationId]: true
       };
       const withStations = {
-        ...progress,
+        ...currentProgress,
         cycles: {
-          ...progress.cycles,
+          ...currentProgress.cycles,
           [activeCycle.id]: {
-            ...(progress.cycles?.[activeCycle.id] || {}),
+            ...(currentProgress.cycles?.[activeCycle.id] || {}),
             stations: savedStations
           }
         }
       };
+      progressRef.current = withStations;
       setProgress(withStations);
       saveQuestProgress(progressScopeKey, withStations);
       // Choose where the adventure flows next: the first practice station
@@ -389,7 +462,12 @@ export function ElSkillsQuest({
   }
 
   function handleOutcome(outcome) {
-    if (answerLockRef.current || typeof outcome?.correct !== "boolean" || !round) return;
+    if (
+      progressWritesBlockedRef.current
+      || answerLockRef.current
+      || typeof outcome?.correct !== "boolean"
+      || !round
+    ) return;
     answerLockRef.current = true;
     setInteractionLocked(true);
     cancelPendingTransition();
@@ -402,7 +480,13 @@ export function ElSkillsQuest({
     const nextRun = recordAdventureOutcome(currentRun, committedOutcome);
     runStateRef.current = nextRun;
     setRunState(nextRun);
-    setRoundFeedback(outcome.feedback || feedbackForOutcome(round, outcome, attempt));
+    setRoundFeedback(feedbackForCommittedOutcome(round, outcome, attempt));
+    const nextCorrectionModel = !outcome.correct && attempt >= 3
+      ? correctionModelForOutcome(round, outcome)
+      : null;
+    setCorrectionModel(nextCorrectionModel
+      ? { ...nextCorrectionModel, replayKey: `${roundIndex}:${attempt}` }
+      : null);
 
     if (outcome.correct) {
       setFeedbackTone("correct");
@@ -410,6 +494,7 @@ export function ElSkillsQuest({
       setSparkle(true);
       transitionTimerRef.current = window.setTimeout(() => {
         transitionTimerRef.current = null;
+        if (progressWritesBlockedRef.current) return;
         setSparkle(false);
         if (roundIndex + 1 >= rounds.length) finishStation(nextRun);
         else {
@@ -417,6 +502,7 @@ export function ElSkillsQuest({
           setInteractionLocked(false);
           setRoundSupportLevel(0);
           setRoundFeedback("");
+          setCorrectionModel(null);
           setFeedbackTone("ready");
           setRoundIndex(index => index + 1);
         }
@@ -427,6 +513,7 @@ export function ElSkillsQuest({
       setShaking(true);
       transitionTimerRef.current = window.setTimeout(() => {
         transitionTimerRef.current = null;
+        if (progressWritesBlockedRef.current) return;
         if (roundAudio?.targetAudio?.length) {
           playCueSequence(roundAudio.targetAudio, { gapMs: 150 });
         } else {
@@ -447,12 +534,14 @@ export function ElSkillsQuest({
     setInteractionLocked(false);
     setSparkle(false);
     setShaking(false);
+    setCorrectionModel(null);
     setStationId(null);
   }
 
   function acknowledgeRetryInteraction() {
     if (answerLockRef.current || feedbackTone !== "retry") return;
     setRoundFeedback("");
+    setCorrectionModel(model => model?.mode === "native-formation" ? model : null);
     setFeedbackTone("ready");
     setShaking(false);
   }
@@ -640,11 +729,55 @@ export function ElSkillsQuest({
   useEffect(() => {
     if (celebration?.kind !== "station" || !celebration.nextStationId || !activeCycle) return undefined;
     const timer = window.setTimeout(() => {
+      if (progressWritesBlockedRef.current) return;
       setCelebration(null);
       startStation(activeCycle, celebration.nextStationId);
     }, 2600);
     return () => window.clearTimeout(timer);
   }, [celebration, activeCycle, startStation]);
+
+  if (progressReadIssue === "unsupported_version") {
+    return (
+      <main
+        className="skills-block-quest"
+        data-learning-lane="practice_and_play"
+        data-quest-view="progress-update-required"
+        role="alert"
+      >
+        <div className="sbq-celebrate">
+          <h1>Adventure Map needs an update</h1>
+          <p>This map was saved by a newer version of Literacy Guide.</p>
+          <p>Update the app before playing so your map stays safe.</p>
+          <button className="sbq-primary-button" type="button" onClick={() => window.location.reload()}>
+            Check for the update
+          </button>
+        </div>
+      </main>
+    );
+  }
+
+  if (progressReadIssue) {
+    return (
+      <main
+        className="skills-block-quest"
+        data-learning-lane="practice_and_play"
+        data-quest-view="progress-recovery"
+        role="alert"
+      >
+        <div className="sbq-celebrate">
+          <h1>Adventure Map needs a fresh start</h1>
+          <p>We couldn&apos;t read this map&apos;s saved progress on this device.</p>
+          <p>Clear this map copy and try again. Your other learning stays safe.</p>
+          <button className="sbq-primary-button" type="button" onClick={recoverUnreadableProgress}>
+            Clear map copy and try again
+          </button>
+          {progressRecoveryFailed && (
+            <p role="status">This device could not clear the map copy. Ask a grown-up for help.</p>
+          )}
+        </div>
+      </main>
+    );
+  }
 
   if (cycleLock.locked && !cycleLock.contentAvailable) {
     return (
@@ -999,6 +1132,7 @@ export function ElSkillsQuest({
           supportText={round.support || ""}
           feedback={roundFeedback || "Your turn."}
           feedbackTone={feedbackTone}
+          correctionModel={correctionModel}
           announceFeedback={["letterPair", "soundGate", "sceneHunt"].includes(round.mechanicId)}
           shaking={shaking}
           sparkle={sparkle}
@@ -1026,8 +1160,10 @@ export function ElSkillsQuest({
             key={`${stationId}:${roundIndex}:${round.roundKey || round.mechanicId}`}
             round={round}
             disabled={interactionLocked}
+            correctionModel={correctionModel}
             supportLevel={(runState.attempts?.[roundIndex] || 0) + roundSupportLevel}
             onCommit={handleOutcome}
+            onCorrectionModelAcknowledged={() => setCorrectionModel(null)}
             onRequestReplay={replayFromMechanic}
             onRequestObjectAudio={word => {
               const audio = wordAudioPath(word);
