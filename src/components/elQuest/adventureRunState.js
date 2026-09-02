@@ -7,6 +7,15 @@ function positiveInteger(value) {
   return Number.isFinite(number) && number > 0 ? Math.floor(number) : 0;
 }
 
+function isIndependentOutcome(outcome = {}) {
+  const evidence = outcome?.evidence || {};
+  if (evidence.independent === false) return false;
+  if (positiveInteger(evidence.supportLevel) > 0) return false;
+  if (text(evidence.measure).toLowerCase() === "support_only") return false;
+  if (Array.isArray(evidence.supportUsed) && evidence.supportUsed.length > 0) return false;
+  return true;
+}
+
 function selectedValues(selected) {
   return Array.isArray(selected) ? selected.filter(value => value !== null && value !== undefined) : [selected];
 }
@@ -354,11 +363,12 @@ export function recordAdventureOutcome(state = {}, outcome = {}) {
   const completedRounds = Array.from({ length: total }, (_, index) => Boolean(state.completedRounds?.[index]) || firstAttempts[index] === true);
   const attempts = Array.from({ length: total }, (_, index) => positiveInteger(state.attempts?.[index]));
   const correct = Boolean(outcome.correct);
+  const independentCorrect = correct && isIndependentOutcome(outcome);
   const wasFirst = firstAttempts[roundIndex] === null;
   const wasCompleted = completedRounds[roundIndex];
 
   attempts[roundIndex] += 1;
-  if (wasFirst) firstAttempts[roundIndex] = correct;
+  if (wasFirst) firstAttempts[roundIndex] = independentCorrect;
   if (correct) completedRounds[roundIndex] = true;
 
   const previousCompleted = Math.max(0, Math.min(total, positiveInteger(state.completed)));

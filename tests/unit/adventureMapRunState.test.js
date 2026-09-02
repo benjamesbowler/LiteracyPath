@@ -43,6 +43,27 @@ test("a recovered item keeps its failed first attempt", () => {
   assert.equal(cycleQuestResult(state).stars, 1);
 });
 
+test("a supported correct completion never becomes an independent first attempt", () => {
+  let state = createAdventureRun(1);
+  state = recordAdventureOutcome(state, {
+    roundIndex: 0,
+    correct: true,
+    selected: "model_echo_completed",
+    evidence: {
+      independent: false,
+      supportLevel: 0,
+      supportUsed: ["model", "echo"],
+      measure: "support_only"
+    }
+  });
+
+  assert.deepEqual(state.firstAttempts, [false]);
+  assert.deepEqual(state.completedRounds, [true]);
+  assert.equal(state.completed, 1);
+  assert.equal(state.recoveries, 0);
+  assert.deepEqual(cycleQuestResult(state), { stars: 1, independentPercent: 0 });
+});
+
 test("seven of ten independent first attempts earn two stars", () => {
   const result = cycleQuestResult({ total: 10, completed: 10, firstAttempts: [true, true, true, true, true, true, true, false, false, false] });
   assert.deepEqual(result, { stars: 2, independentPercent: 70 });
