@@ -318,6 +318,35 @@ test("preview policy rejects authored transition, evidence, correctness, phase, 
   }
 });
 
+test("preview policy resolves computed forbidden keys through their lexical declaration scope", () => {
+  for (const [label, source] of [
+    ["computed identifier", "const key = 'correct'; export const x = { [key]: true };"],
+    ["computed template expression", "const key = 'correct'; export const x = { [`${key}`]: true };"],
+    ["function-local binding", "const key = 'safe'; export function Leak() { const key = 'correct'; return { [key]: true }; }"],
+    ["initializer declaration scope", [
+      "const fragment = 'correct';",
+      "const key = `${fragment}`;",
+      "export function Leak() { const fragment = 'safe'; return { [key]: true }; }"
+    ].join("\n")]
+  ]) {
+    assert.throws(() => scanVirtualPolicy({
+      virtualSources: { "src/features/soundSeekers/preview/bad.jsx": source }
+    }), undefined, label);
+  }
+
+  for (const [label, source] of [
+    ["parameter shadow", "const key = 'correct'; export function Safe(key) { return { [key]: true }; }"],
+    ["function-hoisted var shadow", [
+      "const key = 'correct';",
+      "export function Safe() { { var key = 'safe'; } return { [key]: true }; }"
+    ].join("\n")]
+  ]) {
+    assert.doesNotThrow(() => scanVirtualPolicy({
+      virtualSources: { "src/features/soundSeekers/preview/safe.jsx": source }
+    }), label);
+  }
+});
+
 test("the offline range server rejects unsafe roots and implements one standards-compliant range", () => {
   assert.throws(() => validateQuestOfflineRoot("."));
   assert.throws(() => validateQuestOfflineRoot(os.homedir()));

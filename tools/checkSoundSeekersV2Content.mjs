@@ -324,35 +324,6 @@ function normalizePath(filePath) {
   return filePath.split(path.sep).join("/");
 }
 
-function staticString(node, bindings = new Map(), seen = new Set()) {
-  if (!node) return null;
-  if (node.type === "StringLiteral") return node.value;
-  if (["ParenthesizedExpression", "TSAsExpression", "TSTypeAssertion"].includes(node.type)) {
-    return staticString(node.expression, bindings, seen);
-  }
-  if (node.type === "Identifier" && bindings.has(node.name) && !seen.has(node.name)) {
-    return staticString(bindings.get(node.name), bindings, new Set([...seen, node.name]));
-  }
-  if (node.type === "TemplateLiteral") {
-    let value = "";
-    for (const [index, quasi] of node.quasis.entries()) {
-      value += quasi.value.cooked ?? quasi.value.raw;
-      if (index < node.expressions.length) {
-        const expression = staticString(node.expressions[index], bindings, seen);
-        if (expression === null) return null;
-        value += expression;
-      }
-    }
-    return value;
-  }
-  if (node.type === "BinaryExpression" && node.operator === "+") {
-    const left = staticString(node.left, bindings, seen);
-    const right = staticString(node.right, bindings, seen);
-    return left === null || right === null ? null : left + right;
-  }
-  return null;
-}
-
 function decodeHtmlCharacterReferences(value) {
   const named = new Map([
     ["amp", "&"], ["apos", "'"], ["colon", ":"], ["gt", ">"], ["hyphen", "-"],
@@ -826,6 +797,7 @@ function previewAuthorityViolations(relativePath, source) {
   } catch {
     return violations;
   }
+  const { scopeByNode, nearest } = lexicalScopes(ast);
   const replayRecipe = relativePath.endsWith("galleryReplayRecipes.js");
   const forbiddenKeys = new Set(["presentationTransition", "evidenceEvent", "correct", "phase", "challenge", "response"]);
   const enclosingFunctionName = ancestors => {
@@ -888,7 +860,9 @@ function previewAuthorityViolations(relativePath, source) {
   };
   walkAstWithAncestors(ast, (node, ancestors) => {
     if (node.type === "ObjectProperty") {
-      const key = node.computed ? staticString(node.key) : node.key?.name || node.key?.value;
+      const key = node.computed
+        ? staticScopedString(node.key, scopeByNode.get(node), nearest)
+        : node.key?.name || node.key?.value;
       if (forbiddenKeys.has(key) && !exactReplayProperty(node, ancestors, key)) {
         violations.push(`${relativePath}: preview authors forbidden ${key} authority`);
       }
