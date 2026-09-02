@@ -359,15 +359,23 @@ export function machinePiecesForRound(round = {}) {
     });
   }
   if (round.operation === "removeOnset") {
-    return before.map((grapheme, index) => ({
-      id: pieceId("remove", [grapheme], index + 1),
-      action: "remove",
-      label: grapheme,
-      graphemes: [grapheme],
-      position: index,
-      projectedWord: before.filter((_, graphemeIndex) => graphemeIndex !== index).join(""),
-      matches: index === 0
-    }));
+    const projectedWords = new Set();
+    return before.flatMap((grapheme, index) => {
+      const projectedWord = before
+        .filter((_, graphemeIndex) => graphemeIndex !== index)
+        .join("");
+      if (projectedWords.has(projectedWord)) return [];
+      projectedWords.add(projectedWord);
+      return [{
+        id: pieceId("remove", [grapheme], index + 1),
+        action: "remove",
+        label: grapheme,
+        graphemes: [grapheme],
+        position: index,
+        projectedWord,
+        matches: index === 0
+      }];
+    });
   }
   if (round.operation === "joinCompound") {
     const joinAt = before.indexOf("+");

@@ -691,6 +691,16 @@ function buildWordPlayRounds(cycle) {
       && wordUsesTaughtPrint(word, cycle.cycleNumber || 1)
     ));
   const sourceWords = uniqueChoices([...focusWords, ...allWords]);
+  const authorisedRemovalWords = new Set(
+    uniqueChoices([
+      ...allWords,
+      ...taughtHfwThrough(cycle.cycleNumber || 1)
+    ]).filter(word => (
+      /^[a-z]{2,5}$/.test(word)
+      && wordUsesTaughtPrint(word, cycle.cycleNumber || 1)
+      && wordAudioPath(word)
+    ))
+  );
 
   // Change the first sound: same rime, different onset.
   for (const word of shuffleItems(sourceWords)) {
@@ -750,13 +760,15 @@ function buildWordPlayRounds(cycle) {
   for (const word of shuffleItems(sourceWords)) {
     const beforeGraphemes = segmentTaughtGraphemes(word, taughtGraphemes);
     const rest = beforeGraphemes.slice(1).join("");
-    if (rest.length < 2) continue;
-    const choices = uniqueChoices([
-      rest,
-      beforeGraphemes.slice(0, -1).join(""),
-      `${beforeGraphemes[0]}${beforeGraphemes.at(-1)}`
-    ]);
-    if (choices.length < 3) continue;
+    const removalChoices = uniqueChoices(beforeGraphemes.map((_, index) => (
+      beforeGraphemes.filter((__, graphemeIndex) => graphemeIndex !== index).join("")
+    )));
+    if (
+      rest.length < 2
+      || !wordAudioPath(word)
+      || !authorisedRemovalWords.has(rest)
+      || removalChoices.length < 2
+    ) continue;
     rounds.push({
       type: "play",
       mechanicId: "wordMachine",
@@ -772,7 +784,7 @@ function buildWordPlayRounds(cycle) {
       beforeGraphemes,
       afterGraphemes: beforeGraphemes.slice(1),
       display: word,
-      choices: shuffleItems(choices),
+      choices: shuffleItems(removalChoices),
       answer: rest,
       choiceStyle: "word"
     });

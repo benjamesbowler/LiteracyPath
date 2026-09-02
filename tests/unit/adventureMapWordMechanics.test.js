@@ -12,7 +12,7 @@ import {
   stationsForCycle,
   wordAudioPath
 } from "../../src/components/elQuest/elQuestEngine.js";
-import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
+import { LETTER_EXAMPLES, elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
 import {
   buildSoundBoxesOutcome,
   buildWordMachineOutcome,
@@ -541,6 +541,20 @@ test("Word Machine onset removal requires a real position choice and supports re
   assert.equal(recovered.evidence.independent, false);
 });
 
+test("Word Machine collapses removal positions that would make the same result", () => {
+  const repeatedRound = {
+    ...removeRound,
+    beforeWord: "book",
+    afterWord: "ook",
+    beforeGraphemes: ["b", "o", "o", "k"],
+    afterGraphemes: ["o", "o", "k"]
+  };
+  const pieces = machinePiecesForRound(repeatedRound);
+  assert.equal(pieces.length, 3);
+  assert.equal(new Set(pieces.map(piece => piece.projectedWord)).size, pieces.length);
+  assert.equal(pieces.filter(piece => piece.matches).length, 1);
+});
+
 test("generated Word Window rounds use unique one-edit neighbours from authorised print", () => {
   const allHighFrequencyWords = elSkillsBlockCycles
     .flatMap(cycle => cycle.highFrequencyWords || [])
@@ -597,22 +611,34 @@ test("generated onset substitutions cue one exact target and label defensible on
   }
 });
 
-test("generated onset removals offer one position choice per grapheme", () => {
-  for (const cycle of elSkillsBlockCycles.filter(item => item.cycleNumber)) {
-    if (!stationsForCycle(cycle).some(station => station.id === "play")) continue;
-    for (const round of buildStationRounds(cycle, "play")
-      .filter(item => item.operation === "removeOnset")) {
-      const pieces = machinePiecesForRound(round);
-      assert.equal(pieces.length, round.beforeGraphemes.length, `${cycle.id}/${round.beforeWord}`);
-      assert.ok(pieces.length >= 2, `${cycle.id}/${round.beforeWord} needs a removal decision`);
-      assert.equal(pieces.filter(piece => piece.matches).length, 1);
-      for (const piece of pieces) {
-        assert.equal(
-          piece.projectedWord,
-          round.beforeGraphemes.filter((_, index) => index !== piece.position).join("")
-        );
+test("generated onset removals make a known recorded word with unique position outcomes", () => {
+  const authorisedWords = new Set([
+    ...Object.values(LETTER_EXAMPLES).flat(),
+    ...elSkillsBlockCycles.flatMap(cycle => cycle.highFrequencyWords || [])
+  ].map(word => String(word).toLowerCase()));
+  for (let seed = 1; seed <= 64; seed += 1) {
+    withSeed(seed, () => {
+      for (const cycle of elSkillsBlockCycles.filter(item => item.cycleNumber)) {
+        if (!stationsForCycle(cycle).some(station => station.id === "play")) continue;
+        for (const round of buildStationRounds(cycle, "play")
+          .filter(item => item.operation === "removeOnset")) {
+          const pieces = machinePiecesForRound(round);
+          assert.ok(pieces.length >= 2, `${cycle.id}/${round.beforeWord} needs a removal decision`);
+          assert.equal(new Set(pieces.map(piece => piece.projectedWord)).size, pieces.length);
+          assert.equal(pieces.filter(piece => piece.matches).length, 1);
+          assert.equal(round.afterWord, round.beforeGraphemes.slice(1).join(""));
+          assert.ok(authorisedWords.has(round.afterWord), `${cycle.id}/${round.afterWord} must be a known word`);
+          assert.ok(wordAudioPath(round.beforeWord), `${cycle.id}/${round.beforeWord} needs recorded audio`);
+          assert.ok(wordAudioPath(round.afterWord), `${cycle.id}/${round.afterWord} needs recorded audio`);
+          for (const piece of pieces) {
+            assert.equal(
+              piece.projectedWord,
+              round.beforeGraphemes.filter((_, index) => index !== piece.position).join("")
+            );
+          }
+        }
       }
-    }
+    });
   }
 });
 
