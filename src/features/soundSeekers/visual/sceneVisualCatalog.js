@@ -33,6 +33,8 @@ const TARGET_SIZES = Object.freeze([
   Object.freeze([1194, 834]),
   Object.freeze([320, 568])
 ]);
+const sceneVisualPresentations = new WeakSet();
+const sceneVisualPresentationMetadata = new WeakMap();
 
 function deepFreeze(value) {
   if (value === null || typeof value !== "object" || Object.isFrozen(value)) return value;
@@ -506,8 +508,50 @@ function presentationCharacters(renderSpec, phase) {
   }));
 }
 
+function createSceneVisualPresentation(payload) {
+  const presentation = deepFreeze(payload);
+  sceneVisualPresentations.add(presentation);
+  sceneVisualPresentationMetadata.set(presentation, Object.freeze({
+    sceneId: presentation.sceneId,
+    chapterId: presentation.chapterId,
+    scenePhase: presentation.scenePhase,
+    visualStateId: presentation.visualStateId,
+    kitId: presentation.kitId,
+    setting: presentation.setting,
+    characters: presentation.characters,
+    focalProps: presentation.focalProps,
+    selectedOptionVisualId: presentation.selectedOptionVisualId,
+    options: presentation.options,
+    meaningVisual: presentation.meaningVisual
+  }));
+  return presentation;
+}
+
+export function validateSceneVisualPresentation(presentation, expected = {}) {
+  const metadata = presentation && typeof presentation === "object"
+    ? sceneVisualPresentationMetadata.get(presentation)
+    : null;
+  if (!metadata || !sceneVisualPresentations.has(presentation)
+    || presentation.sceneId !== metadata.sceneId
+    || presentation.chapterId !== metadata.chapterId
+    || presentation.scenePhase !== metadata.scenePhase
+    || presentation.visualStateId !== metadata.visualStateId
+    || presentation.kitId !== metadata.kitId
+    || presentation.setting !== metadata.setting
+    || presentation.characters !== metadata.characters
+    || presentation.focalProps !== metadata.focalProps
+    || presentation.selectedOptionVisualId !== metadata.selectedOptionVisualId
+    || presentation.options !== metadata.options
+    || presentation.meaningVisual !== metadata.meaningVisual) return false;
+  if (expected && typeof expected === "object") {
+    if (expected.chapterId !== undefined && expected.chapterId !== metadata.chapterId) return false;
+    if (expected.sceneId !== undefined && expected.sceneId !== metadata.sceneId) return false;
+  }
+  return true;
+}
+
 function neutralPresentation(childScene, renderSpec, preChoice) {
-  return deepFreeze({
+  return createSceneVisualPresentation({
     sceneId: childScene.id,
     chapterId: childScene.chapterId,
     scenePhase: "pre_choice",
@@ -569,7 +613,7 @@ export function resolveSceneVisualPresentation(childScene, {
   const selectedOptionVisualId = branch
     ? neutral.options.find(option => option.token === branch.token)?.visualSemanticId || null
     : null;
-  return deepFreeze({
+  return createSceneVisualPresentation({
     sceneId: childScene.id,
     chapterId: childScene.chapterId,
     scenePhase: phase,

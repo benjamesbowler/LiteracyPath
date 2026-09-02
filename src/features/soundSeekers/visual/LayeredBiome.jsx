@@ -3,7 +3,8 @@ import { validateWorldScenePresentation } from "../engine/worldState.js";
 import {
   SOUND_SEEKERS_LANDMARK_BINDINGS,
   SOUND_SEEKERS_ROUTE_SPECS,
-  computeBackgroundCrop
+  computeBackgroundCrop,
+  validateSceneVisualPresentation
 } from "./sceneVisualCatalog.js";
 import { SoundSeekersCharacter } from "./CharacterSystem.jsx";
 import { Landmark } from "./Landmark.jsx";
@@ -696,15 +697,14 @@ export function LayeredBiome({
   if (!kit || getBiomeKit(kit.id) !== kit) {
     throw new TypeError("Layered biome requires a canonical biome kit");
   }
-  const isWorldPresentation = scenePresentation?.kind
-    === "sound_seekers_world_scene_presentation";
-  if (isWorldPresentation && !validateWorldScenePresentation(scenePresentation, {
+  const isWorldPresentation = validateWorldScenePresentation(scenePresentation, {
     chapterId: kit.id
-  })) {
-    throw new TypeError("Layered biome requires an authorized world presentation");
-  }
-  if (!scenePresentation || scenePresentation.kitId !== kit.id) {
-    throw new TypeError("Layered biome scene presentation does not match its kit");
+  });
+  const isLivePresentation = validateSceneVisualPresentation(scenePresentation, {
+    chapterId: kit.id
+  });
+  if (isWorldPresentation === isLivePresentation) {
+    throw new TypeError("Layered biome requires an authorized scene presentation");
   }
   requireProfile(cropProfile, CROP_PROFILES, "crop profile");
   requireProfile(densityProfile, DENSITY_PROFILES, "density profile");

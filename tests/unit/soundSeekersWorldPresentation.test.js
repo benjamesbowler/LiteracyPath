@@ -14,6 +14,9 @@ let createSoundSeekersState;
 let deriveWorldState;
 let resolveWorldScenePresentation;
 let validateWorldScenePresentation;
+let resolveMeaningVisual;
+let resolveSceneVisualPresentation;
+let resolveSemanticVisual;
 let toChildConnectedTextScene;
 let contentTransactions;
 let landmarkBindings;
@@ -62,7 +65,10 @@ test.before(async () => {
   );
   ({
     SOUND_SEEKERS_LANDMARK_BINDINGS: landmarkBindings,
-    SOUND_SEEKERS_ROUTE_SPECS: routeSpecs
+    SOUND_SEEKERS_ROUTE_SPECS: routeSpecs,
+    resolveMeaningVisual,
+    resolveSceneVisualPresentation,
+    resolveSemanticVisual
   } = await vite.ssrLoadModule(
     "/src/features/soundSeekers/visual/sceneVisualCatalog.js"
   ));
@@ -254,4 +260,64 @@ test("persisted world authority cannot select live action, options, or meaning",
     ...presentation,
     meaningVisual: { semanticId: "forged-meaning" }
   })), /world presentation|authorized/u);
+});
+
+function repairedS1Presentation() {
+  const world = deriveWorldState(
+    persistedCampaignWithRepair("s1"),
+    getBiomeKit("seedwake-meadow")
+  );
+  return resolveWorldScenePresentation({ worldState: world, stopId: "s1" });
+}
+
+test("LayeredBiome rejects a world clone stripped of kind and reset to initial state", () => {
+  const worldPresentation = repairedS1Presentation();
+  const initialStateId = worldPresentation.landmark.initialStateId;
+  const { kind: omittedKind, ...strippedKind } = worldPresentation;
+  void omittedKind;
+  const attack = Object.freeze({ ...strippedKind, visualStateId: initialStateId });
+  assert.throws(() => renderWorld(attack), /authorized .*presentation/u);
+});
+
+test("LayeredBiome rejects a changed-kind world clone with a canonical meaning", () => {
+  const worldPresentation = repairedS1Presentation();
+  const canonicalMeaning = resolveMeaningVisual("meaning-mat-flat-ground-cover");
+  assert.ok(canonicalMeaning);
+  const attack = Object.freeze({
+    ...worldPresentation,
+    kind: "sound_seekers_scene_visual_presentation",
+    visualStateId: worldPresentation.landmark.initialStateId,
+    meaningVisual: canonicalMeaning
+  });
+  assert.throws(() => renderWorld(attack), /authorized .*presentation/u);
+});
+
+test("LayeredBiome rejects a stripped world clone with a canonical post-decision visual", () => {
+  const worldPresentation = repairedS1Presentation();
+  const binding = worldPresentation.landmark.postDecisionBindings[0];
+  const canonicalPostDecision = resolveSemanticVisual(binding.postDecisionSemanticId);
+  assert.ok(canonicalPostDecision);
+  const { kind: omittedKind, ...strippedKind } = worldPresentation;
+  void omittedKind;
+  const attack = Object.freeze({
+    ...strippedKind,
+    visualStateId: worldPresentation.landmark.initialStateId,
+    focalProps: [canonicalPostDecision]
+  });
+  assert.throws(() => renderWorld(attack), /authorized .*presentation/u);
+});
+
+test("LayeredBiome rejects cloned live presentations with injected canonical meaning", () => {
+  const childScene = toChildConnectedTextScene("scene-s1", "cloned-live-presentation");
+  const livePresentation = resolveSceneVisualPresentation(childScene);
+  const canonicalMeaning = resolveMeaningVisual("meaning-mat-flat-ground-cover");
+  assert.ok(canonicalMeaning);
+  const attack = Object.freeze({ ...livePresentation, meaningVisual: canonicalMeaning });
+  assert.throws(() => renderWorld(attack), /authorized .*presentation/u);
+});
+
+test("LayeredBiome preserves exact canonical live presentations", () => {
+  const childScene = toChildConnectedTextScene("scene-s1", "exact-live-presentation");
+  const livePresentation = resolveSceneVisualPresentation(childScene);
+  assert.match(renderWorld(livePresentation), /data-scene-phase="pre_choice"/u);
 });
