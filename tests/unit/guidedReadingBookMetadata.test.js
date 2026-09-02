@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { guidedReadingBooks } from "../../src/data/guidedReadingBooks.js";
+import { GUIDED_READING_BRIDGE_BOOKS } from "../../src/data/guidedReadingBridgeBooks.js";
 import {
   GUIDED_READING_BAND_PROFILES,
   GUIDED_READING_BOOK_METADATA,
@@ -46,14 +47,14 @@ test("Moonwood is extended read-together and other current C books are standard"
 
 test("the reviewed current catalogue has the exact honest mode split", () => {
   const rows = guidedReadingBooks.map(book => getGuidedReadingBookMetadata(book.id));
-  assert.equal(rows.filter(row => row.readingBandProfile === "standard").length, 171);
+  assert.equal(rows.filter(row => row.readingBandProfile === "standard").length, 191);
   assert.equal(rows.filter(row => row.readingBandProfile === "extended").length, 35);
-  assert.equal(rows.filter(row => row.readingMode === "predictable-levelled").length, 171);
+  assert.equal(rows.filter(row => row.readingMode === "predictable-levelled").length, 191);
   assert.equal(rows.filter(row => row.readingMode === "supported-read-together").length, 35);
   assert.equal(rows.filter(row => row.readingMode === "decodable").length, 0);
 });
 
-test("the current C Standard authority is exactly the two reviewed ten-book sets", () => {
+test("the current C Standard authority includes both reviewed sets and Willow Street", () => {
   const expectedIds = [
     ...Array.from({ length: 10 }, (unused, index) => `ab-c-${String(index + 1).padStart(2, "0")}`),
     ...Array.from({ length: 10 }, (unused, index) => (
@@ -61,14 +62,15 @@ test("the current C Standard authority is exactly the two reviewed ten-book sets
         "bees", "volcanoes", "penguins", "the-moon", "how-seeds-grow",
         "spiders", "under-the-ocean", "butterflies", "caves", "frogs"
       ][index]}`
-    ))
+    )),
+    ...GUIDED_READING_BRIDGE_BOOKS.map(book => book.id)
   ];
   const actualIds = guidedReadingBooks
     .filter(book => book.level === "C" && getGuidedReadingBookMetadata(book)?.readingBandProfile === "standard")
     .map(book => book.id)
     .sort();
   assert.deepEqual(actualIds, expectedIds.sort());
-  assert.equal(Object.keys(GUIDED_READING_BOOK_METADATA).some(id => id.startsWith("willow-street-")), false);
+  assert.equal(Object.keys(GUIDED_READING_BOOK_METADATA).filter(id => id.startsWith("willow-street-")).length, 20);
 });
 
 test("a decodable editorial label requires explicit full-text decoding evidence", () => {

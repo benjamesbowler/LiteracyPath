@@ -95,6 +95,10 @@ function readablePageText(page = {}) {
   return Array.isArray(page.text) ? page.text.join(" ") : String(page.text || "");
 }
 
+function readingWords(value = "") {
+  return String(value).match(/[A-Za-z0-9]+(?:[’'-][A-Za-z0-9]+)*/g) || [];
+}
+
 function publicFile(publicPath = "") {
   const cleanPath = String(publicPath).split("?")[0].replace(/^\/+/, "");
   return path.join(repositoryRoot, "public", cleanPath);
@@ -141,6 +145,26 @@ if (guidedReadingPolicyBaseline.policyVersion !== STORY_CONTENT_POLICY_VERSION) 
 }
 
 const activeBooks = getRuntimeGuidedReadingBooks();
+for (const book of activeBooks) {
+  const label = `${book.id} (${book.title})`;
+  if (!new Set(["standard", "extended"]).has(book.readingBandProfile)) {
+    addError(`${label}: unknown readingBandProfile "${book.readingBandProfile || "missing"}"`);
+    continue;
+  }
+  if (book.readingBandProfile === "extended") {
+    for (const page of book.pages || []) {
+      const count = readingWords(readablePageText(page)).length;
+      if (count < 22 || count > 38) addError(`${label}: extended page ${page.pageNumber} has ${count} words; expected 22-38`);
+    }
+  }
+  if (book.readingBandProfile === "standard" && book.readingPageProfile === "compact-stable") {
+    if (book.pages?.length !== 8) addError(`${label}: compact standard books require exactly 8 pages`);
+    for (const page of book.pages || []) {
+      const count = readingWords(readablePageText(page)).length;
+      if (count < 6 || count > 12) addError(`${label}: compact standard page ${page.pageNumber} has ${count} words; expected 6-12`);
+    }
+  }
+}
 if (activeBooks.length !== guidedReadingPolicyBaseline.itemCount) {
   addError(
     `guided-reading catalogue changed from ${guidedReadingPolicyBaseline.itemCount} to ${activeBooks.length} books; ` +

@@ -43,7 +43,6 @@ function heuristicWarnings(page = {}) {
   if (page.metadataGeneratedFromReadingText) return [];
 
   const haystack = [
-    page.image || "",
     page.imageAlt || "",
     page.pageDescription || "",
     page.embeddedImageText || "",
@@ -80,13 +79,14 @@ function validateBook(book) {
   const issues = [];
   const pages = book.pages || [];
   const activePages = pages.filter(page => page.active !== false && page.qaStatus === "approved");
+  const mediaScheduled = book.mediaStatus === "scheduled";
 
   if (!book.id) issues.push("missing book id");
   if (!book.title) issues.push("missing title");
   if (!validTypes.has(book.type)) issues.push(`invalid type: ${book.type}`);
   if (!validLevels.has(book.level)) issues.push(`invalid level: ${book.level}`);
   if (!book.coverImage) issues.push("missing cover image path");
-  else if (!publicFileExists(book.coverImage)) issues.push(`missing cover image file: ${book.coverImage}`);
+  else if (!mediaScheduled && !publicFileExists(book.coverImage)) issues.push(`missing cover image file: ${book.coverImage}`);
   if (book.active !== false && book.qaStatus === "approved" && activePages.length < 4) {
     issues.push("active approved book has fewer than 4 active approved pages");
   }
@@ -105,8 +105,8 @@ function validateBook(book) {
     const forbidden = textHasForbiddenString(page.text);
     if (forbidden) rowIssues.push(`forbidden bad string: ${forbidden}`);
     if (!page.image) rowIssues.push("missing image path");
-    else if (!publicFileExists(page.image)) rowIssues.push(`missing page image file: ${page.image}`);
-    if (page.active !== false && page.qaStatus === "approved") {
+    else if (!mediaScheduled && !publicFileExists(page.image)) rowIssues.push(`missing page image file: ${page.image}`);
+    if (!mediaScheduled && page.active !== false && page.qaStatus === "approved") {
       const resolvedPageAudio = getGuidedReadingPageAudioPath(page);
       if (!resolvedPageAudio || !publicFileExists(resolvedPageAudio)) {
         rowIssues.push(`missing exact Leda page narration file: ${resolvedPageAudio || "unresolved"}`);

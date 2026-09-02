@@ -1,6 +1,8 @@
 // Editorial classification is deliberately authored separately from runtime
 // level overrides. A level may be adjusted for a local shelf; its reviewed
 // reading-band and reading-mode claims must remain stable.
+import { WILLOW_STREET_BOOK_MANIFEST } from "./guidedReadingBridgeBooks.manifest.js";
+
 export const GUIDED_READING_BAND_PROFILES = Object.freeze(["standard", "extended"]);
 export const GUIDED_READING_READING_MODES = Object.freeze([
   "decodable",
@@ -30,7 +32,8 @@ const CURRENT_BOOK_IDS = Object.freeze([
   "moonwood-tales-c-01", "moonwood-tales-c-02", "moonwood-tales-c-03", "moonwood-tales-c-04", "moonwood-tales-c-05", "moonwood-tales-c-06", "moonwood-tales-c-07", "moonwood-tales-c-08", "moonwood-tales-c-09", "moonwood-tales-c-10", "moonwood-tales-c-11", "moonwood-tales-c-12", "moonwood-tales-c-13", "moonwood-tales-c-14", "moonwood-tales-c-15", "moonwood-tales-c-16", "moonwood-tales-c-17", "moonwood-tales-c-18", "moonwood-tales-c-19", "moonwood-tales-c-20", "moonwood-tales-c-21", "moonwood-tales-c-22", "moonwood-tales-c-23", "moonwood-tales-c-24", "moonwood-tales-c-25",
   "meadow-pals-26-muddys-cool-wall", "meadow-pals-27-splashys-reed-boat", "meadow-pals-28-woollys-wool-cloud", "meadow-pals-29-shys-pond-rings", "meadow-pals-30-cuddlys-yarn-ball", "meadow-pals-31-bouncys-hay-lift", "meadow-pals-32-tinys-giant-berry", "meadow-pals-33-braves-beetle-bridge", "meadow-pals-34-grumpys-sun-clock", "meadow-pals-35-gigglys-round-wheel",
   "dino-pals-21-fancys-moonleaf-arch", "dino-pals-22-shys-sinking-path", "dino-pals-23-flappys-fern-delivery", "dino-pals-24-clumsys-steady-bowls", "dino-pals-25-sneezys-seed-cloud", "dino-pals-26-sunnys-two-part-picnic", "dino-pals-27-bossys-three-paths", "dino-pals-28-honkys-echo-tunnel", "dino-pals-29-cheekys-shadow-show", "dino-pals-30-dozy-stops-the-melon",
-  "moonwood-tales-c-26", "moonwood-tales-c-27", "moonwood-tales-c-28", "moonwood-tales-c-29", "moonwood-tales-c-30", "moonwood-tales-c-31", "moonwood-tales-c-32", "moonwood-tales-c-33", "moonwood-tales-c-34", "moonwood-tales-c-35"
+  "moonwood-tales-c-26", "moonwood-tales-c-27", "moonwood-tales-c-28", "moonwood-tales-c-29", "moonwood-tales-c-30", "moonwood-tales-c-31", "moonwood-tales-c-32", "moonwood-tales-c-33", "moonwood-tales-c-34", "moonwood-tales-c-35",
+  ...WILLOW_STREET_BOOK_MANIFEST.map(book => book.id)
 ]);
 
 export const GUIDED_READING_BOOK_METADATA = Object.freeze(Object.fromEntries(

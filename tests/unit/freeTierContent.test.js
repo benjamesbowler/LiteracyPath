@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { GUIDED_READING_BOOK_INDEX } from "../../src/data/generated/guidedReadingBookIndex.generated.js";
+import { guidedReadingBooks } from "../../src/data/guidedReadingBooks.js";
 import { GAME_LIST } from "../../src/data/learnGamesData.js";
 import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
 import { storyQuests } from "../../src/data/storyQuests.js";
@@ -32,6 +33,17 @@ test("the book sample spans every level, not just the easiest", () => {
   assert.deepEqual([...levels].sort(), [...allLevels].sort(),
     "every level present in the library must appear in the sample");
   assert.ok(levels.size >= 3, `expected at least three levels, got ${levels.size}`);
+});
+
+test("the Level C sample includes a useful Willow Street cross-section", () => {
+  const ids = sampleBookIds(guidedReadingBooks);
+  const willowIds = guidedReadingBooks
+    .filter(book => book.id.startsWith("willow-street-"))
+    .map(book => book.id);
+  const sampledWillow = willowIds.filter(id => ids.has(id));
+  assert.equal(willowIds.length, 20);
+  assert.ok(sampledWillow.length >= 2, "the sample should show more than a token Willow Street book");
+  assert.ok(sampledWillow.length < willowIds.length, "the free tier must remain a sample of Willow Street");
 });
 
 test("each level is sampled in proportion, so no level is a token single book", () => {

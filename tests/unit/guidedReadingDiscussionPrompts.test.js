@@ -23,7 +23,7 @@ function collectKeys(value, keys = []) {
 }
 
 test("every current runtime book has one frozen oral move and one valid visual move", () => {
-  assert.equal(guidedReadingBooks.length, 206);
+  assert.equal(guidedReadingBooks.length, 226);
   assert.deepEqual(
     new Set(Object.keys(GUIDED_READING_DISCUSSION_PROMPTS)),
     new Set(guidedReadingBooks.map(book => book.id))
@@ -275,7 +275,8 @@ test("the source-of-truth registry includes the static discussion authority", ()
     "src/data/guidedReadingDiscussionPrompts.js",
     "src/data/guidedReadingDiscussionPrompts.core.js",
     "src/data/guidedReadingDiscussionPrompts.series.js",
-    "src/data/guidedReadingDiscussionPrompts.world.js"
+    "src/data/guidedReadingDiscussionPrompts.world.js",
+    "src/data/guidedReadingDiscussionPrompts.willow.js"
   ]) {
     assert.ok(sourceOfTruthRegistry.guidedReading.activeRuntimeFiles.includes(sourceFile));
   }

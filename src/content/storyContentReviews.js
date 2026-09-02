@@ -2,13 +2,13 @@ import { STORY_CONTENT_POLICY_VERSION } from "./storyContentPolicy.js";
 
 export const guidedReadingPolicyBaseline = Object.freeze({
   format: "guided-reading-book",
-  itemCount: 206,
-  sourceFingerprint: "25950ed56950b1cae250fcd91092baa4675886e3969ecd90450251565d4ab62b",
-  status: "approved",
+  itemCount: 226,
+  sourceFingerprint: "2ecd3be8a6ee540849dfdb1aa83778847f6434489ce5a7e91ccae71e9d5f54c4",
+  status: "media-pending",
   policyVersion: STORY_CONTENT_POLICY_VERSION,
-  reviewedAt: "2026-08-22",
-  reviewer: "Codex authorised editorial and media audit",
-  claim: "All 206 books and 1,861 active pages completed the current manuscript, level, complete-book visual, exact-current-text Leda narration, isolated-word and spelling-audio checks. A fresh 2026-08-22 complete-sequence visual scan found no remaining Guided Reading illustration defects."
+  reviewedAt: "2026-09-02",
+  reviewer: "Editorial and source review",
+  claim: "The existing 206 books and 1,861 pages retain their prior review evidence. The 20 Willow Street books add 160 final manuscript pages and page-specific visual briefs; final image generation, direct visual review, exact-current-text narration, and human listening remain scheduled."
 });
 
 const historicalStoryQuestPolicyReviews = Object.freeze([

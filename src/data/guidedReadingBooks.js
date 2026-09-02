@@ -6,6 +6,7 @@ import { guidedStoryBooks } from "./guidedStoryBooks.js";
 import { firstFactsLevelABooks } from "./firstFactsLevelABooks.js";
 import { firstFactsActualLevelABooks } from "./firstFactsActualLevelABooks.js";
 import { firstFactsLevelCBooks } from "./firstFactsLevelCBooks.js";
+import { GUIDED_READING_BRIDGE_BOOKS } from "./guidedReadingBridgeBooks.js";
 import { enrichGuidedReadingBook } from "../utils/guidedReading/phonicsPageAnalyzer.js";
 import { GUIDED_READING_STORY_BIBLE_REWRITES as GUIDED_READING_CORE_REWRITES } from "../content/guidedReadingStoryBibleRewrites.js";
 import { GUIDED_READING_HUMAN_FICTION_REWRITES } from "../content/guidedReadingHumanFictionRewrites.js";
@@ -3309,7 +3310,8 @@ const activeGuidedReadingBaseBooks = [
   ...firstFactsLevelABooks,
   ...firstFactsLevelCBooks,
   ...approvedSeriesBooks,
-  ...guidedReadingWorldExpansionBooks
+  ...guidedReadingWorldExpansionBooks,
+  ...GUIDED_READING_BRIDGE_BOOKS
 ];
 
 export const guidedReadingRelevelAudit = activeGuidedReadingBaseBooks.map(book => {

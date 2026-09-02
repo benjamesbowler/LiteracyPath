@@ -109,6 +109,8 @@ function applyOverrides(chosenIds, allIds, kind) {
  * would start.
  */
 export function sampleBookIds(books = []) {
+  // New collections participate automatically through their reviewed level;
+  // callers do not maintain a collection-specific allowlist.
   const chosen = stratifiedSample(books, {
     groupBy: book => book?.level ?? "",
     idOf: book => book?.id

@@ -32,8 +32,8 @@ const LEVEL_RULES = Object.freeze({
   C: Object.freeze({ maximumWords: 22, maximumLines: 3, minimumScenes: 8, maximumScenes: 14 })
 });
 
-const SERIES_LEVEL_RULES = Object.freeze({
-  "moonwood-tales": Object.freeze({
+const BAND_PROFILE_RULES = Object.freeze({
+  extended: Object.freeze({
     minimumWords: 22,
     maximumWords: 38,
     maximumLines: 5,
@@ -42,8 +42,16 @@ const SERIES_LEVEL_RULES = Object.freeze({
     maximumSentenceWords: 18,
     minimumScenes: 8,
     maximumScenes: 14,
-    profileLabel: "Moonwood extended-narrative"
+    profileLabel: "extended read-together"
   })
+});
+
+const COMPACT_STABLE_RULE = Object.freeze({
+  minimumWords: 6,
+  maximumWords: 12,
+  minimumScenes: 8,
+  maximumScenes: 8,
+  profileLabel: "compact standard"
 });
 
 const CANON_PREFIX_BY_SERIES = Object.freeze({
@@ -97,11 +105,19 @@ const books = getRuntimeGuidedReadingBooks()
 let pageCount = 0;
 let exactAudioCount = 0;
 let reviewedBookCount = 0;
+let scheduledMediaBookCount = 0;
+let scheduledMediaPageCount = 0;
 
 for (const book of books) {
   const label = `${book.id} (${book.title})`;
   const review = book.storyBibleReview;
-  const levelRule = SERIES_LEVEL_RULES[book.seriesId] || LEVEL_RULES[book.level];
+  if (book.mediaStatus === "scheduled") {
+    scheduledMediaBookCount += 1;
+    scheduledMediaPageCount += book.pages?.length || 0;
+  }
+  const levelRule = book.readingPageProfile === "compact-stable"
+    ? COMPACT_STABLE_RULE
+    : BAND_PROFILE_RULES[book.readingBandProfile] || LEVEL_RULES[book.level];
   if (!levelRule) {
     failures.push(`${label}: unsupported Story Bible level ${book.level || "missing"}`);
     continue;
@@ -203,11 +219,11 @@ for (const book of books) {
     if (page.pageAudioText && String(page.pageAudioText).trim() !== text) {
       failures.push(`${pageLabel}: pageAudioText differs from visible text`);
     }
-    if (!nonEmptyFile(page.image || page.imageUrl || page.pageImage)) {
+    if (book.mediaStatus !== "scheduled" && !nonEmptyFile(page.image || page.imageUrl || page.pageImage)) {
       failures.push(`${pageLabel}: page image is missing or empty`);
     }
 
-    if (!skipAudio) {
+    if (!skipAudio && book.mediaStatus !== "scheduled") {
       const audioPath = getGuidedReadingPageAudioPath(page);
       if (!nonEmptyFile(audioPath)) {
         failures.push(`${pageLabel}: exact-text Leda narration is missing`);
@@ -236,7 +252,8 @@ for (const book of books) {
 console.log(`Guided Reading Story Bible audit${requestedLevel ? ` - Level ${requestedLevel}` : ""}`);
 console.log(
   `Books: ${books.length}; reviewed: ${reviewedBookCount}; pages: ${pageCount}; `
-  + (skipAudio ? "audio checks: skipped." : `exact Leda pages: ${exactAudioCount}.`)
+  + (skipAudio ? "audio checks: skipped." : `exact Leda pages: ${exactAudioCount}; `)
+  + `scheduled media pages: ${scheduledMediaPageCount} across ${scheduledMediaBookCount} books.`
 );
 console.log(`Failures: ${failures.length}. Visual alignment is enforced by the separate hash-locked page audit.`);
 
@@ -247,7 +264,6 @@ if (failures.length) {
 }
 
 console.log(
-  skipAudio
-    ? "All Guided Reading books pass the Story Bible manuscript, level and image-file gates; audio was intentionally skipped."
-    : "All Guided Reading books pass the Story Bible manuscript, level, image and exact-audio gate."
+  `All Guided Reading books pass Story Bible manuscript and level rules. `
+  + `${scheduledMediaPageCount} scheduled pages remain outside image-file and exact-audio verification.`
 );
