@@ -96,6 +96,25 @@ decision is the single action that makes a book available to children. A Fail
 decision requires a repair note and keeps the book quarantined. This does not
 restore any named-person approval rule.
 
+### Child games
+
+- `docs/design/GAME_DESIGN_BIBLE.md`
+- `docs/design/GAME_VISUAL_PLAYABILITY_PRODUCTION_GUIDE.md`
+- `src/data/learnGamesData.js`
+- `src/components/learn/games/games/index.js`
+- `src/components/learn/games/shared/arcadeVerticalSliceBriefs.js`
+- `src/components/learn/games/shared/premiumGameStandard.js`
+- `docs/SOUND_SEEKERS_RELEASE_BIBLE.md`
+- `src/components/quest/QuestRoot.jsx`
+- `docs/3D_ASSET_LIBRARY.md`
+
+The Game Design Bible remains the product-rule authority for learning, controls,
+accessibility, privacy and shipping. The production quality guide is its single
+provider-neutral implementation workflow for authored art, asset production,
+game feel, camera, audio, quality tiers, direct review and evidence. Automated
+contract or renderer checks do not by themselves certify visual, motion,
+listening, physical-device or child-play quality.
+
 ## Problems corrected
 
 - Removed old question-bank discovery, release/exposure manifests, generated shards,

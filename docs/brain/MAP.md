@@ -21,6 +21,7 @@ authority: orientation-only
 - [Question design bible](../content/QUESTION_DESIGN_BIBLE.md)
 - [Guided Reading](../guided-reading/INDEX.md)
 - [Game design bible](../design/GAME_DESIGN_BIBLE.md)
+- [Game visual and playability production guide](../design/GAME_VISUAL_PLAYABILITY_PRODUCTION_GUIDE.md)
 - [Story and Story Quest bible](../content/STORY_AND_STORY_QUEST_BIBLE.md)
 
 ## Operations and evidence
