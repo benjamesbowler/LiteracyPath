@@ -52,6 +52,8 @@ The child token remains opaque. Student devices poll at one-second cadence while
 visible; no Realtime, WebSocket, broadcast, or peer-to-peer path is authoritative.
 The teacher's frozen page-number list is the only page-alignment source during a
 session. Only books not currently quarantined can start a new child-followed shared-reading session.
+The shared-reading protocol version changes only for an incompatible frozen-session
+contract; ordinary app deployments do not invalidate an active class session.
 
 Import receipts, contact sheets, text-revision queues, audio inventories, replacement
 manifests, and provider-specific handoff reports are retired. They must not be restored

@@ -18,9 +18,14 @@ export function focusSessionRetryDelay(failureCount) {
   return Math.min(8000, Math.max(1000, 1000 * (2 ** Math.max(0, failureCount - 1))));
 }
 
-export function focusSessionContentOkForPoll(session, contentReport) {
-  if (session?.content_ok === false) return false;
-  if (!session?.id || contentReport?.sessionId !== session.id) return true;
+export function focusSessionContentOkForPoll(
+  session,
+  contentReport,
+  contentVersion = STUDENT_FOCUS_CONTENT_VERSION
+) {
+  if (!session?.id) return true;
+  if (session.content_version !== contentVersion) return false;
+  if (contentReport?.sessionId !== session.id) return true;
   return contentReport.contentOk !== false;
 }
 
@@ -90,14 +95,26 @@ export function useStudentFocusSession({
         client,
         token,
         currentView,
-        contentOk: focusSessionContentOkForPoll(stateRef.current.session, contentReport)
+        contentOk: focusSessionContentOkForPoll(
+          stateRef.current.session,
+          contentReport,
+          contentVersion
+        )
       });
       if (data?.ok === false) throw new Error(data.error || "student_focus_poll_failed");
-      const session = data?.session && data.session.content_version === contentVersion
-        ? data.session
-        : data?.session
-          ? { ...data.session, content_ok: false }
-          : null;
+      const session = data?.session
+        ? {
+            ...data.session,
+            // The RPC reports the boolean sent with this poll. Re-evaluate it
+            // against the returned session id so a stale result from a session
+            // that was just replaced cannot poison the new activity.
+            content_ok: focusSessionContentOkForPoll(
+              data.session,
+              contentReport,
+              contentVersion
+            )
+          }
+        : null;
       dispatch({
         type: "session",
         session,

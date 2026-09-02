@@ -1,10 +1,12 @@
-import { APP_RELEASE_ID } from "../utils/errorLog.js";
 import { compactAssessmentAttemptForStorage } from "./assessmentHistoryStore.js";
 import { STUDENT_FOCUS_END_ACTIONS } from "../policy/studentFocusExit.js";
 
 export { STUDENT_FOCUS_END_ACTIONS } from "../policy/studentFocusExit.js";
 
-export const STUDENT_FOCUS_CONTENT_VERSION = APP_RELEASE_ID;
+// This identifies the Student Sessions data contract, not an ordinary web app
+// deployment. Bump it only when a teacher and learner running different
+// implementations would genuinely be unable to share an assignment safely.
+export const STUDENT_FOCUS_CONTENT_VERSION = "student-focus-v1";
 
 function requireClient(client) {
   if (!client) throw new Error("Student sessions are unavailable while the service is offline.");
