@@ -26,7 +26,7 @@
 ### Task 1: Adventure Map v2 progress boundary
 
 **Files:**
-- Create: `src/components/elQuest/adventureProgress.js`
+- Create: `src/utils/adventureMapProgress.js`
 - Modify: `src/components/elQuest/ElSkillsQuest.jsx`
 - Modify: `src/utils/progressMerge.js`
 - Test: `tests/unit/adventureMapProgress.test.js`
@@ -61,7 +61,7 @@ test("v2 Adventure Map progress survives normalisation", () => {
 - [ ] **Step 2: Run tests and confirm they fail because the module does not exist**
 
 Run: `node --test tests/unit/adventureMapProgress.test.js`  
-Expected: FAIL resolving `adventureProgress.js`.
+Expected: FAIL resolving `adventureMapProgress.js`.
 
 - [ ] **Step 3: Implement the pure boundary**
 
@@ -91,7 +91,7 @@ Expected: PASS.
 - [ ] **Step 6: Commit the boundary**
 
 ```bash
-git add src/components/elQuest/adventureProgress.js src/components/elQuest/ElSkillsQuest.jsx src/utils/progressMerge.js tests/unit/adventureMapProgress.test.js tests/unit/progressMerge.test.js
+git add src/utils/adventureMapProgress.js src/components/elQuest/ElSkillsQuest.jsx src/utils/progressMerge.js tests/unit/adventureMapProgress.test.js tests/unit/progressMerge.test.js
 git commit -m "feat: reset Adventure Map progress for v2"
 ```
 
@@ -136,7 +136,7 @@ Expected: FAIL because current rounds have no `mechanicId` or `construct`.
 ```js
 export const ADVENTURE_MECHANIC_IDS = Object.freeze([
   "letterPair", "soundGate", "sceneHunt", "wordWindow", "soundBoxes",
-  "wordMachine", "poemSpotlight", "storySleuth", "letterTrace",
+  "wordMachine", "poemSpotlight", "coverClue", "letterTrace",
   "patternSort", "wordChain", "phraseFlow", "heartWord"
 ]);
 
@@ -408,12 +408,12 @@ git commit -m "feat: add distinct Adventure Map word games"
 - Modify: `tests/release/letter-trace-formation.spec.js`
 
 **Interfaces:**
-- Produces: `PoemSpotlightMechanic`, `StorySleuthMechanic`, and `LetterTraceMechanic`.
-- Consumes: exact poem tokens/line indices, authored story clue records, existing `LetterWriter`, and trace scoring.
+- Produces: `PoemSpotlightMechanic`, `CoverClueMechanic`, and `LetterTraceMechanic`.
+- Consumes: exact poem tokens/line indices, authoritative cover/title/character records, existing `LetterWriter`, and trace scoring.
 
 - [ ] **Step 1: Write failing tests for direct text interaction**
 
-Assert poem targets are buttons in their original line rather than detached choices; story responses reference objective clue IDs; trace advances from guided to faded model and reports scorer-specific feedback.
+Assert poem targets are buttons in their original line rather than detached choices; Cover Clue keeps title/name strips separate from cover pieces and reports cover/title association only; trace advances from guided to faded model and reports scorer-specific feedback.
 
 - [ ] **Step 2: Run and confirm failures**
 
@@ -424,9 +424,9 @@ Expected: FAIL resolving `TextMechanics.jsx`.
 
 Tokenise while preserving punctuation and line structure. Only matching occurrences commit correct; wrong word taps identify the selected word and keep the poem context visible.
 
-- [ ] **Step 4: Implement Story Sleuth**
+- [ ] **Step 4: Implement Cover Clue**
 
-Render the cover/scene and objective clue buttons. The response and clue are distinct steps; the round commits only after the child connects a response to the authored supporting clue.
+Render two or three cover pieces and one authorised title/name strip. The child selects the strip and places it on a cover using tap/select/place controls. A support action may reveal every printed cover title. Commit evidence as supported cover/title association only; never label it comprehension.
 
 - [ ] **Step 5: Extract and extend Letter Trace**
 
@@ -635,4 +635,3 @@ git push origin main
 ```
 
 Only stage actual named files from the final diff; do not stage all of `tests/unit`, `tests/release`, or unrelated `tmp/` content if other work appeared concurrently.
-

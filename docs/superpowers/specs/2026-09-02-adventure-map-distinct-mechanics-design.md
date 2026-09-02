@@ -69,7 +69,7 @@ export const ADVENTURE_MECHANICS = Object.freeze({
   soundBoxes: SoundBoxesMechanic,
   wordMachine: WordMachineMechanic,
   poemSpotlight: PoemSpotlightMechanic,
-  storySleuth: StorySleuthMechanic,
+  coverClue: CoverClueMechanic,
   letterTrace: LetterTraceMechanic,
   patternSort: PatternSortMechanic,
   wordChain: WordChainMechanic,
@@ -183,12 +183,14 @@ If an intended station cannot be generated truthfully for a cycle, `stationsForC
 - No detached answer grid and no prompt containing the answer to be tapped.
 - Evidence: supported connected-print tracking and pattern noticing; no oral-fluency claim.
 
-### Story Stop
+### Cover Clue (replaces Story Stop)
 
-- Mechanic: `storySleuth`.
-- Child hears an authored prompt/excerpt, inspects a cover or scene, and marks an objective visual/text clue supporting the response.
-- Every answer and clue must be author-determined, concrete, and non-subjective.
-- Evidence: supported comprehension/oral-language practice, not independent decoding.
+- Stable ID remains `story`; child-facing title becomes **Cover Clue**.
+- Mechanic: `coverClue`.
+- The current authoritative bank supplies covers, printed titles, and character ownership, but not story excerpts or objective comprehension evidence. The child therefore hears or sees an authorised title/name strip, inspects a small book rack, and places the strip on the matching cover.
+- The answer is never repeated as a detached generic choice below the same visible title. Covers and title strips are separate spatial pieces, and support may reveal the title on every cover.
+- Evidence: supported cover/title association only, not comprehension or independent decoding.
+- A future Story Sleuth mechanic requires separately authored excerpt, answer, and objective clue records; it must not be inferred from cover art.
 
 ### Letter Trace
 
@@ -227,7 +229,7 @@ If an intended station cannot be generated truthfully for a cycle, `stationsForC
 ### Cycle Quest (replaces Cycle Check)
 
 - Stable ID remains `check`; child-facing title becomes **Cycle Quest**.
-- Build a deterministic, balanced blueprint with one item per available cycle construct before any repeated construct.
+- Build a deterministic, balanced blueprint with one item per eligible cycle construct before any repeated construct. The blueprint shrinks when a construct lacks valid cycle-bounded content and reports its sampled-construct manifest.
 - Record the first committed response before feedback.
 - After a miss, provide the correction ladder and require successful recovery.
 - Stars:
@@ -277,7 +279,7 @@ This is a one-time product-version reset, not an account or teacher-commanded de
 
 ### Unit
 
-- All 27 cycles expose only truthful station definitions and non-empty rounds.
+- All 27 cycles expose a truthful, non-empty set of eligible stations; every station definition returned for a cycle has non-empty rounds.
 - Every round has a registered `mechanicId` and declared construct.
 - No station builder returns a round from another station mechanic unless the station definition itself is truthfully renamed.
 - Sound-choice equivalence includes taught alternate spellings and never marks one of two equally valid choices wrong.
@@ -310,4 +312,3 @@ This is a one-time product-version reset, not an account or teacher-commanded de
 - Preserve unrelated worktree files and generated evidence required by existing release checks.
 - Run the scoped unit/browser suite, full build, existing public gates proportionate to the changed surface, and inspect the final diff.
 - Commit only named Adventure Map/spec/plan/audio/test paths and push to `origin/main` after verification.
-
