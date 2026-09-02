@@ -1,6 +1,12 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { stationsForCycle, sharesSound, onsetGrapheme } from "../../src/components/elQuest/elQuestEngine.js";
+import {
+  buildWordMachineOutcome,
+  createWordMachineState,
+  machinePiecesForRound,
+  reduceWordMachine
+} from "../../src/components/elQuest/mechanics/wordMechanicState.js";
 import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
 import { strokesForChar } from "../../src/data/letterStrokes.js";
 import { CVC_WORDS, RHYMING_PAIRS, SIGHT_WORDS, WORD_FAMILIES, SENTENCE_FIX, SENTENCES } from "../../src/data/learnGamesData.js";
@@ -51,6 +57,21 @@ test("every quest round in every cycle is winnable and well-formed", () => {
           if (round.mechanicId === "coverClue") {
             assert.ok(round.covers.length >= 2, `${where} needs a book rack`);
             assert.equal(round.covers.filter(cover => cover.matches).length, 1, `${where} needs one matching cover`);
+            continue;
+          }
+          if (round.mechanicId === "wordMachine") {
+            const pieces = machinePiecesForRound(round);
+            assert.ok(pieces.length > 0, `${where} has no operation pieces`);
+            let state = createWordMachineState(round);
+            const chosen = round.operation === "substituteOnset"
+              ? [pieces.find(piece => piece.projectedWord === round.afterWord)]
+              : pieces;
+            assert.ok(chosen.every(Boolean), `${where} has no path to ${round.afterWord}`);
+            for (const piece of chosen) {
+              state = reduceWordMachine(state, { type: "SELECT_PIECE", pieceId: piece.id }, round);
+            }
+            state = reduceWordMachine(state, { type: "COMMIT" }, round);
+            assert.equal(buildWordMachineOutcome(round, state)?.correct, true, `${where} cannot make ${round.afterWord}`);
             continue;
           }
           if (round.mechanicId === "sceneHunt") {
@@ -164,24 +185,22 @@ test("word build prefers taught-letter words whenever enough exist", () => {
 });
 
 // ── Answer-integrity rules: every round has EXACTLY ONE correct answer ─────
-// (These would fail before the phonics-correctness fixes: change-first-sound
-//  decoys sharing a rime, c/k and w/wh homophones sharing a sound, and Sound
-//  Hunt offering non-initial example words like "six"/"teeth".)
+// (These would fail before the phonics-correctness fixes: onset swaps without
+// an exact target, c/k and w/wh homophones sharing a sound, and Sound Hunt
+// offering non-initial example words like "six"/"teeth".)
 
-test("Word Play 'change the first sound' rounds have exactly one valid answer", () => {
+test("Word Play onset swaps cue one target and mark one operation piece correct", () => {
   for (const cycle of cycles) {
     for (const station of stationsForCycle(cycle)) {
       if (!station.build) continue;
       for (let pass = 0; pass < 8; pass += 1) {
         for (const round of station.build(cycle)) {
-          if (round.type !== "play" || !/Change the first sound/.test(round.prompt || "")) continue;
-          const rime = round.beforeGraphemes.slice(1).join("");
-          const sameRime = round.choiceGraphemes.filter(choice => (
-            choice.word !== round.beforeWord
-            && choice.graphemes.slice(1).join("") === rime
-          ));
-          assert.equal(sameRime.length, 1,
-            `${cycle.id}: "${round.beforeWord}" -> ${sameRime.length} same-rime answers in ${JSON.stringify(round.choices)}`);
+          if (round.operation !== "substituteOnset") continue;
+          assert.match(round.prompt, new RegExp(`make [“"]?${round.afterWord}[”"]?`, "i"));
+          assert.equal(round.onsetPieces.filter(piece => piece.matches).length, 1);
+          for (const piece of round.onsetPieces) {
+            assert.equal(piece.matches, piece.projectedWord === round.afterWord);
+          }
         }
       }
     }

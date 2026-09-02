@@ -3,13 +3,17 @@ import {
   buildSoundBoxesOutcome,
   buildWordMachineOutcome,
   buildWordWindowOutcome,
+  commitSoundBoxPlacement,
   createSoundBoxesState,
   createWordMachineState,
   createWordWindowState,
   machinePiecesForRound,
   reduceSoundBoxes,
   reduceWordMachine,
-  reduceWordWindow
+  reduceWordWindow,
+  soundBoxesStateForRound,
+  wordMachineStateForRound,
+  wordWindowStateForRound
 } from "./wordMechanicState.js";
 
 const noop = () => {};
@@ -38,6 +42,21 @@ function LiveStatus({ children }) {
   );
 }
 
+function DifferenceSequence({ difference, kind }) {
+  const changed = kind === "selected"
+    ? difference.selectedDifference
+    : difference.targetDifference;
+  return (
+    <span className={`adventure-word-window__difference adventure-word-window__difference--${kind}`}>
+      <span>{difference.prefix}</span>
+      <mark data-difference={kind} data-empty={changed ? "false" : "true"}>
+        {changed || "—"}
+      </mark>
+      <span>{difference.suffix}</span>
+    </span>
+  );
+}
+
 export function WordWindowMechanic({
   round,
   disabled = false,
@@ -46,12 +65,14 @@ export function WordWindowMechanic({
   onRequestReplay = noop,
   reducedMotion = false
 }) {
-  const [state, dispatch] = useReducer(
-    (current, action) => reduceWordWindow(current, action, round),
+  const [storedState, dispatch] = useReducer(
+    (current, action) => reduceWordWindow(current, { supportLevel, ...action }, round),
     null,
     () => createWordWindowState(round, supportLevel)
   );
+  const state = wordWindowStateForRound(storedState, round, supportLevel);
   const locked = disabled || ["committed", "revealed"].includes(state.phase);
+  const revealedOutcome = buildWordWindowOutcome(round, state);
 
   const replay = () => {
     dispatch({ type: "REQUEST_REPLAY" });
@@ -63,6 +84,12 @@ export function WordWindowMechanic({
     const next = reduceWordWindow(state, { type: "SELECT", value }, round);
     if (next === state) return;
     dispatch({ type: "SELECT", value });
+  };
+
+  const reveal = () => {
+    if (disabled || state.phase !== "committed") return;
+    const next = reduceWordWindow(state, { type: "REVEAL" }, round);
+    dispatch({ type: "REVEAL" });
     const outcome = buildWordWindowOutcome(round, next);
     if (outcome) onCommit(outcome);
   };
@@ -72,9 +99,15 @@ export function WordWindowMechanic({
       className="adventure-word-window"
       data-mechanic-stage="word-window"
       data-window-phase={state.phase}
+      data-round-key={round.roundKey}
       data-reduced-motion={reducedMotion ? "true" : "false"}
     >
-      <div className="adventure-word-window__shutter" aria-live="polite">
+      <div
+        className="adventure-word-window__shutter"
+        role="group"
+        aria-label="Word study window"
+        aria-live="polite"
+      >
         {state.phase === "study" && (
           <strong className="adventure-word-window__study-word">{round.studyWord}</strong>
         )}
@@ -84,29 +117,39 @@ export function WordWindowMechanic({
         {["committed", "revealed"].includes(state.phase) && (
           <span className="adventure-word-window__committed">Choice locked: {state.selected}</span>
         )}
-        {state.phase === "revealed" && (
-          <strong className="adventure-word-window__reveal" data-word-reveal="true">
-            Study word: {round.studyWord}
-          </strong>
+        {state.phase === "revealed" && state.difference && (
+          <div
+            className="adventure-word-window__comparison"
+            data-word-reveal="true"
+            role="group"
+            aria-label="Compare your choice with the study word"
+          >
+            <span>Your choice</span>
+            <DifferenceSequence difference={state.difference} kind="selected" />
+            <span>Study word</span>
+            <DifferenceSequence difference={state.difference} kind="target" />
+          </div>
         )}
       </div>
 
-      <div className="adventure-word-window__choices" aria-label="Whole-word choices">
-        {(round.choices || []).map((choice, index) => (
-          <button
-            type="button"
-            className={CONTROL_CLASS}
-            data-target-size="56"
-            data-word-choice={choice}
-            key={`${choice}-${index}`}
-            disabled={disabled || state.phase !== "choose"}
-            aria-pressed={state.selected === choice}
-            onClick={() => choose(choice)}
-          >
-            {choice}
-          </button>
-        ))}
-      </div>
+      {state.phase !== "study" && (
+        <div className="adventure-word-window__choices" role="group" aria-label="Whole-word choices">
+          {(round.choices || []).map((choice, index) => (
+            <button
+              type="button"
+              className={CONTROL_CLASS}
+              data-target-size="56"
+              data-word-choice={choice}
+              key={`${choice}-${index}`}
+              disabled={disabled || state.phase !== "choose"}
+              aria-pressed={state.selected === choice}
+              onClick={() => choose(choice)}
+            >
+              {choice}
+            </button>
+          ))}
+        </div>
+      )}
 
       <div className="adventure-word-window__controls">
         <ReplayButton disabled={disabled} label="Hear word again" onReplay={replay} />
@@ -141,9 +184,21 @@ export function WordWindowMechanic({
             data-action="reveal-word"
             data-target-size="56"
             disabled={disabled}
-            onClick={() => dispatch({ type: "REVEAL" })}
+            onClick={reveal}
           >
             Reveal and compare
+          </button>
+        )}
+        {state.phase === "revealed" && revealedOutcome?.correct === false && (
+          <button
+            type="button"
+            className={CONTROL_CLASS}
+            data-action="retry-word-window"
+            data-target-size="56"
+            disabled={disabled}
+            onClick={() => dispatch({ type: "RETRY" })}
+          >
+            Try the word again
           </button>
         )}
       </div>
@@ -160,11 +215,12 @@ export function SoundBoxesMechanic({
   onRequestReplay = noop,
   reducedMotion = false
 }) {
-  const [state, dispatch] = useReducer(
-    (current, action) => reduceSoundBoxes(current, action, round),
+  const [storedState, dispatch] = useReducer(
+    (current, action) => reduceSoundBoxes(current, { supportLevel, ...action }, round),
     null,
     () => createSoundBoxesState(round, supportLevel)
   );
+  const state = soundBoxesStateForRound(storedState, round, supportLevel);
   const locked = disabled || state.committed;
   const ready = state.slots.length > 0 && state.slots.every(Boolean);
 
@@ -181,13 +237,21 @@ export function SoundBoxesMechanic({
     if (outcome) onCommit(outcome);
   };
 
+  const place = tileId => {
+    if (locked) return;
+    const next = commitSoundBoxPlacement(state, tileId, round, onCommit);
+    if (next === state) return;
+    dispatch({ type: "PLACE_TILE", tileId });
+  };
+
   return (
     <section
       className="adventure-sound-boxes"
       data-mechanic-stage="sound-boxes"
+      data-round-key={round.roundKey}
       data-reduced-motion={reducedMotion ? "true" : "false"}
     >
-      <div className="adventure-sound-boxes__slots" aria-label={`${state.slots.length} sound boxes`}>
+      <div className="adventure-sound-boxes__slots" role="group" aria-label={`${state.slots.length} sound boxes`}>
         {state.slots.map((slot, index) => (
           <div
             className="adventure-sound-boxes__slot"
@@ -213,7 +277,7 @@ export function SoundBoxesMechanic({
         ))}
       </div>
 
-      <div className="adventure-sound-boxes__tile-bank" aria-label="Reusable grapheme tile bank">
+      <div className="adventure-sound-boxes__tile-bank" role="group" aria-label="Reusable grapheme tile bank">
         {state.tiles.map(tile => {
           const used = state.usedTileIds.includes(tile.id);
           return (
@@ -226,7 +290,7 @@ export function SoundBoxesMechanic({
               key={tile.id}
               disabled={locked || used}
               aria-label={`Place grapheme ${tile.grapheme}`}
-              onClick={() => dispatch({ type: "PLACE_TILE", tileId: tile.id })}
+              onClick={() => place(tile.id)}
             >
               {tile.grapheme}
             </button>
@@ -275,11 +339,12 @@ export function WordMachineMechanic({
   reducedMotion = false
 }) {
   const pieces = machinePiecesForRound(round);
-  const [state, dispatch] = useReducer(
-    (current, action) => reduceWordMachine(current, action, round),
+  const [storedState, dispatch] = useReducer(
+    (current, action) => reduceWordMachine(current, { supportLevel, ...action }, round),
     null,
     () => createWordMachineState(round, supportLevel)
   );
+  const state = wordMachineStateForRound(storedState, round, supportLevel);
   const locked = disabled || state.committed;
   const ready = round.operation === "joinCompound"
     ? state.selectedPieceIds.length === pieces.length && pieces.length > 0
@@ -303,6 +368,7 @@ export function WordMachineMechanic({
       className="adventure-word-machine"
       data-mechanic-stage="word-machine"
       data-machine-operation={round.operation}
+      data-round-key={round.roundKey}
       data-reduced-motion={reducedMotion ? "true" : "false"}
     >
       <div className="adventure-word-machine__before" data-machine-before={round.beforeWord}>
@@ -319,6 +385,7 @@ export function WordMachineMechanic({
       <div
         className={`adventure-word-machine__tray adventure-word-machine__tray--${machineTrayName(round.operation)}`}
         data-machine-tray={machineTrayName(round.operation)}
+        role="group"
         aria-label={`${machineActionLabel(round.operation)} pieces`}
       >
         {pieces.map((piece, index) => {
@@ -357,7 +424,7 @@ export function WordMachineMechanic({
       )}
 
       <div className="adventure-word-machine__controls">
-        <ReplayButton disabled={disabled} label="Hear operation again" onReplay={replay} />
+        <ReplayButton disabled={locked} label="Hear operation again" onReplay={replay} />
         <button
           type="button"
           className={CONTROL_CLASS}
@@ -368,6 +435,18 @@ export function WordMachineMechanic({
         >
           {machineActionLabel(round.operation)}
         </button>
+        {state.committed && state.correct === false && (
+          <button
+            type="button"
+            className={CONTROL_CLASS}
+            data-action="retry-machine"
+            data-target-size="56"
+            disabled={disabled}
+            onClick={() => dispatch({ type: "RETRY" })}
+          >
+            Try the change again
+          </button>
+        )}
       </div>
       <LiveStatus>{state.status}</LiveStatus>
     </section>

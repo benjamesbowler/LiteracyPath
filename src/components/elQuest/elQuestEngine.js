@@ -81,6 +81,71 @@ function taughtHfwThrough(cycleNumber) {
   return words;
 }
 
+const ALL_HIGH_FREQUENCY_WORDS = new Set(
+  elSkillsBlockCycles
+    .flatMap(cycle => cycle.highFrequencyWords || [])
+    .map(word => String(word).toLowerCase())
+);
+
+function orthographicEditDistance(left, right) {
+  const a = String(left || "").toLowerCase();
+  const b = String(right || "").toLowerCase();
+  const rows = Array.from({ length: a.length + 1 }, () => Array(b.length + 1).fill(0));
+  for (let index = 0; index <= a.length; index += 1) rows[index][0] = index;
+  for (let index = 0; index <= b.length; index += 1) rows[0][index] = index;
+  for (let row = 1; row <= a.length; row += 1) {
+    for (let column = 1; column <= b.length; column += 1) {
+      rows[row][column] = Math.min(
+        rows[row - 1][column] + 1,
+        rows[row][column - 1] + 1,
+        rows[row - 1][column - 1] + (a[row - 1] === b[column - 1] ? 0 : 1)
+      );
+    }
+  }
+  return rows[a.length][b.length];
+}
+
+function closeSpellingDistractors(target, authorisedWords, count = 3) {
+  const word = String(target || "").toLowerCase();
+  const authorised = uniqueChoices(authorisedWords.map(item => String(item || "").toLowerCase()));
+  const authorisedSet = new Set(authorised);
+  const alphabet = [...new Set(authorised.flatMap(item => [...item]))].sort();
+  const candidates = [];
+  const add = candidate => {
+    const spelling = String(candidate || "").toLowerCase();
+    if (
+      !/^[a-z]+$/u.test(spelling)
+      || spelling === word
+      || candidates.includes(spelling)
+      || orthographicEditDistance(spelling, word) !== 1
+      || [...spelling].some(letter => !alphabet.includes(letter))
+      || (ALL_HIGH_FREQUENCY_WORDS.has(spelling) && !authorisedSet.has(spelling))
+    ) return;
+    candidates.push(spelling);
+  };
+
+  authorised
+    .filter(candidate => candidate !== word)
+    .sort((left, right) => left.localeCompare(right))
+    .forEach(add);
+  if (word.length > 1) {
+    for (let index = 0; index < word.length; index += 1) {
+      add(`${word.slice(0, index)}${word.slice(index + 1)}`);
+    }
+  }
+  for (let index = 0; index < word.length; index += 1) {
+    for (const letter of alphabet) {
+      add(`${word.slice(0, index)}${letter}${word.slice(index + 1)}`);
+    }
+  }
+  for (let index = 0; index <= word.length; index += 1) {
+    for (const letter of alphabet) {
+      add(`${word.slice(0, index)}${letter}${word.slice(index)}`);
+    }
+  }
+  return candidates.slice(0, count);
+}
+
 export function shuffleItems(items) {
   const copy = [...items];
   for (let index = copy.length - 1; index > 0; index -= 1) {
@@ -492,23 +557,28 @@ function buildQuickWordRounds(cycle) {
   const pool = voiced.length ? voiced : hfw.filter(word => !hasKnownBadWordAudio(word));
   // Early cycles with few taught words: practise each word twice instead.
   const sequence = pool.length >= 4 ? pool : [...pool, ...pool];
-  return sequence.map(word => {
-    const distractors = shuffleItems([
-      ...hfw.filter(item => item !== word),
-      ...earlier.filter(item => item !== word && !hfw.includes(item))
-    ]).slice(0, Math.min(3, Math.max(1, hfw.length - 1 + earlier.length)));
+  return sequence.map((word, roundIndex) => {
+    const distractors = closeSpellingDistractors(word, taught, 3);
+    const choices = shuffleItems([word, ...distractors]);
     return {
       type: "quick",
       mechanicId: "wordWindow",
+      roundKey: `word-window:${cycle.id}:${roundIndex}:${word}`,
       construct: "high_frequency_word_recognition",
       audio: wordAudioPath(word),
       speechFallback: word,
-      prompt: "Listen. Find the whole word. Tap it.",
-      instruction: "Study the word, close the window, then find it again.",
+      prompt: "Listen, study, close, then choose.",
+      instruction: "Listen, study, close, then choose.",
       studyWord: word,
       support: "Learn this high-frequency word as its own word.",
       display: "",
-      choices: shuffleItems([word, ...distractors]),
+      choices,
+      choiceDetails: choices.map(spelling => ({
+        spelling,
+        matches: spelling === word,
+        kind: spelling === word ? "target" : "orthographic-neighbour",
+        editDistance: orthographicEditDistance(spelling, word)
+      })),
       answer: word,
       choiceStyle: "word"
     };
@@ -534,9 +604,10 @@ function buildWordBuildRounds(cycle) {
   const candidates = pool.filter(word => wordUsesTaughtPrint(word, cycle.cycleNumber || 1));
   const words = shuffleItems([...new Set(candidates)]).slice(0, 4);
   const taughtGraphemes = taughtGraphemesThrough(cycle.cycleNumber || 1);
-  return words.map(word => ({
+  return words.map((word, roundIndex) => ({
     type: "build",
     mechanicId: "soundBoxes",
+    roundKey: `sound-boxes:${cycle.id}:${roundIndex}:${word}`,
     construct: "phoneme_grapheme_encoding",
     audio: wordAudioPath(word),
     speechFallback: word,
@@ -587,38 +658,45 @@ function buildWordPlayRounds(cycle) {
         && otherGraphemes.slice(1).join("") === rime;
     });
     if (!partner || !wordAudioPath(partner)) continue;
-    // The decoy must NOT share the target's rime, or it would be a second
-    // valid "change the first sound" answer (e.g. ring -> sing AND king).
-    const decoy = shuffleItems(
-      allWords.filter(other => (
-        other !== word
-        && other !== partner
-        && segmentTaughtGraphemes(other, taughtGraphemes).slice(1).join("") !== rime
-      ))
-    )[0];
-    const choices = uniqueChoices([partner, word, decoy]);
-    if (choices.length < 3) continue;
+    const afterGraphemes = segmentTaughtGraphemes(partner, taughtGraphemes);
+    const decoyOnsets = shuffleItems(uniqueChoices(
+      allWords.map(other => segmentTaughtGraphemes(other, taughtGraphemes)[0])
+    ).filter(onset => onset && onset !== beforeGraphemes[0] && onset !== afterGraphemes[0]));
+    const onsetChoices = uniqueChoices([
+      afterGraphemes[0],
+      beforeGraphemes[0],
+      ...decoyOnsets.slice(0, 1)
+    ]);
+    if (onsetChoices.length < 2) continue;
+    const onsetPieces = shuffleItems(onsetChoices).map(grapheme => {
+      const resultGraphemes = [grapheme, ...beforeGraphemes.slice(1)];
+      const projectedWord = resultGraphemes.join("");
+      return {
+        grapheme,
+        resultGraphemes,
+        projectedWord,
+        matches: projectedWord === partner
+      };
+    });
     rounds.push({
       type: "play",
       mechanicId: "wordMachine",
+      roundKey: `word-machine:${cycle.id}:substituteOnset:${rounds.length}:${word}:${partner}`,
       construct: "onset_substitution",
       operation: "substituteOnset",
-      audio: wordAudioPath(word),
-      speechFallback: word,
-      prompt: `Change the first sound of "${word}". Which new word can you make?`,
-      instruction: `Change the first sound of "${word}" to make a new word.`,
+      audio: wordAudioPath(partner),
+      speechFallback: partner,
+      prompt: `Change the first sound of "${word}" to make "${partner}". Choose the new onset.`,
+      instruction: `Change the first sound of "${word}" to make "${partner}".`,
       beforeWord: word,
       afterWord: partner,
       beforeGraphemes,
-      afterGraphemes: segmentTaughtGraphemes(partner, taughtGraphemes),
+      afterGraphemes,
+      targetOnset: afterGraphemes[0],
+      onsetPieces,
       display: word,
-      choices: shuffleItems(choices),
-      choiceGraphemes: choices.map(choice => ({
-        word: choice,
-        graphemes: segmentTaughtGraphemes(choice, taughtGraphemes)
-      })),
       answer: partner,
-      choiceStyle: "word"
+      choiceStyle: "onset-piece"
     });
     if (rounds.length >= 2) break;
   }
@@ -637,6 +715,7 @@ function buildWordPlayRounds(cycle) {
     rounds.push({
       type: "play",
       mechanicId: "wordMachine",
+      roundKey: `word-machine:${cycle.id}:removeOnset:${rounds.length}:${word}:${rest}`,
       construct: "onset_removal",
       operation: "removeOnset",
       audio: wordAudioPath(word),
@@ -673,6 +752,7 @@ function buildWordPlayRounds(cycle) {
     rounds.push({
       type: "play",
       mechanicId: "wordMachine",
+      roundKey: `word-machine:${cycle.id}:joinCompound:${rounds.length}:${full}`,
       construct: "compound_word_joining",
       operation: "joinCompound",
       audio: wordAudioPath(full),

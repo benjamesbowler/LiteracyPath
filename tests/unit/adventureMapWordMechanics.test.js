@@ -4,16 +4,30 @@ import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { createServer } from "vite";
 import {
+  createAdventureRun,
+  recordAdventureOutcome
+} from "../../src/components/elQuest/adventureRunState.js";
+import {
+  buildStationRounds,
+  stationsForCycle,
+  wordAudioPath
+} from "../../src/components/elQuest/elQuestEngine.js";
+import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
+import {
   buildSoundBoxesOutcome,
   buildWordMachineOutcome,
   buildWordWindowOutcome,
+  commitSoundBoxPlacement,
   createSoundBoxesState,
   createWordMachineState,
   createWordWindowState,
   machinePiecesForRound,
   reduceSoundBoxes,
   reduceWordMachine,
-  reduceWordWindow
+  reduceWordWindow,
+  soundBoxesStateForRound,
+  wordMachineStateForRound,
+  wordWindowStateForRound
 } from "../../src/components/elQuest/mechanics/wordMechanicState.js";
 
 const noop = () => {};
@@ -103,6 +117,38 @@ function render(Component, round, props = {}) {
   }));
 }
 
+function editDistance(left, right) {
+  const a = String(left);
+  const b = String(right);
+  const rows = Array.from({ length: a.length + 1 }, () => Array(b.length + 1).fill(0));
+  for (let index = 0; index <= a.length; index += 1) rows[index][0] = index;
+  for (let index = 0; index <= b.length; index += 1) rows[0][index] = index;
+  for (let row = 1; row <= a.length; row += 1) {
+    for (let column = 1; column <= b.length; column += 1) {
+      rows[row][column] = Math.min(
+        rows[row - 1][column] + 1,
+        rows[row][column - 1] + 1,
+        rows[row - 1][column - 1] + (a[row - 1] === b[column - 1] ? 0 : 1)
+      );
+    }
+  }
+  return rows[a.length][b.length];
+}
+
+function withSeed(seed, callback) {
+  const original = Math.random;
+  let value = seed >>> 0;
+  Math.random = () => {
+    value = (value * 1664525 + 1013904223) >>> 0;
+    return value / 0x100000000;
+  };
+  try {
+    return callback();
+  } finally {
+    Math.random = original;
+  }
+}
+
 test("Word Window blocks choices until the study shutter is closed", () => {
   const study = createWordWindowState(wordWindowRound, 0);
   const blocked = reduceWordWindow(study, { type: "SELECT", value: "said" }, wordWindowRound);
@@ -115,7 +161,7 @@ test("Word Window blocks choices until the study shutter is closed", () => {
   assert.equal(committed.selected, "said");
 });
 
-test("Word Window reveals only after commitment and reports independent recognition", () => {
+test("Word Window waits for Reveal before emitting a correct recognition outcome", () => {
   const study = createWordWindowState(wordWindowRound, 0);
   const choosing = reduceWordWindow(study, { type: "CLOSE" }, wordWindowRound);
   assert.deepEqual(
@@ -124,7 +170,10 @@ test("Word Window reveals only after commitment and reports independent recognit
   );
 
   const committed = reduceWordWindow(choosing, { type: "SELECT", value: "said" }, wordWindowRound);
-  const outcome = buildWordWindowOutcome(wordWindowRound, committed);
+  assert.equal(buildWordWindowOutcome(wordWindowRound, committed), null);
+
+  const revealed = reduceWordWindow(committed, { type: "REVEAL" }, wordWindowRound);
+  const outcome = buildWordWindowOutcome(wordWindowRound, revealed);
   assert.deepEqual(outcome, {
     correct: true,
     selected: "said",
@@ -138,7 +187,6 @@ test("Word Window reveals only after commitment and reports independent recognit
     }
   });
 
-  const revealed = reduceWordWindow(committed, { type: "REVEAL" }, wordWindowRound);
   assert.equal(revealed.phase, "revealed");
 });
 
@@ -152,11 +200,47 @@ test("Word Window replay or reopening raises support and prevents an independent
   const reopened = reduceWordWindow(choosing, { type: "REOPEN" }, wordWindowRound);
   const closedAgain = reduceWordWindow(reopened, { type: "CLOSE" }, wordWindowRound);
   const committed = reduceWordWindow(closedAgain, { type: "SELECT", value: "said" }, wordWindowRound);
-  const outcome = buildWordWindowOutcome(wordWindowRound, committed);
+  const revealed = reduceWordWindow(committed, { type: "REVEAL" }, wordWindowRound);
+  const outcome = buildWordWindowOutcome(wordWindowRound, revealed);
 
   assert.equal(reopened.phase, "study");
   assert.equal(outcome.evidence.supportLevel, 2);
   assert.equal(outcome.evidence.independent, false);
+});
+
+test("Word Window supports wrong reveal, explicit retry, and later supported success", () => {
+  let state = createWordWindowState(wordWindowRound, 0);
+  state = reduceWordWindow(state, { type: "CLOSE" }, wordWindowRound);
+  state = reduceWordWindow(state, { type: "SELECT", value: "sad" }, wordWindowRound);
+  assert.equal(buildWordWindowOutcome(wordWindowRound, state), null);
+  state = reduceWordWindow(state, { type: "REVEAL" }, wordWindowRound);
+  const wrong = buildWordWindowOutcome(wordWindowRound, state);
+  assert.equal(wrong.correct, false);
+  assert.equal(wrong.evidence.independent, false);
+
+  state = reduceWordWindow(state, { type: "RETRY" }, wordWindowRound);
+  assert.equal(state.phase, "choose");
+  assert.equal(state.supportLevel, 1);
+  assert.equal(state.selected, null);
+  state = reduceWordWindow(state, { type: "SELECT", value: "said" }, wordWindowRound);
+  state = reduceWordWindow(state, { type: "REVEAL" }, wordWindowRound);
+  const recovered = buildWordWindowOutcome(wordWindowRound, state);
+  assert.equal(recovered.correct, true);
+  assert.equal(recovered.evidence.supportLevel, 1);
+  assert.equal(recovered.evidence.independent, false);
+});
+
+test("Word Window reveal isolates the differing orthographic sequence", () => {
+  let state = createWordWindowState(wordWindowRound, 0);
+  state = reduceWordWindow(state, { type: "CLOSE" }, wordWindowRound);
+  state = reduceWordWindow(state, { type: "SELECT", value: "sad" }, wordWindowRound);
+  state = reduceWordWindow(state, { type: "REVEAL" }, wordWindowRound);
+  assert.deepEqual(state.difference, {
+    prefix: "sa",
+    selectedDifference: "",
+    targetDifference: "i",
+    suffix: "d"
+  });
 });
 
 test("Sound Boxes creates one slot per declared grapheme and stable duplicate tile ids", () => {
@@ -186,6 +270,56 @@ test("Sound Boxes keeps a correct grapheme prefix after a wrong tile", () => {
   assert.equal(afterWrong.slots[1], null);
   assert.equal(afterWrong.supportLevel, 1);
   assert.match(afterWrong.status, /p.*sound box 2.*i/i);
+});
+
+test("Sound Boxes emits a failed tile outcome and a supported recovery to Adventure run state", () => {
+  let boxes = createSoundBoxesState(soundBoxesRound, 0);
+  let run = createAdventureRun(1);
+  const shTile = boxes.tiles.find(tile => tile.grapheme === "sh");
+  const pTile = boxes.tiles.find(tile => tile.grapheme === "p");
+  boxes = reduceSoundBoxes(boxes, { type: "PLACE_TILE", tileId: shTile.id }, soundBoxesRound);
+  boxes = reduceSoundBoxes(boxes, { type: "PLACE_TILE", tileId: pTile.id }, soundBoxesRound);
+  const wrong = buildSoundBoxesOutcome(soundBoxesRound, boxes);
+  assert.equal(wrong.correct, false);
+  assert.equal(wrong.selected, "p");
+  assert.equal(wrong.evidence.expectedGrapheme, "i");
+  assert.equal(wrong.evidence.independent, false);
+  run = recordAdventureOutcome(run, { roundIndex: 0, ...wrong });
+
+  for (const grapheme of ["i", "p"]) {
+    const tile = boxes.tiles.find(item => (
+      item.grapheme === grapheme && !boxes.usedTileIds.includes(item.id)
+    ));
+    boxes = reduceSoundBoxes(boxes, { type: "PLACE_TILE", tileId: tile.id }, soundBoxesRound);
+  }
+  boxes = reduceSoundBoxes(boxes, { type: "CHECK" }, soundBoxesRound);
+  const recovered = buildSoundBoxesOutcome(soundBoxesRound, boxes);
+  assert.equal(recovered.correct, true);
+  assert.equal(recovered.evidence.supportLevel, 1);
+  assert.equal(recovered.evidence.independent, false);
+  run = recordAdventureOutcome(run, { roundIndex: 0, ...recovered });
+
+  assert.deepEqual(run.firstAttempts, [false]);
+  assert.equal(run.completed, 1);
+  assert.equal(run.recoveries, 1);
+});
+
+test("Sound Boxes wrong-tile event calls onCommit with semantic false evidence", () => {
+  assert.equal(typeof commitSoundBoxPlacement, "function");
+  const commits = [];
+  let boxes = createSoundBoxesState(soundBoxesRound, 0);
+  const shTile = boxes.tiles.find(tile => tile.grapheme === "sh");
+  const pTile = boxes.tiles.find(tile => tile.grapheme === "p");
+  boxes = commitSoundBoxPlacement(boxes, shTile.id, soundBoxesRound, outcome => commits.push(outcome));
+  boxes = commitSoundBoxPlacement(boxes, pTile.id, soundBoxesRound, outcome => commits.push(outcome));
+
+  assert.equal(commits.length, 1);
+  assert.equal(commits[0].correct, false);
+  assert.equal(commits[0].selected, "p");
+  assert.equal(commits[0].evidence.construct, "phoneme_grapheme_encoding");
+  assert.equal(commits[0].evidence.target, "ship");
+  assert.equal(commits[0].evidence.expectedGrapheme, "i");
+  assert.deepEqual(boxes.slots.map(slot => slot?.grapheme || null), ["sh", null, null]);
 });
 
 test("Sound Boxes never commits before a separate complete Blend and check action", () => {
@@ -277,6 +411,29 @@ test("Word Machine withholds the after form until an operation is committed", ()
   });
 });
 
+test("Word Machine supports a failed swap, explicit retry, and later supported success", () => {
+  let state = createWordMachineState(substituteRound, 0);
+  const pieces = machinePiecesForRound(substituteRound);
+  const wrongPiece = pieces.find(piece => piece.graphemes[0] === "c");
+  const targetPiece = pieces.find(piece => piece.graphemes[0] === "s");
+  state = reduceWordMachine(state, { type: "SELECT_PIECE", pieceId: wrongPiece.id }, substituteRound);
+  state = reduceWordMachine(state, { type: "COMMIT" }, substituteRound);
+  const wrong = buildWordMachineOutcome(substituteRound, state);
+  assert.equal(wrong.correct, false);
+  assert.equal(wrong.evidence.independent, false);
+
+  state = reduceWordMachine(state, { type: "RETRY" }, substituteRound);
+  assert.equal(state.committed, false);
+  assert.equal(state.resultGraphemes, null);
+  assert.equal(state.supportLevel, 1);
+  state = reduceWordMachine(state, { type: "SELECT_PIECE", pieceId: targetPiece.id }, substituteRound);
+  state = reduceWordMachine(state, { type: "COMMIT" }, substituteRound);
+  const recovered = buildWordMachineOutcome(substituteRound, state);
+  assert.equal(recovered.correct, true);
+  assert.equal(recovered.evidence.supportLevel, 1);
+  assert.equal(recovered.evidence.independent, false);
+});
+
 test("Word Machine commits onset removal and compound joining as different operations", () => {
   let removing = createWordMachineState(removeRound, 0);
   removing = reduceWordMachine(removing, {
@@ -308,15 +465,133 @@ test("Word Machine commits onset removal and compound joining as different opera
   });
 });
 
+test("generated Word Window rounds use unique one-edit neighbours from authorised print", () => {
+  const allHighFrequencyWords = elSkillsBlockCycles
+    .flatMap(cycle => cycle.highFrequencyWords || [])
+    .map(word => word.toLowerCase());
+  for (let seed = 1; seed <= 32; seed += 1) {
+    withSeed(seed, () => {
+      const taughtWords = [];
+      for (const cycle of elSkillsBlockCycles.filter(item => item.cycleNumber)) {
+        taughtWords.push(...(cycle.highFrequencyWords || []).map(word => word.toLowerCase()));
+        if (!stationsForCycle(cycle).some(station => station.id === "quick")) continue;
+        const authorisedLetters = new Set(taughtWords.flatMap(word => [...word]));
+        const futureWords = new Set(allHighFrequencyWords.filter(word => !taughtWords.includes(word)));
+        const rounds = buildStationRounds(cycle, "quick");
+        assert.equal(new Set(rounds.map(round => round.roundKey)).size, rounds.length);
+        for (const round of rounds) {
+          assert.equal(new Set(round.choices).size, round.choices.length);
+          assert.equal(round.choices.filter(choice => choice === round.studyWord).length, 1);
+          assert.ok(round.choices.length >= 3, `${cycle.id}/${round.studyWord} needs close choices`);
+          assert.doesNotMatch(round.prompt, new RegExp(`\\b${round.studyWord}\\b`, "i"));
+          assert.doesNotMatch(round.instruction, new RegExp(`\\b${round.studyWord}\\b`, "i"));
+          assert.ok(round.audio, `${cycle.id}/${round.studyWord} needs a recorded target cue`);
+          for (const choice of round.choices.filter(choice => choice !== round.studyWord)) {
+            assert.equal(editDistance(choice, round.studyWord), 1, `${cycle.id}: ${choice}/${round.studyWord}`);
+            assert.ok([...choice].every(letter => authorisedLetters.has(letter)), `${cycle.id}: ${choice} runs ahead of print`);
+            assert.equal(futureWords.has(choice), false, `${cycle.id}: ${choice} previews a future HFW`);
+          }
+        }
+      }
+    });
+  }
+});
+
+test("generated onset substitutions cue one exact target and label defensible onset pieces", () => {
+  for (let seed = 1; seed <= 64; seed += 1) {
+    withSeed(seed, () => {
+      for (const cycle of elSkillsBlockCycles.filter(item => item.cycleNumber)) {
+        if (!stationsForCycle(cycle).some(station => station.id === "play")) continue;
+        for (const round of buildStationRounds(cycle, "play")
+          .filter(item => item.operation === "substituteOnset")) {
+          assert.match(round.prompt, new RegExp(`make [“"]?${round.afterWord}[”"]?`, "i"));
+          assert.equal(round.audio, wordAudioPath(round.afterWord));
+          assert.equal(round.speechFallback, round.afterWord);
+          assert.ok(round.onsetPieces.length >= 2);
+          assert.equal(round.onsetPieces.filter(piece => piece.matches).length, 1);
+          assert.equal(new Set(round.onsetPieces.map(piece => piece.grapheme)).size, round.onsetPieces.length);
+          for (const piece of round.onsetPieces) {
+            assert.deepEqual(piece.resultGraphemes, [piece.grapheme, ...round.beforeGraphemes.slice(1)]);
+            assert.equal(piece.projectedWord, piece.resultGraphemes.join(""));
+            assert.equal(piece.matches, piece.projectedWord === round.afterWord);
+          }
+        }
+      }
+    });
+  }
+});
+
+test("word mechanics reset local state when a new round keeps the same mechanic", () => {
+  const nextWindowRound = {
+    ...wordWindowRound,
+    roundKey: "word-window:second",
+    studyWord: "look",
+    answer: "look",
+    choices: ["look", "book", "lock"]
+  };
+  let windowState = createWordWindowState({ ...wordWindowRound, roundKey: "word-window:first" }, 0);
+  windowState = reduceWordWindow(windowState, { type: "CLOSE" }, { ...wordWindowRound, roundKey: "word-window:first" });
+  windowState = reduceWordWindow(windowState, { type: "SELECT", value: "said" }, { ...wordWindowRound, roundKey: "word-window:first" });
+  windowState = reduceWordWindow(windowState, { type: "REVEAL" }, { ...wordWindowRound, roundKey: "word-window:first" });
+  const resetWindow = wordWindowStateForRound(windowState, nextWindowRound, 0);
+  assert.equal(resetWindow.phase, "study");
+  assert.equal(resetWindow.selected, null);
+  assert.match(resetWindow.status, /look/);
+
+  const nextBoxesRound = {
+    ...soundBoxesRound,
+    roundKey: "sound-boxes:second",
+    word: "chat",
+    graphemes: ["ch", "a", "t"]
+  };
+  const completedBoxes = { ...createSoundBoxesState({ ...soundBoxesRound, roundKey: "sound-boxes:first" }), committed: true };
+  const resetBoxes = soundBoxesStateForRound(completedBoxes, nextBoxesRound, 0);
+  assert.equal(resetBoxes.committed, false);
+  assert.deepEqual(resetBoxes.slots, [null, null, null]);
+  assert.deepEqual(resetBoxes.tiles.map(tile => tile.grapheme), ["t", "a", "ch"]);
+
+  const nextMachineRound = {
+    ...removeRound,
+    roundKey: "word-machine:second",
+    beforeWord: "stop",
+    afterWord: "top",
+    beforeGraphemes: ["s", "t", "o", "p"],
+    afterGraphemes: ["t", "o", "p"]
+  };
+  const completedMachine = {
+    ...createWordMachineState({ ...substituteRound, roundKey: "word-machine:first" }),
+    selectedPieceIds: ["stale-piece"],
+    committed: true,
+    correct: true,
+    resultGraphemes: ["s", "a", "t"]
+  };
+  const resetMachine = wordMachineStateForRound(completedMachine, nextMachineRound, 0);
+  assert.equal(resetMachine.committed, false);
+  assert.equal(resetMachine.correct, null);
+  assert.equal(resetMachine.resultGraphemes, null);
+  assert.deepEqual(resetMachine.selectedPieceIds, []);
+});
+
+test("consecutive generated rounds of one mechanic receive distinct reset keys", () => {
+  const quickCycle = elSkillsBlockCycles.find(cycle => cycle.cycleNumber === 1);
+  const quickRounds = withSeed(7, () => buildStationRounds(quickCycle, "quick"));
+  assert.ok(quickRounds.length > 1);
+  assert.equal(new Set(quickRounds.map(round => round.roundKey)).size, quickRounds.length);
+
+  const playCycle = elSkillsBlockCycles.find(cycle => (
+    stationsForCycle(cycle).some(station => station.id === "play")
+    && buildStationRounds(cycle, "play").length > 1
+  ));
+  const playRounds = withSeed(11, () => buildStationRounds(playCycle, "play"));
+  assert.equal(new Set(playRounds.map(round => round.roundKey)).size, playRounds.length);
+});
+
 test("rendered mechanics expose distinct stages, native controls, live status, and 56px hooks", () => {
   const wordWindow = render(WordWindowMechanic, wordWindowRound);
   assert.match(wordWindow, /data-mechanic-stage="word-window"/);
   assert.match(wordWindow, /data-window-phase="study"/);
   assert.match(wordWindow, /<button[^>]*data-action="close-window"/);
-  assert.match(
-    wordWindow,
-    /<button(?=[^>]*data-word-choice="said")(?=[^>]*disabled="")[^>]*>/
-  );
+  assert.doesNotMatch(wordWindow, /data-word-choice=/);
   assert.match(wordWindow, /role="status"/);
 
   const soundBoxes = render(SoundBoxesMechanic, soundBoxesRound);
@@ -338,5 +613,6 @@ test("rendered mechanics expose distinct stages, native controls, live status, a
   for (const html of [wordWindow, soundBoxes, machine]) {
     assert.match(html, /data-target-size="56"/);
     assert.doesNotMatch(html, /sbq-answer-grid/);
+    assert.match(html, /role="group"/);
   }
 });

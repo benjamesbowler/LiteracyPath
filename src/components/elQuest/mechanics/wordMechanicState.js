@@ -7,6 +7,15 @@ function support(value) {
   return Number.isFinite(parsed) && parsed > 0 ? Math.floor(parsed) : 0;
 }
 
+function roundKey(round) {
+  return clean(round?.roundKey);
+}
+
+function belongsToRound(state, round) {
+  const key = roundKey(round);
+  return !key || state?.roundKey === key;
+}
+
 function list(value) {
   return Array.isArray(value) ? value.map(clean).filter(Boolean) : [];
 }
@@ -29,10 +38,37 @@ function semanticEvidence(round, response, supportLevel, extra = {}) {
   };
 }
 
+function differenceBetween(selected, target) {
+  const left = clean(selected);
+  const right = clean(target);
+  let prefixLength = 0;
+  while (
+    prefixLength < left.length
+    && prefixLength < right.length
+    && left[prefixLength] === right[prefixLength]
+  ) prefixLength += 1;
+
+  let suffixLength = 0;
+  while (
+    suffixLength < left.length - prefixLength
+    && suffixLength < right.length - prefixLength
+    && left[left.length - 1 - suffixLength] === right[right.length - 1 - suffixLength]
+  ) suffixLength += 1;
+
+  return {
+    prefix: right.slice(0, prefixLength),
+    selectedDifference: left.slice(prefixLength, left.length - suffixLength || undefined),
+    targetDifference: right.slice(prefixLength, right.length - suffixLength || undefined),
+    suffix: suffixLength ? right.slice(-suffixLength) : ""
+  };
+}
+
 export function createWordWindowState(round = {}, supportLevel = 0) {
   return {
+    roundKey: roundKey(round),
     phase: "study",
     selected: null,
+    difference: null,
     supportLevel: support(supportLevel),
     status: clean(round.studyWord)
       ? `Study the whole word ${clean(round.studyWord)}.`
@@ -40,10 +76,17 @@ export function createWordWindowState(round = {}, supportLevel = 0) {
   };
 }
 
+export function wordWindowStateForRound(state, round = {}, supportLevel = 0) {
+  return state && belongsToRound(state, round)
+    ? state
+    : createWordWindowState(round, supportLevel);
+}
+
 export function reduceWordWindow(state, action = {}, round = {}) {
-  if (!state || action.type === "RESET") {
+  if (action.type === "RESET") {
     return createWordWindowState(round, action.supportLevel);
   }
+  state = wordWindowStateForRound(state, round, action.supportLevel);
   switch (action.type) {
     case "CLOSE":
       if (state.phase !== "study") return state;
@@ -51,6 +94,7 @@ export function reduceWordWindow(state, action = {}, round = {}) {
         ...state,
         phase: "choose",
         selected: null,
+        difference: null,
         status: "The study window is closed. Choose the whole word."
       };
     case "SELECT": {
@@ -63,6 +107,7 @@ export function reduceWordWindow(state, action = {}, round = {}) {
         ...state,
         phase: "committed",
         selected: value,
+        difference: null,
         status: `${value} is locked in. Reveal the study word to compare.`
       };
     }
@@ -71,7 +116,21 @@ export function reduceWordWindow(state, action = {}, round = {}) {
       return {
         ...state,
         phase: "revealed",
+        difference: differenceBetween(state.selected, round.studyWord || round.answer),
         status: `The study word is ${clean(round.studyWord || round.answer)}.`
+      };
+    case "RETRY":
+      if (
+        state.phase !== "revealed"
+        || state.selected === clean(round.studyWord || round.answer)
+      ) return state;
+      return {
+        ...state,
+        phase: "choose",
+        selected: null,
+        difference: null,
+        supportLevel: state.supportLevel + 1,
+        status: "Try the whole-word choice again with the comparison support."
       };
     case "REOPEN":
       if (state.phase !== "choose") return state;
@@ -79,6 +138,7 @@ export function reduceWordWindow(state, action = {}, round = {}) {
         ...state,
         phase: "study",
         selected: null,
+        difference: null,
         supportLevel: state.supportLevel + 1,
         status: `The study window is open again. Study ${clean(round.studyWord)}.`
       };
@@ -94,7 +154,7 @@ export function reduceWordWindow(state, action = {}, round = {}) {
 }
 
 export function buildWordWindowOutcome(round = {}, state) {
-  if (!state || !["committed", "revealed"].includes(state.phase) || !state.selected) return null;
+  if (!state || state.phase !== "revealed" || !state.selected) return null;
   const target = clean(round.studyWord || round.answer);
   const correct = state.selected === target;
   return {
@@ -106,7 +166,8 @@ export function buildWordWindowOutcome(round = {}, state) {
     evidence: semanticEvidence(
       { ...round, studyWord: target },
       state.selected,
-      state.supportLevel
+      state.supportLevel,
+      { independent: correct && state.supportLevel === 0 }
     )
   };
 }
@@ -126,21 +187,30 @@ function graphemeTiles(graphemes) {
 export function createSoundBoxesState(round = {}, supportLevel = 0) {
   const graphemes = list(round.graphemes);
   return {
+    roundKey: roundKey(round),
     slots: graphemes.map(() => null),
     tiles: graphemeTiles(graphemes),
     usedTileIds: [],
     supportLevel: support(supportLevel),
     committed: false,
+    lastAttempt: null,
     status: graphemes.length
       ? `Fill ${graphemes.length} sound boxes, then blend and check.`
       : "No graphemes are available for this word."
   };
 }
 
+export function soundBoxesStateForRound(state, round = {}, supportLevel = 0) {
+  return state && belongsToRound(state, round)
+    ? state
+    : createSoundBoxesState(round, supportLevel);
+}
+
 export function reduceSoundBoxes(state, action = {}, round = {}) {
-  if (!state || action.type === "RESET") {
+  if (action.type === "RESET") {
     return createSoundBoxesState(round, action.supportLevel);
   }
+  state = soundBoxesStateForRound(state, round, action.supportLevel);
   if (state.committed && action.type !== "RESET") return state;
   const target = list(round.graphemes);
   switch (action.type) {
@@ -153,6 +223,12 @@ export function reduceSoundBoxes(state, action = {}, round = {}) {
         return {
           ...state,
           supportLevel: state.supportLevel + 1,
+          lastAttempt: {
+            correct: false,
+            selected: tile.grapheme,
+            expectedGrapheme: expected,
+            boxIndex: slotIndex
+          },
           status: `${tile.grapheme} does not fit sound box ${slotIndex + 1}. Listen for ${expected}; your correct boxes stay in place.`
         };
       }
@@ -162,6 +238,7 @@ export function reduceSoundBoxes(state, action = {}, round = {}) {
         ...state,
         slots,
         usedTileIds: [...state.usedTileIds, tile.id],
+        lastAttempt: null,
         status: `${tile.grapheme} is in sound box ${slotIndex + 1}.`
       };
     }
@@ -175,6 +252,7 @@ export function reduceSoundBoxes(state, action = {}, round = {}) {
         ...state,
         slots,
         usedTileIds: state.usedTileIds.filter(id => id !== placed.tileId),
+        lastAttempt: null,
         status: `${placed.grapheme} returned to the tile bank.`
       };
     }
@@ -194,6 +272,7 @@ export function reduceSoundBoxes(state, action = {}, round = {}) {
       return {
         ...state,
         committed: true,
+        lastAttempt: { correct: true },
         status: `Blend ${state.slots.map(slot => slot.grapheme).join(", ")}.`
       };
     default:
@@ -202,7 +281,20 @@ export function reduceSoundBoxes(state, action = {}, round = {}) {
 }
 
 export function buildSoundBoxesOutcome(round = {}, state) {
-  if (!state?.committed) return null;
+  if (!state) return null;
+  if (!state.committed && state.lastAttempt?.correct === false) {
+    return {
+      correct: false,
+      selected: state.lastAttempt.selected,
+      feedback: state.status,
+      evidence: semanticEvidence(round, state.lastAttempt.selected, state.supportLevel, {
+        independent: false,
+        boxIndex: state.lastAttempt.boxIndex,
+        expectedGrapheme: state.lastAttempt.expectedGrapheme
+      })
+    };
+  }
+  if (!state.committed) return null;
   const response = state.slots.map(slot => clean(slot?.grapheme)).filter(Boolean);
   const target = list(round.graphemes);
   const correct = sameGraphemes(response, target);
@@ -212,8 +304,18 @@ export function buildSoundBoxesOutcome(round = {}, state) {
     feedback: correct
       ? `Blend ${response.join(", ")}. You built ${clean(round.word)}.`
       : `You built ${response.join("")}. Listen again and compare each sound box with ${clean(round.word)}.`,
-    evidence: semanticEvidence(round, response, state.supportLevel)
+    evidence: semanticEvidence(round, response, state.supportLevel, {
+      independent: correct && state.supportLevel === 0
+    })
   };
+}
+
+export function commitSoundBoxPlacement(state, tileId, round, onCommit = () => {}) {
+  const next = reduceSoundBoxes(state, { type: "PLACE_TILE", tileId }, round);
+  if (next === state) return state;
+  const outcome = buildSoundBoxesOutcome(round, next);
+  if (outcome?.correct === false) onCommit(outcome);
+  return next;
 }
 
 function pieceId(action, graphemes, occurrence = 1) {
@@ -224,11 +326,20 @@ export function machinePiecesForRound(round = {}) {
   const before = list(round.beforeGraphemes);
   const after = list(round.afterGraphemes);
   if (round.operation === "substituteOnset") {
+    if (Array.isArray(round.onsetPieces) && round.onsetPieces.length) {
+      return round.onsetPieces.map((piece, index) => ({
+        id: pieceId("swap", [piece.grapheme], index + 1),
+        action: "swap",
+        label: clean(piece.grapheme),
+        graphemes: [clean(piece.grapheme)],
+        projectedWord: clean(piece.projectedWord),
+        matches: Boolean(piece.matches)
+      }));
+    }
     const candidateOnsets = Array.isArray(round.choiceGraphemes)
       ? round.choiceGraphemes.map(choice => list(choice?.graphemes)[0]).filter(Boolean)
       : [before[0], after[0]].filter(Boolean);
-    const uniqueOnsets = [...new Set([...candidateOnsets, after[0]].filter(Boolean))];
-    return uniqueOnsets.map((grapheme, index) => ({
+    return [...new Set([...candidateOnsets, after[0]].filter(Boolean))].map((grapheme, index) => ({
       id: pieceId("swap", [grapheme], index + 1),
       action: "swap",
       label: grapheme,
@@ -266,12 +377,20 @@ function machineInstruction(operation) {
 
 export function createWordMachineState(round = {}, supportLevel = 0) {
   return {
+    roundKey: roundKey(round),
     selectedPieceIds: [],
     committed: false,
+    correct: null,
     resultGraphemes: null,
     supportLevel: support(supportLevel),
     status: machineInstruction(round.operation)
   };
+}
+
+export function wordMachineStateForRound(state, round = {}, supportLevel = 0) {
+  return state && belongsToRound(state, round)
+    ? state
+    : createWordMachineState(round, supportLevel);
 }
 
 function machineReady(operation, selectedPieceIds, pieceCount) {
@@ -300,11 +419,24 @@ function resultForMachine(round, selectedPieceIds, pieces) {
 }
 
 export function reduceWordMachine(state, action = {}, round = {}) {
-  if (!state || action.type === "RESET") {
+  if (action.type === "RESET") {
     return createWordMachineState(round, action.supportLevel);
   }
-  if (state.committed && action.type !== "RESET") return state;
+  state = wordMachineStateForRound(state, round, action.supportLevel);
   const pieces = machinePiecesForRound(round);
+  if (action.type === "RETRY") {
+    if (!state.committed || state.correct !== false) return state;
+    return {
+      ...state,
+      selectedPieceIds: [],
+      committed: false,
+      correct: null,
+      resultGraphemes: null,
+      supportLevel: state.supportLevel + 1,
+      status: "Try the word operation again with the correction support."
+    };
+  }
+  if (state.committed && action.type !== "RESET") return state;
   switch (action.type) {
     case "SELECT_PIECE": {
       const piece = pieces.find(item => item.id === action.pieceId);
@@ -343,6 +475,7 @@ export function reduceWordMachine(state, action = {}, round = {}) {
       return {
         ...state,
         committed: true,
+        correct: sameGraphemes(resultGraphemes, round.afterGraphemes),
         resultGraphemes,
         status: `The machine made ${resultGraphemes.join("")}.`
       };
@@ -384,6 +517,7 @@ export function buildWordMachineOutcome(round = {}, state) {
     selected: response,
     feedback: machineFeedback(round, response, correct),
     evidence: semanticEvidence(round, response, state.supportLevel, {
+      independent: correct && state.supportLevel === 0,
       operation: clean(round.operation)
     })
   };
