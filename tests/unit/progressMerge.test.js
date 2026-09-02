@@ -695,3 +695,28 @@ test("server merge mirrors demotion epochs, safe resume, daily missions, and Hol
   assert.match(selftest, /stale update discarded a first-insert pending reset/);
   assert.match(selftest, /teacher assignment was not delivered across reset generations/);
 });
+
+test("Sound Seekers content deck migration keeps raw merge separate from valid projections", () => {
+  const migration = fs.readFileSync(
+    "supabase/migrations/20260901143000_sound_seekers_v2_content_deck_merge.sql", "utf8"
+  );
+  const selftest = fs.readFileSync(
+    "supabase/verify/sound_seekers_v2_content_deck_merge_selftest.sql", "utf8"
+  );
+  for (const signature of [
+    "lp_quest_normalize_v2_activity_type(domain text, value text)",
+    "lp_quest_normalize_v2_deck_visit(category text, entry_id text, value jsonb)",
+    "lp_quest_normalize_v2_deck_use(category text, entry_id text, value jsonb)",
+    "lp_quest_merge_v2_content_decks(left jsonb, right jsonb)",
+    "lp_quest_normalize_v2_attempt_receipt(entry_id text, value jsonb)",
+    "lp_quest_union_v2_attempt_receipts(left_receipts jsonb, right_receipts jsonb)",
+    "lp_quest_valid_v2_attempt_receipts(evidence jsonb, content_decks jsonb, attempt_receipts jsonb)",
+    "lp_quest_valid_v2_content_decks(content_decks jsonb, attempt_receipts jsonb, evidence jsonb)"
+  ]) assert.ok(migration.includes(signature), signature);
+  assert.match(migration, /'morphology'[\s\S]*'transfer'/);
+  assert.match(migration, /attemptReceipts/);
+  assert.match(migration, /attempt_receipt_conflict/);
+  assert.match(selftest, /SOUND_SEEKERS_CONTENT_DECK_SQL_SELFTEST/);
+  assert.match(selftest, /model_pending/);
+  assert.match(selftest, /narrativeChoiceToken/);
+});

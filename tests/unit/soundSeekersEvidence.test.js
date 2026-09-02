@@ -173,6 +173,27 @@ test("a legitimate heart-word subtype survives one child-safe evidence event", (
   assert.equal(event.activityType, "recognition");
 });
 
+test("non-heart evidence omits activityType while preserving canonical null identities", () => {
+  const event = decision({
+    challenge: challenge({
+      attemptId: "text-scene-s1",
+      targetId: "text:scene-s1",
+      connectedTextId: "scene-s1",
+      recordsDomain: EVIDENCE_DOMAINS.CONNECTED_TEXT_TRANSFER,
+      expectedToken: "ct-s1-b",
+      requiresAudio: false
+    }),
+    response: { kind: "literacy-answer", token: "ct-s1-b" }
+  });
+  assert.equal(Object.hasOwn(event, "activityType"), false);
+  assert.deepEqual({
+    word: event.word,
+    position: event.position,
+    connectedTextId: event.connectedTextId,
+    bossTransferId: event.bossTransferId
+  }, { word: null, position: null, connectedTextId: "scene-s1", bossTransferId: null });
+});
+
 test("a wrong literacy decision records only its own truthful confusion", () => {
   const miss = decision({
     response: { kind: "literacy-answer", token: "ch" },

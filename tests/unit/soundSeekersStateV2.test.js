@@ -85,6 +85,58 @@ test("v2 evidence trims ids and orders numeric timestamps before string timestam
   ]);
 });
 
+test("v2 structural state normalizes all five deck categories, receipts, and exact pending descriptors", () => {
+  const base = createSoundSeekersState();
+  assert.deepEqual(Object.keys(base.contentDecks), [
+    "heartWords", "stories", "alternatives", "morphology", "transfer"
+  ]);
+  assert.deepEqual(base.attemptReceipts, {});
+  for (const category of Object.keys(base.contentDecks)) {
+    assert.deepEqual(base.contentDecks[category], { visits: {}, uses: {} });
+  }
+
+  const visitId = "visit:s16-alternative";
+  const alternatives = {
+    visits: {
+      [visitId]: {
+        kind: "visit", visitId,
+        contentInstanceId: "alternatives-content-instance:alternative-slot-s16",
+        visitOwnerId: "s16-alternative", ownerActionUseId: "s16-alternative:content-use",
+        category: "alternatives", slotId: "alternative-slot-s16",
+        recordId: "alternative:s16", contentId: "alternative:s16",
+        targetId: null, wordId: null, stopId: "s16", journeyStep: 16
+      }
+    },
+    uses: {}
+  };
+  const malformed = normalizeSoundSeekersState({
+    ...base,
+    contentDecks: { ...base.contentDecks, alternatives },
+    checkpoint: {
+      contentVersion: SOUND_SEEKERS_CONTENT_VERSION,
+      contentPlacement: {
+        kind: "content_placement", placementId: "s16-alternative", category: "alternatives",
+        visitId, stopId: "s16", journeyStep: 16,
+        stage: "response_pending", targetOrdinal: 0, attemptOrdinal: 0,
+        attemptId: "content-placement-attempt:visit:s16-alternative:s16-alternative:0:0",
+        expectedToken: "forbidden", correction: { answer: "forbidden" }
+      }
+    }
+  });
+  assert.equal(Object.hasOwn(malformed.checkpoint.contentPlacement, "expectedToken"), false);
+  assert.equal(Object.hasOwn(malformed.checkpoint.contentPlacement, "correction"), false);
+  assert.deepEqual(Object.keys(malformed.checkpoint.contentPlacement).sort(), [
+    "attemptId", "attemptOrdinal", "category", "journeyStep", "kind", "placementId",
+    "stage", "stopId", "targetOrdinal", "visitId"
+  ]);
+  const orphaned = normalizeSoundSeekersState({
+    ...base,
+    checkpoint: malformed.checkpoint
+  });
+  assert.equal(orphaned.checkpoint.contentPlacement, undefined,
+    "a pending descriptor without its structural visit is not resumable");
+});
+
 test("v2 merge unions immutable events, monotonic repairs, and reset ancestry", () => {
   const base = createSoundSeekersState();
   const a = { ...base, evidence: [{ id: "a", at: 1 }], trail: { ...base.trail, journeyStep: 41, repairs: { mill: true } } };

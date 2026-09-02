@@ -74,6 +74,11 @@ function stringId(value) {
   return typeof value === "string" && value.trim() ? value.trim() : null;
 }
 
+export function normalizeHeartWordActivityType(value) {
+  const activityType = stringId(value);
+  return HEART_ACTIVITY_SET.has(activityType) ? activityType : null;
+}
+
 function normalizedWord(value) {
   return stringId(value)?.toLocaleLowerCase() || null;
 }

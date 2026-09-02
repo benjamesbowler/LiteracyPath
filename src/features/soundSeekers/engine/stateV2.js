@@ -1,3 +1,15 @@
+import {
+  createContentDeckState,
+  mergeAttemptReceipts,
+  mergeContentDeckState,
+  normalizeAttemptReceipts,
+  normalizeContentDeckCheckpoint
+} from "./contentDeckState.js";
+import {
+  EVIDENCE_DOMAINS,
+  normalizeHeartWordActivityType
+} from "./evidenceEligibility.js";
+
 export const SOUND_SEEKERS_SCHEMA_VERSION = 2;
 export const SOUND_SEEKERS_CONTENT_VERSION = "sound-seekers-v2";
 export const MAX_SOUND_SEEKERS_EVIDENCE = 1200;
@@ -89,7 +101,13 @@ function normalizeEvent(event) {
     : typeof value.at === "string" && trimAsciiSpaces(value.at)
       ? trimAsciiSpaces(value.at)
       : 0;
-  return Object.freeze({ ...value, id, at });
+  const normalized = { ...value, id, at };
+  delete normalized.activityType;
+  const activityType = value.domain === EVIDENCE_DOMAINS.HEART_WORD_MAPPING
+    ? normalizeHeartWordActivityType(value.activityType)
+    : null;
+  if (activityType) normalized.activityType = activityType;
+  return Object.freeze(normalized);
 }
 
 function compareEventAt(left, right) {
@@ -159,15 +177,6 @@ function normalizeNumberMap(value) {
     .filter(([key, amount]) => key && amount > 0));
 }
 
-function normalizeDecks(value) {
-  const decks = asObject(value);
-  return {
-    heartWords: asObject(decks.heartWords),
-    stories: asObject(decks.stories),
-    alternatives: asObject(decks.alternatives)
-  };
-}
-
 function normalizeJournal(value) {
   const journal = asObject(value);
   return {
@@ -177,9 +186,11 @@ function normalizeJournal(value) {
   };
 }
 
-function normalizeCheckpoint(value) {
+function normalizeCheckpoint(value, contentDecks) {
   const checkpoint = asObject(value);
-  return checkpoint.contentVersion === SOUND_SEEKERS_CONTENT_VERSION ? checkpoint : null;
+  return checkpoint.contentVersion === SOUND_SEEKERS_CONTENT_VERSION
+    ? normalizeContentDeckCheckpoint(checkpoint, contentDecks)
+    : null;
 }
 
 export function isSoundSeekersV2(raw) {
@@ -196,17 +207,19 @@ export function isSoundSeekersV2(raw) {
 
 export function createSoundSeekersState(seed = {}) {
   const value = asObject(seed);
+  const contentDecks = createContentDeckState(value.contentDecks);
   return {
     v: SOUND_SEEKERS_SCHEMA_VERSION,
     contentVersion: SOUND_SEEKERS_CONTENT_VERSION,
     reset: { epoch: boundedInteger(value.reset?.epoch), at: typeof value.reset?.at === "string" ? value.reset.at : null },
     trail: { routeCursor: 1, journeyStep: 1, completedStopIds: [], repairs: {}, chapterCoverage: {} },
-    evidence: [],
-    confusions: {},
-    contentDecks: { heartWords: {}, stories: {}, alternatives: {} },
-    journal: { words: [], scenes: [], stickers: [] },
-    rewards: { claimedIds: [] },
-    checkpoint: null,
+    evidence: normalizeEvidence(value.evidence),
+    confusions: normalizeNumberMap(value.confusions),
+    contentDecks,
+    attemptReceipts: normalizeAttemptReceipts(value.attemptReceipts),
+    journal: normalizeJournal(value.journal),
+    rewards: { claimedIds: normalizeIdList(value.rewards?.claimedIds) },
+    checkpoint: normalizeCheckpoint(value.checkpoint, contentDecks),
     assignment: normalizeAssignment(value.assignment),
     settings: normalizeAllowlistedSettings(value.settings)
   };
@@ -242,10 +255,11 @@ export function normalizeSoundSeekersState(raw, carry = {}) {
     },
     evidence: normalizeEvidence(source.evidence),
     confusions: normalizeNumberMap(source.confusions),
-    contentDecks: normalizeDecks(source.contentDecks),
+    contentDecks: createContentDeckState(source.contentDecks),
+    attemptReceipts: normalizeAttemptReceipts(source.attemptReceipts),
     journal: normalizeJournal(source.journal),
     rewards: { claimedIds: normalizeIdList(rewards.claimedIds) },
-    checkpoint: normalizeCheckpoint(source.checkpoint),
+    checkpoint: normalizeCheckpoint(source.checkpoint, source.contentDecks),
     assignment: normalizeAssignment(source.assignment ?? preserved.assignment),
     settings: normalizeAllowlistedSettings(source.settings ?? preserved.settings)
   };
@@ -265,17 +279,6 @@ function mergeBooleanMaps(local, remote) {
 
 function mergeIds(local, remote) {
   return normalizeIdList([...(Array.isArray(local) ? local : []), ...(Array.isArray(remote) ? remote : [])]);
-}
-
-function mergeRecords(local, remote) {
-  const result = { ...asObject(local) };
-  for (const [key, value] of Object.entries(asObject(remote))) {
-    const previous = result[key];
-    if (typeof previous === "number" && typeof value === "number") result[key] = Math.max(previous, value);
-    else if (typeof previous === "boolean" && typeof value === "boolean") result[key] = previous || value;
-    else if (previous === undefined) result[key] = value;
-  }
-  return result;
 }
 
 function mergeEvidence(local, remote) {
@@ -328,11 +331,8 @@ export function mergeSoundSeekersStates(local, remote) {
     },
     evidence: mergeEvidence(localState, remoteState),
     confusions: mergeNumberMaps(localState.confusions, remoteState.confusions),
-    contentDecks: {
-      heartWords: mergeRecords(localState.contentDecks.heartWords, remoteState.contentDecks.heartWords),
-      stories: mergeRecords(localState.contentDecks.stories, remoteState.contentDecks.stories),
-      alternatives: mergeRecords(localState.contentDecks.alternatives, remoteState.contentDecks.alternatives)
-    },
+    contentDecks: mergeContentDeckState(localState.contentDecks, remoteState.contentDecks),
+    attemptReceipts: mergeAttemptReceipts(localState.attemptReceipts, remoteState.attemptReceipts),
     journal: {
       words: mergeIds(localState.journal.words, remoteState.journal.words),
       scenes: mergeIds(localState.journal.scenes, remoteState.journal.scenes),

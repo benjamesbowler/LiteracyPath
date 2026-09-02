@@ -10,6 +10,7 @@ const {
   classifyEvidenceTarget,
   eligibleEvidencePaths,
   nextEligibleEvidencePath,
+  normalizeHeartWordActivityType,
   validateEvidencePath
 } = evidenceEligibility;
 
@@ -95,6 +96,13 @@ test("heart-word paths are subtype-specific and cannot launder into novel decodi
     domain: EVIDENCE_DOMAINS.HEART_WORD_MAPPING,
     activityType: "heart_part_mapping"
   });
+});
+
+test("the shared activity normalizer admits only imported heart subtypes", () => {
+  assert.equal(normalizeHeartWordActivityType(" recognition "), "recognition");
+  assert.equal(normalizeHeartWordActivityType("heart_part_mapping"), "heart_part_mapping");
+  assert.equal(normalizeHeartWordActivityType("guess"), null);
+  assert.equal(normalizeHeartWordActivityType(null), null);
 });
 
 test("connected text and boss decoding remain separate closed target kinds", () => {

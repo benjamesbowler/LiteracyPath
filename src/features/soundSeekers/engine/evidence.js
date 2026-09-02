@@ -1,4 +1,8 @@
 import { isRecordableQuestChallenge } from "./challengeContract.js";
+import {
+  EVIDENCE_DOMAINS,
+  normalizeHeartWordActivityType
+} from "./evidenceEligibility.js";
 
 const AUDIO_COMPLETED = "completed";
 
@@ -92,7 +96,6 @@ export function createLiteracyDecision({
     confusion: correct ? null : token,
     word: challenge.wordId || null,
     position: challenge.position ?? null,
-    activityType: challenge.activityType || null,
     connectedTextId: challenge.connectedTextId || null,
     bossTransferId: challenge.bossTransferId || null,
     mechanic: challenge.powerId || null,
@@ -101,6 +104,11 @@ export function createLiteracyDecision({
     sessionDay: resolvedSessionDay,
     evidenceKind: "practice"
   };
+  if (challenge.recordsDomain === EVIDENCE_DOMAINS.HEART_WORD_MAPPING) {
+    const activityType = normalizeHeartWordActivityType(challenge.activityType);
+    if (!activityType) return null;
+    event.activityType = activityType;
+  }
   return Object.freeze(event);
 }
 
