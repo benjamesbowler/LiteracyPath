@@ -93,12 +93,32 @@ function oneImmediateAction(step) {
   return Boolean(text) && !/,|;|\b(?:and|then)\b/iu.test(text);
 }
 
-function normalizedRole(value) {
+function normalizedSemanticText(value) {
   return String(value || "")
-    .trim()
+    .normalize("NFKD")
     .toLocaleLowerCase()
-    .replace(/[^a-z0-9]+/gu, "_")
-    .replace(/^_+|_+$/gu, "");
+    .replace(/[’']/gu, "")
+    .replace(/[^a-z0-9]+/gu, " ")
+    .trim()
+    .replace(/\s+/gu, " ");
+}
+
+function semanticRequirementFor(context) {
+  return deepFreezeClone({
+    decisionActions: context.decisionSteps.map(step => normalizedSemanticText(step).split(" ")[0]),
+    decisionModel: normalizedSemanticText(context.decisionModel),
+    inputPattern: normalizedSemanticText(context.inputPattern),
+    physicalActionRoles: context.physicalActionRoles.map(normalizedSemanticText)
+  });
+}
+
+function semanticRequirementSignature(requirement) {
+  return [
+    `decision:${requirement.decisionActions.join(">")}`,
+    `model:${requirement.decisionModel}`,
+    `input:${requirement.inputPattern}`,
+    `physical:${requirement.physicalActionRoles.join(">")}`
+  ].join("|");
 }
 
 function assertContextShape(context) {
@@ -156,11 +176,11 @@ export function createInteractionRuntimeModel(action, context) {
   const canonicalAction = assertActionContextContract(action, context);
   const validInputs = [...(INPUTS_BY_POWER[canonicalAction.powerId] || []), canonicalAction.expectedAction];
   const uniqueInputs = [...new Set(validInputs)];
-  const semanticInputAllowlist = uniqueInputs.map((type, index) => ({
+  const semanticRequirement = semanticRequirementFor(context);
+  const requirementSignature = semanticRequirementSignature(semanticRequirement);
+  const semanticInputAllowlist = uniqueInputs.map(type => ({
     type,
-    contextId: context.id,
-    role: context.physicalActionRoles[index % context.physicalActionRoles.length],
-    semanticId: `${context.id}:${normalizedRole(type)}`
+    semanticRequirement: `transition:${normalizedSemanticText(type)}|${requirementSignature}`
   }));
   return deepFreezeClone({
     kind: "sound_seekers_interaction_runtime",
@@ -178,6 +198,7 @@ export function createInteractionRuntimeModel(action, context) {
     contextId: context.id,
     ...Object.fromEntries(INTERACTION_CONTEXT_FIELDS.filter(key => key !== "id").map(key => [key, context[key]])),
     validInputs: uniqueInputs,
+    semanticRequirement,
     semanticInputAllowlist
   });
 }
@@ -350,7 +371,9 @@ export function createCommonState(powerId, challenge, options = {}, extraResumeF
     seed: options.seed,
     semanticSteps: resume?.semanticSteps || [],
     correction: projectCorrection(resume?.correction),
-    morphology: authority.morphology
+    morphology: authority.morphology,
+    semanticRequirement: authority.runtime?.semanticRequirement || null,
+    semanticInputAllowlist: authority.runtime?.semanticInputAllowlist || []
   };
 }
 
@@ -410,6 +433,33 @@ export function emptyPowerResult(state) {
 export function transitionPower(state, patch, semanticStep = null) {
   const steps = semanticStep ? [...state.semanticSteps, semanticStep] : state.semanticSteps;
   return deepFreezeClone({ ...state, ...patch, semanticSteps: steps, revision: state.revision + 1 });
+}
+
+export function semanticStepFor(state, type, ...indexes) {
+  const allowed = state.semanticInputAllowlist?.find(entry => entry.type === type);
+  if (!allowed || indexes.some(index => !Number.isInteger(index) || index < 0)) {
+    throw new Error(`${state.powerId}: transition has no authored semantic requirement`);
+  }
+  const operation = [type, ...indexes].join("#");
+  return `${operation}::${allowed.semanticRequirement}`;
+}
+
+export function parseSemanticHistory(state) {
+  if (!Array.isArray(state.semanticSteps)) throw new Error(`${state.powerId}: semantic resume history is invalid`);
+  const requirements = new Map((state.semanticInputAllowlist || [])
+    .map(entry => [entry.type, entry.semanticRequirement]));
+  return state.semanticSteps.map(step => {
+    const divider = step.indexOf("::");
+    if (divider <= 0) throw new Error(`${state.powerId}: semantic resume history is invalid`);
+    const operation = step.slice(0, divider);
+    const requirement = step.slice(divider + 2);
+    const [type, ...rawIndexes] = operation.split("#");
+    if (requirements.get(type) !== requirement
+      || rawIndexes.some(index => !/^(?:0|[1-9][0-9]*)$/u.test(index))) {
+      throw new Error(`${state.powerId}: semantic resume history does not match its authored context`);
+    }
+    return Object.freeze({ type, indexes: Object.freeze(rawIndexes.map(Number)) });
+  });
 }
 
 export function answerPower(state, challenge, token, semanticStep, patch = {}) {

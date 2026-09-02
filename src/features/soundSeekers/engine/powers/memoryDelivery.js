@@ -8,11 +8,42 @@ import {
   deepFreezeClone,
   emptyPowerResult,
   inputHasExactKeys,
+  parseSemanticHistory,
   publicEntries,
+  semanticStepFor,
   transitionPower
 } from "./contracts.js";
 
 const POWER_ID = "memory_delivery";
+
+function assertResumeHistory(common, resume, recipients) {
+  let cueReceived = false;
+  let cueVisible = false;
+  let replayCount = 0;
+  let routeProgress = 0;
+  let arrived = false;
+  let status = "active";
+  for (const { type, indexes } of parseSemanticHistory(common)) {
+    if (status !== "active") throw new Error("Memory Delivery semantic resume history is impossible");
+    if (type === "receive_cue" && indexes.length === 0 && !cueReceived) {
+      cueReceived = true;
+      cueVisible = true;
+    } else if (type === "replay_cue" && indexes.length === 0 && cueReceived && !arrived) {
+      replayCount += 1;
+    } else if (type === "move" && indexes.length === 0 && cueReceived && !arrived) {
+      cueVisible = false;
+      routeProgress += 1;
+    } else if (type === "arrive" && indexes.length === 0 && cueReceived && routeProgress > 0 && !arrived) {
+      arrived = true;
+    } else if (type === common.expectedAction && indexes.length === 1 && recipients[indexes[0]] && arrived) {
+      status = "awaiting_mission_commit";
+    } else throw new Error("Memory Delivery semantic resume history is impossible");
+  }
+  if (resume.status !== status || resume.cueReceived !== cueReceived || resume.cueVisible !== cueVisible
+    || resume.replayCount !== replayCount || resume.routeProgress !== routeProgress || resume.arrived !== arrived) {
+    throw new Error("Memory Delivery resume checkpoint does not match its semantic history");
+  }
+}
 
 export const memoryDelivery = Object.freeze({
   createState(challenge, options = {}) {
@@ -23,7 +54,8 @@ export const memoryDelivery = Object.freeze({
       name: "Memory Delivery recipients",
       contextId: common.interactionContextId,
       min: 1,
-      max: 6
+      max: 6,
+      fields: ["id", "label", "token"]
     });
     const recipients = publicEntries(challenge.presentation?.recipients);
     if (recipients.length === 0) throw new Error("Memory Delivery needs a meaningful recipient");
@@ -42,11 +74,10 @@ export const memoryDelivery = Object.freeze({
           || options.resume.routeProgress !== 0 || options.resume.arrived))
         || (options.resume.routeProgress > 0 && (!options.resume.cueReceived || options.resume.cueVisible))
         || (options.resume.arrived && (!options.resume.cueReceived
-          || options.resume.routeProgress === 0 || options.resume.cueVisible))
-        || (options.resume.status === "awaiting_mission_commit"
-          && (!options.resume.arrived || options.resume.semanticSteps.at(-1) !== common.expectedAction))) {
+          || options.resume.routeProgress === 0 || options.resume.cueVisible))) {
         throw new Error("Memory Delivery resume checkpoint is impossible");
       }
+      assertResumeHistory(common, options.resume, recipients);
     }
     return deepFreezeClone({
       ...common,
@@ -59,33 +90,36 @@ export const memoryDelivery = Object.freeze({
         ? options.resume.routeProgress
         : 0,
       arrived: options.resume?.arrived === true,
-      recipients
+      recipients,
+      recipientTokens: Object.fromEntries(challenge.presentation.recipients.map(recipient => [recipient.id, recipient.token]))
     });
   },
 
   reduce(state, input, { challenge } = {}) {
     assertReducerContext(state, challenge);
     if (state.status === "awaiting_mission_commit") return emptyPowerResult(state);
-    if (inputHasExactKeys(input, ["type"]) && input.type === "receive_cue") {
-      return Object.freeze({ state: transitionPower(state, { cueReceived: true, cueVisible: true }, "receive_cue"), responseIntents: Object.freeze([]) });
+    if (inputHasExactKeys(input, ["type"]) && input.type === "receive_cue" && !state.cueReceived) {
+      return Object.freeze({ state: transitionPower(state, { cueReceived: true, cueVisible: true }, semanticStepFor(state, "receive_cue")), responseIntents: Object.freeze([]) });
     }
-    if (inputHasExactKeys(input, ["type"]) && input.type === "replay_cue" && state.cueReceived) {
-      return Object.freeze({ state: transitionPower(state, { replayCount: state.replayCount + 1 }, "replay_cue"), responseIntents: Object.freeze([]) });
+    if (inputHasExactKeys(input, ["type"]) && input.type === "replay_cue" && state.cueReceived && !state.arrived) {
+      return Object.freeze({ state: transitionPower(state, { replayCount: state.replayCount + 1 }, semanticStepFor(state, "replay_cue")), responseIntents: Object.freeze([]) });
     }
     if (inputHasExactKeys(input, ["type", "dx", "dy"])
-      && input.type === "move" && state.cueReceived
+      && input.type === "move" && state.cueReceived && !state.arrived
       && Number.isFinite(input.dx) && Number.isFinite(input.dy)
       && (input.dx !== 0 || input.dy !== 0)) {
-      return Object.freeze({ state: transitionPower(state, { cueVisible: false, routeProgress: state.routeProgress + 1 }, "move"), responseIntents: Object.freeze([]) });
+      return Object.freeze({ state: transitionPower(state, { cueVisible: false, routeProgress: state.routeProgress + 1 }, semanticStepFor(state, "move")), responseIntents: Object.freeze([]) });
     }
     if (inputHasExactKeys(input, ["type"])
-      && input.type === "arrive" && state.cueReceived && state.routeProgress > 0) {
-      return Object.freeze({ state: transitionPower(state, { arrived: true }, "arrive"), responseIntents: Object.freeze([]) });
+      && input.type === "arrive" && state.cueReceived && state.routeProgress > 0 && !state.arrived) {
+      return Object.freeze({ state: transitionPower(state, { arrived: true }, semanticStepFor(state, "arrive")), responseIntents: Object.freeze([]) });
     }
-    if (inputHasExactKeys(input, ["type", "recipientId", "token"])
+    if (inputHasExactKeys(input, ["type", "recipientId"])
       && input.type === state.expectedAction && state.arrived
       && state.recipients.some(recipient => recipient.id === input.recipientId)) {
-      return answerPower(state, challenge, input.token, state.expectedAction);
+      const recipientIndex = state.recipients.findIndex(recipient => recipient.id === input.recipientId);
+      return answerPower(state, challenge, state.recipientTokens[input.recipientId],
+        semanticStepFor(state, state.expectedAction, recipientIndex));
     }
     return emptyPowerResult(state);
   },

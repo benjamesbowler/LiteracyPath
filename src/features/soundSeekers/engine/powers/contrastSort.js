@@ -8,11 +8,32 @@ import {
   deepFreezeClone,
   emptyPowerResult,
   inputHasExactKeys,
+  parseSemanticHistory,
   publicEntries,
+  semanticStepFor,
   transitionPower
 } from "./contracts.js";
 
 const POWER_ID = "contrast_sort";
+
+function assertResumeHistory(common, resume, items, bins) {
+  const placements = {};
+  let status = "active";
+  for (const { type, indexes } of parseSemanticHistory(common)) {
+    if (status !== "active") throw new Error("Contrast Sort semantic resume history is impossible");
+    if (type === "reverse_placement" && indexes.length === 1 && items[indexes[0]]) {
+      delete placements[items[indexes[0]].id];
+    } else if (type === common.expectedAction && indexes.length === 2
+      && items[indexes[0]] && bins[indexes[1]]) {
+      placements[items[indexes[0]].id] = bins[indexes[1]].id;
+      status = "awaiting_mission_commit";
+    } else throw new Error("Contrast Sort semantic resume history is impossible");
+  }
+  if (resume.status !== status
+    || JSON.stringify(Object.entries(resume.placements).sort()) !== JSON.stringify(Object.entries(placements).sort())) {
+    throw new Error("Contrast Sort resume checkpoint does not match its semantic history");
+  }
+}
 
 export const contrastSort = Object.freeze({
   createState(challenge, options = {}) {
@@ -27,7 +48,8 @@ export const contrastSort = Object.freeze({
       name: "Contrast Sort bins",
       contextId: common.interactionContextId,
       min: 2,
-      max: 3
+      max: 3,
+      fields: ["id", "label", "token"]
     });
     const items = publicEntries(challenge.presentation?.items);
     const bins = publicEntries(challenge.presentation?.bins);
@@ -37,7 +59,8 @@ export const contrastSort = Object.freeze({
     if (options.resume) {
       const sameCollection = (resumed, canonical) => Array.isArray(resumed)
         && resumed.length === canonical.length
-        && resumed.every((item, index) => item.id === canonical[index].id && item.label === canonical[index].label);
+        && resumed.every((item, index) => Object.keys(item || {}).length === 2
+          && item.id === canonical[index].id && item.label === canonical[index].label);
       const placementEntries = options.resume.placements && typeof options.resume.placements === "object"
         && !Array.isArray(options.resume.placements)
         ? Object.entries(options.resume.placements)
@@ -46,18 +69,18 @@ export const contrastSort = Object.freeze({
         || !sameCollection(options.resume.bins, bins)
         || !placementEntries
         || placementEntries.some(([itemId, binId]) => !items.some(item => item.id === itemId)
-          || !bins.some(bin => bin.id === binId))
-        || (options.resume.status === "awaiting_mission_commit"
-          && (placementEntries.length === 0 || options.resume.semanticSteps.at(-1) !== common.expectedAction))) {
+          || !bins.some(bin => bin.id === binId))) {
         throw new Error("Contrast Sort resume checkpoint is impossible");
       }
+      assertResumeHistory(common, options.resume, items, bins);
     }
     const placements = options.resume?.placements || {};
     return deepFreezeClone({
       ...common,
       items,
       bins,
-      placements
+      placements,
+      binTokens: Object.fromEntries(challenge.presentation.bins.map(bin => [bin.id, bin.token]))
     });
   },
 
@@ -66,18 +89,23 @@ export const contrastSort = Object.freeze({
     if (state.status === "awaiting_mission_commit") return emptyPowerResult(state);
     if (inputHasExactKeys(input, ["type", "itemId"])
       && input.type === "reverse_placement" && typeof input.itemId === "string") {
+      const itemIndex = state.items.findIndex(item => item.id === input.itemId);
+      if (itemIndex < 0) return emptyPowerResult(state);
       const placements = { ...state.placements };
       delete placements[input.itemId];
       return deepFreezeClone({
-        state: transitionPower(state, { placements }, `reverse_placement:${input.itemId}`),
+        state: transitionPower(state, { placements }, semanticStepFor(state, "reverse_placement", itemIndex)),
         responseIntents: []
       });
     }
-    if (!inputHasExactKeys(input, ["type", "itemId", "binId", "token"])
+    if (!inputHasExactKeys(input, ["type", "itemId", "binId"])
       || input.type !== state.expectedAction
       || !state.items.some(item => item.id === input.itemId)
       || !state.bins.some(bin => bin.id === input.binId)) return emptyPowerResult(state);
-    return answerPower(state, challenge, input.token, state.expectedAction, {
+    const itemIndex = state.items.findIndex(item => item.id === input.itemId);
+    const binIndex = state.bins.findIndex(bin => bin.id === input.binId);
+    return answerPower(state, challenge, state.binTokens[input.binId],
+      semanticStepFor(state, state.expectedAction, itemIndex, binIndex), {
       placements: { ...state.placements, [input.itemId]: input.binId }
     });
   },

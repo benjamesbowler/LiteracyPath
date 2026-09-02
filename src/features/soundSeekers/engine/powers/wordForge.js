@@ -9,7 +9,9 @@ import {
   emptyPowerResult,
   inputHasExactKeys,
   morphologyPower,
-  publicEntries
+  parseSemanticHistory,
+  publicEntries,
+  semanticStepFor
 } from "./contracts.js";
 
 const POWER_ID = "word_forge";
@@ -25,6 +27,33 @@ function initialRack(challenge) {
 
 function initialSlots(challenge) {
   return (challenge.presentation?.slots || []).map(slot => ({ id: slot.id, tileId: null }));
+}
+
+function assertResumeHistory(common, resume, rack, slots, challenge) {
+  const placed = rack.map(() => false);
+  const slotTiles = slots.map(() => null);
+  let status = "active";
+  for (const { type, indexes } of parseSemanticHistory(common)) {
+    if (status !== "active" || type !== "place_tile" || indexes.length !== 2) {
+      throw new Error("Word Forge semantic resume history is impossible");
+    }
+    const [tileIndex, slotIndex] = indexes;
+    const expectedSlotIndex = Number.isInteger(challenge.position)
+      ? challenge.position
+      : slotTiles.findIndex(tileId => tileId === null);
+    if (!rack[tileIndex] || !slots[slotIndex] || slotIndex !== expectedSlotIndex
+      || placed[tileIndex] || slotTiles[slotIndex] !== null) {
+      throw new Error("Word Forge semantic resume history is impossible");
+    }
+    placed[tileIndex] = true;
+    slotTiles[slotIndex] = rack[tileIndex].id;
+    status = "awaiting_mission_commit";
+  }
+  if (resume.status !== status
+    || resume.rack.some((tile, index) => tile.placed !== placed[index])
+    || resume.slots.some((slot, index) => slot.tileId !== slotTiles[index])) {
+    throw new Error("Word Forge resume checkpoint does not match its semantic history");
+  }
 }
 
 export const wordForge = Object.freeze({
@@ -55,7 +84,13 @@ export const wordForge = Object.freeze({
           && options.resume.slots[1]?.tileId === (resumedPlaced ? tileId : null)
           && options.resume.slots.every(slot => Object.keys(slot || {}).length === 2);
         const sameMorphology = JSON.stringify(options.resume.morphology) === JSON.stringify(common.morphology);
+        const exactHistory = (options.resume.status === "active"
+          && options.resume.revision === 0 && options.resume.semanticSteps.length === 0)
+          || (options.resume.status === "awaiting_mission_commit"
+            && options.resume.revision === 1
+            && JSON.stringify(options.resume.semanticSteps) === JSON.stringify(["place_tile"]));
         if (!validRack || !validSlots || !sameMorphology
+          || !exactHistory
           || !["not_ready", "meaning_ready"].includes(options.resume.sweep)
           || (options.resume.status === "awaiting_mission_commit"
             && (!resumedPlaced || options.resume.sweep !== "meaning_ready"
@@ -108,11 +143,10 @@ export const wordForge = Object.freeze({
         || referencedTileIds.length !== placedTileIds.length
         || referencedTileIds.some(id => !placedTileIds.includes(id))
         || options.resume.morphology !== null
-        || options.resume.sweep !== "not_ready"
-        || (options.resume.status === "awaiting_mission_commit"
-          && (placedTileIds.length === 0 || options.resume.semanticSteps.at(-1) !== "place_tile"))) {
+        || options.resume.sweep !== "not_ready") {
         throw new Error("Word Forge resume checkpoint is impossible");
       }
+      assertResumeHistory(common, options.resume, rack, slots, challenge);
     }
     const resumedSlots = resumeSlotsAreValid ? options.resume.slots : slots;
     const placedIds = new Set(resumedSlots.map(slot => slot.tileId).filter(Boolean));
@@ -152,7 +186,9 @@ export const wordForge = Object.freeze({
     if (!tile || position < 0 || !state.slots[position]) return emptyPowerResult(state);
     const slots = state.slots.map((slot, index) => index === position ? { ...slot, tileId: tile.id } : slot);
     const rack = state.rack.map(item => item.id === tile.id ? { ...item, placed: true } : item);
-    return answerPower(state, challenge, tile.token, "place_tile", { slots, rack });
+    const tileIndex = state.rack.findIndex(item => item.id === tile.id);
+    return answerPower(state, challenge, tile.token,
+      semanticStepFor(state, "place_tile", tileIndex, position), { slots, rack });
   },
 
   view(state, challenge) {

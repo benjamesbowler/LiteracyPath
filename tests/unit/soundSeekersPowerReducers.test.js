@@ -94,14 +94,20 @@ function challengeFor(action) {
     requiresAudio: false,
     ...identityFor(contract, action),
     presentation: {
-      candidates: [{ id: id("candidate:answer"), label: "first" }, { id: id("candidate:decoy"), label: "second" }],
+      candidates: [
+        { id: id("candidate:answer"), label: "first", token: answer },
+        { id: id("candidate:decoy"), label: "second", token: `${action.instructionId}:decoy` }
+      ],
       items: [
         { id: id("item:1"), label: "item one" },
         { id: id("item:2"), label: "item two" },
         { id: id("item:3"), label: "item three" },
         { id: id("item:4"), label: "item four" }
       ],
-      bins: [{ id: id("bin:1"), label: "first bin" }, { id: id("bin:2"), label: "second bin" }],
+      bins: [
+        { id: id("bin:1"), label: "first bin", token: answer },
+        { id: id("bin:2"), label: "second bin", token: `${action.instructionId}:decoy` }
+      ],
       rack: [
         { id: id("tile:answer"), label: "sh", token: answer },
         { id: id("tile:decoy"), label: "ch", token: `${action.instructionId}:decoy` }
@@ -109,8 +115,8 @@ function challengeFor(action) {
       slots: [{ id: id("slot:0") }, { id: id("slot:1") }, { id: id("slot:2") }],
       segments: [{ id: id("segment:0"), label: "s" }, { id: id("segment:1"), label: "h" }],
       recipients: [
-        { id: id("recipient:1"), label: "first place" },
-        { id: id("recipient:2"), label: "second place" }
+        { id: id("recipient:1"), label: "first place", token: answer },
+        { id: id("recipient:2"), label: "second place", token: `${action.instructionId}:decoy` }
       ],
       choices: [
         { id: id("choice:1"), label: "first picture", token: answer },
@@ -135,10 +141,10 @@ function transcriptFor(action, challenge) {
     case "echo_search":
       return [
         { type: "probe", candidateId: presentation.candidates[0].id },
-        { type: "confirm_candidate", candidateId: presentation.candidates[0].id, token: answer }
+        { type: "confirm_candidate", candidateId: presentation.candidates[0].id }
       ];
     case "contrast_sort":
-      return [{ type: action.expectedAction, itemId: presentation.items[0].id, binId: presentation.bins[0].id, token: answer }];
+      return [{ type: action.expectedAction, itemId: presentation.items[0].id, binId: presentation.bins[0].id }];
     case "word_forge":
       return [{ type: "place_tile", tileId: presentation.rack[0].id }];
     case "blend_bridge":
@@ -150,7 +156,7 @@ function transcriptFor(action, challenge) {
     case "memory_delivery":
       return [
         { type: "receive_cue" }, { type: "move", dx: 1, dy: 0 }, { type: "arrive" },
-        { type: action.expectedAction, recipientId: presentation.recipients[0].id, token: answer }
+        { type: action.expectedAction, recipientId: presentation.recipients[0].id }
       ];
     case "story_power":
       return [{ type: "read_text" }, { type: action.expectedAction, choiceId: presentation.choices[0].id, token: answer }];
@@ -232,7 +238,7 @@ test("every power checkpoint restores the exact safe pending learning step witho
   }
 });
 
-test("all two hundred authored contexts retain exact semantics and reach one pending intent", () => {
+test("all two hundred authored contexts retain executable semantics and reach one pending intent", () => {
   assert.equal(actions.length, 200);
   assert.equal(Object.keys(SOUND_SEEKERS_INTERACTION_CONTEXTS).length, 200);
   for (const action of actions) {
@@ -248,21 +254,79 @@ test("all two hundred authored contexts retain exact semantics and reach one pen
       "correctionConstruct", "physicalActionConstruct", "evidenceConstruct", "cognitiveSignature"
     ]) assert.deepEqual(runtime[field], context[field], `${context.id}:${field}`);
     assert.equal(runtime.validInputs.includes("approach_and_complete"), false);
-    assert.ok(runtime.semanticInputAllowlist.every(item => item.contextId === context.id));
+    assert.ok(runtime.semanticInputAllowlist.every(item => typeof item.semanticRequirement === "string"));
     assert.equal(recursivelyFrozen(runtime), true);
 
     const challenge = challengeFor(action);
     const played = play(action, transcriptFor(action, challenge));
     assert.equal(played.state.status, "awaiting_mission_commit", action.id);
     assert.equal(played.responseIntents.length, 1, action.id);
-
-    const foreignAction = actions.find(item => item.powerId === action.powerId && item.contextId !== action.contextId);
-    assert.ok(foreignAction, `${action.id}: missing cross-context fixture`);
-    const foreignChallenge = challengeFor(foreignAction);
-    const crossed = play(action, transcriptFor(foreignAction, foreignChallenge));
-    assert.notEqual(crossed.state.status, "awaiting_mission_commit", `${action.id} accepted ${foreignAction.contextId}`);
-    assert.deepEqual(crossed.responseIntents, []);
+    assert.ok(played.state.semanticSteps.every(step => !step.includes(action.contextId)), action.id);
   }
+});
+
+test("distinct authored mechanics produce distinct normalized semantic transcripts without narrative IDs", () => {
+  const lantern = actions.find(action => action.contextId === "s1-seed-lantern-search");
+  const ford = actions.find(action => action.contextId === "s4-ford-sound-search");
+  const lanternRuntime = createInteractionRuntimeModel(lantern, SOUND_SEEKERS_INTERACTION_CONTEXTS[lantern.contextId]);
+  const fordRuntime = createInteractionRuntimeModel(ford, SOUND_SEEKERS_INTERACTION_CONTEXTS[ford.contextId]);
+  assert.deepEqual(lanternRuntime.semanticRequirement, {
+    decisionActions: ["choose"],
+    decisionModel: "locate the printed source of a heard phoneme",
+    inputPattern: "one heard phoneme with controlled grapheme bearing choices",
+    physicalActionRoles: ["walk", "to", "reveal"]
+  });
+  assert.deepEqual(fordRuntime.semanticRequirement, {
+    decisionActions: ["find"],
+    decisionModel: "locate the printed source of a heard phoneme",
+    inputPattern: "one heard phoneme with controlled grapheme bearing choices",
+    physicalActionRoles: ["wade", "to", "pull"]
+  });
+  const probeRequirement = lanternRuntime.semanticInputAllowlist.find(item => item.type === "probe").semanticRequirement;
+  const confirmRequirement = lanternRuntime.semanticInputAllowlist
+    .find(item => item.type === "confirm_candidate").semanticRequirement;
+  assert.match(probeRequirement, /^transition:probe\|decision:choose\|/u);
+  assert.match(confirmRequirement, /^transition:confirm candidate\|decision:choose\|/u);
+  assert.notEqual(probeRequirement, confirmRequirement);
+
+  const lanternChallenge = challengeFor(lantern);
+  const fordChallenge = challengeFor(ford);
+  assert.deepEqual(
+    transcriptFor(lantern, lanternChallenge).map(input => input.type),
+    transcriptFor(ford, fordChallenge).map(input => input.type)
+  );
+  const lanternPlayed = play(lantern, transcriptFor(lantern, lanternChallenge));
+  const fordPlayed = play(ford, transcriptFor(ford, fordChallenge));
+  assert.notDeepEqual(lanternPlayed.state.semanticSteps, fordPlayed.state.semanticSteps);
+  for (const [action, played] of [[lantern, lanternPlayed], [ford, fordPlayed]]) {
+    assert.ok(played.state.semanticSteps.every(step => !step.includes(action.contextId)));
+  }
+
+  const crossedSemanticResume = {
+    ...fordPlayed.power.checkpoint(fordPlayed.state),
+    semanticSteps: lanternPlayed.state.semanticSteps
+  };
+  assert.throws(() => fordPlayed.power.createState(fordChallenge, {
+    seed: 3,
+    resume: crossedSemanticResume,
+    interaction: interactionFor(ford)
+  }), /semantic|resume|checkpoint/i);
+});
+
+test("narrative reskins with equivalent mechanics share one normalized semantic transcript", () => {
+  const jam = actions.find(action => action.contextId === "s7-jam-crate-delivery");
+  const tree = actions.find(action => action.contextId === "s24-tree-tone-delivery");
+  const jamContext = SOUND_SEEKERS_INTERACTION_CONTEXTS[jam.contextId];
+  const treeContext = SOUND_SEEKERS_INTERACTION_CONTEXTS[tree.contextId];
+  assert.notEqual(jamContext.semanticRule, treeContext.semanticRule);
+  assert.deepEqual(
+    createInteractionRuntimeModel(jam, jamContext).semanticRequirement,
+    createInteractionRuntimeModel(tree, treeContext).semanticRequirement
+  );
+  assert.deepEqual(
+    play(jam, transcriptFor(jam, challengeFor(jam))).state.semanticSteps,
+    play(tree, transcriptFor(tree, challengeFor(tree))).state.semanticSteps
+  );
 });
 
 test("interaction runtime rejects altered contexts, missing references, and mismatched actions", () => {
@@ -312,6 +376,100 @@ test("every scored action rejects extra caller authority fields", () => {
       assert.deepEqual(result.responseIntents, []);
     }
   }
+});
+
+test("physical selection IDs derive Echo, Contrast, and Memory response tokens", () => {
+  const cases = [
+    {
+      instructionId: "echo-search-find-source",
+      prelude(challenge) {
+        return challenge.presentation.candidates.map(candidate => ({ type: "probe", candidateId: candidate.id }));
+      },
+      answer(action, challenge, index) {
+        return { type: "confirm_candidate", candidateId: challenge.presentation.candidates[index].id };
+      },
+      token(challenge, index) {
+        return challenge.presentation.candidates[index].token;
+      }
+    },
+    {
+      instructionId: "contrast-sort-place-sound",
+      prelude() {
+        return [];
+      },
+      answer(action, challenge, index) {
+        return {
+          type: action.expectedAction,
+          itemId: challenge.presentation.items[0].id,
+          binId: challenge.presentation.bins[index].id
+        };
+      },
+      token(challenge, index) {
+        return challenge.presentation.bins[index].token;
+      }
+    },
+    {
+      instructionId: "memory-delivery-deliver-sound",
+      prelude() {
+        return [{ type: "receive_cue" }, { type: "move", dx: 1, dy: 0 }, { type: "arrive" }];
+      },
+      answer(action, challenge, index) {
+        return { type: action.expectedAction, recipientId: challenge.presentation.recipients[index].id };
+      },
+      token(challenge, index) {
+        return challenge.presentation.recipients[index].token;
+      }
+    }
+  ];
+  for (const fixture of cases) {
+    const action = actionForInstruction(fixture.instructionId);
+    const challenge = challengeFor(action);
+    for (const selectedIndex of [0, 1]) {
+      const prepared = play(action, fixture.prelude(challenge));
+      const answer = fixture.answer(action, challenge, selectedIndex);
+      const result = prepared.power.reduce(prepared.state, answer, { challenge });
+      assert.deepEqual(result.responseIntents, [{
+        kind: "challenge_response",
+        challengeId: challenge.challengeId,
+        response: { kind: "literacy-answer", token: fixture.token(challenge, selectedIndex) }
+      }]);
+      assert.deepEqual(prepared.power.reduce(prepared.state, {
+        ...answer,
+        token: fixture.token(challenge, selectedIndex === 0 ? 1 : 0)
+      }, { challenge }).responseIntents, [], `${fixture.instructionId}:caller token`);
+    }
+  }
+});
+
+test("Story Power narrative choice requires read_text and derives its private choice token", () => {
+  const action = actionForInstruction("story-power-choose-story-action");
+  const challenge = challengeFor(action);
+  const power = SOUND_POWER_REGISTRY.story_power;
+  const initial = power.createState(challenge, { seed: 9, interaction: interactionFor(action) });
+  const choiceId = challenge.presentation.choices[1].id;
+  assert.strictEqual(
+    power.reduce(initial, { type: "narrative_choice", choiceId }, { challenge }).state,
+    initial
+  );
+  const read = power.reduce(initial, { type: "read_text" }, { challenge }).state;
+  assert.strictEqual(
+    power.reduce(read, { type: "narrative_choice", choiceId, token: challenge.expectedToken }, { challenge }).state,
+    read
+  );
+  const chosen = power.reduce(read, { type: "narrative_choice", choiceId }, { challenge }).state;
+  assert.equal(chosen.narrativeChoiceToken, challenge.presentation.choices[1].token);
+  assert.deepEqual(power.reduce(read, { type: "narrative_choice", choiceId }, { challenge }).responseIntents, []);
+  const checkpoint = power.checkpoint(chosen);
+  assert.deepEqual(power.checkpoint(power.createState(challenge, {
+    seed: 9,
+    interaction: interactionFor(action),
+    resume: checkpoint
+  })), checkpoint);
+  assert.throws(() => power.createState(challenge, {
+    seed: 9,
+    interaction: interactionFor(action),
+    resume: { ...checkpoint, narrativeChoiceToken: challenge.presentation.choices[0].token }
+  }), /semantic|resume|checkpoint/i);
 });
 
 test("motor presentations preserve one semantic transcript and one exact response intent", () => {
@@ -410,6 +568,10 @@ test("every power rejects partial, unknown, malformed, and impossible resume che
     const challenge = challengeFor(action);
     const played = play(action, transcriptFor(action, challenge));
     const checkpoint = played.power.checkpoint(played.state);
+    const initialCheckpoint = played.power.checkpoint(played.power.createState(challenge, {
+      seed: 3,
+      interaction: interactionFor(action)
+    }));
     const cases = [
       {},
       Object.fromEntries(Object.entries(checkpoint).filter(([key]) => key !== "powerId")),
@@ -417,14 +579,57 @@ test("every power rejects partial, unknown, malformed, and impossible resume che
       { ...checkpoint, status: "finished" },
       { ...checkpoint, revision: -1 },
       { ...checkpoint, semanticSteps: [7] },
-      { ...checkpoint, correction: { supportLevel: Number.NaN } }
+      { ...checkpoint, correction: { supportLevel: Number.NaN } },
+      {
+        ...checkpoint,
+        revision: checkpoint.revision + 1,
+        semanticSteps: ["caller-authored-step", ...checkpoint.semanticSteps]
+      }
     ];
-    if (powerId === "echo_search") cases.push({ ...checkpoint, foundCandidateId: "unknown" });
-    if (powerId === "contrast_sort") cases.push({ ...checkpoint, placements: { unknown: checkpoint.bins[0].id } });
-    if (powerId === "word_forge") cases.push({ ...checkpoint, rack: [checkpoint.rack[0], checkpoint.rack[0]] });
-    if (powerId === "blend_bridge") cases.push({ ...checkpoint, nextSegmentIndex: 0, sweepComplete: true });
-    if (powerId === "memory_delivery") cases.push({ ...checkpoint, cueReceived: false, routeProgress: 0, arrived: true });
-    if (powerId === "story_power") cases.push({ ...checkpoint, textRead: false, status: "awaiting_mission_commit" });
+    if (powerId === "echo_search") cases.push(
+      { ...checkpoint, foundCandidateId: "unknown" },
+      {
+        ...initialCheckpoint,
+        candidates: initialCheckpoint.candidates.map((candidate, index) => ({
+          ...candidate,
+          revealed: index === 0
+        }))
+      }
+    );
+    if (powerId === "contrast_sort") cases.push(
+      { ...checkpoint, placements: { unknown: checkpoint.bins[0].id } },
+      {
+        ...initialCheckpoint,
+        placements: { [initialCheckpoint.items[0].id]: initialCheckpoint.bins[0].id }
+      }
+    );
+    if (powerId === "word_forge") cases.push(
+      { ...checkpoint, rack: [checkpoint.rack[0], checkpoint.rack[0]] },
+      {
+        ...initialCheckpoint,
+        rack: initialCheckpoint.rack.map((tile, index) => ({ ...tile, placed: index === 0 })),
+        slots: initialCheckpoint.slots.map((slot, index) => ({
+          ...slot,
+          tileId: index === 0 ? initialCheckpoint.rack[0].id : null
+        }))
+      }
+    );
+    if (powerId === "blend_bridge") cases.push(
+      { ...checkpoint, nextSegmentIndex: 0, sweepComplete: true },
+      {
+        ...initialCheckpoint,
+        segments: initialCheckpoint.segments.map((segment, index) => ({ ...segment, active: index === 0 })),
+        nextSegmentIndex: 1
+      }
+    );
+    if (powerId === "memory_delivery") cases.push(
+      { ...checkpoint, cueReceived: false, routeProgress: 0, arrived: true },
+      { ...initialCheckpoint, cueReceived: true, cueVisible: false }
+    );
+    if (powerId === "story_power") cases.push(
+      { ...checkpoint, textRead: false, status: "awaiting_mission_commit" },
+      { ...initialCheckpoint, textRead: true }
+    );
     for (const resume of cases) {
       assert.throws(() => played.power.createState(challenge, {
         seed: 3,
@@ -527,6 +732,16 @@ test("the exact s38 morphology application emits its sole zero-evidence content 
   }]);
   assert.equal(result.state.status, "awaiting_mission_commit");
   assert.equal(recursivelyFrozen(result), true);
+  const checkpoint = power.checkpoint(result.state);
+  assert.throws(() => power.createState(challenge, {
+    seed: 38,
+    interaction,
+    resume: {
+      ...checkpoint,
+      revision: checkpoint.revision + 1,
+      semanticSteps: ["caller-authored-step", ...checkpoint.semanticSteps]
+    }
+  }), /semantic|resume|checkpoint/i);
   assert.deepEqual(power.reduce(state, {
     type: "place_tile",
     tileId: "morphology-ending-tile",

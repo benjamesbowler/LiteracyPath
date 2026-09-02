@@ -8,11 +8,39 @@ import {
   deepFreezeClone,
   emptyPowerResult,
   inputHasExactKeys,
+  parseSemanticHistory,
   publicEntries,
+  semanticStepFor,
   transitionPower
 } from "./contracts.js";
 
 const POWER_ID = "blend_bridge";
+
+function assertResumeHistory(common, resume, segments, choices) {
+  const active = segments.map(() => false);
+  let nextSegmentIndex = 0;
+  let sweepComplete = false;
+  let status = "active";
+  for (const { type, indexes } of parseSemanticHistory(common)) {
+    if (status !== "active") throw new Error("Blend Bridge semantic resume history is impossible");
+    if (type === "activate_segment" && indexes.length === 1 && indexes[0] === nextSegmentIndex
+      && segments[indexes[0]]) {
+      active[indexes[0]] = true;
+      nextSegmentIndex += 1;
+    } else if (type === "sweep_blend" && indexes.length === 0
+      && nextSegmentIndex === segments.length) {
+      sweepComplete = true;
+    } else if (type === common.expectedAction && indexes.length === 1
+      && choices[indexes[0]] && sweepComplete) {
+      status = "awaiting_mission_commit";
+    } else throw new Error("Blend Bridge semantic resume history is impossible");
+  }
+  if (resume.status !== status || resume.nextSegmentIndex !== nextSegmentIndex
+    || resume.sweepComplete !== sweepComplete
+    || resume.segments.some((segment, index) => segment.active !== active[index])) {
+    throw new Error("Blend Bridge resume checkpoint does not match its semantic history");
+  }
+}
 
 export const blendBridge = Object.freeze({
   createState(challenge, options = {}) {
@@ -56,11 +84,10 @@ export const blendBridge = Object.freeze({
         || !Number.isInteger(options.resume.nextSegmentIndex)
         || options.resume.nextSegmentIndex !== activeCount
         || typeof options.resume.sweepComplete !== "boolean"
-        || (options.resume.sweepComplete && activeCount !== segments.length)
-        || (options.resume.status === "awaiting_mission_commit"
-          && (!options.resume.sweepComplete || options.resume.semanticSteps.at(-1) !== common.expectedAction))) {
+        || (options.resume.sweepComplete && activeCount !== segments.length)) {
         throw new Error("Blend Bridge resume checkpoint is impossible");
       }
+      assertResumeHistory(common, options.resume, segments, choices);
     }
     return deepFreezeClone({
       ...common,
@@ -82,14 +109,15 @@ export const blendBridge = Object.freeze({
       if (!expected || expected.id !== input.segmentId) return emptyPowerResult(state);
       const segments = state.segments.map((item, index) => index === state.nextSegmentIndex ? { ...item, active: true } : item);
       return Object.freeze({
-        state: transitionPower(state, { segments, nextSegmentIndex: state.nextSegmentIndex + 1 }, `activate_segment:${input.segmentId}`),
+        state: transitionPower(state, { segments, nextSegmentIndex: state.nextSegmentIndex + 1 },
+          semanticStepFor(state, "activate_segment", state.nextSegmentIndex)),
         responseIntents: Object.freeze([])
       });
     }
     if (inputHasExactKeys(input, ["type"])
       && input.type === "sweep_blend" && state.nextSegmentIndex === state.segments.length) {
       return Object.freeze({
-        state: transitionPower(state, { sweepComplete: true }, "sweep_blend"),
+        state: transitionPower(state, { sweepComplete: true }, semanticStepFor(state, "sweep_blend")),
         responseIntents: Object.freeze([])
       });
     }
@@ -97,7 +125,9 @@ export const blendBridge = Object.freeze({
       && input.type === state.expectedAction && state.sweepComplete
       && state.choices.some(choice => choice.id === input.choiceId)
       && state.choiceTokens[input.choiceId] === input.token) {
-      return answerPower(state, challenge, input.token, state.expectedAction);
+      const choiceIndex = state.choices.findIndex(choice => choice.id === input.choiceId);
+      return answerPower(state, challenge, input.token,
+        semanticStepFor(state, state.expectedAction, choiceIndex));
     }
     return emptyPowerResult(state);
   },
