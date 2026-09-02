@@ -375,6 +375,42 @@ async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
     const expectedActivationToken = matrix.kind === "input-focus"
       ? toChildConnectedTextScene(matrix.sceneId, `gallery:${matrix.seed}`).choice.options[0].token
       : "";
+    const renderedFacts = matrix.kind === "character-pose"
+      ? await page.locator("[data-task4-rendered-subtree] [data-sound-seekers-character]").evaluate(node => ({
+        kind: "character-pose",
+        characterId: node.getAttribute("data-character-id"),
+        poseId: node.getAttribute("data-pose-id"),
+        poseRendererId: node.getAttribute("data-pose-renderer-id"),
+        poseCompositionSignature: node.getAttribute("data-pose-composition-signature"),
+        characterVisualSignature: node.getAttribute("data-character-visual-signature"),
+        renderedPartIds: [...node.querySelectorAll("[data-character-part]")]
+          .map(part => part.getAttribute("data-character-part"))
+      }))
+      : matrix.kind === "creator-option"
+        ? await page.locator("[data-task4-rendered-subtree]").evaluate((root, selectedOptionId) => {
+          const factsFor = context => {
+            const node = root.querySelector(`[data-character-context="${context}"] [data-sound-seekers-character]`);
+            return {
+              signature: node?.getAttribute("data-appearance-signature") || null,
+              parts: [...(node?.querySelectorAll("[data-character-part]") || [])]
+                .map(part => part.getAttribute("data-character-part"))
+            };
+          };
+          const selected = root.querySelector(`[data-option-id="${CSS.escape(selectedOptionId)}"][aria-pressed="true"]`);
+          const preview = factsFor("creator-preview");
+          const world = factsFor("gallery-world");
+          return {
+            kind: "creator-option",
+            selectedOptionId: selected?.getAttribute("data-option-id") || null,
+            serializedAppearance: root.getAttribute("data-creator-serialized"),
+            appearanceSignature: root.getAttribute("data-creator-signature"),
+            previewAppearanceSignature: preview.signature,
+            worldAppearanceSignature: world.signature,
+            previewRenderedPartIds: preview.parts,
+            worldRenderedPartIds: world.parts
+          };
+        }, matrix.subjectId)
+        : null;
     const layout = matrix.kind === "profile-viewport-zoom"
       && CONSTRAINED_PROFILE_IDS.has(matrix.subjectId) ? await page.evaluate(() => {
       const round = value => Math.round(value * 100) / 100;
@@ -427,6 +463,7 @@ async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
       || focusTargetId !== matrix.expectedFocusTargetId
       || activation.count !== (matrix.kind === "input-focus" ? 1 : 0)
       || activation.token !== expectedActivationToken
+      || canonicalJson(renderedFacts) !== canonicalJson(matrix.expectedRenderedFacts)
       || normalizedConsoleErrors.length || pageErrors.length || !noAnswerLeak
       || (matrix.kind === "background-failure" ? failedRequests[0]?.reason !== "route_abort" : failedRequests.length)) {
       throw new Error(`${matrix.id}: gallery runtime evidence failed ${JSON.stringify({
@@ -434,11 +471,13 @@ async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
         expectedCodeNative: matrix.expectedCodeNativeSemanticIds,
         visibleControlIds, expectedVisibleControlIds: matrix.expectedVisibleControlIds,
         focusTargetId, expectedFocusTargetId: matrix.expectedFocusTargetId,
-        activation, expectedActivationToken, noAnswerLeak
+        activation, expectedActivationToken, renderedFacts,
+        expectedRenderedFacts: matrix.expectedRenderedFacts, noAnswerLeak
       })}`);
     }
     return {
       expectedCodeNativeSemanticIds: observedCodeNative,
+      expectedRenderedFacts: renderedFacts,
       checks: {
         consoleErrors: normalizedConsoleErrors,
         pageErrors,
@@ -531,6 +570,7 @@ async function shoot() {
           reviewBackdropSemanticIds: matrix.reviewBackdropSemanticIds,
           optionIds: matrix.optionIds,
           asset: matrix.asset || { path: null, sha256: null, cropRecordSha256: null },
+          expectedRenderedFacts: observed.expectedRenderedFacts,
           png, checks: observed.checks, status: "passed"
         });
       })(), 45_000, `shot ${matrix.ordinal}`);

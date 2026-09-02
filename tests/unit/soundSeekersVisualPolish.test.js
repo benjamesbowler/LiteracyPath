@@ -56,8 +56,14 @@ test.after(async () => {
   await vite?.close();
 });
 
-function renderWorld({ chapter, compositionMode, fixtureId, optionId = null, motion = "reduced" }) {
-  const stopId = chapter.stopIds.at(-1);
+function renderWorld({
+  chapter,
+  compositionMode,
+  fixtureId,
+  optionId = null,
+  motion = "reduced",
+  stopId = chapter.stopIds.at(-1)
+}) {
   const scene = SOUND_SEEKERS_CONNECTED_TEXT.find(item => item.stopId === stopId);
   const replay = replaySoundSeekersGalleryFixture({
     recipeId: fixtureId,
@@ -131,6 +137,7 @@ function completeShots() {
     asset: matrix.asset ? structuredClone(matrix.asset) : {
       path: null, sha256: null, cropRecordSha256: null
     },
+    expectedRenderedFacts: structuredClone(matrix.expectedRenderedFacts),
     png: {
       width: matrix.viewport.width,
       height: matrix.viewport.height,
@@ -192,8 +199,9 @@ test("cast metadata and renderer create authored monochrome silhouettes with sha
   const profileById = new Map(SOUND_SEEKERS_CHARACTER_ART_PROFILES.map(profile => [
     profile.characterId, profile
   ]));
-  assert.ok(new Set(SOUND_SEEKERS_CHARACTER_ART_PROFILES
-    .map(profile => profile.silhouetteFamilyId)).size >= 12);
+  const renderedGeometryByFamily = new Map();
+  assert.equal(new Set(SOUND_SEEKERS_CHARACTER_ART_PROFILES
+    .map(profile => profile.silhouetteFamilyId)).size, cast.length);
   for (const chapter of SOUND_SEEKERS_CHAPTERS) {
     const present = cast.filter(visual => visual.chapterId === chapter.id);
     assert.equal(new Set(present.map(visual => (
@@ -213,15 +221,26 @@ test("cast metadata and renderer create authored monochrome silhouettes with sha
     assert.ok((html.match(/data-shaped-limb=/gu) ?? []).length >= 4);
     assert.match(html, /data-character-part="contact-shadow"/u);
     assert.doesNotMatch(html, /class="sound-seekers-character__limb"/u);
+    assert.match(html, /data-authored-silhouette=""/u);
+    assert.ok((html.match(/class="sound-seekers-character__silhouette-accent"/gu) ?? []).length >= 2);
+    const silhouetteGeometry = [...html.matchAll(
+      /class="sound-seekers-character__(?:head-fill|silhouette-accent)"[^>]*d="([^"]+)"/gu
+    )].map(match => match[1]).join("|");
+    assert.ok(silhouetteGeometry.length > 120);
+    renderedGeometryByFamily.set(profile.silhouetteFamilyId, silhouetteGeometry);
   }
+  assert.equal(renderedGeometryByFamily.size, cast.length);
+  assert.equal(new Set(renderedGeometryByFamily.values()).size, cast.length);
 });
 
-test("Wonder and resolved boss compositions are visibly structural and reduced-motion stable", () => {
+test("Wonder and resolved boss compositions vary only composition over identical resolved content", () => {
+  const wonderGeometries = new Set();
+  const bossGeometries = new Set();
   for (const chapter of SOUND_SEEKERS_CHAPTERS) {
     const stopId = chapter.stopIds.at(-1);
     const scene = SOUND_SEEKERS_CONNECTED_TEXT.find(item => item.stopId === stopId);
     const optionId = scene.choice.options[0].visualSemanticId;
-    const ordinary = renderWorld({ chapter, compositionMode: "ordinary", fixtureId: "pre-choice" });
+    const ordinary = renderWorld({ chapter, compositionMode: "ordinary", fixtureId: "boss-resolved", optionId });
     const wonder = renderWorld({ chapter, compositionMode: "wonder", fixtureId: "boss-resolved", optionId });
     const boss = renderWorld({ chapter, compositionMode: "boss-resolved", fixtureId: "boss-resolved", optionId });
     const bossFullMotion = renderWorld({
@@ -234,7 +253,37 @@ test("Wonder and resolved boss compositions are visibly structural and reduced-m
     assert.equal(transformationId(bossFullMotion), transformationId(boss));
     assert.match(wonder, /data-actor-reaction="wonder"/u);
     assert.match(boss, /data-actor-reaction="resolved"/u);
+    const geometry = html => [...html.matchAll(
+      /class="sound-seekers-world__transformation-(?:primary|detail)"[^>]*d="([^"]+)"/gu
+    )].map(match => match[1]).join("|");
+    const wonderGeometry = geometry(wonder);
+    const bossGeometry = geometry(boss);
+    assert.ok(wonderGeometry.length > 40);
+    assert.ok(bossGeometry.length > 40);
+    assert.notEqual(wonderGeometry, bossGeometry);
+    wonderGeometries.add(wonderGeometry);
+    bossGeometries.add(bossGeometry);
   }
+  assert.equal(wonderGeometries.size, 8);
+  assert.equal(bossGeometries.size, 8);
+});
+
+test("authenticated resolved options never paint every neutral choice as selected", () => {
+  const chapter = SOUND_SEEKERS_CHAPTERS[0];
+  const scene = SOUND_SEEKERS_CONNECTED_TEXT.find(item => item.stopId === chapter.stopIds.at(-1));
+  const optionId = scene.choice.options[0].visualSemanticId;
+  const boss = renderWorld({ chapter, compositionMode: "boss-resolved", fixtureId: "boss-resolved", optionId });
+  assert.equal((boss.match(/data-control-state="settled"/gu) ?? []).length, 1);
+  assert.equal((boss.match(/data-control-state="idle"/gu) ?? []).length, scene.choice.options.length - 1);
+
+  const assessedChapter = SOUND_SEEKERS_CHAPTERS[1];
+  const assessed = renderWorld({
+    chapter: assessedChapter,
+    compositionMode: "ordinary",
+    fixtureId: "assessed-correct-resolved",
+    stopId: assessedChapter.stopIds[0]
+  });
+  assert.equal((assessed.match(/data-control-state="settled"/gu) ?? []).length, 0);
 });
 
 test("gallery manifest rejects identical payoff pixels and requires constrained layout facts", () => {
@@ -244,11 +293,22 @@ test("gallery manifest rejects identical payoff pixels and requires constrained 
 
   const duplicatePayoff = structuredClone(shots);
   const wonder = duplicatePayoff.find(shot => shot.kind === "wonder");
-  const ordinary = duplicatePayoff.find(shot => shot.kind === "scene-options" && shot.sceneId === wonder.sceneId);
+  const ordinary = duplicatePayoff.find(shot => shot.kind === "route-landmark" && shot.stopId === wonder.stopId);
   wonder.png.sha256 = ordinary.png.sha256;
   assert.throws(
     () => assertSoundSeekersV2GalleryManifest(buildSoundSeekersV2GalleryManifest({
       sourceHashes: sourceHashes(), shots: duplicatePayoff
+    })),
+    /payoff|identical/u
+  );
+
+  const duplicateBoss = structuredClone(shots);
+  const boss = duplicateBoss.find(shot => shot.kind === "boss-branch");
+  const bossOrdinary = duplicateBoss.find(shot => shot.kind === "route-landmark" && shot.stopId === boss.stopId);
+  boss.png.sha256 = bossOrdinary.png.sha256;
+  assert.throws(
+    () => assertSoundSeekersV2GalleryManifest(buildSoundSeekersV2GalleryManifest({
+      sourceHashes: sourceHashes(), shots: duplicateBoss
     })),
     /payoff|identical/u
   );

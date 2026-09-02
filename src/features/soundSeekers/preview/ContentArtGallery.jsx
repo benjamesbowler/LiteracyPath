@@ -71,7 +71,9 @@ export function ContentArtGallery({ query }) {
   const [appearance, setAppearance] = useState(() => appearanceForOption(query.optionId));
   const compositionMode = query.mode === "wonder"
     ? "wonder"
-    : query.fixtureId === "boss-resolved"
+    : query.mode === "route-landmark"
+      ? "ordinary"
+      : query.fixtureId === "boss-resolved"
       ? "boss-resolved"
       : "ordinary";
   const character = modeRecord(query.mode, "character-", CHARACTERS, visual => visual.characterId);

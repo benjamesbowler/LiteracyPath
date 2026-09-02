@@ -168,71 +168,24 @@ function Face({ face }) {
   );
 }
 
-function HeadSilhouette({ featureIds, artProfile }) {
-  const id = featureIds.join("-").toLocaleLowerCase("en-US");
-  const variant = Number(artProfile.headShapeId.split("-").at(-1)) - 1;
-  const attachmentVariant = variant % 3;
-  let attachment;
-
-  if (/antennae/u.test(id)) {
-    attachment = (
-      <>
-        <path className="sound-seekers-character__feature-line" d="M -24 -34 Q -42 -66 -30 -79 M 24 -34 Q 42 -66 30 -79" />
-        <circle className="sound-seekers-character__feature-fill" cx="-30" cy="-81" r="8" />
-        <circle className="sound-seekers-character__feature-fill" cx="30" cy="-81" r="8" />
-      </>
-    );
-  } else if (/ears/u.test(id)) {
-    const earPaths = [
-      [
-        "M -34 -29 Q -60 -70 -43 -84 Q -18 -65 -18 -34 Z",
-        "M 34 -29 Q 60 -70 43 -84 Q 18 -65 18 -34 Z"
-      ],
-      [
-        "M -37 -26 Q -74 -47 -64 -65 Q -35 -67 -17 -33 Z",
-        "M 37 -26 Q 74 -47 64 -65 Q 35 -67 17 -33 Z"
-      ],
-      [
-        "M -34 -30 Q -51 -77 -30 -88 Q -9 -63 -18 -31 Z",
-        "M 34 -30 Q 51 -77 30 -88 Q 9 -63 18 -31 Z"
-      ]
-    ][attachmentVariant];
-    attachment = earPaths.map((path, index) => (
-      <path key={path} className="sound-seekers-character__feature-fill" d={path} data-silhouette-part={`ear-${index + 1}`} />
-    ));
-  } else if (/crest|crown|frill|fringe|tuft|spines|rays|beard/u.test(id)) {
-    const crestPaths = [
-      "M -36 -32 L -25 -70 L -8 -47 L 3 -82 L 16 -48 L 35 -70 L 38 -30 Z",
-      "M -40 -26 Q -31 -68 -16 -43 Q -4 -82 8 -46 Q 27 -74 40 -26 Z",
-      "M -39 -27 L -31 -62 L -12 -45 L 0 -78 L 13 -45 L 32 -62 L 40 -27 Z"
-    ];
-    attachment = <path className="sound-seekers-character__feature-fill" d={crestPaths[attachmentVariant]} data-silhouette-part="crest" />;
-  } else {
-    attachment = (
-      <>
-        <circle className="sound-seekers-character__feature-fill" cx="-43" cy="-12" r={12 + attachmentVariant} data-silhouette-part="left-round-ear" />
-        <circle className="sound-seekers-character__feature-fill" cx="43" cy="-12" r={14 - attachmentVariant} data-silhouette-part="right-round-ear" />
-      </>
-    );
-  }
-
+function HeadSilhouette({ artProfile }) {
   return (
-    <>
-      {attachment}
+    <g data-authored-silhouette="">
+      {artProfile.silhouetteGeometry.accentPaths.map((path, index) => (
+        <path
+          key={path}
+          className="sound-seekers-character__silhouette-accent"
+          d={path}
+          data-silhouette-part={`authored-outline-${index + 1}`}
+        />
+      ))}
       <path
         className="sound-seekers-character__head-fill"
         data-head-shape={artProfile.headShapeId}
-        d={[
-          "M -47 2 Q -45 -42 0 -45 Q 45 -42 47 2 Q 40 44 0 45 Q -40 44 -47 2 Z",
-          "M -48 5 Q -37 -48 0 -43 Q 39 -48 48 5 Q 35 48 0 43 Q -35 48 -48 5 Z",
-          "M -44 -7 Q -26 -50 10 -43 Q 48 -34 45 8 Q 35 45 -7 45 Q -48 39 -44 -7 Z",
-          "M -48 0 Q -31 -41 0 -48 Q 31 -41 48 0 L 35 36 Q 0 52 -35 36 Z",
-          "M -43 -12 Q 0 -55 43 -12 L 49 18 Q 25 48 0 44 Q -28 48 -49 18 Z",
-          "M -50 9 Q -45 -32 -15 -47 Q 25 -55 48 -14 Q 55 26 17 45 Q -28 51 -50 9 Z"
-        ][variant % 6]}
+        d={artProfile.silhouetteGeometry.headPath}
       />
       <path className="sound-seekers-character__head-highlight" d="M -30 -23 Q -4 -42 24 -26" />
-    </>
+    </g>
   );
 }
 
@@ -496,7 +449,7 @@ export function SoundSeekersCharacter({ characterId, pose, appearance }) {
             <Arm side="right" transform={transforms.rightArm} torso={transforms.torso} limbShapeId={artProfile.limbShapeId} />
           </g>
           <g data-character-part="head" transform={svgTransform(transforms.head)}>
-            <HeadSilhouette featureIds={visual.featureIds} artProfile={artProfile} />
+            <HeadSilhouette artProfile={artProfile} />
           </g>
           <g data-character-part="face" transform={svgTransform(transforms.head)}>
             <Face face={face} />

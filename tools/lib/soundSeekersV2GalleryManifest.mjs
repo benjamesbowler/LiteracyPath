@@ -12,12 +12,18 @@ import {
 } from "../../src/features/soundSeekers/content/sceneVisualSemantics.js";
 import { SOUND_SEEKERS_EXPEDITIONS } from "../../src/features/soundSeekers/content/expeditions.js";
 import {
-  SOUND_SEEKERS_CHARACTER_CREATOR_OPTIONS
+  SOUND_SEEKERS_CHARACTER_CREATOR_OPTIONS,
+  appearanceSignature,
+  createCharacterAppearance,
+  serializeCharacterAppearance
 } from "../../src/features/soundSeekers/visual/characterCustomization.js";
 import {
   SOUND_SEEKERS_CHARACTER_VISUALS,
   SOUND_SEEKERS_PLAYER_VISUAL,
-  SOUND_SEEKERS_POSE_IDS
+  SOUND_SEEKERS_POSE_IDS,
+  characterVisualSignature,
+  poseCompositionSignature,
+  resolvePoseRenderer
 } from "../../src/features/soundSeekers/visual/characterCatalog.js";
 import {
   SOUND_SEEKERS_LANDMARK_BINDINGS,
@@ -52,6 +58,11 @@ const slug = value => String(value).toLocaleLowerCase("en-US")
 const url = params => `/preview/sound-seekers-v2-content.html?${new URLSearchParams(params)}`;
 const sceneForStop = stopId => SOUND_SEEKERS_CONNECTED_TEXT.find(scene => scene.stopId === stopId);
 const desktop = Object.freeze({ width: 1280, height: 800 });
+const characterPartIds = Object.freeze([
+  "back-accessory", "contact-shadow", "left-leg", "right-leg", "torso",
+  "left-arm", "right-arm", "head", "face", "features", "role-prop",
+  "neck-accessory", "head-accessory", "held-accessory"
+]);
 
 function shot(id, kind, fields = {}) {
   return {
@@ -77,6 +88,57 @@ function shot(id, kind, fields = {}) {
     expectedVisibleControlIds: [],
     expectedFocusTargetId: null
   };
+}
+
+function creatorAppearance(optionId) {
+  const raw = {
+    schemaVersion: 1,
+    bodyShapeId: SOUND_SEEKERS_CHARACTER_CREATOR_OPTIONS.bodyShapes[0],
+    paletteTokenId: SOUND_SEEKERS_CHARACTER_CREATOR_OPTIONS.palettes[0],
+    accessories: { back: null, head: null, neck: null, held: null }
+  };
+  if (SOUND_SEEKERS_CHARACTER_CREATOR_OPTIONS.bodyShapes.includes(optionId)) raw.bodyShapeId = optionId;
+  if (SOUND_SEEKERS_CHARACTER_CREATOR_OPTIONS.palettes.includes(optionId)) raw.paletteTokenId = optionId;
+  for (const slot of ["back", "head", "neck", "held"]) {
+    if (SOUND_SEEKERS_CHARACTER_CREATOR_OPTIONS.accessoriesBySlot[slot].includes(optionId)) {
+      raw.accessories[slot] = optionId;
+    }
+  }
+  return createCharacterAppearance(raw);
+}
+
+function expectedRenderedFacts(record) {
+  if (record.kind === "character-pose") {
+    const [characterId, poseId] = record.subjectId.split(":");
+    const visual = [...SOUND_SEEKERS_CHARACTER_VISUALS, SOUND_SEEKERS_PLAYER_VISUAL]
+      .find(candidate => candidate.characterId === characterId);
+    const pose = resolvePoseRenderer(poseId);
+    return {
+      kind: "character-pose",
+      characterId,
+      poseId,
+      poseRendererId: visual.poseRendererIds[poseId],
+      poseCompositionSignature: poseCompositionSignature(pose),
+      characterVisualSignature: characterVisualSignature(visual),
+      renderedPartIds: [...characterPartIds]
+    };
+  }
+  if (record.kind === "creator-option") {
+    const appearance = creatorAppearance(record.subjectId);
+    const serializedAppearance = serializeCharacterAppearance(appearance);
+    const signature = appearanceSignature(appearance);
+    return {
+      kind: "creator-option",
+      selectedOptionId: record.subjectId,
+      serializedAppearance,
+      appearanceSignature: signature,
+      previewAppearanceSignature: signature,
+      worldAppearanceSignature: signature,
+      previewRenderedPartIds: [...characterPartIds],
+      worldRenderedPartIds: [...characterPartIds]
+    };
+  }
+  return null;
 }
 
 const semanticById = new Map(SOUND_SEEKERS_VISUAL_SEMANTIC_REGISTRY.map(record => [record.id, record]));
@@ -150,7 +212,8 @@ function finalizeMatrixRecord(record, index) {
     ...record,
     expectedCodeNativeSemanticIds: expectedRenderedSemanticIds(record),
     expectedVisibleControlIds,
-    expectedFocusTargetId: record.kind === "input-focus" ? expectedVisibleControlIds[0] : null
+    expectedFocusTargetId: record.kind === "input-focus" ? expectedVisibleControlIds[0] : null,
+    expectedRenderedFacts: expectedRenderedFacts(record)
   });
 }
 
@@ -188,18 +251,23 @@ function buildMatrix() {
   for (const expedition of SOUND_SEEKERS_EXPEDITIONS) {
     const routeScene = sceneForStop(expedition.stopId);
     const routeFixture = routeScene.choice.kind === "narrative_bridge" ? "boss-resolved" : "assessed-correct-resolved";
+    const routeOptionId = routeScene.choice.kind === "narrative_bridge"
+      ? routeScene.choice.options[0].visualSemanticId : null;
     matrix.push(shot(`route-landmark-${expedition.stopId}`, "route-landmark", {
       chapterId: expedition.chapterId, stopId: expedition.stopId, sceneId: expedition.connectedTextId,
       subjectId: expedition.stopId, fixtureId: routeFixture,
-      url: url({ mode: "route-landmark", stop: expedition.stopId, fixture: routeFixture, density: "full", motion: "reduced", labels: "shown", seed: "11" })
+      optionIds: routeOptionId ? [routeOptionId] : [],
+      url: url({ mode: "route-landmark", stop: expedition.stopId, fixture: routeFixture, density: "full", motion: "reduced", labels: "shown", seed: "11", ...(routeOptionId ? { option: routeOptionId } : {}) })
     }));
   }
   for (const chapter of SOUND_SEEKERS_CHAPTERS) {
     const stopId = chapter.stopIds.at(-1);
+    const scene = sceneForStop(stopId);
+    const optionId = scene.choice.options[0].visualSemanticId;
     matrix.push(shot(`wonder-${chapter.id}`, "wonder", {
-      chapterId: chapter.id, stopId, sceneId: sceneForStop(stopId).id, subjectId: chapter.wonderId,
-      fixtureId: "boss-resolved",
-      url: url({ mode: "wonder", stop: stopId, fixture: "boss-resolved", density: "full", motion: "reduced", labels: "shown", seed: "11" })
+      chapterId: chapter.id, stopId, sceneId: scene.id, subjectId: chapter.wonderId,
+      optionIds: [optionId], fixtureId: "boss-resolved",
+      url: url({ mode: "wonder", stop: stopId, fixture: "boss-resolved", density: "full", motion: "reduced", labels: "shown", seed: "11", option: optionId })
     }));
   }
   for (const chapter of SOUND_SEEKERS_CHAPTERS) {
@@ -327,7 +395,7 @@ const SHOT_KEYS = [
   "chapterId", "stopId", "sceneId", "subjectId", "cropProfileId",
   "densityProfile", "motionProfile", "viewport", "browserZoom",
   "expectedCodeNativeSemanticIds", "reviewBackdropSemanticIds", "optionIds",
-  "asset", "png", "checks", "status"
+  "asset", "expectedRenderedFacts", "png", "checks", "status"
 ];
 const VIEWPORT_KEYS = ["width", "height"];
 const ASSET_KEYS = ["path", "sha256", "cropRecordSha256"];
@@ -337,6 +405,15 @@ const BASE_CHECK_KEYS = [
   "focusTargetId", "noAnswerLeak"
 ];
 const CHECK_KEYS = [...BASE_CHECK_KEYS, "layout"];
+const CHARACTER_RENDER_KEYS = [
+  "kind", "characterId", "poseId", "poseRendererId", "poseCompositionSignature",
+  "characterVisualSignature", "renderedPartIds"
+];
+const CREATOR_RENDER_KEYS = [
+  "kind", "selectedOptionId", "serializedAppearance", "appearanceSignature",
+  "previewAppearanceSignature", "worldAppearanceSignature",
+  "previewRenderedPartIds", "worldRenderedPartIds"
+];
 const FAILURE_KEYS = ["url", "method", "reason"];
 const CONSTRAINED_PROFILE_IDS = new Set([
   "portrait-320x568", "landscape-568x320", "tablet-1194x834",
@@ -444,7 +521,8 @@ export function assertSoundSeekersV2GalleryManifest(manifest) {
       expectedCodeNativeSemanticIds: matrix.expectedCodeNativeSemanticIds,
       reviewBackdropSemanticIds: matrix.reviewBackdropSemanticIds,
       optionIds: matrix.optionIds,
-      asset: canonicalAsset(matrix)
+      asset: canonicalAsset(matrix),
+      expectedRenderedFacts: matrix.expectedRenderedFacts
     };
     const recordProjection = Object.fromEntries(Object.keys(matrixProjection).map(key => [key, record?.[key]]));
     const layoutRequired = matrix.kind === "profile-viewport-zoom"
@@ -458,6 +536,9 @@ export function assertSoundSeekersV2GalleryManifest(manifest) {
       || canonicalJson(recordProjection) !== canonicalJson(matrixProjection)
       || !hasExactKeys(record.viewport, VIEWPORT_KEYS)
       || !hasExactKeys(record.asset, ASSET_KEYS)
+      || (record.expectedRenderedFacts !== null
+        && !hasExactKeys(record.expectedRenderedFacts, record.kind === "character-pose"
+          ? CHARACTER_RENDER_KEYS : CREATOR_RENDER_KEYS))
       || !hasExactKeys(record.png, PNG_KEYS)
       || record.png.width !== matrix.viewport.width || record.png.height !== matrix.viewport.height
       || !Number.isInteger(record.png.byteLength) || record.png.byteLength <= 0
@@ -481,13 +562,15 @@ export function assertSoundSeekersV2GalleryManifest(manifest) {
       throw new TypeError(`Sound Seekers gallery shot ${index + 1} has untruthful request evidence`);
     }
   }
-  const ordinaryByScene = new Map(manifest.shots
-    .filter(record => record.kind === "scene-options")
-    .map(record => [record.sceneId, record]));
+  const ordinaryByStop = new Map(manifest.shots
+    .filter(record => record.kind === "route-landmark")
+    .map(record => [record.stopId, record]));
   for (const payoff of manifest.shots.filter(record => record.kind === "wonder" || record.kind === "boss-branch")) {
-    const ordinary = ordinaryByScene.get(payoff.sceneId);
-    if (!ordinary || payoff.png.sha256 === ordinary.png.sha256) {
-      throw new TypeError(`Sound Seekers gallery payoff ${payoff.id} is identical to its ordinary scene`);
+    const ordinary = ordinaryByStop.get(payoff.stopId);
+    const sameResolvedContent = ordinary
+      && canonicalJson(ordinary.optionIds) === canonicalJson(payoff.optionIds);
+    if (sameResolvedContent && payoff.png.sha256 === ordinary.png.sha256) {
+      throw new TypeError(`Sound Seekers gallery payoff ${payoff.id} is identical to its ordinary resolved scene`);
     }
   }
   return true;

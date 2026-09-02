@@ -29,6 +29,31 @@ async function visibleUnion(page, selector) {
   });
 }
 
+async function assertActionFirstScene(evidencePage) {
+  await expect(evidencePage.locator("[data-gallery-ready='true']")).toBeVisible();
+  const viewport = await evidencePage.evaluate(() => ({
+    width: window.visualViewport?.width || window.innerWidth,
+    height: window.visualViewport?.height || window.innerHeight,
+    horizontalOverflow: Math.max(0, document.documentElement.scrollWidth - document.documentElement.clientWidth)
+  }));
+  expect(viewport.horizontalOverflow).toBeLessThanOrEqual(1);
+  const rects = [
+    await visibleUnion(evidencePage, "[data-scene-text], [data-scene-prompt]"),
+    await visibleUnion(evidencePage, ".sound-seekers-world__props"),
+    ...await evidencePage.locator("[data-option-visual-id]").evaluateAll(nodes => nodes.map(node => {
+      const rect = node.getBoundingClientRect();
+      return { x: rect.x, y: rect.y, right: rect.right, bottom: rect.bottom, width: rect.width, height: rect.height };
+    }))
+  ];
+  for (const rect of rects) {
+    expect(rect).not.toBeNull();
+    expect(rect.x).toBeGreaterThanOrEqual(-1);
+    expect(rect.y).toBeGreaterThanOrEqual(-1);
+    expect(rect.right).toBeLessThanOrEqual(viewport.width + 1);
+    expect(rect.bottom).toBeLessThanOrEqual(viewport.height + 1);
+  }
+}
+
 for (const profile of PROFILES) {
   test(`action-first scene remains reachable at ${profile.id}`, async ({ page, browser }) => {
     const zoomContext = profile.zoom === 2 ? await browser.newContext({
@@ -98,7 +123,7 @@ for (const profile of PROFILES) {
 }
 
 for (const chapter of SOUND_SEEKERS_CHAPTERS) {
-  test(`ordinary and payoff compositions differ for ${chapter.id}`, async ({ page }) => {
+  test(`identical resolved content has independent ordinary, Wonder, and boss compositions for ${chapter.id}`, async ({ page }) => {
     const stopId = chapter.stopIds.at(-1);
     const scene = SOUND_SEEKERS_CONNECTED_TEXT.find(item => item.stopId === stopId);
     const optionId = scene.choice.options[0].visualSemanticId;
@@ -108,17 +133,95 @@ for (const chapter of SOUND_SEEKERS_CHAPTERS) {
       const transformation = page.locator("[data-world-transformation]");
       return {
         signature: await page.locator("[data-world-composition-signature]").getAttribute("data-world-composition-signature"),
+        content: await page.locator("[data-sound-seekers-scene]").evaluate(node => ({
+          text: node.querySelector("[data-scene-text]")?.textContent,
+          prompt: node.querySelector("[data-scene-prompt]")?.textContent,
+          state: node.getAttribute("data-visual-state-id"),
+          options: [...node.querySelectorAll("[data-option-visual-id]")]
+            .map(option => option.getAttribute("data-option-visual-id"))
+        })),
         transformation: await transformation.count()
-          ? await transformation.first().getAttribute("data-world-transformation")
-          : null
+          ? {
+            id: await transformation.first().getAttribute("data-world-transformation"),
+            geometry: await transformation.locator("path").evaluateAll(paths => paths.map(path => path.getAttribute("d")))
+          } : null
       };
     };
-    const ordinary = await open(`/preview/sound-seekers-v2-content.html?scene=${scene.id}&fixture=pre-choice&density=full&motion=reduced&labels=shown&seed=11`);
+    const common = `scene=${scene.id}&fixture=boss-resolved&density=full&motion=reduced&labels=shown&seed=11&option=${encodeURIComponent(optionId)}`;
+    const ordinary = await open(`/preview/sound-seekers-v2-content.html?mode=route-landmark&${common}`);
     const wonder = await open(`/preview/sound-seekers-v2-content.html?mode=wonder&scene=${scene.id}&fixture=boss-resolved&density=full&motion=reduced&labels=shown&seed=11&option=${encodeURIComponent(optionId)}`);
-    const boss = await open(`/preview/sound-seekers-v2-content.html?scene=${scene.id}&fixture=boss-resolved&density=full&motion=reduced&labels=shown&seed=11&option=${encodeURIComponent(optionId)}`);
+    const boss = await open(`/preview/sound-seekers-v2-content.html?mode=scene&${common}`);
+    expect(wonder.content).toEqual(ordinary.content);
+    expect(boss.content).toEqual(ordinary.content);
     expect(wonder.signature).not.toBe(ordinary.signature);
     expect(boss.signature).not.toBe(ordinary.signature);
+    expect(wonder.signature).not.toBe(boss.signature);
+    expect(ordinary.transformation).toBeNull();
     expect(wonder.transformation).toBeTruthy();
     expect(boss.transformation).toBeTruthy();
+    expect(wonder.transformation.geometry).not.toEqual(boss.transformation.geometry);
+    expect(await page.locator("[data-control-state='settled']").count()).toBe(1);
   });
 }
+
+const WORST_CASES = [
+  { id: "fossil-four-targets", sceneId: "scene-s11", fixture: "assessed-correct-resolved" },
+  { id: "star-reach-longest", sceneId: "scene-s36", fixture: "assessed-correct-resolved" },
+  { id: "star-reach-boss", sceneId: "scene-s40", fixture: "boss-resolved" }
+];
+const CONSTRAINED_PROFILES = PROFILES.filter(profile => profile.id !== "tablet");
+
+for (const scenario of WORST_CASES) {
+  for (const profile of CONSTRAINED_PROFILES) {
+    test(`${scenario.id} keeps target, instruction, and action visible at ${profile.id}`, async ({ page, browser }) => {
+      const scene = SOUND_SEEKERS_CONNECTED_TEXT.find(item => item.id === scenario.sceneId);
+      const optionId = scene.choice.kind === "narrative_bridge"
+        ? scene.choice.options[0].visualSemanticId : null;
+      const zoomContext = profile.zoom === 2 ? await browser.newContext({
+        baseURL: "http://127.0.0.1:5190",
+        viewport: { width: profile.viewport.width / 2, height: profile.viewport.height / 2 },
+        deviceScaleFactor: 2
+      }) : null;
+      const evidencePage = zoomContext ? await zoomContext.newPage() : page;
+      if (!zoomContext) await evidencePage.setViewportSize(profile.viewport);
+      const option = optionId ? `&option=${encodeURIComponent(optionId)}` : "";
+      await evidencePage.goto(`/preview/sound-seekers-v2-content.html?scene=${scenario.sceneId}&fixture=${scenario.fixture}&density=full&motion=reduced&labels=shown&seed=11${option}`);
+      await assertActionFirstScene(evidencePage);
+      const targets = await evidencePage.locator(".sound-seekers-world__semantic-prop").evaluateAll(nodes => (
+        nodes.map(node => {
+          const rect = node.getBoundingClientRect();
+          return { x: rect.x, y: rect.y, right: rect.right, bottom: rect.bottom };
+        })
+      ));
+      const landmark = await visibleUnion(evidencePage, ".sound-seekers-landmark");
+      for (let index = 0; index < targets.length; index += 1) {
+        expect(intersects(targets[index], landmark)).toBe(false);
+        for (let peer = index + 1; peer < targets.length; peer += 1) {
+          expect(intersects(targets[index], targets[peer])).toBe(false);
+        }
+      }
+      await zoomContext?.close();
+    });
+  }
+}
+
+test("literacy target outranks the route in the computed visual hierarchy", async ({ page }) => {
+  await page.setViewportSize({ width: 1194, height: 834 });
+  await page.goto("/preview/sound-seekers-v2-content.html?scene=scene-s11&fixture=assessed-correct-resolved&density=full&motion=reduced&labels=shown&seed=11");
+  const hierarchy = await page.evaluate(() => {
+    const route = document.querySelector(".sound-seekers-route");
+    const routePaths = [...document.querySelectorAll(".sound-seekers-route path")];
+    const target = document.querySelector(".sound-seekers-world__semantic-prop");
+    return {
+      routeOpacity: Number(getComputedStyle(route).opacity),
+      widestRouteStroke: Math.max(...routePaths.map(path => Number.parseFloat(getComputedStyle(path).strokeWidth))),
+      targetOpacity: Number(getComputedStyle(target).opacity),
+      targetPlaneZ: Number(getComputedStyle(target.closest("[data-world-plane]")).zIndex),
+      routePlaneZ: Number(getComputedStyle(route.closest("[data-world-plane]")).zIndex)
+    };
+  });
+  expect(hierarchy.routeOpacity).toBeLessThanOrEqual(0.78);
+  expect(hierarchy.widestRouteStroke).toBeLessThanOrEqual(40);
+  expect(hierarchy.targetOpacity).toBe(1);
+  expect(hierarchy.targetPlaneZ).toBeGreaterThan(hierarchy.routePlaneZ);
+});

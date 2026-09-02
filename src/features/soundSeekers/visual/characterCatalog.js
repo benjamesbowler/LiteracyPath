@@ -773,14 +773,152 @@ function characterSlug(value) {
   return value.toLocaleLowerCase("en-US").replace(/[^a-z0-9]+/gu, "-").replace(/^-|-$/gu, "");
 }
 
+const AUTHORED_SILHOUETTES = deepFreeze({
+  Bouncy: {
+    headPath: "M -48 7 Q -49 -37 -8 -48 Q 38 -53 50 -6 Q 55 37 8 49 Q -39 48 -48 7 Z",
+    accentPaths: ["M -31 -34 Q -65 -92 -43 -105 Q -12 -79 -14 -38 Z M 28 -36 Q 61 -94 45 -106 Q 13 -82 13 -39 Z", "M 36 16 Q 78 2 80 40 Q 72 65 43 43 Z"]
+  },
+  Moss: {
+    headPath: "M -45 4 Q -38 -49 2 -51 Q 42 -48 46 3 Q 39 47 0 46 Q -40 48 -45 4 Z",
+    accentPaths: ["M -33 -35 Q -31 -82 -6 -57 Q 2 -101 18 -59 Q 42 -83 38 -34 Z", "M -23 43 Q -12 67 0 48 Q 15 68 26 42"]
+  },
+  Tumble: {
+    headPath: "M -52 10 Q -46 -34 -12 -46 Q 31 -51 50 -13 Q 61 28 23 48 Q -27 57 -52 10 Z",
+    accentPaths: ["M -43 -17 Q -78 -39 -77 -11 Q -75 17 -45 14 Z M 43 -18 Q 73 -37 78 -10 Q 80 16 47 15 Z", "M 38 23 Q 82 21 89 53 Q 60 66 40 43 Z"]
+  },
+  Bramble: {
+    headPath: "M -49 9 Q -43 -39 -4 -49 Q 39 -48 49 -5 L 43 33 Q 19 56 -8 49 Q -39 47 -49 9 Z",
+    accentPaths: ["M -40 -29 L -31 -72 L -14 -51 L -3 -88 L 12 -53 L 31 -78 L 42 -28 Z", "M -47 25 L -65 42 L -40 41 M 43 27 L 64 43 L 38 43"]
+  },
+  Nori: {
+    headPath: "M -50 -1 Q -36 -51 8 -47 Q 51 -39 49 7 Q 41 49 -4 48 Q -48 43 -50 -1 Z",
+    accentPaths: ["M -37 -28 Q -72 -57 -67 -82 Q -31 -75 -13 -37 Z M 35 -29 Q 72 -58 66 -82 Q 29 -74 12 -37 Z", "M 44 15 Q 86 -2 87 28 Q 83 54 48 43 Z"]
+  },
+  Fizz: {
+    headPath: "M -43 5 Q -42 -43 -3 -50 Q 39 -45 45 -1 Q 46 44 3 49 Q -39 50 -43 5 Z",
+    accentPaths: ["M -24 -39 Q -44 -72 -29 -91 M 24 -39 Q 46 -72 31 -92 M -29 -92 A 8 8 0 1 0 -28 -92 M 31 -93 A 8 8 0 1 0 32 -93", "M -42 5 Q -77 -28 -72 19 Q -63 50 -37 29 Z M 42 5 Q 77 -28 72 19 Q 63 50 37 29 Z"]
+  },
+  Quill: {
+    headPath: "M -48 1 Q -34 -46 4 -51 Q 44 -43 50 4 Q 38 47 -3 48 Q -44 45 -48 1 Z",
+    accentPaths: ["M -40 -27 L -34 -72 L -18 -48 L -6 -92 L 7 -49 L 24 -79 L 40 -28 Z", "M 45 -2 L 72 -20 L 65 15 L 46 26 Z"]
+  },
+  Rill: {
+    headPath: "M -51 5 Q -43 -43 -6 -48 Q 37 -51 50 -10 Q 57 34 15 50 Q -34 53 -51 5 Z",
+    accentPaths: ["M -34 -29 Q -58 -78 -36 -92 Q -14 -65 -15 -34 Z M 32 -30 Q 59 -72 42 -90 Q 15 -68 14 -35 Z", "M -47 18 Q -72 42 -43 47 M 45 18 Q 72 40 43 48"]
+  },
+  Fen: {
+    headPath: "M -46 -8 Q -24 -54 17 -45 Q 54 -34 47 12 Q 32 52 -12 46 Q -53 37 -46 -8 Z",
+    accentPaths: ["M -37 -26 L -51 -63 L -23 -50 L -20 -82 L 2 -53 L 17 -83 L 25 -48 L 49 -62 L 38 -23 Z", "M 40 20 Q 80 5 82 39 Q 69 62 42 45 Z"]
+  },
+  Rook: {
+    headPath: "M -52 12 Q -52 -31 -17 -49 Q 25 -57 49 -20 Q 63 20 29 47 Q -20 61 -52 12 Z",
+    accentPaths: ["M -42 -26 L -25 -66 L -9 -45 L 7 -78 L 20 -43 L 46 -61 L 42 -20 Z", "M -50 12 L -75 28 L -48 36 M 49 7 L 75 25 L 48 34"]
+  },
+  Amber: {
+    headPath: "M -49 3 Q -39 -42 -3 -51 Q 38 -48 50 -8 Q 57 31 20 49 Q -27 56 -49 3 Z",
+    accentPaths: ["M -41 -14 Q -68 -42 -62 -67 Q -31 -63 -16 -36 Z M 39 -18 Q 67 -47 64 -70 Q 31 -63 15 -37 Z", "M -39 33 L -59 50 L -31 48 M 38 34 L 60 48 L 31 49"]
+  },
+  Claw: {
+    headPath: "M -44 7 Q -45 -44 -4 -52 Q 41 -48 46 -3 Q 47 44 2 50 Q -41 49 -44 7 Z",
+    accentPaths: ["M -37 -31 L -31 -63 L -18 -48 L -7 -78 L 5 -50 L 20 -84 L 28 -49 L 43 -65 L 39 -28 Z", "M -45 19 L -71 7 L -61 37 L -38 41 Z"]
+  },
+  Cinder: {
+    headPath: "M -49 0 Q -34 -48 6 -50 Q 46 -42 50 5 Q 38 50 -6 47 Q -48 42 -49 0 Z",
+    accentPaths: ["M -33 -35 Q -17 -80 0 -55 Q 16 -91 30 -52 Q 43 -70 41 -31 Z", "M 41 8 Q 75 -10 80 18 Q 74 44 45 38 Z"]
+  },
+  Bolt: {
+    headPath: "M -52 8 Q -47 -36 -9 -49 Q 36 -52 51 -12 Q 59 31 18 51 Q -31 55 -52 8 Z",
+    accentPaths: ["M -48 -13 L -72 -30 L -72 3 L -49 18 Z M 47 -13 L 74 -31 L 73 5 L 49 19 Z", "M -17 -48 L -3 -70 L 11 -49 M -42 30 L -62 43 L -36 48"]
+  },
+  Soot: {
+    headPath: "M -42 1 Q -37 -50 5 -52 Q 45 -44 45 2 Q 40 48 -2 48 Q -43 47 -42 1 Z",
+    accentPaths: ["M -40 -31 Q 0 -70 43 -29 L 34 -49 Q -3 -76 -36 -53 Z", "M -44 -18 L -65 -2 L -43 12 M 43 -20 L 65 -5 L 44 11"]
+  },
+  Bellows: {
+    headPath: "M -54 7 Q -48 -37 -11 -52 Q 31 -54 52 -17 Q 63 27 27 52 Q -23 60 -54 7 Z",
+    accentPaths: ["M -43 -28 L -27 -72 L -8 -48 L 4 -84 L 20 -48 L 45 -67 L 43 -24 Z", "M -29 39 Q -19 79 0 54 Q 20 79 32 37 L 19 58 L 0 49 L -18 60 Z"]
+  },
+  Vale: {
+    headPath: "M -48 -4 Q -29 -51 12 -47 Q 53 -35 47 11 Q 31 51 -13 46 Q -53 35 -48 -4 Z",
+    accentPaths: ["M -37 -29 Q -69 -67 -53 -88 Q -23 -72 -15 -38 Z M 34 -31 Q 67 -68 53 -89 Q 20 -72 13 -38 Z", "M 42 22 Q 75 11 82 42 Q 63 61 40 45 Z"]
+  },
+  Ripple: {
+    headPath: "M -44 4 Q -40 -47 1 -51 Q 43 -47 46 0 Q 44 46 1 49 Q -42 49 -44 4 Z",
+    accentPaths: ["M -36 -34 Q -21 -79 -4 -54 Q 10 -89 23 -52 Q 43 -77 40 -31 Z", "M -44 9 Q -72 -8 -70 22 Q -60 47 -39 34 Z M 44 9 Q 72 -8 70 22 Q 60 47 39 34 Z"]
+  },
+  Mica: {
+    headPath: "M -51 6 Q -44 -40 -7 -51 Q 35 -52 51 -14 Q 61 28 22 50 Q -27 58 -51 6 Z",
+    accentPaths: ["M -41 -27 L -30 -69 L -14 -48 L 0 -88 L 13 -48 L 33 -74 L 43 -25 Z", "M -50 17 L -76 35 L -45 42 M 49 18 L 76 34 L 44 43"]
+  },
+  Glint: {
+    headPath: "M -49 1 Q -36 -47 5 -51 Q 46 -42 51 5 Q 38 50 -6 48 Q -48 43 -49 1 Z",
+    accentPaths: ["M -40 -27 L -20 -70 L -3 -49 L 11 -86 L 22 -48 L 47 -65 L 40 -24 Z", "M 46 -7 L 70 -20 L 67 12 L 47 26 Z M -45 -5 L -67 -18 L -65 15 L -46 27 Z"]
+  },
+  Skiff: {
+    headPath: "M -50 -3 Q -31 -50 10 -48 Q 51 -37 49 9 Q 34 51 -11 47 Q -52 38 -50 -3 Z",
+    accentPaths: ["M -38 -30 Q -70 -63 -60 -86 Q -26 -73 -14 -39 Z M 36 -30 Q 69 -62 60 -87 Q 25 -73 13 -39 Z", "M 43 17 Q 88 -4 88 32 Q 79 57 47 45 Z"]
+  },
+  Kelp: {
+    headPath: "M -44 6 Q -44 -43 -5 -51 Q 39 -50 47 -5 Q 51 39 9 50 Q -37 54 -44 6 Z",
+    accentPaths: ["M -39 -29 Q -51 -72 -29 -59 Q -17 -91 -3 -57 Q 15 -93 25 -55 Q 48 -75 41 -26 Z", "M -45 15 Q -73 2 -70 34 Q -55 53 -37 39 Z"]
+  },
+  Boom: {
+    headPath: "M -54 10 Q -49 -34 -14 -50 Q 29 -56 51 -20 Q 65 21 31 49 Q -18 62 -54 10 Z",
+    accentPaths: ["M -46 -16 Q -79 -39 -76 -7 Q -69 19 -47 20 Z M 47 -17 Q 80 -39 76 -7 Q 69 20 47 20 Z", "M -49 29 Q -74 48 -43 51 M 47 30 Q 74 48 42 52"]
+  },
+  Prism: {
+    headPath: "M -47 -7 Q -25 -52 16 -45 Q 55 -31 46 15 Q 27 53 -16 44 Q -55 31 -47 -7 Z",
+    accentPaths: ["M -39 -27 L -27 -68 L -9 -47 L 5 -91 L 20 -46 L 42 -72 L 39 -24 Z", "M 42 4 L 75 -13 L 68 24 L 43 34 Z"]
+  },
+  Echo: {
+    headPath: "M -49 -2 Q -32 -50 9 -49 Q 50 -39 50 7 Q 36 51 -9 47 Q -52 40 -49 -2 Z",
+    accentPaths: ["M -38 -31 Q -72 -68 -55 -91 Q -23 -75 -14 -40 Z M 36 -31 Q 71 -67 56 -92 Q 22 -75 13 -40 Z", "M 43 19 Q 84 7 86 40 Q 71 61 44 45 Z"]
+  },
+  Luma: {
+    headPath: "M -43 3 Q -38 -49 4 -52 Q 45 -45 46 1 Q 42 47 0 49 Q -42 48 -43 3 Z",
+    accentPaths: ["M -23 -40 Q -43 -76 -27 -95 M 25 -40 Q 48 -75 32 -96 M -27 -96 A 7 7 0 1 0 -26 -96 M 32 -97 A 7 7 0 1 0 33 -97", "M -41 4 Q -79 -33 -73 22 Q -60 53 -36 30 Z M 42 4 Q 79 -33 73 22 Q 60 53 36 30 Z"]
+  },
+  Wisp: {
+    headPath: "M -52 7 Q -45 -41 -5 -51 Q 40 -49 52 -9 Q 58 34 15 51 Q -34 55 -52 7 Z",
+    accentPaths: ["M -38 -30 Q -64 -75 -42 -92 Q -15 -70 -15 -37 Z M 35 -31 Q 65 -72 46 -91 Q 16 -70 14 -38 Z", "M -49 22 L -73 40 L -44 46 M 48 22 L 73 39 L 43 47"]
+  },
+  Orbit: {
+    headPath: "M -50 0 Q -35 -48 5 -51 Q 47 -42 51 6 Q 37 51 -7 47 Q -50 42 -50 0 Z",
+    accentPaths: ["M -42 -25 L -31 -68 L -13 -47 L 0 -92 L 14 -47 L 33 -69 L 43 -25 Z", "M -62 -7 A 62 40 0 1 0 63 -7 M 51 -26 A 8 8 0 1 0 52 -26"]
+  },
+  Nova: {
+    headPath: "M -49 -5 Q -27 -51 14 -47 Q 54 -34 47 13 Q 29 53 -15 45 Q -55 33 -49 -5 Z",
+    accentPaths: ["M -38 -31 Q -70 -69 -53 -91 Q -21 -75 -13 -40 Z M 34 -32 Q 68 -68 54 -93 Q 20 -76 12 -40 Z", "M 42 18 Q 89 -3 88 35 Q 76 60 45 45 Z"]
+  },
+  Comet: {
+    headPath: "M -42 6 Q -44 -43 -5 -52 Q 39 -50 47 -6 Q 52 38 10 51 Q -37 55 -42 6 Z",
+    accentPaths: ["M -39 -28 Q -48 -69 -28 -57 Q -13 -91 0 -55 Q 17 -87 28 -53 Q 48 -72 41 -26 Z", "M 40 17 Q 92 0 101 28 Q 85 56 43 45 Z"]
+  },
+  Aster: {
+    headPath: "M -53 9 Q -48 -36 -11 -51 Q 32 -55 52 -17 Q 63 25 26 51 Q -23 60 -53 9 Z",
+    accentPaths: ["M -44 -25 L -27 -67 L -10 -46 L 4 -88 L 19 -46 L 45 -65 L 42 -22 Z", "M -50 17 L -78 31 L -49 42 M 50 18 L 78 31 L 48 43"]
+  },
+  Dawn: {
+    headPath: "M -50 2 Q -38 -45 1 -52 Q 43 -46 51 -3 Q 54 40 12 50 Q -35 54 -50 2 Z",
+    accentPaths: ["M -43 -26 L -53 -62 L -28 -48 L -22 -80 L -3 -53 L 8 -89 L 20 -51 L 43 -75 L 39 -29 Z", "M -45 25 L -70 48 L -38 45 M 45 25 L 70 48 L 38 45"]
+  },
+  player: {
+    headPath: "M -46 4 Q -42 -47 0 -52 Q 42 -47 47 1 Q 44 47 0 50 Q -43 49 -46 4 Z",
+    accentPaths: ["M -35 -31 Q -61 -74 -39 -91 Q -14 -69 -14 -38 Z M 34 -31 Q 62 -72 42 -92 Q 14 -69 13 -38 Z", "M -44 18 Q -68 3 -68 31 Q -55 52 -37 40 Z M 44 18 Q 68 3 68 31 Q 55 52 37 40 Z"]
+  }
+});
+
 function createCharacterArtProfile(characterId, chapterId, bodyShapeId, ordinal) {
+  const silhouetteGeometry = AUTHORED_SILHOUETTES[characterId];
+  if (!silhouetteGeometry) throw new Error(`${characterId}: missing authored silhouette geometry`);
   return {
     characterId,
     silhouetteFamilyId: `silhouette-${characterSlug(characterId)}`,
     proportionId: PROPORTION_BY_BODY_SHAPE[bodyShapeId],
     materialId: chapterId ? MATERIAL_BY_CHAPTER[chapterId] : "material-expedition-canvas",
-    headShapeId: `head-silhouette-${(ordinal % 12) + 1}`,
-    limbShapeId: `limb-shape-${(ordinal % 4) + 1}`
+    headShapeId: `head-authored-${characterSlug(characterId)}`,
+    limbShapeId: `limb-shape-${(ordinal % 4) + 1}`,
+    silhouetteGeometry
   };
 }
 
@@ -846,8 +984,13 @@ function validateCanonicalCharacterCatalog() {
     if (!/^silhouette-[a-z0-9-]+$/u.test(profile.silhouetteFamilyId)
       || !/^proportion-[a-z0-9-]+$/u.test(profile.proportionId)
       || !/^material-[a-z0-9-]+$/u.test(profile.materialId)
-      || !/^head-silhouette-(?:[1-9]|1[0-2])$/u.test(profile.headShapeId)
-      || !/^limb-shape-[1-4]$/u.test(profile.limbShapeId)) {
+      || !/^head-authored-[a-z0-9-]+$/u.test(profile.headShapeId)
+      || !/^limb-shape-[1-4]$/u.test(profile.limbShapeId)
+      || typeof profile.silhouetteGeometry?.headPath !== "string"
+      || profile.silhouetteGeometry.headPath.length < 40
+      || !Array.isArray(profile.silhouetteGeometry.accentPaths)
+      || profile.silhouetteGeometry.accentPaths.length < 2
+      || profile.silhouetteGeometry.accentPaths.some(path => typeof path !== "string" || path.length < 20)) {
       throw new Error(`${profile.characterId}: character art profile is invalid`);
     }
   }

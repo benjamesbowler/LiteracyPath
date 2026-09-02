@@ -234,9 +234,10 @@ function SceneVisualWithBackground({
   const chooseOption = token => {
     onChoose(token);
   };
-  const controlState = scenePresentation.scenePhase === "correction"
-    ? "retry" : scenePresentation.scenePhase === "resolved"
-      ? "settled" : scenePresentation.scenePhase === "action" ? "selected" : "idle";
+  const controlStateFor = option => {
+    if (scenePresentation.selectedOptionVisualId !== option.visualSemanticId) return "idle";
+    return scenePresentation.scenePhase === "action" ? "selected" : "settled";
+  };
 
   return (
     <section
@@ -287,7 +288,7 @@ function SceneVisualWithBackground({
             data-option-token={option.token}
             data-min-css-px={String(option.affordance.minCssPx)}
             data-emphasis-rank={String(option.affordance.emphasisRank)}
-            data-control-state={controlState}
+            data-control-state={controlStateFor(option)}
             onClick={() => chooseOption(option.token)}
           >
             <OptionGlyph option={option} />

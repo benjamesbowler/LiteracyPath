@@ -220,36 +220,173 @@ function BiomeFrame({ kitId, plane }) {
 }
 
 const TRANSFORMATIONS = Object.freeze({
-  "seedwake-meadow": Object.freeze({ wonder: "seed-song-bloom", resolved: "seed-gate-awake" }),
-  "river-gardens": Object.freeze({ wonder: "syllable-waterwheel", resolved: "canal-rhythm-restored" }),
-  "fossil-canyon": Object.freeze({ wonder: "sound-fossil-rises", resolved: "echo-arch-restored" }),
-  "forge-settlement": Object.freeze({ wonder: "word-forge-sparks", resolved: "copper-rail-relit" }),
-  "glass-marsh": Object.freeze({ wonder: "vowel-glass-rainbow", resolved: "reed-causeway-clear" }),
-  "storm-coast": Object.freeze({ wonder: "phoneme-storm-parts", resolved: "beacon-breaks-cloud" }),
-  "lantern-forest": Object.freeze({ wonder: "morpheme-lanterns-branch", resolved: "root-road-glows" }),
-  "star-reach": Object.freeze({ wonder: "sentence-stars-connect", resolved: "observatory-road-opens" })
+  "seedwake-meadow": Object.freeze({
+    wonder: Object.freeze({
+      id: "seed-song-bloom", geometry: "singing-seed-vines", material: "leaf-and-pollen",
+      primary: "M 96 270 Q 132 214 151 139 Q 169 76 207 45 M 151 139 Q 221 144 263 95 M 151 184 Q 94 170 72 126",
+      details: [
+        "M 196 55 Q 222 28 246 55 Q 221 81 196 55 Z M 252 101 Q 278 72 304 99 Q 279 128 252 101 Z M 61 128 Q 84 101 106 127 Q 83 153 61 128 Z",
+        "M 342 246 Q 363 168 399 110 Q 435 51 480 42 M 399 110 Q 459 131 506 96 M 391 135 Q 342 123 316 83"
+      ]
+    }),
+    resolved: Object.freeze({
+      id: "seed-gate-awake", geometry: "open-sprout-gate", material: "rootwood-and-light",
+      primary: "M 185 258 L 185 100 Q 235 48 285 100 L 285 258 M 515 258 L 515 100 Q 565 48 615 100 L 615 258 M 285 103 Q 374 151 515 103",
+      details: [
+        "M 285 112 L 285 237 M 515 112 L 515 237 M 319 253 Q 401 199 481 253",
+        "M 222 96 Q 245 67 268 95 M 532 95 Q 555 67 579 96 M 374 214 Q 401 173 428 214"
+      ]
+    })
+  }),
+  "river-gardens": Object.freeze({
+    wonder: Object.freeze({
+      id: "syllable-waterwheel", geometry: "turning-syllable-wheel", material: "blue-ceramic-water",
+      primary: "M 267 176 A 91 91 0 1 0 449 176 A 91 91 0 1 0 267 176 M 358 85 L 358 267 M 267 176 L 449 176 M 293 111 L 423 241 M 293 241 L 423 111",
+      details: [
+        "M 225 273 Q 297 238 369 275 T 514 273 M 180 301 Q 264 266 348 302 T 516 300 T 684 299",
+        "M 342 160 Q 358 142 374 160 L 374 192 Q 358 210 342 192 Z M 485 122 Q 511 101 536 123 Q 511 145 485 122 Z"
+      ]
+    }),
+    resolved: Object.freeze({
+      id: "canal-rhythm-restored", geometry: "stepped-rhythm-canal", material: "clear-water-and-stone",
+      primary: "M 66 250 Q 174 205 277 247 Q 373 287 475 235 Q 575 184 738 222 M 67 278 Q 180 237 282 276 Q 381 314 485 262 Q 588 211 741 248",
+      details: [
+        "M 205 218 L 228 191 L 251 220 M 429 244 L 452 217 L 475 246 M 638 201 L 661 174 L 684 203",
+        "M 113 261 L 113 231 M 337 284 L 337 254 M 553 244 L 553 214 M 706 239 L 706 209"
+      ]
+    })
+  }),
+  "fossil-canyon": Object.freeze({
+    wonder: Object.freeze({
+      id: "sound-fossil-rises", geometry: "spiral-fossil-echo", material: "amber-bone-and-dust",
+      primary: "M 154 259 C 109 174 174 79 273 105 C 364 129 358 238 279 248 C 215 256 185 196 220 157 C 249 125 302 146 299 185 C 296 215 259 224 244 201",
+      details: [
+        "M 413 258 Q 440 190 482 145 Q 524 99 578 86 M 486 145 L 536 172 M 516 116 L 548 135 M 449 185 L 493 211",
+        "M 585 83 L 616 57 L 646 82 L 618 106 Z M 112 278 L 690 278"
+      ]
+    }),
+    resolved: Object.freeze({
+      id: "echo-arch-restored", geometry: "restored-echo-arch", material: "layered-sandstone",
+      primary: "M 157 270 L 180 185 Q 205 82 318 70 Q 431 59 492 144 Q 525 190 526 270 M 234 270 L 251 200 Q 268 133 337 126 Q 409 120 450 178 Q 473 211 470 270",
+      details: [
+        "M 177 211 L 235 223 M 210 128 L 266 157 M 308 75 L 318 127 M 423 91 L 398 139 M 496 151 L 444 181",
+        "M 560 216 Q 604 176 648 216 M 577 241 Q 611 212 645 241 M 594 262 Q 616 244 638 262"
+      ]
+    })
+  }),
+  "forge-settlement": Object.freeze({
+    wonder: Object.freeze({
+      id: "word-forge-sparks", geometry: "forged-word-sparks", material: "copper-ember-and-iron",
+      primary: "M 213 230 L 327 230 L 357 263 L 183 263 Z M 246 230 L 246 166 L 294 166 L 294 230 M 460 81 L 460 177 M 424 115 L 497 115",
+      details: [
+        "M 386 68 L 397 91 L 422 94 L 403 110 L 409 135 L 386 121 L 363 135 L 370 110 L 351 94 L 376 91 Z M 545 55 L 553 73 L 573 75 L 558 88 L 563 107 L 545 96 L 527 107 L 532 88 L 517 75 L 537 73 Z",
+        "M 463 177 Q 493 207 527 172 M 501 196 L 517 220 M 524 174 L 551 184"
+      ]
+    }),
+    resolved: Object.freeze({
+      id: "copper-rail-relit", geometry: "relit-copper-rail", material: "polished-copper-light",
+      primary: "M 81 269 L 274 229 L 432 249 L 614 176 L 746 191 M 83 296 L 277 256 L 434 276 L 617 203 L 748 218",
+      details: [
+        "M 153 256 L 157 283 M 242 237 L 246 264 M 351 240 L 355 267 M 514 215 L 518 242 M 669 183 L 673 210",
+        "M 601 139 L 610 158 L 631 161 L 615 174 L 620 195 L 601 183 L 582 195 L 587 174 L 571 161 L 592 158 Z"
+      ]
+    })
+  }),
+  "glass-marsh": Object.freeze({
+    wonder: Object.freeze({
+      id: "vowel-glass-rainbow", geometry: "vowel-prism-rainbow", material: "refracted-glass-color",
+      primary: "M 94 252 Q 211 64 400 85 Q 586 106 703 252 M 129 252 Q 232 105 400 119 Q 562 133 668 252 M 169 252 Q 258 146 400 153 Q 537 160 628 252",
+      details: [
+        "M 363 79 L 401 17 L 439 79 L 420 130 L 381 130 Z M 401 17 L 401 130",
+        "M 198 223 L 220 186 L 242 223 M 556 225 L 579 187 L 602 225"
+      ]
+    }),
+    resolved: Object.freeze({
+      id: "reed-causeway-clear", geometry: "clear-reed-causeway", material: "glass-reed-and-water",
+      primary: "M 81 273 L 214 225 L 331 260 L 468 210 L 591 244 L 723 188 M 98 300 L 217 257 L 332 290 L 470 241 L 592 275 L 735 215",
+      details: [
+        "M 174 239 L 163 158 M 194 232 L 211 144 M 558 248 L 549 163 M 579 239 L 597 151",
+        "M 146 175 Q 166 156 184 177 M 196 163 Q 214 143 233 164 M 532 179 Q 552 160 570 180 M 581 167 Q 600 148 619 169"
+      ]
+    })
+  }),
+  "storm-coast": Object.freeze({
+    wonder: Object.freeze({
+      id: "phoneme-storm-parts", geometry: "segmented-phoneme-cloud", material: "rain-cloud-and-silver-air",
+      primary: "M 126 172 Q 149 105 218 119 Q 254 58 318 99 Q 367 50 421 105 Q 489 73 519 132 Q 588 120 613 181 Q 591 222 533 216 L 191 216 Q 144 214 126 172 Z",
+      details: [
+        "M 229 233 L 201 286 M 333 233 L 304 295 M 438 233 L 411 281 M 544 233 L 516 294",
+        "M 277 116 L 296 139 L 316 116 M 381 111 L 401 136 L 421 111 M 478 132 L 498 156 L 518 132"
+      ]
+    }),
+    resolved: Object.freeze({
+      id: "beacon-breaks-cloud", geometry: "beacon-clears-cloud", material: "gold-beacon-and-sea-air",
+      primary: "M 306 278 L 348 115 L 419 115 L 464 278 Z M 328 194 L 442 194 M 343 136 L 425 136 M 383 44 L 383 113",
+      details: [
+        "M 383 45 L 261 101 M 383 45 L 505 101 M 383 45 L 286 34 M 383 45 L 480 34",
+        "M 67 250 Q 150 210 235 250 M 531 250 Q 620 203 712 250 M 79 278 Q 154 244 228 278 M 541 279 Q 623 240 703 279"
+      ]
+    })
+  }),
+  "lantern-forest": Object.freeze({
+    wonder: Object.freeze({
+      id: "morpheme-lanterns-branch", geometry: "branching-morpheme-lanterns", material: "rootwood-paper-and-glow",
+      primary: "M 399 294 Q 371 213 400 142 Q 424 84 472 45 M 400 142 Q 321 133 265 76 M 407 169 Q 490 159 558 103 M 366 128 Q 333 79 337 39",
+      details: [
+        "M 239 75 L 290 75 L 282 128 L 247 128 Z M 534 101 L 583 101 L 576 154 L 541 154 Z M 315 35 L 359 35 L 353 82 L 321 82 Z",
+        "M 254 88 L 276 88 M 549 114 L 571 114 M 327 48 L 348 48 M 399 238 Q 356 218 329 245 M 402 258 Q 445 225 481 252"
+      ]
+    }),
+    resolved: Object.freeze({
+      id: "root-road-glows", geometry: "glowing-root-road", material: "living-root-and-lantern-glow",
+      primary: "M 53 284 Q 176 239 279 267 Q 372 293 450 239 Q 528 185 735 203 M 95 306 Q 190 274 277 294 Q 376 317 461 265 Q 548 212 744 228",
+      details: [
+        "M 191 258 Q 172 216 139 197 M 284 271 Q 305 226 337 205 M 446 243 Q 422 199 386 183 M 552 219 Q 577 176 611 158",
+        "M 127 185 L 150 185 L 146 210 L 131 210 Z M 326 192 L 349 192 L 345 217 L 330 217 Z M 600 145 L 623 145 L 619 170 L 604 170 Z"
+      ]
+    })
+  }),
+  "star-reach": Object.freeze({
+    wonder: Object.freeze({
+      id: "sentence-stars-connect", geometry: "sentence-constellation", material: "starlight-ink-and-sky",
+      primary: "M 82 239 L 171 164 L 267 202 L 359 96 L 459 146 L 557 73 L 706 156",
+      details: [
+        "M 82 226 L 87 236 L 98 238 L 90 246 L 92 257 L 82 251 L 72 257 L 74 246 L 66 238 L 77 236 Z M 359 82 L 365 94 L 378 96 L 368 105 L 371 118 L 359 111 L 347 118 L 350 105 L 340 96 L 353 94 Z M 706 142 L 712 154 L 725 156 L 715 165 L 718 178 L 706 171 L 694 178 L 697 165 L 687 156 L 700 154 Z",
+        "M 171 151 A 14 14 0 1 0 172 151 M 267 189 A 14 14 0 1 0 268 189 M 459 133 A 14 14 0 1 0 460 133 M 557 60 A 14 14 0 1 0 558 60"
+      ]
+    }),
+    resolved: Object.freeze({
+      id: "observatory-road-opens", geometry: "open-observatory-road", material: "moonstone-and-starlight",
+      primary: "M 92 286 L 321 221 L 482 243 L 718 150 M 122 313 L 325 251 L 486 273 L 730 178 M 306 219 Q 326 91 425 77 Q 524 91 544 225",
+      details: [
+        "M 347 218 Q 359 137 425 128 Q 492 137 503 230 M 425 77 L 425 126 M 381 92 L 398 133 M 469 92 L 452 133",
+        "M 681 132 L 688 147 L 704 149 L 692 160 L 695 176 L 681 168 L 667 176 L 670 160 L 658 149 L 674 147 Z"
+      ]
+    })
+  })
 });
 
 function WorldTransformation({ kitId, compositionMode }) {
   if (compositionMode === "ordinary") return null;
   const role = compositionMode === "wonder" ? "wonder" : "resolved";
-  const transformationId = TRANSFORMATIONS[kitId][role];
+  const transformation = TRANSFORMATIONS[kitId][role];
   return (
     <div
       className={`sound-seekers-world__transformation sound-seekers-world__transformation--${role}`}
-      data-world-transformation={transformationId}
+      data-world-transformation={transformation.id}
+      data-transformation-geometry={transformation.geometry}
+      data-transformation-material={transformation.material}
       data-transformation-state="settled"
       aria-hidden="true"
     >
       <svg viewBox="0 0 800 330" focusable="false">
-        <path className="sound-seekers-world__transformation-ripple" d="M 77 245 Q 203 83 400 167 Q 590 250 731 74" />
-        <path className="sound-seekers-world__transformation-ripple" d="M 68 275 Q 221 132 401 204 Q 574 275 742 119" />
-        {Array.from({ length: 7 }, (_, index) => (
+        <path className="sound-seekers-world__transformation-primary" d={transformation.primary} />
+        {transformation.details.map((path, index) => (
           <path
-            key={index}
-            className="sound-seekers-world__transformation-sigil"
-            d="M 0 -11 L 4 -4 L 12 0 L 4 4 L 0 12 L -4 4 L -12 0 L -4 -4 Z"
-            transform={`translate(${92 + (index * 102)} ${84 + ((index % 3) * 54)})`}
+            key={path}
+            className="sound-seekers-world__transformation-detail"
+            d={path}
+            data-transformation-detail={String(index + 1)}
           />
         ))}
       </svg>

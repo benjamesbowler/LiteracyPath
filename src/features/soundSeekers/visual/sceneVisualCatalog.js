@@ -516,6 +516,7 @@ function neutralPresentation(childScene, renderSpec, preChoice) {
     setting: resolveSemanticVisual(preChoice.settingId),
     characters: presentationCharacters(renderSpec, "pre_choice"),
     focalProps: preChoice.neutralPropIds.map(resolveSemanticVisual),
+    selectedOptionVisualId: null,
     options: childScene.choice.options.map(option => ({
       token: option.token,
       presentation: option.presentation,
@@ -560,6 +561,14 @@ export function resolveSceneVisualPresentation(childScene, {
   if (phase === "meaning_support" && !meaningVisual) return neutral;
 
   const landmark = landmarkBySceneId.get(childScene.id);
+  const branch = SOUND_SEEKERS_NARRATIVE_BRANCH_OUTCOMES.find(record => (
+    record.sceneId === childScene.id
+      && record.postDecisionSemanticId === sceneAccess.postDecisionSemanticId
+      && record.storyOutcomeId === sceneAccess.storyOutcomeId
+  ));
+  const selectedOptionVisualId = branch
+    ? neutral.options.find(option => option.token === branch.token)?.visualSemanticId || null
+    : null;
   return deepFreeze({
     sceneId: childScene.id,
     chapterId: childScene.chapterId,
@@ -573,6 +582,7 @@ export function resolveSceneVisualPresentation(childScene, {
       resolveSemanticVisual(visualStateId),
       resolveSemanticVisual(landmark.id)
     ],
+    selectedOptionVisualId,
     options: neutral.options,
     meaningVisual
   });
