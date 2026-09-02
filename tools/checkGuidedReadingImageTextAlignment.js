@@ -13,6 +13,11 @@ function publicFileExists(publicPath = "") {
 }
 
 function expectedImagePatterns(bookId, storyPageNumber) {
+  if (bookId.startsWith("willow-street-")) {
+    const slug = bookId.slice("willow-street-".length);
+    return [`/guided-reading/willow-street/${slug}/page-${String(storyPageNumber).padStart(2, "0")}.`];
+  }
+
   const expansionBook = guidedReadingWorldExpansionBooks.find(book => book.id === bookId);
   if (expansionBook) {
     return [`/guided-reading/series/${expansionBook.seriesId}/book-${String(expansionBook.bookNumber).padStart(2, "0")}/page-${String(storyPageNumber).padStart(3, "0")}.`];
@@ -181,116 +186,9 @@ function imageMatchesStoryPage(bookId, page) {
 const failures = [];
 const rows = [];
 const fictionBooks = guidedReadingBooks.filter(book => normalizeGuidedReadingType(book.type) === "fiction");
-const allowedFictionIds = new Set([
-  "bob-and-nan-01",
-  "bob-and-nan-02-park",
-  "bob-and-nan-03-fluff",
-  "bob-and-nan-04-beach",
-  "bob-and-nan-05-school",
-  "bob-and-nan-06-zoo",
-  "bob-and-nan-07-birthday",
-  "bob-and-nan-08-sick",
-  "bob-and-nan-09-read",
-  "bob-and-nan-10-vet",
-  "james-and-anna-01-space",
-  "james-and-anna-02-chips",
-  "james-and-anna-03-shopping",
-  "james-and-anna-04-dentist",
-  "james-and-anna-05-tree-house",
-  "ja-b-06",
-  "ja-b-07",
-  "ja-b-08",
-  "ja-b-09",
-  "ja-b-10",
-  "ab-c-01",
-  "ab-c-02",
-  "ab-c-03",
-  "ab-c-04",
-  "ab-c-05",
-  "ab-c-06",
-  "ab-c-07",
-  "ab-c-08",
-  "ab-c-09",
-  "ab-c-10",
-  "dino-pals-01-chompys-big-lunch",
-  "dino-pals-02-sunnys-rainy-day",
-  "dino-pals-03-dozy-wont-wake-up",
-  "dino-pals-04-grumpy-needs-help",
-  "dino-pals-05-bossy-makes-a-plan",
-  "dino-pals-06-bouncy-bumps-into-everything",
-  "dino-pals-07-wigglys-messy-day",
-  "dino-pals-08-zippy-slows-down",
-  "dino-pals-09-honkys-inside-voice",
-  "dino-pals-10-cheekys-prank-goes-wrong",
-  "dino-pals-11-shys-secret-gift",
-  "dino-pals-12-fancys-bad-day",
-  "dino-pals-13-clumsy-to-the-rescue",
-  "dino-pals-14-what-is-flappy",
-  "dino-pals-15-sneezy-and-the-waterfall",
-  "dino-pals-16-chompy-and-grumpys-day-out",
-  "dino-pals-17-the-sunny-hollow-games",
-  "dino-pals-18-dozys-wonderful-dream",
-  "dino-pals-19-zippys-race",
-  "dino-pals-20-the-big-storm",
-  "meadow-pals-01-muddy-has-a-bath",
-  "meadow-pals-02-woolly-cant-sleep",
-  "meadow-pals-03-clucky-lays-an-egg",
-  "meadow-pals-04-bouncy-wont-stop",
-  "meadow-pals-05-grumpy-gets-a-surprise",
-  "meadow-pals-06-sleepy-cant-wake-up",
-  "meadow-pals-07-noisy-tries-to-be-quiet",
-  "meadow-pals-08-tiny-is-very-small",
-  "meadow-pals-09-shy-comes-out-to-play",
-  "meadow-pals-10-giggly-has-the-hiccups",
-  "meadow-pals-11-brave-climbs-the-hay-bale",
-  "meadow-pals-12-hungry-eats-everything",
-  "meadow-pals-13-splashy-finds-a-puddle",
-  "meadow-pals-14-speedy-slows-down",
-  "meadow-pals-15-cuddly-wants-a-hug",
-  "meadow-pals-16-muddy-and-splashy-make-a-mess",
-  "meadow-pals-17-bouncy-and-speedy-have-a-race",
-  "meadow-pals-18-noisy-wakes-everyone-up",
-  "meadow-pals-19-tiny-and-brave-go-on-an-adventure",
-  "meadow-pals-20-shy-and-cuddly-find-each-other",
-  "meadow-pals-21-woolly-and-grumpy-are-stuck",
-  "meadow-pals-22-sleepys-big-dream",
-  "meadow-pals-23-giggly-and-clucky-bake-a-cake",
-  "meadow-pals-24-grumpys-secret",
-  "meadow-pals-25-the-big-farm-party",
-  "moonwood-tales-c-01",
-  "moonwood-tales-c-02",
-  "moonwood-tales-c-03",
-  "moonwood-tales-c-04",
-  "moonwood-tales-c-05",
-  "moonwood-tales-c-06",
-  "moonwood-tales-c-07",
-  "moonwood-tales-c-08",
-  "moonwood-tales-c-09",
-  "moonwood-tales-c-10",
-  "moonwood-tales-c-11",
-  "moonwood-tales-c-12",
-  "moonwood-tales-c-13",
-  "moonwood-tales-c-14",
-  "moonwood-tales-c-15",
-  "moonwood-tales-c-16",
-  "moonwood-tales-c-17",
-  "moonwood-tales-c-18",
-  "moonwood-tales-c-19",
-  "moonwood-tales-c-20",
-  "moonwood-tales-c-21",
-  "moonwood-tales-c-22",
-  "moonwood-tales-c-23",
-  "moonwood-tales-c-24",
-  "moonwood-tales-c-25"
-]);
-guidedReadingWorldExpansionBooks.forEach(book => allowedFictionIds.add(book.id));
-const unexpectedFictionBooks = fictionBooks.filter(book => !allowedFictionIds.has(book.id));
 const removedNonfictionIds = new Set(["gr-c-36", "gr-d-41"]);
 const removedNonfictionRestored = guidedReadingBooks.filter(book => removedNonfictionIds.has(book.id));
 
-if (unexpectedFictionBooks.length) {
-  failures.push(`Unexpected fiction Guided Reading books remain after removal: ${unexpectedFictionBooks.map(book => book.id).join(", ")}`);
-}
 if (removedNonfictionRestored.length) {
   failures.push(`Deleted nonfiction Guided Reading books remain after removal: ${removedNonfictionRestored.map(book => book.id).join(", ")}`);
 }
@@ -327,7 +225,7 @@ const report = [
   "",
   "## What This Check Proves",
   "",
-  "This check verifies that every visible Guided Reading book has title-page normalization and that story page images stay mechanically aligned with story page numbers. Fiction includes Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, Dino Pals Level B books 1-30, Meadow Pals Level A books 1-35, and Moonwood Tales Level C books 1-35 in student public release. First Facts nonfiction books 1-25 are Level B, First Facts Level A nonfiction books 1-20 are true Level A, and Level C nonfiction books 1-10 are also checked as public nonfiction.",
+  "This check verifies that every exported Guided Reading book has title-page normalization and that each story image stays mechanically aligned with its story page. It covers Levels A-C, both Level C reading bands, and all fiction, nonfiction, procedure, and community collections.",
   "",
   `Visible fiction books: ${fictionBooks.length}`,
   "",

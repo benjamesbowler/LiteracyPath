@@ -108,7 +108,7 @@ Every applicable row requires rating, confidence, evidence and comment.
 | MED-01 | Media/audio | Are target-word and phoneme recordings accurate, intelligible and role-correct? |
 | MED-02 | Media/audio | Are images factually accurate, non-leading, safe and relevant? |
 | MED-03 | Media/audio | Are media failures handled without substituting an unapproved teaching cue? |
-| GR-01 | Guided Reading | Do text, image, level, target patterns, audio and questions agree page by page? |
+| GR-01 | Guided Reading | Do text, image, band, reading-mode label, target patterns and audio agree page by page, and does any teacher-only discussion prompt point to exact evidence? |
 | GR-02 | Guided Reading | Is the decoding-support ladder instructionally appropriate and correctly logged? |
 | GR-03 | Guided Reading | Do teacher marks and support events avoid overstating mastery? |
 | A11Y-01 | Accessibility | Can critical instruction and response be completed using keyboard and assistive technology? |

@@ -46,6 +46,17 @@ test("the Level C sample includes a useful Willow Street cross-section", () => {
   assert.ok(sampledWillow.length < willowIds.length, "the free tier must remain a sample of Willow Street");
 });
 
+test("the Level C sample represents both Standard and Extended / Read Together", () => {
+  const ids = sampleBookIds(GUIDED_READING_BOOK_INDEX);
+  const sampledProfiles = new Set(
+    GUIDED_READING_BOOK_INDEX
+      .filter(book => book.level === "C" && ids.has(book.id))
+      .map(book => book.readingBandProfile)
+  );
+
+  assert.deepEqual([...sampledProfiles].sort(), ["extended", "standard"]);
+});
+
 test("each level is sampled in proportion, so no level is a token single book", () => {
   const ids = sampleBookIds(GUIDED_READING_BOOK_INDEX);
   const byLevel = new Map();

@@ -3,7 +3,7 @@
 // these figures against their authoritative datasets so marketing copy cannot
 // drift silently when the catalogues change.
 export const PRODUCT_CATALOG_FACTS = Object.freeze({
-  guidedReadingBooks: 206,
+  guidedReadingBooks: 226,
   skillCycles: 27,
   learningGames: 22
 });

@@ -89,8 +89,10 @@ their order is not recalculated from phonics coverage.
 
 ## Comprehension and writing
 
-Finishing pages or retrying a multiple-choice quiz does not by itself demonstrate
-comprehension. Book and story experiences should repeatedly ask children to:
+Finishing pages does not by itself demonstrate comprehension. Guided Reading has
+no scored comprehension quiz. Its optional book-specific oral and visual prompts
+are teacher-led, unscored discussion support and do not appear in child mode.
+Across book and story experiences, teachers should invite children to:
 
 - retell important information or events;
 - explain cause, motivation or change;
