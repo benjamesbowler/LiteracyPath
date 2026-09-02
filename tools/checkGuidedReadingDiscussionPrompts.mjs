@@ -47,8 +47,35 @@ function normalizedWords(value = "") {
     .split(/\s+/);
 }
 
-function normalizedOpening(value = "") {
-  return normalizedWords(value).slice(0, 4).join(" ");
+function stripLeadingProvenance(value = "") {
+  const text = String(value).trim();
+  if (!/^[“"]/.test(text)) return text;
+  const separator = text.indexOf(" — ");
+  if (separator < 0) return text;
+  const bodyStart = text.indexOf(": ", separator + 3);
+  return bodyStart < 0 ? text : text.slice(bodyStart + 2);
+}
+
+function repeatedPhrases(value = "") {
+  const words = normalizedWords(stripLeadingProvenance(value));
+  const phrases = new Set();
+  for (const size of [4, 5]) {
+    for (let index = 0; index <= words.length - size; index += 1) {
+      phrases.add(words.slice(index, index + size).join(" "));
+    }
+  }
+  return phrases;
+}
+
+function malformedPunctuation(value = "") {
+  const text = String(value);
+  const openQuotes = (text.match(/“/g) || []).length;
+  const closeQuotes = (text.match(/”/g) || []).length;
+  return /[.!?]\s*[.!?]/.test(text)
+    || /\s+[.,!?;:]/.test(text)
+    || /[.!?]\s*,/.test(text)
+    || /[.!?]\s+[”"]/.test(text)
+    || openQuotes !== closeQuotes;
 }
 
 function duplicateIssues(records, fieldPath, label) {
@@ -57,18 +84,22 @@ function duplicateIssues(records, fieldPath, label) {
     return { bookId, value: String(value || "").trim() };
   });
   const exactCounts = new Map();
-  const openingCounts = new Map();
+  const phraseBooks = new Map();
   for (const item of values) {
     if (item.value) exactCounts.set(item.value, (exactCounts.get(item.value) || 0) + 1);
-    const opening = normalizedOpening(item.value);
-    if (opening) openingCounts.set(opening, (openingCounts.get(opening) || 0) + 1);
+    for (const phrase of repeatedPhrases(item.value)) {
+      if (!phraseBooks.has(phrase)) phraseBooks.set(phrase, []);
+      phraseBooks.get(phrase).push(item.bookId);
+    }
   }
   const issues = [];
   for (const [value, count] of exactCounts) {
     if (count > 1) issues.push(`${label}: full duplicate cue or prompt appears ${count} times: ${value}`);
   }
-  for (const [opening, count] of openingCounts) {
-    if (count > 3) issues.push(`${label}: excessive template reuse begins “${opening}” in ${count} records`);
+  for (const [phrase, bookIds] of phraseBooks) {
+    if (bookIds.length > 3) {
+      issues.push(`${label}: excessive template reuse contains “${phrase}” in ${bookIds.length} records`);
+    }
   }
   return issues;
 }
@@ -111,11 +142,12 @@ export function validateGuidedReadingDiscussionPrompts(books, records) {
       ["visual.lookFor", record.visual?.lookFor]
     ]) {
       if (!String(value || "").trim()) issues.push(`${book.id}: empty ${field}`);
+      if (malformedPunctuation(value)) issues.push(`${book.id}: malformed punctuation in ${field}`);
     }
-    if (GENERIC_PROMPT.test(String(record.oral?.prompt || "").trim())) {
+    if (GENERIC_PROMPT.test(stripLeadingProvenance(record.oral?.prompt))) {
       issues.push(`${book.id}: generic oral prompt is not book-specific`);
     }
-    if (GENERIC_PROMPT.test(String(record.visual?.prompt || "").trim())) {
+    if (GENERIC_PROMPT.test(stripLeadingProvenance(record.visual?.prompt))) {
       issues.push(`${book.id}: generic visual prompt is not book-specific`);
     }
 

@@ -169,6 +169,66 @@ test("the discussion gate rejects a catalogue built by substituting nouns into s
   assert.match(issues, /visual cues: excessive template reuse/i);
 });
 
+test("the discussion gate finds repeated frames hidden after quotation and title prefixes", () => {
+  const fixtureBooks = Array.from({ length: 4 }, (_, index) => ({
+    id: `prefixed-book-${index}`,
+    title: `Prefixed Book ${index}`,
+    pages: [{
+      pageNumber: 1,
+      text: `Robin ${index} carries a copper key past the old gate.`,
+      image: `/robin-${index}.webp`,
+      imageAlt: `Robin ${index} carrying a copper key past an old gate.`
+    }]
+  }));
+  const records = Object.fromEntries(fixtureBooks.map((book, index) => [book.id, Object.freeze({
+    oral: Object.freeze({
+      prompt: `“Robin ${index} carries a copper key.” — ${book.title}: Why does Robin carry the copper key past the gate?`,
+      listenFor: `“Robin ${index} carries a copper key.” — ${book.title}: Listen for why Robin carries the copper key past the gate.`
+    }),
+    visual: Object.freeze({
+      page: 1,
+      prompt: `“Robin ${index} reaches the old gate.” — ${book.title}, page 1: Which detail shows Robin carrying the copper key past the gate?`,
+      lookFor: `“Robin ${index} reaches the old gate.” — ${book.title}, page 1: Look for Robin carrying the copper key past the gate.`
+    })
+  })]));
+
+  const issues = validateGuidedReadingDiscussionPrompts(fixtureBooks, records).join("\n");
+  assert.match(issues, /oral prompts: excessive template reuse contains/i);
+  assert.match(issues, /visual prompts: excessive template reuse contains/i);
+  assert.match(issues, /oral cues: excessive template reuse contains/i);
+  assert.match(issues, /visual cues: excessive template reuse contains/i);
+});
+
+test("the discussion gate rejects doubled, misplaced, and unbalanced punctuation", () => {
+  const fixtureBooks = [{
+    id: "punctuation-book",
+    title: "Punctuation Book",
+    pages: [{
+      pageNumber: 1,
+      text: "Pip plants one seed beside the pond.",
+      image: "/pip.webp",
+      imageAlt: "Pip planting one seed beside the pond."
+    }]
+  }];
+  const malformedRecord = Object.freeze({
+    oral: Object.freeze({
+      prompt: "Why did Pip plant the seed..",
+      listenFor: "Listen for Pip's reason. , then the result."
+    }),
+    visual: Object.freeze({
+      page: 1,
+      prompt: "What shows Pip planting the seed.?",
+      lookFor: "“Pip kneels beside the pond."
+    })
+  });
+
+  const issues = validateGuidedReadingDiscussionPrompts(
+    fixtureBooks,
+    { "punctuation-book": malformedRecord }
+  ).join("\n");
+  assert.equal((issues.match(/malformed punctuation/g) || []).length, 4);
+});
+
 test("the discussion gate rejects full duplicate teacher cues", () => {
   const fixtureBooks = ["one", "two"].map(id => ({
     id,
@@ -211,11 +271,14 @@ test("normalization preserves the private discussion authority for teacher consu
 });
 
 test("the source-of-truth registry includes the static discussion authority", () => {
-  assert.ok(
-    sourceOfTruthRegistry.guidedReading.activeRuntimeFiles.includes(
-      "src/data/guidedReadingDiscussionPrompts.js"
-    )
-  );
+  for (const sourceFile of [
+    "src/data/guidedReadingDiscussionPrompts.js",
+    "src/data/guidedReadingDiscussionPrompts.core.js",
+    "src/data/guidedReadingDiscussionPrompts.series.js",
+    "src/data/guidedReadingDiscussionPrompts.world.js"
+  ]) {
+    assert.ok(sourceOfTruthRegistry.guidedReading.activeRuntimeFiles.includes(sourceFile));
+  }
 });
 
 test("the discussion panel has no student identity, persistence, scoring, or result API", () => {

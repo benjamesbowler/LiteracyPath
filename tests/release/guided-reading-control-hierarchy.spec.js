@@ -108,14 +108,14 @@ test("teacher discussion support is collapsed, book-specific, and navigates to i
   const reader = page.getByRole("region", { name: /Honeybees and Pollination full-screen reader/ });
   const discussion = reader.getByText("Discuss this book", { exact: true }).locator("..");
   await expect(discussion).not.toHaveAttribute("open", "");
-  await expect(discussion.getByText("How does a honeybee help fruit grow after it visits one flower?"))
+  await expect(discussion.getByText("How can one honeybee visit help both its hive and a garden plant?"))
     .not.toBeVisible();
 
   await discussion.getByText("Discuss this book", { exact: true }).click();
-  await expect(discussion).toContainText("How does a honeybee help fruit grow after it visits one flower?");
-  await expect(discussion).toContainText("nectar and dusty pollen");
-  await discussion.getByRole("button", { name: "Look again at page 3" }).click();
-  await expect(reader.getByRole("status", { name: "Reading progress" })).toHaveText(/Page 3 of \d+/);
+  await expect(discussion).toContainText("How can one honeybee visit help both its hive and a garden plant?");
+  await expect(discussion).toContainText("Dusty grains cling to the bee's fuzzy body or legs");
+  await discussion.getByRole("button", { name: "Look again at page 5" }).click();
+  await expect(reader.getByRole("status", { name: "Reading progress" })).toHaveText(/Page 5 of \d+/);
 });
 
 test("student Guided Reading does not mount or serialize private discussion text", async ({ page }) => {
@@ -123,9 +123,9 @@ test("student Guided Reading does not mount or serialize private discussion text
 
   await expect(page.getByText("Discuss this book", { exact: true })).toHaveCount(0);
   await expect(page.locator("body")).not.toContainText(
-    "How does a honeybee help fruit grow after it visits one flower?"
+    "How can one honeybee visit help both its hive and a garden plant?"
   );
-  await expect(page.locator("body")).not.toContainText("nectar and dusty pollen");
+  await expect(page.locator("body")).not.toContainText("Dusty grains cling to the bee's fuzzy body or legs");
 });
 
 test("child Guided Reading exposes meaningful art, one primary, and 56px targets at supported sizes", async ({ page }) => {
