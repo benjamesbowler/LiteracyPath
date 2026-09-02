@@ -9,21 +9,17 @@
 //
 // WHY A POLICY MODULE AND NOT PART OF THE SCREENS. Every value on these two
 // screens is a claim about a child: which book they stopped in, which page they
-// stopped on, how many stars a book earned them, which stories are still ahead
+// stopped on and which stories are still ahead
 // of them. A claim about a child has to be checkable, and a JSX file is not
 // checkable from `node --test`. Nothing here imports a component, a stylesheet
 // or `import.meta.env`, so tests/unit/childLibraryPolicy.test.js can run it.
 //
 // EVERY NUMBER IS REAL, AND THE SOURCE IS NAMED. The mock's "The Rain Cycle,
-// page 5 of 12, 1 star" and its "4 endings" are placeholders — the spec says
+// page 5 of 12" and its "4 endings" are placeholders — the spec says
 // so. Here:
 //
 //   * page/of      -> the guided-reading record's completedPages / the book's
 //                     own page count.
-//   * book stars   -> the book quiz score, through the SAME 3/2/1/0 rule
-//                     BookQuiz.jsx already draws on its results card. There is
-//                     no other per-book star store in this app; inventing one
-//                     would put a number on screen that nothing can back.
 //   * the level    -> recommendBooksForStudent()'s resolveReadingLevel, which
 //                     is the app's existing answer to "what level is this
 //                     child on" (teacher-set, else the last book they read,
@@ -36,8 +32,8 @@
 // WHERE NO REAL SOURCE EXISTS, THE BUILDER RETURNS NULL and the screen says
 // something true instead of drawing a placeholder.
 //
-// TWO NUMERIC SYSTEMS, AND ONLY TWO: stars and coins. "Page 5 of 12" is not a
-// third one — it is a position inside the thing the child is reading, the way a
+// Coins are the only library currency. "Page 5 of 12" is not another score —
+// it is a position inside the thing the child is reading, the way a
 // bookmark is. A count of stories completed, a count of words seen, or a
 // books-read goal IS a third one, which is why the old Story Quests header
 // ("3 complete · 2 in progress · 30 of 119 story words seen") does not survive
@@ -123,23 +119,6 @@ export function bookCoverSrc(book = {}, isDeleted = () => false) {
 }
 
 /**
- * The stars a book has won, 0-3.
- *
- * This is BookQuiz.jsx's own rule, applied to the saved record instead of to
- * live state: all questions right is three, two right is two, anything right is
- * one. A book with no quiz taken has no stars — not "0 out of 3 available",
- * simply none earned yet.
- */
-export function bookStars(record = {}) {
-  const total = Number(record?.quizTotal) || 0;
-  const score = Number(record?.quizScore) || 0;
-  if (total <= 0 || score <= 0) return 0;
-  if (score >= total) return 3;
-  if (score >= 2) return 2;
-  return 1;
-}
-
-/**
  * Where the child is in one book.
  *
  * `page` is the furthest page they have opened, which is what "you stopped
@@ -174,7 +153,6 @@ export function bookReadingProgress(book = {}, record = {}) {
     percent: totalPages > 0
       ? Math.max(0, Math.min(100, Math.round((completedPages / totalPages) * 100)))
       : 0,
-    stars: bookStars(record),
     lastReadAt: record?.lastReadAt || record?.updatedAt || record?.completedAt || ""
   };
 }
@@ -250,7 +228,6 @@ export function buildBookShelves({
 
   const decorate = book => ({
     book,
-    stars: bookStars(records[book.id] || {}),
     progress: bookReadingProgress(book, records[book.id] || {})
   });
 

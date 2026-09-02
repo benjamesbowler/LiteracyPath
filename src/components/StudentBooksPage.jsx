@@ -10,18 +10,18 @@
 // IT IS A FRONT DOOR, NOT A REPLACEMENT. Tapping a book opens the real reader,
 // which keeps every capability it has: page turns and swipe, whole-book and
 // per-page read-aloud with sentence highlighting, tap-a-word decoding support,
-// line focus, fullscreen, the end-of-book quiz, the level-up celebration and
+// line focus, fullscreen, the level-up celebration and
 // its printable certificate. Nothing was moved out of it and nothing was culled;
 // this screen replaces the old shelf page in front of it.
 //
-// EVERY NUMBER IS REAL. The mock's "The Rain Cycle - page 5 of 12 - 1 star" is
-// a placeholder (the spec says so). Here the book, the page, the percentage and
-// every star come from the child's own guided-reading records, and a read that
+// EVERY NUMBER IS REAL. The mock's "The Rain Cycle - page 5 of 12" is
+// a placeholder (the spec says so). Here the book, the page and the percentage
+// come from the child's own guided-reading records, and a read that
 // FAILED says so rather than drawing an empty library — an empty library is a
 // claim about the child.
 //
-// TWO NUMERIC SYSTEMS, AND ONLY TWO: stars and coins, both in the shell header.
-// "Page 5 of 12" is a position in the book being read, not a currency. The old
+// Coins live in the shell header. "Page 5 of 12" is a position in the book
+// being read, not a score. The old
 // shelf page's reading-goal panel ("7 of 10 books", with a bar and a target) was
 // a third one, and it does not come back here.
 
@@ -106,17 +106,6 @@ function MoreGlyph() {
   return (
     <svg className="kg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path d="M5 12h14M13 6l6 6-6 6" />
-    </svg>
-  );
-}
-
-const STAR_PATH =
-  "M12 2.6l2.9 6.2 6.6.8-4.8 4.6 1.2 6.6L12 17.6 6.1 20.8l1.2-6.6L2.5 9.6l6.6-.8L12 2.6z";
-
-function StarGlyph({ earned }) {
-  return (
-    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false">
-      <path d={STAR_PATH} fill={earned ? "#F2B33D" : "rgba(62,119,107,.2)"} />
     </svg>
   );
 }
@@ -643,7 +632,7 @@ export function StudentBooksPage({
                 <small className="kg-shelf-note">{shelf.note}</small>
               </div>
               <div className="kg-shelf-grid">
-                {shelf.books.map(({ book, stars }) => {
+                {shelf.books.map(({ book }) => {
                   const purpose = purposeFor(book);
                   return (
                     <button
@@ -666,14 +655,6 @@ export function StudentBooksPage({
                         />
                         <strong className="kg-book-title">{book.title}</strong>
                         <small className="kg-book-purpose">{purpose.shortLabel}</small>
-                        <span
-                          className="kg-book-stars"
-                          role="img"
-                          aria-label={stars === 1 ? "1 star won" : `${stars} stars won`}
-                        >
-                          <StarGlyph earned={stars > 0} />
-                          {stars}
-                        </span>
                       </span>
                     </button>
                   );

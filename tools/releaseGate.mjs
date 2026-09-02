@@ -80,12 +80,6 @@ export const RELEASE_GATES = Object.freeze([
     areas: [1, 3, 4, 10]
   },
   {
-    id: "guided-reading-evidence-questions",
-    label: "Every Guided Reading book has three evidence-grounded, unambiguous questions",
-    command: ["npm", "run", "check:validate:guided-reading-questions"],
-    areas: [1, 2, 4, 10]
-  },
-  {
     id: "public-source-maps",
     label: "Public build contains no source maps or map references",
     command: ["npm", "run", "check:public-source-maps"],

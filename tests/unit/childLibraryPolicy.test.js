@@ -20,7 +20,6 @@ import {
   bookCollectionsForLevel,
   bookCoverSrc,
   bookReadingProgress,
-  bookStars,
   buildBookShelves,
   buildQuestCard,
   buildQuestGrid,
@@ -35,7 +34,6 @@ import {
 const booksPageSource = readFileSync("src/components/StudentBooksPage.jsx", "utf8");
 const questsPageSource = readFileSync("src/components/StudentStoryQuestsPage.jsx", "utf8");
 const libraryStyles = readFileSync("src/styles/kids-library.css", "utf8");
-const bookQuizSource = readFileSync("src/components/guided-reading/BookQuiz.jsx", "utf8");
 const appSource = readFileSync("src/components/AppSurface.jsx", "utf8");
 
 function book(id, level, pages = 6, extra = {}) {
@@ -52,22 +50,12 @@ function book(id, level, pages = 6, extra = {}) {
   };
 }
 
-test("book stars are the quiz result, by the rule BookQuiz already draws", () => {
-  // The results card in BookQuiz.jsx is the source of this rule. If that
-  // expression changes, this suite is where the disagreement shows up rather
-  // than on a child's shelf.
-  assert.match(
-    bookQuizSource,
-    /stars=\{correct >= questions\.length \? 3 : correct >= 2 \? 2 : correct > 0 \? 1 : 0\}/
+test("book progress does not project legacy quiz stars", () => {
+  const progress = bookReadingProgress(
+    book("book-1", "C", 2),
+    { completed: true, quizScore: 3, quizTotal: 3 }
   );
-
-  assert.equal(bookStars({ quizScore: 3, quizTotal: 3 }), 3);
-  assert.equal(bookStars({ quizScore: 2, quizTotal: 3 }), 2);
-  assert.equal(bookStars({ quizScore: 1, quizTotal: 3 }), 1);
-  assert.equal(bookStars({ quizScore: 0, quizTotal: 3 }), 0);
-  // No quiz taken is no stars won — never a placeholder.
-  assert.equal(bookStars({}), 0);
-  assert.equal(bookStars({ completed: true }), 0);
+  assert.equal("stars" in progress, false);
 });
 
 test("a book's page position is the furthest page opened, out of its real length", () => {

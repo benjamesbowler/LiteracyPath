@@ -1057,52 +1057,6 @@ function guidedWordEvidence({
   });
 }
 
-function guidedQuizEvidence({ studentId, bookId, title, score, total, observedAt, raw }) {
-  const percent = total > 0 ? Math.round((score / total) * 100) : null;
-  const learningStatus = percent === null ? null : rawLearningStatus(percent);
-  const candidate = learningStatus === LEARNING_STATUS_IDS.SECURE
-    ? REPORTING_STATUS_IDS.SECURE
-    : learningStatus === LEARNING_STATUS_IDS.DEVELOPING
-      ? REPORTING_STATUS_IDS.DEVELOPING
-      : learningStatus === LEARNING_STATUS_IDS.NEEDS_SUPPORT
-        ? REPORTING_STATUS_IDS.NEEDS_TEACHING
-        : null;
-  return createReportingEvidence({
-    evidenceId: `guided_reading:${bookId}:quiz`,
-    studentId,
-    sourceArea: "guided_reading",
-    sourceLabel: "Guided Reading",
-    sourceRecordId: bookId,
-    sourceRecordType: "book_quiz",
-    evidenceKind: REPORTING_EVIDENCE_KINDS.PRACTICE,
-    concept: {
-      domain: "comprehension",
-      construct: "book_comprehension_quiz",
-      key: bookId,
-      label: `Comprehension of “${title}”`
-    },
-    outcome: candidate || "not_scored",
-    statusCandidate: candidate,
-    observedAt,
-    administrationStatus: "completed",
-    scorable: percent !== null,
-    knowledgeEligible: percent !== null,
-    details: {
-      bookId,
-      title,
-      score,
-      total,
-      percent,
-      observations: total > 0 ? total : 0,
-      correct: total > 0 ? score : null,
-      accuracy: percent,
-      independentAttempts: total > 0 ? 1 : 0,
-      rawQuiz: raw
-    },
-    provenance: { bookId, recordKind: "book_quiz" }
-  });
-}
-
 function guidedRowsFromRecords({ guidedReadingRecords = {}, studentId = "" } = {}) {
   const books = [];
   const evidence = [];
@@ -1141,19 +1095,6 @@ function guidedRowsFromRecords({ guidedReadingRecords = {}, studentId = "" } = {
         evidence.push(guidedWordEvidence({ ...row, studentId, raw: { mark, page: rawPage } }));
       });
     });
-    const quizScore = finiteNumber(rawRecord.quizScore);
-    const quizTotal = finiteNumber(rawRecord.quizTotal);
-    if (quizScore !== null && quizTotal !== null && quizTotal > 0) {
-      evidence.push(guidedQuizEvidence({
-        studentId,
-        bookId,
-        title,
-        score: Math.max(0, quizScore),
-        total: quizTotal,
-        observedAt: rawRecord.quizAt || rawRecord.lastReadAt || rawRecord.updatedAt || "",
-        raw: rawRecord
-      }));
-    }
     const completed = Boolean(rawRecord.completed || rawRecord.completedAt);
     const readCount = Math.max(Number(rawRecord.readCount || 0), completed ? 1 : 0);
     const notes = normalizedNoteRows(rawRecord);
@@ -1176,8 +1117,6 @@ function guidedRowsFromRecords({ guidedReadingRecords = {}, studentId = "" } = {
       rereadCount: Math.max(0, readCount - 1),
       pagesRead: Number(rawRecord.completedPages || 0),
       totalPages: Number(rawRecord.totalPages || 0),
-      quizScore: quizScore !== null && quizTotal > 0 ? Math.max(0, quizScore) : null,
-      quizTotal: quizScore !== null && quizTotal > 0 ? quizTotal : null,
       attempted: wordMarks.length,
       correct: wordMarks.filter(row => row.mark === "correct").length,
       latestAccuracy: wordMarks.length
@@ -1207,8 +1146,6 @@ function guidedRowsFromPreparedRows({ guidedReadingRows = [], guidedReadingWordR
     rereadCount: Math.max(0, Number(row.readCount || 0) - 1),
     pagesRead: Number(row.pagesRead || row.completedPages || 0),
     totalPages: Number(row.totalPages || 0),
-    quizScore: finiteNumber(row.quizScore),
-    quizTotal: finiteNumber(row.quizTotal),
     attempted: Number(row.attempted || 0),
     correct: Number(row.correct || 0),
     latestAccuracy: finiteNumber(row.latestAccuracy ?? row.accuracy),
@@ -1282,19 +1219,6 @@ function guidedRowsFromPreparedRows({ guidedReadingRows = [], guidedReadingWordR
       });
     });
   }
-  books.forEach(book => {
-    if (book.quizScore !== null && book.quizTotal !== null && book.quizTotal > 0) {
-      evidence.push(guidedQuizEvidence({
-        studentId,
-        bookId: book.bookId,
-        title: book.title,
-        score: book.quizScore,
-        total: book.quizTotal,
-        observedAt: book.lastReadAt,
-        raw: book.provenance.preparedRow
-      }));
-    }
-  });
   return { books, evidence };
 }
 
@@ -1341,7 +1265,7 @@ export function buildGuidedReadingReportModel({
   const prepared = hasRawRecords
     ? guidedRowsFromRecords({ guidedReadingRecords, studentId: resolvedStudentId })
     : guidedRowsFromPreparedRows({ guidedReadingRows, guidedReadingWordRows, studentId: resolvedStudentId });
-  // Raw records remain authoritative for marks, notes, quiz results and
+  // Raw records remain authoritative for marks, notes and
   // timestamps. Prepared rows may safely fill catalogue metadata that older
   // raw records did not persist (for example a title or level).
   const preparedMetadataByBook = new Map(asArray(guidedReadingRows).map(row => [row.bookId, row]));
@@ -1381,9 +1305,6 @@ export function buildGuidedReadingReportModel({
     const level = rawRecord.level || metadata.level || row.details.level;
     return {
       ...row,
-      concept: row.sourceRecordType === "book_quiz" && title
-        ? { ...row.concept, label: `Comprehension of “${title}”` }
-        : row.concept,
       details: { ...row.details, title, level },
       provenance: {
         ...row.provenance,
@@ -1401,8 +1322,7 @@ export function buildGuidedReadingReportModel({
     evidenceKind: REPORTING_EVIDENCE_KINDS.TEACHER_OBSERVATION,
     aggregateId: "current_word_marks"
   });
-  const quizKnowledge = rawEvidence.filter(row => row.sourceRecordType === "book_quiz" && row.statusCandidate);
-  const knowledgeEvidence = dedupeReportingEvidence([...wordKnowledge, ...quizKnowledge]);
+  const knowledgeEvidence = dedupeReportingEvidence(wordKnowledge);
   const correctWordRows = wordEvidence.filter(row => row.outcome === "read_correctly");
   const supportWordRows = wordEvidence.filter(row => row.outcome === "needs_support");
 

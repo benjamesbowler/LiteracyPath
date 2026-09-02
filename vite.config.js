@@ -283,9 +283,6 @@ export default defineConfig({
           if (id.includes('/src/data/generated/guidedReadingLedaGaps.generated')) {
             return 'guided-reading-leda-gaps'
           }
-          if (id.includes('/src/data/generated/guidedReadingQuizzes.generated')) {
-            return 'guided-reading-quizzes'
-          }
           if (id.includes('/src/data/generated/guidedReadingNarrationProvenance.generated')) {
             return 'guided-reading-narration-provenance'
           }

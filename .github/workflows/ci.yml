@@ -61,8 +61,6 @@ jobs:
         run: npm run check:guided-reading-story-bible
       - name: Guided Reading illustration alignment gate
         run: npm run check:guided-reading-visual-alignment
-      - name: Guided Reading evidence-question gate
-        run: npm run check:validate:guided-reading-questions
       - name: Quest chapter-one release gate
         run: npm run check:quest-chapter-one
       - name: Quest 3D asset gate

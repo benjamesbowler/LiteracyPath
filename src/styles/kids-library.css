@@ -538,26 +538,6 @@
   align-self: start;
 }
 
-.kg-stage .kg-book-stars {
-  grid-column: 3;
-  grid-row: 2;
-  align-self: center;
-  justify-self: end;
-  display: inline-flex;
-  align-items: center;
-  gap: 1px;
-  flex: 0 0 auto;
-  margin-right: 0;
-  padding: 0 4px;
-  border-radius: var(--kg-radius-pill);
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  font-family: var(--kg-font-body);
-  font-size: 11px;
-  line-height: 1.1;
-  font-weight: 800;
-}
-
 /* THE PAGER IS A TILE, NOT A HEADER BUTTON. A 44px control in the shelf
    heading costs 18px of every card row; a tile in the last cell costs nothing,
    is already 64px tall, and reads to a pre-reader as "there are more books

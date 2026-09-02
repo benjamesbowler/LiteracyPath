@@ -1646,22 +1646,6 @@
 .student-mode-app .skills-block-quest .sbq-stop-skill { color: var(--comic-blue); }
 .student-mode-app .skills-block-quest .sbq-stop-reason { color: var(--comic-ink); }
 
-/* Book quiz: pre-readers can hear each word choice read aloud */
-.book-quiz-choice-row { display: flex; align-items: stretch; gap: 6px; }
-.book-quiz-choice-row > button:first-child { flex: 1; }
-.book-quiz-hear {
-  flex: 0 0 auto;
-  width: 44px;
-  border-radius: 12px;
-  border: 2px solid rgba(0, 0, 0, 0.15);
-  background: #fff;
-  color: #2f6fae;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-}
-.book-quiz-hear:active { transform: scale(0.94); }
-
 /* ═══ SOUND SEEKERS — topbar entry point (beta) ════════════════════════════
  * Deliberately NOT a sixth card on the home grid: that layout is finished and
  * a new card would reflow it. The comic topbar is `display: flex;

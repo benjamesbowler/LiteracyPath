@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "node tools/generateAudioManifest.js && node tools/generateLedaWordLookup.mjs && node tools/generateShellAudioPaths.mjs && node tools/generateVocabularyRuntime.mjs && node tools/generateBookIndex.js && node tools/generateGuidedReadingQuizIndex.js && node tools/generateSageSoft.mjs",
+    "prebuild": "node tools/generateAudioManifest.js && node tools/generateLedaWordLookup.mjs && node tools/generateShellAudioPaths.mjs && node tools/generateVocabularyRuntime.mjs && node tools/generateBookIndex.js && node tools/generateSageSoft.mjs",
     "build": "vite build",
     "gen:image": "node tools/generateImage.mjs",
     "analyze": "ANALYZE_BUNDLE=true vite build",
@@ -22,7 +22,6 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "check:validate:guided-reading": "node tools/runAuditScript.mjs --check tools/auditGuidedReadingContent.js",
-    "check:validate:guided-reading-questions": "node tools/runAuditScript.mjs --check tools/auditGuidedReadingQuestions.js",
     "check:validate:guided-stories": "node tools/runAuditScript.mjs --check tools/auditGuidedStoryBooks.js",
     "check:story-content-policy": "node tools/checkStoryContentPolicy.mjs",
     "check:story-content-release": "node tools/checkStoryContentPolicy.mjs --release && npm run check:app-visual-review",

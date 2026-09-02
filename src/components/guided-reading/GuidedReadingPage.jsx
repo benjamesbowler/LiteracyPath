@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { useEffect, useEffectEvent, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { announceMissionReturn, notifyMissionTaskDone } from "../../utils/dailyMission.js";
-import { BookQuiz } from "./BookQuiz.jsx";
 import { printCertificate } from "../../utils/printCertificate.js";
 import { countBooksRead } from "../../utils/treasureTrail.js";
 import { ConfettiCelebration } from "../learn/games/shared/ConfettiCelebration.jsx";
@@ -47,7 +46,12 @@ import {
   GUIDED_READING_PAGE_LEAD_OUT_MS,
   waitForGuidedReadingPause
 } from "../../utils/guidedReading/readAloudPacing.js";
-import { shouldShowGuidedReadingScoreSummary } from "../../utils/guidedReading/completionPolicy.js";
+import {
+  buildGuidedReadingCompletionPatch,
+  getGuidedReadingCompletionMilestone,
+  mergeGuidedReadingRecord,
+  shouldShowGuidedReadingCompletionSummary
+} from "../../utils/guidedReading/completionPolicy.js";
 import {
   addBrowserFullscreenListener,
   exitBrowserFullscreen,
@@ -516,7 +520,6 @@ export function GuidedReadingPage({
   const [libraryPage, setLibraryPage] = useState(0);
   const [pageIndex, setPageIndex] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
-  const [showQuiz, setShowQuiz] = useState(false);
   const [reviewNoteDraft, setReviewNoteDraft] = useState("");
   const [reviewBusy, setReviewBusy] = useState(false);
   const [reviewMessage, setReviewMessage] = useState("");
@@ -622,8 +625,8 @@ export function GuidedReadingPage({
   // keeps every reading tool and drops every capture control, because a note or
   // a running record with nobody to save it against is discarded silently.
   const canRecord = !isStudentMode && !isReviewMode && (!isClassMode || Boolean(activeGroupSession));
-  const canShowScoreSummary = shouldShowGuidedReadingScoreSummary({ mode, studentId });
-  const scoreSummaryOpen = showSummary && canShowScoreSummary;
+  const canShowCompletionSummary = shouldShowGuidedReadingCompletionSummary({ mode, studentId });
+  const scoreSummaryOpen = showSummary && canShowCompletionSummary;
   const sessionWordMarks = activeSessionHost?.markTarget
     ? activeSessionHost.marksByStudent?.[activeSessionHost.markTarget.id]?.[pageIndex] || {}
     : {};
@@ -724,7 +727,6 @@ export function GuidedReadingPage({
     setSelectedLibraryLevel(launchedBook.level || "");
     setPageIndex(0);
     setShowSummary(false);
-    setShowQuiz(false);
     setReaderOpen(true);
     setReadingMode("reading");
     onLaunchBookHandled?.();
@@ -836,7 +838,6 @@ export function GuidedReadingPage({
       || !isStudentMode
       || !readerOpen
       || scoreSummaryOpen
-      || showQuiz
       || !currentPageAudioPath
     ) return undefined;
     const pageKey = `${selectedBookId}:${pageIndex}`;
@@ -851,7 +852,6 @@ export function GuidedReadingPage({
     pageIndex,
     readerOpen,
     selectedBookId,
-    showQuiz,
     scoreSummaryOpen
   ]);
 
@@ -921,7 +921,7 @@ export function GuidedReadingPage({
   }, []);
 
   useEffect(() => {
-    if (!readerOpen || scoreSummaryOpen || showQuiz) return undefined;
+    if (!readerOpen || scoreSummaryOpen) return undefined;
 
     function handleKeyDown(event) {
       const tagName = event.target?.tagName?.toLowerCase();
@@ -940,7 +940,7 @@ export function GuidedReadingPage({
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [readerOpen, scoreSummaryOpen, showQuiz, pageIndex, selectedBook?.pages?.length]);
+  }, [readerOpen, scoreSummaryOpen, pageIndex, selectedBook?.pages?.length]);
 
   function getWorkingRecord() {
     const externalRecord = guidedReadingRecords[selectedBook?.id] || record || {};
@@ -964,16 +964,13 @@ export function GuidedReadingPage({
   function updateRecord(patch) {
     if (!selectedBook || isClassMode) return;
     const previous = getWorkingRecord();
-    const nextRecord = {
-      ...previous,
+    const nextRecord = mergeGuidedReadingRecord({
+      previous,
       studentId,
-      bookId: selectedBook.id,
-      title: selectedBook.title,
-      type: selectedBook.type,
-      level: selectedBook.level,
-      updatedAt: new Date().toISOString(),
-      ...patch
-    };
+      book: selectedBook,
+      now: new Date().toISOString(),
+      patch
+    });
     recordDraftRef.current = nextRecord;
     saveGuidedReadingRecord(selectedBook.id, nextRecord);
   }
@@ -984,22 +981,21 @@ export function GuidedReadingPage({
     const totalPages = selectedBook.pages.length;
     const previous = getWorkingRecord();
 
-    const nextRecord = {
-      ...previous,
+    const nextRecord = mergeGuidedReadingRecord({
+      previous,
       studentId,
-      bookId: selectedBook.id,
-      title: selectedBook.title,
-      type: normalizeGuidedReadingType(selectedBook.type),
-      level: selectedBook.level,
-      firstReadAt: previous.firstReadAt || now,
-      lastReadAt: now,
-      completedPages: Math.min(totalPages, Math.max(Number(previous.completedPages || 0), nextPageIndex + 1)),
-      totalPages,
-      completed: Boolean(previous.completed || previous.completedAt),
-      readCount: Number(previous.readCount || (previous.completed || previous.completedAt ? 1 : 0)),
-      updatedAt: now,
-      ...patch
-    };
+      book: { ...selectedBook, type: normalizeGuidedReadingType(selectedBook.type) },
+      now,
+      patch: {
+        firstReadAt: previous.firstReadAt || now,
+        lastReadAt: now,
+        completedPages: Math.min(totalPages, Math.max(Number(previous.completedPages || 0), nextPageIndex + 1)),
+        totalPages,
+        completed: Boolean(previous.completed || previous.completedAt),
+        readCount: Number(previous.readCount || (previous.completed || previous.completedAt ? 1 : 0)),
+        ...patch
+      }
+    });
     recordDraftRef.current = nextRecord;
     saveGuidedReadingRecord(selectedBook.id, nextRecord);
   }
@@ -1084,59 +1080,34 @@ export function GuidedReadingPage({
     if (!selectedBook) return;
     stopPageAudio();
     const now = new Date().toISOString();
-    const wasCompleted = Boolean(record.completed || record.completedAt);
-    const nextReadCount = wasCompleted
-      ? Number(record.readCount || 1) + 1
-      : Math.max(1, Number(record.readCount || 0) + 1);
-
-    touchBookProgress(selectedBook.pages.length - 1, {
-      completed: true,
-      completedAt: record.completedAt || now,
-      lastReadAt: now,
-      readCount: nextReadCount,
-      completedPages: selectedBook.pages.length,
-      totalPages: selectedBook.pages.length
+    const previous = getWorkingRecord();
+    const completionPatch = buildGuidedReadingCompletionPatch({
+      now,
+      totalPages: selectedBook.pages.length,
+      wasCompleted: Boolean(previous.completed || previous.completedAt),
+      readCount: previous.readCount,
+      completedAt: previous.completedAt
     });
-    // Credit the book on READING completion (not on finishing the quiz), so a
-    // child who reads the whole book always gets the mission, even if they skip
-    // the quiz. Coins for the book are derived in the Hollow economy - no gems.
+    touchBookProgress(selectedBook.pages.length - 1, completionPatch);
+    // Credit the book on reading completion. Coins for the book are derived in
+    // the Hollow economy - no gems.
     const scope = studentId || studentName || "default";
-    // In student mode the quiz follows: credit the task now, but hold the
-    // auto-return to the mission screen until the reader closes, so the
-    // quiz and its summary are never unmounted mid-flow.
     const newlyDone = notifyMissionTaskDone(scope, "book", { deferReturn: isStudentMode });
     if (newlyDone && isStudentMode) missionReturnPendingRef.current = true;
-    if (isStudentMode) {
-      setShowQuiz(true);
-    } else if (canShowScoreSummary) {
-      setShowSummary(true);
-    } else {
-      closeReader();
-    }
-  }
-
-  function handleQuizFinish(quizCorrect, quizTotal) {
-    setShowQuiz(false);
-    updateRecord({
-      quizScore: quizCorrect,
-      quizTotal,
-      quizAt: new Date().toISOString()
-    });
-
-    // Level-up: every book of this type + level is now completed.
     const levelBooks = getGuidedReadingLevelBooks(
       selectedBook.type,
       selectedBook.level,
       runtimeGuidedReadingBooks
     );
-    const allDone = levelBooks.length > 1 && levelBooks.every(book =>
-      book.id === selectedBook.id ||
-      Boolean(guidedReadingRecords[book.id]?.completed || guidedReadingRecords[book.id]?.completedAt)
-    );
-    if (allDone) {
+    const milestone = getGuidedReadingCompletionMilestone({
+      book: selectedBook,
+      levelBooks,
+      records: { ...guidedReadingRecords, [selectedBook.id]: { ...previous, ...completionPatch } }
+    });
+    if (milestone) {
       playCelebrationFanfare();
-      setLevelUp({ level: selectedBook.level, count: levelBooks.length });
-    } else if (canShowScoreSummary) {
+      setLevelUp(milestone);
+    } else if (canShowCompletionSummary) {
       setShowSummary(true);
     } else {
       closeReader();
@@ -1147,7 +1118,6 @@ export function GuidedReadingPage({
     setSelectedBookId(bookId);
     setPageIndex(0);
     setShowSummary(false);
-    setShowQuiz(false);
     setReaderOpen(true);
     setReadingMode("reading");
   }
@@ -1189,7 +1159,7 @@ export function GuidedReadingPage({
   function closeReader() {
     stopPageAudio();
     // The held mission-return from finishing today's first book fires now,
-    // once the child is done with the quiz/summary and closes the reader.
+    // once the child is done with the completion summary and closes the reader.
     if (missionReturnPendingRef.current) {
       missionReturnPendingRef.current = false;
       announceMissionReturn("book");
@@ -1199,7 +1169,6 @@ export function GuidedReadingPage({
     }
     setReaderOpen(false);
     setShowSummary(false);
-    setShowQuiz(false);
     // Phase D: hand the child back to the Books screen they opened this from.
     onCloseReader?.();
   }
@@ -1921,10 +1890,6 @@ export function GuidedReadingPage({
       data-auto-narration={isStudentMode && autoNarration ? "true" : "false"}
       role="main"
     >
-      {showQuiz && selectedBook && (
-        <BookQuiz key={selectedBook.id} book={selectedBook} onFinish={handleQuizFinish} />
-      )}
-
       {levelUp && (
         <div className="guided-levelup" role="dialog" aria-label="Level complete">
           <ConfettiCelebration show />
@@ -1937,7 +1902,7 @@ export function GuidedReadingPage({
               type="button"
               onClick={() => {
                 setLevelUp(null);
-                if (canShowScoreSummary) setShowSummary(true);
+                if (canShowCompletionSummary) setShowSummary(true);
                 else closeReader();
               }}
             >
@@ -2697,16 +2662,6 @@ export function GuidedReadingPage({
                     </label>
                   </details>}
 
-                  {!isReaderFullscreen && (!isStudentMode || pageIndex === selectedBook.pages.length - 1) && <details className="guided-note-drawer" open={isStudentMode || undefined}>
-                    <summary>{isStudentMode ? "Talk and write" : "Comprehension prompts"}</summary>
-                    <div className="guided-comprehension-prompts">
-                      {(enrichedSelectedBook?.comprehensionQuestionSeeds || []).map(prompt => (
-                        <span key={prompt} className="guided-comprehension-chip">
-                          {prompt}
-                        </span>
-                      ))}
-                    </div>
-                  </details>}
                 </div>
               </motion.div>
             </AnimatePresence>
