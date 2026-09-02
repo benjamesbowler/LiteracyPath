@@ -114,7 +114,30 @@ const CONSTRAINED_PROFILE_IDS = new Set([
 ]);
 
 function completeShots() {
-  return SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX.map(matrix => ({
+  return SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX.map(matrix => {
+    const pngSha256 = matrix.ordinal.toString(16).padStart(64, "0");
+    const payoffComparison = matrix.kind === "boss-branch" ? {
+      selectedOptionVisualId: matrix.subjectId,
+      resolvedVisualStateId: matrix.expectedRenderedFacts.resolvedVisualStateId,
+      variants: [
+        {
+          mode: "ordinary",
+          compositionSignature: matrix.expectedRenderedFacts.ordinaryCompositionSignature,
+          pngSha256: (1000 + matrix.ordinal).toString(16).padStart(64, "0")
+        },
+        {
+          mode: "wonder",
+          compositionSignature: matrix.expectedRenderedFacts.wonderCompositionSignature,
+          pngSha256: (2000 + matrix.ordinal).toString(16).padStart(64, "0")
+        },
+        {
+          mode: "boss-resolved",
+          compositionSignature: matrix.expectedRenderedFacts.bossCompositionSignature,
+          pngSha256
+        }
+      ]
+    } : null;
+    return ({
     ordinal: matrix.ordinal,
     id: matrix.id,
     kind: matrix.kind,
@@ -142,7 +165,7 @@ function completeShots() {
       width: matrix.viewport.width,
       height: matrix.viewport.height,
       byteLength: 1000 + matrix.ordinal,
-      sha256: matrix.ordinal.toString(16).padStart(64, "0")
+      sha256: pngSha256
     },
     checks: {
       consoleErrors: [],
@@ -153,6 +176,7 @@ function completeShots() {
       visibleControlIds: matrix.expectedVisibleControlIds,
       focusTargetId: matrix.expectedFocusTargetId,
       noAnswerLeak: true,
+      payoffComparison,
       layout: matrix.kind === "profile-viewport-zoom"
         && CONSTRAINED_PROFILE_IDS.has(matrix.subjectId) ? {
         viewport: {
@@ -169,7 +193,8 @@ function completeShots() {
       } : null
     },
     status: "passed"
-  }));
+    });
+  });
 }
 
 test("eight biome route materials and landmark silhouettes are canonical families", () => {
@@ -200,6 +225,7 @@ test("cast metadata and renderer create authored monochrome silhouettes with sha
     profile.characterId, profile
   ]));
   const renderedGeometryByFamily = new Map();
+  const renderedProportionById = new Map();
   assert.equal(new Set(SOUND_SEEKERS_CHARACTER_ART_PROFILES
     .map(profile => profile.silhouetteFamilyId)).size, cast.length);
   for (const chapter of SOUND_SEEKERS_CHAPTERS) {
@@ -222,15 +248,25 @@ test("cast metadata and renderer create authored monochrome silhouettes with sha
     assert.match(html, /data-character-part="contact-shadow"/u);
     assert.doesNotMatch(html, /class="sound-seekers-character__limb"/u);
     assert.match(html, /data-authored-silhouette=""/u);
+    assert.match(html, /data-proportion-renderer=""/u);
     assert.ok((html.match(/class="sound-seekers-character__silhouette-accent"/gu) ?? []).length >= 2);
     const silhouetteGeometry = [...html.matchAll(
       /class="sound-seekers-character__(?:head-fill|silhouette-accent)"[^>]*d="([^"]+)"/gu
     )].map(match => match[1]).join("|");
     assert.ok(silhouetteGeometry.length > 120);
     renderedGeometryByFamily.set(profile.silhouetteFamilyId, silhouetteGeometry);
+    const renderedProportion = html.match(
+      /data-proportion-renderer=""[^>]*transform="([^"]+)"/u
+    )?.[1];
+    assert.ok(renderedProportion);
+    const priorProportion = renderedProportionById.get(profile.proportionId);
+    if (priorProportion) assert.equal(renderedProportion, priorProportion);
+    else renderedProportionById.set(profile.proportionId, renderedProportion);
   }
   assert.equal(renderedGeometryByFamily.size, cast.length);
   assert.equal(new Set(renderedGeometryByFamily.values()).size, cast.length);
+  assert.equal(renderedProportionById.size, 4);
+  assert.equal(new Set(renderedProportionById.values()).size, 4);
 });
 
 test("Wonder and resolved boss compositions vary only composition over identical resolved content", () => {
@@ -306,6 +342,7 @@ test("gallery manifest rejects identical payoff pixels and requires constrained 
   const boss = duplicateBoss.find(shot => shot.kind === "boss-branch");
   const bossOrdinary = duplicateBoss.find(shot => shot.kind === "route-landmark" && shot.stopId === boss.stopId);
   boss.png.sha256 = bossOrdinary.png.sha256;
+  boss.checks.payoffComparison.variants[2].pngSha256 = boss.png.sha256;
   assert.throws(
     () => assertSoundSeekersV2GalleryManifest(buildSoundSeekersV2GalleryManifest({
       sourceHashes: sourceHashes(), shots: duplicateBoss

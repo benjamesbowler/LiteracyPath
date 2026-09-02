@@ -36,6 +36,24 @@ const PROPORTION_BY_BODY_SHAPE = Object.freeze({
   "body-shape-kite": "proportion-agile-kite",
   "body-shape-bell": "proportion-broad-bell"
 });
+const PROPORTION_GEOMETRY_BY_ID = deepFreeze({
+  "proportion-tall-sprout": {
+    id: "proportion-tall-sprout", scaleX: 0.9, scaleY: 1.04,
+    transformOrigin: [120, 160]
+  },
+  "proportion-grounded-pebble": {
+    id: "proportion-grounded-pebble", scaleX: 1.06, scaleY: 0.92,
+    transformOrigin: [120, 160]
+  },
+  "proportion-agile-kite": {
+    id: "proportion-agile-kite", scaleX: 0.94, scaleY: 1,
+    transformOrigin: [120, 160]
+  },
+  "proportion-broad-bell": {
+    id: "proportion-broad-bell", scaleX: 1.05, scaleY: 0.97,
+    transformOrigin: [120, 160]
+  }
+});
 const MATERIAL_BY_CHAPTER = Object.freeze({
   "seedwake-meadow": "material-leaf-and-lantern",
   "river-gardens": "material-river-cloth-and-ceramic",
@@ -51,6 +69,16 @@ function deepFreeze(value) {
   if (value === null || typeof value !== "object" || Object.isFrozen(value)) return value;
   for (const child of Object.values(value)) deepFreeze(child);
   return Object.freeze(value);
+}
+
+export function resolveCharacterProportionId(bodyShapeId) {
+  return typeof bodyShapeId === "string" ? PROPORTION_BY_BODY_SHAPE[bodyShapeId] || null : null;
+}
+
+export function resolveCharacterProportionGeometry(proportionId) {
+  return typeof proportionId === "string"
+    ? PROPORTION_GEOMETRY_BY_ID[proportionId] || null
+    : null;
 }
 
 function isPlainRecord(value) {

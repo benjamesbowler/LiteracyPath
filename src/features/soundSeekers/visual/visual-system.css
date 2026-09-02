@@ -531,7 +531,7 @@
 .sound-seekers-route {
   position: absolute;
   inset: 0;
-  opacity: 0.68;
+  opacity: 0.48;
 }
 
 .sound-seekers-route__outline,
@@ -547,25 +547,25 @@
 
 .sound-seekers-route__bed {
   stroke: var(--ss-token-scrim-ink);
-  stroke-width: 40;
+  stroke-width: 34;
   opacity: 0.24;
   transform: translateY(8px);
 }
 
 .sound-seekers-route__edge {
   stroke: var(--ss-token-ink-deep);
-  stroke-width: 32;
+  stroke-width: 28;
   opacity: 0.78;
 }
 
 .sound-seekers-route__path {
   stroke: var(--ss-world-palette);
-  stroke-width: 24;
+  stroke-width: 19;
 }
 
 .sound-seekers-route__highlight {
   stroke: var(--ss-world-light);
-  stroke-width: 6;
+  stroke-width: 5;
   opacity: 0.68;
   transform: translateY(-5px);
 }
@@ -604,7 +604,7 @@
 
 .sound-seekers-route[data-route-family="route-family-cliff-rope"] .sound-seekers-route__edge {
   stroke-dasharray: 5 10;
-  stroke-width: 38;
+  stroke-width: 34;
 }
 
 .sound-seekers-route[data-route-family="route-family-living-root"] .sound-seekers-route__path {
@@ -1082,12 +1082,14 @@
   .sound-seekers-world__props {
     inset-inline-start: 38%;
     inset-block-end: 18%;
-    inline-size: 25%;
-    gap: 3px;
+    inline-size: auto;
+    gap: 8px;
   }
 
   .sound-seekers-world__semantic-prop {
-    inline-size: 3.8rem;
+    flex: 0 0 56px;
+    inline-size: 56px;
+    min-inline-size: 56px;
   }
 
   .sound-seekers-world__semantic-prop figcaption,
@@ -1131,9 +1133,10 @@
 
 @media (max-width: 24rem) {
   .sound-seekers-world__props {
-    inset-inline-start: 37%;
-    inline-size: 35%;
-    gap: 2px;
+    inset-inline-start: 5%;
+    inset-block-start: 4%;
+    inset-block-end: auto;
+    gap: 8px;
   }
 
   .sound-seekers-landmark {
@@ -1141,12 +1144,12 @@
   }
 
   .sound-seekers-world__semantic-prop figcaption {
-    padding: 2px 1px;
-    border-width: 1px;
-    border-radius: 5px 7px 6px 8px;
-    box-shadow: 0 1px 0 var(--ss-token-ink-muted);
-    font-size: 0.46rem;
-    line-height: 1.05;
+    padding: 2px 3px;
+    border-width: 2px;
+    border-radius: 7px 9px 8px 10px;
+    box-shadow: 0 2px 0 var(--ss-token-ink-muted);
+    font-size: 0.6rem;
+    line-height: 1.1;
     overflow-wrap: anywhere;
   }
 }
@@ -1189,13 +1192,13 @@
   }
 
   .sound-seekers-world__semantic-prop {
-    inline-size: 3.25rem;
+    inline-size: 56px;
   }
 
   .sound-seekers-world__semantic-prop figcaption,
   .sound-seekers-landmark figcaption {
     padding: 2px 4px;
-    font-size: 0.48rem;
+    font-size: 0.6rem;
   }
 
   .sound-seekers-scene__options {

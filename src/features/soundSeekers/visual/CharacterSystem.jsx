@@ -4,6 +4,8 @@ import {
   characterVisualSignature,
   poseCompositionSignature,
   resolveCharacterArtProfile,
+  resolveCharacterProportionGeometry,
+  resolveCharacterProportionId,
   resolvePoseRenderer
 } from "./characterCatalog.js";
 import {
@@ -391,6 +393,13 @@ export function SoundSeekersCharacter({ characterId, pose, appearance }) {
     : null;
   const bodyShapeId = normalizedAppearance?.bodyShapeId ?? visual.bodyShapeId;
   const paletteTokenId = normalizedAppearance?.paletteTokenId ?? visual.paletteTokenId;
+  const proportionId = normalizedAppearance
+    ? resolveCharacterProportionId(bodyShapeId)
+    : artProfile.proportionId;
+  const proportionGeometry = resolveCharacterProportionGeometry(proportionId);
+  if (!proportionGeometry) {
+    throw new TypeError(`Missing Sound Seekers proportion geometry: ${String(proportionId)}`);
+  }
   const accessories = normalizedAppearance?.accessories
     ?? DEFAULT_PLAYER_APPEARANCE.accessories;
   const { transforms, anchors, face, reducedReplacement } = poseRenderer;
@@ -409,7 +418,7 @@ export function SoundSeekersCharacter({ characterId, pose, appearance }) {
       data-character-id={visual.characterId}
       data-character-kind={visual.castKind}
       data-silhouette-family={artProfile.silhouetteFamilyId}
-      data-character-proportion={artProfile.proportionId}
+      data-character-proportion={proportionId}
       data-character-material={artProfile.materialId}
       data-pose-id={poseRenderer.poseId}
       data-pose-renderer-id={poseRenderer.id}
@@ -424,7 +433,12 @@ export function SoundSeekersCharacter({ characterId, pose, appearance }) {
       data-reduced-continuous={String(reducedReplacement.continuous)}
     >
       <svg className="sound-seekers-character__canvas" viewBox="0 0 240 320" aria-hidden="true" focusable="false">
-        <g className="sound-seekers-character__pose" data-pose-structure={poseRenderer.id}>
+        <g
+          className="sound-seekers-character__pose"
+          data-pose-structure={poseRenderer.id}
+          data-proportion-renderer=""
+          transform={`translate(${proportionGeometry.transformOrigin.join(" ")}) scale(${proportionGeometry.scaleX} ${proportionGeometry.scaleY}) translate(${-proportionGeometry.transformOrigin[0]} ${-proportionGeometry.transformOrigin[1]})`}
+        >
           <g data-character-part="back-accessory">
             <Accessory accessoryId={accessories.back} slot="back" anchor={anchors.back} />
           </g>

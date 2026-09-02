@@ -207,10 +207,11 @@ test("genuine child scenes render answer-neutral choices in their randomized ord
       const presentation = resolveSceneVisualPresentation(child);
       assert.deepEqual(Object.keys(presentation), [
         "sceneId", "chapterId", "scenePhase", "visualStateId", "kitId", "setting",
-        "characters", "focalProps", "options", "meaningVisual"
+        "characters", "focalProps", "selectedOptionVisualId", "options", "meaningVisual"
       ]);
       assert.equal(presentation.scenePhase, "pre_choice");
       assert.equal(presentation.meaningVisual, null);
+      assert.equal(presentation.selectedOptionVisualId, null);
       assert.deepEqual(presentation.options.map(option => option.token),
         child.choice.options.map(option => option.token));
       assert.deepEqual(presentation.options.map(option => option.childLabel),
