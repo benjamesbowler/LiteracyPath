@@ -694,6 +694,103 @@
   font-weight: 700;
 }
 
+.sbq-cover-clue {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  width: min(100%, 760px);
+}
+
+.sbq-cover-clue-strip {
+  min-width: min(100%, 420px);
+  min-height: 64px;
+  padding: 14px 22px;
+  border: 2px dashed color-mix(in srgb, var(--lp-color-primary) 45%, #ffffff);
+  border-radius: 18px;
+  background: #fffaf0;
+  color: var(--lp-color-text-strong);
+  cursor: pointer;
+  font-family: var(--lp-font-reading);
+  font-size: clamp(1.15rem, 2.8vw, 1.45rem);
+  font-weight: 700;
+}
+
+.sbq-cover-clue-strip[aria-pressed="true"] {
+  border-style: solid;
+  border-color: var(--lp-color-primary);
+  background: var(--lp-color-primary-soft);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--lp-color-primary) 18%, transparent);
+}
+
+.sbq-cover-clue-status {
+  margin: 0;
+  color: var(--lp-color-text-muted);
+  font-family: var(--lp-font-reading);
+  font-size: 0.98rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.sbq-cover-clue-rack {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  width: min(100%, 680px);
+}
+
+.sbq-cover-clue-cover {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  min-height: 230px;
+  padding: 12px;
+  border: 2px solid var(--lp-color-border);
+  border-radius: 20px;
+  background: var(--lp-color-surface);
+  box-shadow: var(--lp-shadow-card);
+  cursor: pointer;
+  transition: transform 120ms ease-out, border-color 120ms ease-out, box-shadow 120ms ease-out;
+}
+
+.sbq-cover-clue-cover:hover,
+.sbq-cover-clue-cover[data-strip-selected="true"] {
+  border-color: var(--lp-color-primary);
+  box-shadow: var(--lp-shadow-soft);
+}
+
+.sbq-cover-clue-cover:active {
+  transform: scale(0.98);
+}
+
+.sbq-cover-clue-cover img,
+.sbq-cover-clue-cover-art {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 14px;
+  object-fit: cover;
+  background: #f6efe1;
+}
+
+.sbq-cover-clue-cover-art {
+  display: grid;
+  place-items: center;
+  color: var(--lp-color-text-muted);
+  font-family: var(--lp-font-reading);
+  font-weight: 700;
+}
+
+.sbq-cover-clue-cover-title {
+  min-height: 1.6em;
+  color: var(--lp-color-text-strong);
+  font-family: var(--lp-font-reading);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.sbq-cover-clue-cover-title[data-revealed="false"] {
+  color: var(--lp-color-text-muted);
+}
+
 .sbq-trace-stage {
   position: relative;
   width: min(100%, 460px);

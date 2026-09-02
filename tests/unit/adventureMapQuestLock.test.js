@@ -78,6 +78,20 @@ test("ordinary Skills Quest still opens on its normal Adventure Map", () => {
   assert.match(html, /Follow “you are here” to start/);
 });
 
+test("a live Cover Clue round renders its title strip and cover buttons without the generic answer grid", () => {
+  const html = renderQuest({
+    initialCycleId: "cycle-1",
+    initialStationId: "story"
+  });
+
+  assert.match(html, /data-quest-view="round"/);
+  assert.match(html, /data-mechanic-stage="cover-clue"/);
+  assert.match(html, /class="sbq-cover-clue-strip"/);
+  assert.match(html, /class="sbq-cover-clue-cover"/);
+  assert.match(html, /<button[^>]*class="sbq-cover-clue-cover"/);
+  assert.doesNotMatch(html, /class="sbq-answer-grid/);
+});
+
 test("a focused Adventure Map exposes only the assigned cycle and carries the teacher notice", () => {
   const html = renderMap({
     focusLocked: true,

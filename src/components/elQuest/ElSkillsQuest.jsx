@@ -518,6 +518,68 @@ function PatternRound({ round, onResult }) {
   );
 }
 
+function CoverClueRound({ round, onResult }) {
+  const [stripSelected, setStripSelected] = useState(false);
+  const [revealTitles, setRevealTitles] = useState(false);
+  const stripText = round.strip?.text || "Story title";
+
+  function toggleStrip() {
+    setStripSelected(selected => !selected);
+  }
+
+  function placeStrip(cover) {
+    if (!stripSelected) return;
+    onResult(Boolean(cover?.matches));
+  }
+
+  return (
+    <div className="sbq-cover-clue" data-mechanic-stage="cover-clue">
+      <button
+        className="sbq-cover-clue-strip"
+        type="button"
+        aria-pressed={stripSelected}
+        onClick={toggleStrip}
+      >
+        {stripText}
+      </button>
+      <p className="sbq-cover-clue-status" role="status" aria-live="polite">
+        {stripSelected ? "Now place the title strip on the matching cover." : "Pick up the title strip first."}
+      </p>
+      <div className="sbq-cover-clue-rack" aria-label="Book covers">
+        {round.covers.map(cover => (
+          <button
+            key={cover.cover || cover.title}
+            className="sbq-cover-clue-cover"
+            type="button"
+            data-strip-selected={stripSelected ? "true" : "false"}
+            aria-label={`${stripSelected ? "Place the title strip on" : "Look at"} ${cover.title || "this cover"}`}
+            onClick={() => placeStrip(cover)}
+          >
+            {cover.cover ? (
+              <img src={cover.cover} alt="" loading="lazy" />
+            ) : (
+              <span className="sbq-cover-clue-cover-art" aria-hidden="true">Book cover</span>
+            )}
+            <span
+              className="sbq-cover-clue-cover-title"
+              data-revealed={revealTitles ? "true" : "false"}
+            >
+              {revealTitles ? (cover.title || "Book title") : "?"}
+            </span>
+          </button>
+        ))}
+      </div>
+      <button
+        className="sbq-ghost-button"
+        type="button"
+        onClick={() => setRevealTitles(value => !value)}
+      >
+        {revealTitles ? "Hide cover titles" : "Show cover titles"}
+      </button>
+    </div>
+  );
+}
+
 // Speedy Words: read the word and tap it before the gentle timer runs out.
 // The timer is encouraging, never punishing - on time-out it just replays the
 // word as a hint and the child can keep going.
@@ -1387,6 +1449,8 @@ export function ElSkillsQuest({
             <TraceRound key={`${round.letter}-${roundIndex}`} round={round} onResult={handleAnswer} />
           ) : round.type === "pattern" ? (
             <PatternRound key={`pattern-${roundIndex}`} round={round} onResult={handleAnswer} />
+          ) : round.mechanicId === "coverClue" ? (
+            <CoverClueRound key={`cover-${roundIndex}`} round={round} onResult={handleAnswer} />
           ) : round.type === "speed" ? (
             <SpeedRound key={`speed-${roundIndex}`} round={round} onResult={handleAnswer} onHint={() => playCue(round)} />
           ) : (
