@@ -34,8 +34,14 @@ import {
 import { createSoundSeekersState, normalizeSoundSeekersState } from "../../src/features/soundSeekers/engine/stateV2.js";
 
 function start(sceneId, journeyStep, narrativeChoiceToken = null) {
-  const stopId = `s${journeyStep}`;
-  const begun = beginStoryTransferTransaction(createSoundSeekersState(), { stopId, journeyStep, seed: journeyStep });
+  const scene = SOUND_SEEKERS_CONNECTED_TEXT.find(item => item.id === sceneId);
+  const stopId = scene.stopId;
+  const initial = createSoundSeekersState();
+  const current = normalizeSoundSeekersState({
+    ...initial,
+    trail: { ...initial.trail, journeyStep }
+  });
+  const begun = beginStoryTransferTransaction(current, { stopId, journeyStep, seed: journeyStep });
   const state = checkpointStoryTransferTransaction(begun.nextState, {
     transactionId: begun.transaction.transactionId,
     narrativeChoiceToken
@@ -43,9 +49,39 @@ function start(sceneId, journeyStep, narrativeChoiceToken = null) {
   const challenge = narrativeChoiceToken
     ? materializeBossTransferChallenge(state, { transactionId: begun.transaction.transactionId })
     : createConnectedTextChallenge(state, { transactionId: begun.transaction.transactionId, routeSeed: "presentation" });
-  const presentation = beginConnectedTextPresentation({ sceneId, transactionId: begun.transaction.transactionId });
+  const presentation = beginConnectedTextPresentation({
+    sceneId,
+    transactionId: begun.transaction.transactionId,
+    state
+  });
   return { state, challenge, presentation, transactionId: begun.transaction.transactionId };
 }
+
+test("presentation start binds the exact current canonical visit, including the second-route s1 revisit", () => {
+  const fresh = start("scene-s1", 1);
+  assert.equal(fresh.presentation.transactionId, "story-transfer:1:s1");
+  closeConnectedTextPresentation(fresh.presentation);
+
+  const revisited = start("scene-s1", 41);
+  assert.equal(revisited.presentation.transactionId, "story-transfer:41:s1");
+  closeConnectedTextPresentation(revisited.presentation);
+
+  assert.throws(() => beginConnectedTextPresentation({
+    sceneId: "scene-s1",
+    transactionId: revisited.transactionId,
+    state: fresh.state
+  }), /canonical|current|visit|journey/i);
+  assert.throws(() => beginConnectedTextPresentation({
+    sceneId: "scene-s1",
+    transactionId: "story-transfer:42:s1",
+    state: revisited.state
+  }), /canonical|current|visit|journey/i);
+  assert.throws(() => beginConnectedTextPresentation({
+    sceneId: "scene-s2",
+    transactionId: revisited.transactionId,
+    state: revisited.state
+  }), /identity|canonical|current|visit/i);
+});
 
 function submit(fixture, token, minute) {
   return completeStoryTransferTransaction(fixture.state, {
@@ -197,9 +233,7 @@ test("replacement invalidates every old state and transition identity", () => {
   const action = reduceConnectedTextPresentation(fixture.presentation, {
     type: "decision_committed", reducerRevision: 0, evidenceEventId: completed.event.id
   }, { state: completed.nextState });
-  const replacement = beginConnectedTextPresentation({
-    sceneId: "scene-s2", transactionId: "story-transfer:2:s2"
-  });
+  const replacement = start("scene-s2", 2).presentation;
   assert.equal(isConnectedTextPresentationTransition(action.transition), false);
   assert.throws(() => checkpointConnectedTextPresentation(action.nextPresentation));
   assert.equal(closeConnectedTextPresentation(replacement), true);
@@ -211,6 +245,10 @@ test("all forty real Task 2 completions survive correction, action, resolved, an
   for (const scene of SOUND_SEEKERS_CONNECTED_TEXT) {
     const journeyStep = Number(scene.stopId.slice(1));
     const transactionId = `story-transfer:${journeyStep}:${scene.stopId}`;
+    state = normalizeSoundSeekersState({
+      ...state,
+      trail: { ...state.trail, journeyStep }
+    });
     const begun = beginStoryTransferTransaction(state, {
       stopId: scene.stopId, journeyStep, seed: journeyStep
     });
@@ -223,7 +261,9 @@ test("all forty real Task 2 completions survive correction, action, resolved, an
     let challenge = scene.choice.kind === "narrative_bridge"
       ? materializeBossTransferChallenge(pending, { transactionId })
       : createConnectedTextChallenge(pending, { transactionId, routeSeed: "all-scenes-route" });
-    let presentation = beginConnectedTextPresentation({ sceneId: scene.id, transactionId });
+    let presentation = beginConnectedTextPresentation({
+      sceneId: scene.id, transactionId, state: pending
+    });
     const wrongToken = challenge.optionTokens.find(token => token !== challenge.expectedToken);
     const wrong = completeStoryTransferTransaction(pending, {
       transactionId,
@@ -420,9 +460,7 @@ test("both narrative branches at every boss remain distinct after Task 2 and pre
 });
 
 test("rehydration rejects empty, partial, fingerprint-forged, and checkpoint-forged authority", () => {
-  const empty = beginConnectedTextPresentation({
-    sceneId: "scene-s1", transactionId: "story-transfer:1:s1"
-  });
+  const empty = start("scene-s1", 1).presentation;
   const emptyCheckpoint = checkpointConnectedTextPresentation(empty);
   assert.throws(() => rehydrateConnectedTextPresentation(createSoundSeekersState(), null));
   assert.throws(() => rehydrateConnectedTextPresentation(createSoundSeekersState(), emptyCheckpoint));

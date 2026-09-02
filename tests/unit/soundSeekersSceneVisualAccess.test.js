@@ -39,7 +39,11 @@ import {
 function completePresentationForVisualTest(sceneId, { narrativeChoiceToken = null } = {}) {
   const scene = SOUND_SEEKERS_CONNECTED_TEXT.find(item => item.id === sceneId);
   const journeyStep = Number(scene.stopId.slice(1));
-  const begun = beginStoryTransferTransaction(createSoundSeekersState(), {
+  const initial = createSoundSeekersState();
+  const currentState = normalizeSoundSeekersState({
+    ...initial, trail: { ...initial.trail, journeyStep }
+  });
+  const begun = beginStoryTransferTransaction(currentState, {
     stopId: scene.stopId, journeyStep, seed: journeyStep
   });
   const pendingState = checkpointStoryTransferTransaction(begun.nextState, {
@@ -55,7 +59,7 @@ function completePresentationForVisualTest(sceneId, { narrativeChoiceToken = nul
       routeSeed: `visual-test:${sceneId}`
     });
   const initialPresentation = beginConnectedTextPresentation({
-    sceneId, transactionId: begun.transaction.transactionId
+    sceneId, transactionId: begun.transaction.transactionId, state: pendingState
   });
   const completed = completeStoryTransferTransaction(pendingState, {
     transactionId: begun.transaction.transactionId,
@@ -98,7 +102,11 @@ function pendingIncorrectPresentationForVisualTest(sceneId) {
   const narrativeChoiceToken = scene.choice.kind === "narrative_bridge"
     ? toChildConnectedTextScene(sceneId, `wrong:${sceneId}`).choice.options[0].token
     : null;
-  const begun = beginStoryTransferTransaction(createSoundSeekersState(), {
+  const initial = createSoundSeekersState();
+  const currentState = normalizeSoundSeekersState({
+    ...initial, trail: { ...initial.trail, journeyStep }
+  });
+  const begun = beginStoryTransferTransaction(currentState, {
     stopId: scene.stopId, journeyStep, seed: journeyStep
   });
   const pendingState = checkpointStoryTransferTransaction(begun.nextState, {
@@ -114,7 +122,7 @@ function pendingIncorrectPresentationForVisualTest(sceneId) {
       routeSeed: `wrong:${sceneId}`
     });
   const presentation = beginConnectedTextPresentation({
-    sceneId, transactionId: begun.transaction.transactionId
+    sceneId, transactionId: begun.transaction.transactionId, state: pendingState
   });
   const wrongToken = challenge.optionTokens.find(token => token !== challenge.expectedToken);
   const wrong = completeStoryTransferTransaction(pendingState, {
@@ -235,8 +243,17 @@ test("meaning access is direct and no pre-choice or correction can issue access"
     ...context, meaningSemanticId
   }));
 
+  const preChoiceBegun = beginStoryTransferTransaction(createSoundSeekersState(), {
+    stopId: "s1", journeyStep: 1, seed: 1
+  });
+  const preChoiceState = checkpointStoryTransferTransaction(preChoiceBegun.nextState, {
+    transactionId: preChoiceBegun.transaction.transactionId,
+    narrativeChoiceToken: null
+  });
   const preChoice = beginConnectedTextPresentation({
-    sceneId: "scene-s1", transactionId: "story-transfer:1:s1"
+    sceneId: "scene-s1",
+    transactionId: preChoiceBegun.transaction.transactionId,
+    state: preChoiceState
   });
   assert.throws(() => issueSceneVisualAccess(preChoice, {
     sceneId: "scene-s1", attemptId: assessed.attemptId, reducerRevision: 0
@@ -324,8 +341,22 @@ test("all boss branches survive fresh issuance but not rehydrate, close, or repl
   const replacedAccess = issueSceneVisualAccess(
     replaced.actionTransition, replacedContext
   );
+  const replacementInitial = createSoundSeekersState();
+  const replacementCurrent = normalizeSoundSeekersState({
+    ...replacementInitial,
+    trail: { ...replacementInitial.trail, journeyStep: 2 }
+  });
+  const replacementBegun = beginStoryTransferTransaction(replacementCurrent, {
+    stopId: "s2", journeyStep: 2, seed: 2
+  });
+  const replacementState = checkpointStoryTransferTransaction(replacementBegun.nextState, {
+    transactionId: replacementBegun.transaction.transactionId,
+    narrativeChoiceToken: null
+  });
   beginConnectedTextPresentation({
-    sceneId: "scene-s2", transactionId: "story-transfer:2:s2"
+    sceneId: "scene-s2",
+    transactionId: replacementBegun.transaction.transactionId,
+    state: replacementState
   });
   assert.equal(isConnectedTextPresentationTransition(replaced.actionTransition), false);
   assert.equal(validateSceneVisualAccess(replacedAccess, replacedContext), false);

@@ -24,6 +24,11 @@ let MeaningPayoff;
 let getRuntimeMeaningSupport;
 let getRuntimePronunciation;
 let resolveRuntimeMeaningVisual;
+let createRuntimeMissionPlan;
+let createRuntimeMissionState;
+let createRuntimeState;
+let issueRuntimeWorkbenchAccess;
+let runtimeWordForge;
 let vite;
 
 function deepFreeze(value) {
@@ -55,6 +60,21 @@ test.before(async () => {
   ));
   ({ resolveMeaningVisual: resolveRuntimeMeaningVisual } = await vite.ssrLoadModule(
     "/src/features/soundSeekers/visual/sceneVisualCatalog.js"
+  ));
+  ({ createMissionPlan: createRuntimeMissionPlan } = await vite.ssrLoadModule(
+    "/src/features/soundSeekers/engine/createMissionPlan.js"
+  ));
+  ({ createMissionState: createRuntimeMissionState } = await vite.ssrLoadModule(
+    "/src/features/soundSeekers/engine/missionReducer.js"
+  ));
+  ({ createSoundSeekersState: createRuntimeState } = await vite.ssrLoadModule(
+    "/src/features/soundSeekers/engine/stateV2.js"
+  ));
+  ({ issueWordWorkbenchAccess: issueRuntimeWorkbenchAccess } = await vite.ssrLoadModule(
+    "/src/features/soundSeekers/engine/workbenchAccess.js"
+  ));
+  ({ wordForge: runtimeWordForge } = await vite.ssrLoadModule(
+    "/src/features/soundSeekers/engine/powers/index.js"
   ));
 });
 
@@ -116,6 +136,36 @@ function render(model, extras = {}) {
   }));
 }
 
+function authorizedWord(word) {
+  const action = SOUND_SEEKERS_EXPEDITIONS.flatMap(expedition => expedition.phases)
+    .find(phase => phase.powerId === "word_forge" && phase.wordId === word);
+  assert.ok(action, `${word}: no canonical Word Forge action`);
+  const gameState = createRuntimeState();
+  const plan = createRuntimeMissionPlan({
+    stopId: action.id.split("-")[0], state: gameState, seed: 7, replayOrdinal: 0
+  });
+  const mission = createRuntimeMissionState(plan, {
+    kind: "sound_seekers_mission",
+    missionId: plan.id,
+    contentVersion: plan.contentVersion,
+    stopId: plan.stopId,
+    journeyStep: plan.journeyStep,
+    phaseId: action.id,
+    completedPhaseIds: [],
+    missionRevision: 3,
+    attemptOrdinal: 0,
+    attemptId: `${plan.id}:${action.id}:attempt:0`,
+    nextDecisionOrdinal: 0
+  });
+  const model = runtimeWordForge.view(mission.activity, mission.challenge);
+  const access = issueRuntimeWorkbenchAccess({
+    missionState: mission,
+    model,
+    pronunciation: getRuntimePronunciation(word)
+  });
+  return { mission, model, access };
+}
+
 function occurrences(value, pattern) {
   return value.match(pattern)?.length || 0;
 }
@@ -139,11 +189,15 @@ test("hot, ship, moon, cake, and pop retain authored sound boxes and physical ra
 });
 
 test("the target cue consumes the exact child-safe meaning reference and fails closed without it", () => {
-  const hot = render(fixture("hot", { placedCount: 0 }));
-  const ship = render(fixture("ship", { placedCount: 0 }));
+  const hotFixture = authorizedWord("hot");
+  const shipFixture = authorizedWord("ship");
+  const hot = render(hotFixture.model, { access: hotFixture.access });
+  const ship = render(shipFixture.model, { access: shipFixture.access });
   assert.match(hot, /role="img" aria-label="having a high temperature"/u);
   assert.match(ship, /role="img" aria-label="A large boat that carries people or things across water\."/u);
   assert.notEqual(hot.match(/data-cue-geometry="([^"]+)"/u)?.[1], ship.match(/data-cue-geometry="([^"]+)"/u)?.[1]);
+  assert.doesNotMatch(render(hotFixture.model, { access: { ...hotFixture.access } }), /ss-workbench__target/u);
+  assert.doesNotMatch(render(shipFixture.model, { access: hotFixture.access }), /ss-workbench__target/u);
 
   const absent = render({ ...fixture("hot"), visualCue: null }, { pronunciation: getRuntimePronunciation("hot") });
   const forged = render(fixture("hot"), {
@@ -202,7 +256,7 @@ test("the component consumes the committed Task 1 child view without a raw chall
   assert.match(html, new RegExp(`aria-label="${actionPronunciation.units[0].grapheme} grapheme tile"`, "u"));
   assert.doesNotMatch(html, /private-token|task-2-integration/u);
   assert.equal(html.includes(`word:${action.wordId}`), false);
-  assert.match(html, /ss-workbench__target/u);
+  assert.doesNotMatch(html, /ss-workbench__target/u);
   const otherWord = action.wordId === "ship" ? "hot" : "ship";
   assert.doesNotMatch(render(model, { pronunciation: getRuntimePronunciation(otherWord) }), /ss-workbench__target/u);
 });
@@ -276,10 +330,8 @@ test("meaning remains absent until the parent supplies the post-commit payoff", 
       reducedMotion: true
     }
   });
-  assert.match(html, /<h3[^>]*>moon<\/h3>/u);
-  assert.match(html, /The moon is the round object seen in the sky at night\./u);
-  assert.match(html, new RegExp(getRuntimeMeaningSupport("moon").actionPrompt, "u"));
-  assert.match(html, /aria-label="Hear the meaning again"/u);
+  assert.doesNotMatch(html, /<h3[^>]*>moon<\/h3>/u);
+  assert.doesNotMatch(html, /The moon is the round object seen in the sky at night\./u);
 });
 
 test("MeaningPayoff uses one child-readable visual and no audio or authority metadata", () => {
@@ -396,9 +448,8 @@ test("correction renders only the exact controller transcript with selected cont
   const html = render(correctionModel, {
     correctionPresentation: presentation
   });
-  assert.match(html, new RegExp(`role="status" aria-live="polite"[^>]*>${transcript}<\\/p>`, "u"));
-  assert.match(html, /data-correction-mode="retry" data-replay-contrast="true" data-selected-contrast="m"/u);
-  assert.equal(occurrences(html, new RegExp(transcript, "gu")), 1);
+  assert.doesNotMatch(html, /ss-workbench__correction/u);
+  assert.equal(occurrences(html, new RegExp(transcript, "gu")), 0);
   const childText = html.replace(/<[^>]+>/gu, " ").replace(/\s+/gu, " ");
   assert.doesNotMatch(childText, /The answer|correct|wrong/iu);
 

@@ -4,6 +4,7 @@ import {
   getWordMeaning
 } from "../content/pronunciationLexicon.js";
 import { isRecursivelyFrozen } from "../engine/powers/contracts.js";
+import { projectWordWorkbenchAccess } from "../engine/workbenchAccess.js";
 import { SOUND_SEEKERS_VISUAL_TOKENS } from "../visual/visualTokens.js";
 import MeaningPayoff from "./MeaningPayoff.jsx";
 import "./WordWorkbench.css";
@@ -245,9 +246,7 @@ function useVisualViewportReflow() {
 
 export default function WordWorkbench({
   model,
-  pronunciation = null,
-  meaningPayoff = null,
-  correctionPresentation = null,
+  access = null,
   onInput,
   onReplayWholeWord,
   onReplayMeaning
@@ -255,6 +254,10 @@ export default function WordWorkbench({
   const headingId = useId();
   const visualViewportWidth = useVisualViewportReflow();
   if (!validWordForgeModel(model)) return null;
+  const authority = projectWordWorkbenchAccess(access, model);
+  const pronunciation = authority?.pronunciation || null;
+  const meaningPayoff = authority?.meaningPayoff || null;
+  const correctionPresentation = authority?.correctionPresentation || null;
   const targetCueVisible = model.visualCue.kind === "whole_word"
     && pronunciationMatchesModel(pronunciation, model);
   const morphology = validMorphologyModel(model);
@@ -282,7 +285,7 @@ export default function WordWorkbench({
         </button>
       </header>
 
-      {morphology ? <MorphologyTeaching morphology={morphology} ready={false} /> : null}
+      {morphology ? <MorphologyTeaching morphology={morphology} ready={Boolean(authority?.morphology)} /> : null}
 
       <div className="ss-workbench__build-zone">
         <div className="ss-workbench__slots" role="group" aria-label="Sound boxes">

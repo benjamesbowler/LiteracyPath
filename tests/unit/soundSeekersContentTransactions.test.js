@@ -128,6 +128,52 @@ test("a third placement miss requires one model transition and later success is 
   assert.equal(evidenceIsIndependent(success.event), false);
 });
 
+test("a repeated placement replays only receipts from its exact canonical visit", () => {
+  const first = startPlacement("s16-alternative");
+  let state = first.nextState;
+  let result;
+  while (!result?.completed) {
+    const challenge = materializeContentPlacementChallenge(state, {
+      placementId: first.placement.placementId, visitId: first.served.visitId
+    });
+    result = commitContentPlacementResponse(state, placementInput(
+      state, first.placement.placementId, first.served.visitId, challenge,
+      challenge.expectedToken, `2026-09-02T01:1${challenge.targetOrdinal}:00.000Z`
+    ));
+    state = result.nextState;
+  }
+  const secondVisitId = "visit:56:s16-alternative";
+  const secondServed = serveContentDeck(state.contentDecks, {
+    binding: first.placement.contentBinding,
+    visitId: secondVisitId,
+    stopId: "s16",
+    journeyStep: 56,
+    seed: 56
+  });
+  const begun = beginContentPlacementAttempt({ ...state, contentDecks: secondServed.nextState }, {
+    placementId: first.placement.placementId,
+    visitId: secondVisitId
+  });
+  const second = materializeContentPlacementChallenge(begun.nextState, {
+    placementId: first.placement.placementId,
+    visitId: secondVisitId
+  });
+  assert.equal(second.attemptId,
+    `content-placement-attempt:${secondVisitId}:s16-alternative:0:0`);
+
+  const forged = structuredClone(begun.nextState);
+  const priorReceipt = validAttemptReceipts(state)[0];
+  const forgedAttemptId = forged.checkpoint.contentPlacement.attemptId;
+  forged.attemptReceipts[forgedAttemptId] = {
+    ...structuredClone(priorReceipt),
+    attemptId: forgedAttemptId
+  };
+  assert.throws(() => resumeContentPlacementAttempt(forged, {
+    placementId: first.placement.placementId,
+    visitId: secondVisitId
+  }), /history|canonical|fingerprint|receipt/i);
+});
+
 test("all forty story transfers create truthful reciprocal pairs with private boss choices", () => {
   let state = createSoundSeekersState();
   let connected = 0;

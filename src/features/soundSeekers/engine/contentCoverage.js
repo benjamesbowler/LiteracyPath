@@ -67,13 +67,27 @@ function receiptOrder(left, right) {
     || compareCanonicalIds(left.attemptId, right.attemptId);
 }
 
+function placementVisitId(receipt) {
+  if (receipt?.operation !== "content_placement") return null;
+  const prefix = "content-placement-attempt:";
+  const suffix = `:${receipt.subjectId}:${receipt.decisionOrdinal}:${receipt.attemptOrdinal}`;
+  if (!receipt.attemptId.startsWith(prefix) || !receipt.attemptId.endsWith(suffix)) return null;
+  const visitId = receipt.attemptId.slice(prefix.length, -suffix.length);
+  return visitId || null;
+}
+
+function receiptAuthorityKey(receipt) {
+  const visitId = placementVisitId(receipt);
+  return receipt.operation === "content_placement"
+    ? `${receipt.operation}\u0000${receipt.subjectId}\u0000${visitId || "<invalid-visit>"}`
+    : `${receipt.operation}\u0000${receipt.subjectId}`;
+}
+
 function expectedAttemptId(receipt) {
   if (receipt.operation === "story_transfer") {
     return `story-transfer-attempt:${receipt.subjectId}:${receipt.attemptOrdinal}`;
   }
-  return receipt.attemptId.endsWith(
-    `:${receipt.subjectId}:${receipt.decisionOrdinal}:${receipt.attemptOrdinal}`
-  ) ? receipt.attemptId : null;
+  return placementVisitId(receipt) ? receipt.attemptId : null;
 }
 
 function exactArray(left, right) {
@@ -180,8 +194,7 @@ export function validAttemptReceipts(rawState) {
   const ordinalClaimCounts = new Map();
   for (const receipt of receipts) {
     const ordinalClaim = [
-      receipt.operation,
-      receipt.subjectId,
+      receiptAuthorityKey(receipt),
       receipt.decisionOrdinal,
       receipt.attemptOrdinal
     ].join("\u0000");
@@ -197,8 +210,7 @@ export function validAttemptReceipts(rawState) {
 
   for (const receipt of receipts) {
     const ordinalClaim = [
-      receipt.operation,
-      receipt.subjectId,
+      receiptAuthorityKey(receipt),
       receipt.decisionOrdinal,
       receipt.attemptOrdinal
     ].join("\u0000");
@@ -218,7 +230,7 @@ export function validAttemptReceipts(rawState) {
 
   const bySubject = new Map();
   for (const receipt of preliminary) {
-    const key = `${receipt.operation}\u0000${receipt.subjectId}`;
+    const key = receiptAuthorityKey(receipt);
     const group = bySubject.get(key) || [];
     group.push(receipt);
     bySubject.set(key, group);
@@ -262,14 +274,16 @@ function validReceiptChain(use, validReceipts) {
   const receipts = use.attemptReceiptIds.map(id => validReceipts.get(id));
   if (receipts.some(receipt => !receipt)) return null;
   if (receipts.some(receipt => receipt.operation === "content_placement"
-    ? receipt.subjectId !== use.visitOwnerId
+    ? receipt.subjectId !== use.visitOwnerId || placementVisitId(receipt) !== use.visitId
     : receipt.subjectId !== use.transactionId)) return null;
   const final = receipts.at(-1);
   if (!final?.completed || !final.useIds.includes(use.useId)) return null;
   if (receipts.slice(0, -1).some(receipt => receipt.useIds.includes(use.useId))) return null;
   const completeGroup = [...validReceipts.values()]
     .filter(receipt => receipt.operation === final.operation
-      && receipt.subjectId === final.subjectId)
+      && receipt.subjectId === final.subjectId
+      && (receipt.operation !== "content_placement"
+        || placementVisitId(receipt) === use.visitId))
     .sort(receiptOrder);
   if (!exactArray(completeGroup.map(receipt => receipt.attemptId), use.attemptReceiptIds)) return null;
   if (final.operation === "content_placement") {

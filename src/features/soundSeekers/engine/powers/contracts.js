@@ -11,6 +11,7 @@ import {
   SOUND_SEEKERS_EXPEDITIONS,
   SOUND_SEEKERS_INTERACTION_CONTEXTS
 } from "../../content/expeditions.js";
+import { assertCurrentMissionCommitResult } from "../missionResponseCommit.js";
 
 const INTERACTION_CONTEXT_FIELDS = Object.freeze([
   "id", "chapterId", "semanticRule", "childDecision", "decisionSteps", "objectIds",
@@ -33,7 +34,7 @@ const INPUTS_BY_POWER = Object.freeze({
 });
 
 const SAFE_CORRECTION_FIELDS = Object.freeze([
-  "supportLevel", "mode", "replayContrast", "isolatePosition", "reduceIrrelevantLoad",
+  "missCount", "supportLevel", "mode", "replayContrast", "isolatePosition", "reduceIrrelevantLoad",
   "modelOnce", "requiresFreshAttempt", "queueIsomorphicReview"
 ]);
 const SAFE_CORRECTION_FIELD_SET = new Set(SAFE_CORRECTION_FIELDS);
@@ -523,4 +524,27 @@ export function inputHasExactKeys(input, keys) {
 
 export function tokenIsValid(token) {
   return isToken(token);
+}
+
+export function applyMissionCommitToPower(state, result, context, createState) {
+  if (!state || state.status !== "awaiting_mission_commit" || typeof createState !== "function") {
+    throw new Error("power must be awaiting its exact mission commit");
+  }
+  assertCurrentMissionCommitResult(result, {
+    missionId: context?.missionId,
+    phaseId: context?.phaseId,
+    attemptId: context?.attemptId,
+    attemptOrdinal: context?.attemptOrdinal,
+    revision: context?.revision
+  });
+  if (result.outcome === "advance" || result.outcome === "continue") return state;
+  if (!context?.nextChallenge || context.nextChallenge.attemptId !== result.nextAttemptId) {
+    throw new Error("power retry needs the exact fresh challenge");
+  }
+  const fresh = createState(context.nextChallenge, {
+    seed: context.seed,
+    resume: null,
+    interaction: context.interaction
+  });
+  return deepFreezeClone({ ...fresh, correction: projectCorrection(context.correction) });
 }

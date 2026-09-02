@@ -195,8 +195,12 @@ function codeNativeWorldMarkup(html) {
 function completeVitePresentation(sceneId, { narrativeChoiceToken = null } = {}) {
   const scene = viteConnectedText.SOUND_SEEKERS_CONNECTED_TEXT.find(item => item.id === sceneId);
   const journeyStep = Number(scene.stopId.slice(1));
+  const initial = viteState.createSoundSeekersState();
+  const currentState = viteState.normalizeSoundSeekersState({
+    ...initial, trail: { ...initial.trail, journeyStep }
+  });
   const begun = viteContentTransactions.beginStoryTransferTransaction(
-    viteState.createSoundSeekersState(),
+    currentState,
     { stopId: scene.stopId, journeyStep, seed: journeyStep }
   );
   const pendingState = viteContentTransactions.checkpointStoryTransferTransaction(
@@ -216,7 +220,8 @@ function completeVitePresentation(sceneId, { narrativeChoiceToken = null } = {})
     });
   const initialPresentation = vitePresentation.beginConnectedTextPresentation({
     sceneId,
-    transactionId: begun.transaction.transactionId
+    transactionId: begun.transaction.transactionId,
+    state: pendingState
   });
   const completed = viteContentTransactions.completeStoryTransferTransaction(pendingState, {
     transactionId: begun.transaction.transactionId,

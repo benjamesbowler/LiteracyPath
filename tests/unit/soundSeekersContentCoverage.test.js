@@ -176,7 +176,7 @@ export function structurallyValidUnauthorisedContentDeckFixture() {
       ? { wordId: "unauthorised-morphology-word" }
       : {});
     const subjectId = visit.visitOwnerId;
-    const attemptId = `content-placement-attempt:unauthorised:${category}:${subjectId}:0:0`;
+    const attemptId = `content-placement-attempt:${visit.visitId}:${subjectId}:0:0`;
     const use = makeUse(category, visit, { attemptReceiptIds: [attemptId] });
     const eventIds = category === "alternatives" ? [makeEvent(attemptId).id] : [];
     makeReceipt({
@@ -350,7 +350,7 @@ test("receipt evidence deduplicates only after shared activity normalization", (
   "heart activity whitespace aliases normalize before duplicate comparison");
 });
 
-test("duplicate receipt ordinals invalidate the whole contiguous tail", () => {
+test("same ordinals are isolated by canonical visit and cannot poison another visit", () => {
   const state = completeCanonicalContentCoverageState();
   const original = validAttemptReceipts(state).find(receipt =>
     receipt.subjectId === "s16-alternative"
@@ -369,11 +369,69 @@ test("duplicate receipt ordinals invalidate the whole contiguous tail", () => {
     attemptId: duplicateAttemptId,
     eventIds: [duplicateEvent.id]
   };
-  assert.deepEqual(validAttemptReceipts(forged)
-    .filter(receipt => receipt.subjectId === "s16-alternative"), [],
-  "both duplicate ordinal claimants and every later attempt are invalid");
+  const isolated = validAttemptReceipts(forged)
+    .filter(receipt => receipt.subjectId === "s16-alternative");
+  assert.equal(isolated.length, validAttemptReceipts(state)
+    .filter(receipt => receipt.subjectId === "s16-alternative").length + 1,
+  "the separate visit retains its own ordinal-zero chain without joining the real visit");
   assert.equal(validContentDeckUses(forged, "alternatives")
-    .some(use => use.visitOwnerId === "s16-alternative"), false);
+    .some(use => use.visitOwnerId === "s16-alternative"), true);
+});
+
+test("two route placement uses bind receipt chains to their exact visit", () => {
+  let state = completeCanonicalContentCoverageState();
+  const placement = CONTENT_DECK_PLACEMENTS.find(item => item.placementId === "s16-alternative");
+  const visitId = "coverage:route-2:s16-alternative";
+  const served = serveContentDeck(state.contentDecks, {
+    binding: placement.contentBinding,
+    visitId,
+    stopId: "s16",
+    journeyStep: 56,
+    seed: 56
+  });
+  state = beginContentPlacementAttempt({ ...state, contentDecks: served.nextState }, {
+    placementId: placement.placementId,
+    visitId
+  }).nextState;
+  let completed = false;
+  while (!completed) {
+    const challenge = materializeContentPlacementChallenge(state, {
+      placementId: placement.placementId, visitId
+    });
+    const result = commitContentPlacementResponse(state, {
+      placementId: placement.placementId,
+      visitId,
+      challenge,
+      response: { kind: "literacy-answer", token: challenge.expectedToken },
+      audio: { status: "completed" },
+      at: `2026-09-02T09:0${challenge.targetOrdinal}:00.000Z`,
+      sessionDay: "2026-09-02"
+    });
+    state = result.nextState;
+    completed = result.completed;
+  }
+  const uses = validContentDeckUses(state, "alternatives")
+    .filter(use => use.visitOwnerId === placement.placementId);
+  assert.equal(uses.length, 2);
+  assert.deepEqual(uses.map(use => use.visitId), [
+    "coverage:s16-alternative", visitId
+  ]);
+
+  const crossed = structuredClone(state);
+  crossed.contentDecks.alternatives.uses[uses[1].useId].attemptReceiptIds =
+    [...uses[0].attemptReceiptIds];
+  assert.equal(validContentDeckUses(crossed, "alternatives")
+    .filter(use => use.visitOwnerId === placement.placementId).length, 1);
+
+  const malformed = structuredClone(state);
+  const secondAttemptId = uses[1].attemptReceiptIds[0];
+  const malformedId = secondAttemptId.replace("content-placement-attempt:", "bad-placement-attempt:");
+  malformed.attemptReceipts[malformedId] = {
+    ...malformed.attemptReceipts[secondAttemptId], attemptId: malformedId
+  };
+  delete malformed.attemptReceipts[secondAttemptId];
+  assert.equal(validContentDeckUses(malformed, "alternatives")
+    .filter(use => use.visitOwnerId === placement.placementId).length, 1);
 });
 
 test("immutable visit, use, evidence, and receipt conflicts are absorbing", () => {

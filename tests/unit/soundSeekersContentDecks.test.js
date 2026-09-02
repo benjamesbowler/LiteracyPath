@@ -615,15 +615,17 @@ const TASK2_ALLOWED_IMPORT_EDGES = Object.freeze([
   "contentDeckTransactions->questCorrection", "evidence->challengeContract",
   "evidence->evidenceEligibility", "heartWords->evidenceEligibility",
   "heartWords->heartWordRecords", "heartWords->pronunciationLexicon",
-  "stateV2->contentDeckState", "stateV2->evidenceEligibility"
+  "stateV2->contentCoverage", "stateV2->contentDeckState", "stateV2->evidenceEligibility",
+  "stateV2->sceneVisualSemantics"
 ]);
 
-assert.equal(TASK2_ALLOWED_IMPORT_EDGES.length, 32);
+assert.equal(TASK2_ALLOWED_IMPORT_EDGES.length, 34);
 
 const TASK2_EXTERNAL_IMPORT_TARGETS = Object.freeze({
   expeditions: "src/features/soundSeekers/content/expeditions.js",
   instructionContracts: "src/features/soundSeekers/content/instructionContracts.js",
   pronunciationLexicon: "src/features/soundSeekers/content/pronunciationLexicon.js",
+  sceneVisualSemantics: "src/features/soundSeekers/content/sceneVisualSemantics.js",
   questCorrection: "src/utils/questCorrection.js"
 });
 

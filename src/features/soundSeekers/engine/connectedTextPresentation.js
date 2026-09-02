@@ -161,6 +161,9 @@ function assertReceiptInputHash(state, scene, receipt, event) {
 }
 
 function verifyCanonicalVisits(state, scene, transactionId, journeyStep) {
+  if (state.trail.journeyStep !== journeyStep) {
+    throw new Error("connected-text presentation is not bound to the current journey visit");
+  }
   const storyVisitId = `visit:${transactionId}:story`;
   const transferVisitId = `visit:${transactionId}:transfer`;
   const story = rehydrateServedContentInstance(state.contentDecks, {
@@ -219,8 +222,7 @@ function verifyConnectedTextHistoryAgainstTask2(state, { sceneId, transactionId,
   const scene = getConnectedText(sceneId);
   if (!scene) throw new Error("presentation scene is unknown");
   const match = /^story-transfer:(\d+):(s(?:[1-9]|[1-3][0-9]|40))$/u.exec(transactionId);
-  if (!match || match[2] !== scene.stopId
-    || Number(match[1]) !== Number(scene.stopId.slice(1))) {
+  if (!match || match[2] !== scene.stopId) {
     throw new Error("presentation transaction identity is invalid");
   }
   const journeyStep = Number(match[1]);
@@ -397,13 +399,15 @@ function installNext(presentation, event, verification, phase, extras = {}) {
   return deepFreeze({ nextPresentation, transition });
 }
 
-export function beginConnectedTextPresentation({ sceneId, transactionId } = {}) {
+export function beginConnectedTextPresentation({ sceneId, transactionId, state: gameState } = {}) {
   const scene = getConnectedText(sceneId);
   const match = /^story-transfer:(\d+):(s(?:[1-9]|[1-3][0-9]|40))$/u.exec(transactionId || "");
   if (!stringId(sceneId) || !stringId(transactionId) || !scene || !match
-    || match[2] !== scene.stopId || Number(match[1]) !== Number(scene.stopId.slice(1))) {
+    || match[2] !== scene.stopId) {
     throw new Error("connected-text presentation identity is invalid");
   }
+  assertCompleteStateShape(gameState);
+  verifyCanonicalVisits(gameState, scene, transactionId, Number(match[1]));
   invalidateActive();
   const generation = Object.freeze({});
   const state = brandedState({

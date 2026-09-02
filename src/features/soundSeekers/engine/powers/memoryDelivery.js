@@ -1,4 +1,5 @@
 import {
+  applyMissionCommitToPower,
   answerPower,
   assertReducerContext,
   assertStableCollection,
@@ -46,6 +47,11 @@ function assertResumeHistory(common, resume, recipients) {
 }
 
 export const memoryDelivery = Object.freeze({
+  applyMissionCommitResult(state, result, context) {
+    return applyMissionCommitToPower(state, result, context,
+      (challenge, options) => memoryDelivery.createState(challenge, options));
+  },
+
   createState(challenge, options = {}) {
     const common = createCommonState(POWER_ID, challenge, options, [
       "cueReceived", "cueVisible", "replayCount", "routeProgress", "arrived", "recipients"

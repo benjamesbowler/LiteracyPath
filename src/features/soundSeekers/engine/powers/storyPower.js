@@ -1,4 +1,5 @@
 import {
+  applyMissionCommitToPower,
   answerPower,
   assertReducerContext,
   assertStableCollection,
@@ -37,6 +38,11 @@ function assertResumeHistory(common, resume, choices, choiceTokens) {
 }
 
 export const storyPower = Object.freeze({
+  applyMissionCommitResult(state, result, context) {
+    return applyMissionCommitToPower(state, result, context,
+      (challenge, options) => storyPower.createState(challenge, options));
+  },
+
   createState(challenge, options = {}) {
     const common = createCommonState(POWER_ID, challenge, options, ["textRead", "choices", "narrativeChoiceToken"]);
     assertStableCollection(challenge.presentation?.choices, {

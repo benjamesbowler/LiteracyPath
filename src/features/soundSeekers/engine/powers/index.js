@@ -20,3 +20,9 @@ export const SOUND_POWER_REGISTRY = Object.freeze({
   memory_delivery: memoryDelivery,
   story_power: storyPower
 });
+
+for (const [powerId, power] of Object.entries(SOUND_POWER_REGISTRY)) {
+  if (typeof power.applyMissionCommitResult !== "function") {
+    throw new Error(`${powerId}: mission commit integration is required`);
+  }
+}

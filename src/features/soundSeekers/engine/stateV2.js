@@ -8,6 +8,8 @@ import {
 import {
   normalizeSoundSeekersEvidenceEvent
 } from "./evidenceEligibility.js";
+import { validContentDeckUses } from "./contentCoverage.js";
+import { resolveNarrativeBranchOutcome } from "../content/sceneVisualSemantics.js";
 
 export const SOUND_SEEKERS_SCHEMA_VERSION = 2;
 export const SOUND_SEEKERS_CONTENT_VERSION = "sound-seekers-v2";
@@ -174,11 +176,159 @@ function normalizeJournal(value) {
   };
 }
 
+const MISSION_KEYS = [
+  "schemaVersion", "kind", "contentVersion", "missionId", "stopId", "journeyStep",
+  "attemptId", "attemptOrdinal", "missionRevision", "seed", "replayOrdinal", "phaseId",
+  "completedPhaseIds", "teach", "nextDecisionOrdinal", "activity", "activeContent",
+  "connectedTextPresentation"
+];
+
+function exactKeys(value, keys) {
+  return Object.keys(asObject(value)).length === keys.length
+    && keys.every(key => Object.hasOwn(value, key));
+}
+
+function canonicalConnectedTextCheckpoint(raw) {
+  if (raw === null) return null;
+  const value = asObject(raw);
+  if (!exactKeys(value, ["schemaVersion", "kind", "sceneId", "transactionId", "history"])
+    || value.schemaVersion !== 1 || value.kind !== "connected_text_presentation_checkpoint"
+    || typeof value.sceneId !== "string" || !value.sceneId
+    || typeof value.transactionId !== "string" || !value.transactionId
+    || !Array.isArray(value.history)) return undefined;
+  const validEvent = event => {
+    if (event?.type === "decision_committed") return exactKeys(event, ["type", "reducerRevision", "evidenceEventId"])
+      && Number.isSafeInteger(event.reducerRevision) && event.reducerRevision >= 0
+      && typeof event.evidenceEventId === "string" && Boolean(event.evidenceEventId);
+    if (event?.type === "action_completed") return exactKeys(event, ["type", "reducerRevision"])
+      && Number.isSafeInteger(event.reducerRevision) && event.reducerRevision >= 0;
+    if (event?.type === "meaning_requested") return exactKeys(event, ["type", "reducerRevision", "meaningSemanticId"])
+      && Number.isSafeInteger(event.reducerRevision) && event.reducerRevision >= 0
+      && typeof event.meaningSemanticId === "string" && Boolean(event.meaningSemanticId);
+    return false;
+  };
+  if (value.history.some((event, index) => !validEvent(event) || event.reducerRevision !== index)) return undefined;
+  return structuredClone(value);
+}
+
+function canonicalPowerCheckpoint(raw) {
+  if (raw === null) return null;
+  const value = asObject(raw);
+  const common = ["kind", "powerId", "challengeId", "instructionId", "expectedAction",
+    "recordsDomain", "interactionContextId", "status", "revision", "semanticSteps", "correction"];
+  const extras = {
+    echo_search: ["candidates", "foundCandidateId", "sourceRevealed"],
+    contrast_sort: ["items", "bins", "placements"],
+    word_forge: ["slots", "rack", "sweep", "morphology"],
+    blend_bridge: ["segments", "nextSegmentIndex", "sweepComplete", "choices"],
+    memory_delivery: ["cueReceived", "cueVisible", "replayCount", "routeProgress", "arrived", "recipients"],
+    story_power: ["textRead", "choices", "narrativeChoiceToken"]
+  }[value.powerId];
+  const correctionKeys = new Set([
+    "missCount", "supportLevel", "mode", "replayContrast", "isolatePosition",
+    "reduceIrrelevantLoad", "modelOnce", "requiresFreshAttempt", "queueIsomorphicReview"
+  ]);
+  const correction = value.correction;
+  const safeCorrection = correction === null || (asObject(correction) === correction
+    && Object.keys(correction).every(key => correctionKeys.has(key))
+    && Object.values(correction).every(item => item === null
+      || ["string", "number", "boolean"].includes(typeof item)));
+  const forbiddenKeys = new Set([
+    "answer", "expectedToken", "response", "responseIntent", "responseIntents",
+    "capability", "commitResult", "presentationTransition", "evidence"
+  ]);
+  const hasForbiddenAuthority = candidate => Boolean(candidate && typeof candidate === "object"
+    && Object.entries(candidate).some(([key, item]) => forbiddenKeys.has(key)
+      || hasForbiddenAuthority(item)));
+  if (!extras || !exactKeys(value, [...common, ...extras])
+    || value.kind !== `${value.powerId}_state`
+    || !["active", "awaiting_mission_commit"].includes(value.status)
+    || !Number.isSafeInteger(value.revision) || value.revision < 0
+    || !Array.isArray(value.semanticSteps) || value.semanticSteps.length !== value.revision
+    || !safeCorrection || hasForbiddenAuthority(value)) return undefined;
+  return structuredClone(value);
+}
+
+function canonicalActiveContent(raw) {
+  if (raw === null) return null;
+  const value = asObject(raw);
+  const keys = value.kind === "heart"
+    ? ["kind", "category", "visitId", "actionUseId"]
+    : value.kind === "placement" ? ["kind", "placementId", "visitId"]
+      : value.kind === "story_transfer" ? ["kind", "transactionId"] : null;
+  if (!keys || !exactKeys(value, keys)
+    || Object.values(value).some(item => typeof item !== "string" || !item)) return undefined;
+  return { ...value };
+}
+
+function normalizeMissionCheckpoint(raw) {
+  const value = asObject(raw);
+  if (!exactKeys(value, MISSION_KEYS)
+    || value.schemaVersion !== 1 || value.kind !== "sound_seekers_mission"
+    || value.contentVersion !== SOUND_SEEKERS_CONTENT_VERSION
+    || !/^mission:[1-9][0-9]*:s(?:[1-9]|[1-3][0-9]|40):[0-9]+:-?[0-9]+$/u.test(value.missionId || "")
+    || !/^s(?:[1-9]|[1-3][0-9]|40)$/u.test(value.stopId || "")
+    || !Number.isSafeInteger(value.journeyStep) || value.journeyStep < 1
+    || !Number.isSafeInteger(value.attemptOrdinal) || value.attemptOrdinal < 0
+    || !Number.isSafeInteger(value.missionRevision) || value.missionRevision < 0
+    || !Number.isSafeInteger(value.seed) || !Number.isSafeInteger(value.replayOrdinal) || value.replayOrdinal < 0
+    || typeof value.phaseId !== "string" || !value.phaseId
+    || typeof value.attemptId !== "string" || !value.attemptId
+    || !Array.isArray(value.completedPhaseIds) || value.completedPhaseIds.some(item => typeof item !== "string" || !item)
+    || !exactKeys(value.teach, ["teachIndex", "teachTargetId"])
+    || !Number.isSafeInteger(value.teach.teachIndex) || value.teach.teachIndex < 0
+    || (value.teach.teachTargetId !== null && (typeof value.teach.teachTargetId !== "string" || !value.teach.teachTargetId))
+    || !Number.isSafeInteger(value.nextDecisionOrdinal) || value.nextDecisionOrdinal < 0
+    || !exactKeys(value.activity, ["kind", "actionId", "challengeId", "powerCheckpoint"])
+    || typeof value.activity.kind !== "string" || !value.activity.kind
+    || typeof value.activity.actionId !== "string" || !value.activity.actionId
+    || (value.activity.challengeId !== null && (typeof value.activity.challengeId !== "string" || !value.activity.challengeId))) return null;
+  const powerCheckpoint = canonicalPowerCheckpoint(value.activity.powerCheckpoint);
+  const activeContent = canonicalActiveContent(value.activeContent);
+  const connectedTextPresentation = canonicalConnectedTextCheckpoint(value.connectedTextPresentation);
+  if (powerCheckpoint === undefined || activeContent === undefined || connectedTextPresentation === undefined) return null;
+  return {
+    ...structuredClone(value),
+    completedPhaseIds: uniqueStrings(value.completedPhaseIds),
+    activity: { ...structuredClone(value.activity), powerCheckpoint },
+    activeContent,
+    connectedTextPresentation
+  };
+}
+
 function normalizeCheckpoint(value, contentDecks) {
   const checkpoint = asObject(value);
-  return checkpoint.contentVersion === SOUND_SEEKERS_CONTENT_VERSION
-    ? normalizeContentDeckCheckpoint(checkpoint, contentDecks)
-    : null;
+  if (checkpoint.contentVersion !== SOUND_SEEKERS_CONTENT_VERSION) return null;
+  const deck = normalizeContentDeckCheckpoint(checkpoint, contentDecks);
+  const normalized = { contentVersion: SOUND_SEEKERS_CONTENT_VERSION };
+  if (typeof checkpoint.stopId === "string" && checkpoint.stopId.trim()) {
+    normalized.stopId = checkpoint.stopId.trim();
+  }
+  if (deck?.contentPlacement) normalized.contentPlacement = deck.contentPlacement;
+  if (deck?.storyTransfer) normalized.storyTransfer = deck.storyTransfer;
+  if (checkpoint.mission !== undefined) {
+    const mission = normalizeMissionCheckpoint(checkpoint.mission);
+    if (mission) normalized.mission = mission;
+  }
+  return normalized;
+}
+
+function deriveStoryOutcomes(state) {
+  const winners = new Map();
+  for (const use of validContentDeckUses(state, "stories")) {
+    const match = /^story-transfer:(\d+):(s(?:[1-9]|[1-3][0-9]|40))$/u.exec(use.transactionId || "");
+    if (!match || typeof use.narrativeChoiceToken !== "string") continue;
+    const sceneId = `scene-${match[2]}`;
+    const outcome = resolveNarrativeBranchOutcome(sceneId, use.narrativeChoiceToken);
+    if (!outcome) continue;
+    const prior = winners.get(sceneId);
+    if (!prior || use.journeyStep > prior.journeyStep
+      || (use.journeyStep === prior.journeyStep
+        && use.transactionId.localeCompare(prior.transactionId) > 0)) {
+      winners.set(sceneId, { journeyStep: use.journeyStep, transactionId: use.transactionId, outcome });
+    }
+  }
+  return Object.fromEntries([...winners].map(([sceneId, entry]) => [sceneId, entry.outcome.storyOutcomeId]));
 }
 
 export function isSoundSeekersV2(raw) {
@@ -196,11 +346,11 @@ export function isSoundSeekersV2(raw) {
 export function createSoundSeekersState(seed = {}) {
   const value = asObject(seed);
   const contentDecks = createContentDeckState(value.contentDecks);
-  return {
+  const state = {
     v: SOUND_SEEKERS_SCHEMA_VERSION,
     contentVersion: SOUND_SEEKERS_CONTENT_VERSION,
     reset: { epoch: boundedInteger(value.reset?.epoch), at: typeof value.reset?.at === "string" ? value.reset.at : null },
-    trail: { routeCursor: 1, journeyStep: 1, completedStopIds: [], repairs: {}, chapterCoverage: {} },
+    trail: { routeCursor: 1, journeyStep: 1, completedStopIds: [], repairs: {}, chapterCoverage: {}, storyOutcomes: {} },
     evidence: normalizeEvidence(value.evidence),
     confusions: normalizeNumberMap(value.confusions),
     contentDecks,
@@ -211,6 +361,8 @@ export function createSoundSeekersState(seed = {}) {
     assignment: normalizeAssignment(value.assignment),
     settings: normalizeAllowlistedSettings(value.settings)
   };
+  state.trail.storyOutcomes = deriveStoryOutcomes(state);
+  return state;
 }
 
 export function normalizeSoundSeekersState(raw, carry = {}) {
@@ -228,7 +380,7 @@ export function normalizeSoundSeekersState(raw, carry = {}) {
   });
   const trail = asObject(source.trail);
   const rewards = asObject(source.rewards);
-  return {
+  const normalized = {
     ...base,
     reset: {
       epoch: boundedInteger(source.reset?.epoch),
@@ -239,7 +391,8 @@ export function normalizeSoundSeekersState(raw, carry = {}) {
       journeyStep: Math.max(1, boundedInteger(trail.journeyStep, 1)),
       completedStopIds: normalizeIdList(trail.completedStopIds),
       repairs: normalizeBooleanMap(trail.repairs),
-      chapterCoverage: normalizeNumberMap(trail.chapterCoverage)
+      chapterCoverage: normalizeNumberMap(trail.chapterCoverage),
+      storyOutcomes: {}
     },
     evidence: normalizeEvidence(source.evidence),
     confusions: normalizeNumberMap(source.confusions),
@@ -251,6 +404,8 @@ export function normalizeSoundSeekersState(raw, carry = {}) {
     assignment: normalizeAssignment(source.assignment ?? preserved.assignment),
     settings: normalizeAllowlistedSettings(source.settings ?? preserved.settings)
   };
+  normalized.trail.storyOutcomes = deriveStoryOutcomes(normalized);
+  return normalized;
 }
 
 function mergeNumberMaps(local, remote) {
@@ -315,7 +470,8 @@ export function mergeSoundSeekersStates(local, remote) {
       journeyStep: Math.max(localState.trail.journeyStep, remoteState.trail.journeyStep),
       completedStopIds: mergeIds(localState.trail.completedStopIds, remoteState.trail.completedStopIds),
       repairs: mergeBooleanMaps(localState.trail.repairs, remoteState.trail.repairs),
-      chapterCoverage: mergeNumberMaps(localState.trail.chapterCoverage, remoteState.trail.chapterCoverage)
+      chapterCoverage: mergeNumberMaps(localState.trail.chapterCoverage, remoteState.trail.chapterCoverage),
+      storyOutcomes: {}
     },
     evidence: mergeEvidence(localState, remoteState),
     confusions: mergeNumberMaps(localState.confusions, remoteState.confusions),

@@ -1,4 +1,5 @@
 import {
+  applyMissionCommitToPower,
   answerPower,
   assertReducerContext,
   assertStableCollection,
@@ -36,6 +37,11 @@ function assertResumeHistory(common, resume, items, bins) {
 }
 
 export const contrastSort = Object.freeze({
+  applyMissionCommitResult(state, result, context) {
+    return applyMissionCommitToPower(state, result, context,
+      (challenge, options) => contrastSort.createState(challenge, options));
+  },
+
   createState(challenge, options = {}) {
     const common = createCommonState(POWER_ID, challenge, options, ["items", "bins", "placements"]);
     assertStableCollection(challenge.presentation?.items, {

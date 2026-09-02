@@ -339,7 +339,23 @@ function placementChallengeForDescriptor(state, descriptor) {
 }
 
 function replayPlacementHistory(state, descriptor, { throughAttemptId = null } = {}) {
-  const receipts = receiptsFor(state, "content_placement", descriptor.placementId);
+  const visitAttemptPrefix = `content-placement-attempt:${descriptor.visitId}:${descriptor.placementId}:`;
+  const receipts = Object.values(asObject(state.attemptReceipts))
+    .filter(receipt => receipt?.kind === "attempt_receipt"
+      && receipt.operation === "content_placement"
+      && receipt.subjectId === descriptor.placementId)
+    .filter(receipt => receipt.attemptId === placementAttemptId(
+      descriptor, receipt.decisionOrdinal, receipt.attemptOrdinal
+    ))
+    .sort((left, right) => left.decisionOrdinal - right.decisionOrdinal
+      || left.attemptOrdinal - right.attemptOrdinal
+      || (left.attemptId < right.attemptId ? -1 : left.attemptId > right.attemptId ? 1 : 0));
+  const rawVisitReceipts = Object.values(asObject(state.attemptReceipts))
+    .filter(receipt => typeof receipt?.attemptId === "string"
+      && receipt.attemptId.startsWith(visitAttemptPrefix));
+  if (rawVisitReceipts.length !== receipts.length) {
+    throw new Error(`content placement visit contains a malformed or conflicting receipt (${rawVisitReceipts.length}/${receipts.length})`);
+  }
   let previousCorrection = null;
   let currentDecision = 0;
   let currentAttempt = 0;

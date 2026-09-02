@@ -1,4 +1,5 @@
 import {
+  applyMissionCommitToPower,
   answerPower,
   assertReducerContext,
   assertStableCollection,
@@ -13,6 +14,7 @@ import {
   publicEntries,
   semanticStepFor
 } from "./contracts.js";
+import { registerWordWorkbenchModel } from "../workbenchAccess.js";
 
 const POWER_ID = "word_forge";
 
@@ -57,6 +59,11 @@ function assertResumeHistory(common, resume, rack, slots, challenge) {
 }
 
 export const wordForge = Object.freeze({
+  applyMissionCommitResult(state, result, context) {
+    return applyMissionCommitToPower(state, result, context,
+      (challenge, options) => wordForge.createState(challenge, options));
+  },
+
   createState(challenge, options = {}) {
     const common = createCommonState(POWER_ID, challenge, options, ["slots", "rack", "sweep", "morphology"]);
     if (common.morphology) {
@@ -193,13 +200,14 @@ export const wordForge = Object.freeze({
 
   view(state, challenge) {
     assertReducerContext(state, challenge);
-    return deepFreezeClone({
+    const model = deepFreezeClone({
       ...commonView(state, challenge),
       slots: publicEntries(state.slots, ["id", "tileId"]),
       rack: publicEntries(state.rack),
       sweep: state.sweep,
       morphology: state.morphology
     });
+    return registerWordWorkbenchModel(model, state, challenge);
   },
 
   checkpoint(state) {
