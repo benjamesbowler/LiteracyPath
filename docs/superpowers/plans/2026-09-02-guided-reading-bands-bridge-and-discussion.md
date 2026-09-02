@@ -532,8 +532,8 @@ Use IDs and paths in this form:
   pages: [{
     pageNumber: 1,
     text: "Maya opens her lunchbox and finds Samir's blue cup.",
+    pageAudioText: "Maya opens her lunchbox and finds Samir's blue cup.",
     image: "/guided-reading/willow-street/the-lunchbox-mix-up/page-01.webp",
-    audio: "/guided-reading/audio/leda/willow-street-the-lunchbox-mix-up/page-01.mp3",
     imageBrief: "Maya at the lunch table opening a lunchbox; Samir's blue cup is clearly visible."
   }]
 }
@@ -730,8 +730,8 @@ git commit -m "feat: add Willow Street nonfiction media"
 ### Task 7: Generate exact-current-text audio and provenance for Willow Street
 
 **Files:**
-- Create: `public/guided-reading/audio/leda/willow-street-*/page-*.mp3`
-- Create: exact word-audio files required by the existing Guided Reading word-support path
+- Create: hashed page narration files under `public/audio/production/en-US/guided_page/`
+- Create: hashed exact word-audio files under `public/audio/production/en-US/isolated_word/`
 - Modify (generated): `src/data/generated/guidedReadingLedaGaps.generated.js`
 - Modify (generated): `src/data/generated/guidedReadingNarrationClearance.generated.js`
 - Modify (generated): `src/data/generated/guidedReadingNarrationProvenance.generated.js`
@@ -772,8 +772,8 @@ Run the existing authoring tools in their required order:
 
 ```bash
 node tools/generateGuidedReadingLedaGaps.mjs
-node tools/refreshGuidedReadingNarrationClearance.mjs
-node tools/checkGuidedReadingNarrationProvenance.mjs --write
+node tools/refreshGuidedReadingNarrationClearance.mjs --write
+node tools/checkGuidedReadingNarrationProvenance.mjs --refresh
 node tools/generateAudioManifest.js
 ```
 
@@ -798,7 +798,7 @@ Listen to every new page narration in reading order and sample every newly intro
 - [ ] **Step 6: Commit**
 
 ```bash
-git add public/guided-reading/audio src/data/generated tests/unit/guidedReadingLedaAudioCoverage.test.js tests/unit/guidedReadingNarrationProvenance.test.js tools/guidedReadingAudioPipelineLib.mjs
+git add public/audio/production/en-US/guided_page public/audio/production/en-US/isolated_word src/data/generated tests/unit/guidedReadingLedaAudioCoverage.test.js tests/unit/guidedReadingNarrationProvenance.test.js tools/guidedReadingAudioPipelineLib.mjs
 git commit -m "feat: add Willow Street narration"
 ```
 
