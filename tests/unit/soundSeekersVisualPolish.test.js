@@ -120,6 +120,18 @@ function layoutItem(id, index) {
   return { id, ...rectangle((index % 4) * 64, 64 + (Math.floor(index / 4) * 64)) };
 }
 
+function textBlock(id, role, container) {
+  const card = rectangle(container.x + 4, container.y + 4, container.width - 8, container.height - 8);
+  return {
+    id,
+    role,
+    card,
+    ink: rectangle(card.x + 2, card.y + 2, card.width - 4, card.height - 4),
+    horizontalScrollOverflow: 0,
+    verticalScrollOverflow: 0
+  };
+}
+
 function layoutIdentities(matrix) {
   const scene = SOUND_SEEKERS_CONNECTED_TEXT.find(item => item.id === matrix.sceneId);
   const renderSpec = SOUND_SEEKERS_SCENE_RENDER_SPECS.find(item => item.sceneId === matrix.sceneId);
@@ -158,6 +170,11 @@ function completeLayout(matrix) {
   if (matrix.kind !== "profile-viewport-zoom") return null;
   const identities = layoutIdentities(matrix);
   let index = 0;
+  const goal = rectangle(0, 0, 120, 40);
+  const actors = identities.actors.map(id => layoutItem(id, index++));
+  const landmark = layoutItem(identities.landmark, index++);
+  const targets = identities.targets.map(id => layoutItem(id, index++));
+  const controls = identities.controls.map(id => layoutItem(id, index++));
   return {
     viewport: {
       width: matrix.viewport.width / matrix.browserZoom,
@@ -165,11 +182,18 @@ function completeLayout(matrix) {
     },
     horizontalOverflow: 0,
     verticalOverflow: 0,
-    goal: rectangle(0, 0, 120, 40),
-    actors: identities.actors.map(id => layoutItem(id, index++)),
-    landmark: layoutItem(identities.landmark, index++),
-    targets: identities.targets.map(id => layoutItem(id, index++)),
-    controls: identities.controls.map(id => layoutItem(id, index++))
+    goal,
+    actors,
+    landmark,
+    targets,
+    controls,
+    textBlocks: [
+      textBlock("scene-text", "goal-text", rectangle(0, 0, 120, 20)),
+      textBlock("scene-prompt", "goal-prompt", rectangle(0, 20, 120, 20)),
+      ...targets.map(target => textBlock(target.id, "target-caption", target)),
+      textBlock(landmark.id, "landmark-caption", landmark),
+      ...controls.map(control => textBlock(control.id, "control-label", control))
+    ]
   };
 }
 

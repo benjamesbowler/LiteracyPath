@@ -80,6 +80,18 @@ function layoutItem(id, index) {
   return { id, ...rectangle((index % 4) * 64, 64 + (Math.floor(index / 4) * 64)) };
 }
 
+function textBlock(id, role, container) {
+  const card = rectangle(container.x + 4, container.y + 4, container.width - 8, container.height - 8);
+  return {
+    id,
+    role,
+    card,
+    ink: rectangle(card.x + 2, card.y + 2, card.width - 4, card.height - 4),
+    horizontalScrollOverflow: 0,
+    verticalScrollOverflow: 0
+  };
+}
+
 function layoutFor(matrix) {
   if (matrix.kind !== "profile-viewport-zoom") return null;
   const suffix = matrix.sceneId === "scene-s40"
@@ -92,6 +104,7 @@ function layoutFor(matrix) {
   const landmark = layoutItem(facts.landmark, index++);
   const targets = facts.targets.map(id => layoutItem(id, index++));
   const controls = facts.controls.map(id => layoutItem(id, index++));
+  const goal = rectangle(0, 0, 120, 40);
   return {
     viewport: {
       width: matrix.viewport.width / matrix.browserZoom,
@@ -99,11 +112,18 @@ function layoutFor(matrix) {
     },
     horizontalOverflow: 0,
     verticalOverflow: 0,
-    goal: rectangle(0, 0, 120, 40),
+    goal,
     actors,
     landmark,
     targets,
-    controls
+    controls,
+    textBlocks: [
+      textBlock("scene-text", "goal-text", rectangle(0, 0, 120, 20)),
+      textBlock("scene-prompt", "goal-prompt", rectangle(0, 20, 120, 20)),
+      ...targets.map(target => textBlock(target.id, "target-caption", target)),
+      textBlock(landmark.id, "landmark-caption", landmark),
+      ...controls.map(control => textBlock(control.id, "control-label", control))
+    ]
   };
 }
 
@@ -542,6 +562,55 @@ test("layout evidence is mandatory and every identity, size, bound, spacing, and
   const nonProfile = mutableManifest();
   nonProfile.shots[0].checks.layout = layoutFor(SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX[profileIndex]);
   assert.throws(() => assertSoundSeekersV2GalleryManifest(nonProfile), undefined, "layout on non-profile");
+});
+
+test("layout evidence fails closed for caption, text ink, scroll overflow, and semantic-label collisions", () => {
+  const profileIndex = SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX.find(record =>
+    record.subjectId === "portrait-320x568").ordinal - 1;
+  const mutations = [
+    ["missing text block", layout => { layout.textBlocks.pop(); }],
+    ["unknown text role", layout => { layout.textBlocks[0].role = "decoration"; }],
+    ["forged target caption identity", layout => {
+      layout.textBlocks.find(block => block.role === "target-caption").id = "forged";
+    }],
+    ["caption card outside viewport", layout => {
+      moveOutside(layout.textBlocks.find(block => block.role === "target-caption").card);
+    }],
+    ["caption ink outside its card", layout => {
+      const block = layout.textBlocks.find(candidate => candidate.role === "target-caption");
+      block.ink.right = block.card.right + 2;
+      block.ink.width = block.ink.right - block.ink.x;
+    }],
+    ["horizontal text scroll overflow", layout => {
+      layout.textBlocks.find(block => block.role === "target-caption").horizontalScrollOverflow = 2;
+    }],
+    ["vertical text scroll overflow", layout => {
+      layout.textBlocks.find(block => block.role === "control-label").verticalScrollOverflow = 2;
+    }],
+    ["caption-caption collision", layout => {
+      const captions = layout.textBlocks.filter(block => block.role === "target-caption");
+      captions[1].card = structuredClone(captions[0].card);
+      captions[1].ink = structuredClone(captions[0].ink);
+    }],
+    ["caption-landmark collision", layout => {
+      const caption = layout.textBlocks.find(block => block.role === "target-caption");
+      caption.card = rectangle(layout.landmark.x, layout.landmark.y, 40, 40);
+      caption.ink = rectangle(layout.landmark.x + 2, layout.landmark.y + 2, 36, 36);
+    }],
+    ["caption-control collision", layout => {
+      const caption = layout.textBlocks.find(block => block.role === "target-caption");
+      caption.card = rectangle(layout.controls[0].x, layout.controls[0].y, 40, 40);
+      caption.ink = rectangle(layout.controls[0].x + 2, layout.controls[0].y + 2, 36, 36);
+    }]
+  ];
+
+  const valid = mutableManifest();
+  assert.equal(assertSoundSeekersV2GalleryManifest(valid), true);
+  for (const [label, mutate] of mutations) {
+    const manifest = mutableManifest();
+    mutate(manifest.shots[profileIndex].checks.layout);
+    assert.throws(() => assertSoundSeekersV2GalleryManifest(manifest), undefined, label);
+  }
 });
 
 test("gallery source graph hashes exact JS, TS, TSX, HTML, and CSS import closure", () => {

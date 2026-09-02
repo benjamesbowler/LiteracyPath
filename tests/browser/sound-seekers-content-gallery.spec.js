@@ -9,6 +9,7 @@ import {
   SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX,
   assertSoundSeekersV2GalleryLayout
 } from "../../tools/lib/soundSeekersV2GalleryManifest.mjs";
+import { captureSoundSeekersV2GalleryLayout } from "../../tools/shootSoundSeekersV2Content.mjs";
 
 const INPUT_KINDS = Object.freeze(["mouse", "touch", "Enter", "Space"]);
 const CHILD_SCENES = SOUND_SEEKERS_CONNECTED_TEXT.map(scene =>
@@ -23,6 +24,10 @@ const CASES = SOUND_SEEKERS_CONNECTED_TEXT.map((scene, index) => {
 
 function galleryUrl(sceneId) {
   return `/preview/sound-seekers-v2-content.html?scene=${sceneId}&fixture=pre-choice&density=full&motion=reduced&labels=shown&seed=11`;
+}
+
+async function captureConstrainedLayout(page) {
+  return page.evaluate(captureSoundSeekersV2GalleryLayout);
 }
 
 async function assertInventoryAndKeyboardOrder(page, childScene) {
@@ -199,13 +204,43 @@ test("the zoom profile is real 200 percent browser zoom at one-times device dens
     await page.goto(matrix.url);
     await cdp.send("Emulation.setPageScaleFactor", { pageScaleFactor: 2 });
     await expect(page.locator("[data-gallery-ready='true']")).toBeVisible();
-    await expect(page.locator("[data-gallery-page-scale='2']")).toBeVisible();
+    await expect(page.locator("[data-sound-seekers-scene]"))
+      .toHaveAttribute("data-layout-profile", "compact-portrait");
     expect(await page.evaluate(() => ({
       devicePixelRatio: window.devicePixelRatio,
       scale: window.visualViewport?.scale,
       width: Math.round(window.visualViewport?.width || 0),
       height: Math.round(window.visualViewport?.height || 0)
     }))).toEqual({ devicePixelRatio: 1, scale: 2, width: 320, height: 568 });
+  } finally {
+    await context.close();
+  }
+});
+
+test("the production scene owns the unclipped semantic layout at genuine 200 percent zoom", async ({ browser }) => {
+  const matrix = SOUND_SEEKERS_V2_GALLERY_SHOT_MATRIX.find(record =>
+    record.subjectId === "zoom-200-effective-320x568");
+  const context = await browser.newContext({
+    viewport: { width: 640, height: 1136 },
+    deviceScaleFactor: 1,
+    hasTouch: false
+  });
+  try {
+    const page = await context.newPage();
+    const cdp = await context.newCDPSession(page);
+    await page.goto(matrix.url);
+    await cdp.send("Emulation.setPageScaleFactor", { pageScaleFactor: 2 });
+    await expect(page.locator("[data-gallery-ready='true']")).toBeVisible();
+    await expect(page.locator("[data-sound-seekers-scene]"))
+      .toHaveAttribute("data-layout-profile", "compact-portrait");
+    await expect(page.locator(".sound-seekers-world__decorations > span").first()).toBeHidden();
+    await page.locator("[data-gallery-root]").evaluate(node => {
+      node.removeAttribute("data-gallery-page-scale");
+    });
+    await expect(page.locator("[data-sound-seekers-scene]"))
+      .toHaveAttribute("data-layout-profile", "compact-portrait");
+    const layout = await captureConstrainedLayout(page);
+    expect(() => assertSoundSeekersV2GalleryLayout(layout, matrix), JSON.stringify(layout)).not.toThrow();
   } finally {
     await context.close();
   }
@@ -228,44 +263,10 @@ test("all eight profile records provide exact noncolliding layout evidence", asy
       await cdp.send("Emulation.setPageScaleFactor", { pageScaleFactor: matrix.browserZoom });
       await expect(page.locator("[data-gallery-ready='true']")).toBeVisible();
       if (matrix.browserZoom === 2) {
-        await expect(page.locator("[data-gallery-page-scale='2']")).toBeVisible();
+        await expect(page.locator("[data-sound-seekers-scene]"))
+          .toHaveAttribute("data-layout-profile", "compact-portrait");
       }
-      const layout = await page.evaluate(() => {
-        const round = value => Math.round(value * 100) / 100;
-        const rectFacts = rect => ({
-          x: round(rect.x), y: round(rect.y), width: round(rect.width), height: round(rect.height),
-          right: round(rect.right), bottom: round(rect.bottom)
-        });
-        const visibleNodes = selector => [...document.querySelectorAll(selector)].filter(node => {
-          const rect = node.getBoundingClientRect();
-          return rect.width > 0 && rect.height > 0;
-        });
-        const itemFacts = (selector, attribute) => visibleNodes(selector).map(node => ({
-          id: node.getAttribute(attribute), ...rectFacts(node.getBoundingClientRect())
-        }));
-        const union = selector => {
-          const rects = visibleNodes(selector).map(node => node.getBoundingClientRect());
-          const x = Math.min(...rects.map(rect => rect.x));
-          const y = Math.min(...rects.map(rect => rect.y));
-          const right = Math.max(...rects.map(rect => rect.right));
-          const bottom = Math.max(...rects.map(rect => rect.bottom));
-          return rectFacts({ x, y, right, bottom, width: right - x, height: bottom - y });
-        };
-        const viewport = window.visualViewport;
-        const viewportWidth = viewport?.width || window.innerWidth;
-        const viewportHeight = viewport?.height || window.innerHeight;
-        const sceneRect = document.querySelector(".sound-seekers-scene")?.getBoundingClientRect();
-        return {
-          viewport: { width: round(viewportWidth), height: round(viewportHeight) },
-          horizontalOverflow: round(Math.max(0, (sceneRect?.right || 0) - viewportWidth)),
-          verticalOverflow: round(Math.max(0, (sceneRect?.bottom || 0) - viewportHeight)),
-          goal: union("[data-scene-text], [data-scene-prompt]"),
-          actors: itemFacts(".sound-seekers-world__characters > [data-sound-seekers-character]", "data-character-id"),
-          landmark: itemFacts(".sound-seekers-landmark", "data-landmark-id")[0] || null,
-          targets: itemFacts(".sound-seekers-world__props > [data-code-native-semantic]", "data-code-native-semantic"),
-          controls: itemFacts("button[data-option-visual-id]", "data-option-visual-id")
-        };
-      });
+      const layout = await captureConstrainedLayout(page);
       expect(() => assertSoundSeekersV2GalleryLayout(layout, matrix),
         `${matrix.subjectId}: ${JSON.stringify(layout)}`).not.toThrow();
     } finally {

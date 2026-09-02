@@ -88,36 +88,35 @@ async function assertActionFirstScene(evidencePage) {
 }
 
 for (const profile of PROFILES) {
-  test(`action-first scene remains reachable at ${profile.id}`, async ({ page, browser }) => {
-    const zoomContext = profile.zoom === 2 ? await browser.newContext({
-      baseURL: "http://127.0.0.1:5190",
-      viewport: {
-        width: profile.viewport.width / profile.zoom,
-        height: profile.viewport.height / profile.zoom
-      },
-      deviceScaleFactor: profile.zoom
-    }) : null;
-    const evidencePage = zoomContext ? await zoomContext.newPage() : page;
-    if (!zoomContext) await evidencePage.setViewportSize(profile.viewport);
-    await evidencePage.goto("/preview/sound-seekers-v2-content.html?stop=s1&fixture=pre-choice&density=full&motion=reduced&labels=shown&seed=11");
-    await expect(evidencePage.locator("[data-gallery-ready='true']")).toBeVisible();
+  test(`action-first scene remains reachable at ${profile.id}`, async ({ page }) => {
+    await page.setViewportSize(profile.viewport);
+    await page.goto("/preview/sound-seekers-v2-content.html?stop=s1&fixture=pre-choice&density=full&motion=reduced&labels=shown&seed=11");
+    if (profile.zoom === 2) {
+      const cdp = await page.context().newCDPSession(page);
+      await cdp.send("Emulation.setPageScaleFactor", { pageScaleFactor: 2 });
+    }
+    await expect(page.locator("[data-gallery-ready='true']")).toBeVisible();
 
-    const viewport = await evidencePage.evaluate(() => ({
+    const viewport = await page.evaluate(() => ({
       width: window.visualViewport?.width || window.innerWidth,
       height: window.visualViewport?.height || window.innerHeight,
       devicePixelRatio: window.devicePixelRatio,
+      scale: window.visualViewport?.scale,
       horizontalOverflow: Math.max(0, document.documentElement.scrollWidth - document.documentElement.clientWidth),
       verticalOverflow: Math.max(0, document.documentElement.scrollHeight - (window.visualViewport?.height || window.innerHeight))
     }));
-    if (profile.zoom === 2) expect(viewport.devicePixelRatio).toBe(2);
+    if (profile.zoom === 2) {
+      expect(viewport.devicePixelRatio).toBe(1);
+      expect(viewport.scale).toBe(2);
+    }
     expect(viewport.horizontalOverflow).toBeLessThanOrEqual(1);
     if (profile.id === "landscape") expect(viewport.verticalOverflow).toBeLessThanOrEqual(1);
 
-    const goal = await visibleUnion(evidencePage, "[data-scene-text], [data-scene-prompt]");
-    const target = await visibleUnion(evidencePage, ".sound-seekers-world__props");
-    const actors = await visibleUnion(evidencePage, ".sound-seekers-world__characters");
-    const landmark = await visibleUnion(evidencePage, ".sound-seekers-landmark");
-    const controls = await evidencePage.locator("[data-option-visual-id]").evaluateAll(nodes => (
+    const goal = await visibleUnion(page, "[data-scene-text], [data-scene-prompt]");
+    const target = await visibleUnion(page, ".sound-seekers-world__props");
+    const actors = await visibleUnion(page, ".sound-seekers-world__characters");
+    const landmark = await visibleUnion(page, ".sound-seekers-landmark");
+    const controls = await page.locator("[data-option-visual-id]").evaluateAll(nodes => (
       nodes.map(node => {
         const rect = node.getBoundingClientRect();
         return {
@@ -150,8 +149,7 @@ for (const profile of PROFILES) {
     expect(intersects(actors, target)).toBe(false);
     expect(intersects(actors, landmark)).toBe(false);
     expect(intersects(target, landmark)).toBe(false);
-    await expect(evidencePage.locator("[data-correct],[data-answer],[data-private-answer],[data-expected-token]")).toHaveCount(0);
-    await zoomContext?.close();
+    await expect(page.locator("[data-correct],[data-answer],[data-private-answer],[data-expected-token]")).toHaveCount(0);
   });
 }
 
@@ -206,21 +204,19 @@ const CONSTRAINED_PROFILES = PROFILES.filter(profile => profile.id !== "tablet")
 
 for (const scenario of WORST_CASES) {
   for (const profile of CONSTRAINED_PROFILES) {
-    test(`${scenario.id} keeps target, instruction, and action visible at ${profile.id}`, async ({ page, browser }) => {
+    test(`${scenario.id} keeps target, instruction, and action visible at ${profile.id}`, async ({ page }) => {
       const scene = SOUND_SEEKERS_CONNECTED_TEXT.find(item => item.id === scenario.sceneId);
       const optionId = scene.choice.kind === "narrative_bridge"
         ? scene.choice.options[0].visualSemanticId : null;
-      const zoomContext = profile.zoom === 2 ? await browser.newContext({
-        baseURL: "http://127.0.0.1:5190",
-        viewport: { width: profile.viewport.width / 2, height: profile.viewport.height / 2 },
-        deviceScaleFactor: 2
-      }) : null;
-      const evidencePage = zoomContext ? await zoomContext.newPage() : page;
-      if (!zoomContext) await evidencePage.setViewportSize(profile.viewport);
+      await page.setViewportSize(profile.viewport);
       const option = optionId ? `&option=${encodeURIComponent(optionId)}` : "";
-      await evidencePage.goto(`/preview/sound-seekers-v2-content.html?scene=${scenario.sceneId}&fixture=${scenario.fixture}&density=full&motion=reduced&labels=shown&seed=11${option}`);
-      await assertActionFirstScene(evidencePage);
-      const geometry = await evidencePage.evaluate(() => {
+      await page.goto(`/preview/sound-seekers-v2-content.html?scene=${scenario.sceneId}&fixture=${scenario.fixture}&density=full&motion=reduced&labels=shown&seed=11${option}`);
+      if (profile.zoom === 2) {
+        const cdp = await page.context().newCDPSession(page);
+        await cdp.send("Emulation.setPageScaleFactor", { pageScaleFactor: 2 });
+      }
+      await assertActionFirstScene(page);
+      const geometry = await page.evaluate(() => {
         const box = node => {
           const rect = node.getBoundingClientRect();
           return {
@@ -270,7 +266,6 @@ for (const scenario of WORST_CASES) {
           }
         }
       }
-      await zoomContext?.close();
     });
   }
 }

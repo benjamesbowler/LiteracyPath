@@ -497,10 +497,16 @@ const PAYOFF_MODES = ["ordinary", "wonder", "boss-resolved"];
 const FAILURE_KEYS = ["url", "method", "reason"];
 const LAYOUT_KEYS = [
   "viewport", "horizontalOverflow", "verticalOverflow", "goal", "actors",
-  "landmark", "targets", "controls"
+  "landmark", "targets", "controls", "textBlocks"
 ];
 const RECT_KEYS = ["x", "y", "width", "height", "right", "bottom"];
 const LAYOUT_ITEM_KEYS = ["id", ...RECT_KEYS];
+const TEXT_BLOCK_KEYS = [
+  "id", "role", "card", "ink", "horizontalScrollOverflow", "verticalScrollOverflow"
+];
+const TEXT_BLOCK_ROLES = new Set([
+  "goal-text", "goal-prompt", "target-caption", "landmark-caption", "control-label"
+]);
 
 function hasExactKeys(value, keys) {
   return Boolean(value && typeof value === "object" && !Array.isArray(value)
@@ -531,6 +537,20 @@ function validLayoutItem(item) {
   return hasExactKeys(item, LAYOUT_ITEM_KEYS)
     && typeof item.id === "string" && item.id.length > 0
     && validRectCoordinates(item);
+}
+
+function validTextBlock(block) {
+  return hasExactKeys(block, TEXT_BLOCK_KEYS)
+    && typeof block.id === "string" && block.id.length > 0
+    && TEXT_BLOCK_ROLES.has(block.role)
+    && validRect(block.card) && validRect(block.ink)
+    && finiteNumber(block.horizontalScrollOverflow) && block.horizontalScrollOverflow >= 0
+    && finiteNumber(block.verticalScrollOverflow) && block.verticalScrollOverflow >= 0;
+}
+
+function containsRect(parent, child, tolerance = 1) {
+  return child.x >= parent.x - tolerance && child.y >= parent.y - tolerance
+    && child.right <= parent.right + tolerance && child.bottom <= parent.bottom + tolerance;
 }
 
 function separatedBy(left, right, minimum = 8) {
@@ -568,6 +588,16 @@ function expectedLayoutIdentities(matrix) {
   };
 }
 
+function expectedTextBlockIdentities(identities) {
+  return [
+    ["goal-text", "scene-text"],
+    ["goal-prompt", "scene-prompt"],
+    ...identities.targets.map(id => ["target-caption", id]),
+    ["landmark-caption", identities.landmark],
+    ...identities.controls.map(id => ["control-label", id])
+  ];
+}
+
 function validConstrainedLayout(layout, matrix) {
   const identities = expectedLayoutIdentities(matrix);
   if (!hasExactKeys(layout, LAYOUT_KEYS)
@@ -582,11 +612,14 @@ function validConstrainedLayout(layout, matrix) {
     || layout.targets.some(target => !validLayoutItem(target) || target.width < 56 || target.height < 56)
     || !Array.isArray(layout.controls)
     || layout.controls.some(control => !validLayoutItem(control) || control.width < 56 || control.height < 56)
+    || !Array.isArray(layout.textBlocks) || layout.textBlocks.some(block => !validTextBlock(block))
     || !identities
     || canonicalJson(layout.actors.map(actor => actor.id)) !== canonicalJson(identities.actors)
     || layout.landmark.id !== identities.landmark
     || canonicalJson(layout.targets.map(target => target.id)) !== canonicalJson(identities.targets)
-    || canonicalJson(layout.controls.map(control => control.id)) !== canonicalJson(identities.controls)) {
+    || canonicalJson(layout.controls.map(control => control.id)) !== canonicalJson(identities.controls)
+    || canonicalJson(layout.textBlocks.map(block => [block.role, block.id]))
+      !== canonicalJson(expectedTextBlockIdentities(identities))) {
     return false;
   }
   const expectedWidth = matrix.viewport.width / matrix.browserZoom;
@@ -597,10 +630,31 @@ function validConstrainedLayout(layout, matrix) {
     || layout.verticalOverflow > 1) {
     return false;
   }
-  const bounded = [layout.goal, ...layout.actors, layout.landmark, ...layout.targets, ...layout.controls]
+  const bounded = [
+    layout.goal, ...layout.actors, layout.landmark, ...layout.targets, ...layout.controls,
+    ...layout.textBlocks.flatMap(block => [block.card, block.ink])
+  ]
     .every(rect => rect.x >= -1 && rect.y >= -1
       && rect.right <= layout.viewport.width + 1 && rect.bottom <= layout.viewport.height + 1);
+  const goalBlocks = layout.textBlocks.filter(block => block.role.startsWith("goal-"));
+  const targetCaptions = layout.textBlocks.filter(block => block.role === "target-caption");
+  const landmarkCaption = layout.textBlocks.find(block => block.role === "landmark-caption");
+  const controlLabels = layout.textBlocks.filter(block => block.role === "control-label");
+  const blocksFitContainers = layout.textBlocks.every(block => {
+    if (!containsRect(block.card, block.ink)
+      || block.horizontalScrollOverflow > 1 || block.verticalScrollOverflow > 1) return false;
+    if (block.role.startsWith("goal-")) return containsRect(layout.goal, block.card);
+    if (block.role === "target-caption") {
+      return containsRect(layout.targets.find(target => target.id === block.id), block.card);
+    }
+    if (block.role === "landmark-caption") return containsRect(layout.landmark, block.card);
+    return containsRect(layout.controls.find(control => control.id === block.id), block.card);
+  });
+  const goalTextDoesNotOverlap = separatedBy(goalBlocks[0].card, goalBlocks[1].card, 0);
+  const semanticCaptionCards = [...targetCaptions.map(block => block.card), landmarkCaption.card];
   return bounded
+    && blocksFitContainers
+    && goalTextDoesNotOverlap
     && crossGroupSeparated(layout.actors, layout.targets)
     && crossGroupSeparated(layout.actors, [layout.landmark])
     && crossGroupSeparated(layout.actors, layout.controls)
@@ -608,7 +662,11 @@ function validConstrainedLayout(layout, matrix) {
     && crossGroupSeparated([layout.landmark], layout.controls)
     && withinGroupSeparated(layout.targets)
     && crossGroupSeparated(layout.targets, layout.controls)
-    && withinGroupSeparated(layout.controls);
+    && withinGroupSeparated(layout.controls)
+    && withinGroupSeparated(semanticCaptionCards)
+    && crossGroupSeparated(targetCaptions.map(block => block.card), [layout.landmark])
+    && crossGroupSeparated(semanticCaptionCards, layout.controls)
+    && crossGroupSeparated(controlLabels.map(block => block.card), targetCaptions.map(block => block.card));
 }
 
 export function assertSoundSeekersV2GalleryLayout(layout, matrix) {

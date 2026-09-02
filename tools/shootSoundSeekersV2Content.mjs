@@ -302,6 +302,71 @@ export function galleryBrowserProfile(matrix) {
   };
 }
 
+export function captureSoundSeekersV2GalleryLayout() {
+  const round = value => Math.round(value * 100) / 100;
+  const rectFacts = rect => ({
+    x: round(rect.x), y: round(rect.y), width: round(rect.width), height: round(rect.height),
+    right: round(rect.right), bottom: round(rect.bottom)
+  });
+  const visibleNodes = selector => [...document.querySelectorAll(selector)].filter(node => {
+    const rect = node.getBoundingClientRect();
+    return rect.width > 0 && rect.height > 0;
+  });
+  const itemFacts = (selector, attribute) => visibleNodes(selector).map(node => ({
+    id: node.getAttribute(attribute), ...rectFacts(node.getBoundingClientRect())
+  }));
+  const unionRects = rects => {
+    if (!rects.length) return null;
+    const x = Math.min(...rects.map(rect => rect.x));
+    const y = Math.min(...rects.map(rect => rect.y));
+    const right = Math.max(...rects.map(rect => rect.right));
+    const bottom = Math.max(...rects.map(rect => rect.bottom));
+    return rectFacts({ x, y, right, bottom, width: right - x, height: bottom - y });
+  };
+  const union = selector => unionRects(visibleNodes(selector).map(node => node.getBoundingClientRect()));
+  const textInk = node => {
+    const range = document.createRange();
+    range.selectNodeContents(node);
+    return unionRects([...range.getClientRects()].filter(rect => rect.width > 0 && rect.height > 0));
+  };
+  const textBlock = (node, id, role) => ({
+    id,
+    role,
+    card: rectFacts(node.getBoundingClientRect()),
+    ink: textInk(node),
+    horizontalScrollOverflow: round(Math.max(0, node.scrollWidth - node.clientWidth)),
+    verticalScrollOverflow: round(Math.max(0, node.scrollHeight - node.clientHeight))
+  });
+  const targetCaptions = visibleNodes(".sound-seekers-world__semantic-prop figcaption").map(node =>
+    textBlock(node, node.closest("[data-code-native-semantic]")?.getAttribute("data-code-native-semantic"), "target-caption"));
+  const landmarkCaptionNode = visibleNodes(".sound-seekers-landmark figcaption")[0];
+  const controlLabels = visibleNodes("button[data-option-visual-id] > [data-option-label]").map(node =>
+    textBlock(node, node.closest("button")?.getAttribute("data-option-visual-id"), "control-label"));
+  const sceneText = document.querySelector("[data-scene-text]");
+  const scenePrompt = document.querySelector("[data-scene-prompt]");
+  const viewport = window.visualViewport;
+  const viewportWidth = viewport?.width || window.innerWidth;
+  const viewportHeight = viewport?.height || window.innerHeight;
+  const sceneRect = document.querySelector(".sound-seekers-scene")?.getBoundingClientRect();
+  return {
+    viewport: { width: round(viewportWidth), height: round(viewportHeight) },
+    horizontalOverflow: round(Math.max(0, (sceneRect?.right || 0) - viewportWidth)),
+    verticalOverflow: round(Math.max(0, (sceneRect?.bottom || 0) - viewportHeight)),
+    goal: union("[data-scene-text], [data-scene-prompt]"),
+    actors: itemFacts(".sound-seekers-world__characters > [data-sound-seekers-character]", "data-character-id"),
+    landmark: itemFacts(".sound-seekers-landmark", "data-landmark-id")[0] || null,
+    targets: itemFacts(".sound-seekers-world__props > [data-code-native-semantic]", "data-code-native-semantic"),
+    controls: itemFacts("button[data-option-visual-id]", "data-option-visual-id"),
+    textBlocks: [
+      textBlock(sceneText, "scene-text", "goal-text"),
+      textBlock(scenePrompt, "scene-prompt", "goal-prompt"),
+      ...targetCaptions,
+      textBlock(landmarkCaptionNode, landmarkCaptionNode.closest("[data-landmark-id]")?.getAttribute("data-landmark-id"), "landmark-caption"),
+      ...controlLabels
+    ]
+  };
+}
+
 function resolveGallerySourceEdge(fromPath, specifier, sourcePaths) {
   if (typeof specifier !== "string" || (!specifier.startsWith(".") && !specifier.startsWith("/"))) return null;
   const withoutQuery = specifier.split(/[?#]/u)[0];
@@ -489,8 +554,14 @@ async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
       await withTimeout(page.goto(`${baseUrl}${relativeUrl}`, { waitUntil: "domcontentloaded", timeout: 30_000 }), 30_000, "gallery navigation");
       await cdp.send("Emulation.setPageScaleFactor", { pageScaleFactor: browserProfile.pageScaleFactor });
       await withTimeout(page.locator("[data-gallery-ready='true']").waitFor({ state: "visible" }), 15_000, "gallery ready");
-      if (browserProfile.pageScaleFactor === 2) {
-        await withTimeout(page.locator('[data-gallery-page-scale="2"]').waitFor(), 5_000, "gallery zoom reflow");
+      const scene = page.locator("[data-sound-seekers-scene]");
+      if (await scene.count()) {
+        await withTimeout(page.locator('[data-sound-seekers-scene][data-layout-ready="true"]').waitFor(), 5_000, "scene layout ready");
+        if (browserProfile.pageScaleFactor === 2) await withTimeout(
+          page.locator('[data-sound-seekers-scene][data-layout-profile="compact-portrait"]').waitFor(),
+          5_000,
+          "scene zoom reflow"
+        );
       }
       await withTimeout(page.evaluate(() => document.fonts.ready), 5_000, "gallery fonts");
       await withTimeout(page.waitForFunction(() => [...document.images].every(image => image.complete)), 10_000, "gallery images");
@@ -667,50 +738,8 @@ async function captureShot(page, cdp, matrix, baseUrl, targetPath) {
             bossCompositionSignature: payoffComparison.variants[2].compositionSignature
           }
           : null;
-    const layout = matrix.kind === "profile-viewport-zoom" ? await page.evaluate(() => {
-      const round = value => Math.round(value * 100) / 100;
-      const rectFacts = rect => ({
-        x: round(rect.x),
-        y: round(rect.y),
-        width: round(rect.width),
-        height: round(rect.height),
-        right: round(rect.right),
-        bottom: round(rect.bottom)
-      });
-      const visibleNodes = selector => [...document.querySelectorAll(selector)]
-        .filter(node => {
-          const rect = node.getBoundingClientRect();
-          return rect.width > 0 && rect.height > 0;
-        });
-      const visibleRects = selector => visibleNodes(selector).map(node => node.getBoundingClientRect());
-      const itemFacts = (selector, identityAttribute) => visibleNodes(selector).map(node => ({
-        id: node.getAttribute(identityAttribute),
-        ...rectFacts(node.getBoundingClientRect())
-      }));
-      const union = selector => {
-        const rects = visibleRects(selector);
-        if (!rects.length) return null;
-        const x = Math.min(...rects.map(rect => rect.x));
-        const y = Math.min(...rects.map(rect => rect.y));
-        const right = Math.max(...rects.map(rect => rect.right));
-        const bottom = Math.max(...rects.map(rect => rect.bottom));
-        return rectFacts({ x, y, right, bottom, width: right - x, height: bottom - y });
-      };
-      const viewport = window.visualViewport;
-      const viewportWidth = viewport?.width || window.innerWidth;
-      const viewportHeight = viewport?.height || window.innerHeight;
-      const sceneRect = document.querySelector(".sound-seekers-scene")?.getBoundingClientRect();
-      return {
-        viewport: { width: round(viewportWidth), height: round(viewportHeight) },
-        horizontalOverflow: round(Math.max(0, (sceneRect?.right || 0) - viewportWidth)),
-        verticalOverflow: round(Math.max(0, (sceneRect?.bottom || 0) - viewportHeight)),
-        goal: union("[data-scene-text], [data-scene-prompt]"),
-        actors: itemFacts(".sound-seekers-world__characters > [data-sound-seekers-character]", "data-character-id"),
-        landmark: itemFacts(".sound-seekers-landmark", "data-landmark-id")[0] || null,
-        targets: itemFacts(".sound-seekers-world__props > [data-code-native-semantic]", "data-code-native-semantic"),
-        controls: itemFacts("button[data-option-visual-id]", "data-option-visual-id")
-      };
-    }) : null;
+    const layout = matrix.kind === "profile-viewport-zoom"
+      ? await page.evaluate(captureSoundSeekersV2GalleryLayout) : null;
     if (layout) assertSoundSeekersV2GalleryLayout(layout, matrix);
     if (bossPngBytes) writeFileSync(targetPath, bossPngBytes, { flag: "wx" });
     else await withTimeout(page.screenshot({ path: targetPath, fullPage: false, animations: "disabled" }), 15_000, "gallery screenshot");

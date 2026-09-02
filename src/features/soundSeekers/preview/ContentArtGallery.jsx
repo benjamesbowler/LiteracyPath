@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 import {
   replaySoundSeekersGalleryFixture
@@ -73,15 +73,6 @@ export function ContentArtGallery({ query }) {
   }), [query.fixtureId, query.sceneId, query.seed, query.optionId, desiredMeaning?.semanticId]);
   const [activation, setActivation] = useState(() => ({ count: 0, token: "" }));
   const [appearance, setAppearance] = useState(() => appearanceForOption(query.optionId));
-  const [pageScale, setPageScale] = useState(() => typeof window === "undefined"
-    ? 1 : window.visualViewport?.scale || 1);
-  useEffect(() => {
-    const viewport = window.visualViewport;
-    const updateScale = () => setPageScale(viewport?.scale || 1);
-    updateScale();
-    viewport?.addEventListener("resize", updateScale);
-    return () => viewport?.removeEventListener("resize", updateScale);
-  }, []);
   const compositionMode = query.mode === "wonder"
     ? "wonder"
     : query.mode === "route-landmark"
@@ -111,7 +102,6 @@ export function ContentArtGallery({ query }) {
       data-gallery-phase={replay.phase}
       data-gallery-activation-count={String(activation.count)}
       data-gallery-last-activation-token={activation.token}
-      data-gallery-page-scale={String(pageScale)}
     >
       <header className="sound-seekers-content-gallery__header">
         <p>Sound Seekers v2 content and art</p>

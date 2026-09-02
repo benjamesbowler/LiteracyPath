@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getBiomeKit } from "../content/biomeKits.js";
 import {
   createBackgroundImageState,
@@ -25,6 +25,49 @@ function stableGlyphSeed(value) {
 }
 
 const COMPOSITION_MODES = new Set(["ordinary", "wonder", "boss-resolved"]);
+const INITIAL_LAYOUT_VIEWPORT = Object.freeze({
+  profile: "standard",
+  width: null,
+  height: null
+});
+
+function layoutViewportSnapshot() {
+  const viewport = window.visualViewport;
+  const width = Math.round(viewport?.width || window.innerWidth);
+  const height = Math.round(viewport?.height || window.innerHeight);
+  return {
+    profile: width <= 380 && height >= width ? "compact-portrait"
+      : height <= 380 && width > height ? "compact-landscape" : "standard",
+    width,
+    height
+  };
+}
+
+function useSceneLayoutViewport() {
+  const [layoutViewport, setLayoutViewport] = useState(INITIAL_LAYOUT_VIEWPORT);
+  useEffect(() => {
+    const viewport = window.visualViewport;
+    let animationFrame = null;
+    const update = () => {
+      if (animationFrame !== null) window.cancelAnimationFrame(animationFrame);
+      animationFrame = window.requestAnimationFrame(() => {
+        animationFrame = null;
+        const next = layoutViewportSnapshot();
+        setLayoutViewport(previous => previous.profile === next.profile
+          && previous.width === next.width && previous.height === next.height ? previous : next);
+      });
+    };
+    update();
+    viewport?.addEventListener("resize", update);
+    window.addEventListener("resize", update);
+    return () => {
+      viewport?.removeEventListener("resize", update);
+      window.removeEventListener("resize", update);
+      if (animationFrame !== null) window.cancelAnimationFrame(animationFrame);
+    };
+  }, []);
+  return layoutViewport;
+}
 
 function compositionSignature(scenePresentation, compositionMode) {
   const seed = stableGlyphSeed([
@@ -224,6 +267,7 @@ function SceneVisualWithBackground({
   const [backgroundImageState, setBackgroundImageState] = useState(
     () => createBackgroundImageState(kit.background.src)
   );
+  const layoutViewport = useSceneLayoutViewport();
 
   const updateBackground = type => {
     setBackgroundImageState(previous => reduceBackgroundImageState(
@@ -246,7 +290,11 @@ function SceneVisualWithBackground({
       style={{
         ...TOKEN_STYLE,
         "--ss-world-palette": `var(--ss-token-${kit.paletteTokenId})`,
-        "--ss-world-light": `var(--ss-token-${kit.lightingTokenId})`
+        "--ss-world-light": `var(--ss-token-${kit.lightingTokenId})`,
+        ...(layoutViewport.width === null ? {} : {
+          "--ss-visible-inline-size": `${layoutViewport.width}px`,
+          "--ss-visible-block-size": `${layoutViewport.height}px`
+        })
       }}
       data-sound-seekers-scene=""
       data-scene-id={scenePresentation.sceneId}
@@ -254,6 +302,8 @@ function SceneVisualWithBackground({
       data-scene-phase={scenePresentation.scenePhase}
       data-visual-state-id={scenePresentation.visualStateId}
       data-composition-mode={compositionMode}
+      data-layout-profile={layoutViewport.profile}
+      data-layout-ready={String(layoutViewport.width !== null)}
     >
       <div className="sound-seekers-scene__story">
         <p className="sound-seekers-scene__text" data-scene-text="">{childScene.text}</p>
@@ -292,7 +342,7 @@ function SceneVisualWithBackground({
             onClick={() => chooseOption(option.token)}
           >
             <OptionGlyph option={option} />
-            <span>{option.childLabel}</span>
+            <span data-option-label="">{option.childLabel}</span>
           </button>
         ))}
       </div>

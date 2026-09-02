@@ -365,6 +365,18 @@
     0 13px 20px var(--ss-token-mist-overlay);
 }
 
+.sound-seekers-scene[data-layout-ready="true"] {
+  block-size: var(--ss-visible-block-size);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  overflow: hidden;
+}
+
+.sound-seekers-scene[data-layout-ready="true"] .sound-seekers-scene__world-wrap,
+.sound-seekers-scene[data-layout-ready="true"] .sound-seekers-biome {
+  min-block-size: 0;
+  block-size: 100%;
+}
+
 .sound-seekers-scene__story {
   display: grid;
   gap: 5px;
@@ -1218,4 +1230,156 @@
   .sound-seekers-scene__option-glyph {
     max-block-size: 3rem;
   }
+}
+
+.sound-seekers-scene[data-layout-profile="compact-portrait"] {
+  inline-size: min(100%, var(--ss-visible-inline-size));
+  block-size: var(--ss-visible-block-size);
+  margin-inline: 0;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 8px;
+  padding: 5px;
+  overflow: hidden;
+  border-width: 2px;
+  border-radius: 22px;
+  box-shadow: 0 4px 0 var(--ss-token-ink-deep);
+}
+
+.sound-seekers-scene[data-layout-profile="compact-portrait"] .sound-seekers-scene__story {
+  gap: 2px;
+  padding: 5px 8px 6px;
+  border-width: 2px;
+  border-radius: 9px 9px 15px 15px;
+  box-shadow: 0 2px 0 var(--ss-token-ink-muted);
+}
+
+.sound-seekers-scene[data-layout-profile="compact-portrait"] .sound-seekers-scene__text {
+  font-size: 0.85rem;
+  line-height: 1.15;
+}
+
+.sound-seekers-scene[data-layout-profile="compact-portrait"] .sound-seekers-scene__prompt {
+  font-size: 0.8rem;
+  line-height: 1.15;
+}
+
+.sound-seekers-scene[data-layout-profile="compact-portrait"] .sound-seekers-scene__world-wrap,
+.sound-seekers-scene[data-layout-profile="compact-portrait"] .sound-seekers-biome {
+  min-block-size: 0;
+  block-size: 100%;
+}
+
+.sound-seekers-scene[data-layout-profile="compact-portrait"] .sound-seekers-biome {
+  border-width: 3px;
+  border-radius: 20px;
+  box-shadow: 0 4px 0 var(--ss-token-ink-deep);
+}
+
+.sound-seekers-scene[data-layout-profile="compact-portrait"] .sound-seekers-world__props {
+  inset: 8px 8px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+  inline-size: auto;
+  gap: 8px;
+  align-items: start;
+}
+
+.sound-seekers-scene[data-layout-profile="compact-portrait"] .sound-seekers-world__semantic-prop {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: 30px auto;
+  gap: 2px;
+  align-items: center;
+  min-inline-size: 56px;
+  min-block-size: 102px;
+  inline-size: auto;
+  padding: 4px;
+  background: var(--ss-token-surface-option);
+  border: 2px solid var(--ss-token-ink-deep);
+  border-radius: 12px 15px 11px 14px;
+  transform: none;
+}
+
+.sound-seekers-scene[data-layout-profile="compact-portrait"] .sound-seekers-world__semantic-prop svg {
+  inline-size: 32px;
+  max-block-size: 30px;
+  justify-self: center;
+}
+
+.sound-seekers-scene[data-layout-profile="compact-portrait"] .sound-seekers-world__semantic-prop figcaption {
+  display: block;
+  min-inline-size: 0;
+  inline-size: 100%;
+  max-inline-size: none;
+  padding: 2px 3px;
+  overflow-wrap: break-word;
+  border-width: 1px;
+  border-radius: 7px 9px 8px 10px;
+  box-shadow: none;
+  font-size: 0.75rem;
+  line-height: 1.18;
+}
+
+.sound-seekers-scene[data-layout-profile="compact-portrait"] .sound-seekers-landmark {
+  inset-inline: auto 8px;
+  inset-block: auto 8px;
+  inline-size: 5rem;
+}
+
+.sound-seekers-scene[data-layout-profile="compact-portrait"] .sound-seekers-landmark figcaption {
+  max-inline-size: 5rem;
+  padding: 2px 3px;
+  overflow-wrap: break-word;
+  font-size: 0.75rem;
+  line-height: 1.18;
+}
+
+.sound-seekers-scene[data-layout-profile="compact-portrait"] .sound-seekers-world__characters {
+  inset-inline: 8px auto;
+  inset-block: auto 8px;
+  inline-size: 43%;
+}
+
+.sound-seekers-scene[data-layout-profile="compact-portrait"] .sound-seekers-world__decorations {
+  display: none;
+}
+
+.sound-seekers-scene[data-layout-profile="compact-portrait"] .sound-seekers-scene__options {
+  grid-template-columns: 1fr;
+  gap: 8px;
+  padding: 0;
+}
+
+.sound-seekers-scene[data-layout-profile="compact-portrait"] .sound-seekers-scene__option {
+  position: relative;
+  grid-template-columns: 44px minmax(0, 1fr);
+  grid-template-rows: 1fr;
+  min-block-size: 56px;
+  block-size: 56px;
+  padding: 3px 34px 3px 5px;
+  border-width: 2px;
+  border-radius: 14px 17px 13px 16px;
+  box-shadow: 0 3px 0 var(--ss-token-ink-muted);
+  font-size: 0.82rem;
+  line-height: 1.15;
+  text-align: start;
+}
+
+.sound-seekers-scene[data-layout-profile="compact-portrait"] .sound-seekers-scene__option > [data-option-label] {
+  display: block;
+  min-inline-size: 0;
+  overflow-wrap: break-word;
+}
+
+.sound-seekers-scene[data-layout-profile="compact-portrait"] .sound-seekers-scene__option-glyph {
+  max-block-size: 44px;
+}
+
+.sound-seekers-scene[data-layout-profile="compact-portrait"] .sound-seekers-scene__option[data-control-state="settled"]::after {
+  position: absolute;
+  inset-inline-end: 5px;
+  inset-block-start: 50%;
+  inline-size: 22px;
+  block-size: 22px;
+  transform: translateY(-50%);
 }
