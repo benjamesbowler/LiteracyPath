@@ -108,6 +108,56 @@ test("feedback remains construct-specific on later coaching attempts", () => {
   assert.doesNotMatch(feedback, /Almost! Try again\./);
 });
 
+test("Pattern Sort feedback truthfully names fit and non-fit relationships", () => {
+  const round = {
+    construct: "orthographic_pattern_sort",
+    patternLabel: "start with sh",
+    bins: [
+      { id: "not", label: "do not start with sh" },
+      { id: "fits", label: "start with sh" }
+    ],
+    items: [
+      { word: "ship", fits: true },
+      { word: "map", fits: false }
+    ],
+    transferWord: "sun",
+    transferFits: false,
+    transferBinId: "not"
+  };
+
+  assert.equal(
+    feedbackForOutcome(round, { correct: true, selected: ["ship", "fits"] }, 1),
+    "Yes — ship fits “start with sh” and belongs in “start with sh”."
+  );
+  assert.equal(
+    feedbackForOutcome(round, { correct: true, selected: ["sun", "not"] }, 1),
+    "Yes — sun does not fit “start with sh” and belongs in “do not start with sh”."
+  );
+  assert.equal(
+    feedbackForOutcome(round, { correct: false, selected: ["ship", "not"] }, 1),
+    "ship fits “start with sh”. Put it in “start with sh”."
+  );
+  assert.equal(
+    feedbackForOutcome(round, { correct: false, selected: ["map", "fits"] }, 2),
+    "map does not fit “start with sh”. Put it in “do not start with sh”."
+  );
+});
+
+test("Phrase Flow coaching names the continuous word trail and authored poetry-line boundary", () => {
+  const round = {
+    construct: "supported_phrase_reading",
+    trailWords: ["Fern", "flies", "high,", "and", "waves", "goodbye."],
+    correctBoundary: 3
+  };
+
+  for (const attempt of [1, 2]) {
+    const feedback = feedbackForOutcome(round, { correct: false, selected: 4 }, attempt);
+    assert.match(feedback, /continuous word trail/i);
+    assert.match(feedback, /first poetry line/i);
+    assert.doesNotMatch(feedback, /phrase chunk|phrase line/i);
+  }
+});
+
 test("a failed item without supported recovery earns no star", () => {
   const result = cycleQuestResult({
     total: 2,

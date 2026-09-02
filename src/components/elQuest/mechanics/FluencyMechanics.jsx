@@ -9,15 +9,16 @@ import {
   createPatternSortState,
   createPhraseFlowState,
   createWordChainState,
+  heartSlotLabel,
   hideHeartWord,
   placePatternTile,
   removeHeartGrapheme,
   repairHeartWord,
   replaceChainGrapheme,
   revealHeartAttempt,
-  revealNextPhraseChunk,
   selectChainPosition,
-  selectPatternTile
+  selectPatternTile,
+  wordChainPositionLabel
 } from "./fluencyMechanicState.js";
 
 function applyTransition(setState, transition, onCommit) {
@@ -202,8 +203,8 @@ export function WordChainMechanic({
             disabled={disabled || state.stage !== "position"}
             onClick={() => selectPosition(index)}
           >
-            <span className="sr-only">Position {index + 1}: </span>
-            {grapheme}
+            <span aria-hidden="true">{grapheme}</span>
+            <span className="sbq-sr-only">{wordChainPositionLabel(grapheme, index)}</span>
           </button>
         ))}
       </div>
@@ -244,10 +245,6 @@ export function PhraseFlowMechanic({
   const [state, setState] = useState(() => createPhraseFlowState(round));
   const boundaryChoices = round.boundaryChoices || [];
 
-  function revealNext() {
-    applyTransition(setState, revealNextPhraseChunk(state, round), onCommit);
-  }
-
   function chooseBoundary(boundary) {
     applyTransition(
       setState,
@@ -278,20 +275,15 @@ export function PhraseFlowMechanic({
       <p className="sbq-mechanic-status" role="status" aria-live="polite">
         {state.feedback}
       </p>
-      <div className="sbq-phrase-trail" aria-label="Phrase trail">
-        {round.phraseChunks.slice(0, state.revealedCount).map((chunk, index) => (
-          <span className="sbq-phrase-chunk" key={chunk + "-" + index}>
-            {chunk}
+      <p className="sbq-phrase-trail" aria-label="Continuous poetry word trail">
+        {round.trailWords.map((word, index) => (
+          <span className="sbq-phrase-word" key={word + "-" + index}>
+            {index > 0 ? " " : ""}{word}
           </span>
         ))}
-      </div>
-      {state.stage === "reveal" && (
-        <button type="button" disabled={disabled} onClick={revealNext}>
-          Reveal the next phrase chunk
-        </button>
-      )}
+      </p>
       {state.stage === "boundary" && (
-        <div className="sbq-phrase-boundaries" role="group" aria-label="Choose the natural phrase boundary">
+        <div className="sbq-phrase-boundaries" role="group" aria-label="Choose where the first poetry line ends">
           {boundaryChoices.map(choice => (
             <button
               key={choice.position}
@@ -300,7 +292,7 @@ export function PhraseFlowMechanic({
               disabled={disabled}
               onClick={() => chooseBoundary(choice.position)}
             >
-              Pause after “{choice.afterWord}”
+              {choice.label || `Pause after “${choice.afterWord}”`}
             </button>
           ))}
         </div>
@@ -397,9 +389,9 @@ export function HeartWordMechanic({
                 <span
                   className={isDifference ? "is-first-difference" : ""}
                   key={index}
-                  aria-label={isDifference ? "First differing position " + (index + 1) : "Position " + (index + 1)}
                 >
-                  {shown || "\u00a0"}
+                  <span aria-hidden="true">{shown || "\u00a0"}</span>
+                  <span className="sbq-sr-only">{heartSlotLabel(shown, index, isDifference)}</span>
                 </span>
               );
             })}

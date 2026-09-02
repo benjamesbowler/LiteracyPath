@@ -42,6 +42,15 @@ function roundsForMechanic(mechanicId) {
   return rounds;
 }
 
+function patternTransferFits(round) {
+  const word = String(round.transferWord || "").toLowerCase();
+  if (round.targetGrapheme) return word.includes(round.targetGrapheme.toLowerCase());
+  if (round.patternLabel === "start with sh") return word.startsWith("sh");
+  if (round.patternLabel === "have -ng") return word.includes("ng");
+  if (round.patternLabel === "end with -ll") return word.endsWith("ll");
+  throw new Error(`Missing independent transfer check for ${round.patternLabel}`);
+}
+
 test("each mechanic receives the explicit data its component needs", () => {
   for (const mechanicId of ADVENTURE_MECHANIC_IDS) {
     const entries = roundsForMechanic(mechanicId);
@@ -89,6 +98,7 @@ test("each mechanic receives the explicit data its component needs", () => {
         assert.ok(Number.isInteger(round.changeIndex), where);
       } else if (mechanicId === "phraseFlow") {
         assert.ok(round.phraseChunks?.length >= 2, where);
+        assert.ok(round.trailWords?.length >= 4, where);
       } else if (mechanicId === "heartWord") {
         assert.ok(round.word && round.graphemes?.join("") === round.word, where);
       }
@@ -163,27 +173,45 @@ test("multi-letter ending rounds declare an ending construct", () => {
   assert.ok(allRounds.every(round => round.construct === "heard_ending_sound_family_mapping"));
 });
 
-test("every Pattern Sort round supplies labelled bins and a defensible transfer word", () => {
+test("every Pattern Sort round declares a novel transfer and its expected bin", () => {
   for (const { cycle, station, round } of roundsForMechanic("patternSort")) {
     const where = `cycle ${cycle.cycleNumber}/${station.id}`;
     assert.equal(round.bins?.length, 2, `${where} needs two labelled bins`);
     assert.ok(round.bins.every(bin => bin.id && bin.label), `${where} has an unlabelled bin`);
+    assert.match(round.prompt, /put each word.*bin/i, `${where} prompt does not name its tile-to-bin action`);
+    assert.doesNotMatch(round.prompt, /tap all/i, `${where} retains the superseded multi-select prompt`);
     assert.ok(round.transferWord, `${where} has no transfer word`);
     assert.equal(
       round.items.some(item => item.word === round.transferWord),
       false,
       `${where} reuses its transfer word in the sort`
     );
-
-    const transferFits = round.targetGrapheme
-      ? round.transferWord.includes(round.targetGrapheme)
-      : round.items.some(item => item.word === round.transferWord && item.fits)
-        || round.patternLabel.includes("end with y") && round.transferWord.endsWith("y")
-        || round.patternLabel.includes("end with -") && round.transferWord.endsWith(round.patternLabel.split("-").at(-1))
-        || round.patternLabel.includes("have -") && round.transferWord.includes(round.patternLabel.split("-").at(-1))
-        || round.patternLabel.includes("start with ") && round.transferWord.startsWith(round.patternLabel.split("start with ").at(-1));
-    assert.equal(transferFits, true, `${where} transfer word does not fit ${round.patternLabel}`);
+    assert.equal(typeof round.transferFits, "boolean", `${where} does not declare transfer class`);
+    assert.equal(
+      round.transferFits,
+      patternTransferFits(round),
+      `${where} transfer class is not true for ${round.transferWord}`
+    );
+    assert.equal(
+      round.transferBinId,
+      round.transferFits ? "fits" : "not",
+      `${where} does not declare the expected transfer bin`
+    );
+    assert.ok(round.bins.some(bin => bin.id === round.transferBinId), `${where} expected bin is absent`);
   }
+});
+
+test("generated Pattern Sort rounds expose both transfer classes and both correct-bin positions", () => {
+  const transferClasses = new Set();
+  const correctBinPositions = new Set();
+  for (let pass = 0; pass < 100; pass += 1) {
+    for (const { round } of roundsForMechanic("patternSort")) {
+      transferClasses.add(round.transferFits);
+      correctBinPositions.add(round.bins.findIndex(bin => bin.id === round.transferBinId));
+    }
+  }
+  assert.deepEqual(transferClasses, new Set([true, false]));
+  assert.deepEqual(correctBinPositions, new Set([0, 1]));
 });
 
 test("Cover Clue exposes one title strip matched directly to its authoritative cover", () => {

@@ -77,7 +77,7 @@ export function placePatternTile(state, round, binId, supportLevel = 0) {
       tileSelected: false,
       placements,
       feedback: finishedSort
-        ? "Every tile is sorted. Choose the new word that follows the pattern."
+        ? "Every tile is sorted. Sort one new word using the same labelled bins."
         : item.word + " is sorted. Pick up the next word."
     },
     outcome: null
@@ -86,11 +86,14 @@ export function placePatternTile(state, round, binId, supportLevel = 0) {
 
 export function choosePatternTransfer(state, round, binId, supportLevel = 0) {
   if (state.stage !== "transfer") return unchanged(state);
-  const correct = binId === "fits";
+  const correct = binId === round.transferBinId;
   const selectedBin = round.bins.find(bin => bin.id === binId);
+  const expectedBin = round.bins.find(bin => bin.id === round.transferBinId);
   const response = [round.transferWord, binId];
   const feedback = correct
-    ? round.transferWord + " follows the " + round.patternLabel + " pattern."
+    ? round.transferFits
+      ? round.transferWord + " fits “" + round.patternLabel + "”, so it belongs in “" + (expectedBin?.label || "that bin") + "”."
+      : round.transferWord + " does not fit “" + round.patternLabel + "”, so it belongs in “" + (expectedBin?.label || "that bin") + "”."
     : round.transferWord + " does not belong in " + (selectedBin?.label || "that bin") + ". Look across the filled bins and try again.";
   return {
     state: {
@@ -126,16 +129,20 @@ export function selectChainPosition(state, round, index, supportLevel = 0) {
   const correct = index === round.changeIndex;
   if (!correct) {
     const feedback = "That grapheme stays the same. Compare the sounds and choose the changing position.";
+    const response = {
+      grapheme: state.currentGraphemes[index],
+      position: index + 1
+    };
     return {
       state: { ...state, feedback },
       outcome: outcome(
         round,
         false,
-        index,
+        response,
         feedback,
         supportLevel,
-        round.fromWord,
-        index
+        round.toWord,
+        response
       )
     };
   }
@@ -156,16 +163,20 @@ export function replaceChainGrapheme(state, round, grapheme, supportLevel = 0) {
   const correct = grapheme === expected;
   if (!correct) {
     const feedback = grapheme + " does not make the word you heard. The chain stays in place; try another grapheme.";
+    const response = {
+      grapheme,
+      position: state.selectedIndex + 1
+    };
     return {
       state: { ...state, feedback },
       outcome: outcome(
         round,
         false,
-        [state.selectedIndex, grapheme],
+        response,
         feedback,
         supportLevel,
-        round.fromWord,
-        grapheme
+        round.toWord,
+        response
       )
     };
   }
@@ -173,6 +184,10 @@ export function replaceChainGrapheme(state, round, grapheme, supportLevel = 0) {
   const currentGraphemes = [...state.currentGraphemes];
   currentGraphemes[state.selectedIndex] = grapheme;
   const feedback = round.fromWord + " changes to " + round.toWord + ". The chain grows!";
+  const response = {
+    grapheme,
+    position: state.selectedIndex + 1
+  };
   return {
     state: {
       ...state,
@@ -184,39 +199,21 @@ export function replaceChainGrapheme(state, round, grapheme, supportLevel = 0) {
     outcome: outcome(
       round,
       true,
-      [state.selectedIndex, grapheme],
+      response,
       feedback,
       supportLevel,
       round.toWord,
-      currentGraphemes
+      response
     )
   };
 }
 
-export function createPhraseFlowState(round) {
-  const revealedCount = Math.min(1, round.phraseChunks.length);
+export function createPhraseFlowState() {
   return {
-    stage: revealedCount === round.phraseChunks.length ? "boundary" : "reveal",
-    revealedCount,
+    stage: "boundary",
     chosenBoundary: null,
     modelCompleted: false,
-    feedback: "Reveal each phrase chunk when you are ready."
-  };
-}
-
-export function revealNextPhraseChunk(state, round) {
-  if (state.stage !== "reveal") return unchanged(state);
-  const revealedCount = Math.min(round.phraseChunks.length, state.revealedCount + 1);
-  return {
-    state: {
-      ...state,
-      stage: revealedCount === round.phraseChunks.length ? "boundary" : "reveal",
-      revealedCount,
-      feedback: revealedCount === round.phraseChunks.length
-        ? "The whole phrase is ready. Choose its natural pause."
-        : "Follow the trail, then reveal the next chunk."
-    },
-    outcome: null
+    feedback: "Read the continuous word trail. Choose where the first poetry line ends."
   };
 }
 
@@ -224,7 +221,7 @@ export function choosePhraseBoundary(state, round, boundary, supportLevel = 0) {
   if (state.stage !== "boundary") return unchanged(state);
   const correct = boundary === round.correctBoundary;
   if (!correct) {
-    const feedback = "That pause breaks the phrase in an awkward place. Read the meaning and try another boundary.";
+    const feedback = "That choice breaks the continuous word trail inside the first poetry line. Read from the beginning and try another boundary.";
     return {
       state: { ...state, chosenBoundary: boundary, feedback },
       outcome: outcome(
@@ -233,7 +230,7 @@ export function choosePhraseBoundary(state, round, boundary, supportLevel = 0) {
         boundary,
         feedback,
         supportLevel,
-        round.phraseChunks.join(" "),
+        round.trailWords.join(" "),
         boundary
       )
     };
@@ -243,7 +240,7 @@ export function choosePhraseBoundary(state, round, boundary, supportLevel = 0) {
       ...state,
       stage: "model",
       chosenBoundary: boundary,
-      feedback: "That boundary keeps the meaningful phrase together. Follow the model next."
+      feedback: "That is where the first poetry line ends. Follow the model next."
     },
     outcome: null
   };
@@ -264,7 +261,7 @@ export function completePhraseModel(state) {
 
 export function completePhraseEcho(state, round, supportLevel = 0) {
   if (state.stage !== "echo" || !state.modelCompleted) return unchanged(state);
-  const target = round.phraseChunks.join(" ");
+  const target = round.trailWords.join(" ");
   const feedback = "Phrase practice complete. The model and echo support are recorded.";
   return {
     state: { ...state, stage: "complete", feedback },
@@ -278,10 +275,21 @@ export function completePhraseEcho(state, round, supportLevel = 0) {
       "model_echo_completed",
       {
         supportUsed: ["model", "echo"],
-        measure: "support_only"
+        measure: "support_only",
+        independent: false
       }
     )
   };
+}
+
+export function wordChainPositionLabel(grapheme, index) {
+  return `${grapheme}, position ${index + 1}`;
+}
+
+export function heartSlotLabel(grapheme, index, isDifference = false) {
+  if (!grapheme) return `Empty grapheme slot, position ${index + 1}`;
+  const difference = isDifference ? ", first differing position" : "";
+  return `${grapheme}, position ${index + 1}${difference}`;
 }
 
 export function createHeartWordState() {

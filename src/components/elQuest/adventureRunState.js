@@ -79,6 +79,7 @@ function selectedPatternWords(round, outcome) {
   const words = Array.isArray(round.items)
     ? round.items.map(item => text(item?.word)).filter(Boolean)
     : [];
+  if (round.transferWord) words.push(text(round.transferWord));
   return selected
     .map(value => words.find(word => word === value) || words.find(word => word.startsWith(value)))
     .filter(Boolean);
@@ -110,12 +111,23 @@ function resolveFeedbackTarget(round = {}, outcome = {}) {
     const notBin = round.bins?.find(bin => bin?.id === "not") || round.bins?.[1];
     const pattern = text(round.patternLabel || fitBin?.label || round.targetGrapheme || round.pattern);
     const selectedWords = selectedPatternWords(round, outcome);
+    const selectedValuesForOutcome = selectedValues(outcome?.selected).map(valueLabel).filter(Boolean);
+    const selectedWord = selectedWords[0] || selectedValuesForOutcome.find(value => (
+      value !== fitBin?.id && value !== notBin?.id
+    )) || selectedLabel(outcome);
+    const selectedItem = round.items?.find(item => item?.word === selectedWord);
+    const selectedFits = selectedItem
+      ? Boolean(selectedItem.fits)
+      : selectedWord === round.transferWord && typeof round.transferFits === "boolean"
+        ? round.transferFits
+        : null;
     return {
       construct,
       target: pattern,
       pattern,
-      selected: selectedWords.join(", ") || selectedLabel(outcome),
+      selected: selectedWord,
       selectedWords,
+      selectedFits,
       fitLabel: text(fitBin?.label || pattern),
       notLabel: text(notBin?.label)
     };
@@ -169,7 +181,13 @@ export function feedbackForOutcome(round = {}, outcome = {}, attempt = 1) {
 
   if (outcome.correct) {
     if (construct === "orthographic_pattern_sort" || construct === "patternsort") {
-      return `Yes — ${selected} fits the pattern “${resolved.pattern}”.`;
+      if (resolved.selectedFits === false) {
+        return `Yes — ${selected} does not fit “${resolved.pattern}” and belongs in “${resolved.notLabel}”.`;
+      }
+      if (resolved.selectedFits === true) {
+        return `Yes — ${selected} fits “${resolved.pattern}” and belongs in “${resolved.fitLabel}”.`;
+      }
+      return `Yes — ${selected} belongs in the matching pattern bin.`;
     }
     if (construct === "supported_cover_title_association" || construct === "coverclue" || construct === "story") {
       return `Yes — the title strip “${resolved.stripText}” matches the “${resolved.targetTitle}” cover.`;
@@ -234,12 +252,13 @@ export function feedbackForOutcome(round = {}, outcome = {}, attempt = 1) {
     }
     case "orthographic_pattern_sort":
     case "patternsort": {
-      const chosenPattern = text(outcome.selectedPattern) || ending(chosenWord);
-      return coaching(
-        level,
-        `${resolved.selected || chosenWord} does not fit “${resolved.pattern || target}”. Sort it into “${resolved.fitLabel || target}” or “${resolved.notLabel || "the other bin"}”.`,
-        `Compare ${resolved.selected || chosenWord} with the pattern “${resolved.pattern || target}”; look for “${chosenPattern}” only where the bin label says it belongs.`
-      );
+      if (resolved.selectedFits === true) {
+        return `${resolved.selected || chosenWord} fits “${resolved.pattern || target}”. Put it in “${resolved.fitLabel || target}”.`;
+      }
+      if (resolved.selectedFits === false) {
+        return `${resolved.selected || chosenWord} does not fit “${resolved.pattern || target}”. Put it in “${resolved.notLabel || "the other bin"}”.`;
+      }
+      return `Compare ${resolved.selected || chosenWord} with “${resolved.pattern || target}”, then use the matching labelled bin.`;
     }
     case "high_frequency_word_recognition":
     case "wordwindow":
@@ -319,8 +338,8 @@ export function feedbackForOutcome(round = {}, outcome = {}, attempt = 1) {
     case "supported_phrase_reading":
       return coaching(
         level,
-        `You chose ${selected}. Follow the phrase line and pause at the boundary in ${word}.`,
-        `Read each phrase chunk, then pause where the line changes; you chose ${selected}.`
+        `You chose after word ${selected}. Read the continuous word trail and choose where the first poetry line ends.`,
+        `Start at the beginning of the continuous word trail and choose where the first poetry line ends; you chose after word ${selected}.`
       );
     case "orthographic_memory":
       return coaching(

@@ -274,25 +274,41 @@ const PATTERN_EXAMPLES = {
 // separate so the transfer is always novel, and every candidate still has to
 // pass the cycle's taught-print boundary before a round is eligible.
 const CODE_SPOT_WORD_INVENTORY = Object.freeze({
-  sh: { authorizedFromCycle: 15, sort: ["ship", "shop", "shut"], transfer: ["shin"] },
-  ch: { authorizedFromCycle: 15, sort: ["chip", "chin", "chop"], transfer: ["chat"] },
-  th: { authorizedFromCycle: 15, sort: ["thumb", "thin", "that"], transfer: ["then"] },
-  wh: { authorizedFromCycle: 21, sort: ["what", "when", "whisk"], transfer: ["whip"] },
-  nk: { authorizedFromCycle: 22, sort: ["sink", "bank", "pink"], transfer: ["wink"] },
-  ng: { authorizedFromCycle: 23, sort: ["ring", "sing", "song"], transfer: ["long"] },
-  ang: { authorizedFromCycle: 23, sort: ["bang", "sang"], transfer: ["hang"] },
-  ing: { authorizedFromCycle: 23, sort: ["ring", "sing", "king"], transfer: ["wing"] },
-  ong: { authorizedFromCycle: 23, sort: ["song", "long"], transfer: ["gong"] },
-  ung: { authorizedFromCycle: 23, sort: ["hung", "sung"], transfer: ["lung"] },
-  ff: { authorizedFromCycle: 24, sort: ["puff", "off"], transfer: ["huff"] },
-  ss: { authorizedFromCycle: 24, sort: ["miss", "grass"], transfer: ["kiss"] },
-  zz: { authorizedFromCycle: 24, sort: ["buzz", "fizz"], transfer: ["jazz"] },
-  ll: { authorizedFromCycle: 24, sort: ["ball", "fall", "call"], transfer: ["bell"] }
+  sh: { authorizedFromCycle: 15, sort: ["ship", "shop", "shut"], transfer: [{ word: "shin", fits: true }, { word: "fin", fits: false }] },
+  ch: { authorizedFromCycle: 15, sort: ["chip", "chin", "chop"], transfer: [{ word: "chat", fits: true }, { word: "map", fits: false }] },
+  th: { authorizedFromCycle: 15, sort: ["thumb", "thin", "that"], transfer: [{ word: "then", fits: true }, { word: "ship", fits: false }] },
+  wh: { authorizedFromCycle: 21, sort: ["what", "when", "whisk"], transfer: [{ word: "whip", fits: true }, { word: "fin", fits: false }] },
+  nk: { authorizedFromCycle: 22, sort: ["sink", "bank", "pink"], transfer: [{ word: "wink", fits: true }, { word: "ship", fits: false }] },
+  ng: { authorizedFromCycle: 23, sort: ["ring", "sing", "song"], transfer: [{ word: "long", fits: true }, { word: "ship", fits: false }] },
+  ang: { authorizedFromCycle: 23, sort: ["bang", "sang"], transfer: [{ word: "hang", fits: true }, { word: "sing", fits: false }] },
+  ing: { authorizedFromCycle: 23, sort: ["ring", "sing", "king"], transfer: [{ word: "wing", fits: true }, { word: "bang", fits: false }] },
+  ong: { authorizedFromCycle: 23, sort: ["song", "long"], transfer: [{ word: "gong", fits: true }, { word: "sing", fits: false }] },
+  ung: { authorizedFromCycle: 23, sort: ["hung", "sung"], transfer: [{ word: "lung", fits: true }, { word: "song", fits: false }] },
+  ff: { authorizedFromCycle: 24, sort: ["puff", "off"], transfer: [{ word: "huff", fits: true }, { word: "miss", fits: false }] },
+  ss: { authorizedFromCycle: 24, sort: ["miss", "grass"], transfer: [{ word: "kiss", fits: true }, { word: "puff", fits: false }] },
+  zz: { authorizedFromCycle: 24, sort: ["buzz", "fizz"], transfer: [{ word: "jazz", fits: true }, { word: "bell", fits: false }] },
+  ll: { authorizedFromCycle: 24, sort: ["ball", "fall", "call"], transfer: [{ word: "bell", fits: true }, { word: "buzz", fits: false }] }
 });
 
 const CODE_SPOT_DECOY_WORDS = Object.freeze([
   "map", "sun", "dog", "bed", "run", "top", "pig", "cat", "jam", "fox"
 ]);
+
+function choosePatternTransfer(transferCandidates, items) {
+  const sortedWords = new Set(items.map(item => item.word));
+  const candidates = transferCandidates.filter(candidate => (
+    candidate?.word
+    && typeof candidate.fits === "boolean"
+    && !sortedWords.has(candidate.word)
+  ));
+  const selected = shuffleItems(candidates)[0];
+  if (!selected) return null;
+  return {
+    transferWord: selected.word,
+    transferFits: selected.fits,
+    transferBinId: selected.fits ? "fits" : "not"
+  };
+}
 
 const ENDING_SOUND_PATTERNS = new Set([
   "all", "nk", "ng", "ang", "ing", "ong", "ung", "ff", "ss", "zz", "ll"
@@ -382,10 +398,10 @@ function buildCodeSpotRounds(cycle) {
         word.includes(entry.spelling)
         && wordUsesTaughtPrint(word, cycleNumber)
       ));
-      const transferCandidates = uniqueChoices(inventory.transfer).filter(word => (
-        word.includes(entry.spelling)
-        && wordUsesTaughtPrint(word, cycleNumber)
-        && !matching.includes(word)
+      const transferCandidates = inventory.transfer.filter(candidate => (
+        candidate.word.includes(entry.spelling) === candidate.fits
+        && wordUsesTaughtPrint(candidate.word, cycleNumber)
+        && !matching.includes(candidate.word)
       ));
       const decoys = CODE_SPOT_DECOY_WORDS.filter(word => (
         !word.includes(entry.spelling)
@@ -396,25 +412,25 @@ function buildCodeSpotRounds(cycle) {
         ...shuffleItems(matching).slice(0, 3).map(word => ({ word, fits: true })),
         ...shuffleItems(decoys).slice(0, 3).map(word => ({ word, fits: false }))
       ]);
-      const transferWord = shuffleItems(transferCandidates)
-        .find(word => !items.some(item => item.word === word));
-      if (!transferWord) return [];
+      const transfer = choosePatternTransfer(transferCandidates, items);
+      if (!transfer) return [];
+      const bins = shuffleItems([
+        { id: "fits", label: `has ${entry.spelling}` },
+        { id: "not", label: `does not have ${entry.spelling}` }
+      ]);
       return [{
         type: "pattern",
         mechanicId: "patternSort",
         construct: "visual_grapheme_identity",
         audio: "",
         speechFallback: "",
-        prompt: `Find every word with ${entry.spelling}.`,
-        instruction: `Find every word with ${entry.spelling}.`,
+        prompt: `Put each word in a bin: has ${entry.spelling}, or does not have ${entry.spelling}. Then sort one new word.`,
+        instruction: `Pick up one word at a time. Put it in has ${entry.spelling}, or does not have ${entry.spelling}. Then sort the new word.`,
         targetGrapheme: entry.spelling,
         patternLabel: `has ${entry.spelling}`,
-        bins: [
-          { id: "fits", label: `has ${entry.spelling}` },
-          { id: "not", label: `does not have ${entry.spelling}` }
-        ],
+        bins,
         items,
-        transferWord,
+        ...transfer,
         choiceStyle: "pattern"
       }];
     });
@@ -899,7 +915,7 @@ const TAUGHT_PATTERN_REVIEW_INVENTORY = Object.freeze([
     label: "start with sh",
     requiredGraphemes: ["sh"],
     members: ["ship", "shop", "shed", "shut"],
-    transfer: ["shin"],
+    transfer: [{ word: "shin", fits: true }, { word: "fin", fits: false }],
     decoys: ["pig", "top", "run", "bed", "map", "sun"]
   },
   {
@@ -907,7 +923,7 @@ const TAUGHT_PATTERN_REVIEW_INVENTORY = Object.freeze([
     label: "have -ng",
     requiredGraphemes: ["ng"],
     members: ["ring", "king", "song", "bang", "hang", "long"],
-    transfer: ["wing"],
+    transfer: [{ word: "wing", fits: true }, { word: "win", fits: false }],
     decoys: ["rat", "pig", "cup", "red", "mud", "tap"]
   },
   {
@@ -915,7 +931,7 @@ const TAUGHT_PATTERN_REVIEW_INVENTORY = Object.freeze([
     label: "end with -ll",
     requiredGraphemes: ["ll"],
     members: ["ball", "fall", "call", "tall", "bell", "fill"],
-    transfer: ["hill"],
+    transfer: [{ word: "hill", fits: true }, { word: "him", fits: false }],
     decoys: ["bat", "mop", "sun", "net", "rug", "pin"]
   }
 ]);
@@ -926,9 +942,9 @@ function patternFamiliesForCycle(cycle) {
   return TAUGHT_PATTERN_REVIEW_INVENTORY.flatMap(family => {
     if (!family.requiredGraphemes.every(grapheme => taught.has(grapheme))) return [];
     const members = family.members.filter(word => wordUsesTaughtPrint(word, cycleNumber));
-    const transfer = family.transfer.filter(word => (
-      wordUsesTaughtPrint(word, cycleNumber)
-      && !members.includes(word)
+    const transfer = family.transfer.filter(candidate => (
+      wordUsesTaughtPrint(candidate.word, cycleNumber)
+      && !members.includes(candidate.word)
     ));
     const decoys = family.decoys.filter(word => wordUsesTaughtPrint(word, cycleNumber));
     if (members.length < 2 || !transfer.length || !decoys.length) return [];
@@ -936,32 +952,35 @@ function patternFamiliesForCycle(cycle) {
   });
 }
 
-// Station - Pattern Power: tap EVERY word that fits the pattern (multi-select).
+// Station - Pattern Power: sort every word into a labelled pattern bin.
 function buildPatternPowerRounds(cycle) {
-  return patternFamiliesForCycle(cycle).map(family => {
+  return patternFamiliesForCycle(cycle).flatMap(family => {
     const fits = shuffleItems(family.members).slice(0, 3);
     const decoys = shuffleItems(family.decoys).slice(0, 3);
     const items = shuffleItems([
       ...fits.map(word => ({ word, fits: true })),
       ...decoys.map(word => ({ word, fits: false }))
     ]);
-    return {
+    const transfer = choosePatternTransfer(family.transfer, items);
+    if (!transfer) return [];
+    const bins = shuffleItems([
+      { id: "fits", label: family.label },
+      { id: "not", label: `do not ${family.label}` }
+    ]);
+    return [{
       type: "pattern",
       mechanicId: "patternSort",
       construct: "orthographic_pattern_sort",
       audio: "",
       speechFallback: "",
-      prompt: `Tap all the words that ${family.label}.`,
-      instruction: `Sort the words that ${family.label}.`,
+      prompt: "Put each word in its labelled pattern bin. Then sort one new word.",
+      instruction: "Pick up one word at a time and put it in the matching pattern bin. Then sort the new word.",
       patternLabel: family.label,
-      bins: [
-        { id: "fits", label: family.label },
-        { id: "not", label: `do not ${family.label}` }
-      ],
+      bins,
       items,
-      transferWord: shuffleItems(family.transfer)[0],
+      ...transfer,
       choiceStyle: "pattern"
-    };
+    }];
   });
 }
 
@@ -1030,19 +1049,63 @@ function phraseWords(text) {
   return String(text || "").trim().split(/\s+/u).filter(Boolean);
 }
 
-function phraseBoundaryChoices(firstLine, secondLine) {
+function endsWithPhrasePunctuation(word) {
+  return /[.!?,;:]["'’”)]*$/u.test(String(word || ""));
+}
+
+function phraseBoundaryWordLabel(word) {
+  return String(word || "").replace(/^["'“‘]+|["'”’]+$/gu, "");
+}
+
+const PHRASE_FLOW_MAX_WORDS = 12;
+
+// Boundary choices are reviewed against exact poem-pair positions. The correct
+// answer remains the source poem's first line ending; alternatives are authored
+// seams that visibly break that line rather than freshly inferred pause points.
+const PHRASE_FLOW_BOUNDARY_INVENTORY = Object.freeze({
+  "25:0": { correctAfterWord: "say,", alternatives: [{ position: 4, afterWord: "the", beforeWord: "friends" }, { position: 8, afterWord: "a", beforeWord: "brand" }] },
+  "25:2": { correctAfterWord: "play,", alternatives: [{ position: 2, afterWord: "and", beforeWord: "Luna" }, { position: 5, afterWord: "and", beforeWord: "play," }] },
+  "26:0": { correctAfterWord: "high?\"", alternatives: [{ position: 2, afterWord: "does", beforeWord: "Glimmer's" }] },
+  "26:2": { correctAfterWord: "high,", alternatives: [{ position: 6, afterWord: "and", beforeWord: "waves" }, { position: 8, afterWord: "the", beforeWord: "clouds" }] },
+  "27:2": { correctAfterWord: "each,", alternatives: [{ position: 3, afterWord: "a", beforeWord: "berry," }, { position: 8, afterWord: "the", beforeWord: "Whispering" }] }
+});
+
+function phraseBoundaryChoices(firstLine, secondLine, authored) {
   const firstWords = phraseWords(firstLine);
   const secondWords = phraseWords(secondLine);
   const words = [...firstWords, ...secondWords];
   const correctBoundary = firstWords.length;
-  const positions = [
-    Math.max(1, Math.floor(firstWords.length / 2)),
-    correctBoundary,
-    correctBoundary + Math.max(1, Math.floor(secondWords.length / 2))
-  ].filter(position => position > 0 && position < words.length);
-  const boundaryChoices = [...new Set(positions)]
-    .sort((left, right) => left - right)
-    .map(position => ({ position, afterWord: words[position - 1] }));
+  const correctAfterWord = words[correctBoundary - 1];
+  if (
+    !authored
+    || authored.correctAfterWord !== correctAfterWord
+    || !endsWithPhrasePunctuation(correctAfterWord)
+  ) {
+    return { correctBoundary, boundaryChoices: [] };
+  }
+  const alternatives = authored.alternatives.filter(choice => (
+    choice.position > 0
+    && choice.position < words.length
+    && choice.position !== correctBoundary
+    && words[choice.position - 1] === choice.afterWord
+    && words[choice.position] === choice.beforeWord
+    && !endsWithPhrasePunctuation(choice.afterWord)
+  ));
+  if (alternatives.length !== authored.alternatives.length || !alternatives.length) {
+    return { correctBoundary, boundaryChoices: [] };
+  }
+  const boundaryChoices = shuffleItems([
+    {
+      position: correctBoundary,
+      afterWord: correctAfterWord,
+      beforeWord: words[correctBoundary],
+      label: `After “${phraseBoundaryWordLabel(correctAfterWord)}”`
+    },
+    ...alternatives.map(choice => ({
+      ...choice,
+      label: `Between “${choice.afterWord}” and “${choice.beforeWord}”`
+    }))
+  ]);
   return { correctBoundary, boundaryChoices };
 }
 
@@ -1053,9 +1116,12 @@ function buildPhraseFlowRounds(cycle) {
   for (let index = 0; index < poem.lines.length; index += 2) {
     const phraseChunks = poem.lines.slice(index, index + 2);
     if (phraseChunks.length < 2) continue;
+    const trailWords = phraseWords(phraseChunks.join(" "));
+    if (trailWords.length > PHRASE_FLOW_MAX_WORDS) continue;
     const { correctBoundary, boundaryChoices } = phraseBoundaryChoices(
       phraseChunks[0],
-      phraseChunks[1]
+      phraseChunks[1],
+      PHRASE_FLOW_BOUNDARY_INVENTORY[`${cycle.cycleNumber}:${index}`]
     );
     if (boundaryChoices.length < 2) continue;
     pairs.push({
@@ -1064,14 +1130,12 @@ function buildPhraseFlowRounds(cycle) {
       construct: "supported_phrase_reading",
       audio: getLedaInstructionAudioPath(phraseChunks.join(" ")),
       speechFallback: "",
-      prompt: "Follow the phrase trail. Pause where the line changes.",
-      instruction: "Follow the phrase trail. Pause where the line changes.",
+      prompt: "Read the word trail. Choose where the first poetry line ends.",
+      instruction: "Read the word trail. Choose where the first poetry line ends, then follow the model and echo-read it.",
       phraseChunks,
+      trailWords,
       correctBoundary,
-      boundaryChoices,
-      choices: phraseChunks,
-      answer: phraseChunks[1],
-      choiceStyle: "phrase"
+      boundaryChoices
     });
   }
   return pairs;

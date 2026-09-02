@@ -6,6 +6,10 @@ const componentUrl = new URL(
   "../../src/components/elQuest/mechanics/FluencyMechanics.jsx",
   import.meta.url
 );
+const stylesUrl = new URL(
+  "../../src/styles/skills-block-quest.css",
+  import.meta.url
+);
 
 async function loadState() {
   return import("../../src/components/elQuest/mechanics/fluencyMechanicState.js");
@@ -33,7 +37,7 @@ test("fluency components expose four distinct button-operated stages and live st
   assert.doesNotMatch(source, /<(?:div|span)[^>]+onClick=/);
 });
 
-test("Pattern Sort requires word then bin, retains every tile, and finishes with transfer", async () => {
+test("Pattern Sort scores the declared transfer bin and retains every committed tile", async () => {
   const {
     createPatternSortState,
     selectPatternTile,
@@ -51,7 +55,9 @@ test("Pattern Sort requires word then bin, retains every tile, and finishes with
       { word: "ship", fits: true },
       { word: "map", fits: false }
     ],
-    transferWord: "shin"
+    transferWord: "map",
+    transferFits: false,
+    transferBinId: "not"
   };
 
   let state = createPatternSortState(round);
@@ -67,21 +73,29 @@ test("Pattern Sort requires word then bin, retains every tile, and finishes with
 
   const sorted = placePatternTile(wrong.state, round, "not");
   assert.equal(sorted.state.stage, "transfer");
+  assert.equal(
+    sorted.state.feedback,
+    "Every tile is sorted. Sort one new word using the same labelled bins."
+  );
   assert.deepEqual(sorted.state.placements, [
     { word: "ship", binId: "fits" },
     { word: "map", binId: "not" }
   ]);
 
-  const transferMiss = choosePatternTransfer(sorted.state, round, "not", 1);
+  const transferMiss = choosePatternTransfer(sorted.state, round, "fits", 1);
   assert.equal(transferMiss.outcome.correct, false);
   assert.equal(transferMiss.state.stage, "transfer");
-  const transfer = choosePatternTransfer(transferMiss.state, round, "fits", 1);
+  const transfer = choosePatternTransfer(transferMiss.state, round, "not", 1);
   assert.equal(transfer.state.stage, "complete");
-  assert.deepEqual(transfer.state.transferPlacement, { word: "shin", binId: "fits" });
+  assert.deepEqual(transfer.state.transferPlacement, { word: "map", binId: "not" });
+  assert.equal(
+    transfer.state.feedback,
+    "map does not fit “start with sh”, so it belongs in “do not start with sh”."
+  );
   assert.deepEqual(transfer.outcome.evidence, {
     construct: "orthographic_pattern_sort",
     target: "start with sh",
-    response: ["shin", "fits"],
+    response: ["map", "not"],
     supportLevel: 1
   });
 });
@@ -117,6 +131,11 @@ test("Word Chain commits the position before the grapheme and preserves the chai
   assert.equal(wrongPosition.outcome.correct, false);
   assert.deepEqual(wrongPosition.state.chain, ["sat"]);
   assert.equal(wrongPosition.state.stage, "position");
+  assert.equal(wrongPosition.outcome.evidence.target, "sit");
+  assert.deepEqual(wrongPosition.outcome.evidence.response, {
+    grapheme: "s",
+    position: 1
+  });
 
   state = selectChainPosition(wrongPosition.state, round, 1).state;
   assert.equal(state.stage, "replacement");
@@ -124,18 +143,25 @@ test("Word Chain commits the position before the grapheme and preserves the chai
   assert.equal(wrongGrapheme.outcome.correct, false);
   assert.deepEqual(wrongGrapheme.state.chain, ["sat"]);
   assert.deepEqual(wrongGrapheme.state.currentGraphemes, ["s", "a", "t"]);
+  assert.equal(wrongGrapheme.outcome.evidence.target, "sit");
+  assert.deepEqual(wrongGrapheme.outcome.evidence.response, {
+    grapheme: "o",
+    position: 2
+  });
 
   const correct = replaceChainGrapheme(wrongGrapheme.state, round, "i", 2);
   assert.deepEqual(correct.state.chain, ["sat", "sit"]);
   assert.deepEqual(correct.state.currentGraphemes, ["s", "i", "t"]);
   assert.equal(correct.outcome.correct, true);
   assert.equal(correct.outcome.evidence.supportLevel, 2);
+  assert.equal(correct.outcome.evidence.target, "sit");
+  assert.deepEqual(correct.outcome.selected, { grapheme: "i", position: 2 });
+  assert.deepEqual(correct.outcome.evidence.response, { grapheme: "i", position: 2 });
 });
 
-test("Phrase Flow reveals authored chunks at the child's pace and records model support only", async () => {
+test("Phrase Flow uses one neutral word trail and records mandatory model support", async () => {
   const {
     createPhraseFlowState,
-    revealNextPhraseChunk,
     choosePhraseBoundary,
     completePhraseModel,
     completePhraseEcho
@@ -143,6 +169,7 @@ test("Phrase Flow reveals authored chunks at the child's pace and records model 
   const round = {
     construct: "supported_phrase_reading",
     phraseChunks: ["In the tree", "the small owl", "waits for dawn."],
+    trailWords: ["In", "the", "tree", "the", "small", "owl", "waits", "for", "dawn."],
     correctBoundary: 4,
     boundaryChoices: [
       { position: 2, afterWord: "the" },
@@ -152,32 +179,53 @@ test("Phrase Flow reveals authored chunks at the child's pace and records model 
   };
 
   let state = createPhraseFlowState(round);
-  assert.equal(state.revealedCount, 1);
-  state = revealNextPhraseChunk(state, round).state;
-  assert.equal(state.revealedCount, 2);
-  state = revealNextPhraseChunk(state, round).state;
   assert.equal(state.stage, "boundary");
+  assert.equal("revealedCount" in state, false);
 
   const wrongBoundary = choosePhraseBoundary(state, round, 2);
   assert.equal(wrongBoundary.outcome.correct, false);
   assert.equal(wrongBoundary.state.stage, "boundary");
+  assert.match(wrongBoundary.state.feedback, /continuous word trail/i);
+  assert.match(wrongBoundary.state.feedback, /first poetry line/i);
   state = choosePhraseBoundary(wrongBoundary.state, round, 4).state;
   assert.equal(state.stage, "model");
+  assert.match(state.feedback, /first poetry line ends/i);
   state = completePhraseModel(state).state;
   assert.equal(state.stage, "echo");
-  const completed = completePhraseEcho(state, round, 3);
+  const completed = completePhraseEcho(state, round, 0);
   assert.equal(completed.state.stage, "complete");
   assert.equal(completed.outcome.correct, true);
   assert.deepEqual(completed.outcome.evidence, {
     construct: "supported_phrase_reading",
     target: "In the tree the small owl waits for dawn.",
     response: "model_echo_completed",
-    supportLevel: 3,
+    supportLevel: 0,
     supportUsed: ["model", "echo"],
-    measure: "support_only"
+    measure: "support_only",
+    independent: false
   });
   assert.equal("score" in completed.outcome.evidence, false);
   assert.equal("duration" in completed.outcome.evidence, false);
+});
+
+test("fluency accessibility labels expose graphemes and positions through a real screen-reader-only helper", async () => {
+  const { heartSlotLabel, wordChainPositionLabel } = await loadState();
+
+  assert.equal(wordChainPositionLabel("a", 1), "a, position 2");
+  assert.equal(heartSlotLabel("g", 1, false), "g, position 2");
+  assert.equal(
+    heartSlotLabel("a", 2, true),
+    "a, position 3, first differing position"
+  );
+  assert.equal(heartSlotLabel("", 3, false), "Empty grapheme slot, position 4");
+
+  const source = await readFile(componentUrl, "utf8");
+  const styles = await readFile(stylesUrl, "utf8");
+  assert.match(source, /className="sbq-sr-only"/);
+  assert.match(source, /\{wordChainPositionLabel\(grapheme, index\)\}/);
+  assert.match(source, /\{heartSlotLabel\(shown, index, isDifference\)\}/);
+  assert.match(styles, /\.sbq-sr-only\s*\{[^}]*position:\s*absolute;/s);
+  assert.match(styles, /\.sbq-sr-only\s*\{[^}]*clip-path:\s*inset\(50%\);/s);
 });
 
 test("Heart Word hides its model, keeps the correct grapheme prefix, and repairs the first difference", async () => {
