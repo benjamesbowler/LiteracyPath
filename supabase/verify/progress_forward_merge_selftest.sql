@@ -18,14 +18,43 @@ begin
   assert r #>> '{games,hop,highScore}' = '90', 'learn_games highScore downgraded';
   assert r #>> '{games,match,stars}' = '2', 'learn_games other-device game lost';
 
-  -- 2. el_quest: cycles from both devices kept, stars take the max
+  -- 2. el_quest: v2 preserves same-epoch cycles, but v1 cannot cross the
+  -- reset boundary in either merge orientation or on a first insert.
   r := public.lp_forward_merge_progress(
     'el_quest',
-    '{"cycles":{"c-1":{"stars":3},"c-2":{"stars":1}}}'::jsonb,
-    '{"cycles":{"c-2":{"stars":2},"c-3":{"stars":1}}}'::jsonb);
+    '{"schemaVersion":2,"progressEpoch":2,"cycles":{"c-1":{"stars":3},"c-2":{"stars":1}}}'::jsonb,
+    '{"schemaVersion":2,"progressEpoch":2,"cycles":{"c-2":{"stars":2},"c-3":{"stars":1}}}'::jsonb);
   assert r #>> '{cycles,c-1,stars}' = '3', 'el_quest local-only cycle lost';
   assert r #>> '{cycles,c-2,stars}' = '2', 'el_quest cycle not maxed';
   assert r #>> '{cycles,c-3,stars}' = '1', 'el_quest cloud-only cycle lost';
+  assert public.lp_merge_el_quest(
+    '{"schemaVersion":2,"progressEpoch":2,"cycles":{}}'::jsonb,
+    '{"v":1,"cycles":{"c-1":{"stars":3}}}'::jsonb
+  ) = '{"schemaVersion":2,"progressEpoch":2,"cycles":{}}'::jsonb,
+    'el_quest stale legacy payload restored cycles';
+  assert public.lp_merge_el_quest(
+    '{"v":1,"cycles":{"c-1":{"stars":3}}}'::jsonb,
+    '{"schemaVersion":2,"progressEpoch":2,"cycles":{}}'::jsonb
+  ) = '{"schemaVersion":2,"progressEpoch":2,"cycles":{}}'::jsonb,
+    'el_quest legacy-first merge restored cycles';
+  assert public.lp_merge_el_quest(
+    '{"schemaVersion":2,"progressEpoch":3,"cycles":{"future":{"stars":1}}}'::jsonb,
+    '{"schemaVersion":2,"progressEpoch":2,"cycles":{}}'::jsonb
+  ) #>> '{progressEpoch}' = '3', 'el_quest future epoch was downgraded';
+  assert public.lp_normalize_el_quest(
+    '{"v":1,"cycles":{"c-1":{"stars":3}}}'::jsonb
+  ) = '{"v":1,"schemaVersion":2,"progressEpoch":2,"cycles":{}}'::jsonb,
+    'el_quest stale first insert was not normalized';
+  assert public.lp_normalize_el_quest(
+    '{"schemaVersion":"2","progressEpoch":"2","cycles":{"c-1":{"stars":3}}}'::jsonb
+  ) #>> '{cycles,c-1,stars}' = '3', 'el_quest numeric-string current epoch was reset';
+
+  -- A non-Adventure area keeps its existing forward behavior. This migration
+  -- touches neither focus-session rows nor their routines.
+  assert public.lp_forward_merge_progress(
+    'learn_games', '{"games":{"hop":{"stars":3}}}'::jsonb,
+    '{"games":{"hop":{"stars":1}}}'::jsonb
+  ) #>> '{games,hop,stars}' = '3', 'non-Adventure progress changed';
 
   -- 3. story_quests: completed never un-completes; found words union
   r := public.lp_forward_merge_progress(

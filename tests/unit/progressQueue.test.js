@@ -229,6 +229,26 @@ test("a flush removes only its snapshot while a concurrent revision survives", (
   assert.equal(remaining[0].entry.revision, "rev-b");
 });
 
+test("el_quest queue coalescing cannot restore a stale legacy cycle after reset", () => {
+  const current = {
+    studentId: "child-1",
+    area: "el_quest",
+    key: "__all__",
+    revision: "current",
+    queuedAt: "2026-09-02T09:00:00.000Z",
+    updatedAt: "2026-09-02T09:00:00.000Z",
+    payload: { schemaVersion: 2, progressEpoch: 2, cycles: {} }
+  };
+  const legacy = {
+    ...current,
+    revision: "stale-legacy",
+    updatedAt: "2026-09-02T09:01:00.000Z",
+    payload: { v: 1, cycles: { "cycle-1": { stars: 3 } } }
+  };
+  const merged = mergeProgressQueueRecords([{ entry: current }, { entry: legacy }]);
+  assert.deepEqual(merged.payload, current.payload);
+});
+
 test("v1 records migrate into a v2 replacement without losing their payload", () => {
   const storage = new MemoryStorage();
   storage.setItem(LEGACY_PROGRESS_QUEUE_KEY, JSON.stringify([questEntry("legacy-a", ["s1"])]));

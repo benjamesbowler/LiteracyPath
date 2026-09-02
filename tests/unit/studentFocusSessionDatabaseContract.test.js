@@ -14,10 +14,24 @@ const adventureMigration = fs.readFileSync(
   new URL("../../supabase/migrations/20260831233417_extend_student_focus_sessions_adventure_map.sql", import.meta.url),
   "utf8"
 );
+const adventureProgressEpochMigration = fs.readFileSync(
+  new URL("../../supabase/migrations/20260902090000_reset_adventure_map_progress_epoch_2.sql", import.meta.url),
+  "utf8"
+);
 const mapStopsSource = fs.readFileSync(
   new URL("../../src/data/mapStops.js", import.meta.url),
   "utf8"
 );
+
+test("Adventure Map v2 progress is normalized at the database boundary without changing focus sessions", () => {
+  assert.match(adventureProgressEpochMigration, /create or replace function public\.lp_merge_el_quest\(existing jsonb, incoming jsonb\)[\s\S]*returns jsonb[\s\S]*immutable/i);
+  assert.match(adventureProgressEpochMigration, /when p_area = 'el_quest' then public\.lp_merge_el_quest\(p_existing, p_incoming\)/i);
+  assert.match(adventureProgressEpochMigration, /before insert on public\.student_progress/i);
+  assert.match(adventureProgressEpochMigration, /new\.area = 'el_quest' and new\.key = '__all__'/i);
+  assert.match(adventureProgressEpochMigration, /update public\.student_progress[\s\S]*set payload = public\.lp_normalize_el_quest\(payload\)[\s\S]*where area = 'el_quest'[\s\S]*and key = '__all__'/i);
+  assert.doesNotMatch(adventureProgressEpochMigration, /set[\s\S]{0,100}updated_at\s*=/i);
+  assert.doesNotMatch(adventureProgressEpochMigration, /student_focus_session/i);
+});
 
 test("student sessions have bounded expiry, one active lock per student and RPC-only membership", () => {
   assert.match(migration, /expires_at <= started_at \+ interval '2 hours'/i);

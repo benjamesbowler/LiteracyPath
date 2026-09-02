@@ -4,7 +4,10 @@ import { getChildWordAsset } from "../../data/childAssets";
 import { playCueAudio, playCueSequence, stopCueAudio } from "../../utils/audio/cuePlayer.js";
 import { playCorrectChime, playSoftBuzz, playCelebrationFanfare, playStarChime } from "../../utils/audio/gameSfx.js";
 import { queueProgressSave } from "../../utils/progressSync.js";
-import { computeHydratedValue } from "../../utils/progressMerge.js";
+import {
+  mergeElQuestProgress,
+  normalizeElQuestProgress
+} from "../../utils/adventureMapProgress.js";
 import { notifyMissionTaskDone } from "../../utils/dailyMission.js";
 import { getCompanion } from "../../utils/studentProfile.js";
 import { printCertificate } from "../../utils/printCertificate.js";
@@ -99,23 +102,20 @@ function buildRoutePath(points, w = 1195, h = 1600) {
 
 
 function loadQuestProgress(scopeKey) {
-  if (typeof window === "undefined") return { cycles: {} };
-  try {
-    const parsed = JSON.parse(window.localStorage.getItem(`${STORAGE_PREFIX}:${scopeKey}`) || "null");
-    return parsed && typeof parsed === "object" ? { cycles: {}, ...parsed } : { cycles: {} };
-  } catch {
-    return { cycles: {} };
-  }
+  if (typeof window === "undefined") return normalizeElQuestProgress(null);
+  const parsed = JSON.parse(window.localStorage.getItem(`${STORAGE_PREFIX}:${scopeKey}`) || "null");
+  return normalizeElQuestProgress(parsed);
 }
 
 function saveQuestProgress(scopeKey, progress) {
   if (typeof window === "undefined") return;
+  const normalized = normalizeElQuestProgress(progress);
   try {
-    window.localStorage.setItem(`${STORAGE_PREFIX}:${scopeKey}`, JSON.stringify(progress));
+    window.localStorage.setItem(`${STORAGE_PREFIX}:${scopeKey}`, JSON.stringify(normalized));
   } catch {
     // Local persistence is best-effort; cloud sync still queues below.
   }
-  queueProgressSave("el_quest", "__all__", { v: 1, ...progress }, { scopeKey });
+  queueProgressSave("el_quest", "__all__", normalized, { scopeKey });
 }
 
 function playCue(round) {
@@ -632,9 +632,7 @@ export function ElSkillsQuest({
     function handleHydrated(event) {
       if (event.detail?.studentId && event.detail.studentId !== progressScopeKey) return;
       const stored = loadQuestProgress(progressScopeKey);
-      setProgress(previous => event.detail?.resetApplied
-        ? stored
-        : computeHydratedValue("el_quest", "__all__", previous, stored));
+      setProgress(previous => mergeElQuestProgress(previous, stored));
     }
     window.addEventListener("lp-progress-hydrated", handleHydrated);
     return () => window.removeEventListener("lp-progress-hydrated", handleHydrated);

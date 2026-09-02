@@ -18,6 +18,7 @@ import {
   normalizeQuestResetEpoch,
   normalizeQuestState
 } from "./questProgress.js";
+import { mergeElQuestProgress } from "./adventureMapProgress.js";
 
 // ── Scalar status (phonics letters, cvc) ─────────────────────────────────────
 const STATUS_RANK = { default: 0, locked: 1, inprogress: 2, completed: 3 };
@@ -398,8 +399,7 @@ export function computeHydratedValue(area, key, existing, payload) {
   // Whole-payload progress maps: keep settings as cloud-canonical, but protect
   // the nested progress map so no cycle/game record is lost or downgraded.
   if (area === "el_quest") {
-    const cloud = payload && typeof payload === "object" ? payload : {};
-    return { ...base, ...cloud, cycles: mergeRecordMap(base.cycles, cloud.cycles) };
+    return mergeElQuestProgress(base, payload);
   }
   if (area === "learn_games") {
     const cloud = payload && typeof payload === "object" ? payload : {};

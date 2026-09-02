@@ -68,13 +68,28 @@ test("learn_games: a stale cloud row cannot downgrade local stars", () => {
   assert.equal(next.games.hop.highScore, 90);
 });
 
-test("el_quest: cycles from both sources are kept and stars take the max", () => {
-  const local = { v: 1, cycles: { "c-1": { stars: 3, bestScore: 60 }, "c-2": { stars: 1 } } };
-  const cloud = { v: 1, cycles: { "c-2": { stars: 2 }, "c-3": { stars: 1 } } };
+test("el_quest: current-epoch cycles from both sources are kept and stars take the max", () => {
+  const local = {
+    schemaVersion: 2,
+    progressEpoch: 2,
+    cycles: { "c-1": { stars: 3, bestScore: 60 }, "c-2": { stars: 1 } }
+  };
+  const cloud = {
+    schemaVersion: 2,
+    progressEpoch: 2,
+    cycles: { "c-2": { stars: 2 }, "c-3": { stars: 1 } }
+  };
   const next = computeHydratedValue("el_quest", "__all__", local, cloud);
   assert.equal(next.cycles["c-1"].stars, 3, "local-only cycle survives");
   assert.equal(next.cycles["c-2"].stars, 2, "overlapping cycle takes the higher star count");
   assert.equal(next.cycles["c-3"].stars, 1, "cloud-only cycle is added");
+});
+
+test("el_quest: a stale legacy payload cannot restore cycles after the v2 reset", () => {
+  const current = { schemaVersion: 2, progressEpoch: 2, cycles: {} };
+  const legacy = { v: 1, cycles: { "c-1": { stars: 3, bestScore: 60 } } };
+  assert.deepEqual(computeHydratedValue("el_quest", "__all__", current, legacy), current);
+  assert.deepEqual(computeHydratedValue("el_quest", "__all__", legacy, current), current);
 });
 
 test("story_quests: completed never regresses to false and found words union", () => {
