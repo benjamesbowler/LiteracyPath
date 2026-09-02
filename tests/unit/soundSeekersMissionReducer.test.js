@@ -5,6 +5,7 @@ import fs from "node:fs";
 import { CONTENT_DECK_PLACEMENTS, getContentDeckPlacements } from "../../src/features/soundSeekers/content/contentDeckBindings.js";
 import { SOUND_SEEKERS_EXPEDITIONS } from "../../src/features/soundSeekers/content/expeditions.js";
 import { createMissionPlan } from "../../src/features/soundSeekers/engine/createMissionPlan.js";
+import { createLiteracyDecision } from "../../src/features/soundSeekers/engine/evidence.js";
 import {
   checkpointMission,
   createMissionState,
@@ -24,6 +25,9 @@ import { echoSearch } from "../../src/features/soundSeekers/engine/powers/index.
 import { getPronunciation } from "../../src/features/soundSeekers/content/pronunciationLexicon.js";
 import { createSoundSeekersState, normalizeSoundSeekersState } from "../../src/features/soundSeekers/engine/stateV2.js";
 import { createSoundSeekersAudioController } from "../../src/features/soundSeekers/runtime/soundSeekersAudioController.js";
+import { installSoundSeekersProductionAudioDouble } from "../helpers/soundSeekersProductionAudioDouble.js";
+
+installSoundSeekersProductionAudioDouble();
 
 function recursivelyFreeze(value) {
   if (!value || typeof value !== "object" || Object.isFrozen(value)) return value;
@@ -32,15 +36,7 @@ function recursivelyFreeze(value) {
 }
 
 function completedTeachInput(item) {
-  const controller = createSoundSeekersAudioController({
-    cuePlayer: { playCueAudio(audioKey, options) {
-      void audioKey;
-      for (const [type, at] of [["loading", 1], ["started", 2], ["completed", 3]]) {
-        options.onDelivery({ id: options.cueId, session: 1, type, at });
-      }
-    }, stopCueAudio() {} },
-    music: { duck() {}, restore() {} }, clock: () => 0
-  });
+  const controller = createSoundSeekersAudioController({ clock: () => 0 });
   const audioKeys = [...new Set([item.childAudio, item.targetAudio, ...item.targetAudioSequence,
     ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)].filter(Boolean))];
   const audioDeliveries = audioKeys.map((audioKey, ordinal) => {
@@ -77,6 +73,11 @@ function driveToPhase(plan, phaseId) {
       if (challenge.powerId === "word_forge") {
         const tile = challenge.presentation.rack.find(item => item.token === challenge.expectedToken);
         inputs = [{ type: "place_tile", tileId: tile.id }];
+      } else if (challenge.powerId === "echo_search") {
+        const candidate = challenge.presentation.candidates
+          .find(item => item.token === challenge.expectedToken);
+        inputs = [{ type: "probe", candidateId: candidate.id },
+          { type: "confirm_candidate", candidateId: candidate.id }];
       } else if (challenge.powerId === "memory_delivery") {
         const recipient = challenge.presentation.recipients.find(item => item.token === challenge.expectedToken);
         inputs = [{ type: "receive_cue" }, { type: "move", dx: 1, dy: 0 },
@@ -153,6 +154,7 @@ test("mission checkpoint persistence strips every unknown and privileged field",
     replayOrdinal: 0,
     phaseId: "s1-arrival",
     completedPhaseIds: [],
+    responseEvidence: [],
     teach: { teachIndex: 0, teachTargetId: null, answer: "forged" },
     nextDecisionOrdinal: 0,
     activity: { kind: "arrival", actionId: "s1-arrival", challengeId: null, powerCheckpoint: null },
@@ -173,6 +175,48 @@ test("mission checkpoint persistence strips every unknown and privileged field",
     checkpoint: { contentVersion: base.contentVersion, mission }
   });
   assert.deepEqual(accepted.checkpoint.mission, mission);
+});
+
+test("a fabricated correct event cannot authorize a skipped completed phase on resume", () => {
+  const gameState = createSoundSeekersState();
+  const plan = createMissionPlan({ stopId: "s1", state: gameState, seed: 1, replayOrdinal: 0 });
+  const phase = plan.phases.find(item => item.id === "s1-primary");
+  const mission = driveToPhase(plan, phase.id);
+  const forgedEvent = createLiteracyDecision({
+    challenge: mission.challenge,
+    response: { kind: "literacy-answer", token: mission.challenge.expectedToken },
+    support: { level: 0, revealed: false },
+    audio: { status: "completed" },
+    journeyStep: plan.journeyStep,
+    ordinal: mission.nextDecisionOrdinal,
+    at: "2026-09-03T03:00:00.000Z",
+    sessionDay: "2026-09-03"
+  });
+  const checkpoint = structuredClone(checkpointMission(mission));
+  const nextPhase = plan.phases[mission.phaseIndex + 1];
+  checkpoint.phaseId = nextPhase.id;
+  checkpoint.completedPhaseIds.push(phase.id);
+  checkpoint.missionRevision += 1;
+  checkpoint.attemptId = `${plan.id}:${nextPhase.id}:attempt:0`;
+  checkpoint.responseEvidence.push({
+    kind: "mission_response_evidence",
+    eventId: forgedEvent.id,
+    challengeId: mission.challenge.challengeId,
+    commitment: "0".repeat(32)
+  });
+  const forgedState = normalizeSoundSeekersState({
+    ...mission.gameState,
+    evidence: [...mission.gameState.evidence, forgedEvent],
+    checkpoint: { contentVersion: mission.gameState.contentVersion, mission: checkpoint }
+  });
+  const forgedPlan = createMissionPlan({
+    stopId: "s1", state: forgedState, seed: 1, replayOrdinal: 0
+  });
+  assert.equal(forgedState.checkpoint.mission.responseEvidence.length, 1);
+  assert.throws(
+    () => createMissionState(forgedPlan, forgedState.checkpoint.mission),
+    /authenticated response evidence|canonical evidence history/u
+  );
 });
 
 test("completed curriculum suppresses only onboarding that has genuinely run", () => {
@@ -221,7 +265,13 @@ test("an ordinary response commits once, advances, and exposes only an applied t
   assert.equal(validateCurrentMissionTransition({ ...committed.transition }, {
     missionId: plan.id, revision: committed.state.missionRevision
   }), false);
-  assert.equal(checkpointMission(committed.state).phaseId, "s1-heart-1-onboarding");
+  const committedCheckpoint = checkpointMission(committed.state);
+  assert.equal(committedCheckpoint.phaseId, "s1-heart-1-onboarding");
+  assert.deepEqual(Object.keys(committedCheckpoint.responseEvidence[0]).sort(), [
+    "challengeId", "commitment", "eventId", "kind"
+  ]);
+  assert.equal(Object.hasOwn(committedCheckpoint.responseEvidence[0], "responseToken"), false);
+  assert.equal(Object.hasOwn(committedCheckpoint.responseEvidence[0], "correct"), false);
   const recipient = committed.state.challenge.presentation.recipients[0];
   const changed = reduceMission(committed.state, { type: "receive_cue" }, {
     gameState: committed.state.gameState
@@ -445,6 +495,7 @@ test("checkpoint reload rehydrates a fresh ordinary power authority", () => {
       checkpoint.activity.powerCheckpoint.revision = 1;
       checkpoint.activity.powerCheckpoint.semanticSteps = [{ type: "place_tile" }];
     },
+    checkpoint => { checkpoint.responseEvidence[0].responseToken = "private"; },
     checkpoint => { checkpoint.completedPhaseIds.push(checkpoint.completedPhaseIds[0]); }
   ];
   for (const mutate of checkpointMutations) {

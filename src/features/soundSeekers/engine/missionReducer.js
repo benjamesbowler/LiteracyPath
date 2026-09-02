@@ -81,6 +81,50 @@ function sameValue(left, right) {
   return false;
 }
 
+function responseCommitmentFor(event, challenge, responseToken) {
+  const payload = JSON.stringify({
+    namespace: "sound-seekers-mission-response-v1",
+    eventId: event.id,
+    challengeId: challenge.challengeId,
+    attemptId: challenge.attemptId,
+    targetId: challenge.targetId,
+    domain: challenge.recordsDomain,
+    responseToken,
+    supportLevel: event.supportLevel,
+    cueDelivery: event.cueDelivery,
+    correct: event.correct
+  });
+  const seeds = [0x811c9dc5, 0x9e3779b9, 0x85ebca6b, 0xc2b2ae35];
+  return seeds.map(seed => {
+    let hash = seed;
+    for (let index = 0; index < payload.length; index += 1) {
+      hash ^= payload.charCodeAt(index);
+      hash = Math.imul(hash, 0x01000193);
+      hash ^= hash >>> 13;
+    }
+    return (hash >>> 0).toString(16).padStart(8, "0");
+  }).join("");
+}
+
+function missionResponseEvidence(event, challenge, response) {
+  if (!event || !challenge || response?.kind !== "literacy-answer") return null;
+  return deepFreeze({
+    kind: "mission_response_evidence",
+    eventId: event.id,
+    challengeId: challenge.challengeId,
+    commitment: responseCommitmentFor(event, challenge, response.token)
+  });
+}
+
+function responseEvidenceIsCanonical(records, event, challenge) {
+  const matches = records.filter(record => record.eventId === event.id);
+  if (matches.length !== 1 || matches[0].challengeId !== challenge.challengeId) return false;
+  const responseToken = event.correct ? challenge.expectedToken : event.confusion;
+  const expected = responseToken !== null
+    ? responseCommitmentFor(event, challenge, responseToken) : null;
+  return responseToken !== null && matches[0].commitment === expected;
+}
+
 function createPrivateMissionAuthority() {
   const missionBrands = new WeakSet();
   const currentByMissionId = new Map();
@@ -209,7 +253,9 @@ function createPrivateMissionAuthority() {
     issuedResults.add(result);
     resultMetadata.set(result, {
       status: "issued", missionState: state, missionRevision: state.missionRevision,
-      responseIntents, candidateState, event, correction, finalizedRevision: null,
+      responseIntents, candidateState, event, correction,
+      responseEvidence: missionResponseEvidence(event, context.challenge, responseIntents[0].response),
+      finalizedRevision: null,
       reducerCapability, at: context.at, sessionDay: context.sessionDay,
       audio: structuredClone(context.audio)
     });
@@ -330,7 +376,8 @@ function createPrivateMissionAuthority() {
       throw new Error("mission commit finalization capability is forged or stale");
     }
     const finalizedState = finalize(Object.freeze({
-      candidateState: metadata.candidateState, event: metadata.event, correction: metadata.correction
+      candidateState: metadata.candidateState, event: metadata.event,
+      correction: metadata.correction, responseEvidence: metadata.responseEvidence
     }));
     if (!isCurrentMissionState(finalizedState) || !Number.isInteger(finalizedState.missionRevision)) {
       throw new Error("mission commit result cannot be finalized");
@@ -491,6 +538,7 @@ function deriveOrdinaryResumeCorrection(state, phase) {
       || event.mechanic !== challenge.powerId || event.journeyStep !== state.plan.journeyStep
       || event.audioRequired !== (challenge.requiresAudio !== false)
       || event.evidenceKind !== "practice"
+      || !responseEvidenceIsCanonical(state.responseEvidence, event, challenge)
       || !responseTokens.has(event.confusion)) {
       throw new Error("mission resume correction evidence is incomplete or non-canonical");
     }
@@ -535,7 +583,7 @@ function canonicalChallengeForCompletedPhase(plan, gameState, phase, attemptOrdi
   });
 }
 
-function completedDecisionIsCanonical(plan, gameState, phase) {
+function completedDecisionIsCanonical(plan, gameState, phase, responseEvidence) {
   const prefix = `${plan.id}:${phase.id}:attempt:`;
   const events = gameState.evidence.filter(event => event.id.startsWith(prefix));
   if (!events.length) return false;
@@ -566,6 +614,7 @@ function completedDecisionIsCanonical(plan, gameState, phase) {
       && event.mechanic === challenge.powerId
       && event.journeyStep === plan.journeyStep
       && event.evidenceKind === "practice"
+      && responseEvidenceIsCanonical(responseEvidence, event, challenge)
       && (correct ? event.confusion === null : challenge.optionTokens.includes(event.confusion));
     return valid;
   });
@@ -584,7 +633,7 @@ function completedContentUseIsCanonical(plan, gameState, phase) {
     && use.journeyStep === plan.journeyStep);
 }
 
-function assertCanonicalCompletedPrefix(plan, gameState, phaseIndex, completedPhaseIds, teach) {
+function assertCanonicalCompletedPrefix(plan, gameState, phaseIndex, completedPhaseIds, teach, responseEvidence) {
   const expected = plan.phases.slice(0, phaseIndex);
   if (completedPhaseIds.length !== expected.length
     || completedPhaseIds.some((id, index) => id !== expected[index].id)) {
@@ -599,7 +648,7 @@ function assertCanonicalCompletedPrefix(plan, gameState, phaseIndex, completedPh
   }
   for (const phase of expected) {
     if (["challenge", "content_opportunity"].includes(phase.kind)) {
-      const decisionValid = completedDecisionIsCanonical(plan, gameState, phase);
+      const decisionValid = completedDecisionIsCanonical(plan, gameState, phase, responseEvidence);
       const useValid = phase.contentBinding?.category !== "heartWords"
         || completedContentUseIsCanonical(plan, gameState, phase);
       if (!decisionValid || !useValid) {
@@ -841,10 +890,12 @@ export function createMissionState(plan, resume = null) {
       || resume.journeyStep !== plan.journeyStep) throw new Error("mission resume does not match its plan");
     const phaseIndex = plan.phases.findIndex(phase => phase.id === resume.phaseId);
     if (phaseIndex < 0) throw new Error("mission resume phase is not canonical");
-    assertCanonicalCompletedPrefix(plan, savedState, phaseIndex, resume.completedPhaseIds, resume.teach);
+    assertCanonicalCompletedPrefix(plan, savedState, phaseIndex, resume.completedPhaseIds,
+      resume.teach, resume.responseEvidence);
     const entered = enteredState({
       kind: "sound_seekers_mission_state", plan, phaseIndex,
       completedPhaseIds: [...resume.completedPhaseIds], missionRevision: resume.missionRevision,
+      responseEvidence: resume.responseEvidence,
       attemptOrdinal: resume.attemptOrdinal, attemptId: resume.attemptId,
       nextDecisionOrdinal: resume.nextDecisionOrdinal,
       presentationTransition: null,
@@ -872,6 +923,7 @@ export function createMissionState(plan, resume = null) {
   return brandState(enteredState({
     kind: "sound_seekers_mission_state", plan, phaseIndex: 0,
     completedPhaseIds: [], missionRevision: 0,
+    responseEvidence: [],
     attemptOrdinal: 0, attemptId: `${plan.id}:${plan.phases[0].id}:attempt:0`,
     nextDecisionOrdinal: 0, presentationTransition: null, modelPending: false,
     teachProgress: { teachIndex: 0, teachTargetId: null },
@@ -895,7 +947,8 @@ function finalizeResponseCommit(result, pending, buildOutput) {
 
 function completionFor(state, gameState) {
   assertCanonicalCompletedPrefix(
-    state.plan, gameState, state.plan.phases.length, state.completedPhaseIds, state.teachProgress
+    state.plan, gameState, state.plan.phases.length, state.completedPhaseIds,
+    state.teachProgress, state.responseEvidence
   );
   const completion = deepFreeze({
     kind: "sound_seekers_mission_completion",
@@ -1110,6 +1163,8 @@ export function reduceMission(state, input = {}, context = {}) {
     audio: context.audio
   }, MISSION_COMMIT_CAPABILITY);
   return finalizeResponseCommit(result, pending, metadata => {
+    const responseEvidence = metadata.responseEvidence
+      ? [...pending.responseEvidence, metadata.responseEvidence] : pending.responseEvidence;
     if (phase.kind === "story_transfer") {
     const transactionCheckpoint = metadata.candidateState.checkpoint?.storyTransfer;
     const nextPowerChallenge = transactionCheckpoint?.stage === "response_pending"
@@ -1134,6 +1189,7 @@ export function reduceMission(state, input = {}, context = {}) {
       ? materializeStoryTransferChallenge(metadata.candidateState, pending.activeContent) : pending.challenge;
     const next = brandState({
       ...pending,
+      responseEvidence,
       gameState: metadata.candidateState,
       activity: deepFreeze({
         ...appliedPower,
@@ -1164,6 +1220,7 @@ export function reduceMission(state, input = {}, context = {}) {
     });
     const next = brandState({
       ...pending,
+      responseEvidence,
       gameState: metadata.candidateState,
       nextDecisionOrdinal: pending.nextDecisionOrdinal + 1,
       missionRevision: pending.missionRevision + 1
@@ -1179,6 +1236,7 @@ export function reduceMission(state, input = {}, context = {}) {
     });
     const moved = advance({
       ...pending,
+      responseEvidence,
       nextDecisionOrdinal: pending.nextDecisionOrdinal + 1,
       correctionState: null
     }, { ...context, gameState: metadata.candidateState });
@@ -1221,7 +1279,7 @@ export function reduceMission(state, input = {}, context = {}) {
     }
     if (result.outcome === "model_required") activity = deepFreeze({ ...activity, status: "model_pending" });
     const next = brandState({
-    ...pending, activity, challenge: nextChallenge,
+    ...pending, responseEvidence, activity, challenge: nextChallenge,
     attemptOrdinal: phase.kind === "content_placement"
       ? metadata.candidateState.checkpoint?.contentPlacement?.attemptOrdinal ?? attemptOrdinal : attemptOrdinal,
     attemptId: nextChallenge.attemptId,
@@ -1270,6 +1328,7 @@ export function checkpointMission(state) {
     replayOrdinal: state.plan.replayOrdinal,
     phaseId: state.phaseId,
     completedPhaseIds: state.completedPhaseIds,
+    responseEvidence: state.responseEvidence,
     teach: state.activity?.sequence ? {
       teachIndex: state.activity.sequence.teachIndex,
       teachTargetId: state.activity.sequence.teachTargetId
@@ -1306,7 +1365,8 @@ export function completeMission(gameState, completion) {
     gameState,
     metadata.missionState.plan.phases.length,
     metadata.missionState.completedPhaseIds,
-    metadata.missionState.teachProgress
+    metadata.missionState.teachProgress,
+    metadata.missionState.responseEvidence
   );
   if (gameState !== metadata.gameState) throw new Error("mission completion is bound to another game state");
   const expedition = getExpedition(completion.stopId);
@@ -1416,14 +1476,17 @@ export function projectCurrentMissionSceneModel(missionState, rawAssists = {}, t
   });
 }
 
-export function projectCurrentWordWorkbenchModel(missionState) {
+export function projectCurrentWordWorkbenchModel(missionState, rawAssists = {}) {
   assertCurrent(missionState);
+  const assists = normalizeMotorAssists(rawAssists);
   const phase = missionState.plan.phases[missionState.phaseIndex];
   if (phase?.powerId !== "word_forge" || missionState.activity?.powerId !== "word_forge"
     || missionState.challenge?.powerId !== "word_forge") {
     throw new Error("workbench model requires the exact current Word Forge mission state");
   }
-  const model = SOUND_POWER_REGISTRY.word_forge.view(missionState.activity, missionState.challenge);
+  const model = SOUND_POWER_REGISTRY.word_forge.view(
+    missionState.activity, missionState.challenge, assists
+  );
   workbenchModels.set(model, {
     missionState, powerState: missionState.activity, challenge: missionState.challenge
   });

@@ -24,19 +24,14 @@ import {
   projectWordWorkbenchAccess
 } from "../../src/features/soundSeekers/engine/workbenchAccess.js";
 import { createSoundSeekersAudioController } from "../../src/features/soundSeekers/runtime/soundSeekersAudioController.js";
+import { installSoundSeekersProductionAudioDouble } from "../helpers/soundSeekersProductionAudioDouble.js";
+
+installSoundSeekersProductionAudioDouble();
 
 function completedTeachInput(item, sequence = null) {
   if (!item) return { type: "complete-teach", teachIndex: sequence?.teachIndex,
     targetId: null, audioDeliveries: [] };
-  const controller = createSoundSeekersAudioController({
-    cuePlayer: { playCueAudio(audioKey, options) {
-      void audioKey;
-      for (const [type, at] of [["loading", 1], ["started", 2], ["completed", 3]]) {
-        options.onDelivery({ id: options.cueId, session: 1, type, at });
-      }
-    }, stopCueAudio() {} },
-    music: { duck() {}, restore() {} }, clock: () => 0
-  });
+  const controller = createSoundSeekersAudioController({ clock: () => 0 });
   const audioKeys = [...new Set([item.childAudio, item.targetAudio, ...item.targetAudioSequence,
     ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)].filter(Boolean))];
   const audioDeliveries = audioKeys.map((audioKey, ordinal) => {

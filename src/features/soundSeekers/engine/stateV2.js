@@ -179,9 +179,25 @@ function normalizeJournal(value) {
 const MISSION_KEYS = [
   "schemaVersion", "kind", "contentVersion", "missionId", "stopId", "journeyStep",
   "attemptId", "attemptOrdinal", "missionRevision", "seed", "replayOrdinal", "phaseId",
-  "completedPhaseIds", "teach", "nextDecisionOrdinal", "activity", "activeContent",
+  "completedPhaseIds", "responseEvidence", "teach", "nextDecisionOrdinal", "activity", "activeContent",
   "connectedTextPresentation"
 ];
+
+function canonicalMissionResponseEvidence(raw) {
+  if (!Array.isArray(raw)) return null;
+  const records = raw.map(item => {
+    const value = asObject(item);
+    if (!exactKeys(value, ["kind", "eventId", "challengeId", "commitment"])
+      || value.kind !== "mission_response_evidence"
+      || typeof value.eventId !== "string" || !value.eventId
+      || typeof value.challengeId !== "string" || !value.challengeId
+      || typeof value.commitment !== "string" || !/^[0-9a-f]{32}$/u.test(value.commitment)) return null;
+    return structuredClone(value);
+  });
+  if (records.some(item => item === null)
+    || new Set(records.map(item => item.eventId)).size !== records.length) return null;
+  return records;
+}
 
 function exactKeys(value, keys) {
   return Object.keys(asObject(value)).length === keys.length
@@ -328,13 +344,16 @@ function normalizeMissionCheckpoint(raw) {
     || typeof value.activity.kind !== "string" || !value.activity.kind
     || typeof value.activity.actionId !== "string" || !value.activity.actionId
     || (value.activity.challengeId !== null && (typeof value.activity.challengeId !== "string" || !value.activity.challengeId))) return null;
+  const responseEvidence = canonicalMissionResponseEvidence(value.responseEvidence);
   const powerCheckpoint = canonicalPowerCheckpoint(value.activity.powerCheckpoint);
   const activeContent = canonicalActiveContent(value.activeContent);
   const connectedTextPresentation = canonicalConnectedTextCheckpoint(value.connectedTextPresentation);
-  if (powerCheckpoint === undefined || activeContent === undefined || connectedTextPresentation === undefined) return null;
+  if (responseEvidence === null || powerCheckpoint === undefined
+    || activeContent === undefined || connectedTextPresentation === undefined) return null;
   return {
     ...structuredClone(value),
     completedPhaseIds: uniqueStrings(value.completedPhaseIds),
+    responseEvidence,
     activity: { ...structuredClone(value.activity), powerCheckpoint },
     activeContent,
     connectedTextPresentation

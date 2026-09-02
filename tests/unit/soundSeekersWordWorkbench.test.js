@@ -18,6 +18,9 @@ import {
 import { wordForge } from "../../src/features/soundSeekers/engine/powers/index.js";
 import { normalizeMotorAssists } from "../../src/features/soundSeekers/engine/motorAssists.js";
 import { SOUND_SEEKERS_MEANING_VISUALS } from "../../src/features/soundSeekers/visual/sceneVisualCatalog.js";
+import { installSoundSeekersProductionAudioDouble } from "../helpers/soundSeekersProductionAudioDouble.js";
+
+installSoundSeekersProductionAudioDouble();
 
 let WordWorkbench;
 let MeaningPayoff;
@@ -148,7 +151,7 @@ function render(model, extras = {}) {
   }));
 }
 
-function authorizedWord(word) {
+function authorizedWord(word, assists = {}) {
   const action = SOUND_SEEKERS_EXPEDITIONS.flatMap(expedition => expedition.phases)
     .find(phase => phase.powerId === "word_forge" && phase.wordId === word);
   assert.ok(action, `${word}: no canonical Word Forge action`);
@@ -169,25 +172,18 @@ function authorizedWord(word) {
       const item = mission.activity.sequence.currentItem;
       const audioIds = [...new Set([item.childAudio, item.targetAudio, ...item.targetAudioSequence,
         ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)].filter(Boolean))];
-      const controller = createRuntimeAudioController({
-        cuePlayer: { playCueAudio(audioKey, options) {
-          void audioKey;
-          for (const [type, at] of [["loading", 1], ["started", 2], ["completed", 3]]) {
-            options.onDelivery({ id: options.cueId, session: 1, type, at });
-          }
-        }, stopCueAudio() {} },
-        music: { duck() {}, restore() {} }, clock: () => 0
+      const controller = createRuntimeAudioController({ clock: () => 0 });
+      const audioDeliveries = audioIds.map((audioKey, ordinal) => {
+        controller.request({ cueId: `teach:${item.stopId}:${item.teachIndex}:${item.targetId}:${ordinal}`,
+          audioKey, visibleText: item.childText, spokenText: item.childText,
+          kind: "teach", requiresAudio: true });
+        return controller.getSnapshot().delivery;
       });
       mission = reduceRuntimeMission(mission, {
         type: "complete-teach",
         teachIndex: item.teachIndex,
         targetId: item.targetId,
-        audioDeliveries: audioIds.map((audioKey, ordinal) => {
-          controller.request({ cueId: `teach:${item.stopId}:${item.teachIndex}:${item.targetId}:${ordinal}`,
-            audioKey, visibleText: item.childText, spokenText: item.childText,
-            kind: "teach", requiresAudio: true });
-          return controller.getSnapshot().delivery;
-        })
+        audioDeliveries
       }, { gameState: mission.gameState }).state;
       continue;
     }
@@ -213,7 +209,7 @@ function authorizedWord(word) {
     }
   }
   assert.equal(mission.phaseId, action.id);
-  const model = projectRuntimeWorkbenchModel(mission);
+  const model = projectRuntimeWorkbenchModel(mission, assists);
   const access = issueRuntimeWorkbenchAccess({
     missionState: mission,
     model,
@@ -242,6 +238,24 @@ test("hot, ship, moon, cake, and pop retain authored sound boxes and physical ra
   }
   assert.deepEqual(WORD_FIXTURES.cake.units, ["c", "a_e", "k"]);
   assert.doesNotMatch(render(fixture("cake")), /a_e/u);
+});
+
+test("the authenticated workbench forwards every normalized motor assist into its rendered model", () => {
+  const assistExpectations = {
+    autoTravel: ["travelMode", "automatic"],
+    slowerMovement: ["movementPace", "slower"],
+    noDamageTravel: ["travelConsequence", "protected"],
+    largerTargets: ["targetScale", "large"],
+    simplifiedScene: ["sceneDensity", "simplified"],
+    extendedResponse: ["responsePacing", "extended"]
+  };
+  for (const [assist, [field, expected]] of Object.entries(assistExpectations)) {
+    const { model, access } = authorizedWord("ship", { [assist]: true });
+    assert.equal(model.motor[field], expected, assist);
+    const html = render(model, { access });
+    assert.match(html, /class="ss-workbench"/u, assist);
+    assert.doesNotMatch(html, /expectedToken|PRIVATE|answer/u, assist);
+  }
 });
 
 test("the target cue consumes the exact child-safe meaning reference and fails closed without it", () => {
