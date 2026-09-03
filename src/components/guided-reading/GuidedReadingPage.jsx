@@ -329,6 +329,22 @@ function sentenceParts(text = "") {
   return matches.map(sentence => sentence.trim()).filter(Boolean);
 }
 
+// Word search (teacher library): counts exact, case-insensitive word matches
+// against the same tokenizer used for word-marking, so a search for "read"
+// will not also match "reads" or "already" mid-word.
+function countBookWordMatches(book = {}, terms = []) {
+  const byTerm = Object.fromEntries(terms.map(term => [term, 0]));
+  (book.pages || []).forEach(page => {
+    tokenizeReadingText(page.text || page.pageText || "").forEach(token => {
+      if (token.type !== "word") return;
+      const word = token.token.toLowerCase();
+      if (Object.prototype.hasOwnProperty.call(byTerm, word)) byTerm[word] += 1;
+    });
+  });
+  const total = Object.values(byTerm).reduce((sum, count) => sum + count, 0);
+  return { total, byTerm };
+}
+
 function numberOrNull(value) {
   const number = Number(value);
   return Number.isFinite(number) && number >= 0 ? number : null;
@@ -456,6 +472,11 @@ async function fetchWholeBookSyncData(book = {}, audioPath = "") {
 
 const guidedReadingLevels = ["A", "B", "C", "D", "E", "F"];
 
+function guidedReadingLevelRank(level) {
+  const index = guidedReadingLevels.indexOf(level);
+  return index === -1 ? guidedReadingLevels.length : index;
+}
+
 function getGuidedReadingTypeStats(type, library = getRuntimeGuidedReadingBooks()) {
   const normalizedType = normalizeGuidedReadingType(type);
   const books = library.filter(book => normalizeGuidedReadingType(book.type) === normalizedType);
@@ -517,6 +538,7 @@ export function GuidedReadingPage({
   const [selectedLibraryType, setSelectedLibraryType] = useState("");
   const [selectedLibraryLevel, setSelectedLibraryLevel] = useState("");
   const [selectedLibrarySeries, setSelectedLibrarySeries] = useState("");
+  const [bookSearchQuery, setBookSearchQuery] = useState("");
   const [libraryPage, setLibraryPage] = useState(0);
   const [pageIndex, setPageIndex] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
@@ -780,6 +802,26 @@ export function GuidedReadingPage({
   const visibleLibraryBooks = selectedLibraryType && selectedLibraryLevel
     ? getGuidedReadingLevelBooks(selectedLibraryType, selectedLibraryLevel, runtimeGuidedReadingBooks)
     : [];
+  const bookSearchTerms = useMemo(() => Array.from(new Set(
+    String(bookSearchQuery || "")
+      .toLowerCase()
+      .split(/[,\s]+/)
+      .map(term => term.trim())
+      .filter(Boolean)
+  )), [bookSearchQuery]);
+  const bookWordSearchResults = useMemo(() => {
+    if (!bookSearchTerms.length) return null;
+    return runtimeGuidedReadingBooks
+      .map(book => {
+        const matches = countBookWordMatches(book, bookSearchTerms);
+        return matches.total > 0 ? { book, ...matches } : null;
+      })
+      .filter(Boolean)
+      .sort((a, b) => {
+        const levelDiff = guidedReadingLevelRank(a.book.level) - guidedReadingLevelRank(b.book.level);
+        return levelDiff !== 0 ? levelDiff : a.book.title.localeCompare(b.book.title);
+      });
+  }, [bookSearchTerms, runtimeGuidedReadingBooks]);
   const guidedReadingModeClass = isStudentMode ? "student-guided-reading-page" : "teacher-guided-reading-page";
   const guidedReadingPageClassName = [
     readerOpen ? "guided-reading-page guided-reading-reader-open" : "teacher-product-page guided-reading-page",
@@ -1945,7 +1987,7 @@ export function GuidedReadingPage({
       </section>
       )}
 
-      {!readerOpen && (selectedLibraryType || selectedLibraryLevel || selectedLibrarySeries) && (
+      {!readerOpen && !bookWordSearchResults && (selectedLibraryType || selectedLibraryLevel || selectedLibrarySeries) && (
       <section className="guided-library-breadcrumb" aria-label="Guided reading library path">
         {selectedLibraryType && (
           <>
@@ -1994,7 +2036,32 @@ export function GuidedReadingPage({
       {!readerOpen && (
       <section className="guided-reading-library" aria-label="Guided reading library">
         {!isStudentMode && (
-          <div className="guided-library-logo"><img src="/images/comic/reading-library-logo.webp" alt="Reading Library" /></div>
+          <>
+            <div className="guided-library-logo"><img src="/images/comic/reading-library-logo.webp" alt="Reading Library" /></div>
+            <form
+              className="guided-library-word-search"
+              role="search"
+              aria-label="Search guided reading books by word"
+              onSubmit={event => event.preventDefault()}
+            >
+              <label htmlFor="guided-library-word-search-input">Search books for a word</label>
+              <div className="guided-library-word-search-row">
+                <input
+                  id="guided-library-word-search-input"
+                  type="search"
+                  value={bookSearchQuery}
+                  onChange={event => setBookSearchQuery(event.target.value)}
+                  placeholder="e.g. said, because, friend"
+                />
+                {bookSearchQuery && (
+                  <button type="button" onClick={() => setBookSearchQuery("")}>
+                    Clear
+                  </button>
+                )}
+              </div>
+              <small>Separate more than one word with a comma or a space. Results show every level, easiest first, with how many times each word appears.</small>
+            </form>
+          </>
         )}
         {/* NOT THE CHILD'S FRONT DOOR ANY MORE (phase D, 2026-07-29).
             src/components/StudentBooksPage.jsx is the shelf a child lands on;
@@ -2125,6 +2192,48 @@ export function GuidedReadingPage({
           );
         })()}
         {!isStudentMode && (<>
+        {bookWordSearchResults ? (
+          <div className="guided-word-search-results" aria-label="Word search results">
+            {bookWordSearchResults.length === 0 ? (
+              <p className="guided-word-search-empty">
+                No books contain {bookSearchTerms.map(term => `\u201c${term}\u201d`).join(", ")}. Try a different word.
+              </p>
+            ) : (
+              <div className="guided-book-grid">
+                {bookWordSearchResults.map(({ book, total, byTerm }) => {
+                  const searchLabel = bookSearchTerms.length === 1
+                    ? `\u201c${bookSearchTerms[0]}\u201d \u00d7 ${total}`
+                    : `${total} match${total === 1 ? "" : "es"}`;
+                  const searchTitle = bookSearchTerms.length === 1
+                    ? `\u201c${bookSearchTerms[0]}\u201d appears ${total} time${total === 1 ? "" : "s"}`
+                    : bookSearchTerms.map(term => `${term}: ${byTerm[term] || 0}`).join(", ");
+                  return (
+                    <article
+                      className={book.id === selectedBook.id ? "guided-book-card active" : "guided-book-card"}
+                      key={book.id}
+                    >
+                      <span className="guided-word-search-count" title={searchTitle}>{searchLabel}</span>
+                      <div className="guided-book-cover-wrap">
+                        <GuidedBookCover book={book} />
+                      </div>
+                      <div className="guided-book-info">
+                        <h3 className="guided-book-title">{book.title}</h3>
+                        <p className="guided-book-meta">{book.seriesTitle ? `${book.seriesTitle} \u00b7 ` : ""}{formatGuidedReadingType(book.type)} \u00b7 Level {book.level} \u00b7 {book.pages.length} pages</p>
+                        <button
+                          className="guided-book-action"
+                          onClick={() => changeBook(book.id)}
+                          type="button"
+                        >
+                          Open Book
+                        </button>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        ) : (<>
         {!selectedLibraryType && (
           <div className="guided-category-grid">
             {typeCards.map(card => (
@@ -2212,6 +2321,7 @@ export function GuidedReadingPage({
             })}
           </div>
         )}
+        </>)}
         </>)}
       </section>
       )}
