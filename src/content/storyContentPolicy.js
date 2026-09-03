@@ -52,11 +52,17 @@ export const STORY_CONTENT_LEVELS = Object.freeze({
     maximumWordsPerPage: 14,
     requirement: "A short causal chain, controlled dialogue, visible consequences, and repeated language that supports rather than replaces meaning."
   }),
-  C: Object.freeze({
+  C_STANDARD: Object.freeze({
     audience: "Early readers ready for more varied syntax, vocabulary, punctuation and supported inference; interest age is declared separately",
     maximumTextLines: 3,
     maximumWordsPerPage: 22,
     requirement: "A sustained causal plot, character-motivated choices, richer inference and vocabulary that remain clear from context."
+  }),
+  C_EXTENDED: Object.freeze({
+    audience: "Readers sharing longer, language-richer Level C texts with adult support; interest age is declared separately",
+    maximumTextLines: 5,
+    maximumWordsPerPage: 42,
+    requirement: "A longer read-together layout may carry richer syntax and vocabulary, but must make adult support explicit rather than claim compact Level C print rules."
   })
 });
 

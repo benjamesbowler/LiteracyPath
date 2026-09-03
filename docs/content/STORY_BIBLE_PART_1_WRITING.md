@@ -950,7 +950,7 @@ After any text edit:
 - freeze page order and text before rebuilding dependent media;
 - re-check every changed line against its image;
 - regenerate exact-text narration for every changed page and affected isolated word;
-- refresh questions whose answer or evidence changed;
+- refresh any attached teacher discussion prompt whose answer or evidence changed;
 - refresh text, visual and audio fingerprints only after their reviews pass.
 
 ### Gate 1 — Canon
@@ -1166,6 +1166,6 @@ item cannot be relabelled “not applicable” to avoid revision.
 - [ ] No image contains malformed text, extra limbs, duplicate bodies or faceless living
       characters.
 - [ ] Every page or scene has exact word-for-word narration.
-- [ ] Changed text, questions, images and audio have passed their current release gates.
+- [ ] Changed text, teacher discussion prompts, images and audio have passed their current release gates.
 
 If the final answer is not yes, the book is not finished.

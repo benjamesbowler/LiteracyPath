@@ -1,0 +1,2413 @@
+{
+  "schemaVersion": 1,
+  "collection": "Willow Street Readers",
+  "visualTreatment": "willow-street-illustrated",
+  "generator": {
+    "provenance": "self-created",
+    "mode": "built-in-image_gen-one-call-per-asset"
+  },
+  "castReference": {
+    "path": "/guided-reading/willow-street/_continuity/cast-location-reference.webp",
+    "sha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+    "directReview": {
+      "state": "approved-original-detail",
+      "notes": "Third neutral cast/location candidate approved: seven people, bare-eared Maya, Nani only with small studs, clean-shaven Mr Baptiste, coherent cast, proportions, wardrobe, landmark and drum/sticks."
+    }
+  },
+  "assets": [
+    {
+      "bookId": "willow-street-the-lunchbox-mix-up",
+      "pageNumber": 0,
+      "path": "/guided-reading/willow-street/the-lunchbox-mix-up/cover.webp",
+      "sha256": "aa608fd9a85979eab32719a79e89ecb527f39778abe6b41adfa88dee13c3c490",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "7f71dac370df0b9268f46e987bfa8cda387b351473adcefe7d448b9b1931e37c",
+      "briefSha256": "cd185f21c8341532374bbbdb465c6516e9adb6141feebcf8900ae4cbb4ac2dd7",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "aa608fd9a85979eab32719a79e89ecb527f39778abe6b41adfa88dee13c3c490",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-b9f7973f-6f01-4763-bf85-f4314581d882.png"
+    },
+    {
+      "bookId": "willow-street-the-lunchbox-mix-up",
+      "pageNumber": 1,
+      "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-01.webp",
+      "sha256": "ffa1b7aa28325c1931bb59b68bc2679c6e1397210ea3318aec73ae35afe07852",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "8618411eca22728c2fde9243fe4be83e5f842fbfd1e91b1262b66e441e9a89a0",
+      "briefSha256": "12bb2683224b99593bdee58e485aa81073839668328daa0270dd440461afa421",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "ffa1b7aa28325c1931bb59b68bc2679c6e1397210ea3318aec73ae35afe07852",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-8288e4e9-8fe7-46c5-8b06-393e32369c81.png"
+    },
+    {
+      "bookId": "willow-street-the-lunchbox-mix-up",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-02.webp",
+      "sha256": "58d1aa2bb276d83a38fa2875f249109b313327bd6f8e3c1bb35535fc6cf91116",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "88d6d15da1063d88b12a9c98a5268d72dd04cf713b4707d94da2dd70fdf40bab",
+      "briefSha256": "a64efa2601cb7abccbcbd3fdf878ccb36555b35076ba17aa9dd5efc9af284aaa",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "58d1aa2bb276d83a38fa2875f249109b313327bd6f8e3c1bb35535fc6cf91116",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-5b927096-f422-4fb4-9cd9-ccf7ecef3747.png"
+    },
+    {
+      "bookId": "willow-street-the-lunchbox-mix-up",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-03.webp",
+      "sha256": "6548df25a2d96b1af8e43186bdbd9b4e0f5b81a10e3779f52a9389d04d26a546",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "bb23a11859a5f293b807425c49571fb8ed5b28d23ec5d70e03ef39f2830abab3",
+      "briefSha256": "7991d69af3acf3133cf8462f796390b31802532614bea12993b132b91ba78261",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "6548df25a2d96b1af8e43186bdbd9b4e0f5b81a10e3779f52a9389d04d26a546",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-889c9798-817a-4be5-a901-3f03224e31e3.png"
+    },
+    {
+      "bookId": "willow-street-the-lunchbox-mix-up",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-04.webp",
+      "sha256": "29dc3b7804de2e5c4166e1c76b3219cbdbde523d5ef8be525ac5506aef33d1ea",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "362d8325f228c766ff702795eb36dbdf0dda9cd40bed14c9950ecd99752a53f5",
+      "briefSha256": "f484af47a8a6effedf521d8a480d182be3042773f9db9cbba217cd944f2ac1eb",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "29dc3b7804de2e5c4166e1c76b3219cbdbde523d5ef8be525ac5506aef33d1ea",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-38505bb6-b63f-4d06-b0c4-84dcdcf62f79.png"
+    },
+    {
+      "bookId": "willow-street-the-lunchbox-mix-up",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-05.webp",
+      "sha256": "839dd76f57623f50f6c649937153a95e6197ecf646fcfd91e7a5cffdde596e81",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "bddae8258fcdf95b0089cec87646f1de32e646b325d68f2db28ffc79af7eec33",
+      "briefSha256": "c103c32499b4b5d0cc92ef79d117f8708cc85aff26d88d7d31793c3dfdb52ed8",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "839dd76f57623f50f6c649937153a95e6197ecf646fcfd91e7a5cffdde596e81",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-cbc0da24-640e-40f8-a0a9-ec3353256df1.png"
+    },
+    {
+      "bookId": "willow-street-the-lunchbox-mix-up",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-06.webp",
+      "sha256": "e00e5682698991703620c8a7bc19e7f3310edfc3f353dbf0236c3fd404b78054",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "101bf4d78c558644744bee4f52c989dbdeb5e4ef5f3cadf54358eb0df73ca636",
+      "briefSha256": "1c0688472dfe27487cfa1f586a27d12b98d8f8cbec877020ee940ba8fbd39a65",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "e00e5682698991703620c8a7bc19e7f3310edfc3f353dbf0236c3fd404b78054",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-460b3f79-359f-4a41-8b87-8273736dca66.png"
+    },
+    {
+      "bookId": "willow-street-the-lunchbox-mix-up",
+      "pageNumber": 7,
+      "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-07.webp",
+      "sha256": "19f5c24a5fbc364c477d39255d885d24e6d88687d19cf6d1997d828e198e4ebd",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "16f7b9d71d0bc38f3eac418149aa0c758474d010a297a24925bbdfb2a68a2967",
+      "briefSha256": "72559ddc808f68417b918aa9833a6778b231f8c59f2e3267f0bfdcba25f412c5",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "19f5c24a5fbc364c477d39255d885d24e6d88687d19cf6d1997d828e198e4ebd",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-49017e59-4c74-4190-989c-8ea7acaa2ea0.png"
+    },
+    {
+      "bookId": "willow-street-the-lunchbox-mix-up",
+      "pageNumber": 8,
+      "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-08.webp",
+      "sha256": "29b38c2ce2b0fb9298a9ecc02c1a0f9cff2909fad8c821dce80ff8828ed7d17e",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "69565bbcbf9c964281e13840854ea6f364e03f90c6e71e4813419de652bb55cc",
+      "briefSha256": "ace9f12562c1dd10f7d3e162f86fb0977b2500f943a5b8650d5e01fa106a6457",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "29b38c2ce2b0fb9298a9ecc02c1a0f9cff2909fad8c821dce80ff8828ed7d17e",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-d90562c4-ae66-48e0-a89f-968d1a24e4a6.png"
+    },
+    {
+      "bookId": "willow-street-the-lost-library-book",
+      "pageNumber": 0,
+      "path": "/guided-reading/willow-street/the-lost-library-book/cover.webp",
+      "sha256": "2828a3b94b29dbe6cffb5cc30858410aaa3cd5ee0c325e6881a26a519cbfcafa",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "be032fe238edb44a2a2bec3294ab07b864e2dbbb95ca9b621e4ed3347e8da8e1",
+      "briefSha256": "554fdb701818390e85acdd8a877eb5ada0377a0502fcfc8e15f8fcdea7be513c",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "2828a3b94b29dbe6cffb5cc30858410aaa3cd5ee0c325e6881a26a519cbfcafa",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-5305037c-a46f-4515-b5d1-17bf5347f3a6.png"
+    },
+    {
+      "bookId": "willow-street-the-lost-library-book",
+      "pageNumber": 1,
+      "path": "/guided-reading/willow-street/the-lost-library-book/page-01.webp",
+      "sha256": "85637a88012c921b51e9a6852b16f201031e6394d164747647c09a52efcf29d4",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "1e51d83fad4672a1206655bea16449110a9d499c92146598d401c389570bb991",
+      "briefSha256": "e971641fc8a3cebd927f089396bf366106ef3d987c93fbd2b5bff02b26fe2d69",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "85637a88012c921b51e9a6852b16f201031e6394d164747647c09a52efcf29d4",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-6bbe9d3b-a7c6-4828-921c-ede791b80d26.png"
+    },
+    {
+      "bookId": "willow-street-the-lost-library-book",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/the-lost-library-book/page-02.webp",
+      "sha256": "a328d47b823d8f5e9ed65cddd87878b27313fce3cd2ad83389c5b5559ca17395",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "7870588b93b0ea588eb3113fc959bfdd4f7fe7035759c45a3ca83d223e4ae9bf",
+      "briefSha256": "857430658b9400a3d02fed5c7629aa380f76088cb7600bb480955f4d63d2c7b0",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "a328d47b823d8f5e9ed65cddd87878b27313fce3cd2ad83389c5b5559ca17395",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-d37d3e8f-89d9-487b-aef4-112e7f8a0ced.png"
+    },
+    {
+      "bookId": "willow-street-the-lost-library-book",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/the-lost-library-book/page-03.webp",
+      "sha256": "cea73446eeb6ceb3137d5c8865d92a75c0e3a6d36902e5d8ba1fa44f2ff474ad",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "f807422b7bcaf4c6760a0383be59343aebee64279f901ea996479d06c0568c8e",
+      "briefSha256": "b0422d5d3666347c6987188fe0dee79e5beabefdba84a2bfc6199ff258b6888c",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "cea73446eeb6ceb3137d5c8865d92a75c0e3a6d36902e5d8ba1fa44f2ff474ad",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-fcd67b70-5a0d-4dde-9559-fd96368ad258.png"
+    },
+    {
+      "bookId": "willow-street-the-lost-library-book",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/the-lost-library-book/page-04.webp",
+      "sha256": "24432d886260a6614b2ec7c61e3a101e75ab544c655889f131df8654f6108b83",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "bbbdd65825a4a692b91343e975b90f1169965ae4f2a1c99953302579eae35831",
+      "briefSha256": "754b7d764031e878e8c1afe1ea548c24467e30b1ee92322582ba09b746d4861c",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "24432d886260a6614b2ec7c61e3a101e75ab544c655889f131df8654f6108b83",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-9128f330-c70a-4fa0-aac5-892d6a39acce.png"
+    },
+    {
+      "bookId": "willow-street-the-lost-library-book",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/the-lost-library-book/page-05.webp",
+      "sha256": "72c8d5a4fe2e7739a41f25bb2f73db4dc5370bc39c9b5da875ac5b23f9c4621d",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "97bf8c570e9261b323ece789072a593ebddecc53c6d08070f42a45d33a9d6d28",
+      "briefSha256": "fc863b13a0fa33be73cdb4a3554260d422182a40d352841f98ef04f244057bce",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "72c8d5a4fe2e7739a41f25bb2f73db4dc5370bc39c9b5da875ac5b23f9c4621d",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-d17f7d83-c48a-4acd-9555-fe011cbd5786.png"
+    },
+    {
+      "bookId": "willow-street-the-lost-library-book",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/the-lost-library-book/page-06.webp",
+      "sha256": "79ad2754b45f896437576188994462bedfe0b328dfad1c8aac686134b8156f2b",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "40ae76d4818f2c151912b58ba4eea0c43fcef29d770ecb0a05974da6aaed7dac",
+      "briefSha256": "6343693641559dbc8aeee9c61fa3caa08d3de885e825f1e9de8d2513954083db",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "79ad2754b45f896437576188994462bedfe0b328dfad1c8aac686134b8156f2b",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-ee0c219e-c636-4908-99cc-f01ccf520aed.png"
+    },
+    {
+      "bookId": "willow-street-the-lost-library-book",
+      "pageNumber": 7,
+      "path": "/guided-reading/willow-street/the-lost-library-book/page-07.webp",
+      "sha256": "35208644107d7715bff96417010d662ab8ab24b12757b8b9a6fecd8fa3f594f0",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "4c70065a4cf557f79ad8bb90a8f61da393c53803e6ecea534d48beeefe9d279c",
+      "briefSha256": "4c556e66ab4b693be576280b29f6ff62dffbc838d7f8ee44b0327e91593449f7",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "35208644107d7715bff96417010d662ab8ab24b12757b8b9a6fecd8fa3f594f0",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-b8e33ec8-f20e-4fed-9b6f-eae9b96e102f.png"
+    },
+    {
+      "bookId": "willow-street-the-lost-library-book",
+      "pageNumber": 8,
+      "path": "/guided-reading/willow-street/the-lost-library-book/page-08.webp",
+      "sha256": "6b32cf2bde9855890494244e7fc156ff53dc5feef6d240315ad8f29a0d44c86f",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "c95a5ab23adfb6f5c8371875100fbee5a950c38deee6a4a336ba5e02b94c2ec5",
+      "briefSha256": "3ded4d964c1cba0d583eb68ae380bfad4bf1806612e25dd742970fd69538c1b0",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "6b32cf2bde9855890494244e7fc156ff53dc5feef6d240315ad8f29a0d44c86f",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-29869fde-b614-4da3-b412-5705bf77a3c5.png"
+    },
+    {
+      "bookId": "willow-street-the-windy-picnic",
+      "pageNumber": 0,
+      "path": "/guided-reading/willow-street/the-windy-picnic/cover.webp",
+      "sha256": "a21c04e54df9d4532b665c9ed248ddb9f064bc804e999f6107757ea32fc7c723",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "463be179fb9c59b23da19b2035086496702e2df1794b2504f08a51f982f02a53",
+      "briefSha256": "69c09a31d6bb3f38a7dc02cd6be914d08ba9a49bd6b857099618558b455224c3",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "a21c04e54df9d4532b665c9ed248ddb9f064bc804e999f6107757ea32fc7c723",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-5876fd0d-b147-45e5-9e7f-8fab15a63b4e.png"
+    },
+    {
+      "bookId": "willow-street-the-windy-picnic",
+      "pageNumber": 1,
+      "path": "/guided-reading/willow-street/the-windy-picnic/page-01.webp",
+      "sha256": "ca01509c7d64bd04451a8c8914d8bf10cdfd99f5af42c7640ac740266d5a22f5",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "74dc446a34146352e9899fcf736b100c88381b2bbaf751ec928472caabb1a893",
+      "briefSha256": "326d3bfa69db70e50a158b86fbf2cab5c962cf3091a26e17d141edd76d297e2e",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "ca01509c7d64bd04451a8c8914d8bf10cdfd99f5af42c7640ac740266d5a22f5",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-5d7a485a-50c8-4dbf-b185-d31746b6a951.png"
+    },
+    {
+      "bookId": "willow-street-the-windy-picnic",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/the-windy-picnic/page-02.webp",
+      "sha256": "df2bb6039a940edd2b3875bae65719a19aa473d657283fefd023bfdada0ce431",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "528a428e3094cc204743060b85ed461b32028ad32301e7944e126622975c9e31",
+      "briefSha256": "6dfe87786b6ef01cc9c28c0acb6b40cf89c65a757c32544ee61a2c688fbddb00",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "df2bb6039a940edd2b3875bae65719a19aa473d657283fefd023bfdada0ce431",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-7762d500-a5ac-477a-b27f-d5da8c3a1aac.png"
+    },
+    {
+      "bookId": "willow-street-the-windy-picnic",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/the-windy-picnic/page-03.webp",
+      "sha256": "cd033afed79bb349adef559df2c70957c3ee68d62d2e0ba93cf14310eac2839e",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "894459c54c761001fa156ec42c02deb8e7cc677cdaaa81e3be68888fd92d1c95",
+      "briefSha256": "185f70fef40a507dc4a3759d06c01d9da0c6f5eade99199a202d33ba6f696a4a",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "cd033afed79bb349adef559df2c70957c3ee68d62d2e0ba93cf14310eac2839e",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-c7177444-f753-45e6-870e-51dfd5577265.png"
+    },
+    {
+      "bookId": "willow-street-the-windy-picnic",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/the-windy-picnic/page-04.webp",
+      "sha256": "9e965909417799b74a747b1f29ddfdf3ec7e62258a8319e19e77cab959217b9c",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "c4cbeeee115b63a66e8e4c25ca8934ad4ec7953c5d6624259e9904bcd4fc8131",
+      "briefSha256": "32f027a9c931af3394e8ddb615118d68050c2d94cab30821cd3915a6a03825e4",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "9e965909417799b74a747b1f29ddfdf3ec7e62258a8319e19e77cab959217b9c",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-670b56da-1204-4477-849c-99772ca453ab.png"
+    },
+    {
+      "bookId": "willow-street-the-windy-picnic",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/the-windy-picnic/page-05.webp",
+      "sha256": "3365465c161f0be335c802d2275824e286892efb3601044de6344b496a06ddb0",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "0a50638140b588efcf1db242669fa4cb04245cd19a466ae275361b99d8c954fc",
+      "briefSha256": "a1742748e1e351a31d914c0601bb4fdd366916a3205b1cc58c60bb5d46ba3f4b",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "3365465c161f0be335c802d2275824e286892efb3601044de6344b496a06ddb0",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-ff0446f8-af5e-4394-a6d9-001a98db5343.png"
+    },
+    {
+      "bookId": "willow-street-the-windy-picnic",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/the-windy-picnic/page-06.webp",
+      "sha256": "4710e312dc96c0cf6e3d6d6e9e1d673132745cf79f098b7850b57d054d30ac57",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "74bd80d82bd071f72bb0ffc8ddc09b1482e0a04f6de6b4f6582896d3495cdcb3",
+      "briefSha256": "bf0a0bc783849845659f75c2f000594ad0f9f0e1455b263a4fb6666b037519f3",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "4710e312dc96c0cf6e3d6d6e9e1d673132745cf79f098b7850b57d054d30ac57",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-66c28a50-e650-4cca-a955-be90b44ec3ea.png"
+    },
+    {
+      "bookId": "willow-street-the-windy-picnic",
+      "pageNumber": 7,
+      "path": "/guided-reading/willow-street/the-windy-picnic/page-07.webp",
+      "sha256": "70dd4b69fbf53aa089f071d495b4857799c1d43f32c61d0dd7e67d610f7dc6bb",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "5ae4dcbfee189f4abf1be84274b9647eb8d2b358d7d1b9d134a84cad52c62ed0",
+      "briefSha256": "eec56f1625d1ad7204ba5e0825be3756a1729b7efef18f0e046251cea188dccd",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "70dd4b69fbf53aa089f071d495b4857799c1d43f32c61d0dd7e67d610f7dc6bb",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-2532345b-e4a7-45fb-bf17-95ea33df9368.png"
+    },
+    {
+      "bookId": "willow-street-the-windy-picnic",
+      "pageNumber": 8,
+      "path": "/guided-reading/willow-street/the-windy-picnic/page-08.webp",
+      "sha256": "3eea3995675472ca6d02fea1f7b926bd04cf63a7a4dc5026e68eb9a5f42575bf",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "e80e9420553d0ef5cd6d2a65dfb59cb8821819e97211e1838a537841a473355c",
+      "briefSha256": "ce5288661b5400d12c809ab5ef7e0819cdab384a24942b33e0c4026a6326c023",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "3eea3995675472ca6d02fea1f7b926bd04cf63a7a4dc5026e68eb9a5f42575bf",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-211d1007-672d-45f7-9f49-185be5055376.png"
+    },
+    {
+      "bookId": "willow-street-the-puddle-plan",
+      "pageNumber": 0,
+      "path": "/guided-reading/willow-street/the-puddle-plan/cover.webp",
+      "sha256": "b7e38edf20dc009e4a485eff733199403db4a86e73b16f18a6af27cf3cedf18c",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "573a534c346ded17cc40fbc9cc03070d34617a26acf42a0e990e052113f4c637",
+      "briefSha256": "5ebe95965ccf3fd6e115ad7fd1f082373a8192ae423f17f4e1c5efe8e2a7a72f",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "b7e38edf20dc009e4a485eff733199403db4a86e73b16f18a6af27cf3cedf18c",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-26be7c5f-718d-4adf-8624-4a57581a1ddf.png"
+    },
+    {
+      "bookId": "willow-street-the-puddle-plan",
+      "pageNumber": 1,
+      "path": "/guided-reading/willow-street/the-puddle-plan/page-01.webp",
+      "sha256": "e33b490894ae70696a2bf2c68f0469b91b5239b31e53d0f295f7c7163817f61e",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "645b34a57de63feeef99046474fcebb2eff34a0f4d3b97af043dfdc59d7be84f",
+      "briefSha256": "352f1b2c9f455caf8391c131632400517f2834f4c3b76366c50afa91f20135d5",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "e33b490894ae70696a2bf2c68f0469b91b5239b31e53d0f295f7c7163817f61e",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-1b44fa99-3ec5-4b6e-bd13-34fdf15ae210.png"
+    },
+    {
+      "bookId": "willow-street-the-puddle-plan",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/the-puddle-plan/page-02.webp",
+      "sha256": "c3a8f8b938edbd1740130046feff9008ae253604ccddd86ea63ae849e2cc2667",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "d93862668010f202879cc4a94548b731c1252f668bd10a5bb4542cee1718ef73",
+      "briefSha256": "7e432cf9f31fecf60e80a187d5e20d62ae744bd1aedfad90653f5977144252dc",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "c3a8f8b938edbd1740130046feff9008ae253604ccddd86ea63ae849e2cc2667",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-7ea7625d-30ff-4736-b0a1-d85ff0adea12.png"
+    },
+    {
+      "bookId": "willow-street-the-puddle-plan",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/the-puddle-plan/page-03.webp",
+      "sha256": "14041a1c5a1695b74e01abbbef633feb480516d64c2e4e43c0ceadb92e4d31c6",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "3f51df5e3084b11be073dc9eb9df98495ffb0df79fb598faf806d62e2ea7db1f",
+      "briefSha256": "fac3c25bd5b0ff96e2673f9af573d6b2da1db93f43be01eccb9e4d2c96bfbe2a",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "14041a1c5a1695b74e01abbbef633feb480516d64c2e4e43c0ceadb92e4d31c6",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-96008808-84d9-4885-97d9-88687f223984.png"
+    },
+    {
+      "bookId": "willow-street-the-puddle-plan",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/the-puddle-plan/page-04.webp",
+      "sha256": "84e45a022bfd579719979dec8daaf6903f808e580950f1fa98a0f577d2e8ebea",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "befbb1977b9379d799ed237e01bdc417ab06f9de5c03298f61a8ca35810ea6e9",
+      "briefSha256": "3c232790ed42f0276c9f0ad7cec1c3a92c51d9c226998173c521328e7c7d2c8b",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "84e45a022bfd579719979dec8daaf6903f808e580950f1fa98a0f577d2e8ebea",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-0f76ad8f-c263-4b86-b51c-cb83d0031552.png"
+    },
+    {
+      "bookId": "willow-street-the-puddle-plan",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/the-puddle-plan/page-05.webp",
+      "sha256": "9ab0b63e3ecacf282510175974d24f588ce0a1df73e415378265a05378489f8f",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "013268e1be479f76c70d17d3cf9b672230db750a22522e8d59f1d6d7834eb169",
+      "briefSha256": "ffcb6eebade81d222cff0fe8a07028508210cd1d575883ec3a9adc8342a68ae0",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "9ab0b63e3ecacf282510175974d24f588ce0a1df73e415378265a05378489f8f",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-676476b7-ceaa-4358-ad32-63914f83e20a.png"
+    },
+    {
+      "bookId": "willow-street-the-puddle-plan",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/the-puddle-plan/page-06.webp",
+      "sha256": "c185b3239443ed15bcc80a9df04c4d6cafd2b741c078e2ddc02418fe871d7c40",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "0cba84534a80a325e6089d2445a96f50ce6fceda503b0de9472f7903a82646de",
+      "briefSha256": "312a4ca39cb2f2f1f4023c0a8cc5ae8eea0c8a73f8240ab48a6bdf9077ba2ae2",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "c185b3239443ed15bcc80a9df04c4d6cafd2b741c078e2ddc02418fe871d7c40",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-e9560242-8464-4842-a595-6336febf25dd.png"
+    },
+    {
+      "bookId": "willow-street-the-puddle-plan",
+      "pageNumber": 7,
+      "path": "/guided-reading/willow-street/the-puddle-plan/page-07.webp",
+      "sha256": "a41808da559364997384aa61a1c7348868992fa400d419ab6bcbaaee098efc8d",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "e5bc9e723b29fc438a8bae0a441c84009a768501f91d8b63b4676bcf69bc6792",
+      "briefSha256": "209a1403edf0bbc82df7af81439a4c225f8433ce7752529cfd23ed0dc4faf78e",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "a41808da559364997384aa61a1c7348868992fa400d419ab6bcbaaee098efc8d",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-d904bc00-da60-4f2f-9fca-ac9f22ab22ba.png"
+    },
+    {
+      "bookId": "willow-street-the-puddle-plan",
+      "pageNumber": 8,
+      "path": "/guided-reading/willow-street/the-puddle-plan/page-08.webp",
+      "sha256": "b21720c2d034d1c71954193e088ccf97ce079f2a7bd939a0bc30de7e5354ab8c",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "0d1c574861d4c40dddb17acd9d0f973ec78c646aea401e8b04e8fc89b2ba34e4",
+      "briefSha256": "4f1eeae76c24f8810d0fe7226daffb39bb1874e6e97fcbd4b9f153acb19abd29",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "b21720c2d034d1c71954193e088ccf97ce079f2a7bd939a0bc30de7e5354ab8c",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-af65ea0e-3d8e-409f-ab73-ac467b81e4df.png"
+    },
+    {
+      "bookId": "willow-street-the-squeaky-wheel",
+      "pageNumber": 0,
+      "path": "/guided-reading/willow-street/the-squeaky-wheel/cover.webp",
+      "sha256": "465bfbd7d6e15824c75ddabe77c450e1696f294dfa40163f0de92ed5aa214233",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "1d1f70ec7029c5e36d06a1385d282400e3a7366c9f7cc7c8eef793c59009f769",
+      "briefSha256": "2790476cf783bbf6be016e6e417728ee59d929275ff6e77bb3c71a709c075464",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "465bfbd7d6e15824c75ddabe77c450e1696f294dfa40163f0de92ed5aa214233",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-df6195d4-a058-4f60-a53a-62e5997f2e4d.png"
+    },
+    {
+      "bookId": "willow-street-the-squeaky-wheel",
+      "pageNumber": 1,
+      "path": "/guided-reading/willow-street/the-squeaky-wheel/page-01.webp",
+      "sha256": "ee0b17c0fc674e5dc60602b7a12553a939d97389b55594e60b7c212d215aea75",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "44775c1c82f5d30264ddb96ce24531b6904a7929092252ef4cabba9706fd1a4a",
+      "briefSha256": "84216332ae66f5bea5f0371948d191e7d0ce6fd9bbdfd012975f2d7f95934b56",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "ee0b17c0fc674e5dc60602b7a12553a939d97389b55594e60b7c212d215aea75",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-864dea2a-9520-4731-8061-802a448e73b0.png"
+    },
+    {
+      "bookId": "willow-street-the-squeaky-wheel",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/the-squeaky-wheel/page-02.webp",
+      "sha256": "af39bc2a5c295504e5166be2334d9989ae9d8d1c8733c588b806f29d5ecacf55",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "a22b8bad36afb07d401138d236fb39a2bf6de291a01c81e4d37eef80eaf2ad9c",
+      "briefSha256": "caa70ee3d381e0e73a5b55e6b21f26fd6f1feae5b872b90f60d2acfdb530bd97",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "af39bc2a5c295504e5166be2334d9989ae9d8d1c8733c588b806f29d5ecacf55",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-4b73805a-bfe5-4df3-949e-87debead775a.png"
+    },
+    {
+      "bookId": "willow-street-the-squeaky-wheel",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/the-squeaky-wheel/page-03.webp",
+      "sha256": "330301cc4c59d808f7aa2f0267e709615821d2fa787ceb016f156230d5287545",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "f7aaf085665e57eaefe4221d115142b50e3caadee8e37ef1b03370cddcfefa99",
+      "briefSha256": "1c4b4233956780dbd25135ff48de608274d60ebae1f2d79ae1bc2a624cbc066d",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "330301cc4c59d808f7aa2f0267e709615821d2fa787ceb016f156230d5287545",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-8e885e51-c8c8-4920-b3d1-227d5cbb9c7f.png"
+    },
+    {
+      "bookId": "willow-street-the-squeaky-wheel",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/the-squeaky-wheel/page-04.webp",
+      "sha256": "f1e8048fd27427991aa079a5aa8842252e1167a9876c7d01493edff52e2f2688",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "79734ed4f160881ea777ee8d4f0a84123e88f46b50c097641c7cf8e892ebee28",
+      "briefSha256": "c1c70a00a7a410f223a5f0a294d302381422c826bce932a32a33302326fbaa5f",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "f1e8048fd27427991aa079a5aa8842252e1167a9876c7d01493edff52e2f2688",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-055f42b7-361d-4a8f-ad33-32e6ec95ceef.png"
+    },
+    {
+      "bookId": "willow-street-the-squeaky-wheel",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/the-squeaky-wheel/page-05.webp",
+      "sha256": "fdc07cdcc5be582c001473aa148ed6c93a5ead038aa4bf72e7cc47bbdbcdee89",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "0f7ac3044070e5c17433d91546177384c6450dff672715878d361a1ce22713c6",
+      "briefSha256": "bcea2445a6ca5d2d8a0b4ad83141b781848f181bd0ba1822298661bf5cd59576",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "fdc07cdcc5be582c001473aa148ed6c93a5ead038aa4bf72e7cc47bbdbcdee89",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-46839e69-94c5-4434-b310-7f29c89daa83.png"
+    },
+    {
+      "bookId": "willow-street-the-squeaky-wheel",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/the-squeaky-wheel/page-06.webp",
+      "sha256": "c4c910a752171c7be69128e3112fc44340fbb78af35647082f92c2f1543d7844",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "d5155404c2bbd6d9ab2b5749b6e013407d9a071e6c3e9823c32d13e7724be91f",
+      "briefSha256": "ab0a9164c67ef565ecaf9c7319aff2b7b8c109bab358d78fd86b1703effd447b",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "c4c910a752171c7be69128e3112fc44340fbb78af35647082f92c2f1543d7844",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-d51477c2-2593-48b7-bebd-b71e2d309576.png"
+    },
+    {
+      "bookId": "willow-street-the-squeaky-wheel",
+      "pageNumber": 7,
+      "path": "/guided-reading/willow-street/the-squeaky-wheel/page-07.webp",
+      "sha256": "f41688241e046c5bcb4c0f2d1d03217980d008ac9e9a10bcfbba80593ecdb7a3",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "4f95dcf08999081813c9704c501eb7fe90553a9e7f946acc7958737b3599e226",
+      "briefSha256": "c0e0d1c90784983c0ab9b6078c2c1ec43c166025158cd226a08ff10696e197da",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "f41688241e046c5bcb4c0f2d1d03217980d008ac9e9a10bcfbba80593ecdb7a3",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-a6c193e5-08b8-4f42-b331-843bd5680e62.png"
+    },
+    {
+      "bookId": "willow-street-the-squeaky-wheel",
+      "pageNumber": 8,
+      "path": "/guided-reading/willow-street/the-squeaky-wheel/page-08.webp",
+      "sha256": "f83405eec470366d42de334899192fbd77a82ea3cae04b76d69d7043915d956a",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "b0735bb163db82eb63b1fe1c9ce31b38720e241cfdb9d5db35d0d18522d320ee",
+      "briefSha256": "32495ef9fa49078d0ee5f1e6634ce80dad785e859d580e53ff204e81c5914d2a",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "f83405eec470366d42de334899192fbd77a82ea3cae04b76d69d7043915d956a",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-fdf76d0f-5fd1-422e-b9a5-437eafd151da.png"
+    },
+    {
+      "bookId": "willow-street-the-garden-gate",
+      "pageNumber": 0,
+      "path": "/guided-reading/willow-street/the-garden-gate/cover.webp",
+      "sha256": "43b0239805d18ed870567bcb2f30a8d75fb93b8668a161c0775eb1dc2953faae",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "0d5eb77c49dd261ed108867f132653af6245dd59adee23ce4097681733b74d54",
+      "briefSha256": "28567399bd4f4341d75010911d3485d57afb7c1ff5ae115147c4cd65c4a46ea0",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "43b0239805d18ed870567bcb2f30a8d75fb93b8668a161c0775eb1dc2953faae",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-9880b9d5-2b0c-420e-ad24-73862ff96c12.png"
+    },
+    {
+      "bookId": "willow-street-the-garden-gate",
+      "pageNumber": 1,
+      "path": "/guided-reading/willow-street/the-garden-gate/page-01.webp",
+      "sha256": "39bd6f7edb5730a788807ddc362df7bc1797659d1d58d954d2929619fd133a4b",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "792c199c6ddc73b97d0ee7072a2a601a997d6c2b9daf0da3d5fde51f88fea65b",
+      "briefSha256": "4a1546346edd0bd16faf95652f661c2551c4a40f69380bf8a1fbd0e4154b60a9",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "39bd6f7edb5730a788807ddc362df7bc1797659d1d58d954d2929619fd133a4b",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-ba4599ff-d85f-4dc6-bed0-4c52cb91afff.png"
+    },
+    {
+      "bookId": "willow-street-the-garden-gate",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/the-garden-gate/page-02.webp",
+      "sha256": "0c6133f15ee14bc0190cd370b77e01463f42bc5069c7cc7da3b5c2d2a0d45b05",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "9161db0453daa3affdb3ee0d73770de47ff010e2904068ea0a33c7effb7ebf43",
+      "briefSha256": "0bac7fb71d04682934c7f151d09e8935f45c8985946e75cfc9feb8ea5743470d",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "0c6133f15ee14bc0190cd370b77e01463f42bc5069c7cc7da3b5c2d2a0d45b05",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-d9c51622-c3cd-4a52-86d0-3ce8cfe36ffd.png"
+    },
+    {
+      "bookId": "willow-street-the-garden-gate",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/the-garden-gate/page-03.webp",
+      "sha256": "cf84f47abf33cc254142fdb2cb4f91270f6054407abe35fb2677575afa29e0bd",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "51f81952547acacd4b99cdd7f9c69726fef3e9163997586ad228ea780ef02119",
+      "briefSha256": "d45eda23220aa652c11274b7d813e4fb4035e6ef7182a058c10d340f82c8494e",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "cf84f47abf33cc254142fdb2cb4f91270f6054407abe35fb2677575afa29e0bd",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-599435da-7a66-4c9f-8877-4818004a24ba.png"
+    },
+    {
+      "bookId": "willow-street-the-garden-gate",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/the-garden-gate/page-04.webp",
+      "sha256": "7fcec0d81fcfc6090e9b9922cbec6503730abffa227fe30ab18f8cd14006f0d7",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "d1e83dda5aafc817b8ea6cf3efdc5d25326e08791d789e9217bdb472ace995b3",
+      "briefSha256": "543807f9e0991cfe757e9eeeeceea71115a35da7c04e5da31eb6e46c4d764031",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "7fcec0d81fcfc6090e9b9922cbec6503730abffa227fe30ab18f8cd14006f0d7",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-62c3499e-6f8d-427d-9e85-22f284993d30.png"
+    },
+    {
+      "bookId": "willow-street-the-garden-gate",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/the-garden-gate/page-05.webp",
+      "sha256": "19d0f0cb0aaa6e7e1c349f277ba2c4f124055d31878279c1c1690cea18f29de5",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "13d719488f41e1eee727aaa9927cbdd1a658f773a1e37bd9623b9097a02c13bc",
+      "briefSha256": "30bdf4441afced166b1d7964b29604372bffb8d6e53fe6371c3dd381fe10e578",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "19d0f0cb0aaa6e7e1c349f277ba2c4f124055d31878279c1c1690cea18f29de5",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-a0e9610f-14f2-479e-934e-0b3e761a17bf.png"
+    },
+    {
+      "bookId": "willow-street-the-garden-gate",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/the-garden-gate/page-06.webp",
+      "sha256": "79fda2ff09cd47c75f93c8c19f8b4b1348f9ce05fadceee6b9cb2cd565c407cb",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "150e1841f7d3dc81e5bbaab47d9428d58d21c074aae3a0f43fb04423e48c15fd",
+      "briefSha256": "00ac7b7b9b6fc8d0ce10d1cf26144e01017a161b460eb86a512d6356af34ca17",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "79fda2ff09cd47c75f93c8c19f8b4b1348f9ce05fadceee6b9cb2cd565c407cb",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-b4a62c7b-25e5-4f2c-8223-fe0af3e8bf08.png"
+    },
+    {
+      "bookId": "willow-street-the-garden-gate",
+      "pageNumber": 7,
+      "path": "/guided-reading/willow-street/the-garden-gate/page-07.webp",
+      "sha256": "2308a901370db1a54f76a7cf7d84824c459b638ae1f96980e2f3e4c5e66b4d67",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "ffdc5f3cb6aa72110311b1448afbe59c1b780a5b307806703621c26e8da00014",
+      "briefSha256": "819098b4e7a2dde05448b541ba76dc20c6c56bcb5c0c9c09b9fdade846128df2",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "2308a901370db1a54f76a7cf7d84824c459b638ae1f96980e2f3e4c5e66b4d67",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-aef2330b-4a0d-4617-b571-fa936b6259a9.png"
+    },
+    {
+      "bookId": "willow-street-the-garden-gate",
+      "pageNumber": 8,
+      "path": "/guided-reading/willow-street/the-garden-gate/page-08.webp",
+      "sha256": "28f10348ece3b1ebbf7ad63f6fb93f43fd019c58bf3711a5a34522765dfba3c0",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "7bf75ce99294914321117fcd3b566827abfb6d22c2a2db1dffaa1935ee821ada",
+      "briefSha256": "8b8b57b5f104afc305e0f0cffd36e8d1d56899d7df1ed5ac8fe5df533d87641b",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "28f10348ece3b1ebbf7ad63f6fb93f43fd019c58bf3711a5a34522765dfba3c0",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-0508db7f-8fac-4609-ac28-4a939ec0b187.png"
+    },
+    {
+      "bookId": "willow-street-nanis-chapati-lunch",
+      "pageNumber": 0,
+      "path": "/guided-reading/willow-street/nanis-chapati-lunch/cover.webp",
+      "sha256": "27c6f347431fe393d5dfd6ff5ed97f9dd6357d6c66cd9ef7cc1c0015cf02cf37",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "899cce5625fe63bf6f1b332454a732a89b9daa8e01f30d386e167929db61b905",
+      "briefSha256": "34c4ad3fb0c05a525a8c90c3d7ead4a11e3bff889452d31cf78bc48b89304e58",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "27c6f347431fe393d5dfd6ff5ed97f9dd6357d6c66cd9ef7cc1c0015cf02cf37",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-714c691e-6c5c-4994-82af-c8bf210b80c9.png"
+    },
+    {
+      "bookId": "willow-street-nanis-chapati-lunch",
+      "pageNumber": 1,
+      "path": "/guided-reading/willow-street/nanis-chapati-lunch/page-01.webp",
+      "sha256": "2687d8b5bb12be6b17fa21df1f5e63305cf4bd0a091020cc64c99f535ef8e53c",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "a52923b555b8c8d1bf54119ac457f7e239be566069fa4e19ff6a0faac104c0dd",
+      "briefSha256": "4eac085c16b788c3e3b8be0e2c62ba9a9f473dba28978e9cb8f35bacb5b35a25",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "2687d8b5bb12be6b17fa21df1f5e63305cf4bd0a091020cc64c99f535ef8e53c",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-df7b89b2-cfad-4c4b-9297-17ad08047d08.png"
+    },
+    {
+      "bookId": "willow-street-nanis-chapati-lunch",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/nanis-chapati-lunch/page-02.webp",
+      "sha256": "54dc7e9dc53a8bcde24f0fd76e5b82392e5c128f763c92e0fad2553711196cfa",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "a0f476ed06f3a6929833913bb7c9103ed70371c8799cf05ce5bd6da2f6d1a107",
+      "briefSha256": "738c63890944d0c0f2bc0424c2cce9c452f5b6cd340d1deb56f1394d53c9422f",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "54dc7e9dc53a8bcde24f0fd76e5b82392e5c128f763c92e0fad2553711196cfa",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-ffb0c273-7301-4c2b-8ded-9477f28d4daf.png"
+    },
+    {
+      "bookId": "willow-street-nanis-chapati-lunch",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/nanis-chapati-lunch/page-03.webp",
+      "sha256": "1a510691174b61ba729479442b5f4895425cbb96d77bb846f6143d41781e2160",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "3fdf6b5e6b2d230f6beb9cd4512c6be25328ea864e56ef35548951fff7be859d",
+      "briefSha256": "f6a6d2eb97212092d22d64399f7c5059af7fd86eea75c7783c1362194fb93d08",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "1a510691174b61ba729479442b5f4895425cbb96d77bb846f6143d41781e2160",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-34d1ce66-ebd2-408e-ae26-c155a609b494.png"
+    },
+    {
+      "bookId": "willow-street-nanis-chapati-lunch",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/nanis-chapati-lunch/page-04.webp",
+      "sha256": "8b1fa82dc26bcccecca7db2576b3f125f9f32c493d6f15614ca2909f8656d961",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "22cac2f7ce5bf2716b62aa9e50f34db06a934c94da2060e22895d487ca5520c8",
+      "briefSha256": "713deaf3b18beddbc156e9ece69c911735c19f2e93d58f491a07c592aec3d507",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "8b1fa82dc26bcccecca7db2576b3f125f9f32c493d6f15614ca2909f8656d961",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-d17cd34e-a341-4670-9d23-c1e204a95dd6.png"
+    },
+    {
+      "bookId": "willow-street-nanis-chapati-lunch",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/nanis-chapati-lunch/page-05.webp",
+      "sha256": "016ef4d54919940f92a4bdd638a99b562292df66be263491c3da2570f8fd20fd",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "3a9bbbfb51c69195554f07a6f198427c13df7548f9459acfd3584e1c7a4552e8",
+      "briefSha256": "4cc1833005ce7b4d8867a0ccb8f1400a463fbda11120ddc5853043ac34206e27",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "016ef4d54919940f92a4bdd638a99b562292df66be263491c3da2570f8fd20fd",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-34a6dbda-ad51-489b-a42d-e992907fbfd7.png"
+    },
+    {
+      "bookId": "willow-street-nanis-chapati-lunch",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/nanis-chapati-lunch/page-06.webp",
+      "sha256": "c096efac3790f203ceef45cb450e2bad199666cb79f8150cb010cb136e2228d0",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "5032fdfc34173f34ff4bec142519d10e8254035a082cc718d1565e6378c6465b",
+      "briefSha256": "18eeaedd74dee867aaae2bc22f2d6cd3dce67e2a07df45c79ce571f0753e1093",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "c096efac3790f203ceef45cb450e2bad199666cb79f8150cb010cb136e2228d0",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-076d555d-fca4-4f4f-b15c-8199d0cc76c6.png"
+    },
+    {
+      "bookId": "willow-street-nanis-chapati-lunch",
+      "pageNumber": 7,
+      "path": "/guided-reading/willow-street/nanis-chapati-lunch/page-07.webp",
+      "sha256": "eac810f41084443d94a33e9a48f1931c4ef0d5098949b2d9ebdefad10906ed73",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "062ceb40c77ab6d42a50ae183221ba9d324e03047f4cb109908f8ed486d3145b",
+      "briefSha256": "99cc756d62d1fab5daf0f38de55346aafd27ddd78adc5d3cf73fc3d6b046afe6",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "eac810f41084443d94a33e9a48f1931c4ef0d5098949b2d9ebdefad10906ed73",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-069491dd-9725-41f5-a906-2f5271bf27ea.png"
+    },
+    {
+      "bookId": "willow-street-nanis-chapati-lunch",
+      "pageNumber": 8,
+      "path": "/guided-reading/willow-street/nanis-chapati-lunch/page-08.webp",
+      "sha256": "436287f9d00a35cf64476e3b26908e1d8dcee93664bb498d406dbc71d3e0694f",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "3ee2be1bfae5b3b0aec0c88beff0021263c4686976131bbd6dd6753f1938460f",
+      "briefSha256": "081b0408cc070a7cca433c8fc72fee2b2e581cb1ddc44fbc4a6b3ec7265883dc",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "436287f9d00a35cf64476e3b26908e1d8dcee93664bb498d406dbc71d3e0694f",
+        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      },
+      "sourceImageGenOutput": "exec-43a9bb11-f5d8-48f9-acea-c216a94e9a53.png"
+    },
+    {
+      "bookId": "willow-street-dumplings-for-new-year",
+      "pageNumber": 0,
+      "path": "/guided-reading/willow-street/dumplings-for-new-year/cover.webp",
+      "sha256": "0bcf0d087a5121a00f905f4782b0e759f768022fb80ebb012a2fd24c56aba624",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "c381a175a0ab5e01663add82d8d7c2afc6d7bcd12d2176369ccc1c3d33ec1758",
+      "briefSha256": "9cbacb6c1e32e865bac3a469363805e456f78c80abfee0fc4364da78f3f124c4",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "0bcf0d087a5121a00f905f4782b0e759f768022fb80ebb012a2fd24c56aba624",
+        "notes": "Original-detail review approved for Dumplings for New Year cover: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-398ced09-38ae-4dd5-9bed-0fcc25a5aac9.png"
+    },
+    {
+      "bookId": "willow-street-dumplings-for-new-year",
+      "pageNumber": 1,
+      "path": "/guided-reading/willow-street/dumplings-for-new-year/page-01.webp",
+      "sha256": "b7b88b990f0af59c3f4fac05dc87bd0ac637ea38d2618017322333d5cb90baf6",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "c9023ae7470457bba45becc799a693920b55745fc1217ad5e776b60376f33f4d",
+      "briefSha256": "94cd521778adef941c980220535e5a865295d091711fb4a685bc8ae3c00fe81a",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "b7b88b990f0af59c3f4fac05dc87bd0ac637ea38d2618017322333d5cb90baf6",
+        "notes": "Original-detail review approved for Dumplings for New Year page 1: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-55d60569-3612-4061-9531-245bb34ecc06.png"
+    },
+    {
+      "bookId": "willow-street-dumplings-for-new-year",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/dumplings-for-new-year/page-02.webp",
+      "sha256": "14e12d25d9295662f409c667e544be3250827f699a5d88c548e31d4f194597a1",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "7589d3a925a1fc0e4208ff7cd3ff1f509c53df6d75f0a41efea8cfffff71bd0b",
+      "briefSha256": "fc1ceba5e2828ff16570bf7b715131588bf982f8a89ae23792768872fc3f7b79",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "14e12d25d9295662f409c667e544be3250827f699a5d88c548e31d4f194597a1",
+        "notes": "Original-detail review approved for Dumplings for New Year page 2: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-787f0fc7-003b-488d-a762-46c7a603b325.png"
+    },
+    {
+      "bookId": "willow-street-dumplings-for-new-year",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/dumplings-for-new-year/page-03.webp",
+      "sha256": "3ac6983bc2d4ecb3a59afc688d69f4b462c0071cc9d3151949ae1aca8484e1f0",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "dc64e9f3a64e16198ba4e91c24fa11f2a005df1300512503c0669852fca42b4c",
+      "briefSha256": "f35f7b4e5fc0c0ce03b58dca8765dc7f33e0dfd8a7aa8af66bdbc63bd540be5b",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "3ac6983bc2d4ecb3a59afc688d69f4b462c0071cc9d3151949ae1aca8484e1f0",
+        "notes": "Original-detail review approved for Dumplings for New Year page 3: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-68fbdd11-2d91-46e9-b8a6-fc9f76630123.png"
+    },
+    {
+      "bookId": "willow-street-dumplings-for-new-year",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/dumplings-for-new-year/page-04.webp",
+      "sha256": "a0957ce02ba78c59e7cf1bd0a2fa4f4e961643c3490c3c8796ac682e9494b1a6",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "c431838e85e60f5a824342bf30ffac35e1f23a66b12b5287afce5b1e289cd92a",
+      "briefSha256": "b9f4d998ea15105e02e866498f19218d7afb278911cc2d126c48707a14bde08f",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "a0957ce02ba78c59e7cf1bd0a2fa4f4e961643c3490c3c8796ac682e9494b1a6",
+        "notes": "Original-detail review approved for Dumplings for New Year page 4: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-04268f90-f3d5-4448-8016-98087805e8af.png"
+    },
+    {
+      "bookId": "willow-street-dumplings-for-new-year",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/dumplings-for-new-year/page-05.webp",
+      "sha256": "51026d4f08c3db5a28af3eb0da5ffa7109884424eedd84a70902b1fb233721da",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "ce3ecea57a3e2e7522d095208b9aa6ab3076caaba98f4e4cfeae8bd59887df4f",
+      "briefSha256": "72d0e096089476455d2cb09097b592a6a61cf2e68e0fd546deb6ecd5f60adeed",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "51026d4f08c3db5a28af3eb0da5ffa7109884424eedd84a70902b1fb233721da",
+        "notes": "Original-detail review approved for Dumplings for New Year page 5: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-88f8c34b-5e86-432a-9798-ca335a7c2e86.png"
+    },
+    {
+      "bookId": "willow-street-dumplings-for-new-year",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/dumplings-for-new-year/page-06.webp",
+      "sha256": "d9fd4945af397538b82273ce2a0e7b3b252d23f20e0a547e4cf3086ba00dffa9",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "ba871b3a1d02bfd8e1b113f7563c066962f0b9b0c83ef24389a0243514d592a5",
+      "briefSha256": "3412107ce4290e76c9ffabcb7a5e8bc93cb27890b6076549dce896fb31c6353b",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "d9fd4945af397538b82273ce2a0e7b3b252d23f20e0a547e4cf3086ba00dffa9",
+        "notes": "Original-detail review approved for Dumplings for New Year page 6: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-1fcd844d-1b97-48e9-b4ba-3c43f42b175b.png"
+    },
+    {
+      "bookId": "willow-street-dumplings-for-new-year",
+      "pageNumber": 7,
+      "path": "/guided-reading/willow-street/dumplings-for-new-year/page-07.webp",
+      "sha256": "b9bf49c16b36ac07067ff64fbac4aa97af181ea88d9b0a9856d02054dae70621",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "4b8882d3a1be2386e64b12e446dde6e47e16a4653eaecb669163b13f1060f174",
+      "briefSha256": "18582b8adc3d064fdec3f5f30aac3da82a52e9f495a84edcc84b7c2eb294ebb3",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "b9bf49c16b36ac07067ff64fbac4aa97af181ea88d9b0a9856d02054dae70621",
+        "notes": "Original-detail review approved for Dumplings for New Year page 7: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-13068b22-40d0-4e8e-b1b6-40f7c7908381.png"
+    },
+    {
+      "bookId": "willow-street-dumplings-for-new-year",
+      "pageNumber": 8,
+      "path": "/guided-reading/willow-street/dumplings-for-new-year/page-08.webp",
+      "sha256": "0fd17c7b5c2f6f2d3328e72d7574f3dcc71cebcc3fe8e52939d84b07b50e9724",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "857e0259fb523d994afbc7a0705d6e8fc1757aa0a106af9e2dfc4d727ea9b4fb",
+      "briefSha256": "776a2b8d8ed08dbf2da39537887c0e10c329660f84953cb6623f6934bcbd239b",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "0fd17c7b5c2f6f2d3328e72d7574f3dcc71cebcc3fe8e52939d84b07b50e9724",
+        "notes": "Original-detail review approved for Dumplings for New Year page 8: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-77d058b7-3302-46ee-b979-9d17f2d45094.png"
+    },
+    {
+      "bookId": "willow-street-drums-for-carnival",
+      "pageNumber": 0,
+      "path": "/guided-reading/willow-street/drums-for-carnival/cover.webp",
+      "sha256": "cba1d7e4e20c437aea6b20615b280305b7a044c8e8edd4e1e83be46831fad0c1",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "41bd41b57cbcf53d248b4ff4dcfc07b3858c06cb441b1314d02d1a7d2ab667df",
+      "briefSha256": "651e23e5151678cef8bc758b3e0c7138d855f9cceb52023ab208944e1150957a",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "cba1d7e4e20c437aea6b20615b280305b7a044c8e8edd4e1e83be46831fad0c1",
+        "notes": "Original-detail review approved for Drums for Carnival cover: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-ed63cef7-a8a2-4673-aa3f-cbb38a75cbf5.png"
+    },
+    {
+      "bookId": "willow-street-drums-for-carnival",
+      "pageNumber": 1,
+      "path": "/guided-reading/willow-street/drums-for-carnival/page-01.webp",
+      "sha256": "d60417a522cc38d5624598f26e2634473682349ef8946f2912121b8095d59a95",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "efe3806c8786c75910cbcdc80916530d0e806c85fcf7c35aad4d9a1362a75f31",
+      "briefSha256": "3321b4bb6fc248adab8c1d4b284e63222df0e6d0b3353fd8118e159662cef1fa",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "d60417a522cc38d5624598f26e2634473682349ef8946f2912121b8095d59a95",
+        "notes": "Original-detail review approved for Drums for Carnival page 1: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-b88a8b01-ec62-4ef8-84e5-cc5278b74fba.png"
+    },
+    {
+      "bookId": "willow-street-drums-for-carnival",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/drums-for-carnival/page-02.webp",
+      "sha256": "1449144ab867feb609fb131479fdbfef8fec2373b1abcd4ffab7d2b5a746bd09",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "0f56f2aa26c8c41cbd228d6bf41d5594742e078e46b82187036f4fa1130e070e",
+      "briefSha256": "3b467108e98438b574e818a808da0c271441e23ae49c919358c9062de642bd91",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "1449144ab867feb609fb131479fdbfef8fec2373b1abcd4ffab7d2b5a746bd09",
+        "notes": "Original-detail review approved for Drums for Carnival page 2: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-3cadcd81-2413-4fc7-ad57-b53e94610304.png"
+    },
+    {
+      "bookId": "willow-street-drums-for-carnival",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/drums-for-carnival/page-03.webp",
+      "sha256": "55421cef522418db2205adaaff82963c4e212781750885f8f2ef3de6b3c8ce32",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "ea5bea03065a430715b4b531c7edbbba77264ab7ff1962a6444e478bb1072f34",
+      "briefSha256": "770de6f70b3bd4d3126cc696e3bbd684ce4b5839f0bd1878e55655d19e873030",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "55421cef522418db2205adaaff82963c4e212781750885f8f2ef3de6b3c8ce32",
+        "notes": "Original-detail review approved for Drums for Carnival page 3: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-51ae67f5-18f5-4f16-9721-d5226e485044.png"
+    },
+    {
+      "bookId": "willow-street-drums-for-carnival",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/drums-for-carnival/page-04.webp",
+      "sha256": "9716e32f4ec78482daa882822bfcac722608a7f458499fc34de08c94e211c200",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "6e6aacfb25029977fab418ec74e9a4234a2c1b49be469aac7ba50c7edbe6bf0f",
+      "briefSha256": "acd78d037f89c838a479e0a814b838f15c667b5173999699a8cc7d9fdfd656f7",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "9716e32f4ec78482daa882822bfcac722608a7f458499fc34de08c94e211c200",
+        "notes": "Original-detail review approved for Drums for Carnival page 4: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-0bdc9860-888d-407b-b542-bcb15a9da7d9.png"
+    },
+    {
+      "bookId": "willow-street-drums-for-carnival",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/drums-for-carnival/page-05.webp",
+      "sha256": "416bf688e7c5ed32101875073207a356fa2e9d59ef8cf9cabc489573cac39899",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "97662a7ecc312639bd8d7ca6b53a95aaa7c414ba77fe7b2067524baf6983904a",
+      "briefSha256": "84228f8e80bb6da4abf06de617c38e1e6fa26d3770c002bc26cdd14f520b9c5f",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "416bf688e7c5ed32101875073207a356fa2e9d59ef8cf9cabc489573cac39899",
+        "notes": "Original-detail review approved for Drums for Carnival page 5: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-d2dd9964-d904-406f-b2b1-4274fb1748ac.png"
+    },
+    {
+      "bookId": "willow-street-drums-for-carnival",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/drums-for-carnival/page-06.webp",
+      "sha256": "ca4429577f277e44d8a485d693cd2002f48a0127992c5b0933021238a0229d78",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "c16e18484bcf8e07575e13bdd19979a35be20d0eeb9d489820a5abcbe4344ab2",
+      "briefSha256": "aa5aea7a95aed3b8e25f729f3623d2dba3ec0cddb89f48b80db7e5d7ae9cde41",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "ca4429577f277e44d8a485d693cd2002f48a0127992c5b0933021238a0229d78",
+        "notes": "Original-detail review approved for Drums for Carnival page 6: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-32c98693-4060-4802-bb21-d7413266a93a.png"
+    },
+    {
+      "bookId": "willow-street-drums-for-carnival",
+      "pageNumber": 7,
+      "path": "/guided-reading/willow-street/drums-for-carnival/page-07.webp",
+      "sha256": "c2961b63d107cd3b12137d7eacebfa0ff0332085cfe1f3ccfe4a7eeff12b3fc5",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "6769bf327ecdf85b2acbbc515ed264bf93b5b2cb43c07f7164d55610cebec737",
+      "briefSha256": "3ae3e43c586a0422e94f86f14a243910245de323771de813e1584e688fc19cd3",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "c2961b63d107cd3b12137d7eacebfa0ff0332085cfe1f3ccfe4a7eeff12b3fc5",
+        "notes": "Original-detail review approved for Drums for Carnival page 7: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-acd2676e-77fc-4c6b-94a0-e411008be40d.png"
+    },
+    {
+      "bookId": "willow-street-drums-for-carnival",
+      "pageNumber": 8,
+      "path": "/guided-reading/willow-street/drums-for-carnival/page-08.webp",
+      "sha256": "97d49911f6aea405ded936fe61e99802ef15dab15593227ac4df8530f9f0fdda",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "15787d1522fc07451ed7d34b6fa5480f0c615ae1839b3e525dd1f9c835a41ed6",
+      "briefSha256": "200073b24f3cb754164d8364b6b2e184f00bccf36f0f2f5cf685c12417c27cf8",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "97d49911f6aea405ded936fe61e99802ef15dab15593227ac4df8530f9f0fdda",
+        "notes": "Original-detail review approved for Drums for Carnival page 8: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-08d92072-518c-4988-9616-ee5a32ccfb1b.png"
+    },
+    {
+      "bookId": "willow-street-eid-morning-with-samir",
+      "pageNumber": 0,
+      "path": "/guided-reading/willow-street/eid-morning-with-samir/cover.webp",
+      "sha256": "10dbc0f19e593937c37b752dafd3021cce9eea394168217bb29acd81cec65423",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "5e9dc6d4f7503d7c277c4b6d00e905fcf79b7ba800a34ffd2d0711a962e5fd6d",
+      "briefSha256": "481d38adc416c374c4734791dd25f20aee9ad0dd8dadf0388f9b0f210ae217c1",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "10dbc0f19e593937c37b752dafd3021cce9eea394168217bb29acd81cec65423",
+        "notes": "Original-detail review approved for Eid Morning with Samir cover: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-f4fb733e-b55e-4bc9-9176-9909cdfd626b.png"
+    },
+    {
+      "bookId": "willow-street-eid-morning-with-samir",
+      "pageNumber": 1,
+      "path": "/guided-reading/willow-street/eid-morning-with-samir/page-01.webp",
+      "sha256": "0ac47e4e2e9da5908fcfc6dd7ade0d32d7f0851941d264dcafdcf5d47fd991eb",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "d4527ba9c99170bcbc60a18a2a94bc53114864b88bbc0ead71cfabd0b5d49ffd",
+      "briefSha256": "0559c96870324aff3cf0c655c0fe78d60d5958adbff89f6b06445f13a71608e3",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "0ac47e4e2e9da5908fcfc6dd7ade0d32d7f0851941d264dcafdcf5d47fd991eb",
+        "notes": "Original-detail review approved for Eid Morning with Samir page 1: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-b51dcd2a-f13e-4e85-bf56-abcd0db566cb.png"
+    },
+    {
+      "bookId": "willow-street-eid-morning-with-samir",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/eid-morning-with-samir/page-02.webp",
+      "sha256": "6ffcc755341329d59e824a6f93f55e91c8b727d8e3c0f1a87bb446a37e1ce3e1",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "bb93b99c0eb5364d2c580bf04102c1174c8df5cebc85114e4f50767864b6c17b",
+      "briefSha256": "717d3c4e000201d15a3eba5ee190c164534d00bb6c5f689171c0616106754e06",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "6ffcc755341329d59e824a6f93f55e91c8b727d8e3c0f1a87bb446a37e1ce3e1",
+        "notes": "Original-detail review approved for Eid Morning with Samir page 2: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-e0e94a5a-a176-4e2f-88fa-56c2fa4886e6.png"
+    },
+    {
+      "bookId": "willow-street-eid-morning-with-samir",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/eid-morning-with-samir/page-03.webp",
+      "sha256": "6d5f8874ff21b5810fe8b2999f2367d2108b2938155304f6b0abf42ce84b72e3",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "df4f3efeac70a3137b6677563431c9ce5cde2e9aefc6c69344fefe2c097a3d52",
+      "briefSha256": "c0e79b4362df31a6faf18bb928ca4ecf683382990681446d87eafa5086d4d395",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "6d5f8874ff21b5810fe8b2999f2367d2108b2938155304f6b0abf42ce84b72e3",
+        "notes": "Original-detail review approved for Eid Morning with Samir page 3: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-fa298d05-0013-45f5-8af6-3d3e9ee30ab0.png"
+    },
+    {
+      "bookId": "willow-street-eid-morning-with-samir",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/eid-morning-with-samir/page-04.webp",
+      "sha256": "339b097cfa9e3f69989d78856962a57f3a0b05f9cfdc07cff02682985a39cc06",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "143b922f7a8c597737f3dd676fdf4e1ab12254953339d9b59f14acd01be87bb9",
+      "briefSha256": "07a29f95ead128e7398285abc00e736497d43288179811ddd79a54c8f262a498",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "339b097cfa9e3f69989d78856962a57f3a0b05f9cfdc07cff02682985a39cc06",
+        "notes": "Original-detail review approved for Eid Morning with Samir page 4: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-6fdeafce-5c79-49b7-a491-9d20656f49e1.png"
+    },
+    {
+      "bookId": "willow-street-eid-morning-with-samir",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/eid-morning-with-samir/page-05.webp",
+      "sha256": "24631b06e5ee434063f8b8e01e70ca6463b47d3609578c51946e61500ce3027b",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "915a2a17efe7d852d119f8dd78fb4fdf66431b95dfd035466f037816752a67f3",
+      "briefSha256": "9eb70c6227f6d921c39091104d8c8f9df5881941200f4e38e6a9ac85c986643f",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "24631b06e5ee434063f8b8e01e70ca6463b47d3609578c51946e61500ce3027b",
+        "notes": "Original-detail review approved for Eid Morning with Samir page 5: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-d147ee63-b0d9-47f7-b384-66a38d63f3a9.png"
+    },
+    {
+      "bookId": "willow-street-eid-morning-with-samir",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/eid-morning-with-samir/page-06.webp",
+      "sha256": "4c96fcb09a65d380aa25aea991fadcd24098f050d89f04038b61f919a0a37b15",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "8db70957eb8732a05778b09733c0074cd715ef02bb910ae9f28cd5c880bf1994",
+      "briefSha256": "1aa5c7805e85f6ab87a5599b566338cae1c7c0f30df532c4b762d3113e7ac448",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "4c96fcb09a65d380aa25aea991fadcd24098f050d89f04038b61f919a0a37b15",
+        "notes": "Original-detail review approved for Eid Morning with Samir page 6: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-8ef7abde-08db-423e-8131-f495b5a87c8d.png"
+    },
+    {
+      "bookId": "willow-street-eid-morning-with-samir",
+      "pageNumber": 7,
+      "path": "/guided-reading/willow-street/eid-morning-with-samir/page-07.webp",
+      "sha256": "8fb3fa3c70ff30af53e62fea789858f5155f95fad8082d8c648374c52253110b",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "1310989950e9d754de88d037f7a5e06af0c324c1a5d960362c78d500f73c9c04",
+      "briefSha256": "f872665daa1ff6746e81022c1d4bed117eae6f733904180d0ad9a724a6330522",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "8fb3fa3c70ff30af53e62fea789858f5155f95fad8082d8c648374c52253110b",
+        "notes": "Original-detail review approved for Eid Morning with Samir page 7: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-160a49df-079d-49bd-ab64-e94630c70dc6.png"
+    },
+    {
+      "bookId": "willow-street-eid-morning-with-samir",
+      "pageNumber": 8,
+      "path": "/guided-reading/willow-street/eid-morning-with-samir/page-08.webp",
+      "sha256": "96d4db29068704b08f5b73e92890b5a79aafd8d29aa947a9665cfd75ecf90be7",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "62d315dc11dc1db5a8ecac5a78ed11fe6d480eb9bfab3efff117e44a2035bbb9",
+      "briefSha256": "550e09bdc4062cc6cfe822130a222fb70ca9e98780feba8d91e2c67d53950a86",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "96d4db29068704b08f5b73e92890b5a79aafd8d29aa947a9665cfd75ecf90be7",
+        "notes": "Original-detail review approved for Eid Morning with Samir page 8: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-d223bd2b-0755-4fef-92a1-5361663d33a7.png"
+    },
+    {
+      "bookId": "willow-street-grow-a-bean-in-a-jar",
+      "pageNumber": 0,
+      "path": "/guided-reading/willow-street/grow-a-bean-in-a-jar/cover.webp",
+      "sha256": "cb87f5d6b4e5344498e7841123d8221b68a5eafc6b978bd605ca156ac664062e",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "268750b08eaf2282becc4ab5eec951576422555b6f2465ed75617a2f0c7e35b2",
+      "briefSha256": "196ae4b75ad4f6b6affad85698c7ee238bb29ac8f567ea005446a7cc5443b7c3",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "cb87f5d6b4e5344498e7841123d8221b68a5eafc6b978bd605ca156ac664062e",
+        "notes": "Original-detail review approved for Grow a Bean in a Jar cover: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-01a7f3ff-74cc-4f69-b3d1-fa19d7f01559.png"
+    },
+    {
+      "bookId": "willow-street-grow-a-bean-in-a-jar",
+      "pageNumber": 1,
+      "path": "/guided-reading/willow-street/grow-a-bean-in-a-jar/page-01.webp",
+      "sha256": "a39c92e77b98e78205bc1bb026214d4b34786839171d9c8b525e00c97268bfeb",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "f0ac78b74c087ac61c93c5fc2a7db0d00c2bd1d60c784341cbd025359494462e",
+      "briefSha256": "61d6046559250a45a35fcccf4f2a933e13e81dd53194a3cbea85e27c30da8326",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "a39c92e77b98e78205bc1bb026214d4b34786839171d9c8b525e00c97268bfeb",
+        "notes": "Original-detail review approved for Grow a Bean in a Jar page 1: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-80a49808-e0f8-472b-891b-4d9b91a2ef14.png"
+    },
+    {
+      "bookId": "willow-street-grow-a-bean-in-a-jar",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/grow-a-bean-in-a-jar/page-02.webp",
+      "sha256": "3ef33eb354408f5e478b08a0bd585b50c91b9136d42434c7141e52300df42f8e",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "550251e5ce7b2684d6b9ad8f805d34acbc355b0dba5c89eaa9577e1e25659f9f",
+      "briefSha256": "67b6b1507231bbfbe2e5e0d79ba28af4378ba4e51b20cc76c5b1b0424a9c77ff",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "3ef33eb354408f5e478b08a0bd585b50c91b9136d42434c7141e52300df42f8e",
+        "notes": "Original-detail review approved for Grow a Bean in a Jar page 2: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-447d494a-4f78-41a6-90c2-0f68d1e26999.png"
+    },
+    {
+      "bookId": "willow-street-grow-a-bean-in-a-jar",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/grow-a-bean-in-a-jar/page-03.webp",
+      "sha256": "7a4c67c8c187165efcacadbc0b5f0fc31082137982b545d8ac22811717b193dc",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "e335d56abeb3f7f9eaab0f42d61b47bccbf631b73fda9f1b3ffc0a470eea5375",
+      "briefSha256": "a7fc4e1513e707c1f4870ed696d2548e496aa2487919b0c6db5117bfad4b0f55",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "7a4c67c8c187165efcacadbc0b5f0fc31082137982b545d8ac22811717b193dc",
+        "notes": "Original-detail review approved for Grow a Bean in a Jar page 3: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-322aa832-2340-409b-9092-86cd67a9130f.png"
+    },
+    {
+      "bookId": "willow-street-grow-a-bean-in-a-jar",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/grow-a-bean-in-a-jar/page-04.webp",
+      "sha256": "9efd0a528c3233ece4936f2dca7ca4d6d8a9a9e860b8064dbf7ff5b69d621a75",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "6cbd25abc20ab93c08137a63219d74c93a587343c9355017c1c34e21da05a41f",
+      "briefSha256": "1948bfcbeef7d29d5f18951835e3d6ec9f5d54cd47691ba4a6bf36f192e8b22a",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "9efd0a528c3233ece4936f2dca7ca4d6d8a9a9e860b8064dbf7ff5b69d621a75",
+        "notes": "Original-detail review approved for Grow a Bean in a Jar page 4: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-667afe6a-64ad-4511-be97-8a8c060141e3.png"
+    },
+    {
+      "bookId": "willow-street-grow-a-bean-in-a-jar",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/grow-a-bean-in-a-jar/page-05.webp",
+      "sha256": "dccdd3f99a34b9ea61cddd2d7153244859789cb00525c998c63b1114642548b8",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "596b0bec3923ca51829119c03b44140ad816ee12b4de7cef70d013f3cf34104b",
+      "briefSha256": "aad5965cc4b5f764e75d61fb740c89fffef402bb864fc2b115b3479941caa6dd",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "dccdd3f99a34b9ea61cddd2d7153244859789cb00525c998c63b1114642548b8",
+        "notes": "Original-detail review approved for Grow a Bean in a Jar page 5: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-bb52e0dc-69f3-4cd7-b7a5-f7fb0ca06339.png"
+    },
+    {
+      "bookId": "willow-street-grow-a-bean-in-a-jar",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/grow-a-bean-in-a-jar/page-06.webp",
+      "sha256": "bdf7df94d80063dfdd62cbc0ac51c5a14843e0e4573a66bf22c598ee25cee31d",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "c74c893f5c76dad7efeaa43a728318ce6ed035ea6f19824e2a9228ad13c6d8b6",
+      "briefSha256": "c47c379e62927b6d96ee68fc387a3491e8186ce7a9b5e4520779c84223f0f18f",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "bdf7df94d80063dfdd62cbc0ac51c5a14843e0e4573a66bf22c598ee25cee31d",
+        "notes": "Original-detail review approved for Grow a Bean in a Jar page 6: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-8dafeb78-21e9-4537-bc7b-5e0198b9b6a1.png"
+    },
+    {
+      "bookId": "willow-street-grow-a-bean-in-a-jar",
+      "pageNumber": 7,
+      "path": "/guided-reading/willow-street/grow-a-bean-in-a-jar/page-07.webp",
+      "sha256": "e51a985b63de6a5533f8e20ac70ba33f88ad4c64bfff8fb833734e7f0ab36aa4",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "830261cc0d4f9176d2773b91875cb0460c91d5bed4861d11c1eb850d31494866",
+      "briefSha256": "43dca16fa1e7c2ff401a81b54f24deb7e0099fa4d3c24114a2ab1a7332a36148",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "e51a985b63de6a5533f8e20ac70ba33f88ad4c64bfff8fb833734e7f0ab36aa4",
+        "notes": "Original-detail review approved for Grow a Bean in a Jar page 7: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-65daaf30-caad-41d1-9587-68050ef384be.png"
+    },
+    {
+      "bookId": "willow-street-grow-a-bean-in-a-jar",
+      "pageNumber": 8,
+      "path": "/guided-reading/willow-street/grow-a-bean-in-a-jar/page-08.webp",
+      "sha256": "9511f8d5208389a3760d65aa778ada3e81596d290ce5aa958e33a519c11ade42",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "aa40d5d7ad5d2e4887b9f499c82149c117bb57adc5916dd062b023b1df2410b5",
+      "briefSha256": "2d85fb129b418b8c126b3a454333c8c7f890d79f46fd17221f37145403ba7fdf",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "9511f8d5208389a3760d65aa778ada3e81596d290ce5aa958e33a519c11ade42",
+        "notes": "Original-detail review approved for Grow a Bean in a Jar page 8: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-d29066a4-394d-437c-9a86-d5efa8fb258d.png"
+    },
+    {
+      "bookId": "willow-street-make-a-paper-kite",
+      "pageNumber": 0,
+      "path": "/guided-reading/willow-street/make-a-paper-kite/cover.webp",
+      "sha256": "cfc82d260170ca27e4b735541180df9003bd5f22327860d6486b0b41ede39eb4",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "8eddf839fa3a7d6df520bc2433bcf30c1a11e310ff57048988acb3f4c65806c3",
+      "briefSha256": "7d0c82dd7b2ca980965e6503dab11c43c1dc944dc2b11bfbc8ab42942a2dcc8c",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "cfc82d260170ca27e4b735541180df9003bd5f22327860d6486b0b41ede39eb4",
+        "notes": "Original-detail review approved for Make a Paper Kite cover: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-03066504-b124-4f00-bf6d-2a17d890c47e.png"
+    },
+    {
+      "bookId": "willow-street-make-a-paper-kite",
+      "pageNumber": 1,
+      "path": "/guided-reading/willow-street/make-a-paper-kite/page-01.webp",
+      "sha256": "877693a544a2faa2a3b3b4bab4df1d95c203b420c8b37ab1876a9fa8acf0e372",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "410242a419f60757200c4f4b422ba3333d7f8fd528c471c959134bd17111a35f",
+      "briefSha256": "3c7a753207b2f95492ad3b6fea1ba2ec4bc75ee4c482c96c926a26197c866fd1",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "877693a544a2faa2a3b3b4bab4df1d95c203b420c8b37ab1876a9fa8acf0e372",
+        "notes": "Original-detail review approved for Make a Paper Kite page 1: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-025903ac-9309-4ffd-8f14-1408b78d4d30.png"
+    },
+    {
+      "bookId": "willow-street-make-a-paper-kite",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/make-a-paper-kite/page-02.webp",
+      "sha256": "e8959761ba5f35bb75cfa641613c716c9fa094f8c8b9a50faf0b7d8b8c31c01c",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "a2ee8c2bb40678917e0621a90cb8b2444364338f1b5cc68552cd80ef7929bc54",
+      "briefSha256": "f34e796fa95080d73ca816e31f69fac0854d4e9f76ddb8096dc9f3a8f7d3fa2f",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "e8959761ba5f35bb75cfa641613c716c9fa094f8c8b9a50faf0b7d8b8c31c01c",
+        "notes": "Original-detail review approved for Make a Paper Kite page 2: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-b59c789d-e469-466b-a850-6b45a7abc4a1.png"
+    },
+    {
+      "bookId": "willow-street-make-a-paper-kite",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/make-a-paper-kite/page-03.webp",
+      "sha256": "eda87f9d94ca42f5d30cd82445c408eb369c2ac1a393469a06cb2ee5642286ee",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "65f2e5e0a631a66abd1a09f7c305d85284dea7830f981f3f00e87886403f5861",
+      "briefSha256": "d053bb0bc46220a1f52558a1cc7997c795f8477a2d53a986863734148ee8bcae",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "eda87f9d94ca42f5d30cd82445c408eb369c2ac1a393469a06cb2ee5642286ee",
+        "notes": "Original-detail review approved for Make a Paper Kite page 3: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-f52fefaa-127b-4fb7-bfba-5671d8700a19.png"
+    },
+    {
+      "bookId": "willow-street-make-a-paper-kite",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/make-a-paper-kite/page-04.webp",
+      "sha256": "39ed5466b347975727cc26b369f2bd0055590f55201a6c5b66468fe70b64044c",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "d86754f6d45cf4a1ffa81f4217a03121568a8e13d5ae20c33683657270b30b69",
+      "briefSha256": "86e653858d69f0944ff270dc7d39adbd332c01908a158bc8e3879f33c06c10e1",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "39ed5466b347975727cc26b369f2bd0055590f55201a6c5b66468fe70b64044c",
+        "notes": "Original-detail review approved for Make a Paper Kite page 4: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-b1b05f5d-a202-4cf3-9dbf-bd896b2dd731.png"
+    },
+    {
+      "bookId": "willow-street-make-a-paper-kite",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/make-a-paper-kite/page-05.webp",
+      "sha256": "65c544de633c20fcb9b520707746dd3cc84410630cae80e12580d6716de1e0b4",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "799175ee633ac4617c3e8121ad58e18f99396445321e6458da984601f6550d0e",
+      "briefSha256": "9857b7c983b1f8a72bb19deda861eebc5e0fe55bdbf1c4700874782854863246",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "65c544de633c20fcb9b520707746dd3cc84410630cae80e12580d6716de1e0b4",
+        "notes": "Original-detail review approved for Make a Paper Kite page 5: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-d5b6c57c-1c5e-4f22-8b4a-a85f06c5e5d0.png"
+    },
+    {
+      "bookId": "willow-street-make-a-paper-kite",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/make-a-paper-kite/page-06.webp",
+      "sha256": "2f36b699123107268d60d58992db1a15b8c39f3771067dc8483363c87e8adbf3",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "9c7217c7db548fa3cdec738ba26a9b021c65dcbb1de91a716b8bd967ee1d4e62",
+      "briefSha256": "5059153825fdbb942cbda1a44e6e648d7637654b0ebd779274f2766c8969d6fb",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "2f36b699123107268d60d58992db1a15b8c39f3771067dc8483363c87e8adbf3",
+        "notes": "Original-detail review approved for Make a Paper Kite page 6: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-c674e412-85b4-4506-995f-3c291f1cd56d.png"
+    },
+    {
+      "bookId": "willow-street-make-a-paper-kite",
+      "pageNumber": 7,
+      "path": "/guided-reading/willow-street/make-a-paper-kite/page-07.webp",
+      "sha256": "dec21d1036c18fb6f9fd08111dd39a4f286c8db6e87a012ddb0d395fcb2fd899",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "b7d3fc7761904fc50a3cf5baa5065191bc04e9e03d04dc143a5e56a4fce17d9d",
+      "briefSha256": "996597df0829416337014638df9d2c1590cb13583406dae94908108bf3a2cc67",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "dec21d1036c18fb6f9fd08111dd39a4f286c8db6e87a012ddb0d395fcb2fd899",
+        "notes": "Original-detail review approved for Make a Paper Kite page 7: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-143c3a0b-fb6d-424f-b2ca-843f9d8ddc9d.png"
+    },
+    {
+      "bookId": "willow-street-make-a-paper-kite",
+      "pageNumber": 8,
+      "path": "/guided-reading/willow-street/make-a-paper-kite/page-08.webp",
+      "sha256": "3a4f48c5b5ac05603a2d01870457421f755654023d766cad81169e7aec7684d1",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "6a82a1b1cfc42f33d8c6ff3a5bb8ee320997d163a7af0fff24baf2ba230d1642",
+      "briefSha256": "2b8dd3f6697cc13435eeae4aa579b9dc0e97baad9da268557fb8879e87abac68",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "3a4f48c5b5ac05603a2d01870457421f755654023d766cad81169e7aec7684d1",
+        "notes": "Original-detail review approved for Make a Paper Kite page 8: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-1e597030-52d2-445a-a913-7e4364a4ac0d.png"
+    },
+    {
+      "bookId": "willow-street-build-a-cardboard-ramp",
+      "pageNumber": 0,
+      "path": "/guided-reading/willow-street/build-a-cardboard-ramp/cover.webp",
+      "sha256": "e81aac1fa6c0bdbdb73b4585c95061e3a994cc8ffa1c5e9ce0e2aedd974a4ac9",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "87d4bdb16890d2e7af575ac7212a6c57669f6cb492eceec32a4eee6db0f8fa4f",
+      "briefSha256": "b35c68b3223b92510a58233d1ce552cca3d3f28dd168f7bc48065cbcd6fc79dc",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "e81aac1fa6c0bdbdb73b4585c95061e3a994cc8ffa1c5e9ce0e2aedd974a4ac9",
+        "notes": "Original-detail review approved for Build a Cardboard Ramp cover: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-6f1706dd-6689-4ad4-9b4e-57d0e2e47cc7.png"
+    },
+    {
+      "bookId": "willow-street-build-a-cardboard-ramp",
+      "pageNumber": 1,
+      "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-01.webp",
+      "sha256": "5069ccb7b7baa6a00ddbf215912286aa9cadd0332559afb513942c31d77d2b0e",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "9033f475b7967b1e3d9185b46751ea9756bfa9ebd505be801b1749ada4a18a54",
+      "briefSha256": "644b57bc50c8c8488773549776e157b9baac6ba1ec30c2c7903c9eedef8eaa91",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "5069ccb7b7baa6a00ddbf215912286aa9cadd0332559afb513942c31d77d2b0e",
+        "notes": "Original-detail review approved for Build a Cardboard Ramp page 1: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-376856b2-98b1-4eaa-afaf-254d75e7be73.png"
+    },
+    {
+      "bookId": "willow-street-build-a-cardboard-ramp",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-02.webp",
+      "sha256": "9d6d8bdc89dd07513a2f87090aacff45ddd3f07e063f0ae9d6b4d637f22836d2",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "e6157169b312c76736af740033524495c0e25f33e4b7253ad767932151f4ec75",
+      "briefSha256": "8489018bf5edd4913c4e69f3546b00aca6b101fe119f25ffa38060bfda7686bc",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "9d6d8bdc89dd07513a2f87090aacff45ddd3f07e063f0ae9d6b4d637f22836d2",
+        "notes": "Original-detail review approved for Build a Cardboard Ramp page 2: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-25f6d104-44b0-48b3-8434-d04f5a227144.png"
+    },
+    {
+      "bookId": "willow-street-build-a-cardboard-ramp",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-03.webp",
+      "sha256": "0d7cb8b70dcf98debfe50df8915f8a7fa6609a13102ef8a231e0954c989f4f8b",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "8a4a257652543f5c316219109f98446815fd6906f03fb1b3b440f7ce6937c4f7",
+      "briefSha256": "bffd2a3076875c710e675f72ef1ea3c54f73a20eb2e8a45cc9afd731a1ce17cd",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "0d7cb8b70dcf98debfe50df8915f8a7fa6609a13102ef8a231e0954c989f4f8b",
+        "notes": "Original-detail review approved for Build a Cardboard Ramp page 3: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-123a2613-e1a7-4e1c-b49b-b74fc905fade.png"
+    },
+    {
+      "bookId": "willow-street-build-a-cardboard-ramp",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-04.webp",
+      "sha256": "e472294bff7d6317ee94bd818cdc2869fb4b69b04ca28237b16af8dcb360d703",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "daa9c9820bdab1296d72370126784cb0e244d967bec19871a8ccb25e33d27415",
+      "briefSha256": "38fb8b33ec85da5f535993ba3970979a47c1f772f7631239373752ba26decd00",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "e472294bff7d6317ee94bd818cdc2869fb4b69b04ca28237b16af8dcb360d703",
+        "notes": "Original-detail review approved for Build a Cardboard Ramp page 4: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-2d3dd203-dae9-48a1-95eb-41971ec9ba9d.png"
+    },
+    {
+      "bookId": "willow-street-build-a-cardboard-ramp",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-05.webp",
+      "sha256": "d714f21e6a644b9bed60975a85ff39b1dacd4cbf97284bbd50e2aaf679c0e967",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "c618e514a385889f18f42be672dc4e2c33bd3b80f72d2434ee186fa7d3ea1071",
+      "briefSha256": "131336654461e0661bc45e226820bd7d33a8165007c1505fe0add965a14c0e3b",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "d714f21e6a644b9bed60975a85ff39b1dacd4cbf97284bbd50e2aaf679c0e967",
+        "notes": "Original-detail review approved for Build a Cardboard Ramp page 5: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-a93479b6-8f5a-4d57-be7d-866e1df8ef8a.png"
+    },
+    {
+      "bookId": "willow-street-build-a-cardboard-ramp",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-06.webp",
+      "sha256": "e0e450ded98e74c4c6723dddfa0b851196934124bc41c3537e1531165abda860",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "2dd3cc678e6ac5f6161ce79df1100451d93c7d793b0a46e67eabfc32ff96ff1d",
+      "briefSha256": "0f1547efe53d38e8d962316d005410d0bf4372692680b636b131c29e4f07b368",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "e0e450ded98e74c4c6723dddfa0b851196934124bc41c3537e1531165abda860",
+        "notes": "Original-detail review approved for Build a Cardboard Ramp page 6: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-9d9319d3-0237-44b3-991f-3be827633af3.png"
+    },
+    {
+      "bookId": "willow-street-build-a-cardboard-ramp",
+      "pageNumber": 7,
+      "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-07.webp",
+      "sha256": "3b5a2d171b87f1b3cc725b880f77e54f4df7bd435499d838f88eb0e254a41a6a",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "70c30afe545059e2d3a667b12a9616de043342399f5782b44a22181992ec6900",
+      "briefSha256": "42ad168605bb6002ba7025147ec35acd79aeaf2c34a16e7881579f6613ba153d",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "3b5a2d171b87f1b3cc725b880f77e54f4df7bd435499d838f88eb0e254a41a6a",
+        "notes": "Original-detail review approved for Build a Cardboard Ramp page 7: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-d455d873-aaf0-4828-84dd-953eb8410a6a.png"
+    },
+    {
+      "bookId": "willow-street-build-a-cardboard-ramp",
+      "pageNumber": 8,
+      "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-08.webp",
+      "sha256": "3cd3a5b65f5c89f20491276f7e8bea11471623977f25f7a2d2caa9754348edb5",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "656ddf007c810b2e9715f9fa734d778704f3200408d6db86b593f5b412e9d76c",
+      "briefSha256": "3c2ba185353e6f509c6ff5bf99b9ddc4179f93b6bd9272c99f0abf73ffe46651",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "3cd3a5b65f5c89f20491276f7e8bea11471623977f25f7a2d2caa9754348edb5",
+        "notes": "Original-detail review approved for Build a Cardboard Ramp page 8: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-13837c4a-4684-47c9-b0ef-3a1a9e794414.png"
+    },
+    {
+      "bookId": "willow-street-make-fruit-and-yoghurt-cups",
+      "pageNumber": 0,
+      "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/cover.webp",
+      "sha256": "3983120fbf9745521b02a420ab56d4fee37169ff9fb06abfcc0420f0622cadd1",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "b8acea82b9d05864a578027361b87c3011fa2ed9aad54f04506d7c44e9773b29",
+      "briefSha256": "11b75a4dc8b4212fba68f52af2d4e360f6c3f1945c2c78c526c5e5540518e0a3",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "3983120fbf9745521b02a420ab56d4fee37169ff9fb06abfcc0420f0622cadd1",
+        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups cover: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-63c2e71f-0f16-4c7c-b1e5-c12315ee1298.png"
+    },
+    {
+      "bookId": "willow-street-make-fruit-and-yoghurt-cups",
+      "pageNumber": 1,
+      "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-01.webp",
+      "sha256": "33257e057e941563168318118162b237f651aaeb664d7ac661488dd45f9865c1",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "dcada260c78c4e97bf8501cc0c81e6fee433fdc46eccf9ab6a02c4ece4997954",
+      "briefSha256": "107d3c3854eca5e9a70e6a15b490561c896171fee70921a5bac65f930b8bb685",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "33257e057e941563168318118162b237f651aaeb664d7ac661488dd45f9865c1",
+        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 1: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-6d02f636-d0da-4591-9f54-0e1535e773a7.png"
+    },
+    {
+      "bookId": "willow-street-make-fruit-and-yoghurt-cups",
+      "pageNumber": 2,
+      "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-02.webp",
+      "sha256": "77ee1d0cee7df7a5bfd3edd77d5eb4ee626852f3c7fa5c6ed1a7cfeabcbaff62",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "c3b446b73547a26878f1575ddd217b23a1e7b453b506fbd88ab83d99cf424b19",
+      "briefSha256": "8c27ed3e5a48c67c2860d3b5aa78f2488a08e35746e3a0cd216a0c27f09c4429",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "77ee1d0cee7df7a5bfd3edd77d5eb4ee626852f3c7fa5c6ed1a7cfeabcbaff62",
+        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 2: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-0af34d93-9359-4e64-9888-4706476d77f3.png"
+    },
+    {
+      "bookId": "willow-street-make-fruit-and-yoghurt-cups",
+      "pageNumber": 3,
+      "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-03.webp",
+      "sha256": "d882d72717a0d3d203e74d9e3d904d1243de33ab3fbd5284c8ae167fffbbf629",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "a64646f5d39dea40e18f95057cafebbd77bd51119bef383df1a0ec593563b354",
+      "briefSha256": "9134cc2c4471fea889a08a931a3714265eae87ca240fdeae6e323001c71f67d2",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "d882d72717a0d3d203e74d9e3d904d1243de33ab3fbd5284c8ae167fffbbf629",
+        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 3: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-79c11815-bb7e-4c59-b12b-48f9eeb3dee3.png"
+    },
+    {
+      "bookId": "willow-street-make-fruit-and-yoghurt-cups",
+      "pageNumber": 4,
+      "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-04.webp",
+      "sha256": "7f13a56075d9510fa03bfb3c7eeaa348ac91bfae1cb4fabe5eac8fb6331d14b1",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "f77f659b8e405348954cba7ad77a5961825931341a9472099003b94c4e12c085",
+      "briefSha256": "ff7ce22c02a76e1d3a2709146f18fbc918c8824b795269ecaa103bab64c5f994",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "7f13a56075d9510fa03bfb3c7eeaa348ac91bfae1cb4fabe5eac8fb6331d14b1",
+        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 4: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-54b304ef-bdbf-4f1f-8d25-a2fd165bdd0f.png"
+    },
+    {
+      "bookId": "willow-street-make-fruit-and-yoghurt-cups",
+      "pageNumber": 5,
+      "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-05.webp",
+      "sha256": "967dd66dcd8c6afed0a44c9642a305185398a88f8aa5e9a4bc1717b066fe50f7",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "284c250e71f17edef1addff18fe25b8d8ac100e1ac79624e7d5593f8f246ac3b",
+      "briefSha256": "35b2054aba084dc6b1e2b647b2d2f3882f491757e5534462bffbd4265a512523",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "967dd66dcd8c6afed0a44c9642a305185398a88f8aa5e9a4bc1717b066fe50f7",
+        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 5: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-4af6c07a-b830-4fef-bfa8-28432201857d.png"
+    },
+    {
+      "bookId": "willow-street-make-fruit-and-yoghurt-cups",
+      "pageNumber": 6,
+      "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-06.webp",
+      "sha256": "8dd80fef249f5f7b2e932161d887064bacb54f29745650b24c688832d455c6d2",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "4ea22efa5df7ab43053cbd30c302dc8acb843e45c57178fd5662a7d5df352479",
+      "briefSha256": "8e64410af28dd9826c7310231d5bcdf3b6ade129d25d89c7542759573b06b6ea",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "8dd80fef249f5f7b2e932161d887064bacb54f29745650b24c688832d455c6d2",
+        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 6: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-3855d17f-29f8-4d01-9534-04a6a86a9a99.png"
+    },
+    {
+      "bookId": "willow-street-make-fruit-and-yoghurt-cups",
+      "pageNumber": 7,
+      "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-07.webp",
+      "sha256": "b01bcc620f3957775226e84180bfadf769a6fddb8b8f112e781fec21cefc0d89",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "d98e7e3878b5f9704902d2d8b76156e9f54f2c14aefab62594d36fc8f87a5063",
+      "briefSha256": "1ead0cb17fa417b42f7dd54814130f77af7eb5692b5cd79af1261087af985547",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "b01bcc620f3957775226e84180bfadf769a6fddb8b8f112e781fec21cefc0d89",
+        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 7: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-b349f81c-9943-4473-9d18-7119f3aed07c.png"
+    },
+    {
+      "bookId": "willow-street-make-fruit-and-yoghurt-cups",
+      "pageNumber": 8,
+      "path": "/guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-08.webp",
+      "sha256": "4c78756c636bdde2d8c40119ed70047ee89bdc1aebdde46b0edbf203d6c137c1",
+      "width": 1365,
+      "height": 768,
+      "textSha256": "6f5471d0288173b7beb16459fae856099c5a6b9aba553b0bda3204b635f68b0b",
+      "briefSha256": "9e56086fe4f89874bbf1c06a26bcfc4c566fecdc5a3a8ac8c9c7ad6b9f9ff799",
+      "visualTreatment": "willow-street-illustrated",
+      "generatorProvenance": "self-created",
+      "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
+      "directReview": {
+        "state": "approved-original-detail",
+        "reviewedSha256": "4c78756c636bdde2d8c40119ed70047ee89bdc1aebdde46b0edbf203d6c137c1",
+        "notes": "Original-detail review approved for Make Fruit and Yoghurt Cups page 8: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      },
+      "sourceImageGenOutput": "exec-17a38dde-9bc2-4459-aa05-dada2c6ef4ae.png"
+    }
+  ]
+}

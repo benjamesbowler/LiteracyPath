@@ -7,6 +7,7 @@ import {
   guidedReadingBooks
 } from "../src/data/guidedReadingBooks.js";
 import { getGuidedReadingPageAudioPath } from "../src/utils/guidedReading/readAloudPolicy.js";
+import { classifyGuidedReadingMediaFinding } from "../src/content/storyContentReviews.js";
 
 const rootDir = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const reportPath = path.join(rootDir, "docs", "guided-reading", "guided_reading_content_audit.md");
@@ -43,7 +44,6 @@ function heuristicWarnings(page = {}) {
   if (page.metadataGeneratedFromReadingText) return [];
 
   const haystack = [
-    page.image || "",
     page.imageAlt || "",
     page.pageDescription || "",
     page.embeddedImageText || "",
@@ -78,24 +78,34 @@ function heuristicWarnings(page = {}) {
 
 function validateBook(book) {
   const issues = [];
+  const releaseBlocks = [];
   const pages = book.pages || [];
   const activePages = pages.filter(page => page.active !== false && page.qaStatus === "approved");
+  const recordMediaFinding = (finding, errors, blocks) => {
+    const classification = classifyGuidedReadingMediaFinding(book, finding);
+    if (classification.error) errors.push(classification.error);
+    if (classification.releaseBlock) blocks.push(classification.releaseBlock);
+  };
 
   if (!book.id) issues.push("missing book id");
   if (!book.title) issues.push("missing title");
   if (!validTypes.has(book.type)) issues.push(`invalid type: ${book.type}`);
   if (!validLevels.has(book.level)) issues.push(`invalid level: ${book.level}`);
   if (!book.coverImage) issues.push("missing cover image path");
-  else if (!publicFileExists(book.coverImage)) issues.push(`missing cover image file: ${book.coverImage}`);
+  else if (!publicFileExists(book.coverImage)) {
+    recordMediaFinding(`missing cover image file: ${book.coverImage}`, issues, releaseBlocks);
+  }
   if (book.active !== false && book.qaStatus === "approved" && activePages.length < 4) {
     issues.push("active approved book has fewer than 4 active approved pages");
   }
 
   const pageIssues = [];
+  const pageReleaseBlocks = [];
   const seenPageNumbers = new Set();
   pages.forEach((page, index) => {
     const pageNumber = page.pageNumber || index + 1;
     const rowIssues = [];
+    const rowReleaseBlocks = [];
     if (seenPageNumbers.has(pageNumber)) rowIssues.push(`duplicate page number ${pageNumber}`);
     seenPageNumbers.add(pageNumber);
     if (pageNumber !== index + 1) rowIssues.push(`non-sequential page number ${pageNumber}; expected ${index + 1}`);
@@ -105,11 +115,17 @@ function validateBook(book) {
     const forbidden = textHasForbiddenString(page.text);
     if (forbidden) rowIssues.push(`forbidden bad string: ${forbidden}`);
     if (!page.image) rowIssues.push("missing image path");
-    else if (!publicFileExists(page.image)) rowIssues.push(`missing page image file: ${page.image}`);
+    else if (!publicFileExists(page.image)) {
+      recordMediaFinding(`missing page image file: ${page.image}`, rowIssues, rowReleaseBlocks);
+    }
     if (page.active !== false && page.qaStatus === "approved") {
       const resolvedPageAudio = getGuidedReadingPageAudioPath(page);
       if (!resolvedPageAudio || !publicFileExists(resolvedPageAudio)) {
-        rowIssues.push(`missing exact Leda page narration file: ${resolvedPageAudio || "unresolved"}`);
+        recordMediaFinding(
+          `missing exact Leda page narration file: ${resolvedPageAudio || "unresolved"}`,
+          rowIssues,
+          rowReleaseBlocks
+        );
       }
     }
     if (!page.imageAlt) rowIssues.push("missing imageAlt metadata");
@@ -120,9 +136,12 @@ function validateBook(book) {
     if (rowIssues.length) {
       pageIssues.push({ book, page, pageNumber, issues: rowIssues });
     }
+    if (rowReleaseBlocks.length) {
+      pageReleaseBlocks.push({ book, page, pageNumber, issues: rowReleaseBlocks });
+    }
   });
 
-  return { issues, pageIssues };
+  return { issues, releaseBlocks, pageIssues, pageReleaseBlocks };
 }
 
 const allBooksForValidation = [
@@ -136,6 +155,7 @@ const bookResults = allBooksForValidation.map(book => ({
 }));
 
 const pageIssues = bookResults.flatMap(result => result.pageIssues);
+const pageReleaseBlocks = bookResults.flatMap(result => result.pageReleaseBlocks);
 const activeBooks = guidedReadingBooks;
 const activePages = activeBooks.flatMap(book => book.pages || []);
 const disabledBooks = guidedReadingBookCandidates.filter(book => book.active === false || book.qaStatus !== "approved");
@@ -152,6 +172,14 @@ const activeErrors = [
   ...pageIssues
     .filter(item => item.book.active !== false && item.book.qaStatus === "approved" && item.page.active !== false && item.page.qaStatus === "approved")
     .map(item => `${item.book.id} page ${item.pageNumber}: ${item.issues.join("; ")}`)
+];
+const activeReleaseBlocks = [
+  ...bookResults
+    .filter(result => result.book.active !== false && result.book.qaStatus === "approved")
+    .flatMap(result => result.releaseBlocks.map(issue => `${result.book.id}: ${issue}`)),
+  ...pageReleaseBlocks
+    .filter(item => item.book.active !== false && item.book.qaStatus === "approved" && item.page.active !== false && item.page.qaStatus === "approved")
+    .flatMap(item => item.issues.map(issue => `${item.book.id} page ${item.pageNumber}: ${issue}`))
 ];
 
 const regenerationRows = disabledPages.map(({ book, page, pageNumber }) => {
@@ -189,6 +217,7 @@ Generated: ${new Date().toISOString()}
 - Disabled books: ${disabledBooks.length}
 - Disabled pages: ${disabledPages.length}
 - Active validation errors: ${activeErrors.length}
+- Active release-blocking media findings: ${activeReleaseBlocks.length}
 
 ## Decision
 
@@ -233,4 +262,5 @@ console.log(`Guided Reading candidate books checked: ${guidedReadingBookCandidat
 console.log(`Guided Reading active approved books: ${activeBooks.length}`);
 console.log(`Guided Reading disabled books: ${disabledBooks.length}`);
 console.log(`Guided Reading disabled pages: ${disabledPages.length}`);
+console.log(`Guided Reading release-blocking media findings: ${activeReleaseBlocks.length}`);
 console.log(`Wrote ${path.relative(rootDir, reportPath)}`);

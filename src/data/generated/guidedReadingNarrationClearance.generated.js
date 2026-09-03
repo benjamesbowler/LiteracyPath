@@ -7445,5 +7445,645 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
   "moonwood-tales-c-35::9": {
     "displayedText": "Stone began with the lowest root chime, and Pip answered on the next. Together, they followed the matching tools upward. Four separate notes rang in order.",
     "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-snail-comes-out-at-night::1": {
+    "displayedText": "By day, the snail rests in a cool shelter.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-snail-comes-out-at-night::2": {
+    "displayedText": "After dusk, damp air helps the snail emerge.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-snail-comes-out-at-night::3": {
+    "displayedText": "The snail's tentacles feel and smell its surroundings.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-snail-comes-out-at-night::4": {
+    "displayedText": "Tiny eyes sit at the longer tentacles' tips.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-snail-comes-out-at-night::5": {
+    "displayedText": "The snail glides on one strong, muscular foot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-snail-comes-out-at-night::6": {
+    "displayedText": "A thin slime trail reduces rubbing as it moves.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-snail-comes-out-at-night::7": {
+    "displayedText": "The snail scrapes soft plants and decaying leaves.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-a-snail-comes-out-at-night::8": {
+    "displayedText": "Before warm daylight, the snail hides from drying air.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-build-a-cardboard-ramp::1": {
+    "displayedText": "Ask an adult for strong, flat cardboard.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-build-a-cardboard-ramp::2": {
+    "displayedText": "Stack two wide books on the floor.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-build-a-cardboard-ramp::3": {
+    "displayedText": "Rest the cardboard across the book stack.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-build-a-cardboard-ramp::4": {
+    "displayedText": "Tape the ramp so it cannot slide.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-build-a-cardboard-ramp::5": {
+    "displayedText": "Clear toys away from the landing space.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-build-a-cardboard-ramp::6": {
+    "displayedText": "Release one car, then mark its stopping point.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-build-a-cardboard-ramp::7": {
+    "displayedText": "Raise the ramp, release the car again, then mark its second stop.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-build-a-cardboard-ramp::8": {
+    "displayedText": "Compare both marks to see which roll traveled farther.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-drums-for-carnival::1": {
+    "displayedText": "Leo brings his small drum to Carnival practice.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-drums-for-carnival::2": {
+    "displayedText": "Mr Baptiste plays a call for everyone.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-drums-for-carnival::3": {
+    "displayedText": "Leo plays all through the answering beat.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-drums-for-carnival::4": {
+    "displayedText": "The group stops, and Leo listens again.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-drums-for-carnival::5": {
+    "displayedText": "Leo plays only when the answering beat begins.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-drums-for-carnival::6": {
+    "displayedText": "Leo plays softly, then strongly, with the group.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-drums-for-carnival::7": {
+    "displayedText": "Their shared rhythm fills the community hall.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-drums-for-carnival::8": {
+    "displayedText": "Leo marches outside, keeping his part steady.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-dumplings-for-new-year::1": {
+    "displayedText": "Zoe's family makes dumplings for their New Year meal.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-dumplings-for-new-year::2": {
+    "displayedText": "Aunt Mei places one small spoonful in the middle.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-dumplings-for-new-year::3": {
+    "displayedText": "Zoe adds too much, and her wrapper opens.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-dumplings-for-new-year::4": {
+    "displayedText": "Aunt Mei shows a smaller spoonful this time.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-dumplings-for-new-year::5": {
+    "displayedText": "Zoe pinches the curved edge from end to end.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-dumplings-for-new-year::6": {
+    "displayedText": "Zoe pinches another dumpling without any gaps.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-dumplings-for-new-year::7": {
+    "displayedText": "An adult cooks the dumplings until they are ready.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-dumplings-for-new-year::8": {
+    "displayedText": "The family shares their dumplings around one bright table.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-eid-morning-with-samir::1": {
+    "displayedText": "Samir's family dresses early for Eid morning.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-eid-morning-with-samir::2": {
+    "displayedText": "Samir's family walks together to morning prayers.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-eid-morning-with-samir::3": {
+    "displayedText": "After prayers, neighbors greet one another warmly.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-eid-morning-with-samir::4": {
+    "displayedText": "Samir hopes Maya will meet him by the doorway.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-eid-morning-with-samir::5": {
+    "displayedText": "The busy doorway hides Maya from his view.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-eid-morning-with-samir::6": {
+    "displayedText": "Samir carries his family's food parcel to share.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-eid-morning-with-samir::7": {
+    "displayedText": "At the welcome table, he finds Maya with dates.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-eid-morning-with-samir::8": {
+    "displayedText": "Together, they share dates at the joyful Eid breakfast.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-from-wheat-to-bread::1": {
+    "displayedText": "Wheat plants grow tall, with grain inside each head.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-from-wheat-to-bread::2": {
+    "displayedText": "A harvester cuts wheat and gathers the grain.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-from-wheat-to-bread::3": {
+    "displayedText": "The grain is cleaned before it reaches the mill.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-from-wheat-to-bread::4": {
+    "displayedText": "The grain is ground into soft, pale flour.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-from-wheat-to-bread::5": {
+    "displayedText": "Bakers mix flour, water, yeast, and salt.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-from-wheat-to-bread::6": {
+    "displayedText": "The dough rests, while yeast makes it rise.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-from-wheat-to-bread::7": {
+    "displayedText": "Oven heat bakes the risen dough into bread.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-from-wheat-to-bread::8": {
+    "displayedText": "The bread cools before people slice and share it.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-grow-a-bean-in-a-jar::1": {
+    "displayedText": "Ask an adult for a clear jar and bean.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-grow-a-bean-in-a-jar::2": {
+    "displayedText": "Fold paper towel and place it inside.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-grow-a-bean-in-a-jar::3": {
+    "displayedText": "Add water until the paper feels damp.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-grow-a-bean-in-a-jar::4": {
+    "displayedText": "Slide the bean between paper and glass.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-grow-a-bean-in-a-jar::5": {
+    "displayedText": "Stand the jar in warm, indirect light.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-grow-a-bean-in-a-jar::6": {
+    "displayedText": "Check the paper daily and keep it damp.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-grow-a-bean-in-a-jar::7": {
+    "displayedText": "The bean grows a root, then a shoot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-grow-a-bean-in-a-jar::8": {
+    "displayedText": "Plant the sprouted bean gently with adult help.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-how-a-book-is-made::1": {
+    "displayedText": "An author writes and revises the book's words.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-how-a-book-is-made::2": {
+    "displayedText": "An editor helps make the meaning clear.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-how-a-book-is-made::3": {
+    "displayedText": "An illustrator creates pictures for each page.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-how-a-book-is-made::4": {
+    "displayedText": "A designer places words and pictures together.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-how-a-book-is-made::5": {
+    "displayedText": "Printing machines press ink onto large paper sheets.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-how-a-book-is-made::6": {
+    "displayedText": "The printed sheets are folded into page groups.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-how-a-book-is-made::7": {
+    "displayedText": "The book's page groups are bound inside a cover.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-how-a-book-is-made::8": {
+    "displayedText": "Finished books travel to libraries, shops, and readers.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-how-paper-is-recycled::1": {
+    "displayedText": "Clean used paper is collected for recycling.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-how-paper-is-recycled::2": {
+    "displayedText": "Workers sort the paper and remove wrong materials.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-how-paper-is-recycled::3": {
+    "displayedText": "The paper mixes with water to make wet pulp.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-how-paper-is-recycled::4": {
+    "displayedText": "Screens catch staples, tape, and larger unwanted pieces.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-how-paper-is-recycled::5": {
+    "displayedText": "The pulp is cleaned before making new sheets.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-how-paper-is-recycled::6": {
+    "displayedText": "Rollers press water from the thin pulp layer.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-how-paper-is-recycled::7": {
+    "displayedText": "Heated rollers dry the long sheet of paper.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-how-paper-is-recycled::8": {
+    "displayedText": "The new paper becomes boxes, notebooks, and more.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-inside-a-fire-station::1": {
+    "displayedText": "Firefighters check their engine, tools, and safety gear.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-inside-a-fire-station::2": {
+    "displayedText": "A dispatcher sends details when someone needs help.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-inside-a-fire-station::3": {
+    "displayedText": "Firefighters pull on protective clothing before they leave.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-inside-a-fire-station::4": {
+    "displayedText": "The engine carries people, water, hoses, and tools.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-inside-a-fire-station::5": {
+    "displayedText": "At emergencies, firefighters work together under one leader.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-inside-a-fire-station::6": {
+    "displayedText": "They may stop fires, rescue people, or give first aid.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-inside-a-fire-station::7": {
+    "displayedText": "Back at the station, every tool is cleaned and checked.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-inside-a-fire-station::8": {
+    "displayedText": "Firefighters train often, ready for the next call.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-make-a-paper-kite::1": {
+    "displayedText": "Ask an adult to cut a paper diamond.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-make-a-paper-kite::2": {
+    "displayedText": "Lay two light sticks across the diamond.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-make-a-paper-kite::3": {
+    "displayedText": "Tape both sticks firmly to the paper.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-make-a-paper-kite::4": {
+    "displayedText": "Tie a ribbon tail to the bottom.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-make-a-paper-kite::5": {
+    "displayedText": "Add the flying line at the center.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-make-a-paper-kite::6": {
+    "displayedText": "Check the kite's tape, tail, and line together.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-make-a-paper-kite::7": {
+    "displayedText": "Choose open ground, far from roads and wires.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-make-a-paper-kite::8": {
+    "displayedText": "Face the breeze and let the kite rise.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-make-fruit-and-yoghurt-cups::1": {
+    "displayedText": "Ask an adult to check every ingredient for allergies.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-make-fruit-and-yoghurt-cups::2": {
+    "displayedText": "Wash your hands and rinse the fruit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-make-fruit-and-yoghurt-cups::3": {
+    "displayedText": "Ask an adult to cut the banana.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-make-fruit-and-yoghurt-cups::4": {
+    "displayedText": "Spoon plain yogurt into each cup.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-make-fruit-and-yoghurt-cups::5": {
+    "displayedText": "Add banana and berries to each cup.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-make-fruit-and-yoghurt-cups::6": {
+    "displayedText": "Spoon more yogurt over the fruit.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-make-fruit-and-yoghurt-cups::7": {
+    "displayedText": "Cover and chill each cup until snack time.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-make-fruit-and-yoghurt-cups::8": {
+    "displayedText": "Serve the cold cups with clean spoons.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-nanis-chapati-lunch::1": {
+    "displayedText": "Nani makes warm chapatis for Maya's family lunch.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-nanis-chapati-lunch::2": {
+    "displayedText": "Maya stacks them inside the round steel tin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-nanis-chapati-lunch::3": {
+    "displayedText": "The flat chapatis leave no room for lentils.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-nanis-chapati-lunch::4": {
+    "displayedText": "Nani folds one chapati into a neat triangle.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-nanis-chapati-lunch::5": {
+    "displayedText": "Nani folds another, and Maya copies carefully.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-nanis-chapati-lunch::6": {
+    "displayedText": "The folded chapatis fit beside the lentil pot.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-nanis-chapati-lunch::7": {
+    "displayedText": "Maya adds cool cucumber slices to the top.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-nanis-chapati-lunch::8": {
+    "displayedText": "At lunch, everyone shares Nani's clever packed meal.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-garden-gate::1": {
+    "displayedText": "The gate stops halfway across the garden path.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-garden-gate::2": {
+    "displayedText": "Maya pulls once, but the gate stays still.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-garden-gate::3": {
+    "displayedText": "Leo kneels and sees a stone underneath.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-garden-gate::4": {
+    "displayedText": "They close the gate before moving the stone.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-garden-gate::5": {
+    "displayedText": "Leo lifts the loose stone with both hands.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-garden-gate::6": {
+    "displayedText": "Maya sweeps the gritty path beneath the gate.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-garden-gate::7": {
+    "displayedText": "The gate swings open without catching now.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-garden-gate::8": {
+    "displayedText": "They carry the watering can into the garden.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-lost-library-book::1": {
+    "displayedText": "Zoe's library book is missing from her blue bag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-lost-library-book::2": {
+    "displayedText": "They look under the reading table first.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-lost-library-book::3": {
+    "displayedText": "They look between the animal books next.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-lost-library-book::4": {
+    "displayedText": "They look beside the window seat too.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-lost-library-book::5": {
+    "displayedText": "A dry leaf falls from Zoe's bag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-lost-library-book::6": {
+    "displayedText": "The leaf reminds Leo of the outside bench.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-lost-library-book::7": {
+    "displayedText": "The librarian found their book on that bench.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-lost-library-book::8": {
+    "displayedText": "Zoe puts the book safely inside her bag.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-lunchbox-mix-up::1": {
+    "displayedText": "Maya opens her lunchbox and finds Samir's blue cup.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-lunchbox-mix-up::2": {
+    "displayedText": "Maya checks the labels beside each lunchbox.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-lunchbox-mix-up::3": {
+    "displayedText": "Samir checks the labels and spots Maya's green apple.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-lunchbox-mix-up::4": {
+    "displayedText": "They swap the lunchboxes, but one spoon stays behind.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-lunchbox-mix-up::5": {
+    "displayedText": "Maya sees the spoon beside Samir's folded napkin.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-lunchbox-mix-up::6": {
+    "displayedText": "Samir returns the spoon and thanks Maya.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-lunchbox-mix-up::7": {
+    "displayedText": "Now each lunchbox holds the right things.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-lunchbox-mix-up::8": {
+    "displayedText": "Maya and Samir eat lunch together at last.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-puddle-plan::1": {
+    "displayedText": "A wide puddle blocks the garden path.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-puddle-plan::2": {
+    "displayedText": "Their plan starts along the shortest edge.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-puddle-plan::3": {
+    "displayedText": "Leo's boot sinks into soft, sticky mud.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-puddle-plan::4": {
+    "displayedText": "Their plan changes toward the dry stones.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-puddle-plan::5": {
+    "displayedText": "Samir tests each stone with one careful step.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-puddle-plan::6": {
+    "displayedText": "Leo places cones beside the safe dry way.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-puddle-plan::7": {
+    "displayedText": "Their plan guides Maya around the puddle.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-puddle-plan::8": {
+    "displayedText": "Everyone reaches the garden by the safe, dry path.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-squeaky-wheel::1": {
+    "displayedText": "The wheel squeaks when Zoe pushes the garden cart.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-squeaky-wheel::2": {
+    "displayedText": "Samir checks for stones caught beside the wheel.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-squeaky-wheel::3": {
+    "displayedText": "The wheel squeaks louder when they push harder.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-squeaky-wheel::4": {
+    "displayedText": "They stop the cart and ask the gardener.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-squeaky-wheel::5": {
+    "displayedText": "The gardener puts one drop on the axle.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-squeaky-wheel::6": {
+    "displayedText": "The gardener turns the wheel several times.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-squeaky-wheel::7": {
+    "displayedText": "The wheel rolls quietly along the path.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-squeaky-wheel::8": {
+    "displayedText": "Zoe and Samir carry seedlings without a squeak.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-windy-picnic::1": {
+    "displayedText": "The wind lifts one corner of their picnic cloth.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-windy-picnic::2": {
+    "displayedText": "Maya holds the cloth, while Zoe opens the basket.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-windy-picnic::3": {
+    "displayedText": "The wind lifts three napkins into the air.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-windy-picnic::4": {
+    "displayedText": "Leo catches two, but one crosses the path.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-windy-picnic::5": {
+    "displayedText": "They move beside the tall, quiet hedge.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-windy-picnic::6": {
+    "displayedText": "Four food boxes hold the cloth corners down.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-windy-picnic::7": {
+    "displayedText": "The napkins stay still beside the basket.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-the-windy-picnic::8": {
+    "displayedText": "Now the friends enjoy their calm, windy picnic.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-where-rainwater-goes::1": {
+    "displayedText": "Rain falls onto roofs, gardens, roads, and rivers.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-where-rainwater-goes::2": {
+    "displayedText": "Some rainwater soaks slowly into loose garden soil.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-where-rainwater-goes::3": {
+    "displayedText": "Some rainwater runs downhill across hard pavement.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-where-rainwater-goes::4": {
+    "displayedText": "Roof gutters carry water into pipes or water butts.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-where-rainwater-goes::5": {
+    "displayedText": "Street drains guide water away from busy roads.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-where-rainwater-goes::6": {
+    "displayedText": "Small streams join wider rivers moving toward the sea.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-where-rainwater-goes::7": {
+    "displayedText": "Sunlight warms water, and some rises as vapor.",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "willow-street-where-rainwater-goes::8": {
+    "displayedText": "Cooling vapor forms clouds that can bring more rain.",
+    "voice": "en-US-Chirp3-HD-Leda"
   }
 });

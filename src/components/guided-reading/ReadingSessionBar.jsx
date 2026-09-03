@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { TeacherDialog } from "../teacher/ui/TeacherDialog.jsx";
+import { guidedReadingBandLabel, guidedReadingModeLabel } from "../../policy/guidedReadingCatalogPolicy.js";
 import "./readingSession.css";
 
 export function ReadingSessionBar({ host, book, pageIndex, pageCount }) {
@@ -31,7 +32,7 @@ export function ReadingSessionBar({ host, book, pageIndex, pageCount }) {
         <div className="reading-session-bar-heading">
           <div>
             <strong>Reading together · {book?.title || "Book"}</strong>
-            <span>{book?.level ? `Level ${book.level}` : ""}</span>
+            <span>{guidedReadingBandLabel(book?.readingBandProfile, book?.level)} · {guidedReadingModeLabel(book?.readingMode)}</span>
           </div>
           <p>Page {pageIndex + 1} of {pageCount}</p>
           <button className="lp-button lp-button-secondary" onClick={() => setConfirmEnd(true)} type="button">End session</button>

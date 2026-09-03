@@ -22,6 +22,7 @@
 // code-splits the same data module on purpose).
 
 import { guidedReadingBooks } from "../../data/guidedReadingBooks.js";
+import { getGuidedReadingBookMetadata } from "../../data/guidedReadingBookMetadata.js";
 import {
   isGuidedReadingAssetDeleted,
   isGuidedReadingBookDeleted
@@ -35,6 +36,13 @@ export function getRuntimeGuidedReadingBooks() {
   const levelOverrides = readGuidedReadingLevelOverrides();
   return guidedReadingBooks
     .filter(book => !isGuidedReadingBookDeleted(book.id))
+    .map(book => {
+      const metadata = getGuidedReadingBookMetadata(book);
+      if (!metadata) {
+        throw new Error(`Guided Reading book ${book.id || "(missing id)"} has no editorial metadata.`);
+      }
+      return { ...book, ...metadata };
+    })
     .map(book => applyGuidedReadingLevelOverride(book, levelOverrides))
     .map(book => ({
       ...book,

@@ -58,13 +58,13 @@ export const RELEASE_GATES = Object.freeze([
   {
     id: "story-content-policy",
     label: "Registered narrative content, exact source fingerprints, and supported approval claims",
-    command: ["npm", "run", "check:story-content-policy"],
+    command: ["npm", "run", "check:story-content-policy", "--", "--release"],
     areas: [1, 2, 3, 4, 10]
   },
   {
     id: "guided-reading-story-bible",
     label: "Guided Reading Story Bible, level ladder, exact narration, and locked manuscript review",
-    command: ["npm", "run", "check:guided-reading-story-bible"],
+    command: ["npm", "run", "check:guided-reading-story-bible", "--", "--release"],
     areas: [1, 2, 3, 4, 10]
   },
   {

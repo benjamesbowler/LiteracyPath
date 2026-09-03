@@ -664,7 +664,7 @@ test("the Level C shelf is read from the book catalogue, never typed into the pa
   assert.equal(rows.length, 4);
   rows.forEach(row => {
     assert.ok(catalogueTitles.includes(row.title), `${row.title} comes from the catalogue`);
-    assert.equal(row.meta, "First Facts · nonfiction · Level C");
+    assert.equal(row.meta, "First Facts · nonfiction · C Standard · Predictable / Levelled");
   });
 
   // Withdrawn, unapproved and teacher-preview books never reach a teacher.
@@ -673,7 +673,7 @@ test("the Level C shelf is read from the book catalogue, never typed into the pa
     { id: "b", title: "Draft", seriesTitle: "First Facts", type: "nonfiction", level: "C", status: "draft" },
     { id: "c", title: "Preview", seriesTitle: "First Facts", type: "nonfiction", level: "C", status: "approved", teacherPreviewOnly: true },
     { id: "d", title: "Wrong level", seriesTitle: "First Facts", type: "nonfiction", level: "A", status: "approved" },
-    { id: "e", title: "Kept", seriesTitle: "First Facts", type: "nonfiction", level: "C", status: "approved", order: 2 }
+    { id: "level-c-nonfiction-01-bees", title: "Kept", seriesTitle: "First Facts", type: "nonfiction", level: "C", status: "approved", order: 2 }
   ]);
   assert.deepEqual(filtered.map(row => row.title), ["Kept"]);
   // An unreadable catalogue must not resolve to an empty shelf.

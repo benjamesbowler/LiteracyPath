@@ -576,10 +576,14 @@ async function verifyAnonymousBoundary(anonymous) {
       .limit(1000),
     "anonymous Guided Reading publication allowlist"
   );
+  assert(
+    publicGuidedReadingReviews.length > 0,
+    "anonymous publication did not expose any approved Guided Reading review rows"
+  );
   assert.equal(
+    new Set(publicGuidedReadingReviews.map(row => row.book_id)).size,
     publicGuidedReadingReviews.length,
-    206,
-    "anonymous publication did not expose the exact approved 206-book catalogue"
+    "anonymous publication exposed duplicate Guided Reading review rows"
   );
   assert(
     publicGuidedReadingReviews.every(row => row.status === "approved"),

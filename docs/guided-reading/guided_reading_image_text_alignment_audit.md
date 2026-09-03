@@ -1,12 +1,12 @@
 # Guided Reading Image/Text Alignment Audit
 
-Generated: 2026-08-08T05:46:39.451Z
+Generated: 2026-09-02T12:33:26.629Z
 
 ## What This Check Proves
 
-This check verifies that every visible Guided Reading book has title-page normalization and that story page images stay mechanically aligned with story page numbers. Fiction includes Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, Dino Pals Level B books 1-30, Meadow Pals Level A books 1-35, and Moonwood Tales Level C books 1-35 in student public release. First Facts nonfiction books 1-25 are Level B, First Facts Level A nonfiction books 1-20 are true Level A, and Level C nonfiction books 1-10 are also checked as public nonfiction.
+This check verifies that every exported Guided Reading book has title-page normalization and that each story image stays mechanically aligned with its story page. It covers Levels A-C, both Level C reading bands, and all fiction, nonfiction, procedure, and community collections.
 
-Visible fiction books: 130
+Visible fiction books: 140
 
 ## Page Sequence
 
@@ -20,7 +20,7 @@ Visible fiction books: 130
 | gr-a-26 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-a-26-page-06.png | Different pets need different kinds of care. |
 | gr-a-27 | 2 | 1 | yes | yes | /guided-reading/regen/pages/gr-a-27-page-01.png | Our Sun is one huge star in space. |
 | gr-a-27 | 3 | 2 | yes | yes | /guided-reading/regen/pages/gr-a-27-page-02.png | Its light makes daytime on our side. |
-| gr-a-27 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-a-27-page-03.png | Its warmth heats land and water. |
+| gr-a-27 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-a-27-page-03.png | Its warmth heats the land and water. |
 | gr-a-27 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-a-27-page-04.png | Plants use sunlight to make food. |
 | gr-a-27 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-a-27-page-05.png | Enjoy daylight safely. Never look straight at the Sun. |
 | gr-a-27 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-a-27-page-06.png | The Sun's light and warmth help life on Earth. |
@@ -567,13 +567,13 @@ Visible fiction books: 130
 | bob-and-nan-02-park | 6 | 5 | yes | yes | /guided-reading/series/bob-and-nan/book-02/page-005.webp | Nan swings with Bob. |
 | bob-and-nan-02-park | 7 | 6 | yes | yes | /guided-reading/series/bob-and-nan/book-02/page-006.webp | They climb the big hill. |
 | bob-and-nan-02-park | 8 | 7 | yes | yes | /guided-reading/series/bob-and-nan/book-02/page-007.webp | Both reach the top! |
-| bob-and-nan-03-fluff | 2 | 1 | yes | yes | /guided-reading/series/bob-and-nan/book-03/page-001.webp | Bob and Nan sit outside. |
-| bob-and-nan-03-fluff | 3 | 2 | yes | yes | /guided-reading/series/bob-and-nan/book-03/page-002.webp | Their pup Fluff walks over. |
+| bob-and-nan-03-fluff | 2 | 1 | yes | yes | /guided-reading/series/bob-and-nan/book-03/page-001.webp | Bob wants Fluff to sit. |
+| bob-and-nan-03-fluff | 3 | 2 | yes | yes | /guided-reading/series/bob-and-nan/book-03/page-002.webp | Fluff walks past Bob. |
 | bob-and-nan-03-fluff | 4 | 3 | yes | yes | /guided-reading/series/bob-and-nan/book-03/page-003.webp | Fluff runs to Nan. |
-| bob-and-nan-03-fluff | 5 | 4 | yes | yes | /guided-reading/series/bob-and-nan/book-03/page-004.webp | Nan strokes his soft ears. |
-| bob-and-nan-03-fluff | 6 | 5 | yes | yes | /guided-reading/series/bob-and-nan/book-03/page-005.webp | Bob pats him gently. |
-| bob-and-nan-03-fluff | 7 | 6 | yes | yes | /guided-reading/series/bob-and-nan/book-03/page-006.webp | Fluff stays close. |
-| bob-and-nan-03-fluff | 8 | 7 | yes | yes | /guided-reading/series/bob-and-nan/book-03/page-007.webp | Fluff sits between his pals. |
+| bob-and-nan-03-fluff | 5 | 4 | yes | yes | /guided-reading/series/bob-and-nan/book-03/page-004.webp | Nan pats Fluff calmly. |
+| bob-and-nan-03-fluff | 6 | 5 | yes | yes | /guided-reading/series/bob-and-nan/book-03/page-005.webp | Bob pats Fluff calmly. |
+| bob-and-nan-03-fluff | 7 | 6 | yes | yes | /guided-reading/series/bob-and-nan/book-03/page-006.webp | Fluff stops running. |
+| bob-and-nan-03-fluff | 8 | 7 | yes | yes | /guided-reading/series/bob-and-nan/book-03/page-007.webp | Fluff sits between them. |
 | bob-and-nan-04-beach | 2 | 1 | yes | yes | /guided-reading/series/bob-and-nan/book-04/page-001.webp | Bob and Nan reach the beach. |
 | bob-and-nan-04-beach | 3 | 2 | yes | yes | /guided-reading/series/bob-and-nan/book-04/page-002.webp | They want a sand fort. |
 | bob-and-nan-04-beach | 4 | 3 | yes | yes | /guided-reading/series/bob-and-nan/book-04/page-003.webp | Bob digs the wall. |
@@ -606,28 +606,28 @@ Visible fiction books: 130
 | bob-and-nan-07-birthday | 9 | 8 | yes | yes | /guided-reading/series/bob-and-nan/book-07/page-008.webp | Bob rests beside Nan and Fluff. |
 | bob-and-nan-08-sick | 2 | 1 | yes | yes | /guided-reading/series/bob-and-nan/book-08/page-001.webp | Bob feels too ill to play. |
 | bob-and-nan-08-sick | 3 | 2 | yes | yes | /guided-reading/series/bob-and-nan/book-08/page-002.webp | Bob rests in bed. |
-| bob-and-nan-08-sick | 4 | 3 | yes | yes | /guided-reading/series/bob-and-nan/book-08/page-003.webp | Nan feels too ill to play. |
-| bob-and-nan-08-sick | 5 | 4 | yes | yes | /guided-reading/series/bob-and-nan/book-08/page-004.webp | One nap is not enough. |
-| bob-and-nan-08-sick | 6 | 5 | yes | yes | /guided-reading/series/bob-and-nan/book-08/page-005.webp | Mom brings a warm drink. |
-| bob-and-nan-08-sick | 7 | 6 | yes | yes | /guided-reading/series/bob-and-nan/book-08/page-006.webp | They sip and rest. |
-| bob-and-nan-08-sick | 8 | 7 | yes | yes | /guided-reading/series/bob-and-nan/book-08/page-007.webp | Bob and Nan feel well! |
-| bob-and-nan-08-sick | 9 | 8 | yes | yes | /guided-reading/series/bob-and-nan/book-08/page-008.webp | They run with Fluff! |
+| bob-and-nan-08-sick | 4 | 3 | yes | yes | /guided-reading/series/bob-and-nan/book-08/page-003.webp | Nan rests beside Fluff. |
+| bob-and-nan-08-sick | 5 | 4 | yes | yes | /guided-reading/series/bob-and-nan/book-08/page-004.webp | Fluff stays close beside them. |
+| bob-and-nan-08-sick | 6 | 5 | yes | yes | /guided-reading/series/bob-and-nan/book-08/page-005.webp | Mom brings them water. |
+| bob-and-nan-08-sick | 7 | 6 | yes | yes | /guided-reading/series/bob-and-nan/book-08/page-006.webp | They rest for two days. |
+| bob-and-nan-08-sick | 8 | 7 | yes | yes | /guided-reading/series/bob-and-nan/book-08/page-007.webp | Soon they feel stronger. |
+| bob-and-nan-08-sick | 9 | 8 | yes | yes | /guided-reading/series/bob-and-nan/book-08/page-008.webp | Later they walk with Fluff. |
 | bob-and-nan-09-read | 2 | 1 | yes | yes | /guided-reading/series/bob-and-nan/book-09/page-001.webp | Nan has a red book. |
 | bob-and-nan-09-read | 3 | 2 | yes | yes | /guided-reading/series/bob-and-nan/book-09/page-002.webp | Bob cannot read it yet. |
 | bob-and-nan-09-read | 4 | 3 | yes | yes | /guided-reading/series/bob-and-nan/book-09/page-003.webp | Nan helps Bob. |
 | bob-and-nan-09-read | 5 | 4 | yes | yes | /guided-reading/series/bob-and-nan/book-09/page-004.webp | Bob sounds out cat. |
 | bob-and-nan-09-read | 6 | 5 | yes | yes | /guided-reading/series/bob-and-nan/book-09/page-005.webp | Bob reads one sentence. |
-| bob-and-nan-09-read | 7 | 6 | yes | yes | /guided-reading/series/bob-and-nan/book-09/page-006.webp | Bob can read! |
-| bob-and-nan-09-read | 8 | 7 | yes | yes | /guided-reading/series/bob-and-nan/book-09/page-007.webp | They read together. |
-| bob-and-nan-09-read | 9 | 8 | yes | yes | /guided-reading/series/bob-and-nan/book-09/page-008.webp | Fluff naps beside them. |
+| bob-and-nan-09-read | 7 | 6 | yes | yes | /guided-reading/series/bob-and-nan/book-09/page-006.webp | Bob reads the cat page! |
+| bob-and-nan-09-read | 8 | 7 | yes | yes | /guided-reading/series/bob-and-nan/book-09/page-007.webp | They practice each day. |
+| bob-and-nan-09-read | 9 | 8 | yes | yes | /guided-reading/series/bob-and-nan/book-09/page-008.webp | Fluff naps as they read. |
 | bob-and-nan-10-vet | 2 | 1 | yes | yes | /guided-reading/series/bob-and-nan/book-10/page-001.webp | Fluff has a sore leg. |
 | bob-and-nan-10-vet | 3 | 2 | yes | yes | /guided-reading/series/bob-and-nan/book-10/page-002.webp | Rest does not help. |
 | bob-and-nan-10-vet | 4 | 3 | yes | yes | /guided-reading/series/bob-and-nan/book-10/page-003.webp | They take Fluff to the vet. |
 | bob-and-nan-10-vet | 5 | 4 | yes | yes | /guided-reading/series/bob-and-nan/book-10/page-004.webp | Fluff sits on the bed. |
 | bob-and-nan-10-vet | 6 | 5 | yes | yes | /guided-reading/series/bob-and-nan/book-10/page-005.webp | The vet checks his leg. |
 | bob-and-nan-10-vet | 7 | 6 | yes | yes | /guided-reading/series/bob-and-nan/book-10/page-006.webp | Fluff gets his medicine. |
-| bob-and-nan-10-vet | 8 | 7 | yes | yes | /guided-reading/series/bob-and-nan/book-10/page-007.webp | Fluff stands without pain. |
-| bob-and-nan-10-vet | 9 | 8 | yes | yes | /guided-reading/series/bob-and-nan/book-10/page-008.webp | Fluff can run again! |
+| bob-and-nan-10-vet | 8 | 7 | yes | yes | /guided-reading/series/bob-and-nan/book-10/page-007.webp | The vet says Fluff must rest. |
+| bob-and-nan-10-vet | 9 | 8 | yes | yes | /guided-reading/series/bob-and-nan/book-10/page-008.webp | Weeks pass. Fluff runs again! |
 | james-and-anna-01-space | 2 | 1 | yes | yes | /guided-reading/series/james-and-anna/book-01/page-001.webp | James and Anna find big boxes in the garden. |
 | james-and-anna-01-space | 3 | 2 | yes | yes | /guided-reading/series/james-and-anna/book-01/page-002.webp | “Let’s make a rocket!” says James. “To the Moon!” |
 | james-and-anna-01-space | 4 | 3 | yes | yes | /guided-reading/series/james-and-anna/book-01/page-003.webp | Anna draws wings, a door, and one pointy nose. |
@@ -635,13 +635,13 @@ Visible fiction books: 130
 | james-and-anna-01-space | 6 | 5 | yes | yes | /guided-reading/series/james-and-anna/book-01/page-005.webp | James got the red paint. Anna got the silver paint. They painted and painted unt |
 | james-and-anna-01-space | 7 | 6 | yes | yes | /guided-reading/series/james-and-anna/book-01/page-006.webp | At last, the red and silver rocket is ready. |
 | james-and-anna-01-space | 8 | 7 | yes | yes | /guided-reading/series/james-and-anna/book-01/page-007.webp | “Five, four, three, two, one!” The rocket stays still. |
-| james-and-anna-01-space | 9 | 8 | yes | yes | /guided-reading/series/james-and-anna/book-01/page-008.webp | They shut their eyes. “Blast off!” Whoosh! Up they fly. |
+| james-and-anna-01-space | 9 | 8 | yes | yes | /guided-reading/series/james-and-anna/book-01/page-008.webp | Anna opens her star map. “Close your eyes,” she says. |
 | james-and-anna-01-space | 10 | 9 | yes | yes | /guided-reading/series/james-and-anna/book-01/page-009.webp | They flew past big round planets. Some had red spots. Some had wide, shining rin |
-| james-and-anna-01-space | 11 | 10 | yes | yes | /guided-reading/series/james-and-anna/book-01/page-010.webp | Bump! The rocket lands on the pale, quiet Moon. |
-| james-and-anna-01-space | 12 | 11 | yes | yes | /guided-reading/series/james-and-anna/book-01/page-011.webp | Zim, a tiny green alien, skips over to say hello. |
-| james-and-anna-01-space | 13 | 12 | yes | yes | /guided-reading/series/james-and-anna/book-01/page-012.webp | Boing! James, Anna, and Zim bounce across the Moon. |
-| james-and-anna-01-space | 14 | 13 | yes | yes | /guided-reading/series/james-and-anna/book-01/page-013.webp | Soon Anna turns the rocket home. Zim waves below. |
-| james-and-anna-01-space | 15 | 14 | yes | yes | /guided-reading/series/james-and-anna/book-01/page-014.webp | Bump! They land back in the garden. Mom brings cake. |
+| james-and-anna-01-space | 11 | 10 | yes | yes | /guided-reading/series/james-and-anna/book-01/page-010.webp | In their game, bright planets sweep past the window. |
+| james-and-anna-01-space | 12 | 11 | yes | yes | /guided-reading/series/james-and-anna/book-01/page-011.webp | Their garden becomes the pale, quiet Moon. |
+| james-and-anna-01-space | 13 | 12 | yes | yes | /guided-reading/series/james-and-anna/book-01/page-012.webp | They imagine Zim and bounce together across the Moon. |
+| james-and-anna-01-space | 14 | 13 | yes | yes | /guided-reading/series/james-and-anna/book-01/page-013.webp | Their game turns the rocket towards home. |
+| james-and-anna-01-space | 15 | 14 | yes | yes | /guided-reading/series/james-and-anna/book-01/page-014.webp | They open their eyes in the garden. Mom brings cake. |
 | james-and-anna-02-chips | 2 | 1 | yes | yes | /guided-reading/series/james-and-anna/book-02/page-001.webp | Meet Chips, their small white goat with big brown patches. |
 | james-and-anna-02-chips | 3 | 2 | yes | yes | /guided-reading/series/james-and-anna/book-02/page-002.webp | Jingle, jingle! His blue bell warns everyone: trouble is coming. |
 | james-and-anna-02-chips | 4 | 3 | yes | yes | /guided-reading/series/james-and-anna/book-02/page-003.webp | Chips eats grass, bark, and Dad’s best hat. |
@@ -666,7 +666,7 @@ Visible fiction books: 130
 | james-and-anna-03-shopping | 11 | 10 | yes | yes | /guided-reading/series/james-and-anna/book-03/page-010.webp | One lemon cake for James. One jam tart for Anna. |
 | james-and-anna-03-shopping | 12 | 11 | yes | yes | /guided-reading/series/james-and-anna/book-03/page-011.webp | At checkout, James counts each item. Every egg stays whole. |
 | james-and-anna-03-shopping | 13 | 12 | yes | yes | /guided-reading/series/james-and-anna/book-03/page-012.webp | The bread smells wonderful. James reaches in. Anna gives him the look. |
-| james-and-anna-03-shopping | 14 | 13 | yes | yes | /guided-reading/series/james-and-anna/book-03/page-013.webp | The eggs make it home whole. Cake time! “Drop it, Chips!” He does. |
+| james-and-anna-03-shopping | 14 | 13 | yes | yes | /guided-reading/series/james-and-anna/book-03/page-013.webp | At home, they unpack every item. Then Mom cuts the cakes. |
 | james-and-anna-04-dentist | 2 | 1 | yes | yes | /guided-reading/series/james-and-anna/book-04/page-001.webp | James frowns at the dentist card. Anna grips her sleeve. |
 | james-and-anna-04-dentist | 3 | 2 | yes | yes | /guided-reading/series/james-and-anna/book-04/page-002.webp | Mom kneels beside them. “The dentist only checks your teeth.” |
 | james-and-anna-04-dentist | 4 | 3 | yes | yes | /guided-reading/series/james-and-anna/book-04/page-003.webp | Anna holds James’s hand. He frowns all the way. |
@@ -751,11 +751,11 @@ Visible fiction books: 130
 | ja-b-10 | 6 | 5 | yes | yes | /guided-reading/series/james-and-anna/book-10/page-005.webp | At dusk, marshmallows toast over Dad’s safe fire dish. |
 | ja-b-10 | 7 | 6 | yes | yes | /guided-reading/series/james-and-anna/book-10/page-006.webp | Chips lunges. Dad pulls the hot marshmallow away. Phew! |
 | ja-b-10 | 8 | 7 | yes | yes | /guided-reading/series/james-and-anna/book-10/page-007.webp | They played cards in the tent by torchlight. Chips ate two cards before they not |
-| ja-b-10 | 9 | 8 | yes | yes | /guided-reading/series/james-and-anna/book-10/page-008.webp | At midnight, a fox barks. Every camper freezes. |
-| ja-b-10 | 10 | 9 | yes | yes | /guided-reading/series/james-and-anna/book-10/page-009.webp | Anna grabs the air horn. “This will scare it!” |
-| ja-b-10 | 11 | 10 | yes | yes | /guided-reading/series/james-and-anna/book-10/page-010.webp | HONK! The fox runs. So does Dad—in his pajamas. |
+| ja-b-10 | 9 | 8 | yes | yes | /guided-reading/series/james-and-anna/book-10/page-008.webp | At midnight, a fox barks. They stay inside the tent. |
+| ja-b-10 | 10 | 9 | yes | yes | /guided-reading/series/james-and-anna/book-10/page-009.webp | Anna reaches for the horn. Dad says, “Wait.” |
+| ja-b-10 | 11 | 10 | yes | yes | /guided-reading/series/james-and-anna/book-10/page-010.webp | Dad switches on the light. The fox trots away. |
 | ja-b-10 | 12 | 11 | yes | yes | /guided-reading/series/james-and-anna/book-10/page-011.webp | Chips leans on James. James leans on Anna. Squash! |
-| ja-b-10 | 13 | 12 | yes | yes | /guided-reading/series/james-and-anna/book-10/page-012.webp | Morning light slips in through Chips’s new tent hole. |
+| ja-b-10 | 13 | 12 | yes | yes | /guided-reading/series/james-and-anna/book-10/page-012.webp | Morning shines through the seam Chips chewed. |
 | ja-b-10 | 14 | 13 | yes | yes | /guided-reading/series/james-and-anna/book-10/page-013.webp | They last all night! Hot toast tastes wonderful in the morning. |
 | ja-b-10 | 15 | 14 | yes | yes | /guided-reading/series/james-and-anna/book-10/page-014.webp | Mom waits at the door. Chips grabs the zip. Anna pulls it free. |
 | ab-c-01 | 2 | 1 | yes | yes | /guided-reading/series/aiden-and-betty/book-01/page-001.webp | Summer was over. Aiden stared at his new school bag. Was Grade 1 going to be har |
@@ -1056,16 +1056,16 @@ Visible fiction books: 130
 | dino-pals-17-the-sunny-hollow-games | 13 | 12 | yes | yes | /guided-reading/series/dino-pals/book-17/page-012.webp | Bossy fills each line. Bright bows fill the board. |
 | dino-pals-18-dozys-wonderful-dream | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-18/page-001.webp | Dozy sleeps for hours in Long Meadow. |
 | dino-pals-18-dozys-wonderful-dream | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-18/page-002.webp | Bossy and Sunny wait near him. |
-| dino-pals-18-dozys-wonderful-dream | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-18/page-003.webp | Dozy dreams of the best warm cloud bed. |
-| dino-pals-18-dozys-wonderful-dream | 5 | 4 | yes | yes | /guided-reading/series/dino-pals/book-18/page-004.webp | Soft clouds lift him high. Sunny Hollow looks small. |
-| dino-pals-18-dozys-wonderful-dream | 6 | 5 | yes | yes | /guided-reading/series/dino-pals/book-18/page-005.webp | Chompy bites his food-cloud. His mouth stays bare. |
-| dino-pals-18-dozys-wonderful-dream | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-18/page-006.webp | Grumpy's seat-cloud will not stay firm. |
-| dino-pals-18-dozys-wonderful-dream | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-18/page-007.webp | Bouncy's cloud springs off with one BOING! |
-| dino-pals-18-dozys-wonderful-dream | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-18/page-008.webp | A gold stream points up to Mount Rumble. |
-| dino-pals-18-dozys-wonderful-dream | 10 | 9 | yes | yes | /guided-reading/series/dino-pals/book-18/page-009.webp | Dozy finds all his friends on the warm peak. |
-| dino-pals-18-dozys-wonderful-dream | 11 | 10 | yes | yes | /guided-reading/series/dino-pals/book-18/page-010.webp | Their cloud rests high. Green hills spread far and wide. |
-| dino-pals-18-dozys-wonderful-dream | 12 | 11 | yes | yes | /guided-reading/series/dino-pals/book-18/page-011.webp | Dozy wakes. His friends sit in a ring. |
-| dino-pals-18-dozys-wonderful-dream | 13 | 12 | yes | yes | /guided-reading/series/dino-pals/book-18/page-012.webp | Dozy shuts his eyes. His friends curl up close. |
+| dino-pals-18-dozys-wonderful-dream | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-18/page-003.webp | Dozy dreams of a warm cloud bed for everyone. |
+| dino-pals-18-dozys-wonderful-dream | 5 | 4 | yes | yes | /guided-reading/series/dino-pals/book-18/page-004.webp | The first cloud lifts much too high. |
+| dino-pals-18-dozys-wonderful-dream | 6 | 5 | yes | yes | /guided-reading/series/dino-pals/book-18/page-005.webp | Chompy's food-cloud breaks into mist. |
+| dino-pals-18-dozys-wonderful-dream | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-18/page-006.webp | Grumpy's seat-cloud sinks under him. |
+| dino-pals-18-dozys-wonderful-dream | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-18/page-007.webp | Bouncy's cloud springs away with one BOING! |
+| dino-pals-18-dozys-wonderful-dream | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-18/page-008.webp | A gold stream points towards a warm peak. |
+| dino-pals-18-dozys-wonderful-dream | 10 | 9 | yes | yes | /guided-reading/series/dino-pals/book-18/page-009.webp | Dozy finds his friends waiting there. |
+| dino-pals-18-dozys-wonderful-dream | 11 | 10 | yes | yes | /guided-reading/series/dino-pals/book-18/page-010.webp | Together they shape one sturdy shared cloud. |
+| dino-pals-18-dozys-wonderful-dream | 12 | 11 | yes | yes | /guided-reading/series/dino-pals/book-18/page-011.webp | Dozy wakes. His friends sit close by. |
+| dino-pals-18-dozys-wonderful-dream | 13 | 12 | yes | yes | /guided-reading/series/dino-pals/book-18/page-012.webp | Dozy pulls everyone close for one shared dream. |
 | dino-pals-19-zippys-race | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-19/page-001.webp | Zippy delivers news of a race between valleys. |
 | dino-pals-19-zippys-race | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-19/page-002.webp | His friends call, "Easy win!" Zippy goes quiet. |
 | dino-pals-19-zippys-race | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-19/page-003.webp | He runs five practice loops without a rest. |
@@ -1113,9 +1113,9 @@ Visible fiction books: 130
 | meadow-pals-03-clucky-lays-an-egg | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-03/page-003.webp | The log feels too hard. |
 | meadow-pals-03-clucky-lays-an-egg | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-03/page-004.webp | The box feels too small. |
 | meadow-pals-03-clucky-lays-an-egg | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-03/page-005.webp | The hat tips over. |
-| meadow-pals-03-clucky-lays-an-egg | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-03/page-006.webp | Clucky sits in the mud. |
-| meadow-pals-03-clucky-lays-an-egg | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-03/page-007.webp | Her egg lands in the mud. |
-| meadow-pals-03-clucky-lays-an-egg | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-03/page-008.webp | Clucky moves her egg to straw. |
+| meadow-pals-03-clucky-lays-an-egg | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-03/page-006.webp | Clucky finds a dry corner. |
+| meadow-pals-03-clucky-lays-an-egg | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-03/page-007.webp | The farmer brings soft straw. |
+| meadow-pals-03-clucky-lays-an-egg | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-03/page-008.webp | Clucky lays one safe egg. |
 | meadow-pals-04-bouncy-wont-stop | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-04/page-001.webp | Bouncy loves to hop. |
 | meadow-pals-04-bouncy-wont-stop | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-04/page-002.webp | Bouncy hops down the path. |
 | meadow-pals-04-bouncy-wont-stop | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-04/page-003.webp | Splash! She bumps Grumpy's bucket. |
@@ -1171,7 +1171,7 @@ Visible fiction books: 130
 | meadow-pals-09-shy-comes-out-to-play | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-09/page-008.webp | Shy sits with Cuddly. |
 | meadow-pals-09-shy-comes-out-to-play | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-09/page-009.webp | Shy joins the game. |
 | meadow-pals-10-giggly-has-the-hiccups | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-10/page-001.webp | Giggly has the hiccups. |
-| meadow-pals-10-giggly-has-the-hiccups | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-10/page-002.webp | Hic! Hic! Hic! |
+| meadow-pals-10-giggly-has-the-hiccups | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-10/page-002.webp | Hiccup! Hiccup! Hiccup! |
 | meadow-pals-10-giggly-has-the-hiccups | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-10/page-003.webp | Her laughs make them worse. |
 | meadow-pals-10-giggly-has-the-hiccups | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-10/page-004.webp | A sip does not help. |
 | meadow-pals-10-giggly-has-the-hiccups | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-10/page-005.webp | A hop does not help. |
@@ -1189,13 +1189,13 @@ Visible fiction books: 130
 | meadow-pals-11-brave-climbs-the-hay-bale | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-11/page-008.webp | Brave reaches the top! |
 | meadow-pals-11-brave-climbs-the-hay-bale | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-11/page-009.webp | Brave stands tall at last. |
 | meadow-pals-11-brave-climbs-the-hay-bale | 11 | 10 | yes | yes | /guided-reading/series/meadow-pals/book-11/page-010.webp | Brave climbs down safely. |
-| meadow-pals-12-hungry-eats-everything | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-001.webp | Hungry eats some grass. |
-| meadow-pals-12-hungry-eats-everything | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-002.webp | Hungry eats some hay. |
-| meadow-pals-12-hungry-eats-everything | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-003.webp | Hungry is still hungry. |
-| meadow-pals-12-hungry-eats-everything | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-004.webp | Hungry asks at the gate. |
-| meadow-pals-12-hungry-eats-everything | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-005.webp | The farmer brings fresh hay. |
-| meadow-pals-12-hungry-eats-everything | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-006.webp | Hungry eats and drinks. |
-| meadow-pals-12-hungry-eats-everything | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-007.webp | Hungry feels full and happy now! |
+| meadow-pals-12-hungry-eats-everything | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-001.webp | Hungry chews some grass. |
+| meadow-pals-12-hungry-eats-everything | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-002.webp | Hungry eats a bit of hay. |
+| meadow-pals-12-hungry-eats-everything | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-003.webp | The trough has no water. |
+| meadow-pals-12-hungry-eats-everything | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-004.webp | Hungry calls at the gate. |
+| meadow-pals-12-hungry-eats-everything | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-005.webp | The farmer brings hay and water. |
+| meadow-pals-12-hungry-eats-everything | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-006.webp | Hungry eats and drinks slowly. |
+| meadow-pals-12-hungry-eats-everything | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-007.webp | Hungry's tummy feels full. |
 | meadow-pals-13-splashy-finds-a-puddle | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-13/page-001.webp | Splashy finds a small puddle. |
 | meadow-pals-13-splashy-finds-a-puddle | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-13/page-002.webp | Splashy wants a big splash. |
 | meadow-pals-13-splashy-finds-a-puddle | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-13/page-003.webp | Splashy jumps in. |
@@ -1205,13 +1205,13 @@ Visible fiction books: 130
 | meadow-pals-13-splashy-finds-a-puddle | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-13/page-007.webp | Clucky's hat drips. She frowns. |
 | meadow-pals-13-splashy-finds-a-puddle | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-13/page-008.webp | Splashy dries the hat and bed. |
 | meadow-pals-13-splashy-finds-a-puddle | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-13/page-009.webp | Splashy picks a puddle with space. |
-| meadow-pals-14-speedy-slows-down | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-14/page-001.webp | Speedy runs home. |
+| meadow-pals-14-speedy-slows-down | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-14/page-001.webp | Speedy races toward home. |
 | meadow-pals-14-speedy-slows-down | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-14/page-002.webp | Speedy runs past the barn. |
 | meadow-pals-14-speedy-slows-down | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-14/page-003.webp | Speedy runs past the pond. |
 | meadow-pals-14-speedy-slows-down | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-14/page-004.webp | Speedy runs past the hill. |
 | meadow-pals-14-speedy-slows-down | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-14/page-005.webp | Speedy misses the home path. |
 | meadow-pals-14-speedy-slows-down | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-14/page-006.webp | No one sees Speedy. |
-| meadow-pals-14-speedy-slows-down | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-14/page-007.webp | Speedy is lost. |
+| meadow-pals-14-speedy-slows-down | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-14/page-007.webp | Speedy cannot find home. |
 | meadow-pals-14-speedy-slows-down | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-14/page-008.webp | Speedy stops and listens. |
 | meadow-pals-14-speedy-slows-down | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-14/page-009.webp | Tiny calls from home. |
 | meadow-pals-14-speedy-slows-down | 11 | 10 | yes | yes | /guided-reading/series/meadow-pals/book-14/page-010.webp | Speedy finds his way home! |
@@ -1226,7 +1226,7 @@ Visible fiction books: 130
 | meadow-pals-15-cuddly-wants-a-hug | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-15/page-009.webp | She asks for one more. |
 | meadow-pals-15-cuddly-wants-a-hug | 11 | 10 | yes | yes | /guided-reading/series/meadow-pals/book-15/page-010.webp | Woolly nods. They hug. Cuddly smiles! |
 | meadow-pals-16-muddy-and-splashy-make-a-mess | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-16/page-001.webp | Muddy brings some mud. |
-| meadow-pals-16-muddy-and-splashy-make-a-mess | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-16/page-002.webp | Splashy brings a pail. |
+| meadow-pals-16-muddy-and-splashy-make-a-mess | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-16/page-002.webp | Splashy carries a pail. |
 | meadow-pals-16-muddy-and-splashy-make-a-mess | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-16/page-003.webp | They make a mud pool. |
 | meadow-pals-16-muddy-and-splashy-make-a-mess | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-16/page-004.webp | They both jump in. |
 | meadow-pals-16-muddy-and-splashy-make-a-mess | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-16/page-005.webp | Mud flies up. |
@@ -1247,7 +1247,7 @@ Visible fiction books: 130
 | meadow-pals-18-noisy-wakes-everyone-up | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-18/page-001.webp | The sky is dark. |
 | meadow-pals-18-noisy-wakes-everyone-up | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-18/page-002.webp | Noisy starts the day too soon. |
 | meadow-pals-18-noisy-wakes-everyone-up | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-18/page-003.webp | Noisy lets out a loud call. |
-| meadow-pals-18-noisy-wakes-everyone-up | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-18/page-004.webp | Three friends wake. |
+| meadow-pals-18-noisy-wakes-everyone-up | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-18/page-004.webp | Three friends wake up. |
 | meadow-pals-18-noisy-wakes-everyone-up | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-18/page-005.webp | Sleepy stays in bed. |
 | meadow-pals-18-noisy-wakes-everyone-up | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-18/page-006.webp | Noisy calls once more. |
 | meadow-pals-18-noisy-wakes-everyone-up | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-18/page-007.webp | Sleepy peeks with one eye. |
@@ -1273,22 +1273,22 @@ Visible fiction books: 130
 | meadow-pals-20-shy-and-cuddly-find-each-other | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-009.webp | Shy leans in for her hug. |
 | meadow-pals-20-shy-and-cuddly-find-each-other | 11 | 10 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-010.webp | They smile in the tree. |
 | meadow-pals-21-woolly-and-grumpy-are-stuck | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-21/page-001.webp | Woolly and Grumpy are stuck. |
-| meadow-pals-21-woolly-and-grumpy-are-stuck | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-21/page-002.webp | Wool catches Grumpy's horn. |
+| meadow-pals-21-woolly-and-grumpy-are-stuck | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-21/page-002.webp | Loose wool catches Grumpy's horn. |
 | meadow-pals-21-woolly-and-grumpy-are-stuck | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-21/page-003.webp | They pull too hard. |
 | meadow-pals-21-woolly-and-grumpy-are-stuck | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-21/page-004.webp | They both move left. |
 | meadow-pals-21-woolly-and-grumpy-are-stuck | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-21/page-005.webp | They both move right. |
 | meadow-pals-21-woolly-and-grumpy-are-stuck | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-21/page-006.webp | The knot gets tighter. |
 | meadow-pals-21-woolly-and-grumpy-are-stuck | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-21/page-007.webp | They stop moving. |
-| meadow-pals-21-woolly-and-grumpy-are-stuck | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-21/page-008.webp | Tiny frees the wool. |
+| meadow-pals-21-woolly-and-grumpy-are-stuck | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-21/page-008.webp | Tiny frees the lock of wool. |
 | meadow-pals-21-woolly-and-grumpy-are-stuck | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-21/page-009.webp | Now they leave space between them. |
-| meadow-pals-22-sleepys-big-dream | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-001.webp | Sleepy closes his eyes. |
-| meadow-pals-22-sleepys-big-dream | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-002.webp | A big race dream begins. |
-| meadow-pals-22-sleepys-big-dream | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-003.webp | Dream Sleepy runs fast. |
-| meadow-pals-22-sleepys-big-dream | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-004.webp | Dream Sleepy jumps high. |
-| meadow-pals-22-sleepys-big-dream | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-005.webp | Dream Sleepy runs even faster! |
-| meadow-pals-22-sleepys-big-dream | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-006.webp | Dream Sleepy feels like a hero. |
-| meadow-pals-22-sleepys-big-dream | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-007.webp | Sleepy stirs. He shuts his eyes. |
-| meadow-pals-22-sleepys-big-dream | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-008.webp | Dream Sleepy wins the race! |
+| meadow-pals-22-sleepys-big-dream | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-001.webp | Sleepy falls asleep before the race. |
+| meadow-pals-22-sleepys-big-dream | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-002.webp | A race starts in his dream. |
+| meadow-pals-22-sleepys-big-dream | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-003.webp | Sleepy runs much too fast. |
+| meadow-pals-22-sleepys-big-dream | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-004.webp | He jumps over one big log. |
+| meadow-pals-22-sleepys-big-dream | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-005.webp | His legs feel tired. |
+| meadow-pals-22-sleepys-big-dream | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-006.webp | Sleepy stops for one breath. |
+| meadow-pals-22-sleepys-big-dream | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-007.webp | He rests before the last lap. |
+| meadow-pals-22-sleepys-big-dream | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-008.webp | Then Sleepy wins by one hoof! |
 | meadow-pals-23-giggly-and-clucky-bake-a-cake | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-23/page-001.webp | Clucky plans a tall cake. |
 | meadow-pals-23-giggly-and-clucky-bake-a-cake | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-23/page-002.webp | Clucky brings the eggs. |
 | meadow-pals-23-giggly-and-clucky-bake-a-cake | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-23/page-003.webp | Clucky brings the flour. |
@@ -1370,8 +1370,8 @@ Visible fiction books: 130
 | moonwood-tales-c-04 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-04/page-008.webp | After the tenth try, Glimmer's throat felt sore from forcing every breath. They  |
 | moonwood-tales-c-04 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-04/page-009.webp | While the friends rested, a marsh fox darted from the trees with Fern's seed pou |
 | moonwood-tales-c-04 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-04/page-010.webp | Glimmer reached the open forest path and planted both feet firmly. "Drop Fern's  |
-| moonwood-tales-c-04 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-04/page-011.webp | A sudden orange flare burst from Glimmer's mouth and landed across the empty pat |
-| moonwood-tales-c-04 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-04/page-012.webp | Glimmer brought Fern's seeds safely home. Fern smiled beside the full seed boxes |
+| moonwood-tales-c-04 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-04/page-011.webp | Glimmer blew one steady cinnamon-warm breath. Dry leaves swirled across the path |
+| moonwood-tales-c-04 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-04/page-012.webp | Glimmer brought Fern's seeds safely home. Their useful warm breath had solved a  |
 | moonwood-tales-c-05 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-05/page-001.webp | While studying in her tree-room, Wren found a height spell written in shining bl |
 | moonwood-tales-c-05 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-05/page-002.webp | Wren rushed to try the spell before checking both ends of the line. She began at |
 | moonwood-tales-c-05 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-05/page-003.webp | When the light cleared, Wren saw her tiny reflection far below the mirror. The s |
@@ -1404,7 +1404,7 @@ Visible fiction books: 130
 | moonwood-tales-c-07 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-07/page-006.webp | Burrow checked his careful tunnel records for Dewdrop. He had never drawn the bl |
 | moonwood-tales-c-07 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-07/page-007.webp | Back at the stream, Dewdrop calmly shared exactly what she discovered. "Why do y |
 | moonwood-tales-c-07 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-07/page-008.webp | The striped fish swam one slow circle and looked down at the pebbles. "I wanted  |
-| moonwood-tales-c-07 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-07/page-009.webp | Dewdrop pointed to the fish's unusual blue stripe, which flashed in the water. " |
+| moonwood-tales-c-07 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-07/page-009.webp | As Ripple turned, the blue stripe led Dewdrop's eye towards bubbles beneath a tw |
 | moonwood-tales-c-07 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-07/page-010.webp | The fish led Dewdrop beneath a twisting root beside the stream. There, fresh wat |
 | moonwood-tales-c-07 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-07/page-011.webp | Dewdrop dipped one finger into the bubbling spring and felt its icy water. The f |
 | moonwood-tales-c-07 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-07/page-012.webp | When Pip arrived, the fish finally offered one simple truth. "My name is Ripple, |
@@ -1435,15 +1435,15 @@ Visible fiction books: 130
 | moonwood-tales-c-09 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-09/page-012.webp | Wren searched her remedy book instead of guessing at a potion. She checked the c |
 | moonwood-tales-c-09 | 14 | 13 | yes | yes | /guided-reading/series/moonwood-tales/book-09/page-013.webp | Wren added exactly three drops to the stream, and the remedy spread outward. The |
 | moonwood-tales-c-09 | 15 | 14 | yes | yes | /guided-reading/series/moonwood-tales/book-09/page-014.webp | When Spark felt one final tickle, he turned away and sneezed into Fern's cloth.  |
-| moonwood-tales-c-10 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-10/page-001.webp | Luna woke with the strong feeling that one important task had to happen that day |
-| moonwood-tales-c-10 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-10/page-002.webp | The old owl remembered only two clues: the task had to happen outside, and it co |
-| moonwood-tales-c-10 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-10/page-003.webp | Pip asked Luna to remember a sound, smell, or feeling connected to the task. Aft |
-| moonwood-tales-c-10 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-10/page-004.webp | Fern suggested the shaded garden, while Burrow named his cool underground tunnel |
-| moonwood-tales-c-10 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-10/page-005.webp | The friends searched Hollow Oak, the nearby paths, and all of Whispering Meadow. |
-| moonwood-tales-c-10 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-10/page-006.webp | Dewdrop finally said the name Crystal Stream, and Luna turned toward the water a |
+| moonwood-tales-c-10 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-10/page-001.webp | Luna remembered an urgent job: twelve first-tree seeds had to be planted before  |
+| moonwood-tales-c-10 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-10/page-002.webp | She had stored the box outside beside cold water. A storm had moved the little s |
+| moonwood-tales-c-10 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-10/page-003.webp | Pip asked Luna to remember one more helpful detail. She pictured bright pebbles  |
+| moonwood-tales-c-10 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-10/page-004.webp | Fern checked the shaded garden while Burrow checked the cool tunnels. Neither pl |
+| moonwood-tales-c-10 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-10/page-005.webp | The friends searched the nearby paths and Whispering Meadow. They found several  |
+| moonwood-tales-c-10 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-10/page-006.webp | Dewdrop named Crystal Stream. Luna remembered hiding the box where its current k |
 | moonwood-tales-c-10 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-10/page-007.webp | Luna flew ahead to the stream's broad stepping stones and landed on the largest  |
 | moonwood-tales-c-10 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-10/page-008.webp | Between the pebbles, a silver box waited exactly where Luna had once hidden it.  |
-| moonwood-tales-c-10 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-10/page-009.webp | The cold silver box touched Luna's feathers, and the whole task returned. Whatev |
+| moonwood-tales-c-10 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-10/page-009.webp | The cold silver box touched Luna's soft feathers. She checked the twelve seeds a |
 | moonwood-tales-c-10 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-10/page-010.webp | Luna opened the lid and found twelve first-tree seeds inside. Each round seed gl |
 | moonwood-tales-c-10 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-10/page-011.webp | As Luna touched one seed, she remembered why she had saved them. "The tired old  |
 | moonwood-tales-c-10 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-10/page-012.webp | Luna carried the box back to the friends waiting near Hollow Oak. She gave one g |
@@ -1497,15 +1497,15 @@ Visible fiction books: 130
 | moonwood-tales-c-14 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-14/page-010.webp | The last trees opened onto Whispering Meadow, where golden grass waved in the su |
 | moonwood-tales-c-14 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-14/page-011.webp | Before they ate lunch, Flint drew the mushroom trail onto his map and added the  |
 | moonwood-tales-c-14 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-14/page-012.webp | When both travelers stepped safely into the meadow, the final mushroom behind th |
-| moonwood-tales-c-15 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-001.webp | Burrow was digging a quiet morning tunnel when his shovel broke through an old s |
-| moonwood-tales-c-15 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-002.webp | He landed in a chamber wider than any tunnel he had ever made. Burrow brushed di |
+| moonwood-tales-c-15 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-001.webp | Behind the known Memory Room, Burrow found a narrow tunnel. An old stone wall bl |
+| moonwood-tales-c-15 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-002.webp | A loose stone opened into a hidden gallery beyond the wall. Burrow brushed dirt  |
 | moonwood-tales-c-15 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-003.webp | Carved animals, trees, and stars covered every wall. Far above Burrow, tiny ston |
 | moonwood-tales-c-15 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-004.webp | Burrow studied each picture and tried to find where the story began. No carving  |
-| moonwood-tales-c-15 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-005.webp | He hurried to find Luna, who knew Moonwood's oldest secrets. The tunnel was narr |
-| moonwood-tales-c-15 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-006.webp | At the chamber doorway, Luna stopped so suddenly that Burrow nearly bumped her.  |
+| moonwood-tales-c-15 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-005.webp | He hurried to find Luna, who knew the Memory Room well. She folded her broad win |
+| moonwood-tales-c-15 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-006.webp | At the gallery doorway, Luna noticed a familiar carved root. The same mark appea |
 | moonwood-tales-c-15 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-007.webp | As Luna stepped inside, one wing brushed a carving. Blue and gold lines woke aro |
 | moonwood-tales-c-15 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-008.webp | Burrow stared at the shining picture. 'Have you been here before?' he asked. Lun |
-| moonwood-tales-c-15 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-009.webp | 'This is the Memory Room,' Luna explained. 'Moonwood keeps its oldest stories he |
+| moonwood-tales-c-15 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-009.webp | 'This is the Story Gallery behind the Memory Room,' Luna explained. 'Its carving |
 | moonwood-tales-c-15 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-010.webp | Luna settled beneath the first glowing carving and began its tale. Burrow sat be |
 | moonwood-tales-c-15 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-011.webp | When Luna reached the next part, another carving glowed. Then the next picture b |
 | moonwood-tales-c-15 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-012.webp | Night came while Burrow and Luna were still listening belowground. Many carvings |
@@ -1545,30 +1545,30 @@ Visible fiction books: 130
 | moonwood-tales-c-18 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-18/page-010.webp | The fish leaped in a shining arc and landed with an enormous splash. Water soake |
 | moonwood-tales-c-18 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-18/page-011.webp | Stone stood dripping beside Dewdrop while the fish circled them once. His should |
 | moonwood-tales-c-18 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-18/page-012.webp | Beyond the shallows, the fish lifted its head above the stream. Stone gave one s |
-| moonwood-tales-c-19 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-001.webp | Luna opened the glow-seed box and found it completely empty. She searched the sh |
+| moonwood-tales-c-19 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-001.webp | Luna opened the glow-seed box and found it completely empty. A thin crack crosse |
 | moonwood-tales-c-19 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-002.webp | Without the glow seeds, Moonwood's paths might become dark that night. Luna call |
-| moonwood-tales-c-19 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-003.webp | The friends divided the forest into careful search routes. Each group chose one  |
+| moonwood-tales-c-19 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-003.webp | The friends divided into careful search groups. Pip followed the gold dust outsi |
 | moonwood-tales-c-19 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-004.webp | Pip searched Fog Marsh and found only sticky mud. Flint explored three unmapped  |
 | moonwood-tales-c-19 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-005.webp | Wren and Spark tried search spells in the clearing. Their arrows pointed at each |
 | moonwood-tales-c-19 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-006.webp | Burrow checked every tunnel beneath Hollow Oak. He searched old shelves, fresh p |
-| moonwood-tales-c-19 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-007.webp | Dewdrop scanned Crystal Stream while Fern listened near the clearing. Everyone e |
+| moonwood-tales-c-19 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-007.webp | Dewdrop followed one rain channel while Fern listened near her garden. Beneath a |
 | moonwood-tales-c-19 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-008.webp | The soft sound came from beneath a layer of leaves in Fern's garden. When she li |
-| moonwood-tales-c-19 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-009.webp | Fern gasped as she remembered. 'I planted the glow seeds two nights ago!' She ha |
+| moonwood-tales-c-19 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-009.webp | Dewdrop traced the rain channel back to the cracked box. Storm water had carried |
 | moonwood-tales-c-19 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-010.webp | The searchers returned from every path and gathered around the bright seedlings. |
 | moonwood-tales-c-19 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-011.webp | Luna touched one shallow root and felt it tremble. 'We should leave them here,'  |
 | moonwood-tales-c-19 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-012.webp | That night, the friends placed small guards around each seedling. Their gold-gre |
-| moonwood-tales-c-20 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-001.webp | Near midnight, several small golden lights fell from the sky into Moonwood. They |
-| moonwood-tales-c-20 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-002.webp | The strange lights giggled as they bounced, leaving glowing trails behind them.  |
-| moonwood-tales-c-20 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-003.webp | Pip caught one warm light before it bounced into a bush. It had enormous golden  |
-| moonwood-tales-c-20 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-004.webp | The little spirit pointed upward and managed two worried words: 'Star fell.' Pip |
-| moonwood-tales-c-20 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-005.webp | Luna listened to their soft cries. 'These are fallen star spirits,' she explaine |
-| moonwood-tales-c-20 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-006.webp | Pip lifted one spirit above his head from the clearing. It stretched upward, but |
-| moonwood-tales-c-20 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-007.webp | 'The sky can reach them from Tumblerock's highest safe ledge,' Luna said. Flint  |
-| moonwood-tales-c-20 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-008.webp | Everyone followed Flint up the rocky path before dawn. Stone carried two spirits |
-| moonwood-tales-c-20 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-009.webp | As they climbed, the star spirits reached toward the sky. Their golden trails gr |
-| moonwood-tales-c-20 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-010.webp | At the highest ledge, Stone raised both hands. Pip and Spark guided the bouncing |
-| moonwood-tales-c-20 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-011.webp | One by one, each spirit floated from their hands and rose. The sky drew every go |
-| moonwood-tales-c-20 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-012.webp | The last spirit blinked at Stone from his palm. Then it rose just before dawn. S |
+| moonwood-tales-c-20 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-001.webp | Near midnight, several small golden fragments fell from the sky into Moonwood. T |
+| moonwood-tales-c-20 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-002.webp | The silent fragments pulsed with warm light and rolled between the mushrooms. Pi |
+| moonwood-tales-c-20 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-003.webp | Pip caught one fragment before it rolled into a dark bush. A tiny star pattern g |
+| moonwood-tales-c-20 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-004.webp | Every fragment brightened when Luna turned it towards the sky. High above the tr |
+| moonwood-tales-c-20 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-005.webp | Luna studied every pattern carefully. 'These are pieces of old shooting stars,'  |
+| moonwood-tales-c-20 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-006.webp | Pip lifted one fragment above his head. The trees hid its constellation, so its  |
+| moonwood-tales-c-20 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-007.webp | 'The fragments need a clear view from Tumblerock's highest safe ledge,' Luna sai |
+| moonwood-tales-c-20 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-008.webp | Everyone followed Flint up the rocky path before dawn. Stone carried two fragmen |
+| moonwood-tales-c-20 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-009.webp | Above the trees, each fragment answered its constellation. Fine golden lines joi |
+| moonwood-tales-c-20 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-010.webp | At the highest ledge, Stone raised both broad hands. Pip and Spark turned each f |
+| moonwood-tales-c-20 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-011.webp | One by one, the fragments became narrow beams of light. Each golden beam rose in |
+| moonwood-tales-c-20 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-012.webp | The final fragment answered with one bright flash, then joined its constellation |
 | moonwood-tales-c-21 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-21/page-001.webp | Late one evening inside Hollow Oak, Pip heard scratching behind the root wall. A |
 | moonwood-tales-c-21 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-21/page-002.webp | Wren pressed one ear against the wall beside him. The scratching moved from root |
 | moonwood-tales-c-21 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-21/page-003.webp | Luna listened from her perch and said she had heard that scratching long ago. St |
@@ -1605,7 +1605,7 @@ Visible fiction books: 130
 | moonwood-tales-c-23 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-23/page-010.webp | When the final basket left, the mist spirit stretched tall and clear. Fresh wate |
 | moonwood-tales-c-23 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-23/page-011.webp | At the marsh edge, each Moonwood neighbor carried one stone into place. Together |
 | moonwood-tales-c-23 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-23/page-012.webp | The fog stayed behind the new stone line, and mushrooms along the edge lit one b |
-| moonwood-tales-c-24 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-001.webp | After weeks of making only smoke and sparks, Glimmer entered Luna's fire circle. |
+| moonwood-tales-c-24 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-001.webp | After weeks of smoke, sparks, and useful warm breath, Glimmer entered Luna's fir |
 | moonwood-tales-c-24 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-002.webp | A full water bucket and red extinguisher waited outside the stone ring. Pip and  |
 | moonwood-tales-c-24 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-003.webp | Glimmer took a slow breath and blew gently. One tiny orange flame burned steadil |
 | moonwood-tales-c-24 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-004.webp | Pip covered his mouth to hold back a cheer. Luna checked the ring and nodded. 'T |
@@ -1717,7 +1717,7 @@ Visible fiction books: 130
 | dino-pals-21-fancys-moonleaf-arch | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-21/page-006.webp | Wiggly bends two branches into a low curve. |
 | dino-pals-21-fancys-moonleaf-arch | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-21/page-007.webp | Fancy ties each moonleaf with a strong grass knot. |
 | dino-pals-21-fancys-moonleaf-arch | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-21/page-008.webp | Sunset shines through Fancy's sturdy purple arch. |
-| dino-pals-22-shys-sinking-path | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-22/page-001.webp | Plip, plip! Bubbles rise in Shy's path. |
+| dino-pals-22-shys-sinking-path | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-22/page-001.webp | Bubbles rise in Shy's path. |
 | dino-pals-22-shys-sinking-path | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-22/page-002.webp | Pals need a safe path for their full baskets. |
 | dino-pals-22-shys-sinking-path | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-22/page-003.webp | Shy lays one flat stone on the wet spot. |
 | dino-pals-22-shys-sinking-path | 5 | 4 | yes | yes | /guided-reading/series/dino-pals/book-22/page-004.webp | Glug! The stone sinks. Mud hides the old path. |
@@ -1765,13 +1765,13 @@ Visible fiction books: 130
 | dino-pals-27-bossys-three-paths | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-27/page-006.webp | Close stones, one branch, and the shallow edge make three paths. |
 | dino-pals-27-bossys-three-paths | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-27/page-007.webp | Bossy draws all three paths on her clipboard. |
 | dino-pals-27-bossys-three-paths | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-27/page-008.webp | Big feet. Quick feet. Every Pal finds a safe path! |
-| dino-pals-28-honkys-echo-tunnel | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-28/page-001.webp | Honky finds three tunnels behind Cozy Cave. |
+| dino-pals-28-honkys-echo-tunnel | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-28/page-001.webp | Honky finds branching tunnels behind Cozy Cave. |
 | dino-pals-28-honkys-echo-tunnel | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-28/page-002.webp | Which tunnel reaches the stream? Honky wants to know. |
 | dino-pals-28-honkys-echo-tunnel | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-28/page-003.webp | HONK! His biggest call fills the chamber. |
 | dino-pals-28-honkys-echo-tunnel | 5 | 4 | yes | yes | /guided-reading/series/dino-pals/book-28/page-004.webp | BOOM! Crashing echoes come from every tunnel. |
 | dino-pals-28-honkys-echo-tunnel | 6 | 5 | yes | yes | /guided-reading/series/dino-pals/book-28/page-005.webp | Honky taps one short note near each branch. |
-| dino-pals-28-honkys-echo-tunnel | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-28/page-006.webp | Two branches boom. Their echoes rush back. |
-| dino-pals-28-honkys-echo-tunnel | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-28/page-007.webp | The last branch answers softly. Cool stream air lifts a fern. |
+| dino-pals-28-honkys-echo-tunnel | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-28/page-006.webp | The closed branches boom. Their echoes rush back. |
+| dino-pals-28-honkys-echo-tunnel | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-28/page-007.webp | One branch answers softly. Cool stream air lifts a fern. |
 | dino-pals-28-honkys-echo-tunnel | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-28/page-008.webp | Honky finds it! He marks the stream tunnel with a bright stone. |
 | dino-pals-29-cheekys-shadow-show | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-29/page-001.webp | Cheeky plans a shadow show beside Big Flat Rock. |
 | dino-pals-29-cheekys-shadow-show | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-29/page-002.webp | He makes a fun dino shape behind the leaf. |
@@ -1889,6 +1889,166 @@ Visible fiction books: 130
 | moonwood-tales-c-35 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-35/page-008.webp | Pip placed each matching object beneath its chime so they would remember the pat |
 | moonwood-tales-c-35 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-35/page-009.webp | Stone began with the lowest root chime, and Pip answered on the next. Together,  |
 | moonwood-tales-c-35 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-35/page-010.webp | Dong, ding, ting, tink! Luna opened Hollow Oak's doors as four clear notes dance |
+| willow-street-the-lunchbox-mix-up | 2 | 1 | yes | yes | /guided-reading/willow-street/the-lunchbox-mix-up/page-01.webp | Maya opens her lunchbox and finds Samir's blue cup. |
+| willow-street-the-lunchbox-mix-up | 3 | 2 | yes | yes | /guided-reading/willow-street/the-lunchbox-mix-up/page-02.webp | Maya checks the labels beside each lunchbox. |
+| willow-street-the-lunchbox-mix-up | 4 | 3 | yes | yes | /guided-reading/willow-street/the-lunchbox-mix-up/page-03.webp | Samir checks the labels and spots Maya's green apple. |
+| willow-street-the-lunchbox-mix-up | 5 | 4 | yes | yes | /guided-reading/willow-street/the-lunchbox-mix-up/page-04.webp | They swap the lunchboxes, but one spoon stays behind. |
+| willow-street-the-lunchbox-mix-up | 6 | 5 | yes | yes | /guided-reading/willow-street/the-lunchbox-mix-up/page-05.webp | Maya sees the spoon beside Samir's folded napkin. |
+| willow-street-the-lunchbox-mix-up | 7 | 6 | yes | yes | /guided-reading/willow-street/the-lunchbox-mix-up/page-06.webp | Samir returns the spoon and thanks Maya. |
+| willow-street-the-lunchbox-mix-up | 8 | 7 | yes | yes | /guided-reading/willow-street/the-lunchbox-mix-up/page-07.webp | Now each lunchbox holds the right things. |
+| willow-street-the-lunchbox-mix-up | 9 | 8 | yes | yes | /guided-reading/willow-street/the-lunchbox-mix-up/page-08.webp | Maya and Samir eat lunch together at last. |
+| willow-street-the-lost-library-book | 2 | 1 | yes | yes | /guided-reading/willow-street/the-lost-library-book/page-01.webp | Zoe's library book is missing from her blue bag. |
+| willow-street-the-lost-library-book | 3 | 2 | yes | yes | /guided-reading/willow-street/the-lost-library-book/page-02.webp | They look under the reading table first. |
+| willow-street-the-lost-library-book | 4 | 3 | yes | yes | /guided-reading/willow-street/the-lost-library-book/page-03.webp | They look between the animal books next. |
+| willow-street-the-lost-library-book | 5 | 4 | yes | yes | /guided-reading/willow-street/the-lost-library-book/page-04.webp | They look beside the window seat too. |
+| willow-street-the-lost-library-book | 6 | 5 | yes | yes | /guided-reading/willow-street/the-lost-library-book/page-05.webp | A dry leaf falls from Zoe's bag. |
+| willow-street-the-lost-library-book | 7 | 6 | yes | yes | /guided-reading/willow-street/the-lost-library-book/page-06.webp | The leaf reminds Leo of the outside bench. |
+| willow-street-the-lost-library-book | 8 | 7 | yes | yes | /guided-reading/willow-street/the-lost-library-book/page-07.webp | The librarian found their book on that bench. |
+| willow-street-the-lost-library-book | 9 | 8 | yes | yes | /guided-reading/willow-street/the-lost-library-book/page-08.webp | Zoe puts the book safely inside her bag. |
+| willow-street-the-windy-picnic | 2 | 1 | yes | yes | /guided-reading/willow-street/the-windy-picnic/page-01.webp | The wind lifts one corner of their picnic cloth. |
+| willow-street-the-windy-picnic | 3 | 2 | yes | yes | /guided-reading/willow-street/the-windy-picnic/page-02.webp | Maya holds the cloth, while Zoe opens the basket. |
+| willow-street-the-windy-picnic | 4 | 3 | yes | yes | /guided-reading/willow-street/the-windy-picnic/page-03.webp | The wind lifts three napkins into the air. |
+| willow-street-the-windy-picnic | 5 | 4 | yes | yes | /guided-reading/willow-street/the-windy-picnic/page-04.webp | Leo catches two, but one crosses the path. |
+| willow-street-the-windy-picnic | 6 | 5 | yes | yes | /guided-reading/willow-street/the-windy-picnic/page-05.webp | They move beside the tall, quiet hedge. |
+| willow-street-the-windy-picnic | 7 | 6 | yes | yes | /guided-reading/willow-street/the-windy-picnic/page-06.webp | Four food boxes hold the cloth corners down. |
+| willow-street-the-windy-picnic | 8 | 7 | yes | yes | /guided-reading/willow-street/the-windy-picnic/page-07.webp | The napkins stay still beside the basket. |
+| willow-street-the-windy-picnic | 9 | 8 | yes | yes | /guided-reading/willow-street/the-windy-picnic/page-08.webp | Now the friends enjoy their calm, windy picnic. |
+| willow-street-the-puddle-plan | 2 | 1 | yes | yes | /guided-reading/willow-street/the-puddle-plan/page-01.webp | A wide puddle blocks the garden path. |
+| willow-street-the-puddle-plan | 3 | 2 | yes | yes | /guided-reading/willow-street/the-puddle-plan/page-02.webp | Their plan starts along the shortest edge. |
+| willow-street-the-puddle-plan | 4 | 3 | yes | yes | /guided-reading/willow-street/the-puddle-plan/page-03.webp | Leo's boot sinks into soft, sticky mud. |
+| willow-street-the-puddle-plan | 5 | 4 | yes | yes | /guided-reading/willow-street/the-puddle-plan/page-04.webp | Their plan changes toward the dry stones. |
+| willow-street-the-puddle-plan | 6 | 5 | yes | yes | /guided-reading/willow-street/the-puddle-plan/page-05.webp | Samir tests each stone with one careful step. |
+| willow-street-the-puddle-plan | 7 | 6 | yes | yes | /guided-reading/willow-street/the-puddle-plan/page-06.webp | Leo places cones beside the safe dry way. |
+| willow-street-the-puddle-plan | 8 | 7 | yes | yes | /guided-reading/willow-street/the-puddle-plan/page-07.webp | Their plan guides Maya around the puddle. |
+| willow-street-the-puddle-plan | 9 | 8 | yes | yes | /guided-reading/willow-street/the-puddle-plan/page-08.webp | Everyone reaches the garden by the safe, dry path. |
+| willow-street-the-squeaky-wheel | 2 | 1 | yes | yes | /guided-reading/willow-street/the-squeaky-wheel/page-01.webp | The wheel squeaks when Zoe pushes the garden cart. |
+| willow-street-the-squeaky-wheel | 3 | 2 | yes | yes | /guided-reading/willow-street/the-squeaky-wheel/page-02.webp | Samir checks for stones caught beside the wheel. |
+| willow-street-the-squeaky-wheel | 4 | 3 | yes | yes | /guided-reading/willow-street/the-squeaky-wheel/page-03.webp | The wheel squeaks louder when they push harder. |
+| willow-street-the-squeaky-wheel | 5 | 4 | yes | yes | /guided-reading/willow-street/the-squeaky-wheel/page-04.webp | They stop the cart and ask the gardener. |
+| willow-street-the-squeaky-wheel | 6 | 5 | yes | yes | /guided-reading/willow-street/the-squeaky-wheel/page-05.webp | The gardener puts one drop on the axle. |
+| willow-street-the-squeaky-wheel | 7 | 6 | yes | yes | /guided-reading/willow-street/the-squeaky-wheel/page-06.webp | The gardener turns the wheel several times. |
+| willow-street-the-squeaky-wheel | 8 | 7 | yes | yes | /guided-reading/willow-street/the-squeaky-wheel/page-07.webp | The wheel rolls quietly along the path. |
+| willow-street-the-squeaky-wheel | 9 | 8 | yes | yes | /guided-reading/willow-street/the-squeaky-wheel/page-08.webp | Zoe and Samir carry seedlings without a squeak. |
+| willow-street-the-garden-gate | 2 | 1 | yes | yes | /guided-reading/willow-street/the-garden-gate/page-01.webp | The gate stops halfway across the garden path. |
+| willow-street-the-garden-gate | 3 | 2 | yes | yes | /guided-reading/willow-street/the-garden-gate/page-02.webp | Maya pulls once, but the gate stays still. |
+| willow-street-the-garden-gate | 4 | 3 | yes | yes | /guided-reading/willow-street/the-garden-gate/page-03.webp | Leo kneels and sees a stone underneath. |
+| willow-street-the-garden-gate | 5 | 4 | yes | yes | /guided-reading/willow-street/the-garden-gate/page-04.webp | They close the gate before moving the stone. |
+| willow-street-the-garden-gate | 6 | 5 | yes | yes | /guided-reading/willow-street/the-garden-gate/page-05.webp | Leo lifts the loose stone with both hands. |
+| willow-street-the-garden-gate | 7 | 6 | yes | yes | /guided-reading/willow-street/the-garden-gate/page-06.webp | Maya sweeps the gritty path beneath the gate. |
+| willow-street-the-garden-gate | 8 | 7 | yes | yes | /guided-reading/willow-street/the-garden-gate/page-07.webp | The gate swings open without catching now. |
+| willow-street-the-garden-gate | 9 | 8 | yes | yes | /guided-reading/willow-street/the-garden-gate/page-08.webp | They carry the watering can into the garden. |
+| willow-street-nanis-chapati-lunch | 2 | 1 | yes | yes | /guided-reading/willow-street/nanis-chapati-lunch/page-01.webp | Nani makes warm chapatis for Maya's family lunch. |
+| willow-street-nanis-chapati-lunch | 3 | 2 | yes | yes | /guided-reading/willow-street/nanis-chapati-lunch/page-02.webp | Maya stacks them inside the round steel tin. |
+| willow-street-nanis-chapati-lunch | 4 | 3 | yes | yes | /guided-reading/willow-street/nanis-chapati-lunch/page-03.webp | The flat chapatis leave no room for lentils. |
+| willow-street-nanis-chapati-lunch | 5 | 4 | yes | yes | /guided-reading/willow-street/nanis-chapati-lunch/page-04.webp | Nani folds one chapati into a neat triangle. |
+| willow-street-nanis-chapati-lunch | 6 | 5 | yes | yes | /guided-reading/willow-street/nanis-chapati-lunch/page-05.webp | Nani folds another, and Maya copies carefully. |
+| willow-street-nanis-chapati-lunch | 7 | 6 | yes | yes | /guided-reading/willow-street/nanis-chapati-lunch/page-06.webp | The folded chapatis fit beside the lentil pot. |
+| willow-street-nanis-chapati-lunch | 8 | 7 | yes | yes | /guided-reading/willow-street/nanis-chapati-lunch/page-07.webp | Maya adds cool cucumber slices to the top. |
+| willow-street-nanis-chapati-lunch | 9 | 8 | yes | yes | /guided-reading/willow-street/nanis-chapati-lunch/page-08.webp | At lunch, everyone shares Nani's clever packed meal. |
+| willow-street-dumplings-for-new-year | 2 | 1 | yes | yes | /guided-reading/willow-street/dumplings-for-new-year/page-01.webp | Zoe's family makes dumplings for their New Year meal. |
+| willow-street-dumplings-for-new-year | 3 | 2 | yes | yes | /guided-reading/willow-street/dumplings-for-new-year/page-02.webp | Aunt Mei places one small spoonful in the middle. |
+| willow-street-dumplings-for-new-year | 4 | 3 | yes | yes | /guided-reading/willow-street/dumplings-for-new-year/page-03.webp | Zoe adds too much, and her wrapper opens. |
+| willow-street-dumplings-for-new-year | 5 | 4 | yes | yes | /guided-reading/willow-street/dumplings-for-new-year/page-04.webp | Aunt Mei shows a smaller spoonful this time. |
+| willow-street-dumplings-for-new-year | 6 | 5 | yes | yes | /guided-reading/willow-street/dumplings-for-new-year/page-05.webp | Zoe pinches the curved edge from end to end. |
+| willow-street-dumplings-for-new-year | 7 | 6 | yes | yes | /guided-reading/willow-street/dumplings-for-new-year/page-06.webp | Zoe pinches another dumpling without any gaps. |
+| willow-street-dumplings-for-new-year | 8 | 7 | yes | yes | /guided-reading/willow-street/dumplings-for-new-year/page-07.webp | An adult cooks the dumplings until they are ready. |
+| willow-street-dumplings-for-new-year | 9 | 8 | yes | yes | /guided-reading/willow-street/dumplings-for-new-year/page-08.webp | The family shares their dumplings around one bright table. |
+| willow-street-drums-for-carnival | 2 | 1 | yes | yes | /guided-reading/willow-street/drums-for-carnival/page-01.webp | Leo brings his small drum to Carnival practice. |
+| willow-street-drums-for-carnival | 3 | 2 | yes | yes | /guided-reading/willow-street/drums-for-carnival/page-02.webp | Mr Baptiste plays a call for everyone. |
+| willow-street-drums-for-carnival | 4 | 3 | yes | yes | /guided-reading/willow-street/drums-for-carnival/page-03.webp | Leo plays all through the answering beat. |
+| willow-street-drums-for-carnival | 5 | 4 | yes | yes | /guided-reading/willow-street/drums-for-carnival/page-04.webp | The group stops, and Leo listens again. |
+| willow-street-drums-for-carnival | 6 | 5 | yes | yes | /guided-reading/willow-street/drums-for-carnival/page-05.webp | Leo plays only when the answering beat begins. |
+| willow-street-drums-for-carnival | 7 | 6 | yes | yes | /guided-reading/willow-street/drums-for-carnival/page-06.webp | Leo plays softly, then strongly, with the group. |
+| willow-street-drums-for-carnival | 8 | 7 | yes | yes | /guided-reading/willow-street/drums-for-carnival/page-07.webp | Their shared rhythm fills the community hall. |
+| willow-street-drums-for-carnival | 9 | 8 | yes | yes | /guided-reading/willow-street/drums-for-carnival/page-08.webp | Leo marches outside, keeping his part steady. |
+| willow-street-eid-morning-with-samir | 2 | 1 | yes | yes | /guided-reading/willow-street/eid-morning-with-samir/page-01.webp | Samir's family dresses early for Eid morning. |
+| willow-street-eid-morning-with-samir | 3 | 2 | yes | yes | /guided-reading/willow-street/eid-morning-with-samir/page-02.webp | Samir's family walks together to morning prayers. |
+| willow-street-eid-morning-with-samir | 4 | 3 | yes | yes | /guided-reading/willow-street/eid-morning-with-samir/page-03.webp | After prayers, neighbors greet one another warmly. |
+| willow-street-eid-morning-with-samir | 5 | 4 | yes | yes | /guided-reading/willow-street/eid-morning-with-samir/page-04.webp | Samir hopes Maya will meet him by the doorway. |
+| willow-street-eid-morning-with-samir | 6 | 5 | yes | yes | /guided-reading/willow-street/eid-morning-with-samir/page-05.webp | The busy doorway hides Maya from his view. |
+| willow-street-eid-morning-with-samir | 7 | 6 | yes | yes | /guided-reading/willow-street/eid-morning-with-samir/page-06.webp | Samir carries his family's food parcel to share. |
+| willow-street-eid-morning-with-samir | 8 | 7 | yes | yes | /guided-reading/willow-street/eid-morning-with-samir/page-07.webp | At the welcome table, he finds Maya with dates. |
+| willow-street-eid-morning-with-samir | 9 | 8 | yes | yes | /guided-reading/willow-street/eid-morning-with-samir/page-08.webp | Together, they share dates at the joyful Eid breakfast. |
+| willow-street-grow-a-bean-in-a-jar | 2 | 1 | yes | yes | /guided-reading/willow-street/grow-a-bean-in-a-jar/page-01.webp | Ask an adult for a clear jar and bean. |
+| willow-street-grow-a-bean-in-a-jar | 3 | 2 | yes | yes | /guided-reading/willow-street/grow-a-bean-in-a-jar/page-02.webp | Fold paper towel and place it inside. |
+| willow-street-grow-a-bean-in-a-jar | 4 | 3 | yes | yes | /guided-reading/willow-street/grow-a-bean-in-a-jar/page-03.webp | Add water until the paper feels damp. |
+| willow-street-grow-a-bean-in-a-jar | 5 | 4 | yes | yes | /guided-reading/willow-street/grow-a-bean-in-a-jar/page-04.webp | Slide the bean between paper and glass. |
+| willow-street-grow-a-bean-in-a-jar | 6 | 5 | yes | yes | /guided-reading/willow-street/grow-a-bean-in-a-jar/page-05.webp | Stand the jar in warm, indirect light. |
+| willow-street-grow-a-bean-in-a-jar | 7 | 6 | yes | yes | /guided-reading/willow-street/grow-a-bean-in-a-jar/page-06.webp | Check the paper daily and keep it damp. |
+| willow-street-grow-a-bean-in-a-jar | 8 | 7 | yes | yes | /guided-reading/willow-street/grow-a-bean-in-a-jar/page-07.webp | The bean grows a root, then a shoot. |
+| willow-street-grow-a-bean-in-a-jar | 9 | 8 | yes | yes | /guided-reading/willow-street/grow-a-bean-in-a-jar/page-08.webp | Plant the sprouted bean gently with adult help. |
+| willow-street-make-a-paper-kite | 2 | 1 | yes | yes | /guided-reading/willow-street/make-a-paper-kite/page-01.webp | Ask an adult to cut a paper diamond. |
+| willow-street-make-a-paper-kite | 3 | 2 | yes | yes | /guided-reading/willow-street/make-a-paper-kite/page-02.webp | Lay two light sticks across the diamond. |
+| willow-street-make-a-paper-kite | 4 | 3 | yes | yes | /guided-reading/willow-street/make-a-paper-kite/page-03.webp | Tape both sticks firmly to the paper. |
+| willow-street-make-a-paper-kite | 5 | 4 | yes | yes | /guided-reading/willow-street/make-a-paper-kite/page-04.webp | Tie a ribbon tail to the bottom. |
+| willow-street-make-a-paper-kite | 6 | 5 | yes | yes | /guided-reading/willow-street/make-a-paper-kite/page-05.webp | Add the flying line at the center. |
+| willow-street-make-a-paper-kite | 7 | 6 | yes | yes | /guided-reading/willow-street/make-a-paper-kite/page-06.webp | Check the kite's tape, tail, and line together. |
+| willow-street-make-a-paper-kite | 8 | 7 | yes | yes | /guided-reading/willow-street/make-a-paper-kite/page-07.webp | Choose open ground, far from roads and wires. |
+| willow-street-make-a-paper-kite | 9 | 8 | yes | yes | /guided-reading/willow-street/make-a-paper-kite/page-08.webp | Face the breeze and let the kite rise. |
+| willow-street-build-a-cardboard-ramp | 2 | 1 | yes | yes | /guided-reading/willow-street/build-a-cardboard-ramp/page-01.webp | Ask an adult for strong, flat cardboard. |
+| willow-street-build-a-cardboard-ramp | 3 | 2 | yes | yes | /guided-reading/willow-street/build-a-cardboard-ramp/page-02.webp | Stack two wide books on the floor. |
+| willow-street-build-a-cardboard-ramp | 4 | 3 | yes | yes | /guided-reading/willow-street/build-a-cardboard-ramp/page-03.webp | Rest the cardboard across the book stack. |
+| willow-street-build-a-cardboard-ramp | 5 | 4 | yes | yes | /guided-reading/willow-street/build-a-cardboard-ramp/page-04.webp | Tape the ramp so it cannot slide. |
+| willow-street-build-a-cardboard-ramp | 6 | 5 | yes | yes | /guided-reading/willow-street/build-a-cardboard-ramp/page-05.webp | Clear toys away from the landing space. |
+| willow-street-build-a-cardboard-ramp | 7 | 6 | yes | yes | /guided-reading/willow-street/build-a-cardboard-ramp/page-06.webp | Release one car, then mark its stopping point. |
+| willow-street-build-a-cardboard-ramp | 8 | 7 | yes | yes | /guided-reading/willow-street/build-a-cardboard-ramp/page-07.webp | Raise the ramp, release the car again, then mark its second stop. |
+| willow-street-build-a-cardboard-ramp | 9 | 8 | yes | yes | /guided-reading/willow-street/build-a-cardboard-ramp/page-08.webp | Compare both marks to see which roll traveled farther. |
+| willow-street-make-fruit-and-yoghurt-cups | 2 | 1 | yes | yes | /guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-01.webp | Ask an adult to check every ingredient for allergies. |
+| willow-street-make-fruit-and-yoghurt-cups | 3 | 2 | yes | yes | /guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-02.webp | Wash your hands and rinse the fruit. |
+| willow-street-make-fruit-and-yoghurt-cups | 4 | 3 | yes | yes | /guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-03.webp | Ask an adult to cut the banana. |
+| willow-street-make-fruit-and-yoghurt-cups | 5 | 4 | yes | yes | /guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-04.webp | Spoon plain yogurt into each cup. |
+| willow-street-make-fruit-and-yoghurt-cups | 6 | 5 | yes | yes | /guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-05.webp | Add banana and berries to each cup. |
+| willow-street-make-fruit-and-yoghurt-cups | 7 | 6 | yes | yes | /guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-06.webp | Spoon more yogurt over the fruit. |
+| willow-street-make-fruit-and-yoghurt-cups | 8 | 7 | yes | yes | /guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-07.webp | Cover and chill each cup until snack time. |
+| willow-street-make-fruit-and-yoghurt-cups | 9 | 8 | yes | yes | /guided-reading/willow-street/make-fruit-and-yoghurt-cups/page-08.webp | Serve the cold cups with clean spoons. |
+| willow-street-from-wheat-to-bread | 2 | 1 | yes | yes | /guided-reading/willow-street/from-wheat-to-bread/page-01.webp | Wheat plants grow tall, with grain inside each head. |
+| willow-street-from-wheat-to-bread | 3 | 2 | yes | yes | /guided-reading/willow-street/from-wheat-to-bread/page-02.webp | A harvester cuts wheat and gathers the grain. |
+| willow-street-from-wheat-to-bread | 4 | 3 | yes | yes | /guided-reading/willow-street/from-wheat-to-bread/page-03.webp | The grain is cleaned before it reaches the mill. |
+| willow-street-from-wheat-to-bread | 5 | 4 | yes | yes | /guided-reading/willow-street/from-wheat-to-bread/page-04.webp | The grain is ground into soft, pale flour. |
+| willow-street-from-wheat-to-bread | 6 | 5 | yes | yes | /guided-reading/willow-street/from-wheat-to-bread/page-05.webp | Bakers mix flour, water, yeast, and salt. |
+| willow-street-from-wheat-to-bread | 7 | 6 | yes | yes | /guided-reading/willow-street/from-wheat-to-bread/page-06.webp | The dough rests, while yeast makes it rise. |
+| willow-street-from-wheat-to-bread | 8 | 7 | yes | yes | /guided-reading/willow-street/from-wheat-to-bread/page-07.webp | Oven heat bakes the risen dough into bread. |
+| willow-street-from-wheat-to-bread | 9 | 8 | yes | yes | /guided-reading/willow-street/from-wheat-to-bread/page-08.webp | The bread cools before people slice and share it. |
+| willow-street-where-rainwater-goes | 2 | 1 | yes | yes | /guided-reading/willow-street/where-rainwater-goes/page-01.webp | Rain falls onto roofs, gardens, roads, and rivers. |
+| willow-street-where-rainwater-goes | 3 | 2 | yes | yes | /guided-reading/willow-street/where-rainwater-goes/page-02.webp | Some rainwater soaks slowly into loose garden soil. |
+| willow-street-where-rainwater-goes | 4 | 3 | yes | yes | /guided-reading/willow-street/where-rainwater-goes/page-03.webp | Some rainwater runs downhill across hard pavement. |
+| willow-street-where-rainwater-goes | 5 | 4 | yes | yes | /guided-reading/willow-street/where-rainwater-goes/page-04.webp | Roof gutters carry water into pipes or water butts. |
+| willow-street-where-rainwater-goes | 6 | 5 | yes | yes | /guided-reading/willow-street/where-rainwater-goes/page-05.webp | Street drains guide water away from busy roads. |
+| willow-street-where-rainwater-goes | 7 | 6 | yes | yes | /guided-reading/willow-street/where-rainwater-goes/page-06.webp | Small streams join wider rivers moving toward the sea. |
+| willow-street-where-rainwater-goes | 8 | 7 | yes | yes | /guided-reading/willow-street/where-rainwater-goes/page-07.webp | Sunlight warms water, and some rises as vapor. |
+| willow-street-where-rainwater-goes | 9 | 8 | yes | yes | /guided-reading/willow-street/where-rainwater-goes/page-08.webp | Cooling vapor forms clouds that can bring more rain. |
+| willow-street-inside-a-fire-station | 2 | 1 | yes | yes | /guided-reading/willow-street/inside-a-fire-station/page-01.webp | Firefighters check their engine, tools, and safety gear. |
+| willow-street-inside-a-fire-station | 3 | 2 | yes | yes | /guided-reading/willow-street/inside-a-fire-station/page-02.webp | A dispatcher sends details when someone needs help. |
+| willow-street-inside-a-fire-station | 4 | 3 | yes | yes | /guided-reading/willow-street/inside-a-fire-station/page-03.webp | Firefighters pull on protective clothing before they leave. |
+| willow-street-inside-a-fire-station | 5 | 4 | yes | yes | /guided-reading/willow-street/inside-a-fire-station/page-04.webp | The engine carries people, water, hoses, and tools. |
+| willow-street-inside-a-fire-station | 6 | 5 | yes | yes | /guided-reading/willow-street/inside-a-fire-station/page-05.webp | At emergencies, firefighters work together under one leader. |
+| willow-street-inside-a-fire-station | 7 | 6 | yes | yes | /guided-reading/willow-street/inside-a-fire-station/page-06.webp | They may stop fires, rescue people, or give first aid. |
+| willow-street-inside-a-fire-station | 8 | 7 | yes | yes | /guided-reading/willow-street/inside-a-fire-station/page-07.webp | Back at the station, every tool is cleaned and checked. |
+| willow-street-inside-a-fire-station | 9 | 8 | yes | yes | /guided-reading/willow-street/inside-a-fire-station/page-08.webp | Firefighters train often, ready for the next call. |
+| willow-street-how-paper-is-recycled | 2 | 1 | yes | yes | /guided-reading/willow-street/how-paper-is-recycled/page-01.webp | Clean used paper is collected for recycling. |
+| willow-street-how-paper-is-recycled | 3 | 2 | yes | yes | /guided-reading/willow-street/how-paper-is-recycled/page-02.webp | Workers sort the paper and remove wrong materials. |
+| willow-street-how-paper-is-recycled | 4 | 3 | yes | yes | /guided-reading/willow-street/how-paper-is-recycled/page-03.webp | The paper mixes with water to make wet pulp. |
+| willow-street-how-paper-is-recycled | 5 | 4 | yes | yes | /guided-reading/willow-street/how-paper-is-recycled/page-04.webp | Screens catch staples, tape, and larger unwanted pieces. |
+| willow-street-how-paper-is-recycled | 6 | 5 | yes | yes | /guided-reading/willow-street/how-paper-is-recycled/page-05.webp | The pulp is cleaned before making new sheets. |
+| willow-street-how-paper-is-recycled | 7 | 6 | yes | yes | /guided-reading/willow-street/how-paper-is-recycled/page-06.webp | Rollers press water from the thin pulp layer. |
+| willow-street-how-paper-is-recycled | 8 | 7 | yes | yes | /guided-reading/willow-street/how-paper-is-recycled/page-07.webp | Heated rollers dry the long sheet of paper. |
+| willow-street-how-paper-is-recycled | 9 | 8 | yes | yes | /guided-reading/willow-street/how-paper-is-recycled/page-08.webp | The new paper becomes boxes, notebooks, and more. |
+| willow-street-a-snail-comes-out-at-night | 2 | 1 | yes | yes | /guided-reading/willow-street/a-snail-comes-out-at-night/page-01.webp | By day, the snail rests in a cool shelter. |
+| willow-street-a-snail-comes-out-at-night | 3 | 2 | yes | yes | /guided-reading/willow-street/a-snail-comes-out-at-night/page-02.webp | After dusk, damp air helps the snail emerge. |
+| willow-street-a-snail-comes-out-at-night | 4 | 3 | yes | yes | /guided-reading/willow-street/a-snail-comes-out-at-night/page-03.webp | The snail's tentacles feel and smell its surroundings. |
+| willow-street-a-snail-comes-out-at-night | 5 | 4 | yes | yes | /guided-reading/willow-street/a-snail-comes-out-at-night/page-04.webp | Tiny eyes sit at the longer tentacles' tips. |
+| willow-street-a-snail-comes-out-at-night | 6 | 5 | yes | yes | /guided-reading/willow-street/a-snail-comes-out-at-night/page-05.webp | The snail glides on one strong, muscular foot. |
+| willow-street-a-snail-comes-out-at-night | 7 | 6 | yes | yes | /guided-reading/willow-street/a-snail-comes-out-at-night/page-06.webp | A thin slime trail reduces rubbing as it moves. |
+| willow-street-a-snail-comes-out-at-night | 8 | 7 | yes | yes | /guided-reading/willow-street/a-snail-comes-out-at-night/page-07.webp | The snail scrapes soft plants and decaying leaves. |
+| willow-street-a-snail-comes-out-at-night | 9 | 8 | yes | yes | /guided-reading/willow-street/a-snail-comes-out-at-night/page-08.webp | Before warm daylight, the snail hides from drying air. |
+| willow-street-how-a-book-is-made | 2 | 1 | yes | yes | /guided-reading/willow-street/how-a-book-is-made/page-01.webp | An author writes and revises the book's words. |
+| willow-street-how-a-book-is-made | 3 | 2 | yes | yes | /guided-reading/willow-street/how-a-book-is-made/page-02.webp | An editor helps make the meaning clear. |
+| willow-street-how-a-book-is-made | 4 | 3 | yes | yes | /guided-reading/willow-street/how-a-book-is-made/page-03.webp | An illustrator creates pictures for each page. |
+| willow-street-how-a-book-is-made | 5 | 4 | yes | yes | /guided-reading/willow-street/how-a-book-is-made/page-04.webp | A designer places words and pictures together. |
+| willow-street-how-a-book-is-made | 6 | 5 | yes | yes | /guided-reading/willow-street/how-a-book-is-made/page-05.webp | Printing machines press ink onto large paper sheets. |
+| willow-street-how-a-book-is-made | 7 | 6 | yes | yes | /guided-reading/willow-street/how-a-book-is-made/page-06.webp | The printed sheets are folded into page groups. |
+| willow-street-how-a-book-is-made | 8 | 7 | yes | yes | /guided-reading/willow-street/how-a-book-is-made/page-07.webp | The book's page groups are bound inside a cover. |
+| willow-street-how-a-book-is-made | 9 | 8 | yes | yes | /guided-reading/willow-street/how-a-book-is-made/page-08.webp | Finished books travel to libraries, shops, and readers. |
 
 ## Failures
 

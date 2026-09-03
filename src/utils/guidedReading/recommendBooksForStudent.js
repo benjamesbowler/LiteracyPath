@@ -1,4 +1,5 @@
 import { enrichGuidedReadingBook } from "./phonicsPageAnalyzer.js";
+import { getGuidedReadingBookMetadata } from "../../data/guidedReadingBookMetadata.js";
 import {
   READING_PURPOSES,
   classifyBookReadingPurpose
@@ -144,11 +145,15 @@ function historyReason(book, history) {
 export function recommendBooksForStudent({ books = [], studentProgress = {}, readingHistory = {} } = {}) {
   const needs = collectStudentNeeds(studentProgress);
   const enriched = books
+    .map(book => ({ ...book, ...getGuidedReadingBookMetadata(book) }))
     .map(enrichGuidedReadingBook)
     .filter(book => book.active !== false && (!book.qaStatus || book.qaStatus === "approved"));
   const readingLevel = resolveReadingLevel(enriched, studentProgress, readingHistory);
   const sameLevelBooks = enriched.filter(book => book.level === readingLevel.level);
-  const candidates = sameLevelBooks.length >= 5 ? sameLevelBooks : enriched;
+  const standardLevelBooks = readingLevel.level === "C"
+    ? sameLevelBooks.filter(book => book.readingBandProfile === "standard")
+    : sameLevelBooks;
+  const candidates = standardLevelBooks.length >= 5 ? standardLevelBooks : enriched;
 
   return candidates
     .map(book => {

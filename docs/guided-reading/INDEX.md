@@ -6,6 +6,38 @@ The live book modules are the authority:
 - `src/data/guidedReadingRegenBooks.js`
 - `src/data/guidedStoryBooks.js`
 - `src/data/firstFactsActualLevelABooks.js`
+- `src/data/guidedReadingBridgeBooks.js`
+- `src/data/guidedReadingBookMetadata.js`
+- `src/data/guidedReadingDiscussionPrompts.js`
+
+The current catalogue contains 226 books: 65 at Level A, 86 at Level B and 75
+at Level C. Level C is shown in two honest bands:
+
+- **C Standard** for compact independent or lightly supported reading, including
+  the 20-book Willow Street Readers collection;
+- **C Extended / Read Together** for denser supported reading. All Moonwood
+  guided-reading books belong here.
+
+Each shelf card also names its reading mode: **Decodable**,
+**Predictable / Levelled**, or **Supported Read-Together**. The letter level is
+not a claim that one book is all three.
+
+Scored Guided Reading quizzes are retired. Finishing a book records completion,
+not comprehension. In teacher mode only, a book may expose one optional oral
+prompt and one optional visual prompt with private listen-for/look-for guidance.
+These prompts are unscored discussion support and never appear in the child
+reader.
+
+The Willow Street release authorities are:
+
+- `docs/guided-reading/WILLOW_STREET_CONTENT_BIBLE.md`
+- `docs/guided-reading/WILLOW_STREET_VISUAL_CONTINUITY.md`
+- `docs/guided-reading/willow-street-illustrated-media-manifest.json`
+- `docs/guided-reading/willow-street-photoreal-media-manifest.json`
+- `docs/guided-reading/willow-street-visual-review.json`
+- `npm run check:guided-reading-discussion-prompts`
+- `npm run check:guided-reading-story-bible`
+- `npm run check:guided-reading-visual-alignment`
 
 The editorial craft evidence used to revise those manuscripts is:
 

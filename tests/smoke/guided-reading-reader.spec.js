@@ -1,13 +1,15 @@
 import { expect, test } from "@playwright/test";
 
-const BOOK_ID = "level-c-nonfiction-01-bees";
+const BOOK_ID = "willow-street-the-lunchbox-mix-up";
+const NAVIGATION_BOOK_ID = "level-c-nonfiction-01-bees";
 
 test.describe("Guided Reading reader", () => {
   test("finishing a book saves completion and returns without questions", async ({ page }) => {
     const pageErrors = [];
     page.on("pageerror", error => pageErrors.push(error.message));
 
-    await page.goto(`/preview/guided-reading-preview.html?book=${BOOK_ID}`);
+    await page.goto(`/preview/guided-reading-preview.html?book=${BOOK_ID}&complete-c-standard=1`);
+    await expect(page.getByRole("heading", { name: "The Lunchbox Mix-Up" })).toBeVisible();
     const finishBook = page.getByRole("button", { name: /finish book/i });
     for (let pageNumber = 0; pageNumber < 20 && await finishBook.count() === 0; pageNumber += 1) {
       await page.getByRole("button", { name: /next page/i }).click();
@@ -15,8 +17,13 @@ test.describe("Guided Reading reader", () => {
     await expect(finishBook).toBeVisible();
     await finishBook.click();
 
+    await expect(page.getByRole("heading", { name: "C Standard complete!" })).toBeVisible();
+    await page.getByRole("button", { name: "Amazing!" }).click();
     await expect(page.getByRole("region", { name: /full-screen reader$/ })).toHaveCount(0);
     await expect(page.getByRole("heading", { name: "Reading library" })).toBeVisible();
+    await page.getByRole("button", { name: /Story books Fiction/ }).click();
+    await expect(page.getByRole("button", { name: /Willow Street Readers10 books/ })).toBeVisible();
+    await expect(page.getByRole("button", { name: /Moonwood Tales35 books/ })).toBeVisible();
     await expect(page.getByRole("dialog", { name: /quiz|questions/i })).toHaveCount(0);
     await expect(page.getByText(/talk and write/i)).toHaveCount(0);
     expect(await page.evaluate(bookId => window.__guidedReadingPreviewRecords?.[bookId]?.completed, BOOK_ID)).toBe(true);
@@ -27,7 +34,7 @@ test.describe("Guided Reading reader", () => {
     const pageErrors = [];
     page.on("pageerror", error => pageErrors.push(error.message));
 
-    await page.goto(`/preview/guided-reading-preview.html?book=${BOOK_ID}`);
+    await page.goto(`/preview/guided-reading-preview.html?book=${NAVIGATION_BOOK_ID}`);
 
     const reader = page.getByRole("region", { name: /full-screen reader$/ });
     await expect(reader).toBeVisible();

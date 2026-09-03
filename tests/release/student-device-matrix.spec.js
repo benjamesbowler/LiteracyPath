@@ -1195,9 +1195,10 @@ async function expectLibraryBookCopyReadable(surface, state) {
         && purpose.scrollWidth <= purpose.clientWidth + 1
         && visibleTitleTextBoxes.every(box => containsTextInk(titleBox, box))
         && purposeTextBoxes.every(box => containsTextInk(purposeBox, box));
-      const contentContained = [mainBox, coverBox, titleBox, purposeBox, starsBox]
+      const contentContained = [mainBox, coverBox, titleBox, purposeBox]
         .every(box => contains(cardBox, box));
-      if (readable && contentContained && main.scrollWidth <= main.clientWidth + 1) return [];
+      const retiredQuizStarsAbsent = stars === null;
+      if (readable && contentContained && retiredQuizStarsAbsent && main.scrollWidth <= main.clientWidth + 1) return [];
       return [{
         cardIndex,
         title: title.textContent.trim(),
@@ -1209,7 +1210,8 @@ async function expectLibraryBookCopyReadable(surface, state) {
         visibleTitleTextBoxes,
         purposeTextBoxes,
         readable,
-        contentContained
+        contentContained,
+        retiredQuizStarsAbsent
       }];
     }));
   expect(
@@ -1851,6 +1853,25 @@ test("A3.6 Reading Library tablet portrait keeps filters and book copy clear", a
   await expectNoHorizontalOverflow(page, "Reading Library tablet portrait");
 });
 
+test("A3.6 Reading Library separates C Standard from C Extended without a decodable claim", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto("/preview/child-surfaces.html?surface=reading-library");
+  const surface = page.locator('[data-child-surface="reading-library"]');
+  await surface.getByRole("button", { name: "Level C" }).click();
+
+  const standard = surface.getByRole("region", { name: "C Standard", exact: true });
+  const extended = surface.getByRole("region", { name: "C Extended / Read Together", exact: true });
+  await expect(surface.getByRole("button", { name: "Willow Street Readers", exact: true })).toBeVisible();
+  await expect(standard).toBeVisible();
+  await expect(extended).toBeVisible();
+  expect(await standard.locator('[data-reading-mode="predictable-levelled"]').count()).toBeGreaterThan(0);
+  expect(await extended.locator('[data-reading-mode="supported-read-together"]').count()).toBeGreaterThan(0);
+  await expect(standard.locator('[data-reading-mode="supported-read-together"]')).toHaveCount(0);
+  await expect(extended.locator('[data-reading-mode="predictable-levelled"]')).toHaveCount(0);
+  await expect(surface.locator('[data-reading-mode="decodable"]')).toHaveCount(0);
+});
+
 for (const viewport of [
   { id: "tablet landscape", width: 1024, height: 768 },
   { id: "desktop", width: 1280, height: 900 }
@@ -1941,10 +1962,6 @@ for (const viewport of [
           && box.top >= container.top - 1
           && box.right <= container.right + 1
           && box.bottom <= container.bottom + 1;
-        const overlaps = (first, second) => first.left < second.right - 1
-          && first.right > second.left + 1
-          && first.top < second.bottom - 1
-          && first.bottom > second.top + 1;
         return [...grid.querySelectorAll(":scope > .kg-book-card:not(.kg-book-card--more)")]
           .flatMap((card, cardIndex) => {
             const cardBox = card.getBoundingClientRect();
@@ -1952,38 +1969,30 @@ for (const viewport of [
             const purpose = card.querySelector(".kg-book-purpose");
             const titleBox = title.getBoundingClientRect();
             const purposeBox = purpose.getBoundingClientRect();
-            const starsBox = card.querySelector(".kg-book-stars").getBoundingClientRect();
-            const textBoxes = node => {
-              const range = document.createRange();
-              range.selectNodeContents(node);
-              return [...range.getClientRects()].filter(box => box.width >= 1 && box.height >= 1);
-            };
+            const quizStars = card.querySelector(".kg-book-stars");
             const keepsShelfGeometry = cardBox.height >= 56
               && contains(gridBox, cardBox)
               && contains(cardBox, titleBox)
-              && contains(cardBox, purposeBox)
-              && contains(cardBox, starsBox);
-            const copyClearOfStars = [...textBoxes(title), ...textBoxes(purpose)]
-              .every(box => !overlaps(box, starsBox));
-            return keepsShelfGeometry && copyClearOfStars
+              && contains(cardBox, purposeBox);
+            const retiredQuizStarsAbsent = quizStars === null;
+            return keepsShelfGeometry && retiredQuizStarsAbsent
               ? []
               : [{
                   shelfIndex,
                   cardIndex,
                   title: title.textContent.trim(),
                   keepsShelfGeometry,
-                  copyClearOfStars,
+                  retiredQuizStarsAbsent,
                   card: { left: cardBox.left, top: cardBox.top, right: cardBox.right, bottom: cardBox.bottom },
                   titleBox: { left: titleBox.left, top: titleBox.top, right: titleBox.right, bottom: titleBox.bottom },
-                  purposeBox: { left: purposeBox.left, top: purposeBox.top, right: purposeBox.right, bottom: purposeBox.bottom },
-                  starsBox: { left: starsBox.left, top: starsBox.top, right: starsBox.right, bottom: starsBox.bottom }
+                  purposeBox: { left: purposeBox.left, top: purposeBox.top, right: purposeBox.right, bottom: purposeBox.bottom }
                 }];
           });
       })
     ));
     expect(
       layoutFailures,
-      `${viewport.id} preserves 56px shelf cards and keeps title/help copy clear of stars: ${JSON.stringify(layoutFailures)}`
+      `${viewport.id} preserves 56px shelf cards and keeps retired quiz stars absent: ${JSON.stringify(layoutFailures)}`
     ).toEqual([]);
   });
 }
@@ -2501,7 +2510,14 @@ for (const profileId of STUDENT_FULLSCREEN_DEVICE_IDS) {
     const errors = [];
     page.on("pageerror", error => errors.push(error.message));
     page.on("console", message => {
-      if (message.type() === "error") errors.push(message.text());
+      // The isolated preview server intentionally has no hosted Supabase credentials.
+      // Keep the loud boot warning in the app, but do not mistake it for a fullscreen fault.
+      if (
+        message.type() === "error"
+        && !message.text().startsWith("[Literacy Guide] Supabase frontend environment is MISSING")
+      ) {
+        errors.push(message.text());
+      }
     });
     await installFullscreenMock(page);
     await page.setViewportSize({ width: profile.width, height: profile.height });
