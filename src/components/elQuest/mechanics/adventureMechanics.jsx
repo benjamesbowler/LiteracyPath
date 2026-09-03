@@ -9,7 +9,6 @@ import {
   WordWindowMechanic
 } from "./WordMechanics.jsx";
 import {
-  CoverClueMechanic,
   LetterTraceMechanic,
   PoemSpotlightMechanic
 } from "./TextMechanics.jsx";
@@ -28,7 +27,6 @@ export const ADVENTURE_MECHANICS = Object.freeze({
   soundBoxes: SoundBoxesMechanic,
   wordMachine: WordMachineMechanic,
   poemSpotlight: PoemSpotlightMechanic,
-  coverClue: CoverClueMechanic,
   letterTrace: LetterTraceMechanic,
   patternSort: PatternSortMechanic,
   wordChain: WordChainMechanic,

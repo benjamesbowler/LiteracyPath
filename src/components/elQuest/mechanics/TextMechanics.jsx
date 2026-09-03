@@ -5,10 +5,8 @@ import { LETTER_GUIDES, LETTER_STROKES } from "../../../data/letterStrokes.js";
 import { scoreLetterTrace } from "../../../utils/traceLetterScoring.js";
 import { LetterWriter } from "../../shared/LetterWriter.jsx";
 import {
-  createCoverClueState,
   createLetterTraceState,
   createPoemSpotlightState,
-  updateCoverClueState,
   updateLetterTraceState,
   updatePoemSpotlightState
 } from "./textMechanicState.js";
@@ -75,6 +73,7 @@ export function PoemSpotlightMechanic({
               <span className="sbq-poem-line-words" data-poem-line-words={lineIndex}>
                 {tokens.map((token, tokenIndex) => (
                   <span className="sbq-poem-word" key={`${lineIndex}-${tokenIndex}`}>
+                    <span aria-hidden="true" className="sbq-poem-word-marker">{tokenIndex + 1}</span>
                     <button
                       className="sbq-poem-token sbq-ghost-button"
                       type="button"
@@ -92,93 +91,6 @@ export function PoemSpotlightMechanic({
         })}
       </div>
       <p className="sbq-trace-message" role="status" aria-live="polite">{feedback}</p>
-    </div>
-  );
-}
-
-export function CoverClueMechanic({
-  round,
-  disabled = false,
-  supportLevel = 0,
-  onCommit,
-  reducedMotion = false
-}) {
-  const completionLockRef = useRef(false);
-  const [state, setState] = useState(createCoverClueState);
-  const [feedback, setFeedback] = useState("");
-  const covers = Array.isArray(round?.covers) ? round.covers : [];
-  const stripText = round?.strip?.text || "Story title";
-
-  function act(action) {
-    if (disabled || completionLockRef.current) return;
-    const transition = updateCoverClueState(state, action, round, supportLevel);
-    setState(transition.state);
-    if (transition.outcome) {
-      if (transition.outcome.correct) completionLockRef.current = true;
-      setFeedback(transition.outcome.feedback);
-      onCommit?.(transition.outcome);
-    }
-  }
-
-  const status = feedback || (
-    state.stripSelected
-      ? "Now place the title strip on the matching cover."
-      : "Pick up the title strip first."
-  );
-
-  return (
-    <div
-      className="sbq-cover-clue"
-      data-mechanic-stage="cover-clue"
-      data-reduced-motion={reducedMotion ? "true" : "false"}
-    >
-      <button
-        className="sbq-cover-clue-strip"
-        type="button"
-        disabled={disabled}
-        aria-pressed={state.stripSelected}
-        data-cover-strip="title"
-        onClick={() => act({ type: "selectStrip" })}
-      >
-        {stripText}
-      </button>
-      <p className="sbq-cover-clue-status" role="status" aria-live="polite">{status}</p>
-      <div className="sbq-cover-clue-rack" role="group" aria-label="Book covers">
-        {covers.map((cover, index) => (
-          <button
-            key={cover.cover || cover.id || `${cover.title}-${index}`}
-            className="sbq-cover-clue-cover"
-            type="button"
-            disabled={disabled || !state.stripSelected}
-            data-cover-piece={index}
-            data-strip-selected={state.stripSelected ? "true" : "false"}
-            aria-label={state.titlesRevealed
-              ? `Book cover ${index + 1}: ${cover.title || "untitled"}`
-              : `Book cover ${index + 1}`}
-            onClick={() => act({ type: "placeCover", cover })}
-          >
-            {cover.cover ? (
-              <img src={cover.cover} alt="" loading="lazy" />
-            ) : (
-              <span className="sbq-cover-clue-cover-art" aria-hidden="true">Book cover</span>
-            )}
-            <span
-              className="sbq-cover-clue-cover-title"
-              data-revealed={state.titlesRevealed ? "true" : "false"}
-            >
-              {state.titlesRevealed ? (cover.title || "Book title") : "?"}
-            </span>
-          </button>
-        ))}
-      </div>
-      <button
-        className="sbq-ghost-button"
-        type="button"
-        disabled={disabled}
-        onClick={() => act({ type: "toggleTitles" })}
-      >
-        {state.titlesRevealed ? "Hide cover titles" : "Show cover titles"}
-      </button>
     </div>
   );
 }
@@ -584,7 +496,7 @@ export function LetterTraceMechanic({
               ✏️ {CHILD_COPY.tracing.watch}
             </button>
           </div>
-          <p className="sbq-cover-clue-status">
+          <p className="sbq-trace-phase-label">
             {traceState.phase === "guided" ? "Guided trace" : "Faded-model trace"}
           </p>
           <div className="sbq-trace-stage">

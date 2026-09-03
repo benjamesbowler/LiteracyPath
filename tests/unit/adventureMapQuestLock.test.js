@@ -107,22 +107,6 @@ test("an exact teacher cycle remains available outside the ordinary sample", () 
   assert.doesNotMatch(html, /data-child-surface="adventure-map"/);
 });
 
-test("a live Cover Clue round renders its title strip and cover buttons without the generic answer grid", () => {
-  const html = renderQuest({
-    initialCycleId: "cycle-1",
-    initialStationId: "story"
-  });
-
-  assert.match(html, /data-quest-view="round"/);
-  assert.match(html, /data-run-seed="adventure:cycle-1:story:initial-v3"/);
-  assert.doesNotMatch(html, /data-run-seed="[^"]*student-1/);
-  assert.match(html, /data-mechanic-stage="cover-clue"/);
-  assert.match(html, /class="sbq-cover-clue-strip"/);
-  assert.match(html, /class="sbq-cover-clue-cover"/);
-  assert.match(html, /<button[^>]*class="sbq-cover-clue-cover"/);
-  assert.doesNotMatch(html, /class="sbq-answer-grid/);
-});
-
 test("a focused Adventure Map exposes only the assigned cycle and carries the teacher notice", () => {
   const html = renderMap({
     focusLocked: true,

@@ -96,7 +96,6 @@ test("Task7 text mechanics fit max-content rounds at both short classroom viewpo
 
     for (const [cycle, station] of [
       ["cycle-4", "poem"],
-      ["cycle-1", "story"],
       ["cycle-1", "trace"]
     ]) {
       await page.goto(`/preview/child-surfaces.html?surface=adventure-map&quest=${cycle}&station=${station}`);
@@ -126,29 +125,6 @@ test("Poem Spotlight resets after each same-mechanic round", async ({ page }) =>
 
   await chooseCurrentPoemTarget(page);
   await expect(page.getByRole("heading", { name: "3 of 3" })).toBeVisible();
-});
-
-test("Cover Clue keeps a revealed-title retry available", async ({ page }) => {
-  await page.setViewportSize({ width: 1024, height: 650 });
-  await page.goto("/preview/child-surfaces.html?surface=adventure-map&quest=cycle-1&station=story");
-
-  const stripText = (await page.locator("[data-cover-strip]").textContent())?.trim();
-  await page.locator("[data-cover-strip]").click();
-  await page.getByRole("button", { name: "Show cover titles" }).click();
-  const covers = page.locator("[data-cover-piece]");
-  const labels = await covers.evaluateAll(elements => elements.map(element => element.getAttribute("aria-label")));
-  const wrongIndex = labels.findIndex(label => !label?.endsWith(`: ${stripText}`));
-  const correctIndex = labels.findIndex(label => label?.endsWith(`: ${stripText}`));
-  expect(wrongIndex).toBeGreaterThanOrEqual(0);
-  expect(correctIndex).toBeGreaterThanOrEqual(0);
-
-  await covers.nth(wrongIndex).click();
-  await expect(page.locator(".sbq-cover-clue-status")).toContainText("try another cover");
-  await covers.nth(correctIndex).click();
-  await expect(page.getByRole("heading", { name: "2 of 4" })).toBeVisible();
-  await expect(page.locator("[data-cover-strip]")).toHaveAttribute("aria-pressed", "false");
-  await expect(page.getByRole("button", { name: "Show cover titles" })).toBeVisible();
-  await expect(page.locator(".sbq-cover-clue-status")).toHaveText("Pick up the title strip first.");
 });
 
 test("Adventure Map traces one letter form at a time and owns the iPad gesture", async ({

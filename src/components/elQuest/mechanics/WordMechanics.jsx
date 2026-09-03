@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useEffect, useReducer, useRef, useState } from "react";
 import {
   buildSoundBoxesOutcome,
   buildWordMachineOutcome,
@@ -15,9 +15,41 @@ import {
   wordMachineStateForRound,
   wordWindowStateForRound
 } from "./wordMechanicState.js";
+import { ChildWordText } from "../../shared/ChildWordText.jsx";
 
 const noop = () => {};
 const CONTROL_CLASS = "adventure-mechanic-control adventure-mechanic-control--56";
+const WORD_WINDOW_STUDY_SECONDS = 5;
+
+// Counts a study window down from `seconds` to 0, then fires onComplete.
+// Cleans itself up on unmount or when `active` goes false.
+function useStudyCountdown(active, seconds, onComplete) {
+  const [remaining, setRemaining] = useState(seconds);
+  const onCompleteRef = useRef(onComplete);
+  onCompleteRef.current = onComplete;
+
+  useEffect(() => {
+    if (!active) {
+      setRemaining(seconds);
+      return undefined;
+    }
+    setRemaining(seconds);
+    const interval = setInterval(() => {
+      setRemaining(current => {
+        if (current <= 1) {
+          clearInterval(interval);
+          onCompleteRef.current?.();
+          return 0;
+        }
+        return current - 1;
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active, seconds]);
+
+  return remaining;
+}
 
 function LiveStatus({ children }) {
   return (
@@ -58,18 +90,24 @@ export function WordWindowMechanic({
   const locked = disabled || ["committed", "revealed"].includes(state.phase);
   const revealedOutcome = buildWordWindowOutcome(round, state);
 
+  // The study window closes itself after a 5-4-3-2-1 countdown instead of
+  // waiting on a "Close study window" press - one fewer purposeless tap.
+  const countdown = useStudyCountdown(
+    !disabled && state.phase === "study",
+    WORD_WINDOW_STUDY_SECONDS,
+    () => dispatch({ type: "CLOSE" })
+  );
+
+  // A tap both selects the word and reveals/compares it in one action, so a
+  // child never has to press "Reveal and compare" separately afterward.
   const choose = value => {
     if (locked || state.phase !== "choose") return;
-    const next = reduceWordWindow(state, { type: "SELECT", value }, round);
-    if (next === state) return;
+    const selected = reduceWordWindow(state, { type: "SELECT", value }, round);
+    if (selected === state) return;
+    const revealed = reduceWordWindow(selected, { type: "REVEAL" }, round);
     dispatch({ type: "SELECT", value });
-  };
-
-  const reveal = () => {
-    if (disabled || state.phase !== "committed") return;
-    const next = reduceWordWindow(state, { type: "REVEAL" }, round);
     dispatch({ type: "REVEAL" });
-    const outcome = buildWordWindowOutcome(round, next);
+    const outcome = buildWordWindowOutcome(round, revealed);
     if (outcome) onCommit(outcome);
   };
 
@@ -88,13 +126,23 @@ export function WordWindowMechanic({
         aria-live="polite"
       >
         {state.phase === "study" && (
-          <strong className="adventure-word-window__study-word">{round.studyWord}</strong>
+          <>
+            <strong className="adventure-word-window__study-word">
+              <ChildWordText word={round.studyWord} />
+            </strong>
+            <span className="adventure-word-window__countdown" aria-hidden="true">{countdown}</span>
+            <span className="kg-visually-hidden" role="status" aria-live="polite">
+              Choosing from memory in {countdown}.
+            </span>
+          </>
         )}
         {state.phase === "choose" && (
           <span className="adventure-word-window__closed">Study window closed</span>
         )}
         {["committed", "revealed"].includes(state.phase) && (
-          <span className="adventure-word-window__committed">Choice locked: {state.selected}</span>
+          <span className="adventure-word-window__committed">
+            Choice locked: <ChildWordText word={state.selected} />
+          </span>
         )}
         {state.phase === "revealed" && state.difference && (
           <div
@@ -124,49 +172,13 @@ export function WordWindowMechanic({
               aria-pressed={state.selected === choice}
               onClick={() => choose(choice)}
             >
-              {choice}
+              <ChildWordText word={choice} />
             </button>
           ))}
         </div>
       )}
 
       <div className="adventure-word-window__controls">
-        {state.phase === "study" && (
-          <button
-            type="button"
-            className={CONTROL_CLASS}
-            data-action="close-window"
-            data-target-size="56"
-            disabled={disabled}
-            onClick={() => dispatch({ type: "CLOSE" })}
-          >
-            Close study window
-          </button>
-        )}
-        {state.phase === "choose" && (
-          <button
-            type="button"
-            className={CONTROL_CLASS}
-            data-action="reopen-window"
-            data-target-size="56"
-            disabled={disabled}
-            onClick={() => dispatch({ type: "REOPEN" })}
-          >
-            Open study window
-          </button>
-        )}
-        {state.phase === "committed" && (
-          <button
-            type="button"
-            className={CONTROL_CLASS}
-            data-action="reveal-word"
-            data-target-size="56"
-            disabled={disabled}
-            onClick={reveal}
-          >
-            Reveal and compare
-          </button>
-        )}
         {state.phase === "revealed" && revealedOutcome?.correct === false && (
           <button
             type="button"

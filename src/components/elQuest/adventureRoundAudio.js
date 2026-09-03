@@ -17,7 +17,6 @@ export const ADVENTURE_MAP_INSTRUCTIONS = Object.freeze({
   wordMachineRemove: "Listen to the word. Choose the first sound to remove, then run the word machine.",
   wordMachineJoin: "Select both word parts in order, then join them in the word machine.",
   poemSpotlight: "Follow the line and word numbers. Tap that exact word in the poem.",
-  coverClue: "Pick up the title strip. Read it, then place it on the matching book cover.",
   letterTrace: "Watch the letter path. Trace it, then trace it again with a faded model.",
   graphemeTrace: "Watch the letter team path. Trace it, then trace it again with a faded model.",
   patternSort: "Pick up one word at a time. Put it in the matching pattern bin, then sort the new word.",
@@ -127,8 +126,6 @@ export function resolveAdventureRoundAudio(round = {}) {
         [],
         instructionAudioFor(poemModelText(round))
       );
-    case "coverClue":
-      return result(round, ADVENTURE_MAP_INSTRUCTIONS.coverClue);
     case "letterTrace":
       return result(
         round,

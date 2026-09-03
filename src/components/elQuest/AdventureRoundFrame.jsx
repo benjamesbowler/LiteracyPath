@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { triggerTactileFeedback } from "../../utils/tactileFeedback.js";
 
 function SpeakerIcon() {
   return (
@@ -114,19 +115,27 @@ export function AdventureRoundFrame({
               aria-label="Hear instructions again"
               data-instruction-audio={instructionAudio}
               disabled={disabled}
-              onClick={onReplayInstruction}
+              onClick={() => { triggerTactileFeedback(); onReplayInstruction?.(); }}
             >
               <SpeakerIcon />
               Hear what to do
             </button>
             {hasTargetAudio && (
-              <button type="button" disabled={disabled} onClick={onReplayTarget}>
+              <button
+                type="button"
+                disabled={disabled}
+                onClick={() => { triggerTactileFeedback(); onReplayTarget?.(); }}
+              >
                 <SpeakerIcon />
                 Listen
               </button>
             )}
             {hasContentAudio && (
-              <button type="button" disabled={disabled} onClick={onReplayContent}>
+              <button
+                type="button"
+                disabled={disabled}
+                onClick={() => { triggerTactileFeedback(); onReplayContent?.(); }}
+              >
                 <SpeakerIcon />
                 {contentReplayLabel}
               </button>

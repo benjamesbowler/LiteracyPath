@@ -4,7 +4,6 @@ const INITIAL_SEED = {
   phraseFlow: "adventure:cycle-25:speed:initial-v3",
   heartWord: "adventure:cycle-25:spell:initial-v3",
   letterPress: "adventure:cycle-1:letters:initial-v3",
-  coverClue: "adventure:cycle-1:story:initial-v3",
   wordWindow: "adventure:cycle-1:quick:initial-v3"
 };
 
@@ -270,42 +269,6 @@ test("a tall phone mechanic brings its shared third-miss correction model fully 
   expect(geometry).toBeTruthy();
   expect(geometry.intersectionWidth).toBeGreaterThanOrEqual(geometry.modelWidth - 1);
   expect(geometry.intersectionHeight).toBeGreaterThanOrEqual(geometry.modelHeight - 1);
-});
-
-test("third Cover Clue miss models the title against the actual target cover art", async ({ page }) => {
-  await installAudioRecorder(page);
-  const round = await openMechanic(page, {
-    cycle: "cycle-1",
-    station: "story",
-    mechanic: "coverClue",
-    stage: "cover-clue",
-    seed: INITIAL_SEED.coverClue
-  });
-  const stage = round.locator('[data-mechanic-stage="cover-clue"]');
-  const covers = stage.locator("[data-cover-piece]");
-  const stripText = String(await stage.locator("[data-cover-strip]").textContent()).trim();
-
-  // Derive the semantic target from the rendered round. Earlier versions
-  // pinned one cover URL, which stopped being the target as soon as another
-  // seeded mechanic consumed a different number of random values.
-  await stage.getByRole("button", { name: "Show cover titles" }).click();
-  const target = covers.filter({ hasText: stripText });
-  const wrong = covers.filter({ hasNotText: stripText }).first();
-  const targetImage = await target.locator("img").getAttribute("src");
-
-  await stage.locator("[data-cover-strip]").click();
-  for (let attempt = 1; attempt <= 3; attempt += 1) {
-    await wrong.click();
-    await expect(wrong).toBeEnabled();
-  }
-
-  const model = round.locator('[data-correction-model="true"]');
-  await expect(model).toBeVisible();
-  await expect(model.locator('[data-correction-target-image="true"]')).toHaveAttribute("src", targetImage);
-  await expect(target).toHaveCount(1);
-
-  await target.click();
-  await expect(round.getByRole("heading", { name: "2 of 4" })).toBeVisible();
 });
 
 test("corrupt local Adventure progress offers an explicit Adventure-only fresh start", async ({ page }) => {

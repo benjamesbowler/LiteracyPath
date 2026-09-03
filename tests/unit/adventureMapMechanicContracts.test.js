@@ -79,15 +79,6 @@ test("each mechanic receives the explicit data its component needs", () => {
         assert.ok(round.lines?.length > 0 && round.tokens?.length === round.lines.length, where);
         assert.ok(Number.isInteger(round.targetToken?.lineIndex), where);
         assert.ok(Number.isInteger(round.targetToken?.tokenIndex), where);
-      } else if (mechanicId === "coverClue") {
-        assert.ok(round.strip?.text, where);
-        assert.equal(round.strip?.kind, "title", where);
-        assert.ok(round.targetCover?.cover, where);
-        assert.ok(round.covers?.length >= 2, where);
-        assert.ok(round.covers.some(cover => cover.matches), where);
-        assert.equal("choices" in round, false, `${where} must not expose a detached answer grid`);
-        assert.equal("answer" in round, false, `${where} must not retain a character-name answer`);
-        assert.equal("choiceStyle" in round, false, `${where} must not retain generic choice metadata`);
       } else if (mechanicId === "letterTrace") {
         assert.ok(round.letter, where);
       } else if (mechanicId === "patternSort") {
@@ -162,7 +153,6 @@ test("stable slots are truthfully renamed and unknown stations fail closed", () 
   assert.equal(stationsForCycle(cycle24).find(item => item.id === "sounds")?.title, "Ending Sound Gate");
   assert.equal(stationsForCycle(cycle25).find(item => item.id === "speed")?.title, "Phrase Flow");
   assert.equal(stationsForCycle(cycle25).find(item => item.id === "spell")?.title, "Heart Word Studio");
-  assert.equal(stationsForCycle(cycle15).find(item => item.id === "story")?.title, "Cover Clue");
   assert.throws(() => buildStationRounds(cycle15, "missing"), /unknown or ineligible/);
 });
 
@@ -243,20 +233,6 @@ test("generated Pattern Sort rounds expose both transfer classes and both correc
   }
   assert.deepEqual(transferClasses, new Set([true, false]));
   assert.deepEqual(correctBinPositions, new Set([0, 1]));
-});
-
-test("Cover Clue exposes one title strip matched directly to its authoritative cover", () => {
-  for (const { cycle, station, round } of roundsForMechanic("coverClue")) {
-    const where = `cycle ${cycle.cycleNumber}/${station.id}`;
-    assert.deepEqual(
-      round.targetCover,
-      round.covers.find(cover => cover.matches),
-      `${where} matching cover must be the explicit target`
-    );
-    assert.equal(round.strip.text, round.targetCover.title, `${where} strip must name its cover`);
-    assert.equal("choices" in round, false, `${where} detached choices remain`);
-    assert.equal("answer" in round, false, `${where} detached answer remains`);
-  }
 });
 
 test("high-frequency words alone never authorize a Pattern Power family", () => {

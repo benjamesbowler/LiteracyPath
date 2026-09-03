@@ -36,7 +36,6 @@ const GENERATED_CONSTRUCT_CASES = [
   ["onset_removal", /remove|word parts/],
   ["compound_word_joining", /join|word parts/],
   ["connected_print_tracking", /printed|line/],
-  ["supported_cover_title_association", /title|cover/],
   ["letter_formation_practice", /trace/],
   ["grapheme_pattern_formation_practice", /trace/],
   ["orthographic_pattern_sort", /ending|pattern|target/],
@@ -384,7 +383,6 @@ test("every generated mechanic can provide a structured visible correction model
     }
   }
   assert.deepEqual([...seenMechanics].sort(), [
-    "coverClue",
     "heartWord",
     "letterPair",
     "letterTrace",
@@ -419,7 +417,6 @@ function failedOutcomeForRound(round) {
 test("real pattern, cover-title, and trace rounds name the selected response and exact target across all 27 cycles", () => {
   const relevantConstructs = new Set([
     "orthographic_pattern_sort",
-    "supported_cover_title_association",
     "letter_formation_practice",
     "grapheme_pattern_formation_practice"
   ]);

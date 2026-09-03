@@ -4,7 +4,7 @@
 // hear the sound -> find the sound in words -> read quick words -> build words.
 import { LETTER_EXAMPLES, elSkillsBlockCycles } from "../../data/elSkillsBlockCycles.js";
 import { EL_CYCLE_POEMS } from "../../data/elCyclePoems.js";
-import { QUEST_STORY_QUESTIONS, VERIFIED_PICTURE_WORDS } from "../../data/generated/questStoryQuestions.generated.js";
+import { VERIFIED_PICTURE_WORDS } from "../../data/generated/questStoryQuestions.generated.js";
 import { AUDIO_QUEST_PATHS } from "../../data/generated/audioQuestPaths.generated.js";
 import { hasKnownBadWordAudio, isKnownBadAudioPath } from "../../data/knownBadWordAudio.js";
 import { getPreferredPhonemeAudioPath } from "../../data/phonemeAudioBank.js";
@@ -1118,44 +1118,6 @@ function buildPoemRounds(cycle) {
   });
 }
 
-// Station - Cover Clue: associate an authoritative title strip with its cover.
-// This is supported cover/title association, never story comprehension.
-function buildStoryRounds(cycle) {
-  const n = cycle.cycleNumber || 1;
-  const world = n >= 19 ? "moonwood" : n >= 10 ? "dino" : "meadow";
-  const bank = QUEST_STORY_QUESTIONS[world];
-  if (!bank?.questions?.length) return [];
-  const picks = shuffleItems(bank.questions).slice(0, 4);
-  return picks.map(item => {
-    const rack = shuffleItems([
-      item,
-      ...shuffleItems(bank.questions.filter(candidate => candidate.cover !== item.cover)).slice(0, 2)
-    ]);
-    const covers = rack.map(candidate => ({
-      cover: candidate.cover || "",
-      title: candidate.title || "",
-      character: candidate.answer || "",
-      matches: candidate.cover === item.cover
-    }));
-    return {
-      type: "story",
-      mechanicId: "coverClue",
-      construct: "supported_cover_title_association",
-      audio: "",
-      speechFallback: "",
-      prompt: "Place the title strip on its matching cover.",
-      instruction: "Read the title strip. Place it on the matching cover.",
-      display: "",
-      strip: {
-        kind: "title",
-        text: item.title || ""
-      },
-      targetCover: covers.find(cover => cover.matches),
-      covers
-    };
-  });
-}
-
 // Station - Letter Trace: write the focus letters with a finger.
 function buildTraceRounds(cycle) {
   const rounds = focusEntries(cycle)
@@ -1497,7 +1459,6 @@ const STANDARD_STATIONS = [
   { id: "build", title: "Word Build", subtitle: "Build with sound boxes", icon: "🧱", mechanicIds: ["soundBoxes"], build: buildWordBuildRounds },
   { id: "play", title: "Word Play", subtitle: "Change, remove, or join word parts", icon: "🎲", mechanicIds: ["wordMachine"], build: buildWordPlayRounds },
   { id: "poem", title: "Poem Time", subtitle: "Follow the poem's print", icon: "📜", mechanicIds: ["poemSpotlight"], build: buildPoemRounds },
-  { id: "story", title: "Cover Clue", subtitle: "Match a title to its cover", icon: "📚", mechanicIds: ["coverClue"], build: buildStoryRounds },
   { id: "trace", title: "Letter Trace", subtitle: "Practise the letter path", icon: "✏️", mechanicIds: ["letterTrace"], build: buildTraceRounds }
 ];
 

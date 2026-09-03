@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { elSkillsBlockCycles } from "../../data/elSkillsBlockCycles.js";
 import { playCueAudio, playCueSequence, stopCueAudio } from "../../utils/audio/cuePlayer.js";
+import { triggerTactileFeedback } from "../../utils/tactileFeedback.js";
 import { playCorrectChime, playSoftBuzz, playCelebrationFanfare, playStarChime } from "../../utils/audio/gameSfx.js";
 import { queueProgressSave } from "../../utils/progressSync.js";
 import {
@@ -468,6 +469,7 @@ export function ElSkillsQuest({
       || typeof outcome?.correct !== "boolean"
       || !round
     ) return;
+    triggerTactileFeedback(outcome.correct ? 14 : [10, 40, 10]);
     answerLockRef.current = true;
     setInteractionLocked(true);
     cancelPendingTransition();

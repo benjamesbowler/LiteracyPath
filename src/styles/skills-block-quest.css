@@ -88,6 +88,11 @@
   filter: brightness(1.07);
 }
 
+.sbq-primary-button:not(:disabled):active {
+  transform: translateY(2px);
+  filter: brightness(0.96);
+}
+
 .sbq-ghost-button {
   border: 1px solid var(--lp-color-border-strong);
   background: var(--lp-color-surface);
@@ -95,6 +100,11 @@
 }
 
 .sbq-ghost-button:hover {
+  background: var(--lp-color-primary-soft);
+}
+
+.sbq-ghost-button:not(:disabled):active {
+  transform: translateY(2px);
   background: var(--lp-color-primary-soft);
 }
 
@@ -1295,9 +1305,14 @@
 
 .sbq-next-up {
   margin: 0;
+  max-width: 100%;
+  padding: 2px 0;
   color: var(--lp-color-primary);
   font-size: 1rem;
   font-weight: 700;
+  line-height: 1.3;
+  text-align: left;
+  overflow-wrap: break-word;
 }
 
 .sbq-encourage {
@@ -1506,8 +1521,8 @@
 
 .adventure-round-frame__instruction small {
   margin-top: 3px;
-  color: #53675e;
-  font: 700 0.82rem/1.18 var(--lp-font-ui);
+  color: #33463c;
+  font: 800 0.92rem/1.22 var(--lp-font-ui);
 }
 
 .adventure-round-frame__instruction .adventure-round-frame__support {
@@ -1529,6 +1544,14 @@
   border-color: color-mix(in srgb, var(--pal-accent) 52%, #ffffff);
   background: color-mix(in srgb, var(--pal-accent-soft) 90%, #ffffff);
   color: var(--pal-deep);
+  box-shadow: 0 3px 0 color-mix(in srgb, var(--pal-accent) 60%, #000000);
+  transition: transform 90ms ease-out, box-shadow 90ms ease-out;
+}
+
+.adventure-round-frame__stop:active,
+.adventure-round-frame__audio-actions button:not(:disabled):active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--pal-accent) 60%, #000000);
 }
 
 .adventure-round-frame__stage {
@@ -1813,6 +1836,11 @@
   background: radial-gradient(circle at 35% 24%, #f8ffe3 0 16%, #b9df84 48%, #5e9e59 100%);
 }
 
+.am-letter-press-button:not(:disabled):active {
+  transform: translateY(3px);
+  box-shadow: 0 4px 0 #684429, 0 7px 10px rgba(42, 29, 16, 0.28);
+}
+
 /* Sound Gate: move a grapheme magnet into a separate gate and open it. */
 .am-sound-gate {
   display: grid;
@@ -2010,6 +2038,11 @@
   min-height: max(56px, var(--kg-physical-hit, 56px)) !important;
 }
 
+.adventure-mechanic-control:not(:disabled):active {
+  transform: translateY(3px);
+  box-shadow: 0 3px 0 #76502e, 0 6px 10px rgba(39, 27, 16, 0.25);
+}
+
 .adventure-mechanic-control[aria-pressed="true"] {
   border-color: #fff0a0;
   background: linear-gradient(180deg, #edffd3, #9fd477);
@@ -2091,6 +2124,19 @@
   background: rgba(18, 35, 48, 0.85);
   font: 850 1rem/1.2 var(--lp-font-reading);
   text-align: center;
+}
+
+.adventure-word-window__countdown {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-top: 8px;
+  border: 3px solid rgba(255, 255, 255, 0.65);
+  border-radius: 50%;
+  background: rgba(18, 35, 48, 0.85);
+  color: #fff8d9;
+  font: 850 1.3rem/1 var(--lp-font-reading);
 }
 
 .adventure-word-window__comparison {
@@ -2713,6 +2759,19 @@
 
 .sbq-poem-word {
   display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.sbq-poem-word-marker {
+  min-width: 15px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: #5d426f;
+  color: #fff8d9;
+  font: 800 0.58rem/1.25 var(--lp-font-ui);
+  text-align: center;
 }
 
 .sbq-poem-token {
@@ -2729,10 +2788,15 @@
 }
 
 .sbq-poem-token:hover,
-.sbq-poem-token:focus-visible {
+.sbq-poem-token:focus-visible,
+.sbq-poem-token:active {
   border-color: #d39a29;
   background: #fff0a8;
   box-shadow: 0 3px 0 #a47225;
+}
+
+.sbq-poem-token:active {
+  transform: translateY(2px);
 }
 
 /* Cover Clue is a separate evidence-board interaction. */
@@ -2769,6 +2833,7 @@
   grid-template-columns: minmax(130px, 0.55fr) minmax(280px, 1.45fr);
   grid-template-areas:
     "demo canvas"
+    "phase canvas"
     "message canvas"
     "actions canvas"
     "support canvas";
@@ -2785,9 +2850,16 @@
   box-shadow: 0 9px 0 #6b482b, 0 16px 26px rgba(42, 28, 15, 0.25), inset 0 0 0 3px rgba(126, 84, 40, 0.12);
 }
 
+.sbq-trace > .sbq-trace-phase-label { grid-area: phase; }
 .sbq-trace > .sbq-trace-message { grid-area: message; }
 .sbq-trace > .sbq-trace-actions { grid-area: actions; }
 .sbq-trace > .sbq-ghost-button { grid-area: support; }
+
+.sbq-trace-phase-label {
+  margin: 0;
+  color: #53675e;
+  font: 700 0.85rem/1.2 var(--lp-font-ui);
+}
 
 .sbq-trace [data-support-route="formation-practice"] {
   grid-column: 1 / -1;
@@ -2936,7 +3008,7 @@
 
   .sbq-trace {
     grid-template-columns: 1fr;
-    grid-template-areas: "demo" "canvas" "message" "actions" "support";
+    grid-template-areas: "demo" "canvas" "phase" "message" "actions" "support";
   }
 
   .sbq-trace [data-support-route="formation-practice"] {

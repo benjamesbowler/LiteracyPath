@@ -1,7 +1,6 @@
 import { expect, test } from "@playwright/test";
 
 import { GAME_LIST } from "../../src/data/learnGamesData.js";
-import { QUEST_STORY_QUESTIONS } from "../../src/data/generated/questStoryQuestions.generated.js";
 import { CHILD_SURFACE_ROUTES } from "../../src/policy/childSurfaceRules.js";
 
 const IPAD_LANDSCAPE = { width: 1024, height: 768 };
@@ -14,7 +13,6 @@ const QUEST_STATIONS = [
   ["cycle-1", "build"],
   ["cycle-8", "play"],
   ["cycle-1", "poem"],
-  ["cycle-1", "story"],
   ["cycle-1", "trace"],
   ["cycle-1", "check"],
   ["cycle-25", "pattern"],
@@ -149,30 +147,6 @@ async function expectReadableMechanicControls(locator, state) {
       };
     }).filter(button => button.width < 55.9 || button.height < 55.9));
   expect(undersized, `${state} needs readable mechanic controls, not tiny targets`).toEqual([]);
-}
-
-function coverByTitle() {
-  return new Map(
-    Object.values(QUEST_STORY_QUESTIONS).flatMap(bank => (
-      bank.questions.map(question => [question.title, question.cover])
-    ))
-  );
-}
-
-async function completeCurrentCoverClue(page) {
-  const stage = page.locator('[data-mechanic-stage="cover-clue"]');
-  const strip = stage.locator('[data-cover-strip="title"]');
-  const title = (await strip.textContent())?.trim();
-  const expectedCover = coverByTitle().get(title);
-  expect(expectedCover, `title strip ${title} needs a known cover`).toBeTruthy();
-  await strip.click();
-  const covers = stage.locator("[data-cover-piece]");
-  const coverPaths = await covers.locator("img").evaluateAll(images => (
-    images.map(image => image.getAttribute("src"))
-  ));
-  const answerIndex = coverPaths.findIndex(path => path === expectedCover);
-  expect(answerIndex, `title strip ${title} must have its matching cover`).toBeGreaterThanOrEqual(0);
-  await covers.nth(answerIndex).click();
 }
 
 test("every logged-in child destination fits an iPad without hidden controls", async ({ page }) => {
@@ -336,7 +310,7 @@ test("Adventure Map answers stay readable when iPad browser chrome shortens the 
   for (const height of [694, 650]) {
     await page.setViewportSize({ width: 1024, height });
     await page.emulateMedia({ reducedMotion: "no-preference" });
-    for (const station of ["letters", "story", "pattern"]) {
+    for (const station of ["letters", "pattern"]) {
       const cycle = station === "pattern" ? "cycle-25" : "cycle-1";
       await page.goto(
         `/preview/child-surfaces.html?surface=adventure-map&quest=${cycle}&station=${station}`,
@@ -350,85 +324,6 @@ test("Adventure Map answers stay readable when iPad browser chrome shortens the 
       await expectReadableMechanicControls(activity, `${height}px ${station}`);
     }
   }
-});
-
-test("Cover Clue reflows without clipped cover cards on phones", async ({ page }) => {
-  for (const viewport of [
-    { width: 390, height: 844, label: "phone portrait" },
-    { width: 667, height: 375, label: "short phone landscape" }
-  ]) {
-    await page.setViewportSize({ width: viewport.width, height: viewport.height });
-    await page.emulateMedia({ reducedMotion: "reduce" });
-    await page.goto(
-      "/preview/child-surfaces.html?surface=adventure-map&quest=cycle-1&station=story",
-      { waitUntil: "domcontentloaded" }
-    );
-    const activity = page.locator('[data-quest-view="round"][data-station-id="story"]');
-    await expect(activity).toBeVisible();
-    await waitForChildStageSizing(page);
-    await expectReadableMechanicControls(activity, viewport.label);
-    const geometry = await activity.evaluate(root => {
-      const rootRect = root.getBoundingClientRect();
-      const frame = root.querySelector(".adventure-round-frame");
-      const frameRect = frame.getBoundingClientRect();
-      const covers = [...root.querySelectorAll('[data-mechanic-stage="cover-clue"] [data-cover-piece]')]
-        .map(button => button.getBoundingClientRect());
-      return {
-        rootOverflowX: root.scrollWidth - root.clientWidth,
-        frameOverflowX: frame.scrollWidth - frame.clientWidth,
-        frameInsideHorizontally: frameRect.left >= rootRect.left - 1
-          && frameRect.right <= rootRect.right + 1,
-        clippedCovers: covers.filter(rect => (
-          rect.left < rootRect.left - 1 || rect.right > rootRect.right + 1
-        )).length
-      };
-    });
-    expect(geometry.rootOverflowX, `${viewport.label} activity must not scroll sideways`).toBeLessThanOrEqual(1);
-    expect(geometry.frameOverflowX, `${viewport.label} frame must not overflow sideways`).toBeLessThanOrEqual(1);
-    expect(geometry.frameInsideHorizontally, `${viewport.label} frame must stay inside the activity`).toBe(true);
-    expect(geometry.clippedCovers, `${viewport.label} covers must stay inside the activity`).toBe(0);
-    const lastCover = activity.locator('[data-mechanic-stage="cover-clue"] [data-cover-piece]').last();
-    await lastCover.scrollIntoViewIfNeeded();
-    await expect(lastCover).toBeVisible();
-  }
-});
-
-test("Adventure Map completion actions stay full-size and inside the iPad activity panel", async ({ page }) => {
-  await page.setViewportSize(IPAD_LANDSCAPE);
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("/preview/child-surfaces.html?surface=adventure-map&quest=cycle-1&station=story");
-  await waitForChildStageSizing(page);
-
-  for (let round = 1; round <= 4; round += 1) {
-    await expect(page.getByRole("heading", { name: `${round} of 4` })).toBeVisible();
-    await completeCurrentCoverClue(page);
-    if (round < 4) {
-      await expect(page.getByRole("heading", { name: `${round + 1} of 4` })).toBeVisible();
-    }
-  }
-
-  const completion = page.locator(".sbq-celebrate");
-  await expect(completion).toBeVisible();
-  await expectFullSizeChildControls(completion, "station completion");
-  const geometry = await completion.evaluate(card => {
-    const root = card.closest(".kg-main");
-    const rootRect = root.getBoundingClientRect();
-    const cardRect = card.getBoundingClientRect();
-    const buttons = [...card.querySelectorAll("button")].map(button => button.getBoundingClientRect());
-    const overlaps = buttons.flatMap((left, leftIndex) => buttons.slice(leftIndex + 1).map(right => (
-      Math.max(0, Math.min(left.right, right.right) - Math.max(left.left, right.left))
-      * Math.max(0, Math.min(left.bottom, right.bottom) - Math.max(left.top, right.top))
-    ))).filter(area => area > 1);
-    return {
-      inside: cardRect.left >= rootRect.left + 8
-        && cardRect.right <= rootRect.right - 8
-        && cardRect.top >= rootRect.top + 8
-        && cardRect.bottom <= rootRect.bottom - 8,
-      overlaps
-    };
-  });
-  expect(geometry.inside, "completion card needs an iPad-safe inset").toBe(true);
-  expect(geometry.overlaps, "completion actions must not overlap").toEqual([]);
 });
 
 test("all 21 standalone games fit an iPad without hidden controls", async ({ page }) => {

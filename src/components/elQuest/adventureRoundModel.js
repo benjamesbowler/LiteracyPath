@@ -6,7 +6,6 @@ export const ADVENTURE_MECHANIC_IDS = Object.freeze([
   "soundBoxes",
   "wordMachine",
   "poemSpotlight",
-  "coverClue",
   "letterTrace",
   "patternSort",
   "wordChain",

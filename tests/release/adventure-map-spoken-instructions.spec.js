@@ -1,6 +1,5 @@
 import { expect, test } from "@playwright/test";
 
-import { QUEST_STORY_QUESTIONS } from "../../src/data/generated/questStoryQuestions.generated.js";
 import { ADVENTURE_MAP_INSTRUCTIONS } from "../../src/components/elQuest/adventureRoundAudio.js";
 
 const MECHANIC_ROUTES = [
@@ -52,13 +51,6 @@ const MECHANIC_ROUTES = [
     mechanic: "poemSpotlight",
     stage: "poem-spotlight",
     instruction: ADVENTURE_MAP_INSTRUCTIONS.poemSpotlight
-  },
-  {
-    cycle: "cycle-1",
-    station: "story",
-    mechanic: "coverClue",
-    stage: "cover-clue",
-    instruction: ADVENTURE_MAP_INSTRUCTIONS.coverClue
   },
   {
     cycle: "cycle-1",
@@ -165,7 +157,7 @@ async function openMechanic(page, { cycle, station, mechanic, stage }) {
   return round;
 }
 
-test("all 13 Adventure Map mechanics speak their exact instruction automatically and replay it", async ({ page }) => {
+test("all 12 Adventure Map mechanics speak their exact instruction automatically and replay it", async ({ page }) => {
   test.setTimeout(120_000);
   await installAudioRecorder(page);
 
@@ -284,7 +276,7 @@ test("Stop during a wrong Letter Press feedback beat cancels the pending coachin
   expect(await playedAudio(page)).not.toContain(targetPath);
 });
 
-test("leaving and Cover Clue completion stop active directions", async ({ page }) => {
+test("leaving a round stops active directions", async ({ page }) => {
   await installAudioRecorder(page);
   await page.addInitScript(() => { window.__adventureAudioEndMs = 5_000; });
 
@@ -299,39 +291,4 @@ test("leaving and Cover Clue completion stop active directions", async ({ page }
   await expect.poll(() => pausedAudio(page)).toContain(letterInstruction);
   await page.waitForTimeout(300);
   expect(await playedAudio(page)).not.toContain(letterInstruction);
-
-  const coverRoute = MECHANIC_ROUTES.find(route => route.mechanic === "coverClue");
-  const storyRound = await openMechanic(page, coverRoute);
-  const storyInstruction = await storyRound
-    .getByRole("button", { name: "Hear instructions again" })
-    .getAttribute("data-instruction-audio");
-  const coverByTitle = new Map(
-    Object.values(QUEST_STORY_QUESTIONS).flatMap(bank => (
-      bank.questions.map(question => [question.title, question.cover])
-    ))
-  );
-
-  for (let roundNumber = 1; roundNumber <= 4; roundNumber += 1) {
-    await expect(page.getByRole("heading", { name: `${roundNumber} of 4` })).toBeVisible();
-    const stage = page.locator('[data-mechanic-stage="cover-clue"]');
-    const strip = stage.locator('[data-cover-strip="title"]');
-    const title = (await strip.textContent())?.trim();
-    const expectedCover = coverByTitle.get(title);
-    expect(expectedCover, `title strip ${title} needs a known cover`).toBeTruthy();
-
-    await strip.click();
-    const coverButtons = stage.locator('[data-cover-piece]');
-    const coverPaths = await coverButtons.locator("img").evaluateAll(images => (
-      images.map(image => image.getAttribute("src"))
-    ));
-    const answerIndex = coverPaths.findIndex(path => path === expectedCover);
-    expect(answerIndex, `title strip ${title} must have its matching cover in the rack`).toBeGreaterThanOrEqual(0);
-    await coverButtons.nth(answerIndex).click();
-  }
-
-  await expect(page.locator('[data-quest-view="celebration"]')).toBeVisible();
-  await expect.poll(() => pausedAudio(page)).toContain(storyInstruction);
-  await clearAudioLog(page);
-  await page.waitForTimeout(300);
-  expect(await playedAudio(page)).not.toContain(storyInstruction);
 });
