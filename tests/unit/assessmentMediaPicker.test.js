@@ -28,17 +28,17 @@ test("pair-selection instruction audio is not misclassified as target-word audio
     imageCards: [
       {
         word: "nap",
-        image: "/images/child-mode/cvc/nap.png",
+        image: "/images/child-mode/cvc/nap.webp",
         audio: getLedaWordAudioPath("nap")
       },
       {
         word: "nose",
-        image: "/images/child-mode/initial-sounds/nose.png",
+        image: "/images/child-mode/initial-sounds/nose.webp",
         audio: getLedaWordAudioPath("nose")
       },
       {
         word: "dog",
-        image: "/images/child-mode/cvc/dog.png",
+        image: "/images/child-mode/cvc/dog.webp",
         audio: getLedaWordAudioPath("dog")
       }
     ]
@@ -60,7 +60,7 @@ test("pair-selection validation still rejects a mismatched option image", () => 
     imageCards: [
       {
         word: "nap",
-        image: "/images/child-mode/cvc/dog.png",
+        image: "/images/child-mode/cvc/dog.webp",
         audio: getLedaWordAudioPath("nap")
       }
     ]
@@ -201,7 +201,7 @@ test("every published picture-choice rhyming option stays inside its item-level 
 
 test("current vocabulary and packed assessment images are indexed", () => {
   const vocabularyImage = getAssessmentMediaByPath("/media/vocabulary/images/den.webp", "image");
-  const packedImage = getAssessmentMediaByPath("/images/child-mode/vowel-teams/bee.png", "image");
+  const packedImage = getAssessmentMediaByPath("/images/child-mode/vowel-teams/bee.webp", "image");
 
   assert.equal(vocabularyImage?.available, true);
   assert.equal(vocabularyImage?.normalizedWord, "den");

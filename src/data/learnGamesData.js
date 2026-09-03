@@ -250,7 +250,7 @@ export const GAME_LIST = [
     skill: "Build short vowel words",
     category: "CVC",
     ...GAME_ACCENTS.coral,
-    icon: "/images/learn-games/icon-cvc-builder.png",
+    icon: "/images/learn-games/icon-cvc-builder.webp",
     description: "Pick letters in order to build each word."
   },
   {
@@ -259,7 +259,7 @@ export const GAME_LIST = [
     skill: "Recognize high-frequency words",
     category: "Sight Words",
     ...GAME_ACCENTS.blue,
-    icon: "/images/learn-games/icon-sight-memory.png",
+    icon: "/images/learn-games/icon-sight-memory.webp",
     description: "Flip cards and find matching sight words."
   },
   {
@@ -268,7 +268,7 @@ export const GAME_LIST = [
     skill: "Word families",
     category: "Phonics",
     ...GAME_ACCENTS.violet,
-    icon: "/images/learn-games/icon-blend-build.png",
+    icon: "/images/learn-games/icon-blend-build.webp",
     description: "Add beginnings to rimes to make families of words."
   },
   {
@@ -277,7 +277,7 @@ export const GAME_LIST = [
     skill: "Read words with confidence",
     category: "Fluency",
     ...GAME_ACCENTS.coral,
-    icon: "/images/learn-games/icon-pop-word.png",
+    icon: "/images/learn-games/icon-pop-word.webp",
     description: "Read each word to build the bridge and rescue your pal."
   },
   {
@@ -286,7 +286,7 @@ export const GAME_LIST = [
     skill: "Hear and sort beginning sounds",
     category: "Phonics",
     ...GAME_ACCENTS.blue,
-    icon: "/images/learn-games/icon-blend-build.png",
+    icon: "/images/learn-games/icon-blend-build.webp",
     description: "Sort the factory words into the right sound bins."
   },
   {
@@ -295,7 +295,7 @@ export const GAME_LIST = [
     skill: "Spell words letter by letter",
     category: "CVC",
     ...GAME_ACCENTS.violet,
-    icon: "/images/learn-games/icon-cvc-builder.png",
+    icon: "/images/learn-games/icon-cvc-builder.webp",
     description: "Build words to grow a garden full of flowers."
   },
   {
@@ -304,7 +304,7 @@ export const GAME_LIST = [
     skill: "Fast word recognition",
     category: "Fluency",
     ...GAME_ACCENTS.violet,
-    icon: "/images/learn-games/icon-pop-word.png",
+    icon: "/images/learn-games/icon-pop-word.webp",
     description: "Pop the balloon showing the word you hear."
   },
   {
@@ -313,7 +313,7 @@ export const GAME_LIST = [
     skill: "Sentence order",
     category: "Sentences",
     ...GAME_ACCENTS.amber,
-    icon: "/images/learn-games/icon-word-hopscotch.png",
+    icon: "/images/learn-games/icon-word-hopscotch.webp",
     description: "Hop through words in sentence order."
   },
   {
@@ -322,7 +322,7 @@ export const GAME_LIST = [
     skill: "Capitals, punctuation, best word",
     category: "Grammar",
     ...GAME_ACCENTS.green,
-    icon: "/images/learn-games/icon-reading-race.png",
+    icon: "/images/learn-games/icon-reading-race.webp",
     description: "Find the missing piece and fix the sentence."
   },
   {
@@ -331,7 +331,7 @@ export const GAME_LIST = [
     skill: "Read beginning sounds at speed",
     category: "Phonics",
     ...GAME_ACCENTS.blue,
-    icon: "/images/learn-games/icon-sound-slide.png",
+    icon: "/images/learn-games/icon-sound-slide.webp",
     description: "Race the track — grab the words that start with your sound to boost.",
     fullBleed: true,
     surfaces: ["arcade"]
@@ -353,7 +353,7 @@ export const GAME_LIST = [
     skill: "Choose and blend sounds in order",
     category: "Phonics",
     ...GAME_ACCENTS.violet,
-    icon: "/images/learn-games/icon-sound-slide.png",
+    icon: "/images/learn-games/icon-sound-slide.webp",
     description: "Choose each matching sound, then use GO to blend the word.",
     fullBleed: true,
     surfaces: ["arcade"]

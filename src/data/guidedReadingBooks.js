@@ -240,11 +240,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "maps show places",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-a-26-cover.png",
+    "coverImage": "/guided-reading/covers/gr-a-26-cover.webp",
     "pages": [
       {
         "text": "A map shows a place.",
-        "image": "/guided-reading/pages/gr-a-26-page-1.png",
+        "image": "/guided-reading/pages/gr-a-26-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-26-page-1.mp3",
         "highFrequencyWords": [
           "A",
@@ -258,7 +258,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "This map shows a park.",
-        "image": "/guided-reading/pages/gr-a-26-page-2.png",
+        "image": "/guided-reading/pages/gr-a-26-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-26-page-2.mp3",
         "highFrequencyWords": [
           "This",
@@ -272,7 +272,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "The park has a road.",
-        "image": "/guided-reading/pages/gr-a-26-page-3.png",
+        "image": "/guided-reading/pages/gr-a-26-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-26-page-3.mp3",
         "highFrequencyWords": [
           "The",
@@ -286,7 +286,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "The road has a path.",
-        "image": "/guided-reading/pages/gr-a-26-page-4.png",
+        "image": "/guided-reading/pages/gr-a-26-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-26-page-4.mp3",
         "highFrequencyWords": [
           "The",
@@ -300,7 +300,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "The path has a pond.",
-        "image": "/guided-reading/pages/gr-a-26-page-5.png",
+        "image": "/guided-reading/pages/gr-a-26-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-26-page-5.mp3",
         "highFrequencyWords": [
           "The",
@@ -314,7 +314,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A map helps you see a place!",
-        "image": "/guided-reading/pages/gr-a-26-page-6.png",
+        "image": "/guided-reading/pages/gr-a-26-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-26-page-6.mp3",
         "highFrequencyWords": [
           "A",
@@ -342,11 +342,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "basic day/night cycle",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-a-27-cover.png",
+    "coverImage": "/guided-reading/covers/gr-a-27-cover.webp",
     "pages": [
       {
         "text": "The sun is in the sky.",
-        "image": "/guided-reading/pages/gr-a-27-page-1.png",
+        "image": "/guided-reading/pages/gr-a-27-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-27-page-1.mp3",
         "highFrequencyWords": [
           "The",
@@ -361,7 +361,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "It is day.",
-        "image": "/guided-reading/pages/gr-a-27-page-2.png",
+        "image": "/guided-reading/pages/gr-a-27-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-27-page-2.mp3",
         "highFrequencyWords": [
           "It",
@@ -373,7 +373,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "The sun goes down.",
-        "image": "/guided-reading/pages/gr-a-27-page-3.png",
+        "image": "/guided-reading/pages/gr-a-27-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-27-page-3.mp3",
         "highFrequencyWords": [
           "The",
@@ -386,7 +386,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "The moon is in the sky.",
-        "image": "/guided-reading/pages/gr-a-27-page-4.png",
+        "image": "/guided-reading/pages/gr-a-27-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-27-page-4.mp3",
         "highFrequencyWords": [
           "The",
@@ -401,7 +401,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "It is night.",
-        "image": "/guided-reading/pages/gr-a-27-page-5.png",
+        "image": "/guided-reading/pages/gr-a-27-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-27-page-5.mp3",
         "highFrequencyWords": [
           "It",
@@ -413,7 +413,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Day and night go round and round!",
-        "image": "/guided-reading/pages/gr-a-27-page-6.png",
+        "image": "/guided-reading/pages/gr-a-27-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-27-page-6.mp3",
         "highFrequencyWords": [
           "and",
@@ -439,11 +439,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "rain supports plants",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-a-28-cover.png",
+    "coverImage": "/guided-reading/covers/gr-a-28-cover.webp",
     "pages": [
       {
         "text": "Rain comes down from the sky.",
-        "image": "/guided-reading/pages/gr-a-28-page-1.png",
+        "image": "/guided-reading/pages/gr-a-28-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-28-page-1.mp3",
         "highFrequencyWords": [
           "down",
@@ -458,7 +458,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Rain helps the plants.",
-        "image": "/guided-reading/pages/gr-a-28-page-2.png",
+        "image": "/guided-reading/pages/gr-a-28-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-28-page-2.mp3",
         "highFrequencyWords": [
           "helps",
@@ -471,7 +471,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "The plants get a drink.",
-        "image": "/guided-reading/pages/gr-a-28-page-3.png",
+        "image": "/guided-reading/pages/gr-a-28-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-28-page-3.mp3",
         "highFrequencyWords": [
           "The",
@@ -485,7 +485,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "The plants grow up.",
-        "image": "/guided-reading/pages/gr-a-28-page-4.png",
+        "image": "/guided-reading/pages/gr-a-28-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-28-page-4.mp3",
         "highFrequencyWords": [
           "The",
@@ -498,7 +498,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "The sun helps the plants too.",
-        "image": "/guided-reading/pages/gr-a-28-page-5.png",
+        "image": "/guided-reading/pages/gr-a-28-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-28-page-5.mp3",
         "highFrequencyWords": [
           "The",
@@ -512,7 +512,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Rain and sun help plants grow!",
-        "image": "/guided-reading/pages/gr-a-28-page-6.png",
+        "image": "/guided-reading/pages/gr-a-28-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-28-page-6.mp3",
         "highFrequencyWords": [
           "and",
@@ -539,11 +539,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "animals need safe homes",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-a-29-cover.png",
+    "coverImage": "/guided-reading/covers/gr-a-29-cover.webp",
     "pages": [
       {
         "text": "Animals need homes.",
-        "image": "/guided-reading/pages/gr-a-29-page-1.png",
+        "image": "/guided-reading/pages/gr-a-29-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-29-page-1.mp3",
         "highFrequencyWords": [
           "need"
@@ -555,7 +555,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A bird has a nest in a tree.",
-        "image": "/guided-reading/pages/gr-a-29-page-2.png",
+        "image": "/guided-reading/pages/gr-a-29-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-29-page-2.mp3",
         "highFrequencyWords": [
           "A",
@@ -571,7 +571,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A fox has a den in a hill.",
-        "image": "/guided-reading/pages/gr-a-29-page-3.png",
+        "image": "/guided-reading/pages/gr-a-29-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-29-page-3.mp3",
         "highFrequencyWords": [
           "A",
@@ -587,7 +587,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A fish has a pond.",
-        "image": "/guided-reading/pages/gr-a-29-page-4.png",
+        "image": "/guided-reading/pages/gr-a-29-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-29-page-4.mp3",
         "highFrequencyWords": [
           "A",
@@ -601,7 +601,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A bug has a log.",
-        "image": "/guided-reading/pages/gr-a-29-page-5.png",
+        "image": "/guided-reading/pages/gr-a-29-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-29-page-5.mp3",
         "highFrequencyWords": [
           "A",
@@ -615,7 +615,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Each animal has a safe home!",
-        "image": "/guided-reading/pages/gr-a-29-page-6.png",
+        "image": "/guided-reading/pages/gr-a-29-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-29-page-6.mp3",
         "highFrequencyWords": [
           "Each",
@@ -642,11 +642,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "book care routines",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-a-30-cover.png",
+    "coverImage": "/guided-reading/covers/gr-a-30-cover.webp",
     "pages": [
       {
         "text": "Books are for us.",
-        "image": "/guided-reading/pages/gr-a-30-page-1.png",
+        "image": "/guided-reading/pages/gr-a-30-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-30-page-1.mp3",
         "highFrequencyWords": [
           "are",
@@ -659,7 +659,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "We turn the pages with care.",
-        "image": "/guided-reading/pages/gr-a-30-page-2.png",
+        "image": "/guided-reading/pages/gr-a-30-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-30-page-2.mp3",
         "highFrequencyWords": [
           "We",
@@ -674,7 +674,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "We keep books dry.",
-        "image": "/guided-reading/pages/gr-a-30-page-3.png",
+        "image": "/guided-reading/pages/gr-a-30-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-30-page-3.mp3",
         "highFrequencyWords": [
           "We",
@@ -687,7 +687,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "We put books on the shelf.",
-        "image": "/guided-reading/pages/gr-a-30-page-4.png",
+        "image": "/guided-reading/pages/gr-a-30-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-30-page-4.mp3",
         "highFrequencyWords": [
           "We",
@@ -702,7 +702,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "We share books with friends.",
-        "image": "/guided-reading/pages/gr-a-30-page-5.png",
+        "image": "/guided-reading/pages/gr-a-30-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-30-page-5.mp3",
         "highFrequencyWords": [
           "We",
@@ -716,7 +716,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "We love our books!",
-        "image": "/guided-reading/pages/gr-a-30-page-6.png",
+        "image": "/guided-reading/pages/gr-a-30-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-a-30-page-6.mp3",
         "highFrequencyWords": [
           "We",
@@ -741,11 +741,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "plant life cycle",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-b-31-cover.png",
+    "coverImage": "/guided-reading/covers/gr-b-31-cover.webp",
     "pages": [
       {
         "text": "A seed is small. But it has a big job.",
-        "image": "/guided-reading/pages/gr-b-31-page-1.png",
+        "image": "/guided-reading/pages/gr-b-31-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-31-page-1.mp3",
         "highFrequencyWords": [
           "A",
@@ -764,7 +764,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "The seed sits in soil. It drinks up water.",
-        "image": "/guided-reading/pages/gr-b-31-page-2.png",
+        "image": "/guided-reading/pages/gr-b-31-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-31-page-2.mp3",
         "highFrequencyWords": [
           "The",
@@ -782,7 +782,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A root pops out. It digs deep down.",
-        "image": "/guided-reading/pages/gr-b-31-page-3.png",
+        "image": "/guided-reading/pages/gr-b-31-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-31-page-3.mp3",
         "highFrequencyWords": [
           "out",
@@ -798,7 +798,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A stem reaches up. A leaf opens wide.",
-        "image": "/guided-reading/pages/gr-b-31-page-4.png",
+        "image": "/guided-reading/pages/gr-b-31-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-31-page-4.mp3",
         "highFrequencyWords": [
           "up",
@@ -814,7 +814,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "The sun gives the plant food. It grows tall.",
-        "image": "/guided-reading/pages/gr-b-31-page-5.png",
+        "image": "/guided-reading/pages/gr-b-31-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-31-page-5.mp3",
         "highFrequencyWords": [
           "The",
@@ -832,7 +832,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A tiny seed can become a huge plant. Nature is amazing!",
-        "image": "/guided-reading/pages/gr-b-31-page-6.png",
+        "image": "/guided-reading/pages/gr-b-31-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-31-page-6.mp3",
         "highFrequencyWords": [
           "A",
@@ -864,11 +864,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "pollination and nature's partnerships",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-b-32-cover.png",
+    "coverImage": "/guided-reading/covers/gr-b-32-cover.webp",
     "pages": [
       {
         "text": "Bees buzz from flower to flower. They are not just playing.",
-        "image": "/guided-reading/pages/gr-b-32-page-1.png",
+        "image": "/guided-reading/pages/gr-b-32-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-32-page-1.mp3",
         "highFrequencyWords": [
           "from",
@@ -888,7 +888,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A flower has sweet nectar inside. The bee wants a sip.",
-        "image": "/guided-reading/pages/gr-b-32-page-2.png",
+        "image": "/guided-reading/pages/gr-b-32-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-32-page-2.mp3",
         "highFrequencyWords": [
           "A",
@@ -908,7 +908,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "The bee lands on a petal. Dust sticks to its legs.",
-        "image": "/guided-reading/pages/gr-b-32-page-3.png",
+        "image": "/guided-reading/pages/gr-b-32-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-32-page-3.mp3",
         "highFrequencyWords": [
           "The",
@@ -927,7 +927,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "That dust is pollen. It helps plants make seeds.",
-        "image": "/guided-reading/pages/gr-b-32-page-4.png",
+        "image": "/guided-reading/pages/gr-b-32-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-32-page-4.mp3",
         "highFrequencyWords": [
           "That",
@@ -944,7 +944,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "The bee flies to the next bloom. Pollen drops off.",
-        "image": "/guided-reading/pages/gr-b-32-page-5.png",
+        "image": "/guided-reading/pages/gr-b-32-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-32-page-5.mp3",
         "highFrequencyWords": [
           "The",
@@ -963,7 +963,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Bees get food. Flowers get help. They need each other!",
-        "image": "/guided-reading/pages/gr-b-32-page-6.png",
+        "image": "/guided-reading/pages/gr-b-32-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-32-page-6.mp3",
         "highFrequencyWords": [
           "get",
@@ -993,11 +993,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "physics of light and shadows",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-b-33-cover.png",
+    "coverImage": "/guided-reading/covers/gr-b-33-cover.webp",
     "pages": [
       {
         "text": "Look at your shadow! It moves when you move.",
-        "image": "/guided-reading/pages/gr-b-33-page-1.png",
+        "image": "/guided-reading/pages/gr-b-33-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-33-page-1.mp3",
         "highFrequencyWords": [
           "at",
@@ -1015,7 +1015,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A shadow needs light. It also needs something solid.",
-        "image": "/guided-reading/pages/gr-b-33-page-2.png",
+        "image": "/guided-reading/pages/gr-b-33-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-33-page-2.mp3",
         "highFrequencyWords": [
           "A",
@@ -1033,7 +1033,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "When light hits you, it stops. It cannot pass through.",
-        "image": "/guided-reading/pages/gr-b-33-page-3.png",
+        "image": "/guided-reading/pages/gr-b-33-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-33-page-3.mp3",
         "highFrequencyWords": [
           "When",
@@ -1051,7 +1051,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "The dark spot behind you is the shadow.",
-        "image": "/guided-reading/pages/gr-b-33-page-4.png",
+        "image": "/guided-reading/pages/gr-b-33-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-33-page-4.mp3",
         "highFrequencyWords": [
           "The",
@@ -1068,7 +1068,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A big object makes a big shadow. A small object makes a small one.",
-        "image": "/guided-reading/pages/gr-b-33-page-5.png",
+        "image": "/guided-reading/pages/gr-b-33-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-33-page-5.mp3",
         "highFrequencyWords": [
           "A",
@@ -1091,7 +1091,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Try it! Stand in the sun. Watch your shadow dance.",
-        "image": "/guided-reading/pages/gr-b-33-page-6.png",
+        "image": "/guided-reading/pages/gr-b-33-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-33-page-6.mp3",
         "highFrequencyWords": [
           "in",
@@ -1119,11 +1119,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "from wheat to bread",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-b-34-cover.png",
+    "coverImage": "/guided-reading/covers/gr-b-34-cover.webp",
     "pages": [
       {
         "text": "Bread starts as a tiny seed. The seed is wheat.",
-        "image": "/guided-reading/pages/gr-b-34-page-1.png",
+        "image": "/guided-reading/pages/gr-b-34-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-34-page-1.mp3",
         "highFrequencyWords": [
           "as",
@@ -1142,7 +1142,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Farmers plant wheat in fields. The sun and rain help it grow.",
-        "image": "/guided-reading/pages/gr-b-34-page-2.png",
+        "image": "/guided-reading/pages/gr-b-34-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-34-page-2.mp3",
         "highFrequencyWords": [
           "in",
@@ -1163,7 +1163,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "When wheat is dry, it turns to grain. Mills grind the grain into flour.",
-        "image": "/guided-reading/pages/gr-b-34-page-3.png",
+        "image": "/guided-reading/pages/gr-b-34-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-34-page-3.mp3",
         "highFrequencyWords": [
           "When",
@@ -1186,7 +1186,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Bakers mix flour with water and yeast. The dough gets soft and puffy.",
-        "image": "/guided-reading/pages/gr-b-34-page-4.png",
+        "image": "/guided-reading/pages/gr-b-34-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-34-page-4.mp3",
         "highFrequencyWords": [
           "with",
@@ -1208,7 +1208,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "They bake the dough in a hot oven. The smell fills the room!",
-        "image": "/guided-reading/pages/gr-b-34-page-5.png",
+        "image": "/guided-reading/pages/gr-b-34-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-34-page-5.mp3",
         "highFrequencyWords": [
           "the",
@@ -1230,7 +1230,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "From seed to loaf, many hands help. Bread is a team effort!",
-        "image": "/guided-reading/pages/gr-b-34-page-6.png",
+        "image": "/guided-reading/pages/gr-b-34-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-34-page-6.mp3",
         "highFrequencyWords": [
           "From",
@@ -1263,11 +1263,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "construction vehicles and their jobs",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-b-35-cover.png",
+    "coverImage": "/guided-reading/covers/gr-b-35-cover.webp",
     "pages": [
       {
         "text": "Look at the big machines! Each one has a special job.",
-        "image": "/guided-reading/pages/gr-b-35-page-1.png",
+        "image": "/guided-reading/pages/gr-b-35-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-35-page-1.mp3",
         "highFrequencyWords": [
           "at",
@@ -1287,7 +1287,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "The bulldozer pushes piles of dirt. It clears the land.",
-        "image": "/guided-reading/pages/gr-b-35-page-2.png",
+        "image": "/guided-reading/pages/gr-b-35-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-35-page-2.mp3",
         "highFrequencyWords": [
           "The",
@@ -1306,7 +1306,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "The crane lifts steel beams up high. It builds towers.",
-        "image": "/guided-reading/pages/gr-b-35-page-3.png",
+        "image": "/guided-reading/pages/gr-b-35-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-35-page-3.mp3",
         "highFrequencyWords": [
           "The",
@@ -1325,7 +1325,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "The dump truck hauls rocks and sand. Its bed tips way back.",
-        "image": "/guided-reading/pages/gr-b-35-page-4.png",
+        "image": "/guided-reading/pages/gr-b-35-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-35-page-4.mp3",
         "highFrequencyWords": [
           "and",
@@ -1345,7 +1345,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "The cement mixer spins and spins. It keeps concrete smooth.",
-        "image": "/guided-reading/pages/gr-b-35-page-5.png",
+        "image": "/guided-reading/pages/gr-b-35-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-35-page-5.mp3",
         "highFrequencyWords": [
           "and",
@@ -1362,7 +1362,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Big machines work hard. They help build our roads and homes!",
-        "image": "/guided-reading/pages/gr-b-35-page-6.png",
+        "image": "/guided-reading/pages/gr-b-35-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-b-35-page-6.mp3",
         "highFrequencyWords": [
           "work",
@@ -1394,11 +1394,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "water in our daily lives",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-c-37-cover.png",
+    "coverImage": "/guided-reading/covers/gr-c-37-cover.webp",
     "pages": [
       {
         "text": "Water is everywhere. It is in our lakes, sinks, and bodies.",
-        "image": "/guided-reading/pages/gr-c-37-page-1.png",
+        "image": "/guided-reading/pages/gr-c-37-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-37-page-1.mp3",
         "highFrequencyWords": [
           "is",
@@ -1418,7 +1418,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "We drink water to stay healthy. It keeps our skin clear.",
-        "image": "/guided-reading/pages/gr-c-37-page-2.png",
+        "image": "/guided-reading/pages/gr-c-37-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-37-page-2.mp3",
         "highFrequencyWords": [
           "We",
@@ -1438,7 +1438,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Farmers use water to grow food. Without it, crops would wilt.",
-        "image": "/guided-reading/pages/gr-c-37-page-3.png",
+        "image": "/guided-reading/pages/gr-c-37-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-37-page-3.mp3",
         "highFrequencyWords": [
           "use",
@@ -1458,7 +1458,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Factories need water too. It cools hot machines.",
-        "image": "/guided-reading/pages/gr-c-37-page-4.png",
+        "image": "/guided-reading/pages/gr-c-37-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-37-page-4.mp3",
         "highFrequencyWords": [
           "need",
@@ -1475,7 +1475,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Water helps us clean. We wash hands, clothes, and floors.",
-        "image": "/guided-reading/pages/gr-c-37-page-5.png",
+        "image": "/guided-reading/pages/gr-c-37-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-37-page-5.mp3",
         "highFrequencyWords": [
           "helps",
@@ -1494,7 +1494,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Clean water is precious. We must use it wisely and keep it pure.",
-        "image": "/guided-reading/pages/gr-c-37-page-6.png",
+        "image": "/guided-reading/pages/gr-c-37-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-37-page-6.mp3",
         "highFrequencyWords": [
           "is",
@@ -1528,11 +1528,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "how birds construct homes",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-c-38-cover.png",
+    "coverImage": "/guided-reading/covers/gr-c-38-cover.webp",
     "pages": [
       {
         "text": "Birds need safe homes for their eggs. So they build nests!",
-        "image": "/guided-reading/pages/gr-c-38-page-1.png",
+        "image": "/guided-reading/pages/gr-c-38-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-38-page-1.mp3",
         "highFrequencyWords": [
           "need",
@@ -1552,7 +1552,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A robin weaves grass and twigs. She makes a round cup.",
-        "image": "/guided-reading/pages/gr-c-38-page-2.png",
+        "image": "/guided-reading/pages/gr-c-38-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-38-page-2.mp3",
         "highFrequencyWords": [
           "A",
@@ -1572,7 +1572,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A hummingbird uses spider silk. The silk holds the nest to a branch.",
-        "image": "/guided-reading/pages/gr-c-38-page-3.png",
+        "image": "/guided-reading/pages/gr-c-38-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-38-page-3.mp3",
         "highFrequencyWords": [
           "uses",
@@ -1593,7 +1593,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "An eagle builds a huge pile of sticks. It can weigh a ton!",
-        "image": "/guided-reading/pages/gr-c-38-page-4.png",
+        "image": "/guided-reading/pages/gr-c-38-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-38-page-4.mp3",
         "highFrequencyWords": [
           "An",
@@ -1614,7 +1614,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A woodpecker carves a hole in a tree. No sticks needed!",
-        "image": "/guided-reading/pages/gr-c-38-page-5.png",
+        "image": "/guided-reading/pages/gr-c-38-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-38-page-5.mp3",
         "highFrequencyWords": [
           "in",
@@ -1632,7 +1632,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Each nest is just right for its bird. Nature is a clever builder!",
-        "image": "/guided-reading/pages/gr-c-38-page-6.png",
+        "image": "/guided-reading/pages/gr-c-38-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-38-page-6.mp3",
         "highFrequencyWords": [
           "Each",
@@ -1666,11 +1666,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "complete metamorphosis",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-c-39-cover.png",
+    "coverImage": "/guided-reading/covers/gr-c-39-cover.webp",
     "pages": [
       {
         "text": "A butterfly starts as an egg. The egg is no bigger than a dot!",
-        "image": "/guided-reading/pages/gr-c-39-page-1.png",
+        "image": "/guided-reading/pages/gr-c-39-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-39-page-1.mp3",
         "highFrequencyWords": [
           "A",
@@ -1692,7 +1692,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "The egg hatches. A tiny caterpillar crawls out. It is very hungry!",
-        "image": "/guided-reading/pages/gr-c-39-page-2.png",
+        "image": "/guided-reading/pages/gr-c-39-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-39-page-2.mp3",
         "highFrequencyWords": [
           "The",
@@ -1713,7 +1713,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "The caterpillar eats leaves. It grows bigger each day.",
-        "image": "/guided-reading/pages/gr-c-39-page-3.png",
+        "image": "/guided-reading/pages/gr-c-39-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-39-page-3.mp3",
         "highFrequencyWords": [
           "The",
@@ -1731,7 +1731,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Then it spins a chrysalis. It hangs like a jewel on a stem.",
-        "image": "/guided-reading/pages/gr-c-39-page-4.png",
+        "image": "/guided-reading/pages/gr-c-39-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-39-page-4.mp3",
         "highFrequencyWords": [
           "Then",
@@ -1753,7 +1753,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Inside, big changes happen. The caterpillar turns to soup!",
-        "image": "/guided-reading/pages/gr-c-39-page-5.png",
+        "image": "/guided-reading/pages/gr-c-39-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-39-page-5.mp3",
         "highFrequencyWords": [
           "Inside",
@@ -1771,7 +1771,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "At last, a winged beauty breaks free. Hello, butterfly!",
-        "image": "/guided-reading/pages/gr-c-39-page-6.png",
+        "image": "/guided-reading/pages/gr-c-39-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-39-page-6.mp3",
         "highFrequencyWords": [
           "At",
@@ -1801,11 +1801,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "proper handwashing and health",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-c-40-cover.png",
+    "coverImage": "/guided-reading/covers/gr-c-40-cover.webp",
     "pages": [
       {
         "text": "Your hands touch many things. They pick up germs you cannot see.",
-        "image": "/guided-reading/pages/gr-c-40-page-1.png",
+        "image": "/guided-reading/pages/gr-c-40-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-40-page-1.mp3",
         "highFrequencyWords": [
           "Your",
@@ -1825,7 +1825,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Germs can make you sick. Washing hands keeps them away.",
-        "image": "/guided-reading/pages/gr-c-40-page-2.png",
+        "image": "/guided-reading/pages/gr-c-40-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-40-page-2.mp3",
         "highFrequencyWords": [
           "can",
@@ -1844,7 +1844,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "First, wet your hands under warm water.",
-        "image": "/guided-reading/pages/gr-c-40-page-3.png",
+        "image": "/guided-reading/pages/gr-c-40-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-40-page-3.mp3",
         "highFrequencyWords": [
           "First",
@@ -1859,7 +1859,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Next, add soap. Rub your palms, backs, and between fingers.",
-        "image": "/guided-reading/pages/gr-c-40-page-4.png",
+        "image": "/guided-reading/pages/gr-c-40-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-40-page-4.mp3",
         "highFrequencyWords": [
           "Next",
@@ -1878,7 +1878,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Scrub for twenty seconds. Sing a song to keep time!",
-        "image": "/guided-reading/pages/gr-c-40-page-5.png",
+        "image": "/guided-reading/pages/gr-c-40-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-40-page-5.mp3",
         "highFrequencyWords": [
           "for",
@@ -1897,7 +1897,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Rinse and dry. Now your hands are clean. Good job!",
-        "image": "/guided-reading/pages/gr-c-40-page-6.png",
+        "image": "/guided-reading/pages/gr-c-40-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-c-40-page-6.mp3",
         "highFrequencyWords": [
           "and",
@@ -1928,11 +1928,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "the science of autumn leaf color",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-d-42-cover.png",
+    "coverImage": "/guided-reading/covers/gr-d-42-cover.webp",
     "pages": [
       {
         "text": "In summer, leaves are green. But hidden colors wait inside.",
-        "image": "/guided-reading/pages/gr-d-42-page-1.png",
+        "image": "/guided-reading/pages/gr-d-42-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-42-page-1.mp3",
         "highFrequencyWords": [
           "In",
@@ -1950,7 +1950,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A green chemical called chlorophyll helps leaves catch sunlight.",
-        "image": "/guided-reading/pages/gr-d-42-page-2.png",
+        "image": "/guided-reading/pages/gr-d-42-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-42-page-2.mp3",
         "highFrequencyWords": [
           "A",
@@ -1968,7 +1968,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "As days get shorter, trees make less chlorophyll. The green fades away.",
-        "image": "/guided-reading/pages/gr-d-42-page-3.png",
+        "image": "/guided-reading/pages/gr-d-42-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-42-page-3.mp3",
         "highFrequencyWords": [
           "As",
@@ -1989,7 +1989,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Then yellow and orange shine through. These colors were there all along!",
-        "image": "/guided-reading/pages/gr-d-42-page-4.png",
+        "image": "/guided-reading/pages/gr-d-42-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-42-page-4.mp3",
         "highFrequencyWords": [
           "Then",
@@ -2009,7 +2009,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Some trees make red and purple too. Sugar trapped in leaves makes these hues.",
-        "image": "/guided-reading/pages/gr-d-42-page-5.png",
+        "image": "/guided-reading/pages/gr-d-42-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-42-page-5.mp3",
         "highFrequencyWords": [
           "Some",
@@ -2031,7 +2031,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "When leaves fall, they feed the soil. New green leaves will come in spring!",
-        "image": "/guided-reading/pages/gr-d-42-page-6.png",
+        "image": "/guided-reading/pages/gr-d-42-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-42-page-6.mp3",
         "highFrequencyWords": [
           "When",
@@ -2065,11 +2065,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "pollinators and food production",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-d-43-cover.png",
+    "coverImage": "/guided-reading/covers/gr-d-43-cover.webp",
     "pages": [
       {
         "text": "One out of every three bites of food exists because of pollinators.",
-        "image": "/guided-reading/pages/gr-d-43-page-1.png",
+        "image": "/guided-reading/pages/gr-d-43-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-43-page-1.mp3",
         "highFrequencyWords": [
           "one",
@@ -2090,7 +2090,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Bees are the most famous pollinators. But butterflies, birds, and bats help too.",
-        "image": "/guided-reading/pages/gr-d-43-page-2.png",
+        "image": "/guided-reading/pages/gr-d-43-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-43-page-2.mp3",
         "highFrequencyWords": [
           "are",
@@ -2113,7 +2113,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "When a bee visits a bloom, pollen dusts its fuzzy body.",
-        "image": "/guided-reading/pages/gr-d-43-page-3.png",
+        "image": "/guided-reading/pages/gr-d-43-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-43-page-3.mp3",
         "highFrequencyWords": [
           "When",
@@ -2132,7 +2132,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "The bee flies to the next flower. Pollen rubs off. The flower can now make fruit.",
-        "image": "/guided-reading/pages/gr-d-43-page-4.png",
+        "image": "/guided-reading/pages/gr-d-43-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-43-page-4.mp3",
         "highFrequencyWords": [
           "The",
@@ -2156,7 +2156,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Without pollinators, apples, berries, and almonds would vanish.",
-        "image": "/guided-reading/pages/gr-d-43-page-5.png",
+        "image": "/guided-reading/pages/gr-d-43-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-43-page-5.mp3",
         "highFrequencyWords": [
           "Without",
@@ -2173,7 +2173,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Planting flowers helps pollinators thrive. They feed us. We should feed them too.",
-        "image": "/guided-reading/pages/gr-d-43-page-6.png",
+        "image": "/guided-reading/pages/gr-d-43-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-43-page-6.mp3",
         "highFrequencyWords": [
           "Planting",
@@ -2206,11 +2206,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "shared community places and their purposes",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-d-44-cover.png",
+    "coverImage": "/guided-reading/covers/gr-d-44-cover.webp",
     "pages": [
       {
         "text": "A community is a group of people living in the same area. They share many spaces.",
-        "image": "/guided-reading/pages/gr-d-44-page-1.png",
+        "image": "/guided-reading/pages/gr-d-44-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-44-page-1.mp3",
         "highFrequencyWords": [
           "is",
@@ -2234,7 +2234,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A park gives people a place to play and rest. It has grass, trees, and paths.",
-        "image": "/guided-reading/pages/gr-d-44-page-2.png",
+        "image": "/guided-reading/pages/gr-d-44-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-44-page-2.mp3",
         "highFrequencyWords": [
           "gives",
@@ -2259,7 +2259,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A library holds books for everyone. You can borrow stories and learn new facts.",
-        "image": "/guided-reading/pages/gr-d-44-page-3.png",
+        "image": "/guided-reading/pages/gr-d-44-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-44-page-3.mp3",
         "highFrequencyWords": [
           "holds",
@@ -2281,7 +2281,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A market lets people buy fresh food. Farmers sell fruits and vegetables there.",
-        "image": "/guided-reading/pages/gr-d-44-page-4.png",
+        "image": "/guided-reading/pages/gr-d-44-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-44-page-4.mp3",
         "highFrequencyWords": [
           "lets",
@@ -2302,7 +2302,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A school is where children learn. Teachers help them read, write, and think.",
-        "image": "/guided-reading/pages/gr-d-44-page-5.png",
+        "image": "/guided-reading/pages/gr-d-44-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-44-page-5.mp3",
         "highFrequencyWords": [
           "is",
@@ -2323,7 +2323,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "These spaces bring people together. When we share, our community grows stronger.",
-        "image": "/guided-reading/pages/gr-d-44-page-6.png",
+        "image": "/guided-reading/pages/gr-d-44-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-44-page-6.mp3",
         "highFrequencyWords": [
           "These",
@@ -2355,11 +2355,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "soil composition and importance",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-d-45-cover.png",
+    "coverImage": "/guided-reading/covers/gr-d-45-cover.webp",
     "pages": [
       {
         "text": "Look down at the ground beneath your feet. That brown matter is soil.",
-        "image": "/guided-reading/pages/gr-d-45-page-1.png",
+        "image": "/guided-reading/pages/gr-d-45-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-45-page-1.mp3",
         "highFrequencyWords": [
           "down",
@@ -2379,7 +2379,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Soil is a mix of many things. It has rock bits, water, air, and living matter.",
-        "image": "/guided-reading/pages/gr-d-45-page-2.png",
+        "image": "/guided-reading/pages/gr-d-45-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-45-page-2.mp3",
         "highFrequencyWords": [
           "is",
@@ -2404,7 +2404,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Tiny rocks in soil come from big rocks that broke apart over time.",
-        "image": "/guided-reading/pages/gr-d-45-page-3.png",
+        "image": "/guided-reading/pages/gr-d-45-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-45-page-3.mp3",
         "highFrequencyWords": [
           "Tiny",
@@ -2425,7 +2425,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Dead leaves and plants rot in the soil. They add nutrients that help new plants grow.",
-        "image": "/guided-reading/pages/gr-d-45-page-4.png",
+        "image": "/guided-reading/pages/gr-d-45-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-45-page-4.mp3",
         "highFrequencyWords": [
           "Dead",
@@ -2450,7 +2450,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Worms and bugs live in soil. They dig tunnels that let air and water move through.",
-        "image": "/guided-reading/pages/gr-d-45-page-5.png",
+        "image": "/guided-reading/pages/gr-d-45-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-45-page-5.mp3",
         "highFrequencyWords": [
           "and",
@@ -2475,7 +2475,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Without soil, most plants could not grow. Soil keeps our world green and fed.",
-        "image": "/guided-reading/pages/gr-d-45-page-6.png",
+        "image": "/guided-reading/pages/gr-d-45-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-d-45-page-6.mp3",
         "highFrequencyWords": [
           "Without",
@@ -2509,11 +2509,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "water as a force that shapes landscapes",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-e-46-cover.png",
+    "coverImage": "/guided-reading/covers/gr-e-46-cover.webp",
     "pages": [
       {
         "text": "Water is patient and powerful. Over time, it changes the shape of the land.",
-        "image": "/guided-reading/pages/gr-e-46-page-1.png",
+        "image": "/guided-reading/pages/gr-e-46-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-46-page-1.mp3",
         "highFrequencyWords": [
           "is",
@@ -2536,7 +2536,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Rain falls on mountains. Tiny drops find cracks in the rock and freeze.",
-        "image": "/guided-reading/pages/gr-e-46-page-2.png",
+        "image": "/guided-reading/pages/gr-e-46-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-46-page-2.mp3",
         "highFrequencyWords": [
           "falls",
@@ -2558,7 +2558,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Frozen water expands. The cracks grow wider. Bits of rock break off.",
-        "image": "/guided-reading/pages/gr-e-46-page-3.png",
+        "image": "/guided-reading/pages/gr-e-46-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-46-page-3.mp3",
         "highFrequencyWords": [
           "water",
@@ -2579,7 +2579,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Rivers carry sand and stone. They grind against canyon walls, carving deep paths.",
-        "image": "/guided-reading/pages/gr-e-46-page-4.png",
+        "image": "/guided-reading/pages/gr-e-46-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-46-page-4.mp3",
         "highFrequencyWords": [
           "carry",
@@ -2601,7 +2601,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Waves hit the shore again and again. They smooth rocks and shape beaches.",
-        "image": "/guided-reading/pages/gr-e-46-page-5.png",
+        "image": "/guided-reading/pages/gr-e-46-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-46-page-5.mp3",
         "highFrequencyWords": [
           "hit",
@@ -2623,7 +2623,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Every river valley, every canyon, every beach tells a water story.",
-        "image": "/guided-reading/pages/gr-e-46-page-6.png",
+        "image": "/guided-reading/pages/gr-e-46-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-46-page-6.mp3",
         "highFrequencyWords": [
           "Every",
@@ -2654,11 +2654,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "how to plan safe walking routes",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-e-47-cover.png",
+    "coverImage": "/guided-reading/covers/gr-e-47-cover.webp",
     "pages": [
       {
         "text": "Getting from one place to another takes planning. A safe route keeps you out of danger.",
-        "image": "/guided-reading/pages/gr-e-47-page-1.png",
+        "image": "/guided-reading/pages/gr-e-47-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-47-page-1.mp3",
         "highFrequencyWords": [
           "Getting",
@@ -2682,7 +2682,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Start by looking at a map. Find your home and your goal. Trace the streets between them.",
-        "image": "/guided-reading/pages/gr-e-47-page-2.png",
+        "image": "/guided-reading/pages/gr-e-47-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-47-page-2.mp3",
         "highFrequencyWords": [
           "by",
@@ -2708,7 +2708,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Pick paths with sidewalks. Walking on the street is risky. Sidewolds separate you from cars.",
-        "image": "/guided-reading/pages/gr-e-47-page-3.png",
+        "image": "/guided-reading/pages/gr-e-47-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-47-page-3.mp3",
         "highFrequencyWords": [
           "with",
@@ -2729,7 +2729,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Choose well-lit streets. Darkness hides tripe and other hazards. Light helps you see.",
-        "image": "/guided-reading/pages/gr-e-47-page-4.png",
+        "image": "/guided-reading/pages/gr-e-47-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-47-page-4.mp3",
         "highFrequencyWords": [
           "well",
@@ -2751,7 +2751,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Cross at corners and use crosswalks. Drivers expect walkers there. Always look both ways.",
-        "image": "/guided-reading/pages/gr-e-47-page-5.png",
+        "image": "/guided-reading/pages/gr-e-47-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-47-page-5.mp3",
         "highFrequencyWords": [
           "at",
@@ -2774,7 +2774,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A good route is safe, short, and simple. Plan ahead, walk smart, and stay alert.",
-        "image": "/guided-reading/pages/gr-e-47-page-6.png",
+        "image": "/guided-reading/pages/gr-e-47-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-47-page-6.mp3",
         "highFrequencyWords": [
           "A",
@@ -2809,11 +2809,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "the reasons and methods of animal migration",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-e-48-cover.png",
+    "coverImage": "/guided-reading/covers/gr-e-48-cover.webp",
     "pages": [
       {
         "text": "Every year, billions of animals travel long distances. This journey is called migration.",
-        "image": "/guided-reading/pages/gr-e-48-page-1.png",
+        "image": "/guided-reading/pages/gr-e-48-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-48-page-1.mp3",
         "highFrequencyWords": [
           "Every",
@@ -2835,7 +2835,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Most animals migrate to find food. When winter comes, insects and plants disappear.",
-        "image": "/guided-reading/pages/gr-e-48-page-2.png",
+        "image": "/guided-reading/pages/gr-e-48-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-48-page-2.mp3",
         "highFrequencyWords": [
           "Most",
@@ -2856,7 +2856,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Birds fly south to warm places. They follow the same paths their parents used.",
-        "image": "/guided-reading/pages/gr-e-48-page-3.png",
+        "image": "/guided-reading/pages/gr-e-48-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-48-page-3.mp3",
         "highFrequencyWords": [
           "fly",
@@ -2879,7 +2879,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Some whales swim to cold waters to feed. There, tiny sea creatures bloom in summer.",
-        "image": "/guided-reading/pages/gr-e-48-page-4.png",
+        "image": "/guided-reading/pages/gr-e-48-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-48-page-4.mp3",
         "highFrequencyWords": [
           "Some",
@@ -2902,7 +2902,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Monarch butterflies travel thousands of miles. It takes four generations to complete the round trip!",
-        "image": "/guided-reading/pages/gr-e-48-page-5.png",
+        "image": "/guided-reading/pages/gr-e-48-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-48-page-5.mp3",
         "highFrequencyWords": [
           "travel",
@@ -2926,7 +2926,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Migrating animals do not use maps. They use the sun, stars, and Earths magnetic field to guide them.",
-        "image": "/guided-reading/pages/gr-e-48-page-6.png",
+        "image": "/guided-reading/pages/gr-e-48-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-48-page-6.mp3",
         "highFrequencyWords": [
           "animals",
@@ -2965,11 +2965,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "simple machines and their uses",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-e-49-cover.png",
+    "coverImage": "/guided-reading/covers/gr-e-49-cover.webp",
     "pages": [
       {
         "text": "A simple machine is a tool that makes work easier. There are six kinds.",
-        "image": "/guided-reading/pages/gr-e-49-page-1.png",
+        "image": "/guided-reading/pages/gr-e-49-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-49-page-1.mp3",
         "highFrequencyWords": [
           "is",
@@ -2991,7 +2991,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A lever helps you lift heavy things. A seesaw on the playground is a lever.",
-        "image": "/guided-reading/pages/gr-e-49-page-2.png",
+        "image": "/guided-reading/pages/gr-e-49-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-49-page-2.mp3",
         "highFrequencyWords": [
           "helps",
@@ -3014,7 +3014,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A wheel and axle let things roll. Bikes, cars, and scooters all use this pair.",
-        "image": "/guided-reading/pages/gr-e-49-page-3.png",
+        "image": "/guided-reading/pages/gr-e-49-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-49-page-3.mp3",
         "highFrequencyWords": [
           "and",
@@ -3036,7 +3036,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "A pulley uses a rope and wheel to lift loads up high. Flagpoles use pulleys.",
-        "image": "/guided-reading/pages/gr-e-49-page-4.png",
+        "image": "/guided-reading/pages/gr-e-49-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-49-page-4.mp3",
         "highFrequencyWords": [
           "uses",
@@ -3059,7 +3059,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "An inclined plane is a slanted surface. Ramps help wheelchairs roll up stairs.",
-        "image": "/guided-reading/pages/gr-e-49-page-5.png",
+        "image": "/guided-reading/pages/gr-e-49-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-49-page-5.mp3",
         "highFrequencyWords": [
           "is",
@@ -3080,7 +3080,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Simple machines are everywhere. They make our daily tasks possible.",
-        "image": "/guided-reading/pages/gr-e-49-page-6.png",
+        "image": "/guided-reading/pages/gr-e-49-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-49-page-6.mp3",
         "highFrequencyWords": [
           "are",
@@ -3111,11 +3111,11 @@ const rawGuidedReadingBooks = [
     ],
     "theme": "how to read and learn like a researcher",
     "source": "guided_reading_current",
-    "coverImage": "/guided-reading/covers/gr-e-50-cover.png",
+    "coverImage": "/guided-reading/covers/gr-e-50-cover.webp",
     "pages": [
       {
         "text": "Researchers do not just read words. They ask questions, make connections, and dig deeper.",
-        "image": "/guided-reading/pages/gr-e-50-page-1.png",
+        "image": "/guided-reading/pages/gr-e-50-page-1.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-50-page-1.mp3",
         "highFrequencyWords": [
           "do",
@@ -3138,7 +3138,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Before reading, look at the title and pictures. What do you already know? What do you hope to learn?",
-        "image": "/guided-reading/pages/gr-e-50-page-2.png",
+        "image": "/guided-reading/pages/gr-e-50-page-2.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-50-page-2.mp3",
         "highFrequencyWords": [
           "Before",
@@ -3165,7 +3165,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "While reading, pause to think. Does this make sense? Highlight important facts.",
-        "image": "/guided-reading/pages/gr-e-50-page-3.png",
+        "image": "/guided-reading/pages/gr-e-50-page-3.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-50-page-3.mp3",
         "highFrequencyWords": [
           "While",
@@ -3185,7 +3185,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "After reading, summarize what you learned. Say it in your own words.",
-        "image": "/guided-reading/pages/gr-e-50-page-4.png",
+        "image": "/guided-reading/pages/gr-e-50-page-4.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-50-page-4.mp3",
         "highFrequencyWords": [
           "After",
@@ -3205,7 +3205,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Good readers check sources. Is the author an expert? Is the information current?",
-        "image": "/guided-reading/pages/gr-e-50-page-5.png",
+        "image": "/guided-reading/pages/gr-e-50-page-5.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-50-page-5.mp3",
         "highFrequencyWords": [
           "Good",
@@ -3226,7 +3226,7 @@ const rawGuidedReadingBooks = [
       },
       {
         "text": "Reading is not just looking at words. It is thinking, wondering, and growing your mind.",
-        "image": "/guided-reading/pages/gr-e-50-page-6.png",
+        "image": "/guided-reading/pages/gr-e-50-page-6.webp",
         "pageAudio": "/guided-reading/audio/narration/gr-e-50-page-6.mp3",
         "highFrequencyWords": [
           "is",

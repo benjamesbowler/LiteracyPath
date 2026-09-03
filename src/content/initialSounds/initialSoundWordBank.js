@@ -412,18 +412,18 @@ const blockedInitialSoundTargets = {
 // generated variants. The source paths remain blocked globally so they cannot
 // return through assessment media variation.
 export const initialSoundImageOverrides = {
-  ax: "/images/child-mode/initial-sounds/axe.png",
+  ax: "/images/child-mode/initial-sounds/axe.webp",
   balloon: "/media/initial-sounds/images/u/up.webp",
-  bus: "/images/child-mode/initial-sounds/bus.png",
-  cake: "/images/child-mode/initial-sounds/cake.png",
-  car: "/images/child-mode/initial-sounds/car.png",
-  desk: "/images/child-mode/initial-sounds/desk.png",
-  drum: "/images/child-mode/initial-sounds/drum.png",
-  fox: "/images/child-mode/initial-sounds/fox.png",
-  frog: "/images/child-mode/initial-sounds/frog.png",
+  bus: "/images/child-mode/initial-sounds/bus.webp",
+  cake: "/images/child-mode/initial-sounds/cake.webp",
+  car: "/images/child-mode/initial-sounds/car.webp",
+  desk: "/images/child-mode/initial-sounds/desk.webp",
+  drum: "/images/child-mode/initial-sounds/drum.webp",
+  fox: "/images/child-mode/initial-sounds/fox.webp",
+  frog: "/images/child-mode/initial-sounds/frog.webp",
   noodle: "/media/initial-sounds/images/n/noodles.webp",
-  sock: "/images/child-mode/initial-sounds/sock.png",
-  star: "/images/child-mode/initial-sounds/star.png",
+  sock: "/images/child-mode/initial-sounds/sock.webp",
+  star: "/images/child-mode/initial-sounds/star.webp",
   zigzag: "/media/initial-sounds/images/z/zigzag-road.webp"
 };
 

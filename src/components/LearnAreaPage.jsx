@@ -290,7 +290,7 @@ export function LearnAreaPage({
                         alt={`${quest.title} cover`}
                         className="learn-story-quest-cover"
                         decoding="async"
-                        loading="eager"
+                        loading="lazy"
                         src={quest.coverImageUrl || quest.pages?.[0]?.imageUrl}
                       />
                       <div className="learn-story-quest-card-copy">

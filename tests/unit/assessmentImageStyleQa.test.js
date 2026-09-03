@@ -37,8 +37,8 @@ const projectRoot = path.resolve(import.meta.dirname, "..", "..");
 const knownRegressions = [
   "/media/initial-sounds/images/c/cake.webp",
   "/media/initial-sounds/images/b/bus.webp",
-  "/images/child-mode/initial-sounds/bag.png",
-  "/images/child-mode/initial-sounds/wig.png"
+  "/images/child-mode/initial-sounds/bag.webp",
+  "/images/child-mode/initial-sounds/wig.webp"
 ];
 
 test("known anthropomorphic and rainbow-styled assessment images stay quarantined", () => {
@@ -59,11 +59,11 @@ test("the media QA review surface exposes the human rejection reason", () => {
 
 test("clean Initial Sounds replacements remain runtime eligible", () => {
   const expected = {
-    bus: "/images/child-mode/initial-sounds/bus.png",
-    cake: "/images/child-mode/initial-sounds/cake.png",
-    car: "/images/child-mode/initial-sounds/car.png",
-    sock: "/images/child-mode/initial-sounds/sock.png",
-    star: "/images/child-mode/initial-sounds/star.png"
+    bus: "/images/child-mode/initial-sounds/bus.webp",
+    cake: "/images/child-mode/initial-sounds/cake.webp",
+    car: "/images/child-mode/initial-sounds/car.webp",
+    sock: "/images/child-mode/initial-sounds/sock.webp",
+    star: "/images/child-mode/initial-sounds/star.webp"
   };
 
   Object.entries(expected).forEach(([targetWord, imageUrl]) => {

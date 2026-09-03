@@ -54,7 +54,7 @@ export const questions = [
     "difficulty": 2,
     "question": "Which word rhymes with cat?",
     "image": "🐱",
-    "imagePath": "/images/general/cat_sleeping.png",
+    "imagePath": "/images/general/cat_sleeping.webp",
     "choices": [
       "hat",
       "dog",
@@ -101,7 +101,7 @@ export const questions = [
     "difficulty": 2,
     "question": "Which word is spelled correctly?",
     "image": "🐕",
-    "imagePath": "/images/general/dog_running.png",
+    "imagePath": "/images/general/dog_running.webp",
     "choices": [
       "dog",
       "dug",
@@ -147,7 +147,7 @@ export const questions = [
     "difficulty": 1,
     "question": "Which one is a fruit?",
     "image": "🍎",
-    "imagePath": "/images/vocabulary/apple.png",
+    "imagePath": "/images/vocabulary/apple.webp",
     "choices": [
       "apple",
       "desk",
@@ -346,7 +346,7 @@ export const questions = [
     "difficulty": 1,
     "question": "Look at the picture. What is happening?",
     "image": "👧📖",
-    "imagePath": "/images/comprehension/girl_reading.png",
+    "imagePath": "/images/comprehension/girl_reading.webp",
     "choices": [
       "The girl is reading.",
       "The girl is sleeping.",
@@ -395,7 +395,7 @@ export const questions = [
     "passage": "Lily put on her raincoat. She took her umbrella and walked outside.",
     "question": "What do the clues show about the weather?",
     "image": "☔",
-    "imagePath": "/images/comprehension/rainy_day.png",
+    "imagePath": "/images/comprehension/rainy_day.webp",
     "choices": [
       "rainy",
       "sunny",
@@ -661,7 +661,7 @@ export const questions = [
     "difficulty": 2,
     "passage": "I am square. Shoes come in me. Presents come in me. What am I?",
     "question": "Answer the riddle.",
-    "imagePath": "/images/generated/riddle_box.png",
+    "imagePath": "/images/generated/riddle_box.webp",
     "choices": [
       "a box",
       "a pot"
@@ -675,7 +675,7 @@ export const questions = [
     "questionType": "image_choice",
     "difficulty": 2,
     "question": "How does the boy feel?",
-    "imagePath": "/images/generated/boy_afraid.png",
+    "imagePath": "/images/generated/boy_afraid.webp",
     "choices": [
       "afraid",
       "sad"
@@ -689,7 +689,7 @@ export const questions = [
     "questionType": "two_choice",
     "difficulty": 1,
     "question": "Where is the goat?",
-    "imagePath": "/images/generated/goat_inside_barn.png",
+    "imagePath": "/images/generated/goat_inside_barn.webp",
     "choices": [
       "inside",
       "outside"

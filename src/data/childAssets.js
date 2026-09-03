@@ -54,7 +54,7 @@ const curatedChildWordImageOverrides = {
   fast: "/media/vocabulary/images/fast.webp",
   frost: "/media/vocabulary/images/frost.webp",
   grin: "/media/vocabulary/images/grin.webp",
-  grump: "/images/emotions/angry_child.png",
+  grump: "/images/emotions/angry_child.webp",
   jig: "/images/assessment/generated/concepts/dancer.webp",
   jump: "/media/initial-sounds/images/j/jump.webp",
   kick: "/media/vocabulary/images/kick.webp",
@@ -77,7 +77,7 @@ const curatedChildWordImageOverrides = {
   swim: "/media/vocabulary/images/swim.webp",
   swift: "/media/vocabulary/images/fast.webp",
   thank: "/images/assessment/hfw/variants/hfw-76-100/thank-l1p1-02.webp",
-  thrill: "/images/emotions/excited_child.png",
+  thrill: "/images/emotions/excited_child.webp",
   wet: "/media/vocabulary/images/wet.webp"
 };
 
@@ -96,32 +96,32 @@ function blockAssessmentImageIfNeeded(key, asset, { allowBlockedAssessmentImage 
 export const childWordAssets = {
   bad: wordAsset({
     word: "bad",
-    image: "/images/child-mode/cvc/bad.png",
+    image: "/images/child-mode/cvc/bad.webp",
     audio: "/audio/child-mode/words/bad.mp3"
   }),
   bag: wordAsset({
     word: "bag",
-    image: "/images/child-mode/cvc/bag.png",
+    image: "/images/child-mode/cvc/bag.webp",
     audio: "/audio/child-mode/words/bag.mp3",
-    fallbackImage: "/images/child-mode/cvc/cap.png",
+    fallbackImage: "/images/child-mode/cvc/cap.webp",
     alt: "A paper bag"
   }),
   bang: wordAsset({
     word: "bang",
-    image: "/media/learn/images/cycle-23/bang.png",
+    image: "/media/learn/images/cycle-23/bang.webp",
     audio: "/guided-reading/audio/words/bang.mp3",
     alt: "A bang sound effect"
   }),
   bat: wordAsset({
     word: "bat",
-    image: "/images/child-mode/cvc/bat.png",
+    image: "/images/child-mode/cvc/bat.webp",
     audio: "/audio/child-mode/words/bat.mp3",
     fallbackImage: "/images/cvc/bat.svg",
     alt: "A baseball bat"
   }),
   bed: wordAsset({
     word: "bed",
-    image: "/images/child-mode/cvc/bed.png",
+    image: "/images/child-mode/cvc/bed.webp",
     audio: "/audio/child-mode/words/bed.mp3",
     fallbackImage: "/images/vowels/bed.svg",
     alt: "A bed"
@@ -132,7 +132,7 @@ export const childWordAssets = {
   }),
   bid: wordAsset({
     word: "bid",
-    image: "/images/child-mode/cvc/bid.png",
+    image: "/images/child-mode/cvc/bid.webp",
     audio: "/audio/child-mode/words/bid.mp3"
   }),
   black: childModeWordAsset({
@@ -145,14 +145,14 @@ export const childWordAssets = {
   }),
   boat: wordAsset({
     word: "boat",
-    image: "/images/child-mode/vowels/boat.png",
+    image: "/images/child-mode/vowels/boat.webp",
     audio: "/audio/child-mode/words/boat.mp3",
     fallbackImage: "/images/vowels/boat.svg",
     alt: "A boat"
   }),
   book: wordAsset({
     word: "book",
-    image: "/images/child-mode/cvc/book.png",
+    image: "/images/child-mode/cvc/book.webp",
     audio: "/audio/child-mode/words/book.mp3",
     fallbackImage: "/images/objects/book.svg",
     alt: "A book"
@@ -165,14 +165,14 @@ export const childWordAssets = {
   }),
   bud: wordAsset({
     word: "bud",
-    image: "/images/child-mode/cvc/bud.png",
+    image: "/images/child-mode/cvc/bud.webp",
     audio: "/audio/child-mode/words/bud.mp3"
   }),
   bug: wordAsset({
     word: "bug",
-    image: "/images/child-mode/cvc/bug.png",
+    image: "/images/child-mode/cvc/bug.webp",
     audio: "/audio/child-mode/words/bug.mp3",
-    fallbackImage: "/images/child-mode/short-u/bug.png",
+    fallbackImage: "/images/child-mode/short-u/bug.webp",
     alt: "A bug"
   }),
   bus: childModeWordAsset({
@@ -182,14 +182,14 @@ export const childWordAssets = {
   }),
   cap: wordAsset({
     word: "cap",
-    image: "/images/child-mode/cvc/cap.png",
+    image: "/images/child-mode/cvc/cap.webp",
     audio: "/audio/child-mode/words/cap.mp3",
     fallbackImage: "/images/cvc/cap.svg",
     alt: "A cap"
   }),
   cat: wordAsset({
     word: "cat",
-    image: "/images/child-mode/cvc/cat.png",
+    image: "/images/child-mode/cvc/cat.webp",
     audio: "/audio/child-mode/words/cat.mp3",
     fallbackImage: "/images/cvc/cat.svg",
     alt: "A cat"
@@ -217,7 +217,7 @@ export const childWordAssets = {
   }),
   coat: wordAsset({
     word: "coat",
-    image: "/images/child-mode/vowels/coat.png",
+    image: "/images/child-mode/vowels/coat.webp",
     audio: "/audio/child-mode/words/coat.mp3",
     fallbackImage: "/images/vowels/coat.svg",
     alt: "A coat"
@@ -238,12 +238,12 @@ export const childWordAssets = {
   }),
   dig: wordAsset({
     word: "dig",
-    image: "/images/child-mode/cvc/dig.png",
+    image: "/images/child-mode/cvc/dig.webp",
     audio: "/audio/child-mode/words/dig.mp3"
   }),
   dog: wordAsset({
     word: "dog",
-    image: "/images/child-mode/cvc/dog.png",
+    image: "/images/child-mode/cvc/dog.webp",
     audio: "/audio/child-mode/words/dog.mp3",
     fallbackImage: "/images/objects/dog.svg",
     alt: "A dog"
@@ -260,12 +260,12 @@ export const childWordAssets = {
   }),
   dot: wordAsset({
     word: "dot",
-    image: "/images/child-mode/cvc/dot.png",
+    image: "/images/child-mode/cvc/dot.webp",
     audio: "/audio/child-mode/words/dot.mp3"
   }),
   dug: wordAsset({
     word: "dug",
-    image: "/images/child-mode/cvc/dug.png",
+    image: "/images/child-mode/cvc/dug.webp",
     audio: "/audio/child-mode/words/dug.mp3"
   }),
   duck: childModeWordAsset({
@@ -275,13 +275,13 @@ export const childWordAssets = {
   }),
   gong: wordAsset({
     word: "gong",
-    image: "/media/learn/images/cycle-23/gong.png",
+    image: "/media/learn/images/cycle-23/gong.webp",
     audio: "",
     alt: "A gong"
   }),
   hang: wordAsset({
     word: "hang",
-    image: "/media/learn/images/cycle-23/hang.png",
+    image: "/media/learn/images/cycle-23/hang.webp",
     audio: "/media/vocabulary/audio/hang.mp3",
     alt: "A hanging object"
   }),
@@ -297,7 +297,7 @@ export const childWordAssets = {
   }),
   fish: wordAsset({
     word: "fish",
-    image: "/images/child-mode/cvc/fish.png",
+    image: "/images/child-mode/cvc/fish.webp",
     audio: "/audio/child-mode/words/fish.mp3",
     fallbackImage: "/images/objects/fish.svg",
     alt: "A fish"
@@ -329,30 +329,30 @@ export const childWordAssets = {
   }),
   goat: wordAsset({
     word: "goat",
-    image: "/images/child-mode/vowels/goat.png",
+    image: "/images/child-mode/vowels/goat.webp",
     audio: "/audio/child-mode/words/goat.mp3",
     fallbackImage: "/images/vowels/goat.svg",
     alt: "A goat"
   }),
   ham: wordAsset({
     word: "ham",
-    image: "/images/child-mode/short-a/ham.png",
+    image: "/images/child-mode/short-a/ham.webp",
     audio: "/audio/child-mode/words/ham.mp3",
-    fallbackImage: "/images/child-mode/cvc/hat.png",
+    fallbackImage: "/images/child-mode/cvc/hat.webp",
     alt: "Ham"
   }),
   hat: wordAsset({
     word: "hat",
-    image: "/images/child-mode/cvc/hat.png",
+    image: "/images/child-mode/cvc/hat.webp",
     audio: "/audio/child-mode/words/hat.mp3",
     fallbackImage: "/images/cvc/hat.svg",
     alt: "A hat"
   }),
   jam: wordAsset({
     word: "jam",
-    image: "/images/child-mode/short-a/jam.png",
+    image: "/images/child-mode/short-a/jam.webp",
     audio: "/audio/child-mode/words/jam.mp3",
-    fallbackImage: "/images/child-mode/cvc/cap.png",
+    fallbackImage: "/images/child-mode/cvc/cap.webp",
     alt: "A jar of jam"
   }),
   jet: childModeWordAsset({
@@ -377,21 +377,21 @@ export const childWordAssets = {
   }),
   log: wordAsset({
     word: "log",
-    image: "/images/child-mode/cvc/log.png",
+    image: "/images/child-mode/cvc/log.webp",
     audio: "/audio/child-mode/words/log.mp3",
-    fallbackImage: "/images/child-mode/short-o/log.png",
+    fallbackImage: "/images/child-mode/short-o/log.webp",
     alt: "A log"
   }),
   man: wordAsset({
     word: "man",
-    image: "/images/child-mode/cvc/man.png",
+    image: "/images/child-mode/cvc/man.webp",
     audio: "/audio/child-mode/words/man.mp3",
     fallbackImage: "/images/cvc/man.svg",
     alt: "A man"
   }),
   map: wordAsset({
     word: "map",
-    image: "/images/child-mode/cvc/map.png",
+    image: "/images/child-mode/cvc/map.webp",
     audio: "/audio/child-mode/words/map.mp3",
     fallbackImage: "/images/cvc/map.svg",
     alt: "A map"
@@ -406,14 +406,14 @@ export const childWordAssets = {
   }),
   mug: wordAsset({
     word: "mug",
-    image: "/images/child-mode/cvc/mug.png",
+    image: "/images/child-mode/cvc/mug.webp",
     audio: "/audio/child-mode/words/mug.mp3",
-    fallbackImage: "/images/child-mode/short-u/mug.png",
+    fallbackImage: "/images/child-mode/short-u/mug.webp",
     alt: "A mug"
   }),
   nap: wordAsset({
     word: "nap",
-    image: "/images/child-mode/cvc/nap.png",
+    image: "/images/child-mode/cvc/nap.webp",
     audio: "/audio/child-mode/words/nap.mp3",
     fallbackImage: "/images/cvc/nap.svg",
     alt: "A nap"
@@ -428,7 +428,7 @@ export const childWordAssets = {
   }),
   pan: wordAsset({
     word: "pan",
-    image: "/images/child-mode/cvc/pan.png",
+    image: "/images/child-mode/cvc/pan.webp",
     audio: "/audio/child-mode/words/pan.mp3",
     fallbackImage: "/images/cvc/pan.svg",
     alt: "A pan"
@@ -458,9 +458,9 @@ export const childWordAssets = {
   }),
   pot: wordAsset({
     word: "pot",
-    image: "/images/child-mode/cvc/pot.png",
+    image: "/images/child-mode/cvc/pot.webp",
     audio: "/audio/child-mode/words/pot.mp3",
-    fallbackImage: "/images/child-mode/short-o/pot.png",
+    fallbackImage: "/images/child-mode/short-o/pot.webp",
     alt: "A pot"
   }),
   pun: childModeWordAsset({
@@ -470,9 +470,9 @@ export const childWordAssets = {
   }),
   ram: wordAsset({
     word: "ram",
-    image: "/images/child-mode/short-a/ram.png",
+    image: "/images/child-mode/short-a/ram.webp",
     audio: "/audio/child-mode/words/ram.mp3",
-    fallbackImage: "/images/child-mode/vowels/goat.png",
+    fallbackImage: "/images/child-mode/vowels/goat.webp",
     alt: "A ram"
   }),
   red: childModeWordAsset({
@@ -505,7 +505,7 @@ export const childWordAssets = {
     word: "sad",
     image: "/media/rhyming/images/sad.webp",
     audio: "/media/rhyming/audio/sad.mp3",
-    fallbackImage: "/images/emotions/sad_child.png",
+    fallbackImage: "/images/emotions/sad_child.webp",
     alt: "A sad child"
   }),
   slide: childModeWordAsset({
@@ -533,9 +533,9 @@ export const childWordAssets = {
   }),
   sun: wordAsset({
     word: "sun",
-    image: "/images/child-mode/cvc/sun.png",
+    image: "/images/child-mode/cvc/sun.webp",
     audio: "/audio/child-mode/words/sun.mp3",
-    fallbackImage: "/images/child-mode/short-u/sun.png"
+    fallbackImage: "/images/child-mode/short-u/sun.webp"
   }),
   tag: wordAsset({
     word: "tag",
@@ -555,13 +555,13 @@ export const childWordAssets = {
   }),
   rang: wordAsset({
     word: "rang",
-    image: "/media/learn/images/cycle-23/rang.png",
+    image: "/media/learn/images/cycle-23/rang.webp",
     audio: "/guided-reading/audio/words/rang.mp3",
     alt: "A ringing bell"
   }),
   song: wordAsset({
     word: "song",
-    image: "/media/learn/images/cycle-23/song.png",
+    image: "/media/learn/images/cycle-23/song.webp",
     audio: "/media/vocabulary/audio/song.mp3",
     alt: "A song"
   }),

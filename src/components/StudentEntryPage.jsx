@@ -210,7 +210,7 @@ export function StudentEntryPage({ onStudent, onTeacher, onTry }) {
         <ul className="lp-landing-tiles">
           {FEATURE_TILES.map(tile => (
             <li key={tile.id} className="lp-landing-tile">
-              <img src={tile.image} alt="" className="lp-landing-tile-art" />
+              <img src={tile.image} alt="" className="lp-landing-tile-art" loading="lazy" decoding="async" />
               <h3>{tile.title}</h3>
               <p>{tile.text}</p>
             </li>
@@ -232,7 +232,7 @@ export function StudentEntryPage({ onStudent, onTeacher, onTry }) {
           {WORLD_CARDS.map(world => (
             <li key={world.id} className="lp-landing-world" style={{ backgroundImage: `url(${world.panorama})` }}>
               <span className="lp-landing-world-band">
-                <img src={world.emblem} alt="" />
+                <img src={world.emblem} alt="" loading="lazy" decoding="async" />
                 {world.band}
               </span>
               <h3>{world.name}</h3>
