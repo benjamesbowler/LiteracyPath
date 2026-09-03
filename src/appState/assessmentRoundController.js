@@ -115,6 +115,24 @@ export function createAssessmentRoundController(context) {
     ).length >= ROUND_LENGTH;
   }
 
+  // The student-session RPCs validate every answer and the final attempt
+  // against the level/phase the teacher assigned, and never store those values
+  // themselves. The v3 bank's own `phase` means something different (an
+  // alphabet split: Initial Sounds level 1 is a-m phase 1, n-z phase 2), and the
+  // round selectors pick items without regard to it, so reporting a question's
+  // authored phase made the server reject legitimate answers as
+  // `assignment_mismatch` - which the UI then showed as a connection failure.
+  // Report the assignment, which is what the check is actually about.
+  function getAssignedFocusStep() {
+    const assigned = studentFocusSession?.resolved_config || {};
+    const level = Number(assigned.level);
+    const phase = Number(assigned.phase);
+    return {
+      level: [1, 2].includes(level) ? level : null,
+      phase: [1, 2].includes(phase) ? phase : null
+    };
+  }
+
   function getNextAssessmentPathStep(stage) {
     const assigned = studentFocusSession?.resolved_config || {};
     if (
@@ -1271,13 +1289,18 @@ export function createAssessmentRoundController(context) {
 
     try {
       if (independentFocusAssessment) {
+        const assignedStep = getAssignedFocusStep();
         const independentAttempt = {
           ...enrichedAttempt,
           teacherId: evidenceTeacherId,
           classId: studentFocusSession.class_id || enrichedAttempt.classId,
           administrationMode: "student_independent",
           focusSessionId: studentFocusSession.id,
-          assignedByTeacher: true
+          assignedByTeacher: true,
+          // Same contract as the per-answer save above: the completion RPC
+          // compares these against the assignment, not against the bank.
+          skillLevel: assignedStep.level ?? enrichedAttempt.skillLevel,
+          skillPhase: assignedStep.phase ?? enrichedAttempt.skillPhase
         };
         const data = await saveStudentFocusAssessmentAttempt({
           client: supabase,
@@ -1398,6 +1421,7 @@ export function createAssessmentRoundController(context) {
     const normalizedRecord = normalizeAnswerRecordShape(record);
 
     if (independentFocusAssessment) {
+      const assignedStep = getAssignedFocusStep();
       try {
         const data = await saveStudentFocusAssessmentAnswer({
           client: supabase,
@@ -1414,8 +1438,8 @@ export function createAssessmentRoundController(context) {
             chosen: normalizedRecord.chosen,
             correct: normalizedRecord.correct,
             is_correct: normalizedRecord.isCorrect,
-            level: normalizedRecord.itemLevel,
-            phase: normalizedRecord.itemPhase
+            level: assignedStep.level ?? normalizedRecord.itemLevel,
+            phase: assignedStep.phase ?? normalizedRecord.itemPhase
           }
         });
         return data?.ok === false
