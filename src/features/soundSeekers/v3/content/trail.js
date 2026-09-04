@@ -49,7 +49,7 @@ export const BACKDROPS = Object.freeze({
   "fossil-canyon": `${BACKDROP_ROOT}/bg-dino-valley.webp`,
   "forge-settlement": `${BACKDROP_ROOT}/bg-dino-forge.webp`,
   "glass-marsh": `${BACKDROP_ROOT}/bg-moonwood-dusk.webp`,
-  "storm-coast": `${BACKDROP_ROOT}/bg-moonwood-dusk.webp`,
+  "storm-coast": `${BACKDROP_ROOT}/bg-moonwood-coast.webp`,
   "lantern-forest": `${BACKDROP_ROOT}/bg-moonwood-night.webp`,
   "star-reach": `${BACKDROP_ROOT}/bg-moonwood-night.webp`
 });
