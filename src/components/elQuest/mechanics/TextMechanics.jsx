@@ -60,7 +60,12 @@ export function PoemSpotlightMechanic({
         {lines.map((line, lineIndex) => {
           const tokens = round?.tokens?.[lineIndex] || fallbackTokens(line, lineIndex);
           return (
-            <p className="sbq-poem-line" data-poem-line={lineIndex} key={`line-${lineIndex}`}>
+            <p
+              className="sbq-poem-line"
+              data-poem-line={lineIndex}
+              key={`line-${lineIndex}`}
+              style={state.coordinatesVisible ? undefined : { gridTemplateColumns: "minmax(0, 1fr)" }}
+            >
               {state.coordinatesVisible && (
                 <>
                   <span className="kg-visually-hidden">Line {lineIndex + 1}: </span>
