@@ -77,7 +77,17 @@ function TeachAllSequenceSession({ item, binding, audioController, onComplete })
   const progress = activeIndex < 0 ? "Ready to listen"
     : ready ? "Lesson heard"
       : deliveryStatus === "unavailable" ? "Turn voices and sounds on to continue"
-        : `Listening ${Math.min(activeIndex + 1, requests.length)} of ${requests.length}`;
+      : `Listening ${Math.min(activeIndex + 1, requests.length)} of ${requests.length}`;
+
+  const activeRequest = activeIndex >= 0 ? requests[activeIndex] : null;
+  const soundSteps = targetUnits(item).length
+    ? targetUnits(item)
+    : [{ grapheme: item.graphemeDisplay, soundKey: item.targetId }];
+
+  function replayCurrentCue() {
+    const request = activeRequest || requests[0];
+    if (request) audioController.request(request, binding);
+  }
 
   return (
     <main
@@ -91,20 +101,30 @@ function TeachAllSequenceSession({ item, binding, audioController, onComplete })
     >
       <section className="ss-teach__card">
         <div className="ss-teach__copy">
-          <p className="ss-eyebrow">Listen · look · say it</p>
+          <p className="ss-eyebrow">Sound camp · stop {item.teachIndex + 1}</p>
           <h1 id="ss-teach-title">Meet {item.childLabel}</h1>
           <p className="ss-teach__instruction">{item.childText}</p>
-          <div className="ss-teach__grapheme" aria-label={item.childLabel}>
-            {item.graphemeDisplay}
-          </div>
+          <button
+            className="ss-teach__grapheme"
+            type="button"
+            aria-label={`Hear ${item.childLabel} again`}
+            onClick={replayCurrentCue}
+          >
+            <span aria-hidden="true">{item.graphemeDisplay}</span>
+            <span className="ss-teach__grapheme-hint">tap to hear</span>
+          </button>
           <dl className="ss-teach__cues">
-            <div><dt>How your mouth moves</dt><dd>{item.mouthCue}</dd></div>
-            <div><dt>How the spelling works</dt><dd>{item.morphologyCue}</dd></div>
+            <div><dt>Say it</dt><dd>{item.mouthCue}</dd></div>
+            <div><dt>Notice it</dt><dd>{item.morphologyCue}</dd></div>
           </dl>
         </div>
         <figure className="ss-teach__anchor">
           {item.anchorImage?.id ? (
-            <img src={item.anchorImage.id} alt={item.anchorWord} />
+            <img
+              src={item.anchorImage.id}
+              alt={item.anchorWord}
+              onError={event => { event.currentTarget.style.display = "none"; }}
+            />
           ) : null}
           <figcaption>
             <strong>{item.anchorWord}</strong>
@@ -113,36 +133,47 @@ function TeachAllSequenceSession({ item, binding, audioController, onComplete })
         </figure>
       </section>
 
-      {targetUnits(item).length ? (
+      <section className="ss-teach__sound-track" aria-label={`Sound steps in ${item.anchorWord}`}>
+        <div className="ss-teach__sound-track-heading">
+          <span>{soundSteps.length > 1 ? "Build the word" : "Find the sound"}</span>
+          <span>{Math.min(Math.max(activeIndex + 1, 0), requests.length)} / {requests.length} listening cues heard</span>
+        </div>
         <ol className="ss-teach__units" aria-label={`Sound parts in ${item.anchorWord}`}>
-          {targetUnits(item).map((unit, index) => (
-            <li key={`${unit.grapheme}:${unit.soundKey}:${index}`}>
+          {soundSteps.map((unit, index) => (
+            <li
+              key={`${unit.grapheme}:${unit.soundKey}:${index}`}
+              data-active={activeIndex >= 0 && activeIndex % soundSteps.length === index ? "true" : undefined}
+              data-heard={activeIndex > index || ready ? "true" : undefined}
+            >
               <strong>{unit.grapheme}</strong><span>{unit.soundKey}</span>
             </li>
           ))}
         </ol>
-      ) : null}
+      </section>
 
       {item.alternateExamples.length ? (
-        <section className="ss-teach__alternates" aria-labelledby="ss-teach-alternates-title">
+        <details className="ss-teach__alternates">
+          <summary>Try this sound in more words</summary>
           <h2 id="ss-teach-alternates-title">Try it in more words</h2>
-          <ul>
+          <ul aria-labelledby="ss-teach-alternates-title">
             {item.alternateExamples.map((example, index) => (
               <li key={`${example.anchorWord}:${index}`}>
                 <strong>{example.anchorWord}</strong><span>{example.childText}</span>
               </li>
             ))}
           </ul>
-        </section>
+        </details>
       ) : null}
 
       <div className="ss-teach__controls">
         <button className="ss-secondary-button" type="button" onClick={playLesson}>
-          {activeIndex < 0 ? "Hear the whole lesson" : "Hear it again"}
+          {activeIndex < 0 ? "Start the sound trail" : "Replay the sound trail"}
+          {activeIndex < 0 ? <span className="ss-visually-hidden" aria-hidden="true">Hear the whole lesson</span> : null}
         </button>
         <p role="status" aria-live="polite">{progress}</p>
         <button className="ss-primary-button" type="button" disabled={!ready} onClick={complete}>
-          I heard every part
+          {ready ? "Use the sound on the trail" : "Listen to continue"}
+          <span className="ss-visually-hidden" aria-hidden="true">I heard every part</span>
         </button>
       </div>
     </main>
