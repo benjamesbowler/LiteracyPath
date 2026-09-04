@@ -49,7 +49,8 @@ test("Scene Hunt completes only after the exact correct picture set is tagged", 
   const stage = page.locator('[data-mechanic-stage="scene-hunt"]');
   const objects = stage.locator(".am-scene-object");
   await expect(objects).toHaveCount(5);
-  await expect(stage.locator(".am-scene-object-label")).toHaveCount(0);
+  await expect(stage.locator(".am-scene-object-label")).toHaveCount(5);
+  await expect(stage.getByRole("button", { name: /^Hear .+/ })).toHaveCount(5);
 
   // Cycle 22 is the authored nk Sound Sort replacement. Select every and
   // only picture name ending in nk, independent of randomized positions.
@@ -66,8 +67,6 @@ test("Scene Hunt completes only after the exact correct picture set is tagged", 
     await expect(object).toHaveAttribute("aria-pressed", "true");
   }
 
-  await stage.getByRole("button", { name: "Labels" }).click();
-  await expect(stage.locator(".am-scene-object-label")).toHaveCount(5);
   await stage.getByRole("button", { name: "Check tags" }).click();
   await expect(stage).toHaveAttribute("data-hunt-state", "complete");
 });

@@ -22,7 +22,7 @@ const MECHANIC_ROUTES = [
     station: "hunt",
     mechanic: "sceneHunt",
     stage: "scene-hunt",
-    instruction: ADVENTURE_MAP_INSTRUCTIONS.sceneHunt
+    instruction: "Find the word that starts with the “a” sound."
   },
   {
     cycle: "cycle-1",
@@ -50,7 +50,7 @@ const MECHANIC_ROUTES = [
     station: "poem",
     mechanic: "poemSpotlight",
     stage: "poem-spotlight",
-    instruction: ADVENTURE_MAP_INSTRUCTIONS.poemSpotlight
+    instruction: "Find the word “mat” in the poem."
   },
   {
     cycle: "cycle-1",

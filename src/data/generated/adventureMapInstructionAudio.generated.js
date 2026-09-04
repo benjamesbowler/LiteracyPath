@@ -15,7 +15,7 @@ export const ADVENTURE_MAP_INSTRUCTION_AUDIO = Object.freeze({
   "clucky builds a cosy nest, tiny needs a little rest. muddy dips a fishing net, then has a nap - not finished yet": "/audio/production/en-US/poem/clucky-builds-a-cosy-nest-tiny-needs-a-little-rest-muddy-dips-a-fishing--133aaf348f.mp3",
   "clucky is the farmyard queen, the proudest hen you've ever seen. but muddy jumps up in the mud, and lands with a gentle thud": "/audio/production/en-US/poem/clucky-is-the-farmyard-queen-the-proudest-hen-you-ve-ever-seen-but-muddy-c639aedac7.mp3",
   "fern flutters way up high, and waves the clouds goodbye": "/audio/production/en-US/instruction/fern-flutters-way-up-high-and-waves-the-clouds-goodbye-2649031acf.mp3",
-  "follow the line and word numbers. tap that exact word in the poem": "/audio/production/en-US/instruction/follow-the-line-and-word-numbers-tap-that-exact-word-in-the-poem-b32abb1930.mp3",
+  "find the target word in the poem": "/audio/production/en-US/instruction/find-the-target-word-in-the-poem-fa768b77a1.mp3",
   "listen to each picture name. tag every word that ends with the target pattern, then check your tags": "/audio/production/en-US/instruction/listen-to-each-picture-name-tag-every-word-that-ends-with-the-target-patte-4223186974.mp3",
   "listen to each picture name. tag every word that starts with the target sound, then check your tags": "/audio/production/en-US/instruction/listen-to-each-picture-name-tag-every-word-that-starts-with-the-target-sou-d073b1c690.mp3",
   "listen to the new word. choose an onset to replace the first sound, then run the word machine": "/audio/production/en-US/instruction/listen-to-the-new-word-choose-an-onset-to-replace-the-first-sound-then-run-a36a45917c.mp3",

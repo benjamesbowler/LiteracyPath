@@ -92,10 +92,12 @@ test("the three mechanics render distinct button-operated stages", () => {
   assert.match(sound, /<button[^>]*disabled=""[^>]*>Open sound gate<\/button>/);
 
   assert.match(hunt, /data-mechanic-stage="scene-hunt"/);
-  assert.equal((hunt.match(/class="am-scene-object/g) || []).length, 3);
-  assert.match(hunt, />Labels<\/button>/);
+  assert.equal((hunt.match(/class="am-scene-object"/g) || []).length, 3);
+  assert.equal((hunt.match(/class="am-scene-hear-name"/g) || []).length, 3);
+  assert.match(hunt, /Target starting sound/);
+  assert.match(hunt, /class="am-scene-object-label">map<\/span>/);
+  assert.match(hunt, /aria-label="Hear map"/);
   assert.match(hunt, />Check tags<\/button>/);
-  assert.doesNotMatch(hunt, /class="am-scene-object-label"/);
 });
 
 test("Letter Press commits the selected form with visual-letter evidence", () => {
@@ -178,14 +180,15 @@ test("Scene Hunt toggles a complete tag set and compares all true objects", () =
   );
 });
 
-test("showing Scene Hunt labels records one level of support", () => {
+test("Scene Hunt names are baseline cues rather than extra support", () => {
   const once = state.showSceneHuntLabels(state.createSceneHuntState());
   const twice = state.showSceneHuntLabels(once);
-  assert.equal(state.sceneHuntSupportLevel(2, once), 3);
-  assert.equal(state.sceneHuntSupportLevel(2, twice), 3);
+  assert.equal(once.labelsVisible, true);
+  assert.equal(state.sceneHuntSupportLevel(2, once), 2);
+  assert.equal(state.sceneHuntSupportLevel(2, twice), 2);
 
   const commit = state.commitSceneHunt(twice, huntRound, 2);
-  assert.equal(commit.outcome.evidence.supportLevel, 3);
+  assert.equal(commit.outcome.evidence.supportLevel, 2);
 });
 
 test("the complete eligible Scene Hunt inventory resolves default child pictures", () => {

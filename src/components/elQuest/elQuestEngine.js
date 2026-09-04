@@ -538,8 +538,8 @@ function buildHuntRounds(cycle) {
           construct: "initial_phoneme_discrimination",
           audio: graphemeAudioPath(entry.spelling),
           speechFallback: "",
-          prompt: "Which one starts with this sound?",
-          instruction: "Listen to each picture name. Tag every word that starts with this sound.",
+          prompt: `Find the word that starts with the “${entry.spelling}” sound.`,
+          instruction: `Find the word that starts with the “${entry.spelling}” sound.`,
           display: "",
           targetGrapheme: entry.spelling,
           objects: choices.map(word => ({
@@ -576,8 +576,8 @@ function buildSoundSortRounds(cycle) {
         variant: "soundSort",
         audio: graphemeAudioPath(entry.spelling),
         speechFallback: "",
-        prompt: `Tag every picture whose word ends with ${entry.spelling}.`,
-        instruction: `Listen to each picture name. Tag the words ending with ${entry.spelling}.`,
+        prompt: `Find every word that ends with the “${entry.spelling}” pattern.`,
+        instruction: `Find every word that ends with the “${entry.spelling}” pattern.`,
         targetGrapheme: entry.spelling,
         objects: choices.map(word => ({ word, matches: word.endsWith(entry.spelling) })),
         choices,
@@ -1096,7 +1096,7 @@ function buildPoemRounds(cycle) {
   return poem.findWords.flatMap(word => {
     const targetToken = tokens.flat().find(token => token.normalized === word.toLowerCase());
     if (!targetToken) return [];
-    const prompt = `Tap word ${targetToken.tokenIndex + 1} in line ${targetToken.lineIndex + 1}.`;
+    const prompt = `Find the word “${word}” in the poem.`;
     return [{
       type: "poem",
       mechanicId: "poemSpotlight",
