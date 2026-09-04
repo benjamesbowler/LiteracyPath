@@ -61,15 +61,19 @@ export function PoemSpotlightMechanic({
           const tokens = round?.tokens?.[lineIndex] || fallbackTokens(line, lineIndex);
           return (
             <p className="sbq-poem-line" data-poem-line={lineIndex} key={`line-${lineIndex}`}>
-              <span className="kg-visually-hidden">Line {lineIndex + 1}: </span>
-              <span
-                aria-hidden="true"
-                className="sbq-poem-line-marker"
-                data-poem-line-marker={lineIndex}
-              >
-                <span>Line</span>
-                <strong>{lineIndex + 1}</strong>
-              </span>
+              {state.coordinatesVisible && (
+                <>
+                  <span className="kg-visually-hidden">Line {lineIndex + 1}: </span>
+                  <span
+                    aria-hidden="true"
+                    className="sbq-poem-line-marker"
+                    data-poem-line-marker={lineIndex}
+                  >
+                    <span>Line</span>
+                    <strong>{lineIndex + 1}</strong>
+                  </span>
+                </>
+              )}
               <span className="sbq-poem-line-words" data-poem-line-words={lineIndex}>
                 {tokens.map((token, tokenIndex) => (
                   <span className="sbq-poem-word" key={`${lineIndex}-${tokenIndex}`}>
