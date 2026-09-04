@@ -615,7 +615,7 @@ export function hill(ctx, x, y, w, h, color) {
 
 export function cloud(ctx, x, y, w) {
   ctx.save();
-  ctx.globalAlpha = 0.9;
+  ctx.globalAlpha *= 0.9;
   ctx.fillStyle = P.white;
   for (const [cx, cy, r] of [[x + w * 0.25, y, w * 0.2], [x + w * 0.75, y, w * 0.2], [x + w * 0.5, y - w * 0.1, w * 0.27]]) {
     ctx.beginPath();

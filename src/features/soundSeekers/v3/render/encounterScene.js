@@ -820,11 +820,15 @@ export function createEncounterScene({ stop, mission, heroId, onAction, onHear, 
       g.addColorStop(0, PALETTE["room-sky-top"]); g.addColorStop(1, PALETTE["room-sky-bottom"]);
       ctx.fillStyle = g; ctx.fillRect(0, 0, vw, DESIGN_H);
     }
-    // clouds (parallax .35)
+    // clouds (parallax .35) — faint at night so the stars stay the sky
+    const night = stop.backdrop === "lantern-forest" || stop.backdrop === "star-reach";
+    ctx.save();
+    ctx.globalAlpha = night ? 0.28 : 1;
     for (const c of s.clouds) {
       const cx = c.x - s.camX * 0.35;
       if (cx > -300 && cx < vw + 300) cloud(ctx, cx, c.y, c.w);
     }
+    ctx.restore();
     // mid hills + bushes (parallax .55)
     ctx.save();
     ctx.translate(-s.camX * 0.5, 0);

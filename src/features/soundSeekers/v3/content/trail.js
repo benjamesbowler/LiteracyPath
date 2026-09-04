@@ -42,7 +42,8 @@ export const LANDS = Object.freeze({
 });
 
 // Side-view paintings behind the platform rooms (horizon in the lower third,
-// plain ground band at the bottom that the code-drawn ground sits on).
+// plain ground band at the bottom that the code-drawn ground sits on). Six
+// from ChatGPT, the coast and Star Reach from Grok Imagine, all 4 Sep 2026.
 export const BACKDROPS = Object.freeze({
   "seedwake-meadow": `${BACKDROP_ROOT}/bg-meadow-farm.webp`,
   "river-gardens": `${BACKDROP_ROOT}/bg-meadow-pond.webp`,
@@ -51,7 +52,7 @@ export const BACKDROPS = Object.freeze({
   "glass-marsh": `${BACKDROP_ROOT}/bg-moonwood-dusk.webp`,
   "storm-coast": `${BACKDROP_ROOT}/bg-moonwood-coast.webp`,
   "lantern-forest": `${BACKDROP_ROOT}/bg-moonwood-night.webp`,
-  "star-reach": `${BACKDROP_ROOT}/bg-moonwood-night.webp`
+  "star-reach": `${BACKDROP_ROOT}/bg-star-reach.webp`
 });
 
 // Ground / platform palette per backdrop so code-drawn ground matches the
