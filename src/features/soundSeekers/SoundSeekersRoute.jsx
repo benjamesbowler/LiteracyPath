@@ -1,8 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { SoundSeekersGame } from "./SoundSeekersGame.jsx";
-import { useSoundSeekersAudioController } from "./runtime/useSoundSeekersAudioController.js";
-import { useSoundSeekersProgressController } from "./runtime/useSoundSeekersProgressController.js";
+import SoundSeekersV3 from "./v3/SoundSeekersV3.jsx";
+import { loadV3Progress, saveV3Progress } from "./v3/storage.js";
 
 const EMPTY_ACCESSIBILITY_SETTINGS = Object.freeze({});
 const FOCUSABLE_SELECTOR = [
@@ -27,7 +26,7 @@ function visibleFocusTargets(host) {
 }
 
 function focusRouteSurface(host) {
-  const surface = host.querySelector("[data-sound-seekers-game][aria-label]");
+  const surface = host.querySelector("[data-sound-seekers-game][aria-label], .ss3 button, .ss3 h1");
   if (surface && typeof surface.focus === "function") {
     surface.focus({ preventScroll: true });
   }
@@ -72,11 +71,6 @@ export default function SoundSeekersRoute({
     || Array.isArray(accessibilitySettings)) {
     throw new TypeError("Sound Seekers route props are invalid");
   }
-  const { state, commitState, flush } = useSoundSeekersProgressController(progressScopeKey);
-  const audioController = useSoundSeekersAudioController({
-    enabled: isSoundEnabled && state.settings.soundEnabled !== false,
-    progressScopeKey
-  });
   const [portalHost, setPortalHost] = useState(null);
   const returnFocusRef = useRef(
     typeof document !== "undefined" && typeof document.activeElement?.focus === "function"
@@ -150,19 +144,20 @@ export default function SoundSeekersRoute({
   }, [portalHost]);
 
   const leave = useCallback(() => {
-    flush();
     onExit();
-  }, [flush, onExit]);
+  }, [onExit]);
 
+  // v3 "Story Trail" (2026-09-04) replaces the v2 DOM game. The v2 engine stays
+  // on disk for the zero-reference cleanup pass; nothing here imports it.
   const game = (
-    <SoundSeekersGame
-      state={state}
-      onStateChange={commitState}
-      audioController={audioController}
+    <SoundSeekersV3
       progressScopeKey={progressScopeKey}
+      isSoundEnabled={isSoundEnabled}
       onExit={leave}
-      initialFixtureId={initialFixtureId}
       accessibilitySettings={accessibilitySettings}
+      loadProgress={loadV3Progress}
+      saveProgress={saveV3Progress}
+      initialStopId={initialFixtureId && /^s\d+$/.test(initialFixtureId) ? initialFixtureId : null}
     />
   );
   return portalHost ? createPortal(game, portalHost) : null;

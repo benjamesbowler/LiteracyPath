@@ -48,6 +48,94 @@ export const SOUND_SEEKERS_VISUAL_TOKENS = deepFreeze({
   "player-palette-berry": "#BE123C"
 });
 
+// Sound Seekers v3 (Story Trail) — the storybook palette. Every colour the v3
+// canvas painter, trail content and stylesheet use is defined ONCE here; the
+// stylesheet receives them as --ss3-* custom properties set on the .ss3 root
+// (see soundSeekersV3CssVariables). Names describe the material, not the hue.
+const V3_INK = "#3B2314";
+const V3_INK_SOFT = "#4A2F18";
+const V3_WOOD_DEEP = "#8A5A2E";
+const V3_PLANK = "#D9A35E";
+const V3_STONE = "#B9B3A3";
+const V3_STONE_MIST = "#9AA3A8";
+const V3_UNLIT = "#C9C2B0";
+const V3_SKY_MEADOW = "#8FD3FF";
+const V3_TEXT_ON_LEAF = "#FFF8DF";
+const V3_GROUND_DUSK = { top: "#7A9A45", side: "#704B33", dark: "#3D3A2A", ink: "#233D36", plank: "#C4A26A", stone: "#9FB6A8" };
+const V3_GROUND_NIGHT = { top: "#4F7A38", side: "#3A4A2E", dark: "#1F391E", ink: "#2A2857", plank: "#C9B070", stone: "#8E8FB8" };
+
+export const SOUND_SEEKERS_V3_PALETTE = deepFreeze({
+  ink: V3_INK,
+  "ink-soft": V3_INK_SOFT,
+  cream: "#FFF6DC",
+  paper: "#FFFBEF",
+  white: COLOR_WHITE,
+  gold: "#F5C644",
+  "gold-deep": "#E09B1B",
+  leaf: "#57A447",
+  "leaf-deep": "#3D7D33",
+  "leaf-bright": "#6FB84F",
+  berry: "#D9534F",
+  "sky-ink": "#2F4F7A",
+  wood: "#C98B4F",
+  "wood-deep": V3_WOOD_DEEP,
+  "wood-light": "#E2AD6F",
+  stone: V3_STONE,
+  "stone-deep": "#7F7867",
+  "stone-sunk": V3_STONE_MIST,
+  "lantern-lit": "#FFE27A",
+  "lantern-unlit": V3_UNLIT,
+  "lantern-text-unlit": "#6C665A",
+  "trail-reachable": "#FFF1C2",
+  water: "#5FB7E6",
+  "water-deep": "#3F8FC0",
+  "room-sky-top": "#9AD7FF",
+  "room-sky-bottom": "#DFF3D3",
+  "heart-pale": "#FFD6D6",
+  "ui-night": "#173B3B",
+  "ui-focus": "#246DE0",
+  "ui-text-on-leaf": V3_TEXT_ON_LEAF,
+  lands: {
+    meadow: { sky: V3_SKY_MEADOW, accent: "#4E8E3A" },
+    dino: { sky: "#FFD98A", accent: "#C2742F" },
+    moonwood: { sky: "#6D5EC9", accent: "#3F7F79" }
+  },
+  // Ground / platform colours per backdrop painting so code-drawn ground
+  // matches the biome behind it (two paintings serve two biomes each).
+  ground: {
+    "seedwake-meadow": { top: "#7FC24A", side: "#C98A4B", dark: V3_WOOD_DEEP, ink: V3_INK_SOFT, plank: V3_PLANK, stone: V3_STONE },
+    "river-gardens": { top: "#8CCB63", side: "#B8834D", dark: "#7D5231", ink: V3_INK_SOFT, plank: "#D4A25F", stone: "#A9B6B0" },
+    "fossil-canyon": { top: "#B4C24E", side: "#C0793A", dark: "#8D4F22", ink: V3_INK_SOFT, plank: V3_PLANK, stone: "#E8D6B1" },
+    "forge-settlement": { top: "#9AA04A", side: "#A87236", dark: "#5C3A1E", ink: "#2B1D16", plank: "#B98A55", stone: "#8F8378" },
+    "glass-marsh": V3_GROUND_DUSK,
+    "storm-coast": V3_GROUND_DUSK,
+    "lantern-forest": V3_GROUND_NIGHT,
+    "star-reach": V3_GROUND_NIGHT
+  }
+});
+
+// The v3 stylesheet reads colours only through these custom properties.
+export function soundSeekersV3CssVariables() {
+  const p = SOUND_SEEKERS_V3_PALETTE;
+  return Object.freeze({
+    "--ss3-ink": p.ink,
+    "--ss3-cream": p.cream,
+    "--ss3-paper": p.paper,
+    "--ss3-gold": p.gold,
+    "--ss3-gold-deep": p["gold-deep"],
+    "--ss3-leaf": p.leaf,
+    "--ss3-leaf-deep": p["leaf-deep"],
+    "--ss3-berry": p.berry,
+    "--ss3-wood": p.wood,
+    "--ss3-wood-deep": p["wood-deep"],
+    "--ss3-sky": p.lands.meadow.sky,
+    "--ss3-night": p["ui-night"],
+    "--ss3-focus": p["ui-focus"],
+    "--ss3-text-on-leaf": p["ui-text-on-leaf"],
+    "--ss3-unlit": p["lantern-unlit"]
+  });
+}
+
 const CONTRAST_USES = new Set([
   "normal_text",
   "focus_ring",
