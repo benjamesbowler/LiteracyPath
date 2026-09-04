@@ -28,6 +28,8 @@ export function AdventureRoundFrame({
   disabled = false,
   hasTargetAudio = false,
   hasContentAudio = false,
+  audioStatus = "ready",
+  targetReplayLabel = "Hear the target",
   contentReplayLabel = "Hear the poem",
   onReplayInstruction,
   onReplayTarget,
@@ -114,6 +116,7 @@ export function AdventureRoundFrame({
               type="button"
               aria-label="Hear instructions again"
               data-instruction-audio={instructionAudio}
+              data-audio-state={audioStatus}
               disabled={disabled}
               onClick={() => { triggerTactileFeedback(); onReplayInstruction?.(); }}
             >
@@ -123,16 +126,18 @@ export function AdventureRoundFrame({
             {hasTargetAudio && (
               <button
                 type="button"
+                data-audio-state={audioStatus}
                 disabled={disabled}
                 onClick={() => { triggerTactileFeedback(); onReplayTarget?.(); }}
               >
                 <SpeakerIcon />
-                Listen
+                {targetReplayLabel}
               </button>
             )}
             {hasContentAudio && (
               <button
                 type="button"
+                data-audio-state={audioStatus}
                 disabled={disabled}
                 onClick={() => { triggerTactileFeedback(); onReplayContent?.(); }}
               >
@@ -140,6 +145,15 @@ export function AdventureRoundFrame({
                 {contentReplayLabel}
               </button>
             )}
+            <span
+              className="adventure-round-frame__audio-status"
+              data-audio-state={audioStatus}
+              role="status"
+              aria-live="polite"
+            >
+              {audioStatus === "playing" && "Playing audio"}
+              {audioStatus === "unavailable" && "Audio is unavailable here. Read the words on screen."}
+            </span>
           </div>
         </aside>
 

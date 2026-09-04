@@ -361,18 +361,26 @@ function matchDrawnStroke(drawn, expected, tolerance) {
 export function scoreLetterTrace({
   drawnStrokes = [],
   expectedStrokes = [],
-  tolerance = 23
+  tolerance = 23,
+  profile = "strict"
 } = {}) {
+  // Adventure Map runs on a wide mix of classroom touchscreens. Keep the
+  // default formation scorer deliberately exact for assessment and other
+  // callers, but give the child-facing trace a little more pen-width room.
+  // This is a profile, rather than a global threshold change, so a forgiving
+  // map retry cannot silently weaken any other handwriting evidence.
+  const adventureMapProfile = profile === "adventure-map";
+  const scoringTolerance = adventureMapProfile ? Math.max(tolerance, 29) : tolerance;
   const drawn = normaliseStrokes(drawnStrokes);
   const expected = normaliseStrokes(expectedStrokes);
-  const spacing = Math.max(3, tolerance / 4);
+  const spacing = Math.max(3, scoringTolerance / 4);
   const sampledDrawn = drawn.map(stroke => resampleStroke(stroke, spacing));
   const sampledExpected = expected.map(stroke => resampleStroke(stroke, spacing));
   const drawnPoints = sampledDrawn.flat();
   const expectedPoints = sampledExpected.flat();
-  const toleranceSquared = tolerance * tolerance;
+  const toleranceSquared = scoringTolerance * scoringTolerance;
   const continuousPartition = sampledDrawn.length === 1
-    ? partitionContinuousGesture(sampledDrawn[0], sampledExpected, tolerance)
+    ? partitionContinuousGesture(sampledDrawn[0], sampledExpected, scoringTolerance)
     : null;
   const continuousPieces = continuousPartition?.pieces || null;
   const matchingStrokes = continuousPieces || sampledDrawn;
@@ -395,15 +403,15 @@ export function scoreLetterTrace({
   const assignments = matchingStrokes.map((stroke, drawnIndex) => {
     const candidates = sampledExpected.map((expectedStroke, expectedIndex) => ({
       expectedIndex,
-      ...matchDrawnStroke(stroke, expectedStroke, tolerance)
+      ...matchDrawnStroke(stroke, expectedStroke, scoringTolerance)
     })).sort((left, right) => right.score - left.score);
     const best = candidates[0];
     const length = strokeLength(stroke);
     const accepted = Boolean(best) && (
-      (length <= tolerance * 0.3 && best.precision >= 0.8)
+      (length <= scoringTolerance * 0.3 && best.precision >= 0.8)
       || (
         best.precision >= 0.46
-        && Math.min(best.forward.meanDistance, best.reverse.meanDistance) <= tolerance * 1.1
+        && Math.min(best.forward.meanDistance, best.reverse.meanDistance) <= scoringTolerance * 1.1
       )
     );
     return {
@@ -423,11 +431,11 @@ export function scoreLetterTrace({
   });
 
   const substantialAssignments = assignments.filter(row => (
-    row.accepted || row.length > tolerance * 0.45
+    row.accepted || row.length > scoringTolerance * 0.45
   ));
   const acceptedAssignments = assignments.filter(row => row.accepted);
   const assignedExpectedOrder = acceptedAssignments
-    .filter(row => row.length > tolerance * 0.45 || sampledExpected[row.expectedIndex]?.length <= 2)
+    .filter(row => row.length > scoringTolerance * 0.45 || sampledExpected[row.expectedIndex]?.length <= 2)
     .map(row => row.expectedIndex);
   const expectedOrderCorrect = assignedExpectedOrder.every((
     expectedIndex,
@@ -450,7 +458,7 @@ export function scoreLetterTrace({
     const directional = assigned.filter(row => row.directional);
     const directionCorrect = directional.every(row => row.directionForward);
     const fragmentProgress = assigned
-      .filter(row => row.length > tolerance * 0.45)
+      .filter(row => row.length > scoringTolerance * 0.45)
       .map(row => {
         const indexes = row.forward.indexes || [];
         const denominator = Math.max(1, expectedStroke.length - 1);
@@ -464,7 +472,7 @@ export function scoreLetterTrace({
     const fragmentOrderCorrect = fragmentProgress.every((fragment, index) => (
       index === 0 || fragment.start >= fragmentProgress[index - 1].end - 0.2
     ));
-    const endpointToleranceSquared = (tolerance * 1.45) ** 2;
+    const endpointToleranceSquared = (scoringTolerance * 1.45) ** 2;
     const endpointMatches = assignedPoints.length
       ? Number(nearAny(expectedStroke[0], assignedPoints, endpointToleranceSquared))
         + Number(nearAny(expectedStroke.at(-1), assignedPoints, endpointToleranceSquared))
@@ -521,7 +529,7 @@ export function scoreLetterTrace({
     ? continuousPartition.outsideTravelLength / originalDrawnLength
     : 0;
   const unmatchedStrokeRatio = Math.max(assignmentUnmatchedRatio, continuousTravelRatio);
-  const unmatchedLimit = 0.12;
+  const unmatchedLimit = adventureMapProfile ? 0.2 : 0.12;
 
   // A child who has learned to write this letter as one confident, continuous
   // stroke (never lifting their finger between the taught pedagogic
@@ -533,28 +541,30 @@ export function scoreLetterTrace({
   // order. Coverage/precision stay demanding so a wrong or scribbled shape
   // still fails.
   const shapeAccurate = (
-    coverage >= 0.8
-    && precision >= 0.68
-    && unmatchedStrokeRatio <= 0.16
-    && outsideTravelRatio <= 0.16
+    coverage >= (adventureMapProfile ? 0.76 : 0.8)
+    && precision >= (adventureMapProfile ? 0.62 : 0.68)
+    // A recognisable shape still has to include every taught stroke. This
+    // prevents a neat but incomplete pair from passing as a finished letter.
+    && strokeCoverage === 1
+    && unmatchedStrokeRatio <= (adventureMapProfile ? 0.22 : 0.16)
+    && outsideTravelRatio <= (adventureMapProfile ? 0.2 : 0.16)
     && directionScore === 1
     && orderScore === 1
   );
 
+  const strictPass = (
+    coverage >= (adventureMapProfile ? 0.68 : 0.72)
+    && precision >= (adventureMapProfile ? 0.56 : 0.62)
+    && strokeCoverage === 1
+    && endpointCoverage >= (adventureMapProfile ? 0.68 : 0.78)
+    && directionScore === 1
+    && orderScore === 1
+    && unmatchedStrokeRatio <= unmatchedLimit
+    && outsideTravelRatio <= (adventureMapProfile ? 0.2 : 0.14)
+  );
+
   return {
-    pass: (
-      (
-        coverage >= 0.72
-        && precision >= 0.62
-        && strokeCoverage === 1
-        && endpointCoverage >= 0.78
-        && directionScore === 1
-        && orderScore === 1
-        && unmatchedStrokeRatio <= unmatchedLimit
-        && outsideTravelRatio <= 0.14
-      )
-      || shapeAccurate
-    ),
+    pass: strictPass || shapeAccurate,
     coverage,
     precision,
     strokeCoverage,

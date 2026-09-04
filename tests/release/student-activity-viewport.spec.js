@@ -216,7 +216,7 @@ test("one-letter poem tokens stay full size while the answer is locked", async (
   await boundedGeometry(activity.locator(".adventure-round-frame"), "locked one-letter poem token");
 });
 
-test("Poem Spotlight keeps authored line numbers clear when poem lines wrap on a phone", async ({ page }) => {
+test("Poem Spotlight keeps optional line support out of the way until a miss", async ({ page }) => {
   const viewport = { width: 390, height: 844 };
   await page.setViewportSize(viewport);
   await page.emulateMedia({ reducedMotion: "reduce" });
@@ -232,27 +232,20 @@ test("Poem Spotlight keeps authored line numbers clear when poem lines wrap on a
   await expect(activity).toBeVisible();
   await waitForChildStageSizing(page);
   await expect(lines).toHaveCount(4);
-  await expect(markers).toHaveCount(4);
-
-  for (let lineIndex = 0; lineIndex < 4; lineIndex += 1) {
-    const line = lines.nth(lineIndex);
-    const marker = markers.nth(lineIndex);
-    await expect(marker).toBeVisible();
-    await expect(marker).toContainText(`Line${lineIndex + 1}`);
-    await expect(line.locator(`[data-poem-line-words="${lineIndex}"]`)).toBeVisible();
-  }
+  await expect(markers).toHaveCount(0);
+  await expect(poem.locator(".sbq-poem-word-marker")).toHaveCount(0);
 
   const prompt = await activity.locator(".adventure-round-frame__instruction").textContent();
-  const position = prompt?.match(/word (\d+) in line (\d+)/i);
-  expect(position, "Poem Spotlight must name an exact authored line and word").toBeTruthy();
-  const targetLine = Number(position[2]) - 1;
-  const targetWord = Number(position[1]) - 1;
-  const target = poem.locator(`[data-poem-token="${targetLine}:${targetWord}"]`);
+  const targetMatch = prompt?.match(/Find the word [“"]([^”"]+)[”"]/i);
+  expect(targetMatch, "Poem Spotlight must name the printed target word").toBeTruthy();
+  const targetWord = targetMatch[1].trim().toLowerCase();
+  const tokenId = await poem.locator("[data-poem-token]").evaluateAll((tokens, expected) => {
+    const normalize = value => String(value || "").toLowerCase().replace(/[^a-z']/g, "");
+    return tokens.find(token => normalize(token.textContent) === expected)?.dataset.poemToken || "";
+  }, targetWord);
+  expect(tokenId, `Poem Spotlight must render the target word “${targetWord}”`).toBeTruthy();
+  const target = poem.locator(`[data-poem-token="${tokenId}"]`);
   await expect(target).toHaveCount(1);
-  await expect(target.locator("xpath=ancestor::*[@data-poem-line][1]")).toHaveAttribute(
-    "data-poem-line",
-    String(targetLine)
-  );
 
   const geometry = await poem.evaluate(root => {
     const rootRect = root.getBoundingClientRect();
@@ -271,13 +264,13 @@ test("Poem Spotlight keeps authored line numbers clear when poem lines wrap on a
       stageHasScroll: Boolean(stage) && stage.scrollHeight > stage.clientHeight + 1,
       clippedMarkers: lines.filter(line => {
         const marker = line.querySelector("[data-poem-line-marker]");
-        if (!marker) return true;
+        if (!marker) return false;
         const rect = marker.getBoundingClientRect();
         return rect.left < rootRect.left - 1 || rect.right > rootRect.right + 1;
       }).length,
       markerTokenOverlaps: lines.flatMap(line => {
         const markerRect = line.querySelector("[data-poem-line-marker]")?.getBoundingClientRect();
-        if (!markerRect) return [1];
+        if (!markerRect) return [];
         return [...line.querySelectorAll("button")]
           .map(button => overlapArea(markerRect, button.getBoundingClientRect()))
           .filter(area => area > 1);
@@ -302,6 +295,15 @@ test("Poem Spotlight keeps authored line numbers clear when poem lines wrap on a
   expect(geometry.lineOverlaps, "authored line groups must not overlap").toEqual([]);
   expect(geometry.undersizedControls, "wrapped poem words must keep the 56px target floor").toEqual([]);
 
+  const wrongId = await poem.locator("[data-poem-token]").evaluateAll((tokens, expected) => {
+    const normalize = value => String(value || "").toLowerCase().replace(/[^a-z']/g, "");
+    return tokens.find(token => normalize(token.textContent) !== expected)?.dataset.poemToken || "";
+  }, targetWord);
+  expect(wrongId, "Poem Spotlight needs a wrong-word retry fixture").toBeTruthy();
+  await poem.locator(`[data-poem-token="${wrongId}"]`).click();
+  await expect(markers).toHaveCount(4);
+  await expect(poem.locator(".sbq-poem-word-marker")).not.toHaveCount(0);
+  await expect(target).toBeEnabled();
   await target.click();
   await expect(page.getByRole("heading", { name: "2 of 3" })).toBeVisible();
 });

@@ -96,7 +96,15 @@ export function stopCueAudio() {
   stopCuePlayback();
 }
 
-function playCueAudioInternal(src, { volume = 0.95, onUnavailable, onDelivery, cueId = src } = {}, preserveSequence = false) {
+function playCueAudioInternal(src, {
+  volume = 0.95,
+  onUnavailable,
+  onDelivery,
+  onEnded,
+  onInterrupted,
+  onError,
+  cueId = src
+} = {}, preserveSequence = false) {
   stopCuePlayback({ preserveSequence });
   if (!src) {
     onDelivery?.({ id: String(cueId || ""), session: currentCueSession + 1, type: "unavailable", at: Date.now() });
@@ -108,7 +116,18 @@ function playCueAudioInternal(src, { volume = 0.95, onUnavailable, onDelivery, c
   currentCueSession = session;
   const deliveryId = String(cueId || src);
   currentCueId = deliveryId;
-  currentCueDelivery = onDelivery;
+  const deliver = event => {
+    onDelivery?.(event);
+    if (event.type === "completed") onEnded?.(event);
+    if (event.type === "interrupted") onInterrupted?.(event);
+    if (event.type === "failed") {
+      onError?.(event);
+      // A failed resume is also an interruption from the child's point of
+      // view. Keep the legacy callback truthful for model-replay consumers.
+      onInterrupted?.(event);
+    }
+  };
+  currentCueDelivery = deliver;
   const ownsSession = () => currentCueSession === session && currentCueId === deliveryId;
   let ownedAudio = null;
   const ownsCue = () => ownsSession() && currentCue === ownedAudio;
@@ -129,7 +148,7 @@ function playCueAudioInternal(src, { volume = 0.95, onUnavailable, onDelivery, c
     cueResumeAfterSuspend = false;
     setQuestActionSfxInstructionActive(false);
     restoreGameMusic();
-    reportCueDelivery(type, { id: deliveryId, session, delivery: onDelivery });
+    reportCueDelivery(type, { id: deliveryId, session, delivery: deliver });
   };
   let unavailableNotified = false;
   const unavailable = () => {
@@ -139,7 +158,7 @@ function playCueAudioInternal(src, { volume = 0.95, onUnavailable, onDelivery, c
     onUnavailable?.();
   };
   currentCueFinish = finish;
-  reportCueDelivery("loading", { id: deliveryId, session, delivery: onDelivery });
+  reportCueDelivery("loading", { id: deliveryId, session, delivery: deliver });
 
   try {
     const audio = getSharedCueElement();
@@ -170,10 +189,10 @@ function playCueAudioInternal(src, { volume = 0.95, onUnavailable, onDelivery, c
     const result = audio.play();
     if (result?.catch) {
       result.then(() => {
-        if (ownsCue()) reportCueDelivery("started", { id: deliveryId, session, delivery: onDelivery });
+        if (ownsCue()) reportCueDelivery("started", { id: deliveryId, session, delivery: deliver });
       }).catch(unavailable);
     } else {
-      if (ownsCue()) reportCueDelivery("started", { id: deliveryId, session, delivery: onDelivery });
+      if (ownsCue()) reportCueDelivery("started", { id: deliveryId, session, delivery: deliver });
     }
   } catch {
     unavailable();
@@ -188,7 +207,15 @@ export function playCueAudio(src, options = {}) {
 // ("st" = /s/ then /t/, said quickly) and any future phoneme-then-name
 // sequence. One-voice rule holds: if anything else grabs the voice mid-chain,
 // the chain stops instead of talking over it.
-export function playCueSequence(srcs = [], { volume = 0.95, gapMs = 150, onDelivery, onItemDelivery: onItemDiagnostic, cueId = "cue-sequence" } = {}) {
+export function playCueSequence(srcs = [], {
+  volume = 0.95,
+  gapMs = 150,
+  onDelivery,
+  onItemDelivery: onItemDiagnostic,
+  onStarted,
+  onUnavailable,
+  cueId = "cue-sequence"
+} = {}) {
   const queue = (srcs || []).filter(Boolean);
   if (!queue.length) return;
   cancelCueSequence();
@@ -197,6 +224,8 @@ export function playCueSequence(srcs = [], { volume = 0.95, gapMs = 150, onDeliv
     cueId: String(cueId),
     session: cueSequenceSession + 1,
     onDelivery,
+    onStarted,
+    onUnavailable,
     finished: false,
     started: false
   };
@@ -219,9 +248,25 @@ export function playCueSequence(srcs = [], { volume = 0.95, gapMs = 150, onDeliv
       if (event.type === "started" && ownsAggregate && !sequence.started) {
         sequence.started = true;
         reportSequenceDelivery(sequence, "started");
+        sequence.onStarted?.({
+          id: sequence.cueId,
+          session: sequence.session,
+          type: "started",
+          at: Date.now()
+        });
       }
       if (event.type === "failed" || event.type === "interrupted") {
-        if (ownsAggregate) finishCueSequence(sequence, event.type);
+        if (ownsAggregate) {
+          finishCueSequence(sequence, event.type);
+          if (event.type === "failed") {
+            sequence.onUnavailable?.({
+              id: sequence.cueId,
+              session: sequence.session,
+              type: "failed",
+              at: Date.now()
+            });
+          }
+        }
         // Older callers rely on a failed recording trying the next source. It
         // remains diagnostic-only once the aggregate has truthfully failed.
         if (event.type === "failed" && index < queue.length) {

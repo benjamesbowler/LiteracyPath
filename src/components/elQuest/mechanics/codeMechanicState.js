@@ -104,7 +104,7 @@ export function showSceneHuntLabels(current) {
   return { ...current, labelsVisible: true };
 }
 
-export function sceneHuntSupportLevel(baseSupportLevel, current) {
+export function sceneHuntSupportLevel(baseSupportLevel) {
   // Names are always available now, so showing them is not an extra support
   // event that should inflate the evidence level.
   return normalizedSupportLevel(baseSupportLevel);

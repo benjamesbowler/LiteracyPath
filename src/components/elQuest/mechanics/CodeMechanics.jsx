@@ -160,9 +160,23 @@ export function SceneHuntMechanic({
   reducedMotion
 }) {
   const [huntState, setHuntState] = useRoundState(round, createSceneHuntState);
+  const matchingObjects = (round.objects || []).filter(object => object.matches === true);
+  const singleAnswer = matchingObjects.length === 1;
 
   function handleObject(object) {
     if (disabled) return;
+    if (singleAnswer) {
+      const committedState = {
+        ...huntState,
+        selectedItems: [object.word],
+        checked: false,
+        complete: false
+      };
+      const result = commitSceneHunt(committedState, round, supportLevel);
+      setHuntState(result.state);
+      onCommit?.(result.outcome);
+      return;
+    }
     setHuntState(current => toggleSceneHuntItem(current, object.word));
   }
 
@@ -237,16 +251,18 @@ export function SceneHuntMechanic({
           );
         })}
       </div>
-      <div className="am-scene-hunt-actions">
-        <button
-          type="button"
-          style={CHILD_TARGET_STYLE}
-          disabled={disabled}
-          onClick={handleCheck}
-        >
-          Check tags
-        </button>
-      </div>
+      {!singleAnswer && (
+        <div className="am-scene-hunt-actions">
+          <button
+            type="button"
+            style={CHILD_TARGET_STYLE}
+            disabled={disabled}
+            onClick={handleCheck}
+          >
+            Check tags
+          </button>
+        </div>
+      )}
     </section>
   );
 }

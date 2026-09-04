@@ -849,7 +849,7 @@
   position: relative;
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   touch-action: none;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -1548,6 +1548,23 @@
   transition: transform 90ms ease-out, box-shadow 90ms ease-out;
 }
 
+.adventure-round-frame__audio-status {
+  align-self: center;
+  max-width: 250px;
+  color: #4d3921;
+  font: 800 0.78rem/1.15 var(--lp-font-ui);
+  text-align: center;
+}
+
+.adventure-round-frame__audio-status[data-audio-state="unavailable"] {
+  color: #9a351e;
+}
+
+.adventure-round-frame__audio-actions button[data-audio-state="playing"] {
+  border-color: #2e8a58;
+  box-shadow: 0 3px 0 #246c45, 0 0 0 3px rgba(78, 180, 111, 0.22);
+}
+
 .adventure-round-frame__stop:active,
 .adventure-round-frame__audio-actions button:not(:disabled):active {
   transform: translateY(2px);
@@ -1571,6 +1588,14 @@
     0 18px 44px rgba(15, 34, 28, 0.28),
     inset 0 0 0 5px rgba(115, 74, 31, 0.12);
   overscroll-behavior: contain;
+}
+
+/* Letter Trace owns a writing canvas rather than a document. Keep the whole
+ * loop in the round viewport so a correction model cannot strand the child in
+ * a nested scroll area. Other mechanics retain the stage's contained scroll
+ * behaviour for genuinely larger reading surfaces. */
+[data-adventure-round-frame="letterTrace"] .adventure-round-frame__stage {
+  overflow: hidden;
 }
 
 .adventure-round-frame__correction-model {
@@ -1820,15 +1845,15 @@
 }
 
 .am-letter-press-button {
-  min-width: 82px !important;
-  min-height: 82px !important;
+  min-width: 104px !important;
+  min-height: 104px !important;
   border: 4px solid #725033;
   border-radius: 50% 50% 44% 44%;
   background: radial-gradient(circle at 35% 24%, #fffbe8 0 16%, #e8c979 48%, #ad7138 100%);
   box-shadow: 0 8px 0 #684429, 0 13px 17px rgba(42, 29, 16, 0.28);
   color: #2b382f;
   cursor: pointer;
-  font: 850 clamp(1.8rem, 4vw, 2.7rem)/1 var(--lp-font-letter, var(--lp-font-reading));
+  font: 850 clamp(2.35rem, 5vw, 3.5rem)/1 var(--lp-font-letter, var(--lp-font-reading));
 }
 
 .am-letter-press-button[aria-pressed="true"] {
@@ -1857,15 +1882,15 @@
 }
 
 .am-sound-gate-magnet {
-  min-width: 76px !important;
-  min-height: 76px !important;
+  min-width: 104px !important;
+  min-height: 104px !important;
   border: 5px solid #44658c;
   border-radius: 18px;
   background: linear-gradient(145deg, #eaf8ff, #9bcce0);
   box-shadow: 0 7px 0 #31506d, 0 12px 18px rgba(32, 57, 80, 0.25);
   color: #20394c;
   cursor: pointer;
-  font: 850 clamp(1.6rem, 4vw, 2.45rem)/1 var(--lp-font-letter, var(--lp-font-reading));
+  font: 850 clamp(2.1rem, 5vw, 3.25rem)/1 var(--lp-font-letter, var(--lp-font-reading));
 }
 
 .am-sound-gate-magnet[aria-pressed="true"] {
@@ -2286,8 +2311,9 @@
 }
 
 .adventure-sound-boxes__tile-bank .adventure-mechanic-control {
-  min-width: 68px;
-  font-size: clamp(1.35rem, 3vw, 1.9rem);
+  min-width: 88px;
+  min-height: 76px;
+  font-size: clamp(1.8rem, 4vw, 2.45rem);
 }
 
 /* Word Machine: visible before, operation tray, and transformed after. */
@@ -2756,6 +2782,14 @@
   color: #2d3c34;
 }
 
+/* Adventure Round Frame owns the one deliberate scroll route. Let the
+ * complete poem flow inside that stage instead of creating a nested scroller
+ * around the reading lane at short classroom heights. */
+[data-adventure-round-frame="poemSpotlight"] .sbq-poem-spotlight .sbq-round-display.sbq-poem {
+  max-height: none;
+  overflow: visible;
+}
+
 .sbq-poem-line {
   display: grid;
   grid-template-columns: 42px minmax(0, 1fr);
@@ -2888,9 +2922,28 @@
   width: min(100%, 900px);
 }
 
-.sbq-trace-demo { grid-area: demo; }
+.sbq-trace-demo {
+  grid-area: demo;
+  gap: 4px;
+}
+
+.sbq-trace-demo__controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.sbq-trace-demo__controls .sbq-ghost-button {
+  min-height: 56px;
+  padding: 8px 12px;
+}
+
 .sbq-trace-stage {
   grid-area: canvas;
+  height: min(300px, 38vh);
+  aspect-ratio: 460 / 300;
+  overflow: hidden;
   border: 9px solid #9b713e;
   background: linear-gradient(145deg, #fffef7, #f4e8c9);
   box-shadow: 0 9px 0 #6b482b, 0 16px 26px rgba(42, 28, 15, 0.25), inset 0 0 0 3px rgba(126, 84, 40, 0.12);
@@ -3004,6 +3057,7 @@
 
   .sbq-trace-stage {
     width: min(100%, 400px);
+    height: min(248px, 38vh);
   }
 }
 
@@ -3055,6 +3109,10 @@
   .sbq-trace {
     grid-template-columns: 1fr;
     grid-template-areas: "demo" "canvas" "phase" "message" "actions" "support";
+  }
+
+  .sbq-trace-stage {
+    height: min(280px, 36vh);
   }
 
   .sbq-trace [data-support-route="formation-practice"] {
