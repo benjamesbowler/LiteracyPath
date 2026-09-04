@@ -93,7 +93,7 @@ export function CampaignMap({
         <div>
           <p className="ss-eyebrow">Next expedition · Stop {stopOrdinal(currentStopId)}</p>
           <h2 id="ss-map-next-title">{currentExpedition.title}</h2>
-          <p data-child-instruction="">{request?.callbackLines?.[0]?.text || `${currentExpedition.residentId} has found a problem only a Sound Seeker can solve.`}</p>
+          <p data-child-instruction="">{request?.callbackLines?.[0]?.text || `${currentExpedition.residentId} needs a Sound Seeker.`}</p>
         </div>
         <button className="ss-primary-button" type="button" onClick={() => onStart(currentStopId)} data-child-primary="" data-child-emphasis="primary" data-child-emphasis-cue="">
           {state.checkpoint?.mission?.stopId === currentStopId ? "Carry on my adventure" : "Start my adventure"}
