@@ -107,6 +107,9 @@
       content: ""; position: absolute; width: min(650px, 92%); height: 170px; bottom: 25px; border-radius: 50%;
       background: rgba(248,226,135,.22); filter: blur(10px); transform: rotate(-4deg);
     }
+    .route-glow { position: absolute; left: 50%; bottom: 128px; width: 220px; height: 30px; transform: translateX(-50%) rotate(-6deg); opacity: .7; background: radial-gradient(ellipse, rgba(255,231,118,.68) 0%, rgba(255,231,118,.2) 44%, transparent 72%); filter: blur(3px); }
+    .route-glow::before, .route-glow::after { content: ""; position: absolute; top: 8px; width: 12px; height: 12px; border-radius: 50%; background: #ffe889; box-shadow: 0 0 15px 3px rgba(255,226,106,.82); }
+    .route-glow::before { left: 18px; } .route-glow::after { right: 18px; }
     .bridge {
       position: absolute; bottom: 75px; width: min(410px, 54%); height: 82px; border-bottom: 12px solid #765345;
       border-radius: 0 0 44% 44%; opacity: .96; filter: drop-shadow(0 18px 13px rgba(38,59,53,.2));
@@ -137,7 +140,8 @@
     .mote.wrong { animation: nudge .36s ease; }
     .mote:disabled { cursor: default; }
     .mote.hidden { opacity: 0; pointer-events: none; }
-    .hero { position: absolute; bottom: 66px; left: 50%; width: 142px; height: 142px; transform: translateX(-50%) translateX(-122px); background: url('/game-assets/sound-seekers/avatars-v3/chompy.webp') center / contain no-repeat; filter: drop-shadow(0 14px 7px rgba(38,59,53,.25)); animation: hero-bob 1.6s ease-in-out infinite; z-index: 2; }
+    .hero { position: absolute; bottom: 66px; left: 50%; width: 142px; height: 142px; transform: translateX(-50%) translateX(-122px); background: url('/game-assets/sound-seekers/avatars-v3/chompy.webp') center / contain no-repeat; filter: drop-shadow(0 14px 7px rgba(38,59,53,.25)); animation: hero-bob 1.6s ease-in-out infinite; z-index: 2; transition: filter .35s; }
+    .hero.celebrate { animation: hero-arrive .9s cubic-bezier(.2,.8,.3,1) both; filter: drop-shadow(0 0 18px rgba(255,225,103,.92)); }
     .echo-ring { position: absolute; left: 50%; bottom: 200px; width: 128px; height: 128px; transform: translateX(-50%); border: 2px solid rgba(255,233,138,.76); border-radius: 50%; opacity: .7; animation: pulse 2.4s ease-out infinite; }
     .target {
       position: absolute; top: 0; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 14px; min-width: 210px;
@@ -170,6 +174,8 @@
 
     @keyframes float { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-9px) rotate(3deg); } }
     @keyframes hero-bob { 0%,100% { transform: translateX(-50%) translateX(-122px) translateY(0); } 50% { transform: translateX(-50%) translateX(-122px) translateY(-4px); } }
+    @keyframes hero-arrive { 0% { transform: translateX(-50%) translateX(-122px) translateY(0) scale(1); } 48% { transform: translateX(-50%) translateX(-38px) translateY(-9px) scale(1.04); } 100% { transform: translateX(-50%) translateX(-38px) translateY(0) scale(1); } }
+    @keyframes hero-arrive-mobile { 0% { transform: translateX(-50%) translateX(-84px) translateY(0) scale(.78); } 48% { transform: translateX(-50%) translateX(-28px) translateY(-7px) scale(.82); } 100% { transform: translateX(-50%) translateX(-28px) translateY(0) scale(.78); } }
     @keyframes pulse { 0% { transform: translateX(-50%) scale(.7); opacity: .9; } 100% { transform: translateX(-50%) scale(1.35); opacity: 0; } }
     @keyframes nudge { 0%,100% { transform: translateX(0); } 35% { transform: translateX(-10px) rotate(-5deg); } 70% { transform: translateX(9px) rotate(5deg); } }
     @keyframes land { 0% { transform: scale(1); } 65% { transform: translate(55px, 98px) scale(.54) rotate(20deg); } 100% { transform: translate(55px, 98px) scale(.1) rotate(26deg); opacity: 0; } }
@@ -179,7 +185,7 @@
       .scene { min-height: calc(100vh - 70px); grid-template-columns: 1fr; gap: 8px; padding-top: 16px; padding-bottom: 176px; }
       .briefing { top: 14px; left: 14px; width: min(270px, calc(100% - 28px)); padding: 13px 14px 12px; } .briefing h2 { margin-top: 9px; font-size: clamp(28px, 8vw, 42px); } .briefing p { display: none; }
       .resident { margin-top: 13px; } .resident-avatar { width: 72px; height: 72px; } .speech { max-width: 255px; padding: 11px 13px; font-size: 14px; }
-      .playfield { min-height: 340px; width: 100%; } .target { top: 2px; } .bridge { bottom: 44px; } .hero { bottom: 42px; transform: translateX(-50%) translateX(-84px) scale(.78); } .echo-ring { bottom: 156px; transform: translateX(-50%) scale(.82); }
+      .playfield { min-height: 340px; width: 100%; } .target { top: 2px; } .bridge { bottom: 44px; } .hero { bottom: 42px; transform: translateX(-50%) translateX(-84px) scale(.78); } .hero.celebrate { animation-name: hero-arrive-mobile; } .echo-ring { bottom: 156px; transform: translateX(-50%) scale(.82); }
       .lantern { bottom: 148px; transform: translateX(-50%) scale(.8); } .lantern.awake { transform: translateX(-50%) translateY(-7px) scale(.8); }
       .mote[data-letter="m"] { left: 38%; top: 35%; } .mote[data-letter="s"] { right: 3%; top: 21%; } .mote[data-letter="f"] { right: 15%; bottom: 2%; }
       .dock { flex-wrap: wrap; gap: 10px; } .status { min-width: 0; } .feedback { order: 3; flex-basis: 100%; min-height: 30px; } .continue { flex: 0 0 auto; }
@@ -217,6 +223,7 @@
           <button class="replay" id="replayBtn" type="button" aria-label="Hear the /m/ sound again" aria-pressed="false">◖)))</button>
         </div>
         <div class="echo-ring" aria-hidden="true"></div>
+        <div class="route-glow" aria-hidden="true"></div>
         <div class="bridge" aria-hidden="true"><span class="bridge-piece" id="piece1"></span><span class="bridge-piece"></span><span class="bridge-piece"></span></div>
         <div class="lantern" id="lantern" aria-hidden="true"><img src="/game-assets/quest-pixel/seedwake/scenery-premium/seed-lantern.png" alt="" /></div>
         <div class="hero" aria-hidden="true"></div>
@@ -248,6 +255,7 @@
     const replayBtn = document.querySelector('#replayBtn');
     const lantern = document.querySelector('#lantern');
     const piece1 = document.querySelector('#piece1');
+    const hero = document.querySelector('.hero');
     const toast = document.querySelector('#toast');
     const modal = document.querySelector('#modal');
     let solved = false;
@@ -275,6 +283,7 @@
       if (letter === 'm') {
         solved = true;
         choice.classList.add('correct');
+        hero.classList.add('celebrate');
         choices.forEach((item) => { item.disabled = true; if (item !== choice) item.classList.add('hidden'); });
         piece1.classList.add('filled'); lantern.classList.add('awake'); sound('/game-assets/quest-pixel/seedwake/audio/success.wav');
         statusIcon.textContent = '✦'; statusTitle.textContent = 'The first plank is awake!'; statusSub.textContent = 'You matched /m/ to the letter m.';
