@@ -214,7 +214,13 @@ main.hollow-page button.hollow-spot:is(:hover, :focus, :focus-visible, :active):
 .hollow-resident .hollow-art { filter: drop-shadow(0 8px 8px rgba(5, 8, 14, 0.55)); }
 
 .hollow-art { position: relative; display: inline-flex; align-items: center; justify-content: center; }
-.hollow-art-emoji { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; line-height: 1; }
+.hollow-art-fallback {
+  position: absolute;
+  inset: 14%;
+  border-radius: 38% 46% 42% 48%;
+  background: linear-gradient(145deg, rgba(255, 239, 194, .96), rgba(116, 180, 141, .9));
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.35);
+}
 .hollow-art img { position: relative; width: 100%; height: 100%; object-fit: contain; }
 
 /* Room arrows + dots */
@@ -257,7 +263,24 @@ main.hollow-page button.hollow-room-arrow:is(:hover, :focus, :focus-visible, :ac
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
   text-align: center; color: #F2EFE6; padding: 20px;
 }
-.hollow-room-lock-icon { font-size: 3rem; line-height: 1; }
+.hollow-room-lock-icon {
+  width: 42px;
+  height: 42px;
+  position: relative;
+  border: 4px solid #F2EFE6;
+  border-radius: 12px 12px 9px 9px;
+}
+.hollow-room-lock-icon::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: -18px;
+  width: 18px;
+  height: 20px;
+  border: 4px solid #F2EFE6;
+  border-bottom: 0;
+  border-radius: 12px 12px 0 0;
+}
 .hollow-room-lock strong { font-family: "Fredoka", "Nunito", sans-serif; font-size: 1.6rem; font-weight: 700; }
 .hollow-room-lock span { font-weight: 700; max-width: 420px; opacity: 0.95; }
 .hollow-room-lock .hollow-price.cant { color: #F2EFE6; opacity: 0.95; }
@@ -269,6 +292,34 @@ main.hollow-page button.hollow-room-arrow:is(:hover, :focus, :focus-visible, :ac
   background: var(--hw-parchment); color: var(--hw-ink);
   font-weight: 800; font-size: 0.85rem; cursor: pointer;
   box-shadow: 0 3px 10px rgba(5, 8, 14, 0.4);
+}
+.hollow-world-glyph {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  vertical-align: -2px;
+  background: linear-gradient(90deg, transparent 45%, currentColor 46% 54%, transparent 55%);
+}
+.hollow-world-glyph::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 5px;
+  margin-top: 3px;
+  border-top: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+}
+.hollow-chevron {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 .hollow-world-pop {
   position: absolute; bottom: 54px; right: 14px; z-index: 7;
