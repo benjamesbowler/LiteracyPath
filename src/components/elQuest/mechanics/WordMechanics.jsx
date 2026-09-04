@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useRef, useState } from "react";
+import { useEffect, useReducer, useRef } from "react";
 import {
   buildSoundBoxesOutcome,
   buildWordMachineOutcome,
@@ -24,29 +24,34 @@ const WORD_WINDOW_STUDY_SECONDS = 5;
 // Counts a study window down from `seconds` to 0, then fires onComplete.
 // Cleans itself up on unmount or when `active` goes false.
 function useStudyCountdown(active, seconds, onComplete) {
-  const [remaining, setRemaining] = useState(seconds);
+  const [remaining, dispatch] = useReducer((state, action) => {
+    if (action.type === "reset") return action.seconds;
+    return Math.max(0, state - 1);
+  }, seconds);
   const onCompleteRef = useRef(onComplete);
-  onCompleteRef.current = onComplete;
+  const intervalRef = useRef(null);
 
   useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
+
+  useEffect(() => {
+    dispatch({ type: "reset", seconds });
+    clearInterval(intervalRef.current);
     if (!active) {
-      setRemaining(seconds);
       return undefined;
     }
-    setRemaining(seconds);
-    const interval = setInterval(() => {
-      setRemaining(current => {
-        if (current <= 1) {
-          clearInterval(interval);
-          onCompleteRef.current?.();
-          return 0;
-        }
-        return current - 1;
-      });
+    intervalRef.current = setInterval(() => {
+      dispatch({ type: "tick" });
     }, 1000);
-    return () => clearInterval(interval);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    return () => clearInterval(intervalRef.current);
   }, [active, seconds]);
+
+  useEffect(() => {
+    if (!active || remaining !== 0) return;
+    clearInterval(intervalRef.current);
+    onCompleteRef.current?.();
+  }, [active, remaining]);
 
   return remaining;
 }

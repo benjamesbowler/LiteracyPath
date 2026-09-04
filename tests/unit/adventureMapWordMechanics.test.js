@@ -1084,7 +1084,8 @@ test("rendered mechanics expose distinct stages, native controls, live status, a
   const wordWindow = render(WordWindowMechanic, wordWindowRound);
   assert.match(wordWindow, /data-mechanic-stage="word-window"/);
   assert.match(wordWindow, /data-window-phase="study"/);
-  assert.match(wordWindow, /<button[^>]*data-action="close-window"/);
+  assert.match(wordWindow, /adventure-word-window__countdown/);
+  assert.doesNotMatch(wordWindow, /data-action="close-window"/);
   assert.doesNotMatch(wordWindow, /data-word-choice=/);
   assert.match(wordWindow, /role="status"/);
 
@@ -1104,9 +1105,11 @@ test("rendered mechanics expose distinct stages, native controls, live status, a
   assert.match(machine, /data-reduced-motion="true"/);
   assert.doesNotMatch(machine, /data-machine-after=/);
 
-  for (const html of [wordWindow, soundBoxes, machine]) {
+  for (const html of [soundBoxes, machine]) {
     assert.match(html, /data-target-size="56"/);
     assert.doesNotMatch(html, /sbq-answer-grid/);
     assert.match(html, /role="group"/);
   }
+  assert.doesNotMatch(wordWindow, /sbq-answer-grid/);
+  assert.match(wordWindow, /role="group"/);
 });

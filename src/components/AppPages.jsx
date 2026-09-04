@@ -1052,7 +1052,10 @@ function ListeningVisual() {
       className="assessment-listening-visual"
       {...getAssessmentDecorativeMediaProps()}
     >
-      <span>🔊</span>
+      <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true" focusable="false">
+        <path d="M5 9.5v5h3.6l4.4 3.4V6.1L8.6 9.5H5Z" fill="currentColor" />
+        <path d="M16.4 9a4.6 4.6 0 0 1 0 6M19.2 6.2a8.6 8.6 0 0 1 0 11.6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      </svg>
     </div>
   );
 }

@@ -1452,23 +1452,23 @@ function buildSpellRounds(cycle) {
 }
 
 const STANDARD_STATIONS = [
-  { id: "letters", title: "Letter Spot", subtitle: "Big and small letters", icon: "🔤", mechanicIds: ["letterPair"], build: buildLetterRounds },
-  { id: "sounds", title: "Sound Catch", subtitle: "Hear it, find it", icon: "👂", mechanicIds: ["soundGate"], build: buildSoundRounds },
-  { id: "hunt", title: "Sound Hunt", subtitle: "Pictures and first sounds", icon: "🔎", mechanicIds: ["sceneHunt"], build: buildHuntRounds },
-  { id: "quick", title: "Quick Words", subtitle: "Remember the whole word", icon: "⚡", mechanicIds: ["wordWindow"], build: buildQuickWordRounds },
-  { id: "build", title: "Word Build", subtitle: "Build with sound boxes", icon: "🧱", mechanicIds: ["soundBoxes"], build: buildWordBuildRounds },
-  { id: "play", title: "Word Play", subtitle: "Change, remove, or join word parts", icon: "🎲", mechanicIds: ["wordMachine"], build: buildWordPlayRounds },
-  { id: "poem", title: "Poem Time", subtitle: "Follow the poem's print", icon: "📜", mechanicIds: ["poemSpotlight"], build: buildPoemRounds },
-  { id: "trace", title: "Letter Trace", subtitle: "Practise the letter path", icon: "✏️", mechanicIds: ["letterTrace"], build: buildTraceRounds }
+  { id: "letters", title: "Letter Spot", subtitle: "Big and small letters", icon: "letters", mechanicIds: ["letterPair"], build: buildLetterRounds },
+  { id: "sounds", title: "Sound Catch", subtitle: "Hear it, find it", icon: "sounds", mechanicIds: ["soundGate"], build: buildSoundRounds },
+  { id: "hunt", title: "Sound Hunt", subtitle: "Pictures and first sounds", icon: "hunt", mechanicIds: ["sceneHunt"], build: buildHuntRounds },
+  { id: "quick", title: "Quick Words", subtitle: "Remember the whole word", icon: "quick", mechanicIds: ["wordWindow"], build: buildQuickWordRounds },
+  { id: "build", title: "Word Build", subtitle: "Build with sound boxes", icon: "build", mechanicIds: ["soundBoxes"], build: buildWordBuildRounds },
+  { id: "play", title: "Word Play", subtitle: "Change, remove, or join word parts", icon: "play", mechanicIds: ["wordMachine"], build: buildWordPlayRounds },
+  { id: "poem", title: "Poem Time", subtitle: "Follow the poem's print", icon: "poem", mechanicIds: ["poemSpotlight"], build: buildPoemRounds },
+  { id: "trace", title: "Letter Trace", subtitle: "Practise the letter path", icon: "trace", mechanicIds: ["letterTrace"], build: buildTraceRounds }
 ];
 
 // Cycles 25-27 swap the letter-sound games for fluency, pattern and poem games.
 const FLUENCY_STATIONS = [
-  { id: "pattern", title: "Pattern Power", subtitle: "Sort the word patterns", icon: "🧩", mechanicIds: ["patternSort"], build: buildPatternPowerRounds },
-  { id: "chain", title: "Word Chains", subtitle: "Change one grapheme", icon: "🔗", mechanicIds: ["wordChain"], build: buildWordChainRounds },
-  { id: "speed", title: "Phrase Flow", subtitle: "Follow a phrase trail", icon: "🚀", mechanicIds: ["phraseFlow"], build: buildPhraseFlowRounds },
-  { id: "poem", title: "Poem Play", subtitle: "Follow the poem's print", icon: "📜", mechanicIds: ["poemSpotlight"], build: buildPoemRounds },
-  { id: "spell", title: "Heart Word Studio", subtitle: "Study, hide, spell, repair", icon: "🐝", mechanicIds: ["heartWord"], build: buildSpellRounds }
+  { id: "pattern", title: "Pattern Power", subtitle: "Sort the word patterns", icon: "pattern", mechanicIds: ["patternSort"], build: buildPatternPowerRounds },
+  { id: "chain", title: "Word Chains", subtitle: "Change one grapheme", icon: "chain", mechanicIds: ["wordChain"], build: buildWordChainRounds },
+  { id: "speed", title: "Phrase Flow", subtitle: "Follow a phrase trail", icon: "speed", mechanicIds: ["phraseFlow"], build: buildPhraseFlowRounds },
+  { id: "poem", title: "Poem Play", subtitle: "Follow the poem's print", icon: "poem", mechanicIds: ["poemSpotlight"], build: buildPoemRounds },
+  { id: "spell", title: "Heart Word Studio", subtitle: "Study, hide, spell, repair", icon: "spell", mechanicIds: ["heartWord"], build: buildSpellRounds }
 ];
 
 // Backwards-compatible default export (the standard letter-sound set).
@@ -1543,7 +1543,7 @@ export function stationsForCycle(cycle) {
       id: "check",
       title: "Cycle Quest",
       subtitle: "Show what you can do, then recover with support",
-      icon: "⭐",
+      icon: "check",
       mechanicIds,
       build: null
     });

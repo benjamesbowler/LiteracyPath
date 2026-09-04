@@ -17,7 +17,8 @@ import {
   saveStudentProfile
 } from "../utils/studentProfile.js";
 import { playStarChime } from "../utils/audio/gameSfx.js";
-import { CoinIcon, BerryIcon } from "./shared/CurrencyIcons.jsx";
+import { CoinIcon, BerryIcon, SparkIcon } from "./shared/CurrencyIcons.jsx";
+import { BookOpenText, GameController, MapTrifold, Toolbox } from "@phosphor-icons/react";
 import { lockedItemAffordance } from "../policy/lockedItemAffordance.js";
 
 // My Hollow - Rewards V2. A GAME ROOM, not a webpage: one slim top bar
@@ -338,11 +339,11 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
     : "";
 
   const earnWays = [
-    { icon: "⭐", label: "Quest star", pays: `${COIN_RATES.questStar}` },
-    { icon: "🎮", label: "Game star", pays: `${COIN_RATES.gameStar}` },
-    { icon: "📖", label: "Book", pays: `${COIN_RATES.bookRead} + 🫐` },
-    { icon: "🗺️", label: "Story quest", pays: `${COIN_RATES.storyQuest} + 🫐🫐` },
-    { icon: "🧰", label: "All 3 daily tasks", pays: `${COIN_RATES.dailyChest}` }
+    { icon: SparkIcon, label: "Quest star", coins: COIN_RATES.questStar, berries: 0 },
+    { icon: GameController, label: "Game star", coins: COIN_RATES.gameStar, berries: 0 },
+    { icon: BookOpenText, label: "Book", coins: COIN_RATES.bookRead, berries: 1 },
+    { icon: MapTrifold, label: "Story quest", coins: COIN_RATES.storyQuest, berries: 2 },
+    { icon: Toolbox, label: "All 3 daily tasks", coins: COIN_RATES.dailyChest, berries: 0 }
   ];
 
   function renderSpot(spot) {
@@ -740,7 +741,10 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
               <span className="hollow-earn-title">Earn coins:</span>
               {earnWays.map(way => (
                 <span key={way.label} className="hollow-earn-chip" title={way.label}>
-                  <span aria-hidden="true">{way.icon}</span> {way.label} <strong><CoinIcon size={13} /> {way.pays}</strong>
+                  <way.icon size={16} weight="duotone" aria-hidden="true" /> {way.label}
+                  <strong><CoinIcon size={13} /> {way.coins}
+                    {way.berries > 0 && <><span aria-hidden="true"> + </span><BerryIcon size={13} aria-hidden="true" /> × {way.berries}</>}
+                  </strong>
                 </span>
               ))}
             </div>

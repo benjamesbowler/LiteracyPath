@@ -26,6 +26,7 @@
 // a third one, and it does not come back here.
 
 import { useEffect, useMemo, useState } from "react";
+import { BookOpenText } from "@phosphor-icons/react";
 
 import StudentGlassShell from "./StudentGlassShell.jsx";
 import { ChildRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
@@ -61,9 +62,10 @@ import {
 // pairing truthful and show a stable, explicit fallback instead of preserving
 // a blank image well after an error.
 function BookCover({ book, className = "kg-book-cover", loading = "lazy", eager = false }) {
-  const [failed, setFailed] = useState(false);
   const src = coverFor(book);
-  if (!src || failed) {
+  const [coverState, setCoverState] = useState(() => ({ src, status: "loading" }));
+  const currentState = coverState.src === src ? coverState : { src, status: "loading" };
+  if (!src || currentState.status === "failed") {
     return (
       <span className={`${className} kg-book-cover--fallback`} data-book-cover-state="fallback" aria-hidden="true">
         <span className="kg-book-cover-fallback-level">{book?.level || "Book"}</span>
@@ -73,14 +75,24 @@ function BookCover({ book, className = "kg-book-cover", loading = "lazy", eager 
     );
   }
   return (
-    <img
-      className={className}
-      src={src}
-      alt=""
-      loading={eager ? "eager" : loading}
-      decoding="async"
-      onError={() => setFailed(true)}
-    />
+    <span
+      className={`${className} kg-book-cover-frame`}
+      data-book-cover-state={currentState.status}
+      aria-hidden="true"
+    >
+      <span className="kg-book-cover-fallback-art">
+        <span className="kg-book-cover-fallback-level">{book?.level || "Book"}</span>
+        <strong>{String(book?.title || "Book").trim().charAt(0).toUpperCase() || "B"}</strong>
+      </span>
+      <img
+        src={src}
+        alt=""
+        loading={eager ? "eager" : loading}
+        decoding="async"
+        onLoad={() => setCoverState({ src, status: "ready" })}
+        onError={() => setCoverState({ src, status: "failed" })}
+      />
+    </span>
   );
 }
 
@@ -401,7 +413,7 @@ export function StudentBooksPage({
             </div>
           </div>
           <div className="kg-glass kg-library-preparing" role={exactBookLock && !assignedBookLoading ? "alert" : "status"}>
-            <span aria-hidden="true">📚</span>
+            <BookOpenText size={34} weight="duotone" aria-hidden="true" />
             <strong>{exactBookLock
               ? assignedBookLoading ? "Book getting ready" : "Ask your teacher for help"
               : publicationStatus === "ready" ? "Books are being checked" : "Try again in a moment"}</strong>

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { SpeakerHigh } from "@phosphor-icons/react";
 import { MusicToggle } from "../../audio/MusicToggle.jsx";
 import { buildTrailSection, routePointAt } from "../../../utils/questHub.js";
 import {
@@ -872,7 +873,7 @@ export default function QuestPixelWorld({
               <span>New sound</span>
               <strong>{firstTeachEntry?.label || firstTeachEntry?.id}</strong>
               <div>
-                {isSoundEnabled && teachCueAvailable && <button type="button" className="qp-cue-icon" onClick={replayCue} aria-label="Hear the sound again"><span aria-hidden="true">&#9835;</span></button>}
+                {isSoundEnabled && teachCueAvailable && <button type="button" className="qp-cue-icon" onClick={replayCue} aria-label="Hear the sound again"><SpeakerHigh size={22} weight="bold" aria-hidden="true" /></button>}
                 <button type="button" className="qp-cue-action" onClick={beginTrail}>Let&apos;s go</button>
               </div>
             </>
@@ -882,7 +883,7 @@ export default function QuestPixelWorld({
             <>
               <span>{encounter?.friend || "Trail friend"}</span>
               <strong>{feedback || shortPrompt(stage, stageSoundDelivered)}</strong>
-              {isSoundEnabled && (stageCueAvailable || stageInstructionAudio) && <button type="button" className="qp-cue-icon" onClick={replayCue} aria-label="Hear the instruction and sound again"><span aria-hidden="true">&#9835;</span></button>}
+              {isSoundEnabled && (stageCueAvailable || stageInstructionAudio) && <button type="button" className="qp-cue-icon" onClick={replayCue} aria-label="Hear the instruction and sound again"><SpeakerHigh size={22} weight="bold" aria-hidden="true" /></button>}
               {stageCount > 1 && <small>{fieldStage + 1} / {stageCount}</small>}
             </>
           )}

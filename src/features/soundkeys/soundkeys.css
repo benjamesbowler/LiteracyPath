@@ -17,7 +17,7 @@
 .soundkeys-mark { display: block; color: var(--sk-lime); font-size: clamp(22px, 3vw, 32px); font-weight: 950; letter-spacing: -.06em; }
 .soundkeys-topbar small { color: #9fb4d2; font-size: 11px; font-weight: 800; letter-spacing: .14em; }
 .soundkeys-actions,.soundkeys-game-tools { display: flex; align-items: center; gap: 10px; }
-.soundkeys-actions > button:not(.soundkeys-midi-connect) { border: 1px solid rgba(255,255,255,.16); border-radius: 12px; background: rgba(255,255,255,.08); color: #fff; padding: 10px 12px; font-size: 18px; cursor: pointer; }
+.soundkeys-actions > button:not(.soundkeys-midi-connect) { display: inline-grid; place-items: center; border: 1px solid rgba(255,255,255,.16); border-radius: 12px; background: rgba(255,255,255,.08); color: #fff; padding: 10px 12px; font-size: 18px; cursor: pointer; }
 .soundkeys-midi-status { color: #ffd56a; font-size: 11px; font-weight: 950; letter-spacing: .08em; }
 .soundkeys-midi-status.is-connected { color: var(--sk-lime); }
 .soundkeys-midi-connect { min-height: 42px; border: 0; border-radius: 12px; background: var(--sk-lime); color: #10200d; padding: 10px 14px; font-weight: 950; cursor: pointer; box-shadow: 0 4px 0 #6da31e; }
@@ -32,7 +32,12 @@
 .soundkeys-kicker,.soundkeys-game-kicker { margin: 0 0 14px; color: var(--sk-cyan); font-size: 11px; font-weight: 950; letter-spacing: .2em; }
 .soundkeys-stage h1 { min-height: 62px; margin: 14px 0 8px; color: var(--sk-lime); font-size: clamp(38px, 8vw, 74px); letter-spacing: .12em; }
 .soundkeys-prompt,.soundkeys-help { color: #9fb4d2; }
-.soundkeys-target-image,.soundkeys-missing-image img { width: 112px; height: 112px; object-fit: contain; border-radius: 22px; background: rgba(255,255,255,.08); }
+.soundkeys-target-image,.soundkeys-missing-image img,.soundkeys-media-unavailable { width: 112px; height: 112px; object-fit: contain; border-radius: 22px; background: rgba(255,255,255,.08); }
+.soundkeys-media-unavailable { display: grid; place-items: center; padding: 14px; border: 1px solid rgba(82,255,240,.28); color: #c8daf3; font-size: 13px; font-weight: 800; text-align: center; }
+.soundkeys-listen,.soundkeys-result button,.soundkeys-controls button { display: inline-flex; align-items: center; gap: 8px; }
+.soundkeys-midi-status { display: inline-flex; align-items: center; gap: 7px; }
+.soundkeys-status-dot { width: 8px; height: 8px; border-radius: 50%; background: #9aa9bd; }
+.soundkeys-midi-status.is-connected .soundkeys-status-dot { background: var(--sk-lime); box-shadow: 0 0 0 4px rgba(168,255,92,.15); }
 .soundkeys-listen { display: inline-flex; align-items: center; justify-content: center; min-width: 168px; min-height: 56px; border: 1px solid rgba(82,255,240,.5); border-radius: 12px; background: rgba(82,255,240,.1); color: var(--sk-cyan); padding: 12px 18px; font-size: 16px; line-height: 1.2; font-weight: 900; cursor: pointer; }
 .soundkeys-listen:disabled { border-color: rgba(255,255,255,.24); background: rgba(255,255,255,.06); color: #9fb4d2; cursor: not-allowed; opacity: .76; }
 .soundkeys-missing-image { display: flex; align-items: center; gap: 18px; }

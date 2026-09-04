@@ -1,6 +1,5 @@
-// Pop-art currency icons. The 🪙 emoji renders as a dull grey ball at chip
-// size, so coins get a real gold SVG (black outline, star emboss) and berries
-// a matching cluster. Inline SVG = zero image requests, crisp at any size.
+// Pop-art currency icons use authored inline SVG so they stay crisp at any
+// size without relying on platform-dependent glyph rendering.
 
 export function CoinIcon({ size = 18 }) {
   return (

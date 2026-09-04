@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SpeakerHigh } from "@phosphor-icons/react";
 import {
   commitSceneHunt,
   commitSoundGate,
@@ -245,7 +246,7 @@ export function SceneHuntMechanic({
                 aria-label={`Hear ${object.word}`}
                 onClick={event => handleObjectAudio(event, object)}
               >
-                <span aria-hidden="true">🔊</span> Hear name
+                <SpeakerHigh size={20} weight="bold" aria-hidden="true" /> Hear name
               </button>
             </div>
           );

@@ -367,7 +367,7 @@ export function validateSoundSeekersV2ContentAuthorities(authorities) {
 }
 
 function repositorySourceFiles(directory = ROOT) {
-  const ignored = new Set([".git", "node_modules", ".artifacts", "dist", "dist-quest-offline", "coverage", "test-results", "playwright-report"]);
+  const ignored = new Set([".git", ".worktrees", "node_modules", ".artifacts", "dist", "dist-quest-offline", "coverage", "test-results", "playwright-report"]);
   return readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
     if (entry.isDirectory() && ignored.has(entry.name)) return [];
     const fullPath = path.join(directory, entry.name);

@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/immutability */
 import { useEffect, useMemo, useRef, useState } from "react";
+import { ArrowCounterClockwise, ArrowLeft, GearSix, SpeakerHigh, Sparkle } from "@phosphor-icons/react";
 import { SOUNDKEY_PROFILES, findSoundKeyWord, wordForMode } from "./content.js";
 import { appendToken, isMissingSoundCorrect, resolveTokenForNote } from "./engine.js";
 import { connectWebMidi, createComputerKeyboardProvider } from "./inputProviders.js";
@@ -157,12 +158,12 @@ export function SoundKeysApp() {
   return (
     <div className="soundkeys-app" data-child-surface="soundkeys">
       <header className="soundkeys-topbar">
-        <a className="soundkeys-back" href="/">← Kids home</a>
+        <a className="soundkeys-back" href="/"><ArrowLeft size={18} weight="bold" aria-hidden="true" /> Kids home</a>
         <div><span className="soundkeys-mark">SoundKeys</span><small>MIDI Word Builder</small></div>
         <div className="soundkeys-actions">
-          <span className={`soundkeys-midi-status${midiConnected ? " is-connected" : ""}`} aria-live="polite">● {midiConnected ? "MIDI ready" : midiConnecting ? "Connecting MIDI" : "MIDI not connected"}</span>
+          <span className={`soundkeys-midi-status${midiConnected ? " is-connected" : ""}`} aria-live="polite"><span className="soundkeys-status-dot" aria-hidden="true" />{midiConnected ? "MIDI ready" : midiConnecting ? "Connecting MIDI" : "MIDI not connected"}</span>
           <button type="button" className="soundkeys-midi-connect" onClick={connectMidi} disabled={midiConnecting || typeof globalThis.navigator?.requestMIDIAccess !== "function"}>{midiConnecting ? "Connecting…" : midiConnected ? "Reconnect MIDI" : "Connect MIDI"}</button>
-          <button type="button" onClick={() => setTeacherOpen(open => !open)} aria-expanded={teacherOpen} aria-label="SoundKeys teacher settings">⚙</button>
+          <button type="button" onClick={() => setTeacherOpen(open => !open)} aria-expanded={teacherOpen} aria-label="SoundKeys teacher settings"><GearSix size={20} weight="bold" aria-hidden="true" /></button>
         </div>
       </header>
       <main className="soundkeys-main">
@@ -173,12 +174,12 @@ export function SoundKeysApp() {
         <section className="soundkeys-stage" aria-labelledby="soundkeys-title">
           <p className="soundkeys-kicker">{mode === "free" ? "BUILD A WORD" : MODES.find(item => item[0] === mode)?.[1].toUpperCase()}</p>
           {mode === "picture" && target?.image && <img className="soundkeys-target-image" src={target.image} alt={target.alt} />}
-          {mode === "listen" && <button type="button" className="soundkeys-listen" onClick={() => playAudio(target?.audio)}>🔊 Listen for the word</button>}
-          {mode === "missing" && <div className="soundkeys-missing-image">{target?.image ? <img src={target.image} alt={target.alt} /> : "❓"}<strong>{targetTokens.map((token, index) => index === target.missingIndex ? "_" : token).join(" ")}</strong></div>}
+          {mode === "listen" && <button type="button" className="soundkeys-listen" onClick={() => playAudio(target?.audio)}><SpeakerHigh size={22} weight="bold" aria-hidden="true" /> Listen for the word</button>}
+          {mode === "missing" && <div className="soundkeys-missing-image">{target?.image ? <img src={target.image} alt={target.alt} /> : <span className="soundkeys-media-unavailable">Picture unavailable</span>}<strong>{targetTokens.map((token, index) => index === target.missingIndex ? "_" : token).join(" ")}</strong></div>}
           <h1 id="soundkeys-title">{resolved ? resolved.display.toUpperCase() : (tokens.length ? tokens.join(" ").toUpperCase() : "Press a sound key")}</h1>
           {!resolved && mode !== "free" && <p className="soundkeys-prompt">{mode === "picture" ? `Build ${targetTokens.length} sounds` : mode === "listen" ? "Listen, then build the word" : "Find the missing sound"}</p>}
-          {resolved && <div className="soundkeys-result"><span className="soundkeys-result-spark">★</span><strong>{resolved.display}</strong><button type="button" onClick={() => playAudio(resolved.audio)} aria-label={`Read ${resolved.display}`}>🔊 Read</button></div>}
-          <div className="soundkeys-controls"><button type="button" onClick={clearWord}>↶ Clear</button><button type="button" onClick={() => { if (resolved) setNextTarget(mode); else playAudio(target?.audio); }}>{resolved ? "Next word" : "🔊 Read"}</button></div>
+          {resolved && <div className="soundkeys-result"><Sparkle size={24} weight="fill" className="soundkeys-result-spark" aria-hidden="true" /><strong>{resolved.display}</strong><button type="button" onClick={() => playAudio(resolved.audio)} aria-label={`Read ${resolved.display}`}><SpeakerHigh size={18} weight="bold" aria-hidden="true" /> Read</button></div>}
+          <div className="soundkeys-controls"><button type="button" onClick={clearWord}><ArrowCounterClockwise size={18} weight="bold" aria-hidden="true" /> Clear</button><button type="button" onClick={() => { if (resolved) setNextTarget(mode); else playAudio(target?.audio); }}>{resolved ? "Next word" : <><SpeakerHigh size={18} weight="bold" aria-hidden="true" /> Read</>}</button></div>
         </section>
         {showKeyboard && <section className="soundkeys-keyboard" aria-label="Onscreen sound keys">{activeTokens.map(token => <button type="button" key={token} onClick={() => acceptToken(token)}>{token}</button>)}</section>}
         <button type="button" className="soundkeys-show-keyboard" onClick={() => setShowKeyboard(show => !show)}>{showKeyboard ? "Hide" : "Show"} SoundKeys</button>

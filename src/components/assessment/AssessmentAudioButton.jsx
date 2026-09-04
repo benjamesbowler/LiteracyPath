@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { SpeakerHigh, SpeakerSlash } from "@phosphor-icons/react";
 import {
   getTargetWordAudioPath,
   isGenericInstructionAudioPath
@@ -48,7 +49,7 @@ export function AssessmentAudioButton({
         type="button"
         disabled
       >
-        <span aria-hidden="true">🔇</span>
+        <SpeakerSlash size={20} weight="bold" aria-hidden="true" />
       </button>
     );
   }
@@ -86,7 +87,7 @@ export function AssessmentAudioButton({
       aria-label={isLoading ? `${label} loading` : isPlaying ? `${label} playing` : label}
       type="button"
     >
-      {isLoading ? <span className="audio-loading-dot" aria-hidden="true" /> : <span aria-hidden="true">🔊</span>}
+      {isLoading ? <span className="audio-loading-dot" aria-hidden="true" /> : <SpeakerHigh size={20} weight="bold" aria-hidden="true" />}
     </button>
   );
 }

@@ -51,13 +51,13 @@ test("Sentence Grove gives ambiguous sound blanks a picture cue", () => {
     .find(repair => repair.id === "sound-ship");
 
   assert.equal(shipRepair.display, "sh__p");
-  assert.equal(shipRepair.cue, "🚢");
+  assert.equal(shipRepair.cue, "ship");
 });
 
 test("Sentence Grove starts with a complete sentence repair", () => {
   const firstRepair = starGalleryLadder("easy")[0].items[0].repairs[0];
 
-  assert.equal(firstRepair.cue, "🐱");
+  assert.equal(firstRepair.cue, "cat");
   assert.equal(firstRepair.display, "__ cat sat on the mat.");
   assert.equal(firstRepair.answer, "The");
   assert.ok(firstRepair.options.includes("The"));

@@ -128,8 +128,6 @@ export const EGGS = [
 export const WELCOME_EGG = { id: "egg-welcome", name: "Welcome egg", price: 0, tier: "bronze" };
 
 // Banner/tag icon per caravan, same order as CARAVANS.
-export const CARAVAN_ICONS = ["🌙", "🦕", "🌼"];
-
 // Beastie species. `set` groups them for the collection book; new sets can be
 // appended per season without touching old ones.
 export const BEASTIES = [

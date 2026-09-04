@@ -40,7 +40,7 @@ test("every declared Adventure mechanic resolves to its own component", () => {
   for (const id of ADVENTURE_MECHANIC_IDS) {
     assert.equal(typeof registry.ADVENTURE_MECHANICS[id], "function", id);
   }
-  assert.equal(new Set(Object.values(registry.ADVENTURE_MECHANICS)).size, 13);
+  assert.equal(new Set(Object.values(registry.ADVENTURE_MECHANICS)).size, ADVENTURE_MECHANIC_IDS.length);
 });
 
 test("unknown mechanics fail closed instead of rendering a generic answer grid", () => {

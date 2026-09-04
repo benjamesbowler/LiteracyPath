@@ -1,8 +1,5 @@
 import { Fragment, createElement } from "react";
-
-export function isSoloCapitalI(word) {
-  return String(word ?? "").trim().toLowerCase() === "i";
-}
+import { isSoloCapitalI } from "./childWordTextUtils.js";
 
 export function ChildWordText({ word }) {
   const text = String(word ?? "").trim();

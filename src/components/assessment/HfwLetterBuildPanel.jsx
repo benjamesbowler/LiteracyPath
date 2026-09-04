@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SpeakerHigh } from "@phosphor-icons/react";
 
 function getHfwLetterBuildTarget(question = {}) {
   return String(question.targetWord || question.correctAnswer || question.answer || "")
@@ -73,7 +74,7 @@ export function HfwLetterBuildPanel({ currentQuestion, answerQuestion, speakText
           type="button"
           aria-label={isPlayingSentence ? "Sentence playing" : "Listen to sentence"}
         >
-          <span aria-hidden="true">{isPlayingSentence ? "…" : "🔊"}</span>
+          {isPlayingSentence ? <span className="audio-loading-dot" aria-hidden="true" /> : <SpeakerHigh size={20} weight="bold" aria-hidden="true" />}
         </button>
       )}
 

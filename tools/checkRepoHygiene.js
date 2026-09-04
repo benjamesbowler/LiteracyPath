@@ -37,6 +37,10 @@ const BACKUP_EXTENSIONS = new Set([".bak", ".tmp", ".old"]);
 const ZIP_EXTENSIONS = new Set([".zip"]);
 const SOURCE_MEDIA_EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".psd", ".ai", ".zip", ".md"]);
 const CURRENT_NAMED_MEDIA_EXCEPTIONS = new Set([
+  // These are the exact, machine-checked provenance manifests for the live
+  // Sound Seekers v2 audio roots. They are release evidence, not source media.
+  "public/audio/quest-v2/SOURCE.md",
+  "public/audio/quest-v2/instructions/SOURCE.md",
   // This is the production recording for the vocabulary word "source", not a
   // source/reference artifact.
   "public/audio/production/en-US/isolated_word/source-719dea8a7f.mp3",
@@ -57,7 +61,7 @@ const CURRENT_NAMED_MEDIA_EXCEPTIONS = new Set([
 ]);
 const HARD_SOURCE_EXTENSIONS = new Set([".psd", ".ai", ".zip", ".md"]);
 const TEMP_ROOT_NAMES = new Set([".tmp", "tmp", "temp", "temporary"]);
-const SKIP_DIRS = new Set([".cache", ".git", "node_modules", "dist", "playwright-report", "test-results"]);
+const SKIP_DIRS = new Set([".cache", ".git", ".worktrees", "node_modules", "dist", "playwright-report", "test-results"]);
 
 const ACTIVE_REQUEST_PATTERNS = [
   /docs\/assets\/[^/]*kimi[^/]*request[^/]*\.md$/i,

@@ -25,16 +25,16 @@ function readArea(area, scope) {
 // The milestone trail. Spaced so the first prize lands in the first session
 // and the next one always feels close. Icons are drawn in-app (no new art).
 export const TRAIL_TREASURES = [
-  { at: 3, id: "spark", name: "Spark Star", icon: "⭐" },
-  { at: 8, id: "map", name: "Explorer Map", icon: "🗺️" },
-  { at: 15, id: "torch", name: "Glow Torch", icon: "🔦" },
-  { at: 24, id: "crown", name: "Meadow Crown", icon: "👑" },
-  { at: 35, id: "egg", name: "Dino Egg", icon: "🥚" },
-  { at: 48, id: "scope", name: "Star Scope", icon: "🔭" },
-  { at: 64, id: "harp", name: "Moon Harp", icon: "🎵" },
-  { at: 82, id: "shield", name: "Reader Shield", icon: "🛡️" },
-  { at: 105, id: "dragon", name: "Dragon Horn", icon: "🐲" },
-  { at: 130, id: "trophy", name: "Grand Trophy", icon: "🏆" }
+  { at: 3, id: "spark", name: "Spark Star", icon: "spark" },
+  { at: 8, id: "map", name: "Explorer Map", icon: "map" },
+  { at: 15, id: "torch", name: "Glow Torch", icon: "torch" },
+  { at: 24, id: "crown", name: "Meadow Crown", icon: "crown" },
+  { at: 35, id: "egg", name: "Dino Egg", icon: "egg" },
+  { at: 48, id: "scope", name: "Star Scope", icon: "scope" },
+  { at: 64, id: "harp", name: "Moon Harp", icon: "harp" },
+  { at: 82, id: "shield", name: "Reader Shield", icon: "shield" },
+  { at: 105, id: "dragon", name: "Dragon Horn", icon: "dragon" },
+  { at: 130, id: "trophy", name: "Grand Trophy", icon: "trophy" }
 ];
 
 function sumQuestStars(quest) {
