@@ -1566,3 +1566,144 @@
     transition-duration: .01ms !important;
   }
 }
+
+/* Sound-camp focus mode: the literacy action is a playable moment, not a
+   worksheet. Keep the canonical teaching copy in the DOM, but give it one
+   visual focal point, a visible sound track, and controls that never fall
+   below the fold on a small screen. */
+.ss-visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.ss-teach {
+  width: min(100%, 72rem);
+  min-height: calc(100dvh - 6rem);
+  gap: clamp(.65rem, 1.5vw, 1rem);
+  align-content: start;
+  padding: clamp(.7rem, 2vw, 1.5rem);
+}
+
+.ss-teach__card {
+  grid-template-columns: minmax(0, 1.05fr) minmax(15rem, .95fr);
+  gap: clamp(.8rem, 2vw, 1.5rem);
+  padding: clamp(.85rem, 2.2vw, 1.5rem);
+  background:
+    radial-gradient(circle at 78% 24%, color-mix(in srgb, var(--ss-token-focus-gold) 24%, transparent), transparent 13rem),
+    linear-gradient(145deg, color-mix(in srgb, var(--ss-token-surface-option) 96%, transparent), color-mix(in srgb, var(--ss-token-light-storm) 72%, var(--ss-token-surface-option)));
+  border-width: 2px;
+  border-radius: 26px;
+  box-shadow: 0 12px 0 color-mix(in srgb, var(--ss-token-ink-deep) 13%, transparent), var(--ss-shadow);
+}
+
+.ss-teach__copy { gap: .35rem; }
+.ss-teach__copy h1 { font-size: clamp(1.8rem, 4.8vw, 3.4rem); }
+.ss-teach__instruction { margin-top: .35rem; font-size: clamp(.98rem, 1.8vw, 1.15rem); }
+
+.ss-teach__grapheme {
+  position: relative;
+  display: grid;
+  min-width: clamp(5rem, 10vw, 7rem);
+  min-height: clamp(5rem, 10vw, 7rem);
+  margin: .55rem 0 .7rem;
+  padding: .35rem .65rem .7rem;
+  place-items: center;
+  color: var(--ss-token-ink-deep);
+  background: linear-gradient(145deg, var(--ss-token-light-seedwake), var(--ss-token-focus-gold));
+  border: 3px solid var(--ss-ink);
+  border-radius: 26px;
+  box-shadow: inset 0 0 0 4px color-mix(in srgb, var(--ss-token-surface-white) 38%, transparent), 0 6px 0 var(--ss-token-player-palette-sunrise);
+  font: inherit;
+  font-size: clamp(3rem, 7vw, 5.25rem);
+  font-weight: 950;
+  line-height: .82;
+  cursor: pointer;
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+.ss-teach__grapheme:hover { transform: translateY(-2px); box-shadow: inset 0 0 0 4px color-mix(in srgb, var(--ss-token-surface-white) 44%, transparent), 0 8px 0 var(--ss-token-player-palette-sunrise); }
+.ss-teach__grapheme:active { transform: translateY(3px); box-shadow: inset 0 0 0 4px color-mix(in srgb, var(--ss-token-surface-white) 35%, transparent), 0 2px 0 var(--ss-token-player-palette-sunrise); }
+.ss-teach__grapheme-hint { display: block; color: color-mix(in srgb, var(--ss-token-ink-deep) 72%, transparent); font-size: .62rem; font-weight: 900; letter-spacing: .08em; line-height: 1; text-transform: uppercase; }
+
+/* The game-wide button reset intentionally inherits typography; this focal
+   control is the one exception and must keep its child-readable grapheme
+   size even at genuine browser zoom. */
+.sound-seekers-v2 .ss-teach__grapheme { min-width: 5rem !important; min-height: 5rem !important; font-size: clamp(3rem, 7vw, 5.25rem) !important; font-weight: 950 !important; line-height: .82; }
+
+.ss-teach__cues { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
+.ss-teach__cues > div { padding: .65rem .7rem; border-width: 2px; border-radius: 14px; box-shadow: none; }
+.ss-teach__cues dt { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; }
+.ss-teach__cues dd { margin-top: .2rem; font-size: .82rem; line-height: 1.3; }
+
+.ss-teach__anchor {
+  align-content: center;
+  min-height: 15rem;
+  padding: .7rem;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--ss-token-light-glass) 86%, transparent), color-mix(in srgb, var(--ss-token-light-storm) 86%, transparent));
+  border-width: 2px;
+  border-radius: 22px;
+  box-shadow: inset 0 0 0 4px color-mix(in srgb, var(--ss-token-surface-white) 28%, transparent);
+}
+.ss-teach__anchor img { width: min(100%, 16rem); max-height: 13rem; border-radius: 14px; }
+.ss-teach__anchor figcaption { grid-template-columns: 1fr; gap: .15rem; margin-top: .5rem; padding: .65rem .75rem; border-width: 2px; border-radius: 13px; box-shadow: none; }
+.ss-teach__anchor figcaption strong { font-size: 1.25rem; }
+.ss-teach__anchor figcaption span { font-size: .8rem; line-height: 1.25; }
+
+.ss-teach__sound-track {
+  display: grid;
+  gap: .55rem;
+  padding: .7rem .85rem .8rem;
+  background: color-mix(in srgb, var(--ss-token-surface-warm) 92%, transparent);
+  border: 2px solid var(--ss-ink);
+  border-radius: 20px;
+  box-shadow: 0 6px 0 color-mix(in srgb, var(--ss-token-ink-deep) 12%, transparent);
+}
+.ss-teach__sound-track-heading { display: flex; justify-content: space-between; gap: .75rem; color: var(--ss-ink-soft); font-size: .74rem; font-weight: 900; letter-spacing: .05em; text-transform: uppercase; }
+.ss-teach__units { justify-content: stretch; gap: .5rem; }
+.ss-teach__units li { flex: 1 1 4.5rem; min-width: 4.5rem; min-height: 4.25rem; padding: .45rem; border-width: 2px; border-radius: 14px; box-shadow: 0 4px 0 color-mix(in srgb, var(--ss-token-ink-deep) 16%, transparent); transition: transform .16s ease, background .16s ease; }
+.ss-teach__units li[data-active="true"] { transform: translateY(-3px) scale(1.03); background: var(--ss-token-light-seedwake); box-shadow: 0 6px 0 var(--ss-token-player-palette-sunrise); }
+.ss-teach__units li[data-heard="true"] { background: color-mix(in srgb, var(--ss-token-light-glass) 78%, var(--ss-token-surface-white)); }
+.ss-teach__units strong { font-size: 1.25rem; }
+.ss-teach__units span { font-size: .7rem; }
+
+.ss-teach__alternates { padding: .55rem .8rem; background: color-mix(in srgb, var(--ss-token-surface-option) 70%, transparent); border: 2px solid color-mix(in srgb, var(--ss-ink) 45%, transparent); border-radius: 16px; box-shadow: none; }
+.ss-teach__alternates summary { min-height: 2rem; color: var(--ss-ink); font-size: .8rem; font-weight: 900; cursor: pointer; }
+.ss-teach__alternates h2 { margin: .55rem 0 .45rem; font-size: .95rem; }
+.ss-teach__alternates ul { gap: .45rem; }
+.ss-teach__alternates li { padding: .55rem; border-width: 2px; border-radius: 12px; font-size: .78rem; }
+
+.ss-teach__controls { position: sticky; bottom: max(.5rem, env(safe-area-inset-bottom)); z-index: 4; grid-template-columns: minmax(12rem, auto) 1fr minmax(13rem, auto); gap: .55rem; padding: .55rem; background: color-mix(in srgb, var(--ss-token-surface-warm) 96%, transparent); border-width: 2px; border-radius: 18px; box-shadow: 0 10px 24px color-mix(in srgb, var(--ss-token-ink-deep) 22%, transparent); backdrop-filter: blur(12px); }
+.ss-teach__controls button { min-height: 56px; padding: .65rem .8rem; font-size: .82rem; }
+.ss-teach__controls p { font-size: .76rem; }
+
+@media (max-width: 760px) {
+  .ss-teach { min-height: calc(100dvh - 9.2rem); padding: .55rem; gap: .55rem; }
+  .ss-teach__card { grid-template-columns: minmax(0, 1fr) minmax(7.5rem, .78fr); gap: .55rem; padding: .65rem; border-radius: 20px; }
+  .ss-teach__copy h1 { font-size: clamp(1.45rem, 6vw, 2.3rem); }
+  .ss-teach__instruction { font-size: .85rem; line-height: 1.3; }
+  .ss-teach__grapheme { min-width: 4.5rem; min-height: 4.5rem; margin: .3rem 0 .45rem; padding-bottom: .5rem; border-radius: 20px; font-size: 3rem; }
+  .ss-teach__grapheme-hint { font-size: .5rem; }
+  .sound-seekers-v2 .ss-teach__grapheme { min-width: 4.5rem !important; min-height: 4.5rem !important; font-size: 3rem !important; }
+  .ss-teach__cues { grid-template-columns: 1fr; gap: .35rem; }
+  .ss-teach__cues > div { padding: .45rem .55rem; }
+  .ss-teach__cues dd { font-size: .75rem; }
+  .ss-teach__anchor { grid-template-columns: 1fr; min-height: 0; padding: .45rem; border-radius: 17px; }
+  .ss-teach__anchor img { max-height: 8rem; }
+  .ss-teach__anchor figcaption { margin-top: .3rem; padding: .45rem; }
+  .ss-teach__anchor figcaption strong { font-size: 1rem; }
+  .ss-teach__anchor figcaption span { font-size: .68rem; }
+  .ss-teach__sound-track { padding: .55rem .65rem .6rem; border-radius: 16px; }
+  .ss-teach__sound-track-heading { font-size: .63rem; }
+  .ss-teach__units li { min-width: 3.5rem; min-height: 3.5rem; }
+  .ss-teach__units strong { font-size: 1.05rem; }
+  .ss-teach__units span { font-size: .6rem; }
+  .ss-teach__controls { grid-template-columns: 1fr 1fr; gap: .4rem; padding: .4rem; }
+  .ss-teach__controls p { grid-column: 1 / -1; grid-row: 1; }
+  .ss-teach__controls button { grid-row: 2; width: 100%; font-size: .72rem; }
+}
