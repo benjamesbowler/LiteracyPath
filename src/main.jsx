@@ -1,10 +1,9 @@
 /* eslint-disable react-refresh/only-export-components */
-import { StrictMode } from 'react'
+import { StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles/fonts.js'
 import './index.css'
 import App from './App.jsx'
-import { SoundKeysApp } from './features/soundkeys/SoundKeysApp.jsx'
 import { ParentApp } from './components/family/ParentApp.jsx'
 import './features/soundkeys/home.css'
 // Imported AFTER App so these rules land last in the cascade: the child-facing
@@ -48,7 +47,7 @@ import './styles/kids-library.css'
 import './styles/ui-quality-pass.css'
 import { ErrorBoundary } from './components/ErrorBoundary.jsx'
 import { AppCrashFallback } from './components/AppCrashFallback.jsx'
-import { DYNAMIC_IMPORT_ERROR_EVENT, reloadOnceForNewVersion } from './utils/lazyWithRetry.js'
+import { DYNAMIC_IMPORT_ERROR_EVENT, lazyWithRetry, reloadOnceForNewVersion } from './utils/lazyWithRetry.js'
 import { registerOfflineShell } from './utils/offlineShell.js'
 import { logClientError } from './utils/errorLog.js'
 
@@ -65,16 +64,26 @@ window.addEventListener('vite:preloadError', event => {
 })
 
 const rootPath = window.location.pathname.replace(/\/$/, '')
-const Root = rootPath === '/soundkeys'
-  ? SoundKeysApp
-  : rootPath === '/parent'
+const LazySoundKeysApp = lazyWithRetry(() => import('./features/soundkeys/SoundKeysApp.jsx').then(module => ({
+  default: module.SoundKeysApp
+})))
+
+function SoundKeysLoadingFallback() {
+  return <main aria-busy="true" aria-live="polite" role="status">
+    Loading SoundKeys…
+  </main>
+}
+
+const Root = rootPath === '/parent'
     ? ParentApp
     : App
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ErrorBoundary logLabel="App root crashed" fallback={<AppCrashFallback />}>
-      <Root />
+      {rootPath === '/soundkeys'
+        ? <Suspense fallback={<SoundKeysLoadingFallback />}><LazySoundKeysApp /></Suspense>
+        : <Root />}
     </ErrorBoundary>
   </StrictMode>,
 )

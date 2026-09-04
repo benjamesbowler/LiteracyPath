@@ -1,17 +1,9 @@
-const PARENT_STATUS_COPY = Object.freeze({
-  doing_well: Object.freeze({
-    label: "Doing well",
-    description: "This has been seen clearly in recent learning."
-  }),
-  growing: Object.freeze({
-    label: "Growing",
-    description: "This is developing with teaching and practice."
-  }),
-  not_checked: Object.freeze({
-    label: "Not checked yet",
-    description: "The school has not shared enough information about this yet."
-  })
-});
+import {
+  canonicalStatusId,
+  REPORT_STATUS_LABELS,
+  REPORT_STATUS_NOTES
+} from "../policy/reportingBible.js";
+import { FAMILY_COPY } from "../copy/familyCopy.js";
 
 export const PARENT_AREA_BANNED_TERMS = Object.freeze([
   "accuracy",
@@ -30,11 +22,7 @@ function asArray(value) {
 }
 
 function normaliseStatus(status) {
-  const key = String(status || "not_checked")
-    .trim()
-    .toLowerCase()
-    .replace(/[\s-]+/g, "_");
-  return PARENT_STATUS_COPY[key] ? key : "not_checked";
+  return canonicalStatusId(status);
 }
 
 function normaliseProgressItem(item = {}, index) {
@@ -43,19 +31,19 @@ function normaliseProgressItem(item = {}, index) {
     id: item.id || `progress-${index + 1}`,
     label: item.label || "Reading and writing",
     status,
-    statusLabel: PARENT_STATUS_COPY[status].label,
-    statusDescription: item.statusDescription || PARENT_STATUS_COPY[status].description,
-    detail: item.detail || "The next family update will explain what the school has seen."
+    statusLabel: REPORT_STATUS_LABELS[status],
+    statusDescription: item.statusDescription || REPORT_STATUS_NOTES[status],
+    detail: item.detail || FAMILY_COPY.parentArea.progressDetail
   };
 }
 
 function normaliseReport(report = {}, index) {
   return {
     id: report.id || `report-${index + 1}`,
-    title: report.title || "Reading update",
-    publishedLabel: report.publishedLabel || "Date not provided",
+    title: report.title || FAMILY_COPY.parentArea.reportTitle,
+    publishedLabel: report.publishedLabel || FAMILY_COPY.parentArea.reportDate,
     publishedAt: report.publishedAt || "",
-    summary: report.summary || "A family-friendly update from school.",
+    summary: report.summary || FAMILY_COPY.parentArea.reportSummary,
     snapshot: report.snapshot || null
   };
 }
@@ -78,29 +66,42 @@ export function buildParentAreaModel(input = {}) {
       classLabel: learner.classLabel || "Class not shown",
       schoolName: learner.schoolName || "Your school"
     },
-    updatedLabel: input.updatedLabel || "No family update yet",
-    highlight: input.highlight || `${learner.name} is building reading skills through regular practice.`,
+    updatedLabel: input.updatedLabel || FAMILY_COPY.parentArea.updatedLabel,
+    highlight: input.highlight || FAMILY_COPY.parentArea.highlight.replace("{name}", learner.name),
     strengths: asArray(input.strengths).filter(Boolean).slice(0, 4),
     canDo: asArray(input.canDo).filter(Boolean).slice(0, 4),
     nextFocus: asArray(input.nextFocus).filter(Boolean).slice(0, 3),
-    meaning: input.meaning || "Short, calm practice and regular reading together will help.",
+    meaning: input.meaning || FAMILY_COPY.parentArea.meaning,
     progress: asArray(input.progress).slice(0, 6).map(normaliseProgressItem),
     atHome: {
-      title: input.atHome?.title || "A short reading routine",
-      introduction: input.atHome?.introduction || "Choose one activity and stop while it still feels positive.",
-      durationLabel: input.atHome?.durationLabel || "5 to 10 minutes",
+      title: input.atHome?.title || FAMILY_COPY.parentArea.atHomeTitle,
+      introduction: input.atHome?.introduction || FAMILY_COPY.parentArea.atHomeIntroduction,
+      durationLabel: input.atHome?.durationLabel || FAMILY_COPY.parentArea.atHomeDuration,
       language: input.atHome?.language || "English",
       activities: asArray(input.atHome?.activities).filter(Boolean).slice(0, 5),
-      privacyText: input.atHome?.privacyText || "Home practice is not recorded and does not change the school report."
+      privacyText: input.atHome?.privacyText || FAMILY_COPY.parentArea.atHomePrivacy
     },
     recentReading: asArray(input.recentReading).filter(Boolean).slice(0, 3),
     reports,
     contact: {
-      name: input.contact?.name || "Class teacher",
+      name: input.contact?.name || FAMILY_COPY.parentArea.contactName,
       email: input.contact?.email || "",
-      message: input.contact?.message || "Contact the school if you would like to talk about this update."
+      message: input.contact?.message || FAMILY_COPY.parentArea.contactMessage
     }
   };
+}
+
+export function buildFamilyReportSections(model = {}) {
+  const copy = FAMILY_COPY.reportSections;
+  const activities = asArray(model.atHome?.activities);
+  return [
+    { id: "summary_highlight", title: copy.summaryHighlight, description: model.highlight || "", items: [] },
+    { id: "what_your_child_can_do", title: copy.childCanDo, description: copy.childCanDoDescription, items: asArray(model.canDo), emptyMessage: copy.noCanDoItems },
+    { id: "working_on_next", title: copy.workingOnNext, description: copy.workingOnNextDescription, items: asArray(model.nextFocus), emptyMessage: copy.noNextItems },
+    { id: "what_this_means", title: copy.whatThisMeans, description: model.meaning || "", items: [] },
+    { id: "what_you_can_do_at_home", title: copy.atHome, description: model.atHome?.introduction || copy.atHomeDescription, items: activities.map(activity => activity.direction || activity.title).filter(Boolean), emptyMessage: copy.noHomeItems },
+    { id: "who_to_talk_to", title: copy.whoToTalkTo, description: model.contact?.message || copy.contactDescription, items: [] }
+  ];
 }
 
 export function parentAreaDisplayText(value) {
@@ -120,5 +121,6 @@ export function lintParentAreaPlainLanguage(value) {
 }
 
 export function parentStatusCopy(status) {
-  return PARENT_STATUS_COPY[normaliseStatus(status)];
+  const id = normaliseStatus(status);
+  return { label: REPORT_STATUS_LABELS[id], description: REPORT_STATUS_NOTES[id] };
 }

@@ -10,6 +10,7 @@ import { SchoolNameInput } from "./SchoolNameInput.jsx";
 import { StudentEntryPage } from "./StudentEntryPage.jsx";
 import { TryModePage, TryModeEndPage } from "./TryModePage.jsx";
 import { SAMPLE_LIMIT_COPY, sampleBookIds } from "../policy/freeTierContent.js";
+import { can } from "../policy/entitlementPolicy.js";
 import { GUIDED_READING_BOOK_INDEX } from "../data/generated/guidedReadingBookIndex.generated.js";
 import { StudentLoginFlow } from "./StudentLoginFlow.jsx";
 import { RouteLoadingFallback as LazyPageFallback } from "./RouteLoadingFallback.jsx";
@@ -167,6 +168,8 @@ export function AppSurface({ surface }) {
     totalAnswered, updateElBenchmarkSession, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus, weaknessSnapshot,
     assignMissingSymbolPasswords
   } = surface;
+  const leaderboardAvailable = Boolean(studentSession?.token)
+    && (!trySession || can(trySession.entitlement, "leaderboard"));
   const activeStudentFocusId = studentFocus?.session?.id || "";
   const reportExactStudentFocusContent = useCallback(contentOk => {
     if (!activeStudentFocusId) return;
@@ -1874,7 +1877,7 @@ export function AppSurface({ surface }) {
       {/* BOOKS. The redesigned shelf screen is the front door of this route for
           a child (phase D); the reader itself opens on top of it at the book
           they tapped and keeps every capability it has - page audio, whole-book
-          read-aloud, decoding support, the quiz, the level-up certificate. A
+          read-aloud, decoding support and the level-up certificate. A
           TEACHER session keeps the guided-reading tool it has always had here,
           with its notes and running records, so this branch is a child branch
           only. */}
@@ -2012,6 +2015,7 @@ export function AppSurface({ surface }) {
                 <PhonicsLearnPage
                   key={`${studentId}:${isAssignedArcadeGame ? activeStudentFocus.id : showStudentArcade ? "arcade" : "phonics"}`}
                   initialIsland={showStudentArcade ? "games" : "letters"}
+                  leaderboardAvailable={leaderboardAvailable}
                   lockedToLetters={activeStudentFocus?.target === STUDENT_FOCUS_TARGETS.LETTERS_PRACTICE}
                   lockedGameId={assignedGameId}
                   onLockedGameAvailabilityChange={reportExactStudentFocusContent}

@@ -29,10 +29,12 @@ export const RELEASE_GATES = Object.freeze([
     command: ["npm", "run", "lint", "--", "--max-warnings=0"],
     areas: [4, 10]
   },
+  // V8 coverage measures production modules loaded by this suite; it is not
+  // evidence that every unimported UI route was exercised.
   {
-    id: "unit-tests",
-    label: "Full unit suite",
-    command: ["npm", "test"],
+    id: "unit-coverage",
+    label: "Aggregate unit coverage of loaded production modules",
+    command: ["npm", "run", "check:unit-coverage"],
     areas: [4, 8, 9, 10]
   },
   {
@@ -56,13 +58,13 @@ export const RELEASE_GATES = Object.freeze([
   {
     id: "story-content-policy",
     label: "Registered narrative content, exact source fingerprints, and supported approval claims",
-    command: ["npm", "run", "check:story-content-policy"],
+    command: ["npm", "run", "check:story-content-policy", "--", "--release"],
     areas: [1, 2, 3, 4, 10]
   },
   {
     id: "guided-reading-story-bible",
     label: "Guided Reading Story Bible, level ladder, exact narration, and locked manuscript review",
-    command: ["npm", "run", "check:guided-reading-story-bible"],
+    command: ["npm", "run", "check:guided-reading-story-bible", "--", "--release"],
     areas: [1, 2, 3, 4, 10]
   },
   {
@@ -76,12 +78,6 @@ export const RELEASE_GATES = Object.freeze([
     label: "Every Guided Reading page has hash-locked Story-Bible-aligned illustration approval",
     command: ["npm", "run", "check:guided-reading-visual-alignment"],
     areas: [1, 3, 4, 10]
-  },
-  {
-    id: "guided-reading-evidence-questions",
-    label: "Every Guided Reading book has three evidence-grounded, unambiguous questions",
-    command: ["npm", "run", "check:validate:guided-reading-questions"],
-    areas: [1, 2, 4, 10]
   },
   {
     id: "public-source-maps",

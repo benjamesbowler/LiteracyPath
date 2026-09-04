@@ -15,3 +15,14 @@ test("every Guided Reading page keeps word-for-word narration provenance", () =>
   assert.equal(audit.snapshotMatches, true);
   assert.deepEqual(audit.failures, []);
 });
+
+test("every Willow Street page has exact-current narration provenance", () => {
+  const audit = auditGuidedReadingNarrationProvenance({ verifySnapshot: false });
+  const willowPages = audit.pages.filter(page => page.bookId.startsWith("willow-street-"));
+
+  assert.equal(willowPages.length, 160);
+  assert.equal(willowPages.every(page => page.exactLedaAudioResolves), true);
+  assert.equal(willowPages.some(page => page.origin === "unknown"), false);
+  assert.equal(willowPages.some(page => page.narrationNeedsRebuild), false);
+  assert.equal(audit.wordSequenceMismatchCount, 0);
+});

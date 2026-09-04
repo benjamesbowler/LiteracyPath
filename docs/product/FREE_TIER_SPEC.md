@@ -182,7 +182,7 @@ Measured from the source, not estimated:
 |---|---|
 | Skills | 30 |
 | Assessment questions (v3) | 2,512 |
-| Guided reading books | 206 (Level A 65, B 86, C 55) |
+| Guided reading books | 226 (Level A 65, B 86, C 75) |
 | Story Quests | 13 (313 pages) |
 | Arcade games | 21 defined, 20 visible |
 | Adventure Map cycles | 27 playable |
@@ -191,7 +191,7 @@ Measured from the source, not estimated:
 
 ### 4.2 The slice should be a cross-section, not a prefix
 
-The tempting cut is "Level A only" — 65 of 206 books is 32%, cycles 1-9 is 33%, Sound Seekers act 1 is
+The tempting cut is "Level A only" — 65 of 226 books is 29%, cycles 1-9 is 33%, Sound Seekers act 1 is
 33%. Tempting because the data already groups that way.
 
 **Resist it.** A prefix cut gives a five-year-old the easiest content and a seven-year-old nothing they
@@ -201,7 +201,7 @@ Recommended slice, ~20% by volume and 100% by activity type:
 
 | Content | Free | Share | Chosen for |
 |---|---|---|---|
-| Guided reading books | 40 | 19% | Spread across A/B/C, fiction and nonfiction, so any child finds a fit |
+| Guided reading books | 40 | 18% | Spread across A/B/C, both C bands, fiction and nonfiction, so any child finds a fit |
 | Story Quests | 3 | 23% | One per level band. These are the strongest hook. |
 | Arcade games | 5 | 25% | One per category — phonics, CVC, fluency, sight words, spelling |
 | Adventure Map cycles | 5 | 19% | Cycles 1-3 plus two later ones, so the ladder is visible |

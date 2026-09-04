@@ -1,12 +1,14 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { ArrowLeft, CheckCircle, Envelope, Key, Lock, Printer, ShieldCheck, SpinnerGap, WarningCircle, X } from "@phosphor-icons/react";
+import { ArrowLeft, CheckCircle, Envelope, Key, Lock, ShieldCheck, SpinnerGap, WarningCircle } from "@phosphor-icons/react";
 import { buildParentAreaModel } from "../../data/parentAreaModel.js";
+import { familyReportModelForRelease, familyReportPrintableHtml } from "../../data/familyReportDocument.js";
 import { guardianPortalApi } from "../../data/guardianPortalApi.js";
 import { LEGAL_POLICY } from "../../policy/legalPolicy.js";
 import { isSupabaseConfigured, supabase } from "../../supabaseClient.js";
 import { openHtmlDocument } from "../../utils/openHtmlDocument.js";
 import logomarkUrl from "../../assets/logomark.png";
 import { ParentAreaPage } from "./ParentAreaPage.jsx";
+import { FamilyReportDialog } from "./FamilyReportDialog.jsx";
 import "../../styles/parent-auth.css";
 
 const INVITE_PATTERN = /^[0-9a-f]{64}$/;
@@ -165,12 +167,6 @@ function PasswordRecovery({ onComplete }) {
   }}><label>New password<input type="password" minLength={8} autoComplete="new-password" required value={password} onChange={event => setPassword(event.target.value)} /></label>{error ? <p className="parent-auth-error" role="alert">{error}</p> : null}<button type="submit" className="pa-button pa-button-primary" disabled={busy}>Save new password</button></form></ParentAuthShell>;
 }
 
-function ReportDialog({ report, model, onClose, onPrint }) {
-  if (!report) return null;
-  const reportModel = report.snapshot ? buildParentAreaModel({ ...report.snapshot, reports: [] }) : model;
-  return <div className="parent-report-dialog" role="dialog" aria-modal="true" aria-labelledby="parent-report-title"><div><header><div><span>Released by school</span><h1 id="parent-report-title">{report.title}</h1><p>{report.publishedLabel}</p></div><button type="button" onClick={onClose} aria-label="Close report"><X size={22} /></button></header><p className="parent-report-highlight">{reportModel.highlight}</p><section><h2>What is going well</h2><ul>{reportModel.strengths.map(item => <li key={item}>{item}</li>)}</ul></section><section><h2>What comes next</h2><ul>{reportModel.nextFocus.map(item => <li key={item}>{item}</li>)}</ul></section><footer><button type="button" className="pa-button pa-button-secondary" onClick={() => onPrint(report, reportModel)}><Printer size={18} />Print or save</button><button type="button" className="pa-button pa-button-primary" onClick={onClose}>Close</button></footer></div></div>;
-}
-
 export function ParentApp() {
   const [session, setSession] = useState(null);
   const [sessionReady, setSessionReady] = useState(false);
@@ -265,7 +261,8 @@ export function ParentApp() {
 
   function printReport(report, model) {
     void guardianPortalApi.recordReportEvent(supabase, { reportId: report.id, eventType: "report_printed" }).catch(() => {});
-    openHtmlDocument({ html: printableHtml({ title: report.title, model }), name: "literacy-guide-family-report", autoPrint: true });
+    const reportModel = familyReportModelForRelease(report, model);
+    openHtmlDocument({ html: familyReportPrintableHtml({ title: report.title, model: reportModel }), name: "literacy-guide-family-report", autoPrint: true });
   }
 
   return <>
@@ -295,6 +292,6 @@ export function ParentApp() {
         }
       }}
     />
-    <ReportDialog report={openReport} model={openReportModel} onClose={() => { setOpenReport(null); setOpenReportModel(null); }} onPrint={printReport} />
+    <FamilyReportDialog report={openReport} model={openReportModel} onClose={() => { setOpenReport(null); setOpenReportModel(null); }} onPrint={printReport} />
   </>;
 }

@@ -3,6 +3,13 @@ import { expect, test } from "@playwright/test";
 import { soundRacerLadder } from "../../src/utils/soundRacerTracks.js";
 import { wordStartsWithTargetSound } from "../../src/utils/rocketRunRounds.js";
 
+// Ubuntu CI renders this full Three.js scene through SwiftShader. The first
+// interaction can legitimately arrive after Playwright's default 30-second
+// test budget even though the HUD is mounted and responsive. Keep the same
+// child-visible behavior and allow the software-rendered accessibility checks
+// to finish, as the other full-screen WebGL release gates do.
+test.describe.configure({ timeout: 90_000 });
+
 test("A2.9 Sound Racer renders the current target example apart from steering help", async ({ page }, testInfo) => {
   const difficulty = "medium";
   const level = 3;

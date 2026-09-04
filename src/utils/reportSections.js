@@ -260,10 +260,6 @@ export function buildGuidedReadingReportRows(records = {}, module = {}) {
       const progress = module.getGuidedReadingProgress?.(book, { ...record, bookId }) || {};
       const summary = summariesByBook.get(bookId) || module.summarizeGuidedReadingRecord?.(record) || {};
       const readCount = Math.max(Number(progress.readCount || record.readCount || 0), progress.completed ? 1 : 0);
-      const quizTotal = Number(record.quizTotal);
-      const quizScore = Number(record.quizScore);
-      const hasQuiz = Number.isFinite(quizScore) && Number.isFinite(quizTotal) && quizTotal > 0;
-
       return {
         bookId,
         title: book.title || record.title || bookId,
@@ -271,8 +267,6 @@ export function buildGuidedReadingReportRows(records = {}, module = {}) {
         lastReadAt: progress.lastReadAt || record.lastReadAt || record.completedAt || record.updatedAt || "",
         readCount,
         completed: Boolean(progress.completed || record.completed || record.completedAt),
-        quizScore: hasQuiz ? Math.max(0, quizScore) : null,
-        quizTotal: hasQuiz ? quizTotal : null,
         latestAccuracy: Number(summary.accuracy || 0),
         supportWords: summary.supportWords || [],
         correctWords: summary.correctWords || [],
@@ -309,23 +303,11 @@ export function buildGuidedReadingSummary(rows = []) {
   const mostRecent = allRows
     .filter(row => row.lastReadAt)
     .sort((a, b) => String(b.lastReadAt).localeCompare(String(a.lastReadAt)))[0] || null;
-  const quizRows = allRows
-    .filter(row => row.quizScore !== null && row.quizTotal)
-    .map(row => ({
-      bookId: row.bookId,
-      title: row.title,
-      level: row.level,
-      quizScore: row.quizScore,
-      quizTotal: row.quizTotal,
-      percent: clampPercent((row.quizScore / row.quizTotal) * 100)
-    }));
-
   return {
     totalCompleted: completedRows.length,
     byLevel,
     mostRecent: mostRecent
       ? { bookId: mostRecent.bookId, title: mostRecent.title, level: mostRecent.level, lastReadAt: mostRecent.lastReadAt }
-      : null,
-    quizRows
+      : null
   };
 }

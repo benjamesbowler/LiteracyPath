@@ -3,6 +3,8 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import "./App.css";
 import { ParentAreaPage } from "./components/family/ParentAreaPage.jsx";
+import { FamilyReportDialog } from "./components/family/FamilyReportDialog.jsx";
+import { FAMILY_COPY } from "./copy/familyCopy.js";
 import { buildParentAreaModel } from "./data/parentAreaModel.js";
 
 // Seeded preview content only. It demonstrates the proposed information model
@@ -16,7 +18,7 @@ const PARENT_AREA_PREVIEW_MODELS = [
       schoolName: "Oakfield Primary"
     },
     updatedLabel: "Updated 18 August",
-    highlight: "Aarav is doing well with matching letters and sounds. The class is now practising hearing the last sound in short words.",
+    highlight: FAMILY_COPY.parentArea.previewAaravHighlight,
     strengths: [
       "Aarav confidently matches familiar letters with their sounds.",
       "Aarav joins in with shared reading and talks about what happened in a story."
@@ -124,9 +126,11 @@ export function ParentAreaPreview() {
   const params = new URLSearchParams(window.location.search);
   const requestedState = params.get("state") || "ready";
   const [state, setState] = useState(requestedState);
+  const [openReport, setOpenReport] = useState(null);
+  const [openReportModel, setOpenReportModel] = useState(null);
   const requestedSection = params.get("section") || "overview";
   const models = state === "empty" ? [] : PARENT_AREA_PREVIEW_MODELS;
-  return <ParentAreaPage models={models} initialSection={requestedSection} state={state} onRetry={() => setState("ready")} />;
+  return <><ParentAreaPage models={models} initialSection={requestedSection} state={state} onRetry={() => setState("ready")} onOpenReport={(report, model) => { setOpenReport(report); setOpenReportModel(model); }} /><FamilyReportDialog report={openReport} model={openReportModel} onClose={() => { setOpenReport(null); setOpenReportModel(null); }} onPrint={() => {}} /></>;
 }
 
 createRoot(document.getElementById("root")).render(<ParentAreaPreview />);

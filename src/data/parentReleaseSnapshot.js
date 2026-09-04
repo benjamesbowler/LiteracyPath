@@ -4,6 +4,23 @@ import {
 } from "./reportAudienceTemplates.js";
 import { lintParentAreaPlainLanguage } from "./parentAreaModel.js";
 import { buildFamilyBridgePlan } from "../utils/familyBridgePlan.js";
+import {
+  canonicalStatusId,
+  REPORT_STATUS_IDS
+} from "../policy/reportingBible.js";
+
+// This is aggregation precedence, not the teacher-facing display order.
+// Once a policy-ready source reports mixed evidence, a family summary must
+// preserve that disagreement instead of resolving it to a more conclusive
+// status from another row in the same domain.
+const FAMILY_STATUS_PRECEDENCE = Object.freeze([
+  REPORT_STATUS_IDS.MIXED_EVIDENCE,
+  REPORT_STATUS_IDS.NEEDS_SUPPORT,
+  REPORT_STATUS_IDS.DEVELOPING,
+  REPORT_STATUS_IDS.SECURE,
+  REPORT_STATUS_IDS.NOT_ENOUGH_EVIDENCE,
+  REPORT_STATUS_IDS.NOT_CHECKED
+]);
 
 const DOMAIN_LABELS = Object.freeze({
   alphabet_knowledge: "Letter names and sounds",
@@ -44,12 +61,9 @@ function statusId(row = {}) {
 }
 
 function parentStatus(rows = []) {
-  const statuses = rows.map(statusId);
-  if (statuses.some(status => ["needs_teaching", "mixed_evidence", "developing"].includes(status))) {
-    return "growing";
-  }
-  if (statuses.some(status => status === "secure")) return "doing_well";
-  return "not_checked";
+  const statuses = rows.map(row => canonicalStatusId(statusId(row)));
+  return FAMILY_STATUS_PRECEDENCE.find(status => statuses.includes(status))
+    || REPORT_STATUS_IDS.NOT_CHECKED;
 }
 
 function progressRows(report = {}) {
@@ -97,8 +111,8 @@ export function buildParentReleaseSnapshot({
   })[WHOLE_CHILD_REPORT_AUDIENCES.FAMILY];
   const sections = Object.fromEntries(asArray(family.sections).map(section => [section.id, section]));
   const plan = bridgePlan({ cycleNumber, studentName, language });
-  const strengths = asArray(sections.going_well?.items).slice(0, 4);
-  const nextFocus = asArray(sections.practising_next?.items).slice(0, 3);
+  const strengths = asArray(sections.what_your_child_can_do?.items).slice(0, 4);
+  const nextFocus = asArray(sections.working_on_next?.items).slice(0, 3);
   const snapshot = {
     schemaVersion: 1,
     learner: {

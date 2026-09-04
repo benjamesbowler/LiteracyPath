@@ -13,6 +13,7 @@ import {
   STUDENT_FOCUS_TARGET_OPTIONS,
   STUDENT_FOCUS_TARGETS
 } from "../../policy/studentFocusTargets.js";
+import { guidedReadingBandLabel, guidedReadingModeLabel } from "../../policy/guidedReadingCatalogPolicy.js";
 import { TeacherDialog } from "../teacher/ui/TeacherDialog.jsx";
 
 const GUIDED_READING_TOGETHER = "guided_reading";
@@ -549,7 +550,7 @@ export function StudentSessionSetup({
                   <option value="">Choose one available book</option>
                   {books.map(book => (
                     <option key={book.id} value={book.id}>
-                      {book.title} (Level {book.level}, {book.pages.length} pages)
+                      {book.title} ({guidedReadingBandLabel(book.readingBandProfile, book.level)}, {guidedReadingModeLabel(book.readingMode)}, {book.pages.length} pages)
                     </option>
                   ))}
                 </select>

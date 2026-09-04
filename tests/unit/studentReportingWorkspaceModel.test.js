@@ -365,9 +365,7 @@ test("Guided Reading keeps connected-text word marks distinct from learned words
   assert.equal(cat.concept.construct, "connected_text_word_reading");
   assert.equal(cat.statusCandidate, REPORTING_STATUS_IDS.SECURE);
   assert.equal(cat.concept.label.includes("learned"), false);
-  const quiz = model.knowledgeEvidence.find(row => row.sourceRecordType === "book_quiz");
-  assert.equal(quiz.evidenceKind, REPORTING_EVIDENCE_KINDS.PRACTICE);
-  assert.equal(quiz.statusCandidate, REPORTING_STATUS_IDS.DEVELOPING);
+  assert.equal(model.knowledgeEvidence.some(row => row.sourceRecordType === "book_quiz"), false);
   assert.equal(model.provenance.connectedTextWordsAreNotRelabelledAsLearned, true);
   assert.equal(model.books[0].supportUseEvents[0].stageLabel, "Sound-by-sound support");
   assert.equal(model.supportUseEvents[1].stageLabel, "Whole-word audio");
@@ -1442,7 +1440,7 @@ test("Skills Check card uses the newest terminal attempt while item evidence kee
   assert.equal(failedSkill.latestAttempt.attemptId, "latest-fail");
   assert.equal(
     failedSkill.currentStatus.id,
-    REPORTING_STATUS_IDS.NEEDS_TEACHING
+    REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
   );
   assert.equal(failedSkill.latestCorrectCount, 0);
   assert.equal(failedSkill.latestTotalQuestions, 1);
@@ -1480,6 +1478,79 @@ test("Skills Check card uses the newest terminal attempt while item evidence kee
     passedLatest.wholeChild.concepts.find(row => row.key === "m").status.id,
     REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
   );
+});
+
+test("Skills Check renders Needs support only after ten scored responses show low performance", () => {
+  const completedAt = "2026-08-15T10:00:00.000Z";
+  const tenIncorrectResponses = Array.from({ length: 10 }, (_unused, index) => ({
+    ...attempt().questionRecords[0],
+    questionId: `threshold-${index + 1}`,
+    responseStatus: "incorrect",
+    isCorrect: false,
+    timestamp: completedAt
+  }));
+  const model = buildStudentReportingWorkspaceModel({
+    student,
+    assessmentHistory: [attempt({
+      attemptId: "threshold-low-performance",
+      completedAt,
+      updatedAt: completedAt,
+      passed: false,
+      correctCount: 0,
+      totalQuestions: 10,
+      questionRecords: tenIncorrectResponses
+    })]
+  });
+
+  const skill = model.skillsCheck.skills[0];
+  assert.equal(skill.latestTotalQuestions, 10);
+  assert.equal(skill.currentStatus.id, REPORTING_STATUS_IDS.NEEDS_TEACHING);
+  assert.equal(skill.statusLabel, "Needs support");
+});
+
+test("a pass-then-fail review below ten scored responses remains Not enough results", () => {
+  const passedAt = "2026-08-01T10:00:00.000Z";
+  const failedAt = "2026-08-15T10:00:00.000Z";
+  const historicalPass = attempt({
+    attemptId: "phase-pass",
+    completedAt: passedAt,
+    updatedAt: passedAt,
+    totalQuestions: 2,
+    correctCount: 2,
+    questionRecords: [1, 2].map(phase => ({
+      ...attempt().questionRecords[0],
+      questionId: `phase-pass-${phase}`,
+      phase,
+      responseStatus: "correct",
+      isCorrect: true,
+      timestamp: passedAt
+    }))
+  });
+  const latestFail = attempt({
+    attemptId: "phase-review-fail",
+    completedAt: failedAt,
+    updatedAt: failedAt,
+    totalQuestions: 1,
+    correctCount: 0,
+    questionRecords: [{
+      ...attempt().questionRecords[0],
+      questionId: "phase-review-fail-2",
+      phase: 2,
+      responseStatus: "incorrect",
+      isCorrect: false,
+      timestamp: failedAt
+    }]
+  });
+  const model = buildStudentReportingWorkspaceModel({
+    student,
+    assessmentHistory: [historicalPass, latestFail]
+  });
+
+  const skill = model.skillsCheck.skills[0];
+  assert.equal(skill.latestAttempt.attemptId, "phase-review-fail");
+  assert.equal(skill.latestTotalQuestions, 1);
+  assert.equal(skill.currentStatus.id, REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE);
+  assert.equal(skill.statusLabel, "Not enough results");
 });
 
 test("Whole Child exposes checked EL 3 to 6 summaries without adding mastery concepts", () => {

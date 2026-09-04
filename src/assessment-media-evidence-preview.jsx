@@ -89,7 +89,7 @@ const FAILED_QUESTION = {
       alt: "A cat"
     },
     dog: {
-      image: "/images/child-mode/initial-sounds/dog.png",
+      image: "/images/child-mode/initial-sounds/dog.webp",
       alt: "A dog"
     }
   }
@@ -107,7 +107,7 @@ const SHARED_FAILURE_QUESTION = {
       alt: "A cat"
     },
     map: {
-      image: "/images/child-mode/initial-sounds/map.png",
+      image: "/images/child-mode/initial-sounds/map.webp",
       alt: "A map"
     }
   }
@@ -121,10 +121,10 @@ const SAFE_QUESTION = {
   choices: ["sun", "map"],
   choiceImages: {
     sun: {
-      image: "/images/child-mode/initial-sounds/sun.png"
+      image: "/images/child-mode/initial-sounds/sun.webp"
     },
     map: {
-      image: "/images/child-mode/initial-sounds/map.png",
+      image: "/images/child-mode/initial-sounds/map.webp",
       alt: "A folded map"
     }
   }
@@ -138,10 +138,10 @@ const SAFE_REFILL = {
   choices: ["dog", "cat"],
   choiceImages: {
     dog: {
-      image: "/images/child-mode/initial-sounds/dog.png"
+      image: "/images/child-mode/initial-sounds/dog.webp"
     },
     cat: {
-      image: "/images/child-mode/initial-sounds/cat.png"
+      image: "/images/child-mode/initial-sounds/cat.webp"
     }
   }
 };

@@ -30,18 +30,18 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
   }),
   // 2026-07-29, phase C: both of these routes gained a redesigned front door,
   // so the cue each one is reviewed against moved with the screen. On the
-  // Adventure Map the named action is the current stop's card ("Your pal is
-  // here"); the amber marker above it is the same destination drawn on the
-  // plate, and it is the only thing on the screen that moves. On the Sound
-  // Trail the fresh-child route opens the character creator, whose named start
-  // action is the primary cue. The old cues described the surfaces these two
-  // front doors now open onto — the Skills Quest's own map ("Go next") and
-  // Sound Seekers' creature hatch ("Hatch my creature") — which a child no
-  // longer lands on first.
+  // Adventure Map the named action is the current stop's card ("This is your
+  // next unfinished stop"); the amber marker above it is the same destination
+  // drawn on the plate, and it is the only thing on the screen that moves. On
+  // the Sound Trail the fresh-child route opens the character creator, whose
+  // named start action is the primary cue. The old cues described the surfaces
+  // these two front doors now open onto — the Skills Quest's own map ("Go
+  // next") and Sound Seekers' creature hatch ("Hatch my creature") — which a
+  // child no longer lands on first.
   Object.freeze({
     id: "adventure-map",
-    primaryCue: "Your pal is here",
-    treatment: "The current stop's card is the one named action; only its marker on the map pulses, and it leads to the same stop."
+    primaryCue: "This is your next unfinished stop",
+    treatment: "The next unfinished stop's card is the one named action; only its marker on the map pulses, and it leads to the same stop."
   }),
   Object.freeze({
     id: "sound-seekers",

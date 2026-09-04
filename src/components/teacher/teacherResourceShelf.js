@@ -10,6 +10,9 @@
 // demand). Importing it statically here would drag the whole thing into the
 // Resources chunk to print four titles, so the load stays dynamic.
 
+import { getGuidedReadingBookMetadata } from "../../data/guidedReadingBookMetadata.js";
+import { guidedReadingBandLabel, guidedReadingModeLabel } from "../../policy/guidedReadingCatalogPolicy.js";
+
 export const LEVEL_C_SHELF_LIMIT = 4;
 
 // Only books a teacher could actually open: withdrawn and teacher-preview rows
@@ -21,11 +24,13 @@ function isSuggestableLevelCBook(book) {
   if (book.teacherPreviewOnly === true) return false;
   if (String(book.status || "").toLowerCase() !== "approved") return false;
   if (String(book.level || "").toUpperCase() !== "C") return false;
+  if (getGuidedReadingBookMetadata(book)?.readingBandProfile !== "standard") return false;
   return String(book.type || book.category || "").toLowerCase() === "nonfiction";
 }
 
 function shelfRow(book) {
-  const parts = [book.seriesTitle, book.type || book.category, `Level ${book.level}`]
+  const metadata = getGuidedReadingBookMetadata(book);
+  const parts = [book.seriesTitle, book.type || book.category, guidedReadingBandLabel(metadata?.readingBandProfile, book.level), guidedReadingModeLabel(metadata?.readingMode)]
     .map(part => String(part || "").trim())
     .filter(Boolean);
   return {

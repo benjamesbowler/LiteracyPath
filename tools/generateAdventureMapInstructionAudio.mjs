@@ -10,6 +10,7 @@ import {
   getLedaInstructionAudioPath,
   normalizeLedaAudioText
 } from "../src/data/ledaProductionAudio.js";
+import { ADVENTURE_MAP_AUDIO_TEXTS } from "../src/components/elQuest/adventureRoundAudio.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const voice = "en-US-Chirp3-HD-Leda";
@@ -20,29 +21,6 @@ const dryRun = process.argv.includes("--dry-run");
 const wait = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
 const hash = value => createHash("sha256").update(value).digest("hex").slice(0, 10);
 const slug = value => String(value).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 74);
-
-const instructionTexts = Object.freeze([
-  "Listen to the letter. Tap its matching big or small letter.",
-  "Listen. Find the letter that matches the sound.",
-  "Listen to the sound. Tap the picture that starts with it.",
-  "Listen then tap the matching word.",
-  "Build the word. Fill each box in order.",
-  "Listen to the word. Build it with the letter cards.",
-  "Listen to the word. Change its first sound. Tap the new word.",
-  "Take away the first sound. Tap what is left.",
-  "Join the two small words. Tap the big word they make.",
-  "Find the target word in the poem.",
-  "Look at the book cover. Tap the character whose story it is.",
-  "Watch the letter. Then trace it with your finger.",
-  "Tap all the words that end with the letter Y.",
-  "Tap all the words that end with A Y.",
-  "Tap all the words that end with L L.",
-  "Tap all the words that have N G.",
-  "Tap all the words that start with S H.",
-  "Tap all the words that end with C K.",
-  "Listen to the new word. Tap the missing letter.",
-  "Read the word. Tap it when you know it."
-]);
 
 function outputFor(text) {
   const fileName = `${slug(text)}-${hash(`${voice}|instruction|${text}`)}.mp3`;
@@ -93,7 +71,7 @@ function normalizeMp3(wavPath, mp3Path) {
   if (result.status !== 0) throw new Error(result.stderr || "ffmpeg normalization failed");
 }
 
-const rows = instructionTexts.map(text => {
+const rows = ADVENTURE_MAP_AUDIO_TEXTS.map(text => {
   const existing = getLedaInstructionAudioPath(text);
   return {
     text,

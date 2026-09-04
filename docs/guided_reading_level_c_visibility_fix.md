@@ -1,13 +1,13 @@
 # Guided Reading Visibility Audit
 
-Generated: 2026-08-09T09:15:21.808Z
+Generated: 2026-09-02T12:33:22.977Z
 
 ## Current Policy
 
-Guided Reading now allows all current app-created fiction and nonfiction books for student readers. Old deleted fiction and public-domain books must remain off the readable shelf.
+Guided Reading exports only approved, active app-created fiction and nonfiction books for student readers. Explicitly removed books must remain off the readable shelf.
 
-Visible fiction books: 130
-Visible nonfiction books: 76
+Visible fiction books: 140
+Visible nonfiction books: 86
 
 ## Visible Books
 
@@ -219,6 +219,26 @@ Visible nonfiction books: 76
 | moonwood-tales-c-33 | Glimmer and the Sticky Stars | Fiction | C | approved | 10 | yes | none |
 | moonwood-tales-c-34 | Spark's Ten-Count Hook | Fiction | C | approved | 10 | yes | none |
 | moonwood-tales-c-35 | Pip and Stone Tune the Root Chimes | Fiction | C | approved | 10 | yes | none |
+| willow-street-the-lunchbox-mix-up | The Lunchbox Mix-Up | Fiction | C | approved | 8 | yes | none |
+| willow-street-the-lost-library-book | The Lost Library Book | Fiction | C | approved | 8 | yes | none |
+| willow-street-the-windy-picnic | The Windy Picnic | Fiction | C | approved | 8 | yes | none |
+| willow-street-the-puddle-plan | The Puddle Plan | Fiction | C | approved | 8 | yes | none |
+| willow-street-the-squeaky-wheel | The Squeaky Wheel | Fiction | C | approved | 8 | yes | none |
+| willow-street-the-garden-gate | The Garden Gate | Fiction | C | approved | 8 | yes | none |
+| willow-street-nanis-chapati-lunch | Nani's Chapati Lunch | Fiction | C | approved | 8 | yes | none |
+| willow-street-dumplings-for-new-year | Dumplings for New Year | Fiction | C | approved | 8 | yes | none |
+| willow-street-drums-for-carnival | Drums for Carnival | Fiction | C | approved | 8 | yes | none |
+| willow-street-eid-morning-with-samir | Eid Morning with Samir | Fiction | C | approved | 8 | yes | none |
+| willow-street-grow-a-bean-in-a-jar | Grow a Bean in a Jar | Non-fiction | C | approved | 8 | yes | none |
+| willow-street-make-a-paper-kite | Make a Paper Kite | Non-fiction | C | approved | 8 | yes | none |
+| willow-street-build-a-cardboard-ramp | Build a Cardboard Ramp | Non-fiction | C | approved | 8 | yes | none |
+| willow-street-make-fruit-and-yoghurt-cups | Make Fruit and Yoghurt Cups | Non-fiction | C | approved | 8 | yes | none |
+| willow-street-from-wheat-to-bread | From Wheat to Bread | Non-fiction | C | approved | 8 | yes | none |
+| willow-street-where-rainwater-goes | Where Rainwater Goes | Non-fiction | C | approved | 8 | yes | none |
+| willow-street-inside-a-fire-station | Inside a Fire Station | Non-fiction | C | approved | 8 | yes | none |
+| willow-street-how-paper-is-recycled | How Paper Is Recycled | Non-fiction | C | approved | 8 | yes | none |
+| willow-street-a-snail-comes-out-at-night | A Snail Comes Out at Night | Non-fiction | C | approved | 8 | yes | none |
+| willow-street-how-a-book-is-made | How a Book Is Made | Non-fiction | C | approved | 8 | yes | none |
 
 ## Result
 

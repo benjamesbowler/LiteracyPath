@@ -79,8 +79,17 @@ export const A11Y_KEY_MODAL_STATES = Object.freeze([
   })
 ]);
 
+export const A11Y_KEY_INTERACTIONS = Object.freeze([
+  Object.freeze({
+    id: "arcade-high-scores",
+    url: "/preview/child-surfaces.html?surface=arcade",
+    triggerName: "High Scores",
+    regionName: "High scores"
+  })
+]);
+
 export function validateA11yInventory() {
-  const rows = [...A11Y_PRIMARY_ROUTES, ...A11Y_KEY_MODAL_STATES];
+  const rows = [...A11Y_PRIMARY_ROUTES, ...A11Y_KEY_MODAL_STATES, ...A11Y_KEY_INTERACTIONS];
   const ids = rows.map(row => row.id);
   if (new Set(ids).size !== ids.length) {
     throw new Error("Accessibility inventory ids must be unique.");

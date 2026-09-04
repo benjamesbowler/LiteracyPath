@@ -76,7 +76,7 @@ test("the published Initial Sounds assessment uses the reviewed basic vocabulary
     ...(question.choices || []).filter(choice => typeof choice === "string" && choice.length > 1)
   ]).filter(Boolean);
 
-  for (const rejected of ["olive", "otter", "uniform", "yak", "yarn"]) {
+  for (const rejected of ["olive", "otter", "yak", "yarn"]) {
     assert.equal(activeWords.includes(rejected), false, `${rejected} should not be published`);
   }
 
@@ -87,8 +87,9 @@ test("the published Initial Sounds assessment uses the reviewed basic vocabulary
   }
 
   const orangeListeningItem = initialSoundAssessmentQuestions.find(question =>
-    question.itemKey === "o" && question.targetWord === "orange" && question.mediaTier === "audio-required");
-  assert.ok(orangeListeningItem, "orange should remain a spoken short-O target");
+    question.itemKey === "o" && question.targetWord === "orange" && question.mediaTier === "image-required");
+  assert.ok(orangeListeningItem, "orange should remain a pictured short-O target");
+  assert.ok(orangeListeningItem.imagePath, "orange should retain its target picture");
   assert.equal(orangeListeningItem.choices.includes("o"), true);
   assert.equal(orangeListeningItem.choices.includes("r"), false, "orange must not imply an initial or final r sound");
 
@@ -99,7 +100,7 @@ test("the published Initial Sounds assessment uses the reviewed basic vocabulary
       ...(question.imageCards || []).map(card => card.word)
     ])
     .filter(Boolean));
-  for (const expected of ["orange", "ox", "octopus"]) {
+  for (const expected of ["orange", "octopus"]) {
     assert.equal(basicOWords.has(expected), true, `${expected} should remain in the O assessment`);
   }
 

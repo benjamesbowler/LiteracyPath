@@ -14,10 +14,47 @@ const adventureMigration = fs.readFileSync(
   new URL("../../supabase/migrations/20260831233417_extend_student_focus_sessions_adventure_map.sql", import.meta.url),
   "utf8"
 );
+const adventureProgressEpochMigration = fs.readFileSync(
+  new URL("../../supabase/migrations/20260902090000_reset_adventure_map_progress_epoch_2.sql", import.meta.url),
+  "utf8"
+);
+const assignmentCheckMigration = fs.readFileSync(
+  new URL("../../supabase/migrations/20260903013233_student_focus_answer_assignment_check.sql", import.meta.url),
+  "utf8"
+);
+const forwardMergeSelftest = fs.readFileSync(
+  new URL("../../supabase/verify/progress_forward_merge_selftest.sql", import.meta.url),
+  "utf8"
+);
 const mapStopsSource = fs.readFileSync(
   new URL("../../src/data/mapStops.js", import.meta.url),
   "utf8"
 );
+
+test("Adventure Map v2 progress is normalized at the database boundary without changing focus sessions", () => {
+  assert.match(adventureProgressEpochMigration, /create or replace function public\.lp_merge_el_quest_cycle\(existing jsonb, incoming jsonb\)[\s\S]*sampledConstructs[\s\S]*lastPlayedAt/i);
+  assert.match(adventureProgressEpochMigration, /'cycles', public\.lp_merge_el_quest_cycles\(local_payload -> 'cycles', incoming_payload -> 'cycles'\)/i);
+  assert.match(adventureProgressEpochMigration, /create or replace function public\.lp_merge_el_quest\(existing jsonb, incoming jsonb\)[\s\S]*returns jsonb[\s\S]*immutable/i);
+  assert.match(adventureProgressEpochMigration, /when p_area = 'el_quest' then public\.lp_merge_el_quest\(p_existing, p_incoming\)/i);
+  assert.match(adventureProgressEpochMigration, /before insert on public\.student_progress/i);
+  assert.match(adventureProgressEpochMigration, /new\.area = 'el_quest' and new\.key = '__all__'/i);
+  assert.match(adventureProgressEpochMigration, /update public\.student_progress[\s\S]*set payload = public\.lp_normalize_el_quest\(payload\)[\s\S]*where area = 'el_quest'[\s\S]*and key = '__all__'/i);
+  assert.doesNotMatch(adventureProgressEpochMigration, /set[\s\S]{0,100}updated_at\s*=/i);
+  assert.doesNotMatch(adventureProgressEpochMigration, /student_focus_session/i);
+});
+
+test("Adventure Map epoch SQL verification exercises the insert trigger and leaves focus sessions unchanged", () => {
+  assert.match(forwardMergeSelftest, /begin;[\s\S]*insert into public\.student_progress[\s\S]*'el_quest'[\s\S]*'__all__'/i);
+  assert.match(forwardMergeSelftest, /select payload into [\w_]+\s+from public\.student_progress/i);
+  assert.match(forwardMergeSelftest, /progressEpoch/i);
+  assert.match(forwardMergeSelftest, /future schema at current epoch was normalized/i);
+  assert.match(forwardMergeSelftest, /future schema existing-first was downgraded/i);
+  assert.match(forwardMergeSelftest, /future schema incoming-first was downgraded/i);
+  assert.match(forwardMergeSelftest, /latest construct manifest was unioned/i);
+  assert.match(forwardMergeSelftest, /reverse merge lost latest recovery count/i);
+  assert.match(forwardMergeSelftest, /student_focus_sessions/i);
+  assert.match(forwardMergeSelftest, /rollback;/i);
+});
 
 test("student sessions have bounded expiry, one active lock per student and RPC-only membership", () => {
   assert.match(migration, /expires_at <= started_at \+ interval '2 hours'/i);
@@ -69,7 +106,13 @@ test("teachers can assign only owned active students and cross-feature sessions 
 
 test("independent skills evidence is assignment-scoped, idempotent and permanently labelled", () => {
   assert.match(migration, /p_attempt ->> 'skillId' <> v_member\.resolved_config ->> 'skill_id'/i);
-  assert.match(migration, /p_attempt ->> 'skillLevel'[\s\S]*v_member\.resolved_config ->> 'level'/i);
+  // The client's skillLevel/skillPhase are NOT compared any more (see the
+  // assignment-check migration below); the stored values come from the
+  // assignment either way, which is what makes the evidence assignment-scoped.
+  assert.match(
+    assignmentCheckMigration,
+    /skill_id, skill_name, skill_level, skill_phase[\s\S]*\(v_member\.resolved_config ->> 'level'\)::integer,\s*\n\s*\(v_member\.resolved_config ->> 'phase'\)::integer,/i
+  );
   assert.match(migration, /on conflict \(teacher_id, client_event_id\) where client_event_id is not null do nothing/i);
   assert.match(migration, /on conflict \(attempt_id\) do nothing/i);
   assert.match(migration, /'administrationMode', 'student_independent'/i);
@@ -341,4 +384,70 @@ test("student polling ranks active and newest-ended state in one database snapsh
     adventureMigration,
     /grant execute on function public\.student_get_focus_session\(text, text, boolean\)[\s\S]*to anon, authenticated/i
   );
+});
+
+// Regression: students saw "That answer could not be saved on this device or to
+// the cloud" on a healthy connection. The RPC rejects an answer whose
+// level/phase differ from the assignment, and the client was sending the
+// QUESTION's authored phase. Those two numbers mean different things: in the v3
+// bank, phase is an alphabet split (Initial Sounds level 1 is a-m phase 1, n-z
+// phase 2), while the round selectors choose items with no regard to it. Every
+// answer on a letter from the other half was rejected as `assignment_mismatch`
+// and surfaced to the child as a network error.
+test("student answers report the assigned level and phase, not the question's authored ones", async () => {
+  const controllerSource = fs.readFileSync(
+    new URL("../../src/appState/assessmentRoundController.js", import.meta.url),
+    "utf8"
+  );
+
+  // The original RPC compared both against resolved_config while storing
+  // neither, so a question whose authored phase differed from the assignment
+  // was refused outright.
+  assert.match(
+    migration,
+    /coalesce\(\(p_answer ->> 'phase'\)::integer, -1\) <> \(v_member\.resolved_config ->> 'phase'\)::integer/i
+  );
+
+  // That comparison is gone; the skill_id guard, which is stored, remains.
+  assert.doesNotMatch(assignmentCheckMigration, /p_answer ->> 'level'/i);
+  assert.doesNotMatch(assignmentCheckMigration, /p_answer ->> 'phase'/i);
+  assert.doesNotMatch(assignmentCheckMigration, /p_attempt ->> 'skillLevel'/i);
+  assert.doesNotMatch(assignmentCheckMigration, /p_attempt ->> 'skillPhase'/i);
+  assert.match(
+    assignmentCheckMigration,
+    /if p_answer ->> 'skill_id' <> v_member\.resolved_config ->> 'skill_id' then\s*\n\s*return json_build_object\('ok', false, 'error', 'assignment_mismatch'\);/i
+  );
+  assert.match(
+    assignmentCheckMigration,
+    /p_attempt ->> 'skillId' <> v_member\.resolved_config ->> 'skill_id'/i
+  );
+  // Both the answer RPC and the completion RPC must be replaced together.
+  assert.match(assignmentCheckMigration, /create or replace function public\.student_save_focus_assessment_answer\(/i);
+  assert.match(assignmentCheckMigration, /create or replace function public\.student_complete_focus_assessment\(/i);
+  assert.match(
+    assignmentCheckMigration,
+    /grant execute on function public\.student_save_focus_assessment_answer\(text, uuid, jsonb\)\s*\n\s*to anon, authenticated;/i
+  );
+
+  // The client sends the assignment too, so either change fixes the fault alone.
+  assert.match(controllerSource, /function getAssignedFocusStep\(\)[\s\S]{0,400}resolved_config/);
+  assert.match(controllerSource, /level: assignedStep\.level \?\? normalizedRecord\.itemLevel/);
+  assert.match(controllerSource, /phase: assignedStep\.phase \?\? normalizedRecord\.itemPhase/);
+  assert.match(controllerSource, /skillLevel: assignedStep\.level \?\? enrichedAttempt\.skillLevel/);
+  assert.match(controllerSource, /skillPhase: assignedStep\.phase \?\? enrichedAttempt\.skillPhase/);
+
+  // Sending the question's own phase cannot work: no Initial Sounds letter has
+  // items in both phases at a given level, so a phase-1 assignment inevitably
+  // reaches letters the bank authored as phase 2.
+  const { questions } = await import("../../src/data/v3/banks/initial_sounds.v3.generated.js");
+  const phasesByLetter = new Map();
+  for (const question of questions.filter(item => Number(item.level) === 1)) {
+    const seen = phasesByLetter.get(question.itemKey) || new Set();
+    seen.add(Number(question.phase));
+    phasesByLetter.set(question.itemKey, seen);
+  }
+  const letters = [...phasesByLetter.entries()];
+  assert.ok(letters.some(([, phases]) => phases.has(1)));
+  assert.ok(letters.some(([, phases]) => phases.has(2)));
+  assert.equal(letters.filter(([, phases]) => phases.size > 1).length, 0);
 });

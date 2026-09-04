@@ -523,16 +523,37 @@ export function scoreLetterTrace({
   const unmatchedStrokeRatio = Math.max(assignmentUnmatchedRatio, continuousTravelRatio);
   const unmatchedLimit = 0.12;
 
+  // A child who has learned to write this letter as one confident, continuous
+  // stroke (never lifting their finger between the taught pedagogic
+  // sub-strokes) can still trace a shape that is unmistakably the right
+  // letter - just without the exact stroke-by-stroke segmentation, order and
+  // direction the strict formation check below demands. Accept that as
+  // correct too: for a beginning writer what matters most is that the letter
+  // is recognisably right, not that it was assembled in the taught stroke
+  // order. Coverage/precision stay demanding so a wrong or scribbled shape
+  // still fails.
+  const shapeAccurate = (
+    coverage >= 0.8
+    && precision >= 0.68
+    && unmatchedStrokeRatio <= 0.16
+    && outsideTravelRatio <= 0.16
+    && directionScore === 1
+    && orderScore === 1
+  );
+
   return {
     pass: (
-      coverage >= 0.72
-      && precision >= 0.62
-      && strokeCoverage === 1
-      && endpointCoverage >= 0.78
-      && directionScore === 1
-      && orderScore === 1
-      && unmatchedStrokeRatio <= unmatchedLimit
-      && outsideTravelRatio <= 0.14
+      (
+        coverage >= 0.72
+        && precision >= 0.62
+        && strokeCoverage === 1
+        && endpointCoverage >= 0.78
+        && directionScore === 1
+        && orderScore === 1
+        && unmatchedStrokeRatio <= unmatchedLimit
+        && outsideTravelRatio <= 0.14
+      )
+      || shapeAccurate
     ),
     coverage,
     precision,
@@ -540,6 +561,7 @@ export function scoreLetterTrace({
     endpointCoverage,
     directionScore,
     orderScore,
-    unmatchedStrokeRatio
+    unmatchedStrokeRatio,
+    shapeAccurate
   };
 }

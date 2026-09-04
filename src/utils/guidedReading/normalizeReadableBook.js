@@ -24,6 +24,9 @@ const fallbackIllustrators = [
   "Finn Blue"
 ];
 
+import { getGuidedReadingBookMetadata } from "../../data/guidedReadingBookMetadata.js";
+import { getGuidedReadingDiscussion } from "../../data/guidedReadingDiscussionPrompts.js";
+
 function getStableNameIndex(bookId = "", offset = 0) {
   const source = String(bookId || "guided-reading-book");
   const total = [...source].reduce((sum, char, index) => sum + char.charCodeAt(0) * (index + 1 + offset), 0);
@@ -80,6 +83,7 @@ function buildTitlePage(book = {}, pages = []) {
 }
 
 export function normalizeReadableBook(book = {}) {
+  const metadata = getGuidedReadingBookMetadata(book);
   const sourcePages = Array.isArray(book.pages) ? book.pages : [];
   const storyPageOffset = sourcePages.length ? 1 : 0;
   const storyPages = sourcePages
@@ -98,6 +102,9 @@ export function normalizeReadableBook(book = {}) {
     illustrator: credits.illustrator,
     sourceType: book.sourceType || "guided-reading",
     level: book.level || book.guidedReadingLevel || book.gradeBand || "",
+    readingBandProfile: book.readingBandProfile || metadata?.readingBandProfile || "",
+    readingMode: book.readingMode || metadata?.readingMode || "",
+    discussion: book.discussion || getGuidedReadingDiscussion(book),
     category: book.category || book.type || book.readingType || "",
     gradeBand: book.gradeBand || "",
     difficulty: book.difficulty || book.readingLevel || "",

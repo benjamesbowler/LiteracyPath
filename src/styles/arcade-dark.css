@@ -25,6 +25,7 @@
     radial-gradient(1.5px 1.5px at 88% 54%, rgba(255,255,255,.18), transparent);
 }
 .lg-arcade > * { position: relative; z-index: 1; }
+.lg-arcade > .lg-arcade-scrollbody > * { position: relative; z-index: 1; }
 
 /* Controls */
 .lg-segmented-control {
@@ -66,6 +67,7 @@
 }
 .lg-arcade .lg-leaderboard-head h2 { color: #eef2ff; }
 .lg-arcade .lg-leaderboard-head span,
+.lg-arcade .lg-leaderboard-privacy,
 .lg-arcade .lg-leaderboard-who em,
 .lg-arcade .lg-leaderboard-empty { color: #9aa8d6; }
 .lg-arcade .lg-leaderboard-list li {

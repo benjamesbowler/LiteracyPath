@@ -186,7 +186,7 @@ const STUB_GUIDED_READING_MODULE = {
   summarizeGuidedReadingRecord: () => ({})
 };
 
-test("guided reading rows carry completion and quiz scores from the record", () => {
+test("Guided Reading completion is not comprehension evidence", () => {
   const rows = buildGuidedReadingReportRows({
     b1: { completed: true, completedAt: "2026-07-01T10:00:00Z", readCount: 2, completedPages: 3, quizScore: 4, quizTotal: 5, lastReadAt: "2026-07-02T10:00:00Z" },
     b2: { readCount: 1, completedPages: 1, lastReadAt: "2026-06-20T10:00:00Z" }
@@ -195,9 +195,8 @@ test("guided reading rows carry completion and quiz scores from the record", () 
   assert.equal(rows.length, 2);
   assert.equal(rows[0].bookId, "b1"); // most recent first
   assert.equal(rows[0].completed, true);
-  assert.equal(rows[0].quizScore, 4);
-  assert.equal(rows[0].quizTotal, 5);
-  assert.equal(rows[1].quizScore, null);
+  assert.equal("quizScore" in rows[0], false);
+  assert.equal("quizTotal" in rows[0], false);
 });
 
 test("guided reading summary counts completed books by level and finds the latest book", () => {
@@ -210,8 +209,7 @@ test("guided reading summary counts completed books by level and finds the lates
   assert.equal(summary.totalCompleted, 1);
   assert.deepEqual(summary.byLevel, [{ level: "A", count: 1 }]);
   assert.equal(summary.mostRecent.title, "The Red Hen");
-  assert.equal(summary.quizRows.length, 1);
-  assert.equal(summary.quizRows[0].percent, 80);
+  assert.equal("quizRows" in summary, false);
 });
 
 test("guided reading summary is calm on empty rows", () => {
@@ -219,5 +217,5 @@ test("guided reading summary is calm on empty rows", () => {
   assert.equal(summary.totalCompleted, 0);
   assert.deepEqual(summary.byLevel, []);
   assert.equal(summary.mostRecent, null);
-  assert.deepEqual(summary.quizRows, []);
+  assert.equal("quizRows" in summary, false);
 });

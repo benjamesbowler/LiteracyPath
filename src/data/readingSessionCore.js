@@ -1,6 +1,6 @@
-import { APP_RELEASE_ID } from "../utils/errorLog.js";
-
-export const READING_SESSION_CONTENT_VERSION = APP_RELEASE_ID;
+// Shared reading remains compatible across ordinary web app deployments. Bump
+// this only for a breaking change to the frozen-session/follower contract.
+export const READING_SESSION_CONTENT_VERSION = "guided-reading-session-v1";
 
 function requireClient(client) {
   if (!client) throw new Error("Shared reading is unavailable while the service is offline.");

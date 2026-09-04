@@ -14,8 +14,8 @@ document drops an executable route/state ID or either required viewport.
 | `desktop` | 1280×900 | Laptop/desktop route and state coverage |
 | `mobile` | 390×844 | Small-phone route and state coverage |
 
-Every row below is checked at both viewports for serious/critical Axe findings
-and page errors by `check:a11y-routes`.
+Every primary route and modal/overlay row below is checked at both viewports
+for serious/critical Axe findings and page errors by `check:a11y-routes`.
 
 ## Primary student routes
 
@@ -61,6 +61,18 @@ close, and focus restoration using the deterministic audit school.
 | `sound-seekers-creator` | Creature creator |
 | `arcade-game` | Full-screen game |
 | `arcade-resume` | Resume-game alert dialog |
+
+## Key disclosure interactions
+
+| Inventory ID | Human state |
+|---|---|
+| `arcade-high-scores` | Arcade High Scores keyboard disclosure, named ranking, live result state, and focus restoration |
+
+The same gate runs this disclosure's dedicated rendered-browser coverage at
+desktop, 568×320 landscape, 1366×768, and the bounded 1470×775 MacBook child
+shell. The canonical Arcade preview is a deterministic synthetic signed-in
+school child with an injected leaderboard client; `leaderboard=unavailable`
+is the explicit denied fixture. Neither preview state calls the live RPC.
 
 ## Automation boundary
 

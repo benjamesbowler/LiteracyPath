@@ -242,3 +242,160 @@ test("a rejected cue play promise also advances the sequence", async () => {
     globalThis.Audio = originalAudio;
   }
 });
+
+test("a cue completion callback fires only after recorded playback ends", async () => {
+  const originalWindow = globalThis.window;
+  const originalAudio = globalThis.Audio;
+  let cue = null;
+  let audio = null;
+  let ended = 0;
+
+  class FakeAudio {
+    constructor() {
+      this.currentTime = 0;
+      this.listeners = new Map();
+      audio = this;
+    }
+
+    addEventListener(type, handler) {
+      const handlers = this.listeners.get(type) || [];
+      handlers.push(handler);
+      this.listeners.set(type, handlers);
+    }
+
+    removeEventListener(type, handler) {
+      const handlers = this.listeners.get(type) || [];
+      this.listeners.set(type, handlers.filter(candidate => candidate !== handler));
+    }
+
+    emit(type) {
+      for (const handler of this.listeners.get(type) || []) handler();
+    }
+
+    play() { return Promise.resolve(); }
+    pause() {}
+    load() {}
+  }
+
+  globalThis.window = { speechSynthesis: { cancel() {} } };
+  globalThis.Audio = FakeAudio;
+
+  try {
+    cue = await import(`../../src/utils/audio/cuePlayer.js?ended=${Date.now()}`);
+    cue.playCueAudio("/audio/phrase.mp3", { onEnded: () => { ended += 1; } });
+    assert.equal(ended, 0);
+    audio.emit("ended");
+    assert.equal(ended, 1);
+  } finally {
+    cue?.stopCueAudio();
+    globalThis.window = originalWindow;
+    globalThis.Audio = originalAudio;
+  }
+});
+
+test("interrupting a cue reports cancellation without reporting completion", async () => {
+  const originalWindow = globalThis.window;
+  const originalAudio = globalThis.Audio;
+  let cue = null;
+  let ended = 0;
+  let interrupted = 0;
+
+  class FakeAudio {
+    constructor() {
+      this.currentTime = 0;
+      this.listeners = new Map();
+    }
+
+    addEventListener(type, handler) {
+      const handlers = this.listeners.get(type) || [];
+      handlers.push(handler);
+      this.listeners.set(type, handlers);
+    }
+
+    removeEventListener(type, handler) {
+      const handlers = this.listeners.get(type) || [];
+      this.listeners.set(type, handlers.filter(candidate => candidate !== handler));
+    }
+
+    play() { return Promise.resolve(); }
+    pause() {}
+    load() {}
+  }
+
+  globalThis.window = { speechSynthesis: { cancel() {} } };
+  globalThis.Audio = FakeAudio;
+
+  try {
+    cue = await import(`../../src/utils/audio/cuePlayer.js?interrupted=${Date.now()}`);
+    cue.playCueAudio("/audio/phrase.mp3", {
+      onEnded: () => { ended += 1; },
+      onInterrupted: () => { interrupted += 1; }
+    });
+    cue.playCueAudio("/audio/instructions.mp3");
+    assert.equal(interrupted, 1);
+    assert.equal(ended, 0);
+    cue.stopCueAudio();
+    assert.equal(interrupted, 1);
+  } finally {
+    cue?.stopCueAudio();
+    globalThis.window = originalWindow;
+    globalThis.Audio = originalAudio;
+  }
+});
+
+test("a cue that cannot resume after suspension reports interruption", async () => {
+  const originalWindow = globalThis.window;
+  const originalAudio = globalThis.Audio;
+  let cue = null;
+  let interrupted = 0;
+
+  class FakeAudio {
+    constructor() {
+      this.currentTime = 0;
+      this.playCount = 0;
+      this.listeners = new Map();
+    }
+
+    addEventListener(type, handler) {
+      const handlers = this.listeners.get(type) || [];
+      handlers.push(handler);
+      this.listeners.set(type, handlers);
+    }
+
+    removeEventListener(type, handler) {
+      const handlers = this.listeners.get(type) || [];
+      this.listeners.set(type, handlers.filter(candidate => candidate !== handler));
+    }
+
+    play() {
+      this.playCount += 1;
+      return this.playCount === 1
+        ? Promise.resolve()
+        : Promise.reject(new Error("resume blocked"));
+    }
+
+    pause() {}
+    load() {}
+  }
+
+  globalThis.window = { speechSynthesis: { cancel() {} } };
+  globalThis.Audio = FakeAudio;
+
+  try {
+    cue = await import(`../../src/utils/audio/cuePlayer.js?resume-failure=${Date.now()}`);
+    cue.playCueAudio("/audio/phrase.mp3", {
+      onInterrupted: () => { interrupted += 1; }
+    });
+    cue.setCueAudioSuspended(true);
+    cue.setCueAudioSuspended(false);
+    await Promise.resolve();
+    await Promise.resolve();
+    assert.equal(interrupted, 1);
+    cue.stopCueAudio();
+    assert.equal(interrupted, 1);
+  } finally {
+    cue?.stopCueAudio();
+    globalThis.window = originalWindow;
+    globalThis.Audio = originalAudio;
+  }
+});

@@ -1,5 +1,9 @@
 import { supabase } from "../supabaseClient.js";
 import { selectAllRows } from "../data/pagedSelect.js";
+import {
+  isFutureElQuestProgress,
+  isMalformedCurrentElQuestProgress
+} from "./adventureMapProgress.js";
 import { computeHydratedValue, sanitizeCloudProgressPayload } from "./progressMerge.js";
 import {
   PROGRESS_AREAS,
@@ -84,6 +88,21 @@ function writeJson(key, value) {
   } catch {
     // Local progress buffering must never block the child experience.
     return false;
+  }
+}
+
+function readStoredJson(key) {
+  if (!isBrowser()) return { exists: false, ok: true, value: {} };
+  try {
+    const raw = window.localStorage.getItem(key);
+    if (raw === null) return { exists: false, ok: true, value: {} };
+    try {
+      return { exists: true, ok: true, raw, value: JSON.parse(raw) };
+    } catch {
+      return { exists: true, ok: false, raw, value: {} };
+    }
+  } catch {
+    return { exists: false, ok: false, value: {} };
   }
 }
 
@@ -447,7 +466,7 @@ function enqueueWrite(entry, { deferred = false } = {}) {
   return result;
 }
 
-async function saveCloudProgress(entry) {
+async function saveCloudProgress(entry, client = supabase) {
   if (!entry?.studentId) return;
   if (!PROGRESS_AREAS.includes(entry.area)) return;
   // Defence in depth for old queued rows and future callers: privacy-bound
@@ -455,7 +474,7 @@ async function saveCloudProgress(entry) {
   const uploadPayload = sanitizeCloudProgressPayload(entry.area, entry.payload);
 
   if (entry.mode === "student" && entry.token) {
-    const { data, error } = await supabase.call("student_save_progress", {
+    const { data, error } = await client.call("student_save_progress", {
       p_token: entry.token,
       p_area: entry.area,
       p_key: entry.key,
@@ -465,7 +484,7 @@ async function saveCloudProgress(entry) {
     return;
   }
 
-  const { error } = await supabase
+  const { error } = await client
     .table("student_progress")
     .upsert({
       student_id: entry.studentId,
@@ -477,7 +496,7 @@ async function saveCloudProgress(entry) {
   if (error) throw error;
 }
 
-async function flushEntry(entry, records, volatileRevision = null) {
+async function flushEntry(entry, records, volatileRevision = null, client = supabase) {
   if (isProgressWriteBlocked(entry?.studentId, entry?.area)) {
     removeProgressQueueRecords(window.localStorage, records);
     volatileEntries.delete(progressEntryIdentity(entry));
@@ -489,7 +508,7 @@ async function flushEntry(entry, records, volatileRevision = null) {
     return { ok: false, needsRecovery: true };
   }
   try {
-    await saveCloudProgress(entry);
+    await saveCloudProgress(entry, client);
     // Remove only the revisions represented by this upload. A second tab can
     // append while the request is in flight and its unique record survives for
     // the next loop instead of being erased by a broad identity filter.
@@ -541,7 +560,7 @@ async function flushQueuedKey(identity, session = activeSession) {
         ...current,
         mode: session.mode || current.mode || "teacher",
         token: session.token || current.token || ""
-      }, records, volatile?.revision || null);
+      }, records, volatile?.revision || null, session.client || supabase);
       recovered = recovered || result.needsRecovery;
       if (!result.ok) return false;
     }
@@ -619,8 +638,9 @@ export async function flushQueuedProgressWrites(session = activeSession) {
 
 export async function fetchStudentCloudProgress(session) {
   if (!session?.studentId) return [];
+  const client = session.client || supabase;
   if (session.mode === "student" && session.token) {
-    const { data, error } = await supabase.call("student_get_progress", { p_token: session.token });
+    const { data, error } = await client.call("student_get_progress", { p_token: session.token });
     if (error) throw error;
     return data || [];
   }
@@ -675,10 +695,49 @@ export async function hydrateCloudProgress(session) {
   rows.forEach(row => {
     const storageKey = localProgressStorageKey(row.area, session.studentId);
     if (!storageKey) return;
-    const existing = readJson(storageKey, {});
+    const stored = row.area === "el_quest" ? readStoredJson(storageKey) : null;
+    const existing = stored ? stored.value : readJson(storageKey, {});
+    if (stored) {
+      // An unreadable Adventure record is not an empty record. Leave any
+      // existing syntax/shape failure intact until the child uses the scoped
+      // recovery action. Future clients likewise own their exact opaque bytes.
+      if (
+        stored.exists
+        && (
+          !stored.ok
+          || isMalformedCurrentElQuestProgress(existing)
+          || isFutureElQuestProgress(existing)
+        )
+      ) return;
+
+      // With no local record, materialise malformed current cloud data as-is.
+      // The mounted map/Quest will then take the same explicit recovery route
+      // as a malformed local record instead of displaying a fake empty map.
+      if (!stored.exists && isMalformedCurrentElQuestProgress(row.payload)) {
+        writeJson(storageKey, row.payload);
+        return;
+      }
+    }
     // Forward-only merge: cloud can ADD progress but never wipe out stars,
     // completions, or words the child already has locally. See progressMerge.js.
-    writeJson(storageKey, computeHydratedValue(row.area, row.key, existing, row.payload));
+    const hydrated = computeHydratedValue(row.area, row.key, existing, row.payload);
+    writeJson(storageKey, hydrated);
+
+    // Recovery can be clicked while the initial cloud read is still in flight.
+    // If its canonical v2 write is already queued, fold this just-hydrated row
+    // into that exact queued identity before flushing. A valid cloud row keeps
+    // earned progress; malformed cloud loses to canonical local v2; a future
+    // row remains authoritative instead of being downgraded by the old client.
+    if (row.area === "el_quest") {
+      const identity = `${session.studentId}:${row.area}:${row.key}`;
+      const records = readProgressQueueRecords(window.localStorage)
+        .filter(record => progressEntryIdentity(record.entry) === identity);
+      const volatile = volatileEntries.get(identity) || null;
+      const pending = mergeProgressQueueRecords(volatile
+        ? [...records, { storageKey: null, legacy: false, entry: volatile }]
+        : records);
+      if (pending) enqueueWrite({ ...pending, payload: hydrated });
+    }
   });
   await flushQueuedProgressWrites(session);
   if (isBrowser()) {

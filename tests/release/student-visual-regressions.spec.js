@@ -1,9 +1,24 @@
 import { expect, test } from "@playwright/test";
 
+import { GAME_LIST } from "../../src/data/learnGamesData.js";
+
 const SCREENSHOT_VIEWPORT = Object.freeze({ width: 1920, height: 1030 });
 const COMMON_CHILD_VIEWPORT = Object.freeze({ width: 1366, height: 768 });
 const MACBOOK_CHROME_VIEWPORT = Object.freeze({ width: 1470, height: 775 });
 const IPAD_SAFARI_VISIBLE_VIEWPORT = Object.freeze({ width: 1194, height: 720 });
+const PHONE_ARCADE_AUTHORED_CARD_MIN_PX = 210;
+const ARCADE_GAMES = Object.freeze(
+  GAME_LIST.filter(game => (game.surfaces || []).includes("arcade"))
+);
+
+async function expectCompleteArcadeCatalogue(root) {
+  const tiles = root.locator(".lg-game-tile");
+  await expect(tiles).toHaveCount(ARCADE_GAMES.length);
+  await expect(tiles.locator(".lg-game-tile-name")).toHaveText(
+    ARCADE_GAMES.map(game => game.title)
+  );
+  return tiles;
+}
 
 async function childFlowGeometry(page) {
   return page.evaluate(() => {
@@ -79,7 +94,7 @@ test("Letters and Arcade clear the bottom navigation in the live MacBook viewpor
   });
 
   await page.goto("/preview/child-surfaces.html?surface=arcade");
-  await expect(page.locator(".lg-game-tile")).toHaveCount(11);
+  await expectCompleteArcadeCatalogue(page);
   const arcadeGeometry = await page.evaluate(() => {
     const main = document.querySelector(".kg-main");
     const route = document.querySelector(".student-surface-arcade");
@@ -150,9 +165,7 @@ test("the whole arcade fits a common child laptop viewport", async ({ page }) =>
   await page.goto("/preview/child-surfaces.html?surface=arcade");
 
   const grid = page.locator(".lg-game-tilegrid");
-  const tiles = grid.locator(".lg-game-tile");
-
-  await expect(tiles).toHaveCount(11);
+  await expectCompleteArcadeCatalogue(grid);
 
   const geometry = await page.evaluate(() => {
     const rect = selector => document.querySelector(selector).getBoundingClientRect();
@@ -293,30 +306,84 @@ test("every post-selection phonics and word-building step fits the visible iPad 
 test("the phone arcade keeps every card in the scroll flow", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/preview/child-surfaces.html?surface=arcade");
-  await expect(page.locator(".lg-game-tilegrid")).toBeVisible();
+  const grid = page.locator(".lg-game-tilegrid");
+  await expect(grid).toBeVisible();
+  const tiles = await expectCompleteArcadeCatalogue(grid);
 
   const geometry = await page.evaluate(() => {
+    const stage = document.querySelector(".kg-stage");
+    const main = document.querySelector(".kg-main");
     const grid = document.querySelector(".lg-game-tilegrid");
     const route = document.querySelector(".student-surface-arcade");
     const tiles = [...document.querySelectorAll(".lg-game-tile")];
     const gridBox = grid.getBoundingClientRect();
     const routeBox = route.getBoundingClientRect();
     const firstBox = tiles[0].getBoundingClientRect();
-    const lastBox = tiles.at(-1).getBoundingClientRect();
+    const lastCard = tiles.at(-1);
+    const lastBox = lastCard.getBoundingClientRect();
+    const stageBox = stage.getBoundingClientRect();
+    const artwork = [...document.querySelectorAll(".lg-game-tile-art img")];
+    const names = [...document.querySelectorAll(".lg-game-tile-name")];
     return {
+      stageScale: stage.offsetWidth > 0 ? stageBox.width / stage.offsetWidth : 1,
+      authoredCardMinimum: Number.parseFloat(getComputedStyle(lastCard).minHeight) || 0,
       gridContainsCards: gridBox.top <= firstBox.top && gridBox.bottom >= lastBox.bottom - 1,
       routeScrollContainsCards: route.scrollHeight >= lastBox.bottom - routeBox.top - 1,
+      mainHasIntendedScroll: ["auto", "scroll"].includes(getComputedStyle(main).overflowY)
+        && main.scrollHeight > main.clientHeight + 1,
       gridHeight: gridBox.height,
       lastCardHeight: lastBox.height,
+      artworkIsLoaded: artwork.length === tiles.length && artwork.every(image => {
+        const box = image.getBoundingClientRect();
+        return image.complete && image.naturalWidth > 0 && box.width > 0 && box.height > 0;
+      }),
+      namesAreVisible: names.length === tiles.length && names.every(name => {
+        const box = name.getBoundingClientRect();
+        return name.textContent.trim().length > 0 && box.width > 0 && box.height > 0;
+      }),
       tileContentFits: tiles.every(tile => tile.scrollHeight <= tile.clientHeight + 1)
     };
   });
 
   expect(geometry.gridHeight).toBeGreaterThan(1000);
-  expect(geometry.lastCardHeight).toBeGreaterThanOrEqual(210);
+  expect(geometry.authoredCardMinimum).toBeGreaterThanOrEqual(PHONE_ARCADE_AUTHORED_CARD_MIN_PX);
+  expect(geometry.lastCardHeight).toBeGreaterThanOrEqual(
+    PHONE_ARCADE_AUTHORED_CARD_MIN_PX * geometry.stageScale - 1
+  );
   expect(geometry.gridContainsCards).toBe(true);
   expect(geometry.routeScrollContainsCards).toBe(true);
+  expect(geometry.mainHasIntendedScroll).toBe(true);
+  expect(geometry.artworkIsLoaded).toBe(true);
+  expect(geometry.namesAreVisible).toBe(true);
   expect(geometry.tileContentFits).toBe(true);
+
+  const lastTile = tiles.last();
+  await lastTile.scrollIntoViewIfNeeded();
+  const lastTileVisibility = await lastTile.evaluate(element => {
+    const tile = element.getBoundingClientRect();
+    const main = element.closest(".kg-main");
+    const mainBox = main?.getBoundingClientRect();
+    const tabbarBox = document.querySelector(".kg-tabbar")?.getBoundingClientRect();
+    const usable = mainBox ? {
+      left: Math.max(0, mainBox.left),
+      top: Math.max(0, mainBox.top),
+      right: Math.min(window.innerWidth, mainBox.right),
+      bottom: Math.min(window.innerHeight, mainBox.bottom, tabbarBox?.top ?? window.innerHeight)
+    } : null;
+    return {
+      tile: { left: tile.left, top: tile.top, right: tile.right, bottom: tile.bottom },
+      usable,
+      fullyVisible: Boolean(usable)
+        && tile.left >= usable.left - 1
+        && tile.top >= usable.top - 1
+        && tile.right <= usable.right + 1
+        && tile.bottom <= usable.bottom + 1
+    };
+  });
+  expect(
+    lastTileVisibility.fullyVisible,
+    `the last Arcade card clears the fixed navigation: ${JSON.stringify(lastTileVisibility)}`
+  ).toBe(true);
 });
 
 test("the earned-coins notice is opaque and clears the navigation", async ({ page }) => {

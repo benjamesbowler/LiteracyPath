@@ -73,9 +73,12 @@ test("A7.10 builds three purpose-specific templates from one learner record", ()
   assert.equal(leadership.metrics[2].value, 2);
   assert.match(family.title, /Aarav’s reading update/);
   assert.deepEqual(family.sections.map(section => section.title), [
-    "What is going well",
-    "One thing to practise at home",
-    "How we can help together"
+    "Summary highlight",
+    "What your child can do",
+    "What we're working on next",
+    "What this means",
+    "What you can do at home",
+    "Who to talk to"
   ]);
 });
 
@@ -88,8 +91,8 @@ test("A7.10 family copy is strengths-based, actionable, jargon-free, and contain
   const text = familyReportDisplayText(family);
 
   assert.deepEqual(lintFamilyReportPlainLanguage(family), []);
-  assert.match(text, /Aarav is doing well/);
-  assert.match(text, /How we can help together/);
+  assert.match(text, /Aarav has shown strength/);
+  assert.match(text, /What you can do at home/);
   assert.match(text, /Play a quick letter game|Say two words aloud|Build one short word/);
   assert.doesNotMatch(text, /[£$€¥]/u);
   FAMILY_REPORT_BANNED_TERMS.forEach(term => {

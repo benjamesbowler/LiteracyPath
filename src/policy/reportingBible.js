@@ -76,6 +76,7 @@ export const REPORT_STATUS_NOTES = Object.freeze({
 
 const STATUS_ALIASES = Object.freeze({
   secure: REPORT_STATUS_IDS.SECURE,
+  doing_well: REPORT_STATUS_IDS.SECURE,
   mastered: REPORT_STATUS_IDS.SECURE,
   on_track: REPORT_STATUS_IDS.SECURE,
   passed: REPORT_STATUS_IDS.SECURE,

@@ -1,36 +1,47 @@
 import { ADVENTURE_MAP_INSTRUCTION_AUDIO } from "../../data/generated/adventureMapInstructionAudio.generated.js";
+import { EL_CYCLE_POEMS } from "../../data/elCyclePoems.js";
 import {
   getLedaInstructionAudioPath,
   getLedaWordAudioPath,
   normalizeLedaAudioText
 } from "../../data/ledaProductionAudio.js";
 
-const TEXT = Object.freeze({
-  letter: "Listen to the letter. Tap its matching big or small letter.",
-  sound: "Listen. Find the letter that matches the sound.",
-  hunt: "Listen to the sound. Tap the picture that starts with it.",
-  quick: "Listen then tap the matching word.",
-  build: "Build the word. Fill each box in order.",
-  spell: "Listen to the word. Build it with the letter cards.",
-  playChange: "Listen to the word. Change its first sound. Tap the new word.",
-  playRemove: "Take away the first sound. Tap what is left.",
-  playJoin: "Join the two small words. Tap the big word they make.",
-  poem: "Find the target word in the poem.",
-  story: "Look at the book cover. Tap the character whose story it is.",
-  trace: "Watch the letter. Then trace it with your finger.",
-  chain: "Listen to the new word. Tap the missing letter.",
-  speed: "Read the word. Tap it when you know it.",
-  fallback: "Listen and find."
+export const ADVENTURE_MAP_INSTRUCTIONS = Object.freeze({
+  letterPair: "Press the big or small letter that pairs with the model.",
+  soundGate: "Listen to the sound. Load its spelling into the sound gate, then open it.",
+  sceneHunt: "Listen to each picture name. Tag every word that starts with the target sound, then check your tags.",
+  sceneHuntEnding: "Listen to each picture name. Tag every word that ends with the target pattern, then check your tags.",
+  wordWindow: "Study the whole word. Close the window, choose it from memory, then reveal it to check.",
+  soundBoxes: "Listen to the word. Put one grapheme in each sound box, then blend and check.",
+  wordMachineSubstitute: "Listen to the new word. Choose an onset to replace the first sound, then run the word machine.",
+  wordMachineRemove: "Listen to the word. Choose the first sound to remove, then run the word machine.",
+  wordMachineJoin: "Select both word parts in order, then join them in the word machine.",
+  poemSpotlight: "Follow the line and word numbers. Tap that exact word in the poem.",
+  letterTrace: "Watch the letter path. Trace it, then trace it again with a faded model.",
+  graphemeTrace: "Watch the letter team path. Trace it, then trace it again with a faded model.",
+  patternSort: "Pick up one word at a time. Put it in the matching pattern bin, then sort the new word.",
+  wordChain: "Listen to the next word. Choose which grapheme changes, then choose its replacement.",
+  phraseFlow: "Read the continuous word trail. Choose where the first poetry line ends, follow the model, then echo-read it.",
+  heartWord: "Study the heart word. Hide it, spell it from memory, then reveal and repair any difference."
 });
 
-const PATTERN_TEXT = Object.freeze({
-  "end with y": "Tap all the words that end with the letter Y.",
-  "end with -ay": "Tap all the words that end with A Y.",
-  "end with -ll": "Tap all the words that end with L L.",
-  "have -ng": "Tap all the words that have N G.",
-  "start with sh": "Tap all the words that start with S H.",
-  "end with -ck": "Tap all the words that end with C K."
-});
+const PHRASE_FLOW_MODELS = Object.freeze([
+  "\"Let's play again!\" the friends all say, a brand new Moonwood day.",
+  "Pip and Luna read and play, \"hip hip hooray!\" they say.",
+  "\"Why does Glimmer's fire fly high?\" \"My spark!\" laughs Spark, \"I'll try!\"",
+  "Fern flutters way up high, and waves the clouds goodbye.",
+  "They share a berry, half each, in the Whispering Meadow's reach."
+]);
+
+const POEM_MODELS = Object.freeze(
+  EL_CYCLE_POEMS.map(poem => poem.lines.join("\n"))
+);
+
+export const ADVENTURE_MAP_AUDIO_TEXTS = Object.freeze([
+  ...Object.values(ADVENTURE_MAP_INSTRUCTIONS),
+  ...PHRASE_FLOW_MODELS,
+  ...POEM_MODELS
+]);
 
 function instructionAudioFor(text) {
   return ADVENTURE_MAP_INSTRUCTION_AUDIO[normalizeLedaAudioText(text)]
@@ -43,7 +54,7 @@ function uniqueAudio(paths = []) {
 }
 
 function result(round, instructionText, targetAudio = [], contentAudio = "") {
-  const instructionAudio = instructionAudioFor(instructionText);
+  const instructionAudio = instructionText ? instructionAudioFor(instructionText) : "";
   const targets = uniqueAudio(targetAudio).filter(path => path !== instructionAudio);
   return {
     instructionText,
@@ -54,40 +65,86 @@ function result(round, instructionText, targetAudio = [], contentAudio = "") {
   };
 }
 
-export function resolveAdventureRoundAudio(round = {}) {
-  if (round.type === "letter") return result(round, TEXT.letter, [round.audio]);
-  if (round.type === "sound") return result(round, TEXT.sound, [round.audio]);
-  if (round.type === "hunt") return result(round, TEXT.hunt, [round.audio]);
-  if (round.type === "quick") return result(round, TEXT.quick, [round.audio]);
-  if (round.type === "build") {
-    return /^Spell\b/i.test(round.prompt || "")
-      ? result(round, TEXT.spell, [round.audio])
-      : result(round, TEXT.build, [round.audio]);
+function emptyResult(round) {
+  return result(round, "");
+}
+
+function phraseModelText(round) {
+  return Array.isArray(round?.phraseChunks)
+    ? round.phraseChunks.map(text => String(text || "").trim()).filter(Boolean).join(" ")
+    : "";
+}
+
+function poemModelText(round) {
+  return Array.isArray(round?.lines)
+    ? round.lines.map(text => String(text || "").trim()).filter(Boolean).join("\n")
+    : "";
+}
+
+function wordMachineAudio(round) {
+  if (round.operation === "substituteOnset") {
+    return result(round, ADVENTURE_MAP_INSTRUCTIONS.wordMachineSubstitute, [round.audio]);
   }
-  if (round.type === "play") {
-    if (/^Change the first sound\b/i.test(round.prompt || "")) {
-      return result(round, TEXT.playChange, [round.audio]);
-    }
-    if (/^Take the first sound away\b/i.test(round.prompt || "")) {
-      return result(round, TEXT.playRemove, [round.audio]);
-    }
-    const joinedWords = String(round.display || "")
+  if (round.operation === "removeOnset") {
+    return result(round, ADVENTURE_MAP_INSTRUCTIONS.wordMachineRemove, [round.audio]);
+  }
+  if (round.operation === "joinCompound") {
+    const joinedWords = String(round.beforeWord || round.display || "")
       .split("+")
       .map(word => word.trim())
       .filter(Boolean)
       .map(getLedaWordAudioPath);
-    return result(round, TEXT.playJoin, joinedWords);
+    return result(round, ADVENTURE_MAP_INSTRUCTIONS.wordMachineJoin, joinedWords);
   }
-  if (round.type === "poem") {
-    const targetWordAudio = getLedaWordAudioPath(round.answer || "");
-    return result(round, TEXT.poem, [targetWordAudio], round.audio || "");
+  return emptyResult(round);
+}
+
+export function resolveAdventureRoundAudio(round = {}) {
+  switch (round.mechanicId) {
+    case "letterPair":
+      return result(round, ADVENTURE_MAP_INSTRUCTIONS.letterPair, [round.audio]);
+    case "soundGate":
+      return result(round, ADVENTURE_MAP_INSTRUCTIONS.soundGate, [round.audio]);
+    case "sceneHunt":
+      return result(
+        round,
+        round.variant === "soundSort"
+          ? ADVENTURE_MAP_INSTRUCTIONS.sceneHuntEnding
+          : ADVENTURE_MAP_INSTRUCTIONS.sceneHunt,
+        [round.audio]
+      );
+    case "wordWindow":
+      return result(round, ADVENTURE_MAP_INSTRUCTIONS.wordWindow, [round.audio]);
+    case "soundBoxes":
+      return result(round, ADVENTURE_MAP_INSTRUCTIONS.soundBoxes, [round.audio]);
+    case "wordMachine":
+      return wordMachineAudio(round);
+    case "poemSpotlight":
+      return result(
+        round,
+        ADVENTURE_MAP_INSTRUCTIONS.poemSpotlight,
+        [],
+        instructionAudioFor(poemModelText(round))
+      );
+    case "letterTrace":
+      return result(
+        round,
+        round.construct === "grapheme_pattern_formation_practice"
+          ? ADVENTURE_MAP_INSTRUCTIONS.graphemeTrace
+          : ADVENTURE_MAP_INSTRUCTIONS.letterTrace,
+        [round.audio]
+      );
+    case "patternSort":
+      return result(round, ADVENTURE_MAP_INSTRUCTIONS.patternSort);
+    case "wordChain":
+      return result(round, ADVENTURE_MAP_INSTRUCTIONS.wordChain, [round.audio]);
+    case "phraseFlow": {
+      const modelAudio = instructionAudioFor(phraseModelText(round));
+      return result(round, ADVENTURE_MAP_INSTRUCTIONS.phraseFlow, [], modelAudio);
+    }
+    case "heartWord":
+      return result(round, ADVENTURE_MAP_INSTRUCTIONS.heartWord, [round.audio]);
+    default:
+      return emptyResult(round);
   }
-  if (round.type === "story") return result(round, TEXT.story);
-  if (round.type === "trace") return result(round, TEXT.trace, [round.audio]);
-  if (round.type === "pattern") {
-    return result(round, PATTERN_TEXT[round.patternLabel] || round.prompt || TEXT.fallback);
-  }
-  if (round.type === "chain") return result(round, TEXT.chain, [round.audio]);
-  if (round.type === "speed") return result(round, TEXT.speed);
-  return result(round, TEXT.fallback, [round.audio]);
 }

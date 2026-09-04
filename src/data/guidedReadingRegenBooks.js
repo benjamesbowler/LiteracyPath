@@ -11,12 +11,12 @@ export const guidedReadingRegenBooks = [
       "categorization",
       "animal vocabulary"
     ],
-    "coverImage": "/guided-reading/regen/covers/gr-a-26-cover.png",
+    "coverImage": "/guided-reading/regen/covers/gr-a-26-cover.webp",
     "pages": [
       {
         "pageNumber": 1,
         "text": "A dog is a pet.",
-        "image": "/guided-reading/regen/pages/gr-a-26-page-01.png",
+        "image": "/guided-reading/regen/pages/gr-a-26-page-01.webp",
         "imageAlt": "A friendly golden dog sitting happily with its tail wagging.",
         "pageDescription": "A friendly golden-colored dog sits happily with its tail wagging.",
         "embeddedImageText": "",
@@ -68,7 +68,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "A cat is a pet.",
-        "image": "/guided-reading/regen/pages/gr-a-26-page-02.png",
+        "image": "/guided-reading/regen/pages/gr-a-26-page-02.webp",
         "imageAlt": "A soft orange cat curled up comfortably.",
         "pageDescription": "A soft orange cat is curled up comfortably, looking content.",
         "embeddedImageText": "",
@@ -120,7 +120,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "A fish is a pet.",
-        "image": "/guided-reading/regen/pages/gr-a-26-page-03.png",
+        "image": "/guided-reading/regen/pages/gr-a-26-page-03.webp",
         "imageAlt": "A small orange goldfish swimming in a fishbowl.",
         "pageDescription": "A small orange goldfish swims happily in a round fishbowl with water plants.",
         "embeddedImageText": "",
@@ -172,7 +172,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "A bird is a pet.",
-        "image": "/guided-reading/regen/pages/gr-a-26-page-04.png",
+        "image": "/guided-reading/regen/pages/gr-a-26-page-04.webp",
         "imageAlt": "A small colorful bird perched on a wooden stick in a cage.",
         "pageDescription": "A small colorful bird with bright feathers perches on a wooden stick.",
         "embeddedImageText": "",
@@ -224,7 +224,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "A rabbit is a pet.",
-        "image": "/guided-reading/regen/pages/gr-a-26-page-05.png",
+        "image": "/guided-reading/regen/pages/gr-a-26-page-05.webp",
         "imageAlt": "A fluffy white rabbit with long ears sitting calmly.",
         "pageDescription": "A fluffy white rabbit with long ears sits calmly on green grass.",
         "embeddedImageText": "",
@@ -276,7 +276,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "Pets are fun!",
-        "image": "/guided-reading/regen/pages/gr-a-26-page-06.png",
+        "image": "/guided-reading/regen/pages/gr-a-26-page-06.webp",
         "imageAlt": "A happy child gently petting a dog and cat together.",
         "pageDescription": "A happy child gently pets a dog and cat together, showing pets are fun companions.",
         "embeddedImageText": "",
@@ -329,12 +329,12 @@ export const guidedReadingRegenBooks = [
       "science concepts",
       "weather vocabulary"
     ],
-    "coverImage": "/guided-reading/regen/covers/gr-a-27-cover.png",
+    "coverImage": "/guided-reading/regen/covers/gr-a-27-cover.webp",
     "pages": [
       {
         "pageNumber": 1,
         "text": "The sun is up.",
-        "image": "/guided-reading/regen/pages/gr-a-27-page-01.png",
+        "image": "/guided-reading/regen/pages/gr-a-27-page-01.webp",
         "imageAlt": "A bright yellow sun rising above green hills in the morning.",
         "pageDescription": "A bright yellow sun rises above rolling green hills in the morning sky.",
         "embeddedImageText": "",
@@ -380,7 +380,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "The sun is hot.",
-        "image": "/guided-reading/regen/pages/gr-a-27-page-02.png",
+        "image": "/guided-reading/regen/pages/gr-a-27-page-02.webp",
         "imageAlt": "The bright sun shining warmly with heat waves radiating.",
         "pageDescription": "The bright sun shines warmly in the blue sky with visible heat radiating.",
         "embeddedImageText": "",
@@ -426,7 +426,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "The sun helps plants.",
-        "image": "/guided-reading/regen/pages/gr-a-27-page-03.png",
+        "image": "/guided-reading/regen/pages/gr-a-27-page-03.webp",
         "imageAlt": "Sunlight shining down on small green plants growing in soil.",
         "pageDescription": "Warm sunlight shines down on small green plants growing in rich soil.",
         "embeddedImageText": "",
@@ -471,7 +471,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "The sun helps us see.",
-        "image": "/guided-reading/regen/pages/gr-a-27-page-04.png",
+        "image": "/guided-reading/regen/pages/gr-a-27-page-04.webp",
         "imageAlt": "A child reading a book in bright sunlight by a window.",
         "pageDescription": "A child reads a book in bright warm sunlight streaming through a window.",
         "embeddedImageText": "",
@@ -522,7 +522,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "The sun helps us grow.",
-        "image": "/guided-reading/regen/pages/gr-a-27-page-05.png",
+        "image": "/guided-reading/regen/pages/gr-a-27-page-05.webp",
         "imageAlt": "A child standing tall outside in the sunshine, growing healthy.",
         "pageDescription": "A healthy child stands tall outside in warm sunshine, arms stretched up happily.",
         "embeddedImageText": "",
@@ -573,7 +573,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "The sun is our friend.",
-        "image": "/guided-reading/regen/pages/gr-a-27-page-06.png",
+        "image": "/guided-reading/regen/pages/gr-a-27-page-06.webp",
         "imageAlt": "Children playing happily outside in warm sunshine.",
         "pageDescription": "Children play happily outside in warm sunshine, smiling and running.",
         "embeddedImageText": "",
@@ -638,12 +638,12 @@ export const guidedReadingRegenBooks = [
       "descriptive language",
       "naming attributes"
     ],
-    "coverImage": "/guided-reading/regen/covers/gr-a-28-cover.png",
+    "coverImage": "/guided-reading/regen/covers/gr-a-28-cover.webp",
     "pages": [
       {
         "pageNumber": 1,
         "text": "The apple is red.",
-        "image": "/guided-reading/regen/pages/gr-a-28-page-01.png",
+        "image": "/guided-reading/regen/pages/gr-a-28-page-01.webp",
         "imageAlt": "A bright shiny red apple on a clean white surface.",
         "pageDescription": "A bright shiny red apple sits on a clean white surface.",
         "embeddedImageText": "",
@@ -687,7 +687,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "The sky is blue.",
-        "image": "/guided-reading/regen/pages/gr-a-28-page-02.png",
+        "image": "/guided-reading/regen/pages/gr-a-28-page-02.webp",
         "imageAlt": "A clear bright blue sky with a few white clouds.",
         "pageDescription": "A clear bright blue sky stretches above with a few soft white clouds.",
         "embeddedImageText": "",
@@ -731,7 +731,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "The sun is yellow.",
-        "image": "/guided-reading/regen/pages/gr-a-28-page-03.png",
+        "image": "/guided-reading/regen/pages/gr-a-28-page-03.webp",
         "imageAlt": "A bright yellow sun shining in the sky.",
         "pageDescription": "A bright yellow sun shines warmly in a clear sky.",
         "embeddedImageText": "",
@@ -777,7 +777,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "The grass is green.",
-        "image": "/guided-reading/regen/pages/gr-a-28-page-04.png",
+        "image": "/guided-reading/regen/pages/gr-a-28-page-04.webp",
         "imageAlt": "Lush green grass growing on a sunny lawn.",
         "pageDescription": "Lush green grass grows thick and healthy on a sunny lawn.",
         "embeddedImageText": "",
@@ -822,7 +822,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "The cloud is white.",
-        "image": "/guided-reading/regen/pages/gr-a-28-page-05.png",
+        "image": "/guided-reading/regen/pages/gr-a-28-page-05.webp",
         "imageAlt": "A fluffy white cloud floating in a blue sky.",
         "pageDescription": "A fluffy white cloud floats softly in a bright blue sky.",
         "embeddedImageText": "",
@@ -867,7 +867,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "I see all the colors!",
-        "image": "/guided-reading/regen/pages/gr-a-28-page-06.png",
+        "image": "/guided-reading/regen/pages/gr-a-28-page-06.webp",
         "imageAlt": "A colorful rainbow arcing across the sky with all colors visible.",
         "pageDescription": "A beautiful rainbow arcs across the sky showing red, blue, yellow, green, and more colors.",
         "embeddedImageText": "",
@@ -930,12 +930,12 @@ export const guidedReadingRegenBooks = [
       "self-awareness",
       "naming words"
     ],
-    "coverImage": "/guided-reading/regen/covers/gr-a-29-cover.png",
+    "coverImage": "/guided-reading/regen/covers/gr-a-29-cover.webp",
     "pages": [
       {
         "pageNumber": 1,
         "text": "I have two eyes.",
-        "image": "/guided-reading/regen/pages/gr-a-29-page-01.png",
+        "image": "/guided-reading/regen/pages/gr-a-29-page-01.webp",
         "imageAlt": "A close-up of a child's friendly face showing two bright eyes.",
         "pageDescription": "A close-up of a child's friendly face clearly showing two bright eyes.",
         "embeddedImageText": "",
@@ -980,7 +980,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "I have two ears.",
-        "image": "/guided-reading/regen/pages/gr-a-29-page-02.png",
+        "image": "/guided-reading/regen/pages/gr-a-29-page-02.webp",
         "imageAlt": "A child showing their two ears, pointing to them gently.",
         "pageDescription": "A child gently points to their two ears on the sides of their head.",
         "embeddedImageText": "",
@@ -1025,7 +1025,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "I have one nose.",
-        "image": "/guided-reading/regen/pages/gr-a-29-page-03.png",
+        "image": "/guided-reading/regen/pages/gr-a-29-page-03.webp",
         "imageAlt": "A close-up of a child's nose in the center of their face.",
         "pageDescription": "A close-up view of a child's nose in the center of their happy face.",
         "embeddedImageText": "",
@@ -1070,7 +1070,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "I have one mouth.",
-        "image": "/guided-reading/regen/pages/gr-a-29-page-04.png",
+        "image": "/guided-reading/regen/pages/gr-a-29-page-04.webp",
         "imageAlt": "A child smiling widely showing their mouth.",
         "pageDescription": "A child smiles widely showing their one mouth with happy expression.",
         "embeddedImageText": "",
@@ -1115,7 +1115,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "I have two hands.",
-        "image": "/guided-reading/regen/pages/gr-a-29-page-05.png",
+        "image": "/guided-reading/regen/pages/gr-a-29-page-05.webp",
         "imageAlt": "A child holding up two open hands with all ten fingers spread.",
         "pageDescription": "A child holds up two open hands showing all ten fingers spread wide.",
         "embeddedImageText": "",
@@ -1160,7 +1160,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "My body is amazing!",
-        "image": "/guided-reading/regen/pages/gr-a-29-page-06.png",
+        "image": "/guided-reading/regen/pages/gr-a-29-page-06.webp",
         "imageAlt": "A happy child standing tall with arms stretched out showing their whole body.",
         "pageDescription": "A happy child stands tall with arms stretched out proudly showing their whole body.",
         "embeddedImageText": "",
@@ -1219,12 +1219,12 @@ export const guidedReadingRegenBooks = [
       "time vocabulary",
       "descriptive language"
     ],
-    "coverImage": "/guided-reading/regen/covers/gr-b-31-cover.png",
+    "coverImage": "/guided-reading/regen/covers/gr-b-31-cover.webp",
     "pages": [
       {
         "pageNumber": 1,
         "text": "In spring, it rains.",
-        "image": "/guided-reading/regen/pages/gr-b-31-page-01.png",
+        "image": "/guided-reading/regen/pages/gr-b-31-page-01.webp",
         "imageAlt": "Gentle spring rain falling on blooming flowers and green grass.",
         "pageDescription": "Gentle spring rain falls on blooming flowers and fresh green grass.",
         "embeddedImageText": "",
@@ -1270,7 +1270,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "In summer, it is hot.",
-        "image": "/guided-reading/regen/pages/gr-b-31-page-02.png",
+        "image": "/guided-reading/regen/pages/gr-b-31-page-02.webp",
         "imageAlt": "Bright hot summer sun shining on a beach with clear blue sky.",
         "pageDescription": "A bright hot summer sun shines on a sandy beach with clear blue sky.",
         "embeddedImageText": "",
@@ -1323,7 +1323,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "In fall, leaves drop.",
-        "image": "/guided-reading/regen/pages/gr-b-31-page-03.png",
+        "image": "/guided-reading/regen/pages/gr-b-31-page-03.webp",
         "imageAlt": "Colorful autumn leaves falling from trees onto the ground.",
         "pageDescription": "Colorful red, orange, and yellow autumn leaves fall from trees onto the ground.",
         "embeddedImageText": "",
@@ -1368,7 +1368,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "In winter, it snows.",
-        "image": "/guided-reading/regen/pages/gr-b-31-page-04.png",
+        "image": "/guided-reading/regen/pages/gr-b-31-page-04.webp",
         "imageAlt": "Soft white snow falling on bare trees and a snowy landscape.",
         "pageDescription": "Soft white snow falls gently on bare trees covering the landscape in white.",
         "embeddedImageText": "",
@@ -1414,7 +1414,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "The seasons change.",
-        "image": "/guided-reading/regen/pages/gr-b-31-page-05.png",
+        "image": "/guided-reading/regen/pages/gr-b-31-page-05.webp",
         "imageAlt": "A tree shown in four different stages representing each season.",
         "pageDescription": "A single tree is shown in four stages: blossoms, full green, autumn colors, and bare snow-covered.",
         "embeddedImageText": "",
@@ -1453,7 +1453,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "I like all four seasons!",
-        "image": "/guided-reading/regen/pages/gr-b-31-page-06.png",
+        "image": "/guided-reading/regen/pages/gr-b-31-page-06.webp",
         "imageAlt": "A happy child experiencing different seasonal activities in a collage.",
         "pageDescription": "A happy child enjoys activities from all four seasons in a scenic outdoor setting.",
         "embeddedImageText": "",
@@ -1518,12 +1518,12 @@ export const guidedReadingRegenBooks = [
       "healthy eating",
       "categorization"
     ],
-    "coverImage": "/guided-reading/regen/covers/gr-b-32-cover.png",
+    "coverImage": "/guided-reading/regen/covers/gr-b-32-cover.webp",
     "pages": [
       {
         "pageNumber": 1,
         "text": "An apple is a fruit.",
-        "image": "/guided-reading/regen/pages/gr-b-32-page-01.png",
+        "image": "/guided-reading/regen/pages/gr-b-32-page-01.webp",
         "imageAlt": "A shiny red apple with a green leaf on its stem.",
         "pageDescription": "A shiny red apple with a small green leaf on its stem.",
         "embeddedImageText": "",
@@ -1575,7 +1575,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "A banana is a fruit.",
-        "image": "/guided-reading/regen/pages/gr-b-32-page-02.png",
+        "image": "/guided-reading/regen/pages/gr-b-32-page-02.webp",
         "imageAlt": "A bunch of yellow bananas hanging together.",
         "pageDescription": "A bunch of ripe yellow bananas hangs together naturally.",
         "embeddedImageText": "",
@@ -1627,7 +1627,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "A grape is a fruit.",
-        "image": "/guided-reading/regen/pages/gr-b-32-page-03.png",
+        "image": "/guided-reading/regen/pages/gr-b-32-page-03.webp",
         "imageAlt": "A small bunch of purple grapes on a green vine.",
         "pageDescription": "A small bunch of round purple grapes grows on a green vine.",
         "embeddedImageText": "",
@@ -1679,7 +1679,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "An orange is a fruit.",
-        "image": "/guided-reading/regen/pages/gr-b-32-page-04.png",
+        "image": "/guided-reading/regen/pages/gr-b-32-page-04.webp",
         "imageAlt": "A bright orange with textured peel and a green leaf.",
         "pageDescription": "A bright round orange with textured peel and a small green leaf.",
         "embeddedImageText": "",
@@ -1731,7 +1731,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "Fruits are good to eat.",
-        "image": "/guided-reading/regen/pages/gr-b-32-page-05.png",
+        "image": "/guided-reading/regen/pages/gr-b-32-page-05.webp",
         "imageAlt": "A colorful bowl filled with various fresh fruits.",
         "pageDescription": "A colorful bowl is filled with various fresh fruits arranged beautifully.",
         "embeddedImageText": "",
@@ -1785,7 +1785,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "I love fruits!",
-        "image": "/guided-reading/regen/pages/gr-b-32-page-06.png",
+        "image": "/guided-reading/regen/pages/gr-b-32-page-06.webp",
         "imageAlt": "A child happily eating a slice of apple with a big smile.",
         "pageDescription": "A child happily eats a slice of apple with a big smile on their face.",
         "embeddedImageText": "",
@@ -1837,12 +1837,12 @@ export const guidedReadingRegenBooks = [
       "functions of objects",
       "practical concepts"
     ],
-    "coverImage": "/guided-reading/regen/covers/gr-b-33-cover.png",
+    "coverImage": "/guided-reading/regen/covers/gr-b-33-cover.webp",
     "pages": [
       {
         "pageNumber": 1,
         "text": "A hammer hits nails.",
-        "image": "/guided-reading/regen/pages/gr-b-33-page-01.png",
+        "image": "/guided-reading/regen/pages/gr-b-33-page-01.webp",
         "imageAlt": "A hammer hitting a nail into a piece of wood.",
         "pageDescription": "A metal hammer hits a nail into a piece of smooth wood.",
         "embeddedImageText": "",
@@ -1887,7 +1887,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "A saw cuts wood.",
-        "image": "/guided-reading/regen/pages/gr-b-33-page-02.png",
+        "image": "/guided-reading/regen/pages/gr-b-33-page-02.webp",
         "imageAlt": "A saw cutting through a plank of wood.",
         "pageDescription": "A hand saw cuts through a plank of light-colored wood.",
         "embeddedImageText": "",
@@ -1932,7 +1932,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "A wrench turns bolts.",
-        "image": "/guided-reading/regen/pages/gr-b-33-page-03.png",
+        "image": "/guided-reading/regen/pages/gr-b-33-page-03.webp",
         "imageAlt": "A wrench turning a metal bolt tightly.",
         "pageDescription": "A metal wrench turns a shiny bolt tightly into place.",
         "embeddedImageText": "",
@@ -1977,7 +1977,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "A drill makes holes.",
-        "image": "/guided-reading/regen/pages/gr-b-33-page-04.png",
+        "image": "/guided-reading/regen/pages/gr-b-33-page-04.webp",
         "imageAlt": "A drill making a hole in a piece of wood.",
         "pageDescription": "A power drill makes a clean hole in a piece of wood.",
         "embeddedImageText": "",
@@ -2023,7 +2023,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "A ruler measures length.",
-        "image": "/guided-reading/regen/pages/gr-b-33-page-05.png",
+        "image": "/guided-reading/regen/pages/gr-b-33-page-05.webp",
         "imageAlt": "A ruler measuring a piece of wood on a workbench.",
         "pageDescription": "A long ruler measures a piece of wood on a flat workbench.",
         "embeddedImageText": "",
@@ -2067,7 +2067,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "Tools help us build!",
-        "image": "/guided-reading/regen/pages/gr-b-33-page-06.png",
+        "image": "/guided-reading/regen/pages/gr-b-33-page-06.webp",
         "imageAlt": "A collection of tools arranged neatly on a workbench.",
         "pageDescription": "A neat collection of tools is arranged on a wooden workbench.",
         "embeddedImageText": "",
@@ -2125,12 +2125,12 @@ export const guidedReadingRegenBooks = [
       "time vocabulary",
       "opposites"
     ],
-    "coverImage": "/guided-reading/regen/covers/gr-b-34-cover.png",
+    "coverImage": "/guided-reading/regen/covers/gr-b-34-cover.webp",
     "pages": [
       {
         "pageNumber": 1,
         "text": "The sun is in the sky.",
-        "image": "/guided-reading/regen/pages/gr-b-34-page-01.png",
+        "image": "/guided-reading/regen/pages/gr-b-34-page-01.webp",
         "imageAlt": "A bright sun high in the blue daytime sky.",
         "pageDescription": "A bright yellow sun shines high in the clear blue daytime sky.",
         "embeddedImageText": "",
@@ -2189,7 +2189,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "We play in the day.",
-        "image": "/guided-reading/regen/pages/gr-b-34-page-02.png",
+        "image": "/guided-reading/regen/pages/gr-b-34-page-02.webp",
         "imageAlt": "Children playing outside in bright sunshine during the day.",
         "pageDescription": "Children play happily outside in bright sunshine during the daytime.",
         "embeddedImageText": "",
@@ -2241,7 +2241,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "The moon is in the sky.",
-        "image": "/guided-reading/regen/pages/gr-b-34-page-03.png",
+        "image": "/guided-reading/regen/pages/gr-b-34-page-03.webp",
         "imageAlt": "A bright moon and stars in the dark night sky.",
         "pageDescription": "A bright white moon and twinkling stars shine in the dark night sky.",
         "embeddedImageText": "",
@@ -2300,7 +2300,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "We sleep at night.",
-        "image": "/guided-reading/regen/pages/gr-b-34-page-04.png",
+        "image": "/guided-reading/regen/pages/gr-b-34-page-04.webp",
         "imageAlt": "A child sleeping peacefully in bed at nighttime.",
         "pageDescription": "A child sleeps peacefully in a cozy bed under soft blankets at nighttime.",
         "embeddedImageText": "",
@@ -2346,7 +2346,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "The sun goes down.",
-        "image": "/guided-reading/regen/pages/gr-b-34-page-05.png",
+        "image": "/guided-reading/regen/pages/gr-b-34-page-05.webp",
         "imageAlt": "The sun setting below the horizon with orange sky.",
         "pageDescription": "The sun sets below the horizon painting the sky orange and pink.",
         "embeddedImageText": "",
@@ -2393,7 +2393,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "The moon comes up.",
-        "image": "/guided-reading/regen/pages/gr-b-34-page-06.png",
+        "image": "/guided-reading/regen/pages/gr-b-34-page-06.webp",
         "imageAlt": "The moon rising in the dark sky as night begins.",
         "pageDescription": "The bright moon rises in the dark sky as the night begins.",
         "embeddedImageText": "",
@@ -2453,12 +2453,12 @@ export const guidedReadingRegenBooks = [
       "community concepts",
       "descriptive language"
     ],
-    "coverImage": "/guided-reading/regen/covers/gr-b-35-cover.png",
+    "coverImage": "/guided-reading/regen/covers/gr-b-35-cover.webp",
     "pages": [
       {
         "pageNumber": 1,
         "text": "A chef cooks food.",
-        "image": "/guided-reading/regen/pages/gr-b-35-page-01.png",
+        "image": "/guided-reading/regen/pages/gr-b-35-page-01.webp",
         "imageAlt": "A chef in a white hat cooking food in a kitchen.",
         "pageDescription": "A chef in a tall white hat cooks food in a professional kitchen.",
         "embeddedImageText": "",
@@ -2503,7 +2503,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "A doctor helps sick people.",
-        "image": "/guided-reading/regen/pages/gr-b-35-page-02.png",
+        "image": "/guided-reading/regen/pages/gr-b-35-page-02.webp",
         "imageAlt": "A doctor with a stethoscope helping a patient.",
         "pageDescription": "A kind doctor with a stethoscope helps a patient feel better.",
         "embeddedImageText": "",
@@ -2555,7 +2555,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "A firefighter stops fires.",
-        "image": "/guided-reading/regen/pages/gr-b-35-page-03.png",
+        "image": "/guided-reading/regen/pages/gr-b-35-page-03.webp",
         "imageAlt": "A firefighter in uniform with a hose near a fire truck.",
         "pageDescription": "A brave firefighter in uniform stands with a hose near a red fire truck.",
         "embeddedImageText": "",
@@ -2601,7 +2601,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "A teacher helps kids learn.",
-        "image": "/guided-reading/regen/pages/gr-b-35-page-04.png",
+        "image": "/guided-reading/regen/pages/gr-b-35-page-04.webp",
         "imageAlt": "A teacher at a chalkboard with children sitting and learning.",
         "pageDescription": "A friendly teacher stands near a board while children sit and learn.",
         "embeddedImageText": "",
@@ -2653,7 +2653,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "A police officer keeps us safe.",
-        "image": "/guided-reading/regen/pages/gr-b-35-page-05.png",
+        "image": "/guided-reading/regen/pages/gr-b-35-page-05.webp",
         "imageAlt": "A police officer in uniform standing on a street corner.",
         "pageDescription": "A police officer in uniform stands on a street corner keeping watch.",
         "embeddedImageText": "",
@@ -2711,7 +2711,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "Helpers make our town great!",
-        "image": "/guided-reading/regen/pages/gr-b-35-page-06.png",
+        "image": "/guided-reading/regen/pages/gr-b-35-page-06.webp",
         "imageAlt": "Community helpers standing together in a friendly town setting.",
         "pageDescription": "Community helpers stand together in a friendly town setting, smiling.",
         "embeddedImageText": "",
@@ -2776,12 +2776,12 @@ export const guidedReadingRegenBooks = [
       "water cycle",
       "nature vocabulary"
     ],
-    "coverImage": "/guided-reading/regen/covers/gr-c-37-cover.png",
+    "coverImage": "/guided-reading/regen/covers/gr-c-37-cover.webp",
     "pages": [
       {
         "pageNumber": 1,
         "text": "Water can be a liquid.",
-        "image": "/guided-reading/regen/pages/gr-c-37-page-01.png",
+        "image": "/guided-reading/regen/pages/gr-c-37-page-01.webp",
         "imageAlt": "Water pouring from a pitcher as a flowing liquid.",
         "pageDescription": "Clear water pours from a glass pitcher as a flowing liquid.",
         "embeddedImageText": "",
@@ -2834,7 +2834,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "Water can be ice.",
-        "image": "/guided-reading/regen/pages/gr-c-37-page-02.png",
+        "image": "/guided-reading/regen/pages/gr-c-37-page-02.webp",
         "imageAlt": "Ice cubes in a clear glass, solid and frozen.",
         "pageDescription": "Solid ice cubes sit in a clear glass, frozen and hard.",
         "embeddedImageText": "",
@@ -2881,7 +2881,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "Water can be steam.",
-        "image": "/guided-reading/regen/pages/gr-c-37-page-03.png",
+        "image": "/guided-reading/regen/pages/gr-c-37-page-03.webp",
         "imageAlt": "Steam rising from a hot cup of water.",
         "pageDescription": "Steam rises in wispy clouds from a hot cup of water.",
         "embeddedImageText": "",
@@ -2928,7 +2928,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "Plants need water to grow.",
-        "image": "/guided-reading/regen/pages/gr-c-37-page-04.png",
+        "image": "/guided-reading/regen/pages/gr-c-37-page-04.webp",
         "imageAlt": "Water being poured on a small green plant in soil.",
         "pageDescription": "Water is poured on a small green plant growing in rich brown soil.",
         "embeddedImageText": "",
@@ -2982,7 +2982,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "People need water to live.",
-        "image": "/guided-reading/regen/pages/gr-c-37-page-05.png",
+        "image": "/guided-reading/regen/pages/gr-c-37-page-05.webp",
         "imageAlt": "A child drinking a glass of fresh water.",
         "pageDescription": "A child drinks a glass of fresh clear water with a happy expression.",
         "embeddedImageText": "",
@@ -3035,7 +3035,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "Water is important!",
-        "image": "/guided-reading/regen/pages/gr-c-37-page-06.png",
+        "image": "/guided-reading/regen/pages/gr-c-37-page-06.webp",
         "imageAlt": "A lake with clear water surrounded by trees and animals drinking.",
         "pageDescription": "A clear lake is surrounded by trees where animals come to drink water.",
         "embeddedImageText": "",
@@ -3088,12 +3088,12 @@ export const guidedReadingRegenBooks = [
       "body awareness",
       "descriptive language"
     ],
-    "coverImage": "/guided-reading/regen/covers/gr-c-38-cover.png",
+    "coverImage": "/guided-reading/regen/covers/gr-c-38-cover.webp",
     "pages": [
       {
         "pageNumber": 1,
         "text": "I see with my eyes.",
-        "image": "/guided-reading/regen/pages/gr-c-38-page-01.png",
+        "image": "/guided-reading/regen/pages/gr-c-38-page-01.webp",
         "imageAlt": "A child looking at a colorful butterfly with their eyes.",
         "pageDescription": "A child looks at a colorful butterfly using their eyes to see.",
         "embeddedImageText": "",
@@ -3146,7 +3146,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "I hear with my ears.",
-        "image": "/guided-reading/regen/pages/gr-c-38-page-02.png",
+        "image": "/guided-reading/regen/pages/gr-c-38-page-02.webp",
         "imageAlt": "A child listening to a bird singing with their ear tilted.",
         "pageDescription": "A child tilts their ear to listen to a bird singing in a tree.",
         "embeddedImageText": "",
@@ -3199,7 +3199,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "I smell with my nose.",
-        "image": "/guided-reading/regen/pages/gr-c-38-page-03.png",
+        "image": "/guided-reading/regen/pages/gr-c-38-page-03.webp",
         "imageAlt": "A child smelling a fresh flower with their nose close.",
         "pageDescription": "A child brings their nose close to smell a fresh blooming flower.",
         "embeddedImageText": "",
@@ -3252,7 +3252,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "I taste with my tongue.",
-        "image": "/guided-reading/regen/pages/gr-c-38-page-04.png",
+        "image": "/guided-reading/regen/pages/gr-c-38-page-04.webp",
         "imageAlt": "A child tasting a sweet strawberry with their tongue.",
         "pageDescription": "A child tastes a sweet strawberry using their tongue, looking happy.",
         "embeddedImageText": "",
@@ -3305,7 +3305,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "I touch with my hands.",
-        "image": "/guided-reading/regen/pages/gr-c-38-page-05.png",
+        "image": "/guided-reading/regen/pages/gr-c-38-page-05.webp",
         "imageAlt": "A child touching a soft fluffy puppy with their hands.",
         "pageDescription": "A child gently touches a soft fluffy puppy with both hands.",
         "embeddedImageText": "",
@@ -3358,7 +3358,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "My five senses help me learn!",
-        "image": "/guided-reading/regen/pages/gr-c-38-page-06.png",
+        "image": "/guided-reading/regen/pages/gr-c-38-page-06.webp",
         "imageAlt": "A happy child using all senses while exploring nature outdoors.",
         "pageDescription": "A happy child explores nature outdoors using all five senses at once.",
         "embeddedImageText": "",
@@ -3430,12 +3430,12 @@ export const guidedReadingRegenBooks = [
       "descriptive vocabulary",
       "environmental print"
     ],
-    "coverImage": "/guided-reading/regen/covers/gr-c-39-cover.png",
+    "coverImage": "/guided-reading/regen/covers/gr-c-39-cover.webp",
     "pages": [
       {
         "pageNumber": 1,
         "text": "A wheel is a circle.",
-        "image": "/guided-reading/regen/pages/gr-c-39-page-01.png",
+        "image": "/guided-reading/regen/pages/gr-c-39-page-01.webp",
         "imageAlt": "A round wheel showing its circular shape clearly.",
         "pageDescription": "A round wheel shows its perfect circular shape from the side view.",
         "embeddedImageText": "",
@@ -3487,7 +3487,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "A sign is a square.",
-        "image": "/guided-reading/regen/pages/gr-c-39-page-02.png",
+        "image": "/guided-reading/regen/pages/gr-c-39-page-02.webp",
         "imageAlt": "A square road sign with four equal sides.",
         "pageDescription": "A square road sign with four equal sides stands on a pole.",
         "embeddedImageText": "",
@@ -3539,7 +3539,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "A roof is a triangle.",
-        "image": "/guided-reading/regen/pages/gr-c-39-page-03.png",
+        "image": "/guided-reading/regen/pages/gr-c-39-page-03.webp",
         "imageAlt": "A house roof shaped like a triangle pointing up.",
         "pageDescription": "A house roof is shaped like a triangle with three sides pointing up.",
         "embeddedImageText": "",
@@ -3591,7 +3591,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "A book is a rectangle.",
-        "image": "/guided-reading/regen/pages/gr-c-39-page-04.png",
+        "image": "/guided-reading/regen/pages/gr-c-39-page-04.webp",
         "imageAlt": "A closed book showing its rectangular shape.",
         "pageDescription": "A closed book shows its rectangular shape with four straight sides.",
         "embeddedImageText": "",
@@ -3643,7 +3643,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "An egg is an oval.",
-        "image": "/guided-reading/regen/pages/gr-c-39-page-05.png",
+        "image": "/guided-reading/regen/pages/gr-c-39-page-05.webp",
         "imageAlt": "An egg showing its oval shape in an egg cup.",
         "pageDescription": "An egg sits in an egg cup showing its smooth oval shape.",
         "embeddedImageText": "",
@@ -3695,7 +3695,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "Shapes are all around!",
-        "image": "/guided-reading/regen/pages/gr-c-39-page-06.png",
+        "image": "/guided-reading/regen/pages/gr-c-39-page-06.webp",
         "imageAlt": "A room with different shapes visible on various objects.",
         "pageDescription": "A room shows many different shapes on various everyday objects.",
         "embeddedImageText": "",
@@ -3756,12 +3756,12 @@ export const guidedReadingRegenBooks = [
       "environmental awareness",
       "geography vocabulary"
     ],
-    "coverImage": "/guided-reading/regen/covers/gr-d-42-cover.png",
+    "coverImage": "/guided-reading/regen/covers/gr-d-42-cover.webp",
     "pages": [
       {
         "pageNumber": 1,
         "text": "Earth is our home.",
-        "image": "/guided-reading/regen/pages/gr-d-42-page-01.png",
+        "image": "/guided-reading/regen/pages/gr-d-42-page-01.webp",
         "imageAlt": "Planet Earth seen from space, blue and green.",
         "pageDescription": "Planet Earth is seen from space, showing blue oceans and green land.",
         "embeddedImageText": "",
@@ -3808,7 +3808,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "Earth has land and water.",
-        "image": "/guided-reading/regen/pages/gr-d-42-page-02.png",
+        "image": "/guided-reading/regen/pages/gr-d-42-page-02.webp",
         "imageAlt": "A view showing green land and blue ocean together.",
         "pageDescription": "A scenic view shows green land and blue ocean meeting at the coastline.",
         "embeddedImageText": "",
@@ -3861,7 +3861,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "Earth has tall mountains.",
-        "image": "/guided-reading/regen/pages/gr-d-42-page-03.png",
+        "image": "/guided-reading/regen/pages/gr-d-42-page-03.webp",
         "imageAlt": "Tall snow-capped mountains reaching into the clouds.",
         "pageDescription": "Tall snow-capped mountains reach high into the white clouds above.",
         "embeddedImageText": "",
@@ -3908,7 +3908,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "Earth has deep oceans.",
-        "image": "/guided-reading/regen/pages/gr-d-42-page-04.png",
+        "image": "/guided-reading/regen/pages/gr-d-42-page-04.webp",
         "imageAlt": "A deep blue ocean with fish swimming underwater.",
         "pageDescription": "A deep blue ocean stretches out with fish swimming in the clear water.",
         "embeddedImageText": "",
@@ -3955,7 +3955,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "Earth has green forests.",
-        "image": "/guided-reading/regen/pages/gr-d-42-page-05.png",
+        "image": "/guided-reading/regen/pages/gr-d-42-page-05.webp",
         "imageAlt": "A lush green forest with tall trees and wildlife.",
         "pageDescription": "A lush green forest filled with tall trees and woodland animals.",
         "embeddedImageText": "",
@@ -4002,7 +4002,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "We must keep Earth clean!",
-        "image": "/guided-reading/regen/pages/gr-d-42-page-06.png",
+        "image": "/guided-reading/regen/pages/gr-d-42-page-06.webp",
         "imageAlt": "Children picking up litter to keep the Earth clean and green.",
         "pageDescription": "Children pick up litter in a park to help keep Earth clean and green.",
         "embeddedImageText": "",
@@ -4067,12 +4067,12 @@ export const guidedReadingRegenBooks = [
       "daily routines",
       "wellness concepts"
     ],
-    "coverImage": "/guided-reading/regen/covers/gr-d-43-cover.png",
+    "coverImage": "/guided-reading/regen/covers/gr-d-43-cover.webp",
     "pages": [
       {
         "pageNumber": 1,
         "text": "I wash my hands with soap.",
-        "image": "/guided-reading/regen/pages/gr-d-43-page-01.png",
+        "image": "/guided-reading/regen/pages/gr-d-43-page-01.webp",
         "imageAlt": "A child washing hands with soap and water at a sink.",
         "pageDescription": "A child washes their hands with soap and water at a bathroom sink.",
         "embeddedImageText": "",
@@ -4131,7 +4131,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "I eat fruits and vegetables.",
-        "image": "/guided-reading/regen/pages/gr-d-43-page-02.png",
+        "image": "/guided-reading/regen/pages/gr-d-43-page-02.webp",
         "imageAlt": "A plate with colorful fruits and vegetables arranged nicely.",
         "pageDescription": "A plate holds colorful fruits and vegetables arranged nicely for a meal.",
         "embeddedImageText": "",
@@ -4183,7 +4183,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "I drink water every day.",
-        "image": "/guided-reading/regen/pages/gr-d-43-page-03.png",
+        "image": "/guided-reading/regen/pages/gr-d-43-page-03.webp",
         "imageAlt": "A child drinking a glass of fresh water.",
         "pageDescription": "A child drinks a tall glass of fresh clear water every day.",
         "embeddedImageText": "",
@@ -4236,7 +4236,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "I brush my teeth twice.",
-        "image": "/guided-reading/regen/pages/gr-d-43-page-04.png",
+        "image": "/guided-reading/regen/pages/gr-d-43-page-04.webp",
         "imageAlt": "A child brushing teeth with a toothbrush and toothpaste.",
         "pageDescription": "A child brushes their teeth with a toothbrush and minty toothpaste.",
         "embeddedImageText": "",
@@ -4288,7 +4288,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "I get lots of rest.",
-        "image": "/guided-reading/regen/pages/gr-d-43-page-05.png",
+        "image": "/guided-reading/regen/pages/gr-d-43-page-05.webp",
         "imageAlt": "A child sleeping peacefully in a cozy bed at night.",
         "pageDescription": "A child sleeps peacefully in a cozy bed with soft pillows at night.",
         "embeddedImageText": "",
@@ -4340,7 +4340,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "Healthy habits make me strong!",
-        "image": "/guided-reading/regen/pages/gr-d-43-page-06.png",
+        "image": "/guided-reading/regen/pages/gr-d-43-page-06.webp",
         "imageAlt": "A strong happy child flexing their arms with a big smile.",
         "pageDescription": "A strong happy child flexes their arms with a big smile, feeling healthy.",
         "embeddedImageText": "",
@@ -4405,12 +4405,12 @@ export const guidedReadingRegenBooks = [
       "habitat concepts",
       "science inquiry"
     ],
-    "coverImage": "/guided-reading/regen/covers/gr-d-44-cover.png",
+    "coverImage": "/guided-reading/regen/covers/gr-d-44-cover.webp",
     "pages": [
       {
         "pageNumber": 1,
         "text": "A bird lives in a nest.",
-        "image": "/guided-reading/regen/pages/gr-d-44-page-01.png",
+        "image": "/guided-reading/regen/pages/gr-d-44-page-01.webp",
         "imageAlt": "A bird sitting in a nest high up in a tree.",
         "pageDescription": "A small bird sits in a woven nest high up in a tree branch.",
         "embeddedImageText": "",
@@ -4468,7 +4468,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "A bear sleeps in a cave.",
-        "image": "/guided-reading/regen/pages/gr-d-44-page-02.png",
+        "image": "/guided-reading/regen/pages/gr-d-44-page-02.webp",
         "imageAlt": "A bear sleeping inside a dark cave.",
         "pageDescription": "A brown bear sleeps peacefully inside a dark rocky cave.",
         "embeddedImageText": "",
@@ -4526,7 +4526,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "A fish swims in a pond.",
-        "image": "/guided-reading/regen/pages/gr-d-44-page-03.png",
+        "image": "/guided-reading/regen/pages/gr-d-44-page-03.webp",
         "imageAlt": "Fish swimming in a clear freshwater pond.",
         "pageDescription": "Colorful fish swim in a clear freshwater pond with plants.",
         "embeddedImageText": "",
@@ -4584,7 +4584,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "A rabbit digs a burrow.",
-        "image": "/guided-reading/regen/pages/gr-d-44-page-04.png",
+        "image": "/guided-reading/regen/pages/gr-d-44-page-04.webp",
         "imageAlt": "A rabbit at the entrance of its underground burrow.",
         "pageDescription": "A rabbit sits at the entrance of its underground burrow in a field.",
         "embeddedImageText": "",
@@ -4635,7 +4635,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "A spider spins a web.",
-        "image": "/guided-reading/regen/pages/gr-d-44-page-05.png",
+        "image": "/guided-reading/regen/pages/gr-d-44-page-05.webp",
         "imageAlt": "A spider spinning a delicate web between two branches.",
         "pageDescription": "A spider spins a delicate shiny web between two tree branches.",
         "embeddedImageText": "",
@@ -4686,7 +4686,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "All animals need a home!",
-        "image": "/guided-reading/regen/pages/gr-d-44-page-06.png",
+        "image": "/guided-reading/regen/pages/gr-d-44-page-06.webp",
         "imageAlt": "Various animals in their different homes in nature.",
         "pageDescription": "Various animals are shown in their different natural homes in a forest scene.",
         "embeddedImageText": "",
@@ -4750,12 +4750,12 @@ export const guidedReadingRegenBooks = [
       "space vocabulary",
       "inquiry skills"
     ],
-    "coverImage": "/guided-reading/regen/covers/gr-d-45-cover.png",
+    "coverImage": "/guided-reading/regen/covers/gr-d-45-cover.webp",
     "pages": [
       {
         "pageNumber": 1,
         "text": "The sun is a big star.",
-        "image": "/guided-reading/regen/pages/gr-d-45-page-01.png",
+        "image": "/guided-reading/regen/pages/gr-d-45-page-01.webp",
         "imageAlt": "The sun shining brightly as a large star in space.",
         "pageDescription": "The sun shines brightly as a large star in the dark expanse of space.",
         "embeddedImageText": "",
@@ -4814,7 +4814,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "Earth moves around the sun.",
-        "image": "/guided-reading/regen/pages/gr-d-45-page-02.png",
+        "image": "/guided-reading/regen/pages/gr-d-45-page-02.webp",
         "imageAlt": "Earth orbiting around the sun in space.",
         "pageDescription": "Planet Earth moves in its orbit around the bright sun in space.",
         "embeddedImageText": "",
@@ -4865,7 +4865,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "The moon moves around Earth.",
-        "image": "/guided-reading/regen/pages/gr-d-45-page-03.png",
+        "image": "/guided-reading/regen/pages/gr-d-45-page-03.webp",
         "imageAlt": "The moon orbiting around Earth in space.",
         "pageDescription": "The gray moon moves in its orbit around blue and green Earth.",
         "embeddedImageText": "",
@@ -4916,7 +4916,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "Stars twinkle in the sky.",
-        "image": "/guided-reading/regen/pages/gr-d-45-page-04.png",
+        "image": "/guided-reading/regen/pages/gr-d-45-page-04.webp",
         "imageAlt": "Stars twinkling in the dark night sky.",
         "pageDescription": "Bright stars twinkle and shimmer in the dark night sky above.",
         "embeddedImageText": "",
@@ -4968,7 +4968,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "Astronauts travel to space.",
-        "image": "/guided-reading/regen/pages/gr-d-45-page-05.png",
+        "image": "/guided-reading/regen/pages/gr-d-45-page-05.webp",
         "imageAlt": "An astronaut floating in space near a space station.",
         "pageDescription": "An astronaut in a white suit floats in space near a space station.",
         "embeddedImageText": "",
@@ -5013,7 +5013,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "Space is big and amazing!",
-        "image": "/guided-reading/regen/pages/gr-d-45-page-06.png",
+        "image": "/guided-reading/regen/pages/gr-d-45-page-06.webp",
         "imageAlt": "A wide view of space with planets, stars, and colorful nebulae.",
         "pageDescription": "A wide view shows the vastness of space with planets, stars, and colorful nebulae.",
         "embeddedImageText": "",
@@ -5080,12 +5080,12 @@ export const guidedReadingRegenBooks = [
       "animal classification",
       "habitat concepts"
     ],
-    "coverImage": "/guided-reading/regen/covers/gr-e-46-cover.png",
+    "coverImage": "/guided-reading/regen/covers/gr-e-46-cover.webp",
     "pages": [
       {
         "pageNumber": 1,
         "text": "Reptiles have dry skin.",
-        "image": "/guided-reading/regen/pages/gr-e-46-page-01.png",
+        "image": "/guided-reading/regen/pages/gr-e-46-page-01.webp",
         "imageAlt": "A lizard showing its dry scaly skin texture.",
         "pageDescription": "A lizard shows its dry scaly skin texture while resting on a warm rock.",
         "embeddedImageText": "",
@@ -5131,7 +5131,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "Most reptiles lay eggs.",
-        "image": "/guided-reading/regen/pages/gr-e-46-page-02.png",
+        "image": "/guided-reading/regen/pages/gr-e-46-page-02.webp",
         "imageAlt": "Reptile eggs in a sandy nest.",
         "pageDescription": "Several leathery reptile eggs rest in a shallow sandy nest on the ground.",
         "embeddedImageText": "",
@@ -5178,7 +5178,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "Snakes are long reptiles.",
-        "image": "/guided-reading/regen/pages/gr-e-46-page-03.png",
+        "image": "/guided-reading/regen/pages/gr-e-46-page-03.webp",
         "imageAlt": "A long snake slithering on the ground.",
         "pageDescription": "A long smooth snake slithers across the warm sandy ground.",
         "embeddedImageText": "",
@@ -5225,7 +5225,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "Turtles have a hard shell.",
-        "image": "/guided-reading/regen/pages/gr-e-46-page-04.png",
+        "image": "/guided-reading/regen/pages/gr-e-46-page-04.webp",
         "imageAlt": "A turtle with a hard protective shell walking slowly.",
         "pageDescription": "A turtle walks slowly carrying its hard protective domed shell on its back.",
         "embeddedImageText": "",
@@ -5278,7 +5278,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "Lizards live in warm places.",
-        "image": "/guided-reading/regen/pages/gr-e-46-page-05.png",
+        "image": "/guided-reading/regen/pages/gr-e-46-page-05.webp",
         "imageAlt": "A lizard basking on a warm rock in the sun.",
         "pageDescription": "A colorful lizard basks on a warm flat rock under the bright sun.",
         "embeddedImageText": "",
@@ -5331,7 +5331,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "Reptiles are cold-blooded animals!",
-        "image": "/guided-reading/regen/pages/gr-e-46-page-06.png",
+        "image": "/guided-reading/regen/pages/gr-e-46-page-06.webp",
         "imageAlt": "Various reptiles including a snake, turtle, and lizard together.",
         "pageDescription": "Various reptiles including a snake, turtle, and lizard are shown together in nature.",
         "embeddedImageText": "",
@@ -5390,12 +5390,12 @@ export const guidedReadingRegenBooks = [
       "life cycles",
       "sequence vocabulary"
     ],
-    "coverImage": "/guided-reading/regen/covers/gr-e-47-cover.png",
+    "coverImage": "/guided-reading/regen/covers/gr-e-47-cover.webp",
     "pages": [
       {
         "pageNumber": 1,
         "text": "All living things need food.",
-        "image": "/guided-reading/regen/pages/gr-e-47-page-01.png",
+        "image": "/guided-reading/regen/pages/gr-e-47-page-01.webp",
         "imageAlt": "Plants and animals in an ecosystem getting nutrients.",
         "pageDescription": "Plants and animals in a healthy ecosystem get the food they need to live.",
         "embeddedImageText": "",
@@ -5447,7 +5447,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "All living things need water.",
-        "image": "/guided-reading/regen/pages/gr-e-47-page-02.png",
+        "image": "/guided-reading/regen/pages/gr-e-47-page-02.webp",
         "imageAlt": "Rain falling on plants and a stream for animals to drink.",
         "pageDescription": "Rain falls on green plants and fills a stream for animals to drink from.",
         "embeddedImageText": "",
@@ -5499,7 +5499,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "A seed grows into a plant.",
-        "image": "/guided-reading/regen/pages/gr-e-47-page-03.png",
+        "image": "/guided-reading/regen/pages/gr-e-47-page-03.webp",
         "imageAlt": "A seed sprouting and growing into a small green plant.",
         "pageDescription": "A seed sprouts and grows into a small green plant with roots and leaves.",
         "embeddedImageText": "",
@@ -5557,7 +5557,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "A tadpole turns into a frog.",
-        "image": "/guided-reading/regen/pages/gr-e-47-page-04.png",
+        "image": "/guided-reading/regen/pages/gr-e-47-page-04.webp",
         "imageAlt": "A tadpole transforming into a frog in stages.",
         "pageDescription": "A tadpole slowly transforms into a frog through its life cycle stages.",
         "embeddedImageText": "",
@@ -5615,7 +5615,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "A caterpillar becomes a butterfly.",
-        "image": "/guided-reading/regen/pages/gr-e-47-page-05.png",
+        "image": "/guided-reading/regen/pages/gr-e-47-page-05.webp",
         "imageAlt": "A caterpillar forming a chrysalis and emerging as a butterfly.",
         "pageDescription": "A caterpillar forms a chrysalis and emerges as a beautiful colorful butterfly.",
         "embeddedImageText": "",
@@ -5666,7 +5666,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "Growing takes time and care!",
-        "image": "/guided-reading/regen/pages/gr-e-47-page-06.png",
+        "image": "/guided-reading/regen/pages/gr-e-47-page-06.webp",
         "imageAlt": "A child caring for growing plants in a garden with a watering can.",
         "pageDescription": "A child cares for growing plants in a garden using a small watering can.",
         "embeddedImageText": "",
@@ -5731,12 +5731,12 @@ export const guidedReadingRegenBooks = [
       "physical properties",
       "inquiry skills"
     ],
-    "coverImage": "/guided-reading/regen/covers/gr-e-48-cover.png",
+    "coverImage": "/guided-reading/regen/covers/gr-e-48-cover.webp",
     "pages": [
       {
         "pageNumber": 1,
         "text": "A magnet has two poles.",
-        "image": "/guided-reading/regen/pages/gr-e-48-page-01.png",
+        "image": "/guided-reading/regen/pages/gr-e-48-page-01.webp",
         "imageAlt": "A bar magnet with a north and south pole marked.",
         "pageDescription": "A bar magnet shows its two poles marked at each end.",
         "embeddedImageText": "",
@@ -5789,7 +5789,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "Magnets pull some metals.",
-        "image": "/guided-reading/regen/pages/gr-e-48-page-02.png",
+        "image": "/guided-reading/regen/pages/gr-e-48-page-02.webp",
         "imageAlt": "A magnet pulling paper clips and small nails toward it.",
         "pageDescription": "A strong magnet pulls paper clips and small metal nails toward it.",
         "embeddedImageText": "",
@@ -5835,7 +5835,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "Magnets do not pull wood.",
-        "image": "/guided-reading/regen/pages/gr-e-48-page-03.png",
+        "image": "/guided-reading/regen/pages/gr-e-48-page-03.webp",
         "imageAlt": "A magnet not attracting a wooden block.",
         "pageDescription": "A magnet shows no attraction to a smooth wooden block.",
         "embeddedImageText": "",
@@ -5888,7 +5888,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "Magnets do not pull glass.",
-        "image": "/guided-reading/regen/pages/gr-e-48-page-04.png",
+        "image": "/guided-reading/regen/pages/gr-e-48-page-04.webp",
         "imageAlt": "A magnet not attracting a glass cup.",
         "pageDescription": "A magnet shows no pull toward a clear glass cup.",
         "embeddedImageText": "",
@@ -5941,7 +5941,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "Opposite poles pull together.",
-        "image": "/guided-reading/regen/pages/gr-e-48-page-05.png",
+        "image": "/guided-reading/regen/pages/gr-e-48-page-05.webp",
         "imageAlt": "Two opposite magnet poles pulling toward each other.",
         "pageDescription": "Two opposite magnet poles pull toward each other and stick together.",
         "embeddedImageText": "",
@@ -5987,7 +5987,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "Same poles push apart!",
-        "image": "/guided-reading/regen/pages/gr-e-48-page-06.png",
+        "image": "/guided-reading/regen/pages/gr-e-48-page-06.webp",
         "imageAlt": "Two same magnet poles pushing away from each other.",
         "pageDescription": "Two same magnet poles push away from each other, showing repulsion.",
         "embeddedImageText": "",
@@ -6046,12 +6046,12 @@ export const guidedReadingRegenBooks = [
       "categorization",
       "seasonal vocabulary"
     ],
-    "coverImage": "/guided-reading/regen/covers/gr-e-49-cover.png",
+    "coverImage": "/guided-reading/regen/covers/gr-e-49-cover.webp",
     "pages": [
       {
         "pageNumber": 1,
         "text": "We wear hats on sunny days.",
-        "image": "/guided-reading/regen/pages/gr-e-49-page-01.png",
+        "image": "/guided-reading/regen/pages/gr-e-49-page-01.webp",
         "imageAlt": "A child wearing a sun hat on a bright sunny day.",
         "pageDescription": "A child wears a wide-brimmed sun hat on a bright sunny day outdoors.",
         "embeddedImageText": "",
@@ -6109,7 +6109,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "We wear coats on cold days.",
-        "image": "/guided-reading/regen/pages/gr-e-49-page-02.png",
+        "image": "/guided-reading/regen/pages/gr-e-49-page-02.webp",
         "imageAlt": "A child wearing a warm winter coat in the snow.",
         "pageDescription": "A child wears a warm thick winter coat while standing in falling snow.",
         "embeddedImageText": "",
@@ -6167,7 +6167,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "We wear boots in the rain.",
-        "image": "/guided-reading/regen/pages/gr-e-49-page-03.png",
+        "image": "/guided-reading/regen/pages/gr-e-49-page-03.webp",
         "imageAlt": "A child wearing rain boots and jumping in a puddle.",
         "pageDescription": "A child wears colorful rain boots and jumps happily in a puddle.",
         "embeddedImageText": "",
@@ -6225,7 +6225,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "We wear gloves to keep warm.",
-        "image": "/guided-reading/regen/pages/gr-e-49-page-04.png",
+        "image": "/guided-reading/regen/pages/gr-e-49-page-04.webp",
         "imageAlt": "A child wearing warm gloves while building a snowman.",
         "pageDescription": "A child wears warm wool gloves while building a snowman in winter.",
         "embeddedImageText": "",
@@ -6284,7 +6284,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "We wear pajamas to sleep.",
-        "image": "/guided-reading/regen/pages/gr-e-49-page-05.png",
+        "image": "/guided-reading/regen/pages/gr-e-49-page-05.webp",
         "imageAlt": "A child wearing pajamas and getting ready for bed.",
         "pageDescription": "A child wears cozy pajamas and gets ready to sleep in bed.",
         "embeddedImageText": "",
@@ -6336,7 +6336,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "Clothes keep us safe and warm!",
-        "image": "/guided-reading/regen/pages/gr-e-49-page-06.png",
+        "image": "/guided-reading/regen/pages/gr-e-49-page-06.webp",
         "imageAlt": "A happy child in weather-appropriate clothes playing outside.",
         "pageDescription": "A happy child wears weather-appropriate clothes while playing safely outside.",
         "embeddedImageText": "",
@@ -6409,12 +6409,12 @@ export const guidedReadingRegenBooks = [
       "body awareness",
       "observation skills"
     ],
-    "coverImage": "/guided-reading/regen/covers/gr-e-50-cover.png",
+    "coverImage": "/guided-reading/regen/covers/gr-e-50-cover.webp",
     "pages": [
       {
         "pageNumber": 1,
         "text": "We use our eyes to see.",
-        "image": "/guided-reading/regen/pages/gr-e-50-page-01.png",
+        "image": "/guided-reading/regen/pages/gr-e-50-page-01.webp",
         "imageAlt": "A child looking at a beautiful rainbow with their eyes.",
         "pageDescription": "A child uses their eyes to look at a beautiful colorful rainbow in the sky.",
         "embeddedImageText": "",
@@ -6473,7 +6473,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "We use our ears to hear.",
-        "image": "/guided-reading/regen/pages/gr-e-50-page-02.png",
+        "image": "/guided-reading/regen/pages/gr-e-50-page-02.webp",
         "imageAlt": "A child listening to a bird singing with their ears.",
         "pageDescription": "A child uses their ears to listen to a bird singing in a tree.",
         "embeddedImageText": "",
@@ -6532,7 +6532,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "We use our nose to smell.",
-        "image": "/guided-reading/regen/pages/gr-e-50-page-03.png",
+        "image": "/guided-reading/regen/pages/gr-e-50-page-03.webp",
         "imageAlt": "A child smelling fresh baked cookies with their nose.",
         "pageDescription": "A child uses their nose to smell fresh baked cookies from the kitchen.",
         "embeddedImageText": "",
@@ -6591,7 +6591,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "We use our tongue to taste.",
-        "image": "/guided-reading/regen/pages/gr-e-50-page-04.png",
+        "image": "/guided-reading/regen/pages/gr-e-50-page-04.webp",
         "imageAlt": "A child tasting a sweet piece of fruit with their tongue.",
         "pageDescription": "A child uses their tongue to taste a sweet juicy piece of fruit.",
         "embeddedImageText": "",
@@ -6650,7 +6650,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "We use our skin to touch.",
-        "image": "/guided-reading/regen/pages/gr-e-50-page-05.png",
+        "image": "/guided-reading/regen/pages/gr-e-50-page-05.webp",
         "imageAlt": "A child touching soft fur on a pet with their hand.",
         "pageDescription": "A child uses their hand to touch the soft fur on a friendly pet.",
         "embeddedImageText": "",
@@ -6709,7 +6709,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "Our senses help us explore!",
-        "image": "/guided-reading/regen/pages/gr-e-50-page-06.png",
+        "image": "/guided-reading/regen/pages/gr-e-50-page-06.webp",
         "imageAlt": "A happy child exploring nature using all five senses.",
         "pageDescription": "A happy child explores a beautiful natural setting using all five senses.",
         "embeddedImageText": "",

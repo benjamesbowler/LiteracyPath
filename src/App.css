@@ -58,6 +58,10 @@
      copy keep their own highly legible fonts; this token is for glyphs a
      child is being asked to recognise, copy, build or write. */
   --lp-font-letter: "Fredoka", "Comic Sans MS", sans-serif;
+  /* The pronoun "I", shown alone as a whole word (e.g. Quick Words), needs
+     the same distinct capital I as assessment print - otherwise it reads as
+     a bare vertical stroke, indistinguishable from a lowercase l. */
+  --lp-font-capital-i: var(--lp-font-assessment);
   --lp-space-1: 4px;
   --lp-space-2: 6px;
   --lp-space-3: 8px;
@@ -2621,6 +2625,14 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   margin-top: 12px;
 }
 
+/* See --lp-font-capital-i above: renders a lone "I" (the pronoun, taught as
+   its own whole word) in a face with real serifs top and bottom, instead of
+   the bare vertical stroke the rounded display fonts draw it as. Font-size,
+   weight and color are inherited from wherever it's used. */
+.lp-capital-i {
+  font-family: var(--lp-font-capital-i);
+}
+
 .lp-button {
   display: inline-flex !important;
   align-items: center;
@@ -4741,7 +4753,9 @@ body:has(.kg-viewport) .student-home-float { display: none; }
   width: 100%;
   max-width: 100%;
   display: flex;
+  padding-block: 4px;
   overflow: visible;
+  white-space: normal;
   background: #eef2ff;
   color: #3730a3;
 }
@@ -4756,9 +4770,11 @@ body:has(.kg-viewport) .student-home-float { display: none; }
 }
 
 .teacher-focus-pill .lp-defined-metric-value {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow: visible;
+  overflow-wrap: anywhere;
+  line-height: 1.25;
+  text-overflow: clip;
+  white-space: normal;
 }
 
 .teacher-progress-cell {
@@ -5546,6 +5562,91 @@ body:has(.kg-viewport) .student-home-float { display: none; }
   color: var(--color-primary) !important;
 }
 
+.guided-library-word-search {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 0 14px;
+}
+
+.guided-library-word-search > label {
+  color: var(--lp-color-text-muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.guided-library-word-search-row {
+  display: flex;
+  gap: 8px;
+}
+
+.guided-library-word-search-row input {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: var(--teacher-ui-target-min, 40px);
+  padding: 10px 14px;
+  border: 1.5px solid var(--color-border-soft);
+  border-radius: 999px;
+  background: var(--lp-color-surface);
+  color: var(--lp-color-text-strong);
+  font: inherit;
+}
+
+.guided-library-word-search-row input:focus-visible {
+  outline: none;
+  border-color: #a5b4fc;
+  box-shadow: 0 0 0 4px rgba(79, 99, 215, 0.12);
+}
+
+.guided-library-word-search-row button {
+  flex: 0 0 auto;
+  min-height: var(--teacher-ui-target-min, 40px);
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.guided-library-word-search-row button:hover {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.guided-library-word-search > small {
+  color: var(--lp-color-text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.guided-word-search-empty {
+  padding: 18px 4px;
+  color: var(--lp-color-text-muted);
+  font-weight: 700;
+}
+
+.guided-word-search-count {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  box-shadow: 0 6px 14px rgba(79, 99, 215, 0.28);
+}
+
 .guided-completed-strip {
   display: flex;
   min-width: 0;
@@ -5633,6 +5734,18 @@ body:has(.kg-viewport) .student-home-float { display: none; }
   align-items: stretch;
   justify-content: start;
   gap: 18px;
+}
+
+.guided-book-band {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 220px));
+  gap: 18px;
+}
+
+.guided-book-band-title {
+  grid-column: 1 / -1;
+  margin: 0;
 }
 
 .guided-category-card,
@@ -6554,6 +6667,92 @@ body:has(.kg-viewport) .student-home-float { display: none; }
 
 .guided-note-drawer .guided-note-field {
   padding: 0 12px 12px;
+}
+
+.guided-reading-discussion {
+  border: 1px solid color-mix(in srgb, var(--sage-deep, #315d4c) 22%, transparent);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--sage-mist, #edf5ef) 72%, white);
+  color: var(--ink, #19342b);
+  margin: 0 24px 16px;
+  overflow: hidden;
+}
+
+.guided-reading-discussion summary {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-weight: 800;
+  justify-content: space-between;
+  min-height: 56px;
+  padding: 12px 18px;
+}
+
+.guided-reading-discussion summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.guided-reading-discussion[open] summary::after {
+  content: "−";
+}
+
+.guided-reading-discussion-content {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 0 18px 18px;
+}
+
+.guided-reading-discussion-content section {
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 14px;
+  display: flex;
+  gap: 12px;
+  padding: 14px;
+}
+
+.guided-reading-discussion-content section > div {
+  min-width: 0;
+}
+
+.guided-reading-discussion-content p {
+  margin: 6px 0;
+}
+
+.guided-reading-discussion-number {
+  align-items: center;
+  background: var(--sage-deep, #315d4c);
+  border-radius: 999px;
+  color: white;
+  display: inline-flex;
+  flex: 0 0 28px;
+  font-weight: 800;
+  height: 28px;
+  justify-content: center;
+  width: 28px;
+}
+
+.guided-reading-discussion-note {
+  color: color-mix(in srgb, var(--ink, #19342b) 75%, white);
+  font-size: 0.92rem;
+}
+
+.guided-reading-discussion .lp-button {
+  margin-top: 6px;
+  min-height: 48px;
+}
+
+@media (max-width: 760px) {
+  .guided-reading-discussion {
+    margin-inline: 12px;
+  }
+
+  .guided-reading-discussion-content {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Note boxes grow with their content instead of scrolling inside themselves
@@ -23704,9 +23903,8 @@ select:focus {
   font-weight: 600;
 }
 
-/* ─── Book quiz + level-up ─────────────────────────────────────────────── */
+/* ─── Guided Reading level-up ──────────────────────────────────────────── */
 
-.book-quiz,
 .guided-levelup {
   position: fixed;
   inset: 0;
@@ -23717,7 +23915,6 @@ select:focus {
   padding: 18px;
 }
 
-.book-quiz-card,
 .guided-levelup-card {
   display: grid;
   justify-items: center;
@@ -23731,113 +23928,8 @@ select:focus {
   text-align: center;
 }
 
-.book-quiz-card {
-  max-height: calc(100dvh - 36px);
-  overflow-y: auto;
-  overscroll-behavior: contain;
-}
-
-.book-quiz-kicker {
-  margin: 0;
-  color: var(--lp-color-primary);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.book-quiz-card h3 {
-  margin: 0;
-  font: 600 clamp(20px, 3vw, 26px) var(--lp-font-reading);
-  color: var(--lp-color-text-strong);
-}
-
-.book-quiz-retry {
-  margin: 0;
-  color: var(--lp-color-warning);
-  font-weight: 600;
-}
-
-.book-quiz-loading {
-  margin: 0;
-  color: var(--lp-color-text-muted);
-  font-weight: 600;
-}
-
-.book-quiz-choices {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.book-quiz-choices button {
-  min-width: 110px;
-  min-height: 64px;
-  border: 1.5px solid var(--lp-color-border);
-  border-radius: 14px;
-  background: #ffffff;
-  box-shadow: var(--lp-shadow-card);
-  color: var(--lp-color-text-strong);
-  cursor: pointer;
-  font: 600 clamp(1.1rem, 2.4vw, 1.5rem) var(--lp-font-reading);
-  padding: 12px 18px;
-  transition: transform 120ms ease-out, border-color 120ms ease-out;
-}
-
-.book-quiz-choices button:hover {
-  border-color: var(--lp-color-primary);
-  transform: translateY(-2px);
-}
-
-.book-quiz-choices button:active {
-  transform: scale(0.95);
-}
-
-/* Keep optional audio help attached to its answer instead of letting the
-   shared answer-button sizing turn it into a second, competing answer tile. */
-.book-quiz-choices .book-quiz-hear {
-  flex: 0 0 44px;
-  width: 44px;
-  min-width: 44px;
-  min-height: 44px;
-  padding: 0;
-}
-
-.book-quiz-choices.pictures button {
-  padding: 8px;
-}
-
-.book-quiz-choices.pictures img {
-  width: 132px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.book-quiz-choices.long-text {
-  width: 100%;
-  flex-direction: column;
-}
-
-.book-quiz-choices.long-text .book-quiz-choice-row {
-  width: 100%;
-}
-
-.book-quiz-choices.long-text .book-quiz-choice-row > button:first-child {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  line-height: 1.35;
-  text-align: left;
-}
-
-.book-quiz-result img,
 .guided-levelup-card img {
   width: min(36vw, 150px);
-}
-
-.book-quiz-result h3 {
-  margin: 0;
-  font: 600 26px var(--lp-font-reading);
 }
 
 .guided-levelup-card h2 {
@@ -24016,7 +24108,6 @@ select:focus {
 
 .student-mission-celebrate-card,
 .companion-picker-card,
-.book-quiz-card,
 .guided-levelup-card {
   border: 1px solid var(--glass-border);
   background: var(--glass-surface-strong);
@@ -24027,7 +24118,6 @@ select:focus {
 
 .student-mission-celebrate,
 .companion-picker,
-.book-quiz,
 .guided-levelup {
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);

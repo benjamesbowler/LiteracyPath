@@ -2,19 +2,27 @@ import { expect, test } from "@playwright/test";
 
 const CLASS_A_ID = "00000000-0000-4000-8000-0000000000a1";
 const CLASS_B_ID = "00000000-0000-4000-8000-0000000000b2";
+const previewOrigin = process.env.PLAYWRIGHT_PREVIEW_ORIGIN || "";
 
 function recordBrowserErrors(page) {
   const errors = [];
   page.on("pageerror", error => errors.push(`page: ${error.message}`));
   page.on("console", message => {
-    if (message.type() === "error") errors.push(`console: ${message.text()}`);
+    // The isolated preview server intentionally has no hosted Supabase credentials.
+    // This boot warning is outside the truth fixture; all other console errors fail.
+    if (
+      message.type() === "error"
+      && !message.text().startsWith("[Literacy Guide] Supabase frontend environment is MISSING")
+    ) {
+      errors.push(`console: ${message.text()}`);
+    }
   });
   return errors;
 }
 
 function settingsUrl(query = "", section = "site") {
   const search = query ? `?surface=settings&${query}` : "?surface=settings";
-  return `/preview/teacher-a11y.html${search}#teacher/settings/${section}?class=${CLASS_A_ID}`;
+  return `${previewOrigin}/preview/teacher-a11y.html${search}#teacher/settings/${section}?class=${CLASS_A_ID}`;
 }
 
 test("Settings pauses class and privacy actions until current reads are complete", async ({
@@ -96,14 +104,21 @@ test("a failed saved-school lookup cannot become an editable blank school", asyn
   })).toHaveCount(0);
 
   await settings.getByRole("button", { name: "Try again", exact: true }).click();
+  await expect(settings.getByRole("heading", {
+    name: "Current school",
+    exact: true
+  })).toBeVisible();
+  await expect(settings.getByText("Literacy Guide Audit School", {
+    exact: true
+  })).toBeVisible();
   await expect(settings.getByRole("textbox", {
     name: "School name",
     exact: true
-  })).toHaveValue("LiteracyPath Audit School");
+  })).toHaveCount(0);
   await expect(settings.getByRole("button", {
     name: "Save school information",
     exact: true
-  })).toBeEnabled();
+  })).toHaveCount(0);
 
   expect(browserErrors).toEqual([]);
 });
@@ -243,5 +258,70 @@ test("a held class-A save never publishes its status under class B", async ({
   await expect(settings.getByText("Class-code expiry saved.", { exact: true }))
     .toHaveCount(0);
 
+  expect(browserErrors).toEqual([]);
+});
+
+test("whole-school leaderboard visibility needs confirmation before one scoped save", async ({
+  page
+}) => {
+  const browserErrors = recordBrowserErrors(page);
+  await page.goto(settingsUrl());
+  const settings = page.getByRole("main");
+  const schoolScope = settings.getByRole("radio", { name: "Whole school", exact: true });
+  const classScope = settings.getByRole("radio", { name: "This class only", exact: true });
+
+  await expect(classScope).toBeChecked();
+  await schoolScope.click();
+
+  const dialog = page.getByRole("dialog", { name: "Show whole-school leaderboard?" });
+  await expect(dialog).toContainText(
+    "Show nickname-only scores from other classes at this school? No real names are shown."
+  );
+  await expect(classScope).toBeChecked();
+  await dialog.getByRole("button", { name: "Cancel", exact: true }).click();
+
+  await expect(dialog).toHaveCount(0);
+  await expect(schoolScope).toBeFocused();
+  await expect(classScope).toBeChecked();
+  await expect.poll(() => page.evaluate(() => window.__teacherSettingsRpcCalls || []))
+    .toEqual([]);
+
+  await schoolScope.click();
+  await dialog.getByRole("button", { name: "Show whole-school board", exact: true }).click();
+
+  await expect(schoolScope).toBeChecked();
+  await expect(settings.locator(".teacher-settings-status")).toContainText(
+    "The leaderboard now includes made-up student nicknames from this school."
+  );
+  await expect.poll(() => page.evaluate(() => window.__teacherSettingsRpcCalls || []))
+    .toEqual([{
+      operation: "teacher_set_class_leaderboard_scope",
+      payload: {
+        p_class_id: CLASS_A_ID,
+        p_scope: "school"
+      }
+    }]);
+
+  expect(browserErrors).toEqual([]);
+});
+
+test("a failed whole-school leaderboard save remains in the dialog for retry", async ({ page }) => {
+  const browserErrors = recordBrowserErrors(page);
+  await page.goto(settingsUrl("settingsLeaderboardScope=fail-once"));
+  const settings = page.getByRole("main");
+  const schoolScope = settings.getByRole("radio", { name: "Whole school", exact: true });
+
+  await schoolScope.click();
+  const dialog = page.getByRole("dialog", { name: "Show whole-school leaderboard?" });
+  await dialog.getByRole("button", { name: "Show whole-school board", exact: true }).click();
+
+  await expect(dialog).toContainText("Leaderboard visibility was not changed.");
+  await expect(schoolScope).not.toBeChecked();
+  await dialog.getByRole("button", { name: "Show whole-school board", exact: true }).click();
+
+  await expect(dialog).toHaveCount(0);
+  await expect(schoolScope).toBeChecked();
+  await expect.poll(() => page.evaluate(() => window.__teacherSettingsRpcCalls || []))
+    .toHaveLength(2);
   expect(browserErrors).toEqual([]);
 });

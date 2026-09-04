@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { guidedReadingReviewMap } from "../../policy/guidedReadingApprovalPolicy.js";
 import { getRuntimeGuidedReadingBooks } from "../../utils/guidedReading/runtimeBooks.js";
 import { GuidedReadingPage } from "../guided-reading/GuidedReadingPage.jsx";
+import { guidedReadingBandLabel, guidedReadingModeLabel } from "../../policy/guidedReadingCatalogPolicy.js";
 
 const FILTERS = Object.freeze([
   { id: "accepted", label: "Accepted" },
@@ -94,7 +95,7 @@ export function GuidedReadingReviewPanel({
               >
                 <img alt="" src={book.coverImage || book.pages?.[0]?.image} />
                 <span>
-                  <small>Level {book.level} · {book.pages.length} pages</small>
+                  <small>{guidedReadingBandLabel(book.readingBandProfile, book.level)} · {guidedReadingModeLabel(book.readingMode)} · {book.pages.length} pages</small>
                   <strong>{book.title}</strong>
                   <em>
                     {status === "quarantined" ? "Quarantined" : "Accepted under continuous review"}

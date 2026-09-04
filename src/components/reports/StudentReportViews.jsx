@@ -1,7 +1,6 @@
 import { ReportSkeleton, ReportState } from "./StudentReportShell.jsx";
 import { reportStatusLabel } from "./studentReportUiUtils.js";
 import { MetricFigure } from "../MetricDefinition.jsx";
-import { progressPhrase } from "../../copy/teacherCopy.js";
 import { teacherReportText } from "./teacherReportCopy.jsx";
 
 function asArray(value) {
@@ -130,7 +129,7 @@ export function GuidedReadingReportView({ error = "", loading = false, onRetry, 
         { label: "Decoding supports", value: decodingSupports }
       ]} />
 
-      <ReportSection description="Every saved book is included. Open a book for words, quiz results, and notes." title="Books">
+      <ReportSection description="Every saved book is included. Open a book for marked words and notes." title="Books">
         <div className="lg-report-book-list">
           {books.map((book, index) => (
             <details key={book.bookId || book.id || `${book.title}-${index}`}>
@@ -164,7 +163,6 @@ export function GuidedReadingReportView({ error = "", loading = false, onRetry, 
                       ) : "No marked words"}
                     </dd>
                   </div>
-                  <div><dt>Comprehension assessment</dt><dd>{book.quizTotal ? progressPhrase(book.quizScore, book.quizTotal) : "Not recorded"}</dd></div>
                 </dl>
                 {asArray(book.correctWords).length > 0 && (
                   <div><h4>Read correctly in this book</h4><p>{book.correctWords.join(", ")}</p></div>

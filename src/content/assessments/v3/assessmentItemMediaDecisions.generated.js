@@ -9365,10 +9365,13 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l2.B.a.v2": {
     "itemId": "lp3.initial_sounds.l2.B.a.v2",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/astronaut.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "not-applicable-target-evidence"
+    "answerNeutral": "not-applicable-target-evidence",
+    "alt": "astronaut"
   },
   "lp3.initial_sounds.l2.C.a.v3": {
     "itemId": "lp3.initial_sounds.l2.C.a.v3",
@@ -9593,10 +9596,13 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l1.B.e.v2": {
     "itemId": "lp3.initial_sounds.l1.B.e.v2",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/generated/initial-sounds-l2/engine.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "engine"
   },
   "lp3.initial_sounds.l1.C.e.v3": {
     "itemId": "lp3.initial_sounds.l1.C.e.v3",
@@ -9613,10 +9619,13 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l2.A.e.v1": {
     "itemId": "lp3.initial_sounds.l2.A.e.v1",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/digraphs/elephant.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "elephant"
   },
   "lp3.initial_sounds.l2.B.e.v2": {
     "itemId": "lp3.initial_sounds.l2.B.e.v2",
@@ -9851,10 +9860,13 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l1.B.i.v2": {
     "itemId": "lp3.initial_sounds.l1.B.i.v2",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/ink.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "ink"
   },
   "lp3.initial_sounds.l1.C.i.v3": {
     "itemId": "lp3.initial_sounds.l1.C.i.v3",
@@ -9871,17 +9883,23 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l2.A.i.v1": {
     "itemId": "lp3.initial_sounds.l2.A.i.v1",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/igloo-d714f227.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "igloo"
   },
   "lp3.initial_sounds.l2.B.i.v2": {
     "itemId": "lp3.initial_sounds.l2.B.i.v2",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/ink.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "not-applicable-target-evidence"
+    "answerNeutral": "not-applicable-target-evidence",
+    "alt": "ink"
   },
   "lp3.initial_sounds.l2.C.i.v3": {
     "itemId": "lp3.initial_sounds.l2.C.i.v3",
@@ -9898,17 +9916,23 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l1.A.j.v1": {
     "itemId": "lp3.initial_sounds.l1.A.j.v1",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/jam.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "jam"
   },
   "lp3.initial_sounds.l1.B.j.v2": {
     "itemId": "lp3.initial_sounds.l1.B.j.v2",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/jam.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "jam"
   },
   "lp3.initial_sounds.l1.C.j.v3": {
     "itemId": "lp3.initial_sounds.l1.C.j.v3",
@@ -10232,38 +10256,53 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l1.B.o.v2": {
     "itemId": "lp3.initial_sounds.l1.B.o.v2",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/orange.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "orange"
   },
   "lp3.initial_sounds.l1.C.o.v3": {
     "itemId": "lp3.initial_sounds.l1.C.o.v3",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/octopus.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "not-applicable-scoring-options"
+    "answerNeutral": "not-applicable-scoring-options",
+    "alt": "octopus"
   },
   "lp3.initial_sounds.l2.A.o.v1": {
     "itemId": "lp3.initial_sounds.l2.A.o.v1",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/octopus.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "octopus"
   },
   "lp3.initial_sounds.l2.B.o.v2": {
     "itemId": "lp3.initial_sounds.l2.B.o.v2",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/orange.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "orange"
   },
   "lp3.initial_sounds.l2.C.o.v3": {
     "itemId": "lp3.initial_sounds.l2.C.o.v3",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/octopus.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "not-applicable-scoring-options"
+    "answerNeutral": "not-applicable-scoring-options",
+    "alt": "octopus"
   },
   "lp3.initial_sounds.l1.A.p.v1": {
     "itemId": "lp3.initial_sounds.l1.A.p.v1",
@@ -10333,10 +10372,13 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l1.A.r.v1": {
     "itemId": "lp3.initial_sounds.l1.A.r.v1",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/rhyming/variants/ing/ring-02.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "rat"
   },
   "lp3.initial_sounds.l1.B.r.v2": {
     "itemId": "lp3.initial_sounds.l1.B.r.v2",
@@ -10472,10 +10514,13 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l1.B.t.v2": {
     "itemId": "lp3.initial_sounds.l1.B.t.v2",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/tent.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "tent"
   },
   "lp3.initial_sounds.l1.C.t.v3": {
     "itemId": "lp3.initial_sounds.l1.C.t.v3",
@@ -10535,38 +10580,53 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l1.B.u.v2": {
     "itemId": "lp3.initial_sounds.l1.B.u.v2",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/umbrella-e1f6f2a3.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "uniform"
   },
   "lp3.initial_sounds.l1.C.u.v3": {
     "itemId": "lp3.initial_sounds.l1.C.u.v3",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/umbrella-e1f6f2a3.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "not-applicable-scoring-options"
+    "answerNeutral": "not-applicable-scoring-options",
+    "alt": "umpire"
   },
   "lp3.initial_sounds.l2.A.u.v1": {
     "itemId": "lp3.initial_sounds.l2.A.u.v1",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/umbrella-e1f6f2a3.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "uniform"
   },
   "lp3.initial_sounds.l2.B.u.v2": {
     "itemId": "lp3.initial_sounds.l2.B.u.v2",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/umbrella-e1f6f2a3.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "umbrella"
   },
   "lp3.initial_sounds.l2.C.u.v3": {
     "itemId": "lp3.initial_sounds.l2.C.u.v3",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/release-media/umbrella-e1f6f2a3.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "not-applicable-scoring-options"
+    "answerNeutral": "not-applicable-scoring-options",
+    "alt": "umpire"
   },
   "lp3.initial_sounds.l1.A.v.v1": {
     "itemId": "lp3.initial_sounds.l1.A.v.v1",
@@ -10702,45 +10762,63 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l1.A.y.v1": {
     "itemId": "lp3.initial_sounds.l1.A.y.v1",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/yo-yo.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "yo-yo"
   },
   "lp3.initial_sounds.l1.B.y.v2": {
     "itemId": "lp3.initial_sounds.l1.B.y.v2",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/generated/initial-sounds-l2/yawn.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "yawn"
   },
   "lp3.initial_sounds.l1.C.y.v3": {
     "itemId": "lp3.initial_sounds.l1.C.y.v3",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/yo-yo.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "not-applicable-scoring-options"
+    "answerNeutral": "not-applicable-scoring-options",
+    "alt": "yo-yo"
   },
   "lp3.initial_sounds.l2.A.y.v1": {
     "itemId": "lp3.initial_sounds.l2.A.y.v1",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/generated/initial-sounds-l2/yawn.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "yawn"
   },
   "lp3.initial_sounds.l2.B.y.v2": {
     "itemId": "lp3.initial_sounds.l2.B.y.v2",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/generated/initial-sounds-l2/yawn.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "yawn"
   },
   "lp3.initial_sounds.l2.C.y.v3": {
     "itemId": "lp3.initial_sounds.l2.C.y.v3",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/yo-yo.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "not-applicable-scoring-options"
+    "answerNeutral": "not-applicable-scoring-options",
+    "alt": "yo-yo"
   },
   "lp3.initial_sounds.l1.A.z.v1": {
     "itemId": "lp3.initial_sounds.l1.A.z.v1",
@@ -10777,17 +10855,23 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l2.A.z.v1": {
     "itemId": "lp3.initial_sounds.l2.A.z.v1",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/zipper.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "zipper"
   },
   "lp3.initial_sounds.l2.B.z.v2": {
     "itemId": "lp3.initial_sounds.l2.B.z.v2",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/zebra.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "zebra"
   },
   "lp3.initial_sounds.l2.C.z.v3": {
     "itemId": "lp3.initial_sounds.l2.C.z.v3",
@@ -10804,17 +10888,23 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l2.R.a.v7r": {
     "itemId": "lp3.initial_sounds.l2.R.a.v7r",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/objective-words/astronaut.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "not-applicable-target-evidence"
+    "answerNeutral": "not-applicable-target-evidence",
+    "alt": "astronaut"
   },
   "lp3.initial_sounds.l2.R.e.v7r": {
     "itemId": "lp3.initial_sounds.l2.R.e.v7r",
-    "role": "text-only",
-    "paths": [],
+    "role": "target-or-scene",
+    "paths": [
+      "/images/assessment/digraphs/elephant.webp"
+    ],
     "constructReview": "approved",
-    "answerNeutral": "approved"
+    "answerNeutral": "approved",
+    "alt": "elephant"
   },
   "lp3.initial_sounds.l1.R.m.v7r": {
     "itemId": "lp3.initial_sounds.l1.R.m.v7r",

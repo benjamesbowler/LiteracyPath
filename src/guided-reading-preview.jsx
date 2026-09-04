@@ -13,20 +13,35 @@ import "./styles/kids-glass.css";
 import "./styles/ui-quality-pass.css";
 import "./styles/student-sessions.css";
 import StudentGlassShell from "./components/StudentGlassShell.jsx";
-import { BookQuiz } from "./components/guided-reading/BookQuiz.jsx";
 import { GuidedReadingPage } from "./components/guided-reading/GuidedReadingPage.jsx";
 import { StudentSessionNotice } from "./components/student-sessions/StudentSessionNotice.jsx";
+import { getGuidedReadingBookMetadata } from "./data/guidedReadingBookMetadata.js";
 import { guidedReadingBooks } from "./data/guidedReadingBooks.js";
 
 export function GuidedReadingPreview() {
   const params = new URLSearchParams(window.location.search);
   const requestedBookId = params.get("book") || "moonwood-tales-c-25";
+  const requestedMode = ["teacher", "class", "adminReview"].includes(params.get("mode"))
+    ? params.get("mode")
+    : "student";
   const book = guidedReadingBooks.find(item => item.id === requestedBookId) || guidedReadingBooks[0];
-  const [records, setRecords] = useState({});
+  const [records, setRecords] = useState(() => params.has("complete-c-standard")
+    ? Object.fromEntries(guidedReadingBooks
+      .filter(item => (
+        item.id !== book.id
+        && item.level === "C"
+        && getGuidedReadingBookMetadata(item)?.readingBandProfile === "standard"
+      ))
+      .map(item => [item.id, {
+        completed: true,
+        completedAt: "2026-09-02T10:00:00.000Z",
+        completedPages: item.pages.length,
+        totalPages: item.pages.length
+      }]))
+    : {});
   useEffect(() => {
     window.__guidedReadingPreviewRecords = records;
   }, [records]);
-  const [quizResult, setQuizResult] = useState(null);
   const staleGroupHost = params.has("stale-group") ? {
     session: {
       id: "stale-preview-session",
@@ -37,33 +52,18 @@ export function GuidedReadingPreview() {
     }
   } : null;
 
-  if (params.has("quiz")) {
-    return (
-      <main className="student-mode-app lp-skin-sage" style={{ minHeight: "100dvh" }}>
-        {quizResult ? (
-          <p role="status">Preview finished: {quizResult.correct}/{quizResult.total}</p>
-        ) : (
-          <BookQuiz
-            book={book}
-            onFinish={(correct, total) => setQuizResult({ correct, total })}
-          />
-        )}
-      </main>
-    );
-  }
-
   const reader = (
     <GuidedReadingPage
       guidedReadingRecords={records}
       initialBookId={book.id}
-      mode="student"
+      mode={requestedMode}
       sessionHost={staleGroupHost}
       saveGuidedReadingRecord={(bookId, nextRecord) => {
         setRecords(current => ({ ...current, [bookId]: nextRecord }));
       }}
       speakText={() => {}}
-      studentId="guided-reading-preview"
-      studentName="Preview Reader"
+      studentId={requestedMode === "student" ? "guided-reading-preview" : ""}
+      studentName={requestedMode === "student" ? "Preview Reader" : ""}
     />
   );
 

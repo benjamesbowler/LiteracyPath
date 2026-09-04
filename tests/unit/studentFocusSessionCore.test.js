@@ -2,12 +2,15 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  STUDENT_FOCUS_CONTENT_VERSION,
   STUDENT_FOCUS_END_ACTIONS,
   endStudentFocusSession,
   getStudentFocusSession,
   saveStudentFocusAssessmentAnswer,
   startStudentFocusSession
 } from "../../src/data/studentFocusSessionCore.js";
+import { STUDENT_FOCUS_TARGET_OPTIONS } from "../../src/policy/studentFocusTargets.js";
+import { APP_RELEASE_ID } from "../../src/utils/errorLog.js";
 
 function recordingClient(response = { ok: true }) {
   const calls = [];
@@ -19,6 +22,26 @@ function recordingClient(response = { ok: true }) {
     }
   };
 }
+
+test("every whole-class activity uses a stable protocol across ordinary app deployments", async () => {
+  const sentVersions = [];
+
+  for (const option of STUDENT_FOCUS_TARGET_OPTIONS) {
+    const client = recordingClient({ ok: true, session: { id: `focus-${option.id}` } });
+    await startStudentFocusSession({
+      client,
+      classId: "class-1",
+      target: option.id,
+      wholeClass: true
+    });
+    sentVersions.push(client.calls[0].args.p_content_version);
+  }
+
+  assert.equal(sentVersions.length, 6);
+  assert.deepEqual([...new Set(sentVersions)], [STUDENT_FOCUS_CONTENT_VERSION]);
+  assert.match(STUDENT_FOCUS_CONTENT_VERSION, /^student-focus-v[1-9]\d*$/);
+  assert.notEqual(STUDENT_FOCUS_CONTENT_VERSION, APP_RELEASE_ID);
+});
 
 test("teacher start sends the exact class, target, membership and expiry payload", async () => {
   const client = recordingClient({ ok: true, session: { id: "focus-1" } });

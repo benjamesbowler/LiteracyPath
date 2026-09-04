@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  A11Y_KEY_INTERACTIONS,
   A11Y_KEY_MODAL_STATES,
   A11Y_PRIMARY_ROUTES,
   A11Y_VIEWPORTS,
@@ -40,8 +41,14 @@ test("A3.3 inventory covers every primary child and authenticated teacher route"
   );
 });
 
-test("A3.3 inventory fixes two viewports and seven key modal states", () => {
+test("A3.3 inventory fixes two viewports, seven key modal states, and High Scores interaction", () => {
   assert.deepEqual(A11Y_VIEWPORTS.map(row => row.id), ["desktop", "mobile"]);
   assert.equal(A11Y_KEY_MODAL_STATES.length, 7);
   assert.ok(A11Y_KEY_MODAL_STATES.every(row => row.dialogName));
+  assert.deepEqual(A11Y_KEY_INTERACTIONS, [{
+    id: "arcade-high-scores",
+    url: "/preview/child-surfaces.html?surface=arcade",
+    triggerName: "High Scores",
+    regionName: "High scores"
+  }]);
 });

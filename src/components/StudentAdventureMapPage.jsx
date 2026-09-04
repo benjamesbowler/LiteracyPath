@@ -35,6 +35,7 @@
 import { useEffect, useState } from "react";
 
 import StudentGlassShell from "./StudentGlassShell.jsx";
+import { ChildRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
 import { filterSample } from "../policy/freeTierContent.js";
 import {
@@ -44,7 +45,10 @@ import {
   loadWideMapOverride,
   wideMapPointsFor
 } from "../data/mapStops.js";
-import { localProgressStorageKey } from "../utils/progressKeys.js";
+import {
+  clearElQuestLocalProgress,
+  readElQuestLocalProgress
+} from "../utils/adventureMapLocalProgress.js";
 import { PAL_WORLDS } from "../utils/palWorlds.js";
 import { speakStudentRailLabel } from "../policy/studentRailPolicy.js";
 import {
@@ -113,21 +117,20 @@ function SpeakerGlyph({ size = 22 }) {
 // screen would draw as a map with every stop locked — a claim about the child
 // produced by a storage error. `ok` travels with the value instead.
 function readMapProgress(scopeKey) {
-  if (typeof window === "undefined") return { ok: true, cycles: {} };
-  try {
-    const raw = window.localStorage.getItem(localProgressStorageKey("el_quest", scopeKey));
-    if (!raw) return { ok: true, cycles: {} };
-    const parsed = JSON.parse(raw);
-    const cycles = parsed && typeof parsed === "object" && parsed.cycles;
-    return { ok: true, cycles: cycles && typeof cycles === "object" ? cycles : {} };
-  } catch {
-    return { ok: false, cycles: {} };
-  }
+  const read = readElQuestLocalProgress(scopeKey);
+  const cycles = read.value?.cycles;
+  return {
+    ok: read.ok,
+    reason: read.reason || "",
+    cycles: cycles && typeof cycles === "object" && !Array.isArray(cycles) ? cycles : {}
+  };
 }
+
+const allAdventureCycles = () => elSkillsBlockCycles.filter(cycle => cycle.cycleNumber);
 
 // A function, not a constant: the sample scope is set when a try session starts,
 // which is long after this module is evaluated.
-const playableCycles = () => filterSample("cycles", elSkillsBlockCycles).filter(cycle => cycle.cycleNumber);
+const playableCycles = () => filterSample("cycles", allAdventureCycles());
 
 export function StudentAdventureMapPage({
   studentName,
@@ -145,6 +148,7 @@ export function StudentAdventureMapPage({
 }) {
   const [openCycleId, setOpenCycleId] = useState("");
   const [speechStatus, setSpeechStatus] = useState("");
+  const [recoveryStatus, setRecoveryStatus] = useState("");
   const [, setHydrationRevision] = useState(0);
 
   useEffect(() => {
@@ -172,10 +176,15 @@ export function StudentAdventureMapPage({
 
   const starsFor = cycleId => Number(read.cycles?.[cycleId]?.stars) || 0;
   const availableCycles = playableCycles();
+  const exactAssignmentCycles = allAdventureCycles();
   const cycleLock = resolveAdventureMapCycleLock({
-    cycles: availableCycles,
+    // An exact teacher assignment is classroom authority, not ordinary sample
+    // browsing. Keep the open map inside the entitlement while allowing the
+    // teacher's one named cycle through the same front door as the Quest.
+    cycles: exactAssignmentCycles,
     lockedCycleId
   });
+  const mapCycles = cycleLock.locked ? exactAssignmentCycles : availableCycles;
 
   useEffect(() => {
     if (!cycleLock.locked) return;
@@ -187,11 +196,11 @@ export function StudentAdventureMapPage({
   // this screen and the map inside the mode never disagree.
   const currentCycle = cycleLock.locked
     ? cycleLock.cycle
-    : availableCycles.find(cycle => starsFor(cycle.id) <= 0)
-      || availableCycles[availableCycles.length - 1];
+    : mapCycles.find(cycle => starsFor(cycle.id) <= 0)
+      || mapCycles[mapCycles.length - 1];
   const part = adventureMapPartFor(currentCycle?.cycleNumber || 1);
   const worldCycles = currentCycle
-    ? availableCycles.filter(cycle => (
+    ? mapCycles.filter(cycle => (
         cycle.cycleNumber >= part.first && cycle.cycleNumber <= part.last
       ))
     : [];
@@ -247,9 +256,26 @@ export function StudentAdventureMapPage({
 
   const stateLabel = stop => {
     if (stop.state === "done") return `${stop.stars} of 3 stars`;
-    if (stop.state === "next") return "Your pal is here";
+    if (stop.state === "next") {
+      return cycleLock.locked
+        ? "Your teacher chose this map space"
+        : "This is your next unfinished stop";
+    }
     return "Locked";
   };
+
+  const primaryReason = cycleLock.locked
+    ? "Your teacher chose this map space."
+    : "This is your next unfinished stop.";
+
+  function recoverUnreadableProgress() {
+    if (!clearElQuestLocalProgress(progressScopeKey)) {
+      setRecoveryStatus("Ask a grown-up to try again.");
+      return;
+    }
+    setRecoveryStatus("");
+    setHydrationRevision(revision => revision + 1);
+  }
 
   if (
     openCycleId
@@ -257,6 +283,61 @@ export function StudentAdventureMapPage({
     && (!cycleLock.locked || openCycleId === cycleLock.cycleId)
   ) {
     return renderQuest({ cycleId: openCycleId, onExit: () => setOpenCycleId("") });
+  }
+
+  // A broken or newer record is a full-screen state, not an empty-looking map.
+  // In particular, do not offer the destructive recovery action for a record
+  // written by a newer app: its opaque fields must remain byte-for-byte intact.
+  if (!read.ok) {
+    const needsUpdate = read.reason === "unsupported_version";
+    return (
+      <StudentGlassShell
+        studentName={studentName}
+        scopeKey={progressScopeKey}
+        active="map"
+        onNavigate={onNavigate}
+        onHome={focusLocked ? undefined : onHome}
+        onGrownUps={focusLocked ? undefined : onGrownUps}
+        profileInteractive={!focusLocked}
+        showGrownUps={!focusLocked}
+        showWallet={!focusLocked}
+        tabs={focusLocked ? [] : undefined}
+        headerActions={headerActions}
+      >
+        <div
+          className="kg-screen kg-map kg-map--message"
+          data-child-surface="adventure-map"
+          data-learning-lane="practice_and_play"
+          data-read-state={needsUpdate ? "update-required" : "unreadable"}
+          data-quest-view={needsUpdate ? "progress-update-required" : "progress-recovery"}
+        >
+          <section className="kg-glass kg-glass--strong kg-map-message" role="status" aria-live="polite">
+            <img className="kg-map-message-pal" src={palArt} alt="" onError={hideOnError} />
+            <h1 className="kg-title" data-child-title="">
+              {needsUpdate ? "Adventure Map needs an update" : "Adventure Map needs a fresh start"}
+            </h1>
+            <p className="kg-body" data-child-instruction="">
+              {needsUpdate
+                ? "Ask a grown-up to update this app."
+                : "Clear this map copy to start fresh."}
+            </p>
+            <p className="kg-body kg-map-message-detail">
+              {needsUpdate
+                ? "Your saved map will stay safe."
+                : "Your other learning stays safe."}
+            </p>
+            <button
+              className="main-button kg-map-message-action"
+              type="button"
+              onClick={needsUpdate ? () => window.location.reload() : recoverUnreadableProgress}
+            >
+              {needsUpdate ? "Check for the update" : "Clear map copy and try again"}
+            </button>
+            <span className="kg-speech" role="status" aria-live="polite">{recoveryStatus}</span>
+          </section>
+        </div>
+      </StudentGlassShell>
+    );
   }
 
   return (
@@ -432,7 +513,14 @@ export function StudentAdventureMapPage({
                 <span className="kg-map-card-text">
                   <strong>{stop.name}</strong>
                   <small {...(stop.state === "next" ? { "data-child-emphasis-cue": "" } : {})}>
-                    {read.ok ? stateLabel(stop) : "Still loading"}
+                    {read.ok && isNext
+                      ? (
+                          <ChildRecommendationExplanation
+                            surface="adventure-map"
+                            reason={primaryReason}
+                          />
+                        )
+                      : read.ok ? stateLabel(stop) : "Still loading"}
                   </small>
                 </span>
                 {isNext && <span className="kg-map-card-go" aria-hidden="true">&#8594;</span>}

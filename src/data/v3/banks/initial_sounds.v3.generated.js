@@ -59,7 +59,7 @@ export const questions = [
    "o": "D-VOWEL",
    "l": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -159,7 +159,7 @@ export const questions = [
    "e": "D-VOWEL",
    "o": "D-VOWEL"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -395,7 +395,7 @@ export const questions = [
    "t": "D-POSITION",
    "u": "D-VOWEL"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -459,7 +459,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Alligator. Which letter matches the first sound?",
+  "spokenPrompt": "Astronaut. Which letter matches the first sound?",
   "choices": [
    "a",
    "e",
@@ -495,7 +495,7 @@ export const questions = [
    "i": "D-VOWEL",
    "r": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -503,18 +503,23 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "alligator",
+  "targetWord": "astronaut",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l2.B.a.v2",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/astronaut.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "not-applicable-target-evidence"
+   "answerNeutral": "not-applicable-target-evidence",
+   "alt": "astronaut"
   },
+  "requiredImageAssetKey": "astronaut",
+  "stimulusMediaId": "astronaut",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -524,7 +529,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/astronaut.webp",
+  "imageUrl": "/images/assessment/objective-words/astronaut.webp",
+  "targetImage": "/images/assessment/objective-words/astronaut.webp",
+  "targetImagePath": "/images/assessment/objective-words/astronaut.webp",
+  "resolvedImageAssetKey": "astronaut",
+  "imageAlt": "astronaut"
  },
  {
   "id": "lp3.initial_sounds.l2.C.a.v3",
@@ -720,7 +731,7 @@ export const questions = [
    "t": "D-POSITION",
    "p": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -820,7 +831,7 @@ export const questions = [
    "d": "D-VISUAL-NEIGHBOR",
    "k": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1056,7 +1067,7 @@ export const questions = [
    "d": "D-VISUAL-NEIGHBOR",
    "a": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1156,7 +1167,7 @@ export const questions = [
    "p": "D-ONSET",
    "d": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1392,7 +1403,7 @@ export const questions = [
    "g": "D-ONSET",
    "o": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1492,7 +1503,7 @@ export const questions = [
    "o": "D-VISUAL-NEIGHBOR",
    "p": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1728,7 +1739,7 @@ export const questions = [
    "o": "D-VISUAL-NEIGHBOR",
    "r": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1828,7 +1839,7 @@ export const questions = [
    "a": "D-POSITION",
    "g": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2064,7 +2075,7 @@ export const questions = [
    "b": "D-VISUAL-NEIGHBOR",
    "g": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2164,7 +2175,7 @@ export const questions = [
    "k": "D-POSITION",
    "t": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2400,7 +2411,7 @@ export const questions = [
    "t": "D-ONSET",
    "b": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2500,7 +2511,7 @@ export const questions = [
    "b": "D-VISUAL-NEIGHBOR",
    "n": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2736,7 +2747,7 @@ export const questions = [
    "c": "D-VOWEL",
    "g": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2836,7 +2847,7 @@ export const questions = [
    "i": "D-VOWEL",
    "c": "D-VOWEL"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2846,16 +2857,21 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "engine",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l1.B.e.v2",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/initial-sounds-l2/engine.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "approved"
+   "answerNeutral": "approved",
+   "alt": "engine"
   },
+  "requiredImageAssetKey": "engine",
+  "stimulusMediaId": "engine",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2865,7 +2881,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/engine.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/engine.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/engine.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/engine.webp",
+  "resolvedImageAssetKey": "engine",
+  "imageAlt": "engine"
  },
  {
   "id": "lp3.initial_sounds.l1.C.e.v3",
@@ -3061,7 +3083,7 @@ export const questions = [
    "t": "D-POSITION",
    "i": "D-VOWEL"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3071,16 +3093,21 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "elephant",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l2.A.e.v1",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/digraphs/elephant.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "approved"
+   "answerNeutral": "approved",
+   "alt": "elephant"
   },
+  "requiredImageAssetKey": "elephant",
+  "stimulusMediaId": "elephant",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3090,7 +3117,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "audio names elephant directly; the clipped legacy illustration is not scoring evidence"
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/elephant.webp",
+  "imageUrl": "/images/assessment/digraphs/elephant.webp",
+  "targetImage": "/images/assessment/digraphs/elephant.webp",
+  "targetImagePath": "/images/assessment/digraphs/elephant.webp",
+  "resolvedImageAssetKey": "elephant",
+  "imageAlt": "elephant"
  },
  {
   "id": "lp3.initial_sounds.l2.B.e.v2",
@@ -3150,7 +3183,7 @@ export const questions = [
    "c": "D-VOWEL",
    "w": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3386,7 +3419,7 @@ export const questions = [
    "n": "D-POSITION",
    "v": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3486,7 +3519,7 @@ export const questions = [
    "t": "D-VISUAL-NEIGHBOR",
    "x": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3722,7 +3755,7 @@ export const questions = [
    "t": "D-VISUAL-NEIGHBOR",
    "r": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3822,7 +3855,7 @@ export const questions = [
    "v": "D-ONSET",
    "t": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4058,7 +4091,7 @@ export const questions = [
    "k": "D-ONSET",
    "q": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4158,7 +4191,7 @@ export const questions = [
    "q": "D-VISUAL-NEIGHBOR",
    "t": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4394,7 +4427,7 @@ export const questions = [
    "j": "D-VISUAL-NEIGHBOR",
    "r": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4494,7 +4527,7 @@ export const questions = [
    "a": "D-POSITION",
    "c": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4730,7 +4763,7 @@ export const questions = [
    "n": "D-VISUAL-NEIGHBOR",
    "t": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4830,7 +4863,7 @@ export const questions = [
    "e": "D-POSITION",
    "f": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5066,7 +5099,7 @@ export const questions = [
    "f": "D-ONSET",
    "n": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5166,7 +5199,7 @@ export const questions = [
    "b": "D-VISUAL-NEIGHBOR",
    "g": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5402,7 +5435,7 @@ export const questions = [
    "l": "D-VOWEL",
    "o": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5502,7 +5535,7 @@ export const questions = [
    "e": "D-VOWEL",
    "l": "D-VOWEL"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5512,16 +5545,21 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "ink",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l1.B.i.v2",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/ink.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "approved"
+   "answerNeutral": "approved",
+   "alt": "ink"
   },
+  "requiredImageAssetKey": "ink",
+  "stimulusMediaId": "ink",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5531,7 +5569,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "audio carries the liquid word; a bottle picture cannot objectively reveal that its contents are ink"
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/ink.webp",
+  "imageUrl": "/images/assessment/objective-words/ink.webp",
+  "targetImage": "/images/assessment/objective-words/ink.webp",
+  "targetImagePath": "/images/assessment/objective-words/ink.webp",
+  "resolvedImageAssetKey": "ink",
+  "imageAlt": "ink"
  },
  {
   "id": "lp3.initial_sounds.l1.C.i.v3",
@@ -5691,7 +5735,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Inside. Which letter matches the first sound?",
+  "spokenPrompt": "Igloo. Which letter matches the first sound?",
   "choices": [
    "d",
    "i",
@@ -5727,7 +5771,7 @@ export const questions = [
    "d": "D-POSITION",
    "e": "D-VOWEL"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5735,18 +5779,23 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "inside",
+  "targetWord": "igloo",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l2.A.i.v1",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/igloo-d714f227.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "approved"
+   "answerNeutral": "approved",
+   "alt": "igloo"
   },
+  "requiredImageAssetKey": "igloo",
+  "stimulusMediaId": "igloo",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5756,7 +5805,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-media/igloo-d714f227.webp",
+  "imageUrl": "/images/assessment/release-media/igloo-d714f227.webp",
+  "targetImage": "/images/assessment/release-media/igloo-d714f227.webp",
+  "targetImagePath": "/images/assessment/release-media/igloo-d714f227.webp",
+  "resolvedImageAssetKey": "igloo",
+  "imageAlt": "igloo"
  },
  {
   "id": "lp3.initial_sounds.l2.B.i.v2",
@@ -5780,7 +5835,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Insect. Which letter matches the first sound?",
+  "spokenPrompt": "Ink. Which letter matches the first sound?",
   "choices": [
    "i",
    "e",
@@ -5816,7 +5871,7 @@ export const questions = [
    "l": "D-VOWEL",
    "t": "D-POSITION"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5824,18 +5879,23 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "insect",
+  "targetWord": "ink",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l2.B.i.v2",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/ink.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "not-applicable-target-evidence"
+   "answerNeutral": "not-applicable-target-evidence",
+   "alt": "ink"
   },
+  "requiredImageAssetKey": "ink",
+  "stimulusMediaId": "ink",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5845,7 +5905,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/ink.webp",
+  "imageUrl": "/images/assessment/objective-words/ink.webp",
+  "targetImage": "/images/assessment/objective-words/ink.webp",
+  "targetImagePath": "/images/assessment/objective-words/ink.webp",
+  "resolvedImageAssetKey": "ink",
+  "imageAlt": "ink"
  },
  {
   "id": "lp3.initial_sounds.l2.C.i.v3",
@@ -6005,7 +6071,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Jet. Which letter matches the first sound?",
+  "spokenPrompt": "Jam. Which letter matches the first sound?",
   "choices": [
    "t",
    "j",
@@ -6041,7 +6107,7 @@ export const questions = [
    "t": "D-POSITION",
    "y": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6049,18 +6115,23 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "jet",
+  "targetWord": "jam",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l1.A.j.v1",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/jam.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "approved"
+   "answerNeutral": "approved",
+   "alt": "jam"
   },
+  "requiredImageAssetKey": "jam",
+  "stimulusMediaId": "jam",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6070,7 +6141,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/jam.webp",
+  "imageUrl": "/images/assessment/objective-words/jam.webp",
+  "targetImage": "/images/assessment/objective-words/jam.webp",
+  "targetImagePath": "/images/assessment/objective-words/jam.webp",
+  "resolvedImageAssetKey": "jam",
+  "imageAlt": "jam"
  },
  {
   "id": "lp3.initial_sounds.l1.B.j.v2",
@@ -6130,7 +6207,7 @@ export const questions = [
    "i": "D-VISUAL-NEIGHBOR",
    "m": "D-POSITION"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6140,16 +6217,21 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "jam",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l1.B.j.v2",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/jam.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "approved"
+   "answerNeutral": "approved",
+   "alt": "jam"
   },
+  "requiredImageAssetKey": "jam",
+  "stimulusMediaId": "jam",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6159,7 +6241,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/jam.webp",
+  "imageUrl": "/images/assessment/objective-words/jam.webp",
+  "targetImage": "/images/assessment/objective-words/jam.webp",
+  "targetImagePath": "/images/assessment/objective-words/jam.webp",
+  "resolvedImageAssetKey": "jam",
+  "imageAlt": "jam"
  },
  {
   "id": "lp3.initial_sounds.l1.C.j.v3",
@@ -6355,7 +6443,7 @@ export const questions = [
    "i": "D-VISUAL-NEIGHBOR",
    "t": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6455,7 +6543,7 @@ export const questions = [
    "y": "D-DEVELOPMENTAL",
    "d": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6691,7 +6779,7 @@ export const questions = [
    "g": "D-ONSET",
    "h": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6791,7 +6879,7 @@ export const questions = [
    "h": "D-VISUAL-NEIGHBOR",
    "g": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7027,7 +7115,7 @@ export const questions = [
    "h": "D-VISUAL-NEIGHBOR",
    "o": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7127,7 +7215,7 @@ export const questions = [
    "l": "D-POSITION",
    "g": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7363,7 +7451,7 @@ export const questions = [
    "i": "D-VISUAL-NEIGHBOR",
    "p": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7463,7 +7551,7 @@ export const questions = [
    "g": "D-POSITION",
    "r": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7699,7 +7787,7 @@ export const questions = [
    "r": "D-ONSET",
    "i": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7799,7 +7887,7 @@ export const questions = [
    "t": "D-VISUAL-NEIGHBOR",
    "n": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8035,7 +8123,7 @@ export const questions = [
    "w": "D-VISUAL-NEIGHBOR",
    "p": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8135,7 +8223,7 @@ export const questions = [
    "n": "D-ONSET",
    "w": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8371,7 +8459,7 @@ export const questions = [
    "t": "D-POSITION",
    "n": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8471,7 +8559,7 @@ export const questions = [
    "w": "D-VISUAL-NEIGHBOR",
    "o": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8707,7 +8795,7 @@ export const questions = [
    "t": "D-POSITION",
    "m": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8807,7 +8895,7 @@ export const questions = [
    "u": "D-VISUAL-NEIGHBOR",
    "t": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9043,7 +9131,7 @@ export const questions = [
    "u": "D-VISUAL-NEIGHBOR",
    "s": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9143,7 +9231,7 @@ export const questions = [
    "m": "D-ONSET",
    "u": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9379,7 +9467,7 @@ export const questions = [
    "u": "D-VOWEL",
    "c": "D-VOWEL"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9443,7 +9531,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "On. Which letter matches the first sound?",
+  "spokenPrompt": "Orange. Which letter matches the first sound?",
   "choices": [
    "u",
    "c",
@@ -9479,7 +9567,7 @@ export const questions = [
    "c": "D-VOWEL",
    "n": "D-POSITION"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9487,18 +9575,23 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "on",
+  "targetWord": "orange",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l1.B.o.v2",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/orange.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "approved"
+   "answerNeutral": "approved",
+   "alt": "orange"
   },
+  "requiredImageAssetKey": "orange",
+  "stimulusMediaId": "orange",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9508,7 +9601,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/orange.webp",
+  "imageUrl": "/images/assessment/objective-words/orange.webp",
+  "targetImage": "/images/assessment/objective-words/orange.webp",
+  "targetImagePath": "/images/assessment/objective-words/orange.webp",
+  "resolvedImageAssetKey": "orange",
+  "imageAlt": "orange"
  },
  {
   "id": "lp3.initial_sounds.l1.C.o.v3",
@@ -9532,7 +9631,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Off. Which letter matches the first sound?",
+  "spokenPrompt": "Octopus. Which letter matches the first sound?",
   "choices": [
    "o",
    "u",
@@ -9568,7 +9667,7 @@ export const questions = [
    "u": "D-VOWEL",
    "a": "D-VOWEL"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9576,18 +9675,23 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "off",
+  "targetWord": "octopus",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l1.C.o.v3",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/octopus.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "not-applicable-scoring-options"
+   "answerNeutral": "not-applicable-scoring-options",
+   "alt": "octopus"
   },
+  "requiredImageAssetKey": "octopus",
+  "stimulusMediaId": "octopus",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9597,7 +9701,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/octopus.webp",
+  "imageUrl": "/images/assessment/objective-words/octopus.webp",
+  "targetImage": "/images/assessment/objective-words/octopus.webp",
+  "targetImagePath": "/images/assessment/objective-words/octopus.webp",
+  "resolvedImageAssetKey": "octopus",
+  "imageAlt": "octopus"
  },
  {
   "id": "lp3.initial_sounds.l2.A.o.v1",
@@ -9657,7 +9767,7 @@ export const questions = [
    "e": "D-VOWEL",
    "s": "D-POSITION"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9667,16 +9777,21 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "octopus",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l2.A.o.v1",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/octopus.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "approved"
+   "answerNeutral": "approved",
+   "alt": "octopus"
   },
+  "requiredImageAssetKey": "octopus",
+  "stimulusMediaId": "octopus",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9686,7 +9801,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/octopus.webp",
+  "imageUrl": "/images/assessment/objective-words/octopus.webp",
+  "targetImage": "/images/assessment/objective-words/octopus.webp",
+  "targetImagePath": "/images/assessment/objective-words/octopus.webp",
+  "resolvedImageAssetKey": "octopus",
+  "imageAlt": "octopus"
  },
  {
   "id": "lp3.initial_sounds.l2.B.o.v2",
@@ -9746,7 +9867,7 @@ export const questions = [
    "e": "D-POSITION",
    "a": "D-VOWEL"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9756,16 +9877,21 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "orange",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l2.B.o.v2",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/orange.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "approved"
+   "answerNeutral": "approved",
+   "alt": "orange"
   },
+  "requiredImageAssetKey": "orange",
+  "stimulusMediaId": "orange",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9775,7 +9901,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/orange.webp",
+  "imageUrl": "/images/assessment/objective-words/orange.webp",
+  "targetImage": "/images/assessment/objective-words/orange.webp",
+  "targetImagePath": "/images/assessment/objective-words/orange.webp",
+  "resolvedImageAssetKey": "orange",
+  "imageAlt": "orange"
  },
  {
   "id": "lp3.initial_sounds.l2.C.o.v3",
@@ -9799,7 +9931,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Ox. Which letter matches the first sound?",
+  "spokenPrompt": "Octopus. Which letter matches the first sound?",
   "choices": [
    "x",
    "o",
@@ -9835,7 +9967,7 @@ export const questions = [
    "u": "D-VOWEL",
    "x": "D-POSITION"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9843,18 +9975,23 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "ox",
+  "targetWord": "octopus",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l2.C.o.v3",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/octopus.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "not-applicable-scoring-options"
+   "answerNeutral": "not-applicable-scoring-options",
+   "alt": "octopus"
   },
+  "requiredImageAssetKey": "octopus",
+  "stimulusMediaId": "octopus",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9864,7 +10001,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/octopus.webp",
+  "imageUrl": "/images/assessment/objective-words/octopus.webp",
+  "targetImage": "/images/assessment/objective-words/octopus.webp",
+  "targetImagePath": "/images/assessment/objective-words/octopus.webp",
+  "resolvedImageAssetKey": "octopus",
+  "imageAlt": "octopus"
  },
  {
   "id": "lp3.initial_sounds.l1.A.p.v1",
@@ -9924,7 +10067,7 @@ export const questions = [
    "q": "D-VISUAL-NEIGHBOR",
    "g": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10024,7 +10167,7 @@ export const questions = [
    "n": "D-POSITION",
    "b": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10260,7 +10403,7 @@ export const questions = [
    "b": "D-ONSET",
    "d": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10360,7 +10503,7 @@ export const questions = [
    "q": "D-VISUAL-NEIGHBOR",
    "k": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10560,7 +10703,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Run. Which letter matches the first sound?",
+  "spokenPrompt": "Ring. Which letter matches the first sound?",
   "choices": [
    "r",
    "w",
@@ -10596,7 +10739,7 @@ export const questions = [
    "n": "D-POSITION",
    "w": "D-ONSET"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10604,18 +10747,23 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "run",
+  "targetWord": "ring",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l1.A.r.v1",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/rhyming/variants/ing/ring-02.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "approved"
+   "answerNeutral": "approved",
+   "alt": "rat"
   },
+  "requiredImageAssetKey": "ring",
+  "stimulusMediaId": "ring",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10625,7 +10773,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/ing/ring-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ing/ring-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ing/ring-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ing/ring-02.webp",
+  "resolvedImageAssetKey": "ring",
+  "imageAlt": "ring"
  },
  {
   "id": "lp3.initial_sounds.l1.B.r.v2",
@@ -10685,7 +10839,7 @@ export const questions = [
    "n": "D-VISUAL-NEIGHBOR",
    "g": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10921,7 +11075,7 @@ export const questions = [
    "l": "D-VISUAL-NEIGHBOR",
    "o": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11021,7 +11175,7 @@ export const questions = [
    "w": "D-ONSET",
    "l": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11257,7 +11411,7 @@ export const questions = [
    "z": "D-ONSET",
    "e": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11357,7 +11511,7 @@ export const questions = [
    "e": "D-VISUAL-NEIGHBOR",
    "l": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11593,7 +11747,7 @@ export const questions = [
    "e": "D-VISUAL-NEIGHBOR",
    "r": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11693,7 +11847,7 @@ export const questions = [
    "h": "D-POSITION",
    "z": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11929,7 +12083,7 @@ export const questions = [
    "f": "D-VISUAL-NEIGHBOR",
    "n": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11993,7 +12147,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Tap. Which letter matches the first sound?",
+  "spokenPrompt": "Tent. Which letter matches the first sound?",
   "choices": [
    "d",
    "f",
@@ -12029,7 +12183,7 @@ export const questions = [
    "p": "D-POSITION",
    "d": "D-ONSET"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12037,18 +12191,23 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "tap",
+  "targetWord": "tent",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l1.B.t.v2",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/tent.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "approved"
+   "answerNeutral": "approved",
+   "alt": "tent"
   },
+  "requiredImageAssetKey": "tent",
+  "stimulusMediaId": "tent",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -12058,7 +12217,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/tent.webp",
+  "imageUrl": "/images/assessment/objective-words/tent.webp",
+  "targetImage": "/images/assessment/objective-words/tent.webp",
+  "targetImagePath": "/images/assessment/objective-words/tent.webp",
+  "resolvedImageAssetKey": "tent",
+  "imageAlt": "tent"
  },
  {
   "id": "lp3.initial_sounds.l1.C.t.v3",
@@ -12254,7 +12419,7 @@ export const questions = [
    "d": "D-ONSET",
    "f": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12354,7 +12519,7 @@ export const questions = [
    "l": "D-VISUAL-NEIGHBOR",
    "o": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12590,7 +12755,7 @@ export const questions = [
    "n": "D-VOWEL",
    "a": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12654,7 +12819,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Up. Which letter matches the first sound?",
+  "spokenPrompt": "Umbrella. Which letter matches the first sound?",
   "choices": [
    "u",
    "o",
@@ -12690,7 +12855,7 @@ export const questions = [
    "o": "D-VOWEL",
    "n": "D-VOWEL"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12698,18 +12863,23 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "up",
+  "targetWord": "umbrella",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l1.B.u.v2",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/umbrella-e1f6f2a3.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "approved"
+   "answerNeutral": "approved",
+   "alt": "uniform"
   },
+  "requiredImageAssetKey": "umbrella",
+  "stimulusMediaId": "umbrella",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -12719,7 +12889,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+  "imageUrl": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+  "targetImage": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+  "targetImagePath": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+  "resolvedImageAssetKey": "umbrella",
+  "imageAlt": "umbrella"
  },
  {
   "id": "lp3.initial_sounds.l1.C.u.v3",
@@ -12743,7 +12919,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Under. Which letter matches the first sound?",
+  "spokenPrompt": "Umbrella. Which letter matches the first sound?",
   "choices": [
    "r",
    "u",
@@ -12779,7 +12955,7 @@ export const questions = [
    "a": "D-VOWEL",
    "r": "D-POSITION"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12787,18 +12963,23 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "under",
+  "targetWord": "umbrella",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l1.C.u.v3",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/umbrella-e1f6f2a3.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "not-applicable-scoring-options"
+   "answerNeutral": "not-applicable-scoring-options",
+   "alt": "umpire"
   },
+  "requiredImageAssetKey": "umbrella",
+  "stimulusMediaId": "umbrella",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -12808,7 +12989,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+  "imageUrl": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+  "targetImage": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+  "targetImagePath": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+  "resolvedImageAssetKey": "umbrella",
+  "imageAlt": "umbrella"
  },
  {
   "id": "lp3.initial_sounds.l2.A.u.v1",
@@ -12832,7 +13019,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Uncle. Which letter matches the first sound?",
+  "spokenPrompt": "Umbrella. Which letter matches the first sound?",
   "choices": [
    "u",
    "o",
@@ -12868,7 +13055,7 @@ export const questions = [
    "l": "D-POSITION",
    "o": "D-VOWEL"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12876,18 +13063,23 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "uncle",
+  "targetWord": "umbrella",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l2.A.u.v1",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/umbrella-e1f6f2a3.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "approved"
+   "answerNeutral": "approved",
+   "alt": "uniform"
   },
+  "requiredImageAssetKey": "umbrella",
+  "stimulusMediaId": "umbrella",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -12897,7 +13089,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+  "imageUrl": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+  "targetImage": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+  "targetImagePath": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+  "resolvedImageAssetKey": "umbrella",
+  "imageAlt": "umbrella"
  },
  {
   "id": "lp3.initial_sounds.l2.B.u.v2",
@@ -12921,7 +13119,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Upstairs. Which letter matches the first sound?",
+  "spokenPrompt": "Umbrella. Which letter matches the first sound?",
   "choices": [
    "o",
    "v",
@@ -12957,7 +13155,7 @@ export const questions = [
    "v": "D-VOWEL",
    "s": "D-POSITION"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12965,18 +13163,23 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "upstairs",
+  "targetWord": "umbrella",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l2.B.u.v2",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/umbrella-e1f6f2a3.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "approved"
+   "answerNeutral": "approved",
+   "alt": "umbrella"
   },
+  "requiredImageAssetKey": "umbrella",
+  "stimulusMediaId": "umbrella",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -12986,7 +13189,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+  "imageUrl": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+  "targetImage": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+  "targetImagePath": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+  "resolvedImageAssetKey": "umbrella",
+  "imageAlt": "umbrella"
  },
  {
   "id": "lp3.initial_sounds.l2.C.u.v3",
@@ -13010,7 +13219,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Upset. Which letter matches the first sound?",
+  "spokenPrompt": "Umbrella. Which letter matches the first sound?",
   "choices": [
    "e",
    "t",
@@ -13046,7 +13255,7 @@ export const questions = [
    "t": "D-POSITION",
    "o": "D-VOWEL"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -13054,18 +13263,23 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "upset",
+  "targetWord": "umbrella",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l2.C.u.v3",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/umbrella-e1f6f2a3.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "not-applicable-scoring-options"
+   "answerNeutral": "not-applicable-scoring-options",
+   "alt": "umpire"
   },
+  "requiredImageAssetKey": "umbrella",
+  "stimulusMediaId": "umbrella",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -13075,7 +13289,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+  "imageUrl": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+  "targetImage": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+  "targetImagePath": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
+  "resolvedImageAssetKey": "umbrella",
+  "imageAlt": "umbrella"
  },
  {
   "id": "lp3.initial_sounds.l1.A.v.v1",
@@ -13135,7 +13355,7 @@ export const questions = [
    "n": "D-POSITION",
    "f": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -13235,7 +13455,7 @@ export const questions = [
    "y": "D-VISUAL-NEIGHBOR",
    "s": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -13471,7 +13691,7 @@ export const questions = [
    "y": "D-VISUAL-NEIGHBOR",
    "o": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -13571,7 +13791,7 @@ export const questions = [
    "f": "D-ONSET",
    "w": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -13807,7 +14027,7 @@ export const questions = [
    "v": "D-ONSET",
    "m": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -13907,7 +14127,7 @@ export const questions = [
    "u": "D-VISUAL-NEIGHBOR",
    "p": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -14143,7 +14363,7 @@ export const questions = [
    "m": "D-VISUAL-NEIGHBOR",
    "n": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -14243,7 +14463,7 @@ export const questions = [
    "o": "D-POSITION",
    "v": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -14443,7 +14663,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Yes. Which letter matches the first sound?",
+  "spokenPrompt": "Yo-yo. Which letter matches the first sound?",
   "choices": [
    "v",
    "s",
@@ -14479,7 +14699,7 @@ export const questions = [
    "v": "D-VISUAL-NEIGHBOR",
    "s": "D-POSITION"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -14487,18 +14707,23 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "yes",
+  "targetWord": "yo-yo",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l1.A.y.v1",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/yo-yo.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "approved"
+   "answerNeutral": "approved",
+   "alt": "yo-yo"
   },
+  "requiredImageAssetKey": "yo-yo",
+  "stimulusMediaId": "yo-yo",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -14508,7 +14733,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/yo-yo.webp",
+  "imageUrl": "/images/assessment/objective-words/yo-yo.webp",
+  "targetImage": "/images/assessment/objective-words/yo-yo.webp",
+  "targetImagePath": "/images/assessment/objective-words/yo-yo.webp",
+  "resolvedImageAssetKey": "yo-yo",
+  "imageAlt": "yo-yo"
  },
  {
   "id": "lp3.initial_sounds.l1.B.y.v2",
@@ -14532,7 +14763,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Yum. Which letter matches the first sound?",
+  "spokenPrompt": "Yawn. Which letter matches the first sound?",
   "choices": [
    "w",
    "v",
@@ -14568,7 +14799,7 @@ export const questions = [
    "w": "D-ONSET",
    "v": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -14576,18 +14807,23 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "yum",
+  "targetWord": "yawn",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l1.B.y.v2",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/initial-sounds-l2/yawn.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "approved"
+   "answerNeutral": "approved",
+   "alt": "yawn"
   },
+  "requiredImageAssetKey": "yawn",
+  "stimulusMediaId": "yawn",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -14597,7 +14833,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "resolvedImageAssetKey": "yawn",
+  "imageAlt": "yawn"
  },
  {
   "id": "lp3.initial_sounds.l1.C.y.v3",
@@ -14657,7 +14899,7 @@ export const questions = [
    "v": "D-VISUAL-NEIGHBOR",
    "o": "D-POSITION"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -14667,16 +14909,21 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "yo-yo",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l1.C.y.v3",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/yo-yo.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "not-applicable-scoring-options"
+   "answerNeutral": "not-applicable-scoring-options",
+   "alt": "yo-yo"
   },
+  "requiredImageAssetKey": "yo-yo",
+  "stimulusMediaId": "yo-yo",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -14686,7 +14933,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/yo-yo.webp",
+  "imageUrl": "/images/assessment/objective-words/yo-yo.webp",
+  "targetImage": "/images/assessment/objective-words/yo-yo.webp",
+  "targetImagePath": "/images/assessment/objective-words/yo-yo.webp",
+  "resolvedImageAssetKey": "yo-yo",
+  "imageAlt": "yo-yo"
  },
  {
   "id": "lp3.initial_sounds.l2.A.y.v1",
@@ -14710,7 +14963,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Yellow. Which letter matches the first sound?",
+  "spokenPrompt": "Yawn. Which letter matches the first sound?",
   "choices": [
    "j",
    "v",
@@ -14746,7 +14999,7 @@ export const questions = [
    "o": "D-POSITION",
    "j": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -14754,18 +15007,23 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "yellow",
+  "targetWord": "yawn",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l2.A.y.v1",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/initial-sounds-l2/yawn.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "approved"
+   "answerNeutral": "approved",
+   "alt": "yawn"
   },
+  "requiredImageAssetKey": "yawn",
+  "stimulusMediaId": "yawn",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -14775,7 +15033,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "resolvedImageAssetKey": "yawn",
+  "imageAlt": "yawn"
  },
  {
   "id": "lp3.initial_sounds.l2.B.y.v2",
@@ -14835,7 +15099,7 @@ export const questions = [
    "u": "D-VISUAL-NEIGHBOR",
    "n": "D-POSITION"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -14845,16 +15109,21 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "yawn",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l2.B.y.v2",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/initial-sounds-l2/yawn.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "approved"
+   "answerNeutral": "approved",
+   "alt": "yawn"
   },
+  "requiredImageAssetKey": "yawn",
+  "stimulusMediaId": "yawn",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -14864,7 +15133,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "resolvedImageAssetKey": "yawn",
+  "imageAlt": "yawn"
  },
  {
   "id": "lp3.initial_sounds.l2.C.y.v3",
@@ -14888,7 +15163,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Yard. Which letter matches the first sound?",
+  "spokenPrompt": "Yo-yo. Which letter matches the first sound?",
   "choices": [
    "d",
    "y",
@@ -14924,7 +15199,7 @@ export const questions = [
    "d": "D-POSITION",
    "w": "D-ONSET"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -14932,18 +15207,23 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "yard",
+  "targetWord": "yo-yo",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l2.C.y.v3",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/yo-yo.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "not-applicable-scoring-options"
+   "answerNeutral": "not-applicable-scoring-options",
+   "alt": "yo-yo"
   },
+  "requiredImageAssetKey": "yo-yo",
+  "stimulusMediaId": "yo-yo",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -14953,7 +15233,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/yo-yo.webp",
+  "imageUrl": "/images/assessment/objective-words/yo-yo.webp",
+  "targetImage": "/images/assessment/objective-words/yo-yo.webp",
+  "targetImagePath": "/images/assessment/objective-words/yo-yo.webp",
+  "resolvedImageAssetKey": "yo-yo",
+  "imageAlt": "yo-yo"
  },
  {
   "id": "lp3.initial_sounds.l1.A.z.v1",
@@ -15013,7 +15299,7 @@ export const questions = [
    "r": "D-POSITION",
    "s": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -15113,7 +15399,7 @@ export const questions = [
    "n": "D-VISUAL-NEIGHBOR",
    "a": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -15313,7 +15599,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Zigzag. Which letter matches the first sound?",
+  "spokenPrompt": "Zipper. Which letter matches the first sound?",
   "choices": [
    "z",
    "s",
@@ -15349,7 +15635,7 @@ export const questions = [
    "n": "D-VISUAL-NEIGHBOR",
    "g": "D-POSITION"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -15357,18 +15643,23 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "zigzag",
+  "targetWord": "zipper",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l2.A.z.v1",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/zipper.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "approved"
+   "answerNeutral": "approved",
+   "alt": "zipper"
   },
+  "requiredImageAssetKey": "zipper",
+  "stimulusMediaId": "zipper",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -15378,7 +15669,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/zipper.webp",
+  "imageUrl": "/images/assessment/objective-words/zipper.webp",
+  "targetImage": "/images/assessment/objective-words/zipper.webp",
+  "targetImagePath": "/images/assessment/objective-words/zipper.webp",
+  "resolvedImageAssetKey": "zipper",
+  "imageAlt": "zipper"
  },
  {
   "id": "lp3.initial_sounds.l2.B.z.v2",
@@ -15402,7 +15699,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Zero. Which letter matches the first sound?",
+  "spokenPrompt": "Zebra. Which letter matches the first sound?",
   "choices": [
    "s",
    "n",
@@ -15438,7 +15735,7 @@ export const questions = [
    "s": "D-ONSET",
    "n": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -15446,18 +15743,23 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "zero",
+  "targetWord": "zebra",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l2.B.z.v2",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/zebra.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "approved"
+   "answerNeutral": "approved",
+   "alt": "zebra"
   },
+  "requiredImageAssetKey": "zebra",
+  "stimulusMediaId": "zebra",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -15467,7 +15769,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/zebra.webp",
+  "imageUrl": "/images/assessment/objective-words/zebra.webp",
+  "targetImage": "/images/assessment/objective-words/zebra.webp",
+  "targetImagePath": "/images/assessment/objective-words/zebra.webp",
+  "resolvedImageAssetKey": "zebra",
+  "imageAlt": "zebra"
  },
  {
   "id": "lp3.initial_sounds.l2.C.z.v3",
@@ -15627,7 +15935,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Ambulance. Which letter matches the first sound?",
+  "spokenPrompt": "Astronaut. Which letter matches the first sound?",
   "choices": [
    "a",
    "e",
@@ -15663,7 +15971,7 @@ export const questions = [
    "e": "D-VOWEL",
    "o": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -15671,18 +15979,23 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "ambulance",
+  "targetWord": "astronaut",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l2.R.a.v7r",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/objective-words/astronaut.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "not-applicable-target-evidence"
+   "answerNeutral": "not-applicable-target-evidence",
+   "alt": "astronaut"
   },
+  "requiredImageAssetKey": "astronaut",
+  "stimulusMediaId": "astronaut",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -15692,7 +16005,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/objective-words/astronaut.webp",
+  "imageUrl": "/images/assessment/objective-words/astronaut.webp",
+  "targetImage": "/images/assessment/objective-words/astronaut.webp",
+  "targetImagePath": "/images/assessment/objective-words/astronaut.webp",
+  "resolvedImageAssetKey": "astronaut",
+  "imageAlt": "astronaut"
  },
  {
   "id": "lp3.initial_sounds.l2.R.e.v7r",
@@ -15716,7 +16035,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which letter matches the first sound?",
   "question": "Which letter matches the first sound?",
-  "spokenPrompt": "Empty. Which letter matches the first sound?",
+  "spokenPrompt": "Elephant. Which letter matches the first sound?",
   "choices": [
    "y",
    "e",
@@ -15752,7 +16071,7 @@ export const questions = [
    "i": "D-VOWEL",
    "c": "D-VOWEL"
   },
-  "mediaTier": "audio-required",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -15760,18 +16079,23 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "empty",
+  "targetWord": "elephant",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.initial_sounds.l2.R.e.v7r",
-   "role": "text-only",
-   "paths": [],
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/digraphs/elephant.webp"
+   ],
    "constructReview": "approved",
-   "answerNeutral": "approved"
+   "answerNeutral": "approved",
+   "alt": "elephant"
   },
+  "requiredImageAssetKey": "elephant",
+  "stimulusMediaId": "elephant",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -15781,7 +16105,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/elephant.webp",
+  "imageUrl": "/images/assessment/digraphs/elephant.webp",
+  "targetImage": "/images/assessment/digraphs/elephant.webp",
+  "targetImagePath": "/images/assessment/digraphs/elephant.webp",
+  "resolvedImageAssetKey": "elephant",
+  "imageAlt": "elephant"
  },
  {
   "id": "lp3.initial_sounds.l1.R.m.v7r",
@@ -15841,7 +16171,7 @@ export const questions = [
    "t": "D-POSITION",
    "n": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -15941,7 +16271,7 @@ export const questions = [
    "f": "D-ONSET",
    "l": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -16041,7 +16371,7 @@ export const questions = [
    "p": "D-ONSET",
    "n": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,

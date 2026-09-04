@@ -1,7 +1,6 @@
 import { expect, test } from "@playwright/test";
 
 import { GAME_LIST } from "../../src/data/learnGamesData.js";
-import { QUEST_STORY_QUESTIONS } from "../../src/data/generated/questStoryQuestions.generated.js";
 import { CHILD_SURFACE_ROUTES } from "../../src/policy/childSurfaceRules.js";
 
 const IPAD_LANDSCAPE = { width: 1024, height: 768 };
@@ -12,9 +11,8 @@ const QUEST_STATIONS = [
   ["cycle-1", "hunt"],
   ["cycle-1", "quick"],
   ["cycle-1", "build"],
-  ["cycle-1", "play"],
+  ["cycle-8", "play"],
   ["cycle-1", "poem"],
-  ["cycle-1", "story"],
   ["cycle-1", "trace"],
   ["cycle-1", "check"],
   ["cycle-25", "pattern"],
@@ -33,6 +31,18 @@ const VISIBLE_CONTROL = [
   "textarea:not([disabled])",
   "canvas"
 ].join(",");
+
+async function waitForChildStageSizing(page) {
+  await expect.poll(() => page.locator(".adventure-round-frame button:visible").evaluateAll(buttons => {
+    if (buttons.length === 0) return 0;
+    return Math.min(...buttons.map(button => {
+      const rect = button.getBoundingClientRect();
+      return Math.min(rect.width, rect.height);
+    }));
+  }), {
+    message: "child stage must finish calculating its physical target size"
+  }).toBeGreaterThanOrEqual(55.9);
+}
 
 async function boundedGeometry(locator, state, {
   allowedHorizontalScroll = [],
@@ -117,26 +127,26 @@ async function expectFullSizeChildControls(locator, state) {
       const rect = button.getBoundingClientRect();
       return {
         label: button.getAttribute("aria-label") || button.textContent?.trim() || "button",
-        width: Math.round(rect.width),
-        height: Math.round(rect.height)
+        width: Number(rect.width.toFixed(2)),
+        height: Number(rect.height.toFixed(2))
       };
     })
-    .filter(button => button.width < 56 || button.height < 56));
+    .filter(button => button.width < 55.9 || button.height < 55.9));
   expect(undersized, `${state} needs 56px child controls`).toEqual([]);
 }
 
-async function expectReadableAnswerCards(locator, state) {
+async function expectReadableMechanicControls(locator, state) {
   const undersized = await locator
-    .locator(".sbq-answer-grid button:visible, .sbq-pattern-tile:visible")
+    .locator("[data-mechanic-stage] button:visible")
     .evaluateAll(buttons => buttons.map(button => {
       const rect = button.getBoundingClientRect();
       return {
-        label: button.textContent?.trim() || "answer",
-        width: Math.round(rect.width),
-        height: Math.round(rect.height)
+        label: button.getAttribute("aria-label") || button.textContent?.trim() || "mechanic control",
+        width: Number(rect.width.toFixed(2)),
+        height: Number(rect.height.toFixed(2))
       };
-    }).filter(button => button.width < 80 || button.height < 64));
-  expect(undersized, `${state} needs readable answer cards, not tiny boxes`).toEqual([]);
+    }).filter(button => button.width < 55.9 || button.height < 55.9));
+  expect(undersized, `${state} needs readable mechanic controls, not tiny targets`).toEqual([]);
 }
 
 test("every logged-in child destination fits an iPad without hidden controls", async ({ page }) => {
@@ -170,18 +180,137 @@ test("all Adventure Map and Letter station types fit an iPad without scrolling",
     );
     const activity = page.locator(`[data-quest-view="round"][data-station-id="${station}"]`);
     await expect(activity).toBeVisible();
+    await waitForChildStageSizing(page);
     await boundedGeometry(page.locator(".kg-main"), `${cycle} ${station} content row`);
-    await boundedGeometry(activity.locator(".sbq-round-card"), `${cycle} ${station} activity card`);
+    await boundedGeometry(activity.locator(".adventure-round-frame"), `${cycle} ${station} round frame`);
     await expectFullSizeChildControls(activity, `${cycle} ${station}`);
-    await expectReadableAnswerCards(activity, `${cycle} ${station}`);
+    await expectReadableMechanicControls(activity, `${cycle} ${station}`);
   }
+});
+
+test("one-letter poem tokens stay full size while the answer is locked", async ({ page }) => {
+  await page.setViewportSize({ width: 1024, height: 650 });
+  await page.goto(
+    "/preview/child-surfaces.html?surface=adventure-map&quest=cycle-1&station=poem",
+    { waitUntil: "domcontentloaded" }
+  );
+  const activity = page.locator('[data-quest-view="round"][data-station-id="poem"]');
+  await expect(activity).toBeVisible();
+  await waitForChildStageSizing(page);
+
+  const tokens = activity.locator(".sbq-poem-token");
+  const shortIndex = await tokens.evaluateAll(buttons => buttons.findIndex(button => (
+    String(button.textContent || "").replace(/[^a-z]/gi, "").length === 1
+  )));
+  expect(shortIndex, "cycle 1 needs an actual one-letter poem token fixture").toBeGreaterThanOrEqual(0);
+  const shortToken = tokens.nth(shortIndex);
+  await shortToken.click();
+  await expect(shortToken).toBeDisabled();
+
+  const size = await shortToken.evaluate(button => {
+    const rect = button.getBoundingClientRect();
+    return { width: rect.width, height: rect.height };
+  });
+  expect(size.width).toBeGreaterThanOrEqual(55.9);
+  expect(size.height).toBeGreaterThanOrEqual(55.9);
+  await boundedGeometry(activity.locator(".adventure-round-frame"), "locked one-letter poem token");
+});
+
+test("Poem Spotlight keeps authored line numbers clear when poem lines wrap on a phone", async ({ page }) => {
+  const viewport = { width: 390, height: 844 };
+  await page.setViewportSize(viewport);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto(
+    "/preview/child-surfaces.html?surface=adventure-map&quest=cycle-4&station=poem",
+    { waitUntil: "domcontentloaded" }
+  );
+
+  const activity = page.locator('[data-quest-view="round"][data-station-id="poem"]');
+  const poem = activity.locator('[data-mechanic-stage="poem-spotlight"] .sbq-poem');
+  const lines = poem.locator("[data-poem-line]");
+  const markers = poem.locator("[data-poem-line-marker]");
+  await expect(activity).toBeVisible();
+  await waitForChildStageSizing(page);
+  await expect(lines).toHaveCount(4);
+  await expect(markers).toHaveCount(4);
+
+  for (let lineIndex = 0; lineIndex < 4; lineIndex += 1) {
+    const line = lines.nth(lineIndex);
+    const marker = markers.nth(lineIndex);
+    await expect(marker).toBeVisible();
+    await expect(marker).toContainText(`Line${lineIndex + 1}`);
+    await expect(line.locator(`[data-poem-line-words="${lineIndex}"]`)).toBeVisible();
+  }
+
+  const prompt = await activity.locator(".adventure-round-frame__instruction").textContent();
+  const position = prompt?.match(/word (\d+) in line (\d+)/i);
+  expect(position, "Poem Spotlight must name an exact authored line and word").toBeTruthy();
+  const targetLine = Number(position[2]) - 1;
+  const targetWord = Number(position[1]) - 1;
+  const target = poem.locator(`[data-poem-token="${targetLine}:${targetWord}"]`);
+  await expect(target).toHaveCount(1);
+  await expect(target.locator("xpath=ancestor::*[@data-poem-line][1]")).toHaveAttribute(
+    "data-poem-line",
+    String(targetLine)
+  );
+
+  const geometry = await poem.evaluate(root => {
+    const rootRect = root.getBoundingClientRect();
+    const stage = root.closest(".adventure-round-frame__stage");
+    const lines = [...root.querySelectorAll("[data-poem-line]")];
+    const controls = [...root.querySelectorAll("button")];
+    const overlapArea = (left, right) => (
+      Math.max(0, Math.min(left.right, right.right) - Math.max(left.left, right.left))
+      * Math.max(0, Math.min(left.bottom, right.bottom) - Math.max(left.top, right.top))
+    );
+    return {
+      horizontalOverflow: root.scrollWidth - root.clientWidth,
+      poemOverflowY: getComputedStyle(root).overflowY,
+      poemHasOwnScroll: root.scrollHeight > root.clientHeight + 1,
+      stageOverflowY: stage ? getComputedStyle(stage).overflowY : "missing",
+      stageHasScroll: Boolean(stage) && stage.scrollHeight > stage.clientHeight + 1,
+      clippedMarkers: lines.filter(line => {
+        const marker = line.querySelector("[data-poem-line-marker]");
+        if (!marker) return true;
+        const rect = marker.getBoundingClientRect();
+        return rect.left < rootRect.left - 1 || rect.right > rootRect.right + 1;
+      }).length,
+      markerTokenOverlaps: lines.flatMap(line => {
+        const markerRect = line.querySelector("[data-poem-line-marker]")?.getBoundingClientRect();
+        if (!markerRect) return [1];
+        return [...line.querySelectorAll("button")]
+          .map(button => overlapArea(markerRect, button.getBoundingClientRect()))
+          .filter(area => area > 1);
+      }),
+      lineOverlaps: lines.flatMap((line, index) => lines.slice(index + 1)
+        .map(other => overlapArea(line.getBoundingClientRect(), other.getBoundingClientRect()))
+        .filter(area => area > 1)),
+      undersizedControls: controls.map(button => {
+        const rect = button.getBoundingClientRect();
+        return { width: rect.width, height: rect.height };
+      }).filter(control => control.width < 55.9 || control.height < 55.9)
+    };
+  });
+
+  expect(geometry.horizontalOverflow, "phone poem must not scroll sideways").toBeLessThanOrEqual(1);
+  expect(geometry.poemOverflowY, "phone poem must expand inside the stage scroller").toBe("visible");
+  expect(geometry.poemHasOwnScroll, "phone poem must not create a nested scroll route").toBe(false);
+  expect(geometry.stageOverflowY, "the stage owns the phone's poem scroll route").toBe("auto");
+  expect(geometry.stageHasScroll, "the full wrapped poem must remain reachable through the stage").toBe(true);
+  expect(geometry.clippedMarkers, "every line marker must stay in its visible gutter").toBe(0);
+  expect(geometry.markerTokenOverlaps, "line markers must not cover poem words").toEqual([]);
+  expect(geometry.lineOverlaps, "authored line groups must not overlap").toEqual([]);
+  expect(geometry.undersizedControls, "wrapped poem words must keep the 56px target floor").toEqual([]);
+
+  await target.click();
+  await expect(page.getByRole("heading", { name: "2 of 3" })).toBeVisible();
 });
 
 test("Adventure Map answers stay readable when iPad browser chrome shortens the view", async ({ page }) => {
   for (const height of [694, 650]) {
     await page.setViewportSize({ width: 1024, height });
     await page.emulateMedia({ reducedMotion: "no-preference" });
-    for (const station of ["letters", "story", "pattern"]) {
+    for (const station of ["letters", "pattern"]) {
       const cycle = station === "pattern" ? "cycle-25" : "cycle-1";
       await page.goto(
         `/preview/child-surfaces.html?surface=adventure-map&quest=${cycle}&station=${station}`,
@@ -189,96 +318,12 @@ test("Adventure Map answers stay readable when iPad browser chrome shortens the 
       );
       const activity = page.locator(`[data-quest-view="round"][data-station-id="${station}"]`);
       await expect(activity).toBeVisible();
-      await boundedGeometry(activity.locator(".sbq-round-card"), `${height}px ${station} activity card`);
+      await waitForChildStageSizing(page);
+      await boundedGeometry(activity.locator(".adventure-round-frame"), `${height}px ${station} round frame`);
       await expectFullSizeChildControls(activity, `${height}px ${station}`);
-      await expectReadableAnswerCards(activity, `${height}px ${station}`);
+      await expectReadableMechanicControls(activity, `${height}px ${station}`);
     }
   }
-});
-
-test("Story Stop reflows without clipped answer cards on phones", async ({ page }) => {
-  for (const viewport of [
-    { width: 390, height: 844, label: "phone portrait" },
-    { width: 667, height: 375, label: "short phone landscape" }
-  ]) {
-    await page.setViewportSize({ width: viewport.width, height: viewport.height });
-    await page.emulateMedia({ reducedMotion: "reduce" });
-    await page.goto(
-      "/preview/child-surfaces.html?surface=adventure-map&quest=cycle-1&station=story",
-      { waitUntil: "domcontentloaded" }
-    );
-    const activity = page.locator('[data-quest-view="round"][data-station-id="story"]');
-    await expect(activity).toBeVisible();
-    await expectReadableAnswerCards(activity, viewport.label);
-    const geometry = await activity.evaluate(root => {
-      const rootRect = root.getBoundingClientRect();
-      const card = root.querySelector(".sbq-round-card");
-      const cardRect = card.getBoundingClientRect();
-      const answers = [...root.querySelectorAll(".sbq-answer-grid button")]
-        .map(button => button.getBoundingClientRect());
-      return {
-        rootOverflowX: root.scrollWidth - root.clientWidth,
-        cardOverflowX: card.scrollWidth - card.clientWidth,
-        cardInsideHorizontally: cardRect.left >= rootRect.left - 1
-          && cardRect.right <= rootRect.right + 1,
-        clippedAnswers: answers.filter(rect => (
-          rect.left < rootRect.left - 1 || rect.right > rootRect.right + 1
-        )).length
-      };
-    });
-    expect(geometry.rootOverflowX, `${viewport.label} activity must not scroll sideways`).toBeLessThanOrEqual(1);
-    expect(geometry.cardOverflowX, `${viewport.label} card must not overflow sideways`).toBeLessThanOrEqual(1);
-    expect(geometry.cardInsideHorizontally, `${viewport.label} card must stay inside the activity`).toBe(true);
-    expect(geometry.clippedAnswers, `${viewport.label} answers must stay inside the activity`).toBe(0);
-    const lastAnswer = activity.locator(".sbq-answer-grid button").last();
-    await lastAnswer.scrollIntoViewIfNeeded();
-    await expect(lastAnswer).toBeVisible();
-  }
-});
-
-test("Adventure Map completion actions stay full-size and inside the iPad activity panel", async ({ page }) => {
-  await page.setViewportSize(IPAD_LANDSCAPE);
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("/preview/child-surfaces.html?surface=adventure-map&quest=cycle-1&station=story");
-
-  const answerByTitle = new Map(
-    Object.values(QUEST_STORY_QUESTIONS).flatMap(bank => (
-      bank.questions.map(question => [question.title, question.answer])
-    ))
-  );
-  for (let round = 1; round <= 4; round += 1) {
-    await expect(page.getByRole("heading", { name: `${round} of 4` })).toBeVisible();
-    const title = await page.locator(".sbq-story-cover figcaption").textContent();
-    const answer = answerByTitle.get(title?.trim());
-    expect(answer, `story title ${title} needs a known answer`).toBeTruthy();
-    await page.locator(".sbq-answer-grid").getByRole("button", { name: answer, exact: true }).click();
-    if (round < 4) {
-      await expect(page.getByRole("heading", { name: `${round + 1} of 4` })).toBeVisible();
-    }
-  }
-
-  const completion = page.locator(".sbq-celebrate");
-  await expect(completion).toBeVisible();
-  await expectFullSizeChildControls(completion, "station completion");
-  const geometry = await completion.evaluate(card => {
-    const root = card.closest(".kg-main");
-    const rootRect = root.getBoundingClientRect();
-    const cardRect = card.getBoundingClientRect();
-    const buttons = [...card.querySelectorAll("button")].map(button => button.getBoundingClientRect());
-    const overlaps = buttons.flatMap((left, leftIndex) => buttons.slice(leftIndex + 1).map(right => (
-      Math.max(0, Math.min(left.right, right.right) - Math.max(left.left, right.left))
-      * Math.max(0, Math.min(left.bottom, right.bottom) - Math.max(left.top, right.top))
-    ))).filter(area => area > 1);
-    return {
-      inside: cardRect.left >= rootRect.left + 8
-        && cardRect.right <= rootRect.right - 8
-        && cardRect.top >= rootRect.top + 8
-        && cardRect.bottom <= rootRect.bottom - 8,
-      overlaps
-    };
-  });
-  expect(geometry.inside, "completion card needs an iPad-safe inset").toBe(true);
-  expect(geometry.overlaps, "completion actions must not overlap").toEqual([]);
 });
 
 test("all 21 standalone games fit an iPad without hidden controls", async ({ page }) => {

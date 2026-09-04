@@ -108,7 +108,7 @@ test("hidden-label sound cards use directly nameable referents", () => {
   assert.equal(new Set(at.imageCards.map(card => card.word)).has("hat"), true);
 });
 
-test("ambiguous plane, truck, ink, and cap pictures no longer carry the scoring decision", () => {
+test("ambiguous plane, truck, and cap pictures no longer carry the scoring decision", () => {
   const plane = byId("blends", "lp3.blends.l1.B.pl.v2");
   assert.equal(plane.mediaTier, "audio-required");
   assert.equal(plane.targetWord, "plate");
@@ -119,9 +119,14 @@ test("ambiguous plane, truck, ink, and cap pictures no longer carry the scoring 
   assert.equal(truckBlend.targetWord, "truck");
   assert.equal(truckBlend.imagePath, undefined);
 
-  const ink = byId("initial_sounds", "lp3.initial_sounds.l1.B.i.v2");
-  assert.equal(ink.mediaTier, "audio-required");
-  assert.equal(ink.imagePath, undefined);
+  const initialSoundTargets = expandedBySkill.initial_sounds
+    .filter(item => item.formatType === "FIRST_SOUND");
+  assert.equal(initialSoundTargets.length, 107);
+  for (const item of initialSoundTargets) {
+    assert.equal(item.mediaTier, "image-required", `${item.id} must use picture support`);
+    assert.ok(item.imagePath, `${item.id} must resolve its target picture`);
+    assert.equal(item.assessmentMediaDecision?.role, "target-or-scene", `${item.id} media role`);
+  }
 
   const cvcTargets = expandedBySkill.cvc_short_vowels.map(item => item.targetWord).filter(Boolean);
   assert.equal(cvcTargets.includes("truck"), false);

@@ -8,6 +8,7 @@ import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
 import { GUIDED_READING_BOOK_INDEX } from "../data/generated/guidedReadingBookIndex.generated.js";
 import { GAME_LIST } from "../data/learnGamesData.js";
 import { filterPublishedGuidedReadingBooks } from "../policy/guidedReadingApprovalPolicy.js";
+import { normalizeElQuestProgress } from "./adventureMapProgress.js";
 import {
   DAILY_MISSION_KINDS,
   firstUncelebratedMissionStep,
@@ -202,7 +203,7 @@ export function getMissionStatus(scope) {
 // ── Today's tiles, picked from the student's own data ──────────────────────
 
 function currentQuestCycle(scope) {
-  const quest = readJson(`lp-el-quest:${scope}`, { cycles: {} });
+  const quest = normalizeElQuestProgress(readJson(`lp-el-quest:${scope}`, { cycles: {} }));
   const playable = elSkillsBlockCycles.filter(cycle => cycle.cycleNumber);
   return playable.find(cycle => !(quest.cycles?.[cycle.id]?.stars > 0)) || playable[0];
 }

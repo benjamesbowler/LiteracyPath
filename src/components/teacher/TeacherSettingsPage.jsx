@@ -249,8 +249,11 @@ export function TeacherSettingsPage({
   const [accessSummaryReloadToken, setAccessSummaryReloadToken] = useState(0);
   const [newCodeConfirmOpen, setNewCodeConfirmOpen] = useState(false);
   const [newCodeError, setNewCodeError] = useState("");
+  const [schoolLeaderboardConfirmOpen, setSchoolLeaderboardConfirmOpen] = useState(false);
+  const [schoolLeaderboardError, setSchoolLeaderboardError] = useState("");
   const selectedClassIdRef = useRef(selectedClassId);
   const detailBackRef = useRef(null);
+  const schoolLeaderboardScopeRef = useRef(null);
   const cardActionRefs = useRef({});
   // Which control should take focus after the next card/back navigation. A hash
   // change made by the browser's own Back button leaves this empty, so history
@@ -474,6 +477,8 @@ export function TeacherSettingsPage({
     setAccessLogOpen(false);
     setNewCodeConfirmOpen(false);
     setNewCodeError("");
+    setSchoolLeaderboardConfirmOpen(false);
+    setSchoolLeaderboardError("");
     setStatus("");
     selectedClassIdRef.current = classId || "";
     pushRouteHash(teacherSettingsHash(section, classId || ""));
@@ -679,14 +684,28 @@ export function TeacherSettingsPage({
     }
   }
 
-  async function changeLeaderboardScope(scope) {
+  function askToShowSchoolLeaderboard() {
+    if (!actionableClass?.id || visibleSiteBusy) return;
+    setSchoolLeaderboardError("");
+    setSchoolLeaderboardConfirmOpen(true);
+  }
+
+  function cancelSchoolLeaderboardChange() {
+    setSchoolLeaderboardConfirmOpen(false);
+    setSchoolLeaderboardError("");
+    window.setTimeout(() => schoolLeaderboardScopeRef.current?.focus(), 0);
+  }
+
+  async function changeLeaderboardScope(scope, { reportErrorInDialog = false } = {}) {
     if (!actionableClass?.id || visibleSiteBusy) return;
     const mutationClassId = actionableClass.id;
     setSiteBusy(previous => ({ ...previous, [mutationClassId]: "leaderboard" }));
-    setStatus("Saving leaderboard visibility…", "status", {
-      sectionId: "site",
-      classId: mutationClassId
-    });
+    if (!reportErrorInDialog) {
+      setStatus("Saving leaderboard visibility…", "status", {
+        sectionId: "site",
+        classId: mutationClassId
+      });
+    }
     try {
       const { data, error } = await client.call("teacher_set_class_leaderboard_scope", {
         p_class_id: mutationClassId,
@@ -694,12 +713,16 @@ export function TeacherSettingsPage({
       });
       if (error || data?.[0]?.leaderboard_scope !== scope) {
         if (selectedClassIdRef.current === mutationClassId) {
-          setStatus("Leaderboard visibility was not changed.", "error", {
-            sectionId: "site",
-            classId: mutationClassId
-          });
+          if (reportErrorInDialog) {
+            setSchoolLeaderboardError("Leaderboard visibility was not changed.");
+          } else {
+            setStatus("Leaderboard visibility was not changed.", "error", {
+              sectionId: "site",
+              classId: mutationClassId
+            });
+          }
         }
-        return;
+        return false;
       }
       setScopeOverrides(previous => ({ ...previous, [mutationClassId]: scope }));
       if (selectedClassIdRef.current === mutationClassId) {
@@ -710,16 +733,19 @@ export function TeacherSettingsPage({
           classId: mutationClassId
         });
       }
+      return true;
     } catch {
       if (selectedClassIdRef.current !== mutationClassId) return;
-      setStatus(
-        "We couldn't change leaderboard visibility. The current setting is unchanged.",
-        "error",
-        {
+      const message = "We couldn't change leaderboard visibility. The current setting is unchanged.";
+      if (reportErrorInDialog) {
+        setSchoolLeaderboardError(message);
+      } else {
+        setStatus(message, "error", {
           sectionId: "site",
           classId: mutationClassId
-        }
-      );
+        });
+      }
+      return false;
     } finally {
       setSiteBusy(previous => {
         if (previous[mutationClassId] !== "leaderboard") return previous;
@@ -1038,7 +1064,8 @@ export function TeacherSettingsPage({
                               value="school"
                               checked={selectedScope === "school"}
                               disabled={Boolean(visibleSiteBusy)}
-                              onChange={() => changeLeaderboardScope("school")}
+                              ref={schoolLeaderboardScopeRef}
+                              onChange={askToShowSchoolLeaderboard}
                             />
                             Whole school
                           </label>
@@ -1253,6 +1280,23 @@ export function TeacherSettingsPage({
           setNewCodeError("");
         }}
         onConfirm={regenerateCode}
+      />
+
+      <ConfirmActionDialog
+        open={schoolLeaderboardConfirmOpen}
+        busy={visibleSiteBusy === "leaderboard"}
+        title="Show whole-school leaderboard?"
+        body={TEACHER_COPY.board.confirm}
+        confirmLabel="Show whole-school board"
+        error={schoolLeaderboardError}
+        onCancel={cancelSchoolLeaderboardChange}
+        onConfirm={async () => {
+          const changed = await changeLeaderboardScope("school", { reportErrorInDialog: true });
+          if (changed) {
+            setSchoolLeaderboardConfirmOpen(false);
+            setSchoolLeaderboardError("");
+          }
+        }}
       />
 
       <LearnerDataRightsDialog

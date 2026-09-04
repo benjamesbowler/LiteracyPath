@@ -1097,7 +1097,7 @@ export function TeacherStudentsPage({
   // typed-confirmation deletion workflow.
   const rosterGridTemplate = [
     "minmax(136px, 1.4fr)",
-    "minmax(118px, 1fr)",
+    "minmax(136px, 1fr)",
     "minmax(66px, 0.7fr)",
     "minmax(108px, 0.9fr)",
     "minmax(78px, 0.8fr)",
@@ -3569,7 +3569,7 @@ export function TeacherStudentsPage({
             <header>
               <p className="panel-label">Student information</p>
               <h3>Edit display name</h3>
-              <p>Use the classroom name the student and staff already recognise. Do not add a surname unless your school requires it.</p>
+              <p>{TEACHER_COPY.roster.privacy}</p>
             </header>
             <label>
               <span>Display name</span>

@@ -54,8 +54,10 @@ original expiry, so an older command cannot reappear after a later ordinary end.
   of the app.
 - The client requests the screen Wake Lock API while a focus session is active;
   unsupported or denied wake locks do not break the session.
-- Content-version mismatch fails closed on an update/help screen and is visible
-  to the teacher.
+- Student Session protocol-version mismatch fails closed on an update/help
+  screen and is visible to the teacher. The protocol version changes only for
+  an incompatible assignment contract; ordinary app deployments remain
+  compatible with active teacher sessions.
 - Exact books and games are stored as bounded catalogue identifiers, never as
   routes or URLs. Unknown, hidden, quarantined, unavailable, or outdated
   content also fails closed and does not fall back to a chooser.

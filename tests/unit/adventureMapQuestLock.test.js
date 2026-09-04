@@ -6,6 +6,7 @@ import { createServer } from "vite";
 
 let ElSkillsQuest;
 let StudentAdventureMapPage;
+let setSampleContentScope;
 let vite;
 
 test.before(async () => {
@@ -26,9 +27,16 @@ test.before(async () => {
     ({ StudentAdventureMapPage } = await vite.ssrLoadModule(
       "/src/components/StudentAdventureMapPage.jsx"
     ));
+    ({ setSampleContentScope } = await vite.ssrLoadModule(
+      "/src/policy/freeTierContent.js"
+    ));
   } finally {
     console.error = originalConsoleError;
   }
+});
+
+test.afterEach(() => {
+  setSampleContentScope?.(false);
 });
 
 test.after(async () => {
@@ -76,6 +84,27 @@ test("ordinary Skills Quest still opens on its normal Adventure Map", () => {
 
   assert.match(html, /data-child-surface="adventure-map"/);
   assert.match(html, /Follow “you are here” to start/);
+});
+
+test("sample-scoped Skills Quest rejects a direct route to a non-sample cycle", () => {
+  setSampleContentScope(true);
+
+  const html = renderQuest({ initialCycleId: "cycle-2" });
+
+  assert.match(html, /data-child-surface="adventure-map"/);
+  assert.match(html, /0 of 5 stops complete/);
+  assert.doesNotMatch(html, /data-quest-view="cycle"/);
+  assert.doesNotMatch(html, />Cycle 2</);
+});
+
+test("an exact teacher cycle remains available outside the ordinary sample", () => {
+  setSampleContentScope(true);
+
+  const html = renderQuest({ lockedCycleId: "cycle-2" });
+
+  assert.match(html, /data-quest-view="cycle"/);
+  assert.match(html, />Cycle 2</);
+  assert.doesNotMatch(html, /data-child-surface="adventure-map"/);
 });
 
 test("a focused Adventure Map exposes only the assigned cycle and carries the teacher notice", () => {

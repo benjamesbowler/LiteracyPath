@@ -6,7 +6,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const seedPath = path.join(repoRoot, "supabase", "seed", "audit_school.sql");
-const DEFAULT_ANCHOR = "2026-07-23T09:00:00.000Z";
+export const DEFAULT_AUDIT_SEED_ANCHOR = "2026-07-23T09:00:00.000Z";
 const EXPECTED_NAMES = [
   "Aarav",
   "Aisha",
@@ -65,6 +65,13 @@ export function inspectAuditSeed(sql = fs.readFileSync(seedPath, "utf8")) {
     "'questionRecords'",
     "'itemKey', 'audit-item-'",
     "long_history_item_count <> 520",
+    "roster_focus_attempt_count <> 3",
+    "roster_focus_total_question_count <> 12",
+    "roster_focus_correct_question_count <> 12",
+    "roster_focus_scored_item_count <> 12",
+    "roster_focus_correct_item_count <> 12",
+    "roster_focus_min_accuracy <> 100",
+    "roster_focus_max_accuracy <> 100",
     "administration_status = 'completed'",
     "administration_status = 'in_progress'",
     "'el_phonological_awareness'",
@@ -154,7 +161,7 @@ export function isApprovedAuditDatabaseUrl(rawUrl, environment = process.env) {
 
 export function renderAuditSeed({
   password,
-  anchor = DEFAULT_ANCHOR,
+  anchor = DEFAULT_AUDIT_SEED_ANCHOR,
   sql = fs.readFileSync(seedPath, "utf8")
 }) {
   if (typeof password !== "string" || password.length < 12) {
@@ -167,6 +174,10 @@ export function renderAuditSeed({
   return sql
     .replaceAll("__AUDIT_PASSWORD__", sqlLiteral(password))
     .replaceAll("__AUDIT_ANCHOR__", parsedAnchor.toISOString());
+}
+
+export function resolveAuditSeedAnchor(environment = process.env) {
+  return environment.LP_AUDIT_ANCHOR || DEFAULT_AUDIT_SEED_ANCHOR;
 }
 
 export function auditSeedPsqlInvocation(databaseUrl, environment = process.env) {
@@ -229,7 +240,7 @@ export async function main(argv = process.argv.slice(2)) {
   }
   const sql = renderAuditSeed({
     password: process.env.LP_AUDIT_TEACHER_PASSWORD || "",
-    anchor: process.env.LP_AUDIT_ANCHOR || DEFAULT_ANCHOR
+    anchor: resolveAuditSeedAnchor()
   });
   console.log(`Applying deterministic audit seed to approved ${approval.local ? "local" : "remote test"} database.`);
   await applyWithPsql({ databaseUrl, sql });

@@ -1,14 +1,44 @@
 import { STORY_CONTENT_POLICY_VERSION } from "./storyContentPolicy.js";
+import { WILLOW_STREET_BOOK_MANIFEST } from "../data/guidedReadingBridgeBooks.manifest.js";
+
+export const GUIDED_READING_RELEASE_READINESS = Object.freeze({
+  status: "release-blocked",
+  blockedBooks: Object.freeze(WILLOW_STREET_BOOK_MANIFEST.map(book => book.id)),
+  expectedImages: 180,
+  reviewedImages: 180,
+  expectedNarrationPages: 160,
+  exactNarrationPages: 160,
+  humanListeningPendingPages: 160,
+  visualReview: "docs/guided-reading/willow-street-visual-review.json",
+  reason: "All Willow Street images, original-detail visual reviews, exact-current-text narration files, and provenance checks are complete; direct human listening remains open.",
+  authorityFingerprint: "b1c1d4acb8f69d3bd80627bf63dd091a99a90c577d10ac54bc00691cb647e363"
+});
+
+const GUIDED_READING_RELEASE_BLOCK_BY_ID = new Map(
+  GUIDED_READING_RELEASE_READINESS.blockedBooks.map(id => [id, GUIDED_READING_RELEASE_READINESS])
+);
+
+export function getGuidedReadingReleaseBlock(bookOrId) {
+  const id = typeof bookOrId === "string" ? bookOrId : bookOrId?.id;
+  return GUIDED_READING_RELEASE_BLOCK_BY_ID.get(id) || null;
+}
+
+export function classifyGuidedReadingMediaFinding(bookOrId, finding) {
+  return getGuidedReadingReleaseBlock(bookOrId)
+    ? { error: null, releaseBlock: finding }
+    : { error: finding, releaseBlock: null };
+}
 
 export const guidedReadingPolicyBaseline = Object.freeze({
   format: "guided-reading-book",
-  itemCount: 206,
-  sourceFingerprint: "25950ed56950b1cae250fcd91092baa4675886e3969ecd90450251565d4ab62b",
-  status: "approved",
+  itemCount: 226,
+  sourceFingerprint: "293c16bbfadfbd85dc9a6016cd8793d12e8c700801f1dc56320faefeacf2f40f",
+  contentStatus: "approved",
+  releaseStatus: GUIDED_READING_RELEASE_READINESS.status,
   policyVersion: STORY_CONTENT_POLICY_VERSION,
-  reviewedAt: "2026-08-22",
-  reviewer: "Codex authorised editorial and media audit",
-  claim: "All 206 books and 1,861 active pages completed the current manuscript, level, complete-book visual, exact-current-text Leda narration, isolated-word and spelling-audio checks. A fresh 2026-08-22 complete-sequence visual scan found no remaining Guided Reading illustration defects."
+  reviewedAt: "2026-09-02",
+  reviewer: "Editorial and source review",
+  claim: "All 226 books and 2,021 pages have current manuscript, visual-file, exact-text narration, and provenance evidence. The 20 Willow Street books add 160 compact pages and 180 directly reviewed self-created images; direct human listening remains the only release-readiness hold."
 });
 
 const historicalStoryQuestPolicyReviews = Object.freeze([

@@ -615,6 +615,7 @@ function Settings() {
     }
   ]);
   const heldExpiryResolverRef = useRef(null);
+  const leaderboardScopeAttemptsRef = useRef(0);
   const privacySubjectRef = "a".repeat(64);
   const settingsClient = useMemo(() => ({
     call: async (operation, payload = {}) => {
@@ -664,6 +665,17 @@ function Settings() {
         });
       }
       if (operation === "teacher_set_class_leaderboard_scope") {
+        window.__teacherSettingsRpcCalls = [
+          ...(window.__teacherSettingsRpcCalls || []),
+          { operation, payload }
+        ];
+        leaderboardScopeAttemptsRef.current += 1;
+        if (
+          params.get("settingsLeaderboardScope") === "fail-once"
+          && leaderboardScopeAttemptsRef.current === 1
+        ) {
+          return { data: null, error: new Error("Preview leaderboard scope failure") };
+        }
         return {
           data: [{ leaderboard_scope: payload.p_scope }],
           error: null
@@ -718,11 +730,13 @@ function Settings() {
   }), [privacySubjectRef]);
 
   useEffect(() => {
+    window.__teacherSettingsRpcCalls = [];
     window.__releaseSettingsMutation = () => {
       heldExpiryResolverRef.current?.();
       heldExpiryResolverRef.current = null;
     };
     return () => {
+      delete window.__teacherSettingsRpcCalls;
       delete window.__releaseSettingsMutation;
     };
   }, []);

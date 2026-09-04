@@ -5,8 +5,11 @@ import fs from "node:fs";
 import {
   followerRetryDelay,
   INITIAL_READING_FOLLOWER_STATE,
-  reduceReadingFollowerState
+  reduceReadingFollowerState,
+  resolveFollowerPage
 } from "../../src/hooks/readingSessionFollowerState.js";
+import { READING_SESSION_CONTENT_VERSION } from "../../src/data/readingSessionCore.js";
+import { APP_RELEASE_ID } from "../../src/utils/errorLog.js";
 
 const session = {
   id: "session-1",
@@ -53,6 +56,22 @@ test("a successful late join uses the teacher's current page immediately", () =>
   });
   assert.equal(state.session.page_index, 2);
   assert.equal(state.page.pageNumber, 3);
+});
+
+test("Guided Reading Together uses a stable protocol across ordinary app deployments", () => {
+  const compatibleSession = {
+    ...session,
+    content_version: READING_SESSION_CONTENT_VERSION
+  };
+  const resolved = resolveFollowerPage({
+    books: [{ id: "book-1", pages: [page] }],
+    session: compatibleSession,
+    contentVersion: READING_SESSION_CONTENT_VERSION
+  });
+
+  assert.equal(resolved.contentOk, true);
+  assert.match(READING_SESSION_CONTENT_VERSION, /^guided-reading-session-v[1-9]\d*$/);
+  assert.notEqual(READING_SESSION_CONTENT_VERSION, APP_RELEASE_ID);
 });
 
 test("visibility resume polls immediately and hidden iPads do not keep a timer loop", () => {

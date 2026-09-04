@@ -10,18 +10,18 @@
 // IT IS A FRONT DOOR, NOT A REPLACEMENT. Tapping a book opens the real reader,
 // which keeps every capability it has: page turns and swipe, whole-book and
 // per-page read-aloud with sentence highlighting, tap-a-word decoding support,
-// line focus, fullscreen, the end-of-book quiz, the level-up celebration and
+// line focus, fullscreen, the level-up celebration and
 // its printable certificate. Nothing was moved out of it and nothing was culled;
 // this screen replaces the old shelf page in front of it.
 //
-// EVERY NUMBER IS REAL. The mock's "The Rain Cycle - page 5 of 12 - 1 star" is
-// a placeholder (the spec says so). Here the book, the page, the percentage and
-// every star come from the child's own guided-reading records, and a read that
+// EVERY NUMBER IS REAL. The mock's "The Rain Cycle - page 5 of 12" is
+// a placeholder (the spec says so). Here the book, the page and the percentage
+// come from the child's own guided-reading records, and a read that
 // FAILED says so rather than drawing an empty library — an empty library is a
 // claim about the child.
 //
-// TWO NUMERIC SYSTEMS, AND ONLY TWO: stars and coins, both in the shell header.
-// "Page 5 of 12" is a position in the book being read, not a currency. The old
+// Coins live in the shell header. "Page 5 of 12" is a position in the book
+// being read, not a score. The old
 // shelf page's reading-goal panel ("7 of 10 books", with a bar and a target) was
 // a third one, and it does not come back here.
 
@@ -43,12 +43,17 @@ import {
 } from "../data/knowledgeJourneys.js";
 import { classifyBookReadingPurpose } from "../policy/literacyExperiencePolicy.js";
 import {
+  childGuidedReadingModeLabel,
+  splitLevelCBooks
+} from "../policy/guidedReadingCatalogPolicy.js";
+import {
   BOOK_SHELF_SLOTS,
   bookCollectionId,
   bookCollectionsForLevel,
   bookCoverSrc,
   bookReadingProgress,
   buildBookShelves,
+  advanceBookShelfPage,
   pickContinueBook
 } from "../policy/childLibraryPolicy.js";
 
@@ -88,21 +93,24 @@ function ChevronGlyph() {
   );
 }
 
+// Keyboard focus must reveal the whole choice, not merely the first visible
+// pixels. Pointer focus is deliberately ignored: moving a partially visible
+// choice between pointer-down and pointer-up cancels the child's tap. Calling
+// this from the choice itself lets the browser resolve every nested horizontal
+// scroller without changing DOM order.
+function revealFocusedChoice(event) {
+  if (!event.currentTarget.matches(":focus-visible")) return;
+  event.currentTarget.scrollIntoView({
+    behavior: "auto",
+    block: "nearest",
+    inline: "nearest"
+  });
+}
+
 function MoreGlyph() {
   return (
     <svg className="kg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path d="M5 12h14M13 6l6 6-6 6" />
-    </svg>
-  );
-}
-
-const STAR_PATH =
-  "M12 2.6l2.9 6.2 6.6.8-4.8 4.6 1.2 6.6L12 17.6 6.1 20.8l1.2-6.6L2.5 9.6l6.6-.8L12 2.6z";
-
-function StarGlyph({ earned }) {
-  return (
-    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false">
-      <path d={STAR_PATH} fill={earned ? "#F2B33D" : "rgba(62,119,107,.2)"} />
     </svg>
   );
 }
@@ -174,7 +182,7 @@ export function StudentBooksPage({
     exactBookLock ? normalizedLockedBookId : (initialBookId || "")
   );
   const [speechStatus, setSpeechStatus] = useState("");
-  const [shelfPages, setShelfPages] = useState({ "just-right": 0, second: 0 });
+  const [shelfPages, setShelfPages] = useState({ "just-right": 0, second: 0, "c-standard": 0, "c-extended": 0 });
   const [knowledgeJourneyId, setKnowledgeJourneyId] = useState(KNOWLEDGE_JOURNEYS[0]?.id || "");
   const [showKnowledge, setShowKnowledge] = useState(false);
   const [collectionId, setCollectionId] = useState("all");
@@ -287,15 +295,38 @@ export function StudentBooksPage({
       || classifyBookReadingPurpose(book, studentProgress || {});
   }
 
-  const shelves = useMemo(() => buildBookShelves({
-    books: shownLibrary,
-    records: guidedReadingRecords,
-    level: shownLevel,
-    order: recommended.map(item => item.book.id),
-    justRightPage: shelfPages["just-right"],
-    readAgainPage: shelfPages.second,
-    slots: BOOK_SHELF_SLOTS
-  }), [shownLibrary, guidedReadingRecords, recommended, shelfPages, shownLevel]);
+  const shelves = useMemo(() => {
+    const common = {
+      records: guidedReadingRecords,
+      level: shownLevel,
+      order: recommended.map(item => item.book.id),
+      slots: BOOK_SHELF_SLOTS
+    };
+    if (shownLevel !== "C") {
+      return buildBookShelves({
+        ...common,
+        books: shownLibrary,
+        justRightPage: shelfPages["just-right"],
+        readAgainPage: shelfPages.second
+      });
+    }
+    const { standard, extended } = splitLevelCBooks(shownLibrary);
+    const bandShelf = (id, title, note, books) => ({
+      ...buildBookShelves({
+        ...common,
+        books,
+        justRightPage: shelfPages[id] || 0,
+        keepCompletedInFirstShelf: true
+      })[0],
+      id,
+      title,
+      note
+    });
+    return [
+      bandShelf("c-standard", "C Standard", "Compact Level C books", standard),
+      bandShelf("c-extended", "C Extended / Read Together", "Longer books to share with a grown-up", extended)
+    ].filter(shelf => shelf.total > 0);
+  }, [shownLibrary, guidedReadingRecords, recommended, shelfPages, shownLevel]);
 
   function hear(text) {
     const spoken = speakStudentRailLabel(text, window);
@@ -303,7 +334,7 @@ export function StudentBooksPage({
   }
 
   function turnShelf(key, step) {
-    setShelfPages(current => ({ ...current, [key]: (current[key] || 0) + step }));
+    setShelfPages(current => advanceBookShelfPage(current, key, step));
   }
 
   if (openBookId && renderReader && library.some(book => book.id === openBookId)) {
@@ -410,10 +441,11 @@ export function StudentBooksPage({
                   type="button"
                   className={`kg-segment${entry === shownLevel ? " is-active" : ""}`}
                   aria-pressed={entry === shownLevel}
+                  onFocus={revealFocusedChoice}
                   onClick={() => {
                     setLevel(entry);
                     setCollectionId("all");
-                    setShelfPages({ "just-right": 0, second: 0 });
+                    setShelfPages({ "just-right": 0, second: 0, "c-standard": 0, "c-extended": 0 });
                   }}
                 >
                   Level {entry}
@@ -432,9 +464,10 @@ export function StudentBooksPage({
                 type="button"
                 className={`kg-collection-chip${shownCollectionId === "all" ? " is-active" : ""}`}
                 aria-pressed={shownCollectionId === "all"}
+                onFocus={revealFocusedChoice}
                 onClick={() => {
                   setCollectionId("all");
-                  setShelfPages({ "just-right": 0, second: 0 });
+                  setShelfPages({ "just-right": 0, second: 0, "c-standard": 0, "c-extended": 0 });
                 }}
               >
                 All books
@@ -445,9 +478,10 @@ export function StudentBooksPage({
                   type="button"
                   className={`kg-collection-chip${collection.id === shownCollectionId ? " is-active" : ""}`}
                   aria-pressed={collection.id === shownCollectionId}
+                  onFocus={revealFocusedChoice}
                   onClick={() => {
                     setCollectionId(collection.id);
-                    setShelfPages({ "just-right": 0, second: 0 });
+                    setShelfPages({ "just-right": 0, second: 0, "c-standard": 0, "c-extended": 0 });
                   }}
                 >
                   {collection.label}
@@ -460,6 +494,7 @@ export function StudentBooksPage({
             type="button"
             className="kg-button kg-button--sm kg-glass kg-glass--strong kg-books-stories"
             aria-pressed={showKnowledge}
+            onFocus={revealFocusedChoice}
             onClick={() => setShowKnowledge(current => !current)}
           >
             {showKnowledge ? "All books" : "Explore ideas"}
@@ -469,6 +504,7 @@ export function StudentBooksPage({
             <button
               type="button"
               className="kg-button kg-button--sm kg-glass kg-glass--strong kg-books-stories"
+              onFocus={revealFocusedChoice}
               onClick={onOpenStoryQuests}
             >
               Story Quests
@@ -610,7 +646,7 @@ export function StudentBooksPage({
         </section>}
 
         {!showKnowledge && <div className="kg-shelves" data-child-choices="">
-          {shelves.map((shelf, shelfIndex) => (
+          {shelves.map(shelf => (
             <section className="kg-shelf" key={shelf.id} aria-labelledby={`kg-shelf-${shelf.id}`}>
               <div className="kg-shelf-head">
                 <span
@@ -624,16 +660,18 @@ export function StudentBooksPage({
                 <small className="kg-shelf-note">{shelf.note}</small>
               </div>
               <div className="kg-shelf-grid">
-                {shelf.books.map(({ book, stars }) => {
+                {shelf.books.map(({ book }) => {
                   const purpose = purposeFor(book);
                   return (
                     <button
                       key={book.id}
                       type="button"
                       className="kg-glass kg-book-card"
+                      onFocus={revealFocusedChoice}
                       onClick={() => setOpenBookId(book.id)}
                       data-child-emphasis="choice"
                       data-reading-purpose={purpose.id}
+                      data-reading-mode={book.readingMode}
                     >
                       <span className="kg-book-card-main">
                         <img
@@ -645,15 +683,7 @@ export function StudentBooksPage({
                           onError={hideOnError}
                         />
                         <strong className="kg-book-title">{book.title}</strong>
-                        <small className="kg-book-purpose">{purpose.shortLabel}</small>
-                      </span>
-                      <span
-                        className="kg-book-stars"
-                        role="img"
-                        aria-label={stars === 1 ? "1 star won" : `${stars} stars won`}
-                      >
-                        <StarGlyph earned={stars > 0} />
-                        {stars}
+                        <small className="kg-book-purpose">{childGuidedReadingModeLabel(book)} · {purpose.shortLabel}</small>
                       </span>
                     </button>
                   );
@@ -662,7 +692,8 @@ export function StudentBooksPage({
                   <button
                     type="button"
                     className="kg-glass kg-glass--quiet kg-book-card kg-book-card--more"
-                    onClick={() => turnShelf(shelfIndex === 0 ? "just-right" : "second", shelf.step)}
+                    onFocus={revealFocusedChoice}
+                    onClick={() => turnShelf(shelf.id, shelf.step)}
                   >
                     <span className="kg-book-card-main">
                       <span className="kg-book-more-glyph" aria-hidden="true"><MoreGlyph /></span>

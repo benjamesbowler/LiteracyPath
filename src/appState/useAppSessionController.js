@@ -1,5 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps -- Context values preserve App's original effect contracts during staged controller extraction. */
 import { useEffect, useEffectEvent, useLayoutEffect, useRef, useState } from "react";
+import { isSupabaseConfigured, supabase } from "../supabaseClient.js";
+import { hydrateAssessmentAttempts } from "../data/assessmentHistoryStore.js";
 import {
   loadCompatibleDashboardStudents,
   loadCompatibleTeacherClassCounts,
@@ -120,10 +122,10 @@ export function useAppSessionController(context) {
     freshLoginResetPendingRef, getAdminSetupMessage, getAnswerRecordPromptAnswerSignature, getAnswerRecordSignature,
     getGuidedReadingStorageKeyForSession, migrateGuidedReadingStorage, getItemMasteryStateKey, getPersistedAppView, getQuestionTargetWord,
     getRepeatOptionSetSignature, getRestoredAppView, getRuntimeQuestionSignature, getTeacherProfileStorageKey,
-    hydrateAssessmentAttempts, hydrateCloudProgress, inferAnswerRecordMetadata, inferItemMetadata,
+    hydrateCloudProgress, inferAnswerRecordMetadata, inferItemMetadata,
     initialSoundRoundMetaRef, isAdmin, isApprovalSchemaError, isDuplicateAuthSignupError,
     isInvalidRefreshTokenError, isMissingItemMasteryTableError, isSameTeacherRoute, isStudentAllowedView,
-    isSupabaseConfigured, itemMastery, lastAuthUserIdRef, learnerAccessibilityFromProfile,
+    itemMastery, lastAuthUserIdRef, learnerAccessibilityFromProfile,
     letterAssessment, letterIndex, loadElBenchmarkDraft, loadManualAssessmentDrafts,
     loadTeacherRouteRuntime, logAdminSupabaseError, mastery, mergeAssessmentAttemptIntoItemMastery,
     mergeAssessmentAttemptRecords, newClassName, normalizeItemMasteryRow, patternAssessment,
@@ -154,7 +156,7 @@ export function useAppSessionController(context) {
     setTeacherSchoolNameReadState,
     setTeacherStudentContext, setTeacherUser, setTotalAnswered, setUsedByStage,
     skillTree, STUDENT_SESSION_STORAGE_KEY, studentId, studentName,
-    studentPreview, studentReportView, studentSession, supabase,
+    studentPreview, studentReportView, studentSession,
     teacherAccountRecord, teacherAccountStatus, teacherGroupId, teacherId,
     teacherIntentHash, teacherReportHash, teacherUser, totalAnswered,
     usedByStage,

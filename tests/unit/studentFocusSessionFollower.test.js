@@ -7,6 +7,8 @@ import {
   INITIAL_STUDENT_FOCUS_STATE,
   reduceStudentFocusState
 } from "../../src/hooks/useStudentFocusSession.js";
+import { STUDENT_FOCUS_CONTENT_VERSION } from "../../src/data/studentFocusSessionCore.js";
+import { STUDENT_FOCUS_TARGET_OPTIONS } from "../../src/policy/studentFocusTargets.js";
 
 const session = {
   id: "focus-1",
@@ -60,20 +62,39 @@ test("focus retry delay uses the bounded one-to-eight second sequence", () => {
   );
 });
 
-test("exact-content failures are reported only for the matching focus session", () => {
-  assert.equal(focusSessionContentOkForPoll(session, null), true);
-  assert.equal(focusSessionContentOkForPoll(session, {
+test("stale unavailable reports cannot poison a replacement whole-class activity", () => {
+  for (const option of STUDENT_FOCUS_TARGET_OPTIONS) {
+    assert.equal(focusSessionContentOkForPoll({
+      ...session,
+      target: option.id,
+      content_version: STUDENT_FOCUS_CONTENT_VERSION,
+      content_ok: false
+    }, null), true, option.id);
+  }
+});
+
+test("current protocol and exact-content failures still fail closed", () => {
+  const currentSession = {
+    ...session,
+    content_version: STUDENT_FOCUS_CONTENT_VERSION
+  };
+  assert.equal(focusSessionContentOkForPoll(currentSession, null), true);
+  assert.equal(focusSessionContentOkForPoll(currentSession, {
     sessionId: "focus-1",
     contentOk: false
   }), false);
-  assert.equal(focusSessionContentOkForPoll(session, {
+  assert.equal(focusSessionContentOkForPoll(currentSession, {
     sessionId: "older-focus",
     contentOk: false
   }), true);
-  assert.equal(focusSessionContentOkForPoll({ ...session, content_ok: false }, {
+  assert.equal(focusSessionContentOkForPoll(currentSession, {
     sessionId: "focus-1",
     contentOk: true
-  }), false);
+  }), true);
+  assert.equal(focusSessionContentOkForPoll({
+    ...currentSession,
+    content_version: "student-focus-v999"
+  }, null), false);
 });
 
 test("student focus polling pauses while hidden and requests an iPad wake lock", async () => {

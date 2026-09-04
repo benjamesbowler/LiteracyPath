@@ -922,6 +922,80 @@ on conflict (attempt_id) do update set
   payload = excluded.payload,
   updated_at = excluded.updated_at;
 
+-- Elena's mastery row intentionally represents one secured early skill so the
+-- authenticated roster exercises a legitimate Final Sounds current focus.
+-- The current progression policy accepts that projection only when separate,
+-- immutable assessment sittings substantiate it; aggregate answer rows alone
+-- are not progression evidence.
+insert into public.assessment_attempts (
+  attempt_id,
+  student_id,
+  class_id,
+  teacher_id,
+  assessment_type,
+  skill_id,
+  skill_name,
+  skill_level,
+  skill_phase,
+  started_at,
+  completed_at,
+  total_questions,
+  correct_count,
+  accuracy,
+  status,
+  administration_status,
+  schema_version,
+  payload,
+  created_at,
+  updated_at
+)
+select
+  'audit-roster-focus-elena-initial-' || series.sitting_number,
+  '40000000-0000-4000-8000-000000000007',
+  '30000000-0000-4000-8000-000000000001',
+  '10000000-0000-4000-8000-000000000001',
+  'skill_checkpoint',
+  'initial_sounds',
+  'Initial Sounds',
+  1,
+  1,
+  '__AUDIT_ANCHOR__'::timestamptz - make_interval(days => series.sitting_number),
+  '__AUDIT_ANCHOR__'::timestamptz - make_interval(days => series.sitting_number) + interval '4 minutes',
+  4,
+  4,
+  100,
+  'passed',
+  'completed',
+  1,
+  jsonb_build_object(
+    'attemptId', 'audit-roster-focus-elena-initial-' || series.sitting_number,
+    'studentId', '40000000-0000-4000-8000-000000000007',
+    'classId', '30000000-0000-4000-8000-000000000001',
+    'teacherId', '10000000-0000-4000-8000-000000000001',
+    'assessmentType', 'skill_checkpoint',
+    'skillId', 'initial_sounds',
+    'skillName', 'Initial Sounds',
+    'administrationStatus', 'completed',
+    'policyVersion', 'audit-seed-v1',
+    'curriculumVersion', 'LP-CURRICULUM-2026.2',
+    'questionRecords', (
+      select jsonb_agg(jsonb_build_object(
+        'questionId', 'audit-roster-focus-elena-initial-' || series.sitting_number || '-item-' || item.question_number,
+        'itemType', 'initial_sound',
+        'itemKey', 'audit-elena-initial-' || item.question_number,
+        'responseStatus', 'correct',
+        'isCorrect', true
+      ) order by item.question_number)
+      from generate_series(1, 4) as item(question_number)
+    )
+  ),
+  '__AUDIT_ANCHOR__'::timestamptz,
+  '__AUDIT_ANCHOR__'::timestamptz
+from generate_series(1, 3) as series(sitting_number)
+on conflict (attempt_id) do update set
+  payload = excluded.payload,
+  updated_at = excluded.updated_at;
+
 -- A Skills Check letter spine without a matching EL administration proves
 -- that Whole Child and the focused EL workbook reconcile the same evidence.
 insert into public.assessment_attempts (
@@ -1374,6 +1448,13 @@ declare
   admin_count integer;
   long_history_count integer;
   long_history_item_count integer;
+  roster_focus_attempt_count integer;
+  roster_focus_total_question_count integer;
+  roster_focus_correct_question_count integer;
+  roster_focus_scored_item_count integer;
+  roster_focus_correct_item_count integer;
+  roster_focus_min_accuracy numeric;
+  roster_focus_max_accuracy numeric;
   archived_count integer;
   guided_count integer;
   guided_support_count integer;
@@ -1413,6 +1494,47 @@ begin
   select coalesce(sum(jsonb_array_length(payload -> 'questionRecords')), 0) into long_history_item_count
   from public.assessment_attempts
   where attempt_id like 'audit-long-history-%';
+
+  select
+    count(distinct attempt_id),
+    coalesce(sum(total_questions), 0),
+    coalesce(sum(correct_count), 0),
+    coalesce(min(accuracy), 0),
+    coalesce(max(accuracy), 0)
+  into
+    roster_focus_attempt_count,
+    roster_focus_total_question_count,
+    roster_focus_correct_question_count,
+    roster_focus_min_accuracy,
+    roster_focus_max_accuracy
+  from public.assessment_attempts
+  where student_id = '40000000-0000-4000-8000-000000000007'
+    and attempt_id like 'audit-roster-focus-elena-initial-%'
+    and skill_id = 'initial_sounds'
+    and administration_status = 'completed';
+
+  select
+    count(*) filter (
+      where question_record ->> 'isCorrect' in ('true', 'false')
+    ),
+    count(*) filter (
+      where question_record ->> 'isCorrect' = 'true'
+    )
+  into
+    roster_focus_scored_item_count,
+    roster_focus_correct_item_count
+  from public.assessment_attempts
+  cross join lateral jsonb_array_elements(
+    case
+      when jsonb_typeof(payload -> 'questionRecords') = 'array'
+        then payload -> 'questionRecords'
+      else '[]'::jsonb
+    end
+  ) as roster_focus_items(question_record)
+  where student_id = '40000000-0000-4000-8000-000000000007'
+    and attempt_id like 'audit-roster-focus-elena-initial-%'
+    and skill_id = 'initial_sounds'
+    and administration_status = 'completed';
 
   select count(*) into archived_count
   from public.students
@@ -1456,6 +1578,13 @@ begin
      or learner_count <> 26
      or long_history_count <> 520
      or long_history_item_count <> 520
+     or roster_focus_attempt_count <> 3
+     or roster_focus_total_question_count <> 12
+     or roster_focus_correct_question_count <> 12
+     or roster_focus_scored_item_count <> 12
+     or roster_focus_correct_item_count <> 12
+     or roster_focus_min_accuracy <> 100
+     or roster_focus_max_accuracy <> 100
      or archived_count <> 1
      or guided_count <> 25
      or guided_support_count <> 25
@@ -1464,13 +1593,20 @@ begin
      or completed_el_count < 3
      or in_progress_el_count < 1 then
     raise exception
-      'audit_seed_verification_failed teachers=% admins=% classes=% learners=% long_history=% long_history_items=% archived=% guided=% guided_support=% quest=% games=% el_complete=% el_in_progress=%',
+      'audit_seed_verification_failed teachers=% admins=% classes=% learners=% long_history=% long_history_items=% roster_focus_attempts=% roster_focus_questions=% roster_focus_correct_questions=% roster_focus_scored_items=% roster_focus_correct_items=% roster_focus_accuracy_min=% roster_focus_accuracy_max=% archived=% guided=% guided_support=% quest=% games=% el_complete=% el_in_progress=%',
       teacher_count,
       admin_count,
       class_count,
       learner_count,
       long_history_count,
       long_history_item_count,
+      roster_focus_attempt_count,
+      roster_focus_total_question_count,
+      roster_focus_correct_question_count,
+      roster_focus_scored_item_count,
+      roster_focus_correct_item_count,
+      roster_focus_min_accuracy,
+      roster_focus_max_accuracy,
       archived_count,
       guided_count,
       guided_support_count,

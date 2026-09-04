@@ -106,117 +106,117 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-a-26-cover.png",
+      "path": "/guided-reading/covers/gr-a-26-cover.webp",
       "sha256": "830a88c9451bfd90b1e322288a6dbc46955b4372c13818c6b888f357eff11777",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-a-27-cover.png",
+      "path": "/guided-reading/covers/gr-a-27-cover.webp",
       "sha256": "18f195c4ac5ca52a8d6e4e16a630cdece5d849c410ef0ee11192be129743439b",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-a-28-cover.png",
+      "path": "/guided-reading/covers/gr-a-28-cover.webp",
       "sha256": "ebddeab81ed9544efd3d30b22dd1ec95475e7d8d4cfddbf1621296a0670650f1",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-a-29-cover.png",
+      "path": "/guided-reading/covers/gr-a-29-cover.webp",
       "sha256": "9759240dd7a3ce838c4af9419a348b85cc91a47da0d18f8ccd0d895078823107",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-a-30-cover.png",
+      "path": "/guided-reading/covers/gr-a-30-cover.webp",
       "sha256": "ec53295f2b672d4901efc974a06150c6a9e2424c664bfc6b8165ce47ee3d781b",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-b-31-cover.png",
+      "path": "/guided-reading/covers/gr-b-31-cover.webp",
       "sha256": "4a753f60cb01ef30470039da3966e419ce59851f964b089ccfd03889219e8250",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-b-32-cover.png",
+      "path": "/guided-reading/covers/gr-b-32-cover.webp",
       "sha256": "739650200d116f95c9077444b9166d1f1b7a5d983013bad3677211abb0bed294",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-b-33-cover.png",
+      "path": "/guided-reading/covers/gr-b-33-cover.webp",
       "sha256": "7d62af05dfc61bc0400429e88e88630a07e5d0f32c96ef1bc944b341f58abfbb",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-b-34-cover.png",
+      "path": "/guided-reading/covers/gr-b-34-cover.webp",
       "sha256": "a21f8642f5d56b58d1bca6cd53c79906c5bbe3857044a0e8697358dcff42b3a4",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-b-35-cover.png",
+      "path": "/guided-reading/covers/gr-b-35-cover.webp",
       "sha256": "24c92f16364ad698e507f471f4bdf4420179fd9236380477b0cfb7eb974e0349",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-c-37-cover.png",
+      "path": "/guided-reading/covers/gr-c-37-cover.webp",
       "sha256": "9f669e94635645cb9c8c58447e72ea8cf513fd1338461790b6504cd8857a459d",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-c-38-cover.png",
+      "path": "/guided-reading/covers/gr-c-38-cover.webp",
       "sha256": "d884539e5e3428094856849b60f142fd532d48bbe3d66e65be80e0e6fd9069fd",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-c-39-cover.png",
+      "path": "/guided-reading/covers/gr-c-39-cover.webp",
       "sha256": "acb2c381dc9e737be38a366769d6e907bde19015b68fc3ee9e2c97d066cae92f",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-c-40-cover.png",
+      "path": "/guided-reading/covers/gr-c-40-cover.webp",
       "sha256": "7c9869271c1e2abde5a9bcb60d5e4f08d1adfdcd15a9bb07d0b09362f01f4a28",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-d-42-cover.png",
+      "path": "/guided-reading/covers/gr-d-42-cover.webp",
       "sha256": "c0358d0ead0aff808d1bf770b68adfc2902dff8b4ec7e108b6758759ad3fa944",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-d-43-cover.png",
+      "path": "/guided-reading/covers/gr-d-43-cover.webp",
       "sha256": "98918ef07a1451bca3169c041ad6e6e3596c55e2f72f521e40bc6aff6b72bbe3",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-d-44-cover.png",
+      "path": "/guided-reading/covers/gr-d-44-cover.webp",
       "sha256": "456884030f271cd1fb8ca0d1558bf1c04cf808ed255112f3d4317738a1bbe3ec",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-d-45-cover.png",
+      "path": "/guided-reading/covers/gr-d-45-cover.webp",
       "sha256": "03818d5a5d219c05020f12ab1d75fcf5fd2ab69d7c98ed60ceb1277e9a9b4090",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-e-46-cover.png",
+      "path": "/guided-reading/covers/gr-e-46-cover.webp",
       "sha256": "26fd89a650f9da05b510343b38b39760de43e5a8df09394ed613a6064f50e310",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-e-47-cover.png",
+      "path": "/guided-reading/covers/gr-e-47-cover.webp",
       "sha256": "3c51b29156cce948678fcb9c9fc5a4872e7985faa5f6beb9f19727e8883f6fc7",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-e-48-cover.png",
+      "path": "/guided-reading/covers/gr-e-48-cover.webp",
       "sha256": "8f45862c4d37dbdfb0d0fce858a73f6cbc04ca6fb1bdd8c896cfebada4b65d5b",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-e-49-cover.png",
+      "path": "/guided-reading/covers/gr-e-49-cover.webp",
       "sha256": "8b7a597b2a50ac50228448b0b49ab03d060a991b01309e6c5d463e1f71338bd9",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/covers/gr-e-50-cover.png",
+      "path": "/guided-reading/covers/gr-e-50-cover.webp",
       "sha256": "53de869d53afa54da86cd762bf21e08e13d274b06b61911857c72dc03448ccc2",
       "status": "approved"
     },
@@ -2571,1427 +2571,1427 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-26-page-1.png",
+      "path": "/guided-reading/pages/gr-a-26-page-1.webp",
       "sha256": "2970bbaec5e9e15448cecb5d2955fd624ab525ca97d63b3165803e1985017f3f",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-26-page-2.png",
+      "path": "/guided-reading/pages/gr-a-26-page-2.webp",
       "sha256": "6557c183808d127b8cac99a357efc3f2ae8d37464be06da57e36be212ad4d4d5",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-26-page-3.png",
+      "path": "/guided-reading/pages/gr-a-26-page-3.webp",
       "sha256": "0c324fd71da92e4e4230f2c25eebf71c87943a18bce8f82c5654fd334c2ab789",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-26-page-4.png",
+      "path": "/guided-reading/pages/gr-a-26-page-4.webp",
       "sha256": "e0c7f4d318dd531822ca9571cc24bff7a0187009d7a761357e62d10a0c31145c",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-26-page-5.png",
+      "path": "/guided-reading/pages/gr-a-26-page-5.webp",
       "sha256": "00c6c6bc8b58a9c0212e37a5a99f9874c7b24a2916c80e28072d600865f9b9b6",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-26-page-6.png",
+      "path": "/guided-reading/pages/gr-a-26-page-6.webp",
       "sha256": "83a3894e807cc731640d390f2d232e49299db3dd44d4b27f4960390481ecdca5",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-27-page-1.png",
+      "path": "/guided-reading/pages/gr-a-27-page-1.webp",
       "sha256": "c1257332c26531da5d65ba945d236a36c0345a641a0d95a94daaa1de8a006f5a",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-27-page-2.png",
+      "path": "/guided-reading/pages/gr-a-27-page-2.webp",
       "sha256": "11704ec5394ecbc24410e8d28eb6841c3bc9e4c2571390fa3a3da560cbd0881a",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-27-page-3.png",
+      "path": "/guided-reading/pages/gr-a-27-page-3.webp",
       "sha256": "b6a2458825c3e7a1fa097c26e0c69d1cec12f578cbab4ff57e14259c6fa3ee83",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-27-page-4.png",
+      "path": "/guided-reading/pages/gr-a-27-page-4.webp",
       "sha256": "8bc8aaaf31820400dc4007e12c2e0586bbe9cfcb010803c8fd68b14f2e6823bc",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-27-page-5.png",
+      "path": "/guided-reading/pages/gr-a-27-page-5.webp",
       "sha256": "3fb1c36527e013b1483ea0bf9a14faa2c0abccf27600f55fd4dae1768c6b39b4",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-27-page-6.png",
+      "path": "/guided-reading/pages/gr-a-27-page-6.webp",
       "sha256": "2f01cdbc13bcedb310e746f21fdaba5d90ba4761c40bee45e19a076f82d353f6",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-28-page-1.png",
+      "path": "/guided-reading/pages/gr-a-28-page-1.webp",
       "sha256": "872081dadb11caf4988c078ee04eca10224c8f0504231064b957b3a4967d8d93",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-28-page-2.png",
+      "path": "/guided-reading/pages/gr-a-28-page-2.webp",
       "sha256": "0557233922003d43d68988cd9d71d58d72e60d08bc8d84a29e185ab510e3ff27",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-28-page-3.png",
+      "path": "/guided-reading/pages/gr-a-28-page-3.webp",
       "sha256": "807992a75731b2cc56ea8789376ca0e4a189924e7fe105c4b19b804b831c05cb",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-28-page-4.png",
+      "path": "/guided-reading/pages/gr-a-28-page-4.webp",
       "sha256": "70d580194188e14a8531b00dce26c207b9bcee835f4958bf92f0deebc0e5f9ea",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-28-page-5.png",
+      "path": "/guided-reading/pages/gr-a-28-page-5.webp",
       "sha256": "4d51cf2adc2581356a99ab33bf95e1ad0f860649d23ef592de1efa21a98e83c8",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-28-page-6.png",
+      "path": "/guided-reading/pages/gr-a-28-page-6.webp",
       "sha256": "89e7df68b7620d548506303b201a3cc46ce289d4f5b452150079eaa801c1be15",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-29-page-1.png",
+      "path": "/guided-reading/pages/gr-a-29-page-1.webp",
       "sha256": "fccdc0db79b1f944ac59babcaeb0e8df44201a822067db66346a5ed572d0db91",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-29-page-2.png",
+      "path": "/guided-reading/pages/gr-a-29-page-2.webp",
       "sha256": "11390519584cc714bf6183448cf57025b30949730a7f1a39075f9fa189b41dc3",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-29-page-3.png",
+      "path": "/guided-reading/pages/gr-a-29-page-3.webp",
       "sha256": "02d37f84aa55535f3885b39d7bad2769f86075243ecc5c9128cfe531aea15f73",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-29-page-4.png",
+      "path": "/guided-reading/pages/gr-a-29-page-4.webp",
       "sha256": "5a126a6193bc491455f168c5dc889ad571c2d560963c3bd37c6c54cdd3758022",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-29-page-5.png",
+      "path": "/guided-reading/pages/gr-a-29-page-5.webp",
       "sha256": "4be3a0fd4d3006888131451b3e987d12e8da07ee940e521e8d0f9b24457d5d0f",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-29-page-6.png",
+      "path": "/guided-reading/pages/gr-a-29-page-6.webp",
       "sha256": "c1e6cb70c0ceff83b15704a562884bb02da8942cfb7753a2086b309397a289d6",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-30-page-1.png",
+      "path": "/guided-reading/pages/gr-a-30-page-1.webp",
       "sha256": "ec53295f2b672d4901efc974a06150c6a9e2424c664bfc6b8165ce47ee3d781b",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-30-page-2.png",
+      "path": "/guided-reading/pages/gr-a-30-page-2.webp",
       "sha256": "36b489f9939a67edc5d0b1e5e09d05293042a40af321b756ec32096a65f97cde",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-30-page-3.png",
+      "path": "/guided-reading/pages/gr-a-30-page-3.webp",
       "sha256": "0ae13f2a188717377b16d431137791f3f046ddf6f5938743a77d6709c4307f70",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-30-page-4.png",
+      "path": "/guided-reading/pages/gr-a-30-page-4.webp",
       "sha256": "2c4dba38c23d50f91afd4fe30ec8d9856137a34e05aba3cfda43bd91460a50b2",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-30-page-5.png",
+      "path": "/guided-reading/pages/gr-a-30-page-5.webp",
       "sha256": "ffcc075a27648497e65c02f0237ab5bae8c68a95bbffcf0ce17b41d22a005349",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-a-30-page-6.png",
+      "path": "/guided-reading/pages/gr-a-30-page-6.webp",
       "sha256": "ad36ce190597d8fb64fbe6ff2048e09949f302508216c86f2dbc80bc49288207",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-31-page-1.png",
+      "path": "/guided-reading/pages/gr-b-31-page-1.webp",
       "sha256": "4a753f60cb01ef30470039da3966e419ce59851f964b089ccfd03889219e8250",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-31-page-2.png",
+      "path": "/guided-reading/pages/gr-b-31-page-2.webp",
       "sha256": "782bd06628db0a0d5f2bddeed3eb839c3461efed768231c4ecf1835971589dd6",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-31-page-3.png",
+      "path": "/guided-reading/pages/gr-b-31-page-3.webp",
       "sha256": "93801bf983c282dadf902a0f1a4090e8ecc906af1ab4828697231db4c2c47e16",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-31-page-4.png",
+      "path": "/guided-reading/pages/gr-b-31-page-4.webp",
       "sha256": "f64c7ef0d3854cc8664309f80c59acb36e9218d63983740759fa8c2ab0bb8ef1",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-31-page-5.png",
+      "path": "/guided-reading/pages/gr-b-31-page-5.webp",
       "sha256": "6cbf82f4e05bcf5e0eab1144ab303a38cf77ad53716c8ee070e558969fbbdc26",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-31-page-6.png",
+      "path": "/guided-reading/pages/gr-b-31-page-6.webp",
       "sha256": "1184eca3bc8275d4e2b97d9ef16b345bc76a633f96233f1a38805a66019f65d4",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-32-page-1.png",
+      "path": "/guided-reading/pages/gr-b-32-page-1.webp",
       "sha256": "739650200d116f95c9077444b9166d1f1b7a5d983013bad3677211abb0bed294",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-32-page-2.png",
+      "path": "/guided-reading/pages/gr-b-32-page-2.webp",
       "sha256": "331cc56dda71e096ec333ebf2059ebaa0bb3a19924441063d2e9bdf28cd9dc47",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-32-page-3.png",
+      "path": "/guided-reading/pages/gr-b-32-page-3.webp",
       "sha256": "ebc408e3bcff850edb91221b64503498b8bfa6b22316125f868b1351cc2c592c",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-32-page-4.png",
+      "path": "/guided-reading/pages/gr-b-32-page-4.webp",
       "sha256": "8c933f718d90c88da5b75d98639a160753a1f051ff6f3a05611c4954d1e72984",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-32-page-5.png",
+      "path": "/guided-reading/pages/gr-b-32-page-5.webp",
       "sha256": "0728106acdcdfda7cf8c8f5100c31b9c1a23b03b90b2957dae90dce4cfbf3db2",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-32-page-6.png",
+      "path": "/guided-reading/pages/gr-b-32-page-6.webp",
       "sha256": "1364984dfac24a156ad85014f9be4da84bc3f3e2f772288f072b193b22f35bd8",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-33-page-1.png",
+      "path": "/guided-reading/pages/gr-b-33-page-1.webp",
       "sha256": "7d62af05dfc61bc0400429e88e88630a07e5d0f32c96ef1bc944b341f58abfbb",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-33-page-2.png",
+      "path": "/guided-reading/pages/gr-b-33-page-2.webp",
       "sha256": "64a422274ac42255dea280a9d80304d35e080553a3cdd50c98776094efdc9d12",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-33-page-3.png",
+      "path": "/guided-reading/pages/gr-b-33-page-3.webp",
       "sha256": "01976123c5ab0621300d582573b8beb1a64c55e402ee75a08953a99878415d8d",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-33-page-4.png",
+      "path": "/guided-reading/pages/gr-b-33-page-4.webp",
       "sha256": "f93e91e3467f8a96a773b3c9828f8917dd3852bd54ef6f419c6cd2178e12893b",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-33-page-5.png",
+      "path": "/guided-reading/pages/gr-b-33-page-5.webp",
       "sha256": "0490275fb6a163f28db617fec43b8b1aa1d7094db3911fe19414265caec39116",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-33-page-6.png",
+      "path": "/guided-reading/pages/gr-b-33-page-6.webp",
       "sha256": "60a0974849cdd78e6d657fcd0a567d6fcbfe29e0640a276e102d9390a38d4b59",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-34-page-1.png",
+      "path": "/guided-reading/pages/gr-b-34-page-1.webp",
       "sha256": "a21f8642f5d56b58d1bca6cd53c79906c5bbe3857044a0e8697358dcff42b3a4",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-34-page-2.png",
+      "path": "/guided-reading/pages/gr-b-34-page-2.webp",
       "sha256": "f24cc8346538260fb3cb7610215b5e23499bc9cc8c08f38f7c5baf33d46bdea9",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-34-page-3.png",
+      "path": "/guided-reading/pages/gr-b-34-page-3.webp",
       "sha256": "ad57d9811f24cc854b13ca30a29466f388d18d275157539ccd6ec6311dc30f35",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-34-page-4.png",
+      "path": "/guided-reading/pages/gr-b-34-page-4.webp",
       "sha256": "387ea9aef72dbbc0b2a676f2699eb62ba63b220b58c70a3ceece741322af4111",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-34-page-5.png",
+      "path": "/guided-reading/pages/gr-b-34-page-5.webp",
       "sha256": "e02f69a6d5f4b18f0ae9ecb9e11723757c3675bbba9b105eba5fcb151bc26108",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-34-page-6.png",
+      "path": "/guided-reading/pages/gr-b-34-page-6.webp",
       "sha256": "a226d8f1e115ee08f733bfc56004bef543e1c139cc5751792c8f6dfaa1f03ad0",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-35-page-1.png",
+      "path": "/guided-reading/pages/gr-b-35-page-1.webp",
       "sha256": "24c92f16364ad698e507f471f4bdf4420179fd9236380477b0cfb7eb974e0349",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-35-page-2.png",
+      "path": "/guided-reading/pages/gr-b-35-page-2.webp",
       "sha256": "7639b2b539a21661f6e0a4dd6dd6321d678f7a2510172b8e9e73fb1510a290f1",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-35-page-3.png",
+      "path": "/guided-reading/pages/gr-b-35-page-3.webp",
       "sha256": "2700670b7c6c211117efeb4e91f0b9df503863a3372328123bd615713d6df3c8",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-35-page-4.png",
+      "path": "/guided-reading/pages/gr-b-35-page-4.webp",
       "sha256": "d72e9520647c581778c7df0eddd6d9be02e7a1ff196b57737d5d9ff1489f3d58",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-35-page-5.png",
+      "path": "/guided-reading/pages/gr-b-35-page-5.webp",
       "sha256": "1b60d8250de12eeae3971fdaf76d31b0ebacbe44a3d87aeaaea1fe9f5c035687",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-b-35-page-6.png",
+      "path": "/guided-reading/pages/gr-b-35-page-6.webp",
       "sha256": "163d1bb347a8d4c8a7b66574c4f90dd0fadc8912daf17d9c9ce42a5ec64baade",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-37-page-1.png",
+      "path": "/guided-reading/pages/gr-c-37-page-1.webp",
       "sha256": "9f669e94635645cb9c8c58447e72ea8cf513fd1338461790b6504cd8857a459d",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-37-page-2.png",
+      "path": "/guided-reading/pages/gr-c-37-page-2.webp",
       "sha256": "1e9b1cd8bcc58366e46bdd6df832b566a207896552f809dbee5d6f05d898464f",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-37-page-3.png",
+      "path": "/guided-reading/pages/gr-c-37-page-3.webp",
       "sha256": "0aef57dbc47914625f7301b4250de83f7cf4152561468377e28e88d7136ab9fe",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-37-page-4.png",
+      "path": "/guided-reading/pages/gr-c-37-page-4.webp",
       "sha256": "f009746001ea51d2b9a0c00832b41cae4e720d57a177fdc62005eb8a10e4fe34",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-37-page-5.png",
+      "path": "/guided-reading/pages/gr-c-37-page-5.webp",
       "sha256": "e89e1984e0fa532dfd4f97f48b8cf8c0d5b263132431db106d40a4744c37ce3a",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-37-page-6.png",
+      "path": "/guided-reading/pages/gr-c-37-page-6.webp",
       "sha256": "f36ae05fa825e6f5c62b6bbe55bf18a0c5f81b86393f80b937574b3e2e835c53",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-38-page-1.png",
+      "path": "/guided-reading/pages/gr-c-38-page-1.webp",
       "sha256": "d884539e5e3428094856849b60f142fd532d48bbe3d66e65be80e0e6fd9069fd",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-38-page-2.png",
+      "path": "/guided-reading/pages/gr-c-38-page-2.webp",
       "sha256": "d03135f17523668b3ac24e15d8359c92e7aad914536654b182c4903d85bcb1a4",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-38-page-3.png",
+      "path": "/guided-reading/pages/gr-c-38-page-3.webp",
       "sha256": "321d31e758a74d9e883e2523844bbf47a93c5fc27e52ffefd8ca7cac883584a6",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-38-page-4.png",
+      "path": "/guided-reading/pages/gr-c-38-page-4.webp",
       "sha256": "cb52296cebacba3352c3238276016b86899c20c1e645bd48bf741a70703546cc",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-38-page-5.png",
+      "path": "/guided-reading/pages/gr-c-38-page-5.webp",
       "sha256": "fb1795fda8266372ca8981a4007e2d1051615315de9ee7eb4139ffdc57cbbc77",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-38-page-6.png",
+      "path": "/guided-reading/pages/gr-c-38-page-6.webp",
       "sha256": "988199df4e40e8fdfdf3438acab17ca4ba2ee758bbc696732d26b3c3fcc9be68",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-39-page-1.png",
+      "path": "/guided-reading/pages/gr-c-39-page-1.webp",
       "sha256": "acb2c381dc9e737be38a366769d6e907bde19015b68fc3ee9e2c97d066cae92f",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-39-page-2.png",
+      "path": "/guided-reading/pages/gr-c-39-page-2.webp",
       "sha256": "908cdf7e60d5daa496b06bcd9f2ed42e88d6c47b10887e5c98b52b60cb3ceeaf",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-39-page-3.png",
+      "path": "/guided-reading/pages/gr-c-39-page-3.webp",
       "sha256": "ba306bf18479afa8fffc7a67c9e0757105d45183c49162c8da6569c2e8962066",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-39-page-4.png",
+      "path": "/guided-reading/pages/gr-c-39-page-4.webp",
       "sha256": "3008d6faaab962e2292f6ed364f5c58585745a4a401ec3161f57a2971e438dda",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-39-page-5.png",
+      "path": "/guided-reading/pages/gr-c-39-page-5.webp",
       "sha256": "fa3659c1c7ccb117b8a868dab73bcb89b8fe5c674e538a2fd4a2b2d8ee5121bb",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-39-page-6.png",
+      "path": "/guided-reading/pages/gr-c-39-page-6.webp",
       "sha256": "4ae06e1e37aeeb85a3df97c9f192e7227c3abf5011900c9d4683b73ececd1577",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-40-page-1.png",
+      "path": "/guided-reading/pages/gr-c-40-page-1.webp",
       "sha256": "7c9869271c1e2abde5a9bcb60d5e4f08d1adfdcd15a9bb07d0b09362f01f4a28",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-40-page-2.png",
+      "path": "/guided-reading/pages/gr-c-40-page-2.webp",
       "sha256": "509831524fd0be2af3302c129782579ad42e652fd3fc1e2e23da3734184a13e1",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-40-page-3.png",
+      "path": "/guided-reading/pages/gr-c-40-page-3.webp",
       "sha256": "88842a84e5c82f63814c68ec583e5c41e5bc7a6b64873b5fff8ca43325769476",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-40-page-4.png",
+      "path": "/guided-reading/pages/gr-c-40-page-4.webp",
       "sha256": "cc492bdd96a983b3aa060ce945bffaeaca85b582a940fe545de975cabd5d661f",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-40-page-5.png",
+      "path": "/guided-reading/pages/gr-c-40-page-5.webp",
       "sha256": "9e03c6482e954a33c151a148b1d547d16b754089d22f3528210f7e32852f339a",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-c-40-page-6.png",
+      "path": "/guided-reading/pages/gr-c-40-page-6.webp",
       "sha256": "cfdd8294625b1cd7448ce46432a5e2cb624b686f15172cda09786aa9b67aa9da",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-42-page-1.png",
+      "path": "/guided-reading/pages/gr-d-42-page-1.webp",
       "sha256": "c0358d0ead0aff808d1bf770b68adfc2902dff8b4ec7e108b6758759ad3fa944",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-42-page-2.png",
+      "path": "/guided-reading/pages/gr-d-42-page-2.webp",
       "sha256": "6454c0d833b1ddd4c6a1631d0c5d125f27c38959090d16763354e4036bca9a30",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-42-page-3.png",
+      "path": "/guided-reading/pages/gr-d-42-page-3.webp",
       "sha256": "c37d9fc5c9fb1e5793de056fbc6743ec8b12cf743c3caa9c4218c0b0d229815a",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-42-page-4.png",
+      "path": "/guided-reading/pages/gr-d-42-page-4.webp",
       "sha256": "6ba5193a08e930024b36e36b584319ee6999bae52c9bcc5e6144035bf094f045",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-42-page-5.png",
+      "path": "/guided-reading/pages/gr-d-42-page-5.webp",
       "sha256": "f45debba010b2901f35aa1e4acfcd5091f01b219b8d5e3499afd627af43c23ac",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-42-page-6.png",
+      "path": "/guided-reading/pages/gr-d-42-page-6.webp",
       "sha256": "604b25b9229447b59f9946d1e12df77df1341c21d2129b92864783385adf25e7",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-43-page-1.png",
+      "path": "/guided-reading/pages/gr-d-43-page-1.webp",
       "sha256": "98918ef07a1451bca3169c041ad6e6e3596c55e2f72f521e40bc6aff6b72bbe3",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-43-page-2.png",
+      "path": "/guided-reading/pages/gr-d-43-page-2.webp",
       "sha256": "e73684eff8a26a0ea770dc0eeb42caf829bf182517ff08908719bfd50263711b",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-43-page-3.png",
+      "path": "/guided-reading/pages/gr-d-43-page-3.webp",
       "sha256": "5c7dba3be49e7101b7c24032995c2b44654262410e5cd90e8be39a6bc5da7e4d",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-43-page-4.png",
+      "path": "/guided-reading/pages/gr-d-43-page-4.webp",
       "sha256": "6b1014501cb4c381c2029214540faa91c90ae48fd58b239b76f5b86c65de8add",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-43-page-5.png",
+      "path": "/guided-reading/pages/gr-d-43-page-5.webp",
       "sha256": "68a5b3d1a77568fe11ae8e87b61e7932a22b54b71c00da9ce075bf8cea9a25fc",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-43-page-6.png",
+      "path": "/guided-reading/pages/gr-d-43-page-6.webp",
       "sha256": "e031aafc1fcef04d7c00dc1b7cdc589eb6e64ed971c0752a932ed7c8948ba4a7",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-44-page-1.png",
+      "path": "/guided-reading/pages/gr-d-44-page-1.webp",
       "sha256": "456884030f271cd1fb8ca0d1558bf1c04cf808ed255112f3d4317738a1bbe3ec",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-44-page-2.png",
+      "path": "/guided-reading/pages/gr-d-44-page-2.webp",
       "sha256": "eabbdc224d29b5060806a170d12e9db93abe569589844c48218eb42bad774a0f",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-44-page-3.png",
+      "path": "/guided-reading/pages/gr-d-44-page-3.webp",
       "sha256": "55bf9b4a44b674ce0014149b8ecf34fad9e7684c414172e4a94ecd1e5787ac6a",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-44-page-4.png",
+      "path": "/guided-reading/pages/gr-d-44-page-4.webp",
       "sha256": "aa5afb22dd927dc36c9459381a737895ea731a07cab808a1e19228d39f4bb33e",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-44-page-5.png",
+      "path": "/guided-reading/pages/gr-d-44-page-5.webp",
       "sha256": "947cfb4fa1f8deb0ee973353e11e4c038f364a78da06aa98f9f7456d00907142",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-44-page-6.png",
+      "path": "/guided-reading/pages/gr-d-44-page-6.webp",
       "sha256": "65452216bbd731c744bd789f38a47ffad95f7509956f2020e00187b672c241e2",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-45-page-1.png",
+      "path": "/guided-reading/pages/gr-d-45-page-1.webp",
       "sha256": "03818d5a5d219c05020f12ab1d75fcf5fd2ab69d7c98ed60ceb1277e9a9b4090",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-45-page-2.png",
+      "path": "/guided-reading/pages/gr-d-45-page-2.webp",
       "sha256": "eac0aeb535b0da3f34fb8a6fe8372b5f07f2bea77db2d04818a6734e1ee603ee",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-45-page-3.png",
+      "path": "/guided-reading/pages/gr-d-45-page-3.webp",
       "sha256": "152a5cf82ae7adf35acf7ccf0cd0b73295404dce7c6997c7b4c52235f26a26ed",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-45-page-4.png",
+      "path": "/guided-reading/pages/gr-d-45-page-4.webp",
       "sha256": "4d96488066b6da8c1986d1217838bd48470ed8e3be999b39cda5efc1c0783745",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-45-page-5.png",
+      "path": "/guided-reading/pages/gr-d-45-page-5.webp",
       "sha256": "08b0836a93854342011e54c2d571c1bf1e601e70bd70a242acb3e1ab611a4626",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-d-45-page-6.png",
+      "path": "/guided-reading/pages/gr-d-45-page-6.webp",
       "sha256": "f1c0ad533dc47e9cfc8d1e45d6ba01957357b78798b2555deff4a634d4c1f87d",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-46-page-1.png",
+      "path": "/guided-reading/pages/gr-e-46-page-1.webp",
       "sha256": "26fd89a650f9da05b510343b38b39760de43e5a8df09394ed613a6064f50e310",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-46-page-2.png",
+      "path": "/guided-reading/pages/gr-e-46-page-2.webp",
       "sha256": "6d9876acb2a77bbcdf80a9e708b362a9e07578f87ac8a12cb0bef60438a43784",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-46-page-3.png",
+      "path": "/guided-reading/pages/gr-e-46-page-3.webp",
       "sha256": "a77b403e39e9ce0e6d39c19c709027884f3fa2faf8ca38b0f520e2c724ad2652",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-46-page-4.png",
+      "path": "/guided-reading/pages/gr-e-46-page-4.webp",
       "sha256": "dfa11977c5c50ea9108331dfbeaef8820be73a9a4b53d95f42ad76ddb69eb8ac",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-46-page-5.png",
+      "path": "/guided-reading/pages/gr-e-46-page-5.webp",
       "sha256": "693f0ca014396a85a6452054a140e7f0004ce4971803a9dddf9eecb5baf820ad",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-46-page-6.png",
+      "path": "/guided-reading/pages/gr-e-46-page-6.webp",
       "sha256": "a2ebfd9febfe7d45518f6fa99652f3c1d7acdc042981a0b3daad9833390c2ded",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-47-page-1.png",
+      "path": "/guided-reading/pages/gr-e-47-page-1.webp",
       "sha256": "3c51b29156cce948678fcb9c9fc5a4872e7985faa5f6beb9f19727e8883f6fc7",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-47-page-2.png",
+      "path": "/guided-reading/pages/gr-e-47-page-2.webp",
       "sha256": "67fd904ab10759646e07468f074e153de76a40ead805427553a4aadb5b7614f7",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-47-page-3.png",
+      "path": "/guided-reading/pages/gr-e-47-page-3.webp",
       "sha256": "735262f395b53b34dd879880790ffa82ccdec6267cae7946a0ba07cb81579892",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-47-page-4.png",
+      "path": "/guided-reading/pages/gr-e-47-page-4.webp",
       "sha256": "7add5d24a31b16bd6abebc0aafa60e64ceedb57313a215a89de633433113db04",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-47-page-5.png",
+      "path": "/guided-reading/pages/gr-e-47-page-5.webp",
       "sha256": "f19ba32286e195b55df29c52ca80f4708cb62714466d4025fb9b36226f1464fd",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-47-page-6.png",
+      "path": "/guided-reading/pages/gr-e-47-page-6.webp",
       "sha256": "d250ab50ab62fa43db94637effae554f229eccf8d0405de18e89d50c0a26922d",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-48-page-1.png",
+      "path": "/guided-reading/pages/gr-e-48-page-1.webp",
       "sha256": "8f45862c4d37dbdfb0d0fce858a73f6cbc04ca6fb1bdd8c896cfebada4b65d5b",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-48-page-2.png",
+      "path": "/guided-reading/pages/gr-e-48-page-2.webp",
       "sha256": "f1933ce5b59fc1963844872f1fc6312278e19eab340cbece4303a048f1f84f7f",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-48-page-3.png",
+      "path": "/guided-reading/pages/gr-e-48-page-3.webp",
       "sha256": "f09b08679fcf4bd468e88a4aa02d3d166dae08a0de4aaec488a9d4eb1a4c05b5",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-48-page-4.png",
+      "path": "/guided-reading/pages/gr-e-48-page-4.webp",
       "sha256": "389be8e1fe3773b4019f3320ebed272e055e1d26a59008dccfa1f8da65c778cd",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-48-page-5.png",
+      "path": "/guided-reading/pages/gr-e-48-page-5.webp",
       "sha256": "06a937703a606f3c845cb052d757831774219e148174dc68f0f5be52e40250cb",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-48-page-6.png",
+      "path": "/guided-reading/pages/gr-e-48-page-6.webp",
       "sha256": "341d774cbeac8d30891896802a09173dbdda19fc5b218dbccbe50a6d91d060a4",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-49-page-1.png",
+      "path": "/guided-reading/pages/gr-e-49-page-1.webp",
       "sha256": "8b7a597b2a50ac50228448b0b49ab03d060a991b01309e6c5d463e1f71338bd9",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-49-page-2.png",
+      "path": "/guided-reading/pages/gr-e-49-page-2.webp",
       "sha256": "414e2032f55060da259942b64b9e87299bdafa9b63359966c1fc5cdf653330f4",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-49-page-3.png",
+      "path": "/guided-reading/pages/gr-e-49-page-3.webp",
       "sha256": "f58fc6edbe8027517d88b6b7e91f340e29c75eb74a1e4a91c9dd995146f3c2d1",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-49-page-4.png",
+      "path": "/guided-reading/pages/gr-e-49-page-4.webp",
       "sha256": "bc6619a4b205b629dabd84259132dce85f97a1f727aff1784cb8e28e3e5f5f0e",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-49-page-5.png",
+      "path": "/guided-reading/pages/gr-e-49-page-5.webp",
       "sha256": "e0dda100529d7f0af24d4fb121ba317fa0ac6720bca4aba4dafc63234c44ce1c",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-49-page-6.png",
+      "path": "/guided-reading/pages/gr-e-49-page-6.webp",
       "sha256": "fbbcd434082bcb1ace9468477b01b33399731f262be2aa87a3a7ec14e6890706",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-50-page-1.png",
+      "path": "/guided-reading/pages/gr-e-50-page-1.webp",
       "sha256": "53de869d53afa54da86cd762bf21e08e13d274b06b61911857c72dc03448ccc2",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-50-page-2.png",
+      "path": "/guided-reading/pages/gr-e-50-page-2.webp",
       "sha256": "6ac1f3a6c3745ed8f48005abe2798eefaa7aa088e0f8bbe219817737fbed9273",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-50-page-3.png",
+      "path": "/guided-reading/pages/gr-e-50-page-3.webp",
       "sha256": "aee4fa4d1dfa4b11e4c7b64f17385682ee5611eb4b01039fbff6b9ef91cdad5d",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-50-page-4.png",
+      "path": "/guided-reading/pages/gr-e-50-page-4.webp",
       "sha256": "ca2a5db592326f718dceca92d2fe3f4f246502f2a38c108744c616750f1e9d1d",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-50-page-5.png",
+      "path": "/guided-reading/pages/gr-e-50-page-5.webp",
       "sha256": "a88f266b6810c40b284f8f52b31611099573bc41d6643dcbe41220b688d143e0",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/pages/gr-e-50-page-6.png",
+      "path": "/guided-reading/pages/gr-e-50-page-6.webp",
       "sha256": "852724e54afc27ad160595187c3bda8d19dc100e865a7b2453a749db6c8e5af6",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/covers/gr-a-26-cover.png",
+      "path": "/guided-reading/regen/covers/gr-a-26-cover.webp",
       "sha256": "4087fa8b0e3a4c91563f7f964c9d0d3c8d93e8ea4658fcbf488449ba4292e8c8",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/covers/gr-a-27-cover.png",
+      "path": "/guided-reading/regen/covers/gr-a-27-cover.webp",
       "sha256": "53229e4cdf399ab68f7d76018693e185e1df48e3727474f49361590f6818c291",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/covers/gr-a-28-cover.png",
+      "path": "/guided-reading/regen/covers/gr-a-28-cover.webp",
       "sha256": "54d7a990349862c89d92678a666f94d27d4a7e6b5fa135a3dfbc5abb86e3447a",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/covers/gr-a-29-cover.png",
+      "path": "/guided-reading/regen/covers/gr-a-29-cover.webp",
       "sha256": "e898f71f0689b7861f4072c09ab4cbce2ee875e7f556f2b76b86841f90c0dcd5",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/covers/gr-b-31-cover.png",
+      "path": "/guided-reading/regen/covers/gr-b-31-cover.webp",
       "sha256": "683d7e3eb6c3c6d0ab1f81eadab23d0c28b4930ad2d3d786f0d5cb282b9f3b69",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/covers/gr-b-32-cover.png",
+      "path": "/guided-reading/regen/covers/gr-b-32-cover.webp",
       "sha256": "e263347c1ca71c0f5b5be89dd5aed1916b855362b169770feb3fb407e91353cb",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/covers/gr-b-33-cover.png",
+      "path": "/guided-reading/regen/covers/gr-b-33-cover.webp",
       "sha256": "e0206bff05c010261b645d0bbef4535e79a94cae781175a128b2b89f78079624",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/covers/gr-b-34-cover.png",
+      "path": "/guided-reading/regen/covers/gr-b-34-cover.webp",
       "sha256": "51b760f06ee866fa6cd298fd3383bf20e14c62dcc9d468b337bec74fb3010487",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/covers/gr-b-35-cover.png",
+      "path": "/guided-reading/regen/covers/gr-b-35-cover.webp",
       "sha256": "9bb6dfd247a0be93df2e89f0d17006a9d44622d9f98360ead600e2f451a84a98",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/covers/gr-c-37-cover.png",
+      "path": "/guided-reading/regen/covers/gr-c-37-cover.webp",
       "sha256": "4fa72432d54d95c5b4499a160d8b27e5e791dbf70ebbbac847787aaf3fa32391",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/covers/gr-c-38-cover.png",
+      "path": "/guided-reading/regen/covers/gr-c-38-cover.webp",
       "sha256": "e53e475b9ecbb3352b70de4085ad55e17f7917d68c4cf45225e4f9f17d092900",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/covers/gr-c-39-cover.png",
+      "path": "/guided-reading/regen/covers/gr-c-39-cover.webp",
       "sha256": "79cc36c2d00a531a3a19cad90015b1a2987dc72abbe8ef853d16e0ae4262a07a",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/covers/gr-d-42-cover.png",
+      "path": "/guided-reading/regen/covers/gr-d-42-cover.webp",
       "sha256": "13f4796be5f81285f35f42673954db9c8ede7bf2693ef45e9320d6836696eca4",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/covers/gr-d-43-cover.png",
+      "path": "/guided-reading/regen/covers/gr-d-43-cover.webp",
       "sha256": "703d164ca465822901d34a2df464990da35ad5c06a08f0fd10fdf4846574ece9",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/covers/gr-d-44-cover.png",
+      "path": "/guided-reading/regen/covers/gr-d-44-cover.webp",
       "sha256": "d21d93f8434a4da2cada15836f3a1736e61b1f8fa8e0d97d3728e58538e194dd",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/covers/gr-d-45-cover.png",
+      "path": "/guided-reading/regen/covers/gr-d-45-cover.webp",
       "sha256": "48b79b838034b22d49dd556a6fd7c80a2b255f056e2fd6aa55e85e0bb26aa44a",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/covers/gr-e-46-cover.png",
+      "path": "/guided-reading/regen/covers/gr-e-46-cover.webp",
       "sha256": "e26c20a9c0a0e1505bfe7f77a6f372be9c3a8baa26300921883fa375d672c8c9",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/covers/gr-e-47-cover.png",
+      "path": "/guided-reading/regen/covers/gr-e-47-cover.webp",
       "sha256": "d021dad45926ee13660ed967d6bd8ea49e0be8815e6cd2e03c18b385979d4cfd",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/covers/gr-e-48-cover.png",
+      "path": "/guided-reading/regen/covers/gr-e-48-cover.webp",
       "sha256": "03fce22d2cd3f4211b0b19a723570dd5e9e3c1cf3f8c36172bb29f8c30d39969",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/covers/gr-e-49-cover.png",
+      "path": "/guided-reading/regen/covers/gr-e-49-cover.webp",
       "sha256": "de416af7b89ddd346cd6204204840aa4d0087a14e255a08fabb9004970687499",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/covers/gr-e-50-cover.png",
+      "path": "/guided-reading/regen/covers/gr-e-50-cover.webp",
       "sha256": "2671dd50f8ab2d5c154bb20b7a8bcab86578b70697bec20e466b92f9bf3f17f5",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-26-page-01.png",
+      "path": "/guided-reading/regen/pages/gr-a-26-page-01.webp",
       "sha256": "ef8a98d6b0d132263fc65ec3cf78bbb05482f5986fa1df6c5aa4bf500889a8cf",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-26-page-02.png",
+      "path": "/guided-reading/regen/pages/gr-a-26-page-02.webp",
       "sha256": "e3d61e28faa295a2ded4a28b4116fa614d711f8847fa03a23fc14bc496b50fa5",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-26-page-03.png",
+      "path": "/guided-reading/regen/pages/gr-a-26-page-03.webp",
       "sha256": "9911b7f8528705370aef50882cbb2e3db2160842350182251fce62adb6862bbf",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-26-page-04.png",
+      "path": "/guided-reading/regen/pages/gr-a-26-page-04.webp",
       "sha256": "6c313da6534c87490ebd9fbccc26e16398f951a1ffe389dd99b7e87f74c543bb",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-26-page-05.png",
+      "path": "/guided-reading/regen/pages/gr-a-26-page-05.webp",
       "sha256": "f45bae21261d7080e5e71977343656c730f58d9814b45fcf86345e82f9c99386",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-26-page-06.png",
+      "path": "/guided-reading/regen/pages/gr-a-26-page-06.webp",
       "sha256": "ba8f8ef8be99abe5e5969ce68d765a2411c95a9b19c93809b304ae0437eb0fa4",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-27-page-01.png",
+      "path": "/guided-reading/regen/pages/gr-a-27-page-01.webp",
       "sha256": "6703185d13c1e7501876485262f0f5756e9d725c5c84ad0626f73fd2c1d9e0c0",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-27-page-02.png",
+      "path": "/guided-reading/regen/pages/gr-a-27-page-02.webp",
       "sha256": "526e6543ae6d1a32adba15d80e6f2c6be6ec28242864eee30e00c1d0b89f9a93",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-27-page-03.png",
+      "path": "/guided-reading/regen/pages/gr-a-27-page-03.webp",
       "sha256": "bb4cbe90be23376b006b0791484a9833f08089a509e610ecdee9ab9c4ba143fa",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-27-page-04.png",
+      "path": "/guided-reading/regen/pages/gr-a-27-page-04.webp",
       "sha256": "56522b3f3e9b66b4a3f47c418e91ec704c406018668a7d366b8ac2f232f2658a",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-27-page-05.png",
+      "path": "/guided-reading/regen/pages/gr-a-27-page-05.webp",
       "sha256": "444e274fa301ad13f8f1f8708928b81376bdd8c3fc93d295d82899b723638555",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-27-page-06.png",
+      "path": "/guided-reading/regen/pages/gr-a-27-page-06.webp",
       "sha256": "3b5e2eb520e952227903d3d2daaa4a8a75d445f378059fb021dc678dfb49696c",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-28-page-01.png",
+      "path": "/guided-reading/regen/pages/gr-a-28-page-01.webp",
       "sha256": "08978f9233e0ca4c45d0f7d870e7b8462a01e14fd0d1c5c5be7c54e9f720ec17",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-28-page-02.png",
+      "path": "/guided-reading/regen/pages/gr-a-28-page-02.webp",
       "sha256": "04258f9c99e40d71f1825fcd94782fd778f17d1937c2776d079716520f06cb46",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-28-page-03.png",
+      "path": "/guided-reading/regen/pages/gr-a-28-page-03.webp",
       "sha256": "9df068818e5157f9ed26cd675ff97c660b0ed657d1c00163ada687dc950180c1",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-28-page-04.png",
+      "path": "/guided-reading/regen/pages/gr-a-28-page-04.webp",
       "sha256": "86e6866a97a5eb20248ac93b65dc67c956dbc2d9bcdf40f113668e348315c84e",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-28-page-05.png",
+      "path": "/guided-reading/regen/pages/gr-a-28-page-05.webp",
       "sha256": "033a37cabc50aca0e6a7ae9bf5a8f8c38f8ae9c3ec4bc87b5a56143e05e4044b",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-28-page-06.png",
+      "path": "/guided-reading/regen/pages/gr-a-28-page-06.webp",
       "sha256": "c3012988d6106c59a28a460009f7b3d46c3694a10ced0416a10c90145ca2f3b4",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-29-page-01.png",
+      "path": "/guided-reading/regen/pages/gr-a-29-page-01.webp",
       "sha256": "2d4695ff3339cc4811fd115ac44579b9ae14ee55e40f1259db26643df3083e9a",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-29-page-02.png",
+      "path": "/guided-reading/regen/pages/gr-a-29-page-02.webp",
       "sha256": "9f57afdbfc6c51a85f8887fb3f4b4eaefce8d1999a8651eaa7024f8d91aeaac2",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-29-page-03.png",
+      "path": "/guided-reading/regen/pages/gr-a-29-page-03.webp",
       "sha256": "f57380c1cd2683bea9e42ed418cac4b3ba17add246f96f19d34da1acd83d2880",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-29-page-04.png",
+      "path": "/guided-reading/regen/pages/gr-a-29-page-04.webp",
       "sha256": "024b515527f088a0a86ac0b2bd87168d4b408b124fa935133405040bb0bbcf25",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-29-page-05.png",
+      "path": "/guided-reading/regen/pages/gr-a-29-page-05.webp",
       "sha256": "87b19e199253b6175f616999a2a538d8ea34dfa1cd780e95cf71fad4ccac7279",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-a-29-page-06.png",
+      "path": "/guided-reading/regen/pages/gr-a-29-page-06.webp",
       "sha256": "db25604f3745332e02c3e92c6e559f500a488441dd5c8d2e433a43c213d35c87",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-31-page-01.png",
+      "path": "/guided-reading/regen/pages/gr-b-31-page-01.webp",
       "sha256": "1b9af48bac413c6529da6353e192cdd2ab95de70b66928403a588343fc6f4567",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-31-page-02.png",
+      "path": "/guided-reading/regen/pages/gr-b-31-page-02.webp",
       "sha256": "4c2f9b78e1e780c6fcdd97e52b2e115c05e07dbcab6962b6197c8bb38c7be1cc",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-31-page-03.png",
+      "path": "/guided-reading/regen/pages/gr-b-31-page-03.webp",
       "sha256": "9b0f7f8094a7d1b8685c7d6ced5e00aa8d7dbd21e0f07a5124fff59d149d0e51",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-31-page-04.png",
+      "path": "/guided-reading/regen/pages/gr-b-31-page-04.webp",
       "sha256": "f76e13341833321982e1b68ec7da1c6ed4d1f2e0c7dbcd44593af68171e7d997",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-31-page-05.png",
+      "path": "/guided-reading/regen/pages/gr-b-31-page-05.webp",
       "sha256": "385ebf3c29a353cecb1f86f2835f283f54ecf18b8c155da83aa0ffa1644711f6",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-31-page-06.png",
+      "path": "/guided-reading/regen/pages/gr-b-31-page-06.webp",
       "sha256": "884bd0a01806362c687c6213624fbcfcc1cf200046090e340b93568722e45157",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-32-page-01.png",
+      "path": "/guided-reading/regen/pages/gr-b-32-page-01.webp",
       "sha256": "c1765a86bdb53a89d07f22f3b63158927de96bdcce12f19ebec6c5b72ea34dd0",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-32-page-02.png",
+      "path": "/guided-reading/regen/pages/gr-b-32-page-02.webp",
       "sha256": "df1787ddfc1999c8b8dc1b9b4089080255dfc67ab7dfe01202a79fe640c1c25a",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-32-page-03.png",
+      "path": "/guided-reading/regen/pages/gr-b-32-page-03.webp",
       "sha256": "c80a762f2d1463cb16ea606bd8f464ae1a743210d08131c48359e862cbed14b7",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-32-page-04.png",
+      "path": "/guided-reading/regen/pages/gr-b-32-page-04.webp",
       "sha256": "0bbfaccbb2bf28b07b994279b3aa71fb48e45b3e46f23d65dbc72b1495444353",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-32-page-05.png",
+      "path": "/guided-reading/regen/pages/gr-b-32-page-05.webp",
       "sha256": "4dec7628f676e6d07fc2a52086f408a5746ebded7af12ebe1ed0a6228896a13b",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-32-page-06.png",
+      "path": "/guided-reading/regen/pages/gr-b-32-page-06.webp",
       "sha256": "9b4595dbda3d685f19fdb9a21adda774649d07068ac63efb93e3b8cc98071513",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-33-page-01.png",
+      "path": "/guided-reading/regen/pages/gr-b-33-page-01.webp",
       "sha256": "1e5c4f0c148926282255ec6dc1a2544b4671006f315c0d8d41b0481c81601277",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-33-page-02.png",
+      "path": "/guided-reading/regen/pages/gr-b-33-page-02.webp",
       "sha256": "ec9d137fbadb15fb3002b201b8238e529a94eca982b64a320fa3b7911e3dd992",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-33-page-03.png",
+      "path": "/guided-reading/regen/pages/gr-b-33-page-03.webp",
       "sha256": "9a87ebb3cdf2110a07beb812aac9bc0d8f15bec6e22405ab02206148b454ebdd",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-33-page-04.png",
+      "path": "/guided-reading/regen/pages/gr-b-33-page-04.webp",
       "sha256": "ac79d1021b74f083cc195733e3e73eb4612fbcfbbc9f449fd6d5c87c826aa9c4",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-33-page-05.png",
+      "path": "/guided-reading/regen/pages/gr-b-33-page-05.webp",
       "sha256": "a09be448961fe5bd1ccb5e72e244e994a2b9c38913f058d568c889e63a8c3dd5",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-33-page-06.png",
+      "path": "/guided-reading/regen/pages/gr-b-33-page-06.webp",
       "sha256": "5188c3b638fb34446a79d69c126e2a49f0263e440b62462f2289fd04f4201106",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-34-page-01.png",
+      "path": "/guided-reading/regen/pages/gr-b-34-page-01.webp",
       "sha256": "96bbd9508e46ffe0fbfb7a28eaea731f23dc16d51a36e7e0ceb5543bb1632dcd",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-34-page-02.png",
+      "path": "/guided-reading/regen/pages/gr-b-34-page-02.webp",
       "sha256": "a4262d9cffc1281d1f3ed9c2cc5154123ea5ceb46c42e8c7b938f245bef43a0c",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-34-page-03.png",
+      "path": "/guided-reading/regen/pages/gr-b-34-page-03.webp",
       "sha256": "09cd8b03996247c56d73f613002bf0340fdea07758d8d324b8d6f5737c8155cb",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-34-page-04.png",
+      "path": "/guided-reading/regen/pages/gr-b-34-page-04.webp",
       "sha256": "09144d9b6cbb2368a2fa0097f42fe1a65ab6dd19b2ae50e3740c0f22640b3489",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-34-page-05.png",
+      "path": "/guided-reading/regen/pages/gr-b-34-page-05.webp",
       "sha256": "00ac80a3c968f4018036577b636ce22a0196d57c69fb97536430c59d01e5c867",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-34-page-06.png",
+      "path": "/guided-reading/regen/pages/gr-b-34-page-06.webp",
       "sha256": "9c770ec574f022e096ca7b0041988aa7803267c0707661de3f8bfbd9935ad2aa",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-35-page-01.png",
+      "path": "/guided-reading/regen/pages/gr-b-35-page-01.webp",
       "sha256": "96b093bd3ae98f35093214f544f333e3dcd79405f6a5e50194f739d8b9414532",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-35-page-02.png",
+      "path": "/guided-reading/regen/pages/gr-b-35-page-02.webp",
       "sha256": "29634461c91b443986b5ac8ec251f035db8aaec3001435408cf51fe183c54b3a",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-35-page-03.png",
+      "path": "/guided-reading/regen/pages/gr-b-35-page-03.webp",
       "sha256": "0bf0b017c768e80209dba6212d7efaddb601072370bc056463ab4a09c8f5d8ab",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-35-page-04.png",
+      "path": "/guided-reading/regen/pages/gr-b-35-page-04.webp",
       "sha256": "1992b995291bf9a6def38707ed98f9756336e7c3c3946f75a9c37077cbada83c",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-35-page-05.png",
+      "path": "/guided-reading/regen/pages/gr-b-35-page-05.webp",
       "sha256": "af13a22355dbd926409b4a1e113113f2d610842f03c8a056425553142634d57b",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-b-35-page-06.png",
+      "path": "/guided-reading/regen/pages/gr-b-35-page-06.webp",
       "sha256": "4c39047039aa84a43cb907ce82d7ce1de5b6569495e252f15190d38513a7470c",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-c-37-page-01.png",
+      "path": "/guided-reading/regen/pages/gr-c-37-page-01.webp",
       "sha256": "c39e5994f6a5dc05eaa758a3719f7558b9825d439d84f25bc6b84575d4f97ca4",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-c-37-page-02.png",
+      "path": "/guided-reading/regen/pages/gr-c-37-page-02.webp",
       "sha256": "9a006854738d0dea49f4dc8f6e6d2e5349f7dd6ee5460be86ecb7daf22eb27b9",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-c-37-page-03.png",
+      "path": "/guided-reading/regen/pages/gr-c-37-page-03.webp",
       "sha256": "844cbec6442d11ef82717d1b28c47b6a7988a7d2dfdcf786f263e0dfc4328382",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-c-37-page-04.png",
+      "path": "/guided-reading/regen/pages/gr-c-37-page-04.webp",
       "sha256": "36d7af24ab154c19a9668b12f8a2bd7f82e48dbdbc91f05188b014cc7405862c",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-c-37-page-05.png",
+      "path": "/guided-reading/regen/pages/gr-c-37-page-05.webp",
       "sha256": "e4258e87a8a3946005a5332d47a2df493ca53448038410649ca25cf66594d03a",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-c-37-page-06.png",
+      "path": "/guided-reading/regen/pages/gr-c-37-page-06.webp",
       "sha256": "1099045072977cdcfc4c47d7217033a975980d5ef9e7a53811252397068888e8",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-c-38-page-01.png",
+      "path": "/guided-reading/regen/pages/gr-c-38-page-01.webp",
       "sha256": "d2480505e8e33c8bd8878c743dc21a645c18ef6a24947771b1b7db989fbf38ef",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-c-38-page-02.png",
+      "path": "/guided-reading/regen/pages/gr-c-38-page-02.webp",
       "sha256": "9c37e88f9581c314023b88888d7436b71ec482fb75a4e1fff9186e11ac071642",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-c-38-page-03.png",
+      "path": "/guided-reading/regen/pages/gr-c-38-page-03.webp",
       "sha256": "76b67b00662bf11bb30f8944dda151f25b82ec3f01d72a22b2da26f0df2062cd",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-c-38-page-04.png",
+      "path": "/guided-reading/regen/pages/gr-c-38-page-04.webp",
       "sha256": "e5760f6eec8053ae1eb662bea8b1544623220ac40094bdbe2f8fcef07d03bd46",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-c-38-page-05.png",
+      "path": "/guided-reading/regen/pages/gr-c-38-page-05.webp",
       "sha256": "13e22a45f217ac4c60d61bb5a351f018aed0588d91d100e6155f081381bdac4c",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-c-38-page-06.png",
+      "path": "/guided-reading/regen/pages/gr-c-38-page-06.webp",
       "sha256": "3992b76ed2a96edb9ed5201d2b2a8fe44b463ac06767b337341a18776ede9c8c",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-c-39-page-01.png",
+      "path": "/guided-reading/regen/pages/gr-c-39-page-01.webp",
       "sha256": "fe3c0ad9363b38e87009340f8a953aef39e91ff974897bdeea1a3ddb7b58bd09",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-c-39-page-02.png",
+      "path": "/guided-reading/regen/pages/gr-c-39-page-02.webp",
       "sha256": "f6e411d49bf8a5104e5bd9051cf0ea918b9b32ca8f02973c286091a8dd0330bf",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-c-39-page-03.png",
+      "path": "/guided-reading/regen/pages/gr-c-39-page-03.webp",
       "sha256": "449a4e346252ba3a3748ba0cf77640abc256c8a02581f5929dcc2dee593db528",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-c-39-page-04.png",
+      "path": "/guided-reading/regen/pages/gr-c-39-page-04.webp",
       "sha256": "02a00744530cdc922c2406fc5051b20d2d077e3300ea2fa0b85305ad035b8d7a",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-c-39-page-05.png",
+      "path": "/guided-reading/regen/pages/gr-c-39-page-05.webp",
       "sha256": "9f820084bf34260c66984ae7d033ac668fa2ad8fb8149474585bf3b0c1af9241",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-c-39-page-06.png",
+      "path": "/guided-reading/regen/pages/gr-c-39-page-06.webp",
       "sha256": "574f0ab82713d6b4398b4797d07543712af5515b47a65c3ba0686dae060a42ad",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-42-page-01.png",
+      "path": "/guided-reading/regen/pages/gr-d-42-page-01.webp",
       "sha256": "e5f1e8c32426192011fc9a7002c3e9df7d8ff6f6dc5dff7db2b6345823559d8e",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-42-page-02.png",
+      "path": "/guided-reading/regen/pages/gr-d-42-page-02.webp",
       "sha256": "db37ec8ff6025d5162242d2ff78aa62b71e2936ed6bb8524cbb824eae7f1472d",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-42-page-03.png",
+      "path": "/guided-reading/regen/pages/gr-d-42-page-03.webp",
       "sha256": "ec52a292fc6b776d29c3d4231b32101a10ae13a911e02372ec969a11800996fe",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-42-page-04.png",
+      "path": "/guided-reading/regen/pages/gr-d-42-page-04.webp",
       "sha256": "062f9a50c907740fe1b34c0d3a2ca6955c11cc61fe39ee61626bc24064205efc",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-42-page-05.png",
+      "path": "/guided-reading/regen/pages/gr-d-42-page-05.webp",
       "sha256": "4840a3ca9c2d13ccc2b936f827bfc0c25cff3cc239148ea3177da0b5705c5848",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-42-page-06.png",
+      "path": "/guided-reading/regen/pages/gr-d-42-page-06.webp",
       "sha256": "f004df088821006bfe006a919c9819bba5d4adedfef215aa6f9806f4b9825f4b",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-43-page-01.png",
+      "path": "/guided-reading/regen/pages/gr-d-43-page-01.webp",
       "sha256": "00bfc365ea852647fb292203cd4e7dcf670a4eb4158b7aff9ddaf56f9e084f1f",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-43-page-02.png",
+      "path": "/guided-reading/regen/pages/gr-d-43-page-02.webp",
       "sha256": "f036dd9e1789e00d6b18e6b779ae60ed2f43d414e97b8e18bbb44310ff7758b6",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-43-page-03.png",
+      "path": "/guided-reading/regen/pages/gr-d-43-page-03.webp",
       "sha256": "1502aea41222df5f8ec0eb98a844100e4276dd1edb22d1ada38c08d545b89a85",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-43-page-04.png",
+      "path": "/guided-reading/regen/pages/gr-d-43-page-04.webp",
       "sha256": "21ecea226d61aad2b14269013f05969a73716763b4671b5d0cd8203818cd06ec",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-43-page-05.png",
+      "path": "/guided-reading/regen/pages/gr-d-43-page-05.webp",
       "sha256": "bb04a963f112b1811ee422fc9f31ce65f6afb6542e3a100ea5a7392d35f3d7f5",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-43-page-06.png",
+      "path": "/guided-reading/regen/pages/gr-d-43-page-06.webp",
       "sha256": "79be7cde17f286d448f9becde5810e8067a9c9faa4b3d015c33fd1175a14dded",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-44-page-01.png",
+      "path": "/guided-reading/regen/pages/gr-d-44-page-01.webp",
       "sha256": "396651985b7d64084540efe21efa12a261be47579710ff14fe81f771f3a7df36",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-44-page-02.png",
+      "path": "/guided-reading/regen/pages/gr-d-44-page-02.webp",
       "sha256": "e973ca37c89e9aee7bf2baad47dee76c19edfc7222a623ac1f67b8cece59e8f1",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-44-page-03.png",
+      "path": "/guided-reading/regen/pages/gr-d-44-page-03.webp",
       "sha256": "86e4a80de26c6238426573636491a309525e35ed989cfa50d034764e3a5375d8",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-44-page-04.png",
+      "path": "/guided-reading/regen/pages/gr-d-44-page-04.webp",
       "sha256": "9c7e801f71fd1ad768e4b13374bf31103c243b36bd866139b0a955458a973dec",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-44-page-05.png",
+      "path": "/guided-reading/regen/pages/gr-d-44-page-05.webp",
       "sha256": "6f8ab9fe5613b706e8827d54c17859fb1c06aa4099dade0a4a391c29e30d908e",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-44-page-06.png",
+      "path": "/guided-reading/regen/pages/gr-d-44-page-06.webp",
       "sha256": "8035a7c72aa907c237d65a21b6aba4c939abe044026f0139b286febb569636d5",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-45-page-01.png",
+      "path": "/guided-reading/regen/pages/gr-d-45-page-01.webp",
       "sha256": "445fb3ac368f9c71d77bd0c071981ab458c8235bf059d4445759b8a5a6ef6ef5",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-45-page-02.png",
+      "path": "/guided-reading/regen/pages/gr-d-45-page-02.webp",
       "sha256": "3c2700ac1317971c669917c43d727f497af1817250509fbf086be519517f524c",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-45-page-03.png",
+      "path": "/guided-reading/regen/pages/gr-d-45-page-03.webp",
       "sha256": "008348ff6eadfc7d3c8b6b7fb577e9aaf58a287c27d24e4f67360187dedf2ae2",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-45-page-04.png",
+      "path": "/guided-reading/regen/pages/gr-d-45-page-04.webp",
       "sha256": "78a2ceba481dce653f16192ea4b8f0cd07d6a4501c56faa3f3f507139532bc3f",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-45-page-05.png",
+      "path": "/guided-reading/regen/pages/gr-d-45-page-05.webp",
       "sha256": "79a0b25cd90240c2fa33bc3804ae1b345814a3e7d8be90566b164616c2f055ba",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-d-45-page-06.png",
+      "path": "/guided-reading/regen/pages/gr-d-45-page-06.webp",
       "sha256": "63c449533784469d600eb57c031fef413ffb150a6da7fdb348e944d70216739f",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-46-page-01.png",
+      "path": "/guided-reading/regen/pages/gr-e-46-page-01.webp",
       "sha256": "70f080ada82dba9dfb871586857f83ce8ae54672d3aa3883c2829c55783afc2e",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-46-page-02.png",
+      "path": "/guided-reading/regen/pages/gr-e-46-page-02.webp",
       "sha256": "861286933b2d061e7d58cdc3235c73cca72ad32828d46dbdd3f35853f75a7d5b",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-46-page-03.png",
+      "path": "/guided-reading/regen/pages/gr-e-46-page-03.webp",
       "sha256": "84bee53527583800d646b3c483e21e25c8b1e4599b5a0eec5e3f2f3da5b0f89a",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-46-page-04.png",
+      "path": "/guided-reading/regen/pages/gr-e-46-page-04.webp",
       "sha256": "d6fdc66028b8a193112e64aead215a2c494e3713dbd14f67a54dc7bc51ba3944",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-46-page-05.png",
+      "path": "/guided-reading/regen/pages/gr-e-46-page-05.webp",
       "sha256": "e32d94980112d2dc4a2c1c76c4121ac6eef74f266d4e0541a4e9dcde8e8d86ee",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-46-page-06.png",
+      "path": "/guided-reading/regen/pages/gr-e-46-page-06.webp",
       "sha256": "cf8d13ecfb2a2f99fa0c15c286a24934f3b7a59e29ae54ae232f5a339975148d",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-47-page-01.png",
+      "path": "/guided-reading/regen/pages/gr-e-47-page-01.webp",
       "sha256": "039c8dab65fdb652cb20756fdc70d6bf52b4458e0869944c3ffc32fc86ed7ca9",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-47-page-02.png",
+      "path": "/guided-reading/regen/pages/gr-e-47-page-02.webp",
       "sha256": "ba9de12970102dfc91db136f246fb5835b3101891af9dd99666dceda970434c4",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-47-page-03.png",
+      "path": "/guided-reading/regen/pages/gr-e-47-page-03.webp",
       "sha256": "1f67cc89989585a0aa0090e98d894c62290bfb2dbcce3bbc201b87d8cebaec99",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-47-page-04.png",
+      "path": "/guided-reading/regen/pages/gr-e-47-page-04.webp",
       "sha256": "21ae9b3f5d39bdb77ec7b59d5176021fc0cdf708b825cbed7106445bae8a5296",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-47-page-05.png",
+      "path": "/guided-reading/regen/pages/gr-e-47-page-05.webp",
       "sha256": "135553cacc1ae8d956dbea6c077e3e0ef66aaf98302e1c20e2b650e286a247ac",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-47-page-06.png",
+      "path": "/guided-reading/regen/pages/gr-e-47-page-06.webp",
       "sha256": "af2e17d9effefb013b2c92226dfffce7556e82ea674325bdab5570cabeec3123",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-48-page-01.png",
+      "path": "/guided-reading/regen/pages/gr-e-48-page-01.webp",
       "sha256": "302e3f42d330f51c3ec6db5cca5f22d0099b31ac8b3a340a932ec227e4ee097a",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-48-page-02.png",
+      "path": "/guided-reading/regen/pages/gr-e-48-page-02.webp",
       "sha256": "38016b0373371e3d1512cac5743be06a4621661ed889a6e6c4c019018c2b918c",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-48-page-03.png",
+      "path": "/guided-reading/regen/pages/gr-e-48-page-03.webp",
       "sha256": "6f682577940227495b6b96533ca2761245f54354e779bd25dec9c6475f7e588d",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-48-page-04.png",
+      "path": "/guided-reading/regen/pages/gr-e-48-page-04.webp",
       "sha256": "8535995ab1ced85c7e9c06d6fd71ce5d8f020b2b3da90890dab2fd45ef8e9188",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-48-page-05.png",
+      "path": "/guided-reading/regen/pages/gr-e-48-page-05.webp",
       "sha256": "0d5c5548d1c39d64829bffb6f85df577e75cdb61cb9fa76575545ac3c5964095",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-48-page-06.png",
+      "path": "/guided-reading/regen/pages/gr-e-48-page-06.webp",
       "sha256": "64a7962b4a5cdbe74d674e17dbedf739951fac7a4caf3b2680d575ed4545c93d",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-49-page-01.png",
+      "path": "/guided-reading/regen/pages/gr-e-49-page-01.webp",
       "sha256": "c8254a5b2b1025afac60ce6759faa746897de18cdca7076e27cedd16ab8cc35d",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-49-page-02.png",
+      "path": "/guided-reading/regen/pages/gr-e-49-page-02.webp",
       "sha256": "27bea39163ee3c990f9e4e1f3a3454cbe9f33760f9e2013599862776890abee3",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-49-page-03.png",
+      "path": "/guided-reading/regen/pages/gr-e-49-page-03.webp",
       "sha256": "90738c0ab4dfd77d5d2c27a3782a91fb1251337866c968c136d46e941cf4e2f7",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-49-page-04.png",
+      "path": "/guided-reading/regen/pages/gr-e-49-page-04.webp",
       "sha256": "96008ee77c770e08a36f5bb08aeb00b3b893cb8c50c40c3bf5a914e29f683597",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-49-page-05.png",
+      "path": "/guided-reading/regen/pages/gr-e-49-page-05.webp",
       "sha256": "86400c9111d3f36eb29e0c4a407a55bec5f2068e29258ace868ae12c933db168",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-49-page-06.png",
+      "path": "/guided-reading/regen/pages/gr-e-49-page-06.webp",
       "sha256": "f7a33cd904a82e0ac1a8f981617504f81e99d00099f42fc51fd4366d96fa7388",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-50-page-01.png",
+      "path": "/guided-reading/regen/pages/gr-e-50-page-01.webp",
       "sha256": "f4a6bccf6a078498a5fc211a41fc4e27ffd0623febe47c464385157bfae9fa33",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-50-page-02.png",
+      "path": "/guided-reading/regen/pages/gr-e-50-page-02.webp",
       "sha256": "fa9845051ae242387ce84c2b1a5109b776f4af328bb6769e9ad5a4ae4b38f7f9",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-50-page-03.png",
+      "path": "/guided-reading/regen/pages/gr-e-50-page-03.webp",
       "sha256": "a7be00842ace3cc4af6e051e42ef70d4107e974d7b7e88a60b7382b994ffd775",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-50-page-04.png",
+      "path": "/guided-reading/regen/pages/gr-e-50-page-04.webp",
       "sha256": "6c35f941d5969073005234776ea97e2baf7770b3511467bcd9793ee10a9fa523",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-50-page-05.png",
+      "path": "/guided-reading/regen/pages/gr-e-50-page-05.webp",
       "sha256": "9d35397528af3a4edcc3e390386f9621ffde1b5dd4483ce060097d0a1a6b0a50",
       "status": "approved"
     },
     {
-      "path": "/guided-reading/regen/pages/gr-e-50-page-06.png",
+      "path": "/guided-reading/regen/pages/gr-e-50-page-06.webp",
       "sha256": "7d4ba348a0e759f316ba054609f51017db2e6cb758b8684d38b7e0f97e51834d",
       "status": "approved"
     },
@@ -23591,1007 +23591,1007 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/blends/black.png",
+      "path": "/images/child-mode/blends/black.webp",
       "sha256": "a4dfc40e924730b2404494f80c1182154a93e5bb923310c86b1a75f3a7413551",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/blends/blue.png",
+      "path": "/images/child-mode/blends/blue.webp",
       "sha256": "f155fa1fbc664ad0a9b85ca15d204dd25c400822b59aa6a349c183ba4843f48a",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/blends/cloud.png",
+      "path": "/images/child-mode/blends/cloud.webp",
       "sha256": "1f00c46c037c5f120bf200bc80e415db5e963f5716e2354eecb62e6238684a37",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/blends/drum.png",
+      "path": "/images/child-mode/blends/drum.webp",
       "sha256": "ac4f5c873080deefce60251972ab4863b75859eafa4eeff15c28361027767d82",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/blends/flag.png",
+      "path": "/images/child-mode/blends/flag.webp",
       "sha256": "6adcc6a83325adc233fd628739baf37f93797be19370fd2b50734995fccaeff2",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/blends/frog.png",
+      "path": "/images/child-mode/blends/frog.webp",
       "sha256": "c422af1991c47d91e956ab27162999ffb4c37f0adeaec4c49a6052c623b7fc53",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/blends/slide.png",
+      "path": "/images/child-mode/blends/slide.webp",
       "sha256": "b7a9d7036872216e2db8ede13ef74ad1827466ca8f931b41f0285d9a32fc1c55",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/blends/snake.png",
+      "path": "/images/child-mode/blends/snake.webp",
       "sha256": "e97650c00d2eaadceda88718e003a4c6e03d6c4863d1b418c45afd203634e9cf",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/blends/star.png",
+      "path": "/images/child-mode/blends/star.webp",
       "sha256": "64861447a2b37cfba8ac5b8350202b83bf0d2eaa3f504770af575d5ea559b860",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/blends/tree.png",
+      "path": "/images/child-mode/blends/tree.webp",
       "sha256": "8d23f945663bc473f054979af25acd9ef73e4c803207c2daf52c034af621a245",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/bad.png",
+      "path": "/images/child-mode/cvc/bad.webp",
       "sha256": "d514a89fb2b6d697dfc96e04085bde0c5199f9104f0757f59d1a54a2a93b8f12",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/bag.png",
+      "path": "/images/child-mode/cvc/bag.webp",
       "sha256": "1dfbc4617febcba3e566ef076f4ddc47f46ae5d9ab036f9c7e1e7d6e597e8939",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/bat.png",
+      "path": "/images/child-mode/cvc/bat.webp",
       "sha256": "6c09fc32660e03d8410600ac723f562e16c26a3c82f98e573720f6e77521658c",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/bed.png",
+      "path": "/images/child-mode/cvc/bed.webp",
       "sha256": "20d29c61eddc9e4414c26644c76ea2752766538f0b6cc4cd50476683e3fecffc",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/bid.png",
+      "path": "/images/child-mode/cvc/bid.webp",
       "sha256": "ac0b7ecd65cdab2815aba4e2cc032fea4c07648fde81e1fcd26e0a1da3a8c1b7",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/book.png",
+      "path": "/images/child-mode/cvc/book.webp",
       "sha256": "2207d40916667099f66fbe95d2a43664f3ef550561edf9f715fddffbae7b4984",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/bud.png",
+      "path": "/images/child-mode/cvc/bud.webp",
       "sha256": "3ced508a0c31b1fa907a8eae9d87b012a5e870a99610074299f1557f3a9eaed0",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/bug.png",
+      "path": "/images/child-mode/cvc/bug.webp",
       "sha256": "07a8942ba63aeba8be206982d6c7582bd0e1629dbd46fbed2d83eb24e3bfd95d",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/cap.png",
+      "path": "/images/child-mode/cvc/cap.webp",
       "sha256": "b5cbbadacbf75686cd1863414287d6718d74d2dcf5fae74f32914c60165747c8",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/cat.png",
+      "path": "/images/child-mode/cvc/cat.webp",
       "sha256": "f8a4bc6656bc6542ab4f75226065bd8dbc1e519ea03eb1d658af0af0a6e140e6",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/dig.png",
+      "path": "/images/child-mode/cvc/dig.webp",
       "sha256": "3ab660ec5140e800b5f2b34cfe295237b245f9ebfb6a6f4189958164bacdeed2",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/dog.png",
+      "path": "/images/child-mode/cvc/dog.webp",
       "sha256": "397db0b4388de63b2b64c11fee0b77869bf28001234d508cdbe6f38108c39db0",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/dot.png",
+      "path": "/images/child-mode/cvc/dot.webp",
       "sha256": "644518a1bce9c0ce423dc6bd2d9bd9c48462060b6d2734240aa52ba6a2753da4",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/dug.png",
+      "path": "/images/child-mode/cvc/dug.webp",
       "sha256": "4aac1af643cc61121195e3886fc57ddc24c51cf47649763fdb22eae0771d5cfe",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/fish.png",
+      "path": "/images/child-mode/cvc/fish.webp",
       "sha256": "615d518396de09fbfc4be12253837e783c25039951bef16c023768830905a7ff",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/hat.png",
+      "path": "/images/child-mode/cvc/hat.webp",
       "sha256": "7b78e81337fce0b8e026172903af048f1e7c932acd359aaaf10c4b9bbca70928",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/log.png",
+      "path": "/images/child-mode/cvc/log.webp",
       "sha256": "cb999ed29c994926d6579984e22a34e6b497845a0848005eceeddc1ae41883bf",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/man.png",
+      "path": "/images/child-mode/cvc/man.webp",
       "sha256": "cb5eff2780bd3f9d4a5704e4829a6c756a7dadd9507b65e87f4df551def24212",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/map.png",
+      "path": "/images/child-mode/cvc/map.webp",
       "sha256": "114a002ef8978186a2b26445d2595cdab0941101ddf2e06a503960b76443adde",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/mug.png",
+      "path": "/images/child-mode/cvc/mug.webp",
       "sha256": "7cd49470a9a58f2e3754dd84450a213f3a053879439ab312f963f0cc782dfae4",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/nap.png",
+      "path": "/images/child-mode/cvc/nap.webp",
       "sha256": "5a8829d59352057cea15081542bafe6b6a1ce99572ad3c27cfed821b92b37136",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/pan.png",
+      "path": "/images/child-mode/cvc/pan.webp",
       "sha256": "d0515b406ed93168a448fddd2c8d7246403921edcd786e4fcec143c051cf1f67",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/pot.png",
+      "path": "/images/child-mode/cvc/pot.webp",
       "sha256": "cd9469d5867d89cb41ae8159b4d6e0af8d8cc79faa696e5fca36722ee8bd1e3f",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/cvc/sun.png",
+      "path": "/images/child-mode/cvc/sun.webp",
       "sha256": "dc7b67f36539d835865ae2fb7276df87c3898389458f0477b1c1776e189fe5a3",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/digraphs/chair.png",
+      "path": "/images/child-mode/digraphs/chair.webp",
       "sha256": "a5e24e01ebb994b55348d387134d52d3541983c9af2606ff01379505450f1508",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/digraphs/chick.png",
+      "path": "/images/child-mode/digraphs/chick.webp",
       "sha256": "2f87a87683726cf3ef99e21bf53f60475d4d78559f0011324376808f07a70ad5",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/digraphs/phone.png",
+      "path": "/images/child-mode/digraphs/phone.webp",
       "sha256": "2f6a3af33ee6284a3d4aae1916c3457566398b7ba60ab2f105d410314d861152",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/digraphs/shell.png",
+      "path": "/images/child-mode/digraphs/shell.webp",
       "sha256": "07b9034961c17a0ecf0cb5dcf0d56a0cb890e0e7839f9ec51d8aca575a0add6b",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/digraphs/ship.png",
+      "path": "/images/child-mode/digraphs/ship.webp",
       "sha256": "6a02367a8de531a7192cfe0e1119bb24df9e30ca643b2135ac09fe5a63b8cc11",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/digraphs/thumb.png",
+      "path": "/images/child-mode/digraphs/thumb.webp",
       "sha256": "65c947a8071d5877dc0e67a986353ba4c6bbbbe7e8b64028ab908dce63073a81",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/digraphs/whale.png",
+      "path": "/images/child-mode/digraphs/whale.webp",
       "sha256": "14bff3936071ace57275ef5de10a0a59c7221ffc6c806c49c8461574e8646748",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/digraphs/wheel.png",
+      "path": "/images/child-mode/digraphs/wheel.webp",
       "sha256": "cdc192c63df2c5acd63bad5a8febf5efb2ff2fe6738081db76601394978fa84d",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/ant.png",
+      "path": "/images/child-mode/initial-sounds/ant.webp",
       "sha256": "6312a0c3199d156eeec0ffc2759e8e8d202da2478fdc9bec9951d23c346e8046",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/apple.png",
+      "path": "/images/child-mode/initial-sounds/apple.webp",
       "sha256": "38a7a67089abb2ae18350f7c074719d68f862e14c2c0a932bc4b47206490ca47",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/axe.png",
+      "path": "/images/child-mode/initial-sounds/axe.webp",
       "sha256": "e05c6dd8aa4719af0339d66b8a8e288622b2fe11e66dfea3794741fd8a3bbeb6",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/bad.png",
+      "path": "/images/child-mode/initial-sounds/bad.webp",
       "sha256": "7d4a7a1bc6ffbd869dedf02520f7c447a4c715f25c81f87520da851c303a1d8e",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/bag.png",
+      "path": "/images/child-mode/initial-sounds/bag.webp",
       "sha256": "fb76422e700249942367b754ec7edce9743982ea00ba75b1233ac138be64b9ed",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/ball.png",
+      "path": "/images/child-mode/initial-sounds/ball.webp",
       "sha256": "428cae71c686684a759f9af6f4890406998bc5dee3ba0d90544c2ebc25d3cf7c",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/bat.png",
+      "path": "/images/child-mode/initial-sounds/bat.webp",
       "sha256": "39d14d69e86d37ff553f45b355649d6c7917ad14d4a144b1e88ca1f84b15ad61",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/bear.png",
+      "path": "/images/child-mode/initial-sounds/bear.webp",
       "sha256": "4977a98fd9054d4808ab2b9d831d56a7850a73ac3048e475b5421105c17f5ad4",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/bed.png",
+      "path": "/images/child-mode/initial-sounds/bed.webp",
       "sha256": "19fdc907fd29e499f680fcc59c7301aba6a6ac576b0154be418c52207ac468b9",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/bell.png",
+      "path": "/images/child-mode/initial-sounds/bell.webp",
       "sha256": "5ba9ffd0b3e3aff6ced5257a377c1a4786d65b7b6225c0cbc90c1893f544e652",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/bid.png",
+      "path": "/images/child-mode/initial-sounds/bid.webp",
       "sha256": "eaea59649ea5cf2596443b6eac90aca975e3dd7f9d235fb7d93b5371329f964a",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/big.png",
+      "path": "/images/child-mode/initial-sounds/big.webp",
       "sha256": "a9e32cd02461d7114f3a4ee7bf7063f2b6a7d6d6b31b45e309274acfe7fe1dac",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/bin.png",
+      "path": "/images/child-mode/initial-sounds/bin.webp",
       "sha256": "58069f7ccb9aa3f88ad7e6af8da4031de0506b9902cfa3358c7fc592dacb0f65",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/bird.png",
+      "path": "/images/child-mode/initial-sounds/bird.webp",
       "sha256": "0df42dca5a6602a9d58482d41c2840985b2a6671ff3753cef8b5e55eed2224c2",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/boat.png",
+      "path": "/images/child-mode/initial-sounds/boat.webp",
       "sha256": "14e03bc143832580a778980ff3d23a1e4542752ce468966d3c1ffe7b649ec6d8",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/book.png",
+      "path": "/images/child-mode/initial-sounds/book.webp",
       "sha256": "c2ffb467b252bc2609344929394f4ed2834f6067e81c4f16f9270a6bcda3c0d0",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/box.png",
+      "path": "/images/child-mode/initial-sounds/box.webp",
       "sha256": "d3529ba3c73c0876b51b6c7157033937568217935526fffbb3610b9bc59b83b0",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/brush.png",
+      "path": "/images/child-mode/initial-sounds/brush.webp",
       "sha256": "3fa0bf0287f49861aa9818b9fb6f066c384d975f77c357fdd863c4d0c8eb4c08",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/bud.png",
+      "path": "/images/child-mode/initial-sounds/bud.webp",
       "sha256": "074ea6b37399592ad5b0060c31fd371e584367dc1e83e0527e80f1adfdca617e",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/bug.png",
+      "path": "/images/child-mode/initial-sounds/bug.webp",
       "sha256": "6d89e08841712acfdbb2e7554d2eb305fa51f68272bc6f7e75f99a0556208015",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/bus.png",
+      "path": "/images/child-mode/initial-sounds/bus.webp",
       "sha256": "52432d9a26783f1ee77a7a89c70fd1748b8c8584c3f24cb992976d0debc0c833",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/cake.png",
+      "path": "/images/child-mode/initial-sounds/cake.webp",
       "sha256": "934bf5f3907da62b43d83ffb187778c0b1ffb1d8ab9884197a4e0fc396a2b1c1",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/cap.png",
+      "path": "/images/child-mode/initial-sounds/cap.webp",
       "sha256": "812f6a20b9455b00a2a99ecfebe8c69c392f1fd98c106d25bcdd9e068ddc20a8",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/car.png",
+      "path": "/images/child-mode/initial-sounds/car.webp",
       "sha256": "85bcc32954969b0b69ae2e8e19b2ca78114b2c173a8ec27f6aeb06fb27b0f43b",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/cat.png",
+      "path": "/images/child-mode/initial-sounds/cat.webp",
       "sha256": "7ed571b4a1b303b7a0c86d831e149a0768580b433f37b7a2aa1bfc1f08f5380c",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/chair.png",
+      "path": "/images/child-mode/initial-sounds/chair.webp",
       "sha256": "679514bad312842ad92228807d3f70ea60fc8411fcbf5d71cb63368603ef9082",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/clap.png",
+      "path": "/images/child-mode/initial-sounds/clap.webp",
       "sha256": "5547b0b7f9ea75a26847d04afffbe1a66103a51e72aef03dbae78e2dab8654cb",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/coat.png",
+      "path": "/images/child-mode/initial-sounds/coat.webp",
       "sha256": "a3b6b9adba7cc9455eed4f9f40a74c54beab7f4bd76feff7a1c594e0aa736988",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/corn.png",
+      "path": "/images/child-mode/initial-sounds/corn.webp",
       "sha256": "42123f69ce9446211ba1e76f6981043b1e134e8c2512e69c8793aff41e4edcfc",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/cot.png",
+      "path": "/images/child-mode/initial-sounds/cot.webp",
       "sha256": "143ea03fd32728ad523f5ac6bcfd18cc4e6f539586867aab63ffce4d06320eb7",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/crab.png",
+      "path": "/images/child-mode/initial-sounds/crab.webp",
       "sha256": "ba97dd05f372c7b681219a2342bac5277840778fdcab22c505b6ccc227342bd7",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/cup.png",
+      "path": "/images/child-mode/initial-sounds/cup.webp",
       "sha256": "97ac61e9ee96f07dd918a9fcd5cc651f749be2d9b2d44dbdfc8857d85428ebd5",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/cut.png",
+      "path": "/images/child-mode/initial-sounds/cut.webp",
       "sha256": "11877018a59cf4e93380d7c92996d60aa49cd7a6c8e253416b4d5b7b7479b2fb",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/desk.png",
+      "path": "/images/child-mode/initial-sounds/desk.webp",
       "sha256": "b053cc0c276cb4e43d044cbd4fdb893cd8e9725aa84a7bff0990840472e47b70",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/dig.png",
+      "path": "/images/child-mode/initial-sounds/dig.webp",
       "sha256": "5f336b9900631288abd80bc845393e273e585c99556c635fd8efa776deefdb2a",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/dish.png",
+      "path": "/images/child-mode/initial-sounds/dish.webp",
       "sha256": "e526d356fa2d36dd72ee4b51319930762ca643366692acf46436dc77957c188b",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/dog.png",
+      "path": "/images/child-mode/initial-sounds/dog.webp",
       "sha256": "7277c7552f51f2b992632ed5b7067aa12765b19e6ed436f61f5877ba449dd9e9",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/drum.png",
+      "path": "/images/child-mode/initial-sounds/drum.webp",
       "sha256": "ac4f5c873080deefce60251972ab4863b75859eafa4eeff15c28361027767d82",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/duck.png",
+      "path": "/images/child-mode/initial-sounds/duck.webp",
       "sha256": "6b0e690dbaa1ae0ff346c3fdff214d024894e0a0138190448de214967e411135",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/dug.png",
+      "path": "/images/child-mode/initial-sounds/dug.webp",
       "sha256": "db5cad3d65e87131762503a450575cf4e3fafdba7fc9dbbd22941c5aeafcc863",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/egg.png",
+      "path": "/images/child-mode/initial-sounds/egg.webp",
       "sha256": "f6cae18c21320a2a609ac8b36884f074280c485181238637ee0ae6f651116072",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/elephant.png",
+      "path": "/images/child-mode/initial-sounds/elephant.webp",
       "sha256": "0dc13d90d45c37152ccc36e291a0d856720755d15ba766b411090abd1c03a3d6",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/envelope.png",
+      "path": "/images/child-mode/initial-sounds/envelope.webp",
       "sha256": "55d5d5274b6f387eed91a71bb8a6bb767499b74feaaa0c606975c3ecd6053f2f",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/fan.png",
+      "path": "/images/child-mode/initial-sounds/fan.webp",
       "sha256": "adad183df935a4b2a1f81a4f5f32a25cac513f82f70465c0d2a07728670e110a",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/farm.png",
+      "path": "/images/child-mode/initial-sounds/farm.webp",
       "sha256": "ce5111281fe2f54c96efcd107acee6cf6443e30c94633f3211f36d82be778e71",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/feet.png",
+      "path": "/images/child-mode/initial-sounds/feet.webp",
       "sha256": "c7a4bcc73a4ee655825a269565914f9383e46e99c88145062734e3ba161165df",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/fin.png",
+      "path": "/images/child-mode/initial-sounds/fin.webp",
       "sha256": "e78a470c79455048ad8c697cec5e4cc436e2131ad8be06a84227b9f5fe63905c",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/fish.png",
+      "path": "/images/child-mode/initial-sounds/fish.webp",
       "sha256": "7f38eb1545f01575287f7cc3c5dcbea2909a66aea07ee52e2162e425634c2118",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/flag.png",
+      "path": "/images/child-mode/initial-sounds/flag.webp",
       "sha256": "6adcc6a83325adc233fd628739baf37f93797be19370fd2b50734995fccaeff2",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/fork.png",
+      "path": "/images/child-mode/initial-sounds/fork.webp",
       "sha256": "2fb11a6c3ec7e7524601ffe8e1bc60e634811c7886b13375d3241551b4140668",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/fox.png",
+      "path": "/images/child-mode/initial-sounds/fox.webp",
       "sha256": "655423fd9325cfe42a5efb871cdf900db5930cbfe5f77f0eaf6473d93f9ac93a",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/frog.png",
+      "path": "/images/child-mode/initial-sounds/frog.webp",
       "sha256": "909c7b47026bab01e92fbcea38f47e3760a775faba99f20339161f85b05c9757",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/gate.png",
+      "path": "/images/child-mode/initial-sounds/gate.webp",
       "sha256": "a580837960712464d37df139d9dbf559188a074f267da11ccf921cebc91bca19",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/girl.png",
+      "path": "/images/child-mode/initial-sounds/girl.webp",
       "sha256": "d2dc401e914d2fa0c87a26bf4d84c0f7ab06481b3a61cb0fc24147137c6e1b8b",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/gum.png",
+      "path": "/images/child-mode/initial-sounds/gum.webp",
       "sha256": "796520c0e6c1357c1613e79953a5f5bed05dd7ede11ecce1d8f4d7cabf6b2452",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/ham.png",
+      "path": "/images/child-mode/initial-sounds/ham.webp",
       "sha256": "b05176fedc82fc150d5b6ec9e41a77a9b38a040cf6afedb8500fe083b0278a07",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/hand.png",
+      "path": "/images/child-mode/initial-sounds/hand.webp",
       "sha256": "98e63fca7179226552ebfcd363960141e43dc2c1eae930a3c3de7e09756a4702",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/hat.png",
+      "path": "/images/child-mode/initial-sounds/hat.webp",
       "sha256": "1c53c4fc193572a8aa216cd166846fa84307a55838c3343dda0237e2569c884a",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/hen.png",
+      "path": "/images/child-mode/initial-sounds/hen.webp",
       "sha256": "4e5c92daacaf55baee3b89158dea95afec4738b8bc7f1108ac6359a7541d71ad",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/hit.png",
+      "path": "/images/child-mode/initial-sounds/hit.webp",
       "sha256": "b148ee60abb79fe3e62c77abda6624c49d2904713ebaf9d65476d823190a0686",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/hook.png",
+      "path": "/images/child-mode/initial-sounds/hook.webp",
       "sha256": "fe71b1a4a79715d4b89c9fcc277fb3d81adbb78d5769ca99378d1f3938e52470",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/hop.png",
+      "path": "/images/child-mode/initial-sounds/hop.webp",
       "sha256": "ca53e86061fe3296455216e433c106daa31ee42a6d20e344e515ad28e3686864",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/hot.png",
+      "path": "/images/child-mode/initial-sounds/hot.webp",
       "sha256": "f7326b1020d47c2aedc633d56dc1582751035e620a908ad16ce0b7ee9d493216",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/house.png",
+      "path": "/images/child-mode/initial-sounds/house.webp",
       "sha256": "d939f5ece0adf903305ca1c8c77730993ae60fb0facfc7b590044bc8333118fb",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/hut.png",
+      "path": "/images/child-mode/initial-sounds/hut.webp",
       "sha256": "befde02d12c6fc12e4b5104c254ac4d6d24ebf7524bcacd6afed56936b96a9f8",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/igloo.png",
+      "path": "/images/child-mode/initial-sounds/igloo.webp",
       "sha256": "e45a6d92d56c4676e5607c08965aee433e4aa835d83b30d2f1ae417cddf5d5b9",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/ink.png",
+      "path": "/images/child-mode/initial-sounds/ink.webp",
       "sha256": "f66899e7cec69e3bdc18944891a89fb23fe9d0344af936aeb2530813123de8c6",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/insect.png",
+      "path": "/images/child-mode/initial-sounds/insect.webp",
       "sha256": "977802e5171b342e6d5be12e76982504ea11016cc6332719d44e69f2fa5fdda8",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/jam.png",
+      "path": "/images/child-mode/initial-sounds/jam.webp",
       "sha256": "1831dd5284d3c776e83b94909ecb0b623aea2a0982d126657bb6200988bbf2a1",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/jet.png",
+      "path": "/images/child-mode/initial-sounds/jet.webp",
       "sha256": "1ce671e8640c13039bdae5b747b72feb10ea7956a9cdfeb54dca2aa4bfd666dd",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/jug.png",
+      "path": "/images/child-mode/initial-sounds/jug.webp",
       "sha256": "8680e3e24a933fcef45a534a09053ab28f0e7cb4f16d3b6f4fce7469c9652e6c",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/key.png",
+      "path": "/images/child-mode/initial-sounds/key.webp",
       "sha256": "08f1960022ece33e65dd8766c56f198adf0193d4bbd54c1c8df0075647d3a704",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/kid.png",
+      "path": "/images/child-mode/initial-sounds/kid.webp",
       "sha256": "1c49096b42ae1621097989bfaadf672650842aca2594f7805d987d089f5639bb",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/king.png",
+      "path": "/images/child-mode/initial-sounds/king.webp",
       "sha256": "eddc758f3f578afda434937fc70a3e68d46834708a39ee684214a69dae674071",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/kite.png",
+      "path": "/images/child-mode/initial-sounds/kite.webp",
       "sha256": "1375e46db90773bdcb29def89a41ad3be30bb1ad32853807565bea1addd07bed",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/knife.png",
+      "path": "/images/child-mode/initial-sounds/knife.webp",
       "sha256": "e3ccd7c9d369a552f164eb1fe4f2c03f2d7318bc3ea9ba161ce32a4cac6382ad",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/lamp.png",
+      "path": "/images/child-mode/initial-sounds/lamp.webp",
       "sha256": "0608be6d42e4bdb424db12f28c0f18f5a111a32e2b185ba494b1f2b942f5e8ba",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/leaf.png",
+      "path": "/images/child-mode/initial-sounds/leaf.webp",
       "sha256": "31e83c1a26341ba51475da156fccbd4fee7904af52fe1f275d0b580b7ff8f535",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/leg.png",
+      "path": "/images/child-mode/initial-sounds/leg.webp",
       "sha256": "b2698d96ab2043baac831dd1014a2b5b0d45dc55fe3fdb34dbb3bb9452065d73",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/lid.png",
+      "path": "/images/child-mode/initial-sounds/lid.webp",
       "sha256": "8918b102d1cabc8ceb9e7cce5f5ce53ac4546090224cb6c4952db8874d853487",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/lion.png",
+      "path": "/images/child-mode/initial-sounds/lion.webp",
       "sha256": "62dd93161d31648b21c369e269277c08a7713d80d30437b20ab2e1f16eb32954",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/log.png",
+      "path": "/images/child-mode/initial-sounds/log.webp",
       "sha256": "452751fbec7c173a44644da49cb1d42d5fb129cc9a52e6929f3c085250e3ab91",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/man.png",
+      "path": "/images/child-mode/initial-sounds/man.webp",
       "sha256": "9e737e8063b94cb998fc6395888ad951562034b7d18249ecc0399adb98d6c6e6",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/map.png",
+      "path": "/images/child-mode/initial-sounds/map.webp",
       "sha256": "01fe5921d1befb8cbd94d35af25a40098e283a763837286da063fd59a1b04a34",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/mat.png",
+      "path": "/images/child-mode/initial-sounds/mat.webp",
       "sha256": "d29d8edb7be2dabb1bd144efb9241789c572134955b8a45b7aeb4d23fdf862b3",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/meat.png",
+      "path": "/images/child-mode/initial-sounds/meat.webp",
       "sha256": "2a941ef94138a1299c68a93c010848486f1c3dc0307522ab1079dbdc887fc17f",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/moon.png",
+      "path": "/images/child-mode/initial-sounds/moon.webp",
       "sha256": "bf6b5a43016e734723793dcc53be8fdfd012ee0d1227494cc432cae69289c8af",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/mop.png",
+      "path": "/images/child-mode/initial-sounds/mop.webp",
       "sha256": "1c62189aa77d84e139bd95e0d0ce0c864232c5b1d05c592bd8073e0b8066284a",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/mud.png",
+      "path": "/images/child-mode/initial-sounds/mud.webp",
       "sha256": "00b405635173edc3c604e09a812c78e16c475ce9d9bef6916cfecddadad55a18",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/mug.png",
+      "path": "/images/child-mode/initial-sounds/mug.webp",
       "sha256": "940805c0b0ab39e163ecb8b50de3c87d4ed40571f5e1e85741d69e65903feb93",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/nap.png",
+      "path": "/images/child-mode/initial-sounds/nap.webp",
       "sha256": "8c283e867ca63c418fec0dc7438875ce106cbedef4729ca845b8ce4dcfbf9876",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/net.png",
+      "path": "/images/child-mode/initial-sounds/net.webp",
       "sha256": "6b47c1ba37f53bceb906b0524e3022d6b72b7871009c4f8ff9dc07449c39dadf",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/nose.png",
+      "path": "/images/child-mode/initial-sounds/nose.webp",
       "sha256": "7c2c98fef454b97b569881802c61bb45dfa7fae77ab4ac05369beb12eb200ee9",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/nut.png",
+      "path": "/images/child-mode/initial-sounds/nut.webp",
       "sha256": "90de57c9c6a4573dab5c6204f934cae7f8e95d234180fb693981c009be5f7d21",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/octopus.png",
+      "path": "/images/child-mode/initial-sounds/octopus.webp",
       "sha256": "81e9b0edaf71be4232384f757913d471a363ffd4d4d4c9b415e735f5145387d9",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/orange.png",
+      "path": "/images/child-mode/initial-sounds/orange.webp",
       "sha256": "b9aaa94d9581b092908ea57ef7bd7d1bedcf49ae40897773ab2811688328ce7f",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/ox.png",
+      "path": "/images/child-mode/initial-sounds/ox.webp",
       "sha256": "2661ce5c9afedf60d6e754ae13f57ae17baf0d08528709089cd27fb09a1bb273",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/pan.png",
+      "path": "/images/child-mode/initial-sounds/pan.webp",
       "sha256": "56f1dee07f2792612cec4a04c1c82046cdddd52a9717db98efc7ecba3ab3665d",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/park.png",
+      "path": "/images/child-mode/initial-sounds/park.webp",
       "sha256": "e5b3f02e934aa36eac7bfd0b1b4b6be93ed65cb3204d5883f3b268b1545dfa7b",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/pen.png",
+      "path": "/images/child-mode/initial-sounds/pen.webp",
       "sha256": "16305a7d6febc5f30ed272753f40bf6b081d1dc653b00fd9fce306aace49dc39",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/pig.png",
+      "path": "/images/child-mode/initial-sounds/pig.webp",
       "sha256": "1818855253c1919149f61fd6a308a87f31b18e64a98641cff30f7b226d7e33ea",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/pin.png",
+      "path": "/images/child-mode/initial-sounds/pin.webp",
       "sha256": "fdb72814a99dfb4992dc0467a501f1f4ba3fb059902e8cda6cb0174712d4817b",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/pot.png",
+      "path": "/images/child-mode/initial-sounds/pot.webp",
       "sha256": "e1720353b5f2e7b2006e8abcb816dcd27604579955beb0e94141f88f33114171",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/pun.png",
+      "path": "/images/child-mode/initial-sounds/pun.webp",
       "sha256": "bf8cd064ac5f4ed8ac002f4791ef90e8af1d273ca497e8cd14555c379b585ed0",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/queen.png",
+      "path": "/images/child-mode/initial-sounds/queen.webp",
       "sha256": "8bb2648df770d4016f8a19a85892b0093ece0f45a886b81d55e2606492f7e445",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/quilt.png",
+      "path": "/images/child-mode/initial-sounds/quilt.webp",
       "sha256": "9da1c130f4b34b09aa127ec9da637b9355a5590f1d575e53e6ebb4dbd38a4490",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/quiz.png",
+      "path": "/images/child-mode/initial-sounds/quiz.webp",
       "sha256": "83e9b9620ade8027238a076696adbe92f26a02f334ae161e6dabcffee23c832e",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/rain.png",
+      "path": "/images/child-mode/initial-sounds/rain.webp",
       "sha256": "3baa655f4e450d233afb7529c76de213de58268cfbab47558b10e61354b5721b",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/ram.png",
+      "path": "/images/child-mode/initial-sounds/ram.webp",
       "sha256": "8450bd9878e55e65d8ecded281b30c63c5a6527c138aa58c6488fb30d439a7be",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/rat.png",
+      "path": "/images/child-mode/initial-sounds/rat.webp",
       "sha256": "496efd6cfcc65810435e46ee10f79b4b7e83f4f50c5644406a7614515ff73d52",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/red.png",
+      "path": "/images/child-mode/initial-sounds/red.webp",
       "sha256": "99181d8484dfd4b90ade6b09ed5b815cce29724265f17ed9d6bd528c4f3b3eb4",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/ring.png",
+      "path": "/images/child-mode/initial-sounds/ring.webp",
       "sha256": "5b21560807c6fc02d96973839214d95ded92c3b433d2215dbca583094c9fb1e3",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/roof.png",
+      "path": "/images/child-mode/initial-sounds/roof.webp",
       "sha256": "3e0218cb63959fe2a1d34d1abe1ffbc52db927448458ea56739eb11681aebdf4",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/rope.png",
+      "path": "/images/child-mode/initial-sounds/rope.webp",
       "sha256": "b3d8a6a8546888eee7e35ce0f755295a01dbffc631b9c729a2c0020b2f84b8b6",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/rug.png",
+      "path": "/images/child-mode/initial-sounds/rug.webp",
       "sha256": "4ddd367430f17a2a87125abe52f0517209cf0a47a34e8efd7e6006492088a6f0",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/run.png",
+      "path": "/images/child-mode/initial-sounds/run.webp",
       "sha256": "c30e41abba33a2d0860836453c599650a4dbb1c42087644106d52acdfbf58c9c",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/sea.png",
+      "path": "/images/child-mode/initial-sounds/sea.webp",
       "sha256": "5cbf271543e6271c0461b0d7fa4a3752f3f800c60238fdc7029d40341dd940dd",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/seal.png",
+      "path": "/images/child-mode/initial-sounds/seal.webp",
       "sha256": "91553309eac6d76df5186c9dc390c2dc813560e58373109ffacb5d1698de1bba",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/seed.png",
+      "path": "/images/child-mode/initial-sounds/seed.webp",
       "sha256": "43b2e3f273229a7508136e7e92b9d2fd355996f5ecf2c37f71cbf35ba63a0dd9",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/ship.png",
+      "path": "/images/child-mode/initial-sounds/ship.webp",
       "sha256": "d95adfbd538a64f7dd10ac4c016e6106a0b92019d6ca2e523eb2f95b94e94037",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/shoe.png",
+      "path": "/images/child-mode/initial-sounds/shoe.webp",
       "sha256": "7344705c00bf3567e4096788cbfb38746332f204244e26cde0034057ed4e6352",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/shop.png",
+      "path": "/images/child-mode/initial-sounds/shop.webp",
       "sha256": "13db0d0a1185519cb34e67f02b9820f13df88fc4384f113aadd6e6c833761f8c",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/sit.png",
+      "path": "/images/child-mode/initial-sounds/sit.webp",
       "sha256": "84676f34d87a8a6a9f3e9ef51d5a65d64f3ce8e4fac5cd800c5bac3c2f1ce2fc",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/sled.png",
+      "path": "/images/child-mode/initial-sounds/sled.webp",
       "sha256": "892be4286a3a0a398bdd2631d26afa8cf3dbccb356652b4cf8583e8d03090286",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/sock.png",
+      "path": "/images/child-mode/initial-sounds/sock.webp",
       "sha256": "d789a00fca1a63cd3f79e8213d62daaf3a773c5231113282142c5d75ba91d741",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/son.png",
+      "path": "/images/child-mode/initial-sounds/son.webp",
       "sha256": "51c4354a766f3ba6ace46a6944978b248161bb1130b67b4780c0225ec0114745",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/spin.png",
+      "path": "/images/child-mode/initial-sounds/spin.webp",
       "sha256": "33f9a89c0ea61e7f0d2b582618c02ceec3d5ec0355a69944babfd493ccb90a29",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/star.png",
+      "path": "/images/child-mode/initial-sounds/star.webp",
       "sha256": "2b2ca5d7e699dcc0e27c4999248abe8bce767c79f79335ada4924d27331874dd",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/stop.png",
+      "path": "/images/child-mode/initial-sounds/stop.webp",
       "sha256": "72ca1b7184e3181d653beae222909b6866d4f318a54f975838d33ec730cb797f",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/sun.png",
+      "path": "/images/child-mode/initial-sounds/sun.webp",
       "sha256": "4cb97ab33d968eb76ac3d040fddb21464423825ff803d41c9746b4559727b661",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/tap.png",
+      "path": "/images/child-mode/initial-sounds/tap.webp",
       "sha256": "86f21c056117e4fad72adf9df8d312e2a01adefd6d00f569f15072306263c851",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/ten.png",
+      "path": "/images/child-mode/initial-sounds/ten.webp",
       "sha256": "189e5a8373b61dc83762209fb7d1c20d5588145ea19f6a7dc249c6c950c24d98",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/tent.png",
+      "path": "/images/child-mode/initial-sounds/tent.webp",
       "sha256": "6d177c725f141a2cf270e850ef272c635d7d210dc22f443664066bf1df17e3b4",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/thin.png",
+      "path": "/images/child-mode/initial-sounds/thin.webp",
       "sha256": "7a507cc65feeb7ccf6716557415992b05106fc6fb4bdee5a3999af2df800a864",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/this.png",
+      "path": "/images/child-mode/initial-sounds/this.webp",
       "sha256": "71eb8645ae72d0dad48ef57b44b0a8168cdb67fd593aacc5f9bb5a7be8504e68",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/tiger.png",
+      "path": "/images/child-mode/initial-sounds/tiger.webp",
       "sha256": "6488fb982f846d1aa414858d07f1e02a40c08e066c228432c37785be5a287996",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/top.png",
+      "path": "/images/child-mode/initial-sounds/top.webp",
       "sha256": "bb9e5e3547ad0122f2c1a64ef56c690ddd31df1bfc489605dfc696b27db45d66",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/train.png",
+      "path": "/images/child-mode/initial-sounds/train.webp",
       "sha256": "aea681840eba902e24bba0ae9bb7e322cab670eef72b117195bccd21747c2376",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/tub.png",
+      "path": "/images/child-mode/initial-sounds/tub.webp",
       "sha256": "b35e02490caadc8ddd7df0102de0f728eb2a0fe38861b50395dd336a3024f39c",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/umbrella.png",
+      "path": "/images/child-mode/initial-sounds/umbrella.webp",
       "sha256": "626b28574d0c870eb9b81304bc8b1391beb7d6d5313b822a7b3ad5d816b4006e",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/uncle.png",
+      "path": "/images/child-mode/initial-sounds/uncle.webp",
       "sha256": "8041ca75a37826bbc195dc7b2166bfb1f8838a6ca3c81223e691e3c1b42351b6",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/under.png",
+      "path": "/images/child-mode/initial-sounds/under.webp",
       "sha256": "c26fc6d09b1dc2131379c177d2504e02c4bdf9e05098ea3022ca5c9aed2ff802",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/unicorn.png",
+      "path": "/images/child-mode/initial-sounds/unicorn.webp",
       "sha256": "7617dc435a0281ea7b73dc9174dc4385b8fb29d8fc804b0b1782c9724abe36a6",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/up.png",
+      "path": "/images/child-mode/initial-sounds/up.webp",
       "sha256": "4ad3a98a1f8f11ca0b52541e4cfc077bca9222a7bcb2325cffacfea047cf3863",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/van.png",
+      "path": "/images/child-mode/initial-sounds/van.webp",
       "sha256": "780b8f09650a8333a7fa51ae6785d5cfcc01e2a0a6ec988e3e0bdfa49821e6b2",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/vase.png",
+      "path": "/images/child-mode/initial-sounds/vase.webp",
       "sha256": "47f03b023edd4e5b161f4af0e8c5d26d52d889dd6879f9dab2915d60651ca086",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/vest.png",
+      "path": "/images/child-mode/initial-sounds/vest.webp",
       "sha256": "8e12c2b7c7f30879397caa60f2eb1f445fbd356a2e0d1b99b77b7fed4ff7eea7",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/vet.png",
+      "path": "/images/child-mode/initial-sounds/vet.webp",
       "sha256": "0b6f95dd31bceefe98eaa351f57ecc30a772cca199d0e1392d5ee89c4554716f",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/web.png",
+      "path": "/images/child-mode/initial-sounds/web.webp",
       "sha256": "06dbb1c5d3556759b795007e960ac946c79179ffbb4d85241e72629755c287fc",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/whale.png",
+      "path": "/images/child-mode/initial-sounds/whale.webp",
       "sha256": "4dde19b2e197f28d0ff6b0381489e2cc57911b836393aad5c3977cd5f7d73f42",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/white.png",
+      "path": "/images/child-mode/initial-sounds/white.webp",
       "sha256": "9ec8908ae8531859b4707fa7559dd752bb8358a6c8ad3653a203e9fa6666d001",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/wig.png",
+      "path": "/images/child-mode/initial-sounds/wig.webp",
       "sha256": "9e0d6a2a12bdaabf8af347341b4b264dd5e2ac20af3cb4941b35070fbedaf3d0",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/worm.png",
+      "path": "/images/child-mode/initial-sounds/worm.webp",
       "sha256": "3497bc549639918881178aa7b638fe94313a8bc0de503c272e23f4a3b0ba0d80",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/yak.png",
+      "path": "/images/child-mode/initial-sounds/yak.webp",
       "sha256": "9c71f26ffa192debde4c222866b4f9bed5ee82a1e9c6276a3e41ba86852eabaa",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/yarn.png",
+      "path": "/images/child-mode/initial-sounds/yarn.webp",
       "sha256": "ad3ed202d69f923d75b1abc3e57041380832fea9dbcedeb1de9a902f9015f0a9",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/yo-yo.png",
+      "path": "/images/child-mode/initial-sounds/yo-yo.webp",
       "sha256": "e8fe26c9211bcc5b0ce90445db4ab4d328c22c183e92aadbcd12f176a49df5c4",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/zebra.png",
+      "path": "/images/child-mode/initial-sounds/zebra.webp",
       "sha256": "81747626fd862580d6a3c6b7b70b9f2c0c85425dd50c8f67da79c6891a82bba1",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/zip.png",
+      "path": "/images/child-mode/initial-sounds/zip.webp",
       "sha256": "00276b215aad43094cbdbb8b12800f0e305c6934250eda7aafb927b8eb9dd554",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/initial-sounds/zoo.png",
+      "path": "/images/child-mode/initial-sounds/zoo.webp",
       "sha256": "d78423ee517ffe4e3c0af50af5802a55fcd7d6a4f2ad824f6bb16b2566c1aa3a",
       "status": "approved"
     },
@@ -24611,42 +24611,42 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/plurals/books.png",
+      "path": "/images/child-mode/plurals/books.webp",
       "sha256": "95c56be75293b7bb4cc958fa01088e9384a519a9937d8fc2a2c61697880d759b",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/plurals/boxes.png",
+      "path": "/images/child-mode/plurals/boxes.webp",
       "sha256": "00b2329c39d1ca23eac6f815100ca88bd12bc1201eb7755d3fa5e50714844a89",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/plurals/brushes.png",
+      "path": "/images/child-mode/plurals/brushes.webp",
       "sha256": "21a599043126d22867edfd1e86875b1a66d8fb469c794ca46566b4cb4b794d66",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/plurals/cats.png",
+      "path": "/images/child-mode/plurals/cats.webp",
       "sha256": "01bbec1f532c47055e91a3c3b7c2b2510d516530e7c92274c8171907ad9c1972",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/plurals/cups.png",
+      "path": "/images/child-mode/plurals/cups.webp",
       "sha256": "087f2c13c479e6f5ca8dfd5596b4e16b0a4c0c734523d06449cca7e9b653595f",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/plurals/dishes.png",
+      "path": "/images/child-mode/plurals/dishes.webp",
       "sha256": "6e894d1f087e2651f0ff64a72bd79f81bf8c51ceff73d2cf7e1b7cdd559abc40",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/plurals/dogs.png",
+      "path": "/images/child-mode/plurals/dogs.webp",
       "sha256": "483b16e08e38871a4eb76c23b95debbcc785b97c615f9f956df2d1d1b1d0199e",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/plurals/hats.png",
+      "path": "/images/child-mode/plurals/hats.webp",
       "sha256": "8186d9b949a150270ed00af9e1716cfe40aec935cbdcad13a7b3a103fc217646",
       "status": "approved"
     },
@@ -24661,12 +24661,12 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/r-controlled/deer.png",
+      "path": "/images/child-mode/r-controlled/deer.webp",
       "sha256": "61ac9e2175adbbaa0dc52ab38cad54d9c952f6e37fc7b2f1a43d84d06608e52b",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/r-controlled/horse.png",
+      "path": "/images/child-mode/r-controlled/horse.webp",
       "sha256": "fd4e554d51b649b919fe16f773fd7af7961672babe63f3b7ae8430218c7c3cbe",
       "status": "approved"
     },
@@ -24746,17 +24746,17 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/short-a/ham.png",
+      "path": "/images/child-mode/short-a/ham.webp",
       "sha256": "e26d56f074526fd796ffc3737426105ce87add1c28114afcc7a32e3a8b0d3b8d",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/short-a/jam.png",
+      "path": "/images/child-mode/short-a/jam.webp",
       "sha256": "bf942db72b79e086decdd68a75f9dff055a9ed9c4f57c3986916d796b8670813",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/short-a/ram.png",
+      "path": "/images/child-mode/short-a/ram.webp",
       "sha256": "f801f19ca3dc3cbb5135ab035f300f5245123eb2597becbd28a3e5759516c1ce",
       "status": "approved"
     },
@@ -24831,7 +24831,7 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/short-o/log.png",
+      "path": "/images/child-mode/short-o/log.webp",
       "sha256": "452751fbec7c173a44644da49cb1d42d5fb129cc9a52e6929f3c085250e3ab91",
       "status": "approved"
     },
@@ -24841,12 +24841,12 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/short-o/pot.png",
+      "path": "/images/child-mode/short-o/pot.webp",
       "sha256": "e1720353b5f2e7b2006e8abcb816dcd27604579955beb0e94141f88f33114171",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/short-o/rock.png",
+      "path": "/images/child-mode/short-o/rock.webp",
       "sha256": "d5b49a26e78575cf5c0b48f133c6a4524a2a5f4c85628b790d72aaad4200f4f9",
       "status": "approved"
     },
@@ -24856,12 +24856,12 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/short-u/bug.png",
+      "path": "/images/child-mode/short-u/bug.webp",
       "sha256": "6d89e08841712acfdbb2e7554d2eb305fa51f68272bc6f7e75f99a0556208015",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/short-u/bun.png",
+      "path": "/images/child-mode/short-u/bun.webp",
       "sha256": "848aaa0724cf9e084ad0a5a0c343930ccc135b59857009f5e997ead174948d10",
       "status": "approved"
     },
@@ -24886,7 +24886,7 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/short-u/mug.png",
+      "path": "/images/child-mode/short-u/mug.webp",
       "sha256": "940805c0b0ab39e163ecb8b50de3c87d4ed40571f5e1e85741d69e65903feb93",
       "status": "approved"
     },
@@ -24896,72 +24896,72 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/short-u/sun.png",
+      "path": "/images/child-mode/short-u/sun.webp",
       "sha256": "4cb97ab33d968eb76ac3d040fddb21464423825ff803d41c9746b4559727b661",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/ui/cave-button-panel.png",
+      "path": "/images/child-mode/ui/cave-button-panel.webp",
       "sha256": "3f5ec1cd9da8cc3a8ad3b1f517ac6ccccfb05873a5d43bbc05b7ad2df9d32a1d",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/ui/cave-reward-icon.png",
+      "path": "/images/child-mode/ui/cave-reward-icon.webp",
       "sha256": "4c998757e9caf29189bb663db12fe08404dc6cbfa44ea54172cdda15df406a91",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/ui/crystal-shards.png",
+      "path": "/images/child-mode/ui/crystal-shards.webp",
       "sha256": "ffe6be17a44ab710d93a59b8551966f6629dbde08a1607ac44367fa45e644342",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/ui/crystal-sparkle-particles.png",
+      "path": "/images/child-mode/ui/crystal-sparkle-particles.webp",
       "sha256": "6deca6ea7bf751e5049ffd85f94a52835da6c500e19d0b93b22b706c47437db0",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/ui/floating-crystal.png",
+      "path": "/images/child-mode/ui/floating-crystal.webp",
       "sha256": "ff0f1ecd2b40abdf51ddcf5ef17d0d359757d933ccd3d8da3ed4e5f33db68a36",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/ui/glow-burst.png",
+      "path": "/images/child-mode/ui/glow-burst.webp",
       "sha256": "76217ec52daa1e1119059a74ea189bb117aeda599c01057a63e22b5164c5ac8f",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/ui/listen-icon.png",
+      "path": "/images/child-mode/ui/listen-icon.webp",
       "sha256": "4c6dd3b37c4e899c18b9750aa463fa110adc265459452fa9e5b1d27673c14e9f",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/ui/magical-particles.png",
+      "path": "/images/child-mode/ui/magical-particles.webp",
       "sha256": "ad91d0e01ff44cdc211f5d1c5d1d519d91118655a12b036d2ae20a228de572a4",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/ui/mastery-badge.png",
+      "path": "/images/child-mode/ui/mastery-badge.webp",
       "sha256": "bbf4af4e840510022fd8ac8d13fa8344d9159ae2150f38fe06fd28c694af5962",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/ui/reward-star.png",
+      "path": "/images/child-mode/ui/reward-star.webp",
       "sha256": "8fcad89349bf007a25ea0a3f883692101afd5b9639cd54bee5709b2f2a485c1c",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/ui/success-sparkle.png",
+      "path": "/images/child-mode/ui/success-sparkle.webp",
       "sha256": "1fc5f06628cea88034e383f06487d51b71daf940cbad51a7c43aea238ea31208",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/vowel-teams/bee.png",
+      "path": "/images/child-mode/vowel-teams/bee.webp",
       "sha256": "c367fee2167c3b5c8572ee222672910bc921ce8f8d9b95ebc1cd1e7fdcbb6d9d",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/vowel-teams/home.png",
+      "path": "/images/child-mode/vowel-teams/home.webp",
       "sha256": "b3a919fa526066c8aa9ad0243a51cb3794440e9eb08a1eb3703cc98c0a9a5e6b",
       "status": "approved"
     },
@@ -24971,17 +24971,17 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/vowels/boat.png",
+      "path": "/images/child-mode/vowels/boat.webp",
       "sha256": "331a24a7fb7a937158a26d671ee882410918b873d8735b3fd9453d2c503e2d6c",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/vowels/coat.png",
+      "path": "/images/child-mode/vowels/coat.webp",
       "sha256": "8615e19541fdb72bab3c85d2ca88cd9954172b6c8df9db561e54af24eb7bb528",
       "status": "approved"
     },
     {
-      "path": "/images/child-mode/vowels/goat.png",
+      "path": "/images/child-mode/vowels/goat.webp",
       "sha256": "9475e07ce1f8491b4241c4dd4cb7ffcf3481be5fdea9cb2f70e27f2b7ed80f54",
       "status": "approved"
     },
@@ -25041,7 +25041,7 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/images/comprehension/girl_reading.png",
+      "path": "/images/comprehension/girl_reading.webp",
       "sha256": "6bc7cedc63a73bbfce4dd3460056239123fad0960536760431f39f8d16e0cb9b",
       "status": "approved"
     },
@@ -25051,7 +25051,7 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/images/comprehension/rainy_day.png",
+      "path": "/images/comprehension/rainy_day.webp",
       "sha256": "7249df2fb2fb1409d37cd6c08827461d4640f0ee4942f1eadae5b03bb29abf4b",
       "status": "approved"
     },
@@ -25096,7 +25096,7 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/images/emotions/angry_child.png",
+      "path": "/images/emotions/angry_child.webp",
       "sha256": "fc5379a2d87affb5eaec10fb8f6b2a0281ce9148c6659d46ee5d1e2c7ba2c9c9",
       "status": "approved"
     },
@@ -25106,7 +25106,7 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/images/emotions/excited_child.png",
+      "path": "/images/emotions/excited_child.webp",
       "sha256": "3bbd4ce9eb1d1145cc9787f81b447de90ea859cc213dfdd99c5ee2868bcdf8d9",
       "status": "approved"
     },
@@ -25116,7 +25116,7 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/images/emotions/sad_child.png",
+      "path": "/images/emotions/sad_child.webp",
       "sha256": "997ad8f8207d2a82a5e9945e3164178fe009f7589188235235f90e9c96354771",
       "status": "approved"
     },
@@ -25131,27 +25131,27 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/images/general/cat_sleeping.png",
+      "path": "/images/general/cat_sleeping.webp",
       "sha256": "da1eb4197358b730c22d957ade8ae58c2b6dedb2d51e82d9bd96d6f5276c5770",
       "status": "approved"
     },
     {
-      "path": "/images/general/dog_running.png",
+      "path": "/images/general/dog_running.webp",
       "sha256": "d559ec5f05d6d56e8598071204a6318961698a6e35c2b9c49b8c6152440a2cee",
       "status": "approved"
     },
     {
-      "path": "/images/generated/boy_afraid.png",
+      "path": "/images/generated/boy_afraid.webp",
       "sha256": "acbd6fc4fe0e8f8a6dee89da0ae76e2294097df0e5474cc54e39e63d2dde7751",
       "status": "approved"
     },
     {
-      "path": "/images/generated/goat_inside_barn.png",
+      "path": "/images/generated/goat_inside_barn.webp",
       "sha256": "21f08913b87faae39a5bca72fb1f81716c8a779f049ea14170627c7dfc863974",
       "status": "approved"
     },
     {
-      "path": "/images/generated/riddle_box.png",
+      "path": "/images/generated/riddle_box.webp",
       "sha256": "2e9770508665fdd09a68acea8c1a68055801b6351a7c5608c15bd45c2962d1c0",
       "status": "approved"
     },
@@ -25236,22 +25236,22 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/images/learn-games/icon-blend-build.png",
+      "path": "/images/learn-games/icon-blend-build.webp",
       "sha256": "bb07e527e01c38d8d312ecf939c241a741cafd211d82d87c822daebd3f2e3714",
       "status": "approved"
     },
     {
-      "path": "/images/learn-games/icon-cvc-builder.png",
+      "path": "/images/learn-games/icon-cvc-builder.webp",
       "sha256": "7f7c062d9815580230170381b24616812a477dc35de37e41039d9973f3002986",
       "status": "approved"
     },
     {
-      "path": "/images/learn-games/icon-pop-word.png",
+      "path": "/images/learn-games/icon-pop-word.webp",
       "sha256": "260a2b863152ba5b06a89c147d8d344b2318077b87a9170987ab561753aae0c0",
       "status": "approved"
     },
     {
-      "path": "/images/learn-games/icon-reading-race.png",
+      "path": "/images/learn-games/icon-reading-race.webp",
       "sha256": "b6fdedc536914ef5cf5ae0f32845229991d323075e88f9c06b6c14cba1bd8bf6",
       "status": "approved"
     },
@@ -25261,12 +25261,12 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/images/learn-games/icon-sight-memory.png",
+      "path": "/images/learn-games/icon-sight-memory.webp",
       "sha256": "b9c112dc62baab389e6ae8405743d7ea9c1548db6d2a11adabef1ec7ac6ee11f",
       "status": "approved"
     },
     {
-      "path": "/images/learn-games/icon-sound-slide.png",
+      "path": "/images/learn-games/icon-sound-slide.webp",
       "sha256": "d2b96f3bc739f0fb53c0091453bf388c3b7047d461c80d976eddecf7a1538211",
       "status": "approved"
     },
@@ -25276,7 +25276,7 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/images/learn-games/icon-word-hopscotch.png",
+      "path": "/images/learn-games/icon-word-hopscotch.webp",
       "sha256": "a377530ca684b281ff4b43fe4174c4b391f1b622762dca095ae61cb3e812dc4b",
       "status": "approved"
     },
@@ -28236,7 +28236,7 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/images/vocabulary/apple.png",
+      "path": "/images/vocabulary/apple.webp",
       "sha256": "6f72070f3b513dc22bcec8bdbbd02297a19a6af89113776be356393bed56687b",
       "status": "approved"
     },
@@ -29151,27 +29151,27 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/media/learn/images/cycle-23/bang.png",
+      "path": "/media/learn/images/cycle-23/bang.webp",
       "sha256": "fe4b4e05f77d5a663646ddfec9d67ab9b38b6d17822b16bb3d857f6fad826418",
       "status": "approved"
     },
     {
-      "path": "/media/learn/images/cycle-23/gong.png",
+      "path": "/media/learn/images/cycle-23/gong.webp",
       "sha256": "345d6fbc9f75de267b68947ecb3aa7cb044648a1a4f5c1a8405c9cd1a8dc3edf",
       "status": "approved"
     },
     {
-      "path": "/media/learn/images/cycle-23/hang.png",
+      "path": "/media/learn/images/cycle-23/hang.webp",
       "sha256": "af38beae46be2449baea8245b67d2003b160dc5d16c7723162d390f516a89f8a",
       "status": "approved"
     },
     {
-      "path": "/media/learn/images/cycle-23/rang.png",
+      "path": "/media/learn/images/cycle-23/rang.webp",
       "sha256": "7256c2afcc537ebebb437bba191638236cacc1f563bab21b6e4d830212260fff",
       "status": "approved"
     },
     {
-      "path": "/media/learn/images/cycle-23/song.png",
+      "path": "/media/learn/images/cycle-23/song.webp",
       "sha256": "dd24ad40067f2a0b2b18895102fcf12002f867a828e3bdba46971c5f1b9a6472",
       "status": "approved"
     },

@@ -72,9 +72,10 @@ export function strideSample(items = [], share = SAMPLE_SHARE) {
 }
 
 /**
- * Groups by level first, then strides within each group, so every level is
- * represented in proportion. Striding the flat list would work too, but only by
- * luck — one level ordering change and the sample could go all-Level-A.
+ * Groups by level and reading band first, then strides within each group, so
+ * every level and both Level C experiences are represented in proportion.
+ * Striding the flat list would work too, but only by luck — one ordering change
+ * could hide a whole band.
  */
 export function stratifiedSample(items = [], { groupBy, idOf, share = SAMPLE_SHARE } = {}) {
   const groups = new Map();
@@ -104,13 +105,15 @@ function applyOverrides(chosenIds, allIds, kind) {
 }
 
 /**
- * The sample book ids. Stratified by level so Level A, B and C all appear —
- * a parent must be able to see where their child is going, not only where they
- * would start.
+ * The sample book ids. Stratified by level and band so Level A, B, C Standard
+ * and C Extended / Read Together all appear — a parent must be able to see
+ * where their child is going, not only where they would start.
  */
 export function sampleBookIds(books = []) {
+  // New collections participate automatically through their reviewed level;
+  // callers do not maintain a collection-specific allowlist.
   const chosen = stratifiedSample(books, {
-    groupBy: book => book?.level ?? "",
+    groupBy: book => `${book?.level ?? ""}:${book?.readingBandProfile ?? "standard"}`,
     idOf: book => book?.id
   }).map(book => book.id);
   return applyOverrides(chosen, books.map(book => book?.id), "books");

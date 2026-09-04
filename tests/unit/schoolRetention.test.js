@@ -12,6 +12,7 @@ import {
   saveSchoolRetentionPolicy,
   verifyDeletionPropagation
 } from "../../src/data/schoolRetention.js";
+import { validateRetentionDisclosure } from "../../tools/verifySchoolRetention.mjs";
 
 const schoolId = "20000000-0000-4000-8000-000000000001";
 const rawPolicy = {
@@ -24,6 +25,36 @@ const rawPolicy = {
   backup_expiry_days: 35,
   last_end_of_year_applied: 2025
 };
+
+const retentionDisclosureFixture = {
+  privacyPage: [
+    "Supabase supplies storage in Sydney, Australia (ap-southeast-2).",
+    "Vercel hosts the site through its global network and its DPA states primary processing is in the United States.",
+    "Before onboarding a UK school, the parties must verify an appropriate UK addendum/IDTA safeguard and complete the ICO data-protection test.",
+    "Provider and backup target dates do not prove deletion without provider or backup evidence."
+  ].join("\n")
+};
+
+test("retention disclosure validator accepts current provider, transfer, and evidence semantics", () => {
+  assert.deepEqual(validateRetentionDisclosure(retentionDisclosureFixture), []);
+});
+
+test("retention disclosure validator rejects missing evidence or transfer disclosures", () => {
+  assert.ok(validateRetentionDisclosure({
+    ...retentionDisclosureFixture,
+    privacyPage: retentionDisclosureFixture.privacyPage.replace(
+      "Provider and backup target dates do not prove deletion without provider or backup evidence.",
+      ""
+    )
+  }).some(issue => /target dates/i.test(issue)));
+  assert.ok(validateRetentionDisclosure({
+    ...retentionDisclosureFixture,
+    privacyPage: retentionDisclosureFixture.privacyPage.replace(
+      "Before onboarding a UK school, the parties must verify an appropriate UK addendum/IDTA safeguard and complete the ICO data-protection test.",
+      ""
+    )
+  }).some(issue => /transfer safeguard/i.test(issue)));
+});
 
 test("retention policy normalizes database fields without changing periods", () => {
   assert.deepEqual(normalizeRetentionPolicy(rawPolicy), {

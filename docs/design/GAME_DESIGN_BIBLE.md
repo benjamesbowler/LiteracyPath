@@ -2,7 +2,7 @@
 
 Status: canonical product standard
 Scope: every child-facing game, mini-game, world, map and game-like reward surface
-Companion standards: [Question Design Bible](../content/QUESTION_DESIGN_BIBLE.md), [Learning Policy](LEARNING_POLICY.md), [Child Surface Rules](CHILD_SURFACE_RULES.md), [Sound Seekers Release Bible](../SOUND_SEEKERS_RELEASE_BIBLE.md)
+Companion standards: [Game Visual and Playability Production Guide](GAME_VISUAL_PLAYABILITY_PRODUCTION_GUIDE.md), [Question Design Bible](../content/QUESTION_DESIGN_BIBLE.md), [Learning Policy](LEARNING_POLICY.md), [Child Surface Rules](CHILD_SURFACE_RULES.md), [Sound Seekers Release Bible](../SOUND_SEEKERS_RELEASE_BIBLE.md)
 
 This document separates **research-backed requirements** from **LiteracyPath product decisions**. A product decision may be stricter than the research floor. It may not weaken accessibility, learning integrity, child safety or privacy.
 
@@ -97,16 +97,21 @@ LiteracyPath product decision: the preschool touch target is **56 by 56 CSS pixe
 - Text is never baked into generated scenery or item art.
 - Colour is not the sole indicator of target, status or correctness. Selected and correct states also use shape, outline, label, motion or icon.
 
-### Premium reference implementation
+### Current mechanics and systems reference
 
-Rocket Run is the reference implementation for a visually intensive LiteracyPath game. This does not require every game to become 3D: the mechanic chooses the medium. It does require every game to reach the same level of finish in the areas that apply to it.
+Rocket Run is the current reference implementation for learning/game integration,
+shared lifecycle, controls, quality tiers and fallback in a visually intensive
+LiteracyPath game. It is not an evergreen aesthetic ceiling or proof that the
+current rendered art meets the [Game Visual and Playability Production Guide](GAME_VISUAL_PLAYABILITY_PRODUCTION_GUIDE.md).
+The mechanic chooses the medium, and every substantially changed game must meet
+the production guide in the areas that apply to it.
 
 - The learning action and the game action are one action. In Rocket Run, steering to a word is the beginning-sound decision; the learning is not an interruption laid over the game.
-- Art direction is coherent across the player, track, authored scenery, lighting, atmosphere, interface and effects. Owned production assets replace placeholder geometry when the device can render them reliably.
-- Camera motion, depth, contact shadows, particles, sound and score feedback make input feel immediate without obscuring words or becoming the source of correctness.
-- Touch, keyboard, audio, pause, resume, onboarding, recovery and completion are finished parts of the experience, not browser defaults around the game.
-- Quality tiers reduce scenery, shadows, particles and pixel density before they reduce legibility or input response. A failed decorative asset load falls back to a complete playable scene.
-- Reduced-motion mode keeps the route and feedback readable while removing non-essential intensity.
+- A production-ready scene has coherent art direction across the player, track, authored scenery, lighting, atmosphere, interface and effects. Owned production assets replace placeholder geometry when the device can render them reliably.
+- Camera motion, depth, contact shadows, particles, sound and score feedback must make input feel immediate without obscuring words or becoming the source of correctness.
+- Touch, keyboard, audio, pause, resume, onboarding, recovery and completion must be finished parts of the experience, not browser defaults around the game.
+- Quality tiers must reduce scenery, shadows, particles and pixel density before they reduce legibility or input response. A failed decorative asset load falls back to a complete playable scene.
+- Reduced-motion mode must keep the route and feedback readable while removing non-essential intensity.
 - A visually simpler literacy game may use flat illustration, stop-motion, cards or physical-feeling type. It is premium when those choices are authored, coherent and responsive—not when it imitates Rocket Run's genre.
 
 ## 8. Motivation, rewards and replay
@@ -129,7 +134,14 @@ Rocket Run is the reference implementation for a visually intensive LiteracyPath
 
 ## 10. Shipping gates
 
-A game is not “ready” until all applicable gates are green:
+Assess every applicable gate and record `PASS`, `FAIL`, `UNKNOWN` or `NOT
+APPLICABLE`. A recorded failure blocks the affected release or claim. An
+unknown is not a pass and cannot support the corresponding claim; under the
+current [continuous-QA decision](../brain/decisions/2026-08-21-continuous-qa-pass-by-exception.md),
+missing human, device or observation metadata alone does not block a beta
+release. Explicit user qualifiers can still require that exact evidence, and a
+reported critical or major defect remains quarantined until corrected and
+retested.
 
 1. **Construct gate:** objective, prompt, correct response and evidence chain documented.
 2. **Ambiguity gate:** one correct answer under the shown and spoken prompt; distractors independently audited.
@@ -140,7 +152,10 @@ A game is not “ready” until all applicable gates are green:
 7. **Accessibility gate:** reduced motion, contrast, focus, semantic fallback and non-audio/non-colour cues verified.
 8. **Performance gate:** no input lock, stuck movement or materially dropped interaction frames on the supported low-power profile.
 9. **Privacy gate:** no new data field, network call, identifier or external service without the privacy review.
-10. **Child-play gate:** a child can state the goal after the instruction and recover from a first wrong answer without adult explanation.
+10. **Child-play gate:** when observed through the
+    [recurring observation programme](../research/RECURRING_OBSERVATION_PROGRAM.md),
+    a child can state the goal after the instruction and recover from a first
+    wrong answer without adult explanation. Agents do not run ad hoc child tests.
 
 Automated checks prove deterministic logic and layout invariants. Browser checks prove rendered behaviour. A real iPad check remains required before claiming physical-device readiness; desktop emulation is evidence, not a substitute for the hardware.
 
@@ -190,7 +205,24 @@ Letter Leap 2.0 is the reference brief. It records the real 0.12-second coyote w
 
 ### Flagship arcade records
 
-The twelve records below are version 2.0 premium passes. They share these verified product decisions: progress contains only the existing score, stars, completed-item count and resumable checkpoint; no new identifier or network service is introduced; sound-off preserves a non-audio goal, choice and feedback path without accidentally leaking a hidden answer; any game that intentionally changes to model-supported reconstruction labels that support mode; reduced motion removes or slows decorative intensity without changing the answer rule; and a completed run ends with a scored debrief and an explicit **Back to Arcade** action. Their shared automated coverage is `premiumGameStandard.test.js`, `gameSurfaces.test.js`, `gameCheckpoints.test.js`, `gameAudioLifecycle.test.js` and the all-games activity-viewport browser check. Physical-device result remains unknown until each changed build is exercised on a real supported iPad.
+The thirteen records below document intended version 2.0 contracts and mechanic
+decisions. Shared automated checks assert named structure, prose fields and
+selected implementation anchors; they do not prove that all thirteen contracts
+or mechanics work end to end, and they do not certify the games against the
+composed-scene, motion, human-listening, physical-device or child-play evidence
+in the Game Visual and Playability Production Guide. Only Letter Leap, Word
+Climb, Word Bridge, Sound Beat and Sound Racer currently have validated
+vertical-slice briefs. The records share these product decisions: progress contains only the existing
+score, stars, completed-item count and resumable checkpoint; no new identifier or
+network service is introduced; sound-off preserves a non-audio goal, choice and
+feedback path without accidentally leaking a hidden answer; any game that
+intentionally changes to model-supported reconstruction labels that support mode;
+reduced motion removes or slows decorative intensity without changing the answer
+rule; and a completed run ends with a scored debrief and an explicit **Back to
+Arcade** action. Their shared automated coverage is `premiumGameStandard.test.js`,
+`gameSurfaces.test.js`, `gameCheckpoints.test.js`, `gameAudioLifecycle.test.js`
+and the all-games activity-viewport browser check. Physical-device result remains
+unknown until each changed build is exercised on a real supported iPad.
 
 #### Rocket Run 2.0
 
@@ -207,6 +239,14 @@ The twelve records below are version 2.0 premium passes. They share these verifi
 - **Level ladder and prompt/audio:** ten difficulty-led stages move from short taught words to longer words and sentence legs. A reviewed picture or recorded cue identifies the word; when neither is available, a labelled model-supported target replaces ambiguous context. Persistent slots show completed spelling and the next empty position.
 - **Generator and ambiguity:** `curriculumLadder.js` supplies the ordered targets; only the next required grapheme advances the word. `curriculumLadder.test.js` exercises ladder depth and determinism.
 - **Feedback and reward:** a wrong collision leaves the next slot visible; difficult stages re-enter the catch-up queue without removing completed-word evidence. Literacy stars reflect ordered spelling rather than falls or survival time.
+
+#### Word Climb 2.0
+
+- **Age/reading band and construct:** early readers identify which printed word begins with the shown and spoken target phoneme. Following the climber's route is a decorative, non-target demand.
+- **Controls:** native word buttons support tap/click, Tab/Shift+Tab and Enter/Space; the component relies on native button activation rather than a custom pointer-capture contract.
+- **Level ladder and prompt/audio:** authored onset and vocabulary sets change with difficulty while the target, exact instruction, three choices and current climb count remain visible. A 56-pixel replay control uses the current local production-audio library when available.
+- **Generator and ambiguity:** `wordClimbLevels.js` supplies fresh equal-position word sets with one valid onset match; `wordClimbLevels.test.js` and `word-climb-premium.spec.js` exercise the choice, feedback, pause, checkpoint and completion contracts.
+- **Feedback and reward:** a correct word names the matching onset and advances the climb; a wrong word names its actual onset while every choice and the target remain available for immediate retry. Route animation never creates learning evidence.
 
 #### Sound Racer 2.0
 

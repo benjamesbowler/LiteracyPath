@@ -1,13 +1,13 @@
 # Guided Reading Title Page Audit
 
-Generated: 2026-08-05T08:50:03.228Z
+Generated: 2026-09-02T12:33:27.435Z
 
 ## Strategy
 
-Every app-created Guided Reading book is normalized with reader page 1 as a title page. Fiction guided-reading includes the approved Bob and Nan, James and Anna, Aiden and Betty collections, Dino Pals Level B books 1-30, Meadow Pals Level A books 1-35, and Moonwood Tales Level C books 1-35 in student public release. First Facts nonfiction books 1-25 are Level B, First Facts Level A nonfiction books 1-20 are true Level A, and Level C nonfiction books 1-10 are included as public nonfiction.
+Every exported Guided Reading book is normalized with reader page 1 as a title page. The check covers all approved Levels A-C, including C Standard and C Extended / Read Together, across fiction and nonfiction.
 
-Visible fiction books: 130
-Visible nonfiction books: 76
+Visible fiction books: 140
+Visible nonfiction books: 86
 
 ## Books Checked
 
@@ -109,16 +109,16 @@ Visible nonfiction books: 76
 | ja-b-08 | Chips's Play Date | fiction | B | 12 | 13 | /guided-reading/series/james-and-anna/book-08/cover.webp | Chips's Play Date / by Ava Stone / illustrated by Finn Blue |
 | ja-b-09 | James and Anna's New Bikes | fiction | B | 13 | 14 | /guided-reading/series/james-and-anna/book-09/cover.webp | James and Anna's New Bikes / by Ava Stone / illustrated by Finn Blue |
 | ja-b-10 | James, Anna and Chips go Camping | fiction | B | 14 | 15 | /guided-reading/series/james-and-anna/book-10/cover.webp | James, Anna and Chips go Camping / by Ava Stone / illustrated by Finn Blue |
-| ab-c-01 | Aiden and Betty Start Grade 1 | fiction | C | 13 | 14 | /guided-reading/series/aiden-and-betty/book-01/cover.webp | Aiden and Betty Start Grade 1 / by Nora Bell / illustrated by LiteracyPath Studio |
-| ab-c-02 | Aiden and Betty have a Yard Sale | fiction | C | 13 | 14 | /guided-reading/series/aiden-and-betty/book-02/cover.webp | Aiden and Betty have a Yard Sale / by Nora Bell / illustrated by LiteracyPath Studio |
-| ab-c-03 | Aiden and Betty Go on Vacation | fiction | C | 13 | 14 | /guided-reading/series/aiden-and-betty/book-03/cover.webp | Aiden and Betty Go on Vacation / by Nora Bell / illustrated by LiteracyPath Studio |
-| ab-c-04 | Aiden and Betty and Socks | fiction | C | 14 | 15 | /guided-reading/series/aiden-and-betty/book-04/cover.webp | Aiden and Betty and Socks / by Nora Bell / illustrated by LiteracyPath Studio |
-| ab-c-05 | Socks Goes Missing | fiction | C | 14 | 15 | /guided-reading/series/aiden-and-betty/book-05/cover.webp | Socks Goes Missing / by Nora Bell / illustrated by LiteracyPath Studio |
-| ab-c-06 | Aiden and Betty and the Science Fair | fiction | C | 13 | 14 | /guided-reading/series/aiden-and-betty/book-06/cover.webp | Aiden and Betty and the Science Fair / by Nora Bell / illustrated by LiteracyPath Studio |
-| ab-c-07 | Aiden, Betty and Socks's Big Adventure | fiction | C | 13 | 14 | /guided-reading/series/aiden-and-betty/book-07/cover.webp | Aiden, Betty and Socks's Big Adventure / by Nora Bell / illustrated by LiteracyPath Studio |
-| ab-c-08 | Aiden and Betty and the Bully | fiction | C | 13 | 14 | /guided-reading/series/aiden-and-betty/book-08/cover.webp | Aiden and Betty and the Bully / by Nora Bell / illustrated by LiteracyPath Studio |
-| ab-c-09 | Aiden and Betty: New Teeth | fiction | C | 13 | 14 | /guided-reading/series/aiden-and-betty/book-09/cover.webp | Aiden and Betty: New Teeth / by Nora Bell / illustrated by LiteracyPath Studio |
-| ab-c-10 | Aiden and Betty and the Castle | fiction | C | 13 | 14 | /guided-reading/series/aiden-and-betty/book-10/cover.webp | Aiden and Betty and the Castle / by Nora Bell / illustrated by LiteracyPath Studio |
+| ab-c-01 | Aiden and Betty Start Grade 1 | fiction | C | 13 | 14 | /guided-reading/series/aiden-and-betty/book-01/cover.webp | Aiden and Betty Start Grade 1 / by Nora Bell / illustrated by Literacy Guide Studio |
+| ab-c-02 | Aiden and Betty have a Yard Sale | fiction | C | 13 | 14 | /guided-reading/series/aiden-and-betty/book-02/cover.webp | Aiden and Betty have a Yard Sale / by Nora Bell / illustrated by Literacy Guide Studio |
+| ab-c-03 | Aiden and Betty Go on Vacation | fiction | C | 13 | 14 | /guided-reading/series/aiden-and-betty/book-03/cover.webp | Aiden and Betty Go on Vacation / by Nora Bell / illustrated by Literacy Guide Studio |
+| ab-c-04 | Aiden and Betty and Socks | fiction | C | 14 | 15 | /guided-reading/series/aiden-and-betty/book-04/cover.webp | Aiden and Betty and Socks / by Nora Bell / illustrated by Literacy Guide Studio |
+| ab-c-05 | Socks Goes Missing | fiction | C | 14 | 15 | /guided-reading/series/aiden-and-betty/book-05/cover.webp | Socks Goes Missing / by Nora Bell / illustrated by Literacy Guide Studio |
+| ab-c-06 | Aiden and Betty and the Science Fair | fiction | C | 13 | 14 | /guided-reading/series/aiden-and-betty/book-06/cover.webp | Aiden and Betty and the Science Fair / by Nora Bell / illustrated by Literacy Guide Studio |
+| ab-c-07 | Aiden, Betty and Socks's Big Adventure | fiction | C | 13 | 14 | /guided-reading/series/aiden-and-betty/book-07/cover.webp | Aiden, Betty and Socks's Big Adventure / by Nora Bell / illustrated by Literacy Guide Studio |
+| ab-c-08 | Aiden and Betty and the Bully | fiction | C | 13 | 14 | /guided-reading/series/aiden-and-betty/book-08/cover.webp | Aiden and Betty and the Bully / by Nora Bell / illustrated by Literacy Guide Studio |
+| ab-c-09 | Aiden and Betty: New Teeth | fiction | C | 13 | 14 | /guided-reading/series/aiden-and-betty/book-09/cover.webp | Aiden and Betty: New Teeth / by Nora Bell / illustrated by Literacy Guide Studio |
+| ab-c-10 | Aiden and Betty and the Castle | fiction | C | 13 | 14 | /guided-reading/series/aiden-and-betty/book-10/cover.webp | Aiden and Betty and the Castle / by Nora Bell / illustrated by Literacy Guide Studio |
 | dino-pals-01-chompys-big-lunch | Chompy's Big Lunch | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-01/cover.webp | Chompy's Big Lunch / by Nora Bell / illustrated by Milo Reed |
 | dino-pals-02-sunnys-rainy-day | Sunny's Rainy Day | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-02/cover.webp | Sunny's Rainy Day / by Nora Bell / illustrated by Milo Reed |
 | dino-pals-03-dozy-wont-wake-up | Dozy Won't Wake Up | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-03/cover.webp | Dozy Won't Wake Up / by Nora Bell / illustrated by Milo Reed |
@@ -164,61 +164,81 @@ Visible nonfiction books: 76
 | meadow-pals-23-giggly-and-clucky-bake-a-cake | Giggly and Clucky Bake a Cake | fiction | A | 11 | 12 | /guided-reading/series/meadow-pals/book-23/cover.webp | Giggly and Clucky Bake a Cake / by Nora Bell / illustrated by Milo Reed |
 | meadow-pals-24-grumpys-secret | Grumpy's Secret | fiction | A | 11 | 12 | /guided-reading/series/meadow-pals/book-24/cover.webp | Grumpy's Secret / by Nora Bell / illustrated by Milo Reed |
 | meadow-pals-25-the-big-farm-party | The Big Farm Party | fiction | A | 13 | 14 | /guided-reading/series/meadow-pals/book-25/cover.webp | The Big Farm Party / by Nora Bell / illustrated by Milo Reed |
-| moonwood-tales-c-01 | Pip and the Bravery Stone | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-01/cover.webp | Pip and the Bravery Stone / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-02 | Fern Grows Too Much | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-02/cover.webp | Fern Grows Too Much / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-03 | Stone Crosses the Bridge | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-03/cover.webp | Stone Crosses the Bridge / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-04 | Glimmer Tries and Tries | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-04/cover.webp | Glimmer Tries and Tries / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-05 | Wren and the Backwards Spell | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-05/cover.webp | Wren and the Backwards Spell / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-06 | Flint Makes a Map | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-06/cover.webp | Flint Makes a Map / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-07 | Dewdrop and the Lying Fish | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-07/cover.webp | Dewdrop and the Lying Fish / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-08 | Burrow Finds a Door | fiction | C | 13 | 14 | /guided-reading/series/moonwood-tales/book-08/cover.webp | Burrow Finds a Door / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-09 | Spark's Very Big Sneeze | fiction | C | 14 | 15 | /guided-reading/series/moonwood-tales/book-09/cover.webp | Spark's Very Big Sneeze / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-10 | What Luna Forgot | fiction | C | 14 | 15 | /guided-reading/series/moonwood-tales/book-10/cover.webp | What Luna Forgot / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-11 | Pip and Stone and the Loud Thing | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-11/cover.webp | Pip and Stone and the Loud Thing / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-12 | Fern and Dewdrop Save the Stream | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-12/cover.webp | Fern and Dewdrop Save the Stream / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-13 | Glimmer and Spark Make a Deal | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-13/cover.webp | Glimmer and Spark Make a Deal / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-14 | Wren and Flint Get Lost | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-14/cover.webp | Wren and Flint Get Lost / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-15 | Burrow and Luna and the Old Secret | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-15/cover.webp | Burrow and Luna and the Old Secret / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-16 | Pip and Glimmer and the Night Watch | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-16/cover.webp | Pip and Glimmer and the Night Watch / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-17 | Fern and Wren and the Wrong Potion | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-17/cover.webp | Fern and Wren and the Wrong Potion / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-18 | Stone and Dewdrop and the Stuck Fish | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-18/cover.webp | Stone and Dewdrop and the Stuck Fish / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-19 | The Missing Magic Seeds | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-19/cover.webp | The Missing Magic Seeds / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-20 | The Night the Stars Fell | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-20/cover.webp | The Night the Stars Fell / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-21 | Something Lives in the Hollow Oak | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-21/cover.webp | Something Lives in the Hollow Oak / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-22 | The Big Moonwood Race | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-22/cover.webp | The Big Moonwood Race / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-23 | The Fog Marsh Mystery | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-23/cover.webp | The Fog Marsh Mystery / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-24 | Glimmer Breathes Fire at Last | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-24/cover.webp | Glimmer Breathes Fire at Last / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-25 | One Night in the Deep Dark | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-25/cover.webp | One Night in the Deep Dark / by Lina Moss / illustrated by LiteracyPath Studio |
-| meadow-pals-26-muddys-cool-wall | Muddy's Cool Wall | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-26/cover.webp | Muddy's Cool Wall / by Nora Bell / illustrated by LiteracyPath Studio |
-| meadow-pals-27-splashys-reed-boat | Splashy's Reed Boat | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-27/cover.webp | Splashy's Reed Boat / by Nora Bell / illustrated by LiteracyPath Studio |
-| meadow-pals-28-woollys-wool-cloud | Woolly's Wool Cloud | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-28/cover.webp | Woolly's Wool Cloud / by Nora Bell / illustrated by LiteracyPath Studio |
-| meadow-pals-29-shys-pond-rings | Shy's Pond Rings | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-29/cover.webp | Shy's Pond Rings / by Nora Bell / illustrated by LiteracyPath Studio |
-| meadow-pals-30-cuddlys-yarn-ball | Cuddly's Yarn Ball | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-30/cover.webp | Cuddly's Yarn Ball / by Nora Bell / illustrated by LiteracyPath Studio |
-| meadow-pals-31-bouncys-hay-lift | Bouncy's Hay Lift | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-31/cover.webp | Bouncy's Hay Lift / by Nora Bell / illustrated by LiteracyPath Studio |
-| meadow-pals-32-tinys-giant-berry | Tiny's Giant Berry | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-32/cover.webp | Tiny's Giant Berry / by Nora Bell / illustrated by LiteracyPath Studio |
-| meadow-pals-33-braves-beetle-bridge | Brave's Beetle Tunnel | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-33/cover.webp | Brave's Beetle Tunnel / by Nora Bell / illustrated by LiteracyPath Studio |
-| meadow-pals-34-grumpys-sun-clock | Grumpy's Sun Clock | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-34/cover.webp | Grumpy's Sun Clock / by Nora Bell / illustrated by LiteracyPath Studio |
-| meadow-pals-35-gigglys-round-wheel | Giggly's Round Wheel | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-35/cover.webp | Giggly's Round Wheel / by Nora Bell / illustrated by LiteracyPath Studio |
-| dino-pals-21-fancys-moonleaf-arch | Fancy's Moonleaf Arch | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-21/cover.webp | Fancy's Moonleaf Arch / by Nora Bell / illustrated by LiteracyPath Studio |
-| dino-pals-22-shys-sinking-path | Shy's Sinking Path | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-22/cover.webp | Shy's Sinking Path / by Nora Bell / illustrated by LiteracyPath Studio |
-| dino-pals-23-flappys-fern-delivery | Flappy's Fern Delivery | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-23/cover.webp | Flappy's Fern Delivery / by Nora Bell / illustrated by LiteracyPath Studio |
-| dino-pals-24-clumsys-steady-bowls | Clumsy's Steady Bowls | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-24/cover.webp | Clumsy's Steady Bowls / by Nora Bell / illustrated by LiteracyPath Studio |
-| dino-pals-25-sneezys-seed-cloud | Sneezy's Seed Cloud | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-25/cover.webp | Sneezy's Seed Cloud / by Nora Bell / illustrated by LiteracyPath Studio |
-| dino-pals-26-sunnys-two-part-picnic | Sunny's Two-Part Picnic | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-26/cover.webp | Sunny's Two-Part Picnic / by Nora Bell / illustrated by LiteracyPath Studio |
-| dino-pals-27-bossys-three-paths | Bossy's Three Paths | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-27/cover.webp | Bossy's Three Paths / by Nora Bell / illustrated by LiteracyPath Studio |
-| dino-pals-28-honkys-echo-tunnel | Honky's Echo Tunnel | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-28/cover.webp | Honky's Echo Tunnel / by Nora Bell / illustrated by LiteracyPath Studio |
-| dino-pals-29-cheekys-shadow-show | Cheeky's Shadow Show | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-29/cover.webp | Cheeky's Shadow Show / by Nora Bell / illustrated by LiteracyPath Studio |
-| dino-pals-30-dozy-stops-the-melon | Dozy Stops the Melon | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-30/cover.webp | Dozy Stops the Melon / by Nora Bell / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-26 | Pip and the Bell Below | fiction | C | 10 | 11 | /guided-reading/series/moonwood-tales/book-26/cover.webp | Pip and the Bell Below / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-27 | Stone and the Glassleaf Moonbeam | fiction | C | 10 | 11 | /guided-reading/series/moonwood-tales/book-27/cover.webp | Stone and the Glassleaf Moonbeam / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-28 | Fern and the Humming Root | fiction | C | 10 | 11 | /guided-reading/series/moonwood-tales/book-28/cover.webp | Fern and the Humming Root / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-29 | Wren's One-Object Pocket | fiction | C | 10 | 11 | /guided-reading/series/moonwood-tales/book-29/cover.webp | Wren's One-Object Pocket / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-30 | Luna and the Wandering Constellation | fiction | C | 10 | 11 | /guided-reading/series/moonwood-tales/book-30/cover.webp | Luna and the Wandering Constellation / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-31 | Burrow's Round Tunnel | fiction | C | 10 | 11 | /guided-reading/series/moonwood-tales/book-31/cover.webp | Burrow's Round Tunnel / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-32 | Flint's Two Shadows | fiction | C | 10 | 11 | /guided-reading/series/moonwood-tales/book-32/cover.webp | Flint's Two Shadows / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-33 | Glimmer and the Sticky Stars | fiction | C | 10 | 11 | /guided-reading/series/moonwood-tales/book-33/cover.webp | Glimmer and the Sticky Stars / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-34 | Spark's Ten-Count Hook | fiction | C | 10 | 11 | /guided-reading/series/moonwood-tales/book-34/cover.webp | Spark's Ten-Count Hook / by Lina Moss / illustrated by LiteracyPath Studio |
-| moonwood-tales-c-35 | Pip and Stone Tune the Root Chimes | fiction | C | 10 | 11 | /guided-reading/series/moonwood-tales/book-35/cover.webp | Pip and Stone Tune the Root Chimes / by Lina Moss / illustrated by LiteracyPath Studio |
+| moonwood-tales-c-01 | Pip and the Bravery Stone | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-01/cover.webp | Pip and the Bravery Stone / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-02 | Fern Grows Too Much | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-02/cover.webp | Fern Grows Too Much / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-03 | Stone Crosses the Bridge | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-03/cover.webp | Stone Crosses the Bridge / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-04 | Glimmer Tries and Tries | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-04/cover.webp | Glimmer Tries and Tries / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-05 | Wren and the Backwards Spell | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-05/cover.webp | Wren and the Backwards Spell / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-06 | Flint Makes a Map | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-06/cover.webp | Flint Makes a Map / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-07 | Dewdrop and the Lying Fish | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-07/cover.webp | Dewdrop and the Lying Fish / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-08 | Burrow Finds a Door | fiction | C | 13 | 14 | /guided-reading/series/moonwood-tales/book-08/cover.webp | Burrow Finds a Door / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-09 | Spark's Very Big Sneeze | fiction | C | 14 | 15 | /guided-reading/series/moonwood-tales/book-09/cover.webp | Spark's Very Big Sneeze / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-10 | What Luna Forgot | fiction | C | 14 | 15 | /guided-reading/series/moonwood-tales/book-10/cover.webp | What Luna Forgot / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-11 | Pip and Stone and the Loud Thing | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-11/cover.webp | Pip and Stone and the Loud Thing / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-12 | Fern and Dewdrop Save the Stream | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-12/cover.webp | Fern and Dewdrop Save the Stream / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-13 | Glimmer and Spark Make a Deal | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-13/cover.webp | Glimmer and Spark Make a Deal / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-14 | Wren and Flint Get Lost | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-14/cover.webp | Wren and Flint Get Lost / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-15 | Burrow and Luna and the Old Secret | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-15/cover.webp | Burrow and Luna and the Old Secret / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-16 | Pip and Glimmer and the Night Watch | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-16/cover.webp | Pip and Glimmer and the Night Watch / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-17 | Fern and Wren and the Wrong Potion | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-17/cover.webp | Fern and Wren and the Wrong Potion / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-18 | Stone and Dewdrop and the Stuck Fish | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-18/cover.webp | Stone and Dewdrop and the Stuck Fish / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-19 | The Missing Magic Seeds | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-19/cover.webp | The Missing Magic Seeds / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-20 | The Night the Stars Fell | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-20/cover.webp | The Night the Stars Fell / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-21 | Something Lives in the Hollow Oak | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-21/cover.webp | Something Lives in the Hollow Oak / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-22 | The Big Moonwood Race | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-22/cover.webp | The Big Moonwood Race / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-23 | The Fog Marsh Mystery | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-23/cover.webp | The Fog Marsh Mystery / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-24 | Glimmer Breathes Fire at Last | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-24/cover.webp | Glimmer Breathes Fire at Last / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-25 | One Night in the Deep Dark | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-25/cover.webp | One Night in the Deep Dark / by Lina Moss / illustrated by Literacy Guide Studio |
+| meadow-pals-26-muddys-cool-wall | Muddy's Cool Wall | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-26/cover.webp | Muddy's Cool Wall / by Nora Bell / illustrated by Literacy Guide Studio |
+| meadow-pals-27-splashys-reed-boat | Splashy's Reed Boat | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-27/cover.webp | Splashy's Reed Boat / by Nora Bell / illustrated by Literacy Guide Studio |
+| meadow-pals-28-woollys-wool-cloud | Woolly's Wool Cloud | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-28/cover.webp | Woolly's Wool Cloud / by Nora Bell / illustrated by Literacy Guide Studio |
+| meadow-pals-29-shys-pond-rings | Shy's Pond Rings | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-29/cover.webp | Shy's Pond Rings / by Nora Bell / illustrated by Literacy Guide Studio |
+| meadow-pals-30-cuddlys-yarn-ball | Cuddly's Yarn Ball | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-30/cover.webp | Cuddly's Yarn Ball / by Nora Bell / illustrated by Literacy Guide Studio |
+| meadow-pals-31-bouncys-hay-lift | Bouncy's Hay Lift | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-31/cover.webp | Bouncy's Hay Lift / by Nora Bell / illustrated by Literacy Guide Studio |
+| meadow-pals-32-tinys-giant-berry | Tiny's Giant Berry | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-32/cover.webp | Tiny's Giant Berry / by Nora Bell / illustrated by Literacy Guide Studio |
+| meadow-pals-33-braves-beetle-bridge | Brave's Beetle Tunnel | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-33/cover.webp | Brave's Beetle Tunnel / by Nora Bell / illustrated by Literacy Guide Studio |
+| meadow-pals-34-grumpys-sun-clock | Grumpy's Sun Clock | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-34/cover.webp | Grumpy's Sun Clock / by Nora Bell / illustrated by Literacy Guide Studio |
+| meadow-pals-35-gigglys-round-wheel | Giggly's Round Wheel | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-35/cover.webp | Giggly's Round Wheel / by Nora Bell / illustrated by Literacy Guide Studio |
+| dino-pals-21-fancys-moonleaf-arch | Fancy's Moonleaf Arch | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-21/cover.webp | Fancy's Moonleaf Arch / by Nora Bell / illustrated by Literacy Guide Studio |
+| dino-pals-22-shys-sinking-path | Shy's Sinking Path | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-22/cover.webp | Shy's Sinking Path / by Nora Bell / illustrated by Literacy Guide Studio |
+| dino-pals-23-flappys-fern-delivery | Flappy's Fern Delivery | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-23/cover.webp | Flappy's Fern Delivery / by Nora Bell / illustrated by Literacy Guide Studio |
+| dino-pals-24-clumsys-steady-bowls | Clumsy's Steady Bowls | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-24/cover.webp | Clumsy's Steady Bowls / by Nora Bell / illustrated by Literacy Guide Studio |
+| dino-pals-25-sneezys-seed-cloud | Sneezy's Seed Cloud | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-25/cover.webp | Sneezy's Seed Cloud / by Nora Bell / illustrated by Literacy Guide Studio |
+| dino-pals-26-sunnys-two-part-picnic | Sunny's Two-Part Picnic | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-26/cover.webp | Sunny's Two-Part Picnic / by Nora Bell / illustrated by Literacy Guide Studio |
+| dino-pals-27-bossys-three-paths | Bossy's Three Paths | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-27/cover.webp | Bossy's Three Paths / by Nora Bell / illustrated by Literacy Guide Studio |
+| dino-pals-28-honkys-echo-tunnel | Honky's Echo Tunnel | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-28/cover.webp | Honky's Echo Tunnel / by Nora Bell / illustrated by Literacy Guide Studio |
+| dino-pals-29-cheekys-shadow-show | Cheeky's Shadow Show | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-29/cover.webp | Cheeky's Shadow Show / by Nora Bell / illustrated by Literacy Guide Studio |
+| dino-pals-30-dozy-stops-the-melon | Dozy Stops the Melon | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-30/cover.webp | Dozy Stops the Melon / by Nora Bell / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-26 | Pip and the Bell Below | fiction | C | 10 | 11 | /guided-reading/series/moonwood-tales/book-26/cover.webp | Pip and the Bell Below / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-27 | Stone and the Glassleaf Moonbeam | fiction | C | 10 | 11 | /guided-reading/series/moonwood-tales/book-27/cover.webp | Stone and the Glassleaf Moonbeam / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-28 | Fern and the Humming Root | fiction | C | 10 | 11 | /guided-reading/series/moonwood-tales/book-28/cover.webp | Fern and the Humming Root / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-29 | Wren's One-Object Pocket | fiction | C | 10 | 11 | /guided-reading/series/moonwood-tales/book-29/cover.webp | Wren's One-Object Pocket / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-30 | Luna and the Wandering Constellation | fiction | C | 10 | 11 | /guided-reading/series/moonwood-tales/book-30/cover.webp | Luna and the Wandering Constellation / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-31 | Burrow's Round Tunnel | fiction | C | 10 | 11 | /guided-reading/series/moonwood-tales/book-31/cover.webp | Burrow's Round Tunnel / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-32 | Flint's Two Shadows | fiction | C | 10 | 11 | /guided-reading/series/moonwood-tales/book-32/cover.webp | Flint's Two Shadows / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-33 | Glimmer and the Sticky Stars | fiction | C | 10 | 11 | /guided-reading/series/moonwood-tales/book-33/cover.webp | Glimmer and the Sticky Stars / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-34 | Spark's Ten-Count Hook | fiction | C | 10 | 11 | /guided-reading/series/moonwood-tales/book-34/cover.webp | Spark's Ten-Count Hook / by Lina Moss / illustrated by Literacy Guide Studio |
+| moonwood-tales-c-35 | Pip and Stone Tune the Root Chimes | fiction | C | 10 | 11 | /guided-reading/series/moonwood-tales/book-35/cover.webp | Pip and Stone Tune the Root Chimes / by Lina Moss / illustrated by Literacy Guide Studio |
+| willow-street-the-lunchbox-mix-up | The Lunchbox Mix-Up | fiction | C | 8 | 9 | /guided-reading/willow-street/the-lunchbox-mix-up/cover.webp | The Lunchbox Mix-Up / by Milo Reed / illustrated by Nina Fox |
+| willow-street-the-lost-library-book | The Lost Library Book | fiction | C | 8 | 9 | /guided-reading/willow-street/the-lost-library-book/cover.webp | The Lost Library Book / by Owen Brooks / illustrated by Zara Field |
+| willow-street-the-windy-picnic | The Windy Picnic | fiction | C | 8 | 9 | /guided-reading/willow-street/the-windy-picnic/cover.webp | The Windy Picnic / by Owen Brooks / illustrated by Ella Bright |
+| willow-street-the-puddle-plan | The Puddle Plan | fiction | C | 8 | 9 | /guided-reading/willow-street/the-puddle-plan/cover.webp | The Puddle Plan / by Nora Bell / illustrated by Max Clover |
+| willow-street-the-squeaky-wheel | The Squeaky Wheel | fiction | C | 8 | 9 | /guided-reading/willow-street/the-squeaky-wheel/cover.webp | The Squeaky Wheel / by Caleb Hart / illustrated by Sam Rowan |
+| willow-street-the-garden-gate | The Garden Gate | fiction | C | 8 | 9 | /guided-reading/willow-street/the-garden-gate/cover.webp | The Garden Gate / by Mia Rivers / illustrated by Ella Bright |
+| willow-street-nanis-chapati-lunch | Nani's Chapati Lunch | fiction | C | 8 | 9 | /guided-reading/willow-street/nanis-chapati-lunch/cover.webp | Nani's Chapati Lunch / by Caleb Hart / illustrated by Sam Rowan |
+| willow-street-dumplings-for-new-year | Dumplings for New Year | fiction | C | 8 | 9 | /guided-reading/willow-street/dumplings-for-new-year/cover.webp | Dumplings for New Year / by Owen Brooks / illustrated by Clara Moon |
+| willow-street-drums-for-carnival | Drums for Carnival | fiction | C | 8 | 9 | /guided-reading/willow-street/drums-for-carnival/cover.webp | Drums for Carnival / by Theo Finch / illustrated by Nina Fox |
+| willow-street-eid-morning-with-samir | Eid Morning with Samir | fiction | C | 8 | 9 | /guided-reading/willow-street/eid-morning-with-samir/cover.webp | Eid Morning with Samir / by Ava Stone / illustrated by Ivy Lane |
+| willow-street-grow-a-bean-in-a-jar | Grow a Bean in a Jar | nonfiction | C | 8 | 9 | /guided-reading/willow-street/grow-a-bean-in-a-jar/cover.webp | Grow a Bean in a Jar / by Theo Finch / illustrated by Ivy Lane |
+| willow-street-make-a-paper-kite | Make a Paper Kite | nonfiction | C | 8 | 9 | /guided-reading/willow-street/make-a-paper-kite/cover.webp | Make a Paper Kite / by Owen Brooks / illustrated by Toby Green |
+| willow-street-build-a-cardboard-ramp | Build a Cardboard Ramp | nonfiction | C | 8 | 9 | /guided-reading/willow-street/build-a-cardboard-ramp/cover.webp | Build a Cardboard Ramp / by Milo Reed / illustrated by Clara Moon |
+| willow-street-make-fruit-and-yoghurt-cups | Make Fruit and Yoghurt Cups | nonfiction | C | 8 | 9 | /guided-reading/willow-street/make-fruit-and-yoghurt-cups/cover.webp | Make Fruit and Yoghurt Cups / by Nora Bell / illustrated by Finn Blue |
+| willow-street-from-wheat-to-bread | From Wheat to Bread | nonfiction | C | 8 | 9 | /guided-reading/willow-street/from-wheat-to-bread/cover.webp | From Wheat to Bread / by Mia Rivers / illustrated by Nina Fox |
+| willow-street-where-rainwater-goes | Where Rainwater Goes | nonfiction | C | 8 | 9 | /guided-reading/willow-street/where-rainwater-goes/cover.webp | Where Rainwater Goes / by Caleb Hart / illustrated by Ella Bright |
+| willow-street-inside-a-fire-station | Inside a Fire Station | nonfiction | C | 8 | 9 | /guided-reading/willow-street/inside-a-fire-station/cover.webp | Inside a Fire Station / by Caleb Hart / illustrated by Clara Moon |
+| willow-street-how-paper-is-recycled | How Paper Is Recycled | nonfiction | C | 8 | 9 | /guided-reading/willow-street/how-paper-is-recycled/cover.webp | How Paper Is Recycled / by Caleb Hart / illustrated by Ivy Lane |
+| willow-street-a-snail-comes-out-at-night | A Snail Comes Out at Night | nonfiction | C | 8 | 9 | /guided-reading/willow-street/a-snail-comes-out-at-night/cover.webp | A Snail Comes Out at Night / by Ava Stone / illustrated by Ivy Lane |
+| willow-street-how-a-book-is-made | How a Book Is Made | nonfiction | C | 8 | 9 | /guided-reading/willow-street/how-a-book-is-made/cover.webp | How a Book Is Made / by Nora Bell / illustrated by Clara Moon |
 
 ## Warnings
 

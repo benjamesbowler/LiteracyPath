@@ -1,7 +1,7 @@
 ---
 type: current-state
 status: active
-updated: 2026-08-31
+updated: 2026-09-02
 authority: orientation-only
 ---
 
@@ -26,6 +26,24 @@ Live task state is read from Codex rather than copied here. Use
 [Workstreams](WORKSTREAMS.md) only for durable collision warnings, blockers,
 and handoffs. A task that changes an authoritative rule must update the
 authoritative source and, when the choice is durable, record a linked decision.
+
+## Current game-production direction
+
+- The [Game Design Bible](../design/GAME_DESIGN_BIBLE.md) remains the product
+  authority. The [Game Visual and Playability Production Guide](../design/GAME_VISUAL_PLAYABILITY_PRODUCTION_GUIDE.md)
+  is the current provider-neutral workflow for raising game presentation and
+  playability to the product owner's console-quality target.
+- The live Learn Games catalogue has 22 games: 13 are surfaced as the current
+  Arcade roster and nine remain in the wider catalogue. Existing version 2.0
+  records document intended contracts and selected mechanic anchors; only five
+  currently have validated vertical-slice briefs, and none of those documents
+  is direct visual, motion, human-listening, physical-device or child-play
+  approval.
+- [TASKS.md](../../TASKS.md) tracks the full catalogue plus Sound Seekers,
+  Adventure Map and other game-like surfaces. It proposes Sound Racer 3.0 as the
+  first gold-standard implementation, followed by shared production/evidence
+  tooling and the wider fleet; that order remains a programme recommendation,
+  not a durable product-priority decision.
 
 ## Known blockers
 
