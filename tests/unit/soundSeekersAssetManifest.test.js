@@ -266,7 +266,7 @@ function validManifestFixture() {
   const cropManifestSha256 = testHash("synthetic-crop-manifest");
   return {
     schemaVersion: 2,
-    project: "LiteracyPath Sound Seekers v2",
+    project: "Sound Seekers v2",
     generatorContract: "task4-immutable-background-brief-v1",
     assets: SOUND_SEEKERS_BIOME_KITS.map((kit, index) => {
       const prompt = [

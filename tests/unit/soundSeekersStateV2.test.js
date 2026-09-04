@@ -12,6 +12,48 @@ import {
   deriveConfusions,
   evidenceIsIndependent
 } from "../../src/features/soundSeekers/engine/evidence.js";
+import { createCharacterAppearance } from "../../src/features/soundSeekers/visual/characterCustomization.js";
+
+test("settings persist only motor assists, presentation choices, and canonical cosmetics", () => {
+  const characterAppearance = createCharacterAppearance({
+    schemaVersion: 1,
+    bodyShapeId: "body-shape-sprout",
+    paletteTokenId: "player-palette-moss",
+    accessories: { back: null, head: "gear-head-leaf-cap", neck: null, held: null }
+  });
+  const settings = normalizeSoundSeekersState({
+    ...createSoundSeekersState(),
+    settings: {
+      autoTravel: true,
+      slowerMovement: true,
+      noDamageTravel: true,
+      largerTargets: true,
+      simplifiedScene: true,
+      extendedResponse: true,
+      characterAppearance,
+      answer: "sh",
+      learningSupport: true,
+      evidence: [{ correct: true }],
+      mastery: { sh: 99 },
+      telemetry: { selected: "sh" },
+      timing: 1
+    }
+  }).settings;
+  for (const key of [
+    "autoTravel", "slowerMovement", "noDamageTravel", "largerTargets",
+    "simplifiedScene", "extendedResponse"
+  ]) assert.equal(settings[key], true, key);
+  assert.deepEqual(settings.characterAppearance, characterAppearance);
+  for (const forbidden of [
+    "answer", "learningSupport", "evidence", "mastery", "telemetry", "timing"
+  ]) assert.equal(Object.hasOwn(settings, forbidden), false, forbidden);
+
+  const invalidAppearance = structuredClone(characterAppearance);
+  invalidAppearance.answer = "sh";
+  assert.equal(Object.hasOwn(normalizeSoundSeekersState({
+    ...createSoundSeekersState(), settings: { characterAppearance: invalidAppearance }
+  }).settings, "characterAppearance"), false);
+});
 
 test("v1 learning starts a fresh v2 game while allowlisted preferences survive", () => {
   const next = normalizeSoundSeekersState({

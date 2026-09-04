@@ -1,5 +1,11 @@
 const BRIDGE_CONTROL_SELECTOR = "[data-ss-input-type]";
-const SCANNABLE_CONTROL_SELECTOR = "[data-ss-input-type], [data-option-token]";
+const CONNECTED_TEXT_CONTROL_SELECTOR = "[data-option-token]";
+const MODEL_CONTROL_SELECTOR = "[data-ss-model-control]";
+const SCANNABLE_CONTROL_SELECTOR = [
+  BRIDGE_CONTROL_SELECTOR,
+  CONNECTED_TEXT_CONTROL_SELECTOR,
+  MODEL_CONTROL_SELECTOR
+].join(", ");
 const ACTIVATION_DISPOSITIONS = new WeakMap();
 const SAFE_INPUT_ID = /^[a-z][a-z0-9_-]*$/u;
 const FORBIDDEN_INPUT_KEY = /(?:^|[_-])(?:answer|correct|correctness|expected|evidence|score)(?:[_-]|$)/iu;
@@ -31,16 +37,18 @@ function nonempty(value) {
   return typeof value === "string" && Boolean(value.trim());
 }
 
-function controlForEvent(actionRoot, event) {
-  const control = event?.target?.closest?.(BRIDGE_CONTROL_SELECTOR) ?? null;
-  if (!control || !actionRoot.contains?.(control) || control.disabled
-    || control.getAttribute?.("aria-disabled") === "true") return null;
-  return control;
+function controlDisabled(control) {
+  return control?.disabled === true
+    || control?.getAttribute?.("aria-disabled") === "true"
+    || control?.matches?.(":disabled") === true;
 }
 
 function scannableControlForEvent(actionRoot, event) {
-  const control = event?.target?.closest?.(SCANNABLE_CONTROL_SELECTOR) ?? null;
-  if (!control || !actionRoot.contains?.(control)) return null;
+  const control = event?.target?.closest?.(BRIDGE_CONTROL_SELECTOR)
+    ?? event?.target?.closest?.(CONNECTED_TEXT_CONTROL_SELECTOR)
+    ?? event?.target?.closest?.(MODEL_CONTROL_SELECTOR)
+    ?? null;
+  if (!control || !actionRoot.contains?.(control) || controlDisabled(control)) return null;
   return control;
 }
 
@@ -51,10 +59,27 @@ function semanticInputForControl(control) {
   for (const [key, dataKey] of [
     ["targetId", "ssTargetId"],
     ["sourceId", "ssSourceId"],
-    ["value", "ssInputValue"]
+    ["value", "ssInputValue"],
+    ["choiceId", "ssChoiceId"],
+    ["token", "ssOptionToken"],
+    ["segmentId", "ssSegmentId"],
+    ["recipientId", "ssRecipientId"],
+    ["meaningSemanticId", "ssMeaningSemanticId"],
+    ["candidateId", "ssCandidateId"],
+    ["itemId", "ssItemId"],
+    ["binId", "ssBinId"],
+    ["tileId", "ssTileId"],
+    ["slotId", "ssSlotId"]
   ]) {
     const value = control.dataset?.[dataKey];
     if (nonempty(value) && !FORBIDDEN_INPUT_KEY.test(key)) entries.push([key, value]);
+  }
+  for (const [key, dataKey] of [["dx", "ssDx"], ["dy", "ssDy"]]) {
+    const raw = control.dataset?.[dataKey];
+    if (raw === undefined) continue;
+    const value = Number(raw);
+    if (!Number.isFinite(value)) return null;
+    entries.push([key, value]);
   }
   return Object.freeze(Object.fromEntries(entries));
 }
@@ -72,8 +97,7 @@ function normalizedPointerPosition(canvas, event) {
 
 function focusableControls(actionRoot) {
   return [...(actionRoot.querySelectorAll?.(SCANNABLE_CONTROL_SELECTOR) ?? [])]
-    .filter(control => control.isConnected !== false && !control.disabled
-      && control.getAttribute?.("aria-disabled") !== "true");
+    .filter(control => control.isConnected !== false && !controlDisabled(control));
 }
 
 function textEntryTarget(target) {
@@ -98,9 +122,10 @@ export function getSoundSeekersActivationDisposition(event) {
   return nativeEvent ? ACTIVATION_DISPOSITIONS.get(nativeEvent) ?? "unmanaged" : "unmanaged";
 }
 
-export function createInputBridge({ canvas, actionRoot, dispatch }) {
+export function createInputBridge({ canvas, actionRoot, keyboardRoot = actionRoot, dispatch }) {
   eventTarget(canvas, "canvas");
   eventTarget(actionRoot, "action root");
+  eventTarget(keyboardRoot, "keyboard root");
   requiredFunction(dispatch, "input dispatch");
 
   let destroyed = false;
@@ -124,6 +149,8 @@ export function createInputBridge({ canvas, actionRoot, dispatch }) {
     const candidates = controls();
     const focused = actionRoot.ownerDocument?.activeElement;
     if (candidates.includes(focused)) return focused;
+    const primary = candidates.find(control => control.hasAttribute?.("data-ss-primary-control"));
+    if (primary) return primary;
     return candidates[scanIndex] ?? null;
   };
   const scan = () => {
@@ -148,7 +175,7 @@ export function createInputBridge({ canvas, actionRoot, dispatch }) {
   };
 
   const onSemanticClick = event => {
-    const control = controlForEvent(actionRoot, event);
+    const control = scannableControlForEvent(actionRoot, event);
     let canceledPointerId = null;
     if (Number.isFinite(event?.pointerId)
       && canceledActionPointers.get(event.pointerId) === control) {
@@ -161,6 +188,7 @@ export function createInputBridge({ canvas, actionRoot, dispatch }) {
       canceledActionPointers.delete(canceledPointerId);
       setActivationDisposition(event, "canceled");
       event.preventDefault?.();
+      if (!semanticInputForControl(control)) event.stopPropagation?.();
       return;
     }
     const input = semanticInputForControl(control);
@@ -170,7 +198,7 @@ export function createInputBridge({ canvas, actionRoot, dispatch }) {
     emit(input);
   };
   const onActionPointerDown = event => {
-    const control = controlForEvent(actionRoot, event);
+    const control = scannableControlForEvent(actionRoot, event);
     if (control && Number.isFinite(event.pointerId)) {
       canceledActionPointers.delete(event.pointerId);
       for (const [pointerId, pressedControl] of canceledActionPointers.entries()) {
@@ -183,7 +211,7 @@ export function createInputBridge({ canvas, actionRoot, dispatch }) {
     if (!Number.isFinite(event.pointerId)) return;
     const pressedControl = actionPointers.get(event.pointerId);
     actionPointers.delete(event.pointerId);
-    if (pressedControl && controlForEvent(actionRoot, event) !== pressedControl) {
+    if (pressedControl && scannableControlForEvent(actionRoot, event) !== pressedControl) {
       canceledActionPointers.set(event.pointerId, pressedControl);
     }
   };
@@ -239,13 +267,13 @@ export function createInputBridge({ canvas, actionRoot, dispatch }) {
   listen(actionRoot, "pointerup", onActionPointerUp, true);
   listen(actionRoot, "pointercancel", cancelActionPointer, true);
   listen(actionRoot, "lostpointercapture", cancelActionPointer, true);
-  listen(actionRoot, "keydown", onKeyDown);
+  listen(keyboardRoot, "keydown", onKeyDown);
   listen(actionRoot, "soundseekers:switch", onSwitch);
   listen(canvas, "pointerdown", onCanvasPointerDown);
   listen(canvas, "pointerup", onCanvasPointerUp);
   listen(canvas, "pointercancel", clearCanvasPointer);
   listen(canvas, "lostpointercapture", clearCanvasPointer);
-  if (!actionRoot.contains?.(canvas)) listen(canvas, "keydown", onKeyDown);
+  if (!keyboardRoot.contains?.(canvas)) listen(canvas, "keydown", onKeyDown);
 
   return Object.freeze({
     scan,

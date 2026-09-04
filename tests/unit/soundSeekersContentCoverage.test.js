@@ -4,6 +4,7 @@ import test from "node:test";
 import { SOUND_SEEKERS_EXPEDITIONS } from "../../src/features/soundSeekers/content/expeditions.js";
 import { CONTENT_DECK_PLACEMENTS } from "../../src/features/soundSeekers/content/contentDeckBindings.js";
 import { CONTENT_DECK_CATEGORIES } from "../../src/features/soundSeekers/content/contentDeckCatalogs.js";
+import { getInstructionContract } from "../../src/features/soundSeekers/content/instructionContracts.js";
 import { createSoundSeekersState, mergeSoundSeekersStates } from "../../src/features/soundSeekers/engine/stateV2.js";
 import {
   createContentDeckState,
@@ -29,6 +30,36 @@ import {
   validAttemptReceipts,
   validContentDeckUses
 } from "../../src/features/soundSeekers/engine/contentCoverage.js";
+import { createSoundSeekersAudioController } from "../../src/features/soundSeekers/runtime/soundSeekersAudioController.js";
+import { installSoundSeekersProductionAudioDouble } from "../helpers/soundSeekersProductionAudioDouble.js";
+
+installSoundSeekersProductionAudioDouble();
+
+function authorizedAudio(challenge) {
+  if (challenge.requiresAudio === false) {
+    return { audio: { status: "unavailable" }, audioAuthority: undefined };
+  }
+  const contract = getInstructionContract(challenge.instructionId);
+  const audioAuthority = {
+    scopeKey: "content-coverage-test",
+    missionId: `content:${challenge.attemptId}`,
+    phaseId: challenge.challengeId,
+    attemptId: challenge.attemptId
+  };
+  const controller = createSoundSeekersAudioController({
+    scopeKey: audioAuthority.scopeKey,
+    clock: () => 0
+  });
+  controller.request({
+    cueId: `instruction:${contract.instructionId}`,
+    audioKey: contract.childAudio,
+    visibleText: contract.childText,
+    spokenText: contract.childText,
+    kind: "instruction",
+    requiresAudio: true
+  }, audioAuthority);
+  return { audio: controller.getSnapshot().delivery, audioAuthority };
+}
 
 export function completeCanonicalContentCoverageState() {
   let state = createSoundSeekersState();
@@ -55,7 +86,7 @@ export function completeCanonicalContentCoverageState() {
     const challenge = materializeStoryTransferChallenge(state, { transactionId });
     state = completeStoryTransferTransaction(state, {
       transactionId, challenge, response: { kind: "literacy-answer", token: challenge.expectedToken },
-      audio: { status: "unavailable" }, at: `2026-09-02T04:${String(expedition.stopIndex).padStart(2, "0")}:00.000Z`,
+      ...authorizedAudio(challenge), at: `2026-09-02T04:${String(expedition.stopIndex).padStart(2, "0")}:00.000Z`,
       sessionDay: "2026-09-02"
     }).nextState;
   }
@@ -80,7 +111,7 @@ export function completeCanonicalContentCoverageState() {
         : { kind: "literacy-answer", token: challenge.expectedToken };
       const result = commitContentPlacementResponse(state, {
         placementId: placement.placementId, visitId: served.visitId, challenge, response,
-        audio: { status: "unavailable" },
+        ...authorizedAudio(challenge),
         at: `2026-09-02T05:${String(challenge.targetOrdinal || 0).padStart(2, "0")}:00.000Z`,
         sessionDay: "2026-09-02"
       });
@@ -403,7 +434,7 @@ test("two route placement uses bind receipt chains to their exact visit", () => 
       visitId,
       challenge,
       response: { kind: "literacy-answer", token: challenge.expectedToken },
-      audio: { status: "completed" },
+      ...authorizedAudio(challenge),
       at: `2026-09-02T09:0${challenge.targetOrdinal}:00.000Z`,
       sessionDay: "2026-09-02"
     });

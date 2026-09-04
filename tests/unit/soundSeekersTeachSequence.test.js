@@ -15,8 +15,17 @@ import { installSoundSeekersProductionAudioDouble } from "../helpers/soundSeeker
 installSoundSeekersProductionAudioDouble();
 
 const stop = id => QUEST_STOPS.find(item => item.id === id);
+const TEACH_BINDING = Object.freeze({
+  scopeKey: "teach-test",
+  missionId: "teach-test-mission",
+  phaseId: "teach-test-phase",
+  attemptId: "teach-test-attempt"
+});
 function completedTeachInput(item) {
-  const controller = createSoundSeekersAudioController({ clock: () => 0 });
+  const controller = createSoundSeekersAudioController({
+    scopeKey: TEACH_BINDING.scopeKey,
+    clock: () => 0
+  });
   const audioKeys = [...new Set([item.childAudio, item.targetAudio, ...item.targetAudioSequence,
     ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)].filter(Boolean))];
   const audioDeliveries = audioKeys.map((audioKey, ordinal) => {
@@ -27,11 +36,49 @@ function completedTeachInput(item) {
       spokenText: item.childText,
       kind: "teach",
       requiresAudio: true
-    });
+    }, TEACH_BINDING);
     return controller.getSnapshot().delivery;
   });
   return { type: "complete-teach", teachIndex: item.teachIndex, targetId: item.targetId, audioDeliveries };
 }
+
+test("teaching consumes only receipts bound to its exact mission phase attempt", () => {
+  const sequence = createTeachSequence(stop("s1"), []);
+  const item = sequence.currentItem;
+  const binding = {
+    scopeKey: "learner-teach",
+    missionId: "mission-teach",
+    phaseId: "s1-teach",
+    attemptId: "mission-teach:s1-teach:attempt:0"
+  };
+  const controller = createSoundSeekersAudioController({ scopeKey: binding.scopeKey, clock: () => 0 });
+  const audioKeys = [...new Set([item.childAudio, item.targetAudio, ...item.targetAudioSequence,
+    ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)].filter(Boolean))];
+  const input = {
+    type: "complete-teach",
+    teachIndex: item.teachIndex,
+    targetId: item.targetId,
+    audioDeliveries: audioKeys.map((audioKey, ordinal) => {
+      controller.request({
+        cueId: `teach:${item.stopId}:${item.teachIndex}:${item.targetId}:${ordinal}`,
+        audioKey,
+        visibleText: item.childText,
+        spokenText: item.childText,
+        kind: "teach",
+        requiresAudio: true
+      }, binding);
+      return controller.getSnapshot().delivery;
+    })
+  };
+  assert.strictEqual(reduceTeachSequence(sequence, input, {
+    audioBinding: { ...binding, phaseId: "other" }
+  }), sequence);
+  const advanced = reduceTeachSequence(sequence, input, { audioBinding: binding });
+  assert.equal(advanced.teachIndex, sequence.teachIndex + 1);
+  assert.strictEqual(reduceTeachSequence(sequence, input, { audioBinding: binding }), sequence,
+    "consumed teaching receipts cannot be replayed");
+  controller.dispose();
+});
 
 test("all six targets at s7 are taught before its first scored challenge", () => {
   const sequence = createTeachSequence(stop("s7"), []);
@@ -62,15 +109,17 @@ test("a checkpoint retains the teach index and a replay cannot create scored evi
 
   assert.strictEqual(reduceTeachSequence(afterReplay, { type: "complete-teach" }), afterReplay);
   const valid = completedTeachInput(afterReplay.currentItem);
-  assert.strictEqual(reduceTeachSequence(afterReplay, { ...valid, targetId: "wrong" }), afterReplay);
+  assert.strictEqual(reduceTeachSequence(afterReplay, { ...valid, targetId: "wrong" }, {
+    audioBinding: TEACH_BINDING
+  }), afterReplay);
   assert.strictEqual(reduceTeachSequence(afterReplay, {
     ...valid, audioDeliveries: valid.audioDeliveries.map(item => ({ ...item, status: "started" }))
-  }), afterReplay);
+  }, { audioBinding: TEACH_BINDING }), afterReplay);
   assert.strictEqual(reduceTeachSequence(afterReplay, {
     ...valid,
     audioDeliveries: valid.audioDeliveries.map(item => Object.freeze({ ...item }))
-  }), afterReplay, "a frozen literal delivery cannot complete teaching");
-  const afterTeach = reduceTeachSequence(afterReplay, valid);
+  }, { audioBinding: TEACH_BINDING }), afterReplay, "a frozen literal delivery cannot complete teaching");
+  const afterTeach = reduceTeachSequence(afterReplay, valid, { audioBinding: TEACH_BINDING });
   assert.equal(afterTeach.teachIndex, 1);
   const restored = reduceTeachSequence(afterTeach, { type: "restore", checkpoint: afterTeach });
   assert.equal(restored.teachIndex, 1);
@@ -100,7 +149,9 @@ test("the teach checkpoint is an absolute stop cursor and never double-skips tau
   assert.equal(resumed.teachTargetId, "ff");
   assert.equal(resumed.currentItem.targetId, "ff");
 
-  const afterFf = reduceTeachSequence(resumed, completedTeachInput(resumed.currentItem));
+  const afterFf = reduceTeachSequence(resumed, completedTeachInput(resumed.currentItem), {
+    audioBinding: TEACH_BINDING
+  });
   assert.equal(afterFf.teachIndex, 3);
   assert.equal(afterFf.teachTargetId, "ll");
   assert.equal(afterFf.currentItem.targetId, "ll");

@@ -1356,7 +1356,7 @@ function buildSourceManifest(callsLedger, preparationLedger) {
   });
   const manifest = {
     schemaVersion: 2,
-    project: "LiteracyPath Sound Seekers v2",
+    project: "Sound Seekers v2",
     generatorContract: "task4-immutable-background-brief-v1",
     assets
   };

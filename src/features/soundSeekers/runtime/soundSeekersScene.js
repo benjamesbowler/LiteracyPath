@@ -190,6 +190,10 @@ function runtimeSnapshot({ model, assists = {}, onInput, onTraversalPosition = N
   };
 }
 
+function interactionId(value) {
+  return typeof value === "string" && value.trim() ? value : null;
+}
+
 export function createSoundSeekersStageRuntime({
   host,
   actionRoot,
@@ -205,10 +209,12 @@ export function createSoundSeekersStageRuntime({
   requiredFunction(loadPhaser, "Phaser loader");
   let destroyed = false;
   let game = null;
+  let nearestInteractionId = null;
 
   const bridge = createInputBridge({
     canvas: host,
     actionRoot,
+    keyboardRoot: actionRoot.closest?.("[data-sound-seekers-game]") ?? actionRoot,
     dispatch(input) {
       if (!destroyed) current.onInput(input);
     }
@@ -224,7 +230,17 @@ export function createSoundSeekersStageRuntime({
         getTraversal: () => current.model.traversal,
         getAssists: () => current.assists,
         onPosition(position) {
-          if (!destroyed) current.onTraversalPosition(position);
+          if (destroyed) return;
+          current.onTraversalPosition(position);
+          const nextNearestInteractionId = interactionId(position.nearestInteractionId);
+          if (nextNearestInteractionId === nearestInteractionId) return;
+          nearestInteractionId = nextNearestInteractionId;
+          if (nearestInteractionId) {
+            current.onInput(Object.freeze({
+              type: "arrive",
+              targetId: nearestInteractionId
+            }));
+          }
         }
       });
       const nextGame = new Phaser.Game({
@@ -259,7 +275,12 @@ export function createSoundSeekersStageRuntime({
     activate: bridge.activate,
     update(next) {
       if (destroyed) return false;
-      current = runtimeSnapshot(next);
+      const snapshot = runtimeSnapshot(next);
+      if ((snapshot.model.traversal?.routeId ?? null)
+        !== (current.model.traversal?.routeId ?? null)) {
+        nearestInteractionId = null;
+      }
+      current = snapshot;
       return true;
     },
     destroy() {

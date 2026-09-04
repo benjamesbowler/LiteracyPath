@@ -24,7 +24,7 @@ import { GuidedReadingPage } from "./components/guided-reading/GuidedReadingPage
 import { HollowPage } from "./components/HollowPage.jsx";
 import { LearnAreaPage } from "./components/LearnAreaPage.jsx";
 import { PhonicsLearnPage } from "./components/PhonicsLearnPage.jsx";
-import QuestRoot from "./components/quest/QuestRoot.jsx";
+import SoundSeekersRoute from "./features/soundSeekers/SoundSeekersRoute.jsx";
 import { StudentAdventureMapPage } from "./components/StudentAdventureMapPage.jsx";
 import { StudentBooksPage } from "./components/StudentBooksPage.jsx";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
@@ -209,11 +209,9 @@ function Surface() {
           studentName="Aaron"
           progressScopeKey={PREVIEW_SCOPE}
           renderQuest={({ onExit }) => (
-            <QuestRoot
-              disableAdaptiveQuality
-              isSoundEnabled={false}
+            <SoundSeekersRoute
               onExit={onExit}
-              previewForce2d
+              isSoundEnabled={false}
               progressScopeKey={PREVIEW_SCOPE}
             />
           )}

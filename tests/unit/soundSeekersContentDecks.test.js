@@ -613,15 +613,19 @@ const TASK2_ALLOWED_IMPORT_EDGES = Object.freeze([
   "contentDeckTransactions->evidence", "contentDeckTransactions->evidenceEligibility",
   "contentDeckTransactions->expeditions", "contentDeckTransactions->instructionContracts",
   "contentDeckTransactions->questCorrection", "evidence->challengeContract",
-  "evidence->evidenceEligibility", "heartWords->evidenceEligibility",
+  "evidence->audioControllerAuthority", "evidence->evidenceEligibility",
+  "evidence->instructionContracts", "heartWords->evidenceEligibility",
   "heartWords->heartWordRecords", "heartWords->pronunciationLexicon",
-  "stateV2->contentCoverage", "stateV2->contentDeckState", "stateV2->evidenceEligibility",
+  "stateV2->characterCustomization", "stateV2->contentCoverage",
+  "stateV2->contentDeckState", "stateV2->evidenceEligibility",
   "stateV2->sceneVisualSemantics"
 ]);
 
-assert.equal(TASK2_ALLOWED_IMPORT_EDGES.length, 34);
+assert.equal(TASK2_ALLOWED_IMPORT_EDGES.length, 37);
 
 const TASK2_EXTERNAL_IMPORT_TARGETS = Object.freeze({
+  audioControllerAuthority: "src/features/soundSeekers/engine/audioControllerAuthority.js",
+  characterCustomization: "src/features/soundSeekers/visual/characterCustomization.js",
   expeditions: "src/features/soundSeekers/content/expeditions.js",
   instructionContracts: "src/features/soundSeekers/content/instructionContracts.js",
   pronunciationLexicon: "src/features/soundSeekers/content/pronunciationLexicon.js",

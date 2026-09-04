@@ -26,6 +26,12 @@ const WORLD_STYLE = Object.freeze({
   borderRadius: 20,
   isolation: "isolate"
 });
+const SCENE_FIELDSET_STYLE = Object.freeze({
+  minWidth: 0,
+  margin: 0,
+  padding: 0,
+  border: 0
+});
 const PHASER_HOST_STYLE = Object.freeze({
   position: "absolute",
   inset: 0,
@@ -72,6 +78,9 @@ const TRAVERSAL_CONTROLS = Object.freeze([
   Object.freeze({ value: "down", label: "↓ Down", shortcut: "ArrowDown" }),
   Object.freeze({ value: "right", label: "Right →", shortcut: "ArrowRight" })
 ]);
+const SCENE_CHOICE_INPUT_KEYS = new Set(["type", "choiceId", "token", "recipientId"]);
+const SAFE_SCENE_INPUT_TYPE = /^[a-z][a-z0-9_-]*$/u;
+const PRIVATE_SCENE_INPUT_TYPE = /(?:^|[_-])(?:answer|correct|correctness|expected|evidence|score)(?:[_-]|$)/iu;
 
 function requiredFunction(value, name) {
   if (typeof value !== "function") throw new TypeError(`Sound Seekers ${name} must be a function`);
@@ -115,7 +124,51 @@ function assertNoProjectedPlayer(biomeProps) {
 
 function displayPosition(value) {
   const clamp = item => Math.min(1, Math.max(0, Number.isFinite(item) ? item : 0));
-  return Object.freeze({ x: clamp(value?.x), y: clamp(value?.y) });
+  const nearestInteractionId = typeof value?.nearestInteractionId === "string"
+    && value.nearestInteractionId.trim() ? value.nearestInteractionId : null;
+  return Object.freeze({
+    x: clamp(value?.x),
+    y: clamp(value?.y),
+    nearestInteractionId
+  });
+}
+
+function sceneChoiceSurface(model, childScene) {
+  const enabled = model.sceneOptionsEnabled;
+  const controls = model.sceneChoiceControls;
+  const options = childScene?.choice?.options;
+  if (typeof enabled !== "boolean" || !Array.isArray(controls) || !Array.isArray(options)) {
+    throw new TypeError("Sound Seekers scene choice controls are incomplete");
+  }
+  if (!enabled) {
+    if (controls.length !== 0) {
+      throw new TypeError("Disabled Sound Seekers scene options cannot expose active controls");
+    }
+    return Object.freeze({ enabled, inputs: new Map() });
+  }
+  if (controls.length !== options.length) {
+    throw new TypeError("Sound Seekers scene choices must map every visible option");
+  }
+  const optionTokens = new Set(options.map(option => option?.token));
+  const inputs = new Map();
+  for (const control of controls) {
+    const input = control?.input;
+    if (!control || Reflect.ownKeys(control).length !== 2
+      || !Object.hasOwn(control, "token") || !Object.hasOwn(control, "input")
+      || typeof control.token !== "string" || !control.token.trim()
+      || !optionTokens.has(control.token) || inputs.has(control.token)
+      || !input || typeof input !== "object" || Array.isArray(input)
+      || !Object.isFrozen(input) || typeof input.type !== "string" || !input.type.trim()
+      || !SAFE_SCENE_INPUT_TYPE.test(input.type) || PRIVATE_SCENE_INPUT_TYPE.test(input.type)
+      || Reflect.ownKeys(input).some(key => typeof key !== "string"
+        || !SCENE_CHOICE_INPUT_KEYS.has(key))
+      || Object.entries(input).some(([key, value]) => key !== "type"
+        && (typeof value !== "string" || !value.trim()))) {
+      throw new TypeError("Sound Seekers scene choice mapping is invalid");
+    }
+    inputs.set(control.token, input);
+  }
+  return Object.freeze({ enabled, inputs });
 }
 
 function TraversalControls({ onInput }) {
@@ -159,6 +212,16 @@ export function SoundSeekersStage({ model, assists = {}, audioController, onInpu
   const [position, setPosition] = useState(() => displayPosition(model.traversal?.position));
 
   useEffect(() => {
+    const stage = actionRootRef.current;
+    const document = stage?.ownerDocument;
+    const game = stage?.closest?.("[data-sound-seekers-game]");
+    if (!stage || !document) return;
+    if (document.activeElement === document.body || document.activeElement === game) {
+      stage.focus({ preventScroll: true });
+    }
+  }, []);
+
+  useEffect(() => {
     let mounted = true;
     const runtime = createSoundSeekersStageRuntime({
       host: phaserHostRef.current,
@@ -187,6 +250,7 @@ export function SoundSeekersStage({ model, assists = {}, audioController, onInpu
   }, [assists, model, onInput]);
 
   const childScene = model.childScene ?? null;
+  const sceneChoices = childScene ? sceneChoiceSurface(model, childScene) : null;
   const avatar = childScene ? null : requiredAvatar(model.avatar);
   if (!childScene) assertNoProjectedPlayer(model.biomeProps);
   const hasTraversal = Boolean(model.traversal);
@@ -229,13 +293,23 @@ export function SoundSeekersStage({ model, assists = {}, audioController, onInpu
         data-ss-react-world-owner=""
         data-traversal-x={String(position.x)}
         data-traversal-y={String(position.y)}
+        data-nearest-interaction-id={position.nearestInteractionId ?? undefined}
       >
         {childScene ? (
-          <SceneVisual
-            {...model.sceneVisualProps}
-            childScene={childScene}
-            onChoose={token => onInput(Object.freeze({ type: "choose", token }))}
-          />
+          <fieldset
+            disabled={!sceneChoices.enabled}
+            style={SCENE_FIELDSET_STYLE}
+            data-ss-scene-options={sceneChoices.enabled ? "enabled" : "disabled"}
+          >
+            <SceneVisual
+              {...model.sceneVisualProps}
+              childScene={childScene}
+              onChoose={token => {
+                const input = sceneChoices.inputs.get(token);
+                if (input) onInput(input);
+              }}
+            />
+          </fieldset>
         ) : model.biomeProps ? (
           <LayeredBiome {...model.biomeProps} />
         ) : (
@@ -279,12 +353,13 @@ export function SoundSeekersStage({ model, assists = {}, audioController, onInpu
         />
       </div>
       {!childScene && hasTraversal ? <TraversalControls onInput={onInput} /> : null}
-      {!childScene && model.activity ? (
+      {(childScene ? model.sceneActivity : model.activity) ? (
         <ActionLayer
-          activity={model.activity}
+          activity={childScene ? model.sceneActivity : model.activity}
           assists={assists}
           onInput={onInput}
           onAudioRequest={requestAudio}
+          activationMode={childScene ? "model" : "bridge"}
         />
       ) : null}
       {runtimeStatus === "unavailable" ? (

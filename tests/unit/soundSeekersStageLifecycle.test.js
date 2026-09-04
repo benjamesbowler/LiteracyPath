@@ -172,6 +172,94 @@ test("traversal scene draws no semantic object, eases safely, and stops every la
   assert.equal(positions.length, 2);
 });
 
+test("runtime preserves proximity and emits one canonical arrival on entry, re-entry, and route reset", async () => {
+  const vite = await createServer({ appType: "custom", logLevel: "silent", server: { middlewareMode: true } });
+  const { createSoundSeekersStageRuntime } = await vite.ssrLoadModule(
+    "/src/features/soundSeekers/runtime/soundSeekersScene.js"
+  );
+  const nodes = runtimeNodes();
+  const positions = [];
+  const inputs = [];
+  let game;
+  class FakeGame {
+    constructor(config) {
+      this.config = config;
+      this.canvas = fakeCanvas();
+      config.parent.appendChild(this.canvas);
+      this.context = sceneContext();
+      config.scene.create.call(this.context);
+      game = this;
+    }
+
+    destroy() {
+      this.context.events.emit("shutdown");
+      if (this.canvas.parentNode) this.canvas.parentNode.removeChild(this.canvas);
+    }
+  }
+  const interaction = Object.freeze({ id: "listen-card", x: 0.82, y: 0.3, radius: 0.08 });
+  const traversal = Object.freeze({
+    routeId: "proximity-route-one",
+    position: Object.freeze({ x: 0.12, y: 0.58 }),
+    target: Object.freeze({ x: 0.12, y: 0.58 }),
+    bounds: START_TRAVERSAL.bounds,
+    interactions: Object.freeze([interaction])
+  });
+  const update = nextTraversal => runtime.update({
+    model: { traversal: nextTraversal },
+    assists: { reducedMotion: true },
+    onInput: input => inputs.push(input),
+    onTraversalPosition: position => positions.push(position)
+  });
+
+  const runtime = createSoundSeekersStageRuntime({
+    host: nodes.host,
+    actionRoot: nodes.actionRoot,
+    model: { traversal },
+    assists: { reducedMotion: true },
+    onInput: input => inputs.push(input),
+    onTraversalPosition: position => positions.push(position),
+    loadPhaser: async () => ({ AUTO: "AUTO", Game: FakeGame })
+  });
+  try {
+    await runtime.ready;
+    const tick = time => game.config.scene.update.call(game.context, time, 16);
+    tick(0);
+    assert.equal(positions.at(-1).nearestInteractionId, null);
+    assert.deepEqual(inputs, []);
+
+    const near = Object.freeze({ ...traversal, target: Object.freeze({ x: 0.82, y: 0.3 }) });
+    update(near);
+    tick(16);
+    assert.equal(positions.at(-1).nearestInteractionId, "listen-card");
+    assert.deepEqual(inputs, [{ type: "arrive", targetId: "listen-card" }]);
+    assert.deepEqual(Object.keys(inputs[0]).sort(), ["targetId", "type"]);
+    assert.equal(Object.isFrozen(inputs[0]), true);
+    assert.doesNotMatch(JSON.stringify(inputs[0]), /answer|correct|evidence|score/iu);
+    tick(32);
+    assert.equal(inputs.length, 1, "remaining nearby must not repeat arrival");
+
+    update(traversal);
+    tick(48);
+    assert.equal(positions.at(-1).nearestInteractionId, null);
+    assert.equal(inputs.length, 1);
+    update(near);
+    tick(64);
+    assert.equal(inputs.length, 2, "leaving and re-entering emits one new arrival");
+
+    update(Object.freeze({
+      ...near,
+      routeId: "proximity-route-two",
+      position: near.target
+    }));
+    tick(80);
+    tick(96);
+    assert.equal(inputs.length, 3, "a route reset permits exactly one arrival for the new route");
+  } finally {
+    runtime.destroy();
+    await vite.close();
+  }
+});
+
 test("Strict Mode-style remount, model update, and unmount create no duplicate game or dispatch", async () => {
   const vite = await createServer({ appType: "custom", logLevel: "silent", server: { middlewareMode: true } });
   const { createSoundSeekersStageRuntime } = await vite.ssrLoadModule(
@@ -311,9 +399,26 @@ test("React remains the sole world, story-option, and cast renderer around trave
       "/src/features/soundSeekers/content/connectedText.js"
     );
     const childScene = toChildConnectedTextScene("scene-s1", "stage-lifecycle-test");
-    const html = renderToStaticMarkup(React.createElement(SoundSeekersStage, {
-      model: {
+    const baseModel = {
         childScene,
+        sceneOptionsEnabled: false,
+        sceneChoiceControls: Object.freeze([]),
+        sceneActivity: Object.freeze({
+          id: "scene-read-step",
+          kind: "story_power",
+          instruction: Object.freeze({
+            visibleText: "Read the story before choosing.",
+            spokenText: "Read the story before choosing."
+          }),
+          correction: null,
+          feedback: "",
+          controls: Object.freeze([Object.freeze({
+            id: "read-story",
+            label: "I read the story",
+            input: Object.freeze({ type: "read_text" }),
+            disabled: false
+          })])
+        }),
         sceneVisualProps: {
           childScene: { forged: true },
           activeAttemptId: null,
@@ -332,7 +437,9 @@ test("React remains the sole world, story-option, and cast renderer around trave
           progress: { current: 1, total: 5, label: "Stop 1 of 5" },
           controls: []
         }
-      },
+      };
+    const html = renderToStaticMarkup(React.createElement(SoundSeekersStage, {
+      model: baseModel,
       assists: { simplifiedScene: false, reducedMotion: true },
       audioController: { request() {} },
       onInput() {}
@@ -346,8 +453,49 @@ test("React remains the sole world, story-option, and cast renderer around trave
     assert.match(html, /data-ss-phaser-role="traversal-only"/u);
     assert.match(html, /aria-hidden="true"[^>]*tabindex="-1"/u);
     assert.doesNotMatch(html, /<canvas/u);
-    assert.doesNotMatch(html, /data-ss-action-layer/u);
+    assert.match(html, /data-ss-scene-options="disabled"/u);
+    assert.match(html, /<fieldset[^>]*disabled=""/u);
+    assert.match(html, /data-ss-action-layer=""/u);
+    assert.match(html, /data-ss-model-control=""/u);
     assert.doesNotMatch(html, /data-(?:answer|correct|expected-token)/iu);
+
+    const enabledHtml = renderToStaticMarkup(React.createElement(SoundSeekersStage, {
+      model: {
+        ...baseModel,
+        sceneOptionsEnabled: true,
+        sceneActivity: null,
+        sceneChoiceControls: Object.freeze(childScene.choice.options.map(option => Object.freeze({
+          token: option.token,
+          input: Object.freeze({
+            type: "choose_narrative_route",
+            choiceId: option.visualSemanticId
+          })
+        })))
+      },
+      assists: { simplifiedScene: false, reducedMotion: true },
+      audioController: { request() {} },
+      onInput() {}
+    }));
+    assert.match(enabledHtml, /data-ss-scene-options="enabled"/u);
+    assert.doesNotMatch(enabledHtml, /<fieldset[^>]*disabled=/u);
+    assert.doesNotMatch(enabledHtml, /data-ss-action-layer/u);
+    assert.doesNotMatch(enabledHtml, /data-(?:answer|correct|expected-token)/iu);
+    assert.throws(() => renderToStaticMarkup(React.createElement(SoundSeekersStage, {
+      model: {
+        ...baseModel,
+        sceneOptionsEnabled: true,
+        sceneActivity: null,
+        sceneChoiceControls: Object.freeze(childScene.choice.options.map(option => Object.freeze({
+          token: option.token,
+          input: Object.freeze({
+            type: "choose_narrative_route",
+            choiceId: option.visualSemanticId,
+            answer: true
+          })
+        })))
+      },
+      onInput() {}
+    })), /choice|invalid|private/iu);
   } finally {
     await vite.close();
   }
@@ -476,6 +624,28 @@ test("action and HUD controls remain 56px, separated, focus-visible, reduced-mot
     assert.doesNotMatch(actionHtml, /data-(?:answer|correct|expected-token)/iu);
     assert.doesNotMatch(actionHtml, /complete|finish/iu);
 
+    const projectedChoiceInput = Object.freeze({
+      type: "narrative_choice",
+      choiceId: "story-choice-a",
+      token: "story-token-a"
+    });
+    const modelControlledHtml = renderToStaticMarkup(React.createElement(ActionLayer, {
+      activity: {
+        ...activity,
+        controls: [{
+          ...activity.controls[0],
+          input: projectedChoiceInput
+        }]
+      },
+      activationMode: "model",
+      assists: { reducedMotion: true },
+      onInput() {}
+    }));
+    assert.match(modelControlledHtml, /data-ss-model-control=""/u);
+    assert.match(modelControlledHtml, /data-ss-model-input-type="narrative_choice"/u);
+    assert.doesNotMatch(modelControlledHtml, /data-ss-input-type=/u);
+    assert.doesNotMatch(modelControlledHtml, /data-(?:answer|correct|expected-token)/iu);
+
     const hudHtml = renderToStaticMarkup(React.createElement(MissionHud, {
       model: {
         title: "Seedwake trail",
@@ -504,6 +674,17 @@ test("action and HUD controls remain 56px, separated, focus-visible, reduced-mot
       },
       onInput() {}
     })), /incomplete|invalid|private/iu);
+    assert.throws(() => renderToStaticMarkup(React.createElement(ActionLayer, {
+      activity: {
+        ...activity,
+        controls: [{
+          ...activity.controls[0],
+          input: { ...projectedChoiceInput }
+        }]
+      },
+      activationMode: "model",
+      onInput() {}
+    })), /projected|frozen|invalid|incomplete/iu);
     assert.throws(() => renderToStaticMarkup(React.createElement(MissionHud, {
       model: {
         title: "Seedwake trail",

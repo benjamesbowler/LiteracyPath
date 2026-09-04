@@ -9,12 +9,15 @@ import { SOUND_SEEKERS_INSTRUCTIONS } from "../../src/features/soundSeekers/cont
 import { MEANING_SUPPORT_RECORDS } from "../../src/features/soundSeekers/content/meaningSupportRecords.js";
 import { createTeachSequence } from "../../src/features/soundSeekers/engine/teachSequence.js";
 import {
+  consumeCompletedAudioDeliveryReceipt,
   createSoundSeekersAudioController,
+  createSoundSeekersCorrectionAudioRequest,
   validateCompletedAudioDeliveryReceipt
 } from "../../src/features/soundSeekers/runtime/soundSeekersAudioController.js";
 import * as audioControllerModule from "../../src/features/soundSeekers/runtime/soundSeekersAudioController.js";
 import * as audioAuthorityModule from "../../src/features/soundSeekers/engine/audioControllerAuthority.js";
 import * as audioDeliveryModule from "../../src/features/soundSeekers/engine/audioDelivery.js";
+import { playCueAudio, stopCueAudio } from "../../src/utils/audio/cuePlayer.js";
 import { questChapterMaterialSfxEntry } from "../../src/utils/questActionAudio.js";
 
 function requestFor(item, audioKey, ordinal = 0) {
@@ -112,7 +115,7 @@ test("an injected player reports lifecycle but cannot mint teach authority", () 
     clock: () => 0
   });
   assert.deepEqual(Object.keys(controller).sort(), [
-    "cancel", "dispose", "getSnapshot", "replay", "request", "subscribe"
+    "cancel", "dispose", "getSnapshot", "invalidate", "replay", "request", "subscribe"
   ]);
   const snapshots = [];
   const unsubscribe = controller.subscribe(snapshot => snapshots.push(snapshot));
@@ -157,6 +160,253 @@ test("only the production-owned cue player can issue an exact completed teach de
     controller.dispose();
     audio.restore();
   }
+});
+
+test("copied production methods cannot be mutated into a receipt mint", () => {
+  const item = createTeachSequence(QUEST_STOPS.find(stop => stop.id === "s1")).currentItem;
+  const request = requestFor(item, item.childAudio);
+  const copiedPlayer = { playCueAudio, stopCueAudio };
+  const controller = createSoundSeekersAudioController({ cuePlayer: copiedPlayer, clock: () => 0 });
+  copiedPlayer.playCueAudio = (_path, options) => {
+    options.onDelivery({ id: options.cueId, session: 1, type: "loading", at: 1 });
+    options.onDelivery({ id: options.cueId, session: 1, type: "started", at: 2 });
+    options.onDelivery({ id: options.cueId, session: 1, type: "completed", at: 3 });
+  };
+  copiedPlayer.stopCueAudio = () => {};
+  controller.request(request);
+  assert.equal(controller.getSnapshot().delivery.status, "completed");
+  assert.equal(validateCompletedAudioDeliveryReceipt(
+    controller.getSnapshot().delivery,
+    request
+  ), false);
+  controller.dispose();
+});
+
+test("a completed listener cannot clear the replacement request it starts", () => {
+  const item = createTeachSequence(QUEST_STOPS.find(stop => stop.id === "s1")).currentItem;
+  const dependencies = controlledDependencies();
+  const controller = createSoundSeekersAudioController({
+    cuePlayer: dependencies.cuePlayer,
+    clock: () => 0
+  });
+  const first = requestFor(item, item.childAudio);
+  const second = requestFor(item, item.targetAudio, 1);
+  let replaced = false;
+  const unsubscribe = controller.subscribe(snapshot => {
+    if (!replaced && snapshot.request?.cueId === first.cueId
+      && snapshot.delivery?.status === "completed") {
+      replaced = true;
+      controller.request(second);
+    }
+  });
+  controller.request(first);
+  dependencies.complete();
+  assert.equal(controller.getSnapshot().request.cueId, second.cueId);
+  assert.equal(controller.getSnapshot().delivery.status, "started");
+  dependencies.complete();
+  assert.equal(controller.getSnapshot().delivery.status, "completed");
+  unsubscribe();
+  controller.dispose();
+});
+
+test("an initial snapshot listener cannot let a superseded request start", () => {
+  const item = createTeachSequence(QUEST_STOPS.find(stop => stop.id === "s1")).currentItem;
+  const dependencies = controlledDependencies();
+  const controller = createSoundSeekersAudioController({
+    cuePlayer: dependencies.cuePlayer,
+    clock: () => 0
+  });
+  const first = requestFor(item, item.childAudio);
+  const second = requestFor(item, item.targetAudio, 1);
+  let replaced = false;
+  const unsubscribe = controller.subscribe(snapshot => {
+    if (!replaced && snapshot.request?.cueId === first.cueId
+      && snapshot.delivery?.status === "unavailable") {
+      replaced = true;
+      controller.request(second);
+    }
+  });
+  controller.request(first);
+  assert.equal(controller.getSnapshot().request.cueId, second.cueId);
+  assert.equal(controller.getSnapshot().delivery.status, "started");
+  dependencies.complete();
+  assert.equal(controller.getSnapshot().delivery.status, "completed");
+  unsubscribe();
+  controller.dispose();
+});
+
+test("a cross-controller reentrant request keeps the exact current scope owner", () => {
+  const item = createTeachSequence(QUEST_STOPS.find(stop => stop.id === "s1")).currentItem;
+  const request = requestFor(item, item.childAudio);
+  const binding = {
+    scopeKey: "reentrant-scope-owner",
+    missionId: "mission",
+    phaseId: "phase",
+    attemptId: "attempt"
+  };
+  const firstDependencies = controlledDependencies();
+  const secondDependencies = controlledDependencies();
+  const first = createSoundSeekersAudioController({
+    cuePlayer: firstDependencies.cuePlayer,
+    scopeKey: binding.scopeKey,
+    clock: () => 0
+  });
+  const second = createSoundSeekersAudioController({
+    cuePlayer: secondDependencies.cuePlayer,
+    scopeKey: binding.scopeKey,
+    clock: () => 0
+  });
+  let replaced = false;
+  const unsubscribe = second.subscribe(snapshot => {
+    if (!replaced && snapshot.delivery?.status === "unavailable") {
+      replaced = true;
+      first.request(request, binding);
+    }
+  });
+  second.request(request, binding);
+  assert.equal(first.getSnapshot().delivery.status, "started");
+  assert.equal(second.getSnapshot().delivery.status, "unavailable");
+  unsubscribe();
+  first.dispose();
+  second.dispose();
+});
+
+test("dispose completes even when an interrupted-delivery listener is hostile", () => {
+  const item = createTeachSequence(QUEST_STOPS.find(stop => stop.id === "s1")).currentItem;
+  const dependencies = controlledDependencies();
+  const controller = createSoundSeekersAudioController({
+    cuePlayer: dependencies.cuePlayer,
+    clock: () => 0
+  });
+  controller.request(requestFor(item, item.childAudio));
+  controller.subscribe(snapshot => {
+    if (snapshot.delivery?.status === "interrupted") throw new Error("hostile listener");
+  });
+  assert.doesNotThrow(() => controller.dispose());
+  assert.throws(() => controller.request(requestFor(item, item.childAudio)), /disposed/u);
+});
+
+test("scored receipts are exact-bound, current, and single-use", () => {
+  const item = createTeachSequence(QUEST_STOPS.find(stop => stop.id === "s1")).currentItem;
+  const request = requestFor(item, item.childAudio);
+  const binding = {
+    scopeKey: "learner-a",
+    missionId: "mission-a",
+    phaseId: "teach-a",
+    attemptId: "attempt-0"
+  };
+  const audio = installProductionAudioDouble();
+  const controller = createSoundSeekersAudioController({ scopeKey: binding.scopeKey, clock: () => 0 });
+  try {
+    controller.request(request, binding);
+    const delivery = controller.getSnapshot().delivery;
+    assert.equal(validateCompletedAudioDeliveryReceipt(delivery, request), false);
+    assert.equal(validateCompletedAudioDeliveryReceipt(delivery, request, binding), true);
+    for (const key of ["scopeKey", "missionId", "phaseId", "attemptId"]) {
+      assert.equal(validateCompletedAudioDeliveryReceipt(delivery, request, {
+        ...binding,
+        [key]: `${binding[key]}:stale`
+      }), false, key);
+    }
+    assert.equal(consumeCompletedAudioDeliveryReceipt(delivery, request, binding), true);
+    assert.equal(consumeCompletedAudioDeliveryReceipt(delivery, request, binding), false);
+    assert.equal(validateCompletedAudioDeliveryReceipt(delivery, request, binding), false);
+  } finally {
+    controller.dispose();
+    audio.restore();
+  }
+});
+
+test("scope ownership, binding changes, invalidation, cancel, and dispose revoke receipts", () => {
+  const item = createTeachSequence(QUEST_STOPS.find(stop => stop.id === "s1")).currentItem;
+  const request = requestFor(item, item.childAudio);
+  const audio = installProductionAudioDouble();
+  const first = createSoundSeekersAudioController({ scopeKey: "same", clock: () => 0 });
+  const second = createSoundSeekersAudioController({ scopeKey: "same", clock: () => 0 });
+  const other = createSoundSeekersAudioController({ scopeKey: "other", clock: () => 0 });
+  const bound = scopeKey => ({
+    scopeKey,
+    missionId: "mission",
+    phaseId: "phase",
+    attemptId: "attempt-0"
+  });
+  try {
+    first.request(request, bound("same"));
+    const superseded = first.getSnapshot().delivery;
+    other.request(request, bound("other"));
+    const independent = other.getSnapshot().delivery;
+    assert.equal(validateCompletedAudioDeliveryReceipt(superseded, request, bound("same")), true);
+    assert.equal(validateCompletedAudioDeliveryReceipt(independent, request, bound("other")), true);
+    second.request(request, bound("same"));
+    assert.equal(validateCompletedAudioDeliveryReceipt(superseded, request, bound("same")), false);
+    const changed = second.getSnapshot().delivery;
+    second.request(request, { ...bound("same"), phaseId: "next-phase" });
+    assert.equal(validateCompletedAudioDeliveryReceipt(changed, request, bound("same")), false);
+    const invalidated = second.getSnapshot().delivery;
+    second.invalidate({ ...bound("same"), phaseId: "next-phase" });
+    assert.equal(validateCompletedAudioDeliveryReceipt(
+      invalidated, request, { ...bound("same"), phaseId: "next-phase" }
+    ), false);
+    second.request(request, bound("same"));
+    const cancelled = second.getSnapshot().delivery;
+    second.cancel();
+    assert.equal(validateCompletedAudioDeliveryReceipt(cancelled, request, bound("same")), false);
+    other.dispose();
+    assert.equal(validateCompletedAudioDeliveryReceipt(independent, request, bound("other")), false);
+  } finally {
+    first.dispose();
+    second.dispose();
+    other.dispose();
+    audio.restore();
+  }
+});
+
+test("accessor and Proxy players cannot acquire production authority", () => {
+  const accessorPlayer = {};
+  Object.defineProperties(accessorPlayer, {
+    playCueAudio: { enumerable: true, get: () => playCueAudio },
+    stopCueAudio: { enumerable: true, get: () => stopCueAudio }
+  });
+  assert.throws(() => createSoundSeekersAudioController({ cuePlayer: accessorPlayer }),
+    /canonical playback dependencies/u);
+  const hostile = new Proxy({}, {
+    getPrototypeOf() { throw new Error("trap"); }
+  });
+  assert.throws(() => createSoundSeekersAudioController({ cuePlayer: hostile }),
+    /canonical playback dependencies/u);
+});
+
+test("each correction rung has one exact visible, spoken, and recorded source contract", () => {
+  assert.deepEqual(
+    ["retry", "narrow", "teach"].map(mode => createSoundSeekersCorrectionAudioRequest(mode)),
+    [
+      {
+        cueId: "correction:retry",
+        audioKey: "/audio/production/en-US/instruction/try-again-35cc5d8011.mp3",
+        visibleText: "Try again",
+        spokenText: "Try again",
+        kind: "correction",
+        requiresAudio: true
+      },
+      {
+        cueId: "correction:narrow",
+        audioKey: "/audio/production/en-US/instruction/listen-carefully-dc6aad4c1c.mp3",
+        visibleText: "Listen carefully",
+        spokenText: "Listen carefully",
+        kind: "correction",
+        requiresAudio: true
+      },
+      {
+        cueId: "correction:teach",
+        audioKey: "/audio/production/en-US/supplemental/watch-me-first-bd61e23b42.mp3",
+        visibleText: "Watch me first",
+        spokenText: "Watch me first",
+        kind: "correction",
+        requiresAudio: true
+      }
+    ]
+  );
+  assert.throws(() => createSoundSeekersCorrectionAudioRequest("generic"), /canonical/u);
 });
 
 test("all 103 authored teaching presentations resolve every required audio key", () => {
@@ -233,14 +483,7 @@ test("every authored instruction, scene, meaning, correction, and material resol
         requiresAudio: true
       };
     }),
-    {
-      cueId: "correction:try-again",
-      audioKey: "/audio/production/en-US/instruction/try-again-35cc5d8011.mp3",
-      visibleText: "Try again",
-      spokenText: "Try again",
-      kind: "correction",
-      requiresAudio: true
-    },
+    ...["retry", "narrow", "teach"].map(createSoundSeekersCorrectionAudioRequest),
     ...QUEST_CHAPTERS.map(chapter => ({
       cueId: `material:${chapter.id}`,
       audioKey: questChapterMaterialSfxEntry(chapter.id).src,
@@ -316,10 +559,12 @@ test("no reducer or leaf can import a raw audio receipt mint or finalizer", () =
     assert.equal(Object.hasOwn(audioControllerModule, forbidden), false, forbidden);
   }
   assert.deepEqual(Object.keys(audioControllerModule).sort(), [
-    "createSoundSeekersAudioController", "validateCompletedAudioDeliveryReceipt"
+    "consumeCompletedAudioDeliveryReceipt", "createSoundSeekersAudioController",
+    "createSoundSeekersCorrectionAudioRequest", "validateCompletedAudioDeliveryReceipt"
   ]);
   assert.deepEqual(Object.keys(audioAuthorityModule).sort(), [
-    "createSoundSeekersAudioController", "validateCompletedAudioDeliveryReceipt"
+    "consumeCompletedAudioDeliveryReceipt", "createSoundSeekersAudioController",
+    "createSoundSeekersCorrectionAudioRequest", "validateCompletedAudioDeliveryReceipt"
   ]);
   assert.deepEqual(Object.keys(audioDeliveryModule).sort(), [
     "CUE_DELIVERY_STATUSES", "createAudioDelivery", "reduceAudioDelivery"

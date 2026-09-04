@@ -3,6 +3,8 @@ import {
   EVIDENCE_DOMAINS,
   normalizeHeartWordActivityType
 } from "./evidenceEligibility.js";
+import { getInstructionContract } from "../content/instructionContracts.js";
+import { consumeCompletedAudioDeliveryReceipt } from "./audioControllerAuthority.js";
 
 const AUDIO_COMPLETED = "completed";
 
@@ -61,13 +63,24 @@ function sessionDayFor(sessionDay, at) {
   return localSessionDayFor(at);
 }
 
-// One explicit answer is the only input accepted by this boundary. Movement,
-// timing, collisions, rewards, and reducer transitions do not enter here.
-export function createLiteracyDecision({
+function instructionAudioRequest(challenge) {
+  const contract = getInstructionContract(challenge?.instructionId);
+  if (!contract) return null;
+  return Object.freeze({
+    cueId: `instruction:${contract.instructionId}`,
+    audioKey: contract.childAudio,
+    visibleText: contract.childText,
+    spokenText: contract.childText,
+    kind: "instruction",
+    requiresAudio: true
+  });
+}
+
+function deriveLiteracyDecision({
   challenge,
   response,
   support = {},
-  audio = {},
+  cueDelivery = "unavailable",
   journeyStep = null,
   ordinal,
   at = null,
@@ -91,7 +104,7 @@ export function createLiteracyDecision({
     correct,
     supportLevel,
     revealed: Boolean(support?.revealed),
-    cueDelivery: typeof audio?.status === "string" ? audio.status : "unavailable",
+    cueDelivery,
     audioRequired: challenge.requiresAudio !== false,
     confusion: correct ? null : token,
     word: challenge.wordId || null,
@@ -110,6 +123,48 @@ export function createLiteracyDecision({
     event.activityType = activityType;
   }
   return Object.freeze(event);
+}
+
+// One explicit answer is the only input accepted by this boundary. Movement,
+// timing, collisions, rewards, and reducer transitions do not enter here.
+export function createLiteracyDecision({
+  challenge,
+  response,
+  support = {},
+  audio = {},
+  audioAuthority,
+  journeyStep = null,
+  ordinal,
+  at = null,
+  sessionDay
+} = {}) {
+  let cueDelivery = typeof audio?.status === "string" ? audio.status : "unavailable";
+  if (challenge?.requiresAudio !== false) {
+    const request = instructionAudioRequest(challenge);
+    if (!request || !consumeCompletedAudioDeliveryReceipt(
+      audio, request, audioAuthority
+    )) return null;
+    cueDelivery = AUDIO_COMPLETED;
+  }
+  return deriveLiteracyDecision({
+    challenge,
+    response,
+    support,
+    cueDelivery,
+    journeyStep,
+    ordinal,
+    at,
+    sessionDay
+  });
+}
+
+export function storedLiteracyDecisionMatches(event, input = {}) {
+  const expected = deriveLiteracyDecision({
+    ...input,
+    cueDelivery: typeof event?.cueDelivery === "string" ? event.cueDelivery : "unavailable"
+  });
+  return Boolean(expected && event
+    && JSON.stringify(expected) === JSON.stringify(event));
 }
 
 // Idempotency is by immutable event ID, including duplicate delivery retries.

@@ -31,7 +31,13 @@ const ROOT_STYLE = Object.freeze({
   border: "3px solid var(--ss-token-ink-deep)",
   borderRadius: 20
 });
-const CONTROL_INPUT_KEYS = Object.freeze(["type", "targetId", "sourceId", "value"]);
+const CONTROL_INPUT_KEYS = Object.freeze([
+  "type", "targetId", "sourceId", "value", "choiceId", "token", "segmentId",
+  "recipientId", "meaningSemanticId", "candidateId", "itemId", "binId", "tileId",
+  "slotId", "dx", "dy"
+]);
+const MODEL_CONTROL_INPUT_KEYS = new Set(CONTROL_INPUT_KEYS);
+const ACTIVATION_MODES = new Set(["bridge", "model"]);
 const SAFE_INPUT_TYPE = /^[a-z][a-z0-9_-]*$/u;
 const PRIVATE_INPUT_TYPE = /(?:^|[_-])(?:answer|correct|correctness|expected|evidence|score)(?:[_-]|$)/iu;
 const FORBIDDEN_MODEL_KEYS = new Set([
@@ -61,9 +67,29 @@ function canonicalInput(value) {
     || Object.keys(value).some(key => !CONTROL_INPUT_KEYS.includes(key))) return null;
   const input = { type: value.type };
   for (const key of CONTROL_INPUT_KEYS.slice(1)) {
-    if (nonempty(value[key])) input[key] = value[key];
+    if (["dx", "dy"].includes(key)) {
+      if (Number.isFinite(value[key])) input[key] = value[key];
+    } else if (nonempty(value[key])) input[key] = value[key];
   }
   return Object.freeze(input);
+}
+
+function projectedInput(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)
+    || !Object.isFrozen(value)
+    || !nonempty(value.type)
+    || !SAFE_INPUT_TYPE.test(value.type)
+    || PRIVATE_INPUT_TYPE.test(value.type)
+    || Reflect.ownKeys(value).some(key => typeof key !== "string"
+      || !MODEL_CONTROL_INPUT_KEYS.has(key))
+    || containsForbiddenKey(value)) return null;
+  for (const [key, item] of Object.entries(value)) {
+    if (key === "type") continue;
+    if (["dx", "dy"].includes(key)) {
+      if (!Number.isFinite(item)) return null;
+    } else if (!nonempty(item)) return null;
+  }
+  return value;
 }
 
 function transcript(value) {
@@ -71,20 +97,42 @@ function transcript(value) {
     ? value : null;
 }
 
-function controlAttributes(input) {
-  return {
-    "data-ss-input-type": input.type,
-    "data-ss-target-id": input.targetId,
-    "data-ss-source-id": input.sourceId,
-    "data-ss-input-value": input.value
-  };
+function controlAttributes(input, activationMode) {
+  if (activationMode === "model") {
+    return {
+      "data-ss-model-control": "",
+      "data-ss-model-input-type": input.type
+    };
+  }
+  const attributes = { "data-ss-input-type": input.type };
+  for (const [key, dataName] of [
+    ["targetId", "data-ss-target-id"],
+    ["sourceId", "data-ss-source-id"],
+    ["value", "data-ss-input-value"],
+    ["choiceId", "data-ss-choice-id"],
+    ["token", "data-ss-option-token"],
+    ["segmentId", "data-ss-segment-id"],
+    ["recipientId", "data-ss-recipient-id"],
+    ["meaningSemanticId", "data-ss-meaning-semantic-id"],
+    ["candidateId", "data-ss-candidate-id"],
+    ["itemId", "data-ss-item-id"],
+    ["binId", "data-ss-bin-id"],
+    ["tileId", "data-ss-tile-id"],
+    ["slotId", "data-ss-slot-id"],
+    ["dx", "data-ss-dx"],
+    ["dy", "data-ss-dy"]
+  ]) {
+    if (Object.hasOwn(input, key)) attributes[dataName] = String(input[key]);
+  }
+  return attributes;
 }
 
 export function ActionLayer({
   activity,
   assists = {},
   onInput,
-  onAudioRequest = undefined
+  onAudioRequest = undefined,
+  activationMode = "bridge"
 }) {
   const headingId = useId();
   if (typeof onInput !== "function") throw new TypeError("Sound Seekers action input must be a function");
@@ -92,11 +140,15 @@ export function ActionLayer({
     || containsForbiddenKey(activity)) {
     throw new TypeError("Sound Seekers action model is invalid or exposes private decision data");
   }
+  if (!ACTIVATION_MODES.has(activationMode)) {
+    throw new TypeError("Sound Seekers action activation mode is invalid");
+  }
+  const modelControlled = activationMode === "model";
   const instruction = transcript(activity.instruction);
   const correction = activity.correction === null ? null : transcript(activity.correction);
   const controls = Array.isArray(activity.controls) ? activity.controls.map(control => ({
     ...control,
-    input: canonicalInput(control?.input)
+    input: modelControlled ? projectedInput(control?.input) : canonicalInput(control?.input)
   })) : [];
   if (!nonempty(activity.id) || !nonempty(activity.kind) || !instruction
     || (activity.correction !== null && !correction)
@@ -106,6 +158,9 @@ export function ActionLayer({
   }
   const reducedMotion = assists.reducedMotion === true;
   const simplified = assists.simplifiedScene === true;
+  const primaryControlId = controls.find(control => (
+    control.disabled !== true && control.input.type !== "replay_instruction"
+  ))?.id ?? null;
 
   return (
     <section
@@ -152,7 +207,8 @@ export function ActionLayer({
             disabled={control.disabled === true}
             aria-label={control.label}
             data-control-id={control.id}
-            {...controlAttributes(control.input)}
+            data-ss-primary-control={control.id === primaryControlId ? "" : undefined}
+            {...controlAttributes(control.input, activationMode)}
             onClick={event => {
               const disposition = getSoundSeekersActivationDisposition(event);
               const legitimateActivation = disposition === "bridge-handled"

@@ -21,17 +21,31 @@ import { installSoundSeekersProductionAudioDouble } from "../helpers/soundSeeker
 
 installSoundSeekersProductionAudioDouble();
 
-function teachInput(item) {
-  const controller = createSoundSeekersAudioController({ clock: () => 0 });
+function teachInput(mission) {
+  const item = mission.activity.sequence.currentItem;
+  const audioAuthority = {
+    scopeKey: "world-state-teach",
+    missionId: mission.plan.id,
+    phaseId: mission.phaseId,
+    attemptId: mission.attemptId
+  };
+  const controller = createSoundSeekersAudioController({
+    scopeKey: audioAuthority.scopeKey,
+    clock: () => 0
+  });
   const audioKeys = [...new Set([item.childAudio, item.targetAudio, ...item.targetAudioSequence,
     ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)].filter(Boolean))];
   const audioDeliveries = audioKeys.map((audioKey, ordinal) => {
     controller.request({ cueId: `teach:${item.stopId}:${item.teachIndex}:${item.targetId}:${ordinal}`,
       audioKey, visibleText: item.childText, spokenText: item.childText,
-      kind: "teach", requiresAudio: true });
+      kind: "teach", requiresAudio: true }, audioAuthority);
     return controller.getSnapshot().delivery;
   });
-  return { type: "complete-teach", teachIndex: item.teachIndex, targetId: item.targetId, audioDeliveries };
+  return {
+    input: { type: "complete-teach", teachIndex: item.teachIndex,
+      targetId: item.targetId, audioDeliveries },
+    audioAuthority
+  };
 }
 
 function correctInputs(mission) {
@@ -68,8 +82,16 @@ function completeS1(plan) {
       at: new Date(Date.UTC(2026, 8, 3) + guard * 1000).toISOString(),
       sessionDay: "2026-09-03", audio: { status: "completed" }
     };
-    const inputs = phase.kind === "teach" ? [teachInput(mission.activity.sequence.currentItem)]
-      : ["power_onboarding", "challenge", "content_opportunity", "story_transfer"].includes(phase.kind)
+    if (phase.kind === "teach") {
+      const teach = teachInput(mission);
+      mission = reduceMission(mission, teach.input, {
+        ...context,
+        gameState: mission.gameState,
+        audioAuthority: teach.audioAuthority
+      }).state;
+      continue;
+    }
+    const inputs = ["power_onboarding", "challenge", "content_opportunity", "story_transfer"].includes(phase.kind)
         ? correctInputs(mission) : [{ type: `complete_${phase.kind}` }];
     for (const input of inputs) {
       const reduced = reduceMission(mission, input, { ...context, gameState: mission.gameState });

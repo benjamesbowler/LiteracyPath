@@ -496,6 +496,9 @@ test("the production graph keeps one narrow connected-text boundary", () => {
     ["src/features/soundSeekers/engine/connectedTextPresentation.js", new Map([
       ["../content/connectedText.js", ["evaluateConnectedTextDecision", "getConnectedText"]]
     ])],
+    ["src/features/soundSeekers/engine/audioControllerAuthority.js", new Map([
+      ["../content/connectedTextRecords.js", ["CONNECTED_TEXT_RECORDS"]]
+    ])],
     ["src/features/soundSeekers/engine/createChallenge.js", new Map([
       ["../content/connectedText.js", ["createConnectedTextChallenge", "toChildConnectedTextScene"]]
     ])],

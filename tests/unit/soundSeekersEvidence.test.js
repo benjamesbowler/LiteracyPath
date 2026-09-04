@@ -15,6 +15,11 @@ import {
   QUEST_PRACTICE_THRESHOLDS,
   practiceReadinessFor
 } from "../../src/utils/questMastery.js";
+import { getInstructionContract } from "../../src/features/soundSeekers/content/instructionContracts.js";
+import { createSoundSeekersAudioController } from "../../src/features/soundSeekers/runtime/soundSeekersAudioController.js";
+import { installSoundSeekersProductionAudioDouble } from "../helpers/soundSeekersProductionAudioDouble.js";
+
+installSoundSeekersProductionAudioDouble();
 
 function challenge(overrides = {}) {
   return {
@@ -22,23 +27,46 @@ function challenge(overrides = {}) {
     targetId: "sh",
     recordsDomain: EVIDENCE_DOMAINS.PHONEME_TO_GRAPHEME,
     expectedToken: "sh",
-    powerId: "echo-cave",
+    powerId: "echo_search",
+    instructionId: "echo-search-find-source",
+    expectedAction: "reveal_matching_grapheme",
     requiresAudio: true,
     ...overrides
   };
 }
 
 function decision(overrides = {}) {
-  return createLiteracyDecision({
-    challenge: challenge(),
+  const selectedChallenge = overrides.challenge || challenge();
+  const input = {
+    challenge: selectedChallenge,
     response: { kind: "literacy-answer", token: "sh" },
     support: { level: 0 },
-    audio: { status: "completed" },
     journeyStep: 4,
     ordinal: 1,
     at: "2026-09-01T10:00:00.000Z",
     ...overrides
-  });
+  };
+  if (selectedChallenge.requiresAudio !== false && !Object.hasOwn(overrides, "audio")) {
+    const binding = {
+      scopeKey: "evidence-test",
+      missionId: "evidence-mission",
+      phaseId: selectedChallenge.challengeId || selectedChallenge.attemptId,
+      attemptId: selectedChallenge.attemptId
+    };
+    const contract = getInstructionContract(selectedChallenge.instructionId);
+    const controller = createSoundSeekersAudioController({ scopeKey: binding.scopeKey, clock: () => 0 });
+    controller.request({
+      cueId: `instruction:${contract.instructionId}`,
+      audioKey: contract.childAudio,
+      visibleText: contract.childText,
+      spokenText: contract.childText,
+      kind: "instruction",
+      requiresAudio: true
+    }, binding);
+    input.audio = controller.getSnapshot().delivery;
+    input.audioAuthority = binding;
+  }
+  return createLiteracyDecision(input);
 }
 
 test("movement and reward inputs emit no learning event; one answer emits one immutable event", () => {
@@ -53,6 +81,24 @@ test("movement and reward inputs emit no learning event; one answer emits one im
   assert.equal(event.sessionDay, "2026-09-01");
   assert.equal(appendEvidence([event], event).length, 1);
   assert.equal(appendEvidence([], event).length, 1);
+});
+
+test("literal, frozen, and cloned completed audio cannot authorize required evidence", () => {
+  const input = {
+    challenge: challenge(),
+    response: { kind: "literacy-answer", token: "sh" },
+    support: { level: 0 },
+    journeyStep: 4,
+    ordinal: 1,
+    at: "2026-09-01T10:00:00.000Z"
+  };
+  for (const audio of [
+    { status: "completed" },
+    Object.freeze({ status: "completed" }),
+    structuredClone({ status: "completed" })
+  ]) {
+    assert.equal(createLiteracyDecision({ ...input, audio }), null);
+  }
 });
 
 test("new evidence validates and freezes an action-time local session day", () => {
@@ -112,7 +158,7 @@ test("support, reveal, and incomplete required audio cannot become independent",
   assert.equal(evidenceIsIndependent(decision({ audio: { status: "started" } })), false);
   assert.equal(evidenceIsIndependent(decision({ audio: { status: "interrupted" } })), false);
   assert.equal(evidenceIsIndependent(decision({ audio: { status: "failed" } })), false);
-  assert.equal(evidenceIsIndependent(decision({ audio: { status: "completed" } })), true);
+  assert.equal(evidenceIsIndependent(decision()), true);
 });
 
 test("challenge validation closes the domain and answer boundary before evidence is recorded", () => {

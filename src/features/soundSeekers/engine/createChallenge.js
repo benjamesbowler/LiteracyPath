@@ -5,17 +5,21 @@ import {
 } from "../content/connectedText.js";
 import { getPronunciation } from "../content/pronunciationLexicon.js";
 import { SOUND_SEEKERS_INTERACTION_CONTEXTS } from "../content/expeditions.js";
+import { graphemeLabel } from "../../../utils/questLabels.js";
+import {
+  assertChildChoiceLabel,
+  createHeartWordChoices,
+  createSoundTargetChoices,
+  createWordForgeRack,
+  createWordMeaningChoices,
+  createWordPatternChoices
+} from "../content/childChoiceContent.js";
 import { createInteractionRuntimeModel } from "./powers/contracts.js";
 
 function deepFreeze(value) {
   if (!value || typeof value !== "object" || Object.isFrozen(value)) return value;
   for (const child of Object.values(value)) deepFreeze(child);
   return Object.freeze(value);
-}
-
-function rotated(values, seed) {
-  const offset = ((seed % values.length) + values.length) % values.length;
-  return [...values.slice(offset), ...values.slice(0, offset)];
 }
 
 function identityFor(action, targetId) {
@@ -40,21 +44,36 @@ function identityFor(action, targetId) {
   throw new Error("ordinary challenge action has no supported evidence identity");
 }
 
-function presentationFor(action, challengeId, expectedToken, options) {
+function stopIdFor(action) {
+  const stopId = /^s\d+/u.exec(String(action?.id || ""))?.[0] || null;
+  if (!stopId) throw new Error(`${action?.id || "(none)"}: challenge needs a canonical stop id`);
+  return stopId;
+}
+
+function presentationFor(action, challengeId, options, forgeRack = null) {
   const id = suffix => `${action.contextId}:${challengeId}:${suffix}`;
-  const choices = options.map((token, index) => ({ id: id(`choice:${index}`), label: String(token), token }));
+  const choices = options.map((option, index) => ({
+    id: id(`choice:${index}`),
+    label: assertChildChoiceLabel(option.label, `${action.id} choice ${index + 1}`),
+    token: option.token
+  }));
   if (action.powerId === "echo_search") return { candidates: choices.map(item => ({ ...item, id: id(`candidate:${choices.indexOf(item)}`) })) };
   if (action.powerId === "contrast_sort") return {
-    items: [0, 1, 2, 3].map(index => ({ id: id(`item:${index}`), label: `Sound sample ${index + 1}` })),
+    items: [0, 1, 2, 3].map(index => ({
+      id: id(`item:${index}`),
+      label: `Sound card ${index + 1} — listen, then choose its home`
+    })),
     bins: choices.slice(0, 3).map((item, index) => ({ ...item, id: id(`bin:${index}`) }))
   };
   if (action.powerId === "word_forge") {
     const pronunciation = getPronunciation(action.wordId);
-    if (!pronunciation) throw new Error(`${action.id}: canonical pronunciation is missing`);
-    const labels = [...pronunciation.units.map(unit => unit.grapheme), "?…?"];
-    const tokens = [...pronunciation.units.map(unit => unit.evidenceTargetId), `${expectedToken}:contrast`];
+    if (!pronunciation || !forgeRack) throw new Error(`${action.id}: canonical forge content is missing`);
     return {
-      rack: rotated(labels.map((label, index) => ({ id: id(`tile:${index}`), label, token: tokens[index] })), 0),
+      rack: forgeRack.map((tile, index) => ({
+        id: id(`tile:${index}`),
+        label: assertChildChoiceLabel(tile.label, `${action.id} tile ${index + 1}`),
+        token: tile.token
+      })),
       slots: pronunciation.units.map((unused, index) => ({ id: id(`slot:${index}`) }))
     };
   }
@@ -62,7 +81,10 @@ function presentationFor(action, challengeId, expectedToken, options) {
     const pronunciation = getPronunciation(action.wordId);
     if (!pronunciation) throw new Error(`${action.id}: canonical pronunciation is missing`);
     return {
-      segments: pronunciation.units.map((unit, index) => ({ id: id(`segment:${index}`), label: unit.grapheme })),
+      segments: pronunciation.units.map((unit, index) => ({
+        id: id(`segment:${index}`),
+        label: assertChildChoiceLabel(graphemeLabel(unit.grapheme), `${action.id} segment ${index + 1}`)
+      })),
       choices
     };
   }
@@ -103,11 +125,35 @@ export function createChallenge({
     ? served.answerTokensByActivity[action.activityFocus]
     : action.recordsDomain === "word_decoding" ? action.wordId : targetId;
   if (!targetId || !expectedToken) throw new Error(`${action.id}: challenge target cannot be derived`);
-  const contrast = `${expectedToken}:contrast`;
-  const optionTokens = sharedHeart
-    ? [expectedToken, ...rotated([...new Set(Object.values(served.answerTokensByActivity))]
-      .filter(token => token !== expectedToken), seed)]
-    : rotated([expectedToken, contrast], seed);
+  const stopId = stopIdFor(action);
+  let options;
+  let forgeRack = null;
+  if (sharedHeart) {
+    options = createHeartWordChoices({
+      record: contentSource.catalogRecord,
+      activityType: action.activityFocus,
+      stopId,
+      seed
+    });
+  } else if (action.powerId === "word_forge") {
+    forgeRack = createWordForgeRack({
+      wordId: action.wordId,
+      expectedTargetId: expectedToken,
+      stopId,
+      seed
+    });
+    options = [...new Map(forgeRack.map(tile => [tile.token, {
+      token: tile.token,
+      label: tile.label
+    }])).values()];
+  } else if (action.recordsDomain === "word_decoding") {
+    options = action.powerId === "contrast_sort"
+      ? createWordPatternChoices({ wordId: action.wordId, seed })
+      : createWordMeaningChoices({ wordId: action.wordId, stopId, seed });
+  } else {
+    options = createSoundTargetChoices({ targetId, stopId, seed });
+  }
+  const optionTokens = options.map(option => option.token);
   const challengeId = `${missionId}:${action.id}:attempt:${attemptOrdinal}:challenge`;
   const challenge = {
     challengeId,
@@ -125,7 +171,7 @@ export function createChallenge({
       ...action.contentBinding, wordId: served.wordId
     } } : action, targetId)
   };
-  challenge.presentation = presentationFor(action, challengeId, expectedToken, optionTokens);
+  challenge.presentation = presentationFor(action, challengeId, options, forgeRack);
   return deepFreeze(challenge);
 }
 

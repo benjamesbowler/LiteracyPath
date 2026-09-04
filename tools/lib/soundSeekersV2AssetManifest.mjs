@@ -753,7 +753,7 @@ export function assertSoundSeekersV2AssetManifest(
   assertExactKeys(manifest, ["schemaVersion", "project", "generatorContract", "assets"],
     "Sound Seekers v2 manifest");
   if (manifest.schemaVersion !== 2
-    || manifest.project !== "LiteracyPath Sound Seekers v2"
+    || manifest.project !== "Sound Seekers v2"
     || manifest.generatorContract !== "task4-immutable-background-brief-v1") {
     throw new TypeError("Sound Seekers v2 manifest header drifted");
   }

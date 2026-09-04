@@ -18,6 +18,7 @@ import {
 import { createSoundSeekersState } from "../../src/features/soundSeekers/engine/stateV2.js";
 import { normalizeSoundSeekersState } from "../../src/features/soundSeekers/engine/stateV2.js";
 import { resolveSceneVisualSemantic } from "../../src/features/soundSeekers/content/sceneVisualSemantics.js";
+import { getInstructionContract } from "../../src/features/soundSeekers/content/instructionContracts.js";
 import {
   issueWordWorkbenchAccess,
   projectCurrentWordWorkbenchModel,
@@ -28,26 +29,65 @@ import { installSoundSeekersProductionAudioDouble } from "../helpers/soundSeeker
 
 installSoundSeekersProductionAudioDouble();
 
-function completedTeachInput(item, sequence = null) {
-  if (!item) return { type: "complete-teach", teachIndex: sequence?.teachIndex,
-    targetId: null, audioDeliveries: [] };
-  const controller = createSoundSeekersAudioController({ clock: () => 0 });
+function completedTeachInput(mission) {
+  const item = mission.activity.sequence.currentItem;
+  if (!item) return { input: { type: "complete-teach",
+    teachIndex: mission.activity.sequence.teachIndex, targetId: null, audioDeliveries: [] } };
+  const audioAuthority = {
+    scopeKey: "playthrough-teach",
+    missionId: mission.plan.id,
+    phaseId: mission.phaseId,
+    attemptId: mission.attemptId
+  };
+  const controller = createSoundSeekersAudioController({
+    scopeKey: audioAuthority.scopeKey,
+    clock: () => 0
+  });
   const audioKeys = [...new Set([item.childAudio, item.targetAudio, ...item.targetAudioSequence,
     ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)].filter(Boolean))];
   const audioDeliveries = audioKeys.map((audioKey, ordinal) => {
     controller.request({ cueId: `teach:${item.stopId}:${item.teachIndex}:${item.targetId}:${ordinal}`,
       audioKey, visibleText: item.childText, spokenText: item.childText,
-      kind: "teach", requiresAudio: true });
+      kind: "teach", requiresAudio: true }, audioAuthority);
     return controller.getSnapshot().delivery;
   });
-  return { type: "complete-teach", teachIndex: item.teachIndex,
-    targetId: item.targetId, audioDeliveries };
+  return { input: { type: "complete-teach", teachIndex: item.teachIndex,
+    targetId: item.targetId, audioDeliveries }, audioAuthority };
+}
+
+function authorizedAudio(mission) {
+  const challenge = mission.activity?.powerChallenge || mission.challenge;
+  if (!challenge || challenge.requiresAudio === false) return { audio: { status: "completed" } };
+  const contract = getInstructionContract(challenge.instructionId);
+  const audioAuthority = {
+    scopeKey: "playthrough-scored",
+    missionId: mission.plan.id,
+    phaseId: mission.phaseId,
+    attemptId: mission.attemptId
+  };
+  const controller = createSoundSeekersAudioController({
+    scopeKey: audioAuthority.scopeKey,
+    clock: () => 0
+  });
+  controller.request({
+    cueId: `instruction:${contract.instructionId}`,
+    audioKey: contract.childAudio,
+    visibleText: contract.childText,
+    spokenText: contract.childText,
+    kind: "instruction",
+    requiresAudio: true
+  }, audioAuthority);
+  return { audio: controller.getSnapshot().delivery, audioAuthority };
 }
 
 function driveInputs(mission, inputs, context) {
   let result = null;
   for (const input of inputs) {
-    result = reduceMission(mission, input, { ...context, gameState: mission.gameState });
+    result = reduceMission(mission, input, {
+      ...context,
+      gameState: mission.gameState,
+      ...authorizedAudio(mission)
+    });
     mission = result.state;
   }
   return { mission, result };
@@ -65,9 +105,15 @@ function driveToPhase(plan, targetPhaseId) {
       audio: { status: "completed" }
     };
     let inputs;
-    if (phase.kind === "teach") inputs = [completedTeachInput(
-      mission.activity.sequence.currentItem, mission.activity.sequence
-    )];
+    if (phase.kind === "teach") {
+      const teach = completedTeachInput(mission);
+      mission = reduceMission(mission, teach.input, {
+        ...context,
+        gameState: mission.gameState,
+        audioAuthority: teach.audioAuthority
+      }).state;
+      continue;
+    }
     else if (phase.kind === "power_onboarding" || phase.kind === "challenge"
       || phase.kind === "content_opportunity") inputs = correctPowerInputs(mission);
     else if (phase.kind === "content_placement") inputs = phase.category === "morphology"
@@ -117,7 +163,7 @@ test("the two-route circuit preserves a monotonic visit clock", () => {
   }, seed: 41, replayOrdinal: 1 }).id.startsWith("mission:41:s1:"), true);
 });
 
-test("resume and completion rederive every scored phase from canonical mission history", () => {
+test("reload replays unverifiable scored history while completion stays exact-current", () => {
   const gameState = createSoundSeekersState();
   const plan = createMissionPlan({ stopId: "s1", state: gameState, seed: 1, replayOrdinal: 0 });
   const payoff = driveToPhase(plan, "s1-payoff");
@@ -128,14 +174,12 @@ test("resume and completion rederive every scored phase from canonical mission h
     checkpoint: { ...payoff.gameState.checkpoint, contentVersion: payoff.gameState.contentVersion, mission: checkpoint }
   });
   const forgedPlan = createMissionPlan({ stopId: "s1", state: forgedState, seed: 1, replayOrdinal: 0 });
-  assert.throws(
-    () => createMissionState(forgedPlan, forgedState.checkpoint.mission),
-    /completed|history|evidence|canonical/u
-  );
-
   const finished = reduceMission(payoff, { type: "complete_payoff" }, { gameState: payoff.gameState });
   assert.ok(finished.completion);
-  createMissionState(plan);
+  const replayed = createMissionState(forgedPlan, forgedState.checkpoint.mission);
+  assert.equal(replayed.phaseId, plan.phases.find(phase => phase.recordsDomain).id);
+  assert.equal(replayed.attemptOrdinal, 0);
+  assert.equal(replayed.gameState.evidence.some(event => event.journeyStep === plan.journeyStep), false);
   assert.throws(
     () => completeMission(finished.state.gameState, finished.completion),
     /current|revision|stale/u
@@ -150,11 +194,15 @@ test("the first ordinary and heart-word loops commit one response and one owner 
     gameState,
     at: "2026-09-03T01:00:00.000Z",
     sessionDay: "2026-09-03",
-    audio: { status: "completed" }
+    ...authorizedAudio(mission)
   };
   mission = reduceMission(mission, { type: "complete_arrival" }, context).state;
-  while (mission.phaseId === "s1-teach") mission = reduceMission(mission,
-    completedTeachInput(mission.activity.sequence.currentItem), context).state;
+  while (mission.phaseId === "s1-teach") {
+    const teach = completedTeachInput(mission);
+    mission = reduceMission(mission, teach.input, {
+      ...context, gameState: mission.gameState, audioAuthority: teach.audioAuthority
+    }).state;
+  }
   assert.equal(reduceMission(mission, { type: "complete_onboarding" }, context).state, mission);
   mission = driveInputs(mission, correctPowerInputs(mission), context).mission;
   const echoChoice = mission.challenge.presentation.candidates.find(item => item.token === mission.challenge.expectedToken);
@@ -249,8 +297,7 @@ test("a placement commits each target immediately and records its use only after
   const context = {
     gameState: mission.gameState,
     at: "2026-09-03T03:00:00.000Z",
-    sessionDay: "2026-09-03",
-    audio: { status: "completed" }
+    sessionDay: "2026-09-03"
   };
   const firstBin = mission.challenge.presentation.bins
     .find(bin => bin.token === mission.challenge.expectedToken);
@@ -258,7 +305,7 @@ test("a placement commits each target immediately and records its use only after
     type: mission.challenge.expectedAction,
     itemId: mission.challenge.presentation.items[0].id,
     binId: firstBin.id
-  }, context);
+  }, { ...context, ...authorizedAudio(mission) });
   assert.equal(first.transition.outcome, "continue");
   assert.equal(validContentDeckUses(first.state.gameState, "alternatives").length, 0);
   mission = first.state;
@@ -268,7 +315,7 @@ test("a placement commits each target immediately and records its use only after
     type: mission.challenge.expectedAction,
     itemId: mission.challenge.presentation.items[0].id,
     binId: secondBin.id
-  }, { ...context, gameState: mission.gameState });
+  }, { ...context, gameState: mission.gameState, ...authorizedAudio(mission) });
   assert.equal(second.transition.outcome, "advance");
   assert.equal(validContentDeckUses(second.state.gameState, "alternatives").length, 1);
   assert.equal(second.state.gameState.evidence.length, 2);
@@ -306,7 +353,7 @@ test("story transfer remains one composite through action, resolution, and meani
   assert.equal(validContentDeckUses(mission.gameState, "transfer").length, 1);
 });
 
-test("a boss waits for an authenticated child narrative choice and preserves it across reload", () => {
+test("a boss waits for a child narrative choice and safely restarts scored play on reload", () => {
   const base = createSoundSeekersState();
   const gameState = normalizeSoundSeekersState({ ...base, trail: { ...base.trail, journeyStep: 5 } });
   const plan = createMissionPlan({ stopId: "s5", state: gameState, seed: 5, replayOrdinal: 0 });
@@ -324,33 +371,13 @@ test("a boss waits for an authenticated child narrative choice and preserves it 
     stopId: "s5", state: beforeChoiceSaved, seed: 5, replayOrdinal: 0
   });
   const beforeChoiceRestored = createMissionState(beforeChoicePlan, beforeChoiceSaved.checkpoint.mission);
-  assert.equal(beforeChoiceRestored.challenge, null);
-  assert.equal(beforeChoiceRestored.activity.status, "narrative_choice_pending");
-  assert.equal(beforeChoiceRestored.gameState.checkpoint.storyTransfer.narrativeChoiceToken, null);
-  mission = beforeChoiceRestored;
-  const choice = mission.activity.childScene.choice.options[1];
-  assert.equal(reduceMission(mission, {
-    type: "choose_narrative_route", choiceId: "forged"
-  }, { gameState: mission.gameState }).state, mission);
-  mission = reduceMission(mission, {
-    type: "choose_narrative_route", choiceId: choice.visualSemanticId
-  }, { gameState: mission.gameState }).state;
-  assert.equal(mission.challenge.powerId, "blend_bridge");
-  assert.equal(mission.gameState.checkpoint.storyTransfer.narrativeChoiceToken, choice.token);
-  const checkpoint = checkpointMission(mission);
-  const saved = normalizeSoundSeekersState({
-    ...mission.gameState,
-    checkpoint: { ...mission.gameState.checkpoint, contentVersion: mission.gameState.contentVersion,
-      mission: checkpoint }
-  });
-  assert.ok(saved.checkpoint, JSON.stringify(checkpoint));
-  const restoredPlan = createMissionPlan({ stopId: "s5", state: saved, seed: 5, replayOrdinal: 0 });
-  const restored = createMissionState(restoredPlan, saved.checkpoint.mission);
-  assert.equal(restored.gameState.checkpoint.storyTransfer.narrativeChoiceToken, choice.token);
-  assert.equal(restored.challenge.powerId, "blend_bridge");
+  assert.equal(beforeChoiceRestored.phaseId, plan.phases.find(phase => phase.recordsDomain).id);
+  assert.equal(beforeChoiceRestored.attemptOrdinal, 0);
+  assert.equal(beforeChoiceRestored.modelPending, false);
+  assert.equal(beforeChoiceRestored.gameState.checkpoint?.storyTransfer, undefined);
 });
 
-test("placement and story reload retain exact Task 2 progress but reissue object authority", () => {
+test("placement and story reload discard unverifiable Task 2 progress and reissue authority", () => {
   const initial = createSoundSeekersState();
   const placementState = normalizeSoundSeekersState({
     ...initial, trail: { ...initial.trail, journeyStep: 16 }
@@ -373,7 +400,9 @@ test("placement and story reload retain exact Task 2 progress but reissue object
     stopId: "s16", state: savedPlacement, seed: 16, replayOrdinal: 0
   });
   const restoredPlacement = createMissionState(restoredPlacementPlan, savedPlacement.checkpoint.mission);
-  assert.equal(restoredPlacement.attemptId, mission.attemptId);
+  assert.equal(restoredPlacement.phaseId,
+    placementPlan.phases.find(phase => phase.recordsDomain).id);
+  assert.equal(restoredPlacement.attemptOrdinal, 0);
   assert.notStrictEqual(restoredPlacement.challenge, oldPlacementChallenge);
 
   const storyState = createSoundSeekersState();
@@ -394,13 +423,14 @@ test("placement and story reload retain exact Task 2 progress but reissue object
   });
   const restoredStoryPlan = createMissionPlan({ stopId: "s1", state: savedStory, seed: 1, replayOrdinal: 0 });
   const restoredStory = createMissionState(restoredStoryPlan, savedStory.checkpoint.mission);
-  assert.equal(restoredStory.attemptId, mission.attemptId);
-  assert.equal(restoredStory.activity.presentation.phase, "correction");
+  assert.equal(restoredStory.phaseId, storyPlan.phases.find(phase => phase.recordsDomain).id);
+  assert.equal(restoredStory.attemptOrdinal, 0);
+  assert.equal(restoredStory.correctionState, null);
   assert.notStrictEqual(restoredStory.activity.presentation, oldPresentation);
   assert.notStrictEqual(restoredStory.challenge, oldStoryChallenge);
 });
 
-test("ordinary reload rederives correction and model state from exact canonical attempt evidence", () => {
+test("ordinary reload restarts the scored attempt without replaying correction or model state", () => {
   const gameState = createSoundSeekersState();
   const plan = createMissionPlan({ stopId: "s1", state: gameState, seed: 1, replayOrdinal: 0 });
   const ordinary = plan.phases.find(item => item.id === "s1-primary");
@@ -422,15 +452,17 @@ test("ordinary reload rederives correction and model state from exact canonical 
   assert.ok(saved.checkpoint, JSON.stringify(checkpoint));
   const restoredPlan = createMissionPlan({ stopId: "s1", state: saved, seed: 1, replayOrdinal: 0 });
   const restored = createMissionState(restoredPlan, saved.checkpoint.mission);
-  assert.equal(restored.correctionState.missCount, 1);
-  assert.equal(restored.activity.correction.supportLevel, 1);
+  assert.equal(restored.correctionState, null);
+  assert.equal(restored.attemptOrdinal, 0);
   assert.equal(restored.modelPending, false);
 
   const forgedEvidence = saved.evidence.map((event, index) => index === saved.evidence.length - 1
     ? { ...event, supportLevel: 3 } : event);
   const forged = normalizeSoundSeekersState({ ...saved, evidence: forgedEvidence });
   const forgedPlan = createMissionPlan({ stopId: "s1", state: forged, seed: 1, replayOrdinal: 0 });
-  assert.throws(() => createMissionState(forgedPlan, forged.checkpoint.mission), /correction evidence/u);
+  const safelyReplayed = createMissionState(forgedPlan, forged.checkpoint.mission);
+  assert.equal(safelyReplayed.attemptOrdinal, 0);
+  assert.equal(safelyReplayed.gameState.evidence.some(event => event.journeyStep === plan.journeyStep), false);
 });
 
 test("a story third miss blocks responses until one zero-evidence Task 2 model step", () => {
@@ -673,7 +705,15 @@ test("all forty public missions complete two accumulating routes with exact deck
       let inputs;
       if (phase.kind === "teach") {
         if (mission.activity.sequence.currentItem) teachCount += 1;
-        inputs = [completedTeachInput(mission.activity.sequence.currentItem, mission.activity.sequence)];
+        const teach = completedTeachInput(mission);
+        const reduced = reduceMission(mission, teach.input, {
+          ...context,
+          gameState: mission.gameState,
+          audioAuthority: teach.audioAuthority
+        });
+        mission = reduced.state;
+        completion = reduced.completion || completion;
+        continue;
       } else if (phase.kind === "power_onboarding") {
         onboarding.add(phase.powerId);
         assert.equal(phase.consequenceFree, true);
@@ -698,7 +738,11 @@ test("all forty public missions complete two accumulating routes with exact deck
         inputs = [{ type: `complete_${phase.kind}` }];
       }
       for (const input of inputs) {
-        const reduced = reduceMission(mission, input, { ...context, gameState: mission.gameState });
+        const reduced = reduceMission(mission, input, {
+          ...context,
+          gameState: mission.gameState,
+          ...authorizedAudio(mission)
+        });
         mission = reduced.state;
         completion = reduced.completion || completion;
       }

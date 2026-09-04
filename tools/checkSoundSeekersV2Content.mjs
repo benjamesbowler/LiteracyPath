@@ -35,7 +35,10 @@ import {
   SOUND_SEEKERS_VISUAL_SEMANTIC_REGISTRY
 } from "../src/features/soundSeekers/content/sceneVisualSemantics.js";
 import { SOUND_SEEKERS_MEANING_SUPPORT } from "../src/features/soundSeekers/content/meaningSupport.js";
-import { SOUND_SEEKERS_INSTRUCTIONS } from "../src/features/soundSeekers/content/instructionContracts.js";
+import {
+  SOUND_SEEKERS_INSTRUCTIONS,
+  getInstructionContract
+} from "../src/features/soundSeekers/content/instructionContracts.js";
 import {
   SOUND_SEEKERS_BIOME_KITS,
   validateSoundSeekersBiomeKits
@@ -66,6 +69,7 @@ import {
 import { recordContentDeckUse, serveContentDeck } from "../src/features/soundSeekers/engine/contentDeckScheduler.js";
 import { coverageStatus, validAttemptReceipts, validContentDeckUses } from "../src/features/soundSeekers/engine/contentCoverage.js";
 import { createSoundSeekersState, normalizeSoundSeekersState } from "../src/features/soundSeekers/engine/stateV2.js";
+import { createSoundSeekersAudioController } from "../src/features/soundSeekers/runtime/soundSeekersAudioController.js";
 import { expectedSoundSeekersSceneAudio, assertSoundSeekersSceneAudio } from "./checkSoundSeekersSceneAudio.mjs";
 import {
   assertSoundSeekersV2AssetManifest,
@@ -100,6 +104,71 @@ const GALLERY_CONSUMERS = new Set([
   "src/features/soundSeekers/preview/ContentArtGallery.jsx",
   "tests/unit/soundSeekersGalleryReplay.test.js"
 ]);
+
+function installSynchronousAudioHarness() {
+  class SoundSeekersContentGateAudio {
+    constructor() {
+      this.listeners = new Map();
+      this.currentTime = 0;
+      this.volume = 1;
+      this.src = "";
+    }
+
+    addEventListener(type, listener) {
+      const listeners = this.listeners.get(type) || [];
+      listeners.push(listener);
+      this.listeners.set(type, listeners);
+    }
+
+    removeEventListener(type, listener) {
+      this.listeners.set(type, (this.listeners.get(type) || [])
+        .filter(candidate => candidate !== listener));
+    }
+
+    load() {}
+    pause() {}
+    play() {
+      const audio = this;
+      return {
+        then(onStarted) {
+          onStarted();
+          for (const listener of [...(audio.listeners.get("ended") || [])]) listener();
+          return { catch() {} };
+        },
+        catch() { return this; }
+      };
+    }
+  }
+  globalThis.Audio = SoundSeekersContentGateAudio;
+}
+
+installSynchronousAudioHarness();
+
+function authorizedAudio(challenge) {
+  if (challenge.requiresAudio === false) {
+    return { audio: { status: "unavailable" }, audioAuthority: undefined };
+  }
+  const contract = getInstructionContract(challenge.instructionId);
+  const audioAuthority = {
+    scopeKey: "sound-seekers-v2-content-gate",
+    missionId: `content:${challenge.attemptId}`,
+    phaseId: challenge.challengeId,
+    attemptId: challenge.attemptId
+  };
+  const controller = createSoundSeekersAudioController({
+    scopeKey: audioAuthority.scopeKey,
+    clock: () => 0
+  });
+  controller.request({
+    cueId: `instruction:${contract.instructionId}`,
+    audioKey: contract.childAudio,
+    visibleText: contract.childText,
+    spokenText: contract.childText,
+    kind: "instruction",
+    requiresAudio: true
+  }, audioAuthority);
+  return { audio: controller.getSnapshot().delivery, audioAuthority };
+}
 
 function deepFreeze(value) {
   if (!value || typeof value !== "object" || Object.isFrozen(value)) return value;
@@ -155,7 +224,7 @@ export function buildSoundSeekersV2CanonicalCoverageFixture() {
       transactionId,
       challenge,
       response: { kind: "literacy-answer", token: challenge.expectedToken },
-      audio: { status: "unavailable" },
+      ...authorizedAudio(challenge),
       at: `2026-09-02T04:${String(expedition.stopIndex).padStart(2, "0")}:00.000Z`,
       sessionDay: "2026-09-02"
     }).nextState;
@@ -188,7 +257,7 @@ export function buildSoundSeekersV2CanonicalCoverageFixture() {
         visitId: served.visitId,
         challenge,
         response,
-        audio: { status: "unavailable" },
+        ...authorizedAudio(challenge),
         at: `2026-09-02T05:${String(challenge.targetOrdinal || 0).padStart(2, "0")}:00.000Z`,
         sessionDay: "2026-09-02"
       });

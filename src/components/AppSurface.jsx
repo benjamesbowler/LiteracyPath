@@ -28,7 +28,6 @@ import {
   PageErrorFallback,
   PhonicsLearnPage,
   PresentPage,
-  QuestRoot,
   ResetStudentProgressDialog,
   Sidebar,
   StudentBooksPage,
@@ -119,6 +118,9 @@ const StudentReadingFollower = lazyWithRetry(() =>
 );
 const StudentSoundTrailPage = lazyWithRetry(() =>
   import("./StudentSoundTrailPage.jsx").then(module => ({ default: module.StudentSoundTrailPage }))
+);
+const SoundSeekersRoute = lazyWithRetry(() =>
+  import("../features/soundSeekers/SoundSeekersRoute.jsx")
 );
 export function AppSurface({ surface }) {
   const {
@@ -953,6 +955,7 @@ export function AppSurface({ surface }) {
     APP_VIEWS.TEACHER_GUIDED_READING,
     APP_VIEWS.LEARN,
     APP_VIEWS.PHONICS_LEARN,
+    APP_VIEWS.PHONICS_QUEST,
     APP_VIEWS.SKILLS_BLOCK_QUEST,
     APP_VIEWS.STUDENT_REWARDS
   ].includes(appView);
@@ -1502,27 +1505,25 @@ export function AppSurface({ surface }) {
         </PageBoundary>
       )}
 
-      {/* THE SOUND TRAIL. Same shape: the redesigned trail screen is the front
-          door and Go launches Sound Seekers, which is unchanged - it still
-          portals full-screen and owns the Den, the creature, the chapter map and
-          the Trading Post. Lazy, because a student who never opens it should not
-          pay for a whole mode on first load. */}
+      {/* SOUND SEEKERS owns one campaign map and one v2 educational-game loop.
+          It remains lazy so unrelated student routes do not load its game engine. */}
       {appView === APP_VIEWS.PHONICS_QUEST && nameSaved && (
-        <PageBoundary resetKey={`phonics-quest-${studentId}`}>
+        <PageBoundary resetKey={`phonics-quest-${childProgressScopeKey}`}>
           <StudentSoundTrailPage
             studentName={studentName}
-            progressScopeKey={studentId || studentName || "default"}
+            progressScopeKey={childProgressScopeKey}
             onNavigate={goToStudentTab}
             onHome={goStudentHome}
             onGrownUps={goStudentHome}
             renderQuest={({ onExit }) => (
               <Suspense fallback={<LazyPageFallback label="Loading Sound Seekers..." />}>
-                <QuestRoot
-                  progressScopeKey={studentId || studentName || "default"}
-                  accessibilitySettings={learnerAccessibility}
-                  // Leaving the mode returns to the trail the child left from,
-                  // not to Home: the Home tab is one tap away on the bar and the
-                  // trail is the screen that says what happens next.
+                <SoundSeekersRoute
+                  progressScopeKey={childProgressScopeKey}
+                  accessibilitySettings={{
+                    reducedMotion: learnerAccessibility.reducedEffects,
+                    simplifiedScene: learnerAccessibility.simplifiedBackgrounds,
+                    extendedResponse: learnerAccessibility.extendedResponse
+                  }}
                   onExit={isStudentMode
                     ? onExit
                     : () => setAppView(APP_VIEWS.TEACHER_CLASSES)}

@@ -8,6 +8,9 @@ import { getContentDeckCatalogRecord } from "../../src/features/soundSeekers/con
 import { createSoundSeekersState, normalizeSoundSeekersState } from "../../src/features/soundSeekers/engine/stateV2.js";
 import { serveContentDeck } from "../../src/features/soundSeekers/engine/contentDeckScheduler.js";
 import { evidenceIsIndependent } from "../../src/features/soundSeekers/engine/evidence.js";
+import { getInstructionContract } from "../../src/features/soundSeekers/content/instructionContracts.js";
+import { createSoundSeekersAudioController } from "../../src/features/soundSeekers/runtime/soundSeekersAudioController.js";
+import { installSoundSeekersProductionAudioDouble } from "../helpers/soundSeekersProductionAudioDouble.js";
 import { validAttemptReceipts, validContentDeckUses } from "../../src/features/soundSeekers/engine/contentCoverage.js";
 import {
   beginContentPlacementAttempt,
@@ -26,6 +29,31 @@ import {
 } from "../../src/features/soundSeekers/engine/contentDeckTransactions.js";
 
 const audio = { status: "completed" };
+installSoundSeekersProductionAudioDouble();
+
+function authorizedAudio(challenge) {
+  if (challenge.requiresAudio === false) return { audio, audioAuthority: undefined };
+  const contract = getInstructionContract(challenge.instructionId);
+  const audioAuthority = {
+    scopeKey: "content-transaction-test",
+    missionId: `content:${challenge.attemptId}`,
+    phaseId: challenge.challengeId,
+    attemptId: challenge.attemptId
+  };
+  const controller = createSoundSeekersAudioController({
+    scopeKey: audioAuthority.scopeKey,
+    clock: () => 0
+  });
+  controller.request({
+    cueId: `instruction:${contract.instructionId}`,
+    audioKey: contract.childAudio,
+    visibleText: contract.childText,
+    spokenText: contract.childText,
+    kind: "instruction",
+    requiresAudio: true
+  }, audioAuthority);
+  return { audio: controller.getSnapshot().delivery, audioAuthority };
+}
 
 function startPlacement(placementId) {
   const placement = CONTENT_DECK_PLACEMENTS.find(item => item.placementId === placementId);
@@ -41,9 +69,10 @@ function startPlacement(placementId) {
 }
 
 function placementInput(state, placementId, visitId, challenge, token, at) {
+  const authority = authorizedAudio(challenge);
   return {
     placementId, visitId, challenge,
-    response: { kind: "literacy-answer", token }, audio, at, sessionDay: at.slice(0, 10)
+    response: { kind: "literacy-answer", token }, ...authority, at, sessionDay: at.slice(0, 10)
   };
 }
 
@@ -310,7 +339,7 @@ test("placement and story receipts use the exact v1 canonical input schema", () 
     correction: { supportLevel: 0, revealed: false, modelStep: "not_required" },
     challenge,
     response: input.response,
-    audio: input.audio,
+    audio: { status: input.audio.status },
     at: input.at,
     sessionDay: input.sessionDay
   };
@@ -350,7 +379,7 @@ test("placement and story receipts use the exact v1 canonical input schema", () 
     correction: { supportLevel: 1, revealed: false, modelStep: "not_required" },
     challenge: supportedChallenge,
     response: supportedInput.response,
-    audio: supportedInput.audio,
+    audio: { status: supportedInput.audio.status },
     at: supportedInput.at,
     sessionDay: supportedInput.sessionDay
   }));
@@ -399,7 +428,7 @@ test("placement and story receipts use the exact v1 canonical input schema", () 
     correction: { supportLevel: 3, revealed: true, modelStep: "consumed" },
     challenge: modeled.challenge,
     response: modeledInput.response,
-    audio: modeledInput.audio,
+    audio: { status: modeledInput.audio.status },
     at: modeledInput.at,
     sessionDay: modeledInput.sessionDay
   }));
@@ -428,7 +457,7 @@ test("placement and story receipts use the exact v1 canonical input schema", () 
     correction: { supportLevel: 0, revealed: false, modelStep: "not_required" },
     challenge: storyChallenge,
     response: storyInput.response,
-    audio: storyInput.audio,
+    audio: { status: storyInput.audio.status },
     at: storyInput.at,
     sessionDay: storyInput.sessionDay
   };
@@ -483,7 +512,7 @@ test("placement and story receipts use the exact v1 canonical input schema", () 
     correction: { supportLevel: 0, revealed: false, modelStep: "not_required" },
     challenge: morphologyChallenge,
     response: morphologyInput.response,
-    audio: morphologyInput.audio,
+    audio: { status: morphologyInput.audio.status },
     at: morphologyInput.at,
     sessionDay: morphologyInput.sessionDay
   };
@@ -530,7 +559,7 @@ test("placement and story receipts use the exact v1 canonical input schema", () 
     correction: { supportLevel: 0, revealed: false, modelStep: "not_required" },
     challenge: bossChallenge,
     response: bossInput.response,
-    audio: bossInput.audio,
+    audio: { status: bossInput.audio.status },
     at: bossInput.at,
     sessionDay: bossInput.sessionDay
   };

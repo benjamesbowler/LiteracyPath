@@ -10,6 +10,7 @@ import {
 } from "./evidenceEligibility.js";
 import { validContentDeckUses } from "./contentCoverage.js";
 import { resolveNarrativeBranchOutcome } from "../content/sceneVisualSemantics.js";
+import { createCharacterAppearance } from "../visual/characterCustomization.js";
 
 export const SOUND_SEEKERS_SCHEMA_VERSION = 2;
 export const SOUND_SEEKERS_CONTENT_VERSION = "sound-seekers-v2";
@@ -21,7 +22,13 @@ const DEFAULT_SETTINGS = Object.freeze({
   soundEnabled: true,
   music: true,
   musicEnabled: true,
-  displayMode: "auto"
+  displayMode: "auto",
+  autoTravel: false,
+  slowerMovement: false,
+  noDamageTravel: false,
+  largerTargets: false,
+  simplifiedScene: false,
+  extendedResponse: false
 });
 
 function asObject(value) {
@@ -52,14 +59,28 @@ export function normalizeAllowlistedSettings(raw = {}) {
       ? value.musicEnabled
       : quietLegacyAudio ? false : DEFAULT_SETTINGS.music;
   const displayMode = value.displayMode === "pixel" ? "pixel" : "auto";
-  return {
+  const normalized = {
     reducedMotion: Boolean(value.reducedMotion),
     highContrast: Boolean(value.highContrast),
     soundEnabled: value.soundEnabled !== false,
     music,
     musicEnabled: music,
-    displayMode
+    displayMode,
+    autoTravel: value.autoTravel === true,
+    slowerMovement: value.slowerMovement === true,
+    noDamageTravel: value.noDamageTravel === true,
+    largerTargets: value.largerTargets === true,
+    simplifiedScene: value.simplifiedScene === true,
+    extendedResponse: value.extendedResponse === true
   };
+  if (Object.hasOwn(value, "characterAppearance")) {
+    try {
+      normalized.characterAppearance = createCharacterAppearance(value.characterAppearance);
+    } catch {
+      // Invalid or answer-bearing cosmetic payloads are intentionally stripped.
+    }
+  }
+  return normalized;
 }
 
 function normalizeAssignment(raw) {
@@ -179,25 +200,9 @@ function normalizeJournal(value) {
 const MISSION_KEYS = [
   "schemaVersion", "kind", "contentVersion", "missionId", "stopId", "journeyStep",
   "attemptId", "attemptOrdinal", "missionRevision", "seed", "replayOrdinal", "phaseId",
-  "completedPhaseIds", "responseEvidence", "teach", "nextDecisionOrdinal", "activity", "activeContent",
+  "completedPhaseIds", "teach", "nextDecisionOrdinal", "activity", "activeContent",
   "connectedTextPresentation"
 ];
-
-function canonicalMissionResponseEvidence(raw) {
-  if (!Array.isArray(raw)) return null;
-  const records = raw.map(item => {
-    const value = asObject(item);
-    if (!exactKeys(value, ["kind", "eventId", "challengeId", "commitment"])
-      || value.kind !== "mission_response_evidence"
-      || typeof value.eventId !== "string" || !value.eventId
-      || typeof value.challengeId !== "string" || !value.challengeId
-      || typeof value.commitment !== "string" || !/^[0-9a-f]{32}$/u.test(value.commitment)) return null;
-    return structuredClone(value);
-  });
-  if (records.some(item => item === null)
-    || new Set(records.map(item => item.eventId)).size !== records.length) return null;
-  return records;
-}
 
 function exactKeys(value, keys) {
   return Object.keys(asObject(value)).length === keys.length
@@ -344,16 +349,14 @@ function normalizeMissionCheckpoint(raw) {
     || typeof value.activity.kind !== "string" || !value.activity.kind
     || typeof value.activity.actionId !== "string" || !value.activity.actionId
     || (value.activity.challengeId !== null && (typeof value.activity.challengeId !== "string" || !value.activity.challengeId))) return null;
-  const responseEvidence = canonicalMissionResponseEvidence(value.responseEvidence);
   const powerCheckpoint = canonicalPowerCheckpoint(value.activity.powerCheckpoint);
   const activeContent = canonicalActiveContent(value.activeContent);
   const connectedTextPresentation = canonicalConnectedTextCheckpoint(value.connectedTextPresentation);
-  if (responseEvidence === null || powerCheckpoint === undefined
+  if (powerCheckpoint === undefined
     || activeContent === undefined || connectedTextPresentation === undefined) return null;
   return {
     ...structuredClone(value),
     completedPhaseIds: uniqueStrings(value.completedPhaseIds),
-    responseEvidence,
     activity: { ...structuredClone(value.activity), powerCheckpoint },
     activeContent,
     connectedTextPresentation

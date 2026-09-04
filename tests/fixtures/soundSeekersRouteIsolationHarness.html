@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sound Seekers route isolation harness</title>
+    <style>
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
+      }
+
+      #route-opener {
+        min-width: 56px;
+        min-height: 56px;
+      }
+    </style>
+    <script>
+      (() => {
+        const activeListeners = new Map();
+        const originalAdd = document.addEventListener.bind(document);
+        const originalRemove = document.removeEventListener.bind(document);
+
+        document.addEventListener = (type, listener, options) => {
+          if (type === "keydown") {
+            const listeners = activeListeners.get(type) || new Set();
+            listeners.add(listener);
+            activeListeners.set(type, listeners);
+          }
+          return originalAdd(type, listener, options);
+        };
+        document.removeEventListener = (type, listener, options) => {
+          activeListeners.get(type)?.delete(listener);
+          return originalRemove(type, listener, options);
+        };
+        window.__soundSeekersDocumentListenerCount = type => activeListeners.get(type)?.size || 0;
+      })();
+    </script>
+  </head>
+  <body style="overflow: scroll !important">
+    <button id="route-opener" type="button">Open Sound Seekers</button>
+    <aside id="prior-isolated-sibling" aria-hidden="false" inert>Previously isolated host content</aside>
+    <div id="root" aria-hidden="false"></div>
+    <script type="module" src="./soundSeekersRouteIsolationHarness.jsx"></script>
+  </body>
+</html>

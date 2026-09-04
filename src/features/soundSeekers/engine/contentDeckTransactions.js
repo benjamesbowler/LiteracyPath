@@ -19,7 +19,8 @@ import {
 } from "./contentDeckState.js";
 import {
   appendEvidence,
-  createLiteracyDecision
+  createLiteracyDecision,
+  storedLiteracyDecisionMatches
 } from "./evidence.js";
 import { bossNovelTargetId } from "./evidenceEligibility.js";
 import { SOUND_SEEKERS_EXPEDITIONS } from "../content/expeditions.js";
@@ -30,6 +31,11 @@ import {
 import { nextCorrection } from "../../../utils/questCorrection.js";
 
 const CHALLENGE_CACHE = new WeakMap();
+
+function childAlternativeLabel(token) {
+  const suffix = String(token || "").slice(-1).toLocaleLowerCase("en-US");
+  return suffix === "b" ? "Target sound" : suffix === "a" ? "Earlier sound" : "Later sound";
+}
 
 function asObject(value) {
   return value && typeof value === "object" && !Array.isArray(value) ? value : {};
@@ -262,20 +268,19 @@ function assertHistoricalReceiptCanonical(state, descriptor, receipt, challenge,
       at: event.at,
       sessionDay: event.sessionDay
     }, challenge);
-  const canonicalEvent = createLiteracyDecision({
+  const canonicalEventMatches = storedLiteracyDecisionMatches(event, {
     challenge,
     response,
     support: {
       level: Math.min(descriptor.attemptOrdinal, 3),
       revealed: descriptor.attemptOrdinal >= 3
     },
-    audio,
     journeyStep: descriptor.journeyStep,
     ordinal: 0,
     at: event.at,
     sessionDay: event.sessionDay
   });
-  if (!canonicalEvent || !sameValue(event, canonicalEvent)) {
+  if (!canonicalEventMatches) {
     throw new Error("attempt receipt event does not match its fresh canonical challenge");
   }
   if (inputSha256(canonicalInput) !== receipt.inputSha256) {
@@ -334,13 +339,13 @@ function placementChallengeForDescriptor(state, descriptor) {
     childText: "Put this item with the matching sound.",
     requiresAudio: true,
     presentation: {
-      items: [targetId, ...decision.optionTokens].map((label, index) => ({
+      items: [targetId, ...decision.optionTokens].map((token, index) => ({
         id: `${descriptor.attemptId}:item:${index}`,
-        label: index === 0 ? `Sound ${targetId}` : `Compare sound ${index}`
+        label: index === 0 ? "Listen for the target sound" : childAlternativeLabel(token)
       })),
       bins: decision.optionTokens.map((token, index) => ({
         id: `${descriptor.attemptId}:bin:${index}`,
-        label: `Sound place ${index + 1}`,
+        label: childAlternativeLabel(token),
         token
       }))
     }
@@ -769,6 +774,7 @@ export function commitContentPlacementResponse(rawState, input = {}) {
     response: input.response,
     support,
     audio: input.audio,
+    audioAuthority: input.audioAuthority,
     journeyStep: descriptor.journeyStep,
     ordinal: 0,
     at: input.at,
@@ -1226,6 +1232,7 @@ export function completeStoryTransferTransaction(rawState, input = {}) {
       revealed: descriptor.attemptOrdinal >= 3
     },
     audio: input.audio,
+    audioAuthority: input.audioAuthority,
     journeyStep: descriptor.journeyStep,
     ordinal: 0,
     at: input.at,

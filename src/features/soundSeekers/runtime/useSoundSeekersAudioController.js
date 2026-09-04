@@ -1,5 +1,6 @@
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import { createSoundSeekersAudioController } from "./soundSeekersAudioController.js";
+import { useDeferredControllerDisposal } from "./useDeferredControllerDisposal.js";
 
 const OPTION_KEYS = Object.freeze(["enabled", "progressScopeKey"]);
 
@@ -25,6 +26,8 @@ export function useSoundSeekersAudioController(options = {}) {
     [enabled, progressScopeKey]
   );
 
-  useEffect(() => () => controller.dispose(), [controller]);
+  // The disposal hook defers controller.dispose() by one microtask so React
+  // Strict Mode can reconnect the same owner without losing its audio session.
+  useDeferredControllerDisposal(controller);
   return controller;
 }

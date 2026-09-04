@@ -172,11 +172,20 @@ function authorizedWord(word, assists = {}) {
       const item = mission.activity.sequence.currentItem;
       const audioIds = [...new Set([item.childAudio, item.targetAudio, ...item.targetAudioSequence,
         ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)].filter(Boolean))];
-      const controller = createRuntimeAudioController({ clock: () => 0 });
+      const audioAuthority = {
+        scopeKey: "word-workbench-teach",
+        missionId: mission.plan.id,
+        phaseId: mission.phaseId,
+        attemptId: mission.attemptId
+      };
+      const controller = createRuntimeAudioController({
+        scopeKey: audioAuthority.scopeKey,
+        clock: () => 0
+      });
       const audioDeliveries = audioIds.map((audioKey, ordinal) => {
         controller.request({ cueId: `teach:${item.stopId}:${item.teachIndex}:${item.targetId}:${ordinal}`,
           audioKey, visibleText: item.childText, spokenText: item.childText,
-          kind: "teach", requiresAudio: true });
+          kind: "teach", requiresAudio: true }, audioAuthority);
         return controller.getSnapshot().delivery;
       });
       mission = reduceRuntimeMission(mission, {
@@ -184,7 +193,7 @@ function authorizedWord(word, assists = {}) {
         teachIndex: item.teachIndex,
         targetId: item.targetId,
         audioDeliveries
-      }, { gameState: mission.gameState }).state;
+      }, { gameState: mission.gameState, audioAuthority }).state;
       continue;
     }
     const challenge = mission.activity.powerChallenge || mission.challenge;

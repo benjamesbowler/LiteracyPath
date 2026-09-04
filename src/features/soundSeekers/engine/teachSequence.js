@@ -4,7 +4,10 @@ import { getInstructionContract } from "../content/instructionContracts.js";
 import { MORPHOLOGY_TEACH_EXAMPLES, SOUND_SEEKERS_TEACH_TARGETS } from "../content/teachTargetMetadata.js";
 import { graphemeLabel } from "../../../utils/questLabels.js";
 import { getPreferredPhonemeAudioPath } from "../../../data/phonemeAudioBank.js";
-import { validateCompletedAudioDeliveryReceipt } from "./audioControllerAuthority.js";
+import {
+  consumeCompletedAudioDeliveryReceipt,
+  validateCompletedAudioDeliveryReceipt
+} from "./audioControllerAuthority.js";
 
 const INSTRUCTION_BY_KIND = Object.freeze({
   blend: "consonant-blend-teach",
@@ -129,7 +132,7 @@ function normalizeIndex(value, length) {
   return Number.isInteger(index) && index >= 0 && index <= length ? index : 0;
 }
 
-function completedAudioFor(state, item, input) {
+function completedAudioFor(state, item, input, audioBinding) {
   if (!input || typeof input !== "object" || Array.isArray(input)
     || Object.keys(input).length !== 4
     || !["type", "teachIndex", "targetId", "audioDeliveries"]
@@ -139,6 +142,7 @@ function completedAudioFor(state, item, input) {
     || input.targetId !== (item?.targetId ?? null)
     || !Array.isArray(input.audioDeliveries)) return false;
   if (!item) return input.audioDeliveries.length === 0;
+  if (!audioBinding) return false;
   const required = [...new Set([
     item.childAudio,
     item.targetAudio,
@@ -158,10 +162,21 @@ function completedAudioFor(state, item, input) {
       spokenText: item.childText,
       kind: "teach",
       requiresAudio: true
-    })) return false;
-    delivered.set(cueId, delivery);
+    }, audioBinding)) return false;
+    delivered.set(cueId, { delivery, request: {
+      cueId,
+      audioKey,
+      visibleText: item.childText,
+      spokenText: item.childText,
+      kind: "teach",
+      requiresAudio: true
+    } });
   }
-  return delivered.size === required.length;
+  if (delivered.size !== required.length) return false;
+  for (const { delivery, request } of delivered.values()) {
+    if (!consumeCompletedAudioDeliveryReceipt(delivery, request, audioBinding)) return false;
+  }
+  return true;
 }
 
 function sequenceAtCursor(state, rawIndex, rawTargetId = null) {
@@ -203,14 +218,14 @@ export function createTeachSequence(stop, taughtTargetIds = [], checkpoint = nul
   return sequenceAtCursor(state, checkpoint?.teachIndex, checkpoint?.teachTargetId);
 }
 
-export function reduceTeachSequence(state, input = {}) {
+export function reduceTeachSequence(state, input = {}, context = {}) {
   const current = state && typeof state === "object" ? state : createTeachSequence(null);
   if (input.type === "replay") return current;
   if (input.type === "restore") {
     return sequenceAtCursor(current, input.checkpoint?.teachIndex, input.checkpoint?.teachTargetId);
   }
   if (input.type === "complete-teach") {
-    if (!completedAudioFor(current, current.currentItem, input)) return current;
+    if (!completedAudioFor(current, current.currentItem, input, context.audioBinding)) return current;
     return sequenceAtCursor(current, current.teachIndex + 1);
   }
   return current;

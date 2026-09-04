@@ -275,16 +275,27 @@ function renderViteScene(childScene, context) {
   }));
 }
 
-function completedViteTeachInput(item) {
+function completedViteTeachInput(mission) {
+  const item = mission.activity.sequence.currentItem;
   installSoundSeekersProductionAudioDouble();
-  const controller = viteAudioController.createSoundSeekersAudioController({ clock: () => 0 });
+  const audioAuthority = {
+    scopeKey: "visual-semantic-teach",
+    missionId: mission.plan.id,
+    phaseId: mission.phaseId,
+    attemptId: mission.attemptId
+  };
+  const controller = viteAudioController.createSoundSeekersAudioController({
+    scopeKey: audioAuthority.scopeKey,
+    clock: () => 0
+  });
   const audioKeys = [...new Set([item.childAudio, item.targetAudio, ...item.targetAudioSequence,
     ...item.targetAudioAlternates.map(alternate => alternate.targetAudio)].filter(Boolean))];
   return {
-    type: "complete-teach",
-    teachIndex: item.teachIndex,
-    targetId: item.targetId,
-    audioDeliveries: audioKeys.map((audioKey, ordinal) => {
+    input: {
+      type: "complete-teach",
+      teachIndex: item.teachIndex,
+      targetId: item.targetId,
+      audioDeliveries: audioKeys.map((audioKey, ordinal) => {
       controller.request({
         cueId: `teach:${item.stopId}:${item.teachIndex}:${item.targetId}:${ordinal}`,
         audioKey,
@@ -292,9 +303,11 @@ function completedViteTeachInput(item) {
         spokenText: item.childText,
         kind: "teach",
         requiresAudio: true
-      });
-      return controller.getSnapshot().delivery;
-    })
+        }, audioAuthority);
+        return controller.getSnapshot().delivery;
+      })
+    },
+    audioAuthority
   };
 }
 
@@ -332,8 +345,9 @@ function currentViteStoryMission() {
   let mission = viteMissionReducer.createMissionState(plan);
   for (let guard = 0; guard < 100 && mission.phaseId !== "s1-transfer"; guard += 1) {
     const phase = plan.phases[mission.phaseIndex];
-    const inputs = phase.kind === "teach"
-      ? [completedViteTeachInput(mission.activity.sequence.currentItem)]
+    const teach = phase.kind === "teach" ? completedViteTeachInput(mission) : null;
+    const inputs = teach
+      ? [teach.input]
       : ["power_onboarding", "challenge", "content_opportunity"].includes(phase.kind)
         ? correctVitePowerInputs(mission)
         : [{ type: `complete_${phase.kind}` }];
@@ -342,7 +356,8 @@ function currentViteStoryMission() {
         gameState: mission.gameState,
         at: "2026-09-03T09:00:00.000Z",
         sessionDay: "2026-09-03",
-        audio: { status: "completed" }
+        audio: { status: "completed" },
+        audioAuthority: teach?.audioAuthority
       }).state;
     }
   }

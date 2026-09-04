@@ -5,7 +5,7 @@ These eight candidate backdrops were generated from the immutable Task 4 biome b
 ```json
 {
   "schemaVersion": 2,
-  "project": "LiteracyPath Sound Seekers v2",
+  "project": "Sound Seekers v2",
   "generatorContract": "task4-immutable-background-brief-v1",
   "assets": [
     {

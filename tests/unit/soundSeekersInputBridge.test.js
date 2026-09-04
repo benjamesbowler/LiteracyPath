@@ -26,7 +26,9 @@ class FakeEventHub {
       target: this,
       currentTarget: this,
       defaultPrevented: false,
+      propagationStopped: false,
       preventDefault() { this.defaultPrevented = true; },
+      stopPropagation() { this.propagationStopped = true; },
       ...init
     };
     for (const listener of [...(this.listeners.get(type) ?? [])]) listener(event);
@@ -43,7 +45,8 @@ function semanticControl(root, ownerDocument, {
   inputType = "confirm_candidate",
   targetId = id,
   sourceId = "source-2",
-  value = undefined
+  value = undefined,
+  primary = false
 }) {
   const control = {
     dataset: {
@@ -54,6 +57,9 @@ function semanticControl(root, ownerDocument, {
     },
     disabled: false,
     isConnected: true,
+    hasAttribute(name) {
+      return name === "data-ss-primary-control" && primary;
+    },
     closest(selector) {
       return selector.includes("[data-ss-input-type]") ? this : null;
     },
@@ -66,6 +72,36 @@ function semanticControl(root, ownerDocument, {
   };
   return control;
 }
+
+test("a focused game shell shares movement keys and activates the marked learning control", () => {
+  const fixture = bridgeFixture();
+  const keyboardRoot = new FakeEventHub();
+  keyboardRoot.ownerDocument = fixture.ownerDocument;
+  keyboardRoot.contains = node => node === fixture.actionRoot || fixture.actionRoot.contains(node);
+  fixture.controls[1].hasAttribute = name => name === "data-ss-primary-control";
+  const dispatched = [];
+  const bridge = createInputBridge({
+    canvas: fixture.canvas,
+    actionRoot: fixture.actionRoot,
+    keyboardRoot,
+    dispatch: input => dispatched.push(input)
+  });
+
+  fixture.ownerDocument.activeElement = keyboardRoot;
+  keyboardRoot.emit("keydown", { key: "ArrowRight", repeat: false });
+  keyboardRoot.emit("keydown", { key: "d", repeat: false });
+  keyboardRoot.emit("keydown", { key: "Enter", repeat: false });
+  keyboardRoot.emit("keydown", { key: " ", repeat: false });
+
+  assert.deepEqual(dispatched, [
+    { type: "traverse", value: "right" },
+    { type: "traverse", value: "right" },
+    { type: "confirm_candidate", targetId: "choice-2", sourceId: "source-2" },
+    { type: "confirm_candidate", targetId: "choice-2", sourceId: "source-2" }
+  ]);
+  bridge.destroy();
+  assert.equal(keyboardRoot.listenerCount(), 0);
+});
 
 function bridgeFixture() {
   const ownerDocument = { activeElement: null };
@@ -264,6 +300,96 @@ test("switch scanning activates the existing connected-text option without inter
   assert.equal(keyEvent.defaultPrevented, false, "native option keyboard activation stays native");
   option.click();
   assert.deepEqual(dispatched, [{ type: "choose", token: "story-choice-a" }]);
+
+  for (const [releaseType, pointerId] of [["pointercancel", 41], ["lostpointercapture", 42]]) {
+    dispatched.length = 0;
+    actionRoot.emit("pointerdown", { target: option, pointerId, pointerType: "touch" });
+    actionRoot.emit(releaseType, { target: option, pointerId, pointerType: "touch" });
+    const canceledClick = actionRoot.emit("click", {
+      target: option,
+      pointerId,
+      pointerType: "touch",
+      detail: 1
+    });
+    assert.equal(canceledClick.defaultPrevented, true, `${releaseType} compatibility click`);
+    assert.equal(canceledClick.propagationStopped, true, `${releaseType} React choice handler`);
+    assert.deepEqual(dispatched, [], releaseType);
+  }
+  bridge.destroy();
+});
+
+test("model-controlled actions keep their exact projected input across click, keyboard, switch, and cancellation", () => {
+  const ownerDocument = { activeElement: null };
+  const canvas = new FakeEventHub();
+  canvas.ownerDocument = ownerDocument;
+  const actionRoot = new FakeEventHub();
+  actionRoot.ownerDocument = ownerDocument;
+  const projectedInput = Object.freeze({
+    type: "narrative_choice",
+    choiceId: "story-choice-a",
+    token: "story-token-a"
+  });
+  const reactInputs = [];
+  let fieldsetDisabled = false;
+  const control = {
+    dataset: { ssModelControl: "" },
+    disabled: false,
+    isConnected: true,
+    closest(selector) {
+      return selector.includes("[data-ss-model-control]") ? this : null;
+    },
+    matches(selector) {
+      return selector === ":disabled" && fieldsetDisabled;
+    },
+    focus() {
+      ownerDocument.activeElement = this;
+    },
+    click() {
+      const event = actionRoot.emit("click", { target: this, detail: 0 });
+      if (!event.defaultPrevented && !event.propagationStopped) reactInputs.push(projectedInput);
+    }
+  };
+  actionRoot.contains = node => node === control;
+  actionRoot.querySelectorAll = selector => selector.includes("[data-ss-model-control]")
+    ? [control] : [];
+  const bridgeInputs = [];
+  const bridge = createInputBridge({
+    canvas,
+    actionRoot,
+    dispatch: input => bridgeInputs.push(input)
+  });
+
+  control.click();
+  assert.strictEqual(reactInputs[0], projectedInput);
+  assert.deepEqual(bridgeInputs, []);
+
+  reactInputs.length = 0;
+  assert.equal(bridge.scan(), control);
+  assert.equal(bridge.activate(), control);
+  assert.strictEqual(reactInputs[0], projectedInput);
+
+  reactInputs.length = 0;
+  const keyEvent = actionRoot.emit("keydown", { target: control, key: "Enter", repeat: false });
+  assert.equal(keyEvent.defaultPrevented, false);
+  control.click();
+  assert.strictEqual(reactInputs[0], projectedInput);
+
+  for (const [releaseType, pointerId] of [["pointercancel", 61], ["lostpointercapture", 62]]) {
+    reactInputs.length = 0;
+    actionRoot.emit("pointerdown", { target: control, pointerId, pointerType: "touch" });
+    actionRoot.emit(releaseType, { target: control, pointerId, pointerType: "touch" });
+    control.click = () => {
+      const event = actionRoot.emit("click", {
+        target: control, pointerId, pointerType: "touch", detail: 1
+      });
+      if (!event.defaultPrevented && !event.propagationStopped) reactInputs.push(projectedInput);
+    };
+    control.click();
+    assert.deepEqual(reactInputs, [], releaseType);
+  }
+
+  fieldsetDisabled = true;
+  assert.equal(bridge.scan(), null, "a disabled fieldset descendant must not be switch-scannable");
   bridge.destroy();
 });
 
