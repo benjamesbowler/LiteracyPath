@@ -26,7 +26,7 @@
       overflow: hidden;
       font-family: ui-rounded, "Avenir Next Rounded", "Nunito", system-ui, sans-serif;
       color: var(--ink);
-      background: #d9e8c4;
+      background: #173b3b;
     }
     button { font: inherit; color: inherit; }
     button:focus-visible { outline: 4px solid #246de0; outline-offset: 3px; }
@@ -35,8 +35,7 @@
       position: relative;
       min-height: 100%;
       isolation: isolate;
-      background: linear-gradient(180deg, rgba(255,249,218,.13), rgba(31,71,53,.1)),
-        url('/game-assets/sound-seekers/v2/biomes/seedwake-meadow/background.webp') center / cover;
+      background: radial-gradient(circle at 50% 0%, #2b5b54 0%, #173b3b 70%);
     }
     .game::after {
       content: "";
@@ -44,7 +43,7 @@
       inset: 0;
       z-index: -1;
       pointer-events: none;
-      background: radial-gradient(circle at 50% 45%, transparent 25%, rgba(27, 59, 43, .16) 100%);
+      background: radial-gradient(circle at 50% 42%, transparent 30%, rgba(3, 24, 25, .22) 100%);
     }
 
     .topbar {
@@ -77,20 +76,16 @@
     .scene {
       position: relative;
       min-height: calc(100vh - 78px);
-      padding: clamp(20px, 4vh, 44px) clamp(16px, 5vw, 72px) clamp(156px, 19vh, 210px);
-      display: grid;
-      grid-template-columns: minmax(210px, .7fr) minmax(420px, 1.35fr);
-      align-items: center;
-      gap: clamp(28px, 6vw, 96px);
+      padding: clamp(18px, 3vh, 32px) clamp(14px, 3vw, 44px) clamp(156px, 19vh, 210px);
     }
-    .briefing { align-self: center; max-width: 390px; z-index: 2; }
+    .briefing { position: absolute; top: clamp(34px, 6vh, 70px); left: clamp(30px, 6vw, 112px); width: min(320px, 32vw); padding: 18px 19px 16px; border: 1px solid rgba(255,255,255,.58); border-radius: 22px; background: linear-gradient(145deg, rgba(28,70,60,.9), rgba(32,86,67,.78)); box-shadow: 0 16px 34px rgba(13,42,35,.26), inset 0 1px rgba(255,255,255,.22); z-index: 3; backdrop-filter: blur(8px); }
     .quest-tag {
       display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px;
       color: var(--deep-leaf); background: rgba(255,248,223,.83); font-size: 12px; font-weight: 900;
       letter-spacing: .08em; text-transform: uppercase; box-shadow: 0 8px 18px rgba(56,82,53,.1);
     }
-    .briefing h2 { margin: 17px 0 10px; max-width: 340px; font-size: clamp(30px, 4.5vw, 55px); line-height: .98; letter-spacing: -.06em; }
-    .briefing p { margin: 0; max-width: 340px; color: #3f5d4e; font-size: clamp(15px, 1.7vw, 18px); line-height: 1.42; }
+    .briefing h2 { margin: 13px 0 8px; max-width: 300px; color: #fffced; font-size: clamp(28px, 3.4vw, 44px); line-height: .98; letter-spacing: -.06em; }
+    .briefing p { margin: 0; max-width: 300px; color: #dff1d2; font-size: clamp(14px, 1.35vw, 16px); line-height: 1.38; }
     .resident {
       position: relative; display: flex; align-items: flex-end; gap: 12px; margin-top: 28px;
     }
@@ -100,23 +95,25 @@
     }
     .speech::after { content: ""; position: absolute; left: 18px; bottom: -10px; width: 18px; height: 18px; background: var(--paper); transform: rotate(45deg); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .speech strong { color: var(--berry); }
-    .resident-avatar { width: 88px; height: 88px; flex: 0 0 auto; object-fit: contain; image-rendering: pixelated; filter: drop-shadow(0 10px 8px rgba(38,59,53,.22)); }
-    .how { margin-top: 22px; border: 0; padding: 0; color: var(--deep-leaf); background: transparent; text-decoration: underline; text-underline-offset: 4px; font-size: 14px; font-weight: 800; cursor: pointer; }
+    .resident-avatar { width: 100px; height: 100px; flex: 0 0 auto; object-fit: contain; filter: drop-shadow(0 10px 8px rgba(38,59,53,.22)); }
+    .how { margin-top: 18px; border: 0; padding: 0; color: #fff8df; background: transparent; text-decoration: underline; text-underline-offset: 4px; text-shadow: 0 2px 8px rgba(15,47,42,.5); font-size: 14px; font-weight: 800; cursor: pointer; }
 
     .playfield {
-      position: relative; min-height: 440px; display: grid; place-items: center; z-index: 1;
+      position: relative; min-height: min(650px, calc(100vh - 236px)); max-width: 1220px; margin: 0 auto; display: grid; place-items: center; z-index: 1;
+      overflow: hidden; border: 10px solid #f8f1d8; border-radius: 28px; background: url('/game-assets/sound-seekers/worlds/meadow-pals-overworld-v2.webp') center / cover;
+      box-shadow: 0 22px 48px rgba(4,27,26,.36), 0 0 0 2px rgba(255,255,255,.5), inset 0 0 0 2px rgba(25,59,50,.4);
     }
     .playfield::before {
-      content: ""; position: absolute; width: min(650px, 92%); height: 220px; bottom: 26px; border-radius: 50%;
-      background: rgba(248,226,135,.28); filter: blur(4px); transform: rotate(-4deg);
+      content: ""; position: absolute; width: min(650px, 92%); height: 170px; bottom: 25px; border-radius: 50%;
+      background: rgba(248,226,135,.22); filter: blur(10px); transform: rotate(-4deg);
     }
     .bridge {
-      position: absolute; bottom: 72px; width: min(530px, 84%); height: 126px; border-bottom: 15px solid #765345;
-      border-radius: 0 0 44% 44%; opacity: .93; filter: drop-shadow(0 18px 13px rgba(38,59,53,.16));
+      position: absolute; bottom: 75px; width: min(410px, 54%); height: 82px; border-bottom: 12px solid #765345;
+      border-radius: 0 0 44% 44%; opacity: .96; filter: drop-shadow(0 18px 13px rgba(38,59,53,.2));
     }
-    .bridge::before, .bridge::after { content: ""; position: absolute; bottom: -14px; width: 30px; height: 92px; border-radius: 13px; background: #93654e; }
+    .bridge::before, .bridge::after { content: ""; position: absolute; bottom: -11px; width: 22px; height: 68px; border-radius: 13px; background: #93654e; }
     .bridge::before { left: 3%; transform: rotate(3deg); } .bridge::after { right: 3%; transform: rotate(-3deg); }
-    .bridge-piece { position: absolute; bottom: 0; width: 30%; height: 19px; border-radius: 6px; background: #bc8559; box-shadow: inset 0 -4px rgba(84,48,35,.16); transform: translateY(4px); transition: transform .45s cubic-bezier(.2,.8,.3,1), background .45s; }
+    .bridge-piece { position: absolute; bottom: 0; width: 30%; height: 16px; border-radius: 6px; background: #bc8559; box-shadow: inset 0 -4px rgba(84,48,35,.16); transform: translateY(4px); transition: transform .45s cubic-bezier(.2,.8,.3,1), background .45s; }
     .bridge-piece:nth-child(1) { left: 4%; } .bridge-piece:nth-child(2) { left: 35%; } .bridge-piece:nth-child(3) { right: 4%; }
     .bridge-piece.filled { background: #e4b967; transform: translateY(-3px); }
     .lantern { position: absolute; left: 50%; bottom: 188px; width: 82px; height: 100px; transform: translateX(-50%); transition: filter .5s, transform .5s; }
@@ -133,14 +130,14 @@
     .mote::before { content: ""; position: absolute; inset: 9px; border: 2px dashed rgba(255,249,219,.7); border-radius: inherit; }
     .mote small { position: absolute; bottom: -24px; color: var(--deep-leaf); font-size: 12px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
     .mote:hover { transform: translateY(-7px) rotate(-2deg) scale(1.04); filter: saturate(1.12); }
-    .mote:nth-of-type(1) { left: 7%; top: 28%; animation-delay: -.5s; background: linear-gradient(145deg, #e6a947, #bd5a68); }
-    .mote:nth-of-type(2) { right: 8%; top: 16%; animation-delay: -1.7s; background: linear-gradient(145deg, #74a868, #3e7c70); }
-    .mote:nth-of-type(3) { right: 19%; bottom: 10%; animation-delay: -2.6s; background: linear-gradient(145deg, #8a74b3, #4d658e); }
+    .mote[data-letter="m"] { left: 39%; top: 29%; animation-delay: -.5s; background: linear-gradient(145deg, #e6a947, #bd5a68); }
+    .mote[data-letter="s"] { right: 8%; top: 16%; animation-delay: -1.7s; background: linear-gradient(145deg, #74a868, #3e7c70); }
+    .mote[data-letter="f"] { right: 17%; bottom: 9%; animation-delay: -2.6s; background: linear-gradient(145deg, #8a74b3, #4d658e); }
     .mote.correct { animation: land .55s cubic-bezier(.2,.8,.3,1) forwards; }
     .mote.wrong { animation: nudge .36s ease; }
     .mote:disabled { cursor: default; }
     .mote.hidden { opacity: 0; pointer-events: none; }
-    .hero { position: absolute; bottom: 72px; left: 50%; width: 112px; height: 112px; transform: translateX(-50%) translateX(-122px); background: url('/game-assets/quest-pixel/seedwake/characters-premium/pip/idle.png') left center / 448px 112px no-repeat; image-rendering: pixelated; filter: drop-shadow(0 14px 7px rgba(38,59,53,.25)); animation: hero-bob 1.6s steps(2) infinite; z-index: 2; }
+    .hero { position: absolute; bottom: 66px; left: 50%; width: 142px; height: 142px; transform: translateX(-50%) translateX(-122px); background: url('/game-assets/sound-seekers/avatars-v3/chompy.webp') center / contain no-repeat; filter: drop-shadow(0 14px 7px rgba(38,59,53,.25)); animation: hero-bob 1.6s ease-in-out infinite; z-index: 2; }
     .echo-ring { position: absolute; left: 50%; bottom: 200px; width: 128px; height: 128px; transform: translateX(-50%); border: 2px solid rgba(255,233,138,.76); border-radius: 50%; opacity: .7; animation: pulse 2.4s ease-out infinite; }
     .target {
       position: absolute; top: 0; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 14px; min-width: 210px;
@@ -180,11 +177,11 @@
     @media (max-width: 760px) {
       .topbar { padding-inline: 14px; } .progress-label { display: none; }
       .scene { min-height: calc(100vh - 70px); grid-template-columns: 1fr; gap: 8px; padding-top: 16px; padding-bottom: 176px; }
-      .briefing { max-width: none; } .briefing h2 { margin-top: 11px; font-size: clamp(28px, 8vw, 42px); } .briefing p { display: none; }
-      .resident { margin-top: 13px; } .resident-avatar { width: 62px; height: 62px; } .speech { max-width: 255px; padding: 11px 13px; font-size: 14px; }
+      .briefing { top: 14px; left: 14px; width: min(270px, calc(100% - 28px)); padding: 13px 14px 12px; } .briefing h2 { margin-top: 9px; font-size: clamp(28px, 8vw, 42px); } .briefing p { display: none; }
+      .resident { margin-top: 13px; } .resident-avatar { width: 72px; height: 72px; } .speech { max-width: 255px; padding: 11px 13px; font-size: 14px; }
       .playfield { min-height: 340px; width: 100%; } .target { top: 2px; } .bridge { bottom: 44px; } .hero { bottom: 42px; transform: translateX(-50%) translateX(-84px) scale(.78); } .echo-ring { bottom: 156px; transform: translateX(-50%) scale(.82); }
       .lantern { bottom: 148px; transform: translateX(-50%) scale(.8); } .lantern.awake { transform: translateX(-50%) translateY(-7px) scale(.8); }
-      .mote:nth-of-type(1) { left: 4%; top: 33%; } .mote:nth-of-type(2) { right: 3%; top: 21%; } .mote:nth-of-type(3) { right: 16%; bottom: 2%; }
+      .mote[data-letter="m"] { left: 38%; top: 35%; } .mote[data-letter="s"] { right: 3%; top: 21%; } .mote[data-letter="f"] { right: 15%; bottom: 2%; }
       .dock { flex-wrap: wrap; gap: 10px; } .status { min-width: 0; } .feedback { order: 3; flex-basis: 100%; min-height: 30px; } .continue { flex: 0 0 auto; }
     }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
@@ -209,7 +206,7 @@
         <p>One sound is hiding in the meadow. Find its letter and the first plank will wake.</p>
         <div class="resident">
           <div class="speech" role="status">“The bridge needs <strong>/m/</strong>. Which letter makes that sound?”</div>
-          <img class="resident-avatar" src="/game-assets/quest-pixel/seedwake/characters-premium/pip/idle.png" alt="Pip, your meadow guide" />
+          <img class="resident-avatar" src="/game-assets/sound-seekers/avatars-v3/pip.webp" alt="Pip, your meadow guide" />
         </div>
         <button class="how" id="howBtn" type="button">How to play</button>
       </div>
