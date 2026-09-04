@@ -265,7 +265,7 @@ seventeen results; they were identified, renamed and cut here.
 | Asset | Source | Path |
 | --- | --- | --- |
 | 4 world map panels (1168×784) | ChatGPT from the prompt sheet: Sunny Meadow Farm, Sunny Hollow, Moonwood at dusk, Deep Moonwood at night — one winding path each; the forty stop coordinates in `content/trail.js` were read off these paintings | `public/game-assets/sound-seekers/v3/world/map-*.webp` |
-| 6 platform backdrops (1168×784) | ChatGPT from the prompt sheet; the dusk painting also serves the coast stops (26–30) and the night painting also serves Star Reach (36–40) until two more are painted | `…/v3/backdrops/bg-*.webp` |
+| 8 platform backdrops | six from ChatGPT (1168×784) from the prompt sheet; the storm coast (26–30) and Star Reach (36–40) from Grok Imagine in the browser pane (2160×864, Quality v2.0) — a wide painting scrolls with less repetition | `…/v3/backdrops/bg-*.webp` |
 | 15 Meadow Pals | cut from the production cast bank (flood-fill of the flat cream background, `--crop 0,170,3840,927`) | `…/v3/cast/meadow/<name>.webp` |
 | 15 Dino Pals, 9 Moonwood characters | two Dino line-ups and one Moonwood line-up from the prompt sheet, cut with `tools/soundSeekersV3/cut_lineup.py` — the generated line-ups overlap (tails, wings), so the cutter separates characters along their ink outlines: cells of flat colour are assigned to the character whose seeded palette they match | `…/v3/cast/dino/`, `…/v3/cast/moonwood/` |
 | 3 heroes, side view walking right | ChatGPT from the prompt sheet (fake checkerboard "transparency"), cut with rembg | `…/v3/cast/<land>/<name>-hero.webp` (`heroSprite` in `cast.js`) |
@@ -281,10 +281,11 @@ python3 tools/soundSeekersV3/cut_lineup.py cast-dino-b.jpg out/dino --names chee
 python3 tools/soundSeekersV3/cut_lineup.py cast-moonwood.jpg out/moonwood --names pip,wren,flint,spark,burrow,luna,fern,glimmer,stone --cores 20-105,125-225,255-360,385-480,500-590,605-700,715-800,815-900,930-1160
 ```
 
-Still to paint: `bg-moonwood-coast` (storm coast with the lighthouse, for
-stops 26–30) and `bg-star-reach` (constellations, comet, the star on the hill,
-for 36–40). Grok Imagine needs a sign-in in the browser pane before it will
-generate.
+Grok Imagine notes (for next time): sign in first; Settings → Quality (v2.0),
+×2, 3:2; the result page embeds the full image as a data: URI in the `<img>`,
+which is how it was pulled out — no download button is needed. Code-drawn
+clouds are drawn at 28% over the night backdrops so the constellations stay
+the sky.
 
 **Colour policy.** The repository's Sound Seekers source gate forbids raw hex
 colours anywhere under `src/features/soundSeekers/` except
