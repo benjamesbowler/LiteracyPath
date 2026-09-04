@@ -792,267 +792,6 @@ async function expectCompactHollowOverlaysSeparated(surface, state) {
   ).toBe(false);
 }
 
-async function expectCreatorOptionContentsContained(creator, state) {
-  const options = creator.locator(".q-option");
-  expect(await options.count(), `${state} exposes creator options`).toBeGreaterThan(0);
-  const failures = await options.evaluateAll(nodes => nodes.flatMap((option, optionIndex) => {
-    const optionBox = option.getBoundingClientRect();
-    const contains = (container, box) => box.left >= container.left - 1
-      && box.top >= container.top - 1
-      && box.right <= container.right + 1
-      && box.bottom <= container.bottom + 1;
-    const optionGeometry = {
-      left: optionBox.left,
-      top: optionBox.top,
-      right: optionBox.right,
-      bottom: optionBox.bottom
-    };
-    return [...option.querySelectorAll([
-      ":scope > .q-option-art",
-      ":scope > .q-option-label",
-      ":scope > .q-option-cost",
-      ":scope > .q-option-art > .q-book-avatar",
-      ":scope > .q-option-art > .q-book-avatar > .q-book-avatar-character"
-    ].join(", "))]
-      .flatMap(content => {
-        const style = getComputedStyle(content);
-        const contentBox = content.getBoundingClientRect();
-        if (
-          style.display === "none"
-          || style.visibility === "hidden"
-          || Number.parseFloat(style.opacity || "1") <= 0
-          || contentBox.width < 1
-          || contentBox.height < 1
-        ) return [];
-        const text = content.textContent.trim();
-        const range = document.createRange();
-        range.selectNodeContents(content);
-        const textBoxes = text
-          ? [...range.getClientRects()].map(rect => ({
-              left: rect.left,
-              top: rect.top,
-              right: rect.right,
-              bottom: rect.bottom
-            }))
-          : [];
-        const contentGeometry = {
-          left: contentBox.left,
-          top: contentBox.top,
-          right: contentBox.right,
-          bottom: contentBox.bottom
-        };
-        const requiresText = content.classList.contains("q-option-label")
-          || content.classList.contains("q-option-cost");
-        if (
-          !contains(optionGeometry, contentGeometry)
-          || textBoxes.some(box => !contains(optionGeometry, box))
-          || textBoxes.some(box => !contains(contentGeometry, box))
-          || (requiresText && !text)
-        ) {
-          return [{
-            optionIndex,
-            optionName: option.getAttribute("aria-label") || "",
-            contentClass: content.className,
-            text,
-            option: optionGeometry,
-            content: contentGeometry,
-            textBoxes
-          }];
-        }
-        return [];
-      });
-  }));
-  expect(
-    failures,
-    `${state} keeps every visible label and reward state inside its option card: ${JSON.stringify(failures)}`
-  ).toEqual([]);
-}
-
-async function expectCreatorOptionRailStartsReachably(reel, state) {
-  const geometry = await reel.evaluate(element => {
-    const rail = element.getBoundingClientRect();
-    const first = element.querySelector(":scope > .q-option")?.getBoundingClientRect();
-    return {
-      railLeft: rail.left,
-      firstLeft: first?.left ?? null,
-      scrollLeft: element.scrollLeft
-    };
-  });
-  expect(geometry.firstLeft, `${state} exposes a first option`).not.toBeNull();
-  expect(
-    geometry.firstLeft,
-    `${state} keeps its first option inside the reachable left edge: ${JSON.stringify(geometry)}`
-  ).toBeGreaterThanOrEqual(geometry.railLeft - 1);
-}
-
-async function expectCreatorInstructionClearOfHeaderControls(surface, state) {
-  const instruction = surface.locator("[data-child-instruction]");
-  await expect(instruction).toBeVisible();
-  const geometry = await surface.evaluate(element => {
-    const instructionNode = element.querySelector("[data-child-instruction]");
-    const instructionBox = instructionNode?.getBoundingClientRect();
-    const overlaps = (first, second) => Boolean(first && second)
-      && first.left < second.right
-      && first.right > second.left
-      && first.top < second.bottom
-      && first.bottom > second.top;
-    const visibleHeaderControls = [...element.querySelectorAll(".q-creator-music-toggle, .q-exit")]
-      .filter(control => {
-        const style = getComputedStyle(control);
-        const box = control.getBoundingClientRect();
-        return style.display !== "none"
-          && style.visibility !== "hidden"
-          && Number.parseFloat(style.opacity || "1") > 0
-          && box.width >= 1
-          && box.height >= 1;
-      });
-    const serialise = box => box && ({
-      left: box.left,
-      top: box.top,
-      right: box.right,
-      bottom: box.bottom
-    });
-    return {
-      instruction: serialise(instructionBox),
-      controls: visibleHeaderControls.map(control => ({
-        name: control.getAttribute("aria-label") || control.textContent.trim(),
-        box: serialise(control.getBoundingClientRect())
-      })),
-      collisions: visibleHeaderControls
-        .filter(control => overlaps(instructionBox, control.getBoundingClientRect()))
-        .map(control => control.getAttribute("aria-label") || control.textContent.trim())
-    };
-  });
-  expect(geometry.controls, `${state} exposes music and Close header controls`).toHaveLength(2);
-  expect(
-    geometry.collisions,
-    `${state} keeps its instruction clear of visible header controls: ${JSON.stringify(geometry)}`
-  ).toEqual([]);
-}
-
-async function expectCreatorTabLabelsClear(tabs, state) {
-  const geometry = await tabs.evaluateAll(nodes => {
-    const toBox = rect => ({
-      left: rect.left,
-      top: rect.top,
-      right: rect.right,
-      bottom: rect.bottom
-    });
-    const labels = nodes.map(node => {
-      const tab = toBox(node.getBoundingClientRect());
-      const range = document.createRange();
-      range.selectNodeContents(node);
-      const textBoxes = [...range.getClientRects()]
-        .filter(box => box.width >= 1 && box.height >= 1)
-        .map(toBox);
-      const text = textBoxes.length > 0
-        ? {
-            left: Math.min(...textBoxes.map(box => box.left)),
-            top: Math.min(...textBoxes.map(box => box.top)),
-            right: Math.max(...textBoxes.map(box => box.right)),
-            bottom: Math.max(...textBoxes.map(box => box.bottom))
-          }
-        : null;
-      const clippingBoxes = [{
-        element: "viewport",
-        clipsX: true,
-        clipsY: true,
-        box: { left: 0, top: 0, right: window.innerWidth, bottom: window.innerHeight }
-      }];
-      let clippingAncestor = node;
-      while (clippingAncestor) {
-        const style = getComputedStyle(clippingAncestor);
-        const clipsX = ["auto", "clip", "hidden", "scroll"].includes(style.overflowX);
-        const clipsY = ["auto", "clip", "hidden", "scroll"].includes(style.overflowY);
-        if (clipsX || clipsY) {
-          const rect = clippingAncestor.getBoundingClientRect();
-          const measuredScaleX = clippingAncestor.offsetWidth > 0
-            ? rect.width / clippingAncestor.offsetWidth
-            : 1;
-          const measuredScaleY = clippingAncestor.offsetHeight > 0
-            ? rect.height / clippingAncestor.offsetHeight
-            : 1;
-          const scaleX = Number.isFinite(measuredScaleX) && measuredScaleX > 0
-            ? measuredScaleX
-            : 1;
-          const scaleY = Number.isFinite(measuredScaleY) && measuredScaleY > 0
-            ? measuredScaleY
-            : 1;
-          const left = rect.left + (clippingAncestor.clientLeft * scaleX);
-          const top = rect.top + (clippingAncestor.clientTop * scaleY);
-          clippingBoxes.push({
-            element: clippingAncestor === node
-              ? "tab"
-              : clippingAncestor.className || clippingAncestor.tagName.toLowerCase(),
-            clipsX,
-            clipsY,
-            box: {
-              left,
-              top,
-              right: left + (clippingAncestor.clientWidth * scaleX),
-              bottom: top + (clippingAncestor.clientHeight * scaleY)
-            }
-          });
-        }
-        clippingAncestor = clippingAncestor.parentElement;
-      }
-      const unclipped = textBoxes.length > 0 && textBoxes.every(box => (
-        clippingBoxes.every(clip => (
-          (!clip.clipsX || (
-            box.left >= clip.box.left - 1
-            && box.right <= clip.box.right + 1
-          ))
-          && (!clip.clipsY || (
-            box.top >= clip.box.top - 1
-            && box.bottom <= clip.box.bottom + 1
-          ))
-        ))
-      ));
-      return {
-        label: node.textContent.trim(),
-        tab,
-        text,
-        textBoxes,
-        clippingBoxes,
-        unclipped
-      };
-    });
-    return labels.map((label, index) => {
-      const previousTab = labels[index - 1]?.tab;
-      const nextTab = labels[index + 1]?.tab;
-      const horizontalBounds = {
-        left: previousTab?.right ?? label.tab.left - 1,
-        right: nextTab?.left ?? label.tab.right + 1
-      };
-      return {
-        ...label,
-        clearOfAdjacentTabs: label.textBoxes.length > 0 && label.textBoxes.every(box => (
-          box.left >= horizontalBounds.left
-          && box.right <= horizontalBounds.right
-          && box.top >= label.tab.top - 1
-          && box.bottom <= label.tab.bottom + 1
-        )),
-        gapToNext: index < labels.length - 1 && label.text && labels[index + 1].text
-          ? labels[index + 1].text.left - label.text.right
-          : null
-      };
-    });
-  });
-  expect(geometry, `${state} exposes all five creator tab labels`).toHaveLength(5);
-  expect(
-    geometry.filter(label => !label.clearOfAdjacentTabs),
-    `${state} keeps tab-label ink out of adjacent controls: ${JSON.stringify(geometry)}`
-  ).toEqual([]);
-  expect(
-    geometry.filter(label => !label.unclipped),
-    `${state} keeps every tab label visible through all clipping boundaries: ${JSON.stringify(geometry)}`
-  ).toEqual([]);
-  expect(
-    geometry.filter(label => label.gapToNext !== null && label.gapToNext < 2),
-    `${state} keeps adjacent tab labels visually separate: ${JSON.stringify(geometry)}`
-  ).toEqual([]);
-}
-
 async function expectLibraryHeaderControlsClear(surface, state) {
   const geometry = await surface.evaluate(element => {
     const controls = [...element.querySelectorAll(".kg-books-head button")]
@@ -2349,82 +2088,32 @@ test("A3.6 Adventure Map compact landscape keeps its wider title clear", async (
   ).toBeLessThanOrEqual(geometry.speaker.left - 4);
 });
 
-test("A3.6 Sound Seekers compact creator contains option labels and locked rewards", async ({ page }) => {
+for (const profile of [
+  { id: "tablet portrait", width: 768, height: 1024 },
+  { id: "tablet landscape", width: 1024, height: 768 },
+  { id: "laptop", width: 1280, height: 900 }
+]) {
+test(`A3.6 Sound Seekers v3 creator remains reachable at ${profile.id}`, async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.setViewportSize({ width: 320, height: 568 });
+  await page.setViewportSize({ width: profile.width, height: profile.height });
   await page.goto("/preview/child-surfaces.html?surface=sound-seekers");
   const surface = page.locator('[data-child-surface="sound-seekers"]');
-  const creator = surface.locator(".q-creator");
+  const creator = surface.getByRole("dialog", { name: "Who will you be?" });
   await expect(creator).toBeVisible();
-  await expectVisibleImagesReady(page, "Sound Seekers compact creator");
+  await expectVisibleImagesReady(page, `Sound Seekers v3 creator at ${profile.id}`);
   await page.evaluate(() => document.fonts?.ready);
-  await expectCreatorInstructionClearOfHeaderControls(surface, "Sound Seekers compact creator");
-
-  const characterReel = creator.locator(".q-reel--body");
-  await expect(characterReel).toBeVisible();
-  await expectCreatorOptionRailStartsReachably(characterReel, "Sound Seekers Character options");
-  await expectCreatorOptionContentsContained(characterReel, "Sound Seekers Character options");
-
-  const tabs = creator.getByRole("tab");
-  const tabBoxes = await tabs.evaluateAll(nodes => nodes.map(node => {
-    const box = node.getBoundingClientRect();
-    return { width: box.width, height: box.height };
-  }));
-  expect(
-    tabBoxes.every(box => box.width >= 56 && box.height >= 56),
-    `compact creator keeps 56px-square tabs: ${JSON.stringify(tabBoxes)}`
-  ).toBe(true);
-  await expectCreatorTabLabelsClear(tabs, "Sound Seekers compact creator tabs");
-  await page.addStyleTag({
-    content: `
-      [data-child-surface="sound-seekers"] .q-creator .q-tab {
-        font-family: ui-monospace, monospace !important;
-      }
-    `
-  });
-  await expectCreatorTabLabelsClear(tabs, "Sound Seekers wider-font creator tabs");
-
-  const characterTab = creator.getByRole("tab", { name: "Character", exact: true });
-  await characterTab.evaluate(node => {
-    const label = document.createElement("span");
-    label.textContent = node.textContent;
-    node.replaceChildren(label);
-    const tabBox = node.getBoundingClientRect();
-    const nextTabBox = node.nextElementSibling.getBoundingClientRect();
-    const range = document.createRange();
-    range.selectNodeContents(label);
-    const textBox = range.getBoundingClientRect();
-    const gutter = nextTabBox.left - tabBox.right;
-    const overhang = Math.max(1.25, gutter - 0.5);
-    label.style.position = "relative";
-    label.style.left = `${tabBox.right + overhang - textBox.right}px`;
-    node.style.overflow = "hidden";
-  });
-  await expect(
-    expectCreatorTabLabelsClear(tabs, "Sound Seekers clipped-label negative control")
-  ).rejects.toThrow(/clipping boundaries/);
-  await characterTab.evaluate(node => {
-    node.replaceChildren("Character");
-    node.style.removeProperty("overflow");
-  });
-
-  const outfitsTab = creator.getByRole("tab", { name: "Outfits", exact: true });
-  await outfitsTab.click();
-  await expect(outfitsTab).toHaveAttribute("aria-selected", "true");
-  const outfitReel = creator.locator(".q-reel--outfit");
-  await expect(outfitReel).toBeVisible();
-  const lockedOptions = outfitReel.locator(":scope > .q-option.is-locked");
-  await expect(lockedOptions, "Outfits exposes its five locked trail rewards").toHaveCount(5);
-  await expect(lockedOptions.first().locator(".q-option-cost")).toContainText("Trail reward");
-  await expectCreatorOptionRailStartsReachably(outfitReel, "Sound Seekers locked Outfit options");
-  await expectCreatorOptionContentsContained(outfitReel, "Sound Seekers locked Outfit options");
-
-  const primary = creator.locator("[data-child-primary]");
-  const primaryBox = await primary.boundingBox();
-  expect(primaryBox?.width || 0, "compact creator keeps a 56px-wide primary action").toBeGreaterThanOrEqual(56);
-  expect(primaryBox?.height || 0, "compact creator keeps its 64px primary action").toBeGreaterThanOrEqual(64);
-  await expectPrimaryActionInInitialPane(surface, "Sound Seekers compact creator");
+  const heroCards = creator.locator(".ss3__hero-card");
+  await expect(heroCards).toHaveCount(3);
+  for (let index = 0; index < await heroCards.count(); index += 1) {
+    const box = await heroCards.nth(index).boundingBox();
+    expect(box?.width || 0, `${profile.id} hero card ${index} is wide enough`).toBeGreaterThanOrEqual(56);
+    expect(box?.height || 0, `${profile.id} hero card ${index} is tall enough`).toBeGreaterThanOrEqual(56);
+  }
+  await expect(creator.locator("[data-child-instruction]")).toBeVisible();
+  await expect(creator.locator("[data-child-progress]")).toBeVisible();
+  await expectPrimaryActionInInitialPane(surface, `Sound Seekers v3 creator at ${profile.id}`);
 });
+}
 
 for (const keyboardViewport of STUDENT_SOFTWARE_KEYBOARD_VIEWPORTS) {
   test(`A3.6 student sign in remains usable with ${keyboardViewport.id}`, async ({ page }) => {

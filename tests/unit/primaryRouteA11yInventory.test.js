@@ -41,8 +41,8 @@ test("A3.3 inventory covers every primary child and authenticated teacher route"
   );
 });
 
-test("A3.3 inventory fixes two viewports, seven key modal states, and High Scores interaction", () => {
-  assert.deepEqual(A11Y_VIEWPORTS.map(row => row.id), ["desktop", "mobile"]);
+test("A3.3 inventory fixes laptop and iPad viewports, seven key modal states, and High Scores interaction", () => {
+  assert.deepEqual(A11Y_VIEWPORTS.map(row => row.id), ["desktop", "tablet-portrait", "tablet-landscape"]);
   assert.equal(A11Y_KEY_MODAL_STATES.length, 7);
   assert.ok(A11Y_KEY_MODAL_STATES.every(row => row.dialogName));
   assert.deepEqual(A11Y_KEY_INTERACTIONS, [{

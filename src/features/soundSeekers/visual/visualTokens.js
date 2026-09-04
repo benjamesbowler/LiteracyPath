@@ -73,7 +73,10 @@ export const SOUND_SEEKERS_V3_PALETTE = deepFreeze({
   gold: "#F5C644",
   "gold-deep": "#E09B1B",
   leaf: "#57A447",
-  "leaf-deep": "#3D7D33",
+  // The action green must remain readable beneath the route scrim as well as
+  // on a plain cream board; the darker value keeps normal-size labels above
+  // the WCAG AA 4.5:1 threshold in both states.
+  "leaf-deep": "#2F6B2B",
   "leaf-bright": "#6FB84F",
   berry: "#D9534F",
   "sky-ink": "#2F4F7A",

@@ -371,9 +371,9 @@ Everything in §8 for the whole trail: forty authored stops (problem / fix /
 token lines, decodable Story Bridge lines where the stop's sounds allow one),
 34 character cutouts, the nine mechanics, the director, the authority with the
 error ladder, evidence, checkpoints, the map scene, the platform scene, the
-HUD, storage, and 17 unit tests (`tests/unit/soundSeekersV3.test.js`). The
-route now renders v3; the old game's modules are untouched and still pass
-their own tests.
+HUD, storage, and the v3 route contract tests. The route renders v3; the old
+engine remains only for compatibility consumers until its separate retirement
+checks pass.
 
 ### Visual self-review (step 8) — what it found and what changed
 
@@ -414,13 +414,12 @@ word; the Dino/Moonwood cutouts carry the mood painted on their covers
 ### Verification status
 
 - `tests/unit/soundSeekersV3.test.js` — 17/17.
+- `tests/unit/soundSeekersGameContract.test.js` — current v3 hero-selection and
+  map child-surface contracts pass.
 - Sound Seekers source gate (raw-colour policy, preview authority) — passes.
-- The full unit suite could not be judged in the cloud copy (it lacks
-  `supabase/`, `public/audio/`, workflows and legal pages, so 70-odd tests
-  fail on missing files there); it must be run on the Mac after the files
-  land. Two `soundSeekersGameContract` tests already fail on the committed
-  tree before this work (the old campaign map no longer says "Begin
-  expedition") — verified on the Mac at cb98b35.
+- The full unit suite must be run on the Mac after the route and current
+  compatibility consumers are present; the route contract is maintained
+  against v3 rather than the retired campaign-map markup.
 - Lint is clean for every file this pass touched.
 
 ### What remains after this pass (tracked in project memory)

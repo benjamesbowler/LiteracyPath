@@ -389,14 +389,14 @@ export default function SoundSeekersV3({
   const resumable = Boolean(meetStop && progress.checkpoint?.stopId === meetStop.id && !isStopCompleted(progress, meetStop.id));
 
   return (
-    <div className="ss3" data-ss3-mode={mode} style={CSS_VARIABLES}>
+    <div className="ss3" data-child-surface="sound-seekers" data-ss3-mode={mode} style={CSS_VARIABLES}>
       <canvas ref={canvasRef} className="ss3__canvas" onPointerDown={onPointerDown} aria-hidden="true" />
 
       <div className="ss3__hud">
         {/* one h1 per child route */}
         <div className="ss3-board ss3__title">
           <img src={mode === "encounter" ? npc?.sprite : (heroCast?.heroSprite || heroCast?.sprite)} alt="" />
-          <h1>
+          <h1 data-child-title="">
             {mode === "encounter" ? `${stop.name} · ${npc?.name}` : "Sound Seekers"}
             <small>{mode === "encounter" ? `${land.title}` : `${land.title} · you are ${heroCast.name}`}</small>
           </h1>
@@ -475,7 +475,7 @@ export default function SoundSeekersV3({
 
         {mode === "map" && (
           <>
-            <div className="ss3__pad">
+            <div className="ss3__pad" role="group" aria-label="Trail controls" data-child-choices="true">
               <button type="button" className="ss3__ctl" aria-label="Walk back" onClick={mapAct("ArrowLeft")}>◀</button>
               <button type="button" className="ss3__ctl" aria-label="Walk on" onClick={mapAct("ArrowRight")}>▶</button>
             </div>
@@ -493,7 +493,8 @@ export default function SoundSeekersV3({
         <div className="ss3__scrim">
           <div className="ss3-board ss3__card" role="dialog" aria-modal="true" aria-labelledby="ss3-hero-title">
             <h2 id="ss3-hero-title">Who will you be?</h2>
-            <p>Pick your Sound Seeker. You can change later.</p>
+            <p data-child-instruction="">Pick your Sound Seeker. You can change later.</p>
+            <p className="ss3__trail-progress" data-child-progress="">Your trail has 40 story stops to explore.</p>
             <div className="ss3__heroes" data-child-choices="true">
               {HEROES.map(h => (
                 <button key={h.id} type="button" className="ss3__hero-card" aria-pressed={pendingHero === h.id} onClick={() => { setPendingHero(h.id); fx.pop(); }}>

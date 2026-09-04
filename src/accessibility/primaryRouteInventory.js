@@ -1,6 +1,7 @@
 export const A11Y_VIEWPORTS = Object.freeze([
   Object.freeze({ id: "desktop", width: 1280, height: 900 }),
-  Object.freeze({ id: "mobile", width: 390, height: 844 })
+  Object.freeze({ id: "tablet-portrait", width: 768, height: 1024 }),
+  Object.freeze({ id: "tablet-landscape", width: 1024, height: 768 })
 ]);
 
 export const A11Y_PRIMARY_ROUTES = Object.freeze([
@@ -63,8 +64,8 @@ export const A11Y_KEY_MODAL_STATES = Object.freeze([
   }),
   Object.freeze({
     id: "sound-seekers-creator",
-    url: "/preview/quest-preview.html?scope=a11y-routes&reset=1&sound=0",
-    dialogName: "Choose your book character"
+    url: "/preview/child-surfaces.html?surface=sound-seekers",
+    dialogName: "Who will you be?"
   }),
   Object.freeze({
     id: "arcade-game",
@@ -100,8 +101,10 @@ export function validateA11yInventory() {
   if (!A11Y_PRIMARY_ROUTES.some(row => row.audience === "teacher")) {
     throw new Error("Accessibility inventory must include teacher routes.");
   }
-  if (A11Y_VIEWPORTS.length !== 2) {
-    throw new Error("Accessibility inventory must cover desktop and mobile viewports.");
+  if (A11Y_VIEWPORTS.length !== 3 || !A11Y_VIEWPORTS.some(row => row.id === "desktop")
+    || !A11Y_VIEWPORTS.some(row => row.id === "tablet-portrait")
+    || !A11Y_VIEWPORTS.some(row => row.id === "tablet-landscape")) {
+    throw new Error("Accessibility inventory must cover laptop and both iPad orientations.");
   }
   return true;
 }

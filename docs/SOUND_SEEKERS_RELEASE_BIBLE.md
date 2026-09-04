@@ -6,16 +6,20 @@ This document describes the current product only. The live runtime, imported
 data modules, and maintained checks are the final authority when wording here
 becomes stale.
 
-Current implementation ownership:
+Current child-route implementation ownership:
 
-- `src/components/quest/QuestRoot.jsx`
-- `src/components/quest/world/QuestPixelWorld.jsx`
-- `src/components/quest/world/questPixelRuntime.js`
-- `src/data/questChapters.js`
-- `src/data/questPixelMaps.js`
-- `src/utils/questMastery.js`
-- `src/utils/questReviewScheduler.js`
-- `src/utils/questProgress.js`
+- `src/features/soundSeekers/SoundSeekersRoute.jsx`
+- `src/features/soundSeekers/v3/SoundSeekersV3.jsx`
+- `src/features/soundSeekers/v3/content/`
+- `src/features/soundSeekers/v3/engine/`
+- `src/features/soundSeekers/v3/render/`
+- `src/features/soundSeekers/v3/storage.js`
+
+The v3 trail consumes the canonical stop order and teaching records from
+`src/data/questSequence.js`. Existing `src/components/quest/` and
+`src/utils/quest*` modules are compatibility and non-child-route consumers
+until their zero-reference retirement checks pass; they do not define the
+current Sound Seekers child presentation.
 
 Historical pass numbers, scores, audit rounds, bundle baselines, prototype
 targets, and named-person approvals are not product rules.
