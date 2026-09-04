@@ -11,23 +11,19 @@ function tokenValue(token) {
   return cleanText(token?.normalized || token?.text).toLowerCase();
 }
 
-function sameTokenOccurrence(selected, target) {
-  return Number(selected?.lineIndex) === Number(target?.lineIndex)
-    && Number(selected?.tokenIndex) === Number(target?.tokenIndex);
-}
-
 export function createPoemSpotlightOutcome(round = {}, selectedToken = {}, supportLevel = 0) {
   const targetToken = round.targetToken || {};
   const target = tokenValue(targetToken);
   const selected = tokenValue(selectedToken);
-  const correct = Boolean(target) && sameTokenOccurrence(selectedToken, targetToken);
-  const lineNumber = Number(targetToken.lineIndex) + 1;
+  // The task is now "find the word", so any occurrence of the authored word
+  // is valid. Coordinates are only a later support cue, never the scoring key.
+  const correct = Boolean(target) && selected === target;
   return {
     correct,
     selected,
     feedback: correct
-      ? `You found ${target}${lineNumber > 0 ? ` in line ${lineNumber}` : ""}.`
-      : `You chose ${selected || "that token"}. Find ${target || "the target word"}${lineNumber > 0 ? ` in line ${lineNumber}` : ""}.`,
+      ? `You found “${target}”.`
+      : `You chose “${selected || "that word"}”. Find “${target || "the target word"}” in the poem.`,
     evidence: {
       construct: cleanText(round.construct) || "connected_print_tracking",
       target,
@@ -38,7 +34,10 @@ export function createPoemSpotlightOutcome(round = {}, selectedToken = {}, suppo
 }
 
 export function createPoemSpotlightState() {
-  return { completed: false };
+  return {
+    completed: false,
+    coordinatesVisible: false
+  };
 }
 
 export function updatePoemSpotlightState(
@@ -50,7 +49,9 @@ export function updatePoemSpotlightState(
   if (state.completed) return { state, outcome: null };
   const outcome = createPoemSpotlightOutcome(round, selectedToken, supportLevel);
   return {
-    state: outcome.correct ? { ...state, completed: true } : state,
+    state: outcome.correct
+      ? { ...state, completed: true }
+      : { ...state, coordinatesVisible: true },
     outcome
   };
 }

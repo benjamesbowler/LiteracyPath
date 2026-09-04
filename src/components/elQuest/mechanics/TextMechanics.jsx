@@ -60,20 +60,31 @@ export function PoemSpotlightMechanic({
         {lines.map((line, lineIndex) => {
           const tokens = round?.tokens?.[lineIndex] || fallbackTokens(line, lineIndex);
           return (
-            <p className="sbq-poem-line" data-poem-line={lineIndex} key={`line-${lineIndex}`}>
-              <span className="kg-visually-hidden">Line {lineIndex + 1}: </span>
-              <span
-                aria-hidden="true"
-                className="sbq-poem-line-marker"
-                data-poem-line-marker={lineIndex}
-              >
-                <span>Line</span>
-                <strong>{lineIndex + 1}</strong>
-              </span>
+            <p
+              className="sbq-poem-line"
+              data-poem-line={lineIndex}
+              key={`line-${lineIndex}`}
+              style={state.coordinatesVisible ? undefined : { gridTemplateColumns: "minmax(0, 1fr)" }}
+            >
+              {state.coordinatesVisible && (
+                <>
+                  <span className="kg-visually-hidden">Line {lineIndex + 1}: </span>
+                  <span
+                    aria-hidden="true"
+                    className="sbq-poem-line-marker"
+                    data-poem-line-marker={lineIndex}
+                  >
+                    <span>Line</span>
+                    <strong>{lineIndex + 1}</strong>
+                  </span>
+                </>
+              )}
               <span className="sbq-poem-line-words" data-poem-line-words={lineIndex}>
                 {tokens.map((token, tokenIndex) => (
                   <span className="sbq-poem-word" key={`${lineIndex}-${tokenIndex}`}>
-                    <span aria-hidden="true" className="sbq-poem-word-marker">{tokenIndex + 1}</span>
+                    {state.coordinatesVisible && (
+                      <span aria-hidden="true" className="sbq-poem-word-marker">{tokenIndex + 1}</span>
+                    )}
                     <button
                       className="sbq-poem-token sbq-ghost-button"
                       type="button"
@@ -193,6 +204,7 @@ export function LetterTraceMechanic({
   const activePointerIdRef = useRef(null);
   const completionLockRef = useRef(false);
   const correctionModelRef = useRef(null);
+  const pointCountRef = useRef(0);
   const [pointCount, setPointCount] = useState(0);
   const [traceMessage, setTraceMessage] = useState(CHILD_COPY.tracing.prompt);
   const [traceDimension, setTraceDimension] = useState("");
@@ -227,6 +239,7 @@ export function LetterTraceMechanic({
     currentStrokeRef.current = [];
     drawnStrokesRef.current = [];
     lastPointRef.current = null;
+    pointCountRef.current = 0;
     setPointCount(0);
     setTraceDimension("");
     setTraceMessage(`Now trace ${currentCorrection.letter} again after the model.`);
@@ -237,15 +250,10 @@ export function LetterTraceMechanic({
     const model = correctionModelRef.current;
     if (!model) return undefined;
 
+    // The correction model is an in-stage overlay. Focusing it is enough to
+    // announce the support without moving the child away from the canvas or
+    // creating a second scroll position on a short tablet viewport.
     const frame = window.requestAnimationFrame(() => {
-      const stage = model.closest(".adventure-round-frame__stage");
-      if (stage) {
-        const stageRect = stage.getBoundingClientRect();
-        const modelRect = model.getBoundingClientRect();
-        stage.scrollTop = Math.max(0, stage.scrollTop + modelRect.top - stageRect.top - 8);
-      } else {
-        model.scrollIntoView?.({ block: "nearest", inline: "nearest" });
-      }
       model.focus({ preventScroll: true });
     });
 
@@ -293,7 +301,11 @@ export function LetterTraceMechanic({
     context.stroke();
     lastPointRef.current = point;
     currentStrokeRef.current.push(point);
-    setPointCount(value => value + 1);
+    // The button only needs to know when the minimum gesture length is met.
+    // Avoid re-rendering the whole trace layout for every sampled pointer
+    // point, which makes dense classroom strokes feel laggy on tablets.
+    pointCountRef.current += 1;
+    if (pointCountRef.current <= 20) setPointCount(pointCountRef.current);
   }
 
   function beginStroke(event) {
@@ -343,6 +355,7 @@ export function LetterTraceMechanic({
     currentStrokeRef.current = [];
     drawnStrokesRef.current = [];
     lastPointRef.current = null;
+    pointCountRef.current = 0;
     setPointCount(0);
     setTraceDimension("");
     setTraceMessage(message);
@@ -380,7 +393,12 @@ export function LetterTraceMechanic({
     if (completionLockRef.current) return;
     const result = scoreLetterTrace({
       drawnStrokes: drawnStrokesRef.current,
-      expectedStrokes: expectedStrokes()
+      expectedStrokes: expectedStrokes(),
+      // Tracing is a supported practice activity, not a handwriting exam.
+      // The map profile keeps order and direction meaningful while allowing
+      // the wider pen drift common on classroom touchscreens.
+      tolerance: 29,
+      profile: "adventure-map"
     });
     const transition = updateLetterTraceState(
       traceState,
@@ -471,7 +489,7 @@ export function LetterTraceMechanic({
                 <TracePaths
                   chars={chars}
                   traceLayout={traceLayout}
-                  showStrokeOrder={nativeCorrectionActive}
+                  showStrokeOrder
                 />
               </svg>
             ) : (
@@ -482,19 +500,21 @@ export function LetterTraceMechanic({
                 onDone={handleModelDone}
               />
             )}
-            {nativeCorrectionActive && reducedMotion && nativeModelPending && (
-              <button
-                className="sbq-ghost-button"
-                type="button"
-                disabled={disabled}
-                onClick={handleModelDone}
-              >
-                I followed the numbered model
+            <div className="sbq-trace-demo__controls">
+              {nativeCorrectionActive && reducedMotion && nativeModelPending && (
+                <button
+                  className="sbq-ghost-button"
+                  type="button"
+                  disabled={disabled}
+                  onClick={handleModelDone}
+                >
+                  I followed the numbered model
+                </button>
+              )}
+              <button className="sbq-ghost-button" type="button" disabled={disabled} onClick={replayModel}>
+                ✏️ {CHILD_COPY.tracing.watch}
               </button>
-            )}
-            <button className="sbq-ghost-button" type="button" disabled={disabled} onClick={replayModel}>
-              ✏️ {CHILD_COPY.tracing.watch}
-            </button>
+            </div>
           </div>
           <p className="sbq-trace-phase-label">
             {traceState.phase === "guided" ? "Guided trace" : "Faded-model trace"}
@@ -505,9 +525,14 @@ export function LetterTraceMechanic({
               aria-hidden="true"
               className="sbq-trace-letter"
               viewBox="0 0 460 300"
-              style={{ opacity: traceState.phase === "faded" ? 0.28 : 1 }}
+              style={{ opacity: traceState.phase === "faded" ? 0.46 : 1 }}
             >
-              <TracePaths chars={chars} traceLayout={traceLayout} targetPaths />
+              <TracePaths
+                chars={chars}
+                traceLayout={traceLayout}
+                targetPaths
+                showStrokeOrder
+              />
             </svg>
             <canvas
               ref={canvasRef}

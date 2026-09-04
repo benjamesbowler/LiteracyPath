@@ -46,7 +46,7 @@ const poemRound = {
   choices: ["rain", "away", "come", "decoy"]
 };
 
-test("Poem Spotlight renders native token buttons inside each original punctuated line", async () => {
+test("Poem Spotlight renders native token buttons without coordinate clutter", async () => {
   const { PoemSpotlightMechanic } = await loadTextMechanics();
   const markup = renderToStaticMarkup(React.createElement(PoemSpotlightMechanic, {
     round: poemRound,
@@ -61,8 +61,8 @@ test("Poem Spotlight renders native token buttons inside each original punctuate
   assert.match(markup, /data-poem-line="0"/);
   assert.match(markup, /data-poem-line="1"/);
   assert.match(markup, /role="group" aria-label="Poem"/);
-  assert.match(markup, /Line 1:/);
-  assert.match(markup, /Line 2:/);
+  assert.doesNotMatch(markup, /Line 1:/);
+  assert.doesNotMatch(markup, /data-poem-line-marker/);
   assert.match(markup, />Rain,</);
   assert.match(markup, />rain—go</);
   assert.match(markup, />away!</);
@@ -71,7 +71,7 @@ test("Poem Spotlight renders native token buttons inside each original punctuate
   assert.equal((markup.match(/class="sbq-poem-token sbq-ghost-button"/g) || []).length, 6);
 });
 
-test("Poem Spotlight scores the exact occurrence and names a wrong selected token", async () => {
+test("Poem Spotlight scores any matching occurrence and names a wrong selected token", async () => {
   const { createPoemSpotlightOutcome } = await loadTextState();
   const repeatedButWrongOccurrence = createPoemSpotlightOutcome(
     poemRound,
@@ -85,7 +85,7 @@ test("Poem Spotlight scores the exact occurrence and names a wrong selected toke
   );
   const wrongWord = createPoemSpotlightOutcome(poemRound, poemRound.tokens[1][1], 1);
 
-  assert.equal(repeatedButWrongOccurrence.correct, false);
+  assert.equal(repeatedButWrongOccurrence.correct, true);
   assert.equal(exactOccurrence.correct, true);
   assert.deepEqual(exactOccurrence.evidence, {
     construct: "connected_print_tracking",
@@ -96,6 +96,7 @@ test("Poem Spotlight scores the exact occurrence and names a wrong selected toke
   assert.equal(wrongWord.selected, "come");
   assert.match(wrongWord.feedback, /come/);
   assert.match(wrongWord.feedback, /rain/);
+  assert.doesNotMatch(wrongWord.feedback, /line \d/i);
 });
 
 test("Poem Spotlight accepts one successful completion and suppresses repeat commits", async () => {
@@ -108,11 +109,12 @@ test("Poem Spotlight accepts one successful completion and suppresses repeat com
   const wrong = updatePoemSpotlightState(
     state,
     poemRound,
-    poemRound.tokens[0][0],
+    poemRound.tokens[1][1],
     0
   );
   state = wrong.state;
   assert.equal(wrong.outcome.correct, false);
+  assert.equal(state.coordinatesVisible, true);
 
   const recovered = updatePoemSpotlightState(
     state,

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { computeTreasury } from "../utils/treasureTrail.js";
 import {
   computeHollow, canBuy, findCatalogItem,
-  COIN_RATES, BEASTIES, EXPANSIONS, WELCOME_EGG, CARAVAN_ICONS
+  COIN_RATES, BEASTIES, EXPANSIONS, WELCOME_EGG
 } from "../utils/hollowEconomy.js";
 import { loadHollowLedger, recordPurchase, recordFeed, saveLayout, markCoinsSeen } from "../utils/hollowState.js";
 import { DEN_THEMES, isDenThemeUnlocked } from "../utils/denRewards.js";
@@ -31,27 +31,6 @@ function hideOnError(event) {
   event.currentTarget.style.display = "none";
 }
 
-// Emoji stand-ins render behind the real art (which hides itself on error).
-const EMOJI = {
-  "gear-meadow-crown": "👑", "gear-explorer-pack": "🎒", "gear-acorn-shield": "🛡️",
-  "gear-willow-wand": "🪄", "gear-trail-boots": "🥾", "gear-wizard-hat": "🧙",
-  "gear-starweave-scarf": "🧣", "gear-moth-wings": "🪽", "gear-dino-helm": "🪖",
-  "gear-bone-charm": "🦴", "gear-raptor-wings": "🪽", "gear-petal-hood": "🌸",
-  "gear-leaf-cloak": "🍃", "gear-falcon-wings": "🪽",
-  "hollow-glow-jar": "🫙", "hollow-mushroom-stool": "🍄", "hollow-moon-lantern": "🏮",
-  "hollow-moss-rug": "🧺", "hollow-star-banner": "🚩", "hollow-root-table": "🪵",
-  "hollow-owl-perch": "🌿", "hollow-story-shelf": "📚", "hollow-ember-pit": "🔥",
-  "hollow-crystal-cluster": "💎", "hollow-dino-skull": "🦕", "hollow-fern-fountain": "⛲",
-  "hollow-moonwell": "🌙", "hollow-waterfall": "🏞️",
-  "exp-garden": "🌿", "exp-pond": "🪷", "exp-cave": "🕳️", "exp-treetop": "🌳",
-  "egg-bronze": "🥚", "egg-silver": "🥚", "egg-gold": "🥚", "egg-welcome": "🎁",
-  "market-merchant": "🦡",
-  "beastie-moss-sprite": "🌱", "beastie-ember-fox": "🦊", "beastie-pebble-toad": "🐸",
-  "beastie-sun-moth": "🦋", "beastie-fern-snail": "🐌", "beastie-star-owl": "🦉",
-  "beastie-thorn-stag": "🦌", "beastie-glow-lynx": "🐈", "beastie-river-dragon": "🐉",
-  "beastie-moon-wyrm": "🐲"
-};
-
 // Eager by default: these are small webps and the page never scrolls, so
 // everything is "above the fold". The fallback is sized in PIXELS from the
 // box size (a %-of-font-size fallback rendered as a microscopic emoji).
@@ -59,9 +38,17 @@ function ItemArt({ id, stage, size = 52 }) {
   const file = stage ? `${id}-s${stage}` : id;
   return (
     <span className="hollow-art" style={{ width: size, height: size }} aria-hidden="true">
-      <span className="hollow-art-emoji" style={{ fontSize: Math.round(size * 0.66) }}>{EMOJI[id] || "✨"}</span>
+      <span className="hollow-art-fallback" data-art-id={id} />
       <img src={`/images/hollow/${file}.webp`} alt="" onError={hideOnError} />
     </span>
+  );
+}
+
+function ChevronGlyph({ direction = "right" }) {
+  return (
+    <svg className="hollow-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d={direction === "left" ? "M14.5 5 7.5 12l7 7" : "m9.5 5 7 7-7 7"} />
+    </svg>
   );
 }
 
@@ -303,7 +290,6 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   const hungry = hollow.beasties.filter(b => b.growth.next && hollow.berries > 0).length;
   const welcomeEggWaiting = !ledger.purchases.some(p => p?.item === WELCOME_EGG.id);
   const season = hollow.market.season;
-  const caravanIcon = CARAVAN_ICONS[season.caravan] || "🌙";
   const caravanWares = [...hollow.market.gear, ...hollow.market.hollow].filter(i => i.caravan !== undefined);
   const everydayGear = hollow.market.gear.filter(i => i.caravan === undefined);
   const everydayHollow = hollow.market.hollow.filter(i => i.caravan === undefined);
@@ -440,8 +426,8 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
           {[
             { id: "hollow", label: "My Hollow" },
             { id: "pal", label: "My Guide" },
-            { id: "beasties", label: "Beasties", note: welcomeEggWaiting ? "gift!" : hungry ? `${hungry} hungry` : "" },
-            { id: "market", label: "Market", note: caravanIcon }
+            { id: "beasties", label: "Beasties", note: welcomeEggWaiting ? "A gift is waiting" : hungry ? `${hungry} hungry` : "" },
+            { id: "market", label: "Market" }
           ].map(t => (
             <button
               key={t.id}
@@ -466,7 +452,7 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
             {room.kind === "open" ? (
               <div className="hollow-room" style={{ backgroundImage: room.image }}>
                 {room.tint && <span className="hollow-room-tint" style={{ background: room.tint }} aria-hidden="true" />}
-                <span className="hollow-room-name">{room.id === "main" ? "🌳" : EMOJI[room.id]} {room.name}</span>
+                <span className="hollow-room-name">{room.name}</span>
                 {room.spots.map(renderSpot)}
                 {room.id === "main" && hollow.beasties.length > 0 && (
                   <aside className="hollow-beastie-nook" aria-label="Your hatched beasties">
@@ -496,7 +482,8 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
                   data-child-emphasis={!recommendedSpotId ? "primary" : "choice"}
                   data-child-emphasis-cue={!recommendedSpotId ? "" : undefined}
                 >
-                  🌍 World
+                  <span className="hollow-world-glyph" aria-hidden="true" />
+                  World
                 </button>
                 {pickingWorld && (
                   <div className="hollow-world-pop" role="dialog" aria-label="Choose your world">
@@ -515,7 +502,7 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
             ) : (
               <div className="hollow-room locked" style={{ backgroundImage: room.image }}>
                 <div className="hollow-room-lock">
-                  <span className="hollow-room-lock-icon" aria-hidden="true">{EMOJI[room.id]}</span>
+                  <span className="hollow-room-lock-icon" aria-hidden="true" />
                   <strong>{room.name}</strong>
                   <span>A whole new part of your Hollow, with {room.expansion.slots} more spots.</span>
                   <button type="button" className="hollow-buy" disabled={!canBuy(hollow, room.expansion.id).ok} onClick={() => { buy(room.expansion.id); }}>
@@ -533,17 +520,17 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
                   disabled={roomIndex === 0}
                   aria-label="Previous place"
                   onClick={() => { setRoomIndex(i => Math.max(0, i - 1)); setPickingSpot(null); }}
-                >‹</button>
+                ><ChevronGlyph direction="left" /></button>
                 <button
                   type="button"
                   className="hollow-room-arrow right"
                   disabled={roomIndex >= rooms.length - 1}
                   aria-label={roomIndex + 1 < rooms.length ? `Go to ${rooms[roomIndex + 1].name}` : "No more places"}
                   onClick={() => { setRoomIndex(i => Math.min(rooms.length - 1, i + 1)); setPickingSpot(null); }}
-                >›</button>
+                ><ChevronGlyph /></button>
                 <div className="hollow-room-dots" aria-hidden="true">
                   {rooms.map((r, index) => (
-                    <span key={r.id} className={index === roomIndex ? "on" : ""}>{r.kind === "locked" ? "🔒" : ""}</span>
+                    <span key={r.id} className={index === roomIndex ? "on" : ""} data-room-state={r.kind} />
                   ))}
                 </div>
               </>
@@ -694,7 +681,7 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
                       setMarketPage(0);
                     }}
                   >
-                    {s.id === "caravan" ? `${caravanIcon} ` : ""}{s.label}
+                    {s.label}
                   </button>
                 ))}
               </div>

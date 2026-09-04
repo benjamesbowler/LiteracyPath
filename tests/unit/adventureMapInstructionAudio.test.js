@@ -26,7 +26,8 @@ const EXPECTED_INSTRUCTIONS = Object.freeze({
   wordMachineSubstitute: "Listen to the new word. Choose an onset to replace the first sound, then run the word machine.",
   wordMachineRemove: "Listen to the word. Choose the first sound to remove, then run the word machine.",
   wordMachineJoin: "Select both word parts in order, then join them in the word machine.",
-  poemSpotlight: "Follow the line and word numbers. Tap that exact word in the poem.",
+  poemSpotlight: "Find the target word in the poem.",
+  coverClue: "Pick up the title strip. Read it, then place it on the matching book cover.",
   letterTrace: "Watch the letter path. Trace it, then trace it again with a faded model.",
   graphemeTrace: "Watch the letter team path. Trace it, then trace it again with a faded model.",
   patternSort: "Pick up one word at a time. Put it in the matching pattern bin, then sort the new word.",
@@ -36,6 +37,9 @@ const EXPECTED_INSTRUCTIONS = Object.freeze({
 });
 
 function expectedInstruction(round) {
+  if (round.mechanicId === "sceneHunt" || round.mechanicId === "poemSpotlight") {
+    return round.prompt;
+  }
   if (round.mechanicId === "sceneHunt" && round.variant === "soundSort") {
     return EXPECTED_INSTRUCTIONS.sceneHuntEnding;
   }
@@ -81,15 +85,18 @@ test("every typed Adventure Map mechanic resolves its exact recorded instruction
   assert.deepEqual([...seenMechanics].sort(), [...ADVENTURE_MECHANIC_IDS].sort());
 });
 
-test("reading-only mechanics keep answers out of automatic target audio", () => {
+test("reading-only mechanics expose only the authored word replay when needed", () => {
   for (const cycle of elSkillsBlockCycles.filter(item => item.cycleNumber)) {
     for (const station of stationsForCycle(cycle)) {
       for (const round of buildStationRounds(cycle, station.id)) {
-        if (!["patternSort", "phraseFlow", "poemSpotlight"].includes(round.mechanicId)) continue;
+        if (!["patternSort", "phraseFlow", "poemSpotlight", "coverClue"].includes(round.mechanicId)) continue;
         const resolved = resolveAdventureRoundAudio(round);
-        assert.deepEqual(resolved.targetAudio, []);
         if (round.mechanicId === "poemSpotlight") {
+          assert.equal(resolved.targetAudio.length, 1);
+          assert.match(resolved.targetAudio[0], /\/audio\/production\/en-US\/(?:isolated_word|supplemental)\//);
           assert.match(resolved.contentAudio, /\/audio\/production\/en-US\/(?:poem|instruction)\//);
+        } else {
+          assert.deepEqual(resolved.targetAudio, []);
         }
         if (round.mechanicId === "phraseFlow") {
           assert.match(resolved.contentAudio, /\/audio\/production\/en-US\/instruction\//);

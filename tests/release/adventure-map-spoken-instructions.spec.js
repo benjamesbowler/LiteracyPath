@@ -22,7 +22,7 @@ const MECHANIC_ROUTES = [
     station: "hunt",
     mechanic: "sceneHunt",
     stage: "scene-hunt",
-    instruction: ADVENTURE_MAP_INSTRUCTIONS.sceneHunt
+    instruction: "Find the word that starts with the “a” sound."
   },
   {
     cycle: "cycle-1",
@@ -50,7 +50,7 @@ const MECHANIC_ROUTES = [
     station: "poem",
     mechanic: "poemSpotlight",
     stage: "poem-spotlight",
-    instruction: ADVENTURE_MAP_INSTRUCTIONS.poemSpotlight
+    instruction: "Find the word “mat” in the poem."
   },
   {
     cycle: "cycle-1",
@@ -198,7 +198,7 @@ test("instruction, target, and connected-text recordings remain separate control
     .getAttribute("data-instruction-audio");
   await page.waitForTimeout(450);
   await clearAudioLog(page);
-  await letterRound.getByRole("button", { name: "Listen", exact: true }).click();
+  await letterRound.getByRole("button", { name: "Hear the letter name", exact: true }).click();
   await expect.poll(() => playedAudio(page)).not.toEqual([]);
   const [letterTarget] = await playedAudio(page);
   expect(letterTarget).not.toBe(letterInstruction);
@@ -253,7 +253,7 @@ test("Stop during a wrong Letter Press feedback beat cancels the pending coachin
   // Let entry audio finish, then capture the current target cue separately.
   await page.waitForTimeout(450);
   await clearAudioLog(page);
-  await round.getByRole("button", { name: "Listen", exact: true }).click();
+  await round.getByRole("button", { name: "Hear the letter name", exact: true }).click();
   await expect.poll(() => playedAudio(page)).not.toEqual([]);
   const [targetPath] = await playedAudio(page);
   await page.waitForTimeout(30);

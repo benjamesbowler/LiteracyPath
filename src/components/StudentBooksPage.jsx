@@ -57,9 +57,31 @@ import {
   pickContinueBook
 } from "../policy/childLibraryPolicy.js";
 
-// Decorative art must never show a broken-image icon to a child.
-function hideOnError(event) {
-  event.currentTarget.style.display = "none";
+// A missing cover is a media problem, not an empty book. Keep the title/cover
+// pairing truthful and show a stable, explicit fallback instead of preserving
+// a blank image well after an error.
+function BookCover({ book, className = "kg-book-cover", loading = "lazy", eager = false }) {
+  const [failed, setFailed] = useState(false);
+  const src = coverFor(book);
+  if (!src || failed) {
+    return (
+      <span className={`${className} kg-book-cover--fallback`} data-book-cover-state="fallback" aria-hidden="true">
+        <span className="kg-book-cover-fallback-level">{book?.level || "Book"}</span>
+        <strong>{String(book?.title || "Book").trim().charAt(0).toUpperCase() || "B"}</strong>
+        <small>Cover unavailable</small>
+      </span>
+    );
+  }
+  return (
+    <img
+      className={className}
+      src={src}
+      alt=""
+      loading={eager ? "eager" : loading}
+      decoding="async"
+      onError={() => setFailed(true)}
+    />
+  );
 }
 
 function PlayGlyph() {
@@ -520,13 +542,10 @@ export function StudentBooksPage({
               aria-labelledby="kg-continue-title"
               data-child-progress=""
             >
-              <img
+              <BookCover
                 className="kg-continue-cover"
-                src={coverFor(panelBook)}
-                alt=""
-                loading="eager"
-                decoding="async"
-                onError={hideOnError}
+                book={panelBook}
+                eager
               />
               <div>
                 <span className="kg-eyebrow">{resuming ? "You stopped here" : "Start here"}</span>
@@ -634,7 +653,7 @@ export function StudentBooksPage({
                   onClick={() => setOpenBookId(book.id)}
                   data-book-level={book.level}
                 >
-                  <img src={coverFor(book)} alt="" loading="lazy" onError={hideOnError} />
+                  <BookCover book={book} className="kg-knowledge-book-cover" loading="lazy" />
                   <span>
                     <strong>{book.title}</strong>
                     <small>{purpose.shortLabel}</small>
@@ -674,13 +693,10 @@ export function StudentBooksPage({
                       data-reading-mode={book.readingMode}
                     >
                       <span className="kg-book-card-main">
-                        <img
+                        <BookCover
                           className="kg-book-cover"
-                          src={coverFor(book)}
-                          alt=""
+                          book={book}
                           loading="lazy"
-                          decoding="async"
-                          onError={hideOnError}
                         />
                         <strong className="kg-book-title">{book.title}</strong>
                         <small className="kg-book-purpose">{childGuidedReadingModeLabel(book)} · {purpose.shortLabel}</small>

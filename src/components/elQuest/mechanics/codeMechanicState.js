@@ -85,7 +85,8 @@ export function commitSoundGate(current, round, supportLevel = 0) {
 export function createSceneHuntState() {
   return {
     selectedItems: [],
-    labelsVisible: false,
+    // Picture names are part of the task cue, not a hidden support toggle.
+    labelsVisible: true,
     checked: false,
     complete: false
   };
@@ -103,8 +104,10 @@ export function showSceneHuntLabels(current) {
   return { ...current, labelsVisible: true };
 }
 
-export function sceneHuntSupportLevel(baseSupportLevel, current) {
-  return normalizedSupportLevel(baseSupportLevel) + (current?.labelsVisible ? 1 : 0);
+export function sceneHuntSupportLevel(baseSupportLevel) {
+  // Names are always available now, so showing them is not an extra support
+  // event that should inflate the evidence level.
+  return normalizedSupportLevel(baseSupportLevel);
 }
 
 function sameItemSet(left, right) {

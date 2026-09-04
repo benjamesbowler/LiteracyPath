@@ -73,10 +73,10 @@ export function CampaignMap({
       <header className="ss-map__hero">
         <div className="ss-map__title-lockup">
           <p className="ss-eyebrow">A reading adventure</p>
-          <h1 id="ss-map-title">Sound Seekers</h1>
+          <h1 id="ss-map-title" data-child-title="">Sound Seekers</h1>
           <p>Listen, build, read, and bring every world back to life.</p>
         </div>
-        <div className="ss-map__repair-meter" aria-label={`${totalRepairs} of 40 places repaired`}>
+        <div className="ss-map__repair-meter" aria-label={`${totalRepairs} of 40 places repaired`} data-child-progress="">
           <span aria-hidden="true" className="ss-map__repair-orb" />
           <strong>{totalRepairs}/40</strong>
           <span>places glowing</span>
@@ -93,14 +93,14 @@ export function CampaignMap({
         <div>
           <p className="ss-eyebrow">Next expedition · Stop {stopOrdinal(currentStopId)}</p>
           <h2 id="ss-map-next-title">{currentExpedition.title}</h2>
-          <p>{request?.callbackLines?.[0]?.text || `${currentExpedition.residentId} has found a problem only a Sound Seeker can solve.`}</p>
+          <p data-child-instruction="">{request?.callbackLines?.[0]?.text || `${currentExpedition.residentId} needs a Sound Seeker.`}</p>
         </div>
-        <button className="ss-primary-button" type="button" onClick={() => onStart(currentStopId)}>
-          {state.checkpoint?.mission?.stopId === currentStopId ? "Resume expedition" : "Begin expedition"}
+        <button className="ss-primary-button" type="button" onClick={() => onStart(currentStopId)} data-child-primary="" data-child-emphasis="primary" data-child-emphasis-cue="">
+          {state.checkpoint?.mission?.stopId === currentStopId ? "Carry on my adventure" : "Start my adventure"}
         </button>
       </section>
 
-      <ol className="ss-map__chapters" aria-label="Eight Sound Seekers worlds">
+      <ol className="ss-map__chapters" aria-label="Eight Sound Seekers worlds" data-child-choices="">
         {SOUND_SEEKERS_CHAPTERS.map(chapter => {
           const progress = chapterProgress(state, chapter);
           const kit = getBiomeKit(chapter.id);

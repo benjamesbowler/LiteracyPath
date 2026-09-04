@@ -185,7 +185,7 @@
 /* ── The two branded destinations ───────────────────────────────────── */
 .pals-entry .student-entry-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
   gap: clamp(16px, 2.5vw, 24px);
   width: min(100%, 960px);
 }
@@ -210,6 +210,20 @@
 .pals-entry .student-entry-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06), 0 22px 44px rgba(15, 23, 42, 0.12);
+}
+
+/* The public gateway has one emotional starting point and one professional
+   destination. Equal cards made both exits compete; the child door now owns
+   the visual invitation while Teacher Tools stays immediately available. */
+.pals-entry .student-primary-entry {
+  border: 2px solid rgba(12, 107, 101, 0.28);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06), 0 22px 44px rgba(12, 107, 101, 0.12);
+}
+
+.pals-entry .teacher-entry {
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 10px 24px rgba(15, 23, 42, 0.06);
 }
 
 .pals-entry .student-entry-card:active {

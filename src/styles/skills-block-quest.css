@@ -849,7 +849,7 @@
   position: relative;
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   touch-action: none;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -1548,6 +1548,23 @@
   transition: transform 90ms ease-out, box-shadow 90ms ease-out;
 }
 
+.adventure-round-frame__audio-status {
+  align-self: center;
+  max-width: 250px;
+  color: #4d3921;
+  font: 800 0.78rem/1.15 var(--lp-font-ui);
+  text-align: center;
+}
+
+.adventure-round-frame__audio-status[data-audio-state="unavailable"] {
+  color: #9a351e;
+}
+
+.adventure-round-frame__audio-actions button[data-audio-state="playing"] {
+  border-color: #2e8a58;
+  box-shadow: 0 3px 0 #246c45, 0 0 0 3px rgba(78, 180, 111, 0.22);
+}
+
 .adventure-round-frame__stop:active,
 .adventure-round-frame__audio-actions button:not(:disabled):active {
   transform: translateY(2px);
@@ -1571,6 +1588,14 @@
     0 18px 44px rgba(15, 34, 28, 0.28),
     inset 0 0 0 5px rgba(115, 74, 31, 0.12);
   overscroll-behavior: contain;
+}
+
+/* Letter Trace owns a writing canvas rather than a document. Keep the whole
+ * loop in the round viewport so a correction model cannot strand the child in
+ * a nested scroll area. Other mechanics retain the stage's contained scroll
+ * behaviour for genuinely larger reading surfaces. */
+[data-adventure-round-frame="letterTrace"] .adventure-round-frame__stage {
+  overflow: hidden;
 }
 
 .adventure-round-frame__correction-model {
@@ -1820,15 +1845,15 @@
 }
 
 .am-letter-press-button {
-  min-width: 82px !important;
-  min-height: 82px !important;
+  min-width: 104px !important;
+  min-height: 104px !important;
   border: 4px solid #725033;
   border-radius: 50% 50% 44% 44%;
   background: radial-gradient(circle at 35% 24%, #fffbe8 0 16%, #e8c979 48%, #ad7138 100%);
   box-shadow: 0 8px 0 #684429, 0 13px 17px rgba(42, 29, 16, 0.28);
   color: #2b382f;
   cursor: pointer;
-  font: 850 clamp(1.8rem, 4vw, 2.7rem)/1 var(--lp-font-letter, var(--lp-font-reading));
+  font: 850 clamp(2.35rem, 5vw, 3.5rem)/1 var(--lp-font-letter, var(--lp-font-reading));
 }
 
 .am-letter-press-button[aria-pressed="true"] {
@@ -1857,15 +1882,15 @@
 }
 
 .am-sound-gate-magnet {
-  min-width: 76px !important;
-  min-height: 76px !important;
+  min-width: 104px !important;
+  min-height: 104px !important;
   border: 5px solid #44658c;
   border-radius: 18px;
   background: linear-gradient(145deg, #eaf8ff, #9bcce0);
   box-shadow: 0 7px 0 #31506d, 0 12px 18px rgba(32, 57, 80, 0.25);
   color: #20394c;
   cursor: pointer;
-  font: 850 clamp(1.6rem, 4vw, 2.45rem)/1 var(--lp-font-letter, var(--lp-font-reading));
+  font: 850 clamp(2.1rem, 5vw, 3.25rem)/1 var(--lp-font-letter, var(--lp-font-reading));
 }
 
 .am-sound-gate-magnet[aria-pressed="true"] {
@@ -1921,16 +1946,45 @@
 .am-scene-hunt {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 18px;
+}
+
+.am-scene-hunt-target {
+  grid-column: 1 / -1;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 9px 18px;
+  border: 3px solid #fff2ba;
+  border-radius: 18px;
+  background: rgba(255, 253, 239, 0.94);
+  color: #274136;
+  box-shadow: 0 5px 0 rgba(72, 78, 49, 0.5);
+  font: 850 0.94rem/1.1 var(--lp-font-ui);
+}
+
+.am-scene-hunt-target strong {
+  color: #8a4a1e;
+  font: 900 1.4rem/1 var(--lp-font-reading);
 }
 
 .am-scene-hunt-field {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
+  grid-column: 1;
   align-items: end;
   gap: 14px;
   width: 100%;
+}
+
+.am-scene-object-card {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
 }
 
 .am-scene-object {
@@ -1938,6 +1992,7 @@
   display: grid;
   grid-template-rows: minmax(72px, 1fr) auto;
   place-items: center;
+  width: 100%;
   min-height: 132px !important;
   padding: 9px;
   border: 4px solid rgba(80, 91, 59, 0.7);
@@ -1965,7 +2020,7 @@
 
 .am-scene-tag-state,
 .am-scene-object-label {
-  font: 850 0.76rem/1.05 var(--lp-font-ui);
+  font: 850 0.78rem/1.05 var(--lp-font-ui);
 }
 
 .am-scene-object-label {
@@ -1973,6 +2028,8 @@
   padding: 3px 8px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.8);
+  font-size: clamp(0.95rem, 1.7vw, 1.12rem);
+  line-height: 1.1;
 }
 
 .am-scene-picture-unavailable {
@@ -1986,8 +2043,22 @@
 }
 
 .am-scene-hunt-actions {
+  grid-column: 2;
   display: grid;
   gap: 12px;
+}
+
+.am-scene-hear-name {
+  width: 100%;
+  min-height: 56px !important;
+  padding: 8px 10px;
+  border: 3px solid #fff2ba;
+  border-radius: 14px;
+  background: rgba(255, 253, 239, 0.96);
+  color: var(--pal-deep);
+  box-shadow: 0 5px 0 rgba(72, 78, 49, 0.5);
+  cursor: pointer;
+  font: 850 0.82rem/1.05 var(--lp-font-ui);
 }
 
 .am-scene-hunt-actions button {
@@ -2240,8 +2311,9 @@
 }
 
 .adventure-sound-boxes__tile-bank .adventure-mechanic-control {
-  min-width: 68px;
-  font-size: clamp(1.35rem, 3vw, 1.9rem);
+  min-width: 88px;
+  min-height: 76px;
+  font-size: clamp(1.8rem, 4vw, 2.45rem);
 }
 
 /* Word Machine: visible before, operation tray, and transformed after. */
@@ -2710,6 +2782,14 @@
   color: #2d3c34;
 }
 
+/* Adventure Round Frame owns the one deliberate scroll route. Let the
+ * complete poem flow inside that stage instead of creating a nested scroller
+ * around the reading lane at short classroom heights. */
+[data-adventure-round-frame="poemSpotlight"] .sbq-poem-spotlight .sbq-round-display.sbq-poem {
+  max-height: none;
+  overflow: visible;
+}
+
 .sbq-poem-line {
   display: grid;
   grid-template-columns: 42px minmax(0, 1fr);
@@ -2842,9 +2922,28 @@
   width: min(100%, 900px);
 }
 
-.sbq-trace-demo { grid-area: demo; }
+.sbq-trace-demo {
+  grid-area: demo;
+  gap: 4px;
+}
+
+.sbq-trace-demo__controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.sbq-trace-demo__controls .sbq-ghost-button {
+  min-height: 56px;
+  padding: 8px 12px;
+}
+
 .sbq-trace-stage {
   grid-area: canvas;
+  height: min(300px, 38vh);
+  aspect-ratio: 460 / 300;
+  overflow: hidden;
   border: 9px solid #9b713e;
   background: linear-gradient(145deg, #fffef7, #f4e8c9);
   box-shadow: 0 9px 0 #6b482b, 0 16px 26px rgba(42, 28, 15, 0.25), inset 0 0 0 3px rgba(126, 84, 40, 0.12);
@@ -2958,6 +3057,7 @@
 
   .sbq-trace-stage {
     width: min(100%, 400px);
+    height: min(248px, 38vh);
   }
 }
 
@@ -3011,11 +3111,16 @@
     grid-template-areas: "demo" "canvas" "phase" "message" "actions" "support";
   }
 
+  .sbq-trace-stage {
+    height: min(280px, 36vh);
+  }
+
   .sbq-trace [data-support-route="formation-practice"] {
     grid-template-columns: 1fr;
   }
 
   .am-scene-hunt-actions {
+    grid-column: 1;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -3707,4 +3812,41 @@
   .skills-block-quest.sbq-cycle-hub .sbq-station-art img {
     transition: none;
   }
+}
+
+/* The child shell applies a physical hit-floor to every button. These
+ * grapheme choices are learning content, not tiny utility controls, so give
+ * them a deliberately larger visual footprint and typography as well. The
+ * extra scope outranks the shell's generic button reset without changing
+ * unrelated child surfaces. */
+.kg-stage .kg-main > .skills-block-quest .am-letter-press-button {
+  min-width: 128px !important;
+  min-height: 128px !important;
+  padding: 0 !important;
+  border: 4px solid #725033 !important;
+  font: 850 clamp(2.65rem, 5vw, 3.9rem)/1 var(--lp-font-letter, var(--lp-font-reading)) !important;
+}
+
+.kg-stage .kg-main > .skills-block-quest .am-letter-press-button[aria-pressed="true"] {
+  border-color: #365f40 !important;
+}
+
+.kg-stage .kg-main > .skills-block-quest .am-sound-gate-magnet {
+  min-width: 128px !important;
+  min-height: 128px !important;
+  padding: 0 !important;
+  border: 5px solid #44658c !important;
+  font: 850 clamp(2.5rem, 5vw, 3.7rem)/1 var(--lp-font-letter, var(--lp-font-reading)) !important;
+}
+
+.kg-stage .kg-main > .skills-block-quest .am-sound-gate-magnet[aria-pressed="true"] {
+  border-color: #744e9e !important;
+}
+
+.kg-stage .kg-main > .skills-block-quest .adventure-sound-boxes__tile-bank .adventure-mechanic-control {
+  min-width: 96px !important;
+  min-height: 80px !important;
+  padding: 0 12px !important;
+  border: 3px solid rgba(255, 249, 218, 0.92) !important;
+  font: 850 clamp(2.2rem, 4vw, 2.8rem)/1 var(--lp-font-letter, var(--lp-font-reading)) !important;
 }

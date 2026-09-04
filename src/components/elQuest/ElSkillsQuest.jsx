@@ -127,14 +127,51 @@ function playCue(round) {
   });
 }
 
-function playRoundInstruction(round, { includeContent = false } = {}) {
+function targetReplayLabelFor(round) {
+  switch (round?.mechanicId) {
+    case "letterPair":
+      return "Hear the letter name";
+    case "soundGate":
+      return "Hear the sound";
+    case "sceneHunt":
+      return "Hear the target sound";
+    case "poemSpotlight":
+      return "Hear the target word";
+    case "soundBoxes":
+    case "wordWindow":
+    case "wordMachine":
+    case "wordChain":
+    case "heartWord":
+      return "Hear the word";
+    case "letterTrace":
+      return "Hear the letter";
+    default:
+      return "Hear the target";
+  }
+}
+
+function playRoundInstruction(round, {
+  includeContent = false,
+  onDelivery,
+  onStarted,
+  onUnavailable
+} = {}) {
   const resolved = resolveAdventureRoundAudio(round);
   const sequence = [
     resolved.instructionAudio,
     ...resolved.targetAudio,
     ...(includeContent && resolved.contentAudio ? [resolved.contentAudio] : [])
   ].filter(Boolean);
-  if (sequence.length) playCueSequence(sequence, { gapMs: 180 });
+  if (sequence.length) {
+    playCueSequence(sequence, {
+      gapMs: 180,
+      onDelivery,
+      onStarted,
+      onUnavailable
+    });
+  } else {
+    onUnavailable?.({ type: "unavailable" });
+  }
 }
 
 function createRunSeed(cycleId, stationId) {
@@ -228,6 +265,7 @@ export function ElSkillsQuest({
   const cueTimerRef = useRef(null);
   const transitionTimerRef = useRef(null);
   const playedInstructionKeyRef = useRef("");
+  const [roundAudioStatus, setRoundAudioStatus] = useState("ready");
 
   const activeCycle = cycleLock.locked
     ? cycleLock.cycle
@@ -239,6 +277,14 @@ export function ElSkillsQuest({
   );
   const reducedMotion = typeof window !== "undefined"
     && Boolean(window.matchMedia?.("(prefers-reduced-motion: reduce)").matches);
+
+  const handleRoundAudioDelivery = useCallback(event => {
+    const type = event?.type;
+    if (type === "loading") setRoundAudioStatus("loading");
+    else if (type === "started") setRoundAudioStatus("playing");
+    else if (type === "failed" || type === "unavailable") setRoundAudioStatus("unavailable");
+    else if (type === "completed" || type === "interrupted") setRoundAudioStatus("ready");
+  }, []);
 
   const cancelPendingTransition = useCallback(() => {
     if (transitionTimerRef.current === null) return;
@@ -311,7 +357,8 @@ export function ElSkillsQuest({
         if (progressWritesBlockedRef.current) return;
         playedInstructionKeyRef.current = instructionKey;
         playRoundInstruction(round, {
-          includeContent: round.mechanicId === "poemSpotlight" && roundIndex === 0
+          includeContent: round.mechanicId === "poemSpotlight" && roundIndex === 0,
+          onDelivery: handleRoundAudioDelivery
         });
       }, 120);
     }
@@ -333,7 +380,7 @@ export function ElSkillsQuest({
       if (cueTimerRef.current !== null) window.clearTimeout(cueTimerRef.current);
       cueTimerRef.current = null;
     };
-  }, [celebration, round, roundAudio, rounds, roundIndex, stationId]);
+  }, [celebration, handleRoundAudioDelivery, round, roundAudio, rounds, roundIndex, stationId]);
 
   useEffect(() => () => {
     cancelPendingTransition();
@@ -368,6 +415,7 @@ export function ElSkillsQuest({
     answerLockRef.current = false;
     setInteractionLocked(false);
     setRoundSupportLevel(0);
+    setRoundAudioStatus("ready");
     setRoundFeedback("");
     setCorrectionModel(null);
     setFeedbackTone("ready");
@@ -378,9 +426,12 @@ export function ElSkillsQuest({
       playedInstructionKeyRef.current = `${id}:0:${firstAudio.instructionAudio}`;
       // This runs inside the station-button tap, which keeps iPad Safari's
       // media permission attached to the child's trusted gesture.
-      playRoundInstruction(firstRound, { includeContent: firstRound.mechanicId === "poemSpotlight" });
+      playRoundInstruction(firstRound, {
+        includeContent: firstRound.mechanicId === "poemSpotlight",
+        onDelivery: handleRoundAudioDelivery
+      });
     }
-  }, [cancelPendingTransition]);
+  }, [cancelPendingTransition, handleRoundAudioDelivery]);
 
   function finishStation(finalRun) {
     if (progressWritesBlockedRef.current) return;
@@ -503,6 +554,7 @@ export function ElSkillsQuest({
           answerLockRef.current = false;
           setInteractionLocked(false);
           setRoundSupportLevel(0);
+          setRoundAudioStatus("ready");
           setRoundFeedback("");
           setCorrectionModel(null);
           setFeedbackTone("ready");
@@ -534,6 +586,7 @@ export function ElSkillsQuest({
     stopCueAudio();
     answerLockRef.current = false;
     setInteractionLocked(false);
+    setRoundAudioStatus("ready");
     setSparkle(false);
     setShaking(false);
     setCorrectionModel(null);
@@ -548,24 +601,60 @@ export function ElSkillsQuest({
     setShaking(false);
   }
 
-  function replayTarget() {
+  function replayTarget(options = {}) {
     if (roundAudio?.targetAudio?.length) {
-      playCueSequence(roundAudio.targetAudio, { gapMs: 150 });
+      playCueSequence(roundAudio.targetAudio, {
+        gapMs: 150,
+        onDelivery: event => {
+          handleRoundAudioDelivery(event);
+          options.onDelivery?.(event);
+        },
+        onUnavailable: event => {
+          handleRoundAudioDelivery({ ...event, type: "failed" });
+          options.onUnavailable?.(event);
+        }
+      });
+    } else {
+      handleRoundAudioDelivery({ type: "unavailable" });
+      options.onUnavailable?.({ type: "unavailable" });
     }
   }
 
   function replayContent(options = {}) {
-    if (roundAudio?.contentAudio) playCueAudio(roundAudio.contentAudio, options);
-    else options.onUnavailable?.();
+    if (roundAudio?.contentAudio) {
+      playCueAudio(roundAudio.contentAudio, {
+        ...options,
+        onDelivery: event => {
+          handleRoundAudioDelivery(event);
+          options.onDelivery?.(event);
+        },
+        onUnavailable: event => {
+          handleRoundAudioDelivery({ ...event, type: "failed" });
+          options.onUnavailable?.(event);
+        }
+      });
+    } else {
+      handleRoundAudioDelivery({ type: "unavailable" });
+      options.onUnavailable?.({ type: "unavailable" });
+    }
   }
 
   function replayFromMechanic(options = {}) {
     if (round?.mechanicId === "phraseFlow") {
       replayContent(options);
     } else if (roundAudio?.targetAudio?.length) {
-      replayTarget();
+      replayTarget(options);
     } else {
-      playRoundInstruction(round);
+      playRoundInstruction(round, {
+        onDelivery: event => {
+          handleRoundAudioDelivery(event);
+          options.onDelivery?.(event);
+        },
+        onUnavailable: event => {
+          handleRoundAudioDelivery({ ...event, type: "failed" });
+          options.onUnavailable?.(event);
+        }
+      });
     }
   }
 
@@ -1141,10 +1230,12 @@ export function ElSkillsQuest({
           disabled={interactionLocked}
           hasTargetAudio={Boolean(roundAudio?.targetAudio?.length)}
           hasContentAudio={Boolean(roundAudio?.contentAudio)}
+          audioStatus={roundAudioStatus}
+          targetReplayLabel={targetReplayLabelFor(round)}
           contentReplayLabel={round.mechanicId === "phraseFlow" ? "Hear the phrase" : "Hear the poem"}
           onReplayInstruction={() => {
             setRoundSupportLevel(level => level + 1);
-            playRoundInstruction(round);
+            playRoundInstruction(round, { onDelivery: handleRoundAudioDelivery });
           }}
           onReplayTarget={() => {
             setRoundSupportLevel(level => level + 1);
@@ -1169,7 +1260,15 @@ export function ElSkillsQuest({
             onRequestReplay={replayFromMechanic}
             onRequestObjectAudio={word => {
               const audio = wordAudioPath(word);
-              if (audio) playCueAudio(audio, { volume: 0.9 });
+              if (audio) {
+                playCueAudio(audio, {
+                  volume: 0.9,
+                  onDelivery: handleRoundAudioDelivery,
+                  onUnavailable: () => handleRoundAudioDelivery({ type: "failed" })
+                });
+              } else {
+                handleRoundAudioDelivery({ type: "unavailable" });
+              }
             }}
             reducedMotion={reducedMotion}
           />

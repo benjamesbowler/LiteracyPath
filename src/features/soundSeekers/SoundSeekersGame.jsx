@@ -460,6 +460,8 @@ export function SoundSeekersGame({
       tabIndex={-1}
       role="region"
       aria-label="Sound Seekers reading adventure"
+      data-child-surface="sound-seekers"
+      data-child-region="surface"
       data-sound-seekers-game="v2"
       data-preview-fixture-id={initialFixture?.id || undefined}
       data-phase-id={mission?.phaseId || undefined}

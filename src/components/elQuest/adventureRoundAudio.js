@@ -16,7 +16,11 @@ export const ADVENTURE_MAP_INSTRUCTIONS = Object.freeze({
   wordMachineSubstitute: "Listen to the new word. Choose an onset to replace the first sound, then run the word machine.",
   wordMachineRemove: "Listen to the word. Choose the first sound to remove, then run the word machine.",
   wordMachineJoin: "Select both word parts in order, then join them in the word machine.",
-  poemSpotlight: "Follow the line and word numbers. Tap that exact word in the poem.",
+  // The visible prompt names the authored target word. This short generic
+  // recording remains the action cue; the target word is replayable separately
+  // from the Listen control below.
+  poemSpotlight: "Find the target word in the poem.",
+  coverClue: "Pick up the title strip. Read it, then place it on the matching book cover.",
   letterTrace: "Watch the letter path. Trace it, then trace it again with a faded model.",
   graphemeTrace: "Watch the letter team path. Trace it, then trace it again with a faded model.",
   patternSort: "Pick up one word at a time. Put it in the matching pattern bin, then sort the new word.",
@@ -53,8 +57,15 @@ function uniqueAudio(paths = []) {
   return [...new Set(paths.filter(Boolean))];
 }
 
-function result(round, instructionText, targetAudio = [], contentAudio = "") {
-  const instructionAudio = instructionText ? instructionAudioFor(instructionText) : "";
+function result(
+  round,
+  instructionText,
+  targetAudio = [],
+  contentAudio = "",
+  instructionAudioOverride = ""
+) {
+  const instructionAudio = instructionAudioOverride
+    || (instructionText ? instructionAudioFor(instructionText) : "");
   const targets = uniqueAudio(targetAudio).filter(path => path !== instructionAudio);
   return {
     instructionText,
@@ -106,26 +117,40 @@ export function resolveAdventureRoundAudio(round = {}) {
     case "soundGate":
       return result(round, ADVENTURE_MAP_INSTRUCTIONS.soundGate, [round.audio]);
     case "sceneHunt":
-      return result(
-        round,
-        round.variant === "soundSort"
+      {
+        const genericInstruction = round.variant === "soundSort"
           ? ADVENTURE_MAP_INSTRUCTIONS.sceneHuntEnding
-          : ADVENTURE_MAP_INSTRUCTIONS.sceneHunt,
-        [round.audio]
-      );
+          : ADVENTURE_MAP_INSTRUCTIONS.sceneHunt;
+        const visiblePrompt = round.prompt || genericInstruction;
+        return result(
+          round,
+          visiblePrompt,
+          [round.audio],
+          "",
+          instructionAudioFor(genericInstruction)
+        );
+      }
     case "wordWindow":
       return result(round, ADVENTURE_MAP_INSTRUCTIONS.wordWindow, [round.audio]);
     case "soundBoxes":
       return result(round, ADVENTURE_MAP_INSTRUCTIONS.soundBoxes, [round.audio]);
     case "wordMachine":
       return wordMachineAudio(round);
-    case "poemSpotlight":
+    case "poemSpotlight": {
+      const targetWord = String(round.answer || round.targetWord || "").trim();
+      const visiblePrompt = targetWord
+        ? `Find the word “${targetWord}” in the poem.`
+        : ADVENTURE_MAP_INSTRUCTIONS.poemSpotlight;
       return result(
         round,
-        ADVENTURE_MAP_INSTRUCTIONS.poemSpotlight,
-        [],
-        instructionAudioFor(poemModelText(round))
+        visiblePrompt,
+        [getLedaWordAudioPath(targetWord)],
+        instructionAudioFor(poemModelText(round)),
+        instructionAudioFor(ADVENTURE_MAP_INSTRUCTIONS.poemSpotlight)
       );
+    }
+    case "coverClue":
+      return result(round, ADVENTURE_MAP_INSTRUCTIONS.coverClue);
     case "letterTrace":
       return result(
         round,

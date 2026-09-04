@@ -111,10 +111,17 @@ test("Task7 text mechanics fit max-content rounds at both short classroom viewpo
 
 async function chooseCurrentPoemTarget(page) {
   const prompt = await page.locator(".adventure-round-frame__instruction").textContent();
-  const position = prompt?.match(/word (\d+) in line (\d+)/i);
-  expect(position, "Poem Spotlight must name an exact word occurrence").toBeTruthy();
-  const [, word, line] = position;
-  await page.locator(`[data-poem-token="${Number(line) - 1}:${Number(word) - 1}"]`).click();
+  const targetMatch = prompt?.match(/Find the word [“"]([^”"]+)[”"]/i);
+  expect(targetMatch, "Poem Spotlight must name the printed target word").toBeTruthy();
+  const target = targetMatch[1].trim().toLowerCase();
+  const tokenId = await page.locator("[data-poem-token]").evaluateAll((tokens, expected) => {
+    const normalize = value => String(value || "")
+      .toLowerCase()
+      .replace(/[^a-z']/g, "");
+    return tokens.find(token => normalize(token.textContent) === expected)?.dataset.poemToken || "";
+  }, target);
+  expect(tokenId, `Poem Spotlight must render the target word “${target}”`).toBeTruthy();
+  await page.locator(`[data-poem-token="${tokenId}"]`).click();
 }
 
 test("Poem Spotlight resets after each same-mechanic round", async ({ page }) => {

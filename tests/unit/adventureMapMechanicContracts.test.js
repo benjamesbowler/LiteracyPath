@@ -129,7 +129,7 @@ test("printed prompts do not leak text targets or imply timed fluency", () => {
     assert.ok(!round.prompt.toLowerCase().includes(round.toWord.toLowerCase()));
   }
   for (const { round } of roundsForMechanic("poemSpotlight")) {
-    assert.ok(!round.prompt.toLowerCase().includes(round.answer.toLowerCase()));
+    assert.match(round.prompt, new RegExp(`Find the word “${round.answer}” in the poem\\.`));
   }
   for (const { round } of roundsForMechanic("phraseFlow")) {
     assert.equal("timerMs" in round, false);
