@@ -16,6 +16,15 @@ const DENSITY_PROFILES = new Set(["full", "simplified"]);
 const MOTION_PROFILES = new Set(["full", "reduced"]);
 const PLANES = ["background", "midground", "route", "foreground", "interaction", "effects"];
 
+// The original Sound Seekers world paintings are the visual canon for the
+// child-facing route. Keep the v2 background as the deterministic fallback,
+// but put the authored map art back in the playable scene where it exists.
+const AUTHORED_WORLD_ART = Object.freeze({
+  "seedwake-meadow": "/game-assets/sound-seekers/worlds/meadow-pals-overworld-v2.webp",
+  "river-gardens": "/game-assets/sound-seekers/worlds/moonwood-overworld-v2.webp",
+  "fossil-canyon": "/game-assets/sound-seekers/worlds/dino-pals-overworld-v2.webp"
+});
+
 const TOKEN_STYLE = Object.freeze(Object.fromEntries(
   Object.entries(SOUND_SEEKERS_VISUAL_TOKENS).map(([tokenId, value]) => (
     [`--ss-token-${tokenId}`, value]
@@ -748,6 +757,7 @@ export function LayeredBiome({
       data-visual-state-id={scenePresentation.visualStateId}
       data-world-composition={compositionMode}
       data-world-composition-signature={compositionSignature}
+      data-world-art={AUTHORED_WORLD_ART[kit.id] ? "authored" : "painted-fallback"}
     >
       <div className="sound-seekers-biome__raster" data-world-plane="background" aria-hidden="true">
         <img
@@ -761,6 +771,16 @@ export function LayeredBiome({
           onLoad={onBackgroundLoad}
           onError={onBackgroundError}
         />
+        {AUTHORED_WORLD_ART[kit.id] ? (
+          <img
+            className="sound-seekers-biome__authored-art"
+            src={AUTHORED_WORLD_ART[kit.id]}
+            alt=""
+            aria-hidden="true"
+            draggable="false"
+            data-authored-world-art=""
+          />
+        ) : null}
       </div>
       <div className="sound-seekers-world" data-code-native-world="">
         <div className="sound-seekers-world__plane" data-world-plane="midground" data-layer-id={kit.layers[1].id}>
@@ -798,6 +818,7 @@ export function LayeredBiome({
                 key={character.characterId}
                 characterId={character.characterId}
                 pose={character.pose}
+                renderMode="authored"
               />
             ))}
           </div>

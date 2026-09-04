@@ -290,6 +290,7 @@ export function SoundSeekersStage({ model, assists = {}, audioController, onInpu
           "--ss-traversal-x": `${position.x * 100}%`,
           "--ss-traversal-y": `${position.y * 100}%`
         }}
+        className="ss-stage__world"
         data-ss-react-world-owner=""
         data-traversal-x={String(position.x)}
         data-traversal-y={String(position.y)}
@@ -339,6 +340,7 @@ export function SoundSeekersStage({ model, assists = {}, audioController, onInpu
               characterId={avatar.characterId}
               pose={avatar.pose}
               appearance={avatar.appearance}
+              renderMode="authored"
             />
           </div>
         ) : null}
@@ -352,7 +354,7 @@ export function SoundSeekersStage({ model, assists = {}, audioController, onInpu
           style={{ ...PHASER_HOST_STYLE, pointerEvents: childScene ? "none" : "auto" }}
         />
       </div>
-      {!childScene && hasTraversal ? <TraversalControls onInput={onInput} /> : null}
+      {!childScene && hasTraversal ? <div className="ss-stage__movement-pad"><TraversalControls onInput={onInput} /></div> : null}
       {(childScene ? model.sceneActivity : model.activity) ? (
         <ActionLayer
           activity={childScene ? model.sceneActivity : model.activity}

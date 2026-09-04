@@ -99,21 +99,116 @@
 }
 
 .ss-expedition > .ss-stage {
+  position: relative;
+  display: block !important;
   width: min(100%, 76rem);
+  height: clamp(30rem, calc(100dvh - 7.5rem), 48rem);
+  min-height: 0;
   margin: 0 auto;
   padding: clamp(.5rem, 1.5vw, 1rem);
   background: color-mix(in srgb, var(--ss-token-surface-option) 86%, transparent);
   border: 3px solid var(--ss-ink);
   border-radius: clamp(22px, 3vw, 34px);
   box-shadow: var(--ss-shadow);
+  overflow: hidden;
 }
 
 .ss-expedition > .ss-stage [data-ss-react-world-owner] {
-  min-height: clamp(18rem, 52dvh, 40rem);
+  position: absolute !important;
+  inset: clamp(.5rem, 1.5vw, 1rem);
+  min-height: 0;
+  height: auto;
   border: 3px solid var(--ss-ink);
   box-shadow:
     inset 0 0 0 5px color-mix(in srgb, var(--ss-token-surface-white) 25%, transparent),
     0 12px 26px color-mix(in srgb, var(--ss-token-ink-deep) 18%, transparent);
+}
+
+.ss-expedition > .ss-stage .ss-stage__world > .sound-seekers-biome {
+  block-size: 100% !important;
+  min-block-size: 0 !important;
+}
+
+/* The world is the game board. Mission copy and controls sit on top of it so
+   the child keeps a clear sense of place, movement and cause-and-effect. */
+.ss-expedition > .ss-stage > [data-ss-mission-hud] {
+  position: absolute;
+  z-index: 8;
+  inset: clamp(1rem, 2vw, 1.5rem) auto auto clamp(1rem, 2vw, 1.5rem);
+  width: min(30rem, calc(100% - 2rem));
+  background: color-mix(in srgb, var(--ss-token-surface-option) 90%, transparent);
+  backdrop-filter: blur(10px);
+}
+
+.ss-stage__movement-pad {
+  position: absolute;
+  z-index: 10;
+  inset: auto auto clamp(1rem, 2vw, 1.5rem) clamp(1rem, 2vw, 1.5rem);
+}
+
+.ss-stage__movement-pad [data-ss-fallback-controls] {
+  display: grid !important;
+  grid-template-columns: repeat(3, 56px);
+  grid-template-rows: repeat(2, 56px);
+  gap: 8px !important;
+  width: 176px;
+}
+
+.ss-stage__movement-pad .ss-stage__traversal-control {
+  width: 56px;
+  min-width: 56px;
+  height: 56px;
+  padding: 0;
+  font-size: 0;
+  color: transparent !important;
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--ss-token-surface-option) 94%, transparent);
+  backdrop-filter: blur(8px);
+}
+
+.ss-stage__movement-pad .ss-stage__traversal-control::before {
+  font-size: 1.55rem;
+  color: var(--ss-token-ink-deep);
+  line-height: 1;
+}
+
+.ss-stage__movement-pad .ss-stage__traversal-control[data-ss-input-value="left"]::before { content: "‹"; }
+.ss-stage__movement-pad .ss-stage__traversal-control[data-ss-input-value="up"]::before { content: "↑"; }
+.ss-stage__movement-pad .ss-stage__traversal-control[data-ss-input-value="down"]::before { content: "↓"; }
+.ss-stage__movement-pad .ss-stage__traversal-control[data-ss-input-value="right"]::before { content: "›"; }
+.ss-stage__movement-pad .ss-stage__traversal-control[data-ss-input-value="up"] { grid-column: 2; grid-row: 1; }
+.ss-stage__movement-pad .ss-stage__traversal-control[data-ss-input-value="left"] { grid-column: 1; grid-row: 2; }
+.ss-stage__movement-pad .ss-stage__traversal-control[data-ss-input-value="down"] { grid-column: 2; grid-row: 2; }
+.ss-stage__movement-pad .ss-stage__traversal-control[data-ss-input-value="right"] { grid-column: 3; grid-row: 2; }
+
+.ss-expedition > .ss-stage [data-ss-action-layer] {
+  position: absolute;
+  z-index: 9;
+  inset: clamp(6.5rem, 12vw, 8rem) clamp(1rem, 2vw, 1.5rem) auto auto;
+  width: min(38rem, calc(100% - 13rem));
+  max-height: min(13rem, 34%);
+  overflow: auto;
+  padding: .7rem;
+  background: color-mix(in srgb, var(--ss-token-surface-warm) 94%, transparent);
+  border-width: 2px;
+  border-radius: 22px;
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--ss-token-ink-deep) 25%, transparent);
+  backdrop-filter: blur(10px);
+}
+
+.ss-expedition > .ss-stage [data-ss-action-layer] > header > p { display: none; }
+.ss-expedition > .ss-stage [data-ss-action-layer] h2 { margin: 0; font-size: clamp(1rem, 2.2vw, 1.35rem); }
+.ss-expedition > .ss-stage [data-ss-action-layer] > div[role="group"] {
+  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr)) !important;
+  gap: 8px !important;
+}
+.ss-expedition > .ss-stage .ss-action-layer__control {
+  min-height: 56px;
+  padding: .55rem .65rem;
+  border-width: 2px;
+  border-radius: 14px;
+  box-shadow: 0 3px 0 var(--ss-token-ink-muted);
+  font-size: .85rem;
 }
 
 .ss-expedition__notice,
@@ -1111,7 +1206,10 @@
     border-radius: 22px;
   }
   .ss-expedition > .ss-stage [data-ss-react-world-owner] {
-    min-height: clamp(16rem, 48dvh, 28rem);
+    /* Keep the portrait scene tight to its authored biome. The previous
+       viewport-based minimum left a large empty panel below the world on
+       short phones while the biome itself stayed at 16rem. */
+    min-height: 16rem;
   }
   .ss-teach { align-content: start; padding: .75rem; }
   .ss-teach__card { grid-template-columns: 1fr; padding: 1rem; border-radius: 26px; }
@@ -1306,6 +1404,20 @@
     padding: 0;
   }
 
+  .ss-expedition > .ss-stage .ss-stage__movement-pad {
+    position: absolute;
+    inset: auto 7px 7px auto;
+    width: 152px;
+  }
+
+  .ss-expedition > .ss-stage .ss-stage__movement-pad [data-ss-fallback-controls] {
+    position: static !important;
+    inset: auto !important;
+    grid-template-columns: repeat(2, 72px);
+    grid-template-rows: repeat(2, 56px);
+    width: 152px;
+  }
+
   .ss-expedition > .ss-stage .ss-stage__traversal-control {
     width: 72px;
     min-width: 72px;
@@ -1316,6 +1428,8 @@
     border-width: 2px !important;
     font-size: .72rem;
     line-height: 1.05;
+    grid-column: auto !important;
+    grid-row: auto !important;
   }
 
   .ss-expedition > .ss-stage [data-ss-action-layer] {

@@ -165,6 +165,7 @@ export function ActionLayer({
   return (
     <section
       style={ROOT_STYLE}
+      className="ss-action-layer"
       aria-labelledby={headingId}
       data-ss-action-layer=""
       data-activity-id={activity.id}

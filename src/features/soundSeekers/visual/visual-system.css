@@ -16,6 +16,20 @@
     drop-shadow(0 5px 3px var(--ss-token-mist-overlay));
 }
 
+.sound-seekers-character__authored-art {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 6px 4px color-mix(in srgb, var(--ss-token-ink-deep) 28%, transparent));
+}
+
+.sound-seekers-character[data-art-mode="authored"] {
+  min-inline-size: 0;
+}
+
 .sound-seekers-character__body-fill,
 .sound-seekers-character__head-fill,
 .sound-seekers-character__hand,
@@ -449,12 +463,41 @@
   transition: opacity 320ms cubic-bezier(0.32, 0.72, 0, 1);
 }
 
+.sound-seekers-biome__raster .sound-seekers-biome__authored-art {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 1;
+}
+
+.sound-seekers-biome[data-world-art="authored"] .sound-seekers-biome__raster > img:first-child {
+  opacity: 0 !important;
+}
+
+.sound-seekers-biome[data-world-art="authored"] .sound-seekers-world__setting,
+.sound-seekers-biome[data-world-art="authored"] .sound-seekers-world__biome-frame {
+  display: none;
+}
+
+.sound-seekers-biome[data-world-art="authored"] .sound-seekers-route {
+  opacity: .18;
+}
+
 .sound-seekers-biome[data-background-status="pending"] .sound-seekers-biome__raster img {
   opacity: 0.08;
 }
 
 .sound-seekers-biome[data-background-status="failed"] .sound-seekers-biome__raster img {
   opacity: 0;
+}
+
+/* The authored route paintings are release assets, not a loading preview. */
+.sound-seekers-biome[data-world-art="authored"] .sound-seekers-biome__raster .sound-seekers-biome__authored-art {
+  opacity: 1 !important;
 }
 
 .sound-seekers-world {
@@ -1082,7 +1125,15 @@
 
   .sound-seekers-world__characters {
     inset-inline-start: 1%;
-    inline-size: 36%;
+    inline-size: 52%;
+  }
+
+  .sound-seekers-world__characters .sound-seekers-character {
+    inline-size: min(48%, 9rem);
+  }
+
+  [data-ss-live-avatar] {
+    width: clamp(7rem, 24vw, 9rem) !important;
   }
 
   .sound-seekers-landmark {

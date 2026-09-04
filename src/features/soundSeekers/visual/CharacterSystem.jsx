@@ -373,7 +373,22 @@ function characterLabel(visual) {
   return visual.castKind === "player" ? "Your Sound Seeker" : visual.characterId;
 }
 
-export function SoundSeekersCharacter({ characterId, pose, appearance }) {
+const AUTHORED_CHARACTER_ASSETS = Object.freeze({
+  muddy: "/game-assets/sound-seekers/avatars-v3/muddy.webp",
+  pip: "/game-assets/sound-seekers/avatars-v3/pip.webp",
+  chompy: "/game-assets/sound-seekers/avatars-v3/chompy.webp"
+});
+
+function authoredCharacterAsset(characterId, bodyShapeId) {
+  if (characterId === "Bouncy") return AUTHORED_CHARACTER_ASSETS.muddy;
+  if (characterId === "Moss") return AUTHORED_CHARACTER_ASSETS.pip;
+  if (characterId === "Tumble") return AUTHORED_CHARACTER_ASSETS.chompy;
+  if (bodyShapeId === "body-shape-pebble") return AUTHORED_CHARACTER_ASSETS.muddy;
+  if (bodyShapeId === "body-shape-bell") return AUTHORED_CHARACTER_ASSETS.chompy;
+  return AUTHORED_CHARACTER_ASSETS.pip;
+}
+
+export function SoundSeekersCharacter({ characterId, pose, appearance, renderMode = "illustrated" }) {
   const visual = VISUAL_BY_CHARACTER_ID.get(characterId);
   if (!visual) throw new TypeError(`Unknown Sound Seekers character: ${String(characterId)}`);
   const artProfile = resolveCharacterArtProfile(characterId);
@@ -424,6 +439,7 @@ export function SoundSeekersCharacter({ characterId, pose, appearance }) {
       data-pose-renderer-id={poseRenderer.id}
       data-pose-composition-signature={poseCompositionSignature(poseRenderer)}
       data-character-visual-signature={characterVisualSignature(visual)}
+      data-art-mode={renderMode}
       data-appearance-signature={normalizedAppearance
         ? appearanceSignature(normalizedAppearance)
         : undefined}
@@ -432,7 +448,16 @@ export function SoundSeekersCharacter({ characterId, pose, appearance }) {
       data-reduced-final-pose={reducedReplacement.finalPoseId}
       data-reduced-continuous={String(reducedReplacement.continuous)}
     >
-      <svg className="sound-seekers-character__canvas" viewBox="0 0 240 320" aria-hidden="true" focusable="false">
+      {renderMode === "authored" ? (
+        <img
+          className="sound-seekers-character__authored-art"
+          src={authoredCharacterAsset(characterId, bodyShapeId)}
+          alt=""
+          aria-hidden="true"
+          draggable="false"
+        />
+      ) : null}
+      {renderMode === "illustrated" ? <svg className="sound-seekers-character__canvas" viewBox="0 0 240 320" aria-hidden="true" focusable="false">
         <g
           className="sound-seekers-character__pose"
           data-pose-structure={poseRenderer.id}
@@ -484,7 +509,7 @@ export function SoundSeekersCharacter({ characterId, pose, appearance }) {
             <Accessory accessoryId={accessories.held} slot="held" anchor={anchors.held} />
           </g>
         </g>
-      </svg>
+      </svg> : null}
     </figure>
   );
 }
