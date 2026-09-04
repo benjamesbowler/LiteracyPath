@@ -125,7 +125,14 @@ export function syncItemMediaDecision({
 
   const explicitlyNonVisual = ["text", "audio-required"].includes(authoredItem.media);
   const hasAuthoredVisuals = authoredItemHasVisualFields(authoredItem);
-  const shouldBeTextOnly = decision.role === "text-only" || explicitlyNonVisual;
+  // A previously text-only item may be intentionally upgraded when its
+  // current authoring source now supplies reviewed visual evidence. Keep the
+  // old fail-closed behavior for genuinely non-visual authoring.
+  const promotesTextOnlyDecision = decision.role === "text-only"
+    && hasAuthoredVisuals
+    && !explicitlyNonVisual;
+  const shouldBeTextOnly = !promotesTextOnlyDecision
+    && (decision.role === "text-only" || explicitlyNonVisual);
 
   if (shouldBeTextOnly && hasAuthoredVisuals) {
     throw new Error(`${item.id || decision.itemId} declares text-only media and visual fields together`);
@@ -143,7 +150,17 @@ export function syncItemMediaDecision({
       throw new Error(`${item.id || decision.itemId} uses art without direct visual approval: ${assetPath}`);
     }
   }
-  return { ...decision, paths };
+  const visualDecision = promotesTextOnlyDecision
+    ? {
+      ...decision,
+      role: "target-or-scene",
+      alt: decision.alt || item.imageAlt || "Picture support for this literacy question",
+      answerNeutral: decision.answerNeutral === "not-applicable-text-only"
+        ? "approved"
+        : decision.answerNeutral
+    }
+    : decision;
+  return { ...visualDecision, paths };
 }
 
 // ---------------------------------------------------------------------------

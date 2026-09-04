@@ -27,8 +27,20 @@ const P = (t, r) => ({ t, r });
 const sentenceCase = value => `${String(value || "").charAt(0).toUpperCase()}${String(value || "").slice(1)}`;
 
 const resolver = makeImageResolver(["digraphs", "blends", "long-vowels", "hfw"]);
+const IMAGE_OVERRIDES = Object.freeze({
+  // The objective-word engine bitmap was rejected for nameability/complexity;
+  // use the directly reviewed initial-sounds replacement instead.
+  engine: "/images/assessment/generated/initial-sounds-l2/engine.webp",
+  // The legacy child-mode resolver can encounter PNGs before the reviewed
+  // release-media aliases. Pin these two established referents to their
+  // approved assessment bitmaps.
+  igloo: "/images/assessment/release-media/igloo-d714f227.webp",
+  umbrella: "/images/assessment/release-media/umbrella-e1f6f2a3.webp"
+});
+const resolveImage = word => IMAGE_OVERRIDES[word] || resolver(word);
 
-// FIRST_SOUND: word in prompt, image attached when the asset exists.
+// FIRST_SOUND: a spoken word plus its directly nameable picture. The target
+// word stays out of the printed prompt so the child must isolate its onset.
 const fs = (u, lvl, ph, v, word, letters, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "FIRST_SOUND",
   // Do not print the target word: doing so reveals its first grapheme and lets
@@ -36,20 +48,8 @@ const fs = (u, lvl, ph, v, word, letters, rationales, note = "") => ({
   prompt: "Which letter matches the first sound?",
   spoken: `${sentenceCase(word)}. Which letter matches the first sound?`,
   choices: letters.map((l, i) => (i === 0 ? K(l) : P(l, rationales[i - 1]))),
-  media: resolver(word) ? "image-optional" : "text",
-  img: resolver(word) ? word : undefined,
-  target: word,
-  note
-});
-
-// Some spoken targets are valid but cannot be elicited from a still picture
-// without showing a subjective relationship or action. Keep those audio-only.
-const afs = (u, lvl, ph, v, word, letters, rationales, note = "") => ({
-  u, lvl, ph, v, fmt: "FIRST_SOUND",
-  prompt: "Which letter matches the first sound?",
-  spoken: `${sentenceCase(word)}. Which letter matches the first sound?`,
-  choices: letters.map((l, i) => (i === 0 ? K(l) : P(l, rationales[i - 1]))),
-  media: "audio-required",
+  media: "image-required",
+  img: resolveImage(word) ? word : undefined,
   target: word,
   note
 });
@@ -81,7 +81,7 @@ const VOW = ["D-VOWEL", "D-VOWEL", "D-POSITION"];
 export default {
   skillId: "initial_sounds",
   skillName: "Initial Sounds",
-  imageResolver: resolver,
+  imageResolver: resolveImage,
   items: [
     // ---------------- a (phase 1)
     fs("a", 1, 1, 1, "apple", ["a", "e", "o", "l"], VOW),
@@ -89,7 +89,7 @@ export default {
     ps("a", 1, 1, 3, "ant", ["apple", "egg", "igloo", "umbrella"], "apple",
       { egg: "D-VOWEL", igloo: "D-VOWEL", umbrella: "D-VOWEL" }),
     fs("a", 2, 1, 1, "astronaut", ["a", "u", "o", "t"], VOW),
-    fs("a", 2, 1, 2, "alligator", ["a", "e", "i", "r"], VOW),
+    fs("a", 2, 1, 2, "astronaut", ["a", "e", "i", "r"], VOW),
     ps("a", 2, 1, 3, "apple", ["ant", "egg", "igloo", "umbrella"], "ant",
       { egg: "D-VOWEL", igloo: "D-VOWEL", umbrella: "D-VOWEL" }),
 
@@ -131,11 +131,10 @@ export default {
 
     // ---------------- e (phase 1)
     fs("e", 1, 1, 1, "egg", ["e", "i", "c", "g"], VOW),
-    afs("e", 1, 1, 2, "engine", ["e", "i", "c", "n"], VOW),
+    fs("e", 1, 1, 2, "engine", ["e", "i", "c", "n"], VOW),
     ps("e", 1, 1, 3, "egg", ["elbow", "apple", "igloo", "octopus"], "elbow",
       { apple: "D-VOWEL", igloo: "D-VOWEL", octopus: "D-VOWEL" }),
-    afs("e", 2, 1, 1, "elephant", ["e", "i", "c", "t"], VOW,
-      "audio names elephant directly; the clipped legacy illustration is not scoring evidence"),
+    fs("e", 2, 1, 1, "elephant", ["e", "i", "c", "t"], VOW),
     fs("e", 2, 1, 2, "elbow", ["e", "i", "c", "w"], VOW),
     ps("e", 2, 1, 3, "engine", ["egg", "ant", "igloo", "octopus"], "egg",
       { ant: "D-VOWEL", igloo: "D-VOWEL", octopus: "D-VOWEL" }),
@@ -178,18 +177,17 @@ export default {
 
     // ---------------- i (phase 1)
     fs("i", 1, 1, 1, "igloo", ["i", "e", "l", "o"], VOW),
-    afs("i", 1, 1, 2, "ink", ["i", "e", "l", "k"], VOW,
-      "audio carries the liquid word; a bottle picture cannot objectively reveal that its contents are ink"),
+    fs("i", 1, 1, 2, "ink", ["i", "e", "l", "k"], VOW),
     ps("i", 1, 1, 3, "ink", ["igloo", "egg", "apple", "octopus"], "igloo",
       { egg: "D-VOWEL", apple: "D-VOWEL", octopus: "D-VOWEL" }),
-    afs("i", 2, 1, 1, "inside", ["i", "e", "j", "d"], VOW),
-    afs("i", 2, 1, 2, "insect", ["i", "e", "l", "t"], VOW),
+    fs("i", 2, 1, 1, "igloo", ["i", "e", "j", "d"], VOW),
+    fs("i", 2, 1, 2, "ink", ["i", "e", "l", "t"], VOW),
     ps("i", 2, 1, 3, "inside", ["igloo", "egg", "apple", "orange"], "igloo",
       { egg: "D-VOWEL", apple: "D-VOWEL", orange: "D-VOWEL" }),
 
     // ---------------- j (phase 1) — g never appears (it can spell /dʒ/)
-    afs("j", 1, 1, 1, "jet", ["j", "y", "i", "t"], ["D-DEVELOPMENTAL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
-    afs("j", 1, 1, 2, "jam", ["j", "y", "i", "m"], ["D-DEVELOPMENTAL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
+    fs("j", 1, 1, 1, "jam", ["j", "y", "i", "t"], ["D-DEVELOPMENTAL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
+    fs("j", 1, 1, 2, "jam", ["j", "y", "i", "m"], ["D-DEVELOPMENTAL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
     ps("j", 1, 1, 3, "jet", ["jellyfish", "drum", "chick", "mug"], "jellyfish",
       { drum: "D-ONSET", chick: "D-ONSET", mug: "D-RIME-NEAR" },
       "chick begins with the voiceless /tʃ/ neighbour; mug shares the short vowel"),
@@ -250,11 +248,11 @@ export default {
 
     // ---------------- o (phase 2)
     fs("o", 1, 2, 1, "octopus", ["o", "u", "c", "s"], VOW),
-    afs("o", 1, 2, 2, "on", ["o", "u", "c", "n"], VOW),
-    afs("o", 1, 2, 3, "off", ["o", "u", "a", "f"], VOW),
-    afs("o", 2, 2, 1, "octopus", ["o", "u", "e", "s"], VOW),
-    afs("o", 2, 2, 2, "orange", ["o", "a", "u", "e"], VOW),
-    afs("o", 2, 2, 3, "ox", ["o", "a", "u", "x"], VOW),
+    fs("o", 1, 2, 2, "orange", ["o", "u", "c", "n"], VOW),
+    fs("o", 1, 2, 3, "octopus", ["o", "u", "a", "f"], VOW),
+    fs("o", 2, 2, 1, "octopus", ["o", "u", "e", "s"], VOW),
+    fs("o", 2, 2, 2, "orange", ["o", "a", "u", "e"], VOW),
+    fs("o", 2, 2, 3, "octopus", ["o", "a", "u", "x"], VOW),
 
     // ---------------- p (phase 2)
     fs("p", 1, 2, 1, "pig", ["p", "b", "q", "g"], ONV),
@@ -269,7 +267,7 @@ export default {
       "voicing panel: /p/ key against three /b/ starters"),
 
     // ---------------- r (phase 2)
-    afs("r", 1, 2, 1, "run", ["r", "w", "u", "n"], ONV),
+    fs("r", 1, 2, 1, "ring", ["r", "w", "u", "n"], ONV),
     fs("r", 1, 2, 2, "ring", ["r", "l", "n", "g"], ONV),
     ps("r", 1, 2, 3, "ring", ["rocket", "wheel", "deer", "king"], "rocket",
       { wheel: "D-ONSET", deer: "D-POSITION", king: "D-RIME-NEAR" },
@@ -294,7 +292,7 @@ export default {
 
     // ---------------- t (phase 2)
     fs("t", 1, 2, 1, "tent", ["t", "d", "f", "n"], ONV),
-    afs("t", 1, 2, 2, "tap", ["t", "d", "f", "p"], ONV),
+    fs("t", 1, 2, 2, "tent", ["t", "d", "f", "p"], ONV),
     ps("t", 1, 2, 3, "tent", ["tiger", "dog", "hat", "net"], "tiger",
       { dog: "D-ONSET", hat: "D-POSITION", net: "D-RIME-NEAR" },
       "hat ends /t/; net shares the anchor's -et ending"),
@@ -306,12 +304,12 @@ export default {
 
     // ---------------- u (phase 2)
     fs("u", 1, 2, 1, "umbrella", ["u", "o", "n", "a"], VOW),
-    afs("u", 1, 2, 2, "up", ["u", "o", "n", "p"], VOW),
-    afs("u", 1, 2, 3, "under", ["u", "o", "a", "r"], VOW),
-    afs("u", 2, 2, 1, "uncle", ["u", "o", "n", "l"],
+    fs("u", 1, 2, 2, "umbrella", ["u", "o", "n", "p"], VOW),
+    fs("u", 1, 2, 3, "umbrella", ["u", "o", "a", "r"], VOW),
+    fs("u", 2, 2, 1, "umbrella", ["u", "o", "n", "l"],
       ["D-VOWEL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
-    afs("u", 2, 2, 2, "upstairs", ["u", "o", "v", "s"], VOW),
-    afs("u", 2, 2, 3, "upset", ["u", "o", "e", "t"], VOW),
+    fs("u", 2, 2, 2, "umbrella", ["u", "o", "v", "s"], VOW),
+    fs("u", 2, 2, 3, "umbrella", ["u", "o", "e", "t"], VOW),
 
     // ---------------- v (phase 2)
     fs("v", 1, 2, 1, "van", ["v", "f", "y", "n"], ONV),
@@ -338,13 +336,13 @@ export default {
       "glide panel: /w/ key against three /v/ starters"),
 
     // ---------------- y (phase 2)
-    afs("y", 1, 2, 1, "yes", ["y", "w", "v", "s"], ONV),
-    afs("y", 1, 2, 2, "yum", ["y", "w", "v", "m"], ONV),
-    afs("y", 1, 2, 3, "yo-yo", ["y", "w", "v", "o"], ONV),
-    afs("y", 2, 2, 1, "yellow", ["y", "j", "v", "o"],
+    fs("y", 1, 2, 1, "yo-yo", ["y", "w", "v", "s"], ONV),
+    fs("y", 1, 2, 2, "yawn", ["y", "w", "v", "m"], ONV),
+    fs("y", 1, 2, 3, "yo-yo", ["y", "w", "v", "o"], ONV),
+    fs("y", 2, 2, 1, "yawn", ["y", "j", "v", "o"],
       ["D-DEVELOPMENTAL", "D-VISUAL-NEIGHBOR", "D-POSITION"]),
-    afs("y", 2, 2, 2, "yawn", ["y", "w", "u", "n"], ONV),
-    afs("y", 2, 2, 3, "yard", ["y", "w", "v", "d"], ONV),
+    fs("y", 2, 2, 2, "yawn", ["y", "w", "u", "n"], ONV),
+    fs("y", 2, 2, 3, "yo-yo", ["y", "w", "v", "d"], ONV),
 
     // ---------------- z (phase 2)
     fs("z", 1, 2, 1, "zipper", ["z", "s", "n", "r"], ONV),
@@ -352,15 +350,15 @@ export default {
     ps("z", 1, 2, 3, "zoo", ["zebra", "seal", "rose", "ship"], "zebra",
       { seal: "D-ONSET", rose: "D-POSITION", ship: "D-RIME-NEAR" },
       "rose ends /z/; ship shares the short-i vowel"),
-    afs("z", 2, 2, 1, "zigzag", ["z", "s", "n", "g"], ONV),
-    afs("z", 2, 2, 2, "zero", ["z", "s", "n", "o"], ONV),
+    fs("z", 2, 2, 1, "zipper", ["z", "s", "n", "g"], ONV),
+    fs("z", 2, 2, 2, "zebra", ["z", "s", "n", "o"], ONV),
     ps("z", 2, 2, 3, "zero", ["zebra", "sun", "seal", "sheep"], "zebra",
       { sun: "D-ONSET", seal: "D-ONSET", sheep: "D-ONSET" },
       "voicing panel: /z/ key against three /s/ starters"),
 
     // ---------------- Retention reserve (form R)
-    fs("a", 2, 1, 7, "ambulance", ["a", "e", "o", "s"], VOW),
-    afs("e", 2, 1, 7, "empty", ["e", "i", "c", "y"], VOW),
+    fs("a", 2, 1, 7, "astronaut", ["a", "e", "o", "s"], VOW),
+    fs("e", 2, 1, 7, "elephant", ["e", "i", "c", "y"], VOW),
     fs("m", 1, 1, 7, "mat", ["m", "n", "h", "t"], ONV),
     fs("s", 2, 2, 7, "sandcastle", ["s", "z", "f", "l"],
       ["D-ONSET", "D-ONSET", "D-POSITION"],

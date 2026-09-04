@@ -263,6 +263,32 @@ test("sync safely retains an existing text-only decision with explicit empty pat
   }), decision);
 });
 
+test("sync promotes a stale text-only decision when authoring now supplies reviewed visual media", () => {
+  const assetPath = "/images/assessment/reviewed-upgrade.webp";
+  const decision = {
+    itemId: "lp3.test.l1.A.unit.v1",
+    role: "text-only",
+    paths: [],
+    constructReview: "approved",
+    answerNeutral: "not-applicable-text-only"
+  };
+
+  assert.deepEqual(syncItemDecision({
+    item: { id: decision.itemId, imageAlt: "a clear object" },
+    authoredItem: { media: "image-required", img: "reviewed-upgrade" },
+    decision,
+    actualPaths: [assetPath],
+    styleDecisions: { [assetPath]: { path: assetPath } }
+  }), {
+    itemId: decision.itemId,
+    role: "target-or-scene",
+    paths: [assetPath],
+    alt: "a clear object",
+    constructReview: "approved",
+    answerNeutral: "approved"
+  });
+});
+
 test("sync retains strict direct-review checks for visual decisions", () => {
   const assetPath = "/images/assessment/reviewed.webp";
   const decision = {
