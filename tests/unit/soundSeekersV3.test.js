@@ -7,6 +7,8 @@ import { test } from "node:test";
 import { QUEST_STOPS } from "../../src/data/questSequence.js";
 import { CAST, HEROES } from "../../src/features/soundSeekers/v3/content/cast.js";
 import { BACKDROPS, PANELS, TRAIL, WORLD_W } from "../../src/features/soundSeekers/v3/content/trail.js";
+import { LINE_AUDIO } from "../../src/features/soundSeekers/v3/content/lines.generated.js";
+import { VOICE_CAST, voiceFor } from "../../src/features/soundSeekers/v3/content/voices.js";
 import { MECHANICS, publicBeat } from "../../src/features/soundSeekers/v3/engine/challenges.js";
 import { buildMission } from "../../src/features/soundSeekers/v3/engine/director.js";
 import { createBeatState, resolveAction } from "../../src/features/soundSeekers/v3/engine/authority.js";
@@ -316,4 +318,32 @@ test("review picks a shaky earlier target and serves it in a later stop", () => 
   const review = m.beats.find(b => b.review);
   assert.ok(review, "a review beat is scheduled");
   assert.ok(review.targetIds.includes("m"), `review targets ${review.targetIds}`);
+});
+
+test("every spoken character line is current: the clip on disk was made from the words on the card", () => {
+  const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, "public/audio/sound-seekers/v3/lines/manifest.json"), "utf8"));
+  const byId = new Map(manifest.lines.map(l => [l.id, l]));
+  for (const stop of TRAIL) {
+    const audio = LINE_AUDIO[stop.id];
+    assert.ok(audio?.problem && audio?.fix, `${stop.id} has no spoken lines — run node tools/generateSoundSeekersV3Lines.mjs`);
+    for (const kind of ["problem", "fix"]) {
+      const file = path.join(ROOT, "public", audio[kind]);
+      assert.ok(fs.existsSync(file) && fs.statSync(file).size > 1000, `${stop.id} ${kind}: ${audio[kind]} missing or empty`);
+      const entry = byId.get(`${stop.id}-${kind}`);
+      assert.ok(entry, `${stop.id} ${kind}: no manifest entry`);
+      assert.equal(entry.text, stop[kind], `${stop.id} ${kind}: the clip was made from different words — regenerate`);
+      assert.equal(entry.character, stop.character, `${stop.id} ${kind}: spoken by the wrong character`);
+      assert.equal(entry.voice, voiceFor(stop.character).voice, `${stop.id} ${kind}: voice changed — regenerate`);
+      assert.equal(`/audio/sound-seekers/v3/lines/${entry.file}`, audio[kind]);
+    }
+  }
+  // every cast member has a voice, and no voice is shared inside one land
+  for (const [key, cast] of Object.entries(CAST)) {
+    assert.ok(VOICE_CAST[key], `${cast.name} has no voice`);
+    assert.match(VOICE_CAST[key].prompt, new RegExp(`^Speak as ${cast.name},`));
+  }
+  for (const land of ["meadow", "dino", "moonwood"]) {
+    const voices = Object.entries(CAST).filter(([, c]) => c.land === land).map(([k]) => VOICE_CAST[k].voice);
+    assert.equal(new Set(voices).size, voices.length, `${land}: two characters share a voice`);
+  }
 });

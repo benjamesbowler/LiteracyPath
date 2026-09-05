@@ -8,6 +8,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import "./sound-seekers-v3.css";
 import { CAST, HEROES } from "./content/cast.js";
 import { LANDS, TRAIL, getTrailStop } from "./content/trail.js";
+import { LINE_AUDIO } from "./content/lines.generated.js";
 import { MECHANICS, publicBeat } from "./engine/challenges.js";
 import { buildMission } from "./engine/director.js";
 import { createBeatState, resolveAction } from "./engine/authority.js";
@@ -118,6 +119,16 @@ export default function SoundSeekersV3({
     if (!list.length) return;
     await audio.sequence(list);
   }, [audio]);
+  // the character speaks its problem when the meet card opens, and its fix
+  // line when the stop is fixed; the same words stay printed on the card
+  useEffect(() => {
+    const src = meetStop && LINE_AUDIO[meetStop.id]?.problem;
+    if (src) hear([src]);
+  }, [meetStop, hear]);
+  useEffect(() => {
+    const src = done?.stop && LINE_AUDIO[done.stop.id]?.fix;
+    if (src) hear([src]);
+  }, [done, hear]);
 
   // ── HUD mirror ────────────────────────────────────────────────────────
   const syncHud = useCallback(() => {
@@ -574,6 +585,9 @@ export default function SoundSeekersV3({
             <img className="ss3__portrait" src={CAST[meetStop.character]?.sprite} alt="" />
             <h2 id="ss3-meet-title">{CAST[meetStop.character]?.name} at {meetStop.name}</h2>
             <div className="ss3__speech">“{meetStop.problem}”</div>
+            {LINE_AUDIO[meetStop.id]?.problem && (
+              <button type="button" className="ss3__btn ss3__btn--quiet ss3__btn--hear" onClick={() => hear([LINE_AUDIO[meetStop.id].problem])} aria-label={`Hear ${CAST[meetStop.character]?.name} again`}>◖)) Hear it again</button>
+            )}
             <div className="ss3__row">
               {resumable && (
                 <button type="button" className="ss3__btn ss3__btn--go" onClick={() => startEncounter(meetStop, { resume: true })} data-child-primary="true">Carry on ▶</button>
@@ -593,6 +607,9 @@ export default function SoundSeekersV3({
             <div className="ss3__token" aria-hidden="true">{TOKEN_GLYPH[done.stop?.token] || "⭐"}</div>
             <h2 id="ss3-done-title">{done.stop?.name} is fixed!</h2>
             <p>{done.stop?.fix}</p>
+            {LINE_AUDIO[done.stop?.id]?.fix && (
+              <button type="button" className="ss3__btn ss3__btn--quiet ss3__btn--hear" onClick={() => hear([LINE_AUDIO[done.stop.id].fix])} aria-label="Hear it again">◖)) Hear it again</button>
+            )}
             <div className="ss3__row">
               <button type="button" className="ss3__btn ss3__btn--go" onClick={finishStop} data-child-primary="true">Back to the trail ▶</button>
             </div>
