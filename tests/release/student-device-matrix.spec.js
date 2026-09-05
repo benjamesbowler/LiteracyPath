@@ -2115,6 +2115,30 @@ test(`A3.6 Sound Seekers v3 creator remains reachable at ${profile.id}`, async (
 });
 }
 
+test("A3.6 Sound Seekers v3 modal focus stays inside the active dialog", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.setViewportSize({ width: 1024, height: 768 });
+  await page.goto("/preview/child-surfaces.html?surface=sound-seekers");
+
+  const creator = page.getByRole("dialog", { name: "Who will you be?" });
+  await expect(creator.locator(".ss3__hero-card[aria-pressed=\"true\"]")).toBeFocused();
+  await creator.getByRole("button", { name: "Start the trail ▶", exact: true }).click();
+  await expect(creator).toHaveCount(0);
+
+  const pause = page.getByRole("button", { name: "Pause", exact: true });
+  await pause.click();
+  const dialog = page.getByRole("dialog", { name: "Paused", exact: true });
+  await expect(dialog.getByRole("button", { name: "Keep playing ▶", exact: true })).toBeFocused();
+  await page.keyboard.press("Tab");
+  await expect(dialog.getByRole("button", { name: "Leave Sound Seekers", exact: true })).toBeFocused();
+  await page.keyboard.press("Tab");
+  expect(await dialog.evaluate(element => element.contains(document.activeElement))).toBe(true);
+  await page.keyboard.press("Shift+Tab");
+  expect(await dialog.evaluate(element => element.contains(document.activeElement))).toBe(true);
+  await page.keyboard.press("Escape");
+  await expect(pause).toBeFocused();
+});
+
 for (const keyboardViewport of STUDENT_SOFTWARE_KEYBOARD_VIEWPORTS) {
   test(`A3.6 student sign in remains usable with ${keyboardViewport.id}`, async ({ page }) => {
     await page.emulateMedia({ reducedMotion: "reduce" });

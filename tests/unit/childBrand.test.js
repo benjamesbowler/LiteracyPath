@@ -94,8 +94,8 @@ test("the entry gateway gives students and teachers their own branded destinatio
   );
   assert.match(
     entryStyles,
-    /\.pals-entry \.student-entry-grid\s*\{[\s\S]*?repeat\(2, minmax\(0, 1fr\)\)/,
-    "desktop must present the two destinations side by side"
+    /\.pals-entry \.student-entry-grid\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0, 1\.15fr\)\s+minmax\(0, \.85fr\)/,
+    "desktop must present the two destinations side by side with the current weighted split"
   );
   assert.match(
     entryStyles,

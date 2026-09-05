@@ -65,6 +65,9 @@ export default function SoundSeekersV3({
   const [mapHint, setMapHint] = useState("Tap the glowing stop to walk there.");
 
   const canvasRef = useRef(null);
+  const modalRef = useRef(null);
+  const modalReturnFocusRef = useRef(null);
+  const modalWasOpenRef = useRef(false);
   const sceneRef = useRef(null);
   const mapSceneRef = useRef(null);
   const encounterRef = useRef(null);
@@ -244,6 +247,7 @@ export default function SoundSeekersV3({
       const dpr = Math.min(2, window.devicePixelRatio || 1);
       const w = canvas.clientWidth;
       const h = canvas.clientHeight;
+      if (!Number.isFinite(w) || !Number.isFinite(h) || w <= 0 || h <= 0) return null;
       if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) {
         canvas.width = Math.round(w * dpr);
         canvas.height = Math.round(h * dpr);
@@ -256,8 +260,9 @@ export default function SoundSeekersV3({
       const dt = Math.min(0.05, (now - (lastRef.current || now)) / 1000);
       lastRef.current = now;
       const scene = sceneRef.current;
-      const { w, h, dpr } = resize();
-      if (!scene) return;
+      const metrics = resize();
+      if (!scene || !metrics) return;
+      const { w, h, dpr } = metrics;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       if (!pausedRef.current) {
         if (scene === mapSceneRef.current) scene.update(dt, { w, h, scale: h / 941, viewWorldW: w / (h / 941) });
@@ -291,9 +296,60 @@ export default function SoundSeekersV3({
   // ── input ────────────────────────────────────────────────────────────
   const modalOpen = paused || Boolean(meetStop) || Boolean(done) || mode === "hero";
   useEffect(() => {
+    if (modalOpen && !modalWasOpenRef.current) {
+      modalReturnFocusRef.current = document.activeElement;
+    } else if (!modalOpen && modalWasOpenRef.current) {
+      const candidate = modalReturnFocusRef.current;
+      const canRestore = candidate && candidate !== document.body && candidate.isConnected
+        && !candidate.closest("[inert], [aria-hidden=\"true\"]");
+      const fallback = document.querySelector(".ss3__icon-btn");
+      (canRestore ? candidate : fallback)?.focus({ preventScroll: true });
+      modalReturnFocusRef.current = null;
+    }
+    modalWasOpenRef.current = modalOpen;
+  }, [modalOpen, meetStop, paused]);
+
+  useEffect(() => {
+    if (!modalOpen) return undefined;
+    const frame = requestAnimationFrame(() => {
+      const dialog = modalRef.current;
+      if (!dialog) return;
+      const preferred = dialog.querySelector("button[aria-pressed=\"true\"]")
+        || dialog.querySelector("[data-child-primary]")
+        || dialog.querySelector("button");
+      preferred?.focus({ preventScroll: true });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [modalOpen, mode, meetStop, done, paused]);
+
+  useEffect(() => {
     const onKey = (e, down) => {
       if (e.repeat && down && e.code !== "Space") return;
-      if (modalOpen) { if (down && e.code === "Escape") setPaused(false); return; }
+      if (modalOpen) {
+        if (!down) return;
+        if (e.code === "Escape") {
+          if (paused) setPaused(false);
+          else if (meetStop) setMeetStop(null);
+          e.preventDefault();
+          return;
+        }
+        if (e.code === "Tab") {
+          const dialog = modalRef.current;
+          const focusable = dialog
+            ? [...dialog.querySelectorAll("button, [href], input, select, textarea, [tabindex]:not([tabindex=\"-1\"])")]
+              .filter(element => !element.disabled && element.getAttribute("aria-hidden") !== "true")
+            : [];
+          if (focusable.length > 0) {
+            const currentIndex = focusable.indexOf(document.activeElement);
+            const nextIndex = e.shiftKey
+              ? (currentIndex <= 0 ? focusable.length - 1 : currentIndex - 1)
+              : (currentIndex === focusable.length - 1 ? 0 : currentIndex + 1);
+            e.preventDefault();
+            focusable[nextIndex].focus();
+          }
+        }
+        return;
+      }
       if (down && e.code === "Escape") { setPaused(true); return; }
       if (down && e.code === "KeyR") { replayRef.current(); return; }
       const scene = sceneRef.current;
@@ -308,7 +364,7 @@ export default function SoundSeekersV3({
     window.addEventListener("keydown", kd);
     window.addEventListener("keyup", ku);
     return () => { window.removeEventListener("keydown", kd); window.removeEventListener("keyup", ku); };
-  }, [modalOpen]);
+  }, [modalOpen, meetStop, paused]);
 
   const onPointerDown = e => {
     if (modalOpen) return;
@@ -392,7 +448,7 @@ export default function SoundSeekersV3({
     <div className="ss3" data-child-surface="sound-seekers" data-ss3-mode={mode} style={CSS_VARIABLES}>
       <canvas ref={canvasRef} className="ss3__canvas" onPointerDown={onPointerDown} aria-hidden="true" />
 
-      <div className="ss3__hud">
+      <div className="ss3__hud" aria-hidden={modalOpen ? "true" : undefined} inert={modalOpen ? true : undefined}>
         {/* one h1 per child route */}
         <div className="ss3-board ss3__title">
           <img src={mode === "encounter" ? npc?.sprite : (heroCast?.heroSprite || heroCast?.sprite)} alt="" />
@@ -424,7 +480,8 @@ export default function SoundSeekersV3({
           )}
           {mode === "map" && (
             <div className="ss3-board ss3__lanterns" aria-label={`${Object.keys(progress.completed).length} of ${TRAIL.length} stops fixed`} data-child-progress="true">
-              <span className="ss3__lantern ss3__lantern--lit" /> <b style={{ marginLeft: 4 }}>{Object.keys(progress.completed).length} / {TRAIL.length}</b>
+              <span className="ss3__lantern ss3__lantern--lit" />
+              <span className="ss3__progress-copy"><b>{Object.keys(progress.completed).length} / {TRAIL.length}</b><small>stops fixed</small></span>
             </div>
           )}
           <button type="button" className="ss3__icon-btn" onClick={() => setPaused(true)} aria-label="Pause">❚❚</button>
@@ -491,7 +548,7 @@ export default function SoundSeekersV3({
       {/* ── cards ───────────────────────────────────────────────────── */}
       {mode === "hero" && (
         <div className="ss3__scrim">
-          <div className="ss3-board ss3__card" role="dialog" aria-modal="true" aria-labelledby="ss3-hero-title">
+          <div ref={modalRef} className="ss3-board ss3__card" role="dialog" aria-modal="true" aria-labelledby="ss3-hero-title">
             <h2 id="ss3-hero-title">Who will you be?</h2>
             <p data-child-instruction="">Pick your Sound Seeker. You can change later.</p>
             <p className="ss3__trail-progress" data-child-progress="">Your trail has 40 story stops to explore.</p>
@@ -513,7 +570,7 @@ export default function SoundSeekersV3({
 
       {meetStop && mode === "map" && (
         <div className="ss3__scrim" onClick={e => { if (e.target === e.currentTarget) setMeetStop(null); }}>
-          <div className="ss3-board ss3__card" role="dialog" aria-modal="true" aria-labelledby="ss3-meet-title">
+          <div ref={modalRef} className="ss3-board ss3__card" role="dialog" aria-modal="true" aria-labelledby="ss3-meet-title">
             <img className="ss3__portrait" src={CAST[meetStop.character]?.sprite} alt="" />
             <h2 id="ss3-meet-title">{CAST[meetStop.character]?.name} at {meetStop.name}</h2>
             <div className="ss3__speech">“{meetStop.problem}”</div>
@@ -532,7 +589,7 @@ export default function SoundSeekersV3({
 
       {done && (
         <div className="ss3__scrim">
-          <div className="ss3-board ss3__card" role="dialog" aria-modal="true" aria-labelledby="ss3-done-title">
+          <div ref={modalRef} className="ss3-board ss3__card" role="dialog" aria-modal="true" aria-labelledby="ss3-done-title">
             <div className="ss3__token" aria-hidden="true">{TOKEN_GLYPH[done.stop?.token] || "⭐"}</div>
             <h2 id="ss3-done-title">{done.stop?.name} is fixed!</h2>
             <p>{done.stop?.fix}</p>
@@ -545,7 +602,7 @@ export default function SoundSeekersV3({
 
       {paused && (
         <div className="ss3__scrim">
-          <div className="ss3-board ss3__card" role="dialog" aria-modal="true" aria-labelledby="ss3-pause-title">
+          <div ref={modalRef} className="ss3-board ss3__card" role="dialog" aria-modal="true" aria-labelledby="ss3-pause-title">
             <h2 id="ss3-pause-title">Paused</h2>
             <p>Your place is saved.</p>
             <div className="ss3__settings-row"><span>Sound</span><button type="button" className="ss3__toggle" aria-pressed={soundOn} onClick={() => setSoundOn(v => !v)}>{soundOn ? "On" : "Off"}</button></div>

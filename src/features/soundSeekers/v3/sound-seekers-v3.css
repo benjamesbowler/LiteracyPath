@@ -136,6 +136,8 @@
 }
 .ss3__lantern--lit { background: var(--ss3-gold); box-shadow: 0 0 10px 2px rgba(245, 198, 68, .8); }
 .ss3__lantern--active { background: var(--ss3-paper); border-color: var(--ss3-berry); transform: scale(1.2); }
+.ss3__progress-copy { display: inline-flex; align-items: baseline; gap: 5px; margin-left: 4px; white-space: nowrap; }
+.ss3__progress-copy small { color: var(--ss3-wood-deep); font-size: 12px; font-weight: 900; }
 .ss3__icon-btn {
   min-width: 56px;
   min-height: 56px;
