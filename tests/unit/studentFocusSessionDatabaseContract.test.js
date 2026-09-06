@@ -18,6 +18,10 @@ const adventureProgressEpochMigration = fs.readFileSync(
   new URL("../../supabase/migrations/20260902090000_reset_adventure_map_progress_epoch_2.sql", import.meta.url),
   "utf8"
 );
+const cyclePracticeMigration = fs.readFileSync(
+  new URL("../../supabase/migrations/20260907090000_cycle_practice_focus_sessions.sql", import.meta.url),
+  "utf8"
+);
 const assignmentCheckMigration = fs.readFileSync(
   new URL("../../supabase/migrations/20260903013233_student_focus_answer_assignment_check.sql", import.meta.url),
   "utf8"
@@ -41,6 +45,16 @@ test("Adventure Map v2 progress is normalized at the database boundary without c
   assert.match(adventureProgressEpochMigration, /update public\.student_progress[\s\S]*set payload = public\.lp_normalize_el_quest\(payload\)[\s\S]*where area = 'el_quest'[\s\S]*and key = '__all__'/i);
   assert.doesNotMatch(adventureProgressEpochMigration, /set[\s\S]{0,100}updated_at\s*=/i);
   assert.doesNotMatch(adventureProgressEpochMigration, /student_focus_session/i);
+});
+
+test("Cycle Practice is a bounded 30-minute locked session with an end check", () => {
+  assert.match(cyclePracticeMigration, /'cycle_practice'/i);
+  assert.match(cyclePracticeMigration, /practice_seconds integer not null check \(practice_seconds >= 1800\)/i);
+  assert.match(cyclePracticeMigration, /create or replace function public\.teacher_start_cycle_practice_session/i);
+  assert.match(cyclePracticeMigration, /join public\.reading_sessions reading[\s\S]*reading\.status = 'active'/i);
+  assert.match(cyclePracticeMigration, /create or replace function public\.student_complete_focus_cycle_practice/i);
+  assert.match(cyclePracticeMigration, /p_attempt ->> 'contentVersion' <> 'cycle-practice-v1'/i);
+  assert.match(cyclePracticeMigration, /notify pgrst, 'reload schema';\s*commit;/i);
 });
 
 test("Adventure Map epoch SQL verification exercises the insert trigger and leaves focus sessions unchanged", () => {

@@ -4,6 +4,7 @@ import test from "node:test";
 import {
   STUDENT_FOCUS_AUDIENCES,
   STUDENT_ADVENTURE_MAP_MODES,
+  STUDENT_CYCLE_PRACTICE_MODES,
   STUDENT_SKILL_ASSIGNMENT_MODES,
   buildStudentFocusAssignments,
   hasCompleteStudentFocusSkillsEvidence,
@@ -148,6 +149,37 @@ test("Adventure Map can assign one exact space to everyone", () => {
     students,
     adventureMapMode: STUDENT_ADVENTURE_MAP_MODES.ONE_SPACE_FOR_EVERYONE,
     selectedMapSpace: { cycleId: "cycle-40", cycleNumber: 40, spaceName: "Missing" }
+  }), {});
+});
+
+test("Cycle Practice can assign one cycle to everyone or a bounded cycle per student", () => {
+  const cycleOne = { id: "cycle-1", cycleNumber: 1, title: "Cycle 1: Meet A and M" };
+  const cycleFive = { id: "cycle-5", cycleNumber: 5, title: "Cycle 5" };
+
+  assert.deepEqual(buildStudentFocusAssignments({
+    target: STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE,
+    students: students.slice(0, 2),
+    cyclePracticeMode: STUDENT_CYCLE_PRACTICE_MODES.ONE_CYCLE_FOR_EVERYONE,
+    commonCycle: cycleOne
+  }), {
+    "*": { cycle_id: "cycle-1", cycle_number: 1, cycle_title: "Cycle 1: Meet A and M" }
+  });
+
+  assert.deepEqual(buildStudentFocusAssignments({
+    target: STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE,
+    students: students.slice(0, 2),
+    cyclePracticeMode: STUDENT_CYCLE_PRACTICE_MODES.CYCLE_PER_STUDENT,
+    commonCycle: cycleOne,
+    cycleByStudent: { "student-b": cycleFive }
+  }), {
+    "student-a": { cycle_id: "cycle-1", cycle_number: 1, cycle_title: "Cycle 1: Meet A and M" },
+    "student-b": { cycle_id: "cycle-5", cycle_number: 5, cycle_title: "Cycle 5" }
+  });
+
+  assert.deepEqual(buildStudentFocusAssignments({
+    target: STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE,
+    students: students.slice(0, 1),
+    commonCycle: { id: "cycle-99", cycleNumber: 99, title: "Not a cycle" }
   }), {});
 });
 

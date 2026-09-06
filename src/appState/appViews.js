@@ -11,6 +11,7 @@ export const APP_VIEWS = {
   LEARN: "learn",
   PHONICS_LEARN: "phonicsLearn",
   SKILLS_BLOCK_QUEST: "skillsBlockQuest",
+  CYCLE_PRACTICE: "cyclePractice",
   PHONICS_QUEST: "phonicsQuest",
   ASSESSMENT: "assessment",
   CHECKPOINT: "checkpoint",

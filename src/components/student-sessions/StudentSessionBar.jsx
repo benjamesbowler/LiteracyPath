@@ -27,6 +27,8 @@ export function StudentSessionBar({ session, members = [], students = [], connec
       ? resolvedConfig.game_title
       : session.target === STUDENT_FOCUS_TARGETS.ADVENTURE_MAP
         ? mapTitle
+        : session.target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE
+          ? resolvedConfig.cycle_title
         : "";
   const audienceLabel = (session.selection_scope || session.audience) === "whole_class"
     ? "Whole class"
