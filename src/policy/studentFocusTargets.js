@@ -6,7 +6,8 @@ export const STUDENT_FOCUS_TARGETS = Object.freeze({
   READING_LIBRARY: "reading_library",
   LETTERS_PRACTICE: "letters_practice",
   SKILLS_ASSESSMENT: "skills_assessment",
-  ADVENTURE_MAP: "adventure_map"
+  ADVENTURE_MAP: "adventure_map",
+  CYCLE_PRACTICE: "cycle_practice"
 });
 
 export const STUDENT_FOCUS_TARGET_OPTIONS = Object.freeze([
@@ -39,6 +40,11 @@ export const STUDENT_FOCUS_TARGET_OPTIONS = Object.freeze([
     id: STUDENT_FOCUS_TARGETS.ADVENTURE_MAP,
     label: "Adventure Map",
     description: "Keep students at one shared map space or each child at their own current space."
+  }),
+  Object.freeze({
+    id: STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE,
+    label: "Cycle Practice",
+    description: "30 minutes of cycle-bounded practice, then a Cycle Check."
   })
 ]);
 
@@ -54,6 +60,8 @@ export function studentFocusTargetView(target) {
       return APP_VIEWS.ASSESSMENT;
     case STUDENT_FOCUS_TARGETS.ADVENTURE_MAP:
       return APP_VIEWS.SKILLS_BLOCK_QUEST;
+    case STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE:
+      return APP_VIEWS.CYCLE_PRACTICE;
     default:
       return APP_VIEWS.STUDENT_HOME;
   }
@@ -70,6 +78,12 @@ export function enforceStudentFocusView(requestedView, session) {
   if (
     session.target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT
     && [APP_VIEWS.ASSESSMENT, APP_VIEWS.CHECKPOINT].includes(requestedView)
+  ) {
+    return requestedView;
+  }
+  if (
+    session.target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE
+    && requestedView === APP_VIEWS.CYCLE_PRACTICE
   ) {
     return requestedView;
   }

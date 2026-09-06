@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { startStudentFocusSession } from "../../data/studentFocusSessionCore.js";
 import {
   STUDENT_ADVENTURE_MAP_MODES,
+  STUDENT_CYCLE_PRACTICE_MODES,
   STUDENT_FOCUS_AUDIENCES,
   STUDENT_SKILL_ASSIGNMENT_MODES,
   buildStudentFocusAssignments,
@@ -104,6 +105,13 @@ export function StudentSessionSetup({
   const [mapSpaces, setMapSpaces] = useState([]);
   const [mapSpaceId, setMapSpaceId] = useState("");
   const [mapSpaceLoadStatus, setMapSpaceLoadStatus] = useState("idle");
+  const [cycleOptions, setCycleOptions] = useState([]);
+  const [cycleLoadStatus, setCycleLoadStatus] = useState("idle");
+  const [cyclePracticeMode, setCyclePracticeMode] = useState(
+    STUDENT_CYCLE_PRACTICE_MODES.ONE_CYCLE_FOR_EVERYONE
+  );
+  const [commonCycleId, setCommonCycleId] = useState("cycle-1");
+  const [cycleByStudent, setCycleByStudent] = useState({});
   const [catalogReloadKey, setCatalogReloadKey] = useState(0);
   const [durationMinutes, setDurationMinutes] = useState(60);
   const [busy, setBusy] = useState(false);
@@ -160,6 +168,26 @@ export function StudentSessionSetup({
   }, [catalogReloadKey, target]);
 
   useEffect(() => {
+    if (target !== STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE) return undefined;
+    let active = true;
+    import("../../data/elSkillsBlockCycles.js").then(module => {
+      if (!active) return;
+      const cycles = module.elSkillsBlockCycles.filter(cycle => Number.isInteger(cycle?.cycleNumber));
+      setCycleOptions(cycles);
+      setCommonCycleId(current => cycles.some(cycle => cycle.id === current) ? current : cycles[0]?.id || "");
+      setCycleByStudent(current => Object.fromEntries(
+        Object.entries(current).filter(([studentId]) => availableStudents.some(student => String(student.id) === String(studentId)))
+      ));
+      setCycleLoadStatus("ready");
+    }).catch(() => {
+      if (!active) return;
+      setCycleOptions([]);
+      setCycleLoadStatus("error");
+    });
+    return () => { active = false; };
+  }, [availableStudents, catalogReloadKey, target]);
+
+  useEffect(() => {
     if (target !== STUDENT_FOCUS_TARGETS.ADVENTURE_MAP) return undefined;
     let active = true;
     Promise.all([
@@ -212,6 +240,10 @@ export function StudentSessionSetup({
     () => mapSpaces.find(space => space.cycleId === mapSpaceId) || null,
     [mapSpaceId, mapSpaces]
   );
+  const commonCycle = useMemo(
+    () => cycleOptions.find(cycle => cycle.id === commonCycleId) || null,
+    [commonCycleId, cycleOptions]
+  );
   const mapSpaceGroups = useMemo(() => (
     [...new Set(mapSpaces.map(space => space.partName))].map(partName => ({
       partName,
@@ -232,12 +264,18 @@ export function StudentSessionSetup({
     selectedBook,
     selectedGame,
     adventureMapMode,
-    selectedMapSpace
+    selectedMapSpace,
+    cyclePracticeMode,
+    commonCycle,
+    cycleByStudent
   }), [
     adventureMapMode,
     assessmentHistory,
     audienceSelection.students,
     classDashboard,
+    commonCycle,
+    cycleByStudent,
+    cyclePracticeMode,
     resolvedCommonSkillId,
     selectedBook,
     selectedGame,
@@ -260,6 +298,11 @@ export function StudentSessionSetup({
       : target === STUDENT_FOCUS_TARGETS.ADVENTURE_MAP
         ? adventureMapMode === STUDENT_ADVENTURE_MAP_MODES.EACH_CHILD_CURRENT
           || (mapSpaceLoadStatus === "ready" && Boolean(selectedMapSpace))
+      : target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE
+        ? cycleLoadStatus === "ready"
+          && Boolean(commonCycle)
+          && (cyclePracticeMode === STUDENT_CYCLE_PRACTICE_MODES.ONE_CYCLE_FOR_EVERYONE
+            || audienceSelection.students.every(student => cycleOptions.some(cycle => cycle.id === cycleByStudent?.[student.id]?.id)))
       : true;
   const canStart = audienceSelection.students.length > 0
     && exactChoiceReady
@@ -277,6 +320,9 @@ export function StudentSessionSetup({
     if (nextTarget !== target && nextTarget === STUDENT_FOCUS_TARGETS.ADVENTURE_MAP) {
       setMapSpaceLoadStatus("loading");
     }
+    if (nextTarget !== target && nextTarget === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE) {
+      setCycleLoadStatus("loading");
+    }
     setTarget(nextTarget);
     setMessage("");
   }
@@ -290,6 +336,7 @@ export function StudentSessionSetup({
     if (kind === "book") setBookLoadStatus("loading");
     if (kind === "game") setGameLoadStatus("loading");
     if (kind === "map") setMapSpaceLoadStatus("loading");
+    if (kind === "cycle") setCycleLoadStatus("loading");
     setCatalogReloadKey(current => current + 1);
   }
 
@@ -322,6 +369,8 @@ export function StudentSessionSetup({
         setMessage("Choose one available Guided Reading book before starting.");
       } else if (target === STUDENT_FOCUS_TARGETS.ARCADE_GAME) {
         setMessage("Choose one available game before starting.");
+      } else if (target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE) {
+        setMessage("Choose a cycle for this session, or set one for every selected student.");
       } else {
         setMessage("Choose one available Adventure Map space before starting.");
       }
@@ -369,12 +418,16 @@ export function StudentSessionSetup({
         ? skillAssignmentMode === STUDENT_SKILL_ASSIGNMENT_MODES.ONE_SKILL_FOR_EVERYONE
           ? chosenSkill?.label || ""
           : "Each child's next skill"
-        : target === STUDENT_FOCUS_TARGETS.ADVENTURE_MAP
+    : target === STUDENT_FOCUS_TARGETS.ADVENTURE_MAP
           ? adventureMapMode === STUDENT_ADVENTURE_MAP_MODES.EACH_CHILD_CURRENT
             ? "Each child's current space"
             : selectedMapSpace
               ? `${selectedMapSpace.spaceName}, Cycle ${selectedMapSpace.cycleNumber}`
               : ""
+        : target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE
+          ? cyclePracticeMode === STUDENT_CYCLE_PRACTICE_MODES.ONE_CYCLE_FOR_EVERYONE
+            ? commonCycle?.title || ""
+            : "Each student’s selected cycle"
         : "";
   const audienceLabel = audienceSelection.wholeClass
     ? `Whole class, ${audienceSelection.students.length} active student${audienceSelection.students.length === 1 ? "" : "s"}`
@@ -530,6 +583,84 @@ export function StudentSessionSetup({
                     </div>
                   )}
                 </>
+              )}
+            </fieldset>
+          )}
+
+          {target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE && (
+            <fieldset className="student-session-activity-config">
+              <legend>Cycle Practice choice</legend>
+              <div className="student-session-config-options">
+                <button
+                  aria-pressed={cyclePracticeMode === STUDENT_CYCLE_PRACTICE_MODES.ONE_CYCLE_FOR_EVERYONE}
+                  className={cyclePracticeMode === STUDENT_CYCLE_PRACTICE_MODES.ONE_CYCLE_FOR_EVERYONE ? "selected" : ""}
+                  onClick={() => {
+                    setCyclePracticeMode(STUDENT_CYCLE_PRACTICE_MODES.ONE_CYCLE_FOR_EVERYONE);
+                    setMessage("");
+                  }}
+                  type="button"
+                >
+                  <strong>One cycle for everyone</strong>
+                  <span>Lock every selected iPad to the same 30-minute practice cycle.</span>
+                </button>
+                <button
+                  aria-pressed={cyclePracticeMode === STUDENT_CYCLE_PRACTICE_MODES.CYCLE_PER_STUDENT}
+                  className={cyclePracticeMode === STUDENT_CYCLE_PRACTICE_MODES.CYCLE_PER_STUDENT ? "selected" : ""}
+                  onClick={() => {
+                    setCyclePracticeMode(STUDENT_CYCLE_PRACTICE_MODES.CYCLE_PER_STUDENT);
+                    setMessage("");
+                  }}
+                  type="button"
+                >
+                  <strong>Set a cycle per student</strong>
+                  <span>Give each selected student an exact cycle while keeping the same locked experience.</span>
+                </button>
+              </div>
+              <label htmlFor="student-session-cycle">
+                {cyclePracticeMode === STUDENT_CYCLE_PRACTICE_MODES.ONE_CYCLE_FOR_EVERYONE ? "Cycle for everyone" : "Default cycle"}
+                <select
+                  disabled={cycleLoadStatus !== "ready"}
+                  id="student-session-cycle"
+                  value={commonCycleId}
+                  onChange={event => {
+                    setCommonCycleId(event.target.value);
+                    setMessage("");
+                  }}
+                >
+                  <option value="">Choose one cycle</option>
+                  {cycleOptions.map(cycle => (
+                    <option key={cycle.id} value={cycle.id}>{cycle.title}</option>
+                  ))}
+                </select>
+              </label>
+              {cycleLoadStatus === "loading" && <p role="status">Loading Cycle Practice cycles…</p>}
+              {cycleLoadStatus === "error" && (
+                <div className="student-session-catalog-error">
+                  <p role="alert">Cycle Practice cycles could not be loaded.</p>
+                  <button className="text-button" onClick={() => retryCatalog("cycle")} type="button">Try loading cycles again</button>
+                </div>
+              )}
+              {cyclePracticeMode === STUDENT_CYCLE_PRACTICE_MODES.CYCLE_PER_STUDENT && (
+                <div className="student-session-cycle-list">
+                  <p>Set the exact cycle for each selected student.</p>
+                  {audienceSelection.students.map(student => (
+                    <label key={student.id} htmlFor={`student-session-cycle-${student.id}`}>
+                      {student.name}
+                      <select
+                        disabled={cycleLoadStatus !== "ready"}
+                        id={`student-session-cycle-${student.id}`}
+                        value={cycleByStudent[student.id]?.id || commonCycleId}
+                        onChange={event => {
+                          const cycle = cycleOptions.find(option => option.id === event.target.value);
+                          setCycleByStudent(current => ({ ...current, [student.id]: cycle }));
+                          setMessage("");
+                        }}
+                      >
+                        {cycleOptions.map(cycle => <option key={cycle.id} value={cycle.id}>{cycle.title}</option>)}
+                      </select>
+                    </label>
+                  ))}
+                </div>
               )}
             </fieldset>
           )}

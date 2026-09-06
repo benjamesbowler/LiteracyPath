@@ -19,6 +19,11 @@ export const STUDENT_ADVENTURE_MAP_MODES = Object.freeze({
   ONE_SPACE_FOR_EVERYONE: "one_space_for_everyone"
 });
 
+export const STUDENT_CYCLE_PRACTICE_MODES = Object.freeze({
+  ONE_CYCLE_FOR_EVERYONE: "one_cycle_for_everyone",
+  CYCLE_PER_STUDENT: "cycle_per_student"
+});
+
 const SKILL_PHASE_PATH = Object.freeze([
   Object.freeze({ level: 1, phase: 1 }),
   Object.freeze({ level: 1, phase: 2 }),
@@ -140,7 +145,10 @@ export function buildStudentFocusAssignments({
   selectedBook = null,
   selectedGame = null,
   adventureMapMode = STUDENT_ADVENTURE_MAP_MODES.EACH_CHILD_CURRENT,
-  selectedMapSpace = null
+  selectedMapSpace = null,
+  cyclePracticeMode = STUDENT_CYCLE_PRACTICE_MODES.ONE_CYCLE_FOR_EVERYONE,
+  commonCycle = null,
+  cycleByStudent = {}
 } = {}) {
   if (target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT) {
     return Object.fromEntries(activeRoster(students).map(student => [
@@ -206,6 +214,35 @@ export function buildStudentFocusAssignments({
         space_name: String(selectedMapSpace.spaceName).trim()
       }
     };
+  }
+
+  if (target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE) {
+    function cycleConfig(cycle) {
+      const cycleNumber = Number(cycle?.cycleNumber);
+      const cycleId = String(cycle?.id || "");
+      if (
+        !Number.isInteger(cycleNumber)
+        || cycleNumber < 1
+        || cycleNumber > 27
+        || cycleId !== `cycle-${cycleNumber}`
+        || !String(cycle?.title || "").trim()
+      ) return null;
+      return {
+        cycle_id: cycleId,
+        cycle_number: cycleNumber,
+        cycle_title: String(cycle.title).trim()
+      };
+    }
+
+    const shared = cycleConfig(commonCycle);
+    if (cyclePracticeMode === STUDENT_CYCLE_PRACTICE_MODES.ONE_CYCLE_FOR_EVERYONE) {
+      return shared ? { "*": shared } : {};
+    }
+
+    return Object.fromEntries(activeRoster(students).map(student => {
+      const config = cycleConfig(cycleByStudent?.[student.id] || commonCycle);
+      return [student.id, config || {}];
+    }));
   }
 
   return {};

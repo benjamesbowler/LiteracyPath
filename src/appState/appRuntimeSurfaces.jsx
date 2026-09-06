@@ -17,6 +17,11 @@ export const ElSkillsQuest = lazyWithRetry(() =>
     default: module.ElSkillsQuest
   }))
 );
+export const CyclePracticePage = lazyWithRetry(() =>
+  import("../components/cycle-practice/CyclePracticePage.jsx").then(module => ({
+    default: module.CyclePracticePage
+  }))
+);
 export const HollowPage = lazyWithRetry(() =>
   import("../components/HollowPage.jsx").then(module => ({
     default: module.HollowPage

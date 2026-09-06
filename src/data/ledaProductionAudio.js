@@ -9,6 +9,14 @@ import { LEDA_PRODUCTION_VOICE } from "./ledaProductionVoice.js";
 
 export { LEDA_PRODUCTION_AUDIO_ROLES, LEDA_PRODUCTION_VOICE };
 
+// These two isolated-word recordings were re-cut after child playback review.
+// Keep the override here, above the generated catalogue, so every child-facing
+// resolver uses the same replacement without hand-editing generated output.
+const CHILD_WORD_AUDIO_OVERRIDES = Object.freeze({
+  vase: "/audio/production/en-US/isolated_word/vase-8d705e6355.mp3",
+  umbrella: "/audio/production/en-US/isolated_word/umbrella-5058250ea7.mp3"
+});
+
 export const LEDA_LANGUAGE_AUDIO_ROLES = Object.freeze([
   "supplemental",
   "isolated_word",
@@ -54,6 +62,8 @@ export function getLedaProductionAudioPath(
 }
 
 export function getLedaWordAudioPath(text = "") {
+  const override = CHILD_WORD_AUDIO_OVERRIDES[normalizeLedaAudioText(text)];
+  if (override) return override;
   return getLedaProductionAudioPath(text, ["supplemental", "isolated_word", "letter_name"]);
 }
 

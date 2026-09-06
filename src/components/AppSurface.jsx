@@ -18,6 +18,7 @@ import {
   AdminDashboardPage,
   AssessmentErrorBoundary,
   ConfirmActionDialog,
+  CyclePracticePage,
   ELBenchmarkAssessmentPage,
   ElSkillsQuest,
   FinishedReportPage,
@@ -960,6 +961,7 @@ export function AppSurface({ surface }) {
     APP_VIEWS.PHONICS_LEARN,
     APP_VIEWS.PHONICS_QUEST,
     APP_VIEWS.SKILLS_BLOCK_QUEST,
+    APP_VIEWS.CYCLE_PRACTICE,
     APP_VIEWS.STUDENT_REWARDS
   ].includes(appView);
   const childProgressScopeKey = studentPreview
@@ -989,11 +991,16 @@ export function AppSurface({ surface }) {
     && activeStudentFocus.target === STUDENT_FOCUS_TARGETS.ASSIGNED_BOOK;
   const isAssignedArcadeGame = isStudentFocusLocked
     && activeStudentFocus.target === STUDENT_FOCUS_TARGETS.ARCADE_GAME;
+  const isCyclePracticeFocus = isStudentFocusLocked
+    && activeStudentFocus.target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE;
   const assignedBookId = isAssignedBook
     ? String(activeStudentFocus.resolved_config?.book_id || "").trim()
     : null;
   const assignedGameId = isAssignedArcadeGame
     ? String(activeStudentFocus.resolved_config?.game_id || "").trim()
+    : null;
+  const assignedCyclePracticeId = isCyclePracticeFocus
+    ? String(activeStudentFocus.resolved_config?.cycle_id || "").trim()
     : null;
   const showStudentArcade = studentArcadeOpen || isAssignedArcadeGame;
   const studentSurfaceShellClass = isStudentMode && isStudentSurfaceView
@@ -1018,7 +1025,8 @@ export function AppSurface({ surface }) {
     && [
       APP_VIEWS.GUIDED_READING,
       APP_VIEWS.PHONICS_LEARN,
-      APP_VIEWS.SKILLS_BLOCK_QUEST
+      APP_VIEWS.SKILLS_BLOCK_QUEST,
+      APP_VIEWS.CYCLE_PRACTICE
     ].includes(appView)
     && !studentFocusUnavailable;
   const studentFocusNoticeInAssessment = isIndependentSkillsAssessment
@@ -1505,6 +1513,24 @@ export function AppSurface({ surface }) {
               </Suspense>
             ))}
           />
+        </PageBoundary>
+      )}
+
+      {appView === APP_VIEWS.CYCLE_PRACTICE && nameSaved && !studentFocusUnavailable && (
+        <PageBoundary resetKey={`cycle-practice-${studentId}:${activeStudentFocus?.id || "open"}`}>
+          {withStudentRail("phonics", (
+            <CyclePracticePage
+              assignedCycleId={assignedCyclePracticeId || teacherCycleId || "cycle-1"}
+              client={isSupabaseConfigured ? supabase : null}
+              focusSession={isCyclePracticeFocus ? activeStudentFocus : null}
+              focusToken={sessionMode === "student" ? studentSession?.token || "" : ""}
+              onContentAvailabilityChange={reportExactStudentFocusContent}
+              onExit={() => setAppView(isStudentMode ? APP_VIEWS.STUDENT_HOME : APP_VIEWS.TEACHER_CLASSES)}
+              progressScopeKey={studentId || studentName || "default"}
+              reducedMotion={learnerAccessibility.reducedEffects}
+              studentName={studentName}
+            />
+          ))}
         </PageBoundary>
       )}
 

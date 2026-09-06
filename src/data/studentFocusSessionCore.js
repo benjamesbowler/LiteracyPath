@@ -29,6 +29,16 @@ export function startStudentFocusSession({
   contentVersion = STUDENT_FOCUS_CONTENT_VERSION,
   wholeClass = false
 }) {
+  if (target === "cycle_practice") {
+    return callFocusRpc(client, "teacher_start_cycle_practice_session", {
+      p_class_id: classId,
+      p_student_ids: studentIds,
+      p_assignments: assignments,
+      p_duration_minutes: durationMinutes,
+      p_content_version: contentVersion,
+      p_whole_class: Boolean(wholeClass)
+    });
+  }
   return callFocusRpc(client, "teacher_start_student_focus_session", {
     p_class_id: classId,
     p_target: target,
@@ -108,5 +118,18 @@ export function saveStudentFocusAssessmentAttempt({
     p_token: token,
     p_session_id: sessionId,
     p_attempt: compactAssessmentAttemptForStorage(attempt)
+  });
+}
+
+export function saveStudentFocusCyclePracticeAttempt({
+  client,
+  token,
+  sessionId,
+  attempt
+}) {
+  return callFocusRpc(client, "student_complete_focus_cycle_practice", {
+    p_token: token,
+    p_session_id: sessionId,
+    p_attempt: attempt
   });
 }

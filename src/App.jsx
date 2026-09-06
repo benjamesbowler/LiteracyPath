@@ -401,7 +401,9 @@ export default function App() {
   const accountAccessCheckSeqRef = useRef(0);
   const pendingDeletionResumeRef = useRef(new Map());
   const isLearnView = appView === APP_VIEWS.LEARN || appView === APP_VIEWS.PHONICS_LEARN;
-  const isStudentSurfaceView = isLearnView || appView === APP_VIEWS.STUDENT_REWARDS;
+  const isStudentSurfaceView = isLearnView
+    || appView === APP_VIEWS.STUDENT_REWARDS
+    || appView === APP_VIEWS.CYCLE_PRACTICE;
 
   useEffect(() => {
     function syncFullscreenState() {
@@ -2707,6 +2709,8 @@ export default function App() {
       setStudentFocusCompletedSessionId(session.id);
       if (session.target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT) {
         setAppView(APP_VIEWS.CHECKPOINT);
+      } else if (session.target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE) {
+        setAppView(APP_VIEWS.CYCLE_PRACTICE);
       }
       return;
     }
