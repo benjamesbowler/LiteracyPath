@@ -1909,7 +1909,7 @@ export function CheckpointDecisionPage({
           <p>
             {checkpoint.passed
               ? completedLevelOne
-                ? "Both Level 1 phases are passed. Move to the next skill, or choose the optional harder Level 2 extension."
+                ? "Phase 1 is complete. Move to the next skill, or choose the optional Phase 2 extension."
                 : completedLevelTwo || pathStatus.finalStepComplete
                   ? "Both optional Level 2 phases are complete. The next formal step is the next skill."
                   : `Next formal step: ${pathStatus.nextActionLabel}.`
@@ -1926,7 +1926,7 @@ export function CheckpointDecisionPage({
             </strong>
             <p>
               {currentLevelMastered && initialLevel === 1
-                ? "The next skill is unlocked. Level 2 is available as an optional harder challenge."
+                ? "The next skill is unlocked. Phase 2 is available as an optional harder challenge."
                 : levelOneMastered && initialLevel === 2
                   ? "Level 2 is using harder words after Level 1 mastery."
                   : "Pass both Level 1 phases at 70% to unlock the next skill."}
@@ -2088,7 +2088,7 @@ export function CheckpointDecisionPage({
                   onClick={continueSkill}
                   type="button"
                 >
-                  Try optional Level 2 Phase 1
+                  Try optional Phase 2 Round 1
                 </button>
               )}
 

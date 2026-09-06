@@ -1,4 +1,4 @@
-import { ASSESSMENT_PATH_STEPS, comparableSentenceAnswer, configuredCoverageTotals, debugAssessmentCoverage, formatCoverageKeyLabel, getRoundItemLabels, getAssessmentPathKey, getAssessmentPathLabel, getAssessmentQuestionLevel, getAssessmentQuestionPhase, getConfiguredPhaseItemKeys, getCoverageItemKeysForStage, getQuestionAnswer, getQuestionPathStep, getQuestionPrompt, getQuestionTargetWord, getRuntimeQuestionPromptAnswerSignature, getRuntimeQuestionSignature, getFinalSoundQuestionLevel, getStageIndex, inferItemMetadata, inferAnswerRecordMetadata, isFinalSoundsStage, isFixSentenceQuestion, isInitialSoundsStage, isListenChooseVowelQuestion, isMissingItemMasteryTableError, isPairSelectionQuestion, isPureEarlyPhonicsStage, isQuestionBlockedByMediaQa, normalizeAnswerRecordShape, normalizeAssessmentQuestion, normalizeItemKey, normalizeMultiSelectAnswer, normalizePairSelectionAnswer, normalizeSentenceAnswer } from "./assessmentRuntime.js";
+import { ASSESSMENT_PATH_STEPS, comparableSentenceAnswer, configuredCoverageTotals, debugAssessmentCoverage, formatCoverageKeyLabel, getRoundItemLabels, getAssessmentCheckpointProgression, getAssessmentPathKey, getAssessmentQuestionLevel, getAssessmentQuestionPhase, getConfiguredPhaseItemKeys, getCoverageItemKeysForStage, getQuestionAnswer, getQuestionPathStep, getQuestionPrompt, getQuestionTargetWord, getRuntimeQuestionPromptAnswerSignature, getRuntimeQuestionSignature, getFinalSoundQuestionLevel, getStageIndex, inferItemMetadata, inferAnswerRecordMetadata, isFinalSoundsStage, isFixSentenceQuestion, isInitialSoundsStage, isListenChooseVowelQuestion, isMissingItemMasteryTableError, isPairSelectionQuestion, isPureEarlyPhonicsStage, isQuestionBlockedByMediaQa, normalizeAnswerRecordShape, normalizeAssessmentQuestion, normalizeItemKey, normalizeMultiSelectAnswer, normalizePairSelectionAnswer, normalizeSentenceAnswer } from "./assessmentRuntime.js";
 import { supabase } from "../supabaseClient";
 import { skillTree } from "../skillTree";
 import { questionUsesFailedAssessmentMedia } from "../policy/assessmentMediaEvidence.js";
@@ -159,32 +159,12 @@ export function createAssessmentRoundController(context) {
   }
 
   function getCheckpointPathStatus(stage, currentStep = {}) {
-    const currentKey = getAssessmentPathKey(currentStep);
-    const index = Math.max(0, ASSESSMENT_PATH_STEPS.findIndex(step => getAssessmentPathKey(step) === currentKey));
-    const nextStep = ASSESSMENT_PATH_STEPS[index + 1] || null;
     const passedKeys = getPassedAssessmentPathKeys(stage);
-    const levelOnePassed = passedKeys.has("L1P1") && passedKeys.has("L1P2");
-    const levelTwoPassed = passedKeys.has("L2P1") && passedKeys.has("L2P2");
-    const finalStepComplete = levelTwoPassed || currentKey === "L2P2";
-    const nextActionLabel = currentKey === "L1P2" && levelOnePassed
-      ? "Try optional Level 2 Phase 1"
-      : finalStepComplete
-        ? "Move to next skill"
-        : ASSESSMENT_PATH_STEPS[index].nextLabel;
-    return {
-      level: Number(currentStep.level || 1) >= 2 ? 2 : 1,
-      phase: Number(currentStep.phase || 1) === 2 ? 2 : 1,
-      label: getAssessmentPathLabel(currentStep),
-      nextStep,
-      nextActionLabel,
-      finalStepComplete,
-      levelOnePassed,
-      levelTwoPassed,
-      nextSkillUnlocked: levelOnePassed,
-      level2Unlocked: levelOnePassed,
-      level2Optional: true,
+    return getAssessmentCheckpointProgression({
+      currentStep,
+      passedKeys,
       nextSkillLabel: skillTree[(skillTree.findIndex(item => item.id === stage?.id) + 1)]?.label || ""
-    };
+    });
   }
 
   function getInitialSoundStageProgress(records = answerHistoryRef.current) {
@@ -1971,7 +1951,14 @@ export function createAssessmentRoundController(context) {
           ...preliminaryCheckpoint.pathStatus,
           levelOnePassed: Boolean(skillStatus?.level1?.passed),
           levelTwoPassed: Boolean(skillStatus?.level2?.passed),
-          nextSkillUnlocked: Boolean(skillStatus?.nextSkillUnlocked),
+          // The status reducer answers whether Level 1 is complete in the
+          // ledger. The checkpoint path also answers whether this exact round
+          // is allowed to leave the current skill: Phase 1 Round 1 and Phase
+          // 2 Round 1 must never expose a next-skill action.
+          nextSkillUnlocked: Boolean(
+            preliminaryCheckpoint.pathStatus?.nextSkillUnlocked
+            && skillStatus?.nextSkillUnlocked
+          ),
           level2Unlocked: Boolean(skillStatus?.level2Unlocked),
           level2Optional: true
         },

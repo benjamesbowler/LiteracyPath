@@ -52,9 +52,9 @@ export const PURE_EARLY_PHONICS_SKILL_IDS = new Set([
 ]);
 
 export const ASSESSMENT_PATH_STEPS = [
-  { level: 1, phase: 1, label: "Level 1 Phase 1", nextLabel: "Continue Level 1 Phase 2" },
-  { level: 1, phase: 2, label: "Level 1 Phase 2", nextLabel: "Start Level 2" },
-  { level: 2, phase: 1, label: "Level 2 Phase 1", nextLabel: "Continue Level 2 Phase 2" },
+  { level: 1, phase: 1, label: "Level 1 Phase 1", nextLabel: "Continue Phase 1 Round 2" },
+  { level: 1, phase: 2, label: "Level 1 Phase 2", nextLabel: "Start Phase 2 Round 1" },
+  { level: 2, phase: 1, label: "Level 2 Phase 1", nextLabel: "Continue Phase 2 Round 2" },
   { level: 2, phase: 2, label: "Level 2 Phase 2", nextLabel: "Move to next skill" }
 ];
 
@@ -76,6 +76,45 @@ export function getAssessmentPathKey(step = {}) {
 
 export function getAssessmentPathLabel(step = {}) {
   return `Level ${Number(step.level || 1)} Phase ${Number(step.phase || 1)}`;
+}
+
+export function getAssessmentCheckpointProgression({
+  currentStep = {},
+  passedKeys = [],
+  nextSkillLabel = ""
+} = {}) {
+  const currentKey = getAssessmentPathKey(currentStep);
+  const passed = new Set(passedKeys);
+  const levelOnePassed = passed.has("L1P1") && passed.has("L1P2");
+  const levelTwoPassed = passed.has("L2P1") && passed.has("L2P2");
+  const finalStepComplete = currentKey === "L2P2" && levelTwoPassed;
+  const nextSkillUnlocked = (
+    currentKey === "L1P2" && levelOnePassed
+  ) || (
+    currentKey === "L2P2" && levelTwoPassed
+  );
+  const index = Math.max(0, ASSESSMENT_PATH_STEPS.findIndex(step => (
+    getAssessmentPathKey(step) === currentKey
+  )));
+
+  return {
+    level: Number(currentStep.level || 1) >= 2 ? 2 : 1,
+    phase: Number(currentStep.phase || 1) === 2 ? 2 : 1,
+    label: getAssessmentPathLabel(currentStep),
+    nextStep: ASSESSMENT_PATH_STEPS[index + 1] || null,
+    nextActionLabel: currentKey === "L1P2" && levelOnePassed
+      ? "Move to next skill or try Phase 2 Round 1"
+      : finalStepComplete
+        ? "Move to next skill"
+        : ASSESSMENT_PATH_STEPS[index]?.nextLabel || "Continue assessment",
+    finalStepComplete,
+    levelOnePassed,
+    levelTwoPassed,
+    nextSkillUnlocked,
+    level2Unlocked: levelOnePassed,
+    level2Optional: true,
+    nextSkillLabel
+  };
 }
 
 export function getAssessmentQuestionPhase(question = {}) {
