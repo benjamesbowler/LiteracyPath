@@ -167,7 +167,7 @@ begin
     if (select count(*) from jsonb_object_keys(p_assignments)) <> cardinality(v_student_ids) then
       return json_build_object('ok', false, 'error', 'missing_cycle_assignment');
     end if;
-    foreach v_student_id in array v_student_ids loop
+    for v_student_id in select unnest(v_student_ids) loop
       v_config := p_assignments -> v_student_id::text;
       if v_config is null or jsonb_typeof(v_config) <> 'object'
         or exists (select 1 from jsonb_object_keys(v_config) key where key not in ('cycle_id', 'cycle_number', 'cycle_title'))
