@@ -72,4 +72,66 @@ export function shuffleAnswerPositions(options = [], seedKey = "") {
   return shuffled;
 }
 
+function answerValuesForRound(round) {
+  const accepted = Array.isArray(round?.acceptedAnswers)
+    ? round.acceptedAnswers
+    : [];
+  return accepted.length ? accepted : [round?.answer ?? round?.studyWord ?? ""];
+}
+
+function sameAnswer(left, right) {
+  return String(left ?? "").trim().toLowerCase() === String(right ?? "").trim().toLowerCase();
+}
+
+function moveAtIndex(values, fromIndex, toIndex) {
+  const next = [...values];
+  const [moved] = next.splice(fromIndex, 1);
+  next.splice(toIndex, 0, moved);
+  return next;
+}
+
+/**
+ * Rebalance answer positions across a stable, already-built practice plan.
+ *
+ * The regular shuffle protects a question from answer-position bias, while
+ * this pass also prevents consecutive practice questions from reusing the
+ * same visible slot whenever their choice counts make that possible. Related
+ * display arrays (picture objects and choice details) move with their choice.
+ */
+export function distributeAnswerPositions(rounds = [], seedKey = "") {
+  if (!Array.isArray(rounds) || rounds.length < 2) return Array.isArray(rounds) ? rounds : [];
+
+  let previousPosition = -1;
+  let choiceRoundIndex = 0;
+
+  return rounds.map((round, roundIndex) => {
+    const choices = Array.isArray(round?.choices) ? round.choices : [];
+    if (choices.length < 2) return round;
+
+    const answerIndex = choices.findIndex(choice => (
+      answerValuesForRound(round).some(answer => sameAnswer(choice, answer))
+    ));
+    if (answerIndex < 0) return round;
+
+    const availablePositions = Array.from({ length: choices.length }, (_, index) => index)
+      .filter(index => index !== previousPosition);
+    const positionSeed = `${seedKey}:${round?.roundKey || round?.mechanicId || "round"}:${roundIndex}:${choiceRoundIndex}`;
+    const desiredPosition = availablePositions[
+      hashSeedKey(positionSeed) % availablePositions.length
+    ];
+    const nextChoices = moveAtIndex(choices, answerIndex, desiredPosition);
+    const nextRound = { ...round, choices: nextChoices };
+
+    for (const key of ["choiceDetails", "objects"]) {
+      if (Array.isArray(round?.[key]) && round[key].length === choices.length) {
+        nextRound[key] = moveAtIndex(round[key], answerIndex, desiredPosition);
+      }
+    }
+
+    previousPosition = desiredPosition;
+    choiceRoundIndex += 1;
+    return nextRound;
+  });
+}
+
 export const __testing = { hashSeedKey, seededRandom };

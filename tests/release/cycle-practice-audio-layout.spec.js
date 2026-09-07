@@ -60,6 +60,10 @@ test("Cycle Practice warms ahead and plays Sound Catch target audio first", asyn
   await installAudioSpy(page);
   await page.goto("/preview/child-surfaces.html?surface=cycle-practice&cycle=cycle-1");
   await expect(page.locator('[data-cycle-id="cycle-1"]')).toBeVisible();
+  const checkButton = page.getByRole("button", { name: "Start Cycle Check", exact: true });
+  await expect(checkButton).toHaveClass(/cycle-practice-check-button/);
+  await expect.poll(() => checkButton.evaluate(button => getComputedStyle(button).backgroundColor))
+    .toBe("rgb(46, 219, 99)");
 
   await expect.poll(() => page.evaluate(() => new Set(window.__cyclePracticeCreatedAudio).size))
     .toBeGreaterThanOrEqual(3);

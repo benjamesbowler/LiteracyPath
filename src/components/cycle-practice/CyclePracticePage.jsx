@@ -12,6 +12,7 @@ import {
   feedbackForCommittedOutcome
 } from "../elQuest/adventureRunState.js";
 import { playCueAudio, playCueSequence, preloadCueAudio, stopCueAudio } from "../../utils/audio/cuePlayer.js";
+import { distributeAnswerPositions } from "../../utils/answerPositionShuffle.js";
 import { triggerTactileFeedback } from "../../utils/tactileFeedback.js";
 import { queueProgressSave } from "../../utils/progressSync.js";
 
@@ -24,6 +25,7 @@ const CYCLE_PRACTICE_CONTENT_VERSION = "cycle-practice-v1";
 
 const PRACTICE_STATION_LIMIT = 3;
 const ASSESSMENT_LIMIT = 10;
+const isCyclePracticeRound = round => round?.mechanicId !== "poemSpotlight";
 
 function createAttemptId() {
   return globalThis.crypto?.randomUUID?.() || `cycle-practice-${Date.now()}-${Math.random().toString(36).slice(2)}`;
@@ -35,7 +37,7 @@ function cycleFromId(cycleId) {
 
 function buildCyclePracticePlan(cycle, seed = "cycle-practice") {
   if (!cycle) return [];
-  return stationsForCycle(cycle)
+  const rounds = stationsForCycle(cycle)
     .filter(station => station.id !== "check")
     .flatMap(station => {
       let rounds;
@@ -50,16 +52,21 @@ function buildCyclePracticePlan(cycle, seed = "cycle-practice") {
         stationTitle: station.title
       }));
     });
+  return distributeAnswerPositions(rounds.filter(isCyclePracticeRound), seed);
 }
 
 function buildCyclePracticeAssessment(cycle, seed = "cycle-check") {
   if (!cycle) return [];
   try {
-    return buildStationRounds(cycle, "check", { seed }).slice(0, ASSESSMENT_LIMIT).map(round => ({
-      ...round,
-      stationId: "check",
-      stationTitle: "Cycle Check"
-    }));
+    const rounds = buildStationRounds(cycle, "check", { seed })
+      .filter(isCyclePracticeRound)
+      .slice(0, ASSESSMENT_LIMIT)
+      .map(round => ({
+        ...round,
+        stationId: "check",
+        stationTitle: "Cycle Check"
+      }));
+    return distributeAnswerPositions(rounds, seed);
   } catch {
     return [];
   }
@@ -484,7 +491,7 @@ export function CyclePracticePage({
         <div className="cycle-practice-topbar__actions">
           {headerActions}
           {mode === "practice" ? (
-            <button className="lp-button lp-button-primary" data-child-primary="" disabled={!readyForCheck || answerPending} onClick={startAssessment} type="button">
+            <button className="lp-button lp-button-primary cycle-practice-check-button" data-child-primary="" disabled={!readyForCheck || answerPending} onClick={startAssessment} type="button">
               Start Cycle Check
             </button>
           ) : (

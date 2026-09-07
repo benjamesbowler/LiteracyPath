@@ -7,7 +7,10 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { shuffleAnswerPositions } from "../../src/utils/answerPositionShuffle.js";
+import {
+  distributeAnswerPositions,
+  shuffleAnswerPositions
+} from "../../src/utils/answerPositionShuffle.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 
@@ -66,6 +69,47 @@ test("options that are objects survive the shuffle intact", () => {
   assert.equal(shown.length, 3);
   assert.equal(shown.filter(option => option.isCorrect).length, 1);
   assert.ok(shown.every(option => options.includes(option)), "objects must be passed through by reference");
+});
+
+test("cycle practice distributes consecutive answers across available slots", () => {
+  const rounds = [
+    { roundKey: "one", choices: ["CORRECT", "d1", "d2"], answer: "CORRECT" },
+    { roundKey: "two", choices: ["CORRECT", "d1", "d2"], answer: "CORRECT" },
+    {
+      roundKey: "three",
+      choices: ["CORRECT", "d1", "d2"],
+      answer: "CORRECT",
+      objects: [
+        { word: "CORRECT", matches: true },
+        { word: "d1", matches: false },
+        { word: "d2", matches: false }
+      ]
+    },
+    {
+      roundKey: "four",
+      choices: ["CORRECT", "d1", "d2"],
+      answer: "CORRECT",
+      choiceDetails: [
+        { spelling: "CORRECT" },
+        { spelling: "d1" },
+        { spelling: "d2" }
+      ]
+    }
+  ];
+
+  const distributed = distributeAnswerPositions(rounds, "cycle-1:preview");
+  const positions = distributed.map(round => round.choices.indexOf("CORRECT"));
+  assert.ok(positions.every((position, index) => index === 0 || position !== positions[index - 1]));
+  assert.deepEqual(
+    distributed[2].objects.map(object => object.word),
+    distributed[2].choices,
+    "picture cards must stay aligned with their choice order"
+  );
+  assert.deepEqual(
+    distributed[3].choiceDetails.map(detail => detail.spelling),
+    distributed[3].choices,
+    "choice metadata must stay aligned with its choice order"
+  );
 });
 
 test("published banks must not ship fully answer-first", async () => {
