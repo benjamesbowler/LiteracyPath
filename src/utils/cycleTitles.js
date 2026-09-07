@@ -30,6 +30,13 @@ const PHASE_LABELS = Object.freeze({
   "skills-block": "Skills block"
 });
 
+const CYCLE_TOPIC_OVERRIDES = Object.freeze({
+  7: "Review letters A to H",
+  14: "Review letters B to Z",
+  24: "fizzle letters",
+  25: "Review and wrap-up"
+});
+
 export function isFluencyCycle(cycle) {
   return (cycle?.cycleNumber || 0) >= 25;
 }
@@ -54,14 +61,37 @@ export function humanizePhase(phase) {
   return text ? text[0].toUpperCase() + text.slice(1) : "Review time";
 }
 
+function displayGrapheme(value) {
+  const raw = String(value || "").trim();
+  if (!raw) return "";
+  if (/^([a-z])\1$/i.test(raw)) return raw[0].toUpperCase();
+  if (/^([a-z]+)\/[^/]+$/i.test(raw)) return raw.split("/")[0].trim();
+  return raw.replace(/\s+sounds$/i, "");
+}
+
+function joinCycleTopics(topics) {
+  if (topics.length <= 1) return topics[0] || "";
+  if (topics.length === 2) return `${topics[0]} and ${topics[1]}`;
+  return `${topics.slice(0, -1).join(", ")}, and ${topics[topics.length - 1]}`;
+}
+
 // What this cycle is about, in a few words — no "Cycle N" prefix.
 export function cycleTopic(cycle = {}) {
-  const letters = (cycle.focusLetters || []).map(card => card.grapheme).filter(Boolean);
-  if (!isFluencyCycle(cycle) && letters.length && letters.length <= 3) return letters.join(" and ");
-
   const displayTitle = presentationCycleDisplayTitle(cycle);
   if (displayTitle && displayTitle !== `Cycle ${cycle.cycleNumber}`) {
     return displayTitle.replace(/^Cycle \d+:\s*/, "");
+  }
+
+  if (CYCLE_TOPIC_OVERRIDES[cycle.cycleNumber]) return CYCLE_TOPIC_OVERRIDES[cycle.cycleNumber];
+
+  const letters = (cycle.focusLetters || [])
+    .map(card => displayGrapheme(card.grapheme))
+    .filter(Boolean);
+  if (!isFluencyCycle(cycle) && letters.length && letters.length <= 3) {
+    const topic = cycle.phase === "patterns"
+      ? joinCycleTopics(letters).toLowerCase()
+      : joinCycleTopics(letters);
+    return cycle.cycleNumber >= 2 && cycle.cycleNumber <= 6 ? `Meet ${topic}` : topic;
   }
 
   if (!isFluencyCycle(cycle) && letters.length) return `${letters[0]} families`;
@@ -69,6 +99,14 @@ export function cycleTopic(cycle = {}) {
   // Without this they all collapse to one shared phase label.
   if (letters.length) return letters.join(" and ");
   return humanizePhase(cycle.phase);
+}
+
+// The two-line cycle cards use a complete title so every card explains its
+// teaching focus, while the stored curriculum title remains unchanged.
+export function cyclePickerTitle(cycle = {}) {
+  if (!cycle) return "";
+  if (!cycle?.cycleNumber) return presentationCycleDisplayTitle(cycle);
+  return `Cycle ${cycle.cycleNumber}: ${cycleTopic(cycle)}`;
 }
 
 // The label every cycle picker shows: "Cycle 2 · Tt and Ss", never a bare

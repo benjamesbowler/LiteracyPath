@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { SpeakerHigh } from "@phosphor-icons/react";
+import { triggerTactileFeedback } from "../../../utils/tactileFeedback.js";
 import {
   commitSceneHunt,
   commitSoundGate,
@@ -236,6 +237,7 @@ export function SceneHuntMechanic({
   function handleObjectAudio(event, object) {
     event.stopPropagation();
     if (disabled) return;
+    triggerTactileFeedback(16);
     onRequestObjectAudio?.(object.word);
   }
 

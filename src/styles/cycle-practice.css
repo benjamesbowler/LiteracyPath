@@ -64,7 +64,7 @@
   font-size: clamp(.82rem, 1.2vw, .98rem);
   font-weight: 800;
 }
-.cycle-practice-topbar__instruction > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cycle-practice-topbar__instruction > span { min-width: 0; line-height: 1.15; }
 .cycle-practice-topbar__audio-actions { display: flex; flex: 0 0 auto; gap: 5px; }
 .cycle-practice-topbar__audio-button {
   display: inline-flex;
@@ -85,6 +85,11 @@
 .cycle-practice-topbar__audio-button svg { width: 18px; height: 18px; }
 .cycle-practice-topbar__audio-button[data-audio-state="playing"] { background: #c9edcf; box-shadow: 0 0 0 2px rgba(78, 180, 111, .18); }
 .cycle-practice-topbar__audio-button:disabled { cursor: wait; opacity: .62; }
+.cycle-practice-topbar__audio-button:not(:disabled):active {
+  transform: translateY(3px) scale(.98);
+  background: #c9edcf;
+  box-shadow: inset 0 2px 0 rgba(24, 92, 70, .14), 0 0 0 3px rgba(78, 180, 111, .18);
+}
 
 .cycle-practice-topbar__progress {
   grid-area: progress;
@@ -121,6 +126,117 @@
   min-height: 0;
   padding: clamp(12px, 2vw, 26px);
   border-radius: 20px;
+}
+
+/* The compact Cycle Practice frame owns the whole viewport. The mechanics
+   should use that space as a play surface, not inherit the smaller Adventure
+   Map card width. */
+.cycle-practice-page .am-code-stage {
+  width: min(100%, 1180px);
+  min-height: 100%;
+}
+
+.cycle-practice-page .am-letter-press,
+.cycle-practice-page .am-sound-gate,
+.cycle-practice-page .am-scene-hunt,
+.cycle-practice-page .adventure-word-window,
+.cycle-practice-page .adventure-word-machine {
+  width: min(100%, 1180px);
+}
+
+.cycle-practice-page .am-letter-press-button {
+  min-width: clamp(136px, 13vw, 188px) !important;
+  min-height: clamp(136px, 13vw, 188px) !important;
+  font-size: clamp(3.4rem, 6vw, 5.4rem);
+}
+
+.cycle-practice-page .am-code-sign-slot {
+  width: clamp(150px, 18vw, 220px);
+  min-height: clamp(190px, 29vh, 270px);
+}
+
+.cycle-practice-page .am-sound-choice {
+  width: min(100%, 1120px);
+}
+
+.cycle-practice-page .am-sound-choice__tiles {
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: clamp(18px, 2.5vw, 30px);
+}
+
+.cycle-practice-page .am-sound-choice__tile {
+  min-height: clamp(170px, 25vh, 230px) !important;
+  font-size: clamp(3.8rem, 7vw, 6.2rem) !important;
+}
+
+/* Match-the-sound-to-the-image: three large visual choices should read as the
+   main event. The check action sits in its own generous rail rather than
+   compressing the picture cards into a narrow strip. */
+.cycle-practice-page .am-scene-hunt {
+  grid-template-columns: minmax(0, 1fr) minmax(170px, 220px);
+  grid-template-rows: auto minmax(0, 1fr);
+  align-items: stretch;
+  gap: clamp(18px, 2.4vw, 30px);
+}
+
+.cycle-practice-page .am-scene-hunt-target {
+  min-height: clamp(64px, 10vh, 86px);
+  padding-inline: 28px;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+}
+
+.cycle-practice-page .am-scene-hunt-target strong {
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+}
+
+.cycle-practice-page .am-scene-hunt-field {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: clamp(16px, 2vw, 26px);
+}
+
+.cycle-practice-page .am-scene-object-card {
+  gap: 12px;
+}
+
+.cycle-practice-page .am-scene-object {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(140px, 1fr) auto;
+  min-height: clamp(220px, 37vh, 330px) !important;
+  padding: clamp(14px, 1.5vw, 22px);
+  border-width: 5px;
+  border-radius: 38px 38px 24px 24px;
+}
+
+.cycle-practice-page .am-scene-object img {
+  height: clamp(140px, 24vh, 220px);
+}
+
+.cycle-practice-page .am-scene-tag-state,
+.cycle-practice-page .am-scene-object-label {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+}
+
+.cycle-practice-page .am-scene-object-label {
+  padding: 5px 11px;
+}
+
+.cycle-practice-page .am-scene-hunt-actions {
+  grid-column: 2;
+  align-content: center;
+  min-width: 0;
+  gap: 16px;
+}
+
+.cycle-practice-page .am-scene-hunt-actions button,
+.cycle-practice-page .am-scene-hear-name {
+  min-height: 72px !important;
+  font-size: clamp(.9rem, 1.3vw, 1.05rem);
+}
+
+.cycle-practice-page .am-scene-hear-name {
+  padding-inline: 12px;
 }
 
 /* Cycle Practice is a focused child surface. Its learning choices should
@@ -199,4 +315,47 @@
   .cycle-practice-topbar__audio-actions { justify-content: flex-start; }
   .cycle-practice-topbar__audio-button { flex: 1 1 0; }
   .cycle-practice-topbar__actions .lp-button { width: auto; }
+}
+
+@media (max-width: 980px) {
+  .cycle-practice-page .am-scene-hunt {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .cycle-practice-page .am-scene-hunt-field {
+    grid-column: 1;
+  }
+
+  .cycle-practice-page .am-scene-hunt-actions {
+    grid-column: 1;
+    grid-template-columns: minmax(180px, 260px);
+    justify-content: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .cycle-practice-page .am-code-stage {
+    width: 100%;
+  }
+
+  .cycle-practice-page .am-scene-hunt-field {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cycle-practice-page .am-scene-object {
+    min-height: 190px !important;
+  }
+
+  .cycle-practice-page .am-scene-object img {
+    height: 120px;
+  }
+
+  .cycle-practice-page .am-sound-choice__tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cycle-practice-page .am-sound-choice__tile {
+    min-height: 140px !important;
+  }
 }

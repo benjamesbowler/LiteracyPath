@@ -15,6 +15,7 @@ import {
   STUDENT_FOCUS_TARGETS
 } from "../../policy/studentFocusTargets.js";
 import { guidedReadingBandLabel, guidedReadingModeLabel } from "../../policy/guidedReadingCatalogPolicy.js";
+import { cyclePickerTitle } from "../../utils/cycleTitles.js";
 import { TeacherDialog } from "../teacher/ui/TeacherDialog.jsx";
 
 const GUIDED_READING_TOGETHER = "guided_reading";
@@ -40,7 +41,7 @@ function buildAdventureMapSpaces(cycles, landmarksByPart, parts) {
     return {
       cycleId: cycle.id,
       cycleNumber,
-      cycleTitle: cycle.title,
+      cycleTitle: cyclePickerTitle(cycle),
       partId: part.id,
       partName: part.name,
       spaceName
@@ -427,7 +428,7 @@ export function StudentSessionSetup({
               : ""
         : target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE
           ? cyclePracticeMode === STUDENT_CYCLE_PRACTICE_MODES.ONE_CYCLE_FOR_EVERYONE
-            ? commonCycle?.title || ""
+            ? cyclePickerTitle(commonCycle)
             : "Each student’s selected cycle"
         : "";
   const audienceLabel = audienceSelection.wholeClass
@@ -610,7 +611,7 @@ export function StudentSessionSetup({
                     type="button"
                   >
                     <span>Cycle {cycle.cycleNumber}</span>
-                    <strong>{cycle.title}</strong>
+                    <strong>{cyclePickerTitle(cycle)}</strong>
                   </button>
                 ))}
               </div>
@@ -637,7 +638,7 @@ export function StudentSessionSetup({
                           setMessage("");
                         }}
                       >
-                        {cycleOptions.map(cycle => <option key={cycle.id} value={cycle.id}>{cycle.title}</option>)}
+                        {cycleOptions.map(cycle => <option key={cycle.id} value={cycle.id}>{cyclePickerTitle(cycle)}</option>)}
                       </select>
                     </label>
                   ))}

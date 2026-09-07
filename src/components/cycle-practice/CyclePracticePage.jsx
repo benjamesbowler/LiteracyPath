@@ -12,6 +12,7 @@ import {
   feedbackForCommittedOutcome
 } from "../elQuest/adventureRunState.js";
 import { playCueAudio, playCueSequence, preloadCueAudio, stopCueAudio } from "../../utils/audio/cuePlayer.js";
+import { triggerTactileFeedback } from "../../utils/tactileFeedback.js";
 import { queueProgressSave } from "../../utils/progressSync.js";
 
 import "../../styles/skills-block-quest.css";
@@ -75,20 +76,34 @@ function roundAudio(round) {
 
 function roundAudioSources(round, includeContent = true) {
   const resolved = roundAudio(round);
+  const objectAudio = round?.mechanicId === "sceneHunt"
+    ? (round.objects || []).map(object => getLedaWordAudioPath(object.word))
+    : [];
   return [
     resolved.instructionAudio,
     ...resolved.targetAudio,
-    ...(includeContent && resolved.contentAudio ? [resolved.contentAudio] : [])
+    ...(includeContent && resolved.contentAudio ? [resolved.contentAudio] : []),
+    ...objectAudio
+  ].filter(Boolean);
+}
+
+const TARGET_FIRST_MECHANICS = new Set(["soundGate", "sceneHunt"]);
+
+function playbackAudioSequence(round, includeContent = false) {
+  const resolved = roundAudio(round);
+  const target = resolved.targetAudio || [];
+  const instruction = resolved.instructionAudio ? [resolved.instructionAudio] : [];
+  const content = includeContent && resolved.contentAudio ? [resolved.contentAudio] : [];
+  return [
+    ...(TARGET_FIRST_MECHANICS.has(round?.mechanicId) ? target : []),
+    ...instruction,
+    ...(TARGET_FIRST_MECHANICS.has(round?.mechanicId) ? [] : target),
+    ...content
   ].filter(Boolean);
 }
 
 function instructionAudio(round, includeContent = false, callbacks = {}) {
-  const resolved = roundAudio(round);
-  const sequence = [
-    resolved.instructionAudio,
-    ...resolved.targetAudio,
-    ...(includeContent && resolved.contentAudio ? [resolved.contentAudio] : [])
-  ].filter(Boolean);
+  const sequence = playbackAudioSequence(round, includeContent);
   if (!sequence.length) {
     callbacks.onUnavailable?.();
     return;
@@ -147,6 +162,7 @@ export function CyclePracticePage({
   const [message, setMessage] = useState("");
   const [result, setResult] = useState(null);
   const audioRoundRef = useRef("");
+  const audioNeedsGestureRef = useRef(false);
   const practiceStarted = elapsedSeconds >= CYCLE_PRACTICE_MINIMUM_SECONDS;
   const locked = Boolean(focusSession?.id);
   const currentRound = mode === "assessment"
@@ -169,17 +185,47 @@ export function CyclePracticePage({
   useEffect(() => {
     if (!currentRound || answerPending || result) return undefined;
     const key = `${mode}:${currentRound.id || (mode === "assessment" ? assessmentIndex : practiceIndex)}`;
+    const plan = mode === "assessment" ? assessmentPlan : practicePlan;
+    const currentIndex = mode === "assessment" ? assessmentIndex : practiceIndex;
+    // Warm the current activity plus the next two activities. Scene Hunt also
+    // warms each picture's name cue so its Hear name buttons do not pay a
+    // network/media cold-start cost on tap.
+    plan
+      .slice(currentIndex, currentIndex + 3)
+      .flatMap(round => roundAudioSources(round, mode === "practice"))
+      .filter((src, index, sources) => sources.indexOf(src) === index)
+      .forEach(src => { void preloadCueAudio(src); });
+
     if (audioRoundRef.current === key) return undefined;
     audioRoundRef.current = key;
     setAudioStatus("ready");
-    roundAudioSources(currentRound, mode === "practice").forEach(preloadCueAudio);
     instructionAudio(currentRound, mode === "practice", {
       onStarted: () => setAudioStatus("playing"),
       onDelivery: () => setAudioStatus("ready"),
-      onUnavailable: () => setAudioStatus("unavailable")
+      onUnavailable: () => {
+        audioNeedsGestureRef.current = true;
+        audioRoundRef.current = "";
+        setAudioStatus("unavailable");
+      }
     });
     return () => stopCueAudio();
-  }, [answerPending, assessmentIndex, currentRound, mode, practiceIndex, result]);
+  }, [answerPending, assessmentIndex, assessmentPlan, currentRound, mode, practiceIndex, practicePlan, result]);
+
+  function retryAutomaticAudioFromGesture() {
+    if (!audioNeedsGestureRef.current || !currentRound || answerPending || result) return;
+    audioNeedsGestureRef.current = false;
+    audioRoundRef.current = "";
+    setAudioStatus("ready");
+    instructionAudio(currentRound, mode === "practice", {
+      onStarted: () => setAudioStatus("playing"),
+      onDelivery: () => setAudioStatus("ready"),
+      onUnavailable: () => {
+        audioNeedsGestureRef.current = true;
+        audioRoundRef.current = "";
+        setAudioStatus("unavailable");
+      }
+    });
+  }
 
   function replayInstruction(includeContent = false) {
     if (!currentRound) return;
@@ -340,9 +386,10 @@ export function CyclePracticePage({
       type="button"
       className="cycle-practice-topbar__audio-button"
       aria-label={ariaLabel}
+      data-audio-action="replay"
       data-audio-state={audioStatus}
       disabled={answerPending}
-      onClick={onClick}
+      onClick={() => { triggerTactileFeedback(16); onClick(); }}
     >
       <SpeakerIcon />
       <span>{label}</span>
@@ -350,7 +397,15 @@ export function CyclePracticePage({
   ) : null;
 
   return (
-    <main className="cycle-practice-page" data-cycle-id={cycle.id}>
+    <main
+      className="cycle-practice-page"
+      data-cycle-id={cycle.id}
+      onPointerDownCapture={event => {
+        if (!event.target.closest?.("[data-audio-action='replay']")) {
+          retryAutomaticAudioFromGesture();
+        }
+      }}
+    >
       <header className="cycle-practice-topbar">
         <div className="cycle-practice-topbar__identity">
           <span className="cycle-practice-topbar__eyebrow">Cycle {cycle.cycleNumber}</span>
