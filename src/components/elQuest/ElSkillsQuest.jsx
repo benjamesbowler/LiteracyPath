@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { elSkillsBlockCycles } from "../../data/elSkillsBlockCycles.js";
-import { playCueAudio, playCueSequence, stopCueAudio } from "../../utils/audio/cuePlayer.js";
+import { playCueAudio, playCueSequence, preloadCueAudio, stopCueAudio } from "../../utils/audio/cuePlayer.js";
 import { triggerTactileFeedback } from "../../utils/tactileFeedback.js";
 import { playCorrectChime, playSoftBuzz, playCelebrationFanfare, playStarChime } from "../../utils/audio/gameSfx.js";
 import { queueProgressSave } from "../../utils/progressSync.js";
@@ -369,12 +369,7 @@ export function ElSkillsQuest({
       const nextAudio = resolveAdventureRoundAudio(next);
       [nextAudio.instructionAudio, ...nextAudio.targetAudio, nextAudio.contentAudio]
         .filter(Boolean)
-        .forEach(src => {
-          try {
-            const preload = new Audio(src);
-            preload.preload = "auto";
-          } catch { /* ignore */ }
-        });
+        .forEach(src => { void preloadCueAudio(src); });
     }
     return () => {
       if (cueTimerRef.current !== null) window.clearTimeout(cueTimerRef.current);
