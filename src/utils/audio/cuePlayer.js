@@ -13,10 +13,12 @@ let cueSuspended = false;
 let cueResumeAfterSuspend = false;
 let sharedCueElement = null;
 let cueListeners = [];
+let cueListenerElement = null;
 let cueSequenceVersion = 0;
 let cueSequenceTimer = null;
 let cueSequenceSession = 0;
 let activeCueSequence = null;
+const warmedCueCache = new Map();
 
 function getSharedCueElement() {
   if (!sharedCueElement) {
@@ -27,15 +29,81 @@ function getSharedCueElement() {
 }
 
 function clearCueListeners() {
-  if (!sharedCueElement) return;
-  cueListeners.forEach(([type, listener]) => sharedCueElement.removeEventListener?.(type, listener));
+  if (!cueListenerElement) return;
+  cueListeners.forEach(([type, listener]) => cueListenerElement.removeEventListener?.(type, listener));
   cueListeners = [];
+  cueListenerElement = null;
 }
 
 function listenForCue(type, listener, options) {
-  const audio = getSharedCueElement();
+  const audio = currentCue || getSharedCueElement();
   audio.addEventListener(type, listener, options);
   cueListeners.push([type, listener]);
+  cueListenerElement = audio;
+}
+
+function normalizeCueSource(src) {
+  return typeof src === "string" ? src.trim() : "";
+}
+
+/**
+ * Keep the media element that warmed a cue so playback can reuse its loaded
+ * media pipeline. Reassigning a single shared element and calling load() for
+ * every tap was visible as a cold-start pause on iPad Safari, even when the
+ * browser HTTP cache already contained the MP3.
+ */
+export function preloadCueAudio(src) {
+  const normalized = normalizeCueSource(src);
+  if (!normalized || typeof Audio === "undefined") return Promise.resolve(false);
+
+  const existing = warmedCueCache.get(normalized);
+  if (existing) return existing.promise;
+
+  let audio;
+  try {
+    audio = new Audio();
+    audio.preload = "auto";
+    audio.src = normalized;
+  } catch {
+    return Promise.resolve(false);
+  }
+
+  const entry = { audio, failed: false, ready: false, promise: null };
+  entry.promise = new Promise(resolve => {
+    let settled = false;
+    let timeoutId = null;
+    const finish = ok => {
+      if (settled) return;
+      settled = true;
+      if (timeoutId && typeof window !== "undefined") window.clearTimeout?.(timeoutId);
+      audio.removeEventListener?.("loadeddata", onReady);
+      audio.removeEventListener?.("canplay", onReady);
+      audio.removeEventListener?.("error", onError);
+      entry.ready = ok;
+      entry.failed = !ok;
+      resolve(ok);
+    };
+    const onReady = () => finish(true);
+    const onError = () => finish(false);
+    audio.addEventListener?.("loadeddata", onReady, { once: true });
+    audio.addEventListener?.("canplay", onReady, { once: true });
+    audio.addEventListener?.("error", onError, { once: true });
+    if (typeof window !== "undefined" && typeof window.setTimeout === "function") {
+      timeoutId = window.setTimeout(() => finish(false), 8000);
+    }
+    try {
+      audio.load?.();
+    } catch {
+      finish(false);
+    }
+  });
+  warmedCueCache.set(normalized, entry);
+  return entry.promise;
+}
+
+function getWarmedCueElement(src) {
+  const entry = warmedCueCache.get(normalizeCueSource(src));
+  return entry && !entry.failed ? entry.audio : null;
 }
 
 function reportSequenceDelivery(sequence, type) {
@@ -161,7 +229,9 @@ function playCueAudioInternal(src, {
   reportCueDelivery("loading", { id: deliveryId, session, delivery: deliver });
 
   try {
-    const audio = getSharedCueElement();
+    const warmedAudio = getWarmedCueElement(src);
+    const audio = warmedAudio || getSharedCueElement();
+    const usesWarmedAudio = Boolean(warmedAudio);
     if (!ownsSession()) return;
     ownedAudio = audio;
     currentCue = audio;
@@ -169,10 +239,12 @@ function playCueAudioInternal(src, {
     if (!ownsCue()) return;
     audio.currentTime = 0;
     if (!ownsCue()) return;
-    audio.src = src;
-    if (!ownsCue()) return;
-    audio.load?.();
-    if (!ownsCue()) return;
+    if (!usesWarmedAudio) {
+      audio.src = src;
+      if (!ownsCue()) return;
+      audio.load?.();
+      if (!ownsCue()) return;
+    }
     audio.volume = applyLearnerAudioIntensity(volume);
     if (!ownsCue()) return;
     setQuestActionSfxInstructionActive(true);

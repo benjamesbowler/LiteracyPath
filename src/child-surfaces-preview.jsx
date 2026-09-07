@@ -188,7 +188,7 @@ function ReadingLibrarySurface() {
   );
 }
 
-function PreviewShell({ active, children, focusLocked = false, headerActions = null }) {
+function PreviewShell({ active, children, focusLocked = false, headerActions = null, immersive = false }) {
   return (
     <StudentGlassShell
       active={active}
@@ -202,6 +202,7 @@ function PreviewShell({ active, children, focusLocked = false, headerActions = n
       studentName="Aaron"
       tabs={focusLocked ? [] : undefined}
       headerActions={headerActions}
+      immersive={immersive}
     >
       {children}
     </StudentGlassShell>
@@ -226,8 +227,8 @@ function Surface() {
       return <PreviewShell active="arcade"><div className="student-surface-frame student-surface-arcade"><PhonicsLearnPage initialIsland="games" leaderboardAvailable={PREVIEW_LEADERBOARD_AVAILABLE} leaderboardClient={previewLeaderboardClient} leaderboardStudentToken={PREVIEW_LEADERBOARD_AVAILABLE ? PREVIEW_LEADERBOARD_TOKEN : undefined} progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
     case "cycle-practice":
       return (
-        <PreviewShell active="phonics" focusLocked>
-          <div className="student-surface-frame student-surface-phonics cycle-practice-preview-frame">
+        <PreviewShell active="phonics" focusLocked immersive>
+          <div className="student-surface-frame student-surface-phonics cycle-practice-preview-frame" data-child-surface="cycle-practice">
             <CyclePracticePage
               assignedCycleId={PREVIEW_PARAMS.get("cycle") || "cycle-1"}
               onExit={() => markDestination("student-home")}

@@ -65,6 +65,63 @@ test("an active phonics cue pauses and resumes from the same place", async () =>
   }
 });
 
+test("preloaded cues reuse the warmed media element for immediate playback", async () => {
+  const originalWindow = globalThis.window;
+  const originalAudio = globalThis.Audio;
+  const instances = [];
+  let cue = null;
+
+  class FakeAudio {
+    constructor() {
+      this.src = "";
+      this.currentTime = 0;
+      this.paused = true;
+      this.playCount = 0;
+      this.listeners = new Map();
+      instances.push(this);
+    }
+
+    addEventListener(type, handler) {
+      const handlers = this.listeners.get(type) || [];
+      handlers.push(handler);
+      this.listeners.set(type, handlers);
+    }
+
+    removeEventListener(type, handler) {
+      const handlers = this.listeners.get(type) || [];
+      this.listeners.set(type, handlers.filter(candidate => candidate !== handler));
+    }
+
+    emit(type) {
+      for (const handler of this.listeners.get(type) || []) handler();
+    }
+
+    load() { this.emit("canplay"); }
+    play() { this.paused = false; this.playCount += 1; return Promise.resolve(); }
+    pause() { this.paused = true; }
+  }
+
+  globalThis.window = { speechSynthesis: { cancel() {} } };
+  globalThis.Audio = FakeAudio;
+
+  try {
+    cue = await import(`../../src/utils/audio/cuePlayer.js?warmed=${Date.now()}`);
+    assert.equal(await cue.preloadCueAudio("/audio/warmed.mp3"), true);
+    assert.equal(instances.length, 1);
+
+    cue.playCueAudio("/audio/warmed.mp3");
+    await Promise.resolve();
+
+    assert.equal(instances.length, 1);
+    assert.equal(instances[0].src, "/audio/warmed.mp3");
+    assert.equal(instances[0].playCount, 1);
+  } finally {
+    cue?.stopCueAudio();
+    globalThis.window = originalWindow;
+    globalThis.Audio = originalAudio;
+  }
+});
+
 test("a failed cue advances to the next recorded clip in a sequence", async () => {
   const originalWindow = globalThis.window;
   const originalAudio = globalThis.Audio;

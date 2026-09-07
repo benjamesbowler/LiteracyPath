@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { triggerTactileFeedback } from "../../utils/tactileFeedback.js";
 
-function SpeakerIcon() {
+export function SpeakerIcon() {
   return (
     <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M11 5 6 9H3v6h3l5 4V5Z" fill="currentColor" stroke="none" />
@@ -37,6 +37,7 @@ export function AdventureRoundFrame({
   onStageInteraction,
   onShakeEnd,
   onStop,
+  compact = false,
   children
 }) {
   const current = Math.max(1, Number(roundNumber) || 1);
@@ -77,10 +78,14 @@ export function AdventureRoundFrame({
     <section
       className="adventure-round-frame"
       data-adventure-round-frame={mechanicId || "unknown"}
+      data-frame-layout={compact ? "compact" : "standard"}
+      {...(compact ? { "data-child-choices": "" } : {})}
       data-feedback-tone={feedbackTone}
-      aria-labelledby="adventure-round-title"
+      {...(compact
+        ? { "aria-label": `${stationTitle || "Activity"}, ${current} of ${total}` }
+        : { "aria-labelledby": "adventure-round-title" })}
     >
-      <header className="adventure-round-frame__header">
+      {!compact && <header className="adventure-round-frame__header">
         <div className="adventure-round-frame__heading">
           <p className="adventure-round-frame__eyebrow">{stationTitle}</p>
           <h1 id="adventure-round-title">{current} of {total}</h1>
@@ -102,10 +107,10 @@ export function AdventureRoundFrame({
         >
           Stop
         </button>
-      </header>
+      </header>}
 
-      <div className="adventure-round-frame__body">
-        <aside className="adventure-round-frame__plaque" aria-label="What to do">
+      <div className={`adventure-round-frame__body${compact ? " adventure-round-frame__body--compact" : ""}`}>
+        {!compact && <aside className="adventure-round-frame__plaque" aria-label="What to do">
           <div className="adventure-round-frame__instruction">
             <p>{instructionText}</p>
             {detailText && <small>{detailText}</small>}
@@ -155,7 +160,7 @@ export function AdventureRoundFrame({
               {audioStatus === "unavailable" && "Audio is unavailable here. Read the words on screen."}
             </span>
           </div>
-        </aside>
+        </aside>}
 
         <div
           className={`adventure-round-frame__stage${shaking ? " sbq-shake" : ""}`}
@@ -205,14 +210,14 @@ export function AdventureRoundFrame({
           </div>
         </div>
 
-        <p
+        {!compact && <p
           className="adventure-round-frame__feedback"
           data-feedback-tone={feedbackTone}
           role={announceFeedback ? "status" : undefined}
           aria-live={announceFeedback ? "polite" : undefined}
         >
           {feedback}
-        </p>
+        </p>}
       </div>
     </section>
   );

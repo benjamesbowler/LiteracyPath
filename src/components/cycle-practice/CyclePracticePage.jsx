@@ -6,12 +6,12 @@ import { saveStudentFocusCyclePracticeAttempt } from "../../data/studentFocusSes
 import { buildStationRounds, stationsForCycle } from "../elQuest/elQuestEngine.js";
 import { resolveAdventureRoundAudio } from "../elQuest/adventureRoundAudio.js";
 import { AdventureMechanicRenderer } from "../elQuest/mechanics/AdventureMechanicRenderer.jsx";
-import { AdventureRoundFrame } from "../elQuest/AdventureRoundFrame.jsx";
+import { AdventureRoundFrame, SpeakerIcon } from "../elQuest/AdventureRoundFrame.jsx";
 import {
   correctionModelForOutcome,
   feedbackForCommittedOutcome
 } from "../elQuest/adventureRunState.js";
-import { playCueAudio, playCueSequence, stopCueAudio } from "../../utils/audio/cuePlayer.js";
+import { playCueAudio, playCueSequence, preloadCueAudio, stopCueAudio } from "../../utils/audio/cuePlayer.js";
 import { queueProgressSave } from "../../utils/progressSync.js";
 
 import "../../styles/skills-block-quest.css";
@@ -73,6 +73,15 @@ function roundAudio(round) {
   return resolveAdventureRoundAudio(round);
 }
 
+function roundAudioSources(round, includeContent = true) {
+  const resolved = roundAudio(round);
+  return [
+    resolved.instructionAudio,
+    ...resolved.targetAudio,
+    ...(includeContent && resolved.contentAudio ? [resolved.contentAudio] : [])
+  ].filter(Boolean);
+}
+
 function instructionAudio(round, includeContent = false, callbacks = {}) {
   const resolved = roundAudio(round);
   const sequence = [
@@ -85,7 +94,7 @@ function instructionAudio(round, includeContent = false, callbacks = {}) {
     return;
   }
   playCueSequence(sequence, {
-    gapMs: 180,
+    gapMs: 40,
     onStarted: callbacks.onStarted,
     onDelivery: callbacks.onDelivery,
     onUnavailable: callbacks.onUnavailable
@@ -163,6 +172,7 @@ export function CyclePracticePage({
     if (audioRoundRef.current === key) return undefined;
     audioRoundRef.current = key;
     setAudioStatus("ready");
+    roundAudioSources(currentRound, mode === "practice").forEach(preloadCueAudio);
     instructionAudio(currentRound, mode === "practice", {
       onStarted: () => setAudioStatus("playing"),
       onDelivery: () => setAudioStatus("ready"),
@@ -186,7 +196,7 @@ export function CyclePracticePage({
     const sequence = target.targetAudio?.length ? target.targetAudio : target.contentAudio ? [target.contentAudio] : [];
     if (!sequence.length) return replayInstruction();
     setAudioStatus("playing");
-    playCueSequence(sequence, { gapMs: 150, onDelivery: () => setAudioStatus("ready"), onUnavailable: () => setAudioStatus("unavailable") });
+    playCueSequence(sequence, { gapMs: 40, onDelivery: () => setAudioStatus("ready"), onUnavailable: () => setAudioStatus("unavailable") });
   }
 
   function playObjectAudio(word) {
@@ -317,31 +327,71 @@ export function CyclePracticePage({
     );
   }
 
-  const readyForCheck = practiceStarted && practiceIndex >= 0;
   const progress = mode === "assessment"
     ? Math.round((assessmentIndex / Math.max(1, assessmentPlan.length)) * 100)
     : Math.round((elapsedSeconds / CYCLE_PRACTICE_MINIMUM_SECONDS) * 100);
+  const currentAudio = roundAudio(currentRound);
+  const progressValue = Math.min(100, Math.max(0, progress));
+  const activityLabel = mode === "assessment" ? "Cycle Check" : "Practice";
+  const readyForCheck = practiceStarted && practiceIndex >= 0;
+
+  const compactAudioButton = (label, ariaLabel, onClick, available = true) => available ? (
+    <button
+      type="button"
+      className="cycle-practice-topbar__audio-button"
+      aria-label={ariaLabel}
+      data-audio-state={audioStatus}
+      disabled={answerPending}
+      onClick={onClick}
+    >
+      <SpeakerIcon />
+      <span>{label}</span>
+    </button>
+  ) : null;
 
   return (
     <main className="cycle-practice-page" data-cycle-id={cycle.id}>
-      <header className="cycle-practice-header">
-        <div>
-          <p className="cycle-practice-kicker">Cycle Practice</p>
-          <h1>{cycle.title}</h1>
-          <p className="cycle-practice-welcome">{studentName} · Choose the best answer.</p>
+      <header className="cycle-practice-topbar">
+        <div className="cycle-practice-topbar__identity">
+          <span className="cycle-practice-topbar__eyebrow">Cycle {cycle.cycleNumber}</span>
+          <h1 data-child-title="">{activityLabel}</h1>
+          <small>{studentName}</small>
         </div>
-        {headerActions}
-        <div className="cycle-practice-timer" aria-label={`Practice time ${formatClock(elapsedSeconds)} of ${formatClock(CYCLE_PRACTICE_MINIMUM_SECONDS)}`}>
-          <span>{mode === "assessment" ? "Cycle Check" : "Practice time"}</span>
+        <div className="cycle-practice-topbar__round" aria-label={`${currentRound.stationTitle}, activity ${currentRoundNumber} of ${totalRounds}`}>
+          <span>{currentRound.stationTitle}</span>
+          <strong>{currentRoundNumber} / {totalRounds}</strong>
+        </div>
+        <div className="cycle-practice-topbar__instruction">
+          <span data-child-instruction="">{currentAudio.instructionText || "Listen, look, and try the activity."}</span>
+          <div className="cycle-practice-topbar__audio-actions">
+            {compactAudioButton("Hear", "Hear what to do", () => replayInstruction())}
+            {compactAudioButton("Target", "Hear the target", replayTarget, Boolean(currentAudio.targetAudio?.length))}
+            {compactAudioButton("Poem", "Hear the poem", () => replayInstruction(true), Boolean(currentAudio.contentAudio))}
+          </div>
+        </div>
+        <div className="cycle-practice-topbar__progress" data-child-progress="" role="progressbar" aria-label="Activity progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow={progressValue}>
+          <span style={{ width: `${progressValue}%` }} />
+        </div>
+        <div className="cycle-practice-topbar__timer" aria-label={`Practice time ${formatClock(elapsedSeconds)} of ${formatClock(CYCLE_PRACTICE_MINIMUM_SECONDS)}`}>
+          <span>{mode === "assessment" ? "Check" : "Time"}</span>
           <strong>{formatClock(elapsedSeconds)} <small>/ {formatClock(CYCLE_PRACTICE_MINIMUM_SECONDS)}</small></strong>
         </div>
+        <div className="cycle-practice-topbar__actions">
+          {headerActions}
+          {mode === "practice" ? (
+            <button className="lp-button lp-button-primary" data-child-primary="" disabled={!readyForCheck || answerPending} onClick={startAssessment} type="button">
+              Start Cycle Check
+            </button>
+          ) : (
+            <span className="cycle-practice-topbar__assessment-note">One try each</span>
+          )}
+        </div>
+        {(message || feedback) && (
+          <p className="cycle-practice-topbar__status" role="status" aria-live="polite">
+            {message || feedback}
+          </p>
+        )}
       </header>
-
-      <div className="cycle-practice-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow={Math.min(100, Math.max(0, progress))}>
-        <span style={{ width: `${Math.min(100, Math.max(0, progress))}%` }} />
-      </div>
-
-      {message && <p className="cycle-practice-message" role="status">{message}</p>}
 
       <AdventureRoundFrame
         announceFeedback
@@ -350,10 +400,11 @@ export function CyclePracticePage({
         disabled={answerPending}
         feedback={feedback}
         feedbackTone={feedbackTone}
-        hasContentAudio={Boolean(roundAudio(currentRound).contentAudio)}
-        hasTargetAudio={Boolean(roundAudio(currentRound).targetAudio?.length)}
-        instructionAudio={roundAudio(currentRound).instructionAudio}
-        instructionText={roundAudio(currentRound).instructionText || "Listen, look, and try the activity."}
+        compact
+        hasContentAudio={Boolean(currentAudio.contentAudio)}
+        hasTargetAudio={Boolean(currentAudio.targetAudio?.length)}
+        instructionAudio={currentAudio.instructionAudio}
+        instructionText={currentAudio.instructionText || "Listen, look, and try the activity."}
         mechanicId={currentRound.mechanicId}
         onReplayContent={() => replayInstruction(true)}
         onReplayInstruction={() => replayInstruction()}
@@ -374,25 +425,6 @@ export function CyclePracticePage({
           supportLevel={0}
         />
       </AdventureRoundFrame>
-
-      <footer className="cycle-practice-actions">
-        {mode === "practice" ? (
-          <>
-            <div>
-              <strong>{practiceStarted ? "Practice time complete" : `${Math.max(0, CYCLE_PRACTICE_MINUTES - Math.floor(elapsedSeconds / 60))} minutes left`}</strong>
-              <span>{practiceStarted ? "You may show what you know when you are ready." : "Keep working through the cycle activities."}</span>
-            </div>
-            <button className="lp-button lp-button-primary" disabled={!readyForCheck || answerPending} onClick={startAssessment} type="button">
-              Start Cycle Check
-            </button>
-          </>
-        ) : (
-          <div>
-            <strong>Cycle Check: one try for each activity</strong>
-            <span>Your first answer is recorded as your independent result.</span>
-          </div>
-        )}
-      </footer>
     </main>
   );
 }

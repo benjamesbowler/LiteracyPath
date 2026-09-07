@@ -1,107 +1,127 @@
 .cycle-practice-page {
   display: grid;
-  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  grid-template-rows: auto minmax(0, 1fr);
   width: 100%;
   height: 100%;
   min-height: 0;
   box-sizing: border-box;
-  padding: clamp(.75rem, 1.8vw, 1.5rem);
+  gap: clamp(6px, 1vw, 12px);
+  padding: clamp(6px, 1vw, 12px);
   overflow: hidden;
   color: #253b35;
   background: linear-gradient(145deg, #f8fcf5 0%, #e8f3e8 52%, #dceceb 100%);
 }
 
-.cycle-practice-header {
+.cycle-practice-topbar {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(130px, .75fr) minmax(118px, .62fr) minmax(260px, 2.2fr) minmax(130px, .7fr) auto;
+  grid-template-areas:
+    "identity round instruction progress timer actions"
+    "status status status status status status";
   align-items: center;
-  gap: .75rem 1rem;
+  gap: 8px;
   width: 100%;
-  margin: 0 auto .55rem;
+  min-height: 68px;
+  margin: 0;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, .78);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .78);
+  box-shadow: 0 8px 22px rgba(40, 85, 73, .08);
 }
 
-.cycle-practice-kicker {
-  margin: 0 0 .25rem;
+.cycle-practice-topbar__identity { grid-area: identity; min-width: 0; }
+.cycle-practice-topbar__identity h1,
+.cycle-practice-topbar__identity small,
+.cycle-practice-topbar__eyebrow { display: block; }
+.cycle-practice-topbar__eyebrow {
   color: #47766a;
-  font-size: .75rem;
+  font-size: .68rem;
   font-weight: 800;
   letter-spacing: .12em;
   text-transform: uppercase;
 }
+.cycle-practice-topbar__identity h1 { margin: 0; color: #173e36; font-size: 1.05rem; line-height: 1.05; }
+.cycle-practice-topbar__identity small { margin-top: 3px; color: #5a746d; font-size: .72rem; font-weight: 700; }
 
-.cycle-practice-header h1,
-.cycle-practice-complete-card h1 {
-  margin: 0;
-  color: #173e36;
-  font-size: clamp(1.65rem, 3vw, 2.8rem);
-  letter-spacing: -.04em;
+.cycle-practice-topbar__round {
+  grid-area: round;
+  min-width: 0;
+  padding-left: 8px;
+  border-left: 1px solid rgba(45, 104, 90, .16);
 }
+.cycle-practice-topbar__round span,
+.cycle-practice-topbar__round strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cycle-practice-topbar__round span { color: #5b746d; font-size: .68rem; font-weight: 800; text-transform: uppercase; }
+.cycle-practice-topbar__round strong { margin-top: 3px; color: #1e6d5d; font-size: 1.05rem; font-variant-numeric: tabular-nums; }
 
-.cycle-practice-welcome { margin: .3rem 0 0; color: #527067; font-size: .95rem; font-weight: 700; }
-
-.cycle-practice-timer {
-  min-width: 150px;
-  padding: .65rem .85rem;
-  border: 2px solid rgba(45, 104, 90, .18);
-  border-radius: .85rem;
-  background: rgba(255, 255, 255, .8);
-  text-align: right;
-  box-shadow: 0 8px 24px rgba(40, 85, 73, .08);
+.cycle-practice-topbar__instruction {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  color: #2c493f;
+  font-size: clamp(.82rem, 1.2vw, .98rem);
+  font-weight: 800;
 }
+.cycle-practice-topbar__instruction > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cycle-practice-topbar__audio-actions { display: flex; flex: 0 0 auto; gap: 5px; }
+.cycle-practice-topbar__audio-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 56px;
+  min-height: 56px;
+  padding: 6px 9px;
+  border: 1px solid rgba(52, 119, 84, .32);
+  border-radius: 11px;
+  background: #e6f6f0;
+  color: #1e6d5d;
+  cursor: pointer;
+  font-size: .7rem;
+  font-weight: 850;
+}
+.cycle-practice-topbar__audio-button svg { width: 18px; height: 18px; }
+.cycle-practice-topbar__audio-button[data-audio-state="playing"] { background: #c9edcf; box-shadow: 0 0 0 2px rgba(78, 180, 111, .18); }
+.cycle-practice-topbar__audio-button:disabled { cursor: wait; opacity: .62; }
 
-.cycle-practice-timer span,
-.cycle-practice-timer small { display: block; color: #5b746d; font-size: .8rem; font-weight: 700; }
-.cycle-practice-timer strong { display: block; margin-top: .2rem; color: #1e6d5d; font-size: 1.35rem; }
-
-.cycle-practice-overview { display: none; }
-
-.cycle-practice-progress {
+.cycle-practice-topbar__progress {
+  grid-area: progress;
   width: 100%;
-  height: 7px;
-  margin: 0 auto .55rem;
+  height: 8px;
   overflow: hidden;
   border-radius: 99px;
   background: rgba(54, 105, 91, .14);
 }
+.cycle-practice-topbar__progress span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #55a887, #e7b548); transition: width .35s ease; }
 
-.cycle-practice-progress span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #55a887, #e7b548); transition: width .35s ease; }
+.cycle-practice-topbar__timer { grid-area: timer; min-width: 0; text-align: right; }
+.cycle-practice-topbar__timer span,
+.cycle-practice-topbar__timer small { display: block; color: #5b746d; font-size: .68rem; font-weight: 800; }
+.cycle-practice-topbar__timer strong { display: block; margin-top: 2px; color: #1e6d5d; font-size: 1.05rem; font-variant-numeric: tabular-nums; }
+
+.cycle-practice-topbar__actions { grid-area: actions; display: flex; align-items: center; justify-content: flex-end; gap: 7px; min-width: 0; }
+.cycle-practice-topbar__actions .lp-button { min-height: 56px; padding: 8px 12px; white-space: nowrap; }
+.cycle-practice-topbar__assessment-note { color: #5a746d; font-size: .72rem; font-weight: 800; white-space: nowrap; }
+.cycle-practice-topbar__status { grid-area: status; margin: 0; padding: 5px 8px; border-radius: 8px; background: #fff8d8; color: #6b4b21; font-size: .78rem; font-weight: 800; }
 
 .cycle-practice-page .adventure-round-frame {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
   width: 100%;
   max-width: none;
   height: 100%;
   margin: 0 auto;
 }
 
-.cycle-practice-page .adventure-round-frame__header { min-height: 54px; border-radius: 16px; }
-.cycle-practice-page .adventure-round-frame__body { gap: 8px; }
-.cycle-practice-page .adventure-round-frame__plaque { min-height: 66px; border-radius: 16px 26px 16px 26px; }
+.cycle-practice-page .adventure-round-frame[data-frame-layout="compact"] .adventure-round-frame__body { display: block; height: 100%; }
 .cycle-practice-page .adventure-round-frame__stage {
+  height: 100%;
   min-height: 0;
-  padding: clamp(18px, 3vw, 38px);
-  border-radius: 24px;
+  padding: clamp(12px, 2vw, 26px);
+  border-radius: 20px;
 }
-.cycle-practice-page .adventure-round-frame__stop { visibility: hidden; }
-
-.cycle-practice-message { margin: 0 0 .5rem; padding: .6rem .8rem; border-radius: .8rem; background: #fff8d8; color: #6b4b21; font-weight: 700; }
-
-.cycle-practice-actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  width: 100%;
-  margin: .55rem auto 0;
-  padding: .65rem .8rem;
-  border-radius: .85rem;
-  background: rgba(255, 255, 255, .8);
-  box-shadow: 0 8px 24px rgba(40, 85, 73, .08);
-}
-
-.cycle-practice-actions strong,
-.cycle-practice-actions span { display: block; }
-.cycle-practice-actions span { margin-top: .25rem; color: #5a746d; }
-.cycle-practice-actions .lp-button { min-height: 56px; white-space: nowrap; }
 
 /* Cycle Practice is a focused child surface. Its learning choices should
    occupy the available stage instead of inheriting the smaller quest tiles. */
@@ -152,7 +172,9 @@
   box-shadow: 0 4px 0 #2d5f42, 0 0 24px rgba(153, 224, 121, .55);
 }
 
+.cycle-practice-kicker { margin: 0 0 .25rem; color: #47766a; font-size: .75rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .cycle-practice-complete-card { max-width: 720px; margin: 10vh auto 0; padding: clamp(1.5rem, 5vw, 3rem); border: 2px solid rgba(45, 104, 90, .14); border-radius: 1.5rem; background: rgba(255, 255, 255, .9); text-align: center; box-shadow: 0 18px 50px rgba(40, 85, 73, .12); }
+.cycle-practice-complete-card h1 { margin: 0; color: #173e36; font-size: clamp(1.65rem, 3vw, 2.8rem); letter-spacing: -.04em; }
 .cycle-practice-complete-card p:not(.cycle-practice-kicker) { font-size: 1.1rem; }
 .cycle-practice-score { display: grid; gap: .2rem; margin: 1.5rem auto; color: #1e6d5d; }
 .cycle-practice-score strong { font-size: clamp(3rem, 10vw, 6rem); line-height: 1; }
@@ -160,9 +182,21 @@
 .cycle-practice-page--error { display: grid; min-height: 60vh; place-content: center; text-align: center; }
 
 @media (max-width: 720px) {
-  .cycle-practice-page { overflow: auto; }
-  .cycle-practice-header { grid-template-columns: 1fr; }
-  .cycle-practice-timer { text-align: left; }
-  .cycle-practice-actions { align-items: stretch; flex-direction: column; }
-  .cycle-practice-actions .lp-button { width: 100%; }
+  .cycle-practice-page { overflow: hidden; }
+  .cycle-practice-topbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "identity timer"
+      "round actions"
+      "instruction instruction"
+      "progress progress"
+      "status status";
+    align-items: center;
+  }
+  .cycle-practice-topbar__timer { text-align: right; }
+  .cycle-practice-topbar__instruction { align-items: stretch; flex-direction: column; }
+  .cycle-practice-topbar__instruction > span { white-space: normal; }
+  .cycle-practice-topbar__audio-actions { justify-content: flex-start; }
+  .cycle-practice-topbar__audio-button { flex: 1 1 0; }
+  .cycle-practice-topbar__actions .lp-button { width: auto; }
 }

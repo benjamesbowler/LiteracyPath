@@ -1232,7 +1232,7 @@ export function AppSurface({ surface }) {
           />
         ) : null}
         contentScrolls={contentScrolls}
-        immersive={learnFullscreen}
+        immersive={learnFullscreen || appView === APP_VIEWS.CYCLE_PRACTICE}
       >
         {content}
       </StudentGlassShell>
