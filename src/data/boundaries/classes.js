@@ -20,6 +20,7 @@ export const CLASS_RPCS = new Set([
   "admin_set_teacher_account_status",
   "student_class_by_code",
   "student_complete_focus_assessment",
+  "student_complete_focus_cycle_practice",
   "student_complete_focus_session",
   "student_get_focus_session",
   "student_get_reading_session",
@@ -41,6 +42,7 @@ export const CLASS_RPCS = new Set([
   "teacher_set_student_archived",
   "teacher_set_student_symbol_password",
   "teacher_save_reading_marks",
+  "teacher_start_cycle_practice_session",
   "teacher_start_reading_session",
   "teacher_start_student_focus_session",
   "teacher_transfer_student"
@@ -57,12 +59,14 @@ const READING_SESSION_RPCS = new Set([
 
 const STUDENT_FOCUS_RPCS = new Set([
   "student_complete_focus_assessment",
+  "student_complete_focus_cycle_practice",
   "student_complete_focus_session",
   "student_get_focus_session",
   "student_save_focus_assessment_answer",
   "student_save_focus_item_mastery",
   "teacher_end_student_focus_session",
   "teacher_get_student_focus_session",
+  "teacher_start_cycle_practice_session",
   "teacher_start_student_focus_session"
 ]);
 
