@@ -29,6 +29,7 @@ import SoundSeekersRoute from "./features/soundSeekers/SoundSeekersRoute.jsx";
 import { StudentAdventureMapPage } from "./components/StudentAdventureMapPage.jsx";
 import { StudentBooksPage } from "./components/StudentBooksPage.jsx";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
+import { CyclePracticePage } from "./components/cycle-practice/CyclePracticePage.jsx";
 import StudentGlassShell from "./components/StudentGlassShell.jsx";
 import { StudentSoundTrailPage } from "./components/StudentSoundTrailPage.jsx";
 import { StudentStoryQuestsPage } from "./components/StudentStoryQuestsPage.jsx";
@@ -223,6 +224,20 @@ function Surface() {
       // The preview-only token is accepted only by the injected client. Passing
       // it explicitly keeps the production same-origin student session intact.
       return <PreviewShell active="arcade"><div className="student-surface-frame student-surface-arcade"><PhonicsLearnPage initialIsland="games" leaderboardAvailable={PREVIEW_LEADERBOARD_AVAILABLE} leaderboardClient={previewLeaderboardClient} leaderboardStudentToken={PREVIEW_LEADERBOARD_AVAILABLE ? PREVIEW_LEADERBOARD_TOKEN : undefined} progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
+    case "cycle-practice":
+      return (
+        <PreviewShell active="phonics" focusLocked>
+          <div className="student-surface-frame student-surface-phonics cycle-practice-preview-frame">
+            <CyclePracticePage
+              assignedCycleId={PREVIEW_PARAMS.get("cycle") || "cycle-1"}
+              onExit={() => markDestination("student-home")}
+              progressScopeKey={PREVIEW_SCOPE}
+              reducedMotion={PREVIEW_PARAMS.get("motion") === "reduced"}
+              studentName="Aaron"
+            />
+          </div>
+        </PreviewShell>
+      );
     // Both of these are the phase-C front doors now, which is what a child
     // actually lands on; the mode each one launches is handed in exactly as the
     // router hands it in, so the preview and the app agree.

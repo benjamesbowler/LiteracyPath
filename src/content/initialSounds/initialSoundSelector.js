@@ -311,9 +311,10 @@ export function getInitialSoundRoundPlan({
   itemFilter = null,
   // Letters already asked earlier in the current assessment round. On a
   // mid-round plan rebuild (the queue emptied before the round did) these are
-  // excluded so questions 6-8 can't re-ask a letter/word from questions 1-5.
-  // If excluding them would leave nothing selectable, the round ends gracefully
-  // (empty items) rather than repeating.
+  // excluded while there are enough other letters to fill the round. If the
+  // available pool is smaller than the fixed round length, the selector falls
+  // back to the strongest available letters so the learner gets a complete
+  // round instead of an empty queue.
   excludeLetters = []
 } = {}) {
   const safeLevel = Number(level) === 2 ? 2 : 1;
@@ -337,7 +338,7 @@ export function getInitialSoundRoundPlan({
   const excludeSet = new Set((excludeLetters || []).map(letter => String(letter)));
   const selectableLetters = availableLetters.filter(letter => !excludeSet.has(letter));
   const context = { level: safeLevel, roundNumber: Number(roundNumber) || phase };
-  const prioritizedLetters = stableShuffleLetters(selectableLetters, random)
+  const prioritizedAvailableLetters = stableShuffleLetters(availableLetters, random)
     .sort((a, b) => {
       const bestScore = letter => {
         const items = itemsForLetter({
@@ -353,6 +354,7 @@ export function getInitialSoundRoundPlan({
       };
       return bestScore(b) - bestScore(a);
     });
+  const prioritizedLetters = prioritizedAvailableLetters.filter(letter => selectableLetters.includes(letter));
   const uncoveredLetters = prioritizedLetters.filter(letter => !covered.has(letter));
   const reviewLetters = prioritizedLetters.filter(letter => covered.has(letter));
   const weakLetters = prioritizedLetters.filter(letter => incorrect.has(letter) || (covered.has(letter) && !mastered.has(letter)));
@@ -390,8 +392,20 @@ export function getInitialSoundRoundPlan({
   }
 
   if (selectedLetters.length < INITIAL_SOUND_ROUND_LENGTH) {
-    const fallback = prioritizedLetters.filter(letter => !selectedLetters.includes(letter));
+    const fallback = prioritizedAvailableLetters.filter(letter => !selectedLetters.includes(letter));
     selectedLetters = [...selectedLetters, ...fallback].slice(0, INITIAL_SOUND_ROUND_LENGTH);
+
+    // A media failure or a deliberately small bank can leave fewer than 15
+    // distinct letters. Reuse the filtered, runtime-ready pool only after all
+    // distinct letters have been used; pickItemForLetter still rotates through
+    // unused target words before it repeats one.
+    if (selectedLetters.length < INITIAL_SOUND_ROUND_LENGTH && prioritizedAvailableLetters.length) {
+      let fallbackIndex = 0;
+      while (selectedLetters.length < INITIAL_SOUND_ROUND_LENGTH) {
+        selectedLetters.push(prioritizedAvailableLetters[fallbackIndex % prioritizedAvailableLetters.length]);
+        fallbackIndex += 1;
+      }
+    }
   }
 
   const selected = selectedLetters

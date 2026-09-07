@@ -4,6 +4,8 @@ import {
   buildInitialSoundsProgressFromAnswerHistory,
   getInitialSoundRoundPlan
 } from "../../src/content/initialSounds/initialSoundSelector.js";
+import { prepareRuntimeQuestionBank } from "../../src/appState/assessmentRuntime.js";
+import { loadAssessmentSkillBank } from "../../src/data/loadAssessmentSkillBank.js";
 import {
   INITIAL_SOUND_LETTERS,
   initialSoundCoreWords,
@@ -11,6 +13,7 @@ import {
   initialSoundWordBank
 } from "../../src/content/initialSounds/initialSoundWordBank.js";
 import { isInitialSoundRuntimeEligible } from "../../src/content/initialSounds/initialSoundMediaEligibility.js";
+import { isRuntimeEligibleEarlySkillQuestion } from "../../src/utils/earlySkills/isRuntimeEligibleEarlySkillQuestion.js";
 
 const answer = (letter, isCorrect, index = 0) => ({
   skillId: "initial_sounds",
@@ -108,4 +111,60 @@ test("item scoring makes repeated mistakes adaptive and avoids a recently answer
 
   assert.equal(plan.meta.selectedLetters[0], "z", "the repeated-mistake signal did not affect selection");
   assert.notEqual(plan.meta.selectedTargetWords[0], "zoo", "recency/correct penalties did not affect item selection");
+});
+
+test("published Initial Sounds has three runtime-ready questions for every supported sound", async () => {
+  const publishedBank = prepareRuntimeQuestionBank(
+    await loadAssessmentSkillBank("initial_sounds")
+  );
+
+  for (const level of [1, 2]) {
+    for (const letter of INITIAL_SOUND_LETTERS) {
+      const eligible = publishedBank.filter(item =>
+        item.level === level &&
+        item.itemKey === letter &&
+        isRuntimeEligibleEarlySkillQuestion(item, {
+          skillId: "initial_sounds",
+          level
+        })
+      );
+      assert.ok(
+        eligible.length >= 3,
+        `Level ${level} /${letter}/ has only ${eligible.length} runtime-ready questions`
+      );
+    }
+  }
+});
+
+test("mid-round recovery still fills the fixed 15-question queue", async () => {
+  const publishedBank = prepareRuntimeQuestionBank(
+    await loadAssessmentSkillBank("initial_sounds")
+  );
+  const plan = getInitialSoundRoundPlan({
+    level: 1,
+    seed: 42,
+    itemBank: publishedBank,
+    requireImportedMedia: false,
+    itemEligibility: item => isRuntimeEligibleEarlySkillQuestion(item, {
+      skillId: "initial_sounds",
+      level: 1
+    }),
+    excludeLetters: INITIAL_SOUND_LETTERS.slice(0, 15)
+  });
+
+  assert.equal(plan.items.length, 15);
+  assert.ok(plan.items.every(item => item.itemKey || item.letter));
+
+  const exhaustedPlan = getInitialSoundRoundPlan({
+    level: 1,
+    seed: 42,
+    itemBank: publishedBank,
+    requireImportedMedia: false,
+    itemEligibility: item => isRuntimeEligibleEarlySkillQuestion(item, {
+      skillId: "initial_sounds",
+      level: 1
+    }),
+    excludeLetters: INITIAL_SOUND_LETTERS
+  });
+  assert.equal(exhaustedPlan.items.length, 15);
 });

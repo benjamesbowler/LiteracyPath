@@ -38,6 +38,11 @@ export const CHILD_SURFACE_ROUTES = Object.freeze([
     appView: APP_VIEWS.SKILLS_BLOCK_QUEST
   },
   {
+    id: "cycle-practice",
+    label: "Cycle Practice",
+    appView: APP_VIEWS.CYCLE_PRACTICE
+  },
+  {
     id: "sound-seekers",
     label: "Sound Seekers",
     appView: APP_VIEWS.PHONICS_QUEST

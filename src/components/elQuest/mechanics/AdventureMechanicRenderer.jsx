@@ -1,7 +1,10 @@
 import { ADVENTURE_MECHANICS } from "./adventureMechanics.jsx";
+import { SoundChoiceMechanic } from "./CodeMechanics.jsx";
 
-export function AdventureMechanicRenderer({ round, ...props }) {
-  const Mechanic = ADVENTURE_MECHANICS[round?.mechanicId];
+export function AdventureMechanicRenderer({ round, simplifySoundChoice = false, ...props }) {
+  const Mechanic = simplifySoundChoice && round?.mechanicId === "soundGate"
+    ? SoundChoiceMechanic
+    : ADVENTURE_MECHANICS[round?.mechanicId];
   if (!Mechanic) {
     return (
       <p className="adventure-mechanic-unavailable" role="alert">

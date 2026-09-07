@@ -152,6 +152,58 @@ export function SoundGateMechanic({
   );
 }
 
+// Cycle Practice keeps the same sound-to-grapheme evidence contract, but uses
+// one clear choice. The gate metaphor adds an extra action without adding any
+// literacy demand, so the focused practice surface does not use it.
+export function SoundChoiceMechanic({
+  round,
+  disabled,
+  supportLevel,
+  onCommit,
+  reducedMotion
+}) {
+  const [soundState, setSoundState] = useRoundState(round, createSoundGateState);
+
+  function handleSelect(choice) {
+    if (disabled || soundState.committed) return;
+    const selected = selectSoundMagnet(soundState, choice);
+    const result = commitSoundGate(selected, round, supportLevel);
+    setSoundState(result.state);
+    onCommit?.({
+      ...result.outcome,
+      feedback: result.outcome.correct
+        ? `${choice} matches the sound.`
+        : `${choice} is not the sound. Listen again and choose another tile.`
+    });
+  }
+
+  return (
+    <section
+      className="am-code-stage am-sound-choice"
+      data-mechanic-stage="sound-choice"
+      data-reduced-motion={reducedMotion ? "true" : "false"}
+      aria-label="Choose the matching spelling"
+    >
+      <p className="am-sound-choice__prompt">Choose the spelling you hear.</p>
+      <div className="am-sound-choice__tiles" aria-label="Spelling choices">
+        {round.choices.map(choice => (
+          <button
+            key={choice}
+            type="button"
+            className="am-sound-choice__tile"
+            style={CHILD_TARGET_STYLE}
+            disabled={disabled || soundState.committed}
+            aria-pressed={soundState.selected === choice}
+            onClick={() => handleSelect(choice)}
+          >
+            {choice}
+          </button>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export function SceneHuntMechanic({
   round,
   disabled,

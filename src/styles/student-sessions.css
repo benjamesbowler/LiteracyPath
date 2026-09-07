@@ -10,13 +10,13 @@
 }
 
 .student-session-setup {
-  width: min(940px, calc(100vw - 32px));
-  max-height: calc(100dvh - 32px);
+  width: min(1120px, calc(100vw - 32px));
+  max-height: calc(100dvh - 24px);
   box-sizing: border-box;
-  padding: 22px;
+  padding: clamp(22px, 3vw, 32px);
   overflow: auto;
   color: var(--lp-color-text, #263b36);
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.4;
   background: var(--lp-color-surface, #ffffff);
   border: 1px solid rgba(49, 88, 78, 0.16);
@@ -49,7 +49,7 @@
 }
 
 .student-session-setup-header h2 {
-  font-size: 22px;
+  font-size: clamp(24px, 3vw, 32px);
   line-height: 1.2;
 }
 
@@ -58,7 +58,7 @@
 }
 
 .student-session-section h3 {
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.25;
 }
 
@@ -74,16 +74,16 @@
 
 .student-session-targets {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
 }
 
 .student-session-setup .student-session-targets > button {
   display: grid;
   gap: 4px;
-  min-height: 78px;
-  padding: 12px 14px;
+  min-height: 100px;
+  padding: 16px 18px;
   text-align: left;
   color: #25473e;
   background: #f7fbf7;
@@ -93,7 +93,7 @@
 }
 
 .student-session-targets > button strong {
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1.25;
 }
 
@@ -108,7 +108,7 @@
 .student-session-audience-options span,
 .student-session-student-list small {
   color: #5b716b;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.35;
 }
 
@@ -116,8 +116,8 @@
   width: 100%;
   min-width: 0;
   box-sizing: border-box;
-  margin: 14px 0 0;
-  padding: 14px;
+  margin: 18px 0 0;
+  padding: 20px;
   background: #fbfcfa;
   border: 1px solid rgba(49, 88, 78, 0.16);
   border-radius: 14px;
@@ -126,7 +126,7 @@
 .student-session-activity-config legend {
   padding: 0 6px;
   color: #25473e;
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 800;
 }
 
@@ -134,13 +134,13 @@
   display: grid;
   gap: 6px;
   color: #25473e;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
 }
 
 .student-session-activity-config select {
   width: min(100%, 620px);
-  height: 42px;
+  height: 48px;
   margin: 0;
   font-size: 13px;
 }
@@ -189,8 +189,8 @@
 .student-session-setup .student-session-audience-options > button {
   display: grid;
   gap: 5px;
-  min-height: 82px;
-  padding: 12px 14px;
+  min-height: 94px;
+  padding: 16px 18px;
   text-align: left;
   color: #25473e;
   background: #ffffff;
@@ -206,7 +206,7 @@
 
 .student-session-config-options > button strong,
 .student-session-audience-options > button strong {
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1.25;
 }
 
@@ -225,7 +225,69 @@
 }
 
 .student-session-audience-options {
-  margin-top: 14px;
+  margin-top: 18px;
+}
+
+.student-session-cycle-help {
+  margin: 6px 0 14px;
+  color: #5b716b;
+  font-weight: 700;
+}
+
+.student-session-cycle-picker {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+  gap: 12px;
+}
+
+.student-session-setup .student-session-cycle-picker > button {
+  display: grid;
+  align-content: center;
+  gap: 5px;
+  min-height: 82px;
+  padding: 12px 14px;
+  border: 2px solid rgba(49, 88, 78, .18);
+  border-radius: 16px;
+  background: #fff;
+  color: #25473e;
+  cursor: pointer;
+  text-align: left;
+}
+
+.student-session-cycle-picker > button span {
+  color: #5b716b;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.student-session-cycle-picker > button strong { font-size: 16px; line-height: 1.2; }
+
+.student-session-cycle-picker > button.selected {
+  border-color: #397f6e;
+  background: #e8f4ee;
+  box-shadow: 0 0 0 3px rgba(57, 127, 110, .16);
+}
+
+.student-session-cycle-picker > button:focus-visible,
+.student-session-cycle-advanced:focus-visible {
+  outline: 3px solid rgba(57, 127, 110, .42);
+  outline-offset: 2px;
+}
+
+.student-session-cycle-advanced {
+  min-height: 44px;
+  margin-top: 16px;
+  padding: 8px 0;
+  border: 0;
+  background: none;
+  color: #2f7868;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .student-session-audience-note {
@@ -539,6 +601,8 @@
   .student-session-student-list {
     grid-template-columns: 1fr;
   }
+
+  .student-session-cycle-picker { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
   .student-session-start,
   .student-session-guided-start {

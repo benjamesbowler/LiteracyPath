@@ -328,7 +328,7 @@ export function CyclePracticePage({
         <div>
           <p className="cycle-practice-kicker">Cycle Practice</p>
           <h1>{cycle.title}</h1>
-          <p className="cycle-practice-welcome">{studentName}, listen, look, and practise each part of this cycle.</p>
+          <p className="cycle-practice-welcome">{studentName} · Choose the best answer.</p>
         </div>
         {headerActions}
         <div className="cycle-practice-timer" aria-label={`Practice time ${formatClock(elapsedSeconds)} of ${formatClock(CYCLE_PRACTICE_MINIMUM_SECONDS)}`}>
@@ -336,12 +336,6 @@ export function CyclePracticePage({
           <strong>{formatClock(elapsedSeconds)} <small>/ {formatClock(CYCLE_PRACTICE_MINIMUM_SECONDS)}</small></strong>
         </div>
       </header>
-
-      <section className="cycle-practice-overview" aria-label="Cycle Practice plan">
-        <div><strong>1</strong><span>Listen and practise</span></div>
-        <div><strong>2</strong><span>Try the cycle activities</span></div>
-        <div className={practiceStarted ? "is-ready" : ""}><strong>3</strong><span>Complete the Cycle Check</span></div>
-      </section>
 
       <div className="cycle-practice-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow={Math.min(100, Math.max(0, progress))}>
         <span style={{ width: `${Math.min(100, Math.max(0, progress))}%` }} />
@@ -376,6 +370,7 @@ export function CyclePracticePage({
           onRequestReplay={() => replayInstruction(true)}
           reducedMotion={reducedMotion}
           round={currentRound}
+          simplifySoundChoice
           supportLevel={0}
         />
       </AdventureRoundFrame>

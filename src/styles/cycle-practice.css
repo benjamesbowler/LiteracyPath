@@ -1,21 +1,27 @@
 .cycle-practice-page {
-  min-height: 100%;
-  padding: clamp(1rem, 3vw, 2rem);
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+  padding: clamp(.75rem, 1.8vw, 1.5rem);
+  overflow: hidden;
   color: #253b35;
-  background: linear-gradient(145deg, #f6fbf3 0%, #e6f2e8 50%, #dbecea 100%);
+  background: linear-gradient(145deg, #f8fcf5 0%, #e8f3e8 52%, #dceceb 100%);
 }
 
 .cycle-practice-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  gap: 1rem;
-  max-width: 1180px;
-  margin: 0 auto 1rem;
+  gap: .75rem 1rem;
+  width: 100%;
+  margin: 0 auto .55rem;
 }
 
 .cycle-practice-kicker {
-  margin: 0 0 .35rem;
+  margin: 0 0 .25rem;
   color: #47766a;
   font-size: .75rem;
   font-weight: 800;
@@ -27,77 +33,67 @@
 .cycle-practice-complete-card h1 {
   margin: 0;
   color: #173e36;
-  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  font-size: clamp(1.65rem, 3vw, 2.8rem);
   letter-spacing: -.04em;
 }
 
-.cycle-practice-welcome { margin: .45rem 0 0; font-size: 1.05rem; }
+.cycle-practice-welcome { margin: .3rem 0 0; color: #527067; font-size: .95rem; font-weight: 700; }
 
 .cycle-practice-timer {
-  min-width: 180px;
-  padding: .8rem 1rem;
+  min-width: 150px;
+  padding: .65rem .85rem;
   border: 2px solid rgba(45, 104, 90, .18);
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, .78);
+  border-radius: .85rem;
+  background: rgba(255, 255, 255, .8);
   text-align: right;
   box-shadow: 0 8px 24px rgba(40, 85, 73, .08);
 }
 
 .cycle-practice-timer span,
 .cycle-practice-timer small { display: block; color: #5b746d; font-size: .8rem; font-weight: 700; }
-.cycle-practice-timer strong { display: block; margin-top: .2rem; color: #1e6d5d; font-size: 1.55rem; }
+.cycle-practice-timer strong { display: block; margin-top: .2rem; color: #1e6d5d; font-size: 1.35rem; }
 
-.cycle-practice-overview {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: .7rem;
-  max-width: 1180px;
-  margin: 0 auto 1rem;
+.cycle-practice-overview { display: none; }
+
+.cycle-practice-progress {
+  width: 100%;
+  height: 7px;
+  margin: 0 auto .55rem;
+  overflow: hidden;
+  border-radius: 99px;
+  background: rgba(54, 105, 91, .14);
 }
 
-.cycle-practice-overview div {
-  display: flex;
-  align-items: center;
-  gap: .65rem;
-  min-height: 56px;
-  padding: .6rem .8rem;
-  border-radius: .9rem;
-  background: rgba(255, 255, 255, .68);
-  color: #547169;
-  font-weight: 700;
-}
-
-.cycle-practice-overview strong {
-  display: grid;
-  width: 32px;
-  height: 32px;
-  place-items: center;
-  border-radius: 50%;
-  background: #bfded1;
-  color: #1e6657;
-}
-
-.cycle-practice-overview .is-ready { background: #fff8d8; color: #704e20; }
-.cycle-practice-overview .is-ready strong { background: #f5c85b; color: #704e20; }
-
-.cycle-practice-progress { max-width: 1180px; height: 10px; margin: 0 auto 1rem; overflow: hidden; border-radius: 99px; background: rgba(54, 105, 91, .14); }
 .cycle-practice-progress span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #55a887, #e7b548); transition: width .35s ease; }
 
-.cycle-practice-page .adventure-round-frame { max-width: 1180px; margin: 0 auto; }
-.cycle-practice-page .adventure-round-frame__stop { visibility: hidden; }
-.cycle-practice-page .adventure-round-frame__stage { min-height: min(54vh, 560px); }
+.cycle-practice-page .adventure-round-frame {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  margin: 0 auto;
+}
 
-.cycle-practice-message { max-width: 1180px; margin: 0 auto 1rem; padding: .8rem 1rem; border-radius: .8rem; background: #fff8d8; color: #6b4b21; font-weight: 700; }
+.cycle-practice-page .adventure-round-frame__header { min-height: 54px; border-radius: 16px; }
+.cycle-practice-page .adventure-round-frame__body { gap: 8px; }
+.cycle-practice-page .adventure-round-frame__plaque { min-height: 66px; border-radius: 16px 26px 16px 26px; }
+.cycle-practice-page .adventure-round-frame__stage {
+  min-height: 0;
+  padding: clamp(18px, 3vw, 38px);
+  border-radius: 24px;
+}
+.cycle-practice-page .adventure-round-frame__stop { visibility: hidden; }
+
+.cycle-practice-message { margin: 0 0 .5rem; padding: .6rem .8rem; border-radius: .8rem; background: #fff8d8; color: #6b4b21; font-weight: 700; }
 
 .cycle-practice-actions {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  max-width: 1180px;
-  margin: 1rem auto 0;
-  padding: 1rem;
-  border-radius: 1rem;
+  width: 100%;
+  margin: .55rem auto 0;
+  padding: .65rem .8rem;
+  border-radius: .85rem;
   background: rgba(255, 255, 255, .8);
   box-shadow: 0 8px 24px rgba(40, 85, 73, .08);
 }
@@ -107,6 +103,55 @@
 .cycle-practice-actions span { margin-top: .25rem; color: #5a746d; }
 .cycle-practice-actions .lp-button { min-height: 56px; white-space: nowrap; }
 
+/* Cycle Practice is a focused child surface. Its learning choices should
+   occupy the available stage instead of inheriting the smaller quest tiles. */
+.kg-stage .kg-main .cycle-practice-page .am-letter-press-button,
+.kg-stage .kg-main .cycle-practice-page .am-sound-choice__tile {
+  min-width: clamp(112px, 13vw, 164px) !important;
+  min-height: clamp(112px, 13vw, 164px) !important;
+  padding: 0 !important;
+  font-size: clamp(2.8rem, 6vw, 4.6rem) !important;
+}
+
+.am-sound-choice {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  width: min(100%, 860px);
+  margin: auto;
+}
+
+.am-sound-choice__prompt {
+  margin: 0;
+  color: #2c493f;
+  font: 900 clamp(1.2rem, 2.5vw, 1.75rem)/1.15 var(--lp-font-reading);
+  text-align: center;
+}
+
+.am-sound-choice__tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: clamp(14px, 2vw, 24px);
+  width: 100%;
+}
+
+.am-sound-choice__tile {
+  border: 5px solid #44658c;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #effaff, #a6d7e8);
+  box-shadow: 0 8px 0 #31506d, 0 14px 22px rgba(32, 57, 80, .22);
+  color: #20394c;
+  cursor: pointer;
+  font: 900 clamp(3rem, 7vw, 5.2rem)/1 var(--lp-font-letter, var(--lp-font-reading));
+}
+
+.am-sound-choice__tile[aria-pressed="true"] {
+  border-color: #347754;
+  background: linear-gradient(145deg, #f4ffd9, #a9d879);
+  box-shadow: 0 4px 0 #2d5f42, 0 0 24px rgba(153, 224, 121, .55);
+}
+
 .cycle-practice-complete-card { max-width: 720px; margin: 10vh auto 0; padding: clamp(1.5rem, 5vw, 3rem); border: 2px solid rgba(45, 104, 90, .14); border-radius: 1.5rem; background: rgba(255, 255, 255, .9); text-align: center; box-shadow: 0 18px 50px rgba(40, 85, 73, .12); }
 .cycle-practice-complete-card p:not(.cycle-practice-kicker) { font-size: 1.1rem; }
 .cycle-practice-score { display: grid; gap: .2rem; margin: 1.5rem auto; color: #1e6d5d; }
@@ -115,9 +160,9 @@
 .cycle-practice-page--error { display: grid; min-height: 60vh; place-content: center; text-align: center; }
 
 @media (max-width: 720px) {
+  .cycle-practice-page { overflow: auto; }
   .cycle-practice-header { grid-template-columns: 1fr; }
   .cycle-practice-timer { text-align: left; }
-  .cycle-practice-overview { grid-template-columns: 1fr; }
   .cycle-practice-actions { align-items: stretch; flex-direction: column; }
   .cycle-practice-actions .lp-button { width: 100%; }
 }

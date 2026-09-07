@@ -64,6 +64,7 @@ export function StudentSessionSetup({
   assessmentHistoryLoading = false,
   skillTree = [],
   initialStudentIds = [],
+  initialTarget = STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT,
   onClose,
   onStarted,
   onStartGuidedReading
@@ -82,7 +83,7 @@ export function StudentSessionSetup({
   const startsWithWholeClass = !hasRequestedStudentIds
     || (availableStudents.length > 0 && requestedStudentIds.length === availableStudents.length);
 
-  const [target, setTarget] = useState(STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT);
+  const [target, setTarget] = useState(initialTarget);
   const [audience, setAudience] = useState(() => startsWithWholeClass
     ? STUDENT_FOCUS_AUDIENCES.WHOLE_CLASS
     : STUDENT_FOCUS_AUDIENCES.SELECTED_STUDENTS);
@@ -589,50 +590,30 @@ export function StudentSessionSetup({
 
           {target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE && (
             <fieldset className="student-session-activity-config">
-              <legend>Cycle Practice choice</legend>
-              <div className="student-session-config-options">
-                <button
-                  aria-pressed={cyclePracticeMode === STUDENT_CYCLE_PRACTICE_MODES.ONE_CYCLE_FOR_EVERYONE}
-                  className={cyclePracticeMode === STUDENT_CYCLE_PRACTICE_MODES.ONE_CYCLE_FOR_EVERYONE ? "selected" : ""}
-                  onClick={() => {
-                    setCyclePracticeMode(STUDENT_CYCLE_PRACTICE_MODES.ONE_CYCLE_FOR_EVERYONE);
-                    setMessage("");
-                  }}
-                  type="button"
-                >
-                  <strong>One cycle for everyone</strong>
-                  <span>Lock every selected iPad to the same 30-minute practice cycle.</span>
-                </button>
-                <button
-                  aria-pressed={cyclePracticeMode === STUDENT_CYCLE_PRACTICE_MODES.CYCLE_PER_STUDENT}
-                  className={cyclePracticeMode === STUDENT_CYCLE_PRACTICE_MODES.CYCLE_PER_STUDENT ? "selected" : ""}
-                  onClick={() => {
-                    setCyclePracticeMode(STUDENT_CYCLE_PRACTICE_MODES.CYCLE_PER_STUDENT);
-                    setMessage("");
-                  }}
-                  type="button"
-                >
-                  <strong>Set a cycle per student</strong>
-                  <span>Give each selected student an exact cycle while keeping the same locked experience.</span>
-                </button>
+              <legend>Choose a cycle</legend>
+              <p className="student-session-cycle-help">
+                {cyclePracticeMode === STUDENT_CYCLE_PRACTICE_MODES.CYCLE_PER_STUDENT
+                  ? "Use the selected cycle as the default, then adjust any student below."
+                  : "Everyone starts in the same Cycle Practice activity."}
+              </p>
+              <div className="student-session-cycle-picker" aria-label="Cycle choices">
+                {cycleOptions.map(cycle => (
+                  <button
+                    key={cycle.id}
+                    aria-pressed={commonCycleId === cycle.id}
+                    className={commonCycleId === cycle.id ? "selected" : ""}
+                    disabled={cycleLoadStatus !== "ready"}
+                    onClick={() => {
+                      setCommonCycleId(cycle.id);
+                      setMessage("");
+                    }}
+                    type="button"
+                  >
+                    <span>Cycle {cycle.cycleNumber}</span>
+                    <strong>{cycle.title}</strong>
+                  </button>
+                ))}
               </div>
-              <label htmlFor="student-session-cycle">
-                {cyclePracticeMode === STUDENT_CYCLE_PRACTICE_MODES.ONE_CYCLE_FOR_EVERYONE ? "Cycle for everyone" : "Default cycle"}
-                <select
-                  disabled={cycleLoadStatus !== "ready"}
-                  id="student-session-cycle"
-                  value={commonCycleId}
-                  onChange={event => {
-                    setCommonCycleId(event.target.value);
-                    setMessage("");
-                  }}
-                >
-                  <option value="">Choose one cycle</option>
-                  {cycleOptions.map(cycle => (
-                    <option key={cycle.id} value={cycle.id}>{cycle.title}</option>
-                  ))}
-                </select>
-              </label>
               {cycleLoadStatus === "loading" && <p role="status">Loading Cycle Practice cycles…</p>}
               {cycleLoadStatus === "error" && (
                 <div className="student-session-catalog-error">
@@ -662,6 +643,21 @@ export function StudentSessionSetup({
                   ))}
                 </div>
               )}
+              <button
+                className="student-session-cycle-advanced"
+                aria-pressed={cyclePracticeMode === STUDENT_CYCLE_PRACTICE_MODES.CYCLE_PER_STUDENT}
+                onClick={() => {
+                  setCyclePracticeMode(current => current === STUDENT_CYCLE_PRACTICE_MODES.CYCLE_PER_STUDENT
+                    ? STUDENT_CYCLE_PRACTICE_MODES.ONE_CYCLE_FOR_EVERYONE
+                    : STUDENT_CYCLE_PRACTICE_MODES.CYCLE_PER_STUDENT);
+                  setMessage("");
+                }}
+                type="button"
+              >
+                {cyclePracticeMode === STUDENT_CYCLE_PRACTICE_MODES.CYCLE_PER_STUDENT
+                  ? "Use one cycle for everyone"
+                  : "Set a different cycle for each student"}
+              </button>
             </fieldset>
           )}
 

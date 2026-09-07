@@ -26,6 +26,7 @@ function normalizeLedaWord(value = "") {
 function getLedaWordAudioPath(value = "") {
   const normalized = normalizeLedaWord(value);
   const overrides = {
+    zipper: "/audio/production/en-US/isolated_word/zipper-10a58c0597.mp3",
     vase: "/audio/production/en-US/isolated_word/vase-8d705e6355.mp3",
     umbrella: "/audio/production/en-US/isolated_word/umbrella-5058250ea7.mp3"
   };
@@ -222,7 +223,8 @@ const approvedAssessmentWordAudioOverrides = {
   seed: "/audio/child-mode/clean-human/words/seed.mp3",
   sip: "/media/vocabulary/audio/sip.mp3",
   sit: "/audio/child-mode/clean-human/words/sit.mp3",
-  zip: "/audio/child-mode/clean-human/words/zip.mp3"
+  zip: "/audio/child-mode/clean-human/words/zip.mp3",
+  zipper: "/audio/production/en-US/isolated_word/zipper-10a58c0597.mp3"
 };
 
 const approvedAssessmentWordAudioOverrideReviewPaths = {

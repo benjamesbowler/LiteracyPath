@@ -45,6 +45,9 @@ const PREVIEW_PARAMS = new URLSearchParams(window.location.search);
 const PRESELECTED_STUDENT_IDS = PREVIEW_PARAMS.get("selected")
   ? [PREVIEW_PARAMS.get("selected")]
   : [];
+const PREVIEW_TARGET = PREVIEW_PARAMS.get("target") === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE
+  ? STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE
+  : STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT;
 
 const client = {
   async call(name, args) {
@@ -93,6 +96,7 @@ export function StudentSessionControlsPreview() {
         classId="class-preview"
         className="Maple Class"
         client={client}
+        initialTarget={PREVIEW_TARGET}
         initialStudentIds={PRESELECTED_STUDENT_IDS}
         onClose={() => {}}
         onStarted={nextSession => setSession(nextSession)}

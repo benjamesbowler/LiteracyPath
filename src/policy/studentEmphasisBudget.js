@@ -44,6 +44,11 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
     treatment: "The next unfinished stop's card is the one named action; only its marker on the map pulses, and it leads to the same stop."
   }),
   Object.freeze({
+    id: "cycle-practice",
+    primaryCue: "Choose the best answer",
+    treatment: "The current cycle question owns the single clear response action; practice timing and progress remain visible without competing with the answer."
+  }),
+  Object.freeze({
     id: "sound-seekers",
     primaryCue: "Start my adventure",
     treatment: "A new child gets one named Start my adventure action; customisation options stay quieter and do not compete with it."
