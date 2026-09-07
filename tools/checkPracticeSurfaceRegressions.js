@@ -7,24 +7,25 @@ const checks = [
   {
     file: "src/components/StudentHomePage.jsx",
     needles: [
-      "Phonics Learning",
-      "Reading Library",
-      "hs-chips"
+      "data-child-surface=\"student-home\"",
+      "kg-home-doors",
+      "title: \"Letters\"",
+      "title: \"Books\""
     ]
   },
   {
     file: "src/components/LearnAreaPage.jsx",
     needles: [
-      "story-quest-library-stats",
       "story-quest-continue-strip",
-      "words found"
+      "learn-story-level-selector",
+      "data-child-surface=\"story-quests\""
     ]
   },
   {
     file: "src/components/StoryQuestPlayer.jsx",
     needles: [
-      "Back to Quests",
-      "Full Screen",
+      "Back to Story Quests",
+      "Full screen",
       "story-quest-progress-top"
     ]
   },
@@ -50,7 +51,8 @@ const checks = [
     needles: [
       "student-guided-reading-page",
       "guided-reading-mode-pill",
-      "Back to Library"
+      "readerCopy.backToLibrary",
+      "readerCopy.fullScreen"
     ]
   }
 ];
