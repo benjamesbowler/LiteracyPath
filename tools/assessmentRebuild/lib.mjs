@@ -1248,8 +1248,26 @@ export function buildImageIndex() {
 
 export function makeImageResolver(preferredDirs = []) {
   const index = buildImageIndex();
-  const approvedPath = value => ASSESSMENT_IMAGE_ALIAS_BY_SOURCE[`/${String(value || "").replace(/^\//, "")}`]
-    || `/${String(value || "").replace(/^\//, "")}`;
+  const approvedPath = value => {
+    const sourcePath = `/${String(value || "").replace(/^\//, "")}`;
+    const directAlias = ASSESSMENT_IMAGE_ALIAS_BY_SOURCE[sourcePath];
+    if (directAlias) return directAlias;
+
+    // The asset index can select a legacy .png sibling even when the reviewed
+    // alias was registered against the equivalent .webp source path. Treat
+    // those extension variants as the same source concept so authoring,
+    // generated banks, and approved media decisions stay byte-aligned.
+    const extension = path.extname(sourcePath);
+    if (extension) {
+      const stem = sourcePath.slice(0, -extension.length);
+      for (const alternateExtension of [".webp", ".png", ".jpg", ".jpeg"]) {
+        const alias = ASSESSMENT_IMAGE_ALIAS_BY_SOURCE[`${stem}${alternateExtension}`];
+        if (alias) return alias;
+      }
+    }
+
+    return sourcePath;
+  };
   return word => {
     const stem = norm(word).replace(/ /g, "-");
     // The objective-word library is the assessment-wide authority for concepts

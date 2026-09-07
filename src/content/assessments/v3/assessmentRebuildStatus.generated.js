@@ -73,8 +73,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-01T05:00:00.697Z",
-  "commit": "08f7e48ba"
+  "generatedAt": "2026-09-07T02:04:03.605Z",
+  "commit": "af75b1609"
  },
  "cause_effect": {
   "skillId": "cause_effect",
