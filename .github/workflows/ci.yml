@@ -22,8 +22,6 @@
 name: CI
 
 on:
-  push:
-    branches: [main, master]
   pull_request:
   workflow_dispatch:
     inputs:
@@ -32,6 +30,10 @@ on:
         required: false
         default: ""
         type: string
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   checks:
@@ -107,7 +109,7 @@ jobs:
             docs/previews/shots/
             docs/previews/slice/
           if-no-files-found: ignore
-          retention-days: 14
+          retention-days: 3
 
   release-gate:
     runs-on: ubuntu-24.04
@@ -203,7 +205,7 @@ jobs:
             test-results/
             playwright-report/
           if-no-files-found: warn
-          retention-days: 30
+          retention-days: 7
       - name: Upload private source maps
         if: always() && (github.event_name != 'workflow_dispatch' || inputs.release_only == '')
         uses: actions/upload-artifact@v7
@@ -211,7 +213,7 @@ jobs:
           name: private-source-maps-${{ github.sha }}
           path: ${{ runner.temp }}/private-source-maps/
           if-no-files-found: error
-          retention-days: 30
+          retention-days: 7
       - name: Stop local Supabase
         if: always()
         run: supabase stop --no-backup
