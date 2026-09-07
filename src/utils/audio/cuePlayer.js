@@ -175,7 +175,8 @@ function playCueAudioInternal(src, {
   onEnded,
   onInterrupted,
   onError,
-  cueId = src
+  cueId = src,
+  playImmediately = false
 } = {}, preserveSequence = false) {
   stopCuePlayback({ preserveSequence });
   if (!src) {
@@ -274,7 +275,7 @@ function playCueAudioInternal(src, {
         if (ownsCue()) reportCueDelivery("started", { id: deliveryId, session, delivery: deliver });
       }
     };
-    if (warmedEntry && !warmedEntry.ready) {
+    if (warmedEntry && !warmedEntry.ready && !playImmediately) {
       warmedEntry.promise.then(ready => {
         if (!ownsCue()) return;
         if (!ready) {
@@ -306,7 +307,8 @@ export function playCueSequence(srcs = [], {
   onItemDelivery: onItemDiagnostic,
   onStarted,
   onUnavailable,
-  cueId = "cue-sequence"
+  cueId = "cue-sequence",
+  playImmediately = false
 } = {}) {
   const queue = (srcs || []).filter(Boolean);
   if (!queue.length) return;
@@ -379,7 +381,12 @@ export function playCueSequence(srcs = [], {
         playNext();
       }, gapMs);
     };
-    playCueAudioInternal(src, { volume, cueId: itemCueId, onDelivery: handleItemDelivery }, true);
+    playCueAudioInternal(src, {
+      volume,
+      cueId: itemCueId,
+      onDelivery: handleItemDelivery,
+      playImmediately
+    }, true);
   };
   playNext();
 }

@@ -182,6 +182,14 @@ test("playback waits for a pending preload to reach canplay", async () => {
 
     assert.equal(instances[0].playCount, 1);
     assert.ok(deliveries.includes("started"));
+
+    cue.stopCueAudio();
+    const immediatePreload = cue.preloadCueAudio("/audio/gesture.mp3");
+    cue.playCueAudio("/audio/gesture.mp3", { playImmediately: true });
+    await Promise.resolve();
+    assert.equal(instances[1].playCount, 1);
+    instances[1].emit("canplay");
+    assert.equal(await immediatePreload, true);
   } finally {
     cue?.stopCueAudio();
     globalThis.window = originalWindow;

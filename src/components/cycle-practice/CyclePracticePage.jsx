@@ -74,9 +74,9 @@ function roundAudio(round) {
   return resolveAdventureRoundAudio(round);
 }
 
-function roundAudioSources(round, includeContent = true) {
+function roundAudioSources(round, includeContent = true, includeObjectAudio = true) {
   const resolved = roundAudio(round);
-  const objectAudio = round?.mechanicId === "sceneHunt"
+  const objectAudio = includeObjectAudio && round?.mechanicId === "sceneHunt"
     ? (round.objects || []).map(object => getLedaWordAudioPath(object.word))
     : [];
   return [
@@ -112,7 +112,8 @@ function instructionAudio(round, includeContent = false, callbacks = {}) {
     gapMs: 40,
     onStarted: callbacks.onStarted,
     onDelivery: callbacks.onDelivery,
-    onUnavailable: callbacks.onUnavailable
+    onUnavailable: callbacks.onUnavailable,
+    playImmediately: callbacks.playImmediately
   });
 }
 
@@ -187,14 +188,26 @@ export function CyclePracticePage({
     const key = `${mode}:${currentRound.id || (mode === "assessment" ? assessmentIndex : practiceIndex)}`;
     const plan = mode === "assessment" ? assessmentPlan : practicePlan;
     const currentIndex = mode === "assessment" ? assessmentIndex : practiceIndex;
-    // Warm the current activity plus the next two activities. Scene Hunt also
-    // warms each picture's name cue so its Hear name buttons do not pay a
-    // network/media cold-start cost on tap.
-    plan
-      .slice(currentIndex, currentIndex + 3)
-      .flatMap(round => roundAudioSources(round, mode === "practice"))
-      .filter((src, index, sources) => sources.indexOf(src) === index)
-      .forEach(src => { void preloadCueAudio(src); });
+    // Prioritise the current instruction/target before warming the next two
+    // questions. Starting every clip in the three-question window at once
+    // makes the current Hear cue compete with ahead-of-time media on a cold
+    // edge response; Scene Hunt name clips are useful, but are secondary to
+    // the audio needed to start the current activity.
+    const windowRounds = plan.slice(currentIndex, currentIndex + 3);
+    const currentSources = [...new Set(
+      roundAudioSources(currentRound, mode === "practice", false)
+    )];
+    const deferredSources = [...new Set(
+      windowRounds
+        .flatMap(round => roundAudioSources(round, mode === "practice"))
+        .filter(src => !currentSources.includes(src))
+    )];
+    const currentPreloads = currentSources.map(src => preloadCueAudio(src));
+    let preloadCancelled = false;
+    Promise.allSettled(currentPreloads).then(() => {
+      if (preloadCancelled) return;
+      deferredSources.forEach(src => { void preloadCueAudio(src); });
+    });
 
     if (audioRoundRef.current === key) return undefined;
     audioRoundRef.current = key;
@@ -208,7 +221,10 @@ export function CyclePracticePage({
         setAudioStatus("unavailable");
       }
     });
-    return () => stopCueAudio();
+    return () => {
+      preloadCancelled = true;
+      stopCueAudio();
+    };
   }, [answerPending, assessmentIndex, assessmentPlan, currentRound, mode, practiceIndex, practicePlan, result]);
 
   function retryAutomaticAudioFromGesture() {
@@ -219,6 +235,7 @@ export function CyclePracticePage({
     instructionAudio(currentRound, mode === "practice", {
       onStarted: () => setAudioStatus("playing"),
       onDelivery: () => setAudioStatus("ready"),
+      playImmediately: true,
       onUnavailable: () => {
         audioNeedsGestureRef.current = true;
         audioRoundRef.current = "";
@@ -233,6 +250,7 @@ export function CyclePracticePage({
     instructionAudio(currentRound, includeContent, {
       onStarted: () => setAudioStatus("playing"),
       onDelivery: () => setAudioStatus("ready"),
+      playImmediately: true,
       onUnavailable: () => setAudioStatus("unavailable")
     });
   }
@@ -242,14 +260,23 @@ export function CyclePracticePage({
     const sequence = target.targetAudio?.length ? target.targetAudio : target.contentAudio ? [target.contentAudio] : [];
     if (!sequence.length) return replayInstruction();
     setAudioStatus("playing");
-    playCueSequence(sequence, { gapMs: 40, onDelivery: () => setAudioStatus("ready"), onUnavailable: () => setAudioStatus("unavailable") });
+    playCueSequence(sequence, {
+      gapMs: 40,
+      playImmediately: true,
+      onDelivery: () => setAudioStatus("ready"),
+      onUnavailable: () => setAudioStatus("unavailable")
+    });
   }
 
   function playObjectAudio(word) {
     const path = getLedaWordAudioPath(word);
     if (!path) return;
     setAudioStatus("playing");
-    playCueAudio(path, { onDelivery: () => setAudioStatus("ready"), onUnavailable: () => setAudioStatus("unavailable") });
+    playCueAudio(path, {
+      playImmediately: true,
+      onDelivery: () => setAudioStatus("ready"),
+      onUnavailable: () => setAudioStatus("unavailable")
+    });
   }
 
   function advanceAfterAnswer(outcome) {
