@@ -25,7 +25,7 @@ import { DYNAMIC_IMPORT_ERROR_EVENT, importWithRetry } from "./utils/lazyWithRet
 import { clearAndVerifyLocalProgressForStudent, clearProgressSyncSession, configureProgressSync, hydrateCloudProgress, queueProgressSave } from "./utils/progressSync.js";
 import { configureInsertQueueAccount, startInsertQueueFlusher } from "./utils/insertQueue.js";
 import { createAssessmentRoundController } from "./appState/assessmentRoundController.js";
-import { AppSurface } from "./appState/appRuntimeSurfaces.jsx";
+import { AppSurface, preloadCyclePracticePage } from "./appState/appRuntimeSurfaces.jsx";
 import { createStudentRosterReadState } from "./appState/studentRosterReadState.js";
 import {
   createManualAssessmentAttemptSession,
@@ -404,6 +404,11 @@ export default function App() {
   const isStudentSurfaceView = isLearnView
     || appView === APP_VIEWS.STUDENT_REWARDS
     || appView === APP_VIEWS.CYCLE_PRACTICE;
+
+  useEffect(() => {
+    if (!authReady || (entryMode !== "student" && sessionMode !== "student")) return;
+    void preloadCyclePracticePage().catch(() => {});
+  }, [authReady, entryMode, sessionMode]);
 
   useEffect(() => {
     function syncFullscreenState() {

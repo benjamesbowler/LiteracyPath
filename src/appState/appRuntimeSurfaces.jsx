@@ -17,8 +17,19 @@ export const ElSkillsQuest = lazyWithRetry(() =>
     default: module.ElSkillsQuest
   }))
 );
+const loadCyclePracticePageModule = () =>
+  import("../components/cycle-practice/CyclePracticePage.jsx");
+
+// Start the Cycle Practice route while the child is signing in. The page is
+// still lazy for unrelated sessions, but a fresh child login must not pay the
+// route-chunk download at the exact moment the first sound is needed.
+// eslint-disable-next-line react-refresh/only-export-components
+export function preloadCyclePracticePage() {
+  return loadCyclePracticePageModule();
+}
+
 export const CyclePracticePage = lazyWithRetry(() =>
-  import("../components/cycle-practice/CyclePracticePage.jsx").then(module => ({
+  loadCyclePracticePageModule().then(module => ({
     default: module.CyclePracticePage
   }))
 );

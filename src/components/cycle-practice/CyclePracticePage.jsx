@@ -102,6 +102,29 @@ function playbackAudioSequence(round, includeContent = false) {
   ].filter(Boolean);
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
+export function preloadCyclePracticeAudio({ cycleId = "cycle-1", progressScopeKey = "default" } = {}) {
+  const cycle = cycleFromId(cycleId);
+  const plan = buildCyclePracticePlan(cycle, `${progressScopeKey}:preview`);
+  const currentRound = plan[0];
+  if (!currentRound) return Promise.resolve(false);
+
+  const windowRounds = plan.slice(0, 3);
+  const currentSources = [...new Set(
+    roundAudioSources(currentRound, true, false)
+  )];
+  const deferredSources = [...new Set(
+    windowRounds
+      .flatMap(round => roundAudioSources(round, true))
+      .filter(src => !currentSources.includes(src))
+  )];
+
+  return Promise.allSettled(currentSources.map(src => preloadCueAudio(src))).then(() => {
+    deferredSources.forEach(src => { void preloadCueAudio(src); });
+    return true;
+  });
+}
+
 function instructionAudio(round, includeContent = false, callbacks = {}) {
   const sequence = playbackAudioSequence(round, includeContent);
   if (!sequence.length) {

@@ -29,6 +29,7 @@ import {
   PageBoundary,
   PageErrorFallback,
   PhonicsLearnPage,
+  preloadCyclePracticePage,
   PresentPage,
   ResetStudentProgressDialog,
   Sidebar,
@@ -413,6 +414,26 @@ export function AppSurface({ surface }) {
       // localStorage unavailable - the in-session choice still applies.
     }
   }
+
+  const cyclePracticeWarmupId = sessionMode === "student"
+    && studentFocus?.session?.target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE
+    ? String(studentFocus.session.resolved_config?.cycle_id || "").trim()
+    : teacherCycleId;
+
+  useEffect(() => {
+    if (sessionMode !== "student" || !nameSaved || !studentId) return undefined;
+    let cancelled = false;
+    void preloadCyclePracticePage()
+      .then(module => {
+        if (cancelled) return;
+        return module.preloadCyclePracticeAudio?.({
+          cycleId: cyclePracticeWarmupId || "cycle-1",
+          progressScopeKey: studentId
+        });
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, [cyclePracticeWarmupId, nameSaved, sessionMode, studentId]);
 
   const confirmedElPlacement = useMemo(() => resolveConfirmedElPlacement({
     assessmentHistory,
@@ -1002,6 +1023,7 @@ export function AppSurface({ surface }) {
   const assignedCyclePracticeId = isCyclePracticeFocus
     ? String(activeStudentFocus.resolved_config?.cycle_id || "").trim()
     : null;
+
   const showStudentArcade = studentArcadeOpen || isAssignedArcadeGame;
   const studentSurfaceShellClass = isStudentMode && isStudentSurfaceView
     ? [
