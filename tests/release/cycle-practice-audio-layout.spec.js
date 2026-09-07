@@ -22,7 +22,9 @@ async function installAudioSpy(page) {
         this.timer = null;
       }
 
-      load() {}
+      load() {
+        this.dispatchEvent(new Event("canplay"));
+      }
 
       play() {
         window.__cyclePracticePlayedAudio.push(this.src);

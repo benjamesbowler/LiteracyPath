@@ -63,7 +63,6 @@ export function preloadCueAudio(src) {
   try {
     audio = new Audio();
     audio.preload = "auto";
-    audio.src = normalized;
   } catch {
     return Promise.resolve(false);
   }
@@ -76,7 +75,6 @@ export function preloadCueAudio(src) {
       if (settled) return;
       settled = true;
       if (timeoutId && typeof window !== "undefined") window.clearTimeout?.(timeoutId);
-      audio.removeEventListener?.("loadeddata", onReady);
       audio.removeEventListener?.("canplay", onReady);
       audio.removeEventListener?.("error", onError);
       entry.ready = ok;
@@ -85,14 +83,15 @@ export function preloadCueAudio(src) {
     };
     const onReady = () => finish(true);
     const onError = () => finish(false);
-    audio.addEventListener?.("loadeddata", onReady, { once: true });
     audio.addEventListener?.("canplay", onReady, { once: true });
     audio.addEventListener?.("error", onError, { once: true });
     if (typeof window !== "undefined" && typeof window.setTimeout === "function") {
       timeoutId = window.setTimeout(() => finish(false), 8000);
     }
     try {
+      audio.src = normalized;
       audio.load?.();
+      if (audio.readyState >= 3) finish(true);
     } catch {
       finish(false);
     }
@@ -101,9 +100,14 @@ export function preloadCueAudio(src) {
   return entry.promise;
 }
 
-function getWarmedCueElement(src) {
+function getWarmedCueEntry(src) {
   const entry = warmedCueCache.get(normalizeCueSource(src));
-  return entry && !entry.failed ? entry.audio : null;
+  return entry && !entry.failed ? entry : null;
+}
+
+function getWarmedCueElement(src) {
+  const entry = getWarmedCueEntry(src);
+  return entry?.ready ? entry.audio : null;
 }
 
 function reportSequenceDelivery(sequence, type) {
@@ -229,9 +233,10 @@ function playCueAudioInternal(src, {
   reportCueDelivery("loading", { id: deliveryId, session, delivery: deliver });
 
   try {
+    const warmedEntry = getWarmedCueEntry(src);
     const warmedAudio = getWarmedCueElement(src);
-    const audio = warmedAudio || getSharedCueElement();
-    const usesWarmedAudio = Boolean(warmedAudio);
+    const audio = warmedAudio || warmedEntry?.audio || getSharedCueElement();
+    const usesWarmedAudio = Boolean(warmedEntry);
     if (!ownsSession()) return;
     ownedAudio = audio;
     currentCue = audio;
@@ -253,19 +258,34 @@ function playCueAudioInternal(src, {
     if (!ownsCue()) return;
     listenForCue("error", unavailable, { once: true });
     if (!ownsCue()) return;
-    if (cueSuspended) {
-      cueResumeAfterSuspend = true;
+    const startPlayback = () => {
+      if (!ownsCue()) return;
+      if (cueSuspended) {
+        cueResumeAfterSuspend = true;
+        return;
+      }
+      duckGameMusic();
+      const result = audio.play();
+      if (result?.catch) {
+        result.then(() => {
+          if (ownsCue()) reportCueDelivery("started", { id: deliveryId, session, delivery: deliver });
+        }).catch(unavailable);
+      } else {
+        if (ownsCue()) reportCueDelivery("started", { id: deliveryId, session, delivery: deliver });
+      }
+    };
+    if (warmedEntry && !warmedEntry.ready) {
+      warmedEntry.promise.then(ready => {
+        if (!ownsCue()) return;
+        if (!ready) {
+          unavailable();
+          return;
+        }
+        startPlayback();
+      }).catch(unavailable);
       return;
     }
-    duckGameMusic();
-    const result = audio.play();
-    if (result?.catch) {
-      result.then(() => {
-        if (ownsCue()) reportCueDelivery("started", { id: deliveryId, session, delivery: deliver });
-      }).catch(unavailable);
-    } else {
-      if (ownsCue()) reportCueDelivery("started", { id: deliveryId, session, delivery: deliver });
-    }
+    startPlayback();
   } catch {
     unavailable();
   }

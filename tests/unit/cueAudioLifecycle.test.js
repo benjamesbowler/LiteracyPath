@@ -122,6 +122,73 @@ test("preloaded cues reuse the warmed media element for immediate playback", asy
   }
 });
 
+test("playback waits for a pending preload to reach canplay", async () => {
+  const originalWindow = globalThis.window;
+  const originalAudio = globalThis.Audio;
+  const instances = [];
+  const deliveries = [];
+  let cue = null;
+
+  class FakeAudio {
+    constructor() {
+      this.src = "";
+      this.currentTime = 0;
+      this.paused = true;
+      this.playCount = 0;
+      this.listeners = new Map();
+      instances.push(this);
+    }
+
+    addEventListener(type, handler) {
+      const handlers = this.listeners.get(type) || [];
+      handlers.push(handler);
+      this.listeners.set(type, handlers);
+    }
+
+    removeEventListener(type, handler) {
+      const handlers = this.listeners.get(type) || [];
+      this.listeners.set(type, handlers.filter(candidate => candidate !== handler));
+    }
+
+    emit(type) {
+      for (const handler of this.listeners.get(type) || []) handler();
+    }
+
+    load() {}
+    play() { this.paused = false; this.playCount += 1; return Promise.resolve(); }
+    pause() { this.paused = true; }
+  }
+
+  globalThis.window = { speechSynthesis: { cancel() {} } };
+  globalThis.Audio = FakeAudio;
+
+  try {
+    cue = await import(`../../src/utils/audio/cuePlayer.js?pending=${Date.now()}`);
+    const preload = cue.preloadCueAudio("/audio/pending.mp3");
+    assert.equal(instances.length, 1);
+
+    cue.playCueAudio("/audio/pending.mp3", {
+      onDelivery: event => deliveries.push(event.type)
+    });
+    await Promise.resolve();
+
+    assert.equal(instances[0].playCount, 0);
+    assert.deepEqual(deliveries, ["loading"]);
+
+    instances[0].emit("canplay");
+    assert.equal(await preload, true);
+    await Promise.resolve();
+    await Promise.resolve();
+
+    assert.equal(instances[0].playCount, 1);
+    assert.ok(deliveries.includes("started"));
+  } finally {
+    cue?.stopCueAudio();
+    globalThis.window = originalWindow;
+    globalThis.Audio = originalAudio;
+  }
+});
+
 test("a failed cue advances to the next recorded clip in a sequence", async () => {
   const originalWindow = globalThis.window;
   const originalAudio = globalThis.Audio;
