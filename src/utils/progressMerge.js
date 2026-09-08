@@ -1,3 +1,4 @@
+import { mergePracticeProgressValue, mergePracticeProgressRecords } from "./practiceCompletionRecords.js";
 // Pure merge rules for hydrating cloud progress into local storage.
 // Kept separate from progressSync.js so it can be unit-tested without pulling in
 // the Supabase client (which needs the browser/Vite env).
@@ -194,6 +195,9 @@ export function mergePayload(current, incoming) {
 // coalescing cannot reintroduce keys that questStore removed before upload.
 export function sanitizeCloudProgressPayload(area, payload) {
   if (!payload || typeof payload !== "object") return payload;
+  if (["phonics_letters", "cvc"].includes(area) && (payload.v === 3 || Array.isArray(payload.completions))) {
+    return mergePracticeProgressRecords(undefined, payload);
+  }
   if (area === "phonics_quest") {
     const { assignment, telemetry, ...safePayload } = payload;
     void assignment;
@@ -396,11 +400,11 @@ export function computeHydratedValue(area, key, existing, payload) {
       const next = { ...base };
       const incoming = payload && typeof payload === "object" ? payload : {};
       for (const k of Object.keys(incoming)) {
-        next[k] = mergeStatusForward(base[k], normalizeScalarProgressPayload(incoming[k]));
+        next[k] = mergePracticeProgressValue(base[k], incoming[k]);
       }
       return next;
     }
-    return { ...base, [key]: mergeStatusForward(base[key], normalizeScalarProgressPayload(payload)) };
+    return { ...base, [key]: mergePracticeProgressValue(base[key], payload) };
   }
 
   // Whole-payload progress maps: keep settings as cloud-canonical, but protect

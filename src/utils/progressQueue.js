@@ -1,7 +1,7 @@
+import { mergePracticeProgressRecords } from "./practiceCompletionRecords.js";
 import {
   computeHydratedValue,
   mergeMonotonic,
-  mergeStatusForward,
   sanitizeCloudProgressPayload
 } from "./progressMerge.js";
 
@@ -98,11 +98,7 @@ export function mergeProgressQueueEntries(existing, incoming) {
   } else if (["story_quests", "guided_reading"].includes(incoming.area)) {
     payload = mergeMonotonic(existing.payload, incoming.payload);
   } else if (["phonics_letters", "cvc"].includes(incoming.area)) {
-    payload = {
-      ...(existing.payload || {}),
-      ...(incoming.payload || {}),
-      status: mergeStatusForward(existing.payload?.status, incoming.payload?.status)
-    };
+    payload = mergePracticeProgressRecords(existing.payload, incoming.payload);
   } else {
     payload = { ...(existing.payload || {}), ...(incoming.payload || {}) };
   }

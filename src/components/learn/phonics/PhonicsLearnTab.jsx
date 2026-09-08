@@ -1,10 +1,10 @@
 import { Suspense, useEffect, useState } from "react";
-import { loadCvcProgress, saveCvcProgress } from "../../../utils/cvcProgress";
-import { loadPhonicsProgress, savePhonicsProgress } from "../../../utils/phonicsProgress";
+import { loadCvcProgress, saveCvcProgress, recordCvcCompletion } from "../../../utils/cvcProgress";
+import { loadPhonicsProgress, savePhonicsProgress, recordPhonicsCompletion } from "../../../utils/phonicsProgress";
 import { cvcWordFamilies } from "../../../data/cvcWordFamilies";
 import { PhonicsAlphabetPicker } from "./PhonicsAlphabetPicker";
 import { CvcLearningFlow } from "./cvc/CvcLearningFlow";
-import { useCvcSoundCue } from "./cvc/cvcHelpers";
+import { getWorkshopPrerequisites } from "./phonicsActivityState.js";
 import { WorkshopFamilyPicker } from "./cvc/WorkshopFamilyPicker";
 import { PhonicsLearningFlow } from "./PhonicsLearningFlow";
 import { lazyWithRetry } from "../../../utils/lazyWithRetry";
@@ -52,16 +52,7 @@ function IslandIcon({ type }) {
   return <span aria-hidden="true">Aa</span>;
 }
 
-function IslandLockIcon() {
-  return (
-    <svg className="phonics-island-lock" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
-      <path d="M7 10V8a5 5 0 0 1 10 0v2" />
-      <rect x="5" y="10" width="14" height="10" rx="2" />
-    </svg>
-  );
-}
-
-export function PhonicsLearnTab({
+function PhonicsLearnContent({
   initialIsland = "",
   initialStep = 1,
   leaderboardAvailable = false,
@@ -80,14 +71,11 @@ export function PhonicsLearnTab({
   ));
   const [progress, setProgress] = useState(() => loadPhonicsProgress(progressScopeKey));
   const [cvcProgress, setCvcProgress] = useState(() => loadCvcProgress(progressScopeKey));
-  const { playCue } = useCvcSoundCue();
+
   const completedLettersCount = Object.values(progress).filter(status => status === "completed").length;
   const completedWordFamiliesCount = Object.values(cvcProgress).filter(status => status === "completed").length;
-  const wordsUnlocked = completedLettersCount >= 6;
-  const lettersToUnlockWords = Math.max(0, 6 - completedLettersCount);
-  const nextStepText = wordsUnlocked
-    ? "Choose letters, practise sounds, or build short words."
-    : `Learn ${lettersToUnlockWords} more letter${lettersToUnlockWords === 1 ? "" : "s"} to unlock Word Workshop.`;
+  const wordsUnlocked = cvcWordFamilies.some(family => getWorkshopPrerequisites(family, progress).eligible);
+  const nextStepText = "Choose letters to practise, or see which letters each word nest needs.";
 
   useEffect(() => {
     function handleHydrated(event) {
@@ -111,6 +99,7 @@ export function PhonicsLearnTab({
   }
 
   function handleSelectFamily(family) {
+    if (!getWorkshopPrerequisites(family, progress).eligible) return;
     const updated = {
       ...cvcProgress,
       [family.id]: cvcProgress[family.id] === "completed" ? "completed" : "inprogress"
@@ -120,18 +109,16 @@ export function PhonicsLearnTab({
     setActiveFamily(family);
   }
 
-  function handleLetterComplete(letter) {
-    const updated = { ...progress, [letter]: "completed" };
-    setProgress(updated);
-    savePhonicsProgress(progressScopeKey, updated);
-    setActiveLetter(null);
+  function handleLetterComplete(letter, completion) {
+    const result = recordPhonicsCompletion(progressScopeKey, letter, completion);
+    if (result.localSaved || result.queued) setProgress(previous => ({ ...previous, [letter]: "completed" }));
+    return result;
   }
 
-  function handleFamilyComplete(family) {
-    const updated = { ...cvcProgress, [family.id]: "completed" };
-    setCvcProgress(updated);
-    saveCvcProgress(progressScopeKey, updated);
-    setActiveFamily(null);
+  function handleFamilyComplete(family, completion) {
+    const result = recordCvcCompletion(progressScopeKey, family.id, completion);
+    if (result.localSaved || result.queued) setCvcProgress(previous => ({ ...previous, [family.id]: "completed" }));
+    return result;
   }
 
   function handleBack() {
@@ -142,20 +129,18 @@ export function PhonicsLearnTab({
   function handleIslandClick(island) {
     if (exactGameLock && island !== "games") return;
     if (lockedToLetters && island !== "letters") return;
-    if (island === "words" && !wordsUnlocked) {
-      playCue("", "Learn 6 letters first!");
-      return;
-    }
     setActiveIsland(island);
   }
 
   if (activeLetter) {
     return (
       <PhonicsLearningFlow
+        key={`${progressScopeKey}:${activeLetter}`}
         letter={activeLetter}
         initialStep={initialStep}
         onBack={handleBack}
-        onComplete={() => handleLetterComplete(activeLetter)}
+        onComplete={completion => handleLetterComplete(activeLetter, completion)}
+        onExit={handleBack}
       />
     );
   }
@@ -163,10 +148,12 @@ export function PhonicsLearnTab({
   if (activeFamily) {
     return (
       <CvcLearningFlow
+        key={`${progressScopeKey}:${activeFamily.id}`}
         family={activeFamily}
         initialStep={initialStep}
         onBack={handleBack}
-        onComplete={() => handleFamilyComplete(activeFamily)}
+        onComplete={completion => handleFamilyComplete(activeFamily, completion)}
+        onExit={handleBack}
       />
     );
   }
@@ -217,23 +204,23 @@ export function PhonicsLearnTab({
         </button>
         {!lockedToLetters && (
           <button
-            className={`phonics-island-card ${activeIsland === "words" ? "active" : ""} ${wordsUnlocked ? "" : "locked"}`}
+            className={`phonics-island-card ${activeIsland === "words" ? "active" : ""}`}
             onClick={() => handleIslandClick("words")}
             type="button"
-            aria-label={wordsUnlocked ? "Words" : "Words locked. Learn 6 letters first."}
+            aria-label={wordsUnlocked ? "Words" : "Words. See letters to practise first."}
           >
             <IslandIcon type="words" />
             <span className="phonics-island-label">
               <span>Words</span>
-              <small>{wordsUnlocked ? `${completedWordFamiliesCount}/${cvcWordFamilies.length} built` : `${lettersToUnlockWords} ${lettersToUnlockWords === 1 ? "letter" : "letters"} to unlock`}</small>
+              <small>{wordsUnlocked ? `${completedWordFamiliesCount}/${cvcWordFamilies.length} built` : "See letters to practise"}</small>
             </span>
-            {!wordsUnlocked && <IslandLockIcon />}
           </button>
         )}
       </div>
 
-      {activeIsland === "words" && wordsUnlocked ? (
+      {activeIsland === "words" ? (
         <WorkshopFamilyPicker
+          letterProgress={progress}
           progress={cvcProgress}
           onSelectFamily={handleSelectFamily}
         />
@@ -245,4 +232,8 @@ export function PhonicsLearnTab({
       )}
     </div>
   );
+}
+
+export function PhonicsLearnTab(props) {
+  return <PhonicsLearnContent key={props.progressScopeKey || "default"} {...props} />;
 }

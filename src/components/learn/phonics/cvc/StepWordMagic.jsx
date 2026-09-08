@@ -2,7 +2,8 @@ import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { WordImage } from "../components/WordImage";
 import Blendy from "./Blendy";
-import { getLetterSoundCue, useCvcSoundCue, useCvcWordModels } from "./cvcHelpers";
+import PhonicsButton from "../components/PhonicsButton";
+import { getLetterSoundCue, cvcAudioDelivery, cvcStepEvidence, useCvcSoundCue, useCvcWordModels } from "./cvcHelpers";
 import { getLedaInstructionAudioPath } from "../../../../data/ledaProductionAudio.js";
 
 const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
@@ -11,6 +12,10 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
   const [isSwapping, setIsSwapping] = useState(false);
   const [departingOnset, setDepartingOnset] = useState("");
   const magicRunRef = useRef(0);
+  const swappingRef = useRef(false);
+  const completedRef = useRef(false);
+  const recordsRef = useRef([]);
+  const [delivery, setDelivery] = useState("pending");
   const { playCue, stopCue } = useCvcSoundCue();
   const currentWord = words[wordIndex];
   const nextWord = words[wordIndex + 1];
@@ -23,35 +28,45 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
   }, [stopCue]);
 
   const handleMagicTap = useCallback(async () => {
-    if (!currentWord || !nextWord || isSwapping) return;
-    const run = magicRunRef.current + 1;
-    magicRunRef.current = run;
+    if (!currentWord || !nextWord || swappingRef.current || completedRef.current) return;
+    swappingRef.current = true;
+    const run = ++magicRunRef.current;
+    stopCue();
+    const record = {
+      audioDelivery: "pending", attempts: 1,
+      firstResponse: { word: currentWord.word, targetWord: nextWord.word, slot: 0, selected: nextOnset },
+      supportUsed: ["modeled_transformation"]
+    };
+    recordsRef.current.push(record);
     setIsSwapping(true);
+    setDelivery("playing");
     setDepartingOnset(currentWord.letters[0]);
-    const cue = getLetterSoundCue(nextOnset, family);
-    const onsetStatus = await playCue(cue.src, cue.fallbackText);
-    if (onsetStatus !== "ended" || magicRunRef.current !== run) {
-      if (magicRunRef.current === run) {
-        setDepartingOnset("");
-        setIsSwapping(false);
-      }
-      return;
-    }
-
+    // The modeled transformation is complete on the child's action. Audio is
+    // its own delivery outcome, so a failed final clip never strands the task.
     setWordIndex(index => index + 1);
     setDepartingOnset("");
+    const cue = getLetterSoundCue(nextOnset, family);
+    const onsetStatus = await playCue(cue.src, cue.fallbackText);
+    if (magicRunRef.current !== run) return;
     const wordStatus = await playCue(nextWord.audio, nextWord.word);
-    if (wordStatus !== "ended" || magicRunRef.current !== run) {
-      if (magicRunRef.current === run) setIsSwapping(false);
-      return;
+    if (magicRunRef.current !== run) return;
+    record.audioDelivery = cvcStepEvidence("magic", [
+      { audioDelivery: cvcAudioDelivery(onsetStatus) }, { audioDelivery: cvcAudioDelivery(wordStatus) }
+    ]).audioDelivery;
+    if (record.audioDelivery !== "delivered") record.supportUsed.push("media_unavailable");
+    setDelivery(record.audioDelivery);
+    setIsSwapping(false); swappingRef.current = false;
+    if (wordIndex + 1 >= words.length - 1 && record.audioDelivery === "delivered") {
+      void playCue(getLedaInstructionAudioPath("You found it"), "You found it");
     }
+  }, [currentWord, family, nextOnset, nextWord, playCue, stopCue, wordIndex, words.length]);
 
-    if (wordIndex + 1 >= words.length - 1) {
-      const praiseStatus = await playCue(getLedaInstructionAudioPath("You found it"), "You found it");
-      if (praiseStatus === "ended" && magicRunRef.current === run) onComplete();
-    }
-    if (magicRunRef.current === run) setIsSwapping(false);
-  }, [currentWord, family, isSwapping, nextOnset, nextWord, onComplete, playCue, wordIndex, words.length]);
+  function complete() {
+    if (completedRef.current || !isFinalWord) return;
+    completedRef.current = true;
+    magicRunRef.current += 1; stopCue();
+    onComplete(cvcStepEvidence("magic", recordsRef.current));
+  }
 
   const displayLetters = useMemo(() => currentWord?.letters || [], [currentWord]);
 
@@ -60,6 +75,8 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
   return (
     <motion.div className="phonics-step cvc-step cvc-magic-step kg-child-flow__content" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, x: -80 }}>
       <div className="cvc-step-heading">
+      {["unavailable", "interrupted"].includes(delivery) && <p role="status">The sound did not finish. You can replay the picture and continue with support.</p>}
+
         <h2>Word Magic</h2>
         <p>Change one sound!</p>
       </div>
@@ -94,6 +111,7 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
         ))}
       </div>
 
+      {isFinalWord && <div className="cvc-step-actions"><PhonicsButton onClick={complete}>Continue</PhonicsButton></div>}
       {!isFinalWord && (
         <div className="cvc-tile-tray cvc-magic-tray" aria-label="Magic letter">
           <motion.button

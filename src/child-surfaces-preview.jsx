@@ -117,7 +117,7 @@ if (
 if (PREVIEW_PARAMS.get("unlockWords") === "1") {
   window.localStorage.setItem(
     `lp_phonics_progress_${PREVIEW_SCOPE}`,
-    JSON.stringify(Object.fromEntries(["A", "B", "C", "D", "E", "F"].map(letter => [letter, "completed"])))
+    JSON.stringify(Object.fromEntries("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map(letter => [letter, "completed"])))
   );
 }
 

@@ -1,7 +1,7 @@
-import { useCallback, useMemo, useRef, useState } from "react";
-import { getChildWordAsset } from "../../../../data/childAssets";
-import { getCvcWordParts, getGraphemeAudioPath } from "../../../../data/cvcWordFamilies";
-import { playPhonicsAudio, stopPhonicsAudio } from "../../../../hooks/usePhonicsAudio";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { getChildWordAsset } from "../../../../data/childAssets.js";
+import { getCvcWordGraphemes, getGraphemeAudioPath } from "../../../../data/cvcWordFamilies.js";
+import { playPhonicsAudio } from "../../../../hooks/usePhonicsAudio.js";
 
 export const CVC_SOUND_DELAY = 720;
 export const CVC_SOUND_GAP = 90;
@@ -16,8 +16,8 @@ const VOWEL_SOUND_FALLBACKS = {
 
 export function makeCvcWordModel(word, family) {
   const asset = getChildWordAsset(word, { allowBlockedAssessmentImage: true }) || {};
-  const { onset, rimeLetters } = getCvcWordParts(word, family.rime);
-  const letters = [...onset.split(""), ...rimeLetters].filter(Boolean);
+  void family;
+  const letters = getCvcWordGraphemes(word);
 
   return {
     word,
@@ -35,12 +35,13 @@ export function makeCvcWordModels(words, family) {
 export function useCvcSoundCue() {
   const [isPlaying, setIsPlaying] = useState(false);
   const cueRequestRef = useRef(0);
+  const playbackRef = useRef(null);
 
   const playCue = useCallback((src, fallbackText) => {
     void fallbackText;
     const request = cueRequestRef.current + 1;
     cueRequestRef.current = request;
-    return playPhonicsAudio(src || "", {
+    playbackRef.current = playPhonicsAudio(src || "", {
       onStart: () => {
         if (cueRequestRef.current === request) setIsPlaying(true);
       },
@@ -48,14 +49,16 @@ export function useCvcSoundCue() {
         if (cueRequestRef.current === request) setIsPlaying(false);
       }
     });
+    return playbackRef.current;
   }, []);
 
   const stopCue = useCallback(() => {
     cueRequestRef.current += 1;
-    stopPhonicsAudio();
+    playbackRef.current?.cancel?.();
     setIsPlaying(false);
   }, []);
 
+  useEffect(() => () => { cueRequestRef.current += 1; playbackRef.current?.cancel?.(); }, []);
   return { playCue, stopCue, isPlaying };
 }
 
@@ -67,19 +70,22 @@ export async function playCvcSoundSequence({
   isCurrent = () => true,
   wait = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds))
 }) {
-  if (!wordModel || typeof playCue !== "function") return false;
+  if (!wordModel || typeof playCue !== "function") return { audioDelivery: "unavailable" };
   for (const [index, letter] of wordModel.letters.entries()) {
-    if (!isCurrent()) return false;
+    if (!isCurrent()) return { audioDelivery: "interrupted" };
     onLetter(index);
     const cue = getLetterSoundCue(letter, family);
-    const status = await playCue(cue.src, cue.fallbackText);
-    if (!isCurrent() || status !== "ended") return false;
+    const playback = playCue(cue.src, cue.fallbackText);
+    const status = await playback;
+    if (!isCurrent() || playback.isCurrent?.() === false) return { audioDelivery: "interrupted" };
+    if (status !== "ended") return { audioDelivery: cvcAudioDelivery(status) };
     await wait(CVC_SOUND_GAP);
+    if (playback.isCurrent?.() === false) return { audioDelivery: "interrupted" };
   }
-  if (!isCurrent()) return false;
+  if (!isCurrent()) return { audioDelivery: "interrupted" };
   onLetter(-1);
   const wordStatus = await playCue(wordModel.audio, wordModel.word);
-  return isCurrent() && wordStatus === "ended";
+  return { audioDelivery: isCurrent() ? cvcAudioDelivery(wordStatus) : "interrupted" };
 }
 
 export function useCvcWordModels(words, family) {
@@ -118,4 +124,21 @@ export function shuffleItems(items) {
     [copy[index], copy[swapIndex]] = [copy[swapIndex], copy[index]];
   }
   return copy;
+}
+
+export function cvcAudioDelivery(status) {
+  return status === "ended" ? "delivered" : ["stopped", "superseded"].includes(status) ? "interrupted" : "unavailable";
+}
+
+export function cvcStepEvidence(step, records = []) {
+  const deliveries = records.map(record => record.audioDelivery);
+  const audioDelivery = deliveries.includes("unavailable") ? "unavailable"
+    : deliveries.includes("interrupted") ? "interrupted"
+      : deliveries.length && deliveries.every(value => value === "delivered") ? "delivered" : "pending";
+  return {
+    step, completionKind: step === "hear" && audioDelivery === "delivered" ? "exposure" : "supported",
+    audioDelivery, firstResponse: records[0]?.firstResponse ?? null,
+    attempts: records.reduce((sum, record) => sum + (record.attempts || 0), 0),
+    supportUsed: [...new Set(records.flatMap(record => record.supportUsed || []))], independent: false
+  };
 }

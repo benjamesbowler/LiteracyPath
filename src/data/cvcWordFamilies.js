@@ -73,15 +73,22 @@ export function getGraphemeAudioPath(letter, vowel = "") {
   return getPreferredPhonemeAudioPath(normalizedVowel || normalizedLetter);
 }
 
-export function getCvcWordParts(word, rime) {
-  const normalizedWord = String(word || "").toLowerCase();
-  const normalizedRime = String(rime || "").toLowerCase();
-  const onset = normalizedWord.endsWith(normalizedRime)
-    ? normalizedWord.slice(0, normalizedWord.length - normalizedRime.length)
-    : normalizedWord.slice(0, 1);
+// Reviewed grapheme boundaries for the current Word Workshop curriculum.
+// A new word must author its units here before it can become a playable model.
+const CVC_WORD_GRAPHEMES = {
+  cat: ['c', 'a', 't'], bat: ['b', 'a', 't'], hat: ['h', 'a', 't'],
+  map: ['m', 'a', 'p'], cap: ['c', 'a', 'p'], nap: ['n', 'a', 'p'],
+  pig: ['p', 'i', 'g'], dig: ['d', 'i', 'g'], wig: ['w', 'i', 'g'],
+  pin: ['p', 'i', 'n'], fin: ['f', 'i', 'n'], bin: ['b', 'i', 'n'],
+  pot: ['p', 'o', 't'], hot: ['h', 'o', 't'], dot: ['d', 'o', 't'],
+  bug: ['b', 'u', 'g'], mug: ['m', 'u', 'g'], dug: ['d', 'u', 'g'],
+  sun: ['s', 'u', 'n'], bun: ['b', 'u', 'n'],
+  nut: ['n', 'u', 't'], cut: ['c', 'u', 't'], hut: ['h', 'u', 't']
+};
 
-  return {
-    onset,
-    rimeLetters: normalizedRime.split("")
-  };
+export function getCvcWordGraphemes(word) {
+  const normalized = String(word || '').toLowerCase();
+  const units = CVC_WORD_GRAPHEMES[normalized];
+  if (!units || units.join('') !== normalized) throw new Error(`Missing authored Word Workshop graphemes: ${normalized}`);
+  return [...units];
 }

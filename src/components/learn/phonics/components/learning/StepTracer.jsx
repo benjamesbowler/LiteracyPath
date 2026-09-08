@@ -557,7 +557,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
               <PhonicsButton variant="secondary" size="small" onClick={handleReset}>
                 Try Again
               </PhonicsButton>
-              <PhonicsButton onClick={onComplete}>Next Step</PhonicsButton>
+              <PhonicsButton onClick={() => onComplete({ step: "trace", completionKind: "supported", audioDelivery: "not_required", firstResponse: null, attempts: 1, supportUsed: ["trace_model", ...(accessibleTraceUsedRef.current ? ["switch_trace"] : [])], independent: false, strokeCoverages })}>Next Step</PhonicsButton>
             </motion.div>
           )}
         </AnimatePresence>

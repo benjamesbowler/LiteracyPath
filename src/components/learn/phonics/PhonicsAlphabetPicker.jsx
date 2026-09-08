@@ -43,7 +43,7 @@ export function PhonicsAlphabetPicker({ progress = {}, onSelectLetter }) {
             surface="phonics-letter"
             reason={progress[recommendedLetter] === "inprogress"
               ? "You already started this letter, so it is ready to continue."
-              : "This is your next available letter to learn."}
+              : "This is your next available letter to practise."}
           />
         </p>
       )}
@@ -88,7 +88,7 @@ export function PhonicsAlphabetPicker({ progress = {}, onSelectLetter }) {
       </div>
 
       <div className="phonics-picker-progress" data-child-progress="">
-        <span>{completedCount} of {totalLetters} letters learned</span>
+        <span>{completedCount} of {totalLetters} letters practised</span>
         <span className="phonics-picker-stars" aria-hidden="true">
           {Array.from({ length: 3 }).map((_, index) => (
             <span key={index}>{index < Math.floor((completedCount / totalLetters) * 3) ? "★" : "☆"}</span>

@@ -85,3 +85,19 @@ Accuracy uses only independently scored responses. Actual mechanic constructs
 (e.g. memory retrieval or supported formation) remain distinct from decoding
 and handwriting proficiency. Cycle checks never establish formal Skills/EL
 placement. Failed saving retries the identical attempt and answers.
+
+## Phonics and Word Workshop practice records
+
+Letter and CVC activities retain immutable completion events with step delivery,
+first response, attempts and assistance. Tracing a model, listening to examples,
+matching printed word beginnings and modeled word building are practice; their
+completion is never an independent mastery conclusion. Legacy completed values
+remain activity history with unknown evidence. Save at the final learning action;
+leaving a celebration or playing again cannot create or erase that completion.
+
+Workshop curriculum sequencing uses the actual graphemes in each authored
+family's targets, transformations and distractors. A completed letter activity
+records prior curriculum exposure for this supported practice only. It does not
+claim proficiency or satisfy the independent instructional-progression policy
+above. The picker names missing letter activities; neither six arbitrary letters
+nor completing the previous family supplies those prerequisites.

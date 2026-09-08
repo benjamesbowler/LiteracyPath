@@ -39,7 +39,8 @@ const firstSoundQuestion = readFileSync(
 test("CVC sound-out waits for each recording instead of interrupting it on a timer", () => {
   assert.match(stepHearWord, /await playCvcSoundSequence/);
   assert.doesNotMatch(stepHearWord, /index\s*\*\s*CVC_SOUND_DELAY/);
-  assert.match(cvcHelpers, /const status = await playCue/);
+  assert.match(cvcHelpers, /const playback = playCue/);
+  assert.match(cvcHelpers, /const status = await playback/);
   assert.match(cvcHelpers, /const wordStatus = await playCue/);
   assert.match(stepBuildWord, /await playCvcSoundSequence/);
   assert.doesNotMatch(stepBuildWord, /index\s*\*\s*CVC_SOUND_DELAY/);
@@ -48,7 +49,7 @@ test("CVC sound-out waits for each recording instead of interrupting it on a tim
 });
 
 test("phonics begins imperatively in the tap call stack and transient Safari blocks stay retryable", () => {
-  assert.match(cvcHelpers, /return playPhonicsAudio\(src \|\| ""/);
+  assert.match(cvcHelpers, /playbackRef\.current = playPhonicsAudio\(src \|\| ""/);
   assert.doesNotMatch(cvcHelpers, /useEffect\([\s\S]*?play\(\)/);
   assert.doesNotMatch(phonicsAudio, /on\("playerror",\s*\(\) => failedSources\.add/);
   assert.match(phonicsAudio, /const onPlayError = \(\) => settle\("blocked"\)/);

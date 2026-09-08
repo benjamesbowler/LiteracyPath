@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { cvcWordFamilies } from "../../../../data/cvcWordFamilies";
 import { WordImage } from "../components/WordImage";
 import Blendy from "./Blendy";
+import { getWorkshopPrerequisites } from "../phonicsActivityState.js";
 import { makeCvcWordModels } from "./cvcHelpers";
 
 const containerVariants = {
@@ -32,18 +33,19 @@ function LockIcon() {
   );
 }
 
-export function WorkshopFamilyPicker({ progress = {}, onSelectFamily }) {
+export function WorkshopFamilyPicker({ progress = {}, letterProgress = {}, onSelectFamily }) {
   const completedCount = Object.values(progress).filter(status => status === "completed").length;
-  const familyCards = useMemo(() => cvcWordFamilies.map((family, index) => {
-    const previousFamily = cvcWordFamilies[index - 1];
-    const locked = index > 0 && progress[previousFamily.id] !== "completed";
+  const familyCards = useMemo(() => cvcWordFamilies.map(family => {
+    const { missing, eligible } = getWorkshopPrerequisites(family, letterProgress);
+    const locked = !eligible;
     return {
       family,
+      missing,
       locked,
       status: locked ? "locked" : progress[family.id] || "default",
       words: makeCvcWordModels(family.buildWords.slice(0, 3), family)
     };
-  }), [progress]);
+  }), [progress, letterProgress]);
 
   return (
     <div className="cvc-picker" aria-label="Word Workshop">
@@ -56,7 +58,7 @@ export function WorkshopFamilyPicker({ progress = {}, onSelectFamily }) {
       </motion.div>
 
       <motion.div className="cvc-family-grid" variants={containerVariants} initial="hidden" animate="visible">
-        {familyCards.map(({ family, locked, status, words }) => {
+        {familyCards.map(({ family, locked, missing, status, words }) => {
           const isClickable = !locked;
 
           return (
@@ -68,7 +70,7 @@ export function WorkshopFamilyPicker({ progress = {}, onSelectFamily }) {
               onClick={() => isClickable && onSelectFamily(family)}
               disabled={!isClickable}
               className={`cvc-family-card ${status}`}
-              aria-label={`${family.rime} word nest${locked ? " locked" : ""}`}
+              aria-label={`${family.rime} word nest${locked ? `. Practise ${missing.join(", ")} first` : ""}`}
               type="button"
             >
               <span className="cvc-family-rime">-{family.rime}</span>
@@ -79,6 +81,7 @@ export function WorkshopFamilyPicker({ progress = {}, onSelectFamily }) {
                   </span>
                 ))}
               </span>
+              {locked && <span>Practise {missing.join(", ")} first</span>}
               <span className="cvc-family-status" aria-hidden="true">
                 {status === "completed" && "✓"}
                 {status === "inprogress" && <span className="phonics-status-pulse" />}

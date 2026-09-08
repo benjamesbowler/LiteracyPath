@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
 import { fileURLToPath } from "node:url";
-import { cvcWordFamilies, getCvcWordParts, getGraphemeAudioPath } from "../src/data/cvcWordFamilies.js";
+import { cvcWordFamilies, getCvcWordGraphemes, getGraphemeAudioPath } from "../src/data/cvcWordFamilies.js";
 import { getChildWordAsset } from "../src/data/childAssets.js";
 import { DEFERRED_ATOMIC_SOUND_KEYS } from "../src/data/phonemeAudioBank.js";
 
@@ -44,8 +44,7 @@ for (const family of cvcWordFamilies) {
   const words = [...new Set([...family.buildWords, ...family.magicSwaps])];
   for (const word of words) {
     checkWord(word);
-    const { onset, rimeLetters } = getCvcWordParts(word, family.rime);
-    for (const letter of [...onset.split(""), ...rimeLetters]) {
+    for (const letter of getCvcWordGraphemes(word)) {
       checkGrapheme(letter, letter === family.vowel ? family.vowel : "");
     }
   }

@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from "react";
+import { memo, useCallback, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
 import PhonicsButton from "../PhonicsButton";
@@ -12,19 +12,20 @@ const Celebration = memo(function Celebration({
   onLearnAnother,
   onPlayAgain
 }) {
+  const burstTimer = useRef(null);
   const fireConfetti = useCallback(() => {
     const colors = ["#FFD93D", "#4D96FF", "#9B5DE5", "#95E1D3", "#FF6B6B"];
 
     confetti({ particleCount: 40, angle: 60, spread: 55, origin: { x: 0, y: 1 }, colors, disableForReducedMotion: true });
     confetti({ particleCount: 40, angle: 120, spread: 55, origin: { x: 1, y: 1 }, colors, disableForReducedMotion: true });
-    setTimeout(() => {
+    burstTimer.current = setTimeout(() => {
       confetti({ particleCount: 30, angle: 90, spread: 100, origin: { x: 0.5, y: 0.3 }, colors, disableForReducedMotion: true });
     }, 300);
   }, []);
 
   useEffect(() => {
     const timer = setTimeout(fireConfetti, 400);
-    return () => clearTimeout(timer);
+    return () => { clearTimeout(timer); clearTimeout(burstTimer.current); confetti.reset(); };
   }, [fireConfetti]);
 
   return (

@@ -52,6 +52,8 @@ installed, reviewed, and trusted on 2026-08-03.
 
 ## Current beta release state
 
+- Letter and Word Workshop practice retain immutable v3 completion events through local storage, queue coalescing and hydration. Completion describes supported practice/exposure, not mastery; Workshop sequencing names the actual authored grapheme prerequisites. See [Learning Policy](../design/LEARNING_POLICY.md).
+
 - Cycle Practice uses typed independent/support/media-failure evidence, retained first responses, pause-safe active practice time, immutable retry payloads and owner-scoped teacher results. The hosted migration is `20260908122903`; local and rollback-only hosted SQL checks passed. Current contracts are in [Cycle Practice](../product/CYCLE_PRACTICE.md) and [Learning Policy](../design/LEARNING_POLICY.md). Browser emulation does not establish physical-device or human-listening evidence.
 
 - Learner session recovery preserves pending progress and assessment revisions,

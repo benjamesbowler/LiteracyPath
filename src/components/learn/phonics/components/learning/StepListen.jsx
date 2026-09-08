@@ -1,17 +1,27 @@
-import { memo, useCallback } from "react";
+import { memo, useCallback, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { hasPhonicsAudioSource, usePhonicsAudio } from "../../../../../hooks/usePhonicsAudio";
-import AudioButton from "../AudioButton";
 import PhonicsButton from "../PhonicsButton";
+import { settleExposureDeliveries } from "../../phonicsActivityState.js";
 import { WordImage } from "../WordImage";
 
-const WordCard = memo(function WordCard({ word }) {
+function deliveryStatus(status) {
+  if (status === "ended") return "delivered";
+  if (["stopped", "superseded"].includes(status)) return "interrupted";
+  return "unavailable";
+}
+
+const WordCard = memo(function WordCard({ word, onDelivery }) {
   const { play, isPlaying } = usePhonicsAudio(word.audio, word.phonemeBreakdown || word.word);
   const canHear = hasPhonicsAudioSource(word.audio);
+  const request = useRef(0);
+  useEffect(() => () => { request.current += 1; }, []);
 
   const handleTap = useCallback(() => {
-    play();
-  }, [play]);
+    const epoch = ++request.current;
+    onDelivery(word.word, "pending");
+    void play().then(status => { if (epoch === request.current) onDelivery(word.word, deliveryStatus(status)); });
+  }, [play, word.word, onDelivery]);
 
   return (
     <motion.button
@@ -39,10 +49,22 @@ const WordCard = memo(function WordCard({ word }) {
 const StepListen = memo(function StepListen({ lesson, onComplete }) {
   const { play: playPhonic } = usePhonicsAudio(lesson.phonicAudio, lesson.phonicSound);
   const canHearPhoneme = hasPhonicsAudioSource(lesson.phonicAudio);
+  const [delivery, setDelivery] = useState({});
+  const deliveryRef = useRef({});
+  const alive = useRef(true);
+  const soundRequest = useRef(0);
+  useEffect(() => { alive.current = true; return () => { alive.current = false; }; }, []);
+  const recordDelivery = useCallback((key, status) => {
+    if (!alive.current) return;
+    deliveryRef.current = { ...deliveryRef.current, [key]: status };
+    setDelivery(deliveryRef.current);
+  }, []);
 
   const handlePhonicClick = useCallback(() => {
-    playPhonic();
-  }, [playPhonic]);
+    const epoch = ++soundRequest.current;
+    recordDelivery("sound", "pending");
+    void playPhonic().then(status => { if (epoch === soundRequest.current) recordDelivery("sound", deliveryStatus(status)); });
+  }, [playPhonic, recordDelivery]);
 
   return (
     <div className="phonics-step phonics-step-listen kg-child-flow__content">
@@ -75,7 +97,7 @@ const StepListen = memo(function StepListen({ lesson, onComplete }) {
 
       <div className="phonics-listen-grid">
         {lesson.words.map(word => (
-          <WordCard key={word.word} word={word} />
+          <WordCard key={word.word} word={word} onDelivery={recordDelivery} />
         ))}
       </div>
 
@@ -86,8 +108,9 @@ const StepListen = memo(function StepListen({ lesson, onComplete }) {
       )}
 
       <motion.div className="phonics-step-actions" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-        <AudioButton src={lesson.phonicAudio} fallbackText={lesson.phonicSound} size={64} />
-        <PhonicsButton onClick={onComplete}>Next Step</PhonicsButton>
+      {Object.values(delivery).some(status => ["unavailable", "interrupted"].includes(status)) && <p role="status">Sound stopped or could not play. Tap it to retry, or continue with the pictures.</p>}
+      {!canHearPhoneme && <p role="status">This sound is unavailable. You can continue with the pictures.</p>}
+        <PhonicsButton onClick={() => onComplete({ step: "listen", completionKind: "exposure", audioDelivery: settleExposureDeliveries(deliveryRef.current).sound || (canHearPhoneme ? "not_played" : "unavailable"), firstResponse: null, attempts: 0, supportUsed: ["picture_and_print_model"], independent: false, deliveries: settleExposureDeliveries(deliveryRef.current) })}>Next Step</PhonicsButton>
       </motion.div>
     </div>
   );

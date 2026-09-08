@@ -48,8 +48,9 @@ test("Letter Sounds keeps the same lesson and cards mounted through full screen"
   await page.goto("/");
   await page.getByRole("button", { name: "Try for free" }).click();
   await page.getByRole("button", { name: "Start playing" }).click();
+  await page.getByRole("dialog", { name: "Choose your Little Literacy Guide" }).getByRole("button", { name: "Fluff Bob and Nan" }).click();
   await page.locator("button").filter({ hasText: "Sounds and writing" }).click();
-  await page.getByRole("button", { name: "Letter A", exact: true }).click();
+  await page.getByRole("button", { name: /^Letter A(?:,|$)/ }).click();
   await page.getByRole("button", { name: "Skip", exact: true }).click();
 
   const next = page.getByRole("button", { name: "Next Step", exact: true });
@@ -97,7 +98,7 @@ test("Letter Sounds word cards stay visible while their pictures are loaded", as
     await route.continue();
   });
   await page.goto("/preview/child-surfaces.html?surface=phonics&step=2");
-  await page.getByRole("button", { name: "Letter A", exact: true }).click();
+  await page.getByRole("button", { name: /^Letter A(?:,|$)/ }).click();
 
   const cards = page.locator(".phonics-listen-card");
   await expect(cards).toHaveCount(4);
@@ -144,7 +145,7 @@ test("CVC keeps a placeholder visible while the next word picture loads", async 
   const batImageGate = new Promise(resolve => {
     releaseBatImage = resolve;
   });
-  await page.route("**/images/child-mode/cvc/bat.png", async route => {
+  await page.route("**/images/child-mode/cvc/bat.webp", async route => {
     await batImageGate;
     await route.continue();
   });
@@ -192,7 +193,7 @@ test("CVC keeps a placeholder visible while the next word picture loads", async 
 
 test("Letter Sounds matching cards keep their image and result faces separated", async ({ page }) => {
   await page.goto("/preview/child-surfaces.html?surface=phonics&step=3");
-  await page.getByRole("button", { name: "Letter A", exact: true }).click();
+  await page.getByRole("button", { name: /^Letter A(?:,|$)/ }).click();
 
   const tiles = page.locator(".phonics-word-tile");
   await expect(tiles).toHaveCount(8);
@@ -244,7 +245,7 @@ test("Letter tracing keeps an iPad touch stroke captured without page movement",
   page.on("console", message => browserMessages.push(message.text()));
 
   await page.goto("/preview/child-surfaces.html?surface=phonics&step=1");
-  await page.getByRole("button", { name: "Letter A", exact: true }).click();
+  await page.getByRole("button", { name: /^Letter A(?:,|$)/ }).click();
   await page.getByRole("button", { name: "Skip", exact: true }).click();
 
   const activity = page.locator(".phonics-step-tracer");

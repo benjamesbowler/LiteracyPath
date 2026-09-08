@@ -321,7 +321,7 @@ export const lessons = [
          word("apple",  "a-a-apple"),
          word("ball",   "b-b-ball")],
         "M 120 80 L 280 320 M 280 80 L 120 320",
-        { matchPrompt: "Find all the words with the X sound!" }
+        { matchPosition: "end", matchPrompt: "Look at the words. Find the X endings." }
       ),
 
       letter("Y", "y-y-y",

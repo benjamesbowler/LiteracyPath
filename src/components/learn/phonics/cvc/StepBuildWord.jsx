@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import PhonicsButton from "../components/PhonicsButton";
 import { WordImage } from "../components/WordImage";
 import Blendy from "./Blendy";
-import { getLetterSoundCue, playCvcSoundSequence, shuffleItems, useCvcSoundCue, useCvcWordModels } from "./cvcHelpers";
+import { getLetterSoundCue, cvcStepEvidence, playCvcSoundSequence, shuffleItems, useCvcSoundCue, useCvcWordModels } from "./cvcHelpers";
 import { getLedaInstructionAudioPath } from "../../../../data/ledaProductionAudio.js";
 
 function getGhostLetter(wordIndex, letter, socketIndex, family) {
@@ -21,7 +21,12 @@ const StepBuildWord = memo(function StepBuildWord({ family, onComplete }) {
   const [wobbleTile, setWobbleTile] = useState("");
   const [imageBounce, setImageBounce] = useState(0);
   const [blendyExpression, setBlendyExpression] = useState("idle");
-  const [completionAudioDone, setCompletionAudioDone] = useState(false);
+  const [delivery, setDelivery] = useState("pending");
+  const deliveryRef = useRef("pending");
+  const recordsRef = useRef([]);
+  const responseRef = useRef({ attempts: 0, firstResponse: null, mistakes: 0 });
+  const filledRef = useRef([]);
+  const usedRef = useRef(new Set());
   const timersRef = useRef([]);
   const completionRunRef = useRef(0);
   const hasAdvancedRef = useRef(false);
@@ -50,7 +55,9 @@ const StepBuildWord = memo(function StepBuildWord({ family, onComplete }) {
     setUsedTileIds(new Set());
     setActiveLetterIndex(-1);
     setBlendyExpression("idle");
-    setCompletionAudioDone(false);
+    setDelivery("pending"); deliveryRef.current = "pending";
+    responseRef.current = { attempts: 0, firstResponse: null, mistakes: 0 };
+    filledRef.current = []; usedRef.current = new Set();
     hasAdvancedRef.current = false;
     clearTimers();
   }, [clearTimers, wordIndex]);
@@ -72,13 +79,17 @@ const StepBuildWord = memo(function StepBuildWord({ family, onComplete }) {
       onLetter: setActiveLetterIndex,
       isCurrent: () => completionRunRef.current === run
     });
-    if (!completed || completionRunRef.current !== run) return false;
+    if (completionRunRef.current !== run) return false;
+    setActiveLetterIndex(-1);
+    deliveryRef.current = completed.audioDelivery; setDelivery(completed.audioDelivery);
+    if (completed.audioDelivery !== "delivered") return false;
     setImageBounce(value => value + 1);
     setBlendyExpression("munching");
     const praiseStatus = await playCue(getLedaInstructionAudioPath("Great job"), "Great job");
-    if (praiseStatus !== "ended" || completionRunRef.current !== run) return false;
+    if (completionRunRef.current !== run) return false;
+    void praiseStatus;
     setBlendyExpression("cheering");
-    setCompletionAudioDone(true);
+
     return true;
   }, [clearTimers, currentWord, family, playCue]);
 
@@ -87,41 +98,52 @@ const StepBuildWord = memo(function StepBuildWord({ family, onComplete }) {
   const advanceWord = useCallback(() => {
     if (hasAdvancedRef.current) return;
     hasAdvancedRef.current = true;
+    const records = [...recordsRef.current, {
+      ...responseRef.current, audioDelivery: deliveryRef.current,
+      supportUsed: ["scaffolded_construction", ...(wordIndex < 2 ? ["authored_ghost"] : []),
+        ...(responseRef.current.mistakes ? ["correction"] : []),
+        ...(deliveryRef.current !== "delivered" ? ["media_unavailable"] : [])]
+    }];
+    recordsRef.current = records;
     clearTimers();
     if (isLastWord) {
-      onComplete();
+      onComplete(cvcStepEvidence("build", records));
       return;
     }
     setWordIndex(index => index + 1);
-  }, [clearTimers, isLastWord, onComplete]);
+  }, [clearTimers, isLastWord, onComplete, wordIndex]);
 
   const handleTileTap = useCallback((tile) => {
-    if (!currentWord || filledLetters.length >= currentWord.letters.length) return;
+    const slot = filledRef.current.length;
+    if (!currentWord || slot >= currentWord.letters.length || usedRef.current.has(tile.id) || hasAdvancedRef.current) return;
+    const epoch = completionRunRef.current;
+    responseRef.current.attempts += 1;
+    responseRef.current.firstResponse ||= { word: currentWord.word, slot, selected: tile.letter, tileId: tile.id };
     const cue = getLetterSoundCue(tile.letter, family);
     const cuePlayback = playCue(cue.src, cue.fallbackText);
-
-    const expectedLetter = currentWord.letters[filledLetters.length];
+    const expectedLetter = currentWord.letters[slot];
     if (tile.letter === expectedLetter) {
-      const completesWord = filledLetters.length + 1 === currentWord.letters.length;
-      setFilledLetters(previous => [...previous, tile.letter]);
-      setUsedTileIds(previous => new Set([...previous, tile.id]));
-      if (completesWord) {
-        void cuePlayback.then(status => {
-          if (status === "ended") void runCompletionSequence();
+      filledRef.current = [...filledRef.current, tile.letter];
+      usedRef.current = new Set([...usedRef.current, tile.id]);
+      setFilledLetters(filledRef.current);
+      setUsedTileIds(usedRef.current);
+      if (filledRef.current.length === currentWord.letters.length) {
+        void cuePlayback.then(() => {
+          if (completionRunRef.current === epoch && !hasAdvancedRef.current) void runCompletionSequence();
         });
       }
       return;
     }
-
+    responseRef.current.mistakes += 1;
     setWobbleTile(tile.id);
     void cuePlayback.then(status => {
-      if (status === "ended") {
+      if (status === "ended" && completionRunRef.current === epoch && !hasAdvancedRef.current) {
         void playCue(getLedaInstructionAudioPath("Try again"), "Try again");
       }
     });
-    const wobbleTimer = setTimeout(() => setWobbleTile(""), 520);
+    const wobbleTimer = setTimeout(() => { if (completionRunRef.current === epoch) setWobbleTile(""); }, 520);
     timersRef.current.push(wobbleTimer);
-  }, [currentWord, family, filledLetters.length, playCue, runCompletionSequence]);
+  }, [currentWord, family, playCue, runCompletionSequence]);
 
   if (!currentWord) return null;
 
@@ -174,7 +196,7 @@ const StepBuildWord = memo(function StepBuildWord({ family, onComplete }) {
       </div>
 
       <AnimatePresence>
-        {wordComplete && completionAudioDone && (
+        {wordComplete && (
           <motion.div
             className="cvc-step-actions cvc-build-actions"
             initial={{ opacity: 0, y: 12 }}
@@ -183,6 +205,10 @@ const StepBuildWord = memo(function StepBuildWord({ family, onComplete }) {
             role="status"
             aria-label={`You built ${currentWord.word}`}
           >
+            {["unavailable", "interrupted"].includes(delivery) && <>
+              <p>The sound did not finish. Your word is still built.</p>
+              <PhonicsButton onClick={() => { void runCompletionSequence(); }}>Retry sound</PhonicsButton>
+            </>}
             <PhonicsButton onClick={advanceWord}>
               {isLastWord ? "Continue" : "Next Word"}
             </PhonicsButton>

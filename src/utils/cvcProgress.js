@@ -1,52 +1,18 @@
 import { queueProgressSave } from "./progressSync.js";
+import { normalizePracticeCompletionEvent, practiceStatusMap, readPracticeProgressRecords, writePracticeProgressRecords } from "./practiceCompletionRecords.js";
 
 const STORAGE_PREFIX = "lp_cvc_progress_";
-const VALID_STATUSES = new Set(["default", "inprogress", "completed", "locked"]);
 
-function normalizeStatus(value) {
-  if (VALID_STATUSES.has(value)) return value;
-  if (value && typeof value === "object") {
-    if (VALID_STATUSES.has(value.status)) return value.status;
-    const recovered = Object.keys(value)
-      .filter(key => /^\d+$/.test(key))
-      .sort((a, b) => Number(a) - Number(b))
-      .map(key => value[key])
-      .join("");
-    if (VALID_STATUSES.has(recovered)) return recovered;
-  }
-  return "";
+export function loadCvcProgressRecords(scopeKey) {
+  return readPracticeProgressRecords(STORAGE_PREFIX + scopeKey);
 }
-
-function normalizeProgressMap(progress = {}) {
-  return Object.fromEntries(
-    Object.entries(progress || {})
-      .map(([key, payload]) => [key, normalizeStatus(payload)])
-      .filter(([, status]) => status)
-  );
-}
-
 export function loadCvcProgress(scopeKey) {
-  try {
-    const raw = localStorage.getItem(STORAGE_PREFIX + scopeKey);
-    return raw ? normalizeProgressMap(JSON.parse(raw)) : {};
-  } catch {
-    return {};
-  }
+  return practiceStatusMap(loadCvcProgressRecords(scopeKey));
 }
-
 export function saveCvcProgress(scopeKey, progress) {
-  const normalized = normalizeProgressMap(progress);
-  try {
-    localStorage.setItem(STORAGE_PREFIX + scopeKey, JSON.stringify(normalized));
-  } catch {
-    // Storage may be unavailable in private browsing or locked-down webviews.
-    // The cloud queue below still carries the progress.
-  }
-  try {
-    Object.entries(normalized).forEach(([key, status]) => {
-      queueProgressSave("cvc", key, { v: 2, status }, { scopeKey });
-    });
-  } catch {
-    // Cloud sync is best-effort; local play must never be blocked by it.
-  }
+  return writePracticeProgressRecords(STORAGE_PREFIX + scopeKey, progress, { area: "cvc", scopeKey, enqueue: queueProgressSave });
+}
+export function recordCvcCompletion(scopeKey, family, completion) {
+  if (!normalizePracticeCompletionEvent(completion)) return { localSaved: false, queued: false, error: "invalid_completion" };
+  return saveCvcProgress(scopeKey, { [family]: { v: 3, status: "completed", completions: [completion] } });
 }

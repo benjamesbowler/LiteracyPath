@@ -2,13 +2,17 @@ import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import PhonicsButton from "../components/PhonicsButton";
 import { WordImage } from "../components/WordImage";
-import { getLetterSoundCue, playCvcSoundSequence, useCvcSoundCue, useCvcWordModels } from "./cvcHelpers";
+import { getLetterSoundCue, cvcStepEvidence, playCvcSoundSequence, useCvcSoundCue, useCvcWordModels } from "./cvcHelpers";
 
 const StepHearWord = memo(function StepHearWord({ family, onComplete }) {
   const words = useCvcWordModels(family.buildWords, family);
   const [wordIndex, setWordIndex] = useState(0);
   const [activeLetterIndex, setActiveLetterIndex] = useState(-1);
-  const [soundOutDone, setSoundOutDone] = useState(false);
+  const [delivery, setDelivery] = useState("pending");
+  const soundOutDone = delivery === "delivered";
+  const recordsRef = useRef([]);
+  const attemptsRef = useRef(0);
+  const advancedRef = useRef(false);
   const soundOutRunRef = useRef(0);
   const { playCue, stopCue, isPlaying } = useCvcSoundCue();
   const currentWord = words[wordIndex];
@@ -19,7 +23,8 @@ const StepHearWord = memo(function StepHearWord({ family, onComplete }) {
     const run = soundOutRunRef.current + 1;
     soundOutRunRef.current = run;
     stopCue();
-    setSoundOutDone(false);
+    attemptsRef.current += 1;
+    setDelivery("playing");
     const completed = await playCvcSoundSequence({
       wordModel,
       family,
@@ -27,9 +32,7 @@ const StepHearWord = memo(function StepHearWord({ family, onComplete }) {
       onLetter: setActiveLetterIndex,
       isCurrent: () => soundOutRunRef.current === run
     });
-    if (completed && soundOutRunRef.current === run) {
-      setSoundOutDone(true);
-    }
+    if (soundOutRunRef.current === run) { setDelivery(completed.audioDelivery); setActiveLetterIndex(-1); }
     return completed;
   }, [currentWord, family, playCue, stopCue]);
 
@@ -40,21 +43,25 @@ const StepHearWord = memo(function StepHearWord({ family, onComplete }) {
     };
   }, [stopCue]);
 
-  useEffect(() => {
-    if (!soundOutDone || !isLastWord || isPlaying) return undefined;
-    const timer = setTimeout(onComplete, 1000);
-    return () => clearTimeout(timer);
-  }, [isLastWord, isPlaying, onComplete, soundOutDone]);
+  useEffect(() => { advancedRef.current = false; }, [wordIndex]);
 
   const handleNext = useCallback(() => {
-    if (isLastWord) {
-      onComplete();
-      return;
-    }
-    const nextWord = words[wordIndex + 1];
+    if (advancedRef.current || !["delivered", "unavailable", "interrupted"].includes(delivery)) return;
+    advancedRef.current = true;
+    soundOutRunRef.current += 1;
+    stopCue();
+    const records = [...recordsRef.current, {
+      audioDelivery: delivery, attempts: attemptsRef.current,
+      firstResponse: { word: currentWord.word, action: "hear_model" },
+      supportUsed: delivery === "delivered" ? ["recorded_model"] : ["visual_continuation", "media_unavailable"]
+    }];
+    recordsRef.current = records;
+    if (isLastWord) { onComplete(cvcStepEvidence("hear", records)); return; }
+    attemptsRef.current = 0;
     setWordIndex(index => index + 1);
-    void runSoundOut(nextWord);
-  }, [isLastWord, onComplete, runSoundOut, wordIndex, words]);
+    setActiveLetterIndex(-1);
+    setDelivery("pending");
+  }, [currentWord, delivery, isLastWord, onComplete, stopCue]);
 
   const imageAnimation = useMemo(() => (
     soundOutDone ? { scale: [1, 1.06, 1], rotate: [0, -1, 1, 0] } : {}
@@ -100,10 +107,11 @@ const StepHearWord = memo(function StepHearWord({ family, onComplete }) {
         <button className="cvc-speaker-button" onClick={() => { void runSoundOut(); }} type="button" aria-label="Sound out the word">
           Audio
         </button>
+        {["unavailable", "interrupted"].includes(delivery) && <p role="status">The sound did not finish. Retry Audio, or continue with picture support.</p>}
         <AnimatePresence>
-          {soundOutDone && !isPlaying && !isLastWord && (
+          {["delivered", "unavailable", "interrupted"].includes(delivery) && !isPlaying && (
             <motion.span initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
-              <PhonicsButton onClick={handleNext}>Next Word</PhonicsButton>
+              <PhonicsButton onClick={handleNext}>{delivery === "delivered" ? (isLastWord ? "Continue" : "Next Word") : "Continue with support"}</PhonicsButton>
             </motion.span>
           )}
         </AnimatePresence>

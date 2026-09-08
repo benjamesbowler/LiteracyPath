@@ -7,6 +7,7 @@ const failedSources = new Set();
 const GENERATED_PHONEME_PREFIX = "generated:phoneme:";
 const MAX_SOUND_CACHE_ENTRIES = 24;
 let playbackRequest = 0;
+let activePlayback = null;
 
 export function hasPhonicsAudioSource(src) {
   return Boolean(
@@ -23,6 +24,12 @@ export function hasPhonicsAudioSource(src) {
 }
 
 function getHowl(src) {
+  if (failedSources.has(src)) {
+    const failed = soundCache.get(src);
+    soundCache.delete(src);
+    failedSources.delete(src);
+    failed?.unload();
+  }
   if (soundCache.has(src)) {
     const cached = soundCache.get(src);
     soundCache.delete(src);
@@ -37,7 +44,7 @@ function getHowl(src) {
     preload: true
   });
 
-  howl.on("loaderror", () => failedSources.add(src));
+  howl.on("loaderror", () => { if (soundCache.get(src) === howl) failedSources.add(src); });
 
   soundCache.set(src, howl);
   evictOldestHowlIfNeeded();
@@ -50,9 +57,10 @@ function isLongAudioSource(src = "") {
 
 function evictOldestHowlIfNeeded() {
   while (soundCache.size > MAX_SOUND_CACHE_ENTRIES) {
-    const [oldestSrc, oldestHowl] = soundCache.entries().next().value || [];
+    const [oldestSrc, oldestHowl] = [...soundCache].find(([, howl]) => howl !== activePlayback?.howl) || [];
     if (!oldestSrc) return;
     soundCache.delete(oldestSrc);
+    failedSources.delete(oldestSrc);
     try {
       oldestHowl.unload();
     } catch {
@@ -65,6 +73,7 @@ export function usePhonicsAudio(src) {
   const [isPlaying, setIsPlaying] = useState(false);
   const howlRef = useRef(null);
   const localPlaybackRequestRef = useRef(0);
+  const playbackRef = useRef(null);
 
   useEffect(() => {
     if (!hasPhonicsAudioSource(src)) return undefined;
@@ -78,6 +87,8 @@ export function usePhonicsAudio(src) {
     howl.on("stop", onStop);
 
     return () => {
+      localPlaybackRequestRef.current += 1;
+      playbackRef.current?.cancel?.();
       howl.off("end", onEnd);
       howl.off("stop", onStop);
     };
@@ -90,7 +101,7 @@ export function usePhonicsAudio(src) {
       setIsPlaying(false);
       return Promise.resolve("unavailable");
     }
-    return playPhonicsAudio(src, {
+    const playback = playPhonicsAudio(src, {
       onStart: () => {
         if (localPlaybackRequestRef.current === localRequest) setIsPlaying(true);
       },
@@ -99,13 +110,13 @@ export function usePhonicsAudio(src) {
       },
       onHowl: howl => { howlRef.current = howl; }
     });
+    playbackRef.current = playback;
+    return playback;
   }, [src]);
 
   const stop = useCallback(() => {
     localPlaybackRequestRef.current += 1;
-    if (howlRef.current) {
-      howlRef.current.stop();
-    }
+    playbackRef.current?.cancel?.();
     if (typeof window !== "undefined" && window.speechSynthesis) {
       window.speechSynthesis.cancel();
     }
@@ -121,61 +132,62 @@ export function usePhonicsAudio(src) {
 // so sequential phonics never advances on a fixed timer and never hangs after
 // a newer cue takes the voice.
 export function playPhonicsAudio(src, { onStart, onFinish, onHowl } = {}) {
-  if (!hasPhonicsAudioSource(src) || failedSources.has(src)) {
-    onFinish?.("unavailable");
-    return Promise.resolve("unavailable");
-  }
-
   const request = ++playbackRequest;
-  try {
-    Howler.stop();
-    if (typeof window !== "undefined" && window.speechSynthesis) {
-      window.speechSynthesis.cancel();
-    }
-
-    const howl = getHowl(src);
-    onHowl?.(howl);
-    const soundId = howl.play();
-    if (soundId === null || soundId === undefined) {
-      onFinish?.("unavailable");
-      return Promise.resolve("unavailable");
-    }
-    onStart?.();
-
-    return new Promise(resolve => {
-      let settled = false;
-      const settle = status => {
-        if (settled) return;
-        settled = true;
-        howl.off("end", onEnd, soundId);
-        howl.off("stop", onStop, soundId);
-        howl.off("loaderror", onLoadError, soundId);
-        howl.off("playerror", onPlayError, soundId);
-        onFinish?.(status);
-        resolve(status);
-      };
-      const onEnd = () => settle("ended");
-      const onStop = () => settle(request === playbackRequest ? "stopped" : "superseded");
-      const onLoadError = () => {
-        failedSources.add(src);
-        settle("unavailable");
-      };
-      // Safari reports a user-gesture block as playerror. It is transient and
-      // must never poison this source for the rest of the child's session.
-      const onPlayError = () => settle("blocked");
-      howl.once("end", onEnd, soundId);
-      howl.once("stop", onStop, soundId);
-      howl.once("loaderror", onLoadError, soundId);
-      howl.once("playerror", onPlayError, soundId);
-    });
-  } catch {
+  activePlayback?.cancel("superseded");
+  Howler.stop();
+  if (!hasPhonicsAudioSource(src) || Howler._muted || Howler.volume() === 0) {
     onFinish?.("unavailable");
     return Promise.resolve("unavailable");
   }
+  let cancel = () => {};
+  const promise = new Promise(resolve => {
+    let howl = null;
+    let soundId = null;
+    let settled = false;
+    let startupTimer = null;
+    const settle = status => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(startupTimer);
+      for (const [event, handler] of listeners) howl?.off(event, handler);
+      if (activePlayback?.request === request) activePlayback = null;
+      if (status !== "ended") howl?.stop(soundId ?? undefined);
+      onFinish?.(status);
+      resolve(status);
+    };
+    const audible = () => !Howler._muted && !howl?._muted && Howler.volume() > 0 && howl.volume(soundId) > 0;
+    const onEnd = id => {
+      if (soundId !== null && id !== undefined && id !== soundId) return;
+      settle(audible() ? "ended" : "unavailable");
+    };
+    const ownsSound = id => id == null || soundId === null || id === soundId;
+    const onStop = id => { if (ownsSound(id)) settle(request === playbackRequest ? "stopped" : "superseded"); };
+    const onLoadError = () => { if (settled) return; failedSources.add(src); settle("unavailable"); };
+    const onPlayError = () => settle("blocked");
+    const onPlay = id => { if (!ownsSound(id) || settled) return; clearTimeout(startupTimer); onStart?.(); };
+    const onOwnedPlayError = id => { if (ownsSound(id)) onPlayError(); };
+    const listeners = [["end", onEnd], ["stop", onStop], ["loaderror", onLoadError], ["playerror", onOwnedPlayError], ["play", onPlay]];
+    cancel = (status = "stopped") => settle(status);
+    try {
+      if (typeof window !== "undefined") window.speechSynthesis?.cancel();
+      howl = getHowl(src);
+      onHowl?.(howl);
+      // Listen before play so a synchronous failure cannot strand its caller.
+      for (const [event, handler] of listeners) howl.on(event, handler);
+      activePlayback = { request, howl, cancel };
+      startupTimer = setTimeout(() => settle("unavailable"), 10000);
+      soundId = howl.play();
+      if (soundId === null || soundId === undefined) settle("unavailable");
+    } catch { settle("unavailable"); }
+  });
+  promise.cancel = cancel;
+  promise.isCurrent = () => request === playbackRequest;
+  return promise;
 }
 
 export function stopPhonicsAudio() {
   playbackRequest += 1;
+  activePlayback?.cancel("stopped");
   Howler.stop();
   if (typeof window !== "undefined" && window.speechSynthesis) {
     window.speechSynthesis.cancel();
