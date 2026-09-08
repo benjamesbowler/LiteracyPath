@@ -133,3 +133,26 @@ test("starGalleryStars follows the shared star rubric", () => {
   assert.equal(starGalleryStars({ correct: 6, total: 8, mistakes: 4 }), 2);
   assert.equal(starGalleryStars({ correct: 2, total: 8, mistakes: 7 }), 1);
 });
+
+test("Sentence Grove punctuation specifies the intended tone or mark across the ladder", () => {
+  const repairs = ["easy", "medium", "hard"].flatMap(difficulty =>
+    starGalleryLadder(difficulty).flatMap(level => level.items.flatMap(item => item.repairs))
+  ).filter(repair => repair.category === "punctuation");
+  const endings = repairs.filter(repair => repair.options.every(option => [".", "?", "!"].includes(option)));
+  assert.ok(endings.length > 0);
+  for (const repair of endings) {
+    const intended = repair.answer === "?" ? /question/i
+      : repair.answer === "!" ? /strong feeling.*exclamation/i
+        : /calm (?:telling sentence|command)/i;
+    assert.match(repair.prompt, intended, repair.id);
+  }
+  for (const id of ["punct-read", "punct-home"]) {
+    assert.match(repairs.find(repair => repair.id === id).prompt, /calm command/i);
+  }
+  assert.match(repairs.find(repair => repair.id === "semicolon").prompt, /semicolon/i);
+  const quoteOpen = repairs.find(repair => repair.id === "quote-open");
+  assert.match(quoteOpen.prompt, /match the closing/i);
+  assert.equal(completedSentenceForRepair(quoteOpen), '"I found it!"');
+  const pairedQuotes = repairs.find(repair => repair.id === "punct-quote");
+  assert.deepEqual(acceptedRepairAnswers(pairedQuotes), ['"', "'"]);
+});

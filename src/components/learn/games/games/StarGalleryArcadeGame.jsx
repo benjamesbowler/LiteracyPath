@@ -1661,7 +1661,7 @@ function createStarGalleryEngine(mount, options) {
       const revealAnswer = state.itemMisses >= 2;
       setFeedback(
         "WRONG TREE",
-        revealAnswer ? `Look for ${token.answer}` : hintForRepair(repairForState(state)),
+        revealAnswer ? `Look for ${repairForState(state).answer}` : hintForRepair(repairForState(state)),
         "bad",
         revealAnswer ? 1.15 : 0.95
       );

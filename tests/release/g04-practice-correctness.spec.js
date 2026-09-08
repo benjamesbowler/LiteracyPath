@@ -6,7 +6,10 @@ async function clickExactPracticeWord(page, word) {
     word
   );
   expect(index, `missing practice choice ${word}`).toBeGreaterThanOrEqual(0);
+  const score = page.locator(".lg-game-score");
+  const before = Number((await score.textContent()).match(/\d+/)?.[0] || 0);
   await page.locator(".lg-hop-grid button").nth(index).click();
+  await expect.poll(async () => Number((await score.textContent()).match(/\d+/)?.[0] || 0)).toBeGreaterThan(before);
 }
 
 async function sentenceWords(page) {
@@ -28,7 +31,15 @@ test("shared practice games keep replay muted and commit the final sentence once
   await expect(player).toBeVisible();
   await expect(player.locator(".lg-sentence-path span").first()).toBeVisible({ timeout: 90_000 });
 
-  for (let round = 0; round < 5; round += 1) {
+  const openingWords = await sentenceWords(page);
+  await player.locator(".lg-hop-grid button").filter({ hasText: new RegExp(`^${openingWords[0]}$`) }).first().evaluate(button => {
+    for (let count = 0; count < 6; count += 1) button.click();
+  });
+  await expect(player.locator(".lg-sentence-path .done")).toHaveCount(1);
+  await expect(player.locator(".lg-game-score")).toHaveText("10 pts");
+  for (const word of openingWords.slice(1)) await clickExactPracticeWord(page, word);
+  await expect(player.locator(".lg-game-meter")).toHaveAttribute("aria-label", "2 of 6");
+  for (let round = 1; round < 5; round += 1) {
     for (const word of await sentenceWords(page)) await clickExactPracticeWord(page, word);
     await expect(player.locator(".lg-game-meter")).toHaveAttribute("aria-label", `${round + 2} of 6`, { timeout: 5_000 });
   }
@@ -53,4 +64,19 @@ test("shared practice games keep replay muted and commit the final sentence once
   // The final word intentionally carries the normal word score plus one
   // sentence-completion bonus. Six rapid activations must not multiply it.
   expect(finalScore).toBe(scoreBeforeFinalWord + 50);
+});
+
+
+test("Sentence Fix-It retains the selected accepted sentence", async ({ page }) => {
+  await page.route("**/src/data/learnGamesData.js*", async route => {
+    const response = await route.fetch();
+    // Select the real authored ambiguous item as this fixture's only turn.
+    await route.fulfill({ response, body: `${await response.text()}\nSENTENCE_FIX.easy = [SENTENCE_FIX.hard.find(item => item.acceptedAnswers?.includes("her"))];` });
+  });
+  await page.goto("/preview/game-overlay.html?game=reading-race&sound=1&music=0");
+  const player = page.getByRole("dialog", { name: "Sentence Fix-It", exact: true });
+  await expect(player.locator(".lg-fix-sentence")).toContainText("The wizard kept");
+  await player.locator(".lg-hop-grid button").filter({ hasText: /^her$/ }).click();
+  await expect(player.locator(".lg-fix-sentence")).toHaveText("The wizard kept her wand by the door.");
+  await expect(player.getByRole("heading", { name: "Sentence Fix-It complete!", exact: true })).toBeVisible();
 });

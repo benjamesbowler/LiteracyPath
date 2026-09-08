@@ -121,51 +121,51 @@ export const SYLLABLE_WORDS = {
 export const SENTENCE_FIX = {
   easy: [
     { kind: "capital", prompt: "Which word starts the sentence?", display: "___ cat sat on the mat.", say: "The cat sat on the mat.", answer: "The", options: ["The", "the", "tHe"] },
-    { kind: "end", prompt: "Choose the ending mark.", display: "I see a big dog___", say: "I see a big dog.", answer: ".", options: [".", "?", "!"] },
+    { kind: "end", prompt: "Finish this calm telling sentence.", display: "I see a big dog___", say: "I see a big dog.", answer: ".", options: [".", "?", "!"] },
     { kind: "capital", prompt: "Which word starts the sentence?", display: "___ can hop and run.", say: "We can hop and run.", answer: "We", options: ["We", "we", "wE"] },
-    { kind: "end", prompt: "Choose the ending mark.", display: "Can you see the sun___", say: "Can you see the sun?", answer: "?", options: [".", "?", "!"] },
+    { kind: "end", prompt: "Finish this question.", display: "Can you see the sun___", say: "Can you see the sun?", answer: "?", options: [".", "?", "!"] },
     { kind: "word", prompt: "Choose the best word.", display: "The sun is ___.", say: "The sun is hot.", answer: "hot", options: ["hot", "hat", "hit"] },
     { kind: "capital", prompt: "Which word starts the sentence?", display: "___ hen is in the pen.", say: "The hen is in the pen.", answer: "The", options: ["The", "the", "THe"] },
-    { kind: "end", prompt: "Choose the ending mark.", display: "Watch out___", say: "Watch out!", answer: "!", options: [".", "?", "!"] },
+    { kind: "end", prompt: "Show strong feeling at the end of this exclamation.", display: "Watch out___", say: "Watch out!", answer: "!", options: [".", "?", "!"] },
     { kind: "word", prompt: "Choose the best word.", display: "I ___ a red bus.", say: "I see a red bus.", answer: "see", options: ["see", "sit", "sun"] },
     { kind: "capital", prompt: "Which word starts the sentence?", display: "___ dog can dig.", say: "My dog can dig.", answer: "My", options: ["My", "my", "mY"] },
-    { kind: "end", prompt: "Choose the ending mark.", display: "The pig is in the mud___", say: "The pig is in the mud.", answer: ".", options: [".", "?", "!"] },
+    { kind: "end", prompt: "Finish this calm telling sentence.", display: "The pig is in the mud___", say: "The pig is in the mud.", answer: ".", options: [".", "?", "!"] },
     { kind: "word", prompt: "Choose the best word.", display: "The fox sat in the ___.", say: "The fox sat in the box.", answer: "box", options: ["box", "bus", "bat"] },
-    { kind: "end", prompt: "Choose the ending mark.", display: "Is the bug on the rug___", say: "Is the bug on the rug?", answer: "?", options: [".", "?", "!"] }
+    { kind: "end", prompt: "Finish this question.", display: "Is the bug on the rug___", say: "Is the bug on the rug?", answer: "?", options: [".", "?", "!"] }
   ],
   medium: [
     { kind: "capital", prompt: "Names need a capital. Choose the right one.", display: "My friend ___ has a kite.", say: "My friend Ben has a kite.", answer: "Ben", options: ["Ben", "ben", "bEn"] },
-    { kind: "end", prompt: "Choose the ending mark.", display: "Where is my hat___", say: "Where is my hat?", answer: "?", options: [".", "?", "!"] },
+    { kind: "end", prompt: "Finish this question.", display: "Where is my hat___", say: "Where is my hat?", answer: "?", options: [".", "?", "!"] },
     { kind: "word", prompt: "Choose the best word.", display: "The frog can ___ high.", say: "The frog can jump high.", answer: "jump", options: ["jump", "jam", "jug"] },
     { kind: "capital", prompt: "Which word starts the sentence?", display: "___ went to the park.", say: "They went to the park.", answer: "They", options: ["They", "they", "tHey"] },
-    { kind: "end", prompt: "Choose the ending mark.", display: "The stars shine at night___", say: "The stars shine at night.", answer: ".", options: [".", "?", "!"] },
+    { kind: "end", prompt: "Finish this calm telling sentence.", display: "The stars shine at night___", say: "The stars shine at night.", answer: ".", options: [".", "?", "!"] },
     { kind: "word", prompt: "Choose the best word.", display: "She drinks a glass of ___.", say: "She drinks a glass of milk.", answer: "milk", options: ["milk", "mat", "man"] },
     { kind: "word", prompt: "Choose the best word.", display: "I put on my ___ when it rains.", say: "I put on my coat when it rains.", answer: "coat", options: ["coat", "cot", "cat"] },
-    { kind: "end", prompt: "Choose the ending mark.", display: "Look out for the wave___", say: "Look out for the wave!", answer: "!", options: [".", "?", "!"] },
+    { kind: "end", prompt: "Show strong feeling at the end of this exclamation.", display: "Look out for the wave___", say: "Look out for the wave!", answer: "!", options: [".", "?", "!"] },
     { kind: "word", prompt: "Choose the best word.", display: "The king wears a gold ___.", say: "The king wears a gold ring.", answer: "ring", options: ["ring", "rock", "rug"] },
     { kind: "capital", prompt: "Which word starts the sentence?", display: "___ ship sails on the sea.", say: "The ship sails on the sea.", answer: "The", options: ["The", "the", "tHE"] },
-    { kind: "end", prompt: "Choose the ending mark.", display: "Can the crab swim fast___", say: "Can the crab swim fast?", answer: "?", options: [".", "?", "!"] },
+    { kind: "end", prompt: "Finish this question.", display: "Can the crab swim fast___", say: "Can the crab swim fast?", answer: "?", options: [".", "?", "!"] },
     { kind: "word", prompt: "Choose the best word.", display: "I ___ my hands when I am happy.", say: "I clap my hands when I am happy.", answer: "clap", options: ["clap", "clip", "chop"] }
   ],
   hard: [
     { kind: "word", prompt: "Choose the right word.", display: "We went ___ the shop.", say: "We went to the shop.", answer: "to", options: ["to", "two", "too"] },
     { kind: "word", prompt: "Choose the right word.", display: "The knight rode ___ horse to the castle.", say: "The knight rode his horse to the castle.", answer: "his", options: ["his", "him", "he"] },
-    { kind: "end", prompt: "Choose the ending mark.", display: "How many planets are in space___", say: "How many planets are in space?", answer: "?", options: [".", "?", "!"] },
+    { kind: "end", prompt: "Finish this question.", display: "How many planets are in space___", say: "How many planets are in space?", answer: "?", options: [".", "?", "!"] },
     { kind: "word", prompt: "Choose the best word.", display: "The rocket flew ___ than the birds.", say: "The rocket flew higher than the birds.", answer: "higher", options: ["higher", "high", "highest"] },
     { kind: "capital", prompt: "Days need a capital. Choose the right one.", display: "On ___ we read a space book.", say: "On Monday we read a space book.", answer: "Monday", options: ["Monday", "monday", "monDay"] },
     { kind: "word", prompt: "Choose the joining word.", display: "Seeds need water ___ sun to grow.", say: "Seeds need water and sun to grow.", answer: "and", options: ["and", "an", "as"] },
     { kind: "word", prompt: "Choose the right word.", display: "___ dragon sleeps on the gold.", say: "Their dragon sleeps on the gold.", answer: "Their", options: ["Their", "There", "They're"] },
-    { kind: "end", prompt: "Choose the ending mark.", display: "The owl hunts when the moon is bright___", say: "The owl hunts when the moon is bright.", answer: ".", options: [".", "?", "!"] },
+    { kind: "end", prompt: "Finish this calm telling sentence.", display: "The owl hunts when the moon is bright___", say: "The owl hunts when the moon is bright.", answer: ".", options: [".", "?", "!"] },
     { kind: "word", prompt: "Choose the right word.", display: "The wizard kept ___ wand by the door.", say: "The wizard kept his wand by the door.", answer: "his", acceptedAnswers: ["his", "her"], options: ["his", "him", "her"] },
     { kind: "word", prompt: "Choose the right word.", display: "We saw ___ stars in the night sky.", say: "We saw two stars in the night sky.", answer: "two", options: ["two", "to", "too"] },
     { kind: "capital", prompt: "Names need a capital. Choose the right one.", display: "Our robot ___ beeps when it is happy.", say: "Our robot Max beeps when it is happy.", answer: "Max", options: ["Max", "max", "mAx"] },
-    { kind: "end", prompt: "Choose the ending mark.", display: "The rocket is about to blast off___", say: "The rocket is about to blast off!", answer: "!", options: [".", "?", "!"] },
+    { kind: "end", prompt: "Show strong feeling at the end of this exclamation.", display: "The rocket is about to blast off___", say: "The rocket is about to blast off!", answer: "!", options: [".", "?", "!"] },
     { kind: "word", prompt: "Choose the right word.", display: "The dragon flew over ___ to the mountain.", say: "The dragon flew over there to the mountain.", answer: "there", options: ["there", "their", "they're"] },
     { kind: "word", prompt: "Choose the right word.", display: "That spell was ___ tricky for the young wizard.", say: "That spell was too tricky for the young wizard.", answer: "too", options: ["too", "to", "two"] },
     { kind: "word", prompt: "Choose the right word.", display: "The astronauts ___ floating in space.", say: "The astronauts were floating in space.", answer: "were", options: ["were", "was", "where"] },
     { kind: "word", prompt: "Choose the best word.", display: "The owl flew ___ of all the birds.", say: "The owl flew highest of all the birds.", answer: "highest", options: ["highest", "high", "higher"] },
     { kind: "capital", prompt: "Places need a capital. Choose the right one.", display: "We sailed our boat down the ___ River.", say: "We sailed our boat down the Silver River.", answer: "Silver", options: ["Silver", "silver", "sIlver"] },
-    { kind: "end", prompt: "Choose the ending mark.", display: "Could a robot learn to paint___", say: "Could a robot learn to paint?", answer: "?", options: [".", "?", "!"] }
+    { kind: "end", prompt: "Finish this question.", display: "Could a robot learn to paint___", say: "Could a robot learn to paint?", answer: "?", options: [".", "?", "!"] }
   ]
 };
 

@@ -6,61 +6,61 @@ const SPEED_BONUS = { easy: 0, medium: 0.08, hard: 0.16 };
 const EASY_LEVELS = [
   [
     ["capital-cat", "Choose the sentence starter", "__ cat sat on the mat.", "The", ["The", "the", "They"], "capital"],
-    ["punct-run", "Choose the end mark", "Can Sam run__", "?", [".", "?", "!"], "punctuation"],
+    ["punct-run", "Finish this question", "Can Sam run__", "?", [".", "?", "!"], "punctuation"],
     ["sound-ship", "Choose the missing sound", "sh__p", "i", ["i", "a", "o"], "short vowel"],
     ["word-see", "Fix the tricky word", "I can __ the sun", "see", ["sea", "see", "she"], "sight word"]
   ],
   [
     ["capital-dog", "Choose the sentence starter", "__ dog had a nap.", "A", ["A", "a", "An"], "capital"],
-    ["punct-stop", "Choose the end mark", "Stop__", "!", [".", "?", "!"], "punctuation"],
+    ["punct-stop", "Show strong feeling at the end of this exclamation", "Stop__", "!", [".", "?", "!"], "punctuation"],
     ["sound-fish", "Choose the missing sound", "f__sh", "i", ["i", "e", "a"], "short vowel"],
     ["word-the", "Fix the tricky word", "__ cat is big", "The", ["She", "The", "They"], "sight word"]
   ],
   [
     ["capital-sun", "Choose the sentence starter", "__ sun is hot.", "The", ["The", "the", "They"], "capital"],
-    ["punct-like", "Choose the end mark", "I like jam__", ".", [".", "?", "!"], "punctuation"],
+    ["punct-like", "Finish this calm telling sentence", "I like jam__", ".", [".", "?", "!"], "punctuation"],
     ["sound-hen", "Choose the missing sound", "h__n", "e", ["a", "e", "i"], "short vowel"],
     ["word-said", "Fix the tricky word", "Mum __ yes", "said", ["said", "sad", "seed"], "sight word"]
   ],
   [
     ["capital-mum", "Choose the sentence starter", "__ ran fast.", "Mum", ["mum", "Mum", "Mud"], "capital"],
-    ["punct-where", "Choose the end mark", "Where is Pip__", "?", [".", "?", "!"], "punctuation"],
+    ["punct-where", "Finish this question", "Where is Pip__", "?", [".", "?", "!"], "punctuation"],
     ["sound-log", "Choose the missing sound", "l__g", "o", ["o", "a", "u"], "short vowel"],
     ["word-was", "Fix the tricky word", "It __ red", "was", ["saw", "was", "wiz"], "sight word"]
   ],
   [
     ["capital-pig", "Choose the sentence starter", "__ pig can dig.", "My", ["My", "my", "May"], "capital"],
-    ["punct-wow", "Choose the end mark", "Wow__", "!", [".", "?", "!"], "punctuation"],
+    ["punct-wow", "Show strong feeling at the end of this exclamation", "Wow__", "!", [".", "?", "!"], "punctuation"],
     ["sound-cup", "Choose the missing sound", "c__p", "u", ["u", "a", "e"], "short vowel"],
     ["word-have", "Fix the tricky word", "I __ a hat", "have", ["have", "has", "hive"], "sight word"]
   ],
   [
     ["capital-bug", "Choose the sentence starter", "__ bug is small.", "This", ["This", "this", "These"], "capital"],
-    ["punct-can", "Choose the end mark", "Can we play__", "?", [".", "?", "!"], "punctuation"],
+    ["punct-can", "Finish this question", "Can we play__", "?", [".", "?", "!"], "punctuation"],
     ["sound-map", "Choose the missing sound", "m__p", "a", ["a", "e", "o"], "short vowel"],
     ["word-come", "Fix the tricky word", "__ here", "Come", ["home", "Come", "came"], "sight word"]
   ],
   [
     ["capital-red", "Choose the sentence starter", "__ red fox ran.", "A", ["A", "a", "An"], "capital"],
-    ["punct-read", "Choose the end mark", "Read the book__", ".", [".", "?", "!"], "punctuation"],
+    ["punct-read", "Finish this calm command", "Read the book__", ".", [".", "?", "!"], "punctuation"],
     ["sound-zip", "Choose the missing sound", "z__p", "i", ["i", "a", "u"], "short vowel"],
     ["word-here", "Fix the tricky word", "Look __", "here", ["hear", "here", "her"], "sight word"]
   ],
   [
     ["capital-hat", "Choose the sentence starter", "__ hat is red.", "My", ["My", "my", "May"], "capital"],
-    ["punct-help", "Choose the end mark", "Help__", "!", [".", "?", "!"], "punctuation"],
+    ["punct-help", "Show strong feeling at the end of this exclamation", "Help__", "!", [".", "?", "!"], "punctuation"],
     ["sound-wet", "Choose the missing sound", "w__t", "e", ["e", "i", "a"], "short vowel"],
     ["word-they", "Fix the tricky word", "__ can hop", "They", ["They", "the", "Them"], "sight word"]
   ],
   [
     ["capital-fox", "Choose the sentence starter", "__ fox hid.", "A", ["A", "a", "An"], "capital"],
-    ["punct-like2", "Choose the end mark", "Do you like it__", "?", [".", "?", "!"], "punctuation"],
+    ["punct-like2", "Finish this question", "Do you like it__", "?", [".", "?", "!"], "punctuation"],
     ["sound-van", "Choose the missing sound", "v__n", "a", ["a", "e", "i"], "short vowel"],
     ["word-go", "Fix the tricky word", "We can __", "go", ["go", "got", "to"], "sight word"]
   ],
   [
     ["capital-jam", "Choose the sentence starter", "__ jam is sweet.", "My", ["My", "my", "May"], "capital"],
-    ["punct-home", "Choose the end mark", "Go home__", ".", [".", "?", "!"], "punctuation"],
+    ["punct-home", "Finish this calm command", "Go home__", ".", [".", "?", "!"], "punctuation"],
     ["sound-duck", "Choose the missing sound", "d__ck", "u", ["u", "a", "o"], "short vowel"],
     ["word-want", "Fix the tricky word", "I __ a turn", "want", ["want", "went", "was"], "sight word"]
   ]
@@ -140,7 +140,7 @@ const HARD_LEVELS = [
     ["contract-dont", "Fix the contraction", "do not = __", "don't", ["dont", "don't", "do'nt"], "contraction"],
     ["suffix-make", "Choose the suffix", "make + ing = __", "making", ["makeing", "making", "makking"], "suffix"],
     ["two-too", "Choose the right word", "I have __ stars", "two", ["to", "too", "two"], "usage"],
-    ["quote-end", "Choose the end mark", "\"Look at that star__\"", "!", [".", "?", "!"], "punctuation"]
+    ["quote-end", "Show strong feeling at the end of this exclamation", "\"Look at that star__\"", "!", [".", "?", "!"], "punctuation"]
   ],
   [
     ["contract-wont", "Fix the contraction", "will not = __", "won't", ["willn't", "wont", "won't"], "contraction"],
@@ -158,13 +158,13 @@ const HARD_LEVELS = [
     ["contract-theyre", "Fix the contraction", "they are = __", "they're", ["there", "their", "they're"], "contraction"],
     ["suffix-drop", "Choose the suffix", "drop + ed = __", "dropped", ["droped", "dropped", "dropt"], "suffix"],
     ["which-witch", "Choose the right word", "__ broom is yours?", "Which", ["Witch", "Which", "With"], "usage"],
-    ["semicolon", "Choose the joiner", "It was late__ we went home", ";", [",", ";", ":"], "punctuation"]
+    ["semicolon", "Join the statements with a semicolon", "It was late__ we went home", ";", [",", ";", ":"], "punctuation"]
   ],
   [
     ["contract-couldnt", "Fix the contraction", "could not = __", "couldn't", ["couldnt", "couldn't", "could'nt"], "contraction"],
     ["suffix-try", "Choose the suffix", "try + ed = __", "tried", ["tryed", "tried", "tryied"], "suffix"],
     ["hear-here", "Choose the right word", "Come __ now", "here", ["hear", "here", "her"], "usage"],
-    ["quote-open", "Choose the speech mark", "__I found it!\"", "\"", ["\"", "'", ","], "punctuation"]
+    ["quote-open", "Match the closing speech mark", "__I found it!\"", "\"", ["\"", "'", ","], "punctuation"]
   ],
   [
     ["contract-shes", "Fix the contraction", "she is = __", "she's", ["shes", "she's", "sh'es"], "contraction"],

@@ -13,4 +13,15 @@ test("Blend and Build names an authored target and only presents reviewed family
   const options = (await player.locator(".lg-family-board button").allTextContents()).map(text => text.trim());
   expect(options.length).toBeGreaterThan(0);
   expect(options.every(Boolean)).toBe(true);
+  const prompt = player.locator("main p").first();
+  const [, target, family] = (await prompt.textContent()).match(/^Build (.+) in the (-[A-Z]+) family/);
+  const onset = target.slice(0, -family.slice(1).length);
+  const wrongOnset = options.find(value => value !== onset);
+  const choices = player.locator(".lg-family-board button");
+  await choices.filter({ hasText: new RegExp(`^${wrongOnset}$`) }).click();
+  await expect(player.getByRole("status").filter({ hasText: "not the target this turn" })).toBeVisible();
+  await expect(prompt).toHaveText(`Build ${target} in the ${family} family.`);
+  await choices.filter({ hasText: new RegExp(`^${onset}$`) }).click();
+  await expect(player.locator(".lg-built-words span")).toHaveText([target]);
+  await expect(prompt).not.toHaveText(`Build ${target} in the ${family} family.`);
 });

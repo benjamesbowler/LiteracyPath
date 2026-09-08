@@ -73,3 +73,18 @@ test("Sentence Fix-It preserves reviewed alternatives instead of treating them a
   assert.equal(completeRepairDisplay(wizardRepair.display, "his"), "The wizard kept his wand by the door.");
   assert.equal(completeRepairDisplay(wizardRepair.display, "her"), "The wizard kept her wand by the door.");
 });
+
+test("every Sentence Fix-It ending supplies the intended tone or sentence type", () => {
+  const endingRepairs = Object.values(SENTENCE_FIX).flat().filter(repair => repair.kind === "end");
+  assert.ok(endingRepairs.length > 0);
+  const intentForMark = { ".": /calm telling sentence/i, "?": /question/i, "!": /strong feeling.*exclamation/i };
+  for (const repair of endingRepairs) {
+    assert.match(repair.prompt, intentForMark[repair.answer], repair.display);
+    assert.equal(completeRepairDisplay(repair.display, repair.answer), repair.say, repair.display);
+    assert.deepEqual(repair.options, [".", "?", "!"]);
+  }
+  for (const display of ["Watch out___", "Look out for the wave___", "The rocket is about to blast off___"]) {
+    const repair = endingRepairs.find(item => item.display === display);
+    assert.match(repair.prompt, /strong feeling/i, `${display} must not silently reject a calm full stop`);
+  }
+});

@@ -481,16 +481,16 @@ function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss
       const scheduledRound = round;
       const scheduledTarget = targetWord;
       schedule(() => {
-        if (!isLiveDelayedSpeech({
+        if (scheduledRound !== liveRoundRef.current || scheduledTarget !== liveTargetRef.current) return;
+        setPlaced([]);
+        setChecking(false);
+        if (isLiveDelayedSpeech({
           soundEnabled: liveSoundRef.current,
           scheduledRound,
           currentRound: liveRoundRef.current,
           scheduledTarget,
           currentTarget: liveTargetRef.current
-        })) return;
-        setPlaced([]);
-        setChecking(false);
-        if (hasRecordedSpeech(liveTargetRef.current)) speakWord(liveTargetRef.current);
+        }) && hasRecordedSpeech(liveTargetRef.current)) speakWord(liveTargetRef.current);
       }, 750);
     }
   }
@@ -755,6 +755,7 @@ function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, m
   const sentence = state.sentences[round] || state.sentences[0];
   const words = useMemo(() => sentence.replace(/[.?!]/g, "").split(/\s+/), [sentence]);
   const [position, setPosition] = useState(0);
+  const positionRef = useRef(0);
   const options = useMemo(() => shuffle(words), [words]);
 
   const canHear = isSoundEnabled && hasRecordedSpeech(sentence);
@@ -765,11 +766,12 @@ function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, m
   }, [canHear, isSoundEnabled, sentence]);
 
   function choose(word) {
-    if (resolvedRef.current) return;
+    if (resolvedRef.current || position !== positionRef.current) return;
     if (word !== words[position]) {
       miss();
       return;
     }
+    positionRef.current += 1;
     addScore(10);
     if (position + 1 >= words.length) {
       resolvedRef.current = true;
@@ -817,12 +819,14 @@ function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, 
   const resolvedRef = useRef(false);
   const options = useMemo(() => shuffle(fix.options), [fix]);
 
-  const canHear = isSoundEnabled && hasRecordedSpeech(fix.say);
   const completedSentence = completeRepairDisplay(fix.display, solvedAnswer);
+  const spokenSentence = solved ? completedSentence : fix.say;
+  const canHear = isSoundEnabled && hasRecordedSpeech(spokenSentence);
 
   useEffect(() => {
-    if (isSoundEnabled && canHear) speak(fix.say);
-  }, [canHear, fix, isSoundEnabled]);
+    if (canHear) speak(spokenSentence);
+    else cancelSpeech();
+  }, [canHear, spokenSentence]);
 
   function choose(option) {
     if (resolvedRef.current || solved) return;
@@ -836,7 +840,6 @@ function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, 
     const nextCorrect = correct + 1;
     setCorrect(nextCorrect);
     addScore(25);
-    if (isSoundEnabled && canHear) speak(fix.say);
     schedule(() => {
       if (round + 1 >= total) {
         finish(nextCorrect);
@@ -851,7 +854,7 @@ function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, 
   return (
     <IllustratedGameScene mode="quiz" stageClassName="lg-race-stage">
       <p>{fix.prompt}</p>
-      {canHear && <button type="button" className="lg-game-audio" onClick={() => speak(fix.say)}><span aria-hidden="true">♪</span> Hear sentence</button>}
+      {canHear && <button type="button" className="lg-game-audio" onClick={() => speak(spokenSentence)}><span aria-hidden="true">♪</span> Hear sentence</button>}
       <div className="lg-race-track"><span style={{ width: `${Math.max(8, (correct / total) * 100)}%` }}><RaceMarker /></span></div>
       <div className="lg-reading-sentence lg-fix-sentence">
         {solved
