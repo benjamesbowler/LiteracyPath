@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createPhonicsCompletion, getWorkshopPrerequisites, makeMatchTiles, getPrintedMatchContract, settleExposureDeliveries } from '../../src/components/learn/phonics/phonicsActivityState.js';
 import { cvcWordFamilies, getCvcWordGraphemes } from '../../src/data/cvcWordFamilies.js';
-import { getMagicChoiceModels } from '../../src/components/learn/phonics/cvc/cvcHelpers.js';
+import { getMagicChoiceModels, getMagicTransition, playCvcSoundSequence } from '../../src/components/learn/phonics/cvc/cvcHelpers.js';
 
 test('workshop uses every target, swap and distractor grapheme rather than any six letters or previous nest', () => {
   const family = cvcWordFamilies[0];
@@ -59,13 +59,36 @@ test('every authored CVC target has reviewed units and unknown additions fail cl
   assert.throws(()=>getCvcWordGraphemes('ship'),/Missing authored/);
 });
 
-test('Word Magic offers the authored next word plus plausible family alternatives', () => {
+test('Word Magic offers authored single-grapheme choices in a stable but varied order', () => {
   const words = [
     { word: 'cat', letters: ['c', 'a', 't'] },
     { word: 'bat', letters: ['b', 'a', 't'] },
     { word: 'hat', letters: ['h', 'a', 't'] }
   ];
-  assert.deepEqual(getMagicChoiceModels(words, 1).map(word => word.word), ['hat', 'cat']);
+  const roundA = getMagicChoiceModels(words, 1, 0).map(word => word.word);
+  assert.deepEqual(roundA, getMagicChoiceModels(words, 1, 0).map(word => word.word));
+  const roundB = getMagicChoiceModels(words, 1, 1).map(word => word.word);
+  assert.notDeepEqual(roundA, roundB);
+  assert.deepEqual(new Set([...roundA, ...roundB]), new Set(['hat', 'cat']));
   assert.deepEqual(getMagicChoiceModels(words, 2), []);
   assert.deepEqual(getMagicChoiceModels(words.slice(0, 2), 0).map(word => word.word), ['bat']);
+  assert.deepEqual(getMagicChoiceModels([
+    { word: 'cat', letters: ['c', 'a', 't'] },
+    { word: 'cot', letters: ['c', 'o', 't'] },
+    { word: 'cab', letters: ['c', 'a', 'b'] }
+  ], 0, 0).map(word => word.word).sort(), ['cab', 'cot']);
+  assert.equal(getMagicTransition(words[0], words[1]).unitLabel, 'first sound');
+  assert.equal(getMagicTransition(words[0], { word: 'cot', letters: ['c', 'o', 't'] }).unitLabel, 'middle sound');
+  assert.equal(getMagicTransition(words[0], { word: 'cab', letters: ['c', 'a', 'b'] }).unitLabel, 'last sound');
+  assert.equal(getMagicTransition(words[0], { word: 'dog', letters: ['d', 'o', 'g'] }), null);
+});
+
+test('stalled CVC playback settles to supported continuation', async () => {
+  const result = await playCvcSoundSequence({
+    wordModel: { word: 'cat', letters: ['c', 'a', 't'], audio: '/cat.mp3' },
+    family: { rime: 'at', vowel: 'a' },
+    playCue: () => new Promise(() => {}),
+    playbackTimeout: 5
+  });
+  assert.equal(result.audioDelivery, 'unavailable');
 });

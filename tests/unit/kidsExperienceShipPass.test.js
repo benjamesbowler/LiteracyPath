@@ -79,8 +79,10 @@ test("completed CVC builds always provide an explicit way forward", () => {
   assert.doesNotMatch(cvcBuild, /const nextTimer = setTimeout/);
   assert.match(
     kidsCss,
-    /\.cvc-build-step\.kg-child-flow__content\s*\{[^}]*grid-template-rows:\s*minmax\(0, 1fr\) auto auto 72px/
+    /\.cvc-build-step\.kg-child-flow__content\s*\{[^}]*grid-template-rows:\s*minmax\(80px, 1fr\) auto auto auto/
   );
+  assert.match(cvcBuild, /disabled=\{!completionReady\}/);
+  assert.match(cvcBuild, /The sound did not finish\. Your word is still built\./);
 });
 
 test("the child library is category then series then book, with read ticks", () => {

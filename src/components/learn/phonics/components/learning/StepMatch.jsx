@@ -1,5 +1,5 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { usePhonicsAudio } from "../../../../../hooks/usePhonicsAudio";
 import AudioButton from "../AudioButton";
 import WordTile from "../WordTile";
@@ -15,6 +15,7 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
   const { play: playCorrect } = usePhonicsAudio(getLedaInstructionAudioPath("Great job"), "Great job");
   const { play: playIncorrect } = usePhonicsAudio(getLedaInstructionAudioPath("Try again"), "Try again");
   const { play: playYay } = usePhonicsAudio(getLedaInstructionAudioPath("You found it"), "You found it");
+  const reduceMotion = useReducedMotion();
   const matchContract = useMemo(() => getPrintedMatchContract(lesson), [lesson]);
   const [epoch, setEpoch] = useState(0);
   const tiles = useMemo(() => makeMatchTiles(lesson, epoch), [lesson, epoch]);
@@ -95,7 +96,7 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
             <motion.div
               key={tileKey}
               className={`phonics-match-card ${wrongTileKey === tileKey ? "is-wrong" : ""}`}
-              animate={wrongTileKey === tileKey ? { x: [0, -7, 7, -5, 5, 0] } : { x: 0 }}
+              animate={!reduceMotion && wrongTileKey === tileKey ? { x: [0, -7, 7, -5, 5, 0] } : { x: 0 }}
             >
               <WordTile
                 word={tile.word.word}

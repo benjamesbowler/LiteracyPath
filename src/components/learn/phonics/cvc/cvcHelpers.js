@@ -5,6 +5,7 @@ import { playPhonicsAudio } from "../../../../hooks/usePhonicsAudio.js";
 
 export const CVC_SOUND_DELAY = 720;
 export const CVC_SOUND_GAP = 90;
+export const CVC_PLAYBACK_TIMEOUT = 4000;
 const CVC_VOWELS = new Set(["a", "e", "i", "o", "u"]);
 const VOWEL_SOUND_FALLBACKS = {
   a: "ah",
@@ -32,17 +33,72 @@ export function makeCvcWordModels(words, family) {
   return words.map(word => makeCvcWordModel(word, family));
 }
 
-// Word Magic keeps the authored family order: the next word is the target,
-// while the remaining family words are plausible alternatives. Never invent a
-// grapheme or vocabulary item here; the family picker has already established
-// that every model is taught and asset-backed.
-export function getMagicChoiceModels(wordModels, currentIndex) {
+function hashMagicSeed(seed) {
+  return [...String(seed)].reduce((hash, character) => (
+    Math.imul(hash ^ character.charCodeAt(0), 16777619) >>> 0
+  ), 2166136261);
+}
+
+function shuffleMagicChoices(items, seed) {
+  const copy = [...items];
+  let state = hashMagicSeed(seed);
+  for (let index = copy.length - 1; index > 0; index -= 1) {
+    state = (Math.imul(state, 1664525) + 1013904223) >>> 0;
+    const swapIndex = state % (index + 1);
+    [copy[index], copy[swapIndex]] = [copy[swapIndex], copy[index]];
+  }
+  return copy;
+}
+
+// Word Magic keeps the authored family data: the next word is the target,
+// while the remaining family words are plausible alternatives. The stable
+// round seed varies placement without making the answer's slot predictable.
+// Never invent a grapheme or vocabulary item here; the family picker has
+// already established that every model is taught and asset-backed.
+export function getMagicChoiceModels(wordModels, currentIndex, roundSeed = 0) {
   const target = wordModels[currentIndex + 1];
   if (!target) return [];
-  return [
+  const current = wordModels[currentIndex];
+  if (!getMagicTransition(current, target)) return [];
+  const alternatives = wordModels.filter((word, index) => (
+    index !== currentIndex
+    && index !== currentIndex + 1
+    && getMagicTransition(current, word)
+  ));
+  return shuffleMagicChoices([
     target,
-    ...wordModels.filter((_, index) => index !== currentIndex && index !== currentIndex + 1)
-  ];
+    ...alternatives
+  ], `${roundSeed}:${currentIndex}`);
+}
+
+export function getMagicTransition(currentWord, targetWord) {
+  if (!currentWord || !targetWord || !Array.isArray(currentWord.letters) || !Array.isArray(targetWord.letters)
+    || currentWord.letters.length !== targetWord.letters.length) return null;
+  const changedIndices = currentWord.letters.reduce((indices, letter, index) => (
+    letter === targetWord.letters[index] ? indices : [...indices, index]
+  ), []);
+  if (changedIndices.length !== 1) return null;
+  const index = changedIndices[0];
+  const unitLabel = index === 0 ? "first sound" : index === currentWord.letters.length - 1 ? "last sound" : "middle sound";
+  return { index, unitLabel, from: currentWord.letters[index], to: targetWord.letters[index] };
+}
+
+export async function resolveCvcPlayback(playback, timeout = CVC_PLAYBACK_TIMEOUT) {
+  if (!playback || typeof playback.then !== "function") return "unavailable";
+  let timeoutId;
+  try {
+    return await Promise.race([
+      playback,
+      new Promise(resolve => {
+        timeoutId = setTimeout(() => {
+          playback.cancel?.("unavailable");
+          resolve("unavailable");
+        }, timeout);
+      })
+    ]);
+  } finally {
+    clearTimeout(timeoutId);
+  }
 }
 
 export function useCvcSoundCue() {
@@ -81,7 +137,8 @@ export async function playCvcSoundSequence({
   playCue,
   onLetter = () => {},
   isCurrent = () => true,
-  wait = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds))
+  wait = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds)),
+  playbackTimeout = CVC_PLAYBACK_TIMEOUT
 }) {
   if (!wordModel || typeof playCue !== "function") return { audioDelivery: "unavailable" };
   for (const [index, letter] of wordModel.letters.entries()) {
@@ -89,7 +146,7 @@ export async function playCvcSoundSequence({
     onLetter(index);
     const cue = getLetterSoundCue(letter, family);
     const playback = playCue(cue.src, cue.fallbackText);
-    const status = await playback;
+    const status = await resolveCvcPlayback(playback, playbackTimeout);
     if (!isCurrent() || playback.isCurrent?.() === false) return { audioDelivery: "interrupted" };
     if (status !== "ended") return { audioDelivery: cvcAudioDelivery(status) };
     await wait(CVC_SOUND_GAP);
@@ -97,7 +154,7 @@ export async function playCvcSoundSequence({
   }
   if (!isCurrent()) return { audioDelivery: "interrupted" };
   onLetter(-1);
-  const wordStatus = await playCue(wordModel.audio, wordModel.word);
+  const wordStatus = await resolveCvcPlayback(playCue(wordModel.audio, wordModel.word), playbackTimeout);
   return { audioDelivery: isCurrent() ? cvcAudioDelivery(wordStatus) : "interrupted" };
 }
 

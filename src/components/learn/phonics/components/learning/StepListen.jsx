@@ -1,8 +1,8 @@
-import { memo, useCallback, useEffect, useRef, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { hasPhonicsAudioSource, usePhonicsAudio } from "../../../../../hooks/usePhonicsAudio";
 import PhonicsButton from "../PhonicsButton";
-import { settleExposureDeliveries } from "../../phonicsActivityState.js";
+import { getPrintedMatchContract, settleExposureDeliveries } from "../../phonicsActivityState.js";
 import { WordImage } from "../WordImage";
 
 function deliveryStatus(status) {
@@ -11,22 +11,43 @@ function deliveryStatus(status) {
   return "unavailable";
 }
 
-const WordCard = memo(function WordCard({ word }) {
+const WordCard = memo(function WordCard({ word, onDelivery }) {
+  const { play, isPlaying } = usePhonicsAudio(word.audio, word.phonemeBreakdown || word.word);
+  const canHear = hasPhonicsAudioSource(word.audio);
+  const request = useRef(0);
+  useEffect(() => () => { request.current += 1; }, []);
+
+  const handleTap = useCallback(() => {
+    if (!canHear) return;
+    const epoch = ++request.current;
+    onDelivery(word.word, "pending");
+    void play().then(status => {
+      if (epoch === request.current) onDelivery(word.word, deliveryStatus(status));
+    });
+  }, [canHear, onDelivery, play, word.word]);
+
   return (
-    <div
-      className="phonics-listen-card"
+    <motion.button
+      whileHover={canHear ? { scale: 1.02 } : {}}
+      whileTap={canHear ? { scale: 0.98 } : {}}
+      onClick={canHear ? handleTap : undefined}
+      disabled={!canHear}
+      className={`phonics-listen-card ${isPlaying ? "is-sounding" : ""}`}
+      aria-label={canHear ? `Hear the word ${word.word}` : `Word: ${word.word}; audio unavailable`}
+      type="button"
     >
       <span className="phonics-word-image-wrap">
         <WordImage src={word.image} word={word.word} priority />
       </span>
       <span className="phonics-word-label">{word.word}</span>
-    </div>
+    </motion.button>
   );
 });
 
 const StepListen = memo(function StepListen({ lesson, onComplete }) {
   const { play: playPhonic, isPlaying } = usePhonicsAudio(lesson.phonicAudio, lesson.phonicSound);
   const canHearPhoneme = hasPhonicsAudioSource(lesson.phonicAudio);
+  const listenContract = useMemo(() => getPrintedMatchContract(lesson), [lesson]);
   const [delivery, setDelivery] = useState({});
   const deliveryRef = useRef({});
   const alive = useRef(true);
@@ -76,11 +97,11 @@ const StepListen = memo(function StepListen({ lesson, onComplete }) {
         </motion.p>
         <div className="phonics-listen-grid" aria-label={`${lesson.letter} picture examples`}>
         {lesson.words.map(word => (
-          <WordCard key={word.word} word={word} />
+          <WordCard key={word.word} word={word} onDelivery={recordDelivery} />
         ))}
         </div>
         <motion.p className="phonics-instruction" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          Look at each picture. The first sound is {lesson.letter}.
+          Look at each picture. The {listenContract.location} sound is {lesson.letter}.
         </motion.p>
       </div>
 

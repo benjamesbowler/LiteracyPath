@@ -1,5 +1,5 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { WordImage } from "../components/WordImage";
 import Blendy from "./Blendy";
 import PhonicsButton from "../components/PhonicsButton";
@@ -8,6 +8,8 @@ import {
   cvcAudioDelivery,
   cvcStepEvidence,
   getMagicChoiceModels,
+  getMagicTransition,
+  resolveCvcPlayback,
   useCvcSoundCue,
   useCvcWordModels
 } from "./cvcHelpers";
@@ -18,6 +20,7 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
   const [isSwapping, setIsSwapping] = useState(false);
   const [choiceReady, setChoiceReady] = useState(false);
   const [feedback, setFeedback] = useState("");
+  const [roundSeed] = useState(() => Math.floor(Math.random() * 0x7fffffff));
   const magicRunRef = useRef(0);
   const swappingRef = useRef(false);
   const completedRef = useRef(false);
@@ -26,13 +29,18 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
   const firstChoiceRef = useRef(null);
   const [delivery, setDelivery] = useState("pending");
   const { playCue, stopCue } = useCvcSoundCue();
+  const reduceMotion = useReducedMotion();
   const currentWord = words[wordIndex];
   const targetWord = words[wordIndex + 1];
   const isModelStep = wordIndex === 0;
   const isFinalWord = Boolean(currentWord) && !targetWord;
+  const transition = useMemo(
+    () => getMagicTransition(currentWord, targetWord),
+    [currentWord, targetWord]
+  );
   const choiceModels = useMemo(
-    () => getMagicChoiceModels(words, wordIndex),
-    [wordIndex, words]
+    () => getMagicChoiceModels(words, wordIndex, roundSeed),
+    [roundSeed, wordIndex, words]
   );
 
   useEffect(() => () => {
@@ -41,10 +49,10 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
   }, [stopCue]);
 
   const playTargetSounds = useCallback(async (target, record, run) => {
-    const cue = getLetterSoundCue(target.letters[0], family);
-    const onsetStatus = await playCue(cue.src, cue.fallbackText);
+    const cue = getLetterSoundCue(target.letters[record.slot], family);
+    const onsetStatus = await resolveCvcPlayback(playCue(cue.src, cue.fallbackText));
     if (magicRunRef.current !== run) return false;
-    const wordStatus = await playCue(target.audio, target.word);
+    const wordStatus = await resolveCvcPlayback(playCue(target.audio, target.word));
     if (magicRunRef.current !== run) return false;
 
     record.audioDelivery = cvcStepEvidence("magic", [
@@ -67,11 +75,12 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
     const record = {
       audioDelivery: "pending",
       attempts: 1,
+      slot: transition.index,
       firstResponse: {
         word: currentWord.word,
         targetWord: targetWord.word,
-        slot: 0,
-        selected: targetWord.letters[0]
+        slot: transition.index,
+        selected: transition.to
       },
       supportUsed: ["modeled_transformation"]
     };
@@ -82,21 +91,21 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
     setDelivery("playing");
     setWordIndex(index => index + 1);
     void playTargetSounds(targetWord, record, run);
-  }, [currentWord, isModelStep, playTargetSounds, stopCue, targetWord]);
+  }, [currentWord, isModelStep, playTargetSounds, stopCue, targetWord, transition]);
 
   const handleChoiceTap = useCallback((choice) => {
     if (!currentWord || !targetWord || isModelStep || !choiceReady || swappingRef.current || completedRef.current) return;
     const response = {
       word: currentWord.word,
       targetWord: choice.word,
-      slot: 0,
-      selected: choice.letters[0]
+      slot: transition.index,
+      selected: choice.letters[transition.index]
     };
     choiceAttemptsRef.current += 1;
     firstChoiceRef.current ||= response;
 
     if (choice.word !== targetWord.word) {
-      setFeedback(`${choice.word} is a word, but it changes to a different target. Choose the picture that keeps the ${family.rime} ending and changes the first sound to ${targetWord.letters[0]}.`);
+      setFeedback(`${choice.word} is a word, but it changes to a different target. Choose the picture that changes the ${transition.unitLabel} from ${transition.from} to ${transition.to}.`);
       return;
     }
 
@@ -106,6 +115,7 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
     const record = {
       audioDelivery: "pending",
       attempts: choiceAttemptsRef.current,
+      slot: transition.index,
       firstResponse: firstChoiceRef.current,
       supportUsed: [
         "independent_choice",
@@ -121,7 +131,7 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
     setDelivery("playing");
     setWordIndex(index => index + 1);
     void playTargetSounds(targetWord, record, run);
-  }, [choiceReady, currentWord, family.rime, isModelStep, playTargetSounds, stopCue, targetWord]);
+  }, [choiceReady, currentWord, isModelStep, playTargetSounds, stopCue, targetWord, transition]);
 
   const complete = useCallback(() => {
     if (completedRef.current || !isFinalWord || !choiceReady || isSwapping) return;
@@ -143,7 +153,7 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
     >
       <div className="cvc-step-heading">
         <h2>Word Magic</h2>
-        <p>{isModelStep ? "Watch the first sound change." : isFinalWord ? "You made a new word!" : `Change the first sound in ${currentWord.word}.`}</p>
+        <p>{isModelStep ? `Watch the ${transition?.unitLabel || "sound"} change.` : isFinalWord ? "You made a new word!" : `Change the ${transition?.unitLabel || "sound"} in ${currentWord.word}.`}</p>
         {delivery === "unavailable" && <p className="cvc-audio-status" role="status">The sound did not finish. The picture and letters are still here to replay.</p>}
         {delivery === "interrupted" && <p className="cvc-audio-status" role="status">The sound stopped. Replay the picture when you are ready.</p>}
       </div>
@@ -155,7 +165,7 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
             className="cvc-word-picture-button"
             key={currentWord.word}
             initial={{ opacity: 0, scale: 0.88 }}
-            animate={{ opacity: 1, scale: isSwapping ? [1, 1.05, 1] : 1 }}
+            animate={{ opacity: 1, scale: !reduceMotion && isSwapping ? [1, 1.05, 1] : 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
             onClick={() => playCue(currentWord.audio, currentWord.word)}
             type="button"
@@ -175,41 +185,56 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
       <div className="cvc-socket-row cvc-magic-word" aria-label={`Sounds in ${currentWord.word}`} role="group">
         {currentWord.letters.map((letter, index) => (
           <motion.span
-            className={`cvc-socket filled ${index === 0 && isSwapping ? "active" : ""}`}
+            className={`cvc-socket filled ${index === transition?.index && isSwapping ? "active" : ""}`}
             key={`${currentWord.word}-${letter}-${index}`}
-            animate={index === 0 && isSwapping ? { scale: [1, 1.12, 1] } : { scale: 1 }}
+            animate={!reduceMotion && index === transition?.index && isSwapping ? { scale: [1, 1.12, 1] } : { scale: 1 }}
           >
             {letter}
           </motion.span>
         ))}
       </div>
 
-      {isModelStep && targetWord && (
+      {isModelStep && targetWord && transition && (
         <div className="cvc-magic-action">
-          <p>Watch me change the first sound.</p>
-          <PhonicsButton onClick={handleModelTap} disabled={isSwapping} aria-label={`Change to ${targetWord.letters[0]}`}>
-            Change to {targetWord.letters[0]}
+          <p>Watch me change the {transition.unitLabel} from {transition.from} to {transition.to}.</p>
+          <PhonicsButton onClick={handleModelTap} disabled={isSwapping} aria-label={`Change to ${transition.to}`}>
+            Change to {transition.to}
           </PhonicsButton>
         </div>
       )}
 
-      {!isModelStep && !isFinalWord && (
+      {!isModelStep && !isFinalWord && transition && (
         <div className="cvc-magic-choice-area">
-          <p>Choose a new picture. Only one changes to the next word.</p>
+          <div className="cvc-magic-target" aria-label={`Target word ${targetWord.word}`} role="group">
+            <span className="cvc-magic-target-image"><WordImage src={targetWord.image} word={targetWord.word} priority /></span>
+            <span className="cvc-magic-target-copy">
+              <strong>Target: {targetWord.word}</strong>
+              <span>Change {currentWord.word} to {targetWord.word}. Change the {transition.unitLabel} from {transition.from} to {transition.to}.</span>
+            </span>
+            <button
+              className="cvc-magic-target-replay"
+              onClick={() => { void playCue(targetWord.audio, targetWord.word); }}
+              type="button"
+              aria-label={`Hear target ${targetWord.word}`}
+            >
+              Hear {targetWord.word}
+            </button>
+          </div>
+          <p>Which picture shows {targetWord.word}?</p>
           <div className="cvc-magic-choice-grid" aria-label="Choose the new word">
             {choiceModels.map(choice => (
               <motion.button
                 key={choice.word}
                 className="cvc-magic-choice"
                 onClick={() => handleChoiceTap(choice)}
-                whileHover={!isSwapping ? { y: -3 } : {}}
-                whileTap={!isSwapping ? { scale: 0.96 } : {}}
+                whileHover={!reduceMotion && !isSwapping ? { y: -3 } : {}}
+                whileTap={!reduceMotion && !isSwapping ? { scale: 0.96 } : {}}
                 disabled={isSwapping || !choiceReady}
                 type="button"
-                aria-label={`Change to ${choice.letters[0]}`}
+                aria-label={`Change to ${choice.letters[transition.index]}`}
               >
                 <span className="cvc-magic-choice-image"><WordImage src={choice.image} word={choice.word} priority /></span>
-                <span className="cvc-magic-choice-letter">{choice.letters[0]}</span>
+                <span className="cvc-magic-choice-letter">{choice.letters[transition.index]}</span>
                 <span className="cvc-magic-choice-word">{choice.word}</span>
               </motion.button>
             ))}
