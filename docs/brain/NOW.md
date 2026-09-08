@@ -52,7 +52,9 @@ installed, reviewed, and trusted on 2026-08-03.
 
 ## Current beta release state
 
-- Letter and Word Workshop practice retain immutable v3 completion events through local storage, queue coalescing and hydration. Completion describes supported practice/exposure, not mastery; Workshop sequencing names the actual authored grapheme prerequisites. See [Learning Policy](../design/LEARNING_POLICY.md).
+- Letter and Word Workshop practice retain immutable v3 completion events through local storage, queue coalescing and hydration. Trace, Listen, Match, Hear, Build and Magic use larger learning objects, recoverable recorded audio and explicit supported continuation. Magic preserves the intended target and first deliberate response separately from its modeled example. Completion describes supported practice/exposure, not mastery; Workshop sequencing names the actual authored grapheme prerequisites. The `check:phonics-learning` release check exercises media, response evidence, audio recovery and trusted-touch browser interaction. See [Learning Policy](../design/LEARNING_POLICY.md).
+
+- Sound Racer uses an authored village rally with held word-choice forks, deliberate confirmation, curved travel and preserved first responses. Its DOM/SVG recovery scene shares the same rules and evidence as the authored renderer. Final completion saves once and has one result dialog. Current contracts and evidence boundaries remain in the [Game Design Bible](../design/GAME_DESIGN_BIBLE.md); local/browser checks do not establish physical-device or human-listening approval.
 
 - Cycle Practice uses typed independent/support/media-failure evidence, retained first responses, pause-safe active practice time, immutable retry payloads and owner-scoped teacher results. The hosted migration is `20260908122903`; local and rollback-only hosted SQL checks passed. Current contracts are in [Cycle Practice](../product/CYCLE_PRACTICE.md) and [Learning Policy](../design/LEARNING_POLICY.md). Browser emulation does not establish physical-device or human-listening evidence.
 
@@ -62,7 +64,7 @@ installed, reviewed, and trusted on 2026-08-03.
   token-only sign-out revocation. Hosted transaction tests passed on 2026-09-08
   with synthetic fixtures rolled back; authenticated browser and physical-iPad
   recovery remain unverified. This completes the A2 code/database dependency;
-  A3, B4/B7 reconciliation and G01 still precede the queued G04 game work.
+  the shared Cycle Practice recovery contract is now integrated as described above.
 - A child-friendly student welcome tour now opens on a learner's first real
   sign-in on a device. The second and third sign-ins show a small optional
   reminder, and a persistent Help control reopens the tour from any unlocked
