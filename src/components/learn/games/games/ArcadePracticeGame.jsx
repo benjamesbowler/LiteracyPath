@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { CVC_WORDS, SENTENCE_FIX, SENTENCES, SIGHT_WORDS, WORD_FAMILIES } from "../../../../data/learnGamesData";
+import { CVC_WORDS, SENTENCE_FIX, SENTENCES, SIGHT_WORDS } from "../../../../data/learnGamesData";
 import { getChildWordAsset } from "../../../../data/childAssets";
 import { cancelSpeech, hasRecordedSpeech, speak, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio";
-import { isLiveDelayedSpeech } from "../../../../utils/learnGamesSpeechPolicy.js";
-import { familyPracticeOptions, nextFamilyTarget } from "../../../../utils/wordFamilyPractice.js";
+import { buildBlendMissions, buildCvcWorkshopRounds } from "../../../../utils/buildingGrowingRounds.js";
 import { completeRepairDisplay } from "../../../../utils/repairSentence.js";
+import { segmentWord } from "../../../../utils/graphemeSegments.js";
 import { hasKnownBadWordAudio } from "../../../../data/knownBadWordAudio.js";
 import { playCelebrationFanfare, playCorrectChime, playPopSound, playSoftBuzz } from "../../../../utils/audio/gameSfx";
 import { ConfettiCelebration } from "../shared/ConfettiCelebration.jsx";
@@ -72,7 +72,7 @@ function GameComplete({ title, stars, score, onRestart }) {
   );
 }
 
-function WordImageCard({ word, secret = false }) {
+function WordImageCard({ word, secret = false, label = "" }) {
   const [failedImageWord, setFailedImageWord] = useState("");
   const asset = getChildWordAsset(word, { allowBlockedAssessmentImage: true });
   const src = asset?.image || asset?.fallbackImage || "";
@@ -92,7 +92,7 @@ function WordImageCard({ word, secret = false }) {
     <div className="lg-game-picture">
       <img
         src={src}
-        alt={secret ? "" : asset?.alt || `Picture for ${word}`}
+        alt={secret ? "" : label || asset?.alt || `Picture for ${word}`}
         loading="lazy"
         decoding="async"
         width="240"
@@ -126,10 +126,11 @@ export function ArcadePracticeGame({
   isSoundEnabled = true
 }) {
   const totalRounds = difficulty === "hard" ? 10 : difficulty === "medium" ? 8 : 6;
+  const initialRoundCount = mode === "family" ? (difficulty === "hard" ? 6 : difficulty === "medium" ? 5 : 4) : totalRounds;
 
   const [score, setScore] = useState(0);
   // Honor the resume contract: startLevel is a 0-based round index from GamePlayer.
-  const [round, setRound] = useState(() => Math.max(0, Math.min(Number(startLevel) || 0, totalRounds - 1)));
+  const [round, setRound] = useState(() => Math.max(0, Math.min(Number(startLevel) || 0, initialRoundCount - 1)));
   const [correct, setCorrect] = useState(0);
   const [completed, setCompleted] = useState(false);
   const [stars, setStars] = useState(0);
@@ -143,6 +144,7 @@ export function ArcadePracticeGame({
   const streakRef = useRef(0);
   const wrongsRef = useRef(0);
   const completedRef = useRef(false);
+  const responseEvidenceRef = useRef({ firstResponses: [], assistedRetries: [] });
   // Pending timeouts live as {id, fn, remaining, startedAt} entries: cleared on
   // unmount so quitting can't fire finish/onComplete, and frozen by the engine
   // pause contract (GamePlayer pauses on tab-hide and while its quit dialog is
@@ -161,11 +163,8 @@ export function ArcadePracticeGame({
     }
 
     if (mode === "family") {
-      // Shuffled so each play serves a different mix of families.
-      const allFamilies = shuffle(Object.keys(WORD_FAMILIES));
-      const familyIds = allFamilies.slice(0, difficulty === "hard" ? 8 : difficulty === "medium" ? 5 : 3);
-      const words = familyIds.flatMap(familyId => WORD_FAMILIES[familyId].map(word => ({ familyId, word, onset: word.replace(familyId.slice(1).toLowerCase(), "") })));
-      return withReroll({ familyIds, words: shuffle(words), total: words.length });
+      const missions = buildBlendMissions(difficulty);
+      return withReroll({ missions, total: missions.length });
     }
 
     if (mode === "sentence") {
@@ -181,6 +180,10 @@ export function ArcadePracticeGame({
     if (mode === "target") {
       const words = mode === "target" ? pickSightWords(difficulty, totalRounds + 12) : pickWords(difficulty, totalRounds + 12);
       return withReroll({ words });
+    }
+
+    if (mode === "build") {
+      return withReroll({ rounds: buildCvcWorkshopRounds(difficulty, totalRounds) });
     }
 
     return withReroll({ words: pickWords(difficulty, totalRounds) });
@@ -287,7 +290,17 @@ export function ArcadePracticeGame({
     setStars(nextStars);
     setCompleted(true);
     if (isSoundEnabled) playCelebrationFanfare();
-    onComplete?.(nextStars, scoreRef.current, nextCorrect);
+    onComplete?.(nextStars, scoreRef.current, nextCorrect, responseEvidenceRef.current);
+  }
+
+  function recordFirstResponse(response) {
+    if (!response || responseEvidenceRef.current.firstResponses.some(item => item.round === response.round)) return;
+    responseEvidenceRef.current.firstResponses.push(Object.freeze({ ...response }));
+  }
+
+  function recordAssistedRetry(retry) {
+    if (!retry) return;
+    responseEvidenceRef.current.assistedRetries.push(Object.freeze({ ...retry }));
   }
 
   function restart() {
@@ -302,6 +315,7 @@ export function ArcadePracticeGame({
     setCompleted(false);
     setStars(0);
     setVersion(current => current + 1);
+    responseEvidenceRef.current = { firstResponses: [], assistedRetries: [] };
   }
 
   if (completed) {
@@ -326,14 +340,18 @@ export function ArcadePracticeGame({
   } else if (mode === "family") {
     stage = (
       <FamilyGame
+        key={`family-${version}-${round}`}
         state={gameState}
+        round={round}
+        setRound={setRound}
         isSoundEnabled={isSoundEnabled}
         correct={correct}
         setCorrect={setCorrect}
         addScore={addScore}
         miss={miss}
         finish={finish}
-        schedule={schedule}
+        recordFirstResponse={recordFirstResponse}
+        recordAssistedRetry={recordAssistedRetry}
       />
     );
   } else if (mode === "sentence") {
@@ -401,6 +419,8 @@ export function ArcadePracticeGame({
         isSoundEnabled={isSoundEnabled}
         totalRounds={totalRounds}
         schedule={schedule}
+        recordFirstResponse={recordFirstResponse}
+        recordAssistedRetry={recordAssistedRetry}
       />
     );
   }
@@ -420,125 +440,161 @@ export function ArcadePracticeGame({
   );
 }
 
-function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, totalRounds, schedule }) {
-  const targetWord = state.words[round] || state.words[0];
+function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, totalRounds, schedule, recordFirstResponse, recordAssistedRetry }) {
+  const target = state.rounds[round] || state.rounds[0];
+  const targetWord = target?.word || "cat";
+  const targetUnits = target?.units || segmentWord(targetWord).map((grapheme, index) => ({ id: `${targetWord}-${index}`, grapheme, index }));
   const canHearTarget = isSoundEnabled && hasRecordedSpeech(targetWord);
-  // placed = [{ letter, tileIndex }] so duplicate letters keep their own tile.
   const [placed, setPlaced] = useState([]);
-  const [checking, setChecking] = useState(false);
-  // Failed spellings on this word; after 2 the word text appears as a scaffold
-  // (many hard words have no image asset, so there is no other visual target).
+  const [phase, setPhase] = useState("build");
   const [attempts, setAttempts] = useState(0);
-  const answerLockedRef = useRef(false);
-  const liveSoundRef = useRef(isSoundEnabled);
+  const [wrongIndex, setWrongIndex] = useState(-1);
+  const [attempted, setAttempted] = useState(null);
+  const [comparison, setComparison] = useState(null);
   const liveRoundRef = useRef(round);
   const liveTargetRef = useRef(targetWord);
+  const answerLockedRef = useRef(false);
+  const compareTokenRef = useRef(0);
+  const inputRevisionRef = useRef(0);
+  const firstResponseRecordedRef = useRef(false);
   const letters = useMemo(() => {
-    const targetLetters = targetWord.split("");
-    const distractors = shuffle(DISTRACTOR_LETTERS.filter(letter => !targetLetters.includes(letter))).slice(0, 3);
-    return shuffle([...targetLetters, ...distractors]);
-  }, [targetWord]);
+    const distractors = shuffle(DISTRACTOR_LETTERS.filter(letter => !targetWord.includes(letter))).slice(0, 3);
+    return shuffle([...targetUnits, ...distractors.map((grapheme, index) => ({
+      id: `${target.id}-distractor-${index}`,
+      grapheme,
+      distractor: true
+    }))]);
+  }, [target, targetUnits, targetWord]);
 
   useEffect(() => {
-    liveSoundRef.current = isSoundEnabled;
     liveRoundRef.current = round;
     liveTargetRef.current = targetWord;
-  }, [isSoundEnabled, round, targetWord]);
-
-  useEffect(() => {
     answerLockedRef.current = false;
+    firstResponseRecordedRef.current = false;
+    compareTokenRef.current += 1;
     if (canHearTarget) speakWord(targetWord);
-  }, [canHearTarget, targetWord]);
+    return () => {
+      compareTokenRef.current += 1;
+      cancelSpeech();
+    };
+  }, [canHearTarget, round, targetWord]);
 
-  const usedTiles = new Set(placed.map(item => item.tileIndex));
+  const usedTileIds = new Set(placed.map(item => item.tileId));
 
-  function placeTile(letter, tileIndex) {
-    if (answerLockedRef.current || checking || usedTiles.has(tileIndex) || placed.length >= targetWord.length) return;
-    if (isSoundEnabled) speakPhoneme(letter);
-    const next = [...placed, { letter, tileIndex }];
+  function placeTile(tile) {
+    if (answerLockedRef.current || phase !== "build" || usedTileIds.has(tile.id) || placed.length >= targetUnits.length) return;
+    compareTokenRef.current += 1;
+    const inputRevision = ++inputRevisionRef.current;
+    setWrongIndex(-1);
+    setAttempted(null);
+    setComparison(null);
+    if (isSoundEnabled) void speakPhoneme(tile.phoneme || tile.grapheme);
+    const next = [...placed, { grapheme: tile.grapheme, tileId: tile.id }];
     setPlaced(next);
+    if (next.length !== targetUnits.length) return;
 
-    if (next.length !== targetWord.length) return;
-
-    if (next.map(item => item.letter).join("") === targetWord) {
+    const builtWord = next.map(item => item.grapheme).join("");
+    if (!firstResponseRecordedRef.current) {
+      firstResponseRecordedRef.current = true;
+      recordFirstResponse({ game: "building-workshop", round, target: targetWord, response: builtWord, correct: builtWord === targetWord, soundEnabled: isSoundEnabled });
+    }
+    if (builtWord === targetWord) {
       answerLockedRef.current = true;
       addScore(25);
+      if (attempts > 0) recordAssistedRetry({ game: "building-workshop", round, target: targetWord, attempts, supportUsed: ["specific_sound_feedback", "preserved_prefix"] });
       const nextCorrect = correct + 1;
+      setPhase("blending");
       setCorrect(nextCorrect);
-      setChecking(true);
-      schedule(() => {
-        if (round + 1 >= totalRounds) {
-          finish(nextCorrect);
-        } else {
-          setRound(round + 1);
-        }
-      }, 550);
-    } else {
-      // Wrong word: shake, tip the letters back out, let them try again.
-      miss();
-      setAttempts(current => current + 1);
-      setChecking(true);
-      const scheduledRound = round;
-      const scheduledTarget = targetWord;
-      schedule(() => {
-        if (scheduledRound !== liveRoundRef.current || scheduledTarget !== liveTargetRef.current) return;
-        setPlaced([]);
-        setChecking(false);
-        if (isLiveDelayedSpeech({
-          soundEnabled: liveSoundRef.current,
-          scheduledRound,
-          currentRound: liveRoundRef.current,
-          scheduledTarget,
-          currentTarget: liveTargetRef.current
-        }) && hasRecordedSpeech(liveTargetRef.current)) speakWord(liveTargetRef.current);
-      }, 750);
+      return;
     }
+
+    const mismatch = targetUnits.findIndex((unit, index) => unit.grapheme !== next[index]?.grapheme);
+    miss();
+    setAttempts(value => value + 1);
+    setWrongIndex(mismatch);
+    setAttempted({ index: mismatch, grapheme: next[mismatch]?.grapheme || "", phoneme: targetUnits[mismatch]?.phoneme || next[mismatch]?.grapheme || "" });
+    const scheduledRound = round;
+    schedule(() => {
+      if (scheduledRound !== liveRoundRef.current || inputRevision !== inputRevisionRef.current) return;
+      setPlaced(current => current.slice(0, Math.max(0, mismatch)));
+      setWrongIndex(mismatch);
+    }, 520);
+  }
+
+  function blendWord() {
+    if (phase !== "blending") return;
+    compareTokenRef.current += 1;
+    if (isSoundEnabled) void speakWord(targetWord);
+    setPhase("reveal");
+  }
+
+  function useObject() {
+    if (phase !== "reveal") return;
+    setPhase("used");
+  }
+
+  function continueBuild() {
+    if (phase !== "used" || round !== liveRoundRef.current || targetWord !== liveTargetRef.current) return;
+    compareTokenRef.current += 1;
+    if (round + 1 >= totalRounds) finish(correct);
+    else setRound(round + 1);
   }
 
   function removeAt(slotIndex) {
-    if (checking || slotIndex >= placed.length) return;
-    setPlaced(current => current.filter((_, index) => index !== slotIndex));
+    if (phase !== "build" || slotIndex >= placed.length) return;
+    compareTokenRef.current += 1;
+    inputRevisionRef.current += 1;
+    setWrongIndex(-1);
+    setAttempted(null);
+    setComparison(null);
+    setPlaced(current => current.slice(0, slotIndex));
+  }
+
+  function compareSounds() {
+    if (!attempted || !isSoundEnabled) return;
+    const token = ++compareTokenRef.current;
+    const right = targetUnits[attempted.index]?.phoneme || targetUnits[attempted.index]?.grapheme;
+    setComparison({ attempted: attempted.phoneme || attempted.grapheme, right, token });
+    void speakPhoneme(attempted.phoneme || attempted.grapheme);
+  }
+
+  function hearComparisonTarget() {
+    if (!comparison || comparison.token !== compareTokenRef.current || phase !== "build") return;
+    compareTokenRef.current += 1;
+    if (comparison.right) void speakPhoneme(comparison.right);
+  }
+
+  function hearTarget() {
+    compareTokenRef.current += 1;
+    if (canHearTarget) speakWord(targetWord);
   }
 
   return (
     <IllustratedGameScene mode="build" stageClassName="lg-game-build">
-      <p>{canHearTarget ? "Build the word you hear." : "Build this word."}</p>
-      {canHearTarget && <button type="button" className="lg-game-audio" onClick={() => speakWord(targetWord)}><span aria-hidden="true">♪</span> Hear word</button>}
-      <WordImageCard word={targetWord} secret={canHearTarget} />
-      {attempts >= 2 && (
-        <div className="lg-game-picture lg-game-picture-text" aria-label={`Hint: the word is ${targetWord}`}>
-          <span>{targetWord}</span>
-        </div>
-      )}
-      <div className="lg-game-slots" aria-label="Word letters. Tap a filled box to take the letter out.">
-        {targetWord.split("").map((letter, index) => (
-          placed[index] ? (
-            <button
-              key={`slot-${index}`}
-              type="button"
-              className="filled"
-              aria-label={`Remove letter ${placed[index].letter}`}
-              onClick={() => removeAt(index)}
-            >
-              {placed[index].letter}
-            </button>
-          ) : (
-            <span key={`slot-${index}`} />
-          )
-        ))}
+      <p>{canHearTarget ? "Build the word for the picture. Listen, then tap each sound." : "Build the word for the picture."}</p>
+      <div className="lg-workshop-scene" aria-hidden="true">
+        <span className="lg-workshop-lamp" />
+        <span className="lg-workshop-shelf" />
+        <span className={`lg-workshop-blueprint ${phase === "blending" ? "active" : ""}`} />
+        <span className="lg-workshop-bench" />
       </div>
-      <div className="lg-game-letter-bank">
-        {letters.map((letter, index) => (
-          <button
-            key={`${letter}-${index}`}
-            type="button"
-            disabled={usedTiles.has(index)}
-            className={usedTiles.has(index) ? "used" : ""}
-            onClick={() => placeTile(letter, index)}
-          >
-            {letter}
-          </button>
-        ))}
+      {canHearTarget && <button type="button" className="lg-game-audio" onClick={hearTarget}><span aria-hidden="true">♪</span> Hear word</button>}
+      <WordImageCard word={targetWord} label={target.label} />
+      {attempts >= 2 && <div className="lg-game-picture lg-game-picture-text" aria-label={`Hint: the word is ${targetWord}`}><span>{targetWord}</span></div>}
+      {phase === "build" && <div className="lg-build-label">Place the sounds in order</div>}
+      {phase === "blending" && <div className="lg-build-state" role="status"><strong>Blend it</strong><span>{placed.map(item => item.grapheme).join(" ")}</span><button type="button" className="lg-build-blend" onClick={blendWord}>Blend {targetWord}</button></div>}
+      {phase === "reveal" && <div className="lg-build-reveal" role="status"><strong>You built {targetWord}!</strong><span>{target.label} is ready.</span><button type="button" className="lg-build-use" onClick={useObject}>Use object</button></div>}
+      {phase === "used" && <div className="lg-build-reveal lg-build-object-result" data-object-action={targetWord} role="status"><div className={`lg-build-object-visual lg-object-${targetWord}`} aria-hidden="true"><span>{targetWord}</span><i /></div><strong>{target.useResult}</strong><span>{target.label} changed the workshop.</span><button type="button" className="lg-build-continue" onClick={continueBuild}>{round + 1 >= totalRounds ? "Finish" : "Next build"}</button></div>}
+      <div className="lg-game-slots lg-workshop-slots" aria-label="Word letters. Tap a filled box to undo from that point.">
+        {targetUnits.map((unit, index) => placed[index] ? (
+          <button key={unit.id} type="button" className={`filled${wrongIndex === index ? " wrong" : ""}`} aria-label={`Undo sound ${placed[index].grapheme}`} onClick={() => removeAt(index)} disabled={phase !== "build"}>{placed[index].grapheme}</button>
+          ) : <span key={unit.id} className={wrongIndex === index ? "wrong" : ""} />)}
+      </div>
+      {wrongIndex >= 0 && <div className="lg-build-feedback" role="status"><strong>Check that sound.</strong> The <b>{attempted?.grapheme || "sound"}</b> sound needs repair.</div>}
+      {attempted && <button type="button" className="lg-build-compare" onClick={compareSounds} disabled={!isSoundEnabled}>Compare sounds</button>}
+      {comparison && <div className="lg-build-comparison" role="status"><span>First, you placed <b>{comparison.attempted}</b>.</span><button type="button" onClick={hearComparisonTarget} disabled={!isSoundEnabled}>Hear target sound</button></div>}
+      <div className="lg-game-letter-bank lg-workshop-bank" aria-label="Sound tiles">
+        {letters.map(tile => <button key={tile.id} type="button" data-tile-id={tile.id} disabled={phase !== "build" || usedTileIds.has(tile.id)} className={usedTileIds.has(tile.id) ? "used" : ""} onClick={() => placeTile(tile)}>{tile.grapheme}</button>)}
       </div>
       <GameMeter current={round + 1} total={totalRounds} />
     </IllustratedGameScene>
@@ -619,72 +675,95 @@ function MatchGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss,
   );
 }
 
-function FamilyGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss, finish, schedule }) {
-  const [built, setBuilt] = useState([]);
-  const builtRef = useRef(new Set());
-  const [activeFamily, setActiveFamily] = useState(state.familyIds[0]);
-  const [wrongTarget, setWrongTarget] = useState("");
-  const builtWords = new Set(built);
-  const targetWord = nextFamilyTarget(state.words, activeFamily, builtWords);
-  const canHearTarget = Boolean(targetWord) && isSoundEnabled && hasRecordedSpeech(targetWord);
-
-  // The finite family bank is the reviewed accepted set for this activity.
-  // Do not synthesize decoy onsets: an unlisted onset can still make a real
-  // word (for example, p + -AT = "pat"), and must not be graded linguistically
-  // wrong merely because it is absent from this compact authored bank.
-  const options = useMemo(() => {
-    return shuffle(familyPracticeOptions(state.words, activeFamily));
-  }, [activeFamily, state.words]);
+function FamilyGame({ state, round, setRound, isSoundEnabled, correct, setCorrect, addScore, miss, finish, recordFirstResponse, recordAssistedRetry }) {
+  const mission = state.missions[round] || state.missions[0];
+  const targetWord = mission?.word || "cat";
+  const canHearTarget = isSoundEnabled && hasRecordedSpeech(targetWord);
+  const [phase, setPhase] = useState("build");
+  const [wrongOnset, setWrongOnset] = useState("");
+  const [reuseOpen, setReuseOpen] = useState(false);
+  const [reuseOnset, setReuseOnset] = useState("");
+  const [reuseBuilt, setReuseBuilt] = useState("");
+  const resolvedRef = useRef(false);
+  const firstResponseRecordedRef = useRef(false);
+  const responseAttemptsRef = useRef(0);
+  const speechTokenRef = useRef(0);
+  const targetOnset = mission?.onset || targetWord[0];
+  const options = useMemo(() => shuffle([targetOnset, ...shuffle((mission?.familyWords || []).filter(word => word !== targetWord).map(word => word.slice(0, word.length - (mission?.familyId?.length - 1 || 2)))).slice(0, 2)]), [mission, targetWord, targetOnset]);
+  const reuseOptions = useMemo(() => (mission?.familyWords || [])
+    .filter(word => word !== targetWord)
+    .map(word => ({ word, onset: word.slice(0, word.length - (mission?.familyId?.length - 1 || 2)) }))
+    .filter((item, index, items) => items.findIndex(candidate => candidate.onset === item.onset) === index)
+    .slice(0, 3), [mission, targetWord]);
 
   useEffect(() => {
+    resolvedRef.current = false;
+    firstResponseRecordedRef.current = false;
+    responseAttemptsRef.current = 0;
+    speechTokenRef.current += 1;
     if (canHearTarget) speakWord(targetWord);
-  }, [canHearTarget, targetWord]);
+    return () => {
+      speechTokenRef.current += 1;
+      cancelSpeech();
+    };
+  }, [canHearTarget, round, targetWord]);
 
-  function choose(option) {
-    if (!option?.word) return;
-    if (!targetWord || option.word !== targetWord) {
-      setWrongTarget(option.word);
-      schedule(() => setWrongTarget(""), 420);
+  function choose(onset) {
+    if (phase !== "build" || resolvedRef.current) return;
+    if (!firstResponseRecordedRef.current) {
+      firstResponseRecordedRef.current = true;
+      recordFirstResponse({ game: "blend-family", round, target: targetWord, response: onset, correct: onset === targetOnset, soundEnabled: isSoundEnabled });
+    }
+    if (onset !== targetOnset) {
+      setWrongOnset(onset);
+      responseAttemptsRef.current += 1;
       miss();
       return;
     }
-    if (builtRef.current.has(option.word)) return;
-    builtRef.current.add(option.word);
-    if (isSoundEnabled) speakWord(option.word);
+    resolvedRef.current = true;
+    setWrongOnset("");
+    setPhase("reveal");
+    if (responseAttemptsRef.current > 0) recordAssistedRetry({ game: "blend-family", round, target: targetWord, attempts: responseAttemptsRef.current, supportUsed: ["rime_reveal", "specific_onset_feedback"] });
     const nextCorrect = correct + 1;
-    setBuilt(current => [...current, option.word]);
     setCorrect(nextCorrect);
-    addScore(12);
-    if (nextCorrect >= state.total) {
-      schedule(() => finish(nextCorrect), 400);
-    }
+    addScore(18);
+  }
+
+  function chooseReuseOnset(onset) {
+    if (phase !== "reveal" || reuseBuilt) return;
+    setReuseOnset(onset);
+  }
+
+  function buildReuseWord() {
+    if (phase !== "reveal" || !reuseOnset || reuseBuilt) return;
+    const item = reuseOptions.find(option => option.onset === reuseOnset);
+    if (!item) return;
+    setReuseBuilt(item.word);
+    if (isSoundEnabled && hasRecordedSpeech(item.word)) void speakWord(item.word);
+  }
+
+  function continueFamily() {
+    if (!reuseBuilt) return;
+    speechTokenRef.current += 1;
+    if (round + 1 >= state.total) finish(correct);
+    else setRound(round + 1);
   }
 
   return (
-    <IllustratedGameScene mode="family">
-      <p>{targetWord ? `Build ${targetWord} in the ${activeFamily} family.` : `The ${activeFamily} family is complete. Choose another family.`}</p>
-      {canHearTarget && <button type="button" className="lg-game-audio" onClick={() => speakWord(targetWord)}><span aria-hidden="true">♪</span> Hear target word</button>}
-      {wrongTarget && <div className="lg-game-feedback" role="status">{wrongTarget} is not the target this turn. Try {targetWord}.</div>}
-      <div className="lg-family-tabs">
-        {state.familyIds.map(familyId => (
-          <button key={familyId} type="button" className={familyId === activeFamily ? "active" : ""} onClick={() => setActiveFamily(familyId)}>
-            {familyId}
-          </button>
-        ))}
-      </div>
-      <div className="lg-family-board">
-        <div className="lg-rime-tile">{activeFamily}</div>
-        <div className="lg-game-letter-bank">
-          {options.map(option => (
-            <button key={option.onset} type="button" disabled={builtWords.has(option.word)} onClick={() => choose(option)}>
-              {option.onset}
-            </button>
-          ))}
+    <IllustratedGameScene mode="family" stageClassName="lg-blend-stage">
+      <p>{phase === "build" ? "Build the named word: join the first sound to the rime." : `Built ${targetWord}. Reuse the rime in another word.`}</p>
+      <div className="lg-blend-scene" aria-hidden="true"><span className="lg-blend-track" /><span className="lg-blend-object" /></div>
+      {canHearTarget && phase === "build" && <button type="button" className="lg-game-audio" onClick={() => speakWord(targetWord)}><span aria-hidden="true">♪</span> Hear target</button>}
+      <div className="lg-blend-target"><WordImageCard word={targetWord} label={mission?.label} /><div><span className="lg-blend-kicker">Target object</span><strong>{targetWord}</strong></div></div>
+      <div className="lg-family-board" data-family={mission?.familyId}>
+        <div className="lg-game-letter-bank" aria-label="Onset choices">
+          {options.map(onset => <button key={onset} type="button" disabled={phase !== "build"} className={wrongOnset === onset ? "wrong" : ""} onClick={() => choose(onset)}>{onset}</button>)}
         </div>
+        <div className="lg-blend-joiner" aria-hidden="true">+</div>
+        <div className="lg-rime-tile" aria-label={`Rime -${mission?.rime || "at"}`}>-{mission?.rime || "at"}</div>
       </div>
-      <div className="lg-built-words">
-        {built.map(word => <span key={word}>{word}</span>)}
-      </div>
+      {wrongOnset && <div className="lg-game-feedback" role="status">Try the onset that makes the named target.</div>}
+      {phase === "reveal" && <div className="lg-blend-reveal" role="status"><strong>{targetWord}</strong><span>Object built! Listen for the whole word, then reuse -{mission.rime}.</span><button type="button" className="lg-blend-reuse" onClick={() => setReuseOpen(true)} disabled={reuseOpen || Boolean(reuseBuilt)}>Reuse -{mission.rime}</button>{reuseOpen && <div className="lg-blend-reuse-builder"><span className="lg-blend-reuse-kicker">Choose an onset</span><div className="lg-blend-reuse-onsets">{reuseOptions.map(option => <button key={option.word} type="button" disabled={Boolean(reuseBuilt)} className={reuseOnset === option.onset ? "selected" : ""} aria-label={`Use ${option.onset} with -${mission.rime} to build ${option.word}`} onClick={() => chooseReuseOnset(option.onset)}>{option.onset}</button>)}</div>{reuseOnset && <button type="button" className="lg-blend-reuse-rime" onClick={buildReuseWord} disabled={Boolean(reuseBuilt)} aria-label={`Join ${reuseOnset} and -${mission.rime}`}>{reuseBuilt || `-${mission.rime}`}</button>}</div>}<div className="lg-blend-reuse-list">{reuseBuilt && <><span>{reuseOnset}{mission.rime} = {reuseBuilt}</span><button type="button" className="lg-blend-continue" onClick={continueFamily}>Continue</button></>}</div></div>}
       <GameMeter current={correct} total={state.total} />
     </IllustratedGameScene>
   );

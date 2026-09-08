@@ -4,6 +4,8 @@
 import { CVC_WORDS, SIGHT_WORDS } from "../data/learnGamesData.js";
 import { LETTER_EXAMPLES } from "../data/elSkillsBlockCycles.js";
 import { hasKnownBadWordAudio } from "../data/knownBadWordAudio.js";
+import { buildGrowingGardenRounds } from "./buildingGrowingRounds.js";
+export { GARDEN_FLOWERS } from "./buildingGrowingRounds.js";
 
 function shuffle(items) {
   const copy = [...items];
@@ -86,22 +88,9 @@ export function buildSortRounds(difficulty = "easy") {
   return { binA: keyA, binB: keyB, items };
 }
 
-// ── Letter Garden: build the word, grow a flower ──────────────────────────
-export const GARDEN_FLOWERS = ["daisy", "tulip", "sunflower", "blossom", "hibiscus", "rose"];
-
+// ── Letter Garden: change one known word, grow a labeled plant ─────────────
 export function buildGardenRounds(difficulty = "easy") {
-  const pool = cleanPool(CVC_WORDS[difficulty] || CVC_WORDS.easy)
-    .filter(w => w.length >= 3 && w.length <= 5);
-  const words = shuffle(pool).slice(0, 5);
-  const alphabet = "abcdefghijklmnopqrstuvwxyz";
-  return words.map((word, index) => {
-    const decoys = shuffle([...alphabet].filter(l => !word.includes(l))).slice(0, 3);
-    return {
-      word,
-      flower: GARDEN_FLOWERS[index % GARDEN_FLOWERS.length],
-      bank: shuffle([...new Set([...word, ...decoys])])
-    };
-  });
+  return buildGrowingGardenRounds(difficulty);
 }
 
 export function buildAdventureRoundSet(mode, difficulty = "easy", version = 0) {

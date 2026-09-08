@@ -36,7 +36,7 @@ test(`CVC wrong retry restores input silently when ${startsMuted ? "started mute
   if (!startsMuted) await page.getByRole("button", { name: "Turn spoken audio and game sounds off", exact: true }).click();
   await page.evaluate(() => { window.__g04PlayCalls = []; });
   await expect(page.getByRole("button", { name: "Turn spoken audio and game sounds on", exact: true })).toBeVisible();
-  await expect(player.getByText("Build this word.", { exact: true })).toBeVisible();
+  await expect(player.getByText("Build the word for the picture.", { exact: true })).toBeVisible();
   await page.waitForTimeout(900);
   await expect(player.locator(".lg-game-audio")).toHaveCount(0);
   await expect(player.locator(".lg-game-slots button")).toHaveCount(0);
@@ -45,6 +45,12 @@ test(`CVC wrong retry restores input silently when ${startsMuted ? "started mute
   for (const letter of target) {
     await bank.filter({ hasText: new RegExp(`^${letter}$`, "i") }).and(page.locator("button:not(:disabled)")).first().click();
   }
+  await expect(player.locator(".lg-build-blend")).toBeVisible();
+  await player.locator(".lg-build-blend").click();
+  await expect(player.locator(".lg-build-use")).toBeVisible();
+  await player.locator(".lg-build-use").click();
+  await expect(player.locator(".lg-build-continue")).toBeVisible();
+  await player.locator(".lg-build-continue").click();
   await expect(player.locator(".lg-game-meter")).toHaveAttribute("aria-label", "2 of 6");
 });
 }

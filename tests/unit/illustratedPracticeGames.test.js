@@ -7,8 +7,10 @@ import {
   ILLUSTRATED_GAME_IDS,
   ILLUSTRATED_GAME_SCENES
 } from "../../src/components/learn/games/shared/illustratedGameScenes.js";
-import { SENTENCE_FIX } from "../../src/data/learnGamesData.js";
+import { CVC_WORDS, SENTENCE_FIX } from "../../src/data/learnGamesData.js";
+import { getChildWordAsset } from "../../src/data/childAssets.js";
 import { completeRepairDisplay } from "../../src/utils/repairSentence.js";
+import { buildBlendMissions, buildCvcWorkshopRounds } from "../../src/utils/buildingGrowingRounds.js";
 
 const ROOT = process.cwd();
 
@@ -86,5 +88,44 @@ test("every Sentence Fix-It ending supplies the intended tone or sentence type",
   for (const display of ["Watch out___", "Look out for the wave___", "The rocket is about to blast off___"]) {
     const repair = endingRepairs.find(item => item.display === display);
     assert.match(repair.prompt, /strong feeling/i, `${display} must not silently reject a calm full stop`);
+  }
+});
+
+test("G08 workshop rounds preserve every tier word as spelling-bearing sound units", () => {
+  for (const [difficulty, minimumLength] of [["easy", 3], ["medium", 4], ["hard", 5]]) {
+    const rounds = buildCvcWorkshopRounds(difficulty, 100);
+    assert.equal(rounds.length, CVC_WORDS[difficulty].length);
+    for (const round of rounds) {
+      assert.ok(round.word.length >= minimumLength, `${difficulty}: ${round.word} is below its tier`);
+      assert.equal(round.units.map(unit => unit.grapheme).join(""), round.word);
+      assert.equal(new Set(round.units.map(unit => unit.id)).size, round.units.length);
+      assert.equal(round.units.length, new Set(round.units.map(unit => unit.index)).size);
+      assert.ok(round.units.every(unit => unit.phoneme), `${difficulty}: ${round.word} needs a spoken phoneme per tile`);
+    }
+  }
+});
+
+test("G08 object cards keep reviewed bat and bed meanings aligned across fallback media", () => {
+  const bat = getChildWordAsset("bat");
+  const bed = getChildWordAsset("bed");
+  assert.equal(bat.alt, "A bat");
+  assert.equal(bat.image, "/images/child-mode/cvc/bat.webp");
+  assert.equal(bat.fallbackImage, bat.image);
+  assert.equal(bed.alt, "A bed");
+  assert.equal(bed.image, "/images/child-mode/cvc/bed.webp");
+  assert.equal(bed.fallbackImage, bed.image);
+});
+
+test("G08 Blend missions are short, named and reviewed onset/rime constructions", () => {
+  for (const tier of ["easy", "medium", "hard"]) {
+    const missions = buildBlendMissions(tier);
+    assert.ok(missions.length >= 4 && missions.length <= 6);
+    assert.equal(new Set(missions.map(mission => mission.word)).size, missions.length);
+    for (const mission of missions) {
+      assert.ok(mission.familyId.startsWith("-"));
+      assert.equal(`${mission.onset}${mission.rime}`, mission.word);
+      assert.ok(mission.familyWords.includes(mission.word));
+      assert.equal(mission.units.map(unit => unit.grapheme).join(""), mission.word);
+    }
   }
 });

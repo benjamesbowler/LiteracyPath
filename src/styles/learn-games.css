@@ -3441,3 +3441,220 @@
 }
 .lg-practice-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
 .lg-practice-tile .lg-game-tile-art { aspect-ratio: 1.6; }
+
+/* ── G08: building workshop, onset/rime bench and word-change garden ─────── */
+.lg-game-player .lg-illustrated-game--build .lg-game-stage,
+.lg-game-player .lg-illustrated-game--family .lg-game-stage,
+.lg-game-player .lg-illustrated-game--garden .lg-game-stage {
+  isolation: isolate;
+}
+
+.lg-game-player .lg-workshop-scene,
+.lg-game-player .lg-blend-scene,
+.lg-game-player .adv-garden-scene {
+  position: relative;
+  width: min(100%, 560px);
+  height: 52px;
+  flex: 0 0 52px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, var(--lg-accent-amber-soft) 0 54%, var(--lg-accent-amber) 55% 72%, var(--lg-accent-amber) 73% 100%);
+  box-shadow: inset 0 -5px 0 rgba(78, 46, 24, .22), 0 6px 0 rgba(80, 54, 34, .12);
+  overflow: hidden;
+}
+
+.lg-workshop-shelf,
+.lg-workshop-bench,
+.lg-workshop-lamp,
+.lg-workshop-blueprint,
+.lg-blend-track,
+.lg-blend-object,
+.adv-garden-sun,
+.adv-garden-hill,
+.adv-garden-watering-can {
+  position: absolute;
+  display: block;
+}
+
+.lg-workshop-shelf { left: 7%; top: 10px; width: 32%; height: 8px; border-radius: 8px; background: var(--lg-accent-amber); box-shadow: 0 8px 0 var(--lg-accent-amber), 0 16px 0 var(--lg-accent-amber); }
+.lg-workshop-lamp { right: 10%; top: 8px; width: 22px; height: 28px; border-radius: 50% 50% 9px 9px; background: var(--lg-accent-amber); box-shadow: 0 0 18px 7px rgba(217, 119, 6, .38); }
+.lg-workshop-bench { left: 0; right: 0; bottom: 0; height: 14px; background: repeating-linear-gradient(90deg, var(--lg-accent-amber) 0 34px, var(--lg-accent-amber) 34px 68px); }
+.lg-workshop-blueprint { right: 26%; top: 13px; width: 62px; height: 30px; border: 3px solid var(--lg-accent-blue); border-radius: 6px; background: repeating-linear-gradient(0deg, rgba(59, 130, 196, .24) 0 3px, transparent 3px 9px); transform: rotate(-4deg); }
+.lg-workshop-blueprint.active { animation: g08-blueprint-pulse 480ms ease-in-out both; }
+
+@keyframes g08-blueprint-pulse { 0% { transform: rotate(-4deg) scale(.9); opacity: .55; } 55% { transform: rotate(3deg) scale(1.08); opacity: 1; } 100% { transform: rotate(0) scale(1); } }
+
+.lg-game-player .lg-game-build > p:first-child,
+.lg-game-player .lg-blend-stage > p:first-child,
+.lg-game-player .adv-garden > p:first-child {
+  color: var(--lp-color-text);
+  font-weight: 800;
+}
+.lg-game-player .adv-garden > p:first-child { white-space: nowrap; }
+
+.lg-game-player .lg-workshop-slots { gap: 10px; }
+.lg-game-player .lg-workshop-slots :where(span, button) { min-width: clamp(64px, 8vw, 88px); min-height: 64px; border-width: 3px; }
+.lg-game-player .lg-workshop-slots :where(span, button).wrong { border-color: var(--lg-accent-coral); background: var(--lg-accent-coral-soft); color: var(--lg-primary-strong); }
+.lg-game-player .lg-workshop-bank { gap: 10px; }
+.lg-game-player .lg-workshop-bank button { min-width: 68px; min-height: 68px; background: var(--lg-surface); border-color: var(--lg-accent-amber); color: var(--lg-primary-strong); box-shadow: 0 5px 0 var(--lg-accent-amber); }
+.lg-game-player .lg-workshop-bank button:hover:not(:disabled) { background: var(--lg-accent-amber-soft); transform: translateY(-4px) rotate(-2deg); }
+.lg-game-player .lg-workshop-bank button.used { background: var(--lg-surface-subtle); border-color: var(--lg-border); color: var(--lg-border-strong); box-shadow: none; }
+.lg-build-label { color: var(--lg-accent-amber); font-size: .82rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+.lg-build-state,
+.lg-build-reveal,
+.lg-build-feedback {
+  display: grid;
+  gap: 3px;
+  color: var(--lp-color-text);
+  font-size: .95rem;
+  line-height: 1.25;
+}
+.lg-build-state { min-width: min(100%, 300px); border: 2px solid var(--lg-accent-blue); border-radius: 14px; background: var(--lg-accent-blue-soft); padding: 8px 14px; }
+.lg-build-state span { color: var(--lg-accent-blue); font-weight: 850; letter-spacing: .22em; }
+.lg-build-reveal { min-width: min(100%, 310px); border: 3px solid var(--lg-accent-green); border-radius: 16px; background: var(--lg-accent-green-soft); padding: 9px 15px; }
+.lg-build-reveal strong { color: var(--lg-accent-green); font-size: 1.22rem; }
+.lg-build-object-visual { position: relative; display: grid; place-items: center; min-height: 42px; overflow: hidden; border-radius: 12px; background: var(--lg-surface); color: var(--lg-primary-strong); font: 850 1.05rem var(--phonics-font-display), sans-serif; }
+.lg-build-object-visual i { position: absolute; width: 70%; height: 3px; border-radius: 9px; background: var(--lg-accent-amber); transform: rotate(-8deg); opacity: .8; }
+.lg-object-fan i { width: 86%; background: repeating-linear-gradient(90deg, transparent 0 12px, var(--lg-accent-blue) 12px 15px); transform: rotate(7deg); }
+.lg-object-ship i { width: 78%; bottom: 8px; border-top: 3px solid var(--lg-accent-blue); background: transparent; transform: none; }
+.lg-object-lamp i { width: 24px; height: 24px; border-radius: 50%; background: var(--lg-accent-amber-soft); box-shadow: 0 0 0 6px var(--lg-accent-amber-soft); }
+.lg-object-bat i { width: 66%; background: var(--lg-accent-coral); transform: rotate(-24deg); }
+.lg-object-brush i { width: 68%; background: var(--lg-accent-blue); transform: rotate(18deg); }
+.lg-build-feedback { border-left: 5px solid var(--lg-accent-coral); padding-left: 10px; }
+.lg-build-comparison { display: grid; gap: 5px; border: 2px solid var(--lg-accent-blue); border-radius: 14px; background: var(--lg-accent-blue-soft); color: var(--lg-primary-strong); padding: 8px 10px; font-size: .86rem; }
+.lg-build-comparison strong { font-size: .95rem; }
+.lg-build-compare,
+.lg-blend-reuse {
+  min-width: 56px;
+  min-height: 56px;
+  border: 2px solid var(--lg-accent-blue);
+  border-radius: 14px;
+  background: var(--lg-accent-blue-soft);
+  color: var(--lg-accent-blue);
+  cursor: pointer;
+  font: 800 .9rem Lexend, sans-serif;
+  padding: 8px 14px;
+}
+.lg-build-compare:hover:not(:disabled), .lg-blend-reuse:hover { background: var(--lg-accent-blue-soft); transform: translateY(-2px); }
+
+.lg-game-player .lg-blend-scene { background: linear-gradient(180deg, var(--lg-accent-blue-soft) 0 53%, var(--lg-accent-blue) 54% 64%, var(--lg-primary-strong) 65% 100%); }
+.lg-blend-track { left: 6%; right: 6%; bottom: 16px; height: 8px; border-radius: 8px; background: repeating-linear-gradient(90deg, var(--lg-accent-amber) 0 34px, var(--lg-accent-amber) 34px 68px); }
+.lg-blend-object { right: 13%; bottom: 19px; width: 32px; height: 26px; border-radius: 50% 50% 8px 8px; background: var(--lg-accent-coral); box-shadow: -9px -4px 0 var(--lg-accent-amber-soft), 9px -4px 0 var(--lg-accent-amber-soft); animation: g08-object-bob 2.4s ease-in-out infinite; }
+@keyframes g08-object-bob { 50% { transform: translateY(-5px) rotate(3deg); } }
+.lg-blend-target { display: flex; align-items: center; justify-content: center; gap: 14px; }
+.lg-blend-target .lg-game-picture { width: 112px; height: 112px; }
+.lg-blend-target > div:last-child { display: grid; gap: 3px; justify-items: start; text-align: left; }
+.lg-blend-target strong { color: var(--lg-accent-green); font: 850 1.7rem var(--phonics-font-display), sans-serif; }
+.lg-blend-kicker { color: var(--lg-border-strong); font-size: .72rem; font-weight: 850; letter-spacing: .09em; text-transform: uppercase; }
+.lg-game-player .lg-blend-stage .lg-family-board { display: grid; grid-template-columns: minmax(0, 1fr) 32px minmax(150px, 190px); align-items: center; gap: 10px; width: min(100%, 640px); border: 2px solid var(--lg-border); border-radius: 20px; background: rgba(255,255,255,.72); padding: 12px; }
+.lg-game-player .lg-blend-stage .lg-rime-tile { width: 100%; min-height: 76px; background: var(--lg-accent-green-soft); color: var(--lg-primary-strong); border-color: var(--lg-accent-green); font-size: 2rem; }
+.lg-blend-joiner { color: var(--lg-primary-strong); font-size: 2rem; font-weight: 900; }
+.lg-game-player .lg-blend-stage .lg-game-letter-bank { display: grid; grid-template-columns: repeat(3, minmax(64px, 1fr)); gap: 8px; }
+.lg-game-player .lg-blend-stage .lg-game-letter-bank button { min-width: 64px; min-height: 68px; background: var(--lg-surface); border-color: var(--lg-accent-green); color: var(--lg-primary-strong); }
+.lg-game-player .lg-blend-stage .lg-game-letter-bank button.wrong { border-color: var(--lg-accent-coral); background: var(--lg-accent-coral-soft); color: var(--lg-primary-strong); }
+.lg-blend-reveal { display: grid; gap: 8px; justify-items: center; max-width: 510px; border: 3px solid var(--lg-accent-green); border-radius: 18px; background: var(--lg-accent-green-soft); color: var(--lg-primary-strong); padding: 10px 16px; }
+.lg-blend-reveal strong { font: 850 1.5rem var(--phonics-font-display), sans-serif; }
+.lg-blend-reveal span { font-size: .9rem; font-weight: 700; }
+.lg-blend-reuse-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.lg-blend-reuse-list span { border-radius: 999px; background: var(--lg-surface); border: 1px solid var(--lg-border); padding: 5px 10px; color: var(--lg-primary-strong); font-size: .86rem; }
+.lg-blend-reuse-builder { display: grid; gap: 6px; justify-items: center; width: 100%; }
+.lg-blend-reuse-kicker { color: var(--lg-border-strong); font-size: .72rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+.lg-blend-reuse-onsets { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.lg-blend-reuse-onsets button,
+.lg-blend-reuse-rime { min-width: 56px; min-height: 56px; border: 2px solid var(--lg-accent-green); border-radius: 14px; background: var(--lg-surface); color: var(--lg-primary-strong); cursor: pointer; font: 850 1.05rem var(--phonics-font-display), sans-serif; padding: 8px 12px; }
+.lg-blend-reuse-onsets button.selected { background: var(--lg-accent-green-soft); border-color: var(--lg-accent-green); box-shadow: 0 3px 0 var(--lg-accent-green); }
+.lg-blend-reuse-rime { background: var(--lg-accent-green-soft); }
+.lg-build-state button,
+.lg-build-reveal button { min-height: 56px; border: 2px solid var(--lg-accent-green); border-radius: 14px; background: var(--lg-surface); color: var(--lg-primary-strong); cursor: pointer; font: 850 .92rem Lexend, sans-serif; padding: 8px 14px; }
+.lg-build-state button:hover,
+.lg-build-reveal button:hover { background: var(--lg-accent-green-soft); transform: translateY(-2px); }
+
+/* The legacy family-board treatment is intentionally overridden only for the
+   new named-target Blend & Build scene; other family consumers keep their
+   established layout. */
+.lg-game-player .lg-illustrated-game--family .lg-blend-stage .lg-family-board { grid-template-columns: minmax(0, 1fr) 32px minmax(150px, 190px); gap: 10px; min-height: 0; flex: 0 0 auto; }
+.lg-game-player .lg-illustrated-game--family .lg-blend-stage .lg-family-board .lg-rime-tile { height: 76px; min-height: 76px; font-size: 2rem; }
+.lg-game-player .lg-illustrated-game--family .lg-blend-stage .lg-family-board .lg-game-letter-bank { grid-template-columns: repeat(3, minmax(64px, 1fr)); grid-auto-rows: minmax(68px, 68px); }
+
+.lg-game-player .adv-garden-scene { position: absolute; inset: 12px 12px auto; width: auto; height: 52px; background: linear-gradient(180deg, var(--lg-accent-blue-soft) 0 59%, var(--lg-accent-green-soft) 60% 100%); opacity: .9; pointer-events: none; z-index: -1; }
+.adv-garden-sun { top: 9px; right: 10%; width: 28px; height: 28px; border-radius: 50%; background: var(--lg-accent-amber); box-shadow: 0 0 0 7px rgba(217, 119, 6, .22); }
+.adv-garden-hill { left: 3%; bottom: 0; width: 56%; height: 28px; border-radius: 50% 50% 0 0; background: var(--lg-accent-green); }
+.adv-garden-watering-can { left: 70%; bottom: 5px; width: 27px; height: 18px; border-radius: 5px 5px 9px 9px; background: var(--lg-accent-blue); transform: rotate(-8deg); }
+.adv-garden-watering-can::after { content: ""; position: absolute; right: -12px; top: 4px; width: 15px; height: 7px; border: 4px solid var(--lg-accent-blue); border-left: 0; border-radius: 0 12px 12px 0; }
+.adv-change-arrow { display: flex; align-items: center; justify-content: center; gap: 12px; color: var(--lg-primary-strong); font-size: .9rem; font-weight: 800; }
+.adv-change-arrow span:first-child { border: 2px solid var(--lg-accent-green); border-radius: 10px; background: var(--lg-accent-green-soft); padding: 5px 10px; }
+.adv-change-arrow b { color: var(--lg-accent-amber); font-size: 1.45rem; }
+.adv-change-arrow span:last-child { color: var(--lg-border-strong); font-size: .76rem; letter-spacing: .04em; text-transform: uppercase; }
+.lg-game-player .adv-word-cue img { border: 3px solid var(--lg-accent-green); border-radius: 18px; background: var(--lg-surface); box-shadow: 0 4px 0 rgba(22, 101, 52, .13); object-fit: contain; }
+.lg-game-player .adv-garden .adv-slots .adv-slot { border-width: 3px; }
+.lg-game-player .adv-garden-row { align-items: end; justify-content: center; gap: 8px; min-height: 100px; border-radius: 20px; padding: 7px 12px 5px; }
+.adv-plant-card { display: grid; justify-items: center; align-items: end; gap: 2px; min-width: 94px; min-height: 90px; border-radius: 14px; background: rgba(255,255,255,.35); padding: 3px 5px; }
+.adv-plant { position: relative; display: block; width: 48px; height: 58px; filter: grayscale(1) opacity(.42); }
+.adv-plant-stem { position: absolute; left: 15px; bottom: 1px; width: 5px; height: 28px; border-radius: 9px; background: var(--lg-accent-green); }
+.adv-plant-stem::before, .adv-plant-stem::after { content: ""; position: absolute; bottom: 7px; width: 15px; height: 8px; border-radius: 10px 10px 0 10px; background: var(--lg-accent-green); }
+.adv-plant-stem::before { left: -10px; transform: rotate(25deg); }
+.adv-plant-stem::after { right: -10px; transform: scaleX(-1) rotate(25deg); }
+.adv-plant-crown { position: absolute; left: 4px; top: 0; width: 26px; height: 26px; border-radius: 50% 50% 45% 45%; background: var(--plant-color, var(--lg-accent-amber)); box-shadow: 0 -7px 0 var(--plant-color, var(--lg-accent-amber)), 7px 0 0 var(--plant-color, var(--lg-accent-amber)), -7px 0 0 var(--plant-color, var(--lg-accent-amber)); }
+.adv-plant-label { max-width: 82px; overflow: hidden; color: var(--lg-primary-strong); font-size: .88rem; font-weight: 900; text-overflow: ellipsis; white-space: nowrap; }
+.adv-plant-name { max-width: 88px; overflow: hidden; color: var(--lg-border-strong); font-size: .62rem; font-weight: 800; text-overflow: ellipsis; white-space: nowrap; }
+.adv-plant-card.grown { background: rgba(255,255,255,.82); box-shadow: 0 3px 0 rgba(35,97,58,.15); }
+.adv-plant-card.grown .adv-plant { filter: none; animation: g08-plant-bloom 620ms cubic-bezier(.2,1.4,.4,1); }
+.adv-plant-card[data-plant="tulip"] .adv-plant-crown { --plant-color: var(--lg-accent-coral); }
+.adv-plant-card[data-plant="sunflower"] .adv-plant-crown { --plant-color: var(--lg-accent-amber); }
+.adv-plant-card[data-plant="fig tree"] .adv-plant-crown { --plant-color: var(--lg-accent-violet); }
+.adv-plant-card[data-plant="berry bush"] .adv-plant-crown { --plant-color: var(--lg-accent-coral); }
+.adv-plant-card[data-plant="bluebell"] .adv-plant-crown { --plant-color: var(--lg-accent-blue); }
+.adv-plant-card[data-plant="rose"] .adv-plant-crown { --plant-color: var(--lg-accent-coral); }
+.adv-plant-card[data-plant="poppy"] .adv-plant-crown { --plant-color: var(--lg-accent-coral); }
+.adv-plant-card[data-plant="sunflower"] .adv-plant-crown { width: 18px; height: 18px; left: 13px; top: 5px; border-radius: 50%; box-shadow: 0 -11px 0 var(--lg-accent-amber), 0 11px 0 var(--lg-accent-amber), 11px 0 0 var(--lg-accent-amber), -11px 0 0 var(--lg-accent-amber); }
+.adv-plant-card[data-plant="fig tree"] .adv-plant-crown { width: 40px; height: 30px; left: 2px; top: 0; border-radius: 55% 45% 48% 42%; box-shadow: 12px 4px 0 var(--lg-accent-violet), -10px 6px 0 var(--lg-accent-green); }
+.adv-plant-card[data-plant="daisy"] .adv-plant-crown { width: 14px; height: 14px; left: 15px; top: 5px; border-radius: 50%; box-shadow: 0 -11px 0 #ffffff, 0 11px 0 #ffffff, 11px 0 0 #ffffff, -11px 0 0 #ffffff; }
+.adv-plant-card[data-plant="berry bush"] .adv-plant-crown { width: 34px; height: 24px; left: 5px; top: 2px; border-radius: 50%; box-shadow: 14px 2px 0 var(--lg-accent-coral), -12px 5px 0 var(--lg-accent-coral), 4px -8px 0 var(--lg-accent-coral); }
+.adv-plant-card[data-plant="bluebell"] .adv-plant-crown { width: 18px; height: 25px; left: 13px; top: 2px; border-radius: 50% 50% 45% 45%; transform: rotate(22deg); }
+.adv-plant-card[data-plant="rose"] .adv-plant-crown { width: 27px; height: 27px; left: 8px; top: 1px; border-radius: 60% 40% 60% 40%; transform: rotate(-18deg); }
+.adv-plant-card[data-plant="poppy"] .adv-plant-crown { width: 38px; height: 18px; left: 3px; top: 4px; border-radius: 50% 50% 45% 45%; }
+@keyframes g08-plant-bloom { 0% { transform: scale(.25) translateY(12px); } 65% { transform: scale(1.16) translateY(-2px); } 100% { transform: scale(1); } }
+
+@media (max-width: 700px) {
+  .lg-game-player .lg-workshop-scene,
+  .lg-game-player .lg-blend-scene,
+  .lg-game-player .adv-garden-scene,
+  .lg-game-player .adv-change-arrow { display: none; }
+  .lg-game-player .lg-game-build .lg-game-picture { display: grid !important; width: 164px; height: 164px; }
+  .lg-game-player .lg-game-build .lg-game-audio { position: absolute; top: 4px; right: 4px; z-index: 2; min-width: 56px; width: auto; font-size: .76rem; padding-inline: 8px; }
+  .lg-game-player .lg-game-build :is(.lg-build-label, .lg-build-feedback, .lg-build-compare, .lg-build-state, .lg-build-reveal) { position: absolute; left: 182px; right: 4px; z-index: 2; }
+  .lg-game-player .lg-game-build .lg-build-label { top: 54px; }
+  .lg-game-player .lg-game-build .lg-build-feedback { top: 54px; }
+  .lg-game-player .lg-game-build .lg-build-compare { top: 90px; }
+  .lg-game-player .lg-game-build :is(.lg-build-state, .lg-build-reveal) { top: 52px; }
+  .lg-game-player .lg-game-build .lg-workshop-bank { grid-template-columns: repeat(6, minmax(56px, 1fr)); }
+  .lg-game-player .lg-blend-stage { position: relative; grid-template-columns: 108px minmax(0, 1fr); grid-template-rows: 44px minmax(0, 1fr); }
+  .lg-game-player .lg-blend-stage > p:first-child { grid-column: 1 / -1; grid-row: 1; }
+  .lg-game-player .lg-blend-stage .lg-blend-target { grid-column: 1; grid-row: 2; display: grid; gap: 3px; align-content: start; }
+  .lg-game-player .lg-blend-stage .lg-blend-target .lg-game-picture { width: 96px; height: 96px; }
+  .lg-game-player .lg-blend-stage .lg-blend-target > div:last-child { justify-items: center; text-align: center; }
+  .lg-game-player .lg-blend-stage .lg-blend-target strong { font-size: 1.15rem; }
+  .lg-game-player .lg-blend-stage .lg-game-audio { position: absolute; left: 4px; top: 150px; z-index: 2; display: inline-flex; width: 100px; min-width: 56px; min-height: 56px; font-size: .72rem; padding: 4px; }
+  .lg-game-player .lg-illustrated-game--family .lg-blend-stage .lg-family-board { grid-column: 2; grid-row: 2; display: grid; grid-template-columns: minmax(0, 1fr) 20px 64px; gap: 8px; align-self: start; padding: 3px; }
+  .lg-game-player .lg-illustrated-game--family .lg-blend-stage .lg-family-board .lg-rime-tile { height: 56px; min-height: 56px; font-size: 1.15rem; }
+  .lg-game-player .lg-illustrated-game--family .lg-blend-stage .lg-family-board .lg-game-letter-bank { grid-template-columns: repeat(2, minmax(56px, 1fr)); grid-auto-rows: minmax(56px, 56px); gap: 8px; }
+  .lg-game-player .lg-illustrated-game--family .lg-blend-stage .lg-family-board .lg-game-letter-bank button { min-width: 56px; min-height: 56px; }
+  .lg-game-player .lg-blend-stage .lg-blend-reveal { position: absolute; left: 110px; right: 4px; bottom: 54px; z-index: 2; padding: 5px; font-size: .72rem; }
+  .lg-game-player .lg-blend-stage .lg-blend-reuse-onsets button,
+  .lg-game-player .lg-blend-stage .lg-blend-reuse-rime { min-width: 56px; min-height: 56px; padding: 4px 8px; }
+  .lg-game-player .adv-garden .adv-garden-row { min-height: 64px; height: 64px; gap: 3px; padding: 3px 5px; }
+  .lg-game-player .adv-garden .adv-plant-card { min-width: 56px; min-height: 57px; padding: 1px; }
+  .lg-game-player .adv-garden .adv-plant { transform: scale(.78); transform-origin: bottom center; margin-bottom: -7px; }
+  .lg-game-player .adv-garden .adv-plant-label { max-width: 52px; font-size: .84rem; }
+  .lg-game-player .adv-garden .adv-plant-name { display: none; }
+}
+
+@media (min-width: 701px) {
+  .lg-game-player .lg-illustrated-game--garden .adv-garden .adv-letters { flex-wrap: nowrap; gap: 8px; }
+  .lg-game-player .lg-illustrated-game--garden .adv-garden .adv-letters button { width: 64px; min-width: 64px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lg-game-player .lg-workshop-blueprint.active,
+  .lg-game-player .lg-blend-object,
+  .lg-game-player .adv-plant-card.grown .adv-plant { animation: none; }
+}

@@ -10,9 +10,9 @@ import {
   adventureStars
 } from "../../../../utils/adventureRounds.js";
 
-// The three adventure games share one engine: rounds in, planks/bins/flowers
+// The three adventure games share one engine: rounds in, planks/bins/plants
 // out. Every mistake coaches (replay + retry), every win is a visible thing
-// the child MADE (a bridge, a sorted factory line, a garden).
+// the child MADE (a bridge, a sorted factory line, a transformed plant).
 
 // First-run onboarding is remembered per device and per arcade game id (the
 // three modes are three separate games in the hub); storage can be denied
@@ -36,10 +36,10 @@ const ONBOARD = {
   },
   garden: {
     key: "lp-arcade-onboarded-v1:letter-garden",
-    goal: "Spell each word to grow a flower!",
+    goal: "Change one word to grow a labeled plant!",
     hints: [
-      "Look and listen to the word.",
-      "Tap its letters in order."
+      "Start with the known word.",
+      "Change one sound, then spell the new word."
     ]
   }
 };
@@ -245,6 +245,8 @@ function GardenStage({ rounds, state, isSoundEnabled }) {
   const canHearWord = isSoundEnabled && hasRecordedSpeech(round?.word);
   const cueAsset = getChildWordAsset(round?.word);
   const cueImage = cueAsset?.image || cueAsset?.fallbackImage || "";
+  const displayLetters = typed.length ? typed : [...round.sourceWord];
+  const isChanged = typed.length > 0;
   const [failedCueImage, setFailedCueImage] = useState("");
   const showPictureCue = Boolean(cueImage) && failedCueImage !== cueImage;
 
@@ -254,12 +256,13 @@ function GardenStage({ rounds, state, isSoundEnabled }) {
 
   return (
     <IllustratedGameScene mode="garden" stageClassName="adv-garden">
-      <p>Build the word to grow a flower!</p>
+      <p><span>Change <strong>{round?.sourceWord}</strong> → grow!</span></p>
+      <div className="adv-garden-scene" aria-hidden="true"><span className="adv-garden-sun" /><span className="adv-garden-hill" /><span className="adv-garden-watering-can" /></div>
       <div className="adv-word-cue">
         {showPictureCue && (
           <img
             src={cueImage}
-            alt="Picture clue for the word to spell"
+            alt={round.targetLabel || cueAsset?.alt || `Picture for ${round.word}`}
             onError={() => setFailedCueImage(cueImage)}
           />
         )}
@@ -269,10 +272,11 @@ function GardenStage({ rounds, state, isSoundEnabled }) {
           <span className="adv-belt-item" style={{ animation: "none" }}>{round.word}</span>
         )}
       </div>
-      <div className="adv-slots" aria-label={`Spell ${round.word}`}>
+      <div className="adv-change-arrow" aria-hidden="true"><span>{round.sourceWord}</span><b>→</b><span>new plant word</span></div>
+      <div className="adv-slots" aria-label={`Change ${round.sourceWord} to spell ${round.word}`}>
         {[...round.word].map((letter, i) => (
-          <span key={i} className={`adv-slot${i < typed.length ? " filled" : ""}`}>
-            {i < typed.length ? typed[i] : ""}
+          <span key={i} data-change-index={i === round.changeIndex ? "true" : "false"} className={`adv-slot${displayLetters[i] ? " filled" : ""}${i === round.changeIndex ? " changeable" : ""}${isChanged && i === round.changeIndex ? " changed" : ""}`}>
+            {displayLetters[i] || ""}
           </span>
         ))}
       </div>
@@ -288,13 +292,18 @@ function GardenStage({ rounds, state, isSoundEnabled }) {
           </button>
         ))}
       </div>
-      <div className="adv-garden-row" aria-label={`${grown.length} flowers grown`}>
-        {rounds.map((r, i) => (
-          <span key={i} className={`adv-flower${i < grown.length ? " grown" : ""}`} style={{ "--flower-hue": `${(i * 42) % 360}deg` }} aria-hidden="true">
-            <span className="adv-flower-stem" />
-            <span className="adv-flower-head" />
-          </span>
-        ))}
+      <div className="adv-garden-row" aria-label={`${grown.length} labeled plants grown`}>
+        {rounds.map((r, i) => {
+          const grownRound = grown[i];
+          const label = grownRound ? `${grownRound.word} ${grownRound.plantName}` : `Ready for ${r.plantName}`;
+          return (
+            <div key={r.id || i} className={`adv-plant-card${grownRound ? " grown" : ""}`} data-plant={r.flower} aria-label={label}>
+              <span className="adv-plant" aria-hidden="true"><span className="adv-plant-stem" /><span className="adv-plant-crown" /></span>
+              <span className="adv-plant-label">{grownRound ? grownRound.word : "ready"}</span>
+              <span className="adv-plant-name">{grownRound ? grownRound.plantName : r.plantName}</span>
+            </div>
+          );
+        })}
       </div>
     </IllustratedGameScene>
   );
@@ -333,13 +342,31 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   const busyRef = useRef(false);
   const timeoutsRef = useRef([]);
   const pausedRef = useRef(false);
+  const scoreRef = useRef(0);
+  const activeIndexRef = useRef(index);
+  const soundEnabledRef = useRef(isSoundEnabled);
+  const speechTokenRef = useRef(0);
+  const responseEvidenceRef = useRef({ firstResponses: [], assistedRetries: [] });
+  const responseAttemptsRef = useRef(new Map());
+
+  useEffect(() => { activeIndexRef.current = index; }, [index]);
+  useEffect(() => { soundEnabledRef.current = isSoundEnabled; }, [isSoundEnabled]);
 
   useEffect(() => { onScoreUpdate?.(score); }, [onScoreUpdate, score]);
   useEffect(() => { onProgressUpdate?.(Math.min(index + 1, total), total || 1); }, [onProgressUpdate, index, total]);
 
+  useEffect(() => {
+    if (!isSoundEnabled) {
+      speechTokenRef.current += 1;
+      cancelSpeech();
+    }
+  }, [isSoundEnabled]);
+
   // A quit unmounts the game: pending timers must die with it, or a scheduled
   // finish would still fire onComplete and save results after the child left.
   useEffect(() => () => {
+    speechTokenRef.current += 1;
+    cancelSpeech();
     timeoutsRef.current.forEach(entry => window.clearTimeout(entry.id));
     timeoutsRef.current = [];
   }, []);
@@ -387,11 +414,12 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
     setStars(earned);
     setCompleted(true);
     if (isSoundEnabled) playCelebrationFanfare();
-    onComplete?.(earned, score, correctCount);
+    onComplete?.(earned, scoreRef.current, correctCount, responseEvidenceRef.current);
   }
 
   function advance(correctCount) {
     later(() => {
+      speechTokenRef.current += 1;
       busyRef.current = false;
       if (index + 1 >= total) finish(correctCount);
       else {
@@ -409,16 +437,34 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
     if (isSoundEnabled) {
       playSoftBuzz();
       // Coach: hear the target again before retrying.
-      if (replayWord) later(() => speakWord(replayWord), 650);
+      const replayIndex = activeIndexRef.current;
+      const replayToken = ++speechTokenRef.current;
+      if (replayWord) later(() => {
+        if (replayToken !== speechTokenRef.current || replayIndex !== activeIndexRef.current || !soundEnabledRef.current || pausedRef.current || busyRef.current) return;
+        speakWord(replayWord);
+      }, 650);
     }
     later(() => setter(""), 500);
   }
 
   function restart() {
+    speechTokenRef.current += 1;
     busyRef.current = false;
     setVersion(v => v + 1);
-    setIndex(0); setScore(0); setWrongs(0); setCompleted(false); setStars(0);
+    setIndex(0); scoreRef.current = 0; setScore(0); setWrongs(0); setCompleted(false); setStars(0);
     setTyped([]); setGrown([]); setPlanks(0); setBeltKey(k => k + 1);
+    responseEvidenceRef.current = { firstResponses: [], assistedRetries: [] };
+    responseAttemptsRef.current = new Map();
+  }
+
+  function recordFirstResponse(response) {
+    if (!response || responseEvidenceRef.current.firstResponses.some(item => item.round === response.round)) return;
+    responseEvidenceRef.current.firstResponses.push(Object.freeze({ ...response }));
+  }
+
+  function recordAssistedRetry(retry) {
+    if (!retry) return;
+    responseEvidenceRef.current.assistedRetries.push(Object.freeze({ ...retry }));
   }
 
   if (completed) return <Complete title={title} stars={stars} score={score} onRestart={restart} />;
@@ -444,10 +490,21 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
       choose: word => {
         if (busyRef.current) return;
         const round = rescue[index];
-        if (!round || word !== round.word) { miss(setWrongWord, word, rescue[index]?.word); return; }
+        if (!round) return;
+        if (!responseEvidenceRef.current.firstResponses.some(item => item.round === index)) {
+          recordFirstResponse({ game: "word-rescue", round: index, target: round.word, response: word, correct: word === round.word, soundEnabled: isSoundEnabled });
+        }
+        if (word !== round.word) {
+          responseAttemptsRef.current.set(index, (responseAttemptsRef.current.get(index) || 0) + 1);
+          miss(setWrongWord, word, round.word);
+          return;
+        }
         busyRef.current = true;
+        const attempts = responseAttemptsRef.current.get(index) || 0;
+        if (attempts) recordAssistedRetry({ game: "word-rescue", round: index, target: round.word, attempts, supportUsed: ["target_replay"] });
         if (isSoundEnabled) playPopSound();
-        setScore(s => s + 20);
+        scoreRef.current += 20;
+        setScore(scoreRef.current);
         setPlanks(p => p + 1);
         advance(planks + 1);
       }
@@ -461,10 +518,21 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
       sortItem: bin => {
         if (busyRef.current) return;
         const item = sort.items[index];
-        if (!item || bin !== item.bin) { miss(setWrongBin, bin); return; }
+        if (!item) return;
+        if (!responseEvidenceRef.current.firstResponses.some(entry => entry.round === index)) {
+          recordFirstResponse({ game: "sound-sort-factory", round: index, target: item.word, response: bin, correct: bin === item.bin, soundEnabled: isSoundEnabled });
+        }
+        if (bin !== item.bin) {
+          responseAttemptsRef.current.set(index, (responseAttemptsRef.current.get(index) || 0) + 1);
+          miss(setWrongBin, bin);
+          return;
+        }
         busyRef.current = true;
+        const attempts = responseAttemptsRef.current.get(index) || 0;
+        if (attempts) recordAssistedRetry({ game: "sound-sort-factory", round: index, target: item.word, attempts, supportUsed: ["target_replay"] });
         if (isSoundEnabled) playCorrectChime();
-        setScore(s => s + 15);
+        scoreRef.current += 15;
+        setScore(scoreRef.current);
         setBeltKey(k => k + 1);
         advance(index + 1);
       }
@@ -478,21 +546,27 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
       if (busyRef.current) return;
       const round = garden[index];
       if (!round) return;
-      const expected = round.word[typed.length];
-      if (letter !== expected) { miss(setWrongLetter, letter, round.word); return; }
-      const nextTyped = [...typed, letter];
-      if (isSoundEnabled) playPopSound();
-      setScore(s => s + 6);
-      if (nextTyped.length >= round.word.length) {
-        busyRef.current = true;
-        if (isSoundEnabled) playCorrectChime();
-        setScore(s => s + 10);
-        setGrown(g => [...g, round.flower]);
-        setTyped([]);
-        advance(grown.length + 1);
-      } else {
-        setTyped(nextTyped);
+      const expected = round.word[round.changeIndex];
+      if (!responseEvidenceRef.current.firstResponses.some(item => item.round === index)) {
+        recordFirstResponse({ game: "letter-garden", round: index, target: round.word, response: letter, correct: letter === expected, soundEnabled: isSoundEnabled });
       }
+      if (letter !== expected) {
+        responseAttemptsRef.current.set(index, (responseAttemptsRef.current.get(index) || 0) + 1);
+        miss(setWrongLetter, letter, round.word);
+        return;
+      }
+      const attempts = responseAttemptsRef.current.get(index) || 0;
+      if (attempts) recordAssistedRetry({ game: "letter-garden", round: index, target: round.word, attempts, supportUsed: ["target_replay", "unchanged_source_letters"] });
+      const nextTyped = typed.length ? [...typed] : [...round.sourceWord];
+      nextTyped[round.changeIndex] = letter;
+      if (isSoundEnabled) playPopSound();
+      scoreRef.current += 16;
+      setScore(scoreRef.current);
+      busyRef.current = true;
+      if (isSoundEnabled) playCorrectChime();
+      setGrown(g => [...g, round]);
+      setTyped(nextTyped);
+      advance(grown.length + 1);
     }
   };
   return <GardenStage rounds={garden} state={state} isSoundEnabled={isSoundEnabled} />;

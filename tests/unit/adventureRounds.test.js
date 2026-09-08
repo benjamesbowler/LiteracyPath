@@ -97,11 +97,17 @@ test("Letter Garden: banks always contain every needed letter exactly once each"
       const rounds = buildGardenRounds(tier);
       assert.equal(rounds.length, 5, `${tier}: expected 5 flowers`);
       for (const r of rounds) {
+        assert.ok(r.sourceWord, `${tier}: every round starts from a known word`);
+        assert.notEqual(r.sourceWord, r.word, `${tier}: garden must transform the known word`);
+        assert.equal([...r.sourceWord].filter((letter, index) => letter !== r.word[index]).length, 1,
+          `${tier}: garden transformation changes one letter only`);
+        assert.equal(r.changeIndex, [...r.sourceWord].findIndex((letter, index) => letter !== r.word[index]));
         for (const letter of new Set([...r.word])) {
           assert.ok(r.bank.includes(letter), `${tier}: bank for "${r.word}" missing "${letter}"`);
         }
         assert.equal(new Set(r.bank).size, r.bank.length, `${tier}: duplicate bank letters`);
         assert.ok(GARDEN_FLOWERS.includes(r.flower));
+        assert.ok(r.plantName, `${tier}: grown plant has a live label`);
       }
     }
   }

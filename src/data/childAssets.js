@@ -116,14 +116,14 @@ export const childWordAssets = {
     word: "bat",
     image: "/images/child-mode/cvc/bat.webp",
     audio: "/audio/child-mode/words/bat.mp3",
-    fallbackImage: "/images/cvc/bat.svg",
-    alt: "A baseball bat"
+    fallbackImage: "/images/child-mode/cvc/bat.webp",
+    alt: "A bat"
   }),
   bed: wordAsset({
     word: "bed",
     image: "/images/child-mode/cvc/bed.webp",
     audio: "/audio/child-mode/words/bed.mp3",
-    fallbackImage: "/images/vowels/bed.svg",
+    fallbackImage: "/images/child-mode/cvc/bed.webp",
     alt: "A bed"
   }),
   big: childModeWordAsset({

@@ -256,7 +256,7 @@ export function GamePlayer({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [showGuide, showQuit, completed, startLevel, closePlayer]);
 
-  function handleComplete(stars, finalScore, wordsCompleted) {
+  function handleComplete(stars, finalScore, wordsCompleted, evidence) {
     setCompleted(true);
     // The game reports its score from a stale closure that can miss the
     // final round's points; our own score state is current by now, so
@@ -265,7 +265,8 @@ export function GamePlayer({
     setCompletionResult({
       stars: Math.max(1, Math.min(3, Number(stars) || 1)),
       score: settledScore,
-      words: Math.max(0, Number(wordsCompleted) || 0)
+      words: Math.max(0, Number(wordsCompleted) || 0),
+      evidence: evidence || null
     });
     const nextProgress = saveLearnGameResult(progressScopeKey, game.id, stars, settledScore, wordsCompleted);
     clearGameCheckpoint(progressScopeKey, game.id, difficulty); // finished the ladder, nothing to resume

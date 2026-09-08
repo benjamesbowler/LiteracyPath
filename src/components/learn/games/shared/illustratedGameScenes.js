@@ -49,9 +49,12 @@ export const ILLUSTRATED_GAME_SCENES = Object.freeze({
   },
   garden: {
     id: "letter-garden",
-    src: "/images/learn-games/art/letter-garden.webp",
-    width: 640,
-    height: 640
+    // The old garden card carried giant decorative ABC letters, which competed
+    // with the live word-change instruction. This authored meadow scene keeps
+    // the garden world while leaving all instructional lettering to the stage.
+    src: "/images/backdrops/activity-bg-meadow.webp",
+    width: 1920,
+    height: 1080
   }
 });
 
