@@ -92,10 +92,10 @@ test("every Sentence Fix-It ending supplies the intended tone or sentence type",
   }
 });
 
-test("G08 workshop rounds preserve every tier word as spelling-bearing sound units", () => {
+test("G08 authored object pools cover complete games in each curriculum band", () => {
   for (const [difficulty, minimumLength] of [["easy", 3], ["medium", 4], ["hard", 5]]) {
     const rounds = buildCvcWorkshopRounds(difficulty, 100);
-    assert.ok(rounds.length >= 6, `${difficulty}: object-action pool must support a full game`);
+    assert.ok(rounds.length >= ({easy:6, medium:8, hard:10})[difficulty], `${difficulty}: object-action pool must support a full game`);
     assert.ok(rounds.length <= CVC_WORDS[difficulty].length);
     for (const round of rounds) {
       assert.ok(round.word.length >= minimumLength, `${difficulty}: ${round.word} is below its tier`);

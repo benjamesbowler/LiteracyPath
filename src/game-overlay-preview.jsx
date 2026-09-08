@@ -14,6 +14,7 @@ import { saveGameCheckpoint } from "./utils/learnGamesProgress.js";
 const params = new URLSearchParams(window.location.search);
 const requestedGameId = params.get("game") || GAME_LIST[0]?.id;
 const game = GAME_LIST.find(candidate => candidate.id === requestedGameId);
+const difficulty = ["easy", "medium", "hard"].includes(params.get("difficulty")) ? params.get("difficulty") : "easy";
 const PREVIEW_SCOPE = "fullscreen-overlay-preview";
 
 if (!game) {
@@ -34,7 +35,7 @@ export function GameOverlayPreview() {
   return (
     <GamePlayer
       game={game}
-      difficulty="easy"
+      difficulty={difficulty}
       soundEnabled={soundEnabled}
       musicEnabled={musicEnabled}
       progressScopeKey={PREVIEW_SCOPE}

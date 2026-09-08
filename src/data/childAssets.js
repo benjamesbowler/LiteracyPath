@@ -126,6 +126,18 @@ export const childWordAssets = {
     fallbackImage: "/images/child-mode/cvc/bed.webp",
     alt: "A bed"
   }),
+  bench: wordAsset({
+    word: "bench",
+    image: "/images/assessment/objective-words/bench.webp",
+    fallbackImage: "/images/assessment/objective-words/bench.webp",
+    alt: "A bench"
+  }),
+  brush: wordAsset({
+    word: "brush",
+    image: "/images/assessment/objective-words/brush.webp",
+    fallbackImage: "/images/assessment/objective-words/brush.webp",
+    alt: "A brush"
+  }),
   big: childModeWordAsset({
     word: "big",
     folder: "short-i"
@@ -159,7 +171,8 @@ export const childWordAssets = {
   }),
   bread: wordAsset({
     word: "bread",
-    image: "/media/vocabulary/images/bread.webp",
+    image: "/images/assessment/objective-words/bread.webp",
+    fallbackImage: "/images/assessment/objective-words/bread.webp",
     audio: "/media/vocabulary/audio/bread.mp3",
     alt: "Bread"
   }),
@@ -227,9 +240,12 @@ export const childWordAssets = {
     folder: "minimal-pairs",
     audio: false
   }),
-  cup: childModeWordAsset({
+  cup: wordAsset({
     word: "cup",
-    folder: "short-u"
+    image: "/images/assessment/objective-words/cup.webp",
+    fallbackImage: "/images/assessment/objective-words/cup.webp",
+    audio: "/audio/child-mode/words/cup.mp3",
+    alt: "A cup"
   }),
   cut: childModeWordAsset({
     word: "cut",
@@ -254,9 +270,12 @@ export const childWordAssets = {
     audio: "/media/vocabulary/audio/dress.mp3",
     alt: "A dress"
   }),
-  drum: childModeWordAsset({
+  drum: wordAsset({
     word: "drum",
-    folder: "blends"
+    image: "/images/assessment/blends/drum.webp",
+    fallbackImage: "/images/assessment/blends/drum.webp",
+    audio: "/audio/child-mode/words/drum.mp3",
+    alt: "A drum"
   }),
   dot: wordAsset({
     word: "dot",
@@ -323,7 +342,8 @@ export const childWordAssets = {
   }),
   glass: wordAsset({
     word: "glass",
-    image: "/media/vocabulary/images/glass.webp",
+    image: "/images/assessment/objective-words/glass.webp",
+    fallbackImage: "/images/assessment/objective-words/glass.webp",
     audio: "/media/vocabulary/audio/glass.mp3",
     alt: "A glass"
   }),

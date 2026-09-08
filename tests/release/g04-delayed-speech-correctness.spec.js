@@ -50,8 +50,8 @@ test(`CVC wrong retry restores input silently when ${startsMuted ? "started mute
   await expect(player.locator(".lg-build-use")).toBeVisible();
   await player.locator(".lg-build-use").click();
   await expect(player.locator(".lg-build-continue")).toBeVisible();
-  await expect(player.locator(".lg-build-action-source img")).toBeVisible();
-  await expect(player.locator(".lg-build-action-destination strong")).toBeVisible();
+  await expect(player.locator(".lg-object-actor image")).toBeVisible();
+  await expect(player.locator(".lg-object-scene")).toHaveAttribute("data-state", "used");
   await player.locator(".lg-build-continue").click();
   await expect(player.locator(".lg-game-meter")).toHaveAttribute("aria-label", "2 of 6");
 });
@@ -70,7 +70,7 @@ test("CVC compare keeps the selected attempted sound separate from the target so
   const wrongTile = player.locator(".lg-game-letter-bank button").nth(wrongIndex);
   const attempted = (await wrongTile.textContent()).trim().toLowerCase();
   await wrongTile.click();
-  for (const letter of target) {
+  for (const letter of target.slice(0, -1)) {
     await player.locator(".lg-game-letter-bank button:not([disabled])").filter({ hasText: new RegExp(`^${letter}$`, "i") }).first().click();
   }
   await expect(player.locator(".lg-build-compare")).toBeVisible();

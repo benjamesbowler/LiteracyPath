@@ -3483,6 +3483,44 @@
 
 @keyframes g08-blueprint-pulse { 0% { transform: rotate(-4deg) scale(.9); opacity: .55; } 55% { transform: rotate(3deg) scale(1.08); opacity: 1; } 100% { transform: rotate(0) scale(1); } }
 
+/* Object use is a change in one continuous scene, with its own settled state. */
+.lg-object-scene { width: 100%; overflow: hidden; border: 2px solid var(--lg-border); border-radius: 18px; background: var(--lg-surface); }
+.lg-object-scene svg { display: block; width: 100%; height: auto; }
+.lg-object-scene .lg-object-actor { --object-x: 180px; --object-y: 0px; --object-turn: 0deg; transform-origin: 75px 104px; mix-blend-mode: multiply; }
+.lg-object-scene[data-action="fly"] .lg-object-actor { --object-y: -18px; mix-blend-mode: normal; }
+.lg-object-scene:is([data-action="write"], [data-action="comb"]) .lg-object-actor { --object-y: -35px; --object-turn: 18deg; }
+.lg-object-scene[data-action="blow"] .lg-object-actor { --object-x: 20px; }
+.lg-object-scene:is([data-action="hang"], [data-action="wave"]) .lg-object-actor { --object-y: -25px; }
+.lg-object-scene[data-action="drop"] .lg-object-actor { --object-y: 18px; }
+.lg-object-scene.is-used .lg-object-actor { transform: translate(var(--object-x), var(--object-y)) rotate(var(--object-turn)); animation: g08-object-use 900ms ease-in-out both; }
+.lg-object-scene.is-used[data-action="hop"] .lg-object-actor { animation-name: g08-object-hop; }
+.lg-object-scene.is-used[data-action="grow"] .lg-object-actor { animation-name: g08-object-grow; }
+.lg-object-scene.is-used[data-action="spin"] .lg-object-actor { animation-name: g08-object-spin; }
+.lg-object-ink { stroke-dasharray: 1; stroke-dashoffset: 1; }
+.is-used .lg-object-ink { stroke-dashoffset: 0; animation: g08-object-draw 1s ease-out both; }
+.lg-object-glow, .lg-object-smooth { opacity: 0; }
+.is-used :is(.lg-object-glow, .lg-object-smooth) { opacity: 1; animation: g08-object-appear 900ms both; }
+.is-used :is(.lg-object-puddle, .lg-object-tangles) { opacity: 0; animation: g08-object-clear 900ms both; }
+.is-used[data-action="blow"] .lg-object-paper { transform: translateX(46px) rotate(8deg); transform-origin: 330px 155px; animation: g08-object-blow 900ms both; }
+.is-used .lg-object-ball { transform: translate(175px, 92px); animation: g08-object-catch 900ms both; }
+.lg-object-sticks, .lg-object-ticks { opacity: 0; }
+.is-used .lg-object-sticks { opacity: 1; transform-origin: 260px 75px; animation: g08-object-beat 900ms both; }
+.is-used .lg-object-ticks { opacity: 1; animation: g08-object-appear 900ms both; }
+@keyframes g08-object-use { from { transform: translate(0, 0) rotate(0); } to { transform: translate(var(--object-x), var(--object-y)) rotate(var(--object-turn)); } }
+@keyframes g08-object-hop { 0% { transform: translate(0, 0); } 48% { transform: translate(94px, -60px); } 100% { transform: translate(var(--object-x), var(--object-y)); } }
+@keyframes g08-object-grow { from { transform: translate(180px, 42px) scale(.45); } to { transform: translate(180px, 0) scale(1); } }
+@keyframes g08-object-spin { from { transform: translate(180px, 0) rotate(-24deg) scale(.8); } 50% { transform: translate(180px, -10px) rotate(24deg); } to { transform: translate(180px, 0); } }
+@keyframes g08-object-draw { 0%, 30% { stroke-dashoffset: 1; } 100% { stroke-dashoffset: 0; } }
+@keyframes g08-object-appear { 0%, 55% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes g08-object-clear { 0%, 25% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes g08-object-blow { from { transform: translateX(0) rotate(0); } to { transform: translateX(46px) rotate(8deg); } }
+@keyframes g08-object-catch { from { transform: translate(0, 0); } to { transform: translate(175px, 92px); } }
+@keyframes g08-object-beat { 0%, 40%, 75%, 100% { transform: rotate(-8deg); } 55%, 90% { transform: rotate(8deg) translateY(8px); } }
+.lg-game-player:has([role="alertdialog"]) .lg-object-scene * { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .lg-object-scene * { animation: none !important; }
+}
+
 .lg-game-player .lg-game-build > p:first-child,
 .lg-game-player .lg-blend-stage > p:first-child,
 .lg-game-player .adv-garden > p:first-child {
@@ -3512,32 +3550,6 @@
 .lg-build-state span { color: var(--lg-accent-blue); font-weight: 850; letter-spacing: .22em; }
 .lg-build-reveal { min-width: min(100%, 310px); border: 3px solid var(--lg-accent-green); border-radius: 16px; background: var(--lg-accent-green-soft); padding: 9px 15px; }
 .lg-build-reveal strong { color: var(--lg-accent-green); font-size: 1.22rem; }
-.lg-build-object-visual { position: relative; display: grid; place-items: center; min-height: 42px; overflow: hidden; border-radius: 12px; background: var(--lg-surface); color: var(--lg-primary-strong); font: 850 1.05rem var(--phonics-font-display), sans-serif; }
-.lg-build-object-visual i { position: absolute; width: 70%; height: 3px; border-radius: 9px; background: var(--lg-accent-amber); transform: rotate(-8deg); opacity: .8; }
-.lg-object-fan i { width: 86%; background: repeating-linear-gradient(90deg, transparent 0 12px, var(--lg-accent-blue) 12px 15px); transform: rotate(7deg); }
-.lg-object-ship i { width: 78%; bottom: 8px; border-top: 3px solid var(--lg-accent-blue); background: transparent; transform: none; }
-.lg-object-lamp i { width: 24px; height: 24px; border-radius: 50%; background: var(--lg-accent-amber-soft); box-shadow: 0 0 0 6px var(--lg-accent-amber-soft); }
-.lg-object-bat i { width: 66%; background: var(--lg-accent-coral); transform: rotate(-24deg); }
-.lg-object-brush i { width: 68%; background: var(--lg-accent-blue); transform: rotate(18deg); }
-.lg-build-action { display: grid; grid-template-columns: minmax(76px, 100px) 28px minmax(82px, 1fr); align-items: center; gap: 8px; width: 100%; }
-.lg-game-player .lg-build-object-result { gap: 4px; padding: 6px 10px; }
-.lg-game-player .lg-build-action-source .lg-game-picture { width: 72px; height: 72px; }
-.lg-build-action-arrow { color: var(--lg-accent-green); font-size: 1.8rem; font-weight: 900; text-align: center; }
-.lg-build-action-destination { display: grid; justify-items: center; gap: 3px; min-height: 60px; border: 2px dashed var(--lg-accent-blue); border-radius: 14px; background: var(--lg-accent-blue-soft); padding: 4px; text-align: center; }
-.lg-build-action-destination strong { color: var(--lg-primary-strong); font-size: .82rem; line-height: 1.05; }
-.lg-destination-mark { display: block; width: 38px; height: 25px; border: 3px solid var(--lg-accent-amber); border-radius: 8px; background: var(--lg-accent-amber-soft); box-shadow: inset 0 -7px 0 var(--lg-accent-amber-soft); }
-.lg-destination-ball { width: 28px; height: 28px; border-radius: 50%; background: var(--lg-accent-coral); }
-.lg-destination-night-sky { border-radius: 50%; background: var(--lg-accent-blue); box-shadow: 12px -5px 0 var(--lg-accent-amber); }
-.lg-destination-paper { transform: rotate(-5deg); background: var(--lg-surface); }
-.lg-destination-water-trough,
-.lg-destination-pond,
-.lg-destination-water-tray { border-radius: 50% 50% 9px 9px; background: var(--lg-accent-blue); }
-.lg-destination-mat,
-.lg-destination-floor,
-.lg-destination-park-path { height: 18px; margin-top: 14px; border-radius: 50%; background: var(--lg-accent-coral); }
-.lg-destination-cozy-room,
-.lg-destination-bus-stop,
-.lg-destination-workbench { background: var(--lg-accent-green-soft); }
 .lg-build-feedback { border-left: 5px solid var(--lg-accent-coral); padding-left: 10px; }
 .lg-build-comparison { display: grid; gap: 5px; border: 2px solid var(--lg-accent-blue); border-radius: 14px; background: var(--lg-accent-blue-soft); color: var(--lg-primary-strong); padding: 8px 10px; font-size: .86rem; }
 .lg-build-comparison strong { font-size: .95rem; }
@@ -3646,9 +3658,6 @@
   .lg-game-player .lg-game-build .lg-build-compare { top: 90px; }
   .lg-game-player .lg-game-build :is(.lg-build-state, .lg-build-reveal) { top: 52px; }
   .lg-game-player .lg-game-build .lg-workshop-bank { grid-template-columns: repeat(6, minmax(56px, 1fr)); }
-  .lg-game-player .lg-game-build .lg-build-action { grid-template-columns: minmax(64px, 78px) 20px minmax(74px, 1fr); gap: 5px; }
-  .lg-game-player .lg-game-build .lg-build-action-source .lg-game-picture { width: 60px; height: 60px; }
-  .lg-game-player .lg-game-build .lg-build-action-destination { min-height: 64px; padding: 4px; }
   .lg-game-player .lg-blend-stage { position: relative; grid-template-columns: 108px minmax(0, 1fr); grid-template-rows: 44px minmax(0, 1fr); }
   .lg-game-player .lg-blend-stage > p:first-child { grid-column: 1 / -1; grid-row: 1; }
   .lg-game-player .lg-blend-stage .lg-blend-target { grid-column: 1; grid-row: 2; display: grid; gap: 3px; align-content: start; }
@@ -3680,3 +3689,39 @@
   .lg-game-player .lg-blend-object,
   .lg-game-player .adv-plant-card.grown .adv-plant { animation: none; }
 }
+
+/* Once the word is built, give the object and its world the available stage. */
+.lg-game-player .lg-game-build:is(.lg-build-phase-reveal, .lg-build-phase-used) > :not(.lg-build-object-result) { display: none !important; }
+.lg-game-player .lg-illustrated-game .lg-game-build:is(.lg-build-phase-reveal, .lg-build-phase-used) { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); align-content: center; width: 100%; }
+.lg-game-player .lg-game-build .lg-build-object-result {
+  position: relative; inset: auto; grid-column: 1 / -1; grid-row: 1 / -1; align-self: center; width: 100%; min-width: 0; box-sizing: border-box;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(130px, 180px);
+  grid-template-rows: auto auto auto; align-items: center; align-content: center;
+  gap: 12px 18px; padding: 16px; text-align: center;
+}
+.lg-game-player .lg-build-object-result > .lg-object-scene { grid-column: 1; grid-row: 1 / 4; }
+.lg-game-player .lg-build-object-result > :not(.lg-object-scene) { grid-column: 2; }
+.lg-game-player .lg-build-object-result > strong { font-size: 1.6rem; line-height: 1.1; }
+.lg-game-player .lg-build-object-result > span { font-size: 1rem; line-height: 1.3; }
+.lg-game-player .lg-build-object-result > button { width: 100%; min-height: 56px; margin: 0; }
+@media (max-width: 700px) {
+  .lg-game-player .lg-game-build .lg-build-object-result { gap: 8px; padding: 8px; grid-template-columns: minmax(0, 1fr) 136px; }
+  .lg-game-player .lg-build-object-result > strong { font-size: 1.12rem; }
+  .lg-game-player .lg-build-object-result > span { font-size: .85rem; }
+}
+@media (max-width: 450px) and (orientation: portrait) {
+  .lg-game-player .lg-game-build .lg-build-object-result { grid-template-columns: 1fr; }
+  .lg-game-player .lg-build-object-result > .lg-object-scene { grid-column: 1; grid-row: auto; }
+  .lg-game-player .lg-build-object-result > :not(.lg-object-scene) { grid-column: 1; }
+}
+
+/* Contacts are authored against the actual visible image bounds. */
+.lg-object-scene[data-action="rest"] .lg-object-actor { --object-y: 28px; }
+.lg-object-scene:is([data-action="drive"], [data-action="rail"]) .lg-object-actor { --object-y: 25px; }
+.lg-object-scene[data-action="room"] .lg-object-actor { --object-y: 30px; }
+.lg-object-scene[data-action="plate"] .lg-object-actor { --object-y: 31px; }
+.lg-object-scene[data-action="float"] .lg-object-actor { --object-y: 20px; }
+.lg-object-scene[data-action="hop"] .lg-object-actor { --object-y: 25px; }
+.lg-object-scene[data-action="park"] .lg-object-actor { --object-y: 32px; }
+.lg-object-scene[data-action="post"] .lg-object-actor { --object-x: 260px; --object-y: 12px; }
+.lg-object-scene[data-action="post"] .lg-object-actor image { x: 38px; y: 70px; width: 74px; height: 74px; }

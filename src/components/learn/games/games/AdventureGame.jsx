@@ -460,12 +460,12 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
 
   function recordFirstResponse(response) {
     if (!response || responseEvidenceRef.current.firstResponses.some(item => item.round === response.round)) return;
-    responseEvidenceRef.current.firstResponses.push(Object.freeze({ ...response }));
+    responseEvidenceRef.current.firstResponses.push(Object.freeze({ ...response, ...(response.supportUsed ? { supportUsed: Object.freeze([...response.supportUsed]) } : {}) }));
   }
 
   function recordAssistedRetry(retry) {
     if (!retry) return;
-    responseEvidenceRef.current.assistedRetries.push(Object.freeze({ ...retry }));
+    responseEvidenceRef.current.assistedRetries.push(Object.freeze({ ...retry, practiceOnly: true, independent: false, audioDelivery: "not_measured", supportUsed: Object.freeze([...(retry.supportUsed || [])]) }));
   }
 
   if (completed) return <Complete title={title} stars={stars} score={score} onRestart={restart} />;
@@ -555,7 +555,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
       if (!round) return;
       const expected = round.word[round.changeIndex];
       if (!responseEvidenceRef.current.firstResponses.some(item => item.round === index)) {
-        recordFirstResponse({ game: "letter-garden", round: index, target: round.word, response: letter, correct: letter === expected, soundEnabled: isSoundEnabled });
+        recordFirstResponse({ game: "letter-garden", round: index, target: round.word, response: letter, correct: letter === expected, practiceOnly: true, independent: false, supportUsed: ["unchanged_source_letters", "picture_or_printed_target"], audioDelivery: "not_measured", soundEnabled: isSoundEnabled });
       }
       if (letter !== expected) {
         responseAttemptsRef.current.set(index, (responseAttemptsRef.current.get(index) || 0) + 1);

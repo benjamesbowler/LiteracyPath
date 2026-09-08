@@ -9,6 +9,7 @@ import { hasKnownBadWordAudio } from "../../../../data/knownBadWordAudio.js";
 import { playCelebrationFanfare, playCorrectChime, playPopSound, playSoftBuzz } from "../../../../utils/audio/gameSfx";
 import { ConfettiCelebration } from "../shared/ConfettiCelebration.jsx";
 import { IllustratedGameScene } from "../shared/IllustratedGameScene.jsx";
+import { WorkshopObjectAction } from "../shared/WorkshopObjectAction.jsx";
 import { ProgressStars } from "../shared/ProgressStars.jsx";
 
 const DISTRACTOR_LETTERS = "abcdefghijklmnopqrstuvwxyz".split("");
@@ -295,12 +296,12 @@ export function ArcadePracticeGame({
 
   function recordFirstResponse(response) {
     if (!response || responseEvidenceRef.current.firstResponses.some(item => item.round === response.round)) return;
-    responseEvidenceRef.current.firstResponses.push(Object.freeze({ ...response }));
+    responseEvidenceRef.current.firstResponses.push(Object.freeze({ ...response, ...(response.supportUsed ? { supportUsed: Object.freeze([...response.supportUsed]) } : {}) }));
   }
 
   function recordAssistedRetry(retry) {
     if (!retry) return;
-    responseEvidenceRef.current.assistedRetries.push(Object.freeze({ ...retry }));
+    responseEvidenceRef.current.assistedRetries.push(Object.freeze({ ...retry, practiceOnly: true, independent: false, audioDelivery: "not_measured", supportUsed: Object.freeze([...(retry.supportUsed || [])]) }));
   }
 
   function restart() {
@@ -472,12 +473,20 @@ function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss
     answerLockedRef.current = false;
     firstResponseRecordedRef.current = false;
     compareTokenRef.current += 1;
-    if (canHearTarget) speakWord(targetWord);
     return () => {
       compareTokenRef.current += 1;
       cancelSpeech();
     };
-  }, [canHearTarget, round, targetWord]);
+  }, [round, targetWord]);
+
+  useEffect(() => {
+    compareTokenRef.current += 1;
+    let current = true;
+    queueMicrotask(() => { if (current) setComparison(null); });
+    if (canHearTarget) speakWord(targetWord);
+    else cancelSpeech();
+    return () => { current = false; };
+  }, [canHearTarget, targetWord]);
 
   const usedTileIds = new Set(placed.map(item => item.tileId));
 
@@ -496,7 +505,7 @@ function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss
     const builtWord = next.map(item => item.grapheme).join("");
     if (!firstResponseRecordedRef.current) {
       firstResponseRecordedRef.current = true;
-      recordFirstResponse({ game: "building-workshop", round, target: targetWord, response: builtWord, correct: builtWord === targetWord, soundEnabled: isSoundEnabled });
+      recordFirstResponse({ game: "building-workshop", round, target: targetWord, response: builtWord, correct: builtWord === targetWord, practiceOnly: true, independent: false, supportUsed: ["picture_cue", "spelling_tiles", ...(attempts >= 2 ? ["printed_word_hint"] : [])], audioDelivery: "not_measured", soundEnabled: isSoundEnabled });
     }
     if (builtWord === targetWord) {
       answerLockedRef.current = true;
@@ -572,7 +581,7 @@ function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss
   }
 
   return (
-    <IllustratedGameScene mode="build" stageClassName="lg-game-build">
+    <IllustratedGameScene mode="build" stageClassName={`lg-game-build lg-build-phase-${phase}`}>
       <p>{canHearTarget ? "Build the word for the picture. Listen, then tap each sound." : "Build the word for the picture."}</p>
       <div className="lg-workshop-scene" aria-hidden="true">
         <span className="lg-workshop-lamp" />
@@ -585,8 +594,14 @@ function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss
       {attempts >= 2 && <div className="lg-game-picture lg-game-picture-text" aria-label={`Hint: the word is ${targetWord}`}><span>{targetWord}</span></div>}
       {phase === "build" && <div className="lg-build-label">Place the sounds in order</div>}
       {phase === "blending" && <div className="lg-build-state" role="status"><strong>Blend it</strong><span>{placed.map(item => item.grapheme).join(" ")}</span><button type="button" className="lg-build-blend" onClick={blendWord}>Blend {targetWord}</button></div>}
-      {phase === "reveal" && <div className="lg-build-reveal" role="status"><strong>You built {targetWord}!</strong><span>{target.label} is ready.</span><button type="button" className="lg-build-use" onClick={useObject}>Use object</button></div>}
-      {phase === "used" && <div className="lg-build-reveal lg-build-object-result" data-object-action={targetWord} role="status"><div className="lg-build-action" aria-label={`${target.label} moves to the ${target.destination}`}><div className="lg-build-action-source"><WordImageCard word={targetWord} label={target.label} /></div><span className="lg-build-action-arrow" aria-hidden="true">→</span><div className="lg-build-action-destination"><span className={`lg-destination-mark lg-destination-${target.destination?.replace(/[^a-z]+/gi, "-").toLowerCase()}`} aria-hidden="true" /><strong>{target.destination}</strong></div></div><strong>{target.useResult}</strong><span>{target.label} reached the {target.destination}.</span><button type="button" className="lg-build-continue" onClick={continueBuild}>{round + 1 >= totalRounds ? "Finish" : "Next build"}</button></div>}
+      {["reveal", "used"].includes(phase) && <div className="lg-build-reveal lg-build-object-result" data-object-action={targetWord} role="status">
+        <strong>{phase === "used" ? targetWord : `You built ${targetWord}!`}</strong>
+        <WorkshopObjectAction key={target.id} target={target} active={phase === "used"} />
+        <span>{phase === "used" ? target.useResult : `Try it in the ${target.destination}.`}</span>
+        {phase === "reveal"
+          ? <button type="button" className="lg-build-use" onClick={useObject}>Use object</button>
+          : <button type="button" className="lg-build-continue" onClick={continueBuild}>{round + 1 >= totalRounds ? "Finish" : "Next build"}</button>}
+      </div>}
       <div className="lg-game-slots lg-workshop-slots" aria-label="Word letters. Tap a filled box to undo from that point.">
         {targetUnits.map((unit, index) => placed[index] ? (
           <button key={unit.id} type="button" className={`filled${wrongIndex === index ? " wrong" : ""}`} aria-label={`Undo sound ${placed[index].grapheme}`} onClick={() => removeAt(index)} disabled={phase !== "build"}>{placed[index].grapheme}</button>
@@ -724,7 +739,7 @@ function FamilyGame({ state, round, setRound, isSoundEnabled, correct, setCorrec
     if (phase !== "build" || resolvedRef.current) return;
     if (!firstResponseRecordedRef.current) {
       firstResponseRecordedRef.current = true;
-      recordFirstResponse({ game: "blend-family", round, target: targetWord, response: onset, correct: onset === targetOnset, soundEnabled: isSoundEnabled });
+      recordFirstResponse({ game: "blend-family", round, target: targetWord, response: onset, correct: onset === targetOnset, practiceOnly: true, independent: false, supportUsed: ["printed_target", "visible_rime"], audioDelivery: "not_measured", soundEnabled: isSoundEnabled });
     }
     if (onset !== targetOnset) {
       setWrongOnset(onset);
