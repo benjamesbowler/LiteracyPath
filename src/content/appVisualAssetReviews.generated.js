@@ -12182,8 +12182,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/assessment/generated/initial-sounds-l2/engine.webp",
-      "sha256": "6b76ada586a49abb72e8ca2f32aa898f892e4386ec8a9310d05b1dab190a5aa6",
-      "status": "approved"
+      "sha256": "25a731d1523ea7a24b283e020bac147257c2e730a27bdc7d33970034622702e7",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/assessment/generated/initial-sounds-l2/feather.webp",
@@ -16187,8 +16188,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp",
-      "sha256": "17ad88525e1573ac50f854225825f223ee770493f74e9b76570dc7e845c729f9",
-      "status": "approved"
+      "sha256": "10cbb259b23c0d6f6179668321025c5a7ac6d739dbc737918c76e97d0c263eef",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/assessment/release-media/bike-in-front-of-garage-603483c8.webp",
@@ -16332,8 +16334,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/assessment/release-media/igloo-d714f227.webp",
-      "sha256": "a536ef11fb87403e073cace5025df0e1a86b1921f1d4d5691a0619a7d512dadb",
-      "status": "approved"
+      "sha256": "5f355c3ec189264fede093b1416b59fd3f8f4f8e067f0e89bbe7c8cbc4d4207b",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/assessment/release-media/ink-1dc530ca.webp",
@@ -16487,8 +16490,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
-      "sha256": "84f9db9ee7c1857d922c3a8833a2f49c3831c59fd7fa6541eb93c197d47feb0b",
-      "status": "approved"
+      "sha256": "7eb2464964efab3b83490606c993fc0f2003d61b2b550d15974d1f9ac8748704",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/assessment/release-media/uncle-a74a5bca.webp",
