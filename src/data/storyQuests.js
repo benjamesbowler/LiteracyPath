@@ -18,11 +18,38 @@ const samPamImagePath = page => `/images/story-quests/sam-pam/page-${String(page
 const samPamAudioPath = page => `/audio/story-quests/sam-pam/page-${String(page).padStart(2, "0")}.mp3?v=${samPamMediaVersion}`;
 const samPamWordImagePath = word => `/images/story-quests/sam-pam/words/word-${word}.webp`;
 
+// Content revisions let returning readers receive corrected illustrations immediately.
+const storyQuestImageRevisions = {
+  "dino-pals/bouncy-big-bounce/p03_help_chompy.webp": "5b04e6ecc16d",
+  "dino-pals/bouncy-big-bounce/p04_careful_bounce.webp": "5efea3f3611b",
+  "dino-pals/shy-snail-shade/p01_start.webp": "71eaceb6be73",
+  "dino-pals/shy-snail-shade/p02_leaf_failure.webp": "1c89d53c4a33",
+  "dino-pals/shy-snail-shade/p02_twig_failure.webp": "e7ecb8cc4926",
+  "dino-pals/shy-snail-shade/p03_bark.webp": "cb5a40c00620",
+  "dino-pals/shy-snail-shade/p03_moss.webp": "3bf34cbc9d08",
+  "dino-pals/shy-snail-shade/p04_bark_steps.webp": "2e1c73cf8b3b",
+  "dino-pals/shy-snail-shade/p04_bark_strip.webp": "79f3cd0c7fd4",
+  "dino-pals/shy-snail-shade/p04_moss_dots.webp": "040730b75398",
+  "dino-pals/shy-snail-shade/p04_moss_strip.webp": "0a24ad79a79c",
+  "dino-pals/shy-snail-shade/p05_bark.webp": "0fe0d70be2c7",
+  "dino-pals/shy-snail-shade/p05_moss.webp": "5051a6200ab9",
+  "dino-pals/shy-snail-shade/p06_fern_ending.webp": "41e28c7d3c5d",
+  "dino-pals/shy-snail-shade/p06_log_ending.webp": "d8d95626d4df",
+  "dino-pals/shy-snail-shade/p06_root_ending.webp": "7fa6a8de7d0a",
+  "dino-pals/shy-snail-shade/p06_stone_ending.webp": "d5df3f7838b9",
+  "moonwood/fern-wren-walking-garden/p02_recipe.webp": "cc92cffd257c",
+  "moonwood/pip-stone-loud-thing/p02_pip_wants_to_go.webp": "ec2d4fd7249c"
+};
+const storyQuestImagePath = path => {
+  const revision = storyQuestImageRevisions[path];
+  return `/images/story-quests/${path}${revision ? `?v=${revision}` : ""}`;
+};
+
 const meadowPalsImagePath = (folder, pageId) => `/images/story-quests/meadow-pals/${folder}/${pageId}.webp`;
 const meadowPalsAudioPath = (folder, pageId) => `/audio/story-quests/meadow-pals/${folder}/${pageId}.mp3`;
-const dinoPalsImagePath = (folder, pageId) => `/images/story-quests/dino-pals/${folder}/${pageId}.webp`;
+const dinoPalsImagePath = (folder, pageId) => storyQuestImagePath(`dino-pals/${folder}/${pageId}.webp`);
 const dinoPalsAudioPath = (folder, pageId) => `/audio/story-quests/dino-pals/${folder}/${pageId}.mp3`;
-const moonwoodImagePath = (folder, pageId) => `/images/story-quests/moonwood/${folder}/${pageId}.webp`;
+const moonwoodImagePath = (folder, pageId) => storyQuestImagePath(`moonwood/${folder}/${pageId}.webp`);
 const moonwoodAudioPath = (folder, pageId) => `/audio/story-quests/moonwood/${folder}/${pageId}.mp3`;
 
 export const dinoPalsStoryQuestMetadata = [

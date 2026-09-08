@@ -11,7 +11,7 @@ test("Shy's Snail Shade traverses a mixed-material route in the real child playe
   await expect(questCard).toBeVisible();
   await expect(questCard.locator("img")).toHaveAttribute(
     "src",
-    "/images/story-quests/dino-pals/shy-snail-shade/p01_start.webp"
+    new RegExp("^/images/story-quests/dino-pals/shy-snail-shade/p01_start\\.webp\\?v=[a-f0-9]{12}$")
   );
   await questCard.click();
 
@@ -29,7 +29,7 @@ test("Shy's Snail Shade traverses a mixed-material route in the real child playe
   await expect(reader).toContainText("The smooth leaf tips. Back on sand.");
   await expect(reader.locator(".story-quest-image-stage img")).toHaveAttribute(
     "src",
-    "/images/story-quests/dino-pals/shy-snail-shade/p02_leaf_failure.webp"
+    new RegExp("^/images/story-quests/dino-pals/shy-snail-shade/p02_leaf_failure\\.webp\\?v=[a-f0-9]{12}$")
   );
 
   await reader.getByRole("button", { name: "Try rough bark", exact: true }).click();
@@ -41,7 +41,7 @@ test("Shy's Snail Shade traverses a mixed-material route in the real child playe
   await expect(reader).toContainText("Shy joins the moss into one damp path.");
   await expect(reader.locator(".story-quest-image-stage img")).toHaveAttribute(
     "src",
-    "/images/story-quests/dino-pals/shy-snail-shade/p05_moss.webp"
+    new RegExp("^/images/story-quests/dino-pals/shy-snail-shade/p05_moss\\.webp\\?v=[a-f0-9]{12}$")
   );
 
   await reader.getByRole("button", { name: "Under the broad fern", exact: true }).click();
@@ -49,7 +49,7 @@ test("Shy's Snail Shade traverses a mixed-material route in the real child playe
   await expect(reader.getByRole("status")).toContainText("Scene 6");
   await expect(reader.locator(".story-quest-image-stage img")).toHaveAttribute(
     "src",
-    "/images/story-quests/dino-pals/shy-snail-shade/p06_fern_ending.webp"
+    new RegExp("^/images/story-quests/dino-pals/shy-snail-shade/p06_fern_ending\\.webp\\?v=[a-f0-9]{12}$")
   );
 
   await reader.getByRole("button", { name: "Finish", exact: true }).click();
@@ -65,7 +65,7 @@ test("Shy's Snail Shade traverses a mixed-material route in the real child playe
   await expect(reader).toContainText("It reaches the shaded fern bank.");
   await expect(reader.locator(".story-quest-image-stage img")).toHaveAttribute(
     "src",
-    "/images/story-quests/dino-pals/shy-snail-shade/p05_bark.webp"
+    new RegExp("^/images/story-quests/dino-pals/shy-snail-shade/p05_bark\\.webp\\?v=[a-f0-9]{12}$")
   );
   await reader.getByRole("button", { name: "Under the old log", exact: true }).click();
   await expect(reader).toContainText("The snail reaches cool bark under the log.");
