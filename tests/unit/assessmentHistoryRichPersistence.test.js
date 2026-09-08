@@ -24,6 +24,8 @@ import {
 function makeStorage() {
   const values = new Map();
   return {
+    get length() { return values.size; },
+    key(index) { return [...values.keys()][index] ?? null; },
     clear() {
       values.clear();
     },
@@ -1230,4 +1232,28 @@ test("attempt saves explicitly report when neither local nor cloud persistence s
   assert.equal(cloudOnly.localSaved, false);
   assert.equal(cloudOnly.cloudSaved, true);
   assert.equal(cloudOnly.durable, true);
+});
+
+test("acknowledging one upload preserves a second tab's newer immutable revision", async () => {
+  globalThis.localStorage = makeStorage();
+  const teacherId = "teacher-race";
+  const attempt = baseAttempt({ teacherId, attemptId: "two-tab", status: "completed", administrationStatus: "completed" });
+  const offline = { table: () => ({ upsert: async () => ({ error: new Error("offline") }) }) };
+  await saveAssessmentAttempt(attempt, { teacherId, supabase: offline });
+  let release;
+  let started;
+  const uploading = new Promise(resolve => { started = resolve; });
+  const cloud = { table: () => ({ upsert: async () => {
+    started(); await new Promise(resolve => { release = resolve; }); return { error: null };
+  } }) };
+  const flush = flushAssessmentAttemptSyncQueue({ teacherId, supabase: cloud });
+  await uploading;
+  // Represents an independent module/tab writing during the first tab's await.
+  await saveAssessmentAttempt({ ...attempt, updatedAt: "2026-07-22T01:06:00.000Z" }, { teacherId, supabase: offline });
+  release();
+  await flush;
+  const queue = loadAssessmentAttemptSyncQueue({ teacherId });
+  assert.equal(queue.length, 1);
+  assert.equal(queue[0].attemptId, "two-tab");
+  assert.equal([...Array(localStorage.length)].map((_, index) => localStorage.key(index)).filter(key => key.startsWith("lpAssessmentSyncEntry:v2:")).length, 1);
 });

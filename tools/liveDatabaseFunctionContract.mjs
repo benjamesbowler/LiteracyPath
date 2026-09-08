@@ -46,6 +46,7 @@ export const LIVE_DATABASE_FUNCTIONS = Object.freeze({
   student_get_progress: ["p_token"],
   student_get_reading_session: ["p_token", "p_page_index", "p_content_ok"],
   student_log_activity_v2: ["p_token", "p_client_event_id", "p_area", "p_item_id", "p_event", "p_payload", "p_occurred_at", "p_delivery_attempts"],
+  student_revoke_session: ["p_token"],
   student_login: ["p_student_id", "p_sequence", "p_device_id", "p_code"],
   student_report_activity_sync_health: ["p_token", "p_device_id", "p_attempted", "p_delivered", "p_recovered", "p_storage_failures", "p_pending", "p_lost", "p_oldest_pending_at"],
   student_save_focus_assessment_answer: ["p_token", "p_session_id", "p_answer"],

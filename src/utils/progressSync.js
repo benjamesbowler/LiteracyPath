@@ -20,6 +20,7 @@ import {
   enqueueProgressQueueEntry,
   mergeProgressQueueEntries,
   mergeProgressQueueRecords,
+  migrateProgressQueueCredentials,
   progressEntryIdentity,
   readProgressQueueRecords,
   removeProgressQueueRecords
@@ -48,6 +49,33 @@ export const PRACTICE_RESET_RETAINED_AREAS = Object.freeze([
 ]);
 
 let activeSession = null;
+const syncStates = new Map();
+const rejectedTokens = new Set();
+export function isInvalidStudentSession(error) {
+  return /\binvalid_session\b/.test(String(error?.message || error?.error || error || ""));
+}
+export function getVolatileProgressCount() {
+  return volatileEntries.size;
+}
+export function getProgressSyncState(studentId) {
+  return syncStates.get(studentId) || null;
+}
+function sessionCanFlush(session) {
+  return Boolean(session?.studentId && session.mode !== "preview"
+    && (session.mode !== "student" || (session.token && !rejectedTokens.has(session.token)))
+    && (!activeSession || (session.studentId === activeSession.studentId
+      && session.token === activeSession.token)));
+}
+function rejectStudentSession(session) {
+  if (!session?.token) return;
+  rejectedTokens.add(session.token);
+  if (activeSession?.token !== session.token) return;
+  emitProgressSyncState("session-required", session);
+  window.dispatchEvent(new CustomEvent("lp-student-session-invalid", {
+    detail: { studentId: session.studentId }
+  }));
+}
+
 const pendingTimers = new Map();
 const inFlightFlushes = new Map();
 const volatileEntries = new Map();
@@ -314,6 +342,7 @@ export function clearLocalProgressForStudent(studentId, {
     }
     localStorage.setItem(CLOUD_ROW_STORAGE_KEY, JSON.stringify(cache));
   } catch { /* verified below */ }
+  emitProgressSyncState("cleared", { studentId: scopedStudentId });
   return inspectLocalProgressForStudent(scopedStudentId, {
     preserveEngagement,
     preserveProfile,
@@ -395,19 +424,20 @@ export function getCachedCloudProgressRows(studentId) {
 
 function emitProgressSyncState(status, entry) {
   if (!isBrowser() || !entry?.studentId) return;
-  const pending = readProgressQueueRecords(window.localStorage)
+  const pending = readProgressQueueRecords(engagementStorage())
     .filter(record => record.entry.studentId === entry.studentId).length;
   const volatilePending = [...volatileEntries.values()]
     .filter(candidate => candidate.studentId === entry.studentId).length;
-  window.dispatchEvent(new CustomEvent("lp-progress-sync-state", {
-    detail: {
-      status,
-      studentId: entry.studentId,
-      area: entry.area,
-      key: entry.key,
-      pending: pending + volatilePending
-    }
-  }));
+  const detail = {
+    status: volatilePending ? "storage-failed" : status,
+    studentId: entry.studentId,
+    area: entry.area,
+    key: entry.key,
+    pending: pending + volatilePending,
+    volatilePending
+  };
+  syncStates.set(entry.studentId, detail);
+  window.dispatchEvent(new CustomEvent("lp-progress-sync-state", { detail }));
 }
 
 function handleProgressOnline() {
@@ -421,7 +451,7 @@ function discardRetiredProgressForStudent(studentId) {
     try { window.localStorage.removeItem(retiredLocalProgressStorageKey(area, studentId)); } catch { /* best effort */ }
   }
   try {
-    const retiredRecords = readProgressQueueRecords(window.localStorage)
+    const retiredRecords = readProgressQueueRecords(engagementStorage())
       .filter(record => (
         record.entry.studentId === studentId
         && RETIRED_PROGRESS_AREAS.includes(record.entry.area)
@@ -437,6 +467,9 @@ function discardRetiredProgressForStudent(studentId) {
 
 export function configureProgressSync(session = null) {
   activeSession = session?.studentId ? session : null;
+  if (isBrowser() && !migrateProgressQueueCredentials(engagementStorage()) && activeSession) {
+    emitProgressSyncState("storage-failed", activeSession);
+  }
   if (activeSession) discardRetiredProgressForStudent(activeSession.studentId);
   if (isBrowser() && !onlineListenerInstalled) {
     window.addEventListener("online", handleProgressOnline);
@@ -456,7 +489,7 @@ export function getActiveProgressSyncSession() {
 function enqueueWrite(entry, { deferred = false } = {}) {
   const identity = progressEntryIdentity(entry);
   const candidate = mergeProgressQueueEntries(volatileEntries.get(identity), entry);
-  const result = enqueueProgressQueueEntry(window.localStorage, candidate, { deferred });
+  const result = enqueueProgressQueueEntry(engagementStorage(), candidate, { deferred });
   if (result.stored) {
     volatileEntries.delete(identity);
   } else {
@@ -473,14 +506,15 @@ async function saveCloudProgress(entry, client = supabase) {
   // fields must not leave the device even if they predate queue sanitisation.
   const uploadPayload = sanitizeCloudProgressPayload(entry.area, entry.payload);
 
-  if (entry.mode === "student" && entry.token) {
+  if (entry.mode === "student") {
+    if (!entry.token) throw new Error("invalid_session");
     const { data, error } = await client.call("student_save_progress", {
       p_token: entry.token,
       p_area: entry.area,
       p_key: entry.key,
       p_payload: uploadPayload
     });
-    if (error || data?.ok === false) throw error || new Error(data?.error || "student_save_progress failed");
+    if (error || data?.ok !== true) throw error || new Error(data?.error || "student_save_progress unacknowledged");
     return;
   }
 
@@ -498,7 +532,7 @@ async function saveCloudProgress(entry, client = supabase) {
 
 async function flushEntry(entry, records, volatileRevision = null, client = supabase) {
   if (isProgressWriteBlocked(entry?.studentId, entry?.area)) {
-    removeProgressQueueRecords(window.localStorage, records);
+    removeProgressQueueRecords(engagementStorage(), records);
     volatileEntries.delete(progressEntryIdentity(entry));
     return { ok: false, needsRecovery: false };
   }
@@ -512,15 +546,19 @@ async function flushEntry(entry, records, volatileRevision = null, client = supa
     // Remove only the revisions represented by this upload. A second tab can
     // append while the request is in flight and its unique record survives for
     // the next loop instead of being erased by a broad identity filter.
-    removeProgressQueueRecords(window.localStorage, records);
+    removeProgressQueueRecords(engagementStorage(), records);
     const identity = progressEntryIdentity(entry);
     if (volatileRevision && volatileEntries.get(identity)?.revision === volatileRevision) {
       volatileEntries.delete(identity);
     }
     return { ok: true, needsRecovery: Boolean(entry.needsRecovery) };
-  } catch {
+  } catch (error) {
+    if (isInvalidStudentSession(error)) {
+      rejectStudentSession(entry);
+      return { ok: false, needsRecovery: true };
+    }
     if (isProgressWriteBlocked(entry?.studentId, entry?.area)) {
-      removeProgressQueueRecords(window.localStorage, records);
+      removeProgressQueueRecords(engagementStorage(), records);
       volatileEntries.delete(progressEntryIdentity(entry));
       return { ok: false, needsRecovery: false };
     }
@@ -531,35 +569,43 @@ async function flushEntry(entry, records, volatileRevision = null, client = supa
 }
 
 async function flushQueuedKey(identity, session = activeSession) {
-  if (!session?.studentId) return false;
+  if (!sessionCanFlush(session)) return false;
+  const sessionAtStart = activeSession;
   if (blockedStudentWrites.has(String(session.studentId))) {
-    const records = readProgressQueueRecords(window.localStorage)
+    const records = readProgressQueueRecords(engagementStorage())
       .filter(record => progressEntryIdentity(record.entry) === identity);
-    removeProgressQueueRecords(window.localStorage, records);
+    removeProgressQueueRecords(engagementStorage(), records);
     volatileEntries.delete(identity);
     return false;
   }
-  if (inFlightFlushes.has(identity)) return inFlightFlushes.get(identity);
+  if (inFlightFlushes.has(identity)) {
+    await inFlightFlushes.get(identity);
+    // A fresh sign-in can arrive while the previous token's upload is still
+    // finishing. Join it, then bind the remaining revisions to this session.
+    if (!sessionCanFlush(session)) return false;
+    return flushQueuedKey(identity, session);
+  }
 
   const task = (async () => {
     let recovered = false;
     let lastEntry = null;
     while (true) {
-      const records = readProgressQueueRecords(window.localStorage)
+      if (activeSession !== sessionAtStart || !sessionCanFlush(session)) return false;
+      const records = readProgressQueueRecords(engagementStorage())
         .filter(record => progressEntryIdentity(record.entry) === identity);
       const volatile = volatileEntries.get(identity) || null;
       const current = mergeProgressQueueRecords(volatile
         ? [...records, { storageKey: null, legacy: false, entry: volatile }]
         : records);
       if (!current || current.studentId !== session.studentId) {
-        if (recovered && lastEntry) emitProgressSyncState("recovered", lastEntry);
+        if (lastEntry) emitProgressSyncState(recovered ? "recovered" : "saved", lastEntry);
         return true;
       }
       lastEntry = current;
       const result = await flushEntry({
         ...current,
-        mode: session.mode || current.mode || "teacher",
-        token: session.token || current.token || ""
+        mode: session.mode || "teacher",
+        token: session.token || ""
       }, records, volatile?.revision || null, session.client || supabase);
       recovered = recovered || result.needsRecovery;
       if (!result.ok) return false;
@@ -592,7 +638,6 @@ export function queueProgressSave(area, key, payload, { scopeKey } = {}) {
   if (isProgressWriteBlocked(activeSession.studentId, area)) return false;
   const entry = {
     mode: activeSession.mode || "teacher",
-    token: activeSession.token || "",
     studentId: activeSession.studentId,
     area,
     key,
@@ -604,7 +649,7 @@ export function queueProgressSave(area, key, payload, { scopeKey } = {}) {
       detail: { studentId: scopeKey, area, key }
     }));
   }
-  if (!queued.stored) emitProgressSyncState("storage-failed", queued.entry);
+  emitProgressSyncState(queued.stored ? "saving" : "storage-failed", queued.entry);
   const timerKey = progressEntryIdentity(queued.entry);
   window.clearTimeout?.(pendingTimers.get(timerKey));
   const timer = window.setTimeout(() => {
@@ -616,14 +661,14 @@ export function queueProgressSave(area, key, payload, { scopeKey } = {}) {
 }
 
 export async function flushQueuedProgressWrites(session = activeSession) {
-  if (!session?.studentId) return;
+  if (!sessionCanFlush(session)) return;
   if (blockedStudentWrites.has(String(session.studentId))) {
     clearLocalProgressForStudent(session.studentId, {
       blockFutureWrites: true
     });
     return;
   }
-  const own = readProgressQueueRecords(window.localStorage)
+  const own = readProgressQueueRecords(engagementStorage())
     .filter(record => record.entry.studentId === session.studentId);
   const identities = [...new Set([
     ...own.map(record => progressEntryIdentity(record.entry)),
@@ -640,9 +685,14 @@ export async function fetchStudentCloudProgress(session) {
   if (!session?.studentId) return [];
   const client = session.client || supabase;
   if (session.mode === "student" && session.token) {
-    const { data, error } = await client.call("student_get_progress", { p_token: session.token });
-    if (error) throw error;
-    return data || [];
+    try {
+      const { data, error } = await client.call("student_get_progress", { p_token: session.token });
+      if (error || data?.ok === false) throw error || new Error(data.error);
+      return data || [];
+    } catch (error) {
+      if (isInvalidStudentSession(error)) rejectStudentSession(session);
+      throw error;
+    }
   }
 
   const result = await selectAllRows(() => supabase
@@ -730,7 +780,7 @@ export async function hydrateCloudProgress(session) {
     // row remains authoritative instead of being downgraded by the old client.
     if (row.area === "el_quest") {
       const identity = `${session.studentId}:${row.area}:${row.key}`;
-      const records = readProgressQueueRecords(window.localStorage)
+      const records = readProgressQueueRecords(engagementStorage())
         .filter(record => progressEntryIdentity(record.entry) === identity);
       const volatile = volatileEntries.get(identity) || null;
       const pending = mergeProgressQueueRecords(volatile
@@ -755,6 +805,7 @@ export async function hydrateCloudProgress(session) {
 }
 
 export function clearProgressSyncSession() {
+  if (activeSession?.token) rejectedTokens.add(activeSession.token);
   activeSession = null;
   pendingTimers.forEach(timer => window.clearTimeout?.(timer));
   pendingTimers.clear();
@@ -769,6 +820,7 @@ export function clearProgressSyncSession() {
 }
 
 async function sendStudentActivity(session, entry) {
+  if (!sessionCanFlush(session)) throw new Error("session_required");
   const client = session.client || supabase;
   const { data, error } = await client.call("student_log_activity_v2", {
     p_token: session.token,
@@ -781,7 +833,9 @@ async function sendStudentActivity(session, entry) {
     p_delivery_attempts: Number(entry.attempts || 0) + 1
   });
   if (error || data?.ok === false) {
-    throw error || new Error(data?.error || "student_log_activity_v2 failed");
+    const failure = error || new Error(data?.error || "student_log_activity_v2 failed");
+    if (isInvalidStudentSession(failure)) rejectStudentSession(session);
+    throw failure;
   }
 }
 
@@ -916,7 +970,7 @@ async function performEngagementFlush(
       .filter(entry => entry.studentId === session.studentId)
       .map(entry => entry.nextAttemptAt)
   ].filter(Boolean).sort()[0] || "";
-  if (snapshot.pending > 0) scheduleEngagementFlush(session, nextAttemptAt);
+  if (snapshot.pending > 0 && sessionCanFlush(session)) scheduleEngagementFlush(session, nextAttemptAt);
   return snapshot;
 }
 

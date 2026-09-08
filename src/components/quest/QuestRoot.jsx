@@ -442,9 +442,6 @@ export default function QuestRoot({
       if (detail.studentId !== progressScopeKey || detail.area !== "phonics_quest") return;
       if (detail.status === "deferred") recordConnectionEvent({ type: "sync-deferred" });
       if (detail.status === "recovered") recordConnectionEvent({ type: "sync-recovered" });
-      if (detail.status === "storage-failed") {
-        setStorageNotice("Progress may not be saving or backing up. Ask a grown-up for help before closing.");
-      }
     };
     window.addEventListener("offline", handleOffline);
     window.addEventListener("online", handleOnline);

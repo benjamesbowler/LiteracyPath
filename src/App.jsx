@@ -1,3 +1,4 @@
+import ProgressSyncNotice from "./components/ProgressSyncNotice.jsx";
 /* eslint-disable react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { Suspense, useCallback, useEffect, useEffectEvent, useMemo, useRef, useState } from "react";
 import { flushSync } from "react-dom";
@@ -3099,6 +3100,7 @@ export default function App() {
 
   return (
     <Suspense fallback={<div className="app"><div className="card page-card">Loading {PRODUCT_NAME}...</div></div>}>
+      <ProgressSyncNotice studentId={sessionMode === "student" ? studentSessionId : null} sessionMessage={message.startsWith("Signed out on this iPad.") ? message : ""} />
       <AppSurface
         surface={{
       PASS_SCORE, ROUND_LENGTH, adminClasses, adminConfirm, adminConfirmBusy, adminDeleteClass,

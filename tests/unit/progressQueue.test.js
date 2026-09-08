@@ -279,3 +279,24 @@ test("an all-writes-rejected queue reports that no durable revision exists", () 
   assert.equal(failed.stored, false);
   assert.equal(readProgressQueueRecords(storage).length, 0);
 });
+
+test("queued retries never serialize the supplied session credential", () => {
+  const storage = new MemoryStorage();
+  enqueueProgressQueueEntry(storage, { ...questEntry("secret", ["s1"]), token: "synthetic-secret" });
+  assert.equal([...storage.values.values()].some(raw => raw.includes("synthetic-secret")), false);
+});
+
+test("credential migration keeps evidence on quota failure and transfers before deleting", async () => {
+  const { migrateProgressQueueCredentials } = await import("../../src/utils/progressQueue.js");
+  const storage = new MemoryStorage();
+  const entry = { ...questEntry("old", ["s1"]), token: "synthetic-secret" };
+  storage.setItem(LEGACY_PROGRESS_QUEUE_KEY, JSON.stringify([entry]));
+  storage.rejectWrites = true;
+  assert.equal(migrateProgressQueueCredentials(storage), false);
+  assert.ok(storage.getItem(LEGACY_PROGRESS_QUEUE_KEY));
+  storage.rejectWrites = false;
+  assert.equal(migrateProgressQueueCredentials(storage), true);
+  assert.equal(storage.getItem(LEGACY_PROGRESS_QUEUE_KEY), null);
+  assert.deepEqual(readProgressQueueRecords(storage)[0].entry.payload, entry.payload);
+  assert.equal([...storage.values.values()].some(raw => raw.includes("synthetic-secret")), false);
+});

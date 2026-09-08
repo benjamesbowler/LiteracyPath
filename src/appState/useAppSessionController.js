@@ -59,6 +59,7 @@ import {
   failClassDashboardRead,
   resetClassDashboardRead
 } from "./classDashboardReadState.js";
+import { finishStudentSignOut } from "../utils/studentSessionRecovery.js";
 import { PRACTICE_RESET_RETAINED_AREAS } from "../utils/progressSync.js";
 import { loadTeacherSchoolName } from "../data/teacherSchoolProfile.js";
 import { shouldApplyRestoredAppView } from "./appViewHelpers.js";
@@ -206,16 +207,39 @@ export function useAppSessionController(context) {
       teacherRouteHydrationTokensRef.current.clear();
     };
     window.addEventListener("pagehide", retirePageReads);
-    window.addEventListener("beforeunload", retirePageReads);
+    // beforeunload can be cancelled by the unsaved-work warning. Retire reads
+    // only once the browser actually leaves the page.
     return () => {
       retirePageReads();
       window.removeEventListener("pagehide", retirePageReads);
-      window.removeEventListener("beforeunload", retirePageReads);
     };
   }, []);
 
+  const currentStudentSessionRef = useRef(studentSession);
+  currentStudentSessionRef.current = studentSession;
+  useEffect(() => {
+    const handleInvalidSession = event => {
+      if (event.detail?.studentId !== currentStudentSessionRef.current?.studentId) return;
+      returnToStudentSelection();
+      setMessage("Please sign in again. Your work on this iPad is waiting to save.");
+    };
+    window.addEventListener("lp-student-session-invalid", handleInvalidSession);
+    return () => window.removeEventListener("lp-student-session-invalid", handleInvalidSession);
+  }, []);
+
+  function revokeLeavingStudentSession() {
+    const leaving = currentStudentSessionRef.current;
+    if (!leaving?.token) return;
+    void finishStudentSignOut(leaving).then(({ revoked }) => {
+      if (!revoked && !currentStudentSessionRef.current) {
+        setMessage("Signed out on this iPad. We could not confirm sign-out with the server. Ask your teacher for help.");
+      }
+    });
+  }
+
   function applyStudentSession(session) {
     if (!session?.token || !session?.studentId) return;
+    currentStudentSessionRef.current = session;
     setLetterIndex(0);
     setLetterAssessment([]);
     setPatternIndex(0);
@@ -314,10 +338,8 @@ export function useAppSessionController(context) {
     try {
       const session = JSON.parse(localStorage.getItem(STUDENT_SESSION_STORAGE_KEY) || "null");
       if (!session?.token || !session?.studentId) return false;
-      if (session.expiresAt && Date.now() > Number(session.expiresAt)) {
-        localStorage.removeItem(STUDENT_SESSION_STORAGE_KEY);
-        return false;
-      }
+      // The server validates expiry during hydration. A fast device clock or
+      // transport failure must not discard a recoverable learner session.
       applyStudentSession(session);
       return true;
     } catch {
@@ -328,6 +350,8 @@ export function useAppSessionController(context) {
   const restoreLatestStudentSession = useEffectEvent(restoreStudentSession);
 
   function exitToTeacherEntry() {
+    revokeLeavingStudentSession();
+    currentStudentSessionRef.current = null;
     // Fully clear any student session first, otherwise the student-mode
     // guard bounces navigation straight back to student screens.
     try {
@@ -348,6 +372,8 @@ export function useAppSessionController(context) {
 
   function logOutStudent() {
     if (window.confirm("Are you leaving?")) {
+      revokeLeavingStudentSession();
+      currentStudentSessionRef.current = null;
       try {
         localStorage.removeItem(STUDENT_SESSION_STORAGE_KEY);
       } catch {
@@ -373,6 +399,8 @@ export function useAppSessionController(context) {
   }
 
   function returnToStudentSelection() {
+    revokeLeavingStudentSession();
+    currentStudentSessionRef.current = null;
     try {
       localStorage.removeItem(STUDENT_SESSION_STORAGE_KEY);
     } catch {

@@ -1176,51 +1176,68 @@ function getQueueStorage(storage) {
   return typeof localStorage === "undefined" ? null : localStorage;
 }
 
-export function loadAssessmentAttemptSyncQueue({
-  teacherId = "local",
-  storage
-} = {}) {
-  const queueStorage = getQueueStorage(storage);
-  if (!queueStorage || !teacherId || teacherId === "local") return [];
+function readAssessmentQueueRevisions({ teacherId = "local", storage } = {}) {
+  const target = getQueueStorage(storage);
+  if (!target || !teacherId || teacherId === "local") return [];
+  const prefix = `lpAssessmentSyncEntry:v2:${encodeURIComponent(teacherId)}:`;
+  const revisions = [];
   try {
-    const parsed = safeParse(queueStorage.getItem(getSyncQueueKey(teacherId)), []);
-    if (!Array.isArray(parsed)) return [];
-    return mergeAssessmentAttemptRecords(parsed)
-      .filter(record => record.attemptId && record.teacherId === teacherId);
-  } catch {
-    return [];
-  }
+    for (let i = 0; i < target.length; i += 1) {
+      const key = target.key(i);
+      if (!key?.startsWith(prefix)) continue;
+      const raw = target.getItem(key);
+      const record = safeParse(raw, null);
+      if (record?.attemptId && record.teacherId === teacherId) revisions.push({ key, raw, record });
+    }
+    const legacyKey = getSyncQueueKey(teacherId);
+    const raw = target.getItem(legacyKey);
+    const legacy = safeParse(raw, []);
+    if (Array.isArray(legacy) && legacy.length) {
+      let transferred = true;
+      for (const record of legacy) {
+        if (!record?.attemptId || record.teacherId !== teacherId) { transferred = false; continue; }
+        const key = `${prefix}${crypto.randomUUID()}`;
+        const encoded = JSON.stringify(record);
+        try {
+          target.setItem(key, encoded);
+          if (target.getItem(key) !== encoded) throw new Error("Retry transfer failed");
+          revisions.push({ key, raw: encoded, record });
+        } catch {
+          transferred = false;
+          revisions.push({ key: null, raw, record });
+        }
+      }
+      if (transferred && target.getItem(legacyKey) === raw) target.removeItem(legacyKey);
+    }
+  } catch { /* Preserve unreadable storage for recovery. */ }
+  return revisions;
 }
 
-function writeAssessmentAttemptSyncQueue(records, { teacherId = "local", storage } = {}) {
-  const queueStorage = getQueueStorage(storage);
-  if (!queueStorage || !teacherId || teacherId === "local") return false;
-  const scopedRecords = mergeAssessmentAttemptRecords(records)
-    .filter(record => record.attemptId && record.teacherId === teacherId);
-  try {
-    if (!scopedRecords.length && typeof queueStorage.removeItem === "function") {
-      queueStorage.removeItem(getSyncQueueKey(teacherId));
-    } else {
-      queueStorage.setItem(
-        getSyncQueueKey(teacherId),
-        JSON.stringify(scopedRecords.map(compactAssessmentAttemptForStorage))
-      );
-    }
-    return true;
-  } catch (error) {
-    console.warn("Assessment cloud retry queue could not be saved on this device.", error);
-    return false;
-  }
+export function loadAssessmentAttemptSyncQueue(options = {}) {
+  return mergeAssessmentAttemptRecords(readAssessmentQueueRevisions(options).map(item => item.record));
 }
 
 function enqueueAssessmentAttemptSync(record, { teacherId = record?.teacherId || "local", storage } = {}) {
-  const normalized = normalizeAssessmentAttempt({
-    ...record,
-    teacherId: record?.teacherId || teacherId
-  });
-  if (!normalized.attemptId || normalized.teacherId !== teacherId || teacherId === "local") return false;
-  const queued = loadAssessmentAttemptSyncQueue({ teacherId, storage });
-  return writeAssessmentAttemptSyncQueue([normalized, ...queued], { teacherId, storage });
+  const target = getQueueStorage(storage);
+  const normalized = normalizeAssessmentAttempt({ ...record, teacherId: record?.teacherId || teacherId });
+  if (!target || !normalized.attemptId || normalized.teacherId !== teacherId || teacherId === "local") return false;
+  // Independent immutable revisions: never rewrite another tab's retry obligations.
+  const key = `lpAssessmentSyncEntry:v2:${encodeURIComponent(teacherId)}:${crypto.randomUUID()}`;
+  try {
+    const raw = JSON.stringify(compactAssessmentAttemptForStorage(normalized));
+    target.setItem(key, raw);
+    return target.getItem(key) === raw;
+  } catch { return false; }
+}
+
+function removeAssessmentQueueRevisions(revisions, { storage } = {}) {
+  const target = getQueueStorage(storage);
+  for (const revision of revisions) {
+    if (!revision.key) continue;
+    try {
+      if (target.getItem(revision.key) === revision.raw) target.removeItem(revision.key);
+    } catch { /* Retain for a later acknowledgment. */ }
+  }
 }
 
 function cloudRowForAssessmentAttempt(record = {}) {
@@ -1304,19 +1321,15 @@ function sameAttemptPayload(left, right) {
   }
 }
 
-function removeSyncedAssessmentAttemptFromQueue(record, { teacherId = record?.teacherId || "local", storage } = {}) {
+function removeSyncedAssessmentAttemptFromQueue(record, { teacherId = record?.teacherId || "local", storage, revisions = [] } = {}) {
   const synced = normalizeAssessmentAttempt(record);
-  const queued = loadAssessmentAttemptSyncQueue({ teacherId, storage });
-  if (!queued.length) return true;
-  const next = queued.filter(current => {
-    if (current.attemptId !== synced.attemptId) return true;
+  const covered = revisions.filter(({ record: current }) => {
+    if (current.teacherId !== teacherId || current.attemptId !== synced.attemptId) return false;
     const winner = mergeAssessmentAttemptRecords(current, synced)
       .find(candidate => candidate.attemptId === synced.attemptId);
-    // If a newer/richer payload was queued while this request was in flight,
-    // retain it. Only remove evidence fully covered by the successful upsert.
-    return !sameAttemptPayload(winner, synced);
+    return sameAttemptPayload(winner, synced);
   });
-  return writeAssessmentAttemptSyncQueue(next, { teacherId, storage });
+  removeAssessmentQueueRevisions(covered, { storage });
 }
 
 async function flushAssessmentAttemptSyncQueueUncoordinated({
@@ -1324,7 +1337,8 @@ async function flushAssessmentAttemptSyncQueueUncoordinated({
   supabase,
   storage
 }) {
-  const queued = loadAssessmentAttemptSyncQueue({ teacherId, storage });
+  const revisions = readAssessmentQueueRevisions({ teacherId, storage });
+  const queued = mergeAssessmentAttemptRecords(revisions.map(item => item.record));
   if (!queued.length || !supabase || !teacherId || teacherId === "local") {
     return { flushed: 0, remaining: queued.length, errors: [] };
   }
@@ -1351,7 +1365,7 @@ async function flushAssessmentAttemptSyncQueueUncoordinated({
       if (!localRecord || !sameAttemptPayload(localRecord, syncedRecord)) {
         saveAssessmentAttemptLocal(syncedRecord, { teacherId });
       }
-      removeSyncedAssessmentAttemptFromQueue(syncedRecord, { teacherId, storage });
+      removeSyncedAssessmentAttemptFromQueue(syncedRecord, { teacherId, storage, revisions });
     } catch (error) {
       errors.push(error);
     }
@@ -1597,8 +1611,8 @@ export function deleteAssessmentAttemptsForStudent({
   saveAssessmentAttemptListLocal(next, { teacherId });
   // An explicit reset is authoritative: clear matching queued uploads too so
   // offline evidence cannot reappear in the cloud after the student is reset.
-  const queued = loadAssessmentAttemptSyncQueue({ teacherId });
-  writeAssessmentAttemptSyncQueue(queued.filter(keepRecord), { teacherId });
+  const revisions = readAssessmentQueueRevisions({ teacherId });
+  removeAssessmentQueueRevisions(revisions.filter(item => !keepRecord(item.record)));
   return next;
 }
 
@@ -1685,6 +1699,7 @@ async function saveAssessmentAttemptUntracked(record, {
   // still downgrade a completed cloud row even though local storage stayed safe.
   const recordToPersist = localResult.records.find(item => item.attemptId === normalized.attemptId) || normalized;
 
+  const queuedRevisions = readAssessmentQueueRevisions({ teacherId });
   let cloudSaved = false;
   let cloudError = null;
   let syncQueued = false;
@@ -1706,7 +1721,7 @@ async function saveAssessmentAttemptUntracked(record, {
             error: localResult.error || refreshedLocal.error
           };
         }
-        removeSyncedAssessmentAttemptFromQueue(cloudRecord, { teacherId });
+        removeSyncedAssessmentAttemptFromQueue(cloudRecord, { teacherId, revisions: queuedRevisions });
       }
     } catch (error) {
       cloudError = error;

@@ -466,6 +466,7 @@ test("Other Learning caps Sound Seekers at Developing and keeps Story Quest word
 test("Skills Check exposes legacy skill summary rows when canonical attempts are unavailable", () => {
   const model = buildSkillsCheckReportModel({
     student,
+    now: new Date("2026-06-11T10:00:00.000Z"),
     skillMasterySummary: {
       rhyming: {
         label: "Rhyming",

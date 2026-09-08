@@ -1,0 +1,30 @@
+.progress-sync-notice {
+  position: fixed;
+  z-index: 2147483000;
+  inset: auto 16px 16px;
+  margin: 0 auto;
+  max-width: 640px;
+  max-height: calc(100dvh - 32px);
+  overflow: auto;
+  padding: 16px;
+  border: 2px solid #9a6700;
+  border-radius: 16px;
+  background: #fff4d6;
+  color: #573c00;
+  font-family: Andika, Nunito, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  box-shadow: 0 4px 24px #0003;
+}
+.progress-sync-notice p { margin: 0 0 8px; }
+.progress-sync-notice button {
+  min-height: 56px;
+  padding: 8px 16px;
+  border: 2px solid #9a6700;
+  border-radius: 12px;
+  background: white;
+  color: #573c00;
+  font: inherit;
+  cursor: pointer;
+}
+.progress-sync-notice button:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 2px; }

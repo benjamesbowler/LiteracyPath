@@ -52,9 +52,10 @@ export function readProgressQueueRecords(storage) {
   const records = [];
   for (const storageKey of storageKeys(storage)) {
     if (!storageKey.startsWith(PROGRESS_QUEUE_ENTRY_PREFIX)) continue;
-    const entry = safeParse(readStorage(storage, storageKey));
+    const raw = readStorage(storage, storageKey);
+    const entry = safeParse(raw);
     if (!entry?.studentId || !entry.area || !entry.key) continue;
-    records.push({ storageKey, legacy: false, entry });
+    records.push({ storageKey, legacy: false, entry, raw });
   }
   const legacy = safeParse(readStorage(storage, LEGACY_PROGRESS_QUEUE_KEY), []);
   if (Array.isArray(legacy)) {
@@ -155,6 +156,8 @@ export function enqueueProgressQueueEntry(storage, incoming, {
       || (typeof navigator !== "undefined" && navigator.onLine === false)
     )
   };
+  // Credentials are supplied by the current session only, never a retry row.
+  delete entry.token;
   const storageKey = `${PROGRESS_QUEUE_ENTRY_PREFIX}${encodeURIComponent(revision)}`;
   try {
     // Write the replacement before deleting older records. A quota failure
@@ -195,4 +198,33 @@ export function removeProgressQueueRecords(storage, records = []) {
 export function clearProgressQueueForStudent(storage, studentId) {
   const records = readProgressQueueRecords(storage).filter(record => record.entry.studentId === studentId);
   removeProgressQueueRecords(storage, records);
+}
+
+// Transfer old rows before removing their credential-bearing representation.
+// A failed write leaves pending evidence recoverable; it never discards it.
+export function migrateProgressQueueCredentials(storage) {
+  if (!storage) return false;
+  let migrated = true;
+  const legacyRaw = readStorage(storage, LEGACY_PROGRESS_QUEUE_KEY);
+  const legacy = safeParse(legacyRaw);
+  if (legacyRaw && (!Array.isArray(legacy) || legacy.some(entry => !entry?.studentId || !entry.area || !entry.key))) migrated = false;
+  const records = readProgressQueueRecords(storage);
+  for (const record of records) {
+    if (!record.legacy && !Object.hasOwn(record.entry, "token")) continue;
+    const clean = { ...record.entry, revision: newRevision() };
+    delete clean.token;
+    const target = `${PROGRESS_QUEUE_ENTRY_PREFIX}${encodeURIComponent(clean.revision)}`;
+    const encoded = JSON.stringify(clean);
+    try {
+      storage.setItem(target, encoded);
+      if (storage.getItem(target) !== encoded) throw new Error("Queue transfer failed");
+      if (!record.legacy && readStorage(storage, record.storageKey) === record.raw) {
+        storage.removeItem(record.storageKey);
+      }
+    } catch { migrated = false; }
+  }
+  if (migrated && legacyRaw && readStorage(storage, LEGACY_PROGRESS_QUEUE_KEY) === legacyRaw) {
+    try { storage.removeItem(LEGACY_PROGRESS_QUEUE_KEY); } catch { migrated = false; }
+  }
+  return migrated;
 }

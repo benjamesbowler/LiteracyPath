@@ -621,6 +621,7 @@ export function AppSurface({ surface }) {
         <StudentLoginFlow
           onTeacherEntry={exitToTeacherEntry}
           onSessionStart={applyStudentSession}
+          recoveryMessage={message}
         />
       </PageBoundary>
     );
@@ -682,6 +683,7 @@ export function AppSurface({ surface }) {
         <StudentLoginFlow
           onTeacherEntry={exitToTeacherEntry}
           onSessionStart={applyStudentSession}
+          recoveryMessage={message}
         />
       </PageBoundary>
     );
@@ -1430,6 +1432,7 @@ export function AppSurface({ surface }) {
           <StudentLoginFlow
             onTeacherEntry={exitToTeacherEntry}
             onSessionStart={applyStudentSession}
+          recoveryMessage={message}
           />
         </PageBoundary>
       )}

@@ -622,11 +622,11 @@ test("progress sync durably queues before network work and recovers on the onlin
   assert.match(sync, /inFlightFlushes/, "writes for one progress key are not serialised");
   assert.match(queue, /PROGRESS_QUEUE_ENTRY_PREFIX = "lp-progress-sync-entry-v2:"/, "cross-tab writes still share one replaceable array");
   assert.match(queue, /storage\.setItem\(storageKey[\s\S]*for \(const record of previous\)/, "a replacement can delete its predecessor before becoming durable");
-  assert.match(sync, /removeProgressQueueRecords\(window\.localStorage, records\)/, "a response does not remove only its exact uploaded revisions");
+  assert.match(sync, /removeProgressQueueRecords\(engagementStorage\(\), records\)/, "a response does not remove only its exact uploaded revisions");
   assert.match(queue, /existing\.payload,[\s\S]*incoming\.payload/, "same-key writes from two tabs are not forward-merged");
   assert.match(queue, /LEGACY_PROGRESS_QUEUE_KEY/, "pending v1 rows have no migration path");
   assert.match(sync, /window\.addEventListener\("online", handleProgressOnline\)/, "reconnect does not flush without another child action");
-  assert.match(sync, /emitProgressSyncState\("recovered"/, "the adult report cannot know a deferred save recovered");
+  assert.match(sync, /emitProgressSyncState\(recovered \? "recovered"/, "the adult report cannot know a deferred save recovered");
 });
 
 test("runtime health samples retain session high-water marks for soak review", () => {

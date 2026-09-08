@@ -205,7 +205,8 @@ function TileGrid({ rows, onPick, selectedId, renderTitle, disabled = false }) {
 export function StudentLoginFlow({
   client = supabase,
   onTeacherEntry,
-  onSessionStart
+  onSessionStart,
+  recoveryMessage = ""
 }) {
   const [step, setStep] = useState("code");
   // Seed from the remembered class so a shared device shows its code while the
@@ -357,7 +358,7 @@ export function StudentLoginFlow({
       classId: result.class_id || selectedClass?.id,
       teacherId: result.teacher_id || "",
       schoolId: result.school_id || selectedSchool?.id,
-      expiresAt: Date.now() + 12 * 60 * 60 * 1000
+      expiresAt: result.expires_at ? Date.parse(result.expires_at) : null
     };
     if (!session.token || !session.studentId) {
       console.error("Student session missing token or id.", result);
@@ -496,6 +497,7 @@ export function StudentLoginFlow({
             onHear={() => speakLine(recovery.audioKey)}
           />
         )}
+        {recoveryMessage && <p className="student-flow-status" role="status">{recoveryMessage}</p>}
         {status && <p className="student-flow-status" role="status" aria-live="polite">{status}</p>}
         <div className="student-flow-footer">
           {step === "student" && (

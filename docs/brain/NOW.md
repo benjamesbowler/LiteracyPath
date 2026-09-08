@@ -52,6 +52,13 @@ installed, reviewed, and trusted on 2026-08-03.
 
 ## Current beta release state
 
+- Learner session recovery preserves pending progress and assessment revisions,
+  retries with the current same-learner credential, and exposes one shared retry
+  notice. Hosted migration `20260908114742` adds server-owned login expiry and
+  token-only sign-out revocation. Hosted transaction tests passed on 2026-09-08
+  with synthetic fixtures rolled back; authenticated browser and physical-iPad
+  recovery remain unverified. This completes the A2 code/database dependency;
+  A3, B4/B7 reconciliation and G01 still precede the queued G04 game work.
 - A child-friendly student welcome tour now opens on a learner's first real
   sign-in on a device. The second and third sign-ins show a small optional
   reminder, and a persistent Help control reopens the tour from any unlocked
