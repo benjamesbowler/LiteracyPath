@@ -25807,8 +25807,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p03_help_chompy.webp",
-      "sha256": "fa6b2486916b9aaa57c5bae2d0c8886be1491ca59f997460bb9d80be8c2612b2",
-      "status": "approved"
+      "sha256": "5b04e6ecc16d36d7b7165659599c1b0bf993033599ac286705be6eddaa9b2dde",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p03_tiptoe_out.webp",
@@ -25832,8 +25833,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p04_careful_bounce.webp",
-      "sha256": "8673131e8f9c5abddcfcdc71b5bc30d292019342c81ed8c310b956a30894986d",
-      "status": "approved"
+      "sha256": "5efea3f3611b7abf11c06f7d13358c52e111a83374358da1187692e24d1b8766",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/story-quests/dino-pals/bouncy-big-bounce/p04_cave_chaos.webp",
@@ -26342,78 +26344,93 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p01_start.webp",
-      "sha256": "e60a9c4bd8c36a488c3603bcf3f663ac214c5c01e6d8b7d2d00ae0053548c276",
-      "status": "approved"
+      "sha256": "71eaceb6be73ef3817e19ce1abb38be1cfb1f50e351dd61759510b2ad0e9615c",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p02_leaf_failure.webp",
-      "sha256": "d58be596320ce20f67d8ba87e89a88d96a8f5695441e6cd289b6ca0dc5e47fec",
-      "status": "approved"
+      "sha256": "1c89d53c4a332c51fc21a5e364371ddd7527076d463206311be6c50e017e5d76",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p02_twig_failure.webp",
-      "sha256": "f162ca58b0542d2458652162438de04100b08467756aeef6cf83feb4aa2edb50",
-      "status": "approved"
+      "sha256": "e7ecb8cc49265cb8725e139f9dd003c82ed83c7e85e59534f05736499f8e7194",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p03_bark.webp",
-      "sha256": "ee61aef98dab185009c7043b8bf38687e0fcb58e7cd54615b4a256812e3152bc",
-      "status": "approved"
+      "sha256": "cb5a40c0062087e067e1d41b983bae9a6a9950559b434fb46112e4ca0c533e4c",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p03_moss.webp",
-      "sha256": "6e87fb95185360091381f5bdf379109cf013f8f19fab68808233659d3b5a8270",
-      "status": "approved"
+      "sha256": "3bf34cbc9d088fc3e76e00bedfdcee8395884bde2c14379b425dd2a0aabd175e",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p04_bark_steps.webp",
-      "sha256": "4d3781ffa4f0351d9ab5d007dc1bbaf38c4657a6c5c4c55f3972973ba083c89a",
-      "status": "approved"
+      "sha256": "2e1c73cf8b3b738b73b26d763a9bb3e9e26d74de98d140ca6e945dc5c47edbe8",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p04_bark_strip.webp",
-      "sha256": "4c9f6e297c65b8b2fee5898e81808d25e47fdb721313735b5338535b57fbfc06",
-      "status": "approved"
+      "sha256": "79f3cd0c7fd4ae07486dc31fb5b1fc9c05ceb4c4163fd73a9d2a26c6764dd978",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p04_moss_dots.webp",
-      "sha256": "ab24070d3a0fb97fc73759e80b9d3c8c8d2b52c10f537e9748d449dcfdca7882",
-      "status": "approved"
+      "sha256": "040730b75398d98681e6a00c537d7cde5da17441ad3aacf5e3158f8a4d68c9c9",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p04_moss_strip.webp",
-      "sha256": "bfcf9a457f6acfdfae0e43a99712971bfb276c3b75d472fd0af26b866fbe156a",
-      "status": "approved"
+      "sha256": "0a24ad79a79c1188371be4fe63fa476c1d692ba7ae68d76bec2fac131a1d1135",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p05_bark.webp",
-      "sha256": "c3a9c3bffb70f867020ee165c3fceb284f9471e6d9cd8d5bf0927af07a4f67ee",
-      "status": "approved"
+      "sha256": "0fe0d70be2c7b6cd0f9ea1e0863826d22f51a871725d3eb7ec604ffb21fca682",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p05_moss.webp",
-      "sha256": "90646f8b63e405a7a532eeed2f819e79e598a966cb84fe5f83c5d49d3a18de81",
-      "status": "approved"
+      "sha256": "5051a6200ab986bfc614e3bc53baf1305ba00f42ee2602d70832fda20be17ec0",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p06_fern_ending.webp",
-      "sha256": "39be1cc2e196ef6271725d7745dec65b265b2410a845d3046563a5c33e924df9",
-      "status": "approved"
+      "sha256": "41e28c7d3c5d23145b0426e888b4b66e676ba96122f383c53fb48d66815171c1",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p06_log_ending.webp",
-      "sha256": "ed74b99adb15e9bb2470a338faa601d87ba7c6db226a56af11ca78c4864f0581",
-      "status": "approved"
+      "sha256": "d8d95626d4df74300489f57607678520b2f339fc0cc32ce879e34f075648d55e",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p06_root_ending.webp",
-      "sha256": "10acda5c6874f05aa8ddb2eaf1d7c52b0fefab3b47aea0e05f4dec6773a680cc",
-      "status": "approved"
+      "sha256": "7fa6a8de7d0a1279bfb492b1d85c8bf7685fe0660f9c11d0ede73e830ec56fc4",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/story-quests/dino-pals/shy-snail-shade/p06_stone_ending.webp",
-      "sha256": "12e5b50f5a322786eff822d821606b419b237af0fafb110675108c2a4fdf3317",
-      "status": "approved"
+      "sha256": "d5df3f7838b93a59201439c485d3516579be6d192f779567cc1615b763cd8486",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/story-quests/dino-pals/sunny-rainy-rescue/p01_start.webp",
@@ -27582,8 +27599,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p02_recipe.webp",
-      "sha256": "f6b307b7a945cb603d542c243b98640596c9bf3e2cc5070683b536d0de001783",
-      "status": "approved"
+      "sha256": "cc92cffd257c4a678b097ad01da4b1253264c8ccd16582d4cd0dbe707499d1b1",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p03_pour_potion.webp",
@@ -28012,8 +28030,9 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p02_pip_wants_to_go.webp",
-      "sha256": "573e1b350e1813e6fcc2572fd0c0ded1dc7d9570cdc506c1766f6dbc52c3bc94",
-      "status": "approved"
+      "sha256": "ec2d4fd7249c5d5ccd7ecda83f09b826db4979aec22469396c632107220de69d",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p02_stone_waits.webp",
@@ -35682,3 +35701,5 @@ export const appVisualAssetReview = {
     }
   ]
 };
+
+export default appVisualAssetReview;
