@@ -188,7 +188,7 @@ const HARD_LEVELS = [
     ["contract-id", "Fix the contraction", "I would = __", "I'd", ["Id", "I'd", "I,d"], "contraction"],
     ["suffix-magic", "Choose the suffix", "magic + al = __", "magical", ["magicly", "magical", "magickal"], "suffix"],
     ["to-too", "Choose the right word", "It is __ bright", "too", ["to", "two", "too"], "usage"],
-    ["sentence-fix", "Choose the capital", "the moon is bright", "The", ["the", "The", "They"], "capital"]
+    ["sentence-fix", "Choose the capital", "__ moon is bright.", "The", ["the", "The", "They"], "capital"]
   ]
 ];
 
@@ -208,6 +208,48 @@ function cueForId(id) {
     .replace(/[-_]+/g, " ");
 }
 
+const REPAIR_BLANK = "__";
+
+export function completedSentenceForRepair(repair) {
+  return String(repair?.display || "").split(REPAIR_BLANK).join(String(repair?.answer || ""));
+}
+
+export function acceptedRepairAnswers(repair) {
+  return Array.isArray(repair?.acceptedAnswers) && repair.acceptedAnswers.length
+    ? repair.acceptedAnswers
+    : [repair?.answer];
+}
+
+export function isAcceptedRepairAnswer(repair, answer) {
+  return acceptedRepairAnswers(repair).includes(answer);
+}
+
+function validateRepair(repair) {
+  const blankCount = (repair.display.match(/__/g) || []).length;
+  if (blankCount < 1 || blankCount > 2) {
+    throw new Error(`${repair.id} must have one repair blank, or two paired blanks`);
+  }
+  if (!repair.answer || !repair.options.includes(repair.answer)) {
+    throw new Error(`${repair.id} must include its canonical answer in options`);
+  }
+  if (new Set(repair.options).size !== repair.options.length) {
+    throw new Error(`${repair.id} options must be unique`);
+  }
+  const acceptedAnswers = acceptedRepairAnswers(repair);
+  if (!acceptedAnswers.every(answer => repair.options.includes(answer))) {
+    throw new Error(`${repair.id} accepted answers must be presented options`);
+  }
+  const completedSentence = completedSentenceForRepair(repair);
+  if (completedSentence.includes(REPAIR_BLANK)) {
+    throw new Error(`${repair.id} completed output still contains a blank`);
+  }
+  return Object.freeze({
+    ...repair,
+    acceptedAnswers: Object.freeze([...new Set(acceptedAnswers)]),
+    completedSentence
+  });
+}
+
 function rotate(values, amount) {
   if (!values.length) return [];
   const offset = ((amount % values.length) + values.length) % values.length;
@@ -215,16 +257,17 @@ function rotate(values, amount) {
 }
 
 function repairFromTuple(tuple, level, index) {
-  const [id, prompt, display, answer, options, category] = tuple;
-  return {
+  const [id, prompt, display, answer, options, category, acceptedAnswers] = tuple;
+  return validateRepair({
     id,
     prompt,
     display,
     cue: cueForId(id),
     answer,
     options: rotate(options, level + index),
-    category
-  };
+    category,
+    acceptedAnswers
+  });
 }
 
 export function starGalleryLevel(difficulty = "easy", levelIndex = 0) {

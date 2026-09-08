@@ -43,6 +43,16 @@ function starScore(correct, total, wrongs) {
   return correct > 0 ? 1 : 0;
 }
 
+function acceptedAnswers(item) {
+  return Array.isArray(item?.acceptedAnswers) && item.acceptedAnswers.length
+    ? item.acceptedAnswers
+    : [item?.answer];
+}
+
+function isAcceptedAnswer(item, answer) {
+  return acceptedAnswers(item).includes(answer);
+}
+
 function GameComplete({ title, stars, score, onRestart }) {
   return (
     <div className="lg-game-complete">
@@ -115,7 +125,6 @@ export function ArcadePracticeGame({
   const totalRounds = difficulty === "hard" ? 10 : difficulty === "medium" ? 8 : 6;
 
   const [score, setScore] = useState(0);
-  const [wrongs, setWrongs] = useState(0);
   // Honor the resume contract: startLevel is a 0-based round index from GamePlayer.
   const [round, setRound] = useState(() => Math.max(0, Math.min(Number(startLevel) || 0, totalRounds - 1)));
   const [correct, setCorrect] = useState(0);
@@ -129,6 +138,8 @@ export function ArcadePracticeGame({
   // no side effects inside state updaters, which StrictMode double-invokes).
   const scoreRef = useRef(0);
   const streakRef = useRef(0);
+  const wrongsRef = useRef(0);
+  const completedRef = useRef(false);
   // Pending timeouts live as {id, fn, remaining, startedAt} entries: cleared on
   // unmount so quitting can't fire finish/onComplete, and frozen by the engine
   // pause contract (GamePlayer pauses on tab-hide and while its quit dialog is
@@ -173,9 +184,14 @@ export function ArcadePracticeGame({
   }, [difficulty, mode, totalRounds, version]);
 
   useEffect(() => () => {
+    cancelSpeech();
     timersRef.current.forEach(entry => clearTimeout(entry.id));
     timersRef.current.clear();
   }, []);
+
+  useEffect(() => {
+    if (!isSoundEnabled) cancelSpeech();
+  }, [isSoundEnabled]);
 
   function armTimer(entry) {
     entry.startedAt = Date.now();
@@ -236,6 +252,7 @@ export function ArcadePracticeGame({
   }, [correct, gameState.cards, gameState.fixes?.length, gameState.total, mode, onProgressUpdate, round, totalRounds]);
 
   function addScore(amount, sfx = playCorrectChime) {
+    if (completedRef.current) return;
     // Streak bonus: +2 per answer already in the run, capped so scores stay sane.
     const bonus = Math.min(10, streakRef.current * 2);
     streakRef.current += 1;
@@ -246,8 +263,9 @@ export function ArcadePracticeGame({
   }
 
   function miss() {
+    if (completedRef.current) return;
     streakRef.current = 0;
-    setWrongs(current => current + 1);
+    wrongsRef.current += 1;
     setStreak(0);
     setShaking(true);
     // Clear on a timer, not animationend: under prefers-reduced-motion the
@@ -258,9 +276,11 @@ export function ArcadePracticeGame({
   }
 
   function finish(nextCorrect = correct) {
+    if (completedRef.current) return;
+    completedRef.current = true;
     // Memory's max correct is the pair count, not totalRounds — grade against pairs.
     const total = mode === "memory" ? gameState.cards.length / 2 : mode === "family" ? gameState.total : totalRounds;
-    const nextStars = starScore(nextCorrect, total, wrongs);
+    const nextStars = starScore(nextCorrect, total, wrongsRef.current);
     setStars(nextStars);
     setCompleted(true);
     if (isSoundEnabled) playCelebrationFanfare();
@@ -268,10 +288,11 @@ export function ArcadePracticeGame({
   }
 
   function restart() {
+    completedRef.current = false;
     scoreRef.current = 0;
     streakRef.current = 0;
+    wrongsRef.current = 0;
     setScore(0);
-    setWrongs(0);
     setStreak(0);
     setRound(0);
     setCorrect(0);
@@ -288,6 +309,7 @@ export function ArcadePracticeGame({
   if (mode === "memory") {
     stage = (
       <MatchGame
+        key={`memory-${version}`}
         state={gameState}
         isSoundEnabled={isSoundEnabled}
         correct={correct}
@@ -404,6 +426,7 @@ function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss
   // Failed spellings on this word; after 2 the word text appears as a scaffold
   // (many hard words have no image asset, so there is no other visual target).
   const [attempts, setAttempts] = useState(0);
+  const answerLockedRef = useRef(false);
   const letters = useMemo(() => {
     const targetLetters = targetWord.split("");
     const distractors = shuffle(DISTRACTOR_LETTERS.filter(letter => !targetLetters.includes(letter))).slice(0, 3);
@@ -411,13 +434,14 @@ function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss
   }, [targetWord]);
 
   useEffect(() => {
+    answerLockedRef.current = false;
     if (canHearTarget) speakWord(targetWord);
   }, [canHearTarget, targetWord]);
 
   const usedTiles = new Set(placed.map(item => item.tileIndex));
 
   function placeTile(letter, tileIndex) {
-    if (checking || usedTiles.has(tileIndex) || placed.length >= targetWord.length) return;
+    if (answerLockedRef.current || checking || usedTiles.has(tileIndex) || placed.length >= targetWord.length) return;
     if (isSoundEnabled) speakPhoneme(letter);
     const next = [...placed, { letter, tileIndex }];
     setPlaced(next);
@@ -425,6 +449,7 @@ function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss
     if (next.length !== targetWord.length) return;
 
     if (next.map(item => item.letter).join("") === targetWord) {
+      answerLockedRef.current = true;
       addScore(25);
       const nextCorrect = correct + 1;
       setCorrect(nextCorrect);
@@ -502,15 +527,18 @@ function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss
 function MatchGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss, finish, schedule }) {
   const [selected, setSelected] = useState([]);
   const [matchedIds, setMatchedIds] = useState([]);
+  const selectedRef = useRef([]);
+  const matchedIdsRef = useRef(new Set());
   const cards = state.cards;
   const targetMatches = cards.length / 2;
 
   function choose(card) {
     // Two cards already face-up (pending flip-back): ignore further taps so an
     // extra click during the animation can't score a second penalty.
-    if (selected.length >= 2 || matchedIds.includes(card.id) || selected.some(item => item.id === card.id)) return;
+    if (selectedRef.current.length >= 2 || matchedIdsRef.current.has(card.id) || selectedRef.current.some(item => item.id === card.id)) return;
     if (isSoundEnabled) speakWord(card.word);
-    const nextSelected = [...selected, card];
+    const nextSelected = [...selectedRef.current, card];
+    selectedRef.current = nextSelected;
     setSelected(nextSelected);
 
     if (nextSelected.length < 2) return;
@@ -519,14 +547,20 @@ function MatchGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss,
       const nextCorrect = correct + 1;
       setCorrect(nextCorrect);
       addScore(12);
-      setMatchedIds(current => [...current, nextSelected[0].id, nextSelected[1].id]);
+      matchedIdsRef.current.add(nextSelected[0].id);
+      matchedIdsRef.current.add(nextSelected[1].id);
+      setMatchedIds([...matchedIdsRef.current]);
+      selectedRef.current = [];
       setSelected([]);
       if (nextCorrect >= targetMatches) {
         schedule(() => finish(nextCorrect), 400);
       }
     } else {
       miss();
-      schedule(() => setSelected([]), 650);
+      schedule(() => {
+        selectedRef.current = [];
+        setSelected([]);
+      }, 650);
     }
   }
 
@@ -566,6 +600,7 @@ function MatchGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss,
 
 function FamilyGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss, finish, schedule }) {
   const [built, setBuilt] = useState([]);
+  const builtRef = useRef(new Set());
   const [activeFamily, setActiveFamily] = useState(state.familyIds[0]);
   const builtWords = new Set(built);
 
@@ -589,7 +624,8 @@ function FamilyGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss
       miss();
       return;
     }
-    if (builtWords.has(option.word)) return;
+    if (builtRef.current.has(option.word)) return;
+    builtRef.current.add(option.word);
     if (isSoundEnabled) speakWord(option.word);
     const nextCorrect = correct + 1;
     setBuilt(current => [...current, option.word]);
@@ -636,13 +672,15 @@ function TargetGame({ state, round, setRound, correct, setCorrect, addScore, mis
   // and the bubble that wobbled because it was wrong.
   const [popped, setPopped] = useState("");
   const [wrongWord, setWrongWord] = useState("");
+  const resolvedRef = useRef(false);
 
   useEffect(() => {
+    resolvedRef.current = false;
     if (canHearTarget) speakWord(target);
   }, [canHearTarget, target]);
 
   function choose(word, index) {
-    if (popped) return;
+    if (resolvedRef.current || popped) return;
     if (word !== target) {
       setWrongWord(`${word}-${index}`);
       // Timer, not animationend: reduced-motion suppresses the wobble, so
@@ -651,6 +689,7 @@ function TargetGame({ state, round, setRound, correct, setCorrect, addScore, mis
       miss();
       return;
     }
+    resolvedRef.current = true;
     setPopped(word);
     const nextCorrect = correct + 1;
     setCorrect(nextCorrect);
@@ -692,19 +731,22 @@ function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, m
   const [position, setPosition] = useState(0);
   const options = useMemo(() => shuffle(words), [words]);
 
-  const canHear = hasRecordedSpeech(sentence);
+  const canHear = isSoundEnabled && hasRecordedSpeech(sentence);
+  const resolvedRef = useRef(false);
 
   useEffect(() => {
     if (isSoundEnabled && canHear) speak(sentence);
   }, [canHear, isSoundEnabled, sentence]);
 
   function choose(word) {
+    if (resolvedRef.current) return;
     if (word !== words[position]) {
       miss();
       return;
     }
     addScore(10);
     if (position + 1 >= words.length) {
+      resolvedRef.current = true;
       const nextCorrect = correct + 1;
       setCorrect(nextCorrect);
       addScore(20);
@@ -745,21 +787,25 @@ function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, 
   const total = state.fixes.length;
   const fix = state.fixes[round] || state.fixes[0];
   const [solved, setSolved] = useState(false);
+  const [solvedAnswer, setSolvedAnswer] = useState("");
+  const resolvedRef = useRef(false);
   const options = useMemo(() => shuffle(fix.options), [fix]);
 
-  const canHear = hasRecordedSpeech(fix.say);
+  const canHear = isSoundEnabled && hasRecordedSpeech(fix.say);
 
   useEffect(() => {
     if (isSoundEnabled && canHear) speak(fix.say);
   }, [canHear, fix, isSoundEnabled]);
 
   function choose(option) {
-    if (solved) return;
-    if (option !== fix.answer) {
+    if (resolvedRef.current || solved) return;
+    if (!isAcceptedAnswer(fix, option)) {
       miss();
       return;
     }
+    resolvedRef.current = true;
     setSolved(true);
+    setSolvedAnswer(option);
     const nextCorrect = correct + 1;
     setCorrect(nextCorrect);
     addScore(25);
@@ -782,7 +828,7 @@ function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, 
       <div className="lg-race-track"><span style={{ width: `${Math.max(8, (correct / total) * 100)}%` }}><RaceMarker /></span></div>
       <div className="lg-reading-sentence lg-fix-sentence">
         {sentenceParts[0]}
-        <span className={`lg-fix-slot${solved ? " solved" : ""}`}>{solved ? fix.answer : "\u00A0"}</span>
+        <span className={`lg-fix-slot${solved ? " solved" : ""}`}>{solved ? solvedAnswer : "\u00A0"}</span>
         {sentenceParts[1] || ""}
       </div>
       <div className="lg-hop-grid">

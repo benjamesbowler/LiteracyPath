@@ -1,6 +1,9 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {
+  acceptedRepairAnswers,
+  completedSentenceForRepair,
+  isAcceptedRepairAnswer,
   starGalleryLadder,
   starGalleryStars
 } from "../../src/utils/starGalleryRounds.js";
@@ -59,8 +62,32 @@ test("Sentence Grove starts with a complete sentence repair", () => {
 
   assert.equal(firstRepair.cue, "cat");
   assert.equal(firstRepair.display, "__ cat sat on the mat.");
+  assert.equal(firstRepair.completedSentence, "The cat sat on the mat.");
+  assert.equal(completedSentenceForRepair(firstRepair), "The cat sat on the mat.");
   assert.equal(firstRepair.answer, "The");
   assert.ok(firstRepair.options.includes("The"));
+});
+
+test("every authored repair has a valid blank, completed output, and reviewed answer set", () => {
+  for (const difficulty of ["easy", "medium", "hard"]) {
+    for (const level of starGalleryLadder(difficulty)) {
+      for (const item of level.items) {
+        const repair = item.repairs[0];
+        assert.equal(repair.completedSentence, completedSentenceForRepair(repair), item.id);
+        assert.doesNotMatch(repair.completedSentence, /__/u, `${item.id} leaves a blank in its completed output`);
+        assert.ok(acceptedRepairAnswers(repair).length > 0, `${item.id} needs an accepted answer set`);
+        for (const answer of acceptedRepairAnswers(repair)) {
+          assert.ok(repair.options.includes(answer), `${item.id} must present accepted answer ${answer}`);
+          assert.equal(isAcceptedRepairAnswer(repair, answer), true);
+        }
+      }
+    }
+  }
+
+  const pairedQuote = starGalleryLadder("medium")[0].items
+    .map(item => item.repairs[0])
+    .find(repair => repair.id === "punct-quote");
+  assert.equal(pairedQuote.completedSentence, '"Hello!"');
 });
 
 test("Sentence Grove capital and sentence-starter prompts use whole-word blanks", () => {

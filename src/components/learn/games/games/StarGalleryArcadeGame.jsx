@@ -7,7 +7,13 @@ import {
   playStarChime,
   playTapSound
 } from "../../../../utils/audio/gameSfx.js";
-import { starGalleryLadder, starGalleryStars } from "../../../../utils/starGalleryRounds.js";
+import {
+  acceptedRepairAnswers,
+  completedSentenceForRepair,
+  isAcceptedRepairAnswer,
+  starGalleryLadder,
+  starGalleryStars
+} from "../../../../utils/starGalleryRounds.js";
 import { cancelSpeech, speak } from "../../../../utils/learnGamesAudio.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import {
@@ -1158,7 +1164,8 @@ function createHud() {
     </div>
     <div data-role="prompt-panel" style="position:absolute;left:50%;top:88px;transform:translateX(-50%);width:min(680px,86vw);padding:16px 22px 18px;background:rgba(3,7,18,.9);border:2px solid rgba(255,226,92,.78);clip-path:polygon(5% 0,96% 0,100% 26%,94% 100%,5% 100%,0 70%,0 18%);text-align:center;pointer-events:auto;box-shadow:0 14px 34px rgba(0,0,0,.34);">
       <div data-role="prompt" data-child-instruction style="font-size:clamp(18px,2.2vw,24px);font-weight:900;color:#ffe45c;line-height:1.12;text-wrap:balance;"></div>
-      <div data-role="display" style="margin-top:6px;font-size:clamp(24px,3.2vw,36px);font-weight:900;line-height:1.12;overflow-wrap:anywhere;text-wrap:balance;"></div>
+      <div data-role="cue" aria-label="Picture cue" style="margin-top:6px;font-size:clamp(18px,2.4vw,26px);font-weight:900;color:#9fffe9;line-height:1.12;text-wrap:balance;"></div>
+      <div data-role="display" data-repair-sentence style="margin-top:6px;font-size:clamp(24px,3.2vw,36px);font-weight:900;line-height:1.12;overflow-wrap:anywhere;text-wrap:balance;"></div>
       <button data-role="replay" type="button" aria-label="Hear the sentence again" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:220px;min-height:56px;margin-top:12px;padding:10px 18px;border:2px solid rgba(159,255,233,.78);border-radius:12px;background:linear-gradient(180deg,rgba(24,75,78,.96),rgba(8,38,48,.96));color:#d9fff7;font-family:inherit;font-size:16px;font-weight:900;line-height:1.1;letter-spacing:.02em;text-shadow:0 2px 0 rgba(0,0,0,.8);box-shadow:0 5px 0 rgba(0,0,0,.45);cursor:pointer;touch-action:manipulation;">
         <span aria-hidden="true" style="font-size:20px;">&#128266;</span>
         <span data-role="replay-label">Hear sentence again</span>
@@ -1192,7 +1199,8 @@ function createHud() {
     </div>
     <div data-role="countdown" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,4,16,.50),rgba(2,4,16,.24));display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;">
       <div data-role="countdown-prompt" style="max-width:min(860px,86vw);font-size:clamp(26px,5vw,46px);font-weight:900;line-height:1.05;text-wrap:balance;"></div>
-      <div data-role="countdown-display" style="max-width:min(880px,88vw);margin-top:18px;font-size:clamp(24px,3.8vw,36px);font-weight:900;color:#ffe45c;line-height:1.12;overflow-wrap:anywhere;"></div>
+      <div data-role="countdown-cue" aria-label="Picture cue" style="max-width:min(880px,88vw);margin-top:18px;font-size:clamp(18px,2.6vw,28px);font-weight:900;color:#9fffe9;line-height:1.12;text-wrap:balance;"></div>
+      <div data-role="countdown-display" data-repair-sentence style="max-width:min(880px,88vw);margin-top:8px;font-size:clamp(24px,3.8vw,36px);font-weight:900;color:#ffe45c;line-height:1.12;overflow-wrap:anywhere;"></div>
       <div data-role="countdown-main" style="font-size:clamp(76px,16vw,144px);font-weight:900;color:#52ffe1;line-height:1.05;"></div>
     </div>
     <style>
@@ -1368,15 +1376,6 @@ function createStarGalleryEngine(mount, options) {
     return repair ? `${repair.prompt}` : "Hit the word that completes it";
   }
 
-  function currentDisplay() {
-    return displayWithCue(repairForState(state));
-  }
-
-  function displayWithCue(repair) {
-    if (!repair) return "";
-    return repair.cue ? `${repair.cue} ${repair.display}` : repair.display;
-  }
-
   function resetPlayer() {
     const placement = placementFor(state);
     state.player.x = placement.start[0];
@@ -1505,7 +1504,7 @@ function createStarGalleryEngine(mount, options) {
     for (const choice of choices) {
       const copies = choice === repair.answer ? 2 : state.level.difficulty === "hard" ? 3 : 2;
       for (let copy = 0; copy < copies; copy += 1) {
-        expanded.push({ choice, copy, isCorrect: choice === repair.answer });
+        expanded.push({ choice, copy, isCorrect: isAcceptedRepairAnswer(repair, choice) });
       }
     }
     const tokenCount = Math.min(state.level.difficulty === "hard" ? 9 : state.level.difficulty === "medium" ? 8 : 7, expanded.length);
@@ -1933,13 +1932,19 @@ function createStarGalleryEngine(mount, options) {
     renderer.domElement.dataset.answerTooCloseCount = String(answerClearances.filter(clearance => clearance.tooClose).length);
     renderer.domElement.dataset.itemIndex = String(state.itemIndex);
     renderer.domElement.dataset.correct = String(state.correct);
+    renderer.domElement.dataset.completedRepair = completedSentenceForRepair(repairForState(state));
     if (state.frameGroup) {
       renderer.domElement.dataset.frameX = state.frameGroup.position.x.toFixed(2);
       renderer.domElement.dataset.frameZ = state.frameGroup.position.z.toFixed(2);
     }
     nodes.room.textContent = `${theme.name} ${state.stage + 1} of 10`;
     nodes.prompt.textContent = currentPrompt();
-    nodes.display.textContent = currentDisplay();
+    const repair = repairForState(state);
+    nodes.cue.textContent = repair?.cue ? `Picture cue: ${repair.cue}` : "";
+    nodes.cue.setAttribute("aria-label", repair?.cue ? `Picture cue: ${repair.cue}` : "Picture cue");
+    nodes.display.textContent = state.gateLocked
+      ? completedSentenceForRepair(repair)
+      : repair?.display || "";
     const canReplay = soundAllowed(options);
     nodes.replay.disabled = !canReplay;
     nodes.replay.style.opacity = canReplay ? "1" : "0.72";
@@ -1964,7 +1969,8 @@ function createStarGalleryEngine(mount, options) {
       const repair = repairForState(state);
       nodes.countdown.style.display = "flex";
       nodes.countdownPrompt.textContent = `Find the tree that fixes:`;
-      nodes.countdownDisplay.textContent = displayWithCue(repair);
+      nodes.countdownCue.textContent = repair?.cue ? `Picture cue: ${repair.cue}` : "";
+      nodes.countdownDisplay.textContent = repair?.display || "";
       nodes.countdownMain.textContent = state.countdown <= 0.72 ? "BEGIN" : String(Math.ceil(state.countdown));
       nodes.countdownMain.style.color = state.countdown <= 0.72 ? theme.accent : theme.accent2;
     } else {
@@ -2225,6 +2231,8 @@ function createStarGalleryEngine(mount, options) {
         combo: state.combo,
         countdown: state.countdown,
         currentRepair: repairForState(state),
+        currentCompletedSentence: completedSentenceForRepair(repairForState(state)),
+        currentAcceptedAnswers: acceptedRepairAnswers(repairForState(state)),
         player: { ...state.player },
         gateLocked: state.gateLocked,
         nearTreeLabel: state.nearTreeLabel,
