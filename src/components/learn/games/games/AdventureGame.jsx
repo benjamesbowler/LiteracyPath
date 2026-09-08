@@ -5,6 +5,7 @@ import { ConfettiCelebration } from "../shared/ConfettiCelebration.jsx";
 import { IllustratedGameScene } from "../shared/IllustratedGameScene.jsx";
 import { ProgressStars } from "../shared/ProgressStars.jsx";
 import { getChildWordAsset } from "../../../../data/childAssets.js";
+import { G12ConveyorScene, G12RiverScene } from "./G12AdventureScenes.jsx";
 import {
   buildAdventureRoundSet,
   adventureStars
@@ -161,7 +162,7 @@ function Complete({ title, stars, score, onRestart }) {
 
 // ── Word Rescue ────────────────────────────────────────────────────────────
 function RescueStage({ rounds, state, isSoundEnabled }) {
-  const { index, planks, wrongWord, choose } = state;
+  const { index, resumeSteps, currentSolvedSteps, paused, wrongWord, choose } = state;
   const round = rounds[index] || rounds[rounds.length - 1];
   const canHearWord = isSoundEnabled && hasRecordedSpeech(round?.word);
 
@@ -178,15 +179,7 @@ function RescueStage({ rounds, state, isSoundEnabled }) {
         // Sound off: the target only exists as audio, so show it as a card.
         <span className="adv-belt-item" style={{ animation: "none" }}>{round.word}</span>
       )}
-      <div className="adv-bridge" aria-label={`${planks} of ${rounds.length} planks built; friend moves toward Home`}>
-        <span className="adv-pal" style={{ "--plank": planks }} aria-hidden="true">
-          <img src="/images/pals/poses/meadow-wave.webp" alt="" onError={e => { e.currentTarget.style.display = "none"; }} />
-        </span>
-        {rounds.map((r, i) => (
-          <span key={i} className={`adv-plank${i < planks ? " laid" : ""}`} aria-hidden="true" />
-        ))}
-        <span className="adv-destination" aria-hidden="true">HOME</span>
-      </div>
+      <G12RiverScene total={rounds.length} knownCompletedSteps={resumeSteps} currentSolvedSteps={currentSolvedSteps} paused={paused} />
       <div className="adv-choices">
         {round.choices.map(word => (
           <button
@@ -205,7 +198,7 @@ function RescueStage({ rounds, state, isSoundEnabled }) {
 
 // ── Sound Sort Factory ─────────────────────────────────────────────────────
 function SortStage({ sort, state, isSoundEnabled }) {
-  const { index, beltKey, wrongBin, sortDestination, sortItem } = state;
+  const { index, motion, paused, sortItem } = state;
   const item = sort.items[index] || sort.items[sort.items.length - 1];
 
   useEffect(() => {
@@ -215,26 +208,7 @@ function SortStage({ sort, state, isSoundEnabled }) {
   return (
     <IllustratedGameScene mode="sort" stageClassName="adv-sort">
       <p data-task-mode="orthographic">Read the printed word. Sort its beginning grapheme into the matching bin.</p>
-      <div className={`adv-belt${sortDestination ? " sorted" : ""}`} data-task-mode="orthographic" aria-label={`Printed word ${item.word}`}>
-        <span key={beltKey} className="adv-belt-item">{item.word}</span>
-        {sortDestination && <span className="adv-sort-route" role="status">Routed to /{sortDestination}/ bin</span>}
-      </div>
-      <div className="adv-bins">
-        {[sort.binA, sort.binB].map(bin => (
-          <button
-            key={bin}
-            type="button"
-            className={`adv-bin${wrongBin === bin ? " kid-wobble" : ""}`}
-            onClick={() => {
-              if (isSoundEnabled) speakPhoneme(bin);
-              sortItem(bin);
-            }}
-          >
-            <span className="adv-bin-label">{bin}</span>
-            <span className="adv-bin-mouth" aria-hidden="true" />
-          </button>
-        ))}
-      </div>
+      <G12ConveyorScene item={item} binA={sort.binA} binB={sort.binB} motion={motion} paused={paused} onSelect={bin => { if (isSoundEnabled) speakPhoneme(bin); sortItem(bin); }} />
     </IllustratedGameScene>
   );
 }
@@ -310,7 +284,7 @@ function GardenStage({ rounds, state, isSoundEnabled }) {
   );
 }
 
-export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, isSoundEnabled = true }) {
+export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onResultReady, onSessionStart, onCheckpoint, onEngineReady, isSoundEnabled = true }) {
   const [version, setVersion] = useState(0);
   const onboard = ONBOARD[mode] || ONBOARD.garden;
   const [introOpen, setIntroOpen] = useState(() => !readOnboarded(onboard.key));
@@ -321,20 +295,21 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   );
   const { rescue, sort, garden } = roundSet;
   const total = mode === "rescue" ? rescue.length : mode === "sort" ? sort.items.length : garden.length;
+  const initialStartLevel = Math.max(0, Math.min(Number(startLevel) || 0, Math.max(total - 1, 0)));
 
-  const [index, setIndex] = useState(() => Math.max(0, Math.min(Number(startLevel) || 0, Math.max(total - 1, 0))));
+  const [index, setIndex] = useState(initialStartLevel);
   const [score, setScore] = useState(0);
   const [wrongs, setWrongs] = useState(0);
   const [completed, setCompleted] = useState(false);
   const [stars, setStars] = useState(0);
   const [typed, setTyped] = useState([]);
   const [grown, setGrown] = useState([]);
-  const [planks, setPlanks] = useState(0);
+  const [planks, setPlanks] = useState(initialStartLevel);
   const [wrongWord, setWrongWord] = useState("");
   const [wrongBin, setWrongBin] = useState("");
-  const [sortDestination, setSortDestination] = useState("");
   const [wrongLetter, setWrongLetter] = useState("");
-  const [beltKey, setBeltKey] = useState(0);
+  const [sortMotion, setSortMotion] = useState({ phase: "idle", bin: "", token: 0 });
+  const [enginePaused, setEnginePaused] = useState(false);
   // Busy blocks all input between a correct tap and the scheduled advance, so
   // double-taps can't double-count or fire onComplete twice. timeoutsRef tracks
   // every pending timer as {id, fn, remaining, startedAt} entries so unmount
@@ -350,9 +325,16 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   const speechTokenRef = useRef(0);
   const responseEvidenceRef = useRef({ firstResponses: [], assistedRetries: [] });
   const responseAttemptsRef = useRef(new Map());
+  const sortMotionRef = useRef(false);
+  const resultReadyRef = useRef(false);
+  const onResultReadyRef = useRef(onResultReady);
+  const onSessionStartRef = useRef(onSessionStart);
 
   useEffect(() => { activeIndexRef.current = index; }, [index]);
   useEffect(() => { soundEnabledRef.current = isSoundEnabled; }, [isSoundEnabled]);
+  useEffect(() => { onResultReadyRef.current = onResultReady; }, [onResultReady]);
+  useEffect(() => { onSessionStartRef.current = onSessionStart; }, [onSessionStart]);
+  useEffect(() => { onSessionStartRef.current?.(); }, []);
 
   useEffect(() => { onScoreUpdate?.(score); }, [onScoreUpdate, score]);
   useEffect(() => { onProgressUpdate?.(Math.min(index + 1, total), total || 1); }, [onProgressUpdate, index, total]);
@@ -390,6 +372,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   function pauseEngine() {
     if (pausedRef.current) return;
     pausedRef.current = true;
+    setEnginePaused(true);
     speechTokenRef.current += 1;
     cancelSpeech();
     const now = Date.now();
@@ -402,6 +385,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   function resumeEngine() {
     if (!pausedRef.current) return;
     pausedRef.current = false;
+    setEnginePaused(false);
     timeoutsRef.current.forEach(entry => armTimeout(entry));
   }
 
@@ -420,11 +404,18 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
     onComplete?.(earned, scoreRef.current, correctCount, responseEvidenceRef.current);
   }
 
-  function advance(correctCount) {
+  function notifyResultReady(correctCount) {
+    if (resultReadyRef.current || correctCount < total) return;
+    resultReadyRef.current = true;
+    onResultReadyRef.current?.(adventureStars(correctCount, total, wrongs), scoreRef.current, correctCount, responseEvidenceRef.current);
+  }
+
+  function advance(correctCount, delay = 600) {
     later(() => {
       speechTokenRef.current += 1;
       busyRef.current = false;
-      setSortDestination("");
+      sortMotionRef.current = false;
+      setSortMotion({ phase: "idle", bin: "", token: 0 });
       if (index + 1 >= total) finish(correctCount);
       else {
         const next = index + 1;
@@ -432,7 +423,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
         setIndex(next);
         onCheckpoint?.(next, total);
       }
-    }, 600);
+    }, delay);
   }
 
   function miss(setter, value, replayWord) {
@@ -456,9 +447,12 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
     busyRef.current = false;
     setVersion(v => v + 1);
     setIndex(0); scoreRef.current = 0; setScore(0); setWrongs(0); setCompleted(false); setStars(0);
-    setTyped([]); setGrown([]); setPlanks(0); setSortDestination(""); setBeltKey(k => k + 1);
+    setTyped([]); setGrown([]); setPlanks(0); setSortMotion({ phase: "idle", bin: "", token: 0 });
+    sortMotionRef.current = false;
+    resultReadyRef.current = false;
     responseEvidenceRef.current = { firstResponses: [], assistedRetries: [] };
     responseAttemptsRef.current = new Map();
+    onSessionStartRef.current?.();
   }
 
   function recordFirstResponse(response) {
@@ -490,13 +484,14 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
 
   if (mode === "rescue") {
     const state = {
-      index, planks, wrongWord,
+      index, planks, resumeSteps: initialStartLevel, currentSolvedSteps: Math.max(0, planks - initialStartLevel), paused: enginePaused, wrongWord,
       choose: word => {
         if (busyRef.current) return;
         const round = rescue[index];
         if (!round) return;
         if (!responseEvidenceRef.current.firstResponses.some(item => item.round === index)) {
-          recordFirstResponse({ game: "word-rescue", round: index, target: round.word, response: word, correct: word === round.word, soundEnabled: isSoundEnabled });
+          const canReplay = isSoundEnabled && hasRecordedSpeech(round.word);
+          recordFirstResponse({ game: "word-rescue", round: index, target: round.word, response: word, correct: word === round.word, practiceOnly: true, independent: false, supportUsed: [canReplay ? "spoken_target" : "printed_target"], audioDelivery: canReplay ? "requested" : "not_available", soundEnabled: isSoundEnabled });
         }
         if (word !== round.word) {
           responseAttemptsRef.current.set(index, (responseAttemptsRef.current.get(index) || 0) + 1);
@@ -510,6 +505,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
         scoreRef.current += 20;
         setScore(scoreRef.current);
         setPlanks(p => p + 1);
+        notifyResultReady(index + 1);
         advance(planks + 1);
       }
     };
@@ -518,28 +514,34 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
 
   if (mode === "sort") {
     const state = {
-      index, beltKey, wrongBin, sortDestination,
+      index, wrongBin, motion: sortMotion, paused: enginePaused,
       sortItem: bin => {
-        if (busyRef.current) return;
+        if (busyRef.current || sortMotionRef.current) return;
         const item = sort.items[index];
         if (!item) return;
         if (!responseEvidenceRef.current.firstResponses.some(entry => entry.round === index)) {
-          recordFirstResponse({ game: "sound-sort-factory", round: index, target: item.word, response: bin, correct: bin === item.bin, soundEnabled: isSoundEnabled });
+          recordFirstResponse({ game: "sound-sort-factory", round: index, target: item.word, response: bin, correct: bin === item.bin, practiceOnly: true, independent: false, supportUsed: ["printed_orthographic_grapheme"], audioDelivery: "not_measured", soundEnabled: isSoundEnabled });
         }
         if (bin !== item.bin) {
           responseAttemptsRef.current.set(index, (responseAttemptsRef.current.get(index) || 0) + 1);
+          sortMotionRef.current = true;
+          const token = sortMotion.token + 1;
+          setSortMotion({ phase: "wrong-out", bin, token });
           miss(setWrongBin, bin);
+          later(() => setSortMotion({ phase: "wrong-return", bin, token }), 280);
+          later(() => { sortMotionRef.current = false; setSortMotion({ phase: "idle", bin: "", token: 0 }); }, 620);
           return;
         }
         busyRef.current = true;
         const attempts = responseAttemptsRef.current.get(index) || 0;
-        if (attempts) recordAssistedRetry({ game: "sound-sort-factory", round: index, target: item.word, attempts, supportUsed: ["target_replay"] });
+        if (attempts) recordAssistedRetry({ game: "sound-sort-factory", round: index, target: item.word, attempts, supportUsed: ["retry_same_item"] });
         if (isSoundEnabled) playCorrectChime();
         scoreRef.current += 15;
         setScore(scoreRef.current);
-        setSortDestination(bin);
-        setBeltKey(k => k + 1);
-        advance(index + 1);
+        sortMotionRef.current = true;
+        setSortMotion({ phase: "correct", bin, token: sortMotion.token + 1 });
+        notifyResultReady(index + 1);
+        advance(index + 1, 700);
       }
     };
     return <SortStage sort={sort} state={state} isSoundEnabled={isSoundEnabled} />;
