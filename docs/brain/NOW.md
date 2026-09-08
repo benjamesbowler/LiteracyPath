@@ -1,7 +1,7 @@
 ---
 type: current-state
 status: active
-updated: 2026-09-08
+updated: 2026-09-09
 authority: orientation-only
 ---
 
@@ -29,6 +29,13 @@ authoritative source and, when the choice is durable, record a linked decision.
 
 ## Current game-production direction
 
+- The improvement programme has integrated G01–G06 and G08. The latter adds
+  authored workshop object actions, short onset/rime reuse missions and
+  one-letter garden transformations; response records remain supported
+  practice rather than independent proficiency. Word Climb engineering is
+  isolated while its required climbing art remains unfinished. Independent
+  phonics batches may continue from G08's verified wrapper; the full Arcade,
+  phonics and Cycle Practice acceptance scope is unchanged.
 - The [Game Design Bible](../design/GAME_DESIGN_BIBLE.md) remains the product
   authority. The [Game Visual and Playability Production Guide](../design/GAME_VISUAL_PLAYABILITY_PRODUCTION_GUIDE.md)
   is the current provider-neutral workflow for raising game presentation and
