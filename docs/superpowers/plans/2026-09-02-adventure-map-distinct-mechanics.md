@@ -30,7 +30,7 @@
 - Modify: `src/components/elQuest/ElSkillsQuest.jsx`
 - Modify: `src/utils/progressMerge.js`
 - Modify: `src/utils/progressQueue.js`
-- Create: `supabase/migrations/20260902090000_reset_adventure_map_progress_epoch_2.sql`
+- Create: `supabase/migrations/20260902141014_reset_adventure_map_progress_epoch_2.sql`
 - Modify: `supabase/verify/progress_forward_merge_selftest.sql`
 - Test: `tests/unit/adventureMapProgress.test.js`
 - Test: `tests/unit/progressMerge.test.js`
@@ -112,7 +112,7 @@ Expected: PASS.
 - [ ] **Step 7: Commit the boundary**
 
 ```bash
-git add src/utils/adventureMapProgress.js src/components/elQuest/ElSkillsQuest.jsx src/utils/progressMerge.js src/utils/progressQueue.js supabase/migrations/20260902090000_reset_adventure_map_progress_epoch_2.sql supabase/verify/progress_forward_merge_selftest.sql tests/unit/adventureMapProgress.test.js tests/unit/progressMerge.test.js tests/unit/progressQueue.test.js tests/unit/studentFocusSessionDatabaseContract.test.js
+git add src/utils/adventureMapProgress.js src/components/elQuest/ElSkillsQuest.jsx src/utils/progressMerge.js src/utils/progressQueue.js supabase/migrations/20260902141014_reset_adventure_map_progress_epoch_2.sql supabase/verify/progress_forward_merge_selftest.sql tests/unit/adventureMapProgress.test.js tests/unit/progressMerge.test.js tests/unit/progressQueue.test.js tests/unit/studentFocusSessionDatabaseContract.test.js
 git commit -m "feat: reset Adventure Map progress for v2"
 ```
 

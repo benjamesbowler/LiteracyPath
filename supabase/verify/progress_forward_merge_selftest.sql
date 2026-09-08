@@ -29,6 +29,20 @@ begin
   assert r #>> '{cycles,c-1,stars}' = '3', 'el_quest local-only cycle lost';
   assert r #>> '{cycles,c-2,stars}' = '2', 'el_quest cycle not maxed';
   assert r #>> '{cycles,c-3,stars}' = '1', 'el_quest cloud-only cycle lost';
+  -- Exercise the public dispatcher too: calling only lp_merge_el_quest below
+  -- cannot detect an older migration routing this area to the generic merge.
+  assert public.lp_forward_merge_progress(
+    'el_quest',
+    '{"schemaVersion":2,"progressEpoch":2,"cycles":{}}'::jsonb,
+    '{"v":1,"cycles":{"obsolete-cycle":{"stars":3}}}'::jsonb
+  ) = '{"schemaVersion":2,"progressEpoch":2,"cycles":{}}'::jsonb,
+    'el_quest dispatcher restored obsolete progress';
+  assert public.lp_forward_merge_progress(
+    'el_quest',
+    '{"v":1,"cycles":{"obsolete-cycle":{"stars":3}}}'::jsonb,
+    '{"schemaVersion":2,"progressEpoch":2,"cycles":{}}'::jsonb
+  ) = '{"schemaVersion":2,"progressEpoch":2,"cycles":{}}'::jsonb,
+    'el_quest dispatcher restored obsolete progress in reverse merge';
   r := public.lp_merge_el_quest(
     '{"schemaVersion":2,"progressEpoch":2,"cycles":{"c-1":{"stars":3,"bestScore":100,"bestIndependent":10,"plays":4,"recoveries":0,"sampledConstructs":["older"],"lastRunSeed":"older-seed","lastIndependent":10,"lastTotal":10,"lastPlayedAt":"2026-09-02T09:00:00.000Z"}}}'::jsonb,
     '{"schemaVersion":2,"progressEpoch":2,"cycles":{"c-1":{"stars":1,"bestScore":40,"bestIndependent":4,"plays":5,"recoveries":6,"sampledConstructs":["new-a","new-b"],"lastRunSeed":"newer-seed","lastIndependent":4,"lastTotal":10,"lastPlayedAt":"2026-09-02T10:00:00.000Z"}}}'::jsonb

@@ -15,7 +15,7 @@ const adventureMigration = fs.readFileSync(
   "utf8"
 );
 const adventureProgressEpochMigration = fs.readFileSync(
-  new URL("../../supabase/migrations/20260902090000_reset_adventure_map_progress_epoch_2.sql", import.meta.url),
+  new URL("../../supabase/migrations/20260902141014_reset_adventure_map_progress_epoch_2.sql", import.meta.url),
   "utf8"
 );
 const cyclePracticeMigration = fs.readFileSync(
