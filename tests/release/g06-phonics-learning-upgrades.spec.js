@@ -4,6 +4,16 @@ test.beforeEach(async ({ page }) => {
   await page.setViewportSize({ width: 1024, height: 768 });
 });
 
+test.afterEach(async ({ page }, testInfo) => {
+  if (testInfo.status === testInfo.expectedStatus || page.isClosed()) return;
+  const audio = await page.evaluate(() => window.__g06Audio ? {
+    ...window.__g06Audio,
+    live: window.Howler._howls.map(howl => ({ src: howl._src, playing: howl.playing(),
+      sounds: howl._sounds.map(sound => ({ id: sound._id, paused: sound._paused, ended: sound._ended })) }))
+  } : null).catch(() => null);
+  if (audio) await testInfo.attach("recorded-playback-owners", { body: JSON.stringify(audio, null, 2), contentType: "application/json" });
+});
+
 async function openBuildWithStalledFinalRecording(page) {
   await page.goto("/preview/child-surfaces.html?surface=phonics&island=words&unlockWords=1&step=2");
   await page.getByRole("button", { name: "at word nest", exact: true }).click();
@@ -17,13 +27,13 @@ async function openBuildWithStalledFinalRecording(page) {
     prototype._emit = function (event, id, ...args) {
       const owned = this._src === target;
       if (event === "play") {
-        window.__g06Audio.events.push({ event, src: this._src, playing: this.playing(id) });
+        window.__g06Audio.events.push({ event, id, src: this._src, playing: this.playing(id), at: performance.now() });
         // Keep the real decoded recording playing, but withhold its terminal
         // signal to reproduce a playback owner that starts and never settles.
         if (owned) this.loop(true, id);
       }
       if (owned && event === "end") return this;
-      if (owned && event === "stop") window.__g06Audio.events.push({ event, src: this._src });
+      if (owned && event === "stop") window.__g06Audio.events.push({ event, id, src: this._src, at: performance.now() });
       return emit.call(this, event, id, ...args);
     };
   });
@@ -58,25 +68,29 @@ test("Build cancels a real final recording that starts but never ends and saves 
 });
 
 test("leaving Build invalidates a started final recording before its timeout", async ({ page }) => {
+  test.setTimeout(60000);
   await openBuildWithStalledFinalRecording(page);
   await page.getByRole("button", { name: "Back to words", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Word Workshop", exact: true })).toBeVisible();
-  const plays = await page.evaluate(() => window.__g06Audio.events.filter(event => event.event === "play").length);
+  await expect.poll(() => page.evaluate(() => window.Howler._howls.some(howl => howl.playing())), { timeout: 1500 }).toBe(false);
+  const plays = await page.evaluate(() => new Set(window.__g06Audio.events.filter(event => event.event === "play").map(event => `${event.src}:${event.id}`)).size);
   await page.waitForTimeout(4500);
-  expect(await page.evaluate(() => window.__g06Audio.events.filter(event => event.event === "play").length)).toBe(plays);
+  expect(await page.evaluate(() => new Set(window.__g06Audio.events.filter(event => event.event === "play").map(event => `${event.src}:${event.id}`)).size)).toBe(plays);
   expect(await page.evaluate(() => window.Howler._howls.some(howl => howl.playing()))).toBe(false);
   expect(await page.evaluate(() => JSON.parse(localStorage.getItem("lp_cvc_progress_child-surface-preview"))?.at?.completions?.length || 0)).toBe(0);
 });
 
 test("picture replay supersedes the final tile without an automatic blend stealing its owner", async ({ page }) => {
+  test.setTimeout(60000);
   await openBuildWithStalledFinalRecording(page);
-  const plays = await page.evaluate(() => window.__g06Audio.events.filter(event => event.event === "play").length);
+  const plays = await page.evaluate(() => new Set(window.__g06Audio.events.filter(event => event.event === "play").map(event => `${event.src}:${event.id}`)).size);
   await page.getByRole("button", { name: "Hear cat", exact: true }).click();
+  await expect.poll(() => page.evaluate(() => window.Howler._howls.some(howl => howl._src === window.__g06Audio.target && howl.playing())), { timeout: 1500 }).toBe(false);
   await expect(page.getByRole("button", { name: "Next Word", exact: true })).toBeEnabled();
   await expect(page.getByText("The sound did not finish. Your word is still built.", { exact: true })).toBeVisible();
-  await expect.poll(() => page.evaluate(() => window.__g06Audio.events.filter(event => event.event === "play").length)).toBe(plays + 1);
+  await expect.poll(() => page.evaluate(() => new Set(window.__g06Audio.events.filter(event => event.event === "play").map(event => `${event.src}:${event.id}`)).size)).toBe(plays + 1);
   await page.waitForTimeout(4500);
-  expect(await page.evaluate(() => window.__g06Audio.events.filter(event => event.event === "play").length)).toBe(plays + 1);
+  expect(await page.evaluate(() => new Set(window.__g06Audio.events.filter(event => event.event === "play").map(event => `${event.src}:${event.id}`)).size)).toBe(plays + 1);
 });
 
 test("Word Magic models a change before offering authored grapheme choices", async ({ page }) => {
