@@ -19,6 +19,7 @@ import { recommendBooksForStudent } from "../../utils/guidedReading/recommendBoo
 // overrides applied) moved to its own module on 2026-07-29 so the child's Books
 // screen shelves exactly the list this reader opens. See runtimeBooks.js.
 import { getRuntimeGuidedReadingBooks } from "../../utils/guidedReading/runtimeBooks.js";
+import { withRepairedGuidedReadingImageVersion } from "../../utils/guidedReading/mediaVersion.js";
 import { isGuidedReadingAssetDeleted } from "../../data/deletedMediaManifest.js";
 import {
   getGuidedReadingBookAudioPath,
@@ -83,9 +84,7 @@ const GUIDED_READING_MEDIA_VERSION = "20260603-continuity-1";
 const GUIDED_READING_WORD_RATE = 0.9;
 
 function withGuidedReadingMediaVersion(src = "") {
-  if (!src || !src.startsWith("/guided-reading/")) return src;
-  const separator = src.includes("?") ? "&" : "?";
-  return `${src}${separator}v=${GUIDED_READING_MEDIA_VERSION}`;
+  return withRepairedGuidedReadingImageVersion(src, GUIDED_READING_MEDIA_VERSION);
 }
 
 function GuidedReadingImage({

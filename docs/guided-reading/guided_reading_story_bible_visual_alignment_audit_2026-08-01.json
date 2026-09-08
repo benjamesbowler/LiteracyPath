@@ -5,7 +5,7 @@
   "gateSemantics": {
     "mode": "fail-closed",
     "rule": "Every active page must have an exact displayed-text hash, image path, image-file hash and approved/replace decision. Any changed text, path or image bytes invalidate this audit record and require re-audit.",
-    "releaseFingerprintSha256": "c0a7716c99f77eee4b4c440e087c3452d3442960c1568062da4784a1cdbc13dc"
+    "releaseFingerprintSha256": "73200d4411d9a6a3ed7a3172de6b5834cc6dc91b4c242070d5d65bb9a806da97"
   },
   "scope": {
     "activeBooksAudited": 226,
@@ -48,7 +48,8 @@
     "On 2026-08-30, Level A was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.",
     "On 2026-08-30, Level B was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.",
     "On 2026-08-30, Level C was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.",
-    "On 2026-09-02, all 180 Willow Street covers and reading-page images were approved at original detail against exact text, visual briefs, full-book sequence, recurring-cast continuity, factual and procedural accuracy, anatomy, safety, embedded-text risk and runtime print placement; 160 reading pages were added to the fail-closed hash audit."
+    "On 2026-09-02, all 180 Willow Street covers and reading-page images were approved at original detail against exact text, visual briefs, full-book sequence, recurring-cast continuity, factual and procedural accuracy, anatomy, safety, embedded-text risk and runtime print placement; 160 reading pages were added to the fail-closed hash audit.",
+    "On 2026-09-08, 27 covers/pages in willow-street-build-a-cardboard-ramp, willow-street-dumplings-for-new-year, willow-street-the-lunchbox-mix-up were directly rechecked as complete sequences after scoped repairs. Other asset reviews and dates were preserved. Browser review is separate from human listening and a physical toy-car experiment."
   ],
   "issueCodeCounts": {
     "animal_welfare": 2,
@@ -26258,11 +26259,11 @@
       "displayedText": "Ask an adult for strong, flat cardboard.",
       "imagePath": "/guided-reading/willow-street/build-a-cardboard-ramp/page-01.webp",
       "textSha256": "9033f475b7967b1e3d9185b46751ea9756bfa9ebd505be801b1749ada4a18a54",
-      "imageSha256": "5069ccb7b7baa6a00ddbf215912286aa9cadd0332559afb513942c31d77d2b0e",
+      "imageSha256": "ca20db0b111d0363f2e7742e172febe9a789d4b78867c108f251b551ddc0d280",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved for Build a Cardboard Ramp page 1: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Replacement directly inspected at original detail and in the production reader. Same adult, Leo, hardwood playroom, red hatchback and one board; two-book slope, taped low end and clear landing, third yellow book added only at high end, blue/yellow stop comparison. Direct physical toy-car execution not claimed."
     },
     {
       "bookId": "willow-street-build-a-cardboard-ramp",
@@ -26272,11 +26273,11 @@
       "displayedText": "Stack two wide books on the floor.",
       "imagePath": "/guided-reading/willow-street/build-a-cardboard-ramp/page-02.webp",
       "textSha256": "e6157169b312c76736af740033524495c0e25f33e4b7253ad767932151f4ec75",
-      "imageSha256": "9d6d8bdc89dd07513a2f87090aacff45ddd3f07e063f0ae9d6b4d637f22836d2",
+      "imageSha256": "6503133611c990960e2ba46449a51f9c779fbe9b031233cc61d167bf7c725c99",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved for Build a Cardboard Ramp page 2: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Replacement directly inspected at original detail and in the production reader. Same adult, Leo, hardwood playroom, red hatchback and one board; two-book slope, taped low end and clear landing, third yellow book added only at high end, blue/yellow stop comparison. Direct physical toy-car execution not claimed."
     },
     {
       "bookId": "willow-street-build-a-cardboard-ramp",
@@ -26286,11 +26287,11 @@
       "displayedText": "Rest the cardboard across the book stack.",
       "imagePath": "/guided-reading/willow-street/build-a-cardboard-ramp/page-03.webp",
       "textSha256": "8a4a257652543f5c316219109f98446815fd6906f03fb1b3b440f7ce6937c4f7",
-      "imageSha256": "0d7cb8b70dcf98debfe50df8915f8a7fa6609a13102ef8a231e0954c989f4f8b",
+      "imageSha256": "d0fde57952f463157a59916325fed91e444f7acfb5dc3cee40dc66f084428a7c",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved for Build a Cardboard Ramp page 3: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Replacement directly inspected at original detail and in the production reader. Same adult, Leo, hardwood playroom, red hatchback and one board; two-book slope, taped low end and clear landing, third yellow book added only at high end, blue/yellow stop comparison. Direct physical toy-car execution not claimed."
     },
     {
       "bookId": "willow-street-build-a-cardboard-ramp",
@@ -26300,11 +26301,11 @@
       "displayedText": "Tape the ramp so it cannot slide.",
       "imagePath": "/guided-reading/willow-street/build-a-cardboard-ramp/page-04.webp",
       "textSha256": "daa9c9820bdab1296d72370126784cb0e244d967bec19871a8ccb25e33d27415",
-      "imageSha256": "e472294bff7d6317ee94bd818cdc2869fb4b69b04ca28237b16af8dcb360d703",
+      "imageSha256": "ce2a1a3b4ed3e590171a5bc5b0e33c411148c3a06d16b31f9979c8c48cbeaddc",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved for Build a Cardboard Ramp page 4: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Replacement directly inspected at original detail and in the production reader. Same adult, Leo, hardwood playroom, red hatchback and one board; two-book slope, taped low end and clear landing, third yellow book added only at high end, blue/yellow stop comparison. Direct physical toy-car execution not claimed."
     },
     {
       "bookId": "willow-street-build-a-cardboard-ramp",
@@ -26314,11 +26315,11 @@
       "displayedText": "Clear toys away from the landing space.",
       "imagePath": "/guided-reading/willow-street/build-a-cardboard-ramp/page-05.webp",
       "textSha256": "c618e514a385889f18f42be672dc4e2c33bd3b80f72d2434ee186fa7d3ea1071",
-      "imageSha256": "d714f21e6a644b9bed60975a85ff39b1dacd4cbf97284bbd50e2aaf679c0e967",
+      "imageSha256": "4a86da8a671acbcd1b251aceafd143907b529c57d18a9195d038190efda2061b",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved for Build a Cardboard Ramp page 5: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Replacement directly inspected at original detail and in the production reader. Same adult, Leo, hardwood playroom, red hatchback and one board; two-book slope, taped low end and clear landing, third yellow book added only at high end, blue/yellow stop comparison. Direct physical toy-car execution not claimed."
     },
     {
       "bookId": "willow-street-build-a-cardboard-ramp",
@@ -26328,11 +26329,11 @@
       "displayedText": "Release one car, then mark its stopping point.",
       "imagePath": "/guided-reading/willow-street/build-a-cardboard-ramp/page-06.webp",
       "textSha256": "2dd3cc678e6ac5f6161ce79df1100451d93c7d793b0a46e67eabfc32ff96ff1d",
-      "imageSha256": "e0e450ded98e74c4c6723dddfa0b851196934124bc41c3537e1531165abda860",
+      "imageSha256": "1f9968d48989ea50b95da88029c31da336c13a82a034d0c9216e71466a22e917",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved for Build a Cardboard Ramp page 6: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Replacement directly inspected at original detail and in the production reader. Same adult, Leo, hardwood playroom, red hatchback and one board; two-book slope, taped low end and clear landing, third yellow book added only at high end, blue/yellow stop comparison. Direct physical toy-car execution not claimed."
     },
     {
       "bookId": "willow-street-build-a-cardboard-ramp",
@@ -26342,11 +26343,11 @@
       "displayedText": "Raise the ramp, release the car again, then mark its second stop.",
       "imagePath": "/guided-reading/willow-street/build-a-cardboard-ramp/page-07.webp",
       "textSha256": "70c30afe545059e2d3a667b12a9616de043342399f5782b44a22181992ec6900",
-      "imageSha256": "3b5a2d171b87f1b3cc725b880f77e54f4df7bd435499d838f88eb0e254a41a6a",
+      "imageSha256": "52e394a9931e02aa97cb371e768d8578d0ddd1b6375e6a5f9f4be2c6e4417d4b",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved for Build a Cardboard Ramp page 7: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Replacement directly inspected at original detail and in the production reader. Same adult, Leo, hardwood playroom, red hatchback and one board; two-book slope, taped low end and clear landing, third yellow book added only at high end, blue/yellow stop comparison. Direct physical toy-car execution not claimed."
     },
     {
       "bookId": "willow-street-build-a-cardboard-ramp",
@@ -26356,11 +26357,11 @@
       "displayedText": "Compare both marks to see which roll traveled farther.",
       "imagePath": "/guided-reading/willow-street/build-a-cardboard-ramp/page-08.webp",
       "textSha256": "656ddf007c810b2e9715f9fa734d778704f3200408d6db86b593f5b412e9d76c",
-      "imageSha256": "3cd3a5b65f5c89f20491276f7e8bea11471623977f25f7a2d2caa9754348edb5",
+      "imageSha256": "e7ea09a2b57c682b17679d38b560eeefc238a189659eec2f13787c51fc4d8019",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved for Build a Cardboard Ramp page 8: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Replacement directly inspected at original detail and in the production reader. Same adult, Leo, hardwood playroom, red hatchback and one board; two-book slope, taped low end and clear landing, third yellow book added only at high end, blue/yellow stop comparison. Direct physical toy-car execution not claimed."
     },
     {
       "bookId": "willow-street-drums-for-carnival",
@@ -26486,7 +26487,7 @@
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved for Dumplings for New Year page 1: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Retained original directly rechecked within the complete eight-page sequence. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
     },
     {
       "bookId": "willow-street-dumplings-for-new-year",
@@ -26500,7 +26501,7 @@
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved for Dumplings for New Year page 2: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Retained original directly rechecked within the complete eight-page sequence. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
     },
     {
       "bookId": "willow-street-dumplings-for-new-year",
@@ -26514,7 +26515,7 @@
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved for Dumplings for New Year page 3: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Retained original directly rechecked within the complete eight-page sequence. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
     },
     {
       "bookId": "willow-street-dumplings-for-new-year",
@@ -26528,7 +26529,7 @@
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved for Dumplings for New Year page 4: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Retained original directly rechecked within the complete eight-page sequence. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
     },
     {
       "bookId": "willow-street-dumplings-for-new-year",
@@ -26542,7 +26543,7 @@
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved for Dumplings for New Year page 5: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Retained original directly rechecked within the complete eight-page sequence. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
     },
     {
       "bookId": "willow-street-dumplings-for-new-year",
@@ -26556,7 +26557,7 @@
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved for Dumplings for New Year page 6: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Retained original directly rechecked within the complete eight-page sequence. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
     },
     {
       "bookId": "willow-street-dumplings-for-new-year",
@@ -26566,11 +26567,11 @@
       "displayedText": "An adult cooks the dumplings until they are ready.",
       "imagePath": "/guided-reading/willow-street/dumplings-for-new-year/page-07.webp",
       "textSha256": "4b8882d3a1be2386e64b12e446dde6e47e16a4653eaecb669163b13f1060f174",
-      "imageSha256": "b9bf49c16b36ac07067ff64fbac4aa97af181ea88d9b0a9856d02054dae70621",
+      "imageSha256": "a88db6e269fe55a65a4d6594eb3e92cf3ad30aa01e16eb69463014191e36c3a6",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved for Dumplings for New Year page 7: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Replacement directly inspected at original detail and in the production reader. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
     },
     {
       "bookId": "willow-street-dumplings-for-new-year",
@@ -26584,7 +26585,7 @@
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved for Dumplings for New Year page 8: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Retained original directly rechecked within the complete eight-page sequence. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
     },
     {
       "bookId": "willow-street-eid-morning-with-samir",
@@ -27826,11 +27827,11 @@
       "displayedText": "Maya opens her lunchbox and finds Samir's blue cup.",
       "imagePath": "/guided-reading/willow-street/the-lunchbox-mix-up/page-01.webp",
       "textSha256": "8618411eca22728c2fde9243fe4be83e5f842fbfd1e91b1262b66e441e9a89a0",
-      "imageSha256": "ffa1b7aa28325c1931bb59b68bc2679c6e1397210ea3318aec73ae35afe07852",
+      "imageSha256": "684eecae91081e3e220a487b960a1099c6acceafbe426c2ec0f20353cb1436e5",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Replacement directly inspected at original detail and in the production reader. Yellow stays with Maya and green with Samir; cup/apple mixed until content exchange on page 4, spoon returned afterward; prose and exact narration agree."
     },
     {
       "bookId": "willow-street-the-lunchbox-mix-up",
@@ -27840,11 +27841,11 @@
       "displayedText": "Maya checks the labels beside each lunchbox.",
       "imagePath": "/guided-reading/willow-street/the-lunchbox-mix-up/page-02.webp",
       "textSha256": "88d6d15da1063d88b12a9c98a5268d72dd04cf713b4707d94da2dd70fdf40bab",
-      "imageSha256": "58d1aa2bb276d83a38fa2875f249109b313327bd6f8e3c1bb35535fc6cf91116",
+      "imageSha256": "24f31ebd337b5d2c92196592b96336d9fa8c07133d9c3be09ffa45d711cac2e3",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Replacement directly inspected at original detail and in the production reader. Yellow stays with Maya and green with Samir; cup/apple mixed until content exchange on page 4, spoon returned afterward; prose and exact narration agree."
     },
     {
       "bookId": "willow-street-the-lunchbox-mix-up",
@@ -27854,25 +27855,25 @@
       "displayedText": "Samir checks the labels and spots Maya's green apple.",
       "imagePath": "/guided-reading/willow-street/the-lunchbox-mix-up/page-03.webp",
       "textSha256": "bb23a11859a5f293b807425c49571fb8ed5b28d23ec5d70e03ef39f2830abab3",
-      "imageSha256": "6548df25a2d96b1af8e43186bdbd9b4e0f5b81a10e3779f52a9389d04d26a546",
+      "imageSha256": "d797a7dfed17d83a6dcf99c8321226ba9c9d20baef4d8245f35d339f9851b66c",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Replacement directly inspected at original detail and in the production reader. Yellow stays with Maya and green with Samir; cup/apple mixed until content exchange on page 4, spoon returned afterward; prose and exact narration agree."
     },
     {
       "bookId": "willow-street-the-lunchbox-mix-up",
       "title": "The Lunchbox Mix-Up",
       "level": "C",
       "pageNumber": 4,
-      "displayedText": "They swap the lunchboxes, but one spoon stays behind.",
+      "displayedText": "They swap the things, but one spoon stays behind.",
       "imagePath": "/guided-reading/willow-street/the-lunchbox-mix-up/page-04.webp",
-      "textSha256": "362d8325f228c766ff702795eb36dbdf0dda9cd40bed14c9950ecd99752a53f5",
-      "imageSha256": "29dc3b7804de2e5c4166e1c76b3219cbdbde523d5ef8be525ac5506aef33d1ea",
+      "textSha256": "1ede808e18edc70b42f8241a7f7589687c03871091239eb28b3e27c0060b7936",
+      "imageSha256": "ad0925e46f3ba676b71c0940457c2b8ec0996c7abab498fe9b3e21f57861c243",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Replacement directly inspected at original detail and in the production reader. Yellow stays with Maya and green with Samir; cup/apple mixed until content exchange on page 4, spoon returned afterward; prose and exact narration agree."
     },
     {
       "bookId": "willow-street-the-lunchbox-mix-up",
@@ -27886,7 +27887,7 @@
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Retained original directly rechecked within the complete eight-page sequence. Yellow stays with Maya and green with Samir; cup/apple mixed until content exchange on page 4, spoon returned afterward; prose and exact narration agree."
     },
     {
       "bookId": "willow-street-the-lunchbox-mix-up",
@@ -27900,7 +27901,7 @@
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Retained original directly rechecked within the complete eight-page sequence. Yellow stays with Maya and green with Samir; cup/apple mixed until content exchange on page 4, spoon returned afterward; prose and exact narration agree."
     },
     {
       "bookId": "willow-street-the-lunchbox-mix-up",
@@ -27914,7 +27915,7 @@
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Retained original directly rechecked within the complete eight-page sequence. Yellow stays with Maya and green with Samir; cup/apple mixed until content exchange on page 4, spoon returned afterward; prose and exact narration agree."
     },
     {
       "bookId": "willow-street-the-lunchbox-mix-up",
@@ -27928,7 +27929,7 @@
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+      "regenerationBrief": "Original-detail review recorded in docs/guided-reading/willow-street-illustrated-media-manifest.json: Retained original directly rechecked within the complete eight-page sequence. Yellow stays with Maya and green with Samir; cup/apple mixed until content exchange on page 4, spoon returned afterward; prose and exact narration agree."
     },
     {
       "bookId": "willow-street-the-puddle-plan",

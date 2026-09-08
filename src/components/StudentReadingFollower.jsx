@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { withRepairedGuidedReadingImageVersion } from "../utils/guidedReading/mediaVersion.js";
 import "./StudentReadingFollower.css";
 
 export function StudentReadingFollower({ follower }) {
@@ -76,7 +77,7 @@ function StudentReadingPage({ connection, page, session }) {
               onLoad={() => {
                 setImagePainted(true);
               }}
-              src={page.image}
+              src={withRepairedGuidedReadingImageVersion(page.image)}
             />
           </div>
         )}

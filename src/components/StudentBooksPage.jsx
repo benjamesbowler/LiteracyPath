@@ -26,6 +26,7 @@
 // a third one, and it does not come back here.
 
 import { useEffect, useMemo, useState } from "react";
+import { withRepairedGuidedReadingImageVersion } from "../utils/guidedReading/mediaVersion.js";
 import { BookOpenText } from "@phosphor-icons/react";
 
 import StudentGlassShell from "./StudentGlassShell.jsx";
@@ -153,7 +154,7 @@ function MoreGlyph() {
 // lives in the policy module so a unit test can hold it to the title/cover
 // pairing without mounting React.
 function coverFor(book) {
-  return bookCoverSrc(book, isGuidedReadingAssetDeleted);
+  return withRepairedGuidedReadingImageVersion(bookCoverSrc(book, isGuidedReadingAssetDeleted));
 }
 
 // A READ THAT FAILED IS NOT A CHILD WHO HAS READ NOTHING. The session

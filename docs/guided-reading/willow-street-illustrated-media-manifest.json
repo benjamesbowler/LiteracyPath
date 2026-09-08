@@ -30,7 +30,7 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "aa608fd9a85979eab32719a79e89ecb527f39778abe6b41adfa88dee13c3c490",
-        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+        "notes": "Retained original directly rechecked within the complete eight-page sequence. Yellow stays with Maya and green with Samir; cup/apple mixed until content exchange on page 4, spoon returned afterward; prose and exact narration agree."
       },
       "sourceImageGenOutput": "exec-b9f7973f-6f01-4763-bf85-f4314581d882.png"
     },
@@ -38,77 +38,81 @@
       "bookId": "willow-street-the-lunchbox-mix-up",
       "pageNumber": 1,
       "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-01.webp",
-      "sha256": "ffa1b7aa28325c1931bb59b68bc2679c6e1397210ea3318aec73ae35afe07852",
+      "sha256": "684eecae91081e3e220a487b960a1099c6acceafbe426c2ec0f20353cb1436e5",
       "width": 1365,
       "height": 768,
       "textSha256": "8618411eca22728c2fde9243fe4be83e5f842fbfd1e91b1262b66e441e9a89a0",
-      "briefSha256": "12bb2683224b99593bdee58e485aa81073839668328daa0270dd440461afa421",
+      "briefSha256": "fe093a64c570601356b03c62b7077d68ad697e788accf1bf0d0c6e2d34520632",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "ffa1b7aa28325c1931bb59b68bc2679c6e1397210ea3318aec73ae35afe07852",
-        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+        "reviewedSha256": "684eecae91081e3e220a487b960a1099c6acceafbe426c2ec0f20353cb1436e5",
+        "notes": "Replacement directly inspected at original detail and in the production reader. Yellow stays with Maya and green with Samir; cup/apple mixed until content exchange on page 4, spoon returned afterward; prose and exact narration agree."
       },
-      "sourceImageGenOutput": "exec-8288e4e9-8fe7-46c5-8b06-393e32369c81.png"
+      "sourceImageGenOutput": "exec-ac5076f5-c01b-4952-b6b3-1433843b6fc3.png",
+      "cacheVersion": "684eecae9108"
     },
     {
       "bookId": "willow-street-the-lunchbox-mix-up",
       "pageNumber": 2,
       "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-02.webp",
-      "sha256": "58d1aa2bb276d83a38fa2875f249109b313327bd6f8e3c1bb35535fc6cf91116",
+      "sha256": "24f31ebd337b5d2c92196592b96336d9fa8c07133d9c3be09ffa45d711cac2e3",
       "width": 1365,
       "height": 768,
       "textSha256": "88d6d15da1063d88b12a9c98a5268d72dd04cf713b4707d94da2dd70fdf40bab",
-      "briefSha256": "a64efa2601cb7abccbcbd3fdf878ccb36555b35076ba17aa9dd5efc9af284aaa",
+      "briefSha256": "786f08b4844cc0e133d72f5182e0c7e519ba28b417f0bb502f025c7779d2ea35",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "58d1aa2bb276d83a38fa2875f249109b313327bd6f8e3c1bb35535fc6cf91116",
-        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+        "reviewedSha256": "24f31ebd337b5d2c92196592b96336d9fa8c07133d9c3be09ffa45d711cac2e3",
+        "notes": "Replacement directly inspected at original detail and in the production reader. Yellow stays with Maya and green with Samir; cup/apple mixed until content exchange on page 4, spoon returned afterward; prose and exact narration agree."
       },
-      "sourceImageGenOutput": "exec-5b927096-f422-4fb4-9cd9-ccf7ecef3747.png"
+      "sourceImageGenOutput": "exec-ab5ee183-34b2-4473-bbb2-eb248f858123.png",
+      "cacheVersion": "24f31ebd337b"
     },
     {
       "bookId": "willow-street-the-lunchbox-mix-up",
       "pageNumber": 3,
       "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-03.webp",
-      "sha256": "6548df25a2d96b1af8e43186bdbd9b4e0f5b81a10e3779f52a9389d04d26a546",
+      "sha256": "d797a7dfed17d83a6dcf99c8321226ba9c9d20baef4d8245f35d339f9851b66c",
       "width": 1365,
       "height": 768,
       "textSha256": "bb23a11859a5f293b807425c49571fb8ed5b28d23ec5d70e03ef39f2830abab3",
-      "briefSha256": "7991d69af3acf3133cf8462f796390b31802532614bea12993b132b91ba78261",
+      "briefSha256": "4b03fc018bf38372dcefa595e4c27f566e825613865605cb80d23ff39d12c441",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "6548df25a2d96b1af8e43186bdbd9b4e0f5b81a10e3779f52a9389d04d26a546",
-        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+        "reviewedSha256": "d797a7dfed17d83a6dcf99c8321226ba9c9d20baef4d8245f35d339f9851b66c",
+        "notes": "Replacement directly inspected at original detail and in the production reader. Yellow stays with Maya and green with Samir; cup/apple mixed until content exchange on page 4, spoon returned afterward; prose and exact narration agree."
       },
-      "sourceImageGenOutput": "exec-889c9798-817a-4be5-a901-3f03224e31e3.png"
+      "sourceImageGenOutput": "exec-796ce385-7c07-4ec5-8923-c7a7fd81c44c.png",
+      "cacheVersion": "d797a7dfed17"
     },
     {
       "bookId": "willow-street-the-lunchbox-mix-up",
       "pageNumber": 4,
       "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-04.webp",
-      "sha256": "29dc3b7804de2e5c4166e1c76b3219cbdbde523d5ef8be525ac5506aef33d1ea",
+      "sha256": "ad0925e46f3ba676b71c0940457c2b8ec0996c7abab498fe9b3e21f57861c243",
       "width": 1365,
       "height": 768,
-      "textSha256": "362d8325f228c766ff702795eb36dbdf0dda9cd40bed14c9950ecd99752a53f5",
-      "briefSha256": "f484af47a8a6effedf521d8a480d182be3042773f9db9cbba217cd944f2ac1eb",
+      "textSha256": "1ede808e18edc70b42f8241a7f7589687c03871091239eb28b3e27c0060b7936",
+      "briefSha256": "a3eba2f7a2b1b77b48c80502293c9eda1a83fdeb72313525204ac858eababbce",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "29dc3b7804de2e5c4166e1c76b3219cbdbde523d5ef8be525ac5506aef33d1ea",
-        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+        "reviewedSha256": "ad0925e46f3ba676b71c0940457c2b8ec0996c7abab498fe9b3e21f57861c243",
+        "notes": "Replacement directly inspected at original detail and in the production reader. Yellow stays with Maya and green with Samir; cup/apple mixed until content exchange on page 4, spoon returned afterward; prose and exact narration agree."
       },
-      "sourceImageGenOutput": "exec-38505bb6-b63f-4d06-b0c4-84dcdcf62f79.png"
+      "sourceImageGenOutput": "exec-cfaedf44-c0a8-48c6-9a73-8b66ee67f3ed.png",
+      "cacheVersion": "ad0925e46f3b"
     },
     {
       "bookId": "willow-street-the-lunchbox-mix-up",
@@ -118,14 +122,14 @@
       "width": 1365,
       "height": 768,
       "textSha256": "bddae8258fcdf95b0089cec87646f1de32e646b325d68f2db28ffc79af7eec33",
-      "briefSha256": "c103c32499b4b5d0cc92ef79d117f8708cc85aff26d88d7d31793c3dfdb52ed8",
+      "briefSha256": "fa2d1bb6dd5a28927af734701a01b9bed31c07f8eaf9b4db28cd2628a659f0cf",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "839dd76f57623f50f6c649937153a95e6197ecf646fcfd91e7a5cffdde596e81",
-        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+        "notes": "Retained original directly rechecked within the complete eight-page sequence. Yellow stays with Maya and green with Samir; cup/apple mixed until content exchange on page 4, spoon returned afterward; prose and exact narration agree."
       },
       "sourceImageGenOutput": "exec-cbc0da24-640e-40f8-a0a9-ec3353256df1.png"
     },
@@ -144,7 +148,7 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "e00e5682698991703620c8a7bc19e7f3310edfc3f353dbf0236c3fd404b78054",
-        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+        "notes": "Retained original directly rechecked within the complete eight-page sequence. Yellow stays with Maya and green with Samir; cup/apple mixed until content exchange on page 4, spoon returned afterward; prose and exact narration agree."
       },
       "sourceImageGenOutput": "exec-460b3f79-359f-4a41-8b87-8273736dca66.png"
     },
@@ -163,7 +167,7 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "19f5c24a5fbc364c477d39255d885d24e6d88687d19cf6d1997d828e198e4ebd",
-        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+        "notes": "Retained original directly rechecked within the complete eight-page sequence. Yellow stays with Maya and green with Samir; cup/apple mixed until content exchange on page 4, spoon returned afterward; prose and exact narration agree."
       },
       "sourceImageGenOutput": "exec-49017e59-4c74-4190-989c-8ea7acaa2ea0.png"
     },
@@ -182,7 +186,7 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "29b38c2ce2b0fb9298a9ecc02c1a0f9cff2909fad8c821dce80ff8828ed7d17e",
-        "notes": "Original-detail review approved against the exact final brief: scene evidence, canon cast and wardrobe, story-state props, anatomy and safety, text-free finish, and calm lower text zone."
+        "notes": "Retained original directly rechecked within the complete eight-page sequence. Yellow stays with Maya and green with Samir; cup/apple mixed until content exchange on page 4, spoon returned afterward; prose and exact narration agree."
       },
       "sourceImageGenOutput": "exec-d90562c4-ae66-48e0-a89f-968d1a24e4a6.png"
     },
@@ -1227,7 +1231,7 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "0bcf0d087a5121a00f905f4782b0e759f768022fb80ebb012a2fd24c56aba624",
-        "notes": "Original-detail review approved for Dumplings for New Year cover: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "notes": "Retained original directly rechecked within the complete eight-page sequence. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
       },
       "sourceImageGenOutput": "exec-398ced09-38ae-4dd5-9bed-0fcc25a5aac9.png"
     },
@@ -1246,7 +1250,7 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "b7b88b990f0af59c3f4fac05dc87bd0ac637ea38d2618017322333d5cb90baf6",
-        "notes": "Original-detail review approved for Dumplings for New Year page 1: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "notes": "Retained original directly rechecked within the complete eight-page sequence. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
       },
       "sourceImageGenOutput": "exec-55d60569-3612-4061-9531-245bb34ecc06.png"
     },
@@ -1265,7 +1269,7 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "14e12d25d9295662f409c667e544be3250827f699a5d88c548e31d4f194597a1",
-        "notes": "Original-detail review approved for Dumplings for New Year page 2: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "notes": "Retained original directly rechecked within the complete eight-page sequence. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
       },
       "sourceImageGenOutput": "exec-787f0fc7-003b-488d-a762-46c7a603b325.png"
     },
@@ -1284,7 +1288,7 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "3ac6983bc2d4ecb3a59afc688d69f4b462c0071cc9d3151949ae1aca8484e1f0",
-        "notes": "Original-detail review approved for Dumplings for New Year page 3: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "notes": "Retained original directly rechecked within the complete eight-page sequence. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
       },
       "sourceImageGenOutput": "exec-68fbdd11-2d91-46e9-b8a6-fc9f76630123.png"
     },
@@ -1303,7 +1307,7 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "a0957ce02ba78c59e7cf1bd0a2fa4f4e961643c3490c3c8796ac682e9494b1a6",
-        "notes": "Original-detail review approved for Dumplings for New Year page 4: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "notes": "Retained original directly rechecked within the complete eight-page sequence. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
       },
       "sourceImageGenOutput": "exec-04268f90-f3d5-4448-8016-98087805e8af.png"
     },
@@ -1322,7 +1326,7 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "51026d4f08c3db5a28af3eb0da5ffa7109884424eedd84a70902b1fb233721da",
-        "notes": "Original-detail review approved for Dumplings for New Year page 5: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "notes": "Retained original directly rechecked within the complete eight-page sequence. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
       },
       "sourceImageGenOutput": "exec-88f8c34b-5e86-432a-9798-ca335a7c2e86.png"
     },
@@ -1341,7 +1345,7 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "d9fd4945af397538b82273ce2a0e7b3b252d23f20e0a547e4cf3086ba00dffa9",
-        "notes": "Original-detail review approved for Dumplings for New Year page 6: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "notes": "Retained original directly rechecked within the complete eight-page sequence. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
       },
       "sourceImageGenOutput": "exec-1fcd844d-1b97-48e9-b4ba-3c43f42b175b.png"
     },
@@ -1349,20 +1353,21 @@
       "bookId": "willow-street-dumplings-for-new-year",
       "pageNumber": 7,
       "path": "/guided-reading/willow-street/dumplings-for-new-year/page-07.webp",
-      "sha256": "b9bf49c16b36ac07067ff64fbac4aa97af181ea88d9b0a9856d02054dae70621",
+      "sha256": "a88db6e269fe55a65a4d6594eb3e92cf3ad30aa01e16eb69463014191e36c3a6",
       "width": 1365,
       "height": 768,
       "textSha256": "4b8882d3a1be2386e64b12e446dde6e47e16a4653eaecb669163b13f1060f174",
-      "briefSha256": "18582b8adc3d064fdec3f5f30aac3da82a52e9f495a84edcc84b7c2eb294ebb3",
+      "briefSha256": "26642572860f7388e1253235880334e030979a82cc9663bc64bc09dff4991df4",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "b9bf49c16b36ac07067ff64fbac4aa97af181ea88d9b0a9856d02054dae70621",
-        "notes": "Original-detail review approved for Dumplings for New Year page 7: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "reviewedSha256": "a88db6e269fe55a65a4d6594eb3e92cf3ad30aa01e16eb69463014191e36c3a6",
+        "notes": "Replacement directly inspected at original detail and in the production reader. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
       },
-      "sourceImageGenOutput": "exec-13068b22-40d0-4e8e-b1b6-40f7c7908381.png"
+      "sourceImageGenOutput": "exec-c77b6331-d06a-4bd0-a9f9-213b85527e21.png",
+      "cacheVersion": "a88db6e269fe"
     },
     {
       "bookId": "willow-street-dumplings-for-new-year",
@@ -1379,7 +1384,7 @@
       "directReview": {
         "state": "approved-original-detail",
         "reviewedSha256": "0fd17c7b5c2f6f2d3328e72d7574f3dcc71cebcc3fe8e52939d84b07b50e9724",
-        "notes": "Original-detail review approved for Dumplings for New Year page 8: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "notes": "Retained original directly rechecked within the complete eight-page sequence. Zoe and Aunt Mei continuity, raw/cooked dumpling sequence and adult-controlled heat checked. Cooking page separates child table from stove across a clear aisle; adult uses long slotted spoon."
       },
       "sourceImageGenOutput": "exec-77d058b7-3302-46ee-b979-9d17f2d45094.png"
     },
@@ -2071,172 +2076,181 @@
       "bookId": "willow-street-build-a-cardboard-ramp",
       "pageNumber": 0,
       "path": "/guided-reading/willow-street/build-a-cardboard-ramp/cover.webp",
-      "sha256": "e81aac1fa6c0bdbdb73b4585c95061e3a994cc8ffa1c5e9ce0e2aedd974a4ac9",
+      "sha256": "4f851518a180934a13179fc626d7c6543033ca752c1e21fd8cf83de4b0804884",
       "width": 1365,
       "height": 768,
       "textSha256": "87d4bdb16890d2e7af575ac7212a6c57669f6cb492eceec32a4eee6db0f8fa4f",
-      "briefSha256": "b35c68b3223b92510a58233d1ce552cca3d3f28dd168f7bc48065cbcd6fc79dc",
+      "briefSha256": "ae85d97411ff1df38c9c70dee1d2341873353e91b6df025a6ffba68324c7a60c",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "e81aac1fa6c0bdbdb73b4585c95061e3a994cc8ffa1c5e9ce0e2aedd974a4ac9",
-        "notes": "Original-detail review approved for Build a Cardboard Ramp cover: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "reviewedSha256": "4f851518a180934a13179fc626d7c6543033ca752c1e21fd8cf83de4b0804884",
+        "notes": "Replacement directly inspected at original detail and in the production reader. Same adult, Leo, hardwood playroom, red hatchback and one board; two-book slope, taped low end and clear landing, third yellow book added only at high end, blue/yellow stop comparison. Direct physical toy-car execution not claimed."
       },
-      "sourceImageGenOutput": "exec-6f1706dd-6689-4ad4-9b4e-57d0e2e47cc7.png"
+      "sourceImageGenOutput": "exec-011666bb-11c1-4efe-9a4f-9c54257c0d3c.png",
+      "cacheVersion": "4f851518a180"
     },
     {
       "bookId": "willow-street-build-a-cardboard-ramp",
       "pageNumber": 1,
       "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-01.webp",
-      "sha256": "5069ccb7b7baa6a00ddbf215912286aa9cadd0332559afb513942c31d77d2b0e",
+      "sha256": "ca20db0b111d0363f2e7742e172febe9a789d4b78867c108f251b551ddc0d280",
       "width": 1365,
       "height": 768,
       "textSha256": "9033f475b7967b1e3d9185b46751ea9756bfa9ebd505be801b1749ada4a18a54",
-      "briefSha256": "644b57bc50c8c8488773549776e157b9baac6ba1ec30c2c7903c9eedef8eaa91",
+      "briefSha256": "9de68824d1318284f1a13007c11a585edd5f15e552a5a82956731fc8eba4f4e6",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "5069ccb7b7baa6a00ddbf215912286aa9cadd0332559afb513942c31d77d2b0e",
-        "notes": "Original-detail review approved for Build a Cardboard Ramp page 1: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "reviewedSha256": "ca20db0b111d0363f2e7742e172febe9a789d4b78867c108f251b551ddc0d280",
+        "notes": "Replacement directly inspected at original detail and in the production reader. Same adult, Leo, hardwood playroom, red hatchback and one board; two-book slope, taped low end and clear landing, third yellow book added only at high end, blue/yellow stop comparison. Direct physical toy-car execution not claimed."
       },
-      "sourceImageGenOutput": "exec-376856b2-98b1-4eaa-afaf-254d75e7be73.png"
+      "sourceImageGenOutput": "exec-790fe09f-3ee2-4b11-a02c-00d6b0ac5ecf.png",
+      "cacheVersion": "ca20db0b111d"
     },
     {
       "bookId": "willow-street-build-a-cardboard-ramp",
       "pageNumber": 2,
       "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-02.webp",
-      "sha256": "9d6d8bdc89dd07513a2f87090aacff45ddd3f07e063f0ae9d6b4d637f22836d2",
+      "sha256": "6503133611c990960e2ba46449a51f9c779fbe9b031233cc61d167bf7c725c99",
       "width": 1365,
       "height": 768,
       "textSha256": "e6157169b312c76736af740033524495c0e25f33e4b7253ad767932151f4ec75",
-      "briefSha256": "8489018bf5edd4913c4e69f3546b00aca6b101fe119f25ffa38060bfda7686bc",
+      "briefSha256": "eaa2d62fb014781b8ddba8fcfbcb2f9dffac20a5eed0c2bb3922b069664ee8eb",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "9d6d8bdc89dd07513a2f87090aacff45ddd3f07e063f0ae9d6b4d637f22836d2",
-        "notes": "Original-detail review approved for Build a Cardboard Ramp page 2: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "reviewedSha256": "6503133611c990960e2ba46449a51f9c779fbe9b031233cc61d167bf7c725c99",
+        "notes": "Replacement directly inspected at original detail and in the production reader. Same adult, Leo, hardwood playroom, red hatchback and one board; two-book slope, taped low end and clear landing, third yellow book added only at high end, blue/yellow stop comparison. Direct physical toy-car execution not claimed."
       },
-      "sourceImageGenOutput": "exec-25f6d104-44b0-48b3-8434-d04f5a227144.png"
+      "sourceImageGenOutput": "exec-2aeaa268-e8c6-4eec-b176-d05290ab1080.png",
+      "cacheVersion": "6503133611c9"
     },
     {
       "bookId": "willow-street-build-a-cardboard-ramp",
       "pageNumber": 3,
       "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-03.webp",
-      "sha256": "0d7cb8b70dcf98debfe50df8915f8a7fa6609a13102ef8a231e0954c989f4f8b",
+      "sha256": "d0fde57952f463157a59916325fed91e444f7acfb5dc3cee40dc66f084428a7c",
       "width": 1365,
       "height": 768,
       "textSha256": "8a4a257652543f5c316219109f98446815fd6906f03fb1b3b440f7ce6937c4f7",
-      "briefSha256": "bffd2a3076875c710e675f72ef1ea3c54f73a20eb2e8a45cc9afd731a1ce17cd",
+      "briefSha256": "69c8d47514d0ed12fc8964a9e51762e37a993b8c711736d2b65043150b5ca0f2",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "0d7cb8b70dcf98debfe50df8915f8a7fa6609a13102ef8a231e0954c989f4f8b",
-        "notes": "Original-detail review approved for Build a Cardboard Ramp page 3: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "reviewedSha256": "d0fde57952f463157a59916325fed91e444f7acfb5dc3cee40dc66f084428a7c",
+        "notes": "Replacement directly inspected at original detail and in the production reader. Same adult, Leo, hardwood playroom, red hatchback and one board; two-book slope, taped low end and clear landing, third yellow book added only at high end, blue/yellow stop comparison. Direct physical toy-car execution not claimed."
       },
-      "sourceImageGenOutput": "exec-123a2613-e1a7-4e1c-b49b-b74fc905fade.png"
+      "sourceImageGenOutput": "exec-e43b418c-db6a-4905-baed-50d07e8740be.png",
+      "cacheVersion": "d0fde57952f4"
     },
     {
       "bookId": "willow-street-build-a-cardboard-ramp",
       "pageNumber": 4,
       "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-04.webp",
-      "sha256": "e472294bff7d6317ee94bd818cdc2869fb4b69b04ca28237b16af8dcb360d703",
+      "sha256": "ce2a1a3b4ed3e590171a5bc5b0e33c411148c3a06d16b31f9979c8c48cbeaddc",
       "width": 1365,
       "height": 768,
       "textSha256": "daa9c9820bdab1296d72370126784cb0e244d967bec19871a8ccb25e33d27415",
-      "briefSha256": "38fb8b33ec85da5f535993ba3970979a47c1f772f7631239373752ba26decd00",
+      "briefSha256": "f1c7a8b93f069d92e431d996c982227a2e2d8811fae7b146c734fefa898e2512",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "e472294bff7d6317ee94bd818cdc2869fb4b69b04ca28237b16af8dcb360d703",
-        "notes": "Original-detail review approved for Build a Cardboard Ramp page 4: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "reviewedSha256": "ce2a1a3b4ed3e590171a5bc5b0e33c411148c3a06d16b31f9979c8c48cbeaddc",
+        "notes": "Replacement directly inspected at original detail and in the production reader. Same adult, Leo, hardwood playroom, red hatchback and one board; two-book slope, taped low end and clear landing, third yellow book added only at high end, blue/yellow stop comparison. Direct physical toy-car execution not claimed."
       },
-      "sourceImageGenOutput": "exec-2d3dd203-dae9-48a1-95eb-41971ec9ba9d.png"
+      "sourceImageGenOutput": "exec-8674076f-1a78-4aca-b001-1c1aac3f42ba.png",
+      "cacheVersion": "ce2a1a3b4ed3"
     },
     {
       "bookId": "willow-street-build-a-cardboard-ramp",
       "pageNumber": 5,
       "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-05.webp",
-      "sha256": "d714f21e6a644b9bed60975a85ff39b1dacd4cbf97284bbd50e2aaf679c0e967",
+      "sha256": "4a86da8a671acbcd1b251aceafd143907b529c57d18a9195d038190efda2061b",
       "width": 1365,
       "height": 768,
       "textSha256": "c618e514a385889f18f42be672dc4e2c33bd3b80f72d2434ee186fa7d3ea1071",
-      "briefSha256": "131336654461e0661bc45e226820bd7d33a8165007c1505fe0add965a14c0e3b",
+      "briefSha256": "2c37daa4505e9db1aad4ddf65efa2cb75478a56e14be7272c8b78bdbd46bba11",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "d714f21e6a644b9bed60975a85ff39b1dacd4cbf97284bbd50e2aaf679c0e967",
-        "notes": "Original-detail review approved for Build a Cardboard Ramp page 5: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "reviewedSha256": "4a86da8a671acbcd1b251aceafd143907b529c57d18a9195d038190efda2061b",
+        "notes": "Replacement directly inspected at original detail and in the production reader. Same adult, Leo, hardwood playroom, red hatchback and one board; two-book slope, taped low end and clear landing, third yellow book added only at high end, blue/yellow stop comparison. Direct physical toy-car execution not claimed."
       },
-      "sourceImageGenOutput": "exec-a93479b6-8f5a-4d57-be7d-866e1df8ef8a.png"
+      "sourceImageGenOutput": "exec-19846c5d-989e-4397-bba0-2ea25f610ce3.png",
+      "cacheVersion": "4a86da8a671a"
     },
     {
       "bookId": "willow-street-build-a-cardboard-ramp",
       "pageNumber": 6,
       "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-06.webp",
-      "sha256": "e0e450ded98e74c4c6723dddfa0b851196934124bc41c3537e1531165abda860",
+      "sha256": "1f9968d48989ea50b95da88029c31da336c13a82a034d0c9216e71466a22e917",
       "width": 1365,
       "height": 768,
       "textSha256": "2dd3cc678e6ac5f6161ce79df1100451d93c7d793b0a46e67eabfc32ff96ff1d",
-      "briefSha256": "0f1547efe53d38e8d962316d005410d0bf4372692680b636b131c29e4f07b368",
+      "briefSha256": "4539fe09bc4b92b945e87a80b5cf65fba99b14ee6d0675a8918c94357fb5b352",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "e0e450ded98e74c4c6723dddfa0b851196934124bc41c3537e1531165abda860",
-        "notes": "Original-detail review approved for Build a Cardboard Ramp page 6: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "reviewedSha256": "1f9968d48989ea50b95da88029c31da336c13a82a034d0c9216e71466a22e917",
+        "notes": "Replacement directly inspected at original detail and in the production reader. Same adult, Leo, hardwood playroom, red hatchback and one board; two-book slope, taped low end and clear landing, third yellow book added only at high end, blue/yellow stop comparison. Direct physical toy-car execution not claimed."
       },
-      "sourceImageGenOutput": "exec-9d9319d3-0237-44b3-991f-3be827633af3.png"
+      "sourceImageGenOutput": "exec-8f66647c-ca5e-4162-8083-2ab2bf9872cc.png",
+      "cacheVersion": "1f9968d48989"
     },
     {
       "bookId": "willow-street-build-a-cardboard-ramp",
       "pageNumber": 7,
       "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-07.webp",
-      "sha256": "3b5a2d171b87f1b3cc725b880f77e54f4df7bd435499d838f88eb0e254a41a6a",
+      "sha256": "52e394a9931e02aa97cb371e768d8578d0ddd1b6375e6a5f9f4be2c6e4417d4b",
       "width": 1365,
       "height": 768,
       "textSha256": "70c30afe545059e2d3a667b12a9616de043342399f5782b44a22181992ec6900",
-      "briefSha256": "42ad168605bb6002ba7025147ec35acd79aeaf2c34a16e7881579f6613ba153d",
+      "briefSha256": "b1daae2fddfa00ab60d1cc789b778d5f5fa9aa70d6143c0696a3bc4de43deb44",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "3b5a2d171b87f1b3cc725b880f77e54f4df7bd435499d838f88eb0e254a41a6a",
-        "notes": "Original-detail review approved for Build a Cardboard Ramp page 7: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "reviewedSha256": "52e394a9931e02aa97cb371e768d8578d0ddd1b6375e6a5f9f4be2c6e4417d4b",
+        "notes": "Replacement directly inspected at original detail and in the production reader. Same adult, Leo, hardwood playroom, red hatchback and one board; two-book slope, taped low end and clear landing, third yellow book added only at high end, blue/yellow stop comparison. Direct physical toy-car execution not claimed."
       },
-      "sourceImageGenOutput": "exec-d455d873-aaf0-4828-84dd-953eb8410a6a.png"
+      "sourceImageGenOutput": "exec-26a32a3a-94f2-41bf-ad10-3a7ab0c5716d.png",
+      "cacheVersion": "52e394a9931e"
     },
     {
       "bookId": "willow-street-build-a-cardboard-ramp",
       "pageNumber": 8,
       "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-08.webp",
-      "sha256": "3cd3a5b65f5c89f20491276f7e8bea11471623977f25f7a2d2caa9754348edb5",
+      "sha256": "e7ea09a2b57c682b17679d38b560eeefc238a189659eec2f13787c51fc4d8019",
       "width": 1365,
       "height": 768,
       "textSha256": "656ddf007c810b2e9715f9fa734d778704f3200408d6db86b593f5b412e9d76c",
-      "briefSha256": "3c2ba185353e6f509c6ff5bf99b9ddc4179f93b6bd9272c99f0abf73ffe46651",
+      "briefSha256": "8b3b7cb99e2980538df9c8879e1db4b0c54d991c552ccbc05bc4dd6af3095490",
       "visualTreatment": "willow-street-illustrated",
       "generatorProvenance": "self-created",
       "castReferenceSha256": "2060fc17cfcde999d0ba349aeb3f680e52be2dedb97fb7816e92049824aedbcb",
       "directReview": {
         "state": "approved-original-detail",
-        "reviewedSha256": "3cd3a5b65f5c89f20491276f7e8bea11471623977f25f7a2d2caa9754348edb5",
-        "notes": "Original-detail review approved for Build a Cardboard Ramp page 8: exact scene sequence, character continuity, object counts, anatomy, safety, text-free artwork, and quiet lower print panel verified."
+        "reviewedSha256": "e7ea09a2b57c682b17679d38b560eeefc238a189659eec2f13787c51fc4d8019",
+        "notes": "Replacement directly inspected at original detail and in the production reader. Same adult, Leo, hardwood playroom, red hatchback and one board; two-book slope, taped low end and clear landing, third yellow book added only at high end, blue/yellow stop comparison. Direct physical toy-car execution not claimed."
       },
-      "sourceImageGenOutput": "exec-13837c4a-4684-47c9-b0ef-3a1a9e794414.png"
+      "sourceImageGenOutput": "exec-095059db-4c7a-4f2e-a236-5cc57947a00d.png",
+      "cacheVersion": "e7ea09a2b57c"
     },
     {
       "bookId": "willow-street-make-fruit-and-yoghurt-cups",

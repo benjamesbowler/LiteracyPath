@@ -4,7 +4,7 @@ export const GUIDED_READING_NARRATION_PROVENANCE = Object.freeze({
   "auditedAudioHashMismatchCount": 0,
   "auditedPageAudioTextMismatchCount": 0,
   "auditedWordSequenceMismatchCount": 0,
-  "corpusSha256": "b2302e28d3577dd90da935c5951cb4303d83909137dff45b228c177553c473bf",
+  "corpusSha256": "105a9d7da5b0701e05fbbae199b731c17e65b04cb454979d823d6e54bc2b5eb4",
   "exactPageAudioByText": Object.freeze({}),
   "generatedBy": "tools/checkGuidedReadingNarrationProvenance.mjs --refresh",
   "liveBookCount": 226,

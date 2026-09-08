@@ -11326,6 +11326,90 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
+      "path": "/guided-reading/willow-street/build-a-cardboard-ramp/cover.webp",
+      "sha256": "4f851518a180934a13179fc626d7c6543033ca752c1e21fd8cf83de4b0804884",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
+    },
+    {
+      "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-01.webp",
+      "sha256": "ca20db0b111d0363f2e7742e172febe9a789d4b78867c108f251b551ddc0d280",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
+    },
+    {
+      "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-02.webp",
+      "sha256": "6503133611c990960e2ba46449a51f9c779fbe9b031233cc61d167bf7c725c99",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
+    },
+    {
+      "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-03.webp",
+      "sha256": "d0fde57952f463157a59916325fed91e444f7acfb5dc3cee40dc66f084428a7c",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
+    },
+    {
+      "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-04.webp",
+      "sha256": "ce2a1a3b4ed3e590171a5bc5b0e33c411148c3a06d16b31f9979c8c48cbeaddc",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
+    },
+    {
+      "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-05.webp",
+      "sha256": "4a86da8a671acbcd1b251aceafd143907b529c57d18a9195d038190efda2061b",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
+    },
+    {
+      "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-06.webp",
+      "sha256": "1f9968d48989ea50b95da88029c31da336c13a82a034d0c9216e71466a22e917",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
+    },
+    {
+      "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-07.webp",
+      "sha256": "52e394a9931e02aa97cb371e768d8578d0ddd1b6375e6a5f9f4be2c6e4417d4b",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
+    },
+    {
+      "path": "/guided-reading/willow-street/build-a-cardboard-ramp/page-08.webp",
+      "sha256": "e7ea09a2b57c682b17679d38b560eeefc238a189659eec2f13787c51fc4d8019",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
+    },
+    {
+      "path": "/guided-reading/willow-street/dumplings-for-new-year/page-07.webp",
+      "sha256": "a88db6e269fe55a65a4d6594eb3e92cf3ad30aa01e16eb69463014191e36c3a6",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-01.webp",
+      "sha256": "684eecae91081e3e220a487b960a1099c6acceafbe426c2ec0f20353cb1436e5",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-02.webp",
+      "sha256": "24f31ebd337b5d2c92196592b96336d9fa8c07133d9c3be09ffa45d711cac2e3",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-03.webp",
+      "sha256": "d797a7dfed17d83a6dcf99c8321226ba9c9d20baef4d8245f35d339f9851b66c",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
+    },
+    {
+      "path": "/guided-reading/willow-street/the-lunchbox-mix-up/page-04.webp",
+      "sha256": "ad0925e46f3ba676b71c0940457c2b8ec0996c7abab498fe9b3e21f57861c243",
+      "status": "approved",
+      "reviewedAt": "2026-09-08"
+    },
+    {
       "path": "/images/assessment/blends/act.webp",
       "sha256": "54fec9e4fd6716fc009ad30db65e4951b36bd31ad934ca7c106f7d4d7136184a",
       "status": "approved"

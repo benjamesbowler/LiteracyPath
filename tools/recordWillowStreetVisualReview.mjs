@@ -15,6 +15,12 @@ if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/u.test(reviewedAt)) {
 }
 
 const reviewPath = path.join(root, "docs/guided-reading/willow-street-visual-review.json");
+const booksIndex = process.argv.indexOf("--books");
+const selectedBookIds = booksIndex < 0 ? null : new Set(
+  String(process.argv[booksIndex + 1] || "").split(",").filter(Boolean)
+);
+const priorReview = JSON.parse(fs.readFileSync(reviewPath, "utf8"));
+const priorAssetByPath = new Map(priorReview.assets.map(asset => [asset.path, asset]));
 const canonicalPath = path.join(
   root,
   "docs/guided-reading/guided_reading_story_bible_visual_alignment_audit_2026-08-01.json"
@@ -56,9 +62,16 @@ if (manifestAssets.length !== 180) {
 
 const assetByPath = new Map(manifestAssets.map(asset => [asset.path, asset]));
 if (assetByPath.size !== manifestAssets.length) throw new Error("Willow Street review contains duplicate asset paths.");
+const revisions = Object.fromEntries(manifestAssets.filter(asset => asset.cacheVersion).map(asset => {
+  if (asset.cacheVersion !== asset.sha256.slice(0, 12)) throw new Error("Invalid image cache version: " + asset.path);
+  return [asset.path, asset.cacheVersion];
+}).sort(([left], [right]) => left.localeCompare(right)));
 
 const books = getRuntimeGuidedReadingBooks().filter(book => book.collection === "Willow Street Readers");
 if (books.length !== 20) throw new Error(`Expected 20 Willow Street books, found ${books.length}.`);
+if (selectedBookIds && (!selectedBookIds.size || [...selectedBookIds].some(id => !books.some(book => book.id === id)))) {
+  throw new Error("--books must name current Willow Street book IDs.");
+}
 
 const reviewAssets = [];
 const canonicalPages = [];
@@ -95,7 +108,8 @@ for (const book of books) {
       throw new Error(`${book.id}:${expected.pageNumber}: original-detail approval is missing.`);
     }
 
-    reviewAssets.push({
+    const selected = !selectedBookIds || selectedBookIds.has(book.id);
+    const nextReview = {
       bookId: book.id,
       title: book.title,
       assetType: expected.pageNumber === 0 ? "cover" : "reading-page",
@@ -113,9 +127,15 @@ for (const book of books) {
       disposition: "approved",
       notes: asset.directReview.notes,
       sourceManifest: asset.sourceManifest
-    });
+    };
+    const prior = priorAssetByPath.get(expected.path);
+    if (!selected && (!prior || prior.imageSha256 !== imageSha256
+      || prior.textSha256 !== asset.textSha256 || prior.visualBriefSha256 !== asset.briefSha256)) {
+      throw new Error("Unselected book changed since its review: " + book.id);
+    }
+    reviewAssets.push(selected ? nextReview : prior);
 
-    if (expected.page) {
+    if (expected.page && selected) {
       canonicalPages.push({
         bookId: book.id,
         title: book.title,
@@ -137,7 +157,7 @@ for (const book of books) {
 reviewAssets.sort((left, right) =>
   left.bookId.localeCompare(right.bookId) || left.pageNumber - right.pageNumber
 );
-const review = {
+const review = selectedBookIds ? { ...priorReview, assets: reviewAssets } : {
   schemaVersion: 1,
   collection: "Willow Street Readers",
   status: "complete",
@@ -156,7 +176,7 @@ const review = {
 fs.writeFileSync(reviewPath, `${JSON.stringify(review, null, 2)}\n`);
 
 const canonical = JSON.parse(fs.readFileSync(canonicalPath, "utf8"));
-const willowIds = new Set(books.map(book => book.id));
+const willowIds = selectedBookIds || new Set(books.map(book => book.id));
 canonical.pages = (canonical.pages || [])
   .filter(record => !willowIds.has(record.bookId))
   .concat(canonicalPages)
@@ -165,7 +185,7 @@ canonical.pages = (canonical.pages || [])
 const replacementPages = canonical.pages.filter(record => record.status === "replace");
 const auditedBookIds = [...new Set(canonical.pages.map(record => record.bookId))].sort();
 const booksWithReplacements = new Set(replacementPages.map(record => record.bookId));
-canonical.auditDate = reviewedAt.slice(0, 10);
+if (!selectedBookIds) canonical.auditDate = reviewedAt.slice(0, 10);
 canonical.status = replacementPages.length ? "in_progress" : "complete";
 canonical.scope = {
   activeBooksAudited: auditedBookIds.length,
@@ -185,10 +205,19 @@ canonical.standardSources = [...new Set([
   ...sourceManifestPaths,
   "docs/guided-reading/willow-street-visual-review.json"
 ])];
-const methodEntry = `On ${reviewedAt.slice(0, 10)}, all 180 Willow Street covers and reading-page images were approved at original detail against exact text, visual briefs, full-book sequence, recurring-cast continuity, factual and procedural accuracy, anatomy, safety, embedded-text risk and runtime print placement; 160 reading pages were added to the fail-closed hash audit.`;
+const selectedCount = reviewAssets.filter(asset => !selectedBookIds || selectedBookIds.has(asset.bookId)).length;
+const methodEntry = selectedBookIds
+  ? `On ${reviewedAt.slice(0, 10)}, ${selectedCount} covers/pages in ${[...selectedBookIds].sort().join(", ")} were directly rechecked as complete sequences after scoped repairs. Other asset reviews and dates were preserved. Browser review is separate from human listening and a physical toy-car experiment.`
+  : `On ${reviewedAt.slice(0, 10)}, all 180 Willow Street covers and reading-page images were approved at original detail against exact text, visual briefs, full-book sequence, recurring-cast continuity, factual and procedural accuracy, anatomy, safety, embedded-text risk and runtime print placement; 160 reading pages were added to the fail-closed hash audit.`;
 canonical.method = [...new Set([...(canonical.method || []), methodEntry])];
 canonical.gateSemantics = canonical.gateSemantics || {};
 canonical.gateSemantics.releaseFingerprintSha256 = releaseFingerprint(canonical.pages);
 fs.writeFileSync(canonicalPath, `${JSON.stringify(canonical, null, 2)}\n`);
+
+// Canonical manifest paths remain stable; repaired bytes get a new request URL
+// on reader, shelf, follower and prefetch surfaces.
+fs.writeFileSync(path.join(root, "src/data/generated/guidedReadingImageRevisions.generated.js"),
+  "// Generated by tools/recordWillowStreetVisualReview.mjs; canonical paths stay in the media manifest.\n"
+  + "export const GUIDED_READING_IMAGE_REVISIONS = Object.freeze(" + JSON.stringify(revisions, null, 2) + ");\n");
 
 console.log(`Recorded Willow Street visual review: ${books.length} books, ${reviewAssets.length} assets, ${canonicalPages.length} reading pages.`);

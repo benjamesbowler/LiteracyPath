@@ -80,15 +80,15 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     storyBibleReview: fictionReview(
       "Maya and Samir notice their lunches were swapped and use the name labels to return every item.",
       "Guessing by food does not work because both lunches contain familiar shared foods.",
-      "They read the labels, exchange the boxes, and sit down with the correct lunches.",
+      "They read the labels, return the mixed-up things to their owners, and sit down with the correct lunches.",
       ["WILLOW-MAYA", "WILLOW-SAMIR"]
     ),
     rows: [
-      ["Maya opens her lunchbox and finds Samir's blue cup.", "Illustrated medium view at the school lunch table: Maya, in mustard cardigan and teal trousers, opens her yellow lunchbox; Samir's blue lidded cup is unmistakably inside while Samir sits nearby."],
-      ["Maya checks the labels beside each lunchbox.", "Close view of Maya comparing two simple name-label shapes on the yellow and green lunchboxes; keep lettering unreadable, show her finger moving from one label to the other, and preserve the blue cup."],
-      ["Samir checks the labels and spots Maya's green apple.", "Samir, in cobalt hoodie and charcoal trousers, points from the green lunchbox label to Maya's green apple inside; Maya watches, with both boxes and the blue cup visible in stable positions."],
-      ["They swap the lunchboxes, but one spoon stays behind.", "Overhead three-quarter view as Maya and Samir exchange the two closed lunchboxes; one small silver spoon remains alone on the table between them, creating the next clear problem."],
-      ["Maya sees the spoon beside Samir's folded napkin.", "Maya notices the silver spoon resting beside Samir's folded orange napkin; Samir pauses with his blue cup, and the correctly swapped lunchboxes remain by their owners."],
+      ["Maya opens her lunchbox and finds Samir's blue cup.", "At the school oak table, Maya opens her yellow lunchbox with Samir's blue lidded cup inside; Samir's open green box contains Maya's green apple. The silver spoon lies beside Samir's folded orange napkin between them. Each box stays with its owner."],
+      ["Maya checks the labels beside each lunchbox.", "Maya compares blank cream label patches on both open lunchbox lids. The blue cup stays inside her yellow box and the green apple inside Samir's green box; spoon and orange napkin stay together on the table. No readable lettering."],
+      ["Samir checks the labels and spots Maya's green apple.", "Samir points from the blank label on his open green box to Maya's green apple inside. Maya's open yellow box still contains the blue cup. Spoon and orange napkin remain on the table between them."],
+      ["They swap the things, but one spoon stays behind.", "Maya hands the blue cup to Samir while he hands her the green apple. Their open empty yellow and green lunchboxes stay in front of their respective owners. The silver spoon remains on the table beside Samir's folded orange napkin; no duplicate contents."],
+      ["Maya sees the spoon beside Samir's folded napkin.", "Maya notices the silver spoon resting beside Samir's folded orange napkin; Samir pauses with his blue cup, and the yellow and green lunchboxes remain by their owners with the contents corrected."],
       ["Samir returns the spoon and thanks Maya.", "Samir offers the silver spoon across the lunch table to Maya with a relieved smile; Maya reaches to accept it, while the blue cup and green apple confirm the corrected lunches."],
       ["Now each lunchbox holds the right things.", "Neat overhead view into both open lunchboxes: Maya's green apple and silver spoon together, Samir's blue cup and orange napkin together; the children compare them happily without any printed labels."],
       ["Maya and Samir eat lunch together at last.", "Wide illustrated finish at the bright school lunch table: Maya and Samir eat from their own lunchboxes, relaxed and chatting, with the resolved cup, apple, spoon, and napkin all consistent." ]
@@ -272,7 +272,7 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
       ["Aunt Mei shows a smaller spoonful this time.", "Aunt Mei removes extra filling and demonstrates the smaller amount beside Zoe; show both wrappers for a clear comparison and keep the cooking pot distant with another adult."],
       ["Zoe pinches the curved edge from end to end.", "Close view of Zoe folding the wrapper into a crescent and pinching its curved edge carefully from left to right; filling stays enclosed and Aunt Mei's guiding hand remains nearby."],
       ["Zoe pinches another dumpling without any gaps.", "Zoe holds a second fully sealed crescent dumpling up for Aunt Mei to inspect; the smooth unbroken edge is clearly visible, with several family-made dumplings on the tray."],
-      ["An adult cooks the dumplings until they are ready.", "Adult-only cooking view: Aunt Mei lowers dumplings safely into a wide pot while Zoe watches from beyond the counter line; steam, handles turned inward, and supervision are explicit."],
+      ["An adult cooks the dumplings until they are ready.", "Aunt Mei uses a long slotted spoon at the adult stove, fingers outside the steam zone and pot handles inward. Zoe watches with both hands on a separate cool preparation table beside raw crescent dumplings; a clear aisle separates her from the hot station. Keep green cabinets, red decorations and established clothing."],
       ["The family shares their dumplings around one bright table.", "Celebratory but everyday family meal: Zoe and relatives share cooked dumplings at one bright table with red decorations and oranges; warm connection, culturally grounded details, and no readable symbols." ]
     ]
   }),
@@ -389,21 +389,21 @@ export const GUIDED_READING_BRIDGE_BOOKS = Object.freeze([
     cast: ["WILLOW-LEO"],
     repeatedLanguage: "the ramp",
     safetyNote: "An adult handles any cutting; build the ramp low on the floor and use it only for small toys, never for climbing.",
-    coverBrief: "Illustrated Willow Street playroom floor, Leo rolling a small red toy car down a low cardboard ramp supported by two broad books; adult nearby, taped edges and clear landing space, no child climbing, no text.",
+    coverBrief: "Leo holds the red hatchback ready for release at the high end of one rigid cardboard slope on hardwood. Blue over green books support only that end; the low end is taped flat to the floor. The fixed short-haired adult in teal crewneck, navy trousers and gray trainers supervises in the sage playroom with left cubby and right window/cream-and-blue plant pot. No stop markers or text.",
     storyBibleReview: nonfictionReview(
       "How can a child build and test a safe low ramp for toy cars?",
       "Choose materials, make a low support, secure the slope, clear the path, test, compare, and restore safely.",
       "Changing the ramp height changes the toy car's motion while the structure stays low and stable."
     ),
     rows: [
-      ["Ask an adult for strong, flat cardboard.", "Illustrated playroom floor materials: Leo and an adult examine one stiff rectangular cardboard piece, two broad books, paper tape, and a small toy car; no blades or loose staples."],
-      ["Stack two wide books on the floor.", "Leo places two broad closed books in a stable low stack on a clear rug; the adult checks that their edges align and the cardboard waits flat nearby."],
-      ["Rest the cardboard across the book stack.", "Side view of Leo placing one end of the cardboard on the low book stack and the other on the floor, forming a gentle slope with full-width support."],
-      ["Tape the ramp so it cannot slide.", "The adult helps Leo add paper tape where cardboard meets the books and floor; show broad secure strips, level supports, and no fingers beneath the ramp."],
-      ["Clear toys away from the landing space.", "Leo moves blocks and figures out of the wide floor area beyond the ramp; adult points to the now-clear landing path, with the red toy car waiting at the top."],
-      ["Release one car, then mark its stopping point.", "Leo releases the red toy car from the lower ramp without pushing, then places one round blue counter exactly beside its first stopping point; the adult keeps the ramp steady."],
-      ["Raise the ramp, release the car again, then mark its second stop.", "With adult help, Leo adds one broad book, retapes the still-low ramp, and releases the same red car again from the same top edge; the first blue counter stays fixed while Leo places a yellow counter at the second stopping point."],
-      ["Compare both marks to see which roll traveled farther.", "Overhead finish shows the first blue counter and second yellow counter at the two stopping points; Leo compares their distance from the ramp while the safe raised ramp stays fixed." ]
+      ["Ask an adult for strong, flat cardboard.", "Leo and the fixed short-haired adult in teal crewneck, navy trousers and gray trainers examine one rigid board laid flat on hardwood. Blue over green books, paper tape and a red hatchback wait beside it. Same sage playroom, left cubby with blue/yellow bins, right window above cream-and-blue plant pot; no blades or staples."],
+      ["Stack two wide books on the floor.", "Leo places the broad blue book on the green book on hardwood; the same adult checks aligned edges. The same board waits flat nearby with tape and red hatchback. Keep the fixed playroom and wardrobe."],
+      ["Rest the cardboard across the book stack.", "Leo and the same adult place the board's high left end on blue-over-green books and its low right end directly on hardwood. One continuous gentle slope, no receiving-end books or attached tape yet. The red hatchback waits beside the tape roll."],
+      ["Tape the ramp so it cannot slide.", "The same adult secures the high board-to-book joint and low board-to-hardwood joint with cream paper tape while Leo watches. Two books only, same board, red hatchback waiting beside the ramp; fingers stay outside the underside."],
+      ["Clear toys away from the landing space.", "Leo puts blocks away to the left while the same adult points to the empty hardwood landing path on the right. Red hatchback waits at the high left end; two-book support and both taped joints stay fixed. No markers yet."],
+      ["Release one car, then mark its stopping point.", "After release without pushing, the same red hatchback rests on hardwood beyond the low end. Leo places a blue counter beside its rear wheel for the first stop. The same adult steadies the blue-over-green stack; ramp, tape, floor and room stay fixed."],
+      ["Raise the ramp, release the car again, then mark its second stop.", "One yellow book is added under green, below blue, at the high end only. The same board is retaped with low endpoint fixed on hardwood. After the second release from the same top point, Leo marks the same red hatchback's rear wheel with yellow; blue retains the first stop. Same adult, room and surface."],
+      ["Compare both marks to see which roll traveled farther.", "The same side view shows blue at the first stop and yellow beside the red hatchback at its second stop. Leo points to both marks while the same adult discusses the comparison. Three-book blue/green/yellow stack, board, tape, hardwood and stop positions stay fixed."]
     ]
   }),
   makeBook({

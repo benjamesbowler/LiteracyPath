@@ -185,6 +185,7 @@ test("the final Willow Street visual review covers every cover and reading page"
     assert.match(asset.imageSha256, /^[a-f0-9]{64}$/u, asset.path);
     assert.match(asset.textSha256, /^[a-f0-9]{64}$/u, asset.path);
     assert.match(asset.visualBriefSha256, /^[a-f0-9]{64}$/u, asset.path);
-    assert.match(asset.reviewedAt, /^2026-09-02T/u, asset.path);
+    assert.match(asset.reviewedAt, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/u, asset.path);
+    assert.ok(Number.isFinite(Date.parse(asset.reviewedAt)), asset.path);
   }
 });

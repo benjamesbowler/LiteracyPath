@@ -1791,7 +1791,7 @@ export const GUIDED_READING_LEDA_GAPS = Object.freeze({
     "they stop and turn": "/audio/production/en-US/guided_page/they-stop-and-turn-bb87d62f2c.mp3",
     "they stop moving": "/audio/production/en-US/guided_page/they-stop-moving-2857404413.mp3",
     "they stop the cart and ask the gardener": "/audio/production/en-US/guided_page/they-stop-the-cart-and-ask-the-gardener-d3747209be.mp3",
-    "they swap the lunchboxes, but one spoon stays behind": "/audio/production/en-US/guided_page/they-swap-the-lunchboxes-but-one-spoon-stays-behind-b3989c106f.mp3",
+    "they swap the things, but one spoon stays behind": "/audio/production/en-US/guided_page/they-swap-the-things-but-one-spoon-stays-behind-d22ad39434.mp3",
     "they take fluff to the vet": "/audio/production/en-US/guided_page/they-take-fluff-to-the-vet-46620e7455.mp3",
     "they walk home. together, they name each turn": "/audio/production/en-US/guided_page/they-walk-home-together-they-name-each-turn-e5d0724b06.mp3",
     "they want a sand fort": "/audio/production/en-US/guided_page/they-want-a-sand-fort-899a4d4dfc.mp3",

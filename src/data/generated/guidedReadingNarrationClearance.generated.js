@@ -7939,7 +7939,7 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-lunchbox-mix-up::4": {
-    "displayedText": "They swap the lunchboxes, but one spoon stays behind.",
+    "displayedText": "They swap the things, but one spoon stays behind.",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "willow-street-the-lunchbox-mix-up::5": {

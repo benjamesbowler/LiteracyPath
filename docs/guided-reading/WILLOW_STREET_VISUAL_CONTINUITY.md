@@ -28,6 +28,7 @@ Children are six to seven years old, approximately five-and-a-half heads tall, w
 - **School lunch area:** light oak tables, sage chairs, tall windows, yellow lunchbox for Maya, green lunchbox and blue cup for Samir, orange napkin, silver spoon, green apple.
 - **Maya/Nani kitchen:** terracotta floor, cream cabinets, teal splashback, safe adult-height stove, round steel tiffin, flat tawa. Hot equipment never moves to the child table.
 - **Zoe/Aunt Mei kitchen:** pale wood table, green cabinets, red paper decorations without readable writing, dumpling tray, broad cooking pot at adult station.
+- **Ramp playroom:** sage wall, low wooden cubby with blue and yellow bins at left, window above a cream-and-blue plant pot at right, continuous hardwood floor throughout both rolls. The same unnamed adult from the opening materials scene supervises every page: medium warm-brown complexion, oval face, short side-parted black hair, thick eyebrows, clean-shaven; teal crewneck, navy trousers, grey trainers. The book's page 4 is the fixed assembled-ramp reference.
 - **Community hall:** pale brick, blue double doors, timber floor, fabric banners and crescent bunting changed by event; no religious or cultural props appear outside the book that establishes them.
 
 ## Prop and action continuity
@@ -35,6 +36,8 @@ Children are six to seven years old, approximately five-and-a-half heads tall, w
 Every brief names the story-state objects that must persist. Artists must carry forward dents, wetness, food quantities, opened or closed containers, and the exact side of mechanical defects. The lunch items return to their owners; the lost book stays green; the windy picnic has exactly three napkins and four boxes; puddle cones remain two; the cart defect stays front-left; the gate stone moves from path to border; the kite remains blue with one ribbon tail; the ramp car remains red.
 
 Adult supervision must be visible, not implied outside the frame, for tawa, boiling water, knives, scissors, glass transfer, oil, and machinery. Hands stay away from hinges, axles, rollers, engines, presses, and hot surfaces. No child climbs the ramp, enters a road, approaches wires, or operates industrial equipment.
+
+In the lunchbox sequence, Maya keeps the yellow box and Samir keeps the green box. The blue cup begins inside yellow and the green apple inside green; page 4 exchanges the contents. The silver spoon stays beside Samir's orange napkin until returned. In the ramp sequence, retain one rigid board and one red hatchback. Blue over green books support only the high end; add one yellow book underneath for the second roll. The low end stays taped to the same hardwood landing surface. Blue marks the first stop and yellow the second, using the same point on the car for both. The illustration shows one ordering of stops, not a promise that every second roll travels farther.
 
 ## Stable print and composition
 

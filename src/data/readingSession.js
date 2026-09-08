@@ -1,4 +1,5 @@
 import { getGuidedReadingPageAudioPath } from "../utils/guidedReading/readAloudPolicy.js";
+import { withRepairedGuidedReadingImageVersion } from "../utils/guidedReading/mediaVersion.js";
 export {
   READING_SESSION_CONTENT_VERSION,
   endReadingSession,
@@ -15,7 +16,7 @@ export function readingSessionMediaUrls(book, pageNumbers = []) {
   return (book.pages || [])
     .filter(page => wanted.has(page.pageNumber))
     .flatMap(page => [
-      page.image,
+      withRepairedGuidedReadingImageVersion(page.image),
       getGuidedReadingPageAudioPath(page),
       ...(page.words || []).map(word => word.audioPath)
     ])
