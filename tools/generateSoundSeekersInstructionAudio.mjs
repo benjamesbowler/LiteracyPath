@@ -90,7 +90,7 @@ function renderSourceManifest(assets) {
     generatedAt: new Date().toISOString(),
     assets
   };
-  return `# Sound Seekers instruction audio provenance\n\nThese are production-path candidates. Automated checks verify file identity and audibility; direct listening remains open.\n\n\`\`\`json\n${JSON.stringify(manifest, null, 2)}\n\`\`\`\n`;
+  return `# Sound Seekers instruction audio provenance\n\nThese are production-path candidates. Automated checks verify file identity and audibility; stored listening records are separate evidence and this generator makes no listening judgment.\n\n\`\`\`json\n${JSON.stringify(manifest, null, 2)}\n\`\`\`\n`;
 }
 
 async function priorAssets() {

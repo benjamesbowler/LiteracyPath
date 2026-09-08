@@ -129,7 +129,7 @@ async function writeSource(records) {
   const manifest = { schemaVersion: 1, assets: records.sort((left, right) => left.assetId.localeCompare(right.assetId)) };
   const markdown = `# Sound Seekers connected-text audio provenance
 
-These are production-path Leda assets. Mechanical checks validate the exact bytes and source text. Direct human listening remains a separate release gate.
+These are production-path Leda assets. Mechanical checks validate the exact bytes and source text. Stored listening records are separate evidence; these checks make no listening judgment.
 
 \`\`\`json
 ${JSON.stringify(manifest, null, 2)}
@@ -146,7 +146,7 @@ ${JSON.stringify(manifest, null, 2)}
 
 if (!generate) {
   assertSoundSeekersSceneAudio();
-  console.log("Sound Seekers scene audio check passed; direct listening status is reported by the checker.");
+  console.log("Sound Seekers scene audio check passed; stored listening records are reported separately, and this check makes no listening judgment.");
 } else {
   const selected = all ? expected : [expectedById.get(assetId)];
   const previous = await existingManifest();
@@ -220,5 +220,5 @@ if (!generate) {
   await mkdir(path.dirname(sourcePath), { recursive: true });
   await writeSource([...records.values()]);
   assertSoundSeekersSceneAudio();
-  console.log(`Sound Seekers scene audio current: ${expected.length} assets; direct listening remains open.`);
+  console.log(`Sound Seekers scene audio current: ${expected.length} assets; stored listening records are separate evidence, and generation makes no listening judgment.`);
 }

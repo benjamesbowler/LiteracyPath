@@ -179,6 +179,5 @@ export function assertSoundSeekersSceneAudio() {
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const result = assertSoundSeekersSceneAudio();
   console.log(`PASS mechanical Sound Seekers scene audio: ${result.assetCount} assets`);
-  console.log(`Direct listening gate: ${result.listeningApprovedCount === result.assetCount
-    ? "closed" : `open for ${result.assetCount - result.listeningApprovedCount} assets`}`);
+  console.log(`Stored listening records: ${result.listeningApprovedCount} of ${result.assetCount} assets; this check makes no listening judgment.`);
 }

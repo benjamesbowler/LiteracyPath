@@ -1,6 +1,6 @@
 # Sound Seekers instruction audio provenance
 
-These are production-path candidates. Automated checks verify file identity and audibility; direct listening remains open.
+These are production-path candidates. Automated checks verify file identity and audibility; stored listening records are separate evidence and this generator makes no listening judgment.
 
 ```json
 {

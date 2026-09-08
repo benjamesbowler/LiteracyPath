@@ -1,6 +1,6 @@
 # Sound Seekers connected-text audio provenance
 
-These are production-path Leda assets. Mechanical checks validate the exact bytes and source text. Direct human listening remains a separate release gate.
+These are production-path Leda assets. Mechanical checks validate the exact bytes and source text. Stored listening records are separate evidence; these checks make no listening judgment.
 
 ```json
 {

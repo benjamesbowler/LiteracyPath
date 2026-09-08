@@ -15,11 +15,10 @@
 //   The reviewed bank now owns resolution. Superseded grapheme folders were
 //   physically deleted, so this module cannot silently revive them.
 //
-// THE OTHER RULE: no synthetic speech, ever. Browser TTS is a deliberate no-op
-// in this codebase and generated TTS for phonics failed human ear-checks twice
-// (docs/IMPROVEMENT_LOOPS.md rule #3). When there is no recording we return "",
-// the caller hides its Listen button, and the app is SILENT. Silence is fine.
-// A robot voice teaching a child the wrong phoneme is not.
+// THE OTHER RULE: there is no browser TTS phoneme fallback. Reviewed and
+// disclosed AI-generated candidates may enter the bank through the approved
+// recording workflow, but when there is no accepted recording we return "";
+// the caller hides its Listen button, and the app is SILENT.
 
 import { AUDIO_QUEST_PATHS } from "../data/generated/audioQuestPaths.generated.js";
 import { hasKnownBadWordAudio, isKnownBadAudioPath } from "../data/knownBadWordAudio.js";
