@@ -68,14 +68,31 @@ const client = {
 
 export function StudentSessionControlsPreview() {
   const startsActive = PREVIEW_PARAMS.get("active") === "1";
-  const [session, setSession] = useState(startsActive ? ACTIVE_SESSION : null);
+  const [session, setSession] = useState(startsActive ? {
+    ...ACTIVE_SESSION, ...(PREVIEW_PARAMS.get("cycleResults") === "1" ? { target: STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE } : {})
+  } : null);
+  const members = PREVIEW_PARAMS.get("cycleResults") !== "1" ? ACTIVE_MEMBERS : ACTIVE_MEMBERS.map((member, index) => ({
+    ...member, status: "needs_attention", cycle_practice_result: {
+      attemptId: `synthetic-cycle-${index}`, cycleId: "cycle-1", status: "incomplete",
+      totalQuestions: 4, correctCount: index ? 0 : 1, scoredQuestions: index ? 0 : 2,
+      accuracy: index ? null : 50, supportedCount: index ? 2 : 1, mediaFailedCount: index ? 2 : 1,
+      practiceSeconds: 1810, checkSeconds: 48, sessionElapsedSeconds: 2015, evidenceStatus: "validated_client_report",
+      practiceManifest: [{ construct: "letter_sound", responses: 12 }, { construct: "letter_formation", responses: 8 }],
+      checkedConstructs: ["letter_sound", "letter_formation", "phoneme"],
+      questionRecords: index ? [] : [
+        { questionId: "missed-m", itemKey: "m", construct: "letter_sound", evidenceConstruct: "letter_sound", selected: "n", responseStatus: "incorrect", evidence: {} },
+        { questionId: "supported-s", itemKey: "s", construct: "letter_formation", evidenceConstruct: "supported_trace", selected: "s", responseStatus: "supported", evidence: { supportLevel: 1 } },
+        { questionId: "media-t", itemKey: "t", construct: "phoneme", evidenceConstruct: "phoneme", selected: null, responseStatus: "media_failed", evidence: {} }
+      ]
+    }
+  }));
 
   if (session) {
     return (
       <main className="app" data-preview-surface="student-session-live-controls">
         <StudentSessionBar
           connection="connected"
-          members={ACTIVE_MEMBERS}
+          members={members}
           onEnd={async endAction => {
             document.documentElement.dataset.lastEndAction = endAction;
             return true;

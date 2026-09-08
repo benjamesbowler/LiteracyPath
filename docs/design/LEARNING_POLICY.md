@@ -66,3 +66,22 @@ Change the policy version whenever a threshold, recency window, confidence
 requirement, or progression rule changes. Update its unit boundary tests,
 authenticated sparse-learner route test, reporting definitions, exports, and
 this document in the same commit.
+
+## Cycle Practice activity and check evidence
+
+`src/policy/cyclePracticePolicy.js` owns Cycle Practice policy v2. The existing
+30-minute requirement counts active participation, not a browser left open.
+Active time is credited only between learner inputs in visible, unpaused
+practice. Interactions more than 60 seconds apart are treated as an idle gap
+and earn no time for that gap. This is an explicit conservative product rule,
+not a measurement of attention. Background, pause, check and offline refresh
+intervals earn no practice time. A monotonic clock separates session elapsed,
+active practice and check duration; practice freezes when the check starts.
+Refresh restores the same session, item, support history and frozen submission.
+
+Checks preserve the first response. Supported and unavailable-media records are
+unscored, disclosed separately, and leave independent evidence incomplete.
+Accuracy uses only independently scored responses. Actual mechanic constructs
+(e.g. memory retrieval or supported formation) remain distinct from decoding
+and handwriting proficiency. Cycle checks never establish formal Skills/EL
+placement. Failed saving retries the identical attempt and answers.

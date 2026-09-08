@@ -1,3 +1,5 @@
+import { isIndependentOutcome } from "../../policy/outcomeIndependence.js";
+
 // Pure run-state helpers for Cycle Quest and the mixed-mechanic Adventure Map
 // rounds. A first attempt is committed before coaching is shown, so recovery
 // can never turn an independent miss into an independent success.
@@ -7,14 +9,6 @@ function positiveInteger(value) {
   return Number.isFinite(number) && number > 0 ? Math.floor(number) : 0;
 }
 
-function isIndependentOutcome(outcome = {}) {
-  const evidence = outcome?.evidence || {};
-  if (evidence.independent === false) return false;
-  if (positiveInteger(evidence.supportLevel) > 0) return false;
-  if (text(evidence.measure).toLowerCase() === "support_only") return false;
-  if (Array.isArray(evidence.supportUsed) && evidence.supportUsed.length > 0) return false;
-  return true;
-}
 
 function selectedValues(selected) {
   return Array.isArray(selected) ? selected.filter(value => value !== null && value !== undefined) : [selected];

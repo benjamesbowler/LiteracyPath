@@ -1,7 +1,7 @@
 ---
 type: current-state
 status: active
-updated: 2026-09-02
+updated: 2026-09-08
 authority: orientation-only
 ---
 
@@ -51,6 +51,8 @@ No second-brain infrastructure blocker is recorded. The Codex startup hook was
 installed, reviewed, and trusted on 2026-08-03.
 
 ## Current beta release state
+
+- Cycle Practice uses typed independent/support/media-failure evidence, retained first responses, pause-safe active practice time, immutable retry payloads and owner-scoped teacher results. The hosted migration is `20260908122903`; local and rollback-only hosted SQL checks passed. Current contracts are in [Cycle Practice](../product/CYCLE_PRACTICE.md) and [Learning Policy](../design/LEARNING_POLICY.md). Browser emulation does not establish physical-device or human-listening evidence.
 
 - Learner session recovery preserves pending progress and assessment revisions,
   retries with the current same-learner credential, and exposes one shared retry

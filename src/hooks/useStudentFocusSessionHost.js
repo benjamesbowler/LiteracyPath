@@ -30,9 +30,12 @@ export function useStudentFocusSessionHost({ client, teacherId = "", enabled = t
       if (data?.ok === false && data.error !== "session_not_found") {
         throw new Error(data.error || "teacher_focus_poll_failed");
       }
-      setSession(data?.session || null);
-      setMembers(Array.isArray(data?.members) ? data.members : []);
-      setConnection(data?.session ? "connected" : "idle");
+      // Explicit session lookup also serves ended-session evidence exports.
+      // The live control bar must only adopt an active session.
+      const activeSession = data?.session?.status === "active" ? data.session : null;
+      setSession(activeSession);
+      setMembers(activeSession && Array.isArray(data?.members) ? data.members : []);
+      setConnection(activeSession ? "connected" : "idle");
     } catch {
       setConnection(sessionRef.current ? "reconnecting" : "unavailable");
     } finally {

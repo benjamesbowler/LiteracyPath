@@ -3,6 +3,7 @@ import { expect, test } from "@playwright/test";
 async function installAudioSpy(page) {
   await page.addInitScript(() => {
     window.__cyclePracticePlayedAudio = [];
+    window.__cyclePracticeAudioEvents = [];
     window.__cyclePracticeCreatedAudio = [];
     window.Audio = class CyclePracticeTestAudio extends EventTarget {
       constructor() {
@@ -28,6 +29,7 @@ async function installAudioSpy(page) {
 
       play() {
         window.__cyclePracticePlayedAudio.push(this.src);
+        window.__cyclePracticeAudioEvents.push({ src: this.src, mechanic: document.querySelector("[data-mechanic-stage]")?.getAttribute("data-mechanic-stage") });
         if (this.timer !== null) window.clearTimeout(this.timer);
         this.timer = window.setTimeout(() => {
           this.timer = null;
@@ -63,7 +65,7 @@ test("Cycle Practice warms ahead and plays Sound Catch target audio first", asyn
   const checkButton = page.getByRole("button", { name: "Start Cycle Check", exact: true });
   await expect(checkButton).toHaveClass(/cycle-practice-check-button/);
   await expect.poll(() => checkButton.evaluate(button => getComputedStyle(button).backgroundColor))
-    .toBe("rgb(46, 219, 99)");
+    .toBe("rgb(230, 236, 232)");
 
   await expect.poll(() => page.evaluate(() => new Set(window.__cyclePracticeCreatedAudio).size))
     .toBeGreaterThanOrEqual(3);
@@ -74,7 +76,7 @@ test("Cycle Practice warms ahead and plays Sound Catch target audio first", asyn
   await advanceRound(page);
 
   await expect(page.locator('[data-mechanic-stage="sound-choice"]')).toBeVisible();
-  const played = await page.evaluate(() => window.__cyclePracticePlayedAudio);
+  const played = await page.evaluate(() => window.__cyclePracticeAudioEvents.filter(event => event.mechanic === "sound-choice").map(event => event.src));
   expect(played.length).toBeGreaterThan(0);
   expect(played[0]).not.toMatch(/\/audio\/production\/en-US\/instruction\//u);
   expect(played[0]).toMatch(/\/audio\/(?:phonemes|production\/en-US\/isolated_word)\//u);

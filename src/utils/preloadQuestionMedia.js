@@ -1,7 +1,6 @@
 import { preloadCueAudio } from "./audio/cuePlayer.js";
 
 const imagePreloadCache = new Map();
-const audioPreloadCache = new Map();
 
 export const PRELOAD_IMAGE_FIELDS = [
   "imageUrl",
@@ -186,21 +185,14 @@ export function preloadAudio(src) {
     return Promise.resolve(false);
   }
 
-  if (audioPreloadCache.has(normalized)) {
-    debugPreload("audio cache hit", { src: normalized });
-    return audioPreloadCache.get(normalized);
-  }
-
   // Warm the same media element that cuePlayer will reuse. A separate fetch
   // only warms the HTTP cache; Safari can still spend another startup cycle
   // loading and decoding a new element when the child taps Hear.
-  const promise = preloadCueAudio(normalized).then(result => {
+  return preloadCueAudio(normalized).then(result => {
     debugPreload("audio element warmed", { src: normalized, result });
     return result;
   });
 
-  audioPreloadCache.set(normalized, promise);
-  return promise;
 }
 
 export function preloadQuestionMedia(question, options = {}) {

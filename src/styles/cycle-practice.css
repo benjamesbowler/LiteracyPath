@@ -108,13 +108,19 @@
 
 .cycle-practice-topbar__actions { grid-area: actions; display: flex; align-items: center; justify-content: flex-end; gap: 7px; min-width: 0; }
 .cycle-practice-topbar__actions .lp-button { min-height: 56px; padding: 8px 12px; white-space: nowrap; }
-.cycle-practice-topbar__actions .cycle-practice-check-button,
-.cycle-practice-topbar__actions .cycle-practice-check-button:disabled {
+.cycle-practice-topbar__actions .cycle-practice-check-button {
   border: 3px solid #117a39 !important;
   background: #2edb63 !important;
   color: #073b1c !important;
   box-shadow: 0 5px 0 #117a39, 0 9px 18px rgba(17, 122, 57, .24) !important;
   opacity: 1 !important;
+}
+.cycle-practice-topbar__actions .cycle-practice-check-button:disabled {
+  border-color: #b5c4bd !important;
+  background: #e6ece8 !important;
+  color: #52655c !important;
+  box-shadow: none !important;
+  cursor: not-allowed;
 }
 .cycle-practice-topbar__actions .cycle-practice-check-button:not(:disabled):active {
   background: #25c957 !important;

@@ -1,3 +1,4 @@
+import { cycleQuestionRecord, CYCLE_PRACTICE_VERSION, CYCLE_PRACTICE_POLICY_VERSION } from "../policy/cyclePracticePolicy.js";
 import {
   LEARNING_CONCLUSION_SCOPES,
   LEARNING_POLICY_VERSION,
@@ -27,7 +28,10 @@ export const ASSESSMENT_RESPONSE_STATUSES = Object.freeze({
   SKIPPED: "skipped",
   NOT_ADMINISTERED: "not_administered",
   DISCONTINUED: "discontinued",
-  NOT_SCORABLE: "not_scorable"
+  NOT_SCORABLE: "not_scorable",
+  SUPPORTED: "supported",
+  MEDIA_FAILED: "media_failed",
+  LEGACY_UNVERIFIED: "legacy_unverified"
 });
 
 export const ASSESSMENT_ADMINISTRATION_STATUSES = Object.freeze({
@@ -302,6 +306,12 @@ function normalizeQuestionRecord(item = {}, index, record, completedAt) {
     ),
     outcomeRecordedAt: item.outcomeRecordedAt || existingMetadata.outcomeRecordedAt || "",
     responseStatus,
+    ...(record.assessmentType === "cycle_practice_check" ? {
+      construct: item.construct || "", evidenceConstruct: item.evidenceConstruct || "",
+      mechanicId: item.mechanicId || "", selected: cloneJsonValue(item.selected, null),
+      evidence: cloneJsonValue(item.evidence, {}), audioRequired: item.audioRequired === true,
+      audioDelivery: item.audioDelivery || "pending"
+    } : {}),
     administrationStatus: item.administrationStatus || item.administration_status || "",
     isCorrect: responseStatus === ASSESSMENT_RESPONSE_STATUSES.CORRECT || responseStatus === ASSESSMENT_RESPONSE_STATUSES.SELF_CORRECTED
       ? true
@@ -600,7 +610,25 @@ function makeAttemptId(record = {}) {
 }
 
 export function normalizeAssessmentAttempt(record = {}) {
-  const rawQuestionRecords = Array.isArray(record.questionRecords) ? record.questionRecords : [];
+  const isCyclePractice = record.assessmentType === "cycle_practice_check";
+  const verifiedCycleContract = isCyclePractice && record.contentVersion === CYCLE_PRACTICE_VERSION
+    && record.policyVersion === CYCLE_PRACTICE_POLICY_VERSION;
+  const suppliedQuestionRecords = Array.isArray(record.questionRecords) ? record.questionRecords : [];
+  const rawQuestionRecords = !isCyclePractice ? suppliedQuestionRecords : suppliedQuestionRecords.map(item => {
+    const normalized = (
+    !verifiedCycleContract || !item.evidence || typeof item.evidence !== "object"
+      || !["correct", "incorrect", "supported", "media_failed"].includes(item.responseStatus)
+      || (["correct", "incorrect"].includes(item.responseStatus) && typeof item.isCorrect !== "boolean")
+      ? { ...item, responseStatus: "legacy_unverified", isCorrect: null }
+      : { ...item, ...cycleQuestionRecord({ ...item, id: item.questionId },
+        { correct: item.isCorrect, selected: item.selected, evidence: item.evidence, construct: item.evidenceConstruct },
+        { audioDelivery: item.audioDelivery, recordedAt: item.recordedAt }) }
+    );
+    return ["supported", "media_failed"].includes(item.responseStatus)
+      && ["correct", "incorrect"].includes(normalized.responseStatus)
+      ? { ...normalized, responseStatus: "legacy_unverified", isCorrect: null }
+      : normalized;
+  });
   const isDescriptiveElBenchmark = DESCRIPTIVE_EL_BENCHMARK_TYPES.has(normalizeKey(
     record.assessmentType || record.assessmentId || record.skillId
   ));
@@ -637,7 +665,7 @@ export function normalizeAssessmentAttempt(record = {}) {
   const scoredQuestions = questionRecords.filter(isScoredQuestion);
   const inferredTotal = scoredQuestions.length;
   const legacyTotal = normalizeCount(record.totalQuestions, inferredTotal);
-  const totalQuestions = attemptIsUnscored
+  const totalQuestions = isCyclePractice ? rawQuestionRecords.length : attemptIsUnscored
     ? 0
     : isDescriptiveElBenchmark && record.totalQuestions !== undefined
       ? normalizeCount(record.totalQuestions, inferredTotal)
@@ -647,7 +675,7 @@ export function normalizeAssessmentAttempt(record = {}) {
         ? legacyTotal
         : inferredTotal;
   const inferredCorrect = scoredQuestions.filter(item => item.responseStatus === ASSESSMENT_RESPONSE_STATUSES.CORRECT).length;
-  const correctCount = attemptIsUnscored
+  const correctCount = isCyclePractice ? inferredCorrect : attemptIsUnscored
     ? 0
     : isDescriptiveElBenchmark && record.correctCount !== undefined
       ? normalizeCount(record.correctCount, inferredCorrect)
@@ -684,7 +712,9 @@ export function normalizeAssessmentAttempt(record = {}) {
   const explicitNullDescriptiveAccuracy = isDescriptiveElBenchmark &&
     Object.prototype.hasOwnProperty.call(record, "accuracy") &&
     (record.accuracy === null || record.accuracy === "");
-  const accuracy = isDescriptiveElBenchmark && (attemptIsUnscored || explicitNullDescriptiveAccuracy)
+  const accuracy = isCyclePractice
+    ? (scoredQuestions.length ? Math.round(inferredCorrect / scoredQuestions.length * 100) : null)
+    : isDescriptiveElBenchmark && (attemptIsUnscored || explicitNullDescriptiveAccuracy)
     ? null
     : isDescriptiveElBenchmark && normalizedRecordedAccuracy !== null
       ? normalizedRecordedAccuracy
@@ -700,7 +730,7 @@ export function normalizeAssessmentAttempt(record = {}) {
       : ASSESSMENT_ADMINISTRATION_STATUSES.COMPLETED;
   const administrationStatus = explicitAdministrationStatus || inferredAdministrationStatus;
   const discontinued = Boolean(record.discontinued || administrationStatus === ASSESSMENT_ADMINISTRATION_STATUSES.DISCONTINUED);
-  const passed = isDescriptiveElBenchmark
+  const passed = isCyclePractice ? false : isDescriptiveElBenchmark
     ? Boolean(record.passed ?? false)
     : Boolean(
       record.passed
@@ -775,7 +805,16 @@ export function normalizeAssessmentAttempt(record = {}) {
             ? questionRecords.filter(item => item.responseStatus !== ASSESSMENT_RESPONSE_STATUSES.NOT_ADMINISTERED).length
             : totalQuestions
         ),
-    scoredCount: attemptIsUnscored
+    ...(isCyclePractice ? {
+      scoredQuestions: scoredQuestions.length,
+      supportedCount: questionRecords.filter(item => item.responseStatus === "supported").length,
+      mediaFailedCount: questionRecords.filter(item => item.responseStatus === "media_failed").length,
+      evidenceStatus: verifiedCycleContract ? "client_report" : "legacy_unverified",
+      practiceSeconds: verifiedCycleContract ? normalizeOptionalNumber(record.practiceSeconds, { minimum: 0 }) : null,
+      sessionElapsedSeconds: verifiedCycleContract ? normalizeOptionalNumber(record.sessionElapsedSeconds, { minimum: 0 }) : null,
+      checkSeconds: verifiedCycleContract ? normalizeOptionalNumber(record.checkSeconds, { minimum: 0 }) : null
+    } : {}),
+    scoredCount: isCyclePractice ? scoredQuestions.length : attemptIsUnscored
       ? 0
       : normalizeCount(record.scoredCount, rawQuestionRecords.length ? scoredQuestions.length : totalQuestions),
     correctCount,
@@ -783,7 +822,7 @@ export function normalizeAssessmentAttempt(record = {}) {
     pointsEarned,
     pointsPossible,
     passed,
-    status: record.status || (
+    status: isCyclePractice ? (scoredQuestions.length === totalQuestions && totalQuestions > 0 ? "completed" : "incomplete") : record.status || (
       [
         ASSESSMENT_ADMINISTRATION_STATUSES.DISCONTINUED,
         ASSESSMENT_ADMINISTRATION_STATUSES.NOT_ADMINISTERED,
@@ -794,10 +833,10 @@ export function normalizeAssessmentAttempt(record = {}) {
           ? "mastered"
           : "needs_retry"
     ),
-    masteredItems: record.masteredItems || [],
-    developingItems: record.developingItems || [],
-    needsSupportItems: record.needsSupportItems || [],
-    incorrectCount: attemptIsUnscored
+    masteredItems: isCyclePractice ? [] : record.masteredItems || [],
+    developingItems: isCyclePractice ? [] : record.developingItems || [],
+    needsSupportItems: isCyclePractice ? [] : record.needsSupportItems || [],
+    incorrectCount: isCyclePractice ? scoredQuestions.length - inferredCorrect : attemptIsUnscored
       ? 0
       : isDescriptiveElBenchmark && record.incorrectCount !== undefined
         ? normalizeCount(record.incorrectCount, Math.max(0, totalQuestions - correctCount))
@@ -885,7 +924,7 @@ export function extractMasteryFromAssessmentAttempt(record = {}) {
     // A discontinued, not-administered, or otherwise unscorable item is not a
     // wrong answer. Excluding it here prevents routing/mastery reports from
     // manufacturing weaknesses the learner was never actually tested on.
-    if (attemptIsUnscored || !isScoredQuestion(question)) return;
+    if (attempt.assessmentType === "cycle_practice_check" || attemptIsUnscored || !isScoredQuestion(question)) return;
     const masteryKey = inferQuestionMasteryKey(question, attempt);
     if (!masteryKey?.itemKey || !masteryKey?.itemType) return;
     const groupKey = `${masteryKey.itemType}::${masteryKey.itemKey}`;
@@ -1871,6 +1910,8 @@ export function summarizeAssessmentHistory(records = [], { students = [], classe
   let descriptiveBenchmarkAttempts = 0;
 
   normalized.forEach(record => {
+    // Cycle checks are practice evidence, never formal Skills/EL placement.
+    if (record.assessmentType === "cycle_practice_check") return;
     const isDescriptiveBenchmark = DESCRIPTIVE_EL_BENCHMARK_TYPES.has(normalizeKey(
       record.assessmentType || record.skillId
     ));
@@ -1973,13 +2014,14 @@ export function summarizeAssessmentHistory(records = [], { students = [], classe
   return {
     attempts: normalized.length,
     descriptiveBenchmarkAttempts,
+    cyclePracticeAttempts: normalized.filter(record => record.assessmentType === "cycle_practice_check"),
     totalQuestions: total,
     correctCount: correct,
     averageAccuracy: total ? Math.round((correct / total) * 100) : 0,
     latestAttempt: normalized[0] || null,
     skills,
     students: studentsSummary,
-    weeklyAccuracy: buildWeeklyAccuracySummary(normalized.filter(record => !DESCRIPTIVE_EL_BENCHMARK_TYPES.has(normalizeKey(
+    weeklyAccuracy: buildWeeklyAccuracySummary(normalized.filter(record => record.assessmentType !== "cycle_practice_check" && !DESCRIPTIVE_EL_BENCHMARK_TYPES.has(normalizeKey(
       record.assessmentType || record.skillId
     )))),
     strongestSkills: [...skills]
@@ -2003,7 +2045,7 @@ export function summarizeAssessmentHistory(records = [], { students = [], classe
 
 export function exportAssessmentAttemptsCsv(records = []) {
   const rows = [
-    ["attemptId", "studentName", "studentId", "classId", "skillName", "skillLevel", "skillPhase", "completedAt", "totalQuestions", "correctCount", "accuracy", "status"]
+    ["attemptId", "studentName", "studentId", "classId", "skillName", "skillLevel", "skillPhase", "completedAt", "totalQuestions", "correctCount", "accuracy", "status", "assessmentType", "scoredQuestions", "supportedCount", "mediaFailedCount", "evidenceStatus"]
   ];
   records.map(normalizeAssessmentAttempt).forEach(record => {
     rows.push([
@@ -2018,7 +2060,9 @@ export function exportAssessmentAttemptsCsv(records = []) {
       record.totalQuestions,
       record.correctCount,
       record.accuracy,
-      record.status
+      record.status,
+      record.assessmentType, record.scoredQuestions ?? record.scoredCount,
+      record.supportedCount ?? "", record.mediaFailedCount ?? "", record.evidenceStatus ?? ""
     ]);
   });
 

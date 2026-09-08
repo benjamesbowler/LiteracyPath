@@ -140,3 +140,36 @@ test("live controls distinguish normal end from immediate student switching", as
   await expect.poll(() => page.evaluate(() => document.documentElement.dataset.lastEndAction))
     .toBe("return_home");
 });
+
+test("Cycle practice teacher results show independent denominator and unscored reasons", async ({ page }) => {
+  await page.setViewportSize({ width: 1024, height: 768 });
+  await page.goto("/preview/student-session-controls.html?active=1&cycleResults=1", { waitUntil: "domcontentloaded" });
+  await page.getByText("Students", { exact: true }).click();
+  await expect(page.getByText(/1 of 2 independent responses correct/)).toBeVisible();
+  await expect(page.getByText(/No independent score/).first()).toBeVisible();
+  await expect(page.getByText(/Active practice 1810s/).first()).toBeVisible();
+  await expect(page.getByText("Check incomplete", { exact: true })).toHaveCount(3);
+  await expect(page.getByText(/Areas practised .*letter sound .*12 responses/).first()).toBeVisible();
+  await expect(page.getByText("Areas checked: letter sound, letter formation, phoneme").first()).toBeVisible();
+  const download = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Export practice results" }).click();
+  expect((await download).suggestedFilename()).toBe("cycle-practice-results.csv");
+  await expect(page.getByText("Practice evidence · not a formal assessment").first()).toBeVisible();
+  const evidence = page.getByText(/1 of 2 independent responses correct/);
+  expect(await evidence.evaluate(element => {
+    const box = element.getBoundingClientRect();
+    return element.contains(document.elementFromPoint(box.left + 5, box.top + 5));
+  })).toBe(true);
+  await page.getByText("Practise next", { exact: true }).click();
+  await expect(page.getByText("Response: n", { exact: true })).toBeVisible();
+  await expect(page.getByText(/Practise with support, then try independently/)).toBeVisible();
+  await expect(page.getByText(/Replay the required media before checking/)).toBeVisible();
+  await page.screenshot({ path: ".artifacts/cycle-practice-teacher-results.png" });
+  const mediaRetry = page.getByText(/Replay the required media before checking/);
+  await mediaRetry.scrollIntoViewIfNeeded();
+  expect(await mediaRetry.evaluate(element => {
+    const box = element.getBoundingClientRect();
+    return element.contains(document.elementFromPoint(box.left + 5, box.top + 5));
+  })).toBe(true);
+  await page.screenshot({ path: ".artifacts/cycle-practice-teacher-next-media.png" });
+});

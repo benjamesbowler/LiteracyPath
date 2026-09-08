@@ -19,6 +19,65 @@ let cueSequenceTimer = null;
 let cueSequenceSession = 0;
 let activeCueSequence = null;
 const warmedCueCache = new Map();
+// A retention bound, not a claim about physical-device memory or latency.
+// Explicit current/next windows and the active voice/sequence are additional.
+export const MAX_IDLE_WARMED_CUES = 32;
+const retainedCueSources = new Map();
+let sequenceCueSources = new Set();
+
+function isCueProtected(src, entry) {
+  return entry.audio === currentCue || retainedCueSources.has(src) || sequenceCueSources.has(src);
+}
+
+function releaseWarmedEntry(src, entry) {
+  if (warmedCueCache.get(src) !== entry) return;
+  warmedCueCache.delete(src);
+  entry.cancel?.();
+  try {
+    entry.audio.pause();
+    entry.audio.removeAttribute?.("src");
+    if (!entry.audio.removeAttribute) entry.audio.src = "";
+    entry.audio.load?.();
+  } catch {
+    // A failed element must not prevent the rest of the window releasing.
+  }
+}
+
+function trimWarmedCues() {
+  const idle = [];
+  for (const [src, entry] of warmedCueCache) {
+    if (isCueProtected(src, entry)) continue;
+    if (entry.failed || entry.released) releaseWarmedEntry(src, entry);
+    else idle.push([src, entry]);
+  }
+  idle.slice(0, Math.max(0, idle.length - MAX_IDLE_WARMED_CUES))
+    .forEach(([src, entry]) => releaseWarmedEntry(src, entry));
+}
+
+/** Retain one consumer's exact current/next window; release never stops speech. */
+export function retainCueAudioSources(srcs = []) {
+  const sources = new Set(srcs.map(normalizeCueSource).filter(Boolean));
+  sources.forEach(src => {
+    retainedCueSources.set(src, (retainedCueSources.get(src) || 0) + 1);
+    const entry = warmedCueCache.get(src);
+    if (entry) entry.released = false;
+  });
+  let released = false;
+  return () => {
+    if (released) return;
+    released = true;
+    sources.forEach(src => {
+      const count = retainedCueSources.get(src) || 0;
+      if (count > 1) retainedCueSources.set(src, count - 1);
+      else {
+        retainedCueSources.delete(src);
+        const entry = warmedCueCache.get(src);
+        if (entry) entry.released = true;
+      }
+    });
+    trimWarmedCues();
+  };
+}
 
 function getSharedCueElement() {
   if (!sharedCueElement) {
@@ -57,7 +116,14 @@ export function preloadCueAudio(src) {
   if (!normalized || typeof Audio === "undefined") return Promise.resolve(false);
 
   const existing = warmedCueCache.get(normalized);
-  if (existing) return existing.promise;
+  if (existing && !existing.failed) {
+    warmedCueCache.delete(normalized);
+    warmedCueCache.set(normalized, existing);
+    return existing.promise;
+  }
+  // A failed active element finishes through its existing playback owner.
+  if (existing?.audio === currentCue) return existing.promise;
+  if (existing) releaseWarmedEntry(normalized, existing);
 
   let audio;
   try {
@@ -68,6 +134,7 @@ export function preloadCueAudio(src) {
   }
 
   const entry = { audio, failed: false, ready: false, promise: null };
+  warmedCueCache.set(normalized, entry);
   entry.promise = new Promise(resolve => {
     let settled = false;
     let timeoutId = null;
@@ -80,7 +147,9 @@ export function preloadCueAudio(src) {
       entry.ready = ok;
       entry.failed = !ok;
       resolve(ok);
+      if (!ok && currentCue !== audio) releaseWarmedEntry(normalized, entry);
     };
+    entry.cancel = () => finish(false);
     const onReady = () => finish(true);
     const onError = () => finish(false);
     audio.addEventListener?.("canplay", onReady, { once: true });
@@ -96,13 +165,17 @@ export function preloadCueAudio(src) {
       finish(false);
     }
   });
-  warmedCueCache.set(normalized, entry);
+  trimWarmedCues();
   return entry.promise;
 }
 
 function getWarmedCueEntry(src) {
-  const entry = warmedCueCache.get(normalizeCueSource(src));
-  return entry && !entry.failed ? entry : null;
+  const normalized = normalizeCueSource(src);
+  const entry = warmedCueCache.get(normalized);
+  if (!entry || entry.failed) return null;
+  warmedCueCache.delete(normalized);
+  warmedCueCache.set(normalized, entry);
+  return entry;
 }
 
 function getWarmedCueElement(src) {
@@ -128,6 +201,7 @@ function finishCueSequence(sequence, type) {
 
 function cancelCueSequence({ interrupt = true } = {}) {
   cueSequenceVersion += 1;
+  sequenceCueSources = new Set();
   if (cueSequenceTimer !== null && typeof window !== "undefined") {
     window.clearTimeout?.(cueSequenceTimer);
   }
@@ -157,6 +231,7 @@ function stopCuePlayback({ preserveSequence = false } = {}) {
   currentCueDelivery = null;
   currentCueId = null;
   cueResumeAfterSuspend = false;
+  trimWarmedCues();
   setQuestActionSfxInstructionActive(false);
   restoreGameMusic();
   if (typeof window !== "undefined" && window.speechSynthesis) {
@@ -219,6 +294,7 @@ function playCueAudioInternal(src, {
     currentCueDelivery = null;
     currentCueId = null;
     cueResumeAfterSuspend = false;
+    trimWarmedCues();
     setQuestActionSfxInstructionActive(false);
     restoreGameMusic();
     reportCueDelivery(type, { id: deliveryId, session, delivery: deliver });
@@ -313,6 +389,7 @@ export function playCueSequence(srcs = [], {
   const queue = (srcs || []).filter(Boolean);
   if (!queue.length) return;
   cancelCueSequence();
+  sequenceCueSources = new Set(queue.map(normalizeCueSource));
   const sequenceVersion = cueSequenceVersion;
   const sequence = {
     cueId: String(cueId),
@@ -330,6 +407,8 @@ export function playCueSequence(srcs = [], {
   const playNext = () => {
     if (sequenceVersion !== cueSequenceVersion) return;
     if (index >= queue.length) {
+      sequenceCueSources = new Set();
+      trimWarmedCues();
       if (activeCueSequence === sequence) finishCueSequence(sequence, "completed");
       return;
     }
@@ -338,6 +417,11 @@ export function playCueSequence(srcs = [], {
     const itemCueId = `${cueId}:${index}`;
     const handleItemDelivery = event => {
       onItemDiagnostic?.(event);
+      if (sequenceVersion !== cueSequenceVersion) return;
+      if (index >= queue.length && ["completed", "failed", "interrupted"].includes(event.type)) {
+        sequenceCueSources = new Set();
+        trimWarmedCues();
+      }
       const ownsAggregate = activeCueSequence === sequence && !sequence.finished;
       if (event.type === "started" && ownsAggregate && !sequence.started) {
         sequence.started = true;
