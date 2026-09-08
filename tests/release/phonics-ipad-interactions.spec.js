@@ -64,7 +64,7 @@ test("Letter Sounds keeps the same lesson and cards mounted through full screen"
 
   const cards = page.locator(".phonics-listen-card");
   await expect(cards).toHaveCount(4);
-  await expect(page.locator(".phonics-is-for")).toHaveText("A is for...");
+  await expect(page.locator(".phonics-is-for")).toHaveText("Words with A at the beginning");
   await page.evaluate(() => {
     window.__letterCardsBeforeFullscreen = [
       ...document.querySelectorAll(".phonics-listen-card")
@@ -77,7 +77,7 @@ test("Letter Sounds keeps the same lesson and cards mounted through full screen"
   await fullscreen.evaluate(button => button.click());
 
   await expect(cards).toHaveCount(4);
-  await expect(page.locator(".phonics-is-for")).toHaveText("A is for...");
+  await expect(page.locator(".phonics-is-for")).toHaveText("Words with A at the beginning");
   expect(await page.evaluate(() => (
     window.__letterCardsBeforeFullscreen.every(card => card.isConnected)
   ))).toBe(true);
