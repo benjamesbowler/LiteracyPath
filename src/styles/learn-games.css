@@ -3725,3 +3725,131 @@
 .lg-object-scene[data-action="park"] .lg-object-actor { --object-y: 32px; }
 .lg-object-scene[data-action="post"] .lg-object-actor { --object-x: 260px; --object-y: 12px; }
 .lg-object-scene[data-action="post"] .lg-object-actor image { x: 38px; y: 70px; width: 74px; height: 74px; }
+
+/* ── G10/G12: evidence-bearing interaction states ─────────────────────── */
+.lg-game-player .lg-illustrated-game .lg-target-stage .lg-floating-options button:active,
+.lg-game-player .lg-illustrated-game .lg-target-stage.lg-target-frozen .lg-floating-options button {
+  animation-play-state: paused;
+}
+
+.lg-game-player .lg-illustrated-game .lg-target-reveal {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) 70px;
+  align-items: center;
+  gap: 10px;
+  width: min(100%, 520px);
+  min-height: 64px;
+  border: 3px solid #166534;
+  border-radius: 16px;
+  background: #EAF7F0;
+  color: #0F172A;
+  box-shadow: 0 5px 0 #166534;
+  padding: 8px 12px;
+}
+.lg-game-player .lg-illustrated-game .lg-target-reveal strong { font-size: 1.3rem; }
+.lg-game-player .lg-illustrated-game .lg-target-reveal span { font-weight: 750; line-height: 1.25; }
+.lg-game-player .lg-illustrated-game .lg-target-reveal i {
+  width: 58px;
+  height: 42px;
+  border-radius: 50% 50% 8px 8px;
+  background: #FECACA;
+  box-shadow: inset 0 -12px 0 #E2725B, 0 -13px 0 -3px #FEF3C7;
+}
+
+.lg-game-player .lg-illustrated-game .lg-sentence-model {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  border: 3px solid #64748B;
+  border-radius: 22px;
+  background: #ffffff;
+  color: #0F172A;
+  box-shadow: 0 6px 0 #334155;
+  padding: 16px;
+  text-align: center;
+}
+.lg-game-player .lg-illustrated-game .lg-sentence-model strong { font-size: 1.15rem; }
+.lg-game-player .lg-illustrated-game .lg-sentence-model span { font-size: clamp(1.2rem, 2.6vw, 2rem); font-weight: 850; line-height: 1.25; }
+.lg-game-player .lg-illustrated-game .lg-sentence-model button,
+.lg-game-player .lg-illustrated-game .lg-sentence-complete {
+  min-height: 56px;
+  border-radius: 14px;
+}
+.lg-game-player .lg-illustrated-game .lg-sentence-model button {
+  border: 3px solid #166534;
+  background: #EAF7F0;
+  color: #0F172A;
+  box-shadow: 0 5px 0 #166534;
+  font-weight: 850;
+}
+.lg-game-player .lg-illustrated-game .lg-sentence-complete {
+  display: grid;
+  gap: 4px;
+  align-content: center;
+  border: 3px solid #166534;
+  background: #EAF7F0;
+  color: #0F172A;
+  box-shadow: 0 5px 0 #166534;
+  padding: 8px 14px;
+  text-align: center;
+}
+.lg-game-player .lg-illustrated-game .lg-sentence-complete span { font-weight: 750; }
+
+.lg-game-player .lg-illustrated-game .lg-fix-bench {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 68px;
+  border: 3px solid #7C5CBF;
+  border-radius: 18px;
+  background: #F1EDFA;
+  color: #0F172A;
+  box-shadow: inset 0 -9px 0 rgba(124, 92, 191, 0.14), 0 6px 0 #7C5CBF;
+}
+.lg-game-player .lg-illustrated-game .lg-fix-bench.repaired { border-color: #166534; background: #EAF7F0; box-shadow: inset 0 -9px 0 rgba(22, 101, 52, 0.1), 0 6px 0 #166534; }
+.lg-game-player .lg-illustrated-game .lg-fix-tool { width: 58px; height: 18px; border: 4px solid #D97706; border-radius: 5px; background: #FEF3C7; transform: rotate(-8deg); }
+.lg-game-player .lg-illustrated-game .lg-fix-feedback,
+.lg-game-player .lg-illustrated-game .lg-fix-complete {
+  width: 100%;
+  border-radius: 12px;
+  padding: 9px 12px;
+  font-weight: 800;
+  text-align: center;
+}
+.lg-game-player .lg-illustrated-game .lg-fix-feedback { border: 2px solid #D97706; background: #FEF3C7; color: #334155; }
+.lg-game-player .lg-illustrated-game .lg-fix-complete { border: 2px solid #166534; background: #EAF7F0; color: #166534; }
+
+.lg-game-player .lg-illustrated-game .adv-pal {
+  left: calc(12% + (var(--plank, 0) * 10%));
+  transition: left 420ms ease-out;
+}
+.lg-game-player .lg-illustrated-game .adv-destination {
+  min-width: 70px;
+  min-height: 58px;
+  display: grid;
+  place-items: center;
+  border: 3px solid #166534;
+  border-radius: 14px;
+  background: #EAF7F0;
+  color: #166534;
+  box-shadow: 0 5px 0 #166534;
+  font-size: 1rem;
+  font-weight: 900;
+}
+.lg-game-player .lg-illustrated-game .adv-belt.sorted { border-color: #166534; box-shadow: inset 0 7px 0 rgba(255, 255, 255, 0.08), inset 0 -9px 0 rgba(17, 28, 39, 0.22), 0 0 0 4px rgba(22, 101, 52, 0.16); }
+.lg-game-player .lg-illustrated-game .adv-sort-route { align-self: center; margin-left: 10px; color: #EAF7F0; font-size: .9rem; font-weight: 850; }
+
+@media (max-width: 700px) {
+  .lg-game-player .lg-illustrated-game .lg-target-reveal { grid-template-columns: auto minmax(0, 1fr); }
+  .lg-game-player .lg-illustrated-game .lg-target-reveal i { display: none; }
+  .lg-game-player .lg-illustrated-game .lg-sentence-model { padding: 10px; }
+  .lg-game-player .lg-illustrated-game .adv-destination { min-width: 56px; font-size: .82rem; }
+  .lg-game-player .lg-illustrated-game .adv-sort-route { display: block; width: 100%; margin: 4px 0 0; font-size: .78rem; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lg-game-player .lg-illustrated-game .adv-pal { transition: none; }
+}

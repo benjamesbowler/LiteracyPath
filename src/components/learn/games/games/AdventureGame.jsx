@@ -171,21 +171,21 @@ function RescueStage({ rounds, state, isSoundEnabled }) {
 
   return (
     <IllustratedGameScene mode="rescue" stageClassName="adv-rescue">
-      <p>{canHearWord ? "Hear the word, then tap the matching word!" : "Tap the matching word to build the bridge!"}</p>
+      <p>{canHearWord ? "Hear the word, then tap the matching word to lay a plank." : "Read the word, then tap it to lay a plank."}</p>
       {canHearWord ? (
         <button type="button" className="lg-game-audio" onClick={() => speakWord(round.word)}>Hear word</button>
       ) : (
         // Sound off: the target only exists as audio, so show it as a card.
         <span className="adv-belt-item" style={{ animation: "none" }}>{round.word}</span>
       )}
-      <div className="adv-bridge" aria-label={`${planks} of ${rounds.length} planks built`}>
+      <div className="adv-bridge" aria-label={`${planks} of ${rounds.length} planks built; friend moves toward Home`}>
         <span className="adv-pal" style={{ "--plank": planks }} aria-hidden="true">
           <img src="/images/pals/poses/meadow-wave.webp" alt="" onError={e => { e.currentTarget.style.display = "none"; }} />
         </span>
         {rounds.map((r, i) => (
           <span key={i} className={`adv-plank${i < planks ? " laid" : ""}`} aria-hidden="true" />
         ))}
-        <span className="adv-goal" aria-hidden="true">GO</span>
+        <span className="adv-destination" aria-hidden="true">HOME</span>
       </div>
       <div className="adv-choices">
         {round.choices.map(word => (
@@ -205,7 +205,7 @@ function RescueStage({ rounds, state, isSoundEnabled }) {
 
 // ── Sound Sort Factory ─────────────────────────────────────────────────────
 function SortStage({ sort, state, isSoundEnabled }) {
-  const { index, beltKey, wrongBin, sortItem } = state;
+  const { index, beltKey, wrongBin, sortDestination, sortItem } = state;
   const item = sort.items[index] || sort.items[sort.items.length - 1];
 
   useEffect(() => {
@@ -214,9 +214,10 @@ function SortStage({ sort, state, isSoundEnabled }) {
 
   return (
     <IllustratedGameScene mode="sort" stageClassName="adv-sort">
-      <p>Which bin does it belong in? Look at how it starts!</p>
-      <div className="adv-belt" aria-hidden="true">
+      <p data-task-mode="orthographic">Read the printed word. Sort its beginning grapheme into the matching bin.</p>
+      <div className={`adv-belt${sortDestination ? " sorted" : ""}`} data-task-mode="orthographic" aria-label={`Printed word ${item.word}`}>
         <span key={beltKey} className="adv-belt-item">{item.word}</span>
+        {sortDestination && <span className="adv-sort-route" role="status">Routed to /{sortDestination}/ bin</span>}
       </div>
       <div className="adv-bins">
         {[sort.binA, sort.binB].map(bin => (
@@ -331,6 +332,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   const [planks, setPlanks] = useState(0);
   const [wrongWord, setWrongWord] = useState("");
   const [wrongBin, setWrongBin] = useState("");
+  const [sortDestination, setSortDestination] = useState("");
   const [wrongLetter, setWrongLetter] = useState("");
   const [beltKey, setBeltKey] = useState(0);
   // Busy blocks all input between a correct tap and the scheduled advance, so
@@ -422,6 +424,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
     later(() => {
       speechTokenRef.current += 1;
       busyRef.current = false;
+      setSortDestination("");
       if (index + 1 >= total) finish(correctCount);
       else {
         const next = index + 1;
@@ -453,7 +456,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
     busyRef.current = false;
     setVersion(v => v + 1);
     setIndex(0); scoreRef.current = 0; setScore(0); setWrongs(0); setCompleted(false); setStars(0);
-    setTyped([]); setGrown([]); setPlanks(0); setBeltKey(k => k + 1);
+    setTyped([]); setGrown([]); setPlanks(0); setSortDestination(""); setBeltKey(k => k + 1);
     responseEvidenceRef.current = { firstResponses: [], assistedRetries: [] };
     responseAttemptsRef.current = new Map();
   }
@@ -515,7 +518,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
 
   if (mode === "sort") {
     const state = {
-      index, beltKey, wrongBin,
+      index, beltKey, wrongBin, sortDestination,
       sortItem: bin => {
         if (busyRef.current) return;
         const item = sort.items[index];
@@ -534,6 +537,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
         if (isSoundEnabled) playCorrectChime();
         scoreRef.current += 15;
         setScore(scoreRef.current);
+        setSortDestination(bin);
         setBeltKey(k => k + 1);
         advance(index + 1);
       }

@@ -514,12 +514,13 @@ test("Word Rescue completion focuses and contains its engine-owned Play again ac
   await page.goto("/preview/game-overlay.html?game=word-rescue&sound=0&music=0");
 
   const targetCue = page.locator(".adv-rescue > .adv-belt-item");
+  await expect(page.locator(".adv-destination")).toHaveText("HOME");
   for (let round = 0; round < 6; round += 1) {
     const target = await targetCue.textContent();
     expect(target).toBeTruthy();
     await page.locator(".adv-choices").getByRole("button", { name: target, exact: true }).click();
     if (round < 5) {
-      await expect(page.locator(".adv-bridge")).toHaveAttribute("aria-label", `${round + 1} of 6 planks built`);
+      await expect(page.locator(".adv-bridge")).toHaveAttribute("aria-label", `${round + 1} of 6 planks built; friend moves toward Home`);
       await expect(targetCue).not.toHaveText(target);
     }
   }
@@ -528,7 +529,6 @@ test("Word Rescue completion focuses and contains its engine-owned Play again ac
   await expect(playAgain).toBeVisible();
   await expect(playAgain).toBeFocused();
   await expect(page.locator(".lg-game-player-header")).toHaveAttribute("inert", "");
-
   await page.keyboard.press("Tab");
   await expect(playAgain).toBeFocused();
   await page.keyboard.press("Shift+Tab");
@@ -540,6 +540,8 @@ test("Sight Word Memory masks face-down answers and announces revealed and match
 
   const cards = page.locator(".lg-match-card");
   await expect(cards).toHaveCount(6);
+  const pairIds = await cards.evaluateAll(nodes => nodes.map(node => node.dataset.pairId));
+  expect([...new Set(pairIds)].every(pairId => pairIds.filter(id => id === pairId).length === 2)).toBe(true);
   for (let index = 0; index < 6; index += 1) {
     await expect(cards.nth(index)).toHaveAccessibleName(`Hidden card ${index + 1} of 6`);
     await expect(cards.nth(index).locator(".lg-card-front")).toHaveAttribute("aria-hidden", "true");
@@ -571,4 +573,30 @@ test("Sight Word Memory masks face-down answers and announces revealed and match
   await expect(secondMatch).toHaveAccessibleName(
     `Matched card ${matchingIndexes[1] + 1} of 6: ${firstWord}`
   );
+});
+
+test("Pop the Word freezes the cluster and reveals the completed word scene", async ({ page }) => {
+  await page.goto("/preview/game-overlay.html?game=pop-the-word&sound=0&music=0");
+  const target = (await page.locator(".lg-game-picture-text span").textContent()).trim();
+  await page.getByRole("button", { name: target, exact: true }).click();
+  await expect(page.locator(".lg-target-stage")).toHaveClass(/lg-target-frozen/);
+  await expect(page.locator(".lg-target-reveal")).toContainText(`${target}The balloon popped!`);
+});
+
+test("Sound Sort declares its print task and routes a word into the chosen bin", async ({ page }) => {
+  await page.setViewportSize({ width: 568, height: 320 });
+  await page.addInitScript(() => {
+    window.localStorage.setItem("lp-arcade-onboarded-v1:sound-sort-factory", "1");
+  });
+  await page.goto("/preview/game-overlay.html?game=sound-sort-factory&sound=0&music=0");
+  await expect(page.locator('[data-task-mode="orthographic"]')).toHaveCount(2);
+  const belt = page.locator(".adv-belt-item");
+  const firstWord = (await belt.textContent()).trim();
+  const labels = await page.locator(".adv-bin-label").allTextContents();
+  const correctIndex = labels.findIndex(label => firstWord.toLowerCase().startsWith(label.trim().toLowerCase()));
+  expect(correctIndex).toBeGreaterThanOrEqual(0);
+  await page.locator(".adv-bin").nth(correctIndex === 0 ? 1 : 0).click();
+  await expect(belt).toHaveText(firstWord);
+  await page.locator(".adv-bin").nth(correctIndex).click();
+  await expect(page.locator(".adv-sort-route")).toContainText("Routed to");
 });

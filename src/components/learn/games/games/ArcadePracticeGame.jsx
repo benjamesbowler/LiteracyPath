@@ -33,11 +33,11 @@ function pickWords(difficulty, limit) {
 }
 
 function pickSightWords(difficulty, limit) {
-  const pool = (difficulty === "hard"
+  const pool = [...new Set((difficulty === "hard"
     ? SIGHT_WORDS.level3
     : difficulty === "medium"
       ? SIGHT_WORDS.level2
-      : SIGHT_WORDS.level1).filter(word => !hasKnownBadWordAudio(word));
+      : SIGHT_WORDS.level1))].filter(word => !hasKnownBadWordAudio(word));
   return shuffle(pool).slice(0, limit);
 }
 
@@ -104,16 +104,6 @@ function WordImageCard({ word, secret = false, label = "" }) {
   );
 }
 
-function RaceMarker() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 48 28" focusable="false">
-      <path d="M7 20h25c5 0 9-3 11-8l1-3-8 2-7-7H16l-5 7H5c-2 0-4 2-4 4s2 5 6 5Z" />
-      <circle cx="14" cy="21" r="4" />
-      <circle cx="34" cy="21" r="4" />
-    </svg>
-  );
-}
-
 export function ArcadePracticeGame({
   title,
   mode,
@@ -160,7 +150,11 @@ export function ArcadePracticeGame({
     if (mode === "memory") {
       const pairCount = difficulty === "hard" ? 10 : difficulty === "medium" ? 6 : 3;
       const words = pickSightWords(difficulty, pairCount);
-      return withReroll({ cards: shuffle([...words, ...words].map((word, index) => ({ id: `${word}-${index}`, word }))) });
+      const cards = words.flatMap((word, pairIndex) => [
+        { id: `pair-${pairIndex}-a`, pairId: `pair-${pairIndex}`, word },
+        { id: `pair-${pairIndex}-b`, pairId: `pair-${pairIndex}`, word }
+      ]);
+      return withReroll({ cards: shuffle(cards) });
     }
 
     if (mode === "family") {
@@ -336,6 +330,7 @@ export function ArcadePracticeGame({
         miss={miss}
         finish={finish}
         schedule={schedule}
+        recordFirstResponse={recordFirstResponse}
       />
     );
   } else if (mode === "family") {
@@ -370,6 +365,8 @@ export function ArcadePracticeGame({
         isSoundEnabled={isSoundEnabled}
         difficulty={difficulty}
         schedule={schedule}
+        recordFirstResponse={recordFirstResponse}
+        recordAssistedRetry={recordAssistedRetry}
       />
     );
   } else if (mode === "quiz") {
@@ -387,6 +384,7 @@ export function ArcadePracticeGame({
         isSoundEnabled={isSoundEnabled}
         totalRounds={totalRounds}
         schedule={schedule}
+        recordFirstResponse={recordFirstResponse}
       />
     );
   } else if (mode === "target") {
@@ -403,6 +401,7 @@ export function ArcadePracticeGame({
         isSoundEnabled={isSoundEnabled}
         totalRounds={totalRounds}
         schedule={schedule}
+        recordFirstResponse={recordFirstResponse}
       />
     );
   } else {
@@ -618,7 +617,7 @@ function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss
   );
 }
 
-function MatchGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss, finish, schedule }) {
+function MatchGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss, finish, schedule, recordFirstResponse }) {
   const [selected, setSelected] = useState([]);
   const [matchedIds, setMatchedIds] = useState([]);
   const selectedRef = useRef([]);
@@ -637,8 +636,9 @@ function MatchGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss,
 
     if (nextSelected.length < 2) return;
 
-    if (nextSelected[0].word === nextSelected[1].word) {
+    if (nextSelected[0].pairId === nextSelected[1].pairId) {
       const nextCorrect = correct + 1;
+      recordFirstResponse?.({ game: "sight-word-memory", round: nextSelected[0].pairId, target: nextSelected[0].word, response: nextSelected[1].word, correct: true, practiceOnly: true, independent: false, supportUsed: ["spatial_pairing"], audioDelivery: "not_measured", soundEnabled: isSoundEnabled });
       setCorrect(nextCorrect);
       addScore(12);
       matchedIdsRef.current.add(nextSelected[0].id);
@@ -650,6 +650,18 @@ function MatchGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss,
         schedule(() => finish(nextCorrect), 400);
       }
     } else {
+      recordFirstResponse?.({
+        game: "sight-word-memory",
+        round: nextSelected[0].pairId,
+        target: nextSelected[0].word,
+        response: nextSelected[1].word,
+        correct: false,
+        practiceOnly: true,
+        independent: false,
+        supportUsed: ["spatial_pairing"],
+        audioDelivery: "not_measured",
+        soundEnabled: isSoundEnabled
+      });
       miss();
       schedule(() => {
         selectedRef.current = [];
@@ -675,6 +687,7 @@ function MatchGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss,
             <button
               key={card.id}
               type="button"
+              data-pair-id={card.pairId}
               className={`lg-match-card ${matched ? "matched" : ""}${visible ? " revealed" : ""}`}
               aria-label={accessibleName}
               onClick={() => choose(card)}
@@ -796,7 +809,7 @@ function FamilyGame({ state, round, setRound, isSoundEnabled, correct, setCorrec
   );
 }
 
-function TargetGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, totalRounds, schedule }) {
+function TargetGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, totalRounds, schedule, recordFirstResponse }) {
   const target = state.words[round] || state.words[0];
   const canHearTarget = isSoundEnabled && hasRecordedSpeech(target);
   const options = useMemo(() => shuffle([target, ...shuffle(state.words.filter(word => word !== target)).slice(0, 5)]), [state.words, target]);
@@ -821,6 +834,7 @@ function TargetGame({ state, round, setRound, correct, setCorrect, addScore, mis
       miss();
       return;
     }
+    recordFirstResponse?.({ game: "pop-the-word", round, target, response: word, correct: true, practiceOnly: true, independent: false, supportUsed: [canHearTarget ? "spoken_target" : "printed_target"], audioDelivery: canHearTarget ? "requested" : "not_available", soundEnabled: isSoundEnabled });
     resolvedRef.current = true;
     setPopped(word);
     const nextCorrect = correct + 1;
@@ -834,7 +848,7 @@ function TargetGame({ state, round, setRound, correct, setCorrect, addScore, mis
   }
 
   return (
-    <IllustratedGameScene mode="target" stageClassName="lg-target-stage">
+    <IllustratedGameScene mode="target" stageClassName={`lg-target-stage${popped || wrongWord ? " lg-target-frozen" : ""}`}>
       <p>{canHearTarget ? "Listen, then pop the matching bubble!" : "Pop the matching bubble!"}</p>
       {canHearTarget
         ? <button type="button" className="lg-game-audio" onClick={() => speakWord(target)}><span aria-hidden="true">♪</span> Hear word</button>
@@ -852,34 +866,47 @@ function TargetGame({ state, round, setRound, correct, setCorrect, addScore, mis
           </button>
         ))}
       </div>
+      {popped && <div className="lg-target-reveal" role="status"><strong>{target}</strong><span>The balloon popped! A new word scene is ready.</span><i aria-hidden="true" /></div>}
       <GameMeter current={round + 1} total={totalRounds} />
     </IllustratedGameScene>
   );
 }
 
-function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, difficulty, schedule }) {
+function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, difficulty, schedule, recordFirstResponse, recordAssistedRetry }) {
   const sentence = state.sentences[round] || state.sentences[0];
   const words = useMemo(() => sentence.replace(/[.?!]/g, "").split(/\s+/), [sentence]);
   const [position, setPosition] = useState(0);
+  const [modelVisible, setModelVisible] = useState(true);
   const positionRef = useRef(0);
+  const firstResponseRecordedRef = useRef(false);
+  const attemptsRef = useRef(0);
   const options = useMemo(() => shuffle(words), [words]);
 
   const canHear = isSoundEnabled && hasRecordedSpeech(sentence);
   const resolvedRef = useRef(false);
 
   useEffect(() => {
-    if (isSoundEnabled && canHear) speak(sentence);
-  }, [canHear, isSoundEnabled, sentence]);
+    if (modelVisible && isSoundEnabled && canHear) speak(sentence);
+  }, [canHear, isSoundEnabled, modelVisible, sentence]);
 
   function choose(word) {
-    if (resolvedRef.current || position !== positionRef.current) return;
-    if (word !== words[position]) {
+    if (modelVisible || resolvedRef.current || position !== positionRef.current) return;
+    const isCorrect = word === words[position];
+    if (!firstResponseRecordedRef.current) {
+      firstResponseRecordedRef.current = true;
+      recordFirstResponse?.({ game: "word-hopscotch", round, target: words[0], response: word, correct: isCorrect, practiceOnly: true, independent: true, supportUsed: ["model_removed", "spoken_or_pictured_sentence"], audioDelivery: canHear ? "requested" : "not_available", soundEnabled: isSoundEnabled });
+    }
+    if (!isCorrect) {
+      attemptsRef.current += 1;
       miss();
       return;
     }
     positionRef.current += 1;
+    const nextPosition = position + 1;
+    setPosition(nextPosition);
+    if (attemptsRef.current > 0) recordAssistedRetry?.({ game: "word-hopscotch", round, target: words[0], attempts: attemptsRef.current, supportUsed: ["replay_or_retry"] });
     addScore(10);
-    if (position + 1 >= words.length) {
+    if (nextPosition >= words.length) {
       resolvedRef.current = true;
       const nextCorrect = correct + 1;
       setCorrect(nextCorrect);
@@ -889,8 +916,6 @@ function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, m
       } else {
         setRound(round + 1);
       }
-    } else {
-      setPosition(position + 1);
     }
   }
 
@@ -898,30 +923,36 @@ function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, m
     <IllustratedGameScene mode="sentence">
       <p>Hop on the next word in the sentence.</p>
       {canHear && <button type="button" className="lg-game-audio" onClick={() => speak(sentence)}><span aria-hidden="true">♪</span> Hear sentence</button>}
-      <div className="lg-sentence-path">
-        {words.map((word, index) => (
-          <span key={`${word}-${index}`} className={index < position ? "done" : index === position && difficulty !== "hard" ? "active" : ""}>
-            {word}
-          </span>
-        ))}
-      </div>
-      <div className="lg-hop-grid">
-        {options.map((word, index) => (
-          <button key={`${word}-${index}`} type="button" onClick={() => choose(word)}>
-            {word}
-          </button>
-        ))}
-      </div>
+      {modelVisible
+        ? <div className="lg-sentence-model" role="group" aria-label="Sentence model"><strong>Read the model</strong><span>{sentence}</span><button type="button" onClick={() => setModelVisible(false)}>Hide model &amp; start</button></div>
+        : <>
+            <div className="lg-sentence-path" aria-label="Sentence order after model removal">
+              {words.map((word, index) => (
+                <span key={`${word}-${index}`} data-word={word} className={index < position ? "done" : index === position && difficulty !== "hard" ? "active" : ""}>
+                  {index < position ? word : "○"}
+                </span>
+              ))}
+            </div>
+            <div className="lg-hop-grid">
+              {options.map((word, index) => (
+                <button key={`${word}-${index}`} type="button" onClick={() => choose(word)} disabled={position >= words.length}>
+                  {word}
+                </button>
+              ))}
+            </div>
+          </>}
+      {!modelVisible && position >= words.length && <div className="lg-sentence-complete" role="status"><strong>Sentence built!</strong><span>{sentence}</span></div>}
       <GameMeter current={round + 1} total={state.sentences.length} />
     </IllustratedGameScene>
   );
 }
 
-function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, schedule }) {
+function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, schedule, recordFirstResponse }) {
   const total = state.fixes.length;
   const fix = state.fixes[round] || state.fixes[0];
   const [solved, setSolved] = useState(false);
   const [solvedAnswer, setSolvedAnswer] = useState("");
+  const [wrongOption, setWrongOption] = useState("");
   const resolvedRef = useRef(false);
   const options = useMemo(() => shuffle(fix.options), [fix]);
 
@@ -936,11 +967,16 @@ function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, 
 
   function choose(option) {
     if (resolvedRef.current || solved) return;
-    if (!isAcceptedAnswer(fix, option)) {
+    const accepted = isAcceptedAnswer(fix, option);
+    recordFirstResponse?.({ game: "sentence-fix-it", round, target: fix.answer, response: option, correct: accepted, practiceOnly: true, independent: accepted, supportUsed: ["sentence_context"], audioDelivery: canHear ? "requested" : "not_available", soundEnabled: isSoundEnabled });
+    if (!accepted) {
+      setWrongOption(option);
       miss();
+      schedule(() => setWrongOption(""), 500);
       return;
     }
     resolvedRef.current = true;
+    setWrongOption("");
     setSolved(true);
     setSolvedAnswer(option);
     const nextCorrect = correct + 1;
@@ -961,7 +997,7 @@ function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, 
     <IllustratedGameScene mode="quiz" stageClassName="lg-race-stage">
       <p>{fix.prompt}</p>
       {canHear && <button type="button" className="lg-game-audio" onClick={() => speak(spokenSentence)}><span aria-hidden="true">♪</span> Hear sentence</button>}
-      <div className="lg-race-track"><span style={{ width: `${Math.max(8, (correct / total) * 100)}%` }}><RaceMarker /></span></div>
+      <div className={`lg-fix-bench${solved ? " repaired" : ""}`} aria-label={solved ? "Sentence repaired" : "Repair bench"}><span className="lg-fix-tool" aria-hidden="true" /><strong>{solved ? "Sentence repaired" : "Repair the sentence"}</strong></div>
       <div className="lg-reading-sentence lg-fix-sentence">
         {solved
           ? completedSentence
@@ -973,11 +1009,13 @@ function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, 
       </div>
       <div className="lg-hop-grid">
         {options.map((option, index) => (
-          <button key={`${option}-${index}`} type="button" onClick={() => choose(option)}>
+          <button key={`${option}-${index}`} type="button" onClick={() => choose(option)} disabled={solved}>
             {option}
           </button>
         ))}
       </div>
+      {wrongOption && <div className="lg-fix-feedback" role="status">{fix.kind === "capital" ? "Names and sentence starts need a capital." : fix.kind === "end" ? "Check what kind of sentence this is: telling, asking, or strong feeling." : "Read the whole sentence and choose the word that makes sense."}</div>}
+      {solved && <div className="lg-fix-complete" role="status">You repaired it. Read the whole sentence.</div>}
       <GameMeter current={round + 1} total={total} />
     </IllustratedGameScene>
   );

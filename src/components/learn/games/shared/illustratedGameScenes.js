@@ -37,9 +37,11 @@ export const ILLUSTRATED_GAME_SCENES = Object.freeze({
   },
   rescue: {
     id: "word-rescue",
-    src: "/images/learn-games/art/word-rescue.webp",
-    width: 640,
-    height: 640
+    // The live bridge and destination are the rescue action; avoid promising
+    // a decorative helicopter interaction that the child cannot control.
+    src: "/images/backdrops/activity-bg-meadow.webp",
+    width: 1920,
+    height: 1080
   },
   sort: {
     id: "sound-sort-factory",

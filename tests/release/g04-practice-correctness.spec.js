@@ -13,7 +13,7 @@ async function clickExactPracticeWord(page, word) {
 }
 
 async function sentenceWords(page) {
-  return page.locator(".lg-sentence-path span").evaluateAll(nodes => nodes.map(node => node.textContent.trim()));
+  return page.locator(".lg-sentence-path span").evaluateAll(nodes => nodes.map(node => node.dataset.word));
 }
 
 test("shared practice games keep replay muted and commit the final sentence once", async ({ page }) => {
@@ -29,6 +29,8 @@ test("shared practice games keep replay muted and commit the final sentence once
   await page.goto("/preview/game-overlay.html?game=word-hopscotch&sound=0&music=0");
   const player = page.getByRole("dialog", { name: "Word Hopscotch", exact: true });
   await expect(player).toBeVisible();
+  await expect(player.locator(".lg-sentence-model")).toBeVisible();
+  await player.getByRole("button", { name: "Hide model & start", exact: true }).click();
   await expect(player.locator(".lg-sentence-path span").first()).toBeVisible({ timeout: 90_000 });
 
   const openingWords = await sentenceWords(page);
@@ -40,10 +42,12 @@ test("shared practice games keep replay muted and commit the final sentence once
   for (const word of openingWords.slice(1)) await clickExactPracticeWord(page, word);
   await expect(player.locator(".lg-game-meter")).toHaveAttribute("aria-label", "2 of 6");
   for (let round = 1; round < 5; round += 1) {
+    await player.getByRole("button", { name: "Hide model & start", exact: true }).click();
     for (const word of await sentenceWords(page)) await clickExactPracticeWord(page, word);
     await expect(player.locator(".lg-game-meter")).toHaveAttribute("aria-label", `${round + 2} of 6`, { timeout: 5_000 });
   }
 
+  await player.getByRole("button", { name: "Hide model & start", exact: true }).click();
   const finalWords = await sentenceWords(page);
   for (const word of finalWords.slice(0, -1)) await clickExactPracticeWord(page, word);
   const scoreBeforeFinalWord = Number((await player.locator(".lg-game-score").textContent()).match(/\d+/)?.[0] || 0);
@@ -76,6 +80,8 @@ test("Sentence Fix-It retains the selected accepted sentence", async ({ page }) 
   await page.goto("/preview/game-overlay.html?game=reading-race&sound=1&music=0");
   const player = page.getByRole("dialog", { name: "Sentence Fix-It", exact: true });
   await expect(player.locator(".lg-fix-sentence")).toContainText("The wizard kept");
+  await player.locator(".lg-hop-grid button").filter({ hasText: /^him$/ }).click();
+  await expect(player.locator(".lg-fix-feedback")).toContainText("Read the whole sentence");
   await player.locator(".lg-hop-grid button").filter({ hasText: /^her$/ }).click();
   await expect(player.locator(".lg-fix-sentence")).toHaveText("The wizard kept her wand by the door.");
   await expect(player.getByRole("heading", { name: "Sentence Fix-It complete!", exact: true })).toBeVisible();
