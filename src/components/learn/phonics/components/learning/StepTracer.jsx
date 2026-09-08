@@ -405,7 +405,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
     >
       <div className="phonics-step-heading">
         <h2>Trace the Letter</h2>
-        <p>Trace the letter {lesson.letter}</p>
+        <p>Start at the dot. Trace the big {lesson.letter}.</p>
       </div>
 
       <div className="phonics-trace-wrap">
@@ -428,6 +428,8 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
 
         <div
           className={`phonics-trace-pad ${demoDone && !demoActive ? "" : "demo-active"}`}
+          aria-label={`Trace the letter ${lesson.letter}. Start at the numbered dot and follow the arrow.`}
+          data-learning-object="letter-trace"
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
           onPointerUp={finishPointer}

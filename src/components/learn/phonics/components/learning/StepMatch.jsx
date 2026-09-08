@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo, useRef, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePhonicsAudio } from "../../../../../hooks/usePhonicsAudio";
 import AudioButton from "../AudioButton";
@@ -21,20 +21,26 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
   const selectedRef = useRef(new Set());
   const responsesRef = useRef([]);
   const completedRef = useRef(false);
+  const correctionTimerRef = useRef(null);
   const [correction, setCorrection] = useState("");
+  const [wrongTileKey, setWrongTileKey] = useState("");
   const [flipStates, setFlipStates] = useState(() => Object.fromEntries(tiles.map(tile => [getTileKey(tile), "default"])));
   const [foundCount, setFoundCount] = useState(0);
   const isComplete = foundCount === lesson.words.length;
   const remaining = lesson.words.length - foundCount;
 
+  useEffect(() => () => clearTimeout(correctionTimerRef.current), []);
+
   const handleTileClick = useCallback((tile) => {
     const tileKey = getTileKey(tile);
     const currentState = flipStates[tileKey];
     if (currentState !== "default" || isComplete || selectedRef.current.has(tileKey)) return;
-    selectedRef.current.add(tileKey);
     responsesRef.current.push({ word: tile.word.word, correct: tile.isCorrect });
 
     if (tile.isCorrect) {
+      selectedRef.current.add(tileKey);
+      setCorrection("");
+      setWrongTileKey("");
       playCorrect();
       setFlipStates(previous => ({ ...previous, [tileKey]: "correct" }));
       setFoundCount(previous => previous + 1);
@@ -47,17 +53,26 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
       }
     } else {
       playIncorrect();
-      setCorrection(`${tile.word.word} does not belong in this letter group. Look at the printed ${matchContract.location}.`);
-      setFlipStates(previous => ({ ...previous, [tileKey]: "incorrect" }));
+      setWrongTileKey(tileKey);
+      const observedUnit = matchContract.location === "ending"
+        ? tile.word.word.at(-1).toUpperCase()
+        : tile.word.word[0].toUpperCase();
+      const observedPhrase = matchContract.location === "ending"
+        ? `ends with ${observedUnit}`
+        : `starts with ${observedUnit}`;
+      setCorrection(`${tile.word.word} ${observedPhrase}. Find a word with ${lesson.letter} at the ${matchContract.location}.`);
+      clearTimeout(correctionTimerRef.current);
+      correctionTimerRef.current = setTimeout(() => setWrongTileKey(""), 700);
     }
-  }, [flipStates, isComplete, playCorrect, playIncorrect, playYay, onComplete, lesson.words.length, matchContract]);
+  }, [flipStates, isComplete, playCorrect, playIncorrect, playYay, onComplete, lesson.letter, lesson.words.length, matchContract]);
 
   const handleRestart = useCallback(() => {
+    clearTimeout(correctionTimerRef.current);
     selectedRef.current.clear(); responsesRef.current = []; completedRef.current = false;
     const nextTiles = makeMatchTiles(lesson, epoch + 1);
     setEpoch(previous => previous + 1);
     setFlipStates(Object.fromEntries(nextTiles.map(tile => [getTileKey(tile), "default"])));
-    setFoundCount(0); setCorrection("");
+    setFoundCount(0); setCorrection(""); setWrongTileKey("");
   }, [lesson, epoch]);
 
   return (
@@ -77,7 +92,11 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
           const tileKey = getTileKey(tile);
 
           return (
-            <div key={tileKey}>
+            <motion.div
+              key={tileKey}
+              className={`phonics-match-card ${wrongTileKey === tileKey ? "is-wrong" : ""}`}
+              animate={wrongTileKey === tileKey ? { x: [0, -7, 7, -5, 5, 0] } : { x: 0 }}
+            >
               <WordTile
                 word={tile.word.word}
                 image={tile.word.image}
@@ -85,7 +104,7 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
                 onClick={() => handleTileClick(tile)}
                 disabled={flipStates[tileKey] !== "default" || isComplete}
               />
-            </div>
+            </motion.div>
           );
         })}
       </div>

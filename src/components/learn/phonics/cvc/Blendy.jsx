@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 const expressionConfig = {
   idle: { mouth: "M30 42 Q45 54 60 42", eyeScale: 1 },
@@ -9,6 +9,8 @@ const expressionConfig = {
 
 const Blendy = memo(function Blendy({ expression = "idle", className = "" }) {
   const config = expressionConfig[expression] || expressionConfig.idle;
+  const reduceMotion = useReducedMotion();
+  const floatAnimation = reduceMotion ? false : expression === "cheering" ? { y: [0, -8, 0] } : { y: [0, -3, 0] };
 
   return (
     <motion.svg
@@ -16,8 +18,8 @@ const Blendy = memo(function Blendy({ expression = "idle", className = "" }) {
       viewBox="0 0 90 90"
       role="img"
       aria-label="Blendy"
-      animate={expression === "cheering" ? { y: [0, -8, 0] } : { y: [0, -3, 0] }}
-      transition={{ duration: expression === "cheering" ? 0.55 : 2.6, repeat: Infinity, ease: "easeInOut" }}
+      animate={floatAnimation}
+      transition={reduceMotion ? { duration: 0 } : { duration: expression === "cheering" ? 0.55 : 2.6, repeat: Infinity, ease: "easeInOut" }}
     >
       <defs>
         <radialGradient id="blendyBody" cx="35%" cy="28%" r="70%">

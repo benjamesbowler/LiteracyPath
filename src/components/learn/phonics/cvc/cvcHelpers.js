@@ -32,6 +32,19 @@ export function makeCvcWordModels(words, family) {
   return words.map(word => makeCvcWordModel(word, family));
 }
 
+// Word Magic keeps the authored family order: the next word is the target,
+// while the remaining family words are plausible alternatives. Never invent a
+// grapheme or vocabulary item here; the family picker has already established
+// that every model is taught and asset-backed.
+export function getMagicChoiceModels(wordModels, currentIndex) {
+  const target = wordModels[currentIndex + 1];
+  if (!target) return [];
+  return [
+    target,
+    ...wordModels.filter((_, index) => index !== currentIndex && index !== currentIndex + 1)
+  ];
+}
+
 export function useCvcSoundCue() {
   const [isPlaying, setIsPlaying] = useState(false);
   const cueRequestRef = useRef(0);

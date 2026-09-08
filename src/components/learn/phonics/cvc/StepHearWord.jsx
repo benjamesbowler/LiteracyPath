@@ -70,9 +70,10 @@ const StepHearWord = memo(function StepHearWord({ family, onComplete }) {
   if (!currentWord) return null;
 
   return (
-    <motion.div className="phonics-step cvc-step cvc-hear-step kg-child-flow__content" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, x: -80 }}>
+    <motion.div className="phonics-step cvc-step cvc-hear-step kg-child-flow__content" data-learning-object="cvc-hear" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, x: -80 }}>
       <div className="cvc-step-heading">
         <h2>Listen to the Word</h2>
+        <p>Hear each sound join to make a word.</p>
       </div>
 
       <motion.button
@@ -85,7 +86,7 @@ const StepHearWord = memo(function StepHearWord({ family, onComplete }) {
         <WordImage src={currentWord.image} word={currentWord.word} priority />
       </motion.button>
 
-      <div className="cvc-letter-row cvc-letter-row-squeeze" aria-label={currentWord.word}>
+      <div className="cvc-letter-row cvc-letter-row-squeeze" aria-label={`Sounds in ${currentWord.word}`} role="group">
         {currentWord.letters.map((letter, index) => (
           <motion.button
             key={`${currentWord.word}-${letter}-${index}`}

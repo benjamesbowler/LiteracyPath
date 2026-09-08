@@ -34,6 +34,7 @@ const StepBuildWord = memo(function StepBuildWord({ family, onComplete }) {
   const currentWord = words[wordIndex];
   const wordComplete = Boolean(currentWord) && filledLetters.length === currentWord.letters.length;
   const isLastWord = wordIndex >= words.length - 1;
+  const completionReady = ["delivered", "unavailable", "interrupted"].includes(delivery);
 
   const trayLetters = useMemo(() => {
     if (!currentWord) return [];
@@ -163,7 +164,7 @@ const StepBuildWord = memo(function StepBuildWord({ family, onComplete }) {
         </motion.button>
       </div>
 
-      <div className="cvc-socket-row" aria-label={`Build ${currentWord.word}`}>
+      <div className="cvc-socket-row" aria-label={`Build ${currentWord.word}`} role="group">
         {currentWord.letters.map((letter, index) => {
           const filled = filledLetters[index];
           const ghost = getGhostLetter(wordIndex, letter, index, family);
@@ -205,11 +206,12 @@ const StepBuildWord = memo(function StepBuildWord({ family, onComplete }) {
             role="status"
             aria-label={`You built ${currentWord.word}`}
           >
-            {["unavailable", "interrupted"].includes(delivery) && <>
+            {!completionReady && <p>Blending {currentWord.word}...</p>}
+            {completionReady && ["unavailable", "interrupted"].includes(delivery) && <>
               <p>The sound did not finish. Your word is still built.</p>
               <PhonicsButton onClick={() => { void runCompletionSequence(); }}>Retry sound</PhonicsButton>
             </>}
-            <PhonicsButton onClick={advanceWord}>
+            <PhonicsButton onClick={advanceWord} disabled={!completionReady}>
               {isLastWord ? "Continue" : "Next Word"}
             </PhonicsButton>
           </motion.div>

@@ -11,43 +11,21 @@ function deliveryStatus(status) {
   return "unavailable";
 }
 
-const WordCard = memo(function WordCard({ word, onDelivery }) {
-  const { play, isPlaying } = usePhonicsAudio(word.audio, word.phonemeBreakdown || word.word);
-  const canHear = hasPhonicsAudioSource(word.audio);
-  const request = useRef(0);
-  useEffect(() => () => { request.current += 1; }, []);
-
-  const handleTap = useCallback(() => {
-    const epoch = ++request.current;
-    onDelivery(word.word, "pending");
-    void play().then(status => { if (epoch === request.current) onDelivery(word.word, deliveryStatus(status)); });
-  }, [play, word.word, onDelivery]);
-
+const WordCard = memo(function WordCard({ word }) {
   return (
-    <motion.button
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      onClick={canHear ? handleTap : undefined}
-      disabled={!canHear}
+    <div
       className="phonics-listen-card"
-      aria-label={canHear ? `Hear the word ${word.word}` : `Word: ${word.word}`}
-      type="button"
     >
       <span className="phonics-word-image-wrap">
         <WordImage src={word.image} word={word.word} priority />
       </span>
       <span className="phonics-word-label">{word.word}</span>
-      {canHear && (
-        <motion.span className="phonics-mini-audio-dot" animate={isPlaying ? { scale: [1, 1.2, 1] } : {}}>
-          Audio
-        </motion.span>
-      )}
-    </motion.button>
+    </div>
   );
 });
 
 const StepListen = memo(function StepListen({ lesson, onComplete }) {
-  const { play: playPhonic } = usePhonicsAudio(lesson.phonicAudio, lesson.phonicSound);
+  const { play: playPhonic, isPlaying } = usePhonicsAudio(lesson.phonicAudio, lesson.phonicSound);
   const canHearPhoneme = hasPhonicsAudioSource(lesson.phonicAudio);
   const [delivery, setDelivery] = useState({});
   const deliveryRef = useRef({});
@@ -68,48 +46,47 @@ const StepListen = memo(function StepListen({ lesson, onComplete }) {
 
   return (
     <div className="phonics-step phonics-step-listen kg-child-flow__content">
-      <motion.div className="phonics-big-letter" initial={{ opacity: 0, scale: 0.3 }} animate={{ opacity: 1, scale: 1 }}>
-        {lesson.letter}
+      <motion.div className="phonics-listen-focus" initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }}>
+        <div className={`phonics-big-letter ${isPlaying ? "is-sounding" : ""}`} data-phonics-focus="letter" aria-label={`Letter ${lesson.letter}`}>
+          {lesson.letter}
+        </div>
+        <motion.p className="phonics-sound-text" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }}>
+          {lesson.letter} {lesson.letter.toLowerCase()}
+        </motion.p>
+
+        {canHearPhoneme ? <motion.div className="phonics-sound-button-group" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.96 }}
+            onClick={handlePhonicClick}
+            className={`phonics-sound-button ${isPlaying ? "is-playing" : ""}`}
+            aria-label={`Replay the ${lesson.phonicSound} sound`}
+            type="button"
+          >
+            <motion.span animate={isPlaying ? { scale: [1, 1.35, 1], opacity: [0.35, 0, 0.35] } : {}} transition={{ duration: 1.5, repeat: Infinity }} />
+            <span aria-hidden="true">Replay</span>
+          </motion.button>
+          <span>{isPlaying ? "Listening..." : "Tap to hear the sound"}</span>
+        </motion.div> : <p className="phonics-sound-unavailable" role="status">This sound is unavailable. Use the pictures and continue.</p>}
       </motion.div>
 
-      <motion.p className="phonics-sound-text" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }}>
-        {lesson.letter} {lesson.letter.toLowerCase()}
-      </motion.p>
-
-      {canHearPhoneme && <motion.div className="phonics-sound-button-group" initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }}>
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={handlePhonicClick}
-          className="phonics-sound-button"
-          aria-label="Tap to hear the sound"
-          type="button"
-        >
-          <motion.span animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0, 0.3] }} transition={{ duration: 1.5, repeat: Infinity }} />
-          <span aria-hidden="true">Audio</span>
-        </motion.button>
-        <span>Tap to hear!</span>
-      </motion.div>}
-
-      <motion.p className="phonics-is-for" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-        {lesson.letter} is for...
-      </motion.p>
-
-      <div className="phonics-listen-grid">
-        {lesson.words.map(word => (
-          <WordCard key={word.word} word={word} onDelivery={recordDelivery} />
-        ))}
-      </div>
-
-      {lesson.words.some(word => hasPhonicsAudioSource(word.audio)) && (
-        <motion.p className="phonics-instruction" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          Tap the pictures to hear the words!
+      <div className="phonics-listen-examples">
+        <motion.p className="phonics-is-for" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          {lesson.letter} is for...
         </motion.p>
-      )}
+        <div className="phonics-listen-grid" aria-label={`${lesson.letter} picture examples`}>
+        {lesson.words.map(word => (
+          <WordCard key={word.word} word={word} />
+        ))}
+        </div>
+        <motion.p className="phonics-instruction" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          Look at each picture. The first sound is {lesson.letter}.
+        </motion.p>
+      </div>
 
       <motion.div className="phonics-step-actions" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
       {Object.values(delivery).some(status => ["unavailable", "interrupted"].includes(status)) && <p role="status">Sound stopped or could not play. Tap it to retry, or continue with the pictures.</p>}
-      {!canHearPhoneme && <p role="status">This sound is unavailable. You can continue with the pictures.</p>}
+      {canHearPhoneme && delivery.sound === "unavailable" && <p role="status">The sound could not play. Replay it, or continue with the pictures.</p>}
         <PhonicsButton onClick={() => onComplete({ step: "listen", completionKind: "exposure", audioDelivery: settleExposureDeliveries(deliveryRef.current).sound || (canHearPhoneme ? "not_played" : "unavailable"), firstResponse: null, attempts: 0, supportUsed: ["picture_and_print_model"], independent: false, deliveries: settleExposureDeliveries(deliveryRef.current) })}>Next Step</PhonicsButton>
       </motion.div>
     </div>

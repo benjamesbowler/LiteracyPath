@@ -1593,6 +1593,423 @@
 }
 .kg-stage .student-surface-phonics .phonics-letter-card { min-height: 0; height: 100%; aspect-ratio: auto; }
 
+/* G06 phonics learning steps: give the learning object the room and emphasis
+   that the bounded child canvas already provides. These rules stay inside the
+   Phonics surface so Arcade game lanes keep their own visual contract. */
+.kg-stage .student-surface-phonics :is(.phonics-step-heading h2, .cvc-step-heading h2) {
+  color: var(--kg-ink);
+  font-size: clamp(1.75rem, 3vw, 2.7rem);
+  letter-spacing: -0.02em;
+}
+
+.kg-stage .student-surface-phonics .phonics-step-heading p,
+.kg-stage .student-surface-phonics .cvc-step-heading p {
+  color: var(--kg-ink-muted);
+  font-size: clamp(.95rem, 1.5vw, 1.15rem);
+}
+
+.kg-stage .student-surface-phonics .phonics-step-tracer.kg-child-flow__content {
+  grid-template-rows: auto minmax(240px, 1fr) auto auto;
+  gap: 10px;
+  padding-inline: 12px;
+}
+
+.kg-stage .student-surface-phonics .phonics-step-tracer .phonics-trace-wrap {
+  width: min(420px, 58vh, 100%);
+  height: auto;
+  align-self: center;
+}
+
+.kg-stage .student-surface-phonics .phonics-trace-pad {
+  border: 3px solid rgba(62, 119, 107, .24);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, .76);
+  box-shadow: 0 20px 42px -28px rgba(30, 60, 50, .65), inset 0 1px 1px rgba(255, 255, 255, .95);
+}
+
+.kg-stage .student-surface-phonics .phonics-trace-svg path {
+  stroke: rgba(62, 119, 107, .34);
+  stroke-width: 20;
+}
+
+.kg-stage .student-surface-phonics .phonics-step-listen.kg-child-flow__content {
+  grid-template-columns: minmax(220px, .7fr) minmax(0, 2fr);
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-items: stretch;
+  column-gap: 18px;
+  row-gap: 10px;
+  padding: 4px 12px;
+}
+
+.kg-stage .student-surface-phonics .phonics-listen-focus,
+.kg-stage .student-surface-phonics .phonics-listen-examples {
+  min-height: 0;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, .48);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .82);
+}
+
+.kg-stage .student-surface-phonics .phonics-listen-focus {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+}
+
+.kg-stage .student-surface-phonics .phonics-listen-examples {
+  grid-column: 2;
+  grid-row: 1;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 10px;
+  padding: 14px;
+}
+
+.kg-stage .student-surface-phonics .phonics-big-letter {
+  font-size: clamp(7rem, 15vh, 12rem);
+  line-height: .82;
+  color: var(--kg-sage);
+}
+
+.kg-stage .student-surface-phonics .phonics-big-letter.is-sounding {
+  color: var(--kg-accent);
+  filter: drop-shadow(0 8px 14px rgba(194, 141, 61, .22));
+}
+
+.kg-stage .student-surface-phonics .phonics-sound-text {
+  color: var(--kg-ink-muted);
+  font-size: clamp(1.4rem, 3vw, 2.3rem);
+}
+
+.kg-stage .student-surface-phonics .phonics-sound-button {
+  --phonics-audio-size: 94px;
+  box-shadow: 0 10px 22px -12px rgba(30, 60, 50, .65);
+}
+
+.kg-stage .student-surface-phonics .phonics-sound-button > span:last-child::before {
+  display: none;
+}
+
+.kg-stage .student-surface-phonics .phonics-sound-button > span:last-child {
+  position: relative;
+  z-index: 1;
+  color: currentColor;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.kg-stage .student-surface-phonics .phonics-listen-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  gap: 12px;
+}
+
+.kg-stage .student-surface-phonics .phonics-listen-card {
+  height: 100%;
+  min-height: 0;
+  border: 1px solid rgba(62, 119, 107, .15);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .82);
+  box-shadow: 0 14px 28px -24px rgba(30, 60, 50, .78);
+}
+
+.kg-stage .student-surface-phonics .phonics-listen-card .phonics-word-image-wrap {
+  height: 78%;
+  padding: 10px;
+}
+
+.kg-stage .student-surface-phonics .phonics-listen-card .phonics-word-label {
+  height: 22%;
+  border-top-color: rgba(62, 119, 107, .12);
+  background: rgba(246, 250, 246, .8);
+  font-size: clamp(1rem, 1.65vw, 1.35rem);
+}
+
+.kg-stage .student-surface-phonics .phonics-listen-card .phonics-img-placeholder {
+  border-radius: 14px;
+}
+
+.kg-stage .student-surface-phonics .phonics-step-listen .phonics-step-actions {
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+
+.kg-stage .student-surface-phonics .phonics-sound-unavailable,
+.kg-stage .student-surface-phonics .cvc-audio-status,
+.kg-stage .student-surface-phonics .cvc-magic-feedback {
+  margin: 0;
+  color: var(--kg-ink-muted);
+  font-size: .92rem;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.kg-stage .student-surface-phonics .phonics-step-match.kg-child-flow__content {
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  gap: 10px;
+  padding-inline: 12px;
+}
+
+.kg-stage .student-surface-phonics .phonics-match-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.kg-stage .student-surface-phonics .phonics-match-card {
+  min-width: 0;
+  min-height: 0;
+}
+
+.kg-stage .student-surface-phonics .phonics-match-card.is-wrong .phonics-word-tile-front {
+  outline: 4px solid var(--kg-terracotta);
+  outline-offset: -4px;
+}
+
+.kg-stage .student-surface-phonics .phonics-word-tile,
+.kg-stage .student-surface-phonics .phonics-word-tile-face {
+  border-radius: 20px;
+}
+
+.kg-stage .student-surface-phonics .phonics-word-tile-face {
+  border-width: 2px;
+  border-color: rgba(62, 119, 107, .28);
+  box-shadow: 0 14px 28px -24px rgba(30, 60, 50, .78);
+}
+
+.kg-stage .student-surface-phonics .cvc-step.kg-child-flow__content {
+  gap: 10px;
+  padding: 4px 12px;
+}
+
+.kg-stage .student-surface-phonics .cvc-word-picture-button {
+  width: min(300px, 32vh);
+  max-width: 300px;
+  max-height: 300px;
+  border: 3px solid var(--kg-accent);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, .86);
+  box-shadow: 0 14px 28px -20px rgba(30, 60, 50, .75), inset 0 1px 1px rgba(255, 255, 255, .92);
+}
+
+.kg-stage .student-surface-phonics :is(.cvc-sound-tile, .cvc-socket) {
+  width: 82px;
+  height: 82px;
+  border-radius: 22px;
+  box-shadow: 0 9px 18px -14px rgba(30, 60, 50, .72);
+}
+
+.kg-stage .student-surface-phonics .cvc-socket.filled {
+  border-color: var(--kg-sage);
+  background: rgba(255, 255, 255, .88);
+}
+
+.kg-stage .student-surface-phonics .cvc-hear-step.kg-child-flow__content {
+  grid-template-rows: auto minmax(160px, 1fr) auto auto;
+}
+
+.kg-stage .student-surface-phonics .cvc-hear-step .cvc-word-picture-button {
+  align-self: center;
+}
+
+.kg-stage .student-surface-phonics :is(.cvc-build-stage, .cvc-magic-stage) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, .38);
+}
+
+.kg-stage .student-surface-phonics .cvc-build-stage {
+  gap: 16px;
+}
+
+.kg-stage .student-surface-phonics .cvc-magic-stage {
+  gap: 18px;
+}
+
+.kg-stage .student-surface-phonics .cvc-magic-change {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 38px;
+  color: var(--kg-ink-muted);
+  font: 800 1.2rem var(--kg-font-display);
+}
+
+.kg-stage .student-surface-phonics .cvc-magic-change-word {
+  min-width: 74px;
+  padding: 6px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .7);
+  color: var(--kg-ink);
+  letter-spacing: .08em;
+}
+
+.kg-stage .student-surface-phonics .cvc-magic-arrow {
+  color: var(--kg-accent);
+  font-size: 1.8rem;
+}
+
+.kg-stage .student-surface-phonics .cvc-magic-action,
+.kg-stage .student-surface-phonics .cvc-magic-choice-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.kg-stage .student-surface-phonics .cvc-magic-action p,
+.kg-stage .student-surface-phonics .cvc-magic-choice-area > p {
+  margin: 0;
+  color: var(--kg-ink-muted);
+  font-size: .95rem;
+  text-align: center;
+}
+
+.kg-stage .student-surface-phonics .cvc-magic-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(150px, 220px));
+  gap: 12px;
+}
+
+.kg-stage .student-surface-phonics .cvc-magic-choice {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  grid-template-rows: 1fr auto;
+  column-gap: 10px;
+  align-items: center;
+  min-width: 150px;
+  min-height: 88px;
+  padding: 8px;
+  border: 2px solid rgba(62, 119, 107, .24);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .88);
+  box-shadow: 0 12px 22px -20px rgba(30, 60, 50, .85);
+  color: var(--kg-ink);
+  cursor: pointer;
+  font: 800 1rem var(--kg-font-body);
+  text-align: left;
+}
+
+.kg-stage .student-surface-phonics .cvc-magic-choice:disabled {
+  cursor: wait;
+  opacity: .62;
+}
+
+.kg-stage .student-surface-phonics .cvc-magic-choice-image {
+  grid-row: 1 / -1;
+  width: 56px;
+  height: 56px;
+}
+
+.kg-stage .student-surface-phonics .cvc-magic-choice-image :is(img, .phonics-img-placeholder) {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.kg-stage .student-surface-phonics .cvc-magic-choice-letter {
+  color: var(--kg-accent);
+  font: 900 1.55rem var(--kg-font-display);
+  text-transform: lowercase;
+}
+
+.kg-stage .student-surface-phonics .cvc-magic-choice-word {
+  color: var(--kg-ink-muted);
+  text-transform: capitalize;
+}
+
+.kg-stage .student-surface-phonics .cvc-magic-actions {
+  min-height: 72px;
+}
+
+@media (max-width: 760px), (orientation: portrait) {
+  .kg-stage .student-surface-phonics .phonics-step-listen.kg-child-flow__content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    overflow-y: auto;
+  }
+
+  .kg-stage .student-surface-phonics .phonics-listen-focus,
+  .kg-stage .student-surface-phonics .phonics-listen-examples {
+    grid-column: 1;
+  }
+
+  .kg-stage .student-surface-phonics .phonics-listen-focus {
+    grid-row: 1;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 10px 14px;
+  }
+
+  .kg-stage .student-surface-phonics .phonics-big-letter {
+    font-size: clamp(5rem, 14vw, 8rem);
+  }
+
+  .kg-stage .student-surface-phonics .phonics-listen-examples {
+    grid-row: 2;
+    min-height: 250px;
+  }
+
+  .kg-stage .student-surface-phonics .phonics-listen-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .kg-stage .student-surface-phonics .phonics-step-listen .phonics-step-actions {
+    grid-row: 3;
+  }
+
+  .kg-stage .student-surface-phonics .phonics-step-match.kg-child-flow__content,
+  .kg-stage .student-surface-phonics .cvc-step.kg-child-flow__content {
+    overflow-y: auto;
+  }
+
+  .kg-stage .student-surface-phonics .phonics-match-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+    min-height: 420px;
+  }
+
+  .kg-stage .student-surface-phonics :is(.cvc-build-stage, .cvc-magic-stage) {
+    min-height: 150px;
+  }
+
+  .kg-stage .student-surface-phonics .cvc-word-picture-button {
+    width: min(240px, 35vw);
+    max-height: 240px;
+  }
+
+  .kg-stage .student-surface-phonics :is(.cvc-sound-tile, .cvc-socket) {
+    width: 70px;
+    height: 70px;
+  }
+
+  .kg-stage .student-surface-phonics .cvc-magic-choice-grid {
+    grid-template-columns: repeat(2, minmax(130px, 1fr));
+    width: 100%;
+  }
+
+  .kg-stage .student-surface-phonics .cvc-magic-choice {
+    min-width: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kg-stage .student-surface-phonics .phonics-big-letter.is-sounding {
+    filter: none;
+  }
+}
+
 /* Student library: category → series → book. Each level is paged, not
    vertically stacked, so even the largest series remains a one-screen choice. */
 .kg-stage .student-guided-reading-page {
