@@ -12,6 +12,8 @@ const GAMES = [
   "letter-garden"
 ];
 
+const INTEGRATED_SCENES = new Set(["sight-word-memory", "pop-the-word", "word-hopscotch", "reading-race"]);
+
 const ONBOARDING_KEYS = [
   "lp-arcade-onboarded-v1:word-rescue",
   "lp-arcade-onboarded-v1:sound-sort-factory",
@@ -92,6 +94,7 @@ test("all compact practice games fill the child stage with art and reachable gam
   for (const gameId of GAMES) {
     await page.emulateMedia({ reducedMotion: "no-preference" });
     await page.goto(`/preview/game-overlay.html?game=${gameId}&sound=0&music=0`);
+    if (gameId === "word-hopscotch") await page.getByRole("button", {name: "Try a new sentence"}).click();
 
     const scene = page.locator(`[data-game-scene="${gameId}"]`);
     const stage = scene.locator(":scope > .lg-game-stage");
@@ -101,7 +104,7 @@ test("all compact practice games fill the child stage with art and reachable gam
 
     await expect(scene, `${gameId} has the shared illustrated world`).toBeVisible();
     await expect(stage, `${gameId} has a separate playable stage`).toBeVisible();
-    await expect(art, `${gameId} renders its owned scene art`).toBeVisible();
+    if (!INTEGRATED_SCENES.has(gameId)) await expect(art, `${gameId} renders its owned scene art`).toBeVisible();
     await expect.poll(() => art.evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
 
     const layout = await scene.evaluate(element => {
@@ -131,8 +134,9 @@ test("all compact practice games fill the child stage with art and reachable gam
 
     expect(layout.sceneWidth, `${gameId} uses the available stage width`).toBeGreaterThan(930);
     expect(layout.sceneHeight, `${gameId} uses the available stage height`).toBeGreaterThan(630);
-    expect(layout.artWidth, `${gameId} art is large enough to read`).toBeGreaterThanOrEqual(260);
-    expect(layout.artHeight, `${gameId} art is a scene rather than a thumbnail`).toBeGreaterThan(600);
+    if (!INTEGRATED_SCENES.has(gameId)) expect(layout.artWidth, `${gameId} art is large enough to read`).toBeGreaterThanOrEqual(260);
+    if (!INTEGRATED_SCENES.has(gameId)) expect(layout.artHeight, `${gameId} art is a scene rather than a thumbnail`).toBeGreaterThan(600);
+    if (INTEGRATED_SCENES.has(gameId)) expect(layout.stageWidth).toBeGreaterThan(layout.sceneWidth * .85);
     expect(layout.stageWidth, `${gameId} playfield remains the dominant action area`).toBeGreaterThan(500);
     expect(
       layout.contentSpan / layout.stageHeight,
@@ -240,6 +244,7 @@ test("all compact practice games remain playable at 568x320 phone landscape", as
 
   for (const gameId of GAMES) {
     await page.goto(`/preview/game-overlay.html?game=${gameId}&sound=0&music=0`);
+    if (gameId === "word-hopscotch") await page.getByRole("button", {name: "Try a new sentence"}).click();
 
     const scene = page.locator(`[data-game-scene="${gameId}"]`);
     const stage = scene.locator(":scope > .lg-game-stage");
@@ -366,6 +371,7 @@ test("Adventure first-run play controls stay child-sized in short landscape", as
 
   for (const gameId of ["word-rescue", "sound-sort-factory", "letter-garden"]) {
     await page.goto(`/preview/game-overlay.html?game=${gameId}&sound=0&music=0`);
+    if (gameId === "word-hopscotch") await page.getByRole("button", {name: "Try a new sentence"}).click();
     const onboarding = page.getByRole("dialog", { name: /How to play/ });
     const start = onboarding.getByRole("button", { name: "Tap to play", exact: true });
     await expect(onboarding).toBeVisible();
@@ -386,6 +392,7 @@ test("Adventure onboarding focuses and traps its sole play action", async ({ pag
 
   for (const gameId of ["word-rescue", "sound-sort-factory", "letter-garden"]) {
     await page.goto(`/preview/game-overlay.html?game=${gameId}&sound=0&music=0`);
+    if (gameId === "word-hopscotch") await page.getByRole("button", {name: "Try a new sentence"}).click();
     const onboarding = page.getByRole("dialog", { name: /How to play/ });
     const start = onboarding.getByRole("button", { name: "Tap to play", exact: true });
     await expect(onboarding).toBeVisible();
@@ -580,7 +587,7 @@ test("Pop the Word freezes the cluster and reveals the completed word scene", as
   const target = (await page.locator(".lg-game-picture-text span").textContent()).trim();
   await page.getByRole("button", { name: target, exact: true }).click();
   await expect(page.locator(".lg-target-stage")).toHaveClass(/lg-target-frozen/);
-  await expect(page.locator(".lg-target-reveal")).toContainText(`${target}The balloon popped!`);
+  await expect(page.locator(".lg-pop-discovery")).toContainText(`You found ${target}!`);
 });
 
 test("Sound Sort declares its print task and routes a word into the chosen bin", async ({ page }) => {

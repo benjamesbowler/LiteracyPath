@@ -1,6 +1,7 @@
 import { queueProgressSave } from "./progressSync.js";
 import { applyCheckpoint, removeCheckpoint, readCheckpoint } from "./gameCheckpoints.js";
 import { normalizeAudioPreferences } from "./audio/audioPreferences.js";
+import { mergePracticeProgressRecords } from "./practiceCompletionRecords.js";
 
 const STORAGE_PREFIX = "literacy-guide-learn-games";
 const DEFAULT_SCOPE = "default";
@@ -103,7 +104,7 @@ export function saveLearnGameBestSplit(
   return next;
 }
 
-export function saveLearnGameResult(progressScopeKey = DEFAULT_SCOPE, gameId, stars = 0, score = 0, wordsCompleted = 0) {
+export function saveLearnGameResult(progressScopeKey = DEFAULT_SCOPE, gameId, stars = 0, score = 0, wordsCompleted = 0, evidence = null) {
   const current = loadLearnGamesProgress(progressScopeKey);
   const previous = getLearnGameProgress(current, gameId);
   const nextGame = {
@@ -114,6 +115,22 @@ export function saveLearnGameResult(progressScopeKey = DEFAULT_SCOPE, gameId, st
     plays: (previous.plays || 0) + 1,
     lastPlayedAt: new Date().toISOString()
   };
+  if (evidence?.firstResponses?.length) {
+    nextGame.practiceRecord = mergePracticeProgressRecords(previous.practiceRecord, {
+      v: 3,
+      status: "completed",
+      completions: [{
+        id: globalThis.crypto.randomUUID(),
+        contentVersion: "learn-game-practice-v1",
+        completedAt: nextGame.lastPlayedAt,
+        gameId,
+        practiceOnly: true,
+        independent: false,
+        steps: evidence.firstResponses,
+        assistedRetries: evidence.assistedRetries || []
+      }]
+    });
+  }
   const next = {
     ...current,
     games: {

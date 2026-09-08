@@ -47,6 +47,7 @@ test("both shared engines use the scene shell and the obsolete PS2 hook is gone"
     path.join(ROOT, "src/components/learn/games/games/ArcadePracticeGame.jsx"),
     "utf8"
   );
+  const recognitionSource = readFileSync(path.join(ROOT, "src/components/learn/games/games/RecognitionGameStages.jsx"), "utf8");
   const adventureSource = readFileSync(
     path.join(ROOT, "src/components/learn/games/games/AdventureGame.jsx"),
     "utf8"
@@ -54,7 +55,7 @@ test("both shared engines use the scene shell and the obsolete PS2 hook is gone"
   const styles = readFileSync(path.join(ROOT, "src/styles/learn-games.css"), "utf8");
 
   for (const mode of ["build", "memory", "family", "target", "sentence", "quiz"]) {
-    assert.match(practiceSource, new RegExp(`IllustratedGameScene mode="${mode}"`));
+    assert.match(practiceSource + recognitionSource, new RegExp(`IllustratedGameScene mode="${mode}"`));
   }
   for (const mode of ["rescue", "sort", "garden"]) {
     assert.match(adventureSource, new RegExp(`IllustratedGameScene mode="${mode}"`));

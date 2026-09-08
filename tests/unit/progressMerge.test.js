@@ -735,3 +735,16 @@ test("Sound Seekers content deck migration keeps raw merge separate from valid p
   assert.match(selftest, /model_pending/);
   assert.match(selftest, /narrativeChoiceToken/);
 });
+
+test('learn_games keeps whole immutable practice sessions and flags conflicting same-id evidence',()=>{
+ const event={id:'session-a',contentVersion:'learn-game-practice-v1',completedAt:'2026-09-09T00:00:00Z',steps:[{round:0,response:'no',correct:false}],assistedRetries:[{round:0,attempts:2}],independent:false};
+ const record=events=>({v:3,status:'completed',completions:events});
+ const local={games:{pop:{plays:1,practiceRecord:record([event])}}};
+ const cloud={games:{pop:{plays:2,practiceRecord:record([{...event,steps:[{round:0,response:'yes',correct:true}]},{...event,id:'session-b'}])}}};
+ const result=computeHydratedValue('learn_games','__all__',local,cloud).games.pop;
+ assert.equal(result.plays,2);
+ assert.equal(result.practiceRecord.completions.length,2);
+ assert.deepEqual(result.practiceRecord.completions[0],event);
+ assert.deepEqual(result.practiceRecord.completionConflictIds,['session-a']);
+ assert.deepEqual(computeHydratedValue('learn_games','__all__',{games:{pop:{plays:3}}},local).games.pop.practiceRecord.completions,[event]);
+});

@@ -106,6 +106,7 @@ export function GamePlayer({
   const engineRef = useRef(null);
   const announcedMilestoneRef = useRef(0);
   const missionReturnPendingRef = useRef(false);
+  const savedResultRef = useRef(null);
   const playerRef = useRef(null);
   const blockingDialogRef = useRef(null);
   const resumeActionRef = useRef(null);
@@ -256,19 +257,21 @@ export function GamePlayer({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [showGuide, showQuit, completed, startLevel, closePlayer]);
 
-  function handleComplete(stars, finalScore, wordsCompleted, evidence) {
+  function handleResultReady(stars, finalScore, wordsCompleted, evidence) {
+    if (savedResultRef.current) return savedResultRef.current;
     setCompleted(true);
     // The game reports its score from a stale closure that can miss the
     // final round's points; our own score state is current by now, so
     // take whichever is higher.
     const settledScore = Math.max(Number(finalScore) || 0, Number(score) || 0);
-    setCompletionResult({
+    const receipt = {
       stars: Math.max(1, Math.min(3, Number(stars) || 1)),
       score: settledScore,
       words: Math.max(0, Number(wordsCompleted) || 0),
       evidence: evidence || null
-    });
-    const nextProgress = saveLearnGameResult(progressScopeKey, game.id, stars, settledScore, wordsCompleted);
+    };
+    savedResultRef.current = receipt;
+    const nextProgress = saveLearnGameResult(progressScopeKey, game.id, stars, settledScore, wordsCompleted, evidence);
     clearGameCheckpoint(progressScopeKey, game.id, difficulty); // finished the ladder, nothing to resume
     // Credit the mission's game task now but hold the auto-return: the win
     // celebration is still on screen, and the 1.6s auto-navigate would cut
@@ -279,6 +282,18 @@ export function GamePlayer({
     // Rewards are coins only (derived from stars in the Hollow economy) -
     // no separate gem/collectible awards.
     onProgressChange?.(nextProgress);
+    return receipt;
+  }
+
+  function handleComplete(stars, finalScore, wordsCompleted, evidence) {
+    setCompletionResult(handleResultReady(stars, finalScore, wordsCompleted, evidence));
+  }
+
+  function handleSessionStart() {
+    savedResultRef.current = null;
+    setCompleted(false);
+    setCompletionResult(null);
+    setScore(0);
   }
 
   // Stable identity + no-op on identical values. A fresh callback every
@@ -398,6 +413,8 @@ export function GamePlayer({
                 onScoreUpdate={setScore}
                 onProgressUpdate={handleProgressUpdate}
                 onComplete={handleComplete}
+                onResultReady={handleResultReady}
+                onSessionStart={handleSessionStart}
                 completionPresentedByPlayer={hasPremiumCompletionOverlay}
                 onCheckpoint={handleCheckpoint}
                 onEngineReady={api => { engineRef.current = api; }}

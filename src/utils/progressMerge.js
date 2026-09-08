@@ -424,6 +424,9 @@ export function computeHydratedValue(area, key, existing, payload) {
       const localRecord = localGames[id];
       if (!localRecord) continue;
       const merged = { ...games[id] };
+      if (localRecord.practiceRecord || cloud.games?.[id]?.practiceRecord) {
+        merged.practiceRecord = mergePracticeProgressRecords(localRecord.practiceRecord, cloud.games?.[id]?.practiceRecord);
+      }
       if (localRecord.checkpoints) merged.checkpoints = localRecord.checkpoints;
       else delete merged.checkpoints;
       games[id] = merged;
