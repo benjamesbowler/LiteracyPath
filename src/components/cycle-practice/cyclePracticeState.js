@@ -10,8 +10,11 @@ export function buildCyclePlan(cycle, seed, pass = 0, check = false) {
   catch { return { rounds: [], unavailable: ["Cycle content"] }; }
   let rounds = stations.flatMap(station => {
     try {
-      // Fixed source pool; successive passes rotate through it before repeating.
-      const pool = buildStationRounds(cycle, station.id, { seed: `${seed}:${station.id}` }).map((round, index) => ({ ...round, id: round.id || `${cycle.id}:${station.id}:${index}` })).filter(r => r.mechanicId !== "poemSpotlight");
+      // Keep the authored pool bounded, but regenerate its distractors and
+      // picture/word choices for each practice pass. Successive passes rotate
+      // through the pool before repeating a target, while a fresh pass seed
+      // prevents the same question from returning in the same visual form.
+      const pool = buildStationRounds(cycle, station.id, { seed: `${seed}:${station.id}:pass:${pass}` }).map((round, index) => ({ ...round, id: round.id || `${cycle.id}:${station.id}:${index}` })).filter(r => r.mechanicId !== "poemSpotlight");
       if (!pool.length) throw new Error("empty");
       const selected = check ? pool.filter(isCycleQuestEligibleRound) : Array.from({ length: Math.min(3, pool.length) }, (_, i) => pool[(pass * 3 + i) % pool.length]);
       return selected.map(r => ({ ...r, stationId: check ? "check" : station.id, stationTitle: check ? "Cycle Check" : station.title }));
