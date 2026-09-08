@@ -7,23 +7,49 @@ const MULTI_GRAPHEMES = [
   "ar", "or", "er", "ir", "ur", "sh", "ch", "th", "ck", "ng", "wh", "ph", "qu"
 ];
 
+// These are spelling exceptions, not a second segmentation authority. The
+// grapheme remains "ea" on the tile, while this word-specific entry selects
+// the reviewed short-e recording for bread/head-style words.
+const WORD_SPECIFIC_PHONEME_KEYS = Object.freeze({
+  bread: Object.freeze({ ea: "ea_e" })
+});
+
+const OBJECT_ACTION_DESTINATIONS = Object.freeze({
+  cat: "mat", dog: "ball", hat: "peg", bat: "night sky", bed: "cozy room",
+  bus: "bus stop", cup: "tray", bug: "garden", fox: "den", map: "path",
+  pen: "paper", pig: "mud", fan: "paper", fig: "basket", mop: "floor",
+  sun: "garden", hen: "nest", net: "ball", pot: "seed", pin: "paper",
+  ship: "water trough", fish: "pond", frog: "lily pad", crab: "sand",
+  tree: "meadow", star: "night sky", flag: "flagpole", sock: "foot",
+  lamp: "workbench", ring: "box", chin: "scarf", shed: "garden",
+  moth: "lamp", bath: "bathroom", duck: "pond", rock: "bucket",
+  king: "castle", hand: "hello sign", tent: "campsite", milk: "cup",
+  nest: "tree", drum: "music stand", brush: "paint pot", clock: "workbench",
+  train: "track", plant: "window", shirt: "peg", bread: "plate",
+  dress: "dance floor", glass: "water tray", stamp: "paper", string: "parcel",
+  spring: "toy box", branch: "nest", shrimp: "pond", lunch: "basket",
+  bench: "park path"
+});
+
 // The game needs spelling-bearing tiles, while the audio/evidence loop needs
 // one tile per spoken sound. A doubled consonant is therefore one tile with
 // two letters (dress -> d/r/e/ss), never a lossy phoneme-only split.
 function authoredSpellingUnits(word) {
   const clean = String(word || "").toLowerCase();
+  const wordOverrides = WORD_SPECIFIC_PHONEME_KEYS[clean] || {};
   const units = [];
   let index = 0;
   while (index < clean.length) {
     const multi = MULTI_GRAPHEMES.find(grapheme => clean.startsWith(grapheme, index));
     if (multi) {
-      units.push({ grapheme: multi, phoneme: multi });
+      units.push({ grapheme: multi, phoneme: wordOverrides[multi] || multi });
       index += multi.length;
       continue;
     }
     const next = clean[index + 1];
     if (next === clean[index] && !"aeiou".includes(clean[index])) {
-      units.push({ grapheme: clean.slice(index, index + 2), phoneme: clean[index] });
+      const grapheme = clean.slice(index, index + 2);
+      units.push({ grapheme, phoneme: wordOverrides[grapheme] || clean[index] });
       index += 2;
       continue;
     }
@@ -46,7 +72,15 @@ const OBJECT_LABELS = {
   cat: "A cat", dog: "A dog", hat: "A hat", bat: "A bat", bed: "A bed",
   bus: "A bus", cup: "A cup", bug: "A bug", fox: "A fox", map: "A map",
   pen: "A pen", pig: "A pig", fan: "A fan", fig: "A fig", mop: "A mop",
-  sun: "The sun", hen: "A hen", net: "A net", pot: "A pot", pin: "A pin"
+  sun: "The sun", hen: "A hen", net: "A net", pot: "A pot", pin: "A pin",
+  ship: "A ship", fish: "A fish", frog: "A frog", crab: "A crab", tree: "A tree",
+  star: "A star", flag: "A flag", sock: "A sock", lamp: "A lamp", ring: "A ring",
+  chin: "A chin", shed: "A shed", moth: "A moth", bath: "A bath", duck: "A duck",
+  rock: "A rock", king: "A king", hand: "A hand", tent: "A tent", milk: "Milk",
+  nest: "A nest", drum: "A drum", brush: "A brush", clock: "A clock", train: "A train",
+  plant: "A plant", shirt: "A shirt", bread: "Bread", dress: "A dress", glass: "A glass",
+  stamp: "A stamp", string: "A string", spring: "A spring", branch: "A branch",
+  shrimp: "A shrimp", lunch: "Lunch", bench: "A bench"
 };
 
 const OBJECT_USE_RESULTS = {
@@ -101,6 +135,7 @@ function cleanCvcPool(difficulty = "easy") {
   return [...new Set(source)].filter(word => {
     const asset = getChildWordAsset(word);
     return /^[a-z]+$/.test(word) && authoredSpellingUnits(word).length >= 3 &&
+      Boolean(OBJECT_ACTION_DESTINATIONS[word]) &&
       Boolean(asset?.image || asset?.fallbackImage) && !hasKnownBadWordAudio(word);
   });
 }
@@ -111,6 +146,7 @@ export function buildCvcWorkshopRounds(difficulty = "easy", count = 6) {
     id: `cvc-${roundIndex}-${word}`,
     word,
     label: OBJECT_LABELS[word] || getChildWordAsset(word)?.alt || word,
+    destination: OBJECT_ACTION_DESTINATIONS[word],
     useResult: OBJECT_USE_RESULTS[word] || `The ${word} is ready to use.`,
     units: authoredSpellingUnits(word).map((unit, tileIndex) => ({
       id: `${word}-${roundIndex}-${tileIndex}`,

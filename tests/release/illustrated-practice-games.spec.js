@@ -452,6 +452,60 @@ test("Letter Garden keeps unchanged source sounds while replacing one sound to g
   await expect(page.locator(".adv-garden-row")).toHaveAttribute("aria-label", "1 labeled plants grown");
 });
 
+test("Letter Garden resume keeps a later plant matched to its own word and shape", async ({ page }) => {
+  await page.addInitScript(() => {
+    window.localStorage.clear();
+    window.localStorage.setItem("lp-arcade-onboarded-v1:letter-garden", "1");
+  });
+  await page.goto("/preview/game-overlay.html?game=letter-garden&sound=0&music=0&resume=1");
+  await page.getByRole("alertdialog").getByRole("button", { name: "Continue", exact: true }).click();
+
+  const slots = page.locator(".adv-slots");
+  const source = (await slots.getAttribute("aria-label")).match(/^Change\s+(\w+)\s+to\s+spell\s+(\w+)$/i);
+  expect(source).toBeTruthy();
+  const [, sourceWord, targetWord] = source;
+  const changeIndex = [...sourceWord].findIndex((letter, index) => letter !== targetWord[index]);
+  await page.locator(".adv-letters button").filter({ hasText: new RegExp(`^${targetWord[changeIndex]}$`, "i") }).click();
+
+  const plants = page.locator(".adv-plant-card");
+  await expect(plants.nth(1)).toHaveClass(/grown/);
+  await expect(plants.nth(0)).not.toHaveClass(/grown/);
+  await expect(plants.nth(1)).toHaveAttribute("aria-label", new RegExp(`${targetWord}\\s`));
+  await expect(plants.nth(1)).toHaveAttribute("data-plant", /.+/);
+});
+
+test("Letter Garden cancels delayed replay on pause and deliberate Hear word", async ({ page }) => {
+  await page.addInitScript(() => {
+    window.localStorage.setItem("lp-arcade-onboarded-v1:letter-garden", "1");
+  });
+  await page.goto("/preview/game-overlay.html?game=letter-garden&sound=1&music=0");
+  await expect(page.getByRole("button", { name: "Hear word", exact: true })).toBeVisible({ timeout: 90_000 });
+  await page.evaluate(() => {
+    window.__g08WordPlays = [];
+    const original = window.Howl.prototype.play;
+    window.Howl.prototype.play = function (...args) {
+      if (String(this._src).includes("/audio/production/")) window.__g08WordPlays.push(this._src);
+      return original.apply(this, args);
+    };
+  });
+
+  const slots = page.locator(".adv-slots");
+  const source = (await slots.getAttribute("aria-label")).match(/^Change\s+(\w+)\s+to\s+spell\s+(\w+)$/i);
+  const [, sourceWord, targetWord] = source;
+  const changeIndex = [...sourceWord].findIndex((letter, index) => letter !== targetWord[index]);
+  const wrongButton = page.locator(".adv-letters button").filter({ hasText: new RegExp(`^(?!${targetWord[changeIndex]}$)[a-z]$`, "i") }).first();
+  await wrongButton.click();
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("alertdialog")).toBeVisible();
+  await page.waitForTimeout(900);
+  expect(await page.evaluate(() => window.__g08WordPlays)).toEqual([]);
+  await page.getByRole("alertdialog").getByRole("button", { name: "Keep playing", exact: true }).click();
+
+  await page.getByRole("button", { name: "Hear word", exact: true }).click();
+  await page.waitForTimeout(900);
+  expect(await page.evaluate(() => window.__g08WordPlays)).toHaveLength(1);
+});
+
 test("Word Rescue completion focuses and contains its engine-owned Play again action", async ({ page }) => {
   await page.setViewportSize({ width: 568, height: 320 });
   await page.addInitScript(() => {

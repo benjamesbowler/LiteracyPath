@@ -50,7 +50,33 @@ test(`CVC wrong retry restores input silently when ${startsMuted ? "started mute
   await expect(player.locator(".lg-build-use")).toBeVisible();
   await player.locator(".lg-build-use").click();
   await expect(player.locator(".lg-build-continue")).toBeVisible();
+  await expect(player.locator(".lg-build-action-source img")).toBeVisible();
+  await expect(player.locator(".lg-build-action-destination strong")).toBeVisible();
   await player.locator(".lg-build-continue").click();
   await expect(player.locator(".lg-game-meter")).toHaveAttribute("aria-label", "2 of 6");
 });
 }
+
+test("CVC compare keeps the selected attempted sound separate from the target sound", async ({ page }) => {
+  await page.setViewportSize({ width: 1024, height: 768 });
+  await page.goto("/preview/game-overlay.html?game=cvc-word-builder&sound=1&music=0");
+  const player = page.getByRole("dialog", { name: "CVC Word Builder", exact: true });
+  const image = player.locator(".lg-game-picture img");
+  await expect(image).toBeVisible({ timeout: 90_000 });
+  const target = (await image.getAttribute("src")).match(/\/([^/]+)\.(?:webp|png|jpe?g)(?:\?.*)?$/i)[1];
+  const labels = await player.locator(".lg-game-letter-bank button").allTextContents();
+  const wrongIndex = labels.findIndex(letter => !target.includes(letter.trim().toLowerCase()));
+  expect(wrongIndex).toBeGreaterThanOrEqual(0);
+  const wrongTile = player.locator(".lg-game-letter-bank button").nth(wrongIndex);
+  const attempted = (await wrongTile.textContent()).trim().toLowerCase();
+  await wrongTile.click();
+  for (const letter of target) {
+    await player.locator(".lg-game-letter-bank button:not([disabled])").filter({ hasText: new RegExp(`^${letter}$`, "i") }).first().click();
+  }
+  await expect(player.locator(".lg-build-compare")).toBeVisible();
+  await player.locator(".lg-build-compare").click();
+  await expect(player.locator(".lg-build-comparison")).toContainText(`First, you placed ${attempted}.`);
+  await expect(player.locator(".lg-build-comparison")).toContainText("Hear target sound");
+  await player.locator(".lg-build-comparison button").click();
+  await expect(player.locator(".lg-build-comparison")).toHaveCount(0);
+});

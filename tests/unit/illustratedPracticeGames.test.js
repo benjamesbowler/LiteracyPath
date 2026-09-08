@@ -10,6 +10,7 @@ import {
 import { CVC_WORDS, SENTENCE_FIX } from "../../src/data/learnGamesData.js";
 import { getChildWordAsset } from "../../src/data/childAssets.js";
 import { completeRepairDisplay } from "../../src/utils/repairSentence.js";
+import { phonemeAudioCandidates } from "../../src/data/phonemeAudioBank.js";
 import { buildBlendMissions, buildCvcWorkshopRounds } from "../../src/utils/buildingGrowingRounds.js";
 
 const ROOT = process.cwd();
@@ -94,15 +95,27 @@ test("every Sentence Fix-It ending supplies the intended tone or sentence type",
 test("G08 workshop rounds preserve every tier word as spelling-bearing sound units", () => {
   for (const [difficulty, minimumLength] of [["easy", 3], ["medium", 4], ["hard", 5]]) {
     const rounds = buildCvcWorkshopRounds(difficulty, 100);
-    assert.equal(rounds.length, CVC_WORDS[difficulty].length);
+    assert.ok(rounds.length >= 6, `${difficulty}: object-action pool must support a full game`);
+    assert.ok(rounds.length <= CVC_WORDS[difficulty].length);
     for (const round of rounds) {
       assert.ok(round.word.length >= minimumLength, `${difficulty}: ${round.word} is below its tier`);
       assert.equal(round.units.map(unit => unit.grapheme).join(""), round.word);
       assert.equal(new Set(round.units.map(unit => unit.id)).size, round.units.length);
       assert.equal(round.units.length, new Set(round.units.map(unit => unit.index)).size);
       assert.ok(round.units.every(unit => unit.phoneme), `${difficulty}: ${round.word} needs a spoken phoneme per tile`);
+      assert.ok(round.destination, `${difficulty}: ${round.word} needs an affected destination`);
+      assert.ok(round.units.every(unit => phonemeAudioCandidates(unit.phoneme).length > 0), `${difficulty}: ${round.word} has an unvoiced tile`);
     }
   }
+});
+
+test("G08 workshop uses contextual phoneme keys without changing the spelling tiles", () => {
+  const bread = buildCvcWorkshopRounds("hard", 100).find(round => round.word === "bread");
+  const tree = buildCvcWorkshopRounds("medium", 100).find(round => round.word === "tree");
+  assert.equal(bread.units.map(unit => unit.grapheme).join(""), "bread");
+  assert.equal(bread.units.find(unit => unit.grapheme === "ea").phoneme, "ea_e");
+  assert.equal(tree.units.find(unit => unit.grapheme === "ee").phoneme, "ee");
+  assert.notEqual(bread.units.find(unit => unit.grapheme === "ea").phoneme, "ea");
 });
 
 test("G08 object cards keep reviewed bat and bed meanings aligned across fallback media", () => {

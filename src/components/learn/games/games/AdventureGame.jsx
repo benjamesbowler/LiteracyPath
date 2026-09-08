@@ -240,7 +240,7 @@ function SortStage({ sort, state, isSoundEnabled }) {
 
 // ── Letter Garden ──────────────────────────────────────────────────────────
 function GardenStage({ rounds, state, isSoundEnabled }) {
-  const { index, typed, grown, wrongLetter, pickLetter } = state;
+  const { index, typed, grown, wrongLetter, pickLetter, hearWord } = state;
   const round = rounds[index] || rounds[rounds.length - 1];
   const canHearWord = isSoundEnabled && hasRecordedSpeech(round?.word);
   const cueAsset = getChildWordAsset(round?.word);
@@ -266,7 +266,7 @@ function GardenStage({ rounds, state, isSoundEnabled }) {
             onError={() => setFailedCueImage(cueImage)}
           />
         )}
-        {canHearWord && <button type="button" className="lg-game-audio" onClick={() => speakWord(round.word)}>Hear word</button>}
+        {canHearWord && <button type="button" className="lg-game-audio" onClick={hearWord}>Hear word</button>}
         {!canHearWord && !showPictureCue && (
           // No reliable picture or audio cue: show the target so the round stays possible.
           <span className="adv-belt-item" style={{ animation: "none" }}>{round.word}</span>
@@ -294,7 +294,7 @@ function GardenStage({ rounds, state, isSoundEnabled }) {
       </div>
       <div className="adv-garden-row" aria-label={`${grown.length} labeled plants grown`}>
         {rounds.map((r, i) => {
-          const grownRound = grown[i];
+          const grownRound = grown.find(item => item.id === r.id);
           const label = grownRound ? `${grownRound.word} ${grownRound.plantName}` : `Ready for ${r.plantName}`;
           return (
             <div key={r.id || i} className={`adv-plant-card${grownRound ? " grown" : ""}`} data-plant={r.flower} aria-label={label}>
@@ -388,6 +388,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   function pauseEngine() {
     if (pausedRef.current) return;
     pausedRef.current = true;
+    speechTokenRef.current += 1;
     cancelSpeech();
     const now = Date.now();
     timeoutsRef.current.forEach(entry => {
@@ -542,6 +543,12 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
 
   const state = {
     index, typed, grown, wrongLetter,
+    hearWord: () => {
+      const round = garden[index];
+      speechTokenRef.current += 1;
+      cancelSpeech();
+      if (round && soundEnabledRef.current && hasRecordedSpeech(round.word)) speakWord(round.word);
+    },
     pickLetter: letter => {
       if (busyRef.current) return;
       const round = garden[index];
