@@ -149,8 +149,16 @@ test('closure is exact and source rights/revisions/dependency fingerprints are r
     assert.match(asset.modifications, /ground-contact/);
   }
   for (const pack of Object.values(kit.packs)) {
-    const license = readFileSync(resolve(root, `.${pack.licenseUrl}`), 'utf8');
-    assert.equal(digest(Buffer.from(license)), pack.licenseSha256);
+    const distributedBytes = readFileSync(resolve(root, `.${pack.licenseUrl}`));
+    const license = distributedBytes.toString('utf8');
+    assert.equal(digest(distributedBytes), pack.licenseSha256, 'distributed licence matches its own receipt');
+    assert.match(pack.upstreamLicenseSha256, /^[a-f0-9]{64}$/, 'pinned upstream receipt is retained separately');
+    if (pack.licenseModifications === 'none') {
+      assert.equal(pack.licenseSha256, pack.upstreamLicenseSha256);
+    } else {
+      assert.equal(pack.licenseModifications, 'Trimmed trailing line whitespace and added final newline; licence wording unchanged.');
+      assert.equal(license, `${license.trimEnd().split('\n').map(line => line.trimEnd()).join('\n')}\n`);
+    }
     assert.match(license, /CC0/i);
     assert.match(license, /Kay/i);
   }

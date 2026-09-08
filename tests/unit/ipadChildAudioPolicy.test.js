@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
+import { playCvcSoundSequence } from "../../src/components/learn/phonics/cvc/cvcHelpers.js";
 
 const stepHearWord = readFileSync(
   new URL("../../src/components/learn/phonics/cvc/StepHearWord.jsx", import.meta.url),
@@ -12,10 +13,6 @@ const cvcHelpers = readFileSync(
 );
 const stepBuildWord = readFileSync(
   new URL("../../src/components/learn/phonics/cvc/StepBuildWord.jsx", import.meta.url),
-  "utf8"
-);
-const stepWordMagic = readFileSync(
-  new URL("../../src/components/learn/phonics/cvc/StepWordMagic.jsx", import.meta.url),
   "utf8"
 );
 const phonicsAudio = readFileSync(
@@ -36,16 +33,27 @@ const firstSoundQuestion = readFileSync(
   "utf8"
 );
 
-test("CVC sound-out waits for each recording instead of interrupting it on a timer", () => {
+test("CVC sound-out waits for each recording instead of interrupting it on a timer", async () => {
   assert.match(stepHearWord, /await playCvcSoundSequence/);
   assert.doesNotMatch(stepHearWord, /index\s*\*\s*CVC_SOUND_DELAY/);
-  assert.match(cvcHelpers, /const playback = playCue/);
-  assert.match(cvcHelpers, /const status = await playback/);
-  assert.match(cvcHelpers, /const wordStatus = await playCue/);
   assert.match(stepBuildWord, /await playCvcSoundSequence/);
   assert.doesNotMatch(stepBuildWord, /index\s*\*\s*CVC_SOUND_DELAY/);
-  assert.match(stepWordMagic, /const onsetStatus = await playCue/);
-  assert.match(stepWordMagic, /const wordStatus = await playCue/);
+  const cues = [];
+  const result = playCvcSoundSequence({
+    wordModel: { word: "cat", letters: ["c", "a", "t"], audio: "/cat.mp3" },
+    family: { vowel: "a" },
+    playCue: src => new Promise(resolve => cues.push({ src, resolve })),
+    wait: async () => {}
+  });
+  for (let index = 0; index < 4; index += 1) {
+    await new Promise(resolve => setImmediate(resolve));
+    assert.equal(cues.length, index + 1, "the next cue must wait for the current recording");
+    await new Promise(resolve => setImmediate(resolve));
+    assert.equal(cues.length, index + 1);
+    cues[index].resolve("ended");
+  }
+  assert.equal(cues[3].src, "/cat.mp3");
+  assert.deepEqual(await result, { audioDelivery: "delivered" });
 });
 
 test("phonics begins imperatively in the tap call stack and transient Safari blocks stay retryable", () => {

@@ -59,16 +59,23 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
 
   const playTargetSounds = useCallback(async (target, record, run) => {
     const cue = getLetterSoundCue(target.letters[record.slot], family);
-    const onsetStatus = await resolveCvcPlayback(playCue(cue.src, cue.fallbackText));
+    const onsetPlayback = playCue(cue.src, cue.fallbackText);
+    const onsetStatus = await resolveCvcPlayback(onsetPlayback);
     if (magicRunRef.current !== run) return false;
-    const wordStatus = await resolveCvcPlayback(playCue(target.audio, target.word));
-    if (magicRunRef.current !== run) return false;
-
-    record.audioDelivery = cvcStepEvidence("magic", [
+    const interrupted = ["stopped", "superseded"].includes(onsetStatus)
+      || onsetPlayback?.isCurrent?.() === false;
+    // A picture replay owns the replacement voice. Settle the modeled step
+    // without starting its queued word over the child's deliberate replay.
+    let wordStatus = "stopped";
+    if (!interrupted) {
+      wordStatus = await resolveCvcPlayback(playCue(target.audio, target.word));
+      if (magicRunRef.current !== run) return false;
+    }
+    record.audioDelivery = interrupted ? "interrupted" : cvcStepEvidence("magic", [
       { audioDelivery: cvcAudioDelivery(onsetStatus) },
       { audioDelivery: cvcAudioDelivery(wordStatus) }
     ]).audioDelivery;
-    if (record.audioDelivery !== "delivered") record.supportUsed.push("media_unavailable");
+    if (record.audioDelivery !== "delivered") record.supportUsed.push(record.audioDelivery === "interrupted" ? "media_interrupted" : "media_unavailable");
     setDelivery(record.audioDelivery);
     setIsSwapping(false);
     swappingRef.current = false;
@@ -106,7 +113,8 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
     if (!currentWord || !targetWord || isModelStep || !choiceReady || swappingRef.current || completedRef.current) return;
     const response = {
       word: currentWord.word,
-      targetWord: choice.word,
+      targetWord: targetWord.word,
+      selectedWord: choice.word,
       slot: transition.index,
       selected: choice.letters[transition.index]
     };
@@ -151,7 +159,13 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
     completedRef.current = true;
     magicRunRef.current += 1;
     stopCue();
-    onComplete(cvcStepEvidence("magic", recordsRef.current));
+    const evidence = cvcStepEvidence("magic", recordsRef.current);
+    const choices = recordsRef.current.filter(record => record.supportUsed.includes("target_grapheme_prompt"));
+    onComplete({
+      ...evidence,
+      firstResponse: choices[0]?.firstResponse ?? null,
+      attempts: choices.reduce((total, record) => total + record.attempts, 0)
+    });
   }, [choiceReady, isFinalWord, isSwapping, onComplete, stopCue]);
 
   if (!currentWord) return null;

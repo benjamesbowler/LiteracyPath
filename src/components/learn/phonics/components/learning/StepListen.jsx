@@ -93,7 +93,7 @@ const StepListen = memo(function StepListen({ lesson, onComplete }) {
 
       <div className="phonics-listen-examples">
         <motion.p className="phonics-is-for" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          {lesson.letter} is for...
+          Words with {lesson.letter} at the {listenContract.location === "ending" ? "end" : "beginning"}
         </motion.p>
         <div className="phonics-listen-grid" aria-label={`${lesson.letter} picture examples`}>
         {lesson.words.map(word => (

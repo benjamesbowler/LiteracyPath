@@ -76,7 +76,7 @@ test('Word Magic offers authored single-grapheme choices in a stable but varied 
     { word: 'cat', letters: ['c', 'a', 't'] },
     { word: 'cot', letters: ['c', 'o', 't'] },
     { word: 'cab', letters: ['c', 'a', 'b'] }
-  ], 0, 0).map(word => word.word).sort(), ['cab', 'cot']);
+  ], 0, 0).map(word => word.word).sort(), ['cot']);
   assert.equal(getMagicTransition(words[0], words[1]).unitLabel, 'first sound');
   assert.equal(getMagicTransition(words[0], { word: 'cot', letters: ['c', 'o', 't'] }).unitLabel, 'middle sound');
   assert.equal(getMagicTransition(words[0], { word: 'cab', letters: ['c', 'a', 'b'] }).unitLabel, 'last sound');
@@ -104,12 +104,10 @@ test('stalled CVC playback settles to supported continuation', async () => {
   assert.equal(result.audioDelivery, 'unavailable');
 });
 
-test('a started but never-ending final tile clip is cancelled before Build handoff', async () => {
-  const started = true;
+test('an unresolved CVC playback handle is cancelled on timeout', async () => {
   let cancelled = false;
   const playback = new Promise(() => {});
   playback.cancel = () => { cancelled = true; };
   assert.equal(await resolveCvcPlayback(playback, 5), 'unavailable');
-  assert.equal(started, true);
   assert.equal(cancelled, true);
 });

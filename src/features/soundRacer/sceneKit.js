@@ -701,6 +701,8 @@ export const SOUND_RACER_SCENE_KIT = {
       "license": "CC0-1.0",
       "sourceUrl": "https://github.com/KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0",
       "revision": "63976910ca04d16f0fc531b9c614244be8128713",
+      "upstreamLicenseSha256": "b076d86beec660e1550e00796ca24a8b70d7b2187d79954b2e29722b666dce93",
+      "licenseModifications": "none",
       "licenseSha256": "b076d86beec660e1550e00796ca24a8b70d7b2187d79954b2e29722b666dce93",
       "licenseUrl": "/game-assets/sound-racer/licenses/kaykit-city.txt"
     },
@@ -709,7 +711,9 @@ export const SOUND_RACER_SCENE_KIT = {
       "license": "CC0-1.0",
       "sourceUrl": "https://github.com/KayKit-Game-Assets/KayKit-Medieval-Hexagon-Pack-1.0",
       "revision": "84fa4e91af6a88989be7c99e0891cede11f2ca38",
-      "licenseSha256": "881e50d3629fba90629bedc65e9e6f47cfab3609598c296dcb7f70ea83174360",
+      "upstreamLicenseSha256": "881e50d3629fba90629bedc65e9e6f47cfab3609598c296dcb7f70ea83174360",
+      "licenseModifications": "Trimmed trailing line whitespace and added final newline; licence wording unchanged.",
+      "licenseSha256": "893a2b22391f4589070ba416f2cdb11bc5f54ad9a543d4f59f6d22b19072f39c",
       "licenseUrl": "/game-assets/sound-racer/licenses/kaykit-medieval.txt"
     }
   },

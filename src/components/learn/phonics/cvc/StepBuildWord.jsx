@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import PhonicsButton from "../components/PhonicsButton";
 import { WordImage } from "../components/WordImage";
 import Blendy from "./Blendy";
-import { getLetterSoundCue, cvcStepEvidence, playCvcSoundSequence, resolveCvcPlayback, shuffleItems, useCvcSoundCue, useCvcWordModels } from "./cvcHelpers";
+import { getLetterSoundCue, cvcAudioDelivery, cvcStepEvidence, playCvcSoundSequence, resolveCvcPlayback, shuffleItems, useCvcSoundCue, useCvcWordModels } from "./cvcHelpers";
 import { getLedaInstructionAudioPath } from "../../../../data/ledaProductionAudio.js";
 
 function getGhostLetter(wordIndex, letter, socketIndex, family) {
@@ -129,8 +129,17 @@ const StepBuildWord = memo(function StepBuildWord({ family, onComplete }) {
       setFilledLetters(filledRef.current);
       setUsedTileIds(usedRef.current);
       if (filledRef.current.length === currentWord.letters.length) {
-        void resolveCvcPlayback(cuePlayback).then(() => {
-          if (completionRunRef.current === epoch && !hasAdvancedRef.current) void runCompletionSequence();
+        void resolveCvcPlayback(cuePlayback).then(status => {
+          if (completionRunRef.current !== epoch || hasAdvancedRef.current) return;
+          // A replay or another activity now owns the voice. Keep the built
+          // word available without stealing that new cue for an automatic blend.
+          if (["stopped", "superseded"].includes(status) || cuePlayback.isCurrent?.() === false) {
+            const interrupted = cvcAudioDelivery("stopped");
+            deliveryRef.current = interrupted;
+            setDelivery(interrupted);
+            return;
+          }
+          void runCompletionSequence();
         });
       }
       return;

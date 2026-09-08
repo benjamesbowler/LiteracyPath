@@ -1816,6 +1816,7 @@
 }
 
 .kg-stage .student-surface-phonics :is(.cvc-sound-tile, .cvc-socket) {
+  font: 700 clamp(2rem, 5vw, 3.1rem) / 1 var(--phonics-font-letter);
   width: 82px;
   height: 82px;
   border-radius: 22px;
@@ -1994,7 +1995,7 @@
   border-radius: 14px;
   background: rgba(255, 248, 224, .9);
   color: var(--kg-accent);
-  font: 900 1.55rem var(--kg-font-display);
+  font: 700 clamp(2rem, 5vw, 3.1rem) / 1 var(--phonics-font-letter);
   text-transform: lowercase;
 }
 

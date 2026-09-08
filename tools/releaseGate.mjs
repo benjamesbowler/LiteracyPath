@@ -194,6 +194,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [2, 4, 10]
   },
   {
+    id: "phonics-learning",
+    label: "Phonics and CVC deliberate responses, audio recovery, supported evidence and touch interaction",
+    command: ["npm", "run", "check:phonics-learning"],
+    areas: [2, 4, 10]
+  },
+  {
     id: "fullscreen-overlay-semantics",
     label: "Active-surface names and modal semantics across every fullscreen quest and game overlay",
     command: ["npm", "run", "check:fullscreen-overlay-semantics"],

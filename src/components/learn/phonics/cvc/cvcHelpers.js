@@ -70,11 +70,12 @@ export function getMagicChoiceModels(wordModels, currentIndex, roundSeed = 0) {
   const { model: target, index: targetIndex, reverse } = getMagicTargetModel(wordModels, currentIndex);
   if (!target) return [];
   const current = wordModels[currentIndex];
-  if (!getMagicTransition(current, target)) return [];
+  const transition = getMagicTransition(current, target);
+  if (!transition) return [];
   const alternatives = wordModels.filter((word, index) => (
     index !== currentIndex
     && index !== targetIndex
-    && getMagicTransition(current, word)
+    && getMagicTransition(current, word)?.index === transition.index
   ));
   if (reverse) alternatives.push(current);
   return shuffleMagicChoices([
