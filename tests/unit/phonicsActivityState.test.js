@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createPhonicsCompletion, getWorkshopPrerequisites, makeMatchTiles, getPrintedMatchContract, settleExposureDeliveries } from '../../src/components/learn/phonics/phonicsActivityState.js';
 import { cvcWordFamilies, getCvcWordGraphemes } from '../../src/data/cvcWordFamilies.js';
-import { getMagicChoiceModels, getMagicTransition, playCvcSoundSequence } from '../../src/components/learn/phonics/cvc/cvcHelpers.js';
+import { getMagicChoiceModels, getMagicTargetModel, getMagicTransition, playCvcSoundSequence, resolveCvcPlayback } from '../../src/components/learn/phonics/cvc/cvcHelpers.js';
 
 test('workshop uses every target, swap and distractor grapheme rather than any six letters or previous nest', () => {
   const family = cvcWordFamilies[0];
@@ -83,6 +83,17 @@ test('Word Magic offers authored single-grapheme choices in a stable but varied 
   assert.equal(getMagicTransition(words[0], { word: 'dog', letters: ['d', 'o', 'g'] }), null);
 });
 
+test('two-word Magic families get an authored reverse choice before completion', () => {
+  const family = cvcWordFamilies.find(item => item.id === 'un');
+  const words = family.magicSwaps.map(word => ({ word, letters: getCvcWordGraphemes(word) }));
+  const target = getMagicTargetModel(words, 1);
+  const choices = getMagicChoiceModels(words, 1, 7);
+  assert.equal(target.reverse, true);
+  assert.equal(target.model.word, 'sun');
+  assert.deepEqual(choices.map(choice => choice.word).sort(), ['bun', 'sun']);
+  assert.equal(getMagicTransition(words[1], target.model).to, 's');
+});
+
 test('stalled CVC playback settles to supported continuation', async () => {
   const result = await playCvcSoundSequence({
     wordModel: { word: 'cat', letters: ['c', 'a', 't'], audio: '/cat.mp3' },
@@ -91,4 +102,14 @@ test('stalled CVC playback settles to supported continuation', async () => {
     playbackTimeout: 5
   });
   assert.equal(result.audioDelivery, 'unavailable');
+});
+
+test('a started but never-ending final tile clip is cancelled before Build handoff', async () => {
+  const started = true;
+  let cancelled = false;
+  const playback = new Promise(() => {});
+  playback.cancel = () => { cancelled = true; };
+  assert.equal(await resolveCvcPlayback(playback, 5), 'unavailable');
+  assert.equal(started, true);
+  assert.equal(cancelled, true);
 });

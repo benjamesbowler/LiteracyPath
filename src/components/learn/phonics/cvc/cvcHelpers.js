@@ -50,21 +50,33 @@ function shuffleMagicChoices(items, seed) {
   return copy;
 }
 
+export function getMagicTargetModel(wordModels, currentIndex) {
+  const nextIndex = currentIndex + 1;
+  if (wordModels[nextIndex]) return { model: wordModels[nextIndex], index: nextIndex, reverse: false };
+  if (wordModels.length === 2 && currentIndex === 1) {
+    return { model: wordModels[0], index: 0, reverse: true };
+  }
+  return { model: null, index: -1, reverse: false };
+}
+
 // Word Magic keeps the authored family data: the next word is the target,
-// while the remaining family words are plausible alternatives. The stable
-// round seed varies placement without making the answer's slot predictable.
+// while the remaining family words are plausible alternatives. A two-word
+// family gets one authored reverse round so it still ends with a deliberate
+// grapheme choice. The stable round seed varies placement without making the
+// answer's slot predictable.
 // Never invent a grapheme or vocabulary item here; the family picker has
 // already established that every model is taught and asset-backed.
 export function getMagicChoiceModels(wordModels, currentIndex, roundSeed = 0) {
-  const target = wordModels[currentIndex + 1];
+  const { model: target, index: targetIndex, reverse } = getMagicTargetModel(wordModels, currentIndex);
   if (!target) return [];
   const current = wordModels[currentIndex];
   if (!getMagicTransition(current, target)) return [];
   const alternatives = wordModels.filter((word, index) => (
     index !== currentIndex
-    && index !== currentIndex + 1
+    && index !== targetIndex
     && getMagicTransition(current, word)
   ));
+  if (reverse) alternatives.push(current);
   return shuffleMagicChoices([
     target,
     ...alternatives

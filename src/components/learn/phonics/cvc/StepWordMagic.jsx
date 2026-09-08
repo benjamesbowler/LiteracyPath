@@ -8,6 +8,7 @@ import {
   cvcAudioDelivery,
   cvcStepEvidence,
   getMagicChoiceModels,
+  getMagicTargetModel,
   getMagicTransition,
   resolveCvcPlayback,
   useCvcSoundCue,
@@ -21,6 +22,8 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
   const [choiceReady, setChoiceReady] = useState(false);
   const [feedback, setFeedback] = useState("");
   const [roundSeed] = useState(() => Math.floor(Math.random() * 0x7fffffff));
+  const [magicComplete, setMagicComplete] = useState(false);
+  const [finalWord, setFinalWord] = useState(null);
   const magicRunRef = useRef(0);
   const swappingRef = useRef(false);
   const completedRef = useRef(false);
@@ -31,9 +34,15 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
   const { playCue, stopCue } = useCvcSoundCue();
   const reduceMotion = useReducedMotion();
   const currentWord = words[wordIndex];
-  const targetWord = words[wordIndex + 1];
+  const targetInfo = useMemo(
+    () => getMagicTargetModel(words, wordIndex),
+    [wordIndex, words]
+  );
+  const targetWord = magicComplete ? null : targetInfo.model;
+  const isReverseChoice = !magicComplete && targetInfo.reverse;
+  const displayWord = finalWord || currentWord;
   const isModelStep = wordIndex === 0;
-  const isFinalWord = Boolean(currentWord) && !targetWord;
+  const isFinalWord = Boolean(currentWord) && (magicComplete || (!targetWord && !isReverseChoice));
   const transition = useMemo(
     () => getMagicTransition(currentWord, targetWord),
     [currentWord, targetWord]
@@ -105,7 +114,9 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
     firstChoiceRef.current ||= response;
 
     if (choice.word !== targetWord.word) {
-      setFeedback(`${choice.word} is a word, but it changes to a different target. Choose the picture that changes the ${transition.unitLabel} from ${transition.from} to ${transition.to}.`);
+      setFeedback(choice.word === currentWord.word
+        ? `Keep changing the ${transition.unitLabel}. Choose the grapheme that changes it from ${transition.from} to ${transition.to}.`
+        : `${choice.word} is a word, but it changes to a different target. Choose the grapheme that changes the ${transition.unitLabel} from ${transition.from} to ${transition.to}.`);
       return;
     }
 
@@ -118,7 +129,7 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
       slot: transition.index,
       firstResponse: firstChoiceRef.current,
       supportUsed: [
-        "independent_choice",
+        "target_grapheme_prompt",
         ...(choiceAttemptsRef.current > 1 ? ["correction"] : [])
       ]
     };
@@ -129,9 +140,11 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
     setChoiceReady(false);
     setIsSwapping(true);
     setDelivery("playing");
-    setWordIndex(index => index + 1);
+    if (isReverseChoice) setFinalWord(targetWord);
+    else setWordIndex(index => index + 1);
+    if (isReverseChoice) setMagicComplete(true);
     void playTargetSounds(targetWord, record, run);
-  }, [choiceReady, currentWord, isModelStep, playTargetSounds, stopCue, targetWord, transition]);
+  }, [choiceReady, currentWord, isModelStep, isReverseChoice, playTargetSounds, stopCue, targetWord, transition]);
 
   const complete = useCallback(() => {
     if (completedRef.current || !isFinalWord || !choiceReady || isSwapping) return;
@@ -163,30 +176,30 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
         <AnimatePresence mode="wait">
           <motion.button
             className="cvc-word-picture-button"
-            key={currentWord.word}
+            key={displayWord.word}
             initial={{ opacity: 0, scale: 0.88 }}
             animate={{ opacity: 1, scale: !reduceMotion && isSwapping ? [1, 1.05, 1] : 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            onClick={() => playCue(currentWord.audio, currentWord.word)}
+            onClick={() => playCue(displayWord.audio, displayWord.word)}
             type="button"
-            aria-label={`Hear ${currentWord.word}`}
+            aria-label={`Hear ${displayWord.word}`}
           >
-            <WordImage src={currentWord.image} word={currentWord.word} priority />
+            <WordImage src={displayWord.image} word={displayWord.word} priority />
           </motion.button>
         </AnimatePresence>
       </div>
 
       <div className="cvc-magic-change" aria-live="polite">
-        <span className="cvc-magic-change-word">{currentWord.letters.join("")}</span>
+        <span className="cvc-magic-change-word">{displayWord.letters.join("")}</span>
         <span className="cvc-magic-arrow" aria-hidden="true">→</span>
         <span className="cvc-magic-change-word">{isModelStep ? targetWord?.letters.join("") : targetWord ? "?" : "new word"}</span>
       </div>
 
-      <div className="cvc-socket-row cvc-magic-word" aria-label={`Sounds in ${currentWord.word}`} role="group">
-        {currentWord.letters.map((letter, index) => (
+      <div className="cvc-socket-row cvc-magic-word" aria-label={`Sounds in ${displayWord.word}`} role="group">
+        {displayWord.letters.map((letter, index) => (
           <motion.span
             className={`cvc-socket filled ${index === transition?.index && isSwapping ? "active" : ""}`}
-            key={`${currentWord.word}-${letter}-${index}`}
+            key={`${displayWord.word}-${letter}-${index}`}
             animate={!reduceMotion && index === transition?.index && isSwapping ? { scale: [1, 1.12, 1] } : { scale: 1 }}
           >
             {letter}
@@ -220,7 +233,7 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
               Hear {targetWord.word}
             </button>
           </div>
-          <p>Which picture shows {targetWord.word}?</p>
+          <p>Choose the grapheme that makes {targetWord.word}.</p>
           <div className="cvc-magic-choice-grid" aria-label="Choose the new word">
             {choiceModels.map(choice => (
               <motion.button
@@ -233,9 +246,8 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
                 type="button"
                 aria-label={`Change to ${choice.letters[transition.index]}`}
               >
-                <span className="cvc-magic-choice-image"><WordImage src={choice.image} word={choice.word} priority /></span>
                 <span className="cvc-magic-choice-letter">{choice.letters[transition.index]}</span>
-                <span className="cvc-magic-choice-word">{choice.word}</span>
+                <span className="cvc-magic-choice-word">Make {choice.word}</span>
               </motion.button>
             ))}
           </div>

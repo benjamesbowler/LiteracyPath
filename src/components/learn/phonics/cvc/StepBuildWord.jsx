@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import PhonicsButton from "../components/PhonicsButton";
 import { WordImage } from "../components/WordImage";
 import Blendy from "./Blendy";
-import { getLetterSoundCue, cvcStepEvidence, playCvcSoundSequence, shuffleItems, useCvcSoundCue, useCvcWordModels } from "./cvcHelpers";
+import { getLetterSoundCue, cvcStepEvidence, playCvcSoundSequence, resolveCvcPlayback, shuffleItems, useCvcSoundCue, useCvcWordModels } from "./cvcHelpers";
 import { getLedaInstructionAudioPath } from "../../../../data/ledaProductionAudio.js";
 
 function getGhostLetter(wordIndex, letter, socketIndex, family) {
@@ -129,7 +129,7 @@ const StepBuildWord = memo(function StepBuildWord({ family, onComplete }) {
       setFilledLetters(filledRef.current);
       setUsedTileIds(usedRef.current);
       if (filledRef.current.length === currentWord.letters.length) {
-        void cuePlayback.then(() => {
+        void resolveCvcPlayback(cuePlayback).then(() => {
           if (completionRunRef.current === epoch && !hasAdvancedRef.current) void runCompletionSequence();
         });
       }

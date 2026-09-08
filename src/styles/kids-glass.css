@@ -1985,12 +1985,23 @@
 }
 
 .kg-stage .student-surface-phonics .cvc-magic-choice-letter {
+  grid-column: 1;
+  grid-row: 1 / -1;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(255, 248, 224, .9);
   color: var(--kg-accent);
   font: 900 1.55rem var(--kg-font-display);
   text-transform: lowercase;
 }
 
 .kg-stage .student-surface-phonics .cvc-magic-choice-word {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  align-self: center;
   color: var(--kg-ink-muted);
   text-transform: capitalize;
 }
