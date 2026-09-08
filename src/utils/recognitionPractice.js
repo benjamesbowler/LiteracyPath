@@ -31,7 +31,7 @@ const SAME_SPOKEN_WORD = [
   ["whole", "hole"], ["some", "sum"], ["blue", "blew"], ["would", "wood"],
   ["made", "maid"], ["meet", "meat"], ["week", "weak"], ["wear", "where", "ware"],
   ["piece", "peace"], ["plain", "plane"], ["pair", "pear", "pare"],
-  ["buy", "by", "bye"], ["break", "brake"], ["flower", "flour"]
+  ["break", "brake"], ["flower", "flour"]
 ];
 
 export function sightWordPool(difficulty = "easy") {

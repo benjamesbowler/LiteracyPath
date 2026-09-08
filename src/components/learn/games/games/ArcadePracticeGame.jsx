@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { CVC_WORDS, SENTENCE_FIX, SENTENCES } from "../../../../data/learnGamesData";
 import { getChildWordAsset } from "../../../../data/childAssets";
 import { cancelSpeech, hasRecordedSpeech, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio";
+import { stopCueAudio } from "../../../../utils/audio/cuePlayer.js";
 import { memoryBoards, sentencePractice, sightWordPool } from "../../../../utils/recognitionPractice.js";
 import "../../../../styles/recognition-practice.css";
 import { buildBlendMissions, buildCvcWorkshopRounds } from "../../../../utils/buildingGrowingRounds.js";
@@ -191,6 +192,7 @@ export function ArcadePracticeGame({
     if (pausedRef.current) return;
     pausedRef.current = true;
     cancelSpeech();
+    stopCueAudio();
     const now = Date.now();
     timersRef.current.forEach(entry => {
       clearTimeout(entry.id);

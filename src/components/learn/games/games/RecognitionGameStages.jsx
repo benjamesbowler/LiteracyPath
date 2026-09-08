@@ -1,6 +1,8 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { getChildWordAsset } from "../../../../data/childAssets.js";
-import { cancelSpeech, hasRecordedSpeech, speak, speakWord } from "../../../../utils/learnGamesAudio.js";
+import { hasRecordedSpeech, speakWord } from "../../../../utils/learnGamesAudio.js";
+import { getLedaInstructionAudioPath, getLedaWordAudioPath } from "../../../../data/ledaProductionAudio.js";
+import { playCueAudio, stopCueAudio } from "../../../../utils/audio/cuePlayer.js";
 import { playPopSound } from "../../../../utils/audio/gameSfx.js";
 import { hfwOptions, sentenceTiles, shuffled } from "../../../../utils/recognitionPractice.js";
 import { completeRepairDisplay } from "../../../../utils/repairSentence.js";
@@ -8,6 +10,29 @@ import { IllustratedGameScene } from "../shared/IllustratedGameScene.jsx";
 import { GameMeter } from "../shared/PracticeGameMeter.jsx";
 
 const practice = (construct, supportUsed) => ({ construct, practiceOnly: true, independent: false, supportUsed, audioDelivery: "not_measured" });
+
+// Use the shared cue session so failed playback has a visible fallback, and
+// mute, replay, pause and leaving the stage cannot leak a stale sentence.
+function useRecognitionCue(text, enabled, autoPlay = true) {
+  const [failedText, setFailedText] = useState("");
+  const canHear = enabled && hasRecordedSpeech(text) && failedText !== text;
+  const replay = useCallback(() => {
+    if (!canHear) return;
+    const src = /^[a-z]+$/i.test(text) ? getLedaWordAudioPath(text) : getLedaInstructionAudioPath(text);
+    playCueAudio(src, { onUnavailable: () => setFailedText(text) });
+  }, [canHear, text]);
+  useEffect(() => {
+    if (autoPlay) replay();
+    return stopCueAudio;
+  }, [autoPlay, replay]);
+  return { canHear, replay };
+}
+
+function CollectedPicture({ word }) {
+  const [failed, setFailed] = useState(false);
+  const src = getChildWordAsset(word)?.image;
+  return src && !failed ? <img src={src} alt={`Collected ${word}`} onError={() => setFailed(true)} /> : <span>{word}</span>;
+}
 
 export function MatchGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss, finish, resultReady, schedule, recordFirstResponse, recordAssistedRetry }) {
   const [boardIndex, setBoardIndex] = useState(0);
@@ -49,9 +74,9 @@ export function MatchGame({ state, isSoundEnabled, correct, setCorrect, addScore
 
   return <IllustratedGameScene mode="memory" stageClassName="lg-memory-stage">
     <p>Match the words to collect pictures. This is memory practice.</p>
-    <div className="lg-memory-collection" aria-label={`${correct} pictures collected`}>
+    <div className="lg-memory-collection" style={{ "--collection-columns": total <= 3 ? total : Math.ceil(total / 2) }} aria-label={`${correct} pictures collected`}>
       {state.cards.filter(card => card.id.endsWith("-a")).map(card => <span key={card.pairId} className={matchedIds.includes(card.id) ? "collected" : ""}>
-        {matchedIds.includes(card.id) ? <img src={getChildWordAsset(card.object)?.image} alt={`Collected ${card.object}`} /> : <span aria-hidden="true">?</span>}
+        {matchedIds.includes(card.id) ? <CollectedPicture word={card.object} /> : <span aria-hidden="true">?</span>}
       </span>)}
     </div>
     <div className="lg-card-grid memory" data-card-count={cards.length}>
@@ -71,17 +96,13 @@ export function MatchGame({ state, isSoundEnabled, correct, setCorrect, addScore
 
 export function TargetGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, resultReady, isSoundEnabled, totalRounds, recordFirstResponse, recordAssistedRetry }) {
   const target = state.words[round];
-  const canHear = isSoundEnabled && hasRecordedSpeech(target);
   const options = useMemo(() => hfwOptions(target, state.pool), [target, state.pool]);
   const [popped, setPopped] = useState(false);
+  const { canHear, replay } = useRecognitionCue(target, isSoundEnabled, !popped);
   const [wrong, setWrong] = useState("");
   const [pressed, setPressed] = useState(false);
   const solvedRef = useRef(false);
   const attemptsRef = useRef(0);
-  useEffect(() => {
-    if (canHear) speakWord(target);
-    return cancelSpeech;
-  }, [canHear, target]);
 
   function choose(word) {
     if (solvedRef.current) return;
@@ -99,7 +120,7 @@ export function TargetGame({ state, round, setRound, correct, setCorrect, addSco
 
   return <IllustratedGameScene mode="target" stageClassName={`lg-target-stage lg-pop-stage${pressed || popped ? " lg-target-frozen" : ""}`}>
     <p>{canHear ? "Listen, then pop the matching word." : "Match the printed word. Sound is off or unavailable."}</p>
-    {!popped && <>{canHear ? <button type="button" className="lg-game-audio" onClick={() => speakWord(target)}>Hear word</button> : <div className="lg-game-picture lg-game-picture-text"><span>{target}</span></div>}
+    {!popped && <>{canHear ? <button type="button" className="lg-game-audio" onClick={replay}>Hear word</button> : <div className="lg-game-picture lg-game-picture-text"><span>{target}</span></div>}
       <div className="lg-floating-options">{options.map(word => <button type="button" key={word} onPointerDown={() => setPressed(true)} onPointerUp={() => setPressed(false)} onPointerCancel={() => setPressed(false)} onKeyDown={event => { if (["Enter", " "].includes(event.key)) setPressed(true); }} onKeyUp={() => setPressed(false)} onBlur={() => setPressed(false)} onClick={() => choose(word)} className={wrong === word ? "wrong" : ""}>{word}</button>)}</div>
       {wrong && <div className="lg-pop-feedback" role="status">That word is {wrong}. {canHear ? "Hear the target again, then choose." : `Look for ${target}.`}</div>}
     </>}
@@ -122,12 +143,10 @@ export function SentenceGame({ state, round, setRound, correct, setCorrect, addS
   const consumedRef = useRef(new Set());
   const attemptsRef = useRef(0);
   const modeledRef = useRef(false);
-  const canHear = isSoundEnabled && hasRecordedSpeech(sentence);
+  const { canHear, replay } = useRecognitionCue(sentence, isSoundEnabled, phase === "build");
   useEffect(() => {
     if (phase !== "build") return;
     if (!canHear) modeledRef.current = true;
-    else speak(sentence);
-    return cancelSpeech;
   }, [phase, canHear, sentence]);
 
   function choose(tile) {
@@ -154,7 +173,7 @@ export function SentenceGame({ state, round, setRound, correct, setCorrect, addS
   return <IllustratedGameScene mode="sentence" stageClassName={`lg-hop-stage lg-hop-phase-${phase}`}>
     <p>{phase === "teach" ? "First, see how a sentence path works." : "Build the new sentence, one word at a time."}</p>
     {phase === "teach" ? <div className="lg-sentence-model" role="group" aria-label="Worked example"><strong>Follow this example</strong><span>{state.modelSentence}</span><button type="button" onClick={() => setPhase("build")}>Try a new sentence</button></div> : <>
-      {canHear ? <button type="button" className="lg-game-audio" onClick={() => speak(sentence)}>Hear sentence</button> : <div className="lg-hop-model"><strong>Guided ordering</strong><span>{sentence}</span></div>}
+      {canHear ? <button type="button" className="lg-game-audio" onClick={replay}>Hear sentence</button> : phase !== "complete" && <div className="lg-hop-model"><strong>Guided ordering</strong><span>{sentence}</span></div>}
       <div className="lg-hop-route" aria-label={`${placed.length} of ${tiles.length} sentence stones reached`}>
         <div className="lg-hop-river" />
         <img className="lg-hop-pal" src="/images/pals/poses/meadow-wave.webp" alt="Meadow Pal on the sentence path" key={placed.length} style={{ "--hop-position": placed.length / tiles.length, "--hop-from": Math.max(0, placed.length - 1) / tiles.length }} />
@@ -176,8 +195,7 @@ export function FixGame({ state, round, setRound, correct, setCorrect, addScore,
   const options = useMemo(() => shuffled(fix.options), [fix]);
   const completedSentence = completeRepairDisplay(fix.display, answer);
   const spokenText = answer ? completedSentence : fix.prompt;
-  const canHear = isSoundEnabled && hasRecordedSpeech(spokenText);
-  useEffect(() => { if (canHear) speak(spokenText); return cancelSpeech; }, [canHear, spokenText]);
+  const { canHear, replay } = useRecognitionCue(spokenText, isSoundEnabled);
 
   function choose(option) {
     if (solvedRef.current) return;
@@ -196,7 +214,7 @@ export function FixGame({ state, round, setRound, correct, setCorrect, addScore,
   const parts = fix.display.split("___");
   return <IllustratedGameScene mode="quiz" stageClassName="lg-repair-stage">
     <p>{fix.prompt}</p>
-    {canHear && <button type="button" className="lg-game-audio" onClick={() => speak(spokenText)}>{answer ? "Hear repaired sentence" : "Hear instruction"}</button>}
+    {canHear && <button type="button" className="lg-game-audio" onClick={replay}>{answer ? "Hear repaired sentence" : "Hear instruction"}</button>}
     <div className={`lg-repair-bench${answer ? " repaired" : ""}`} aria-label={answer ? "Sentence repaired" : "Repair bench"}>
       <div className="lg-reading-sentence lg-fix-sentence">{parts.map((part, index) => <span key={index}>{part}{index < parts.length - 1 && <strong className="lg-repair-piece">{answer || "___"}</strong>}</span>)}</div>
       <span className="lg-repair-clamp" aria-hidden="true" />

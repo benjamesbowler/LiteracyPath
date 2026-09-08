@@ -1,6 +1,7 @@
 /* These stages own their layouts. Shared practice wrappers stay unchanged. */
 .lg-game-player .lg-illustrated-game:has(> :is(.lg-memory-stage, .lg-pop-stage, .lg-hop-stage, .lg-repair-stage)) {
   grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
 }
 .lg-game-player .lg-illustrated-game:has(> :is(.lg-memory-stage, .lg-pop-stage, .lg-hop-stage, .lg-repair-stage)) > .lg-illustrated-game-art { display: none; }
 .lg-game-player .lg-illustrated-game > :is(.lg-memory-stage, .lg-pop-stage, .lg-hop-stage, .lg-repair-stage) {
@@ -29,16 +30,18 @@
 .lg-game-player .lg-memory-stage .lg-match-card.matched { opacity: 1; }
 .lg-game-player .lg-practice-set-complete { display: flex; align-items: center; justify-content: center; gap: 12px; font-weight: 800; }
 .lg-game-player .lg-memory-stage:has(.lg-practice-set-complete) .lg-card-grid { display: none !important; }
-.lg-game-player .lg-memory-stage:has(.lg-practice-set-complete) .lg-memory-collection { height: 110px; flex-basis: 110px; }
+.lg-game-player .lg-memory-stage:has(.lg-practice-set-complete) .lg-memory-collection { display: grid; grid-template-columns: repeat(var(--collection-columns), minmax(0, 1fr)); gap: 12px; max-width: 780px; height: 240px; flex-basis: 240px; }
+.lg-game-player .lg-memory-stage:has(.lg-practice-set-complete) .lg-memory-collection > span { width: auto; overflow: hidden; }
 
 /* Balloon positions are stable throughout pointer and keyboard presses. */
-.lg-game-player .lg-illustrated-game .lg-pop-stage .lg-floating-options { display: grid; grid-template-columns: repeat(3, minmax(56px, 1fr)); gap: 14px; width: 100%; flex: 1 1 auto; min-height: 0; }
+.lg-game-player .lg-illustrated-game .lg-pop-stage .lg-floating-options { display: grid; grid-template-columns: repeat(3, minmax(56px, 1fr)); grid-template-rows: repeat(2, minmax(56px, 1fr)); gap: 14px; width: 100%; flex: 1 1 auto; min-height: 0; }
 .lg-game-player .lg-illustrated-game .lg-pop-stage .lg-floating-options button,
 .lg-game-player .lg-illustrated-game .lg-pop-stage .lg-floating-options button:hover,
-.lg-game-player .lg-illustrated-game .lg-pop-stage .lg-floating-options button:active { animation: none; transform: none; min-height: 64px; min-width: 56px; width: 100%; font-size: clamp(1rem, 2.2vw, 1.65rem); }
-.lg-game-player .lg-pop-stage .lg-game-picture-text { width: auto; height: auto; min-height: 0; padding: 8px 24px; flex: 0 0 auto; }
-.lg-game-player .lg-pop-stage .lg-game-picture-text span { font-size: 1.7rem; }
-.lg-game-player .lg-pop-stage .lg-game-audio { position: static; min-height: 56px; min-width: 90px; flex: 0 0 auto; }
+.lg-game-player .lg-illustrated-game .lg-pop-stage .lg-floating-options button:active { animation: none; transform: none; min-height: 64px; min-width: 56px; width: 100%; height: 100%; aspect-ratio: auto; font-size: clamp(1rem, 2.2vw, 1.65rem); }
+.lg-game-player .lg-illustrated-game > .lg-target-stage.lg-pop-stage .lg-floating-options button::before { height: 6px; bottom: -8px; }
+.lg-game-player .lg-illustrated-game > .lg-target-stage.lg-pop-stage .lg-game-picture-text { width: auto; height: auto; min-height: 0; padding: 8px 24px; flex: 0 0 auto; }
+.lg-game-player .lg-illustrated-game > .lg-target-stage.lg-pop-stage .lg-game-picture-text span { font-size: 1.7rem; }
+.lg-game-player .lg-illustrated-game > .lg-target-stage.lg-pop-stage .lg-game-audio { position: static; min-height: 56px; min-width: 90px; flex: 0 0 auto; }
 .lg-game-player .lg-pop-discovery { display: grid; grid-template-columns: minmax(0, 1fr) 165px; align-items: center; gap: 14px; width: 100%; min-height: 0; }
 .lg-pop-world { position: relative; width: 100%; aspect-ratio: 1.5; overflow: hidden; border: 3px solid var(--lg-accent-green); border-radius: 22px; }
 .lg-pop-meadow { width: 100%; height: 100%; object-fit: cover; }
@@ -49,6 +52,7 @@
 .lg-pop-discovery span { line-height: 1.3; }
 
 .lg-game-player .lg-hop-stage .lg-sentence-model { position: static; display: grid; width: 100%; gap: 16px; padding: 18px; color: var(--lg-primary-strong); background: var(--lg-surface); border: 3px solid var(--lg-accent-blue); border-radius: 20px; }
+.lg-sentence-model > span { font-size: clamp(1.2rem, 2.6vw, 2rem); font-weight: 800; line-height: 1.3; }
 .lg-hop-model { display: grid; gap: 4px; width: 100%; color: var(--lg-primary-strong); text-align: center; }
 .lg-hop-model strong { font-size: .85rem; color: var(--lg-primary-strong); }
 .lg-hop-model span { font-size: clamp(1rem, 2vw, 1.4rem); font-weight: 750; }
@@ -65,7 +69,7 @@
   to { left: calc(var(--route-inset) + (100% - 2 * var(--route-inset)) * var(--hop-position) - 34px); transform: translateY(0); }
 }
 .lg-game-player .lg-hop-stage .lg-hop-grid,
-.lg-game-player .lg-repair-stage .lg-hop-grid { position: static; display: grid; grid-template-columns: repeat(4, minmax(56px, 1fr)); gap: 8px; width: 100%; min-height: 0; margin: 0; }
+.lg-game-player .lg-repair-stage .lg-hop-grid { position: static; display: grid; grid-template-columns: repeat(4, minmax(56px, 1fr)); grid-template-rows: none; grid-auto-rows: minmax(56px, auto); gap: 8px; width: 100%; height: auto; min-height: 0; margin: 0; flex: 0 0 auto; }
 .lg-game-player .lg-hop-stage .lg-hop-grid button,
 .lg-game-player .lg-repair-stage .lg-hop-grid button { min-height: 56px; min-width: 56px; font-size: clamp(.9rem, 2vw, 1.3rem); padding: 6px 8px; }
 .lg-game-player :is(.lg-hop-stage, .lg-repair-stage) .lg-hop-grid button:nth-child(n) { transform: none; margin: 0; }
@@ -85,17 +89,18 @@
 .lg-game-player:has([role="alertdialog"]) .lg-hop-pal { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) { .lg-hop-pal { animation: none; } }
 @media (max-width: 700px) and (orientation: landscape) {
+  .lg-game-player .lg-illustrated-game > .lg-hop-stage:has(.lg-hop-grid > :nth-child(6)) { gap: 4px; padding: 4px; }
   .lg-game-player .lg-illustrated-game > :is(.lg-memory-stage, .lg-pop-stage, .lg-hop-stage, .lg-repair-stage) { gap: 8px; padding: 8px; }
   .lg-game-player .lg-illustrated-game > :is(.lg-memory-stage, .lg-pop-stage, .lg-hop-stage, .lg-repair-stage) > p:first-child { display: none; }
   .lg-game-player .lg-memory-stage .lg-memory-collection { height: 38px; flex-basis: 38px; }
   .lg-game-player .lg-memory-stage .lg-card-grid.memory { gap: 8px; }
   .lg-game-player .lg-memory-stage .lg-game-meter { display: none; }
   .lg-game-player .lg-memory-stage:has(.lg-practice-set-complete) .lg-memory-collection { height: 100px; flex-basis: 100px; }
-  .lg-game-player .lg-pop-stage { display: grid !important; grid-template-columns: 104px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; }
-  .lg-game-player .lg-pop-stage .lg-game-picture-text, .lg-game-player .lg-pop-stage .lg-game-audio { grid-column: 1; grid-row: 1; width: 100%; max-width: 104px; }
-  .lg-game-player .lg-pop-stage .lg-floating-options { grid-column: 2; grid-row: 1; gap: 8px; height: 100%; }
-  .lg-game-player .lg-pop-stage .lg-floating-options button { min-height: 56px; font-size: 1rem; }
-  .lg-game-player .lg-pop-stage .lg-game-meter { display: none; }
+  .lg-game-player .lg-illustrated-game > .lg-target-stage.lg-pop-stage { display: grid !important; grid-template-columns: 104px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; }
+  .lg-game-player .lg-illustrated-game > .lg-target-stage.lg-pop-stage .lg-game-picture-text, .lg-game-player .lg-illustrated-game > .lg-target-stage.lg-pop-stage .lg-game-audio { grid-column: 1; grid-row: 1; width: 100%; min-width: 0; max-width: 104px; }
+  .lg-game-player .lg-illustrated-game > .lg-target-stage.lg-pop-stage .lg-floating-options { grid-column: 2; grid-row: 1; gap: 8px; height: 100%; }
+  .lg-game-player .lg-illustrated-game > .lg-target-stage.lg-pop-stage .lg-floating-options button { min-height: 56px; font-size: 1rem; }
+  .lg-game-player .lg-illustrated-game > .lg-target-stage.lg-pop-stage .lg-game-meter { display: none; }
   .lg-game-player .lg-pop-feedback { grid-column: 1 / -1; grid-row: 2; font-size: .8rem; padding: 4px; }
   .lg-game-player .lg-pop-discovery { grid-column: 1 / -1; grid-row: 1 / -1; grid-template-columns: minmax(0, 1fr) 165px; height: 100%; }
   .lg-pop-world { height: 100%; aspect-ratio: auto; }
@@ -118,5 +123,13 @@
   .lg-game-player .lg-hop-stage:has(.lg-hop-grid > :nth-child(6)) .lg-hop-route { height: 60px; flex-basis: 60px; }
   .lg-game-player .lg-hop-stage:has(.lg-hop-grid > :nth-child(6)) .lg-hop-pal { height: 42px; bottom: 17px; }
   .lg-game-player .lg-hop-stage:has(.lg-hop-grid > :nth-child(6)) .lg-hop-river { inset-block-start: 26px; }
-  .lg-game-player .lg-hop-stage:has(.lg-hop-grid > :nth-child(6)) .lg-hop-grid { padding: 4px; }
+  .lg-game-player .lg-hop-stage .lg-hop-grid { padding: 0; border: 0; box-shadow: none; background: none; }
+  .lg-game-player .lg-hop-stage .lg-order-feedback { padding: 0 4px; font-size: .8rem; }
+}
+
+@media (max-width: 700px) and (orientation: landscape) {
+  .lg-game-player .lg-hop-phase-complete .lg-hop-route { height: 72px; flex-basis: 72px; }
+  .lg-game-player .lg-hop-stage .lg-sentence-complete { grid-template-columns: minmax(0, 1fr) 136px; align-items: center; gap: 4px 8px; }
+  .lg-game-player .lg-hop-stage .lg-sentence-complete > button { grid-column: 2; grid-row: 1 / 3; }
+  .lg-game-player .lg-hop-stage .lg-sentence-complete > span { grid-column: 1; font-size: .9rem; }
 }

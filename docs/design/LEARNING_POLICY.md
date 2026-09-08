@@ -101,3 +101,19 @@ records prior curriculum exposure for this supported practice only. It does not
 claim proficiency or satisfy the independent instructional-progression policy
 above. The picker names missing letter activities; neither six arbitrary letters
 nor completing the previous family supplies those prerequisites.
+
+## Recognition and sentence game records
+
+Sight Word Memory records spatial pair matching, Pop the Word records high
+frequency word recognition practice, Word Hopscotch records sentence ordering,
+and Sentence Fix-It records contextual sentence repair. These constructs remain
+separate from independent decoding or formal mastery. Printed targets, modeled
+ordering, first responses and assisted retries are disclosed in the result.
+Recorded-cue availability is not proof that the child heard a clip.
+
+Completed game practice is saved at the final learning action in the existing
+learn-games progress record, separately from displaying or leaving its result.
+Each evidence-bearing completion has an immutable session identity; replay starts
+a new session. Hydration preserves whole sessions and reports same-identity
+conflicts instead of merging a wrong first response into a later correct answer.
+Legacy stars and play counts have unknown response evidence.

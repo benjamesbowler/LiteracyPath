@@ -18,10 +18,10 @@ test('shared practice honors mute, distinct repeated tiles, rapid commits and ea
  await expect(page.locator('.lg-sentence-path .done')).toHaveCount(1);
  await expect(page.locator('.lg-game-score')).toHaveText('10 pts');
  for(const word of ['cat','and','the','dog','can']) await (await wordButton(page,word)).click();
- const before=Number((await page.locator('.lg-game-score').textContent()).match(/\d+/)[0]);
+ await expect(page.locator('.lg-game-score')).toHaveText('90 pts');
  await (await wordButton(page,'run')).evaluate(b=>{for(let i=0;i<6;i++)b.click();});
  await expect(page.locator('.lg-sentence-complete')).toContainText('The cat and the dog can run.');
- await expect(page.locator('.lg-game-score')).toHaveText(`${before+20} pts`);
+ await expect(page.locator('.lg-game-score')).toHaveText('110 pts');
  expect(await page.evaluate(()=>window.testAudioPlays)).toEqual([]);
  const result=await page.evaluate(()=>JSON.parse(localStorage.getItem('literacy-guide-learn-games:fullscreen-overlay-preview')).games['word-hopscotch']);
  expect(result.plays).toBe(1);

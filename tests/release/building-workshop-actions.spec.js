@@ -47,6 +47,7 @@ test(`workshop completes ${difficulty} build, blend, object-use and next actions
     const before = await page.locator('.lg-object-actor').evaluate(el => el.getBoundingClientRect().x);
     await page.getByRole('button', { name: 'Use object', exact: true }).click();
     await expect(page.locator('.lg-object-scene')).toHaveAttribute('data-state', 'used');
+    if(round===count-1) expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('literacy-guide-learn-games:fullscreen-overlay-preview')).games['cvc-word-builder'].plays)).toBe(1);
     await expect.poll(() => page.locator('.lg-object-actor').evaluate(el => el.getBoundingClientRect().x)).not.toBe(before);
     const next = page.getByRole('button', { name: round === count - 1 ? 'Finish' : 'Next build', exact: true });
     await expect(next).toBeVisible();

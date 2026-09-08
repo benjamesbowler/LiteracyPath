@@ -13,6 +13,10 @@ async function saveShot(page, name) {
   if (process.env.LP_G10_SCREENSHOTS) await page.screenshot({path:`${process.env.LP_G10_SCREENSHOTS}/${name}.png`});
 }
 async function fitControls(page, selector) {
+  await expect(page.locator(selector).first()).toBeVisible();
+  for(const button of await page.locator(selector).all()) {
+    expect(await button.evaluate(e=>{const r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));})).toBe(true);
+  }
   const boxes=await page.locator(selector).evaluateAll(es=>es.map(e=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height};}));
   const {width,height}=page.viewportSize();
   for (const r of boxes) {
@@ -47,6 +51,8 @@ for (const [difficulty, rounds, pairs] of [['easy',6,3],['medium',8,6],['hard',1
     }
     await expect.poll(async()=> (await readResult(page,'sight-word-memory'))?.plays).toBe(1);
     await expect(page.getByRole('button',{name:'Finish collection'})).toBeVisible();
+    await expect.poll(()=>page.locator('.lg-memory-collection img').evaluateAll(es=>es.every(e=>e.complete&&e.naturalWidth>0))).toBe(true);
+    await expect(page.locator('.lg-game-header-meter')).toHaveAttribute('aria-label',`${pairs} of ${pairs}`);
     await saveShot(page,`memory-${difficulty}-collection`);
     await page.getByRole('button',{name:'Close Sight Word Memory',exact:true}).click();
     expect((await readResult(page,'sight-word-memory')).plays).toBe(1);
@@ -78,6 +84,16 @@ for (const [difficulty, rounds, pairs] of [['easy',6,3],['medium',8,6],['hard',1
     await page.getByRole('button',{name:'Play again',exact:true}).click();
     await expect(page.locator('.lg-floating-options button')).toHaveCount(6);
     expect((await readResult(page,'pop-the-word')).plays).toBe(1);
+    if(difficulty==='easy') {
+      for(let r=0;r<rounds;r++) {
+        const target=await page.locator('.lg-game-picture-text span').textContent();
+        await page.locator('.lg-floating-options button').getByText(target,{exact:true}).click();
+        await page.getByRole('button',{name:r===rounds-1?'Finish':'Next word',exact:true}).click();
+      }
+      const replay=await readResult(page,'pop-the-word');
+      expect(replay.plays).toBe(2); expect(replay.practiceRecord.completions).toHaveLength(2);
+      expect(replay.practiceRecord.completions[0]).toEqual(saved.practiceRecord.completions[0]);
+    }
   });
   test(`${difficulty} Hop uses a fresh target and moves to each committed word stone`, async ({page}) => {
     test.setTimeout(90_000); await page.emulateMedia({reducedMotion:'reduce'});
@@ -127,6 +143,19 @@ for(const viewport of [{width:568,height:320},{width:393,height:851},{width:1024
    const selector=game==='sight-word-memory'?'.lg-match-card':game==='pop-the-word'?'.lg-floating-options button':'.lg-hop-grid button';
    await fitControls(page,selector);
    await saveShot(page,`${game}-${viewport.width}`);
+   if(game==='word-hopscotch') {
+     const sentence=await page.locator('.lg-hop-model > span').textContent();
+     for(const word of sentence.replace(/[.?!]/g,'').split(/\s+/)) await tapWord(page,word);
+     await expect(page.locator('.lg-sentence-complete')).toContainText(sentence);
+     await fitControls(page,'.lg-sentence-complete button');
+     await saveShot(page,`hop-result-${viewport.width}`);
+   }
+   if(game==='reading-race') {
+     const display=(await page.locator('.lg-fix-sentence').textContent()).trim();
+     await tapWord(page,SENTENCE_FIX.hard.find(f=>f.display===display).answer);
+     await fitControls(page,'.lg-fix-complete button');
+     await saveShot(page,`repair-result-${viewport.width}`);
+   }
    if(game==='pop-the-word') {
      const target=await page.locator('.lg-game-picture-text span').textContent();
      const button=page.locator(selector).getByText(target,{exact:true});
@@ -137,3 +166,33 @@ for(const viewport of [{width:568,height:320},{width:393,height:851},{width:1024
   }
  });
 }
+
+test('failed recorded cue offers a playable printed target without using synthetic speech',async({page})=>{
+ await page.addInitScript(()=>{
+   HTMLMediaElement.prototype.play=function(){return Promise.reject(new Error('offline audio'));};
+   window.syntheticCalls=0;window.speechSynthesis.speak=()=>{window.syntheticCalls++;};
+ });
+ await page.goto('/preview/game-overlay.html?game=pop-the-word&sound=1&music=0');
+ await expect(page.locator('.lg-game-picture-text span')).toBeVisible();
+ await expect(page.locator('.lg-pop-stage > p')).toContainText('unavailable');
+ const word=await page.locator('.lg-game-picture-text span').textContent();
+ await page.locator('.lg-floating-options button').getByText(word,{exact:true}).click();
+ await expect(page.locator('.lg-pop-discovery')).toContainText(word);
+ expect(await page.evaluate(()=>window.syntheticCalls)).toBe(0);
+});
+
+test('a paused mismatch keeps its flip lock and resumes on the same two cards',async({page})=>{
+ await open(page,'sight-word-memory');
+ await expect(page.locator('.lg-match-card').first()).toBeVisible();
+ const cards=page.locator('.lg-match-card');
+ const ids=await cards.evaluateAll(es=>es.map(e=>e.dataset.pairId));
+ const wrongIndex=ids.findIndex(id=>id!==ids[0]);
+ await cards.first().click(); await cards.nth(wrongIndex).click();
+ await page.getByRole('button',{name:'Close Sight Word Memory'}).click();
+ await expect(page.getByRole('alertdialog')).toBeVisible();
+ await page.waitForTimeout(700); // Exceed the 650 ms mismatch timer while the engine is paused.
+ await expect(page.locator('.lg-match-card.revealed')).toHaveCount(2);
+ await page.getByRole('button',{name:'Keep playing',exact:true}).click();
+ await expect(page.locator('.lg-match-card.revealed')).toHaveCount(0);
+ expect((await readResult(page,'sight-word-memory'))?.plays||0).toBe(0);
+});
