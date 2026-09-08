@@ -189,7 +189,7 @@ export const RELEASE_GATES = Object.freeze([
   },
   {
     id: "sound-racer-tutorial",
-    label: "Current-target Sound Racer tutorial with recorded example audio and separate steering help",
+    label: "Sound Racer recorded tutorial, complete held-fork rally, renderer recovery and session ownership",
     command: ["npm", "run", "check:sound-racer-tutorial"],
     areas: [2, 4, 10]
   },

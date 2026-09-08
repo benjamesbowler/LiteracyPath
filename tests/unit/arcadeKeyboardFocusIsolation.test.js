@@ -73,7 +73,6 @@ const gameHandlerContracts = [
   ["LetterLeapGame.jsx", ["onKeyDown"]],
   ["RocketRunGame.jsx", ["onKey", "onIntroKey"]],
   ["RhymePopArcadeGame.jsx", ["onKeyDown"]],
-  ["SoundRacerGame.jsx", ["onKey", "onIntroKey"]],
   ["SoundSafariArcadeGame.jsx", ["onKeyDown"]],
   ["SoundBeatGame.jsx", ["onKeyDown"]],
   ["ReelReadGame.jsx", ["onKeyDown"]],
@@ -90,10 +89,7 @@ const focusedMovementControlExceptions = new Map([
     "RocketRunGame.jsx:onKey",
     /const steeringControlOwnsFocus = event\.target\?\.matches\?\.\('\[data-rr="left-control"\],\[data-rr="right-control"\]'\);\s+if \(isInteractiveKeyTarget\(event\.target\) && !steeringControlOwnsFocus\) return;/
   ],
-  [
-    "SoundRacerGame.jsx:onKey",
-    /const steeringControlOwnsFocus = event\.target\?\.matches\?\.\('\[data-sr="left-control"\],\[data-sr="right-control"\]'\);\s+if \(isInteractiveKeyTarget\(event\.target\) && !steeringControlOwnsFocus\) return;/
-  ]
+
 ]);
 
 for (const [fileName, handlers] of gameHandlerContracts) {
@@ -148,7 +144,6 @@ test("held movement keys still release after focus moves to a control", async ()
 test("lane press controls reject a second pointer before it can replace the repeat owner", async () => {
   const contracts = [
     ["RocketRunGame.jsx", "attachRocketPressControl"],
-    ["SoundRacerGame.jsx", "attachSoundRacerPressControl"]
   ];
 
   for (const [fileName, helperName] of contracts) {
@@ -175,4 +170,16 @@ test("SoundKeys provider keeps the interactive-target guard beside repeat filter
     "utf8"
   );
   assert.match(source, /if \(event\.repeat \|\| isInteractiveKeyTarget\(event\.target\)\) return;/);
+});
+
+ test("Sound Racer's mission isolates native focus and commits only explicit nonrepeat action", async () => {
+  const source = await readFile(new URL("../../src/features/soundRacer/RacerSession.jsx", import.meta.url), "utf8");
+  assert.match(source, /const nativeTarget = isInteractiveKeyTarget\(event\.target\)/);
+  assert.match(source, /closest\?\.\('\[data-sr-driving-control\]'\)/);
+  assert.match(source, /if \(nativeTarget && !steerControl\) return;/);
+  assert.match(source, /else if \(!nativeTarget && \[' ', 'Enter'\]\.includes\(event\.key\)\)/);
+  assert.match(source, /if \(!event\.repeat\) commit\(\)/);
+  assert.match(source, /window\.removeEventListener\('keydown', key\)/);
+  assert.match(source, /onClick=\{\(\) => selectLane/);
+  assert.doesNotMatch(source, /setInterval|setPointerCapture/);
 });

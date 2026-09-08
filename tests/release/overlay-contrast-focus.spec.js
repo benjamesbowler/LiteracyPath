@@ -194,12 +194,12 @@ test("A3.5 Sound Racer dark tutorial keeps readable text and visible focus", asy
   await expectNoColourContrastViolations(page, '[data-sr="overlay"]', "Sound Racer tutorial");
   await expectKeyboardFocusVisible(
     page,
-    overlay.locator('[data-sr="intro-hear"]'),
+    overlay.getByRole("button", { name: /^Hear .+ in / }),
     "Sound Racer Hear the example control"
   );
   await expectKeyboardFocusVisible(
     page,
-    overlay.locator('[data-sr="intro-play"]'),
+    overlay.getByRole("button", { name: "Tap to play", exact: true }),
     "Sound Racer play control"
   );
 });

@@ -109,11 +109,13 @@ test("every substantial vertical slice is complete, traceable to checks, and hon
   assert.match(beatImplementation, /addEventListener\("pointercancel", onPointerCancel\)/);
   assert.match(beatImplementation, /liveStatus\.setAttribute\("aria-live", "polite"\)/);
 
-  const racerImplementation = readFileSync("src/components/learn/games/games/SoundRacerGame.jsx", "utf8");
-  assert.match(racerImplementation, /buildSoundRacerEvidenceResult\(\{/);
+  const racerImplementation = readFileSync("src/features/soundRacer/RacerSession.jsx", "utf8");
+  const racerRules = readFileSync("src/utils/soundRacerMission.js", "utf8");
+  assert.match(racerImplementation, /racerEvidence\(current/);
+  assert.match(racerRules, /buildSoundRacerEvidenceResult\(\{/);
   assert.match(racerImplementation, /data-sr="banner" role="status" aria-live="polite"/);
-  assert.match(racerImplementation, /hearTargetEl\.hidden = !replayAvailable/);
-  assert.match(racerImplementation, /sfx\(\(\) => speakPhoneme\(target\)\)/);
+  assert.match(racerImplementation, /isSoundEnabled && <button[^>]+data-sr="hear-target"/);
+  assert.match(racerImplementation, /playRacerTarget\(mission\.target/);
 
   const climbImplementation = readFileSync("src/components/learn/games/games/WordClimbGame.jsx", "utf8");
   assert.match(climbImplementation, /startLevel = 0/);

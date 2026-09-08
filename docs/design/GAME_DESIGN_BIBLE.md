@@ -250,11 +250,12 @@ unknown until each changed build is exercised on a real supported iPad.
 
 #### Sound Racer 2.0
 
-- **Age/reading band and construct:** early readers discriminate whether a word begins with the target grapheme/phoneme. Lane steering and light hazards are non-target demands.
-- **Controls:** Left/Right or A/D, tap-side steering and swipe have parity; keyboard input accepts either letter case.
-- **Level ladder and prompt/audio:** ten tracks change the onset demand and world before raising track pressure. The tutorial names the target, shows an example and keeps a 56-pixel replay action.
-- **Generator and ambiguity:** `soundRacerTracks.js` rebuilds each gate set with exact-sound correct pools and sound-distinct distractors; the shared phonetic-onset classifier covers soft c, silent letters and other live alternate spellings. `soundRacerTracks.test.js` covers multiple seeds, track bands and tutorial rules.
-- **Feedback and reward:** wrong gates name the mismatch and missed correct gates return. Obstacles affect the ship and race score only; sound accuracy and stars follow caught word choices, not vehicle speed or collisions.
+- **Age/reading band and construct:** early readers choose a printed word whose beginning sound matches the target. Printed-target and audio-supported practice are distinguished in response evidence; vehicle motion never decides correctness.
+- **Controls:** native word signs select a road; Drive through confirms. Left/Right or A/D selects, Space/Enter confirms when the game surface owns focus; focused native buttons retain normal keyboard activation. Decisions wait without a time limit. Touch controls meet the 56-pixel floor.
+- **Level ladder and prompt/audio:** ten authored curriculum tracks retain their exact eligible target quotas. The tutorial uses a verified recorded example for the current target and a game-owned exact instruction. Muted or unavailable audio leaves printed practice usable with truthful support records.
+- **Generator and ambiguity:** `soundRacerTracks.js` supplies exact-sound pools; `soundRacerMission.js` creates stable seeded forks with one valid match and two sound-distinct alternatives. The current classifier excludes soft c, silent-letter and vowel mismatches. Mission and track tests exercise every current difficulty and target.
+- **Feedback and reward:** a wrong choice names its actual onset and preserves the same fork for supported retry. First responses remain immutable; stars reward deliberate first choices while independent sound evidence is counted separately. The selected barrier opens and the car travels only after a validated correct choice. Checkpoints and completion fire once per mission.
+- **Presentation and recovery:** an owned authored village/vehicle kit follows one curved route model, with wheel and chassis animation, responsive quality and reduced motion. The DOM/SVG rally uses the same controller after missing assets, WebGL failure or context loss. Local pause, hidden tabs and parent overlays hold independent pause reasons. `sound-racer-rally.spec.js` and `sound-racer-lifecycle.spec.js` exercise the complete loop and recovery.
 
 #### Word Bridge 2.0
 

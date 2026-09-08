@@ -88,24 +88,25 @@ test("gold voice policy stays recorded-only across shared phonics and login audi
   }
 });
 
-test("Sound Racer retains its one-shot, cleanup, cache, static-overlay, and reduced-motion guards", async () => {
-  const racer = await source("src/components/learn/games/games/SoundRacerGame.jsx");
-  assert.match(racer, /if \(completionSent\) return;/);
-  assert.match(racer, /doneButton\.disabled = true/);
-  assert.match(racer, /registerCleanup: cleanup => startupCleanups\.push\(cleanup\)/);
-  assert.match(racer, /disposeRenderer\(renderer, \{ forceContextLoss: true \}\)/);
-  assert.match(racer, /textureCanvasCache = new Map\(\)/);
-  assert.match(racer, /prewarmMapTextures\(levelIdx \+ 1\)/);
-  assert.match(racer, /if \(!pausedFrameRendered\)/);
-  assert.match(racer, /playerZ \+= speed \* dt \* \(reduceMotion \? 0\.55 : 1\)/);
-  assert.match(racer, /const opticalFlowScale = reduceMotion \? 0\.45 : 1/);
-  assert.match(racer, /if \(!activates\) return;[\s\S]*event\.preventDefault\(\)/);
-  assert.match(racer, /getLedaInstructionAudioPath\("Great job"\)/);
-  assert.match(racer, /buildSoundRacerTutorial\(track, \{ hasRecordedAudio: hasRecordedSpeech \}\)/);
-  assert.match(racer, /data-sr="tutorial-phonics" aria-label="Sound example"/);
-  assert.match(racer, /data-sr="tutorial-motor" aria-label="How to steer"/);
-  assert.match(racer, /data-sr="intro-hear"/);
-  assert.match(racer, /speakPhoneme\(tutorial\.target\)[\s\S]*speakWord\(tutorial\.exampleWord\)/);
+test("Sound Racer keeps one-shot completion, owned rendering, audio and reduced-motion recovery", async () => {
+  const racer = await source("src/features/soundRacer/RacerSession.jsx");
+  const scene = await source("src/features/soundRacer/scene.js");
+  const fallback = await source("src/features/soundRacer/RacerFallback.jsx");
+  assert.match(racer, /current\.phase === 'finished' && !finished\.current/);
+  assert.match(racer, /finished\.current = true/);
+  assert.match(racer, /cancelAnimationFrame\(frame\)/);
+  assert.match(racer, /abort\.abort\(\); owner\?\.dispose\(\)/);
+  assert.match(scene, /disposeRenderer\(renderer, \{ forceContextLoss: true \}\)/);
+  assert.match(scene, /disposeOwnedModelInstance/);
+  assert.match(racer, /query\.addEventListener\('change', change\)/);
+  assert.match(racer, /query\.removeEventListener\('change', change\)/);
+  assert.match(fallback, /cameraDistance = reducedMotion/);
+  assert.match(racer, /playRacerTarget\(mission\.target/);
+  assert.match(racer, /const exampleWord = mission\.exampleWord/);
+  assert.match(racer, /role="region" aria-label="Sound example"/);
+  assert.match(racer, /role="region" aria-label="How to steer"/);
+  assert.match(racer, /playRacerExample\(exampleWord/);
+  assert.match(racer, /isCurrent: \(\) => alive\.current && sound\.current/);
   assert.doesNotMatch(racer, />S<\/span>[\s\S]*>sun<\/span>/);
 });
 
@@ -168,7 +169,7 @@ test("reported Arcade objectives and replay controls keep child-readable hierarc
     source("src/components/learn/games/games/SoundKeysGame.jsx"),
     source("src/features/soundkeys/soundkeys.css"),
     source("src/components/learn/games/games/ReelReadGame.jsx"),
-    source("src/components/learn/games/games/SoundRacerGame.jsx")
+    source("src/features/soundRacer/RacerSession.jsx")
   ]);
 
   assert.match(skate, /data-gg="prompt" data-child-instruction/);
@@ -203,13 +204,14 @@ test("reported Arcade objectives and replay controls keep child-readable hierarc
   assert.match(reel, /btnReplay\.addEventListener\("click", replayTarget\)/);
   assert.match(reel, /btnReplay\.removeEventListener\("click", replayTarget\)/);
 
-  assert.match(racer, /data-sr="hear-target"[\s\S]*?min-width:56px;min-height:56px[\s\S]*?font:900 1rem\/1\.05/);
+  assert.match(racer, /data-sr="hear-target" aria-label=\{`Hear \$\{mission\.target\.toUpperCase\(\)\} sound again`\}/);
+  const racerCss = await source("src/features/soundRacer/sound-racer.css");
+  assert.match(racerCss, /min-height:\s*56px/);
 });
 
 test("every 3D arcade surface re-probes quality on resize and motion changes", async () => {
   const files = [
     "src/components/learn/games/games/RocketRunGame.jsx",
-    "src/components/learn/games/games/SoundRacerGame.jsx",
     "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
     "src/components/learn/games/games/GrammarGrindGame.jsx"
   ];
@@ -224,6 +226,17 @@ test("every 3D arcade surface re-probes quality on resize and motion changes", a
     assert.match(text, /addEventListener\?\.\("change", syncMotionPreference\)/, `${relativePath} ignores a live motion change`);
     assert.match(text, /removeEventListener\?\.\("change", syncMotionPreference\)/, `${relativePath} leaks its motion probe`);
   }
+});
+
+test("Sound Racer re-probes scene quality on resize and owns live motion updates", async () => {
+  const scene = await source("src/features/soundRacer/scene.js");
+  const session = await source("src/features/soundRacer/RacerSession.jsx");
+  assert.match(scene, /const resize = \(\) => \{[\s\S]*?pipeline\.setTier\(requestedQuality\(\)\)/);
+  assert.match(scene, /const requestedQuality = [^;]*detectQualityTier\(\)[^;]*qualityCeiling/);
+  assert.match(scene, /pipeline\.setTier\(/);
+  assert.match(scene, /onResize: resize/);
+  assert.match(session, /query\.addEventListener\('change', change\)/);
+  assert.match(session, /query\.removeEventListener\('change', change\)/);
 });
 
 test("shared confetti subscribes to live OS motion and cleans up", async () => {

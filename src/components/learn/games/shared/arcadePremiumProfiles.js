@@ -36,13 +36,13 @@ export const ARCADE_PREMIUM_PROFILES = Object.freeze({
   }),
   "sound-racer": Object.freeze({
     version: "2.0",
-    mission: "Drive through words that start with the sound.",
-    objective: "Discriminate the target onset in printed and spoken words.",
-    action: "Steer through a matching word gate.",
-    controls: Object.freeze(["Steer: Left / Right or A / D", "Touch: tap a side or swipe"]),
-    retry: "A wrong gate names the word and the target stays available on the next run.",
-    completionTitle: "Race complete",
-    rewardLabel: "sound matches"
+    mission: "Choose a matching word to open each village road.",
+    objective: "Identify a printed word whose beginning sound matches the target; printed-target support remains explicit.",
+    action: "Choose a word on a road sign, then press Drive through.",
+    controls: Object.freeze(["Choose: Left / Right or A / D; drive: Space", "Touch: tap a word sign, then Drive through"]),
+    retry: "A wrong choice names its real beginning sound. The same fork stays open for another try.",
+    completionTitle: "Rally complete",
+    rewardLabel: "roads opened"
   }),
   "word-bridge": Object.freeze({
     version: "2.0",

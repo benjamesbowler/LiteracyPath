@@ -348,67 +348,67 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
     schemaVersion: GAME_VERTICAL_SLICE_BRIEF_SCHEMA_VERSION,
     gameId: "sound-racer",
     version: "2.0",
-    audience: "Early readers discriminating whether printed and spoken words begin with the current target sound.",
-    experiencePromise: "A forgiving three-lane sound race where every deliberate word choice teaches and missed targets return.",
+    audience: "Early readers comparing the beginning sounds of taught printed words.",
+    experiencePromise: "Drive a Meadow Pals rally through readable road forks; each deliberate sound match opens the next route toward finish bunting.",
     learning: {
-      targetConstruct: "Decide whether a word begins with the shown target grapheme and phoneme.",
-      childGoal: "Steer through words that start with the target sound and avoid other gates.",
-      integratedAction: "Crossing a word gate is the onset decision; correctly matched words advance the target count.",
-      nonTargetDemands: "Lane steering, route scanning, scenery obstacles and vehicle control.",
-      evidenceEvent: "Only caught correct and incorrect word gates affect literacy evidence; missed targets and obstacles remain race events.",
+      targetConstruct: "Identify which of three taught printed words begins with the current shown grapheme and recorded phoneme.",
+      childGoal: "Choose the matching road sign, then press Drive through to open that route.",
+      integratedAction: "Lane selection aims the car; only an explicit Drive-through commitment submits the selected word at the held fork.",
+      nonTargetDemands: "Optional lane steering, boost, route scenery and companion vehicles provide movement without determining the answer.",
+      evidenceEvent: "A seeded round accepts one immutable first response with cue-delivery and support facts; later correct retries are supported recovery. Movement, time, collisions and route animation never create reading evidence.",
       movementCreatesEvidence: false
     },
     loop: {
-      onboard: "Freeze the race behind the current target, one recorded example and the complete steer map.",
-      perceive: "Keep the target card visible while spaced word gates approach in readable lanes.",
-      act: "Steer through a matching word gate or avoid a non-matching gate.",
-      feedback: "Name why a caught word matches or does not match the current onset.",
-      retry: "Queue every missed correct word later in the track with increased lane support and no evidence penalty.",
-      complete: "Clear the required sound matches, show literacy and race results separately and continue or return through Arcade chrome."
+      onboard: "Show the sound, one recorded example and the select-then-commit controls before an explicit Start button releases the car.",
+      perceive: "Approach stops at a held fork with three stable equivalent HTML word signs, the current sound and a visible selected lane.",
+      act: "Select a sign by touch, pointer or arrows/A/D, then use the separate Drive-through action to commit.",
+      feedback: "A correct committed word opens its route; a wrong commitment names that word's actual onset while retaining the same fork.",
+      retry: "Keep the original first response and target, show specific contrast feedback, then allow a supported retry without a deadline.",
+      complete: "Settle beneath the finish bunting; distinguish first-response results from supported recovery and provide next track, replay and exit."
     },
     prompt: {
-      visible: "The target grapheme, match instruction and correct-word count remain visible throughout the race.",
-      spoken: "The countdown plays the approved production target phoneme, including current digraph targets.",
-      replay: "A 56-pixel Hear sound control repeats the current production target cue during play."
+      visible: "The shown target sound, three real-text word signs, selected-lane label and mission progress remain visible in portrait and landscape.",
+      spoken: "Replay the exact current approved target cue through one owner-bound audio request; record delivered, interrupted or unavailable separately from task completion.",
+      replay: "The 56-pixel Hear sound control retries the current cue. Missing or interrupted audio is visible and permits explicitly supported text-based continuation."
     },
     controls: {
-      keyboard: ["Left/Right or A/D steers", "Tab and Enter reach the Hear sound control"],
-      touch: ["Tap a side or swipe to steer", "Tap Hear sound to replay the target"],
+      keyboard: ["Left/Right or A/D selects a lane", "Space or Enter commits when the game surface owns focus", "Focused native buttons retain their normal keyboard behavior"],
+      touch: ["Tap a word sign to select its lane", "Tap Drive through to commit the selected word", "Tap Hear sound to replay the current cue"],
       minimumTargetCssPixels: 56,
       pointerReleaseEvents: ["pointerup", "pointercancel", "lostpointercapture"]
     },
     difficulty: {
       curriculumBeforePressure: true,
-      ladder: "Ten tracks change onset complexity and vocabulary before speed or route pressure increases."
+      ladder: "Preserve ten curriculum-track checkpoints and each buildTrack target count. Taught vocabulary and onset complexity change before decorative route intensity; forks always wait for a deliberate answer."
     },
     gameFeel: {
-      movement: "Immediate three-lane steering, bounded boost feedback and spaced gates preserve readable decisions.",
-      forgiveness: ["Missed targets return", "Repeated misses gain a lane callout", "Obstacles do not lower literacy stars", "The target cue remains replayable"],
-      camera: "A stable chase camera keeps all three lanes, approaching labels and the current route visible.",
-      successFeedback: "The caught word and its matching onset appear in a high-contrast banner with chime, speech and a bounded burst.",
-      errorFeedback: "A wrong caught word is named with its actual onset while the target stays visible."
+      movement: "Fixed-step acceleration follows a gently curving analytic route; wheels rotate with distance, front wheels steer and damped body lean settles at the held fork.",
+      forgiveness: ["The decision zone waits without a timeout", "Wrong choices retain the same fork", "Supported retries preserve the original response", "Optional boost and companions never grade literacy"],
+      camera: "A damped chase camera shares the road's centerline and lane coordinates; its reading plane keeps all three quiet word signs legible.",
+      successFeedback: "The chosen route opens visibly, its word and matching onset are named and the car drives through before the next fork.",
+      errorFeedback: "Name the chosen word's actual onset, retain the target and choices, and explicitly invite a supported retry."
     },
     world: {
-      artDirection: "Authored Meadow, Dino Valley and Moonwood racing circuits with coherent low-poly scenery, lighting and atmosphere.",
-      route: "Track, collision lanes, gate centres, ship route and camera use the same three-lane coordinate system.",
-      character: "The current player vehicle remains distinctive and readable against every world palette.",
-      assetFallback: "Procedural geometry, labels, track and complete low-tier scenery remain playable without decorative assets."
+      artDirection: "One warm low-poly Meadow rally with consistent authored kit, navy HUD, cream signs, green verges, slate road, teal vehicle and amber route accents; existing world palettes vary coherently.",
+      route: "Road mesh, fork anchors, vehicle and chase camera use one analytic centerline/lane coordinate system through village start, bridge or courtyard waypoint and finish bunting.",
+      character: "An owned KayKit rounded hatchback with readable wheels and glass carries a canonical Muddy badge; sedan companions animate the world without blocking answers.",
+      assetFallback: "Missing models, WebGL failure or context loss selects a complete semantic DOM rally board with the same mission, choices, feedback and completion; no primitive substitute hero is claimed as final 3D art."
     },
     state: {
-      pauseResume: "Pause freezes route and animation time; resume resets the frame clock without advancing a gate.",
-      checkpoint: "The current curriculum track is saved through the existing Arcade checkpoint callback.",
-      completion: "Existing score, stars, completed-word count and resumable track checkpoint remain the only progress state."
+      pauseResume: "Pause, hidden state and exit cancel held input and owned audio. Resume resets frame timing; hidden time cannot move the car or submit a word.",
+      checkpoint: "Save the current curriculum track through the existing Arcade checkpoint callback; seeded mission, round and token IDs reject stale or duplicate intents.",
+      completion: "Preserve immutable first responses and support facts within the mission. Existing score, stars, completed-word count and track checkpoint remain the only persisted progress fields; completion fires once."
     },
     accessibility: {
-      reducedMotion: "Optical flow, shake and bursts are reduced while steering, gate labels and feedback remain immediate.",
-      soundOff: "The target grapheme, word labels, match count and specific feedback remain printed.",
-      nonColourCue: "Target, shield, correct feedback and wrong feedback use words, symbols, position and shape as well as colour.",
-      semanticFallback: "Named steer and replay buttons, focused onboarding and Arcade mission help expose the goal outside WebGL."
+      reducedMotion: "Reduce travel intensity, camera motion and effects while keeping the held fork, deliberate commitment and feedback unchanged.",
+      soundOff: "Label text-supported play explicitly; keep the target grapheme, word signs and feedback visible without claiming independent listening evidence.",
+      nonColourCue: "Selection uses outline, position and text; correct and wrong feedback name the word and onset rather than relying on colour.",
+      semanticFallback: "A complete DOM rally board runs the identical controller through onboarding, held forks, retry, checkpoint, finish, replay and exit when 3D is unavailable."
     },
     performance: {
-      lowPowerFallback: "The shared Three.js quality tier caps pixel ratio and removes nonessential shadows and particle density first.",
-      inputSafety: "Steer zones, swipes and keyboard share one lane action and every pointer path has up, cancel and lost-capture handling.",
-      assetFailure: "The procedural ship, track, gates and labels remain a complete playable race if decorative assets fail."
+      lowPowerFallback: "Shared Three quality tiers and the existing measured frame-budget policy reduce effects and shadows while retaining the authored hero; sustained low-tier stalls enter the same complete semantic rally.",
+      inputSafety: "Fixed-step simulation bounds stalls; typed select and commit intents share keyboard/touch rules and every held pointer releases on up, cancel, lost capture, pause and exit.",
+      assetFailure: "Bounded asset loading and context-loss recovery retain the current mission and switch to the complete DOM rally board without losing first responses or creating extra commits."
     },
     privacy: {
       dataWritten: ["Existing score", "Existing stars", "Completed-word count", "Existing resumable track checkpoint"],
@@ -417,8 +417,8 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
       newExternalService: false
     },
     validation: {
-      unit: ["tests/unit/soundRacerTracks.test.js", "tests/unit/premiumGameStandard.test.js"],
-      browser: ["tests/release/sound-racer-tutorial.spec.js", "tests/release/arcade-ipad-controls.spec.js", "tests/release/student-activity-viewport.spec.js"],
+      unit: ["tests/unit/soundRacerTracks.test.js", "tests/unit/soundRacerMission.test.js", "tests/unit/soundRacerRoute.test.js", "tests/unit/soundRacerSimulation.test.js", "tests/unit/soundRacerAudio.test.js", "tests/unit/soundRacerSceneKit.test.js", "tests/unit/soundRacerPerformance.test.js", "tests/unit/premiumGameStandard.test.js"],
+      browser: ["tests/release/sound-racer-rally.spec.js", "tests/release/sound-racer-lifecycle.spec.js", "tests/release/sound-racer-render-recovery.spec.js", "tests/release/sound-racer-tutorial.spec.js", "tests/release/arcade-ipad-controls.spec.js", "tests/release/student-activity-viewport.spec.js"],
       physicalDevice: {
         status: "unknown",
         note: "A real supported iPad playtest is still required; browser emulation is not recorded as a hardware pass."

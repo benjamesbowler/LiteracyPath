@@ -328,11 +328,11 @@ export const GAME_LIST = [
   {
     id: "sound-racer",
     title: "Sound Racer",
-    skill: "Read beginning sounds at speed",
+    skill: "Match words by beginning sound",
     category: "Phonics",
     ...GAME_ACCENTS.blue,
     icon: "/images/learn-games/icon-sound-slide.webp",
-    description: "Race the track — grab the words that start with your sound to boost.",
+    description: "Choose a matching word on a road sign, then drive Muddy through the village.",
     fullBleed: true,
     surfaces: ["arcade"]
   },
