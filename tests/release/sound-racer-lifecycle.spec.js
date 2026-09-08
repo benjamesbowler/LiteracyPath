@@ -127,3 +127,62 @@ test('learner scope remount cancels pending voice and rejects its delayed comple
   expect(after.state.cue).toEqual(before.state.cue);
   expect(after.state.index).toBe(0);
 });
+
+test('final resumed track completes once through GamePlayer debrief and Back to Arcade', async ({ page }, testInfo) => {
+  test.setTimeout(100_000);
+  await diagnosticsInOverlay(page);
+  await page.addInitScript(() => localStorage.setItem('lp-arcade-onboarded-v1:sound-racer', '1'));
+  await page.route('**/src/game-overlay-preview.jsx*', async route => {
+    const response = await route.fetch();
+    const source = await response.text();
+    expect(source).toContain('saveGameCheckpoint(PREVIEW_SCOPE, game.id, "easy", 1, 5)');
+    await route.fulfill({ response, body: source.replace(
+      'saveGameCheckpoint(PREVIEW_SCOPE, game.id, "easy", 1, 5)',
+      'saveGameCheckpoint(PREVIEW_SCOPE, game.id, "easy", 9, 10)'
+    ) });
+  });
+  const progress = () => page.evaluate(async () => {
+    const api = await import('/src/utils/learnGamesProgress.js');
+    const scope = 'fullscreen-overlay-preview';
+    return {
+      game: api.getLearnGameProgress(api.loadLearnGamesProgress(scope), 'sound-racer'),
+      checkpoint: api.loadGameCheckpoint(scope, 'sound-racer', 'easy')
+    };
+  });
+  await page.goto('/preview/game-overlay.html?game=sound-racer&sound=0&music=0&resume=1');
+  await expect(page.getByRole('button', { name: 'Continue', exact: true })).toBeVisible();
+  expect((await progress()).checkpoint).toEqual({ level: 9, totalLevels: 10 });
+  await page.getByRole('button', { name: 'Continue', exact: true }).click();
+  await expect.poll(() => page.evaluate(() => window.__SOUND_RACER__?.snapshot()?.state.mission.trackIndex)).toBe(9);
+  if (await page.getByRole('button', { name: 'Tap to play', exact: true }).isVisible()) await page.getByRole('button', { name: 'Tap to play', exact: true }).click();
+  for (let index = 0; index < 10; index += 1) {
+    await expect.poll(async () => {
+      const { state } = await snapshot(page);
+      return `${state.index}:${state.phase}`;
+    }).toBe(`${index}:decision`);
+    const { state } = await snapshot(page);
+    const choice = state.mission.rounds[index].choices.find(item => item.correct);
+    await page.getByRole('button', { name: `Choose ${choice.word}, ${['left', 'middle', 'right'][choice.lane]} road`, exact: true }).click();
+    await page.getByRole('button', { name: `Drive through ${choice.word}`, exact: true }).click();
+  }
+  const complete = page.getByRole('alertdialog', { name: 'Sound Racer complete', exact: true });
+  await expect(complete).toBeVisible();
+  await expect(page.getByRole('dialog', { name: 'Sound Racer track complete', exact: true, includeHidden: true })).toHaveCount(0);
+  await expect(page.locator('[role="dialog"][aria-label="Sound Racer track complete"]')).toHaveCount(0);
+  await expect(complete.getByText('You earned 1000 points.', { exact: true })).toBeVisible();
+  await expect(complete.locator('.lg-premium-complete-stat strong')).toHaveText('10');
+  const final = await snapshot(page);
+  expect(final.state.evidence).toHaveLength(10);
+  expect(final.state.evidence.every(record => record.completed && record.attempts === 1)).toBe(true);
+  const saved = await progress();
+  expect(saved.game).toMatchObject({ highScore: 1000, wordsCompleted: 10, plays: 1 });
+  expect(saved.checkpoint).toBeNull();
+  await page.screenshot({ path: testInfo.outputPath('completion-overlay.png'), fullPage: true });
+  await page.waitForTimeout(350);
+  expect(await progress()).toEqual(saved);
+  await complete.getByRole('button', { name: 'Back to Arcade', exact: true }).click();
+  await expect(page.getByRole('status')).toHaveText('Closed Sound Racer');
+  expect(await progress()).toEqual(saved);
+  await expect.poll(() => page.evaluate(() => Boolean(window.__SOUND_RACER__))).toBe(false);
+  await page.screenshot({ path: testInfo.outputPath('closed-arcade.png'), fullPage: true });
+});

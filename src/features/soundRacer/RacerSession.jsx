@@ -24,6 +24,7 @@ export default function RacerSession(props) {
   const previousScore = () => [...results.current].filter(([index]) => index !== trackIndex).reduce((sum, [, result]) => sum + result.score, 0);
   return <RacerMission key={`${mission.id}:${replay}`} mission={mission} diagnostics={diagnostics}
     isSoundEnabled={props.isSoundEnabled !== false} onExit={props.onExit}
+    completionPresentedByPlayer={props.completionPresentedByPlayer}
     onEngineReady={props.onEngineReady}
     onScore={score => callbacks.current.onScoreUpdate?.(previousScore() + score)}
     onBegin={() => {
@@ -46,7 +47,7 @@ export default function RacerSession(props) {
     onReplay={() => setReplay(value => value + 1)} />;
 }
 
-function RacerMission({ mission, diagnostics, isSoundEnabled, onEngineReady, onBegin, onScore, onFinish, onNext, onReplay, onExit }) {
+function RacerMission({ mission, diagnostics, isSoundEnabled, completionPresentedByPlayer, onEngineReady, onBegin, onScore, onFinish, onNext, onReplay, onExit }) {
   const [view, setView] = useState(() => createRacerState(mission));
   const state = useRef(view);
   const sim = useRef(createRacerSimulation());
@@ -287,7 +288,7 @@ function RacerMission({ mission, diagnostics, isSoundEnabled, onEngineReady, onB
     };
     root.addEventListener('keydown', trap);
     return () => root.removeEventListener('keydown', trap);
-  }, [started, view.paused, finishedResult]);
+  }, [started, view.paused, finishedResult, completionPresentedByPlayer]);
 
   const exampleWord = mission.exampleWord;
   function hearExample() {
@@ -350,7 +351,7 @@ function RacerMission({ mission, diagnostics, isSoundEnabled, onEngineReady, onB
         {isSoundEnabled && <button type="button" onClick={() => hearInstructions()}>Hear how to play</button>}<button type="button" className="sr-primary" onClick={begin}>Tap to play</button>
       </div></div>}
       {view.paused && started && !finishedResult && <div className="sr-dialog-wrap"><div ref={dialog} className="sr-dialog" role="dialog" aria-modal="true" aria-label="Rally paused"><h2>Parked for a moment.</h2><p>Your road signs are still here.</p><button type="button" className="sr-primary" onClick={resume}>Keep driving</button></div></div>}
-      {finishedResult && <div className="sr-dialog-wrap" data-sr="overlay"><div ref={dialog} className="sr-dialog sr-result" role="dialog" aria-modal="true" aria-label="Sound Racer track complete">
+      {finishedResult && !completionPresentedByPlayer && <div className="sr-dialog-wrap" data-sr="overlay"><div ref={dialog} className="sr-dialog sr-result" role="dialog" aria-modal="true" aria-label="Sound Racer track complete">
         <span className="sr-eyebrow">Finish line · Track {mission.trackIndex + 1}</span><h2>Every road is open!</h2>
         <div className="sr-result-stars" aria-label={`${finishedResult.stars} out of 3 stars`}>{'★'.repeat(finishedResult.stars)}</div>
         <p>You opened {finishedResult.completedPractice} roads.</p><p>{finishedResult.correct} first choices matched the target.{finishedResult.supportedPractice > 0 && ' You used support along the way.'}</p>

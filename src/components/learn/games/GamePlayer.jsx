@@ -397,6 +397,7 @@ export function GamePlayer({
                 onScoreUpdate={setScore}
                 onProgressUpdate={handleProgressUpdate}
                 onComplete={handleComplete}
+                completionPresentedByPlayer={hasPremiumCompletionOverlay}
                 onCheckpoint={handleCheckpoint}
                 onEngineReady={api => { engineRef.current = api; }}
                 onExit={closePlayer}
