@@ -156,7 +156,7 @@ export const SENTENCE_FIX = {
     { kind: "word", prompt: "Choose the joining word.", display: "Seeds need water ___ sun to grow.", say: "Seeds need water and sun to grow.", answer: "and", options: ["and", "an", "as"] },
     { kind: "word", prompt: "Choose the right word.", display: "___ dragon sleeps on the gold.", say: "Their dragon sleeps on the gold.", answer: "Their", options: ["Their", "There", "They're"] },
     { kind: "end", prompt: "Choose the ending mark.", display: "The owl hunts when the moon is bright___", say: "The owl hunts when the moon is bright.", answer: ".", options: [".", "?", "!"] },
-    { kind: "word", prompt: "Choose the right word.", display: "The wizard kept ___ wand by the door.", say: "The wizard kept his wand by the door.", answer: "his", options: ["his", "him", "her"] },
+    { kind: "word", prompt: "Choose the right word.", display: "The wizard kept ___ wand by the door.", say: "The wizard kept his wand by the door.", answer: "his", acceptedAnswers: ["his", "her"], options: ["his", "him", "her"] },
     { kind: "word", prompt: "Choose the right word.", display: "We saw ___ stars in the night sky.", say: "We saw two stars in the night sky.", answer: "two", options: ["two", "to", "too"] },
     { kind: "capital", prompt: "Names need a capital. Choose the right one.", display: "Our robot ___ beeps when it is happy.", say: "Our robot Max beeps when it is happy.", answer: "Max", options: ["Max", "max", "mAx"] },
     { kind: "end", prompt: "Choose the ending mark.", display: "The rocket is about to blast off___", say: "The rocket is about to blast off!", answer: "!", options: [".", "?", "!"] },

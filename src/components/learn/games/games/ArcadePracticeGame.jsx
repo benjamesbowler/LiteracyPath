@@ -2,6 +2,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { CVC_WORDS, SENTENCE_FIX, SENTENCES, SIGHT_WORDS, WORD_FAMILIES } from "../../../../data/learnGamesData";
 import { getChildWordAsset } from "../../../../data/childAssets";
 import { cancelSpeech, hasRecordedSpeech, speak, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio";
+import { isLiveDelayedSpeech } from "../../../../utils/learnGamesSpeechPolicy.js";
+import { familyPracticeOptions, nextFamilyTarget } from "../../../../utils/wordFamilyPractice.js";
+import { completeRepairDisplay } from "../../../../utils/repairSentence.js";
 import { hasKnownBadWordAudio } from "../../../../data/knownBadWordAudio.js";
 import { playCelebrationFanfare, playCorrectChime, playPopSound, playSoftBuzz } from "../../../../utils/audio/gameSfx";
 import { ConfettiCelebration } from "../shared/ConfettiCelebration.jsx";
@@ -427,11 +430,20 @@ function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss
   // (many hard words have no image asset, so there is no other visual target).
   const [attempts, setAttempts] = useState(0);
   const answerLockedRef = useRef(false);
+  const liveSoundRef = useRef(isSoundEnabled);
+  const liveRoundRef = useRef(round);
+  const liveTargetRef = useRef(targetWord);
   const letters = useMemo(() => {
     const targetLetters = targetWord.split("");
     const distractors = shuffle(DISTRACTOR_LETTERS.filter(letter => !targetLetters.includes(letter))).slice(0, 3);
     return shuffle([...targetLetters, ...distractors]);
   }, [targetWord]);
+
+  useEffect(() => {
+    liveSoundRef.current = isSoundEnabled;
+    liveRoundRef.current = round;
+    liveTargetRef.current = targetWord;
+  }, [isSoundEnabled, round, targetWord]);
 
   useEffect(() => {
     answerLockedRef.current = false;
@@ -466,10 +478,19 @@ function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss
       miss();
       setAttempts(current => current + 1);
       setChecking(true);
+      const scheduledRound = round;
+      const scheduledTarget = targetWord;
       schedule(() => {
+        if (!isLiveDelayedSpeech({
+          soundEnabled: liveSoundRef.current,
+          scheduledRound,
+          currentRound: liveRoundRef.current,
+          scheduledTarget,
+          currentTarget: liveTargetRef.current
+        })) return;
         setPlaced([]);
         setChecking(false);
-        if (canHearTarget) speakWord(targetWord);
+        if (hasRecordedSpeech(liveTargetRef.current)) speakWord(liveTargetRef.current);
       }, 750);
     }
   }
@@ -602,25 +623,28 @@ function FamilyGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss
   const [built, setBuilt] = useState([]);
   const builtRef = useRef(new Set());
   const [activeFamily, setActiveFamily] = useState(state.familyIds[0]);
+  const [wrongTarget, setWrongTarget] = useState("");
   const builtWords = new Set(built);
+  const targetWord = nextFamilyTarget(state.words, activeFamily, builtWords);
+  const canHearTarget = Boolean(targetWord) && isSoundEnabled && hasRecordedSpeech(targetWord);
 
-  // Each family round mixes its real onsets with 1-2 decoys borrowed from the
-  // other families in play, so a tap can actually be wrong.
+  // The finite family bank is the reviewed accepted set for this activity.
+  // Do not synthesize decoy onsets: an unlisted onset can still make a real
+  // word (for example, p + -AT = "pat"), and must not be graded linguistically
+  // wrong merely because it is absent from this compact authored bank.
   const options = useMemo(() => {
-    const familyOnsets = state.words
-      .filter(item => item.familyId === activeFamily)
-      .map(item => ({ onset: item.onset || item.word[0], word: item.word }));
-    const decoys = [];
-    for (const item of shuffle(state.words.filter(entry => entry.familyId !== activeFamily))) {
-      const onset = item.onset || item.word[0];
-      if (!familyOnsets.some(option => option.onset === onset) && !decoys.includes(onset)) decoys.push(onset);
-      if (decoys.length >= 2) break;
-    }
-    return shuffle([...familyOnsets, ...decoys.map(onset => ({ onset, word: "" }))]);
+    return shuffle(familyPracticeOptions(state.words, activeFamily));
   }, [activeFamily, state.words]);
 
+  useEffect(() => {
+    if (canHearTarget) speakWord(targetWord);
+  }, [canHearTarget, targetWord]);
+
   function choose(option) {
-    if (!option.word) {
+    if (!option?.word) return;
+    if (!targetWord || option.word !== targetWord) {
+      setWrongTarget(option.word);
+      schedule(() => setWrongTarget(""), 420);
       miss();
       return;
     }
@@ -638,7 +662,9 @@ function FamilyGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss
 
   return (
     <IllustratedGameScene mode="family">
-      <p>Pick a beginning sound to build each word family.</p>
+      <p>{targetWord ? `Build ${targetWord} in the ${activeFamily} family.` : `The ${activeFamily} family is complete. Choose another family.`}</p>
+      {canHearTarget && <button type="button" className="lg-game-audio" onClick={() => speakWord(targetWord)}><span aria-hidden="true">♪</span> Hear target word</button>}
+      {wrongTarget && <div className="lg-game-feedback" role="status">{wrongTarget} is not the target this turn. Try {targetWord}.</div>}
       <div className="lg-family-tabs">
         {state.familyIds.map(familyId => (
           <button key={familyId} type="button" className={familyId === activeFamily ? "active" : ""} onClick={() => setActiveFamily(familyId)}>
@@ -792,6 +818,7 @@ function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, 
   const options = useMemo(() => shuffle(fix.options), [fix]);
 
   const canHear = isSoundEnabled && hasRecordedSpeech(fix.say);
+  const completedSentence = completeRepairDisplay(fix.display, solvedAnswer);
 
   useEffect(() => {
     if (isSoundEnabled && canHear) speak(fix.say);
@@ -827,9 +854,13 @@ function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, 
       {canHear && <button type="button" className="lg-game-audio" onClick={() => speak(fix.say)}><span aria-hidden="true">♪</span> Hear sentence</button>}
       <div className="lg-race-track"><span style={{ width: `${Math.max(8, (correct / total) * 100)}%` }}><RaceMarker /></span></div>
       <div className="lg-reading-sentence lg-fix-sentence">
-        {sentenceParts[0]}
-        <span className={`lg-fix-slot${solved ? " solved" : ""}`}>{solved ? solvedAnswer : "\u00A0"}</span>
-        {sentenceParts[1] || ""}
+        {solved
+          ? completedSentence
+          : <>
+              {sentenceParts[0]}
+              <span className="lg-fix-slot">{"\u00A0"}</span>
+              {sentenceParts[1] || ""}
+            </>}
       </div>
       <div className="lg-hop-grid">
         {options.map((option, index) => (

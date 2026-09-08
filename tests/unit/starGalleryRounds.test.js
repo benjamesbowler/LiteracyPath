@@ -87,7 +87,9 @@ test("every authored repair has a valid blank, completed output, and reviewed an
   const pairedQuote = starGalleryLadder("medium")[0].items
     .map(item => item.repairs[0])
     .find(repair => repair.id === "punct-quote");
+  assert.deepEqual(acceptedRepairAnswers(pairedQuote), ['"', "'"]);
   assert.equal(pairedQuote.completedSentence, '"Hello!"');
+  assert.equal(completedSentenceForRepair(pairedQuote, "'"), "'Hello!'");
 });
 
 test("Sentence Grove capital and sentence-starter prompts use whole-word blanks", () => {

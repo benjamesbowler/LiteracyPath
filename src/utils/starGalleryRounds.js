@@ -71,7 +71,7 @@ const MEDIUM_LEVELS = [
     ["blend-frog", "Pick the blend", "__og on a log", "fr", ["f", "fr", "tr"], "blend"],
     ["team-rain", "Choose the vowel team", "r__n cloud", "ai", ["a", "ai", "ay"], "vowel team"],
     ["digraph-ship", "Pick the digraph", "__ip has a sail", "sh", ["s", "sh", "ch"], "digraph"],
-    ["punct-quote", "Choose the speech mark", "__Hello!__", "\"", ["\"", "'", ","], "punctuation"]
+    ["punct-quote", "Choose the speech mark", "__Hello!__", "\"", ["\"", "'", ","], "punctuation", ["\"", "'"]]
   ],
   [
     ["blend-brush", "Pick the blend", "__ush the dust", "br", ["b", "br", "bl"], "blend"],
@@ -210,8 +210,8 @@ function cueForId(id) {
 
 const REPAIR_BLANK = "__";
 
-export function completedSentenceForRepair(repair) {
-  return String(repair?.display || "").split(REPAIR_BLANK).join(String(repair?.answer || ""));
+export function completedSentenceForRepair(repair, answer = repair?.answer) {
+  return String(repair?.display || "").split(REPAIR_BLANK).join(String(answer || ""));
 }
 
 export function acceptedRepairAnswers(repair) {

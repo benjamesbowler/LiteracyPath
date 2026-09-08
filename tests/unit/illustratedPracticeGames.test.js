@@ -7,6 +7,8 @@ import {
   ILLUSTRATED_GAME_IDS,
   ILLUSTRATED_GAME_SCENES
 } from "../../src/components/learn/games/shared/illustratedGameScenes.js";
+import { SENTENCE_FIX } from "../../src/data/learnGamesData.js";
+import { completeRepairDisplay } from "../../src/utils/repairSentence.js";
 
 const ROOT = process.cwd();
 
@@ -61,4 +63,13 @@ test("both shared engines use the scene shell and the obsolete PS2 hook is gone"
   assert.match(styles, /\.lg-game-picture \{[\s\S]*clamp\(190px, 27vh, 250px\)/);
   assert.match(styles, /min-height: 56px/);
   assert.match(styles, /@media \(prefers-reduced-motion: reduce\)/);
+});
+
+test("Sentence Fix-It preserves reviewed alternatives instead of treating them as wrong", () => {
+  const wizardRepair = SENTENCE_FIX.hard.find(repair => repair.display === "The wizard kept ___ wand by the door.");
+  assert.deepEqual(wizardRepair.acceptedAnswers, ["his", "her"]);
+  assert.ok(wizardRepair.options.includes("his"));
+  assert.ok(wizardRepair.options.includes("her"));
+  assert.equal(completeRepairDisplay(wizardRepair.display, "his"), "The wizard kept his wand by the door.");
+  assert.equal(completeRepairDisplay(wizardRepair.display, "her"), "The wizard kept her wand by the door.");
 });

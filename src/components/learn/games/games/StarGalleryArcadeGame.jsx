@@ -1308,6 +1308,7 @@ function createStarGalleryEngine(mount, options) {
     framePulse: 0,
     transitioning: false,
     gateLocked: false,
+    selectedAnswer: "",
     gateSerial: 0,
     nearTreeLabel: "",
     ended: false,
@@ -1515,12 +1516,13 @@ function createStarGalleryEngine(mount, options) {
     const slots = rotate(SPREAD_FOREST_TOKEN_SLOTS, state.stage * 7 + state.itemIndex * 5 + state.gateSerial * 3);
     const positions = assignTokenPositions(rotatedChoices, slots, state);
     state.gateLocked = false;
+    state.selectedAnswer = "";
     state.nearTreeLabel = "";
     state.itemMisses = 0;
     state.gateSerial += 1;
     state.tokens = rotatedChoices.map((entry, index) => {
       const position = positions[index] || slotPosition(slots[index % slots.length], state.stage, state.itemIndex, index + entry.copy);
-      const token = makeToken(String(entry.choice), entry.isCorrect, String(repair.answer), theme, position);
+      const token = makeToken(String(entry.choice), entry.isCorrect, String(entry.choice), theme, position);
       token.choice = entry.choice;
       state.tokenRoot.add(token.group);
       return token;
@@ -1624,6 +1626,7 @@ function createStarGalleryEngine(mount, options) {
     revealTokenColors(token);
     if (token.isCorrect) {
       state.gateLocked = true;
+      state.selectedAnswer = token.answer;
       state.correct += 1;
       state.combo += 1;
       state.focus = clamp(state.focus + 18 + Math.min(10, state.combo), 0, 100);
@@ -1932,18 +1935,18 @@ function createStarGalleryEngine(mount, options) {
     renderer.domElement.dataset.answerTooCloseCount = String(answerClearances.filter(clearance => clearance.tooClose).length);
     renderer.domElement.dataset.itemIndex = String(state.itemIndex);
     renderer.domElement.dataset.correct = String(state.correct);
-    renderer.domElement.dataset.completedRepair = completedSentenceForRepair(repairForState(state));
+    const repair = repairForState(state);
+    renderer.domElement.dataset.completedRepair = completedSentenceForRepair(repair, state.selectedAnswer || repair?.answer);
     if (state.frameGroup) {
       renderer.domElement.dataset.frameX = state.frameGroup.position.x.toFixed(2);
       renderer.domElement.dataset.frameZ = state.frameGroup.position.z.toFixed(2);
     }
     nodes.room.textContent = `${theme.name} ${state.stage + 1} of 10`;
     nodes.prompt.textContent = currentPrompt();
-    const repair = repairForState(state);
     nodes.cue.textContent = repair?.cue ? `Picture cue: ${repair.cue}` : "";
     nodes.cue.setAttribute("aria-label", repair?.cue ? `Picture cue: ${repair.cue}` : "Picture cue");
     nodes.display.textContent = state.gateLocked
-      ? completedSentenceForRepair(repair)
+      ? completedSentenceForRepair(repair, state.selectedAnswer || repair?.answer)
       : repair?.display || "";
     const canReplay = soundAllowed(options);
     nodes.replay.disabled = !canReplay;
@@ -2231,7 +2234,7 @@ function createStarGalleryEngine(mount, options) {
         combo: state.combo,
         countdown: state.countdown,
         currentRepair: repairForState(state),
-        currentCompletedSentence: completedSentenceForRepair(repairForState(state)),
+        currentCompletedSentence: completedSentenceForRepair(repairForState(state), state.selectedAnswer || repairForState(state)?.answer),
         currentAcceptedAnswers: acceptedRepairAnswers(repairForState(state)),
         player: { ...state.player },
         gateLocked: state.gateLocked,
