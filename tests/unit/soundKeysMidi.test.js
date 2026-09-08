@@ -1,7 +1,36 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
+import { buildSoundKeySession, findSoundKeyWord, soundKeyTokensForWord } from "../../src/features/soundkeys/content.js";
+import { appendToken } from "../../src/features/soundkeys/engine.js";
 import { connectWebMidi } from "../../src/features/soundkeys/inputProviders.js";
+
+test("SoundKeys builds ten unique, seeded rounds for each curriculum band", () => {
+  for (const difficulty of ["easy", "medium", "hard"]) {
+    const first = buildSoundKeySession(difficulty, 20260908);
+    const replay = buildSoundKeySession(difficulty, 20260908);
+    assert.equal(first.length, 10);
+    assert.deepEqual(first.map(word => word.id), replay.map(word => word.id));
+    assert.equal(new Set(first.map(word => word.id)).size, 10);
+  }
+
+  const easy = buildSoundKeySession("easy", 20260908);
+  const medium = buildSoundKeySession("medium", 20260908);
+  const hard = buildSoundKeySession("hard", 20260908);
+  assert.ok(easy.every(word => word.tokens.length === 3 && word.profile === "cvc"));
+  assert.ok(medium.some(word => word.tokens.some(token => token.length > 1)));
+  assert.ok(hard.some(word => word.tokens.length > 3 && word.tokens.some(token => token.length > 1)));
+  assert.notDeepEqual(easy.map(word => word.id), medium.map(word => word.id));
+  assert.notDeepEqual(medium.map(word => word.id), hard.map(word => word.id));
+});
+
+test("SoundKeys keeps authored grapheme units and exposes the matching input profile", () => {
+  const hardWord = buildSoundKeySession("hard", 4).find(word => word.id === "boat") || buildSoundKeySession("hard", 4)[0];
+  assert.ok(hardWord.tokens.some(token => token.length > 1));
+  assert.ok(soundKeyTokensForWord(hardWord).includes("oa"));
+  assert.deepEqual(appendToken([], "oa", hardWord.tokens.length), ["oa"]);
+  assert.equal(findSoundKeyWord(hardWord.tokens)?.id, hardWord.id);
+});
 
 function fakeMidiAccess(initialInputs = []) {
   const inputs = new Map(initialInputs.map(input => [input.id, input]));

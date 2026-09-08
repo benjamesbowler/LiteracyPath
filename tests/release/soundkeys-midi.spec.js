@@ -41,7 +41,7 @@ test("SoundKeys connects a MIDI keyboard and builds a word from rapid notes", as
   await page.goto("/soundkeys");
 
   await page.getByRole("button", { name: "Connect MIDI", exact: true }).click();
-  await expect(page.getByText("● MIDI ready", { exact: true })).toBeVisible();
+  await expect(page.getByText("MIDI ready", { exact: true })).toBeVisible();
   await expect(page.getByText("Classroom Keys is ready. Play a key.", { exact: true })).toBeVisible();
 
   await page.evaluate(() => window.soundKeysMidiTest.pressMany([58, 49, 50]));
