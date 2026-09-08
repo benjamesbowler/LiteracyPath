@@ -21,9 +21,9 @@
 }
 
 .lg-game-player .lg-memory-stage .lg-memory-collection { display: flex; justify-content: center; gap: 6px; width: 100%; height: 62px; flex: 0 0 62px; }
-.lg-memory-collection > span { display: grid; place-items: center; min-width: 0; width: 54px; border: 2px dashed var(--lg-border); border-radius: 12px; background: var(--lg-surface-subtle); color: var(--lg-border-strong); }
+.lg-memory-collection > span { position: relative; display: grid; place-items: center; min-width: 0; min-height: 0; width: 54px; border: 2px dashed var(--lg-border); border-radius: 12px; background: var(--lg-surface-subtle); color: var(--lg-border-strong); }
 .lg-memory-collection > .collected { border-style: solid; border-color: var(--lg-accent-green); background: var(--lg-surface); }
-.lg-memory-collection img { width: 100%; height: 100%; object-fit: contain; border-radius: 10px; }
+.lg-memory-collection img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; border-radius: 10px; }
 .lg-game-player .lg-illustrated-game .lg-memory-stage .lg-card-grid.memory { display: grid; width: 100%; grid-template-columns: repeat(3, minmax(56px, 1fr)); gap: 10px; flex: 1 1 auto; min-height: 0; }
 .lg-game-player .lg-illustrated-game .lg-memory-stage .lg-card-grid.memory[data-card-count="10"] { grid-template-columns: repeat(5, minmax(56px, 1fr)); }
 .lg-game-player .lg-illustrated-game .lg-memory-stage .lg-match-card { min-height: 56px; min-width: 56px; height: auto; aspect-ratio: auto; font-size: clamp(.9rem, 2vw, 1.6rem); }

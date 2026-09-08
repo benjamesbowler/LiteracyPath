@@ -53,6 +53,7 @@ for (const [difficulty, rounds, pairs] of [['easy',6,3],['medium',8,6],['hard',1
     await expect(page.getByRole('button',{name:'Finish collection'})).toBeVisible();
     await expect.poll(()=>page.locator('.lg-memory-collection img').evaluateAll(es=>es.every(e=>e.complete&&e.naturalWidth>0))).toBe(true);
     await expect(page.locator('.lg-game-header-meter')).toHaveAttribute('aria-label',`${pairs} of ${pairs}`);
+    expect(await page.locator('.lg-memory-collection img').evaluateAll(es=>es.every(e=>{const image=e.getBoundingClientRect(),frame=e.parentElement.getBoundingClientRect();return image.width<=frame.width&&image.height<=frame.height;}))).toBe(true);
     await saveShot(page,`memory-${difficulty}-collection`);
     await page.getByRole('button',{name:'Close Sight Word Memory',exact:true}).click();
     expect((await readResult(page,'sight-word-memory')).plays).toBe(1);
