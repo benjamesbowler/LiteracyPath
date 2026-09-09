@@ -329,6 +329,7 @@ function startGame(mount, opts) {
     hookX: 0,
     hookY: 0,
     hookMaxY: 0,
+    cancelGrace: 0,
     hookState: "ready",
     caughtFish: null
   };
@@ -590,40 +591,41 @@ function startGame(mount, opts) {
     }
   }
 
-  function syncFishTargets() {
+  function syncFishTargets(time = performance.now() / 1000) {
     const visible = new Set();
-    const placed = [];
     const playableTop = waterTop + (w < 375 ? -38 : 48);
     const playableBottom = w < 375
       ? Math.max(playableTop, Math.min(h - 100, playableTop + 64))
       : Math.max(playableTop, h - 150);
-    fish.forEach((item, index) => {
-      if (item.x < -80 || item.x > w + 80) return;
+    const visibleFish = fish.filter(item => item.x >= -80 && item.x <= w + 80);
+    const compactTarget = w < 700;
+    const compactColumns = w < 375 ? Math.min(4, visibleFish.length) : visibleFish.length;
+    const layoutColumns = Math.max(1, compactColumns);
+    const targetWidths = visibleFish.map(item => compactTarget
+      ? 56
+      : clamp(28 + item.word.length * 9, 56, Math.min(122, Math.max(56, w - 20))));
+    const maxTargetWidth = Math.max(56, ...targetWidths);
+    const laneEdge = Math.max(maxTargetWidth / 2 + 6, 12);
+    // Keep each fish in its own lane for the life of the level. The fish can
+    // still bob in place, but re-sorting lanes as swimmers cross would make a
+    // real pointer tap land on a different word than the one it started on.
+    const orderedFish = visibleFish;
+    orderedFish.forEach((item, index) => {
       visible.add(item.id);
-      const compactTarget = w < 700;
-      let width = compactTarget ? 56 : clamp(28 + item.word.length * 9, 56, Math.min(122, Math.max(56, w - 20)));
-      const compactColumns = w < 375 ? Math.min(4, level.visibleFish) : level.visibleFish;
-      const compactColumn = compactTarget ? index % compactColumns : 0;
-      const compactRow = compactTarget ? Math.floor(index / compactColumns) : 0;
-      const desktopColumns = Math.min(3, level.visibleFish);
-      const desktopColumn = compactTarget ? 0 : index % desktopColumns;
-      const desktopRow = compactTarget ? 0 : Math.floor(index / desktopColumns);
-      let x = compactTarget
-        ? 10 + compactColumn * ((w - 20) / compactColumns) + (w - 20) / (compactColumns * 2)
-        : 10 + desktopColumn * ((w - 20) / desktopColumns) + (w - 20) / (desktopColumns * 2);
-      let y = compactTarget
-        ? clamp(playableTop + compactRow * 64, playableTop, playableBottom)
-        : clamp(playableTop + desktopRow * 68, playableTop, playableBottom);
-      for (const previous of compactTarget ? [] : placed) {
-        if (Math.abs(x - previous.x) < (width + previous.width) / 2 + 8 && Math.abs(y - previous.y) < 62) {
-          y = previous.y + 62;
-          if (y > playableBottom) {
-            y = playableBottom;
-            x = clamp(x + width / 2 + previous.width / 2 + 10, width / 2 + 6, w - width / 2 - 6);
-          }
-        }
-      }
-      placed.push({ x, y, width });
+      const width = compactTarget ? 56 : clamp(28 + item.word.length * 9, 56, Math.min(122, Math.max(56, w - 20)));
+      const bob = Math.sin(item.wobble + time * 2.5) * (compactTarget ? 3 : 4);
+      const column = index % layoutColumns;
+      const row = Math.floor(index / layoutColumns);
+      const x = layoutColumns === 1
+        ? w / 2
+        : laneEdge + column * ((w - laneEdge * 2) / (layoutColumns - 1));
+      const y = compactTarget && w < 375
+        ? playableTop + row * 64 + bob
+        : playableTop === playableBottom
+          ? playableTop + bob
+          : clamp(item.y + bob, playableTop, playableBottom);
+      item.projectedX = x;
+      item.projectedY = y;
       let button = targetButtons.get(item.id);
       if (!button) {
         button = document.createElement("button");
@@ -639,6 +641,8 @@ function startGame(mount, opts) {
       }
       button.textContent = item.word;
       button.dataset.fishId = item.id;
+      button.dataset.projectedX = String(Math.round(x));
+      button.dataset.projectedY = String(Math.round(y));
       button.setAttribute("aria-label", `Choose fish ${item.word}`);
       button.setAttribute("aria-pressed", String(selectedFishId === item.id));
       button.disabled = phase !== "playing" || boat.hookState !== "ready";
@@ -667,6 +671,7 @@ function startGame(mount, opts) {
     boat.x = clamp(w * 0.48, 78, w - 78);
     boat.targetX = null;
     boat.hookState = "ready";
+    boat.cancelGrace = 0;
     boat.caughtFish = null;
     selectedFishId = null;
     lockedFishId = null;
@@ -752,9 +757,13 @@ function startGame(mount, opts) {
     lockedFishId = target.id;
     sfx(playTapSound);
     boat.hookState = "dropping";
-    boat.hookX = target.x;
+    boat.hookX = target.projectedX ?? target.x;
     boat.hookY = tip.y;
     boat.hookMaxY = h - 58;
+    // Keep CANCEL genuinely usable while the cast leaves the boat. Without a
+    // short grace window a nearby projected fish can be caught before a child
+    // has time to change their mind.
+    boat.cancelGrace = 0.4;
     boat.caughtFish = null;
     setStatus(`Casting at ${target.word}.`);
     refreshCastControl();
@@ -763,6 +772,7 @@ function startGame(mount, opts) {
   function cancelCast() {
     if (boat.hookState === "ready") return;
     boat.hookState = "ready";
+    boat.cancelGrace = 0;
     boat.caughtFish = null;
     lockedFishId = null;
     setStatus(selectedFishId ? "Cast cancelled. Cast again when ready." : "Cast cancelled. Choose a fish.");
@@ -783,6 +793,8 @@ function startGame(mount, opts) {
   function catchFish(item) {
     boat.caughtFish = item;
     boat.hookState = "returning";
+    const displayX = item.projectedX ?? item.x;
+    const displayY = item.projectedY ?? item.y;
     const correct = reelReadCanAcceptWord(item.word, level, caught);
     responseEvidence(item, correct);
     if (correct) {
@@ -790,8 +802,8 @@ function startGame(mount, opts) {
       caught.push(item.word);
       wordsCaught += 1;
       score += 120;
-      addBurst(item.x, item.y, theme.accent, 14);
-      addFloater(item.x, item.y - 28, `+ ${item.word}`, "#fff7b8");
+      addBurst(displayX, displayY, theme.accent, 14);
+      addFloater(displayX, displayY - 28, `+ ${item.word}`, "#fff7b8");
       sfx(playCorrectChime);
       speakCue(item.word);
       opts.onScoreUpdate?.(score);
@@ -804,8 +816,8 @@ function startGame(mount, opts) {
         : `Need: ${remainingWords().join(", ")}`;
       mistakes += 1;
       score = Math.max(0, score - 25);
-      addBurst(item.x, item.y, "rgba(255,92,92,.86)", 10);
-      addFloater(item.x, item.y - 28, needed, "#ffd0d0");
+      addBurst(displayX, displayY, "rgba(255,92,92,.86)", 10);
+      addFloater(displayX, displayY - 28, needed, "#ffd0d0");
       sfx(playSoftBuzz);
       opts.onScoreUpdate?.(score);
     }
@@ -893,6 +905,7 @@ function startGame(mount, opts) {
   function update(dt) {
     if (paused || introOpen) return;
     boat.bob += dt;
+    boat.cancelGrace = Math.max(0, boat.cancelGrace - dt);
     if (bannerTimer > 0) bannerTimer = Math.max(0, bannerTimer - dt);
 
     if (phase === "countdown") {
@@ -943,9 +956,9 @@ function startGame(mount, opts) {
         cancelCast();
       } else {
         // The nominated ID owns this cast. Other moving fish can never steal it.
-        boat.hookX = item.x;
-        const ry = Math.abs(item.y - boat.hookY);
-        if (ry < 34 * item.scale) catchFish(item);
+        boat.hookX = item.projectedX ?? item.x;
+        const ry = Math.abs((item.projectedY ?? item.y) - boat.hookY);
+        if (boat.cancelGrace <= 0 && ry < 34 * item.scale) catchFish(item);
       }
       if (boat.hookY >= boat.hookMaxY && boat.hookState === "dropping") {
         boat.hookState = "returning";
@@ -1196,6 +1209,8 @@ function startGame(mount, opts) {
     const width = 118 * depthScale;
     const height = 70 * depthScale;
     const bob = Math.sin(item.wobble + time * 2.5) * 4;
+    const displayX = item.projectedX ?? item.x;
+    const displayY = item.projectedY ?? item.y + bob;
     const facingRight = item.vx > 0;
 
     ctx.save();
@@ -1203,7 +1218,7 @@ function startGame(mount, opts) {
     ctx.globalCompositeOperation = "multiply";
     ctx.fillStyle = "#00151e";
     ctx.beginPath();
-    ctx.ellipse(item.x - Math.sign(item.vx) * 16, item.y + bob + height * 0.42, width * 0.44, height * 0.12, 0, 0, Math.PI * 2);
+    ctx.ellipse(displayX - Math.sign(item.vx) * 16, displayY + height * 0.42, width * 0.44, height * 0.12, 0, 0, Math.PI * 2);
     ctx.fill();
     ctx.restore();
 
@@ -1213,13 +1228,13 @@ function startGame(mount, opts) {
     ctx.strokeStyle = "rgba(230,255,255,.52)";
     ctx.lineWidth = 1;
     ctx.beginPath();
-    ctx.moveTo(item.x - Math.sign(item.vx) * width * 0.42, item.y + bob + height * 0.06);
-    ctx.quadraticCurveTo(item.x - Math.sign(item.vx) * width * 0.74, item.y + bob - 5, item.x - Math.sign(item.vx) * width * 1.05, item.y + bob + 4);
+    ctx.moveTo(displayX - Math.sign(item.vx) * width * 0.42, displayY + height * 0.06);
+    ctx.quadraticCurveTo(displayX - Math.sign(item.vx) * width * 0.74, displayY - 5, displayX - Math.sign(item.vx) * width * 1.05, displayY + 4);
     ctx.stroke();
     ctx.restore();
 
     ctx.save();
-    ctx.translate(item.x, item.y + bob);
+    ctx.translate(displayX, displayY);
     if (facingRight) ctx.scale(-1, 1);
     ctx.globalAlpha = 0.96;
     ctx.filter = `saturate(${1.06 + depth * 0.16}) contrast(${1.05 + depth * 0.14})`;
@@ -1251,19 +1266,19 @@ function startGame(mount, opts) {
     ctx.shadowColor = "rgba(0,0,0,.28)";
     ctx.shadowBlur = 8;
     ctx.shadowOffsetY = 4;
-    fillRound(ctx, item.x - labelW / 2, item.y - labelH / 2 + bob, labelW, labelH, 8, "rgba(255,248,211,.94)");
+    fillRound(ctx, displayX - labelW / 2, displayY - labelH / 2, labelW, labelH, 8, "rgba(255,248,211,.94)");
     ctx.shadowColor = "transparent";
-    strokeRound(ctx, item.x - labelW / 2, item.y - labelH / 2 + bob, labelW, labelH, 8, "rgba(35,45,60,.5)", 2);
+    strokeRound(ctx, displayX - labelW / 2, displayY - labelH / 2, labelW, labelH, 8, "rgba(35,45,60,.5)", 2);
     ctx.globalAlpha = 0.35;
     ctx.fillStyle = "#ffffff";
-    fillRound(ctx, item.x - labelW / 2 + 4, item.y - labelH / 2 + bob + 3, labelW - 8, Math.max(4, labelH * 0.22), 4, "rgba(255,255,255,.38)");
+    fillRound(ctx, displayX - labelW / 2 + 4, displayY - labelH / 2 + 3, labelW - 8, Math.max(4, labelH * 0.22), 4, "rgba(255,255,255,.38)");
     ctx.globalAlpha = 1;
     ctx.fillStyle = "#1e2330";
     const size = textWidthFor(ctx, item.word, labelW - 12, 22 * depthScale, 12);
     ctx.font = `950 ${size}px Fredoka, Arial, sans-serif`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillText(item.word, item.x, item.y + bob + 1, labelW - 10);
+    ctx.fillText(item.word, displayX, displayY + 1, labelW - 10);
     ctx.textAlign = "left";
     ctx.restore();
   }
@@ -1399,6 +1414,7 @@ function startGame(mount, opts) {
     if (!reduceMotion) drawSceneParallax(time);
     drawWater(time);
     drawBoatReflection(time);
+    syncFishTargets(time);
     fish
       .slice()
       .sort((a, b) => a.y - b.y)
@@ -1411,7 +1427,6 @@ function startGame(mount, opts) {
     drawHud();
     drawBanner();
     drawScreenGrade();
-    syncFishTargets(time);
   }
 
   function loop(now) {

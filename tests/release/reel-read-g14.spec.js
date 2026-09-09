@@ -83,6 +83,35 @@ test("Reel & Read exposes intentional named targets and a cancel-safe cast", asy
   }
 });
 
+test("Reel & Read keeps named fish targets attached while the pond moves", async ({ page }) => {
+  test.setTimeout(60_000);
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  for (const viewport of [{ width: 320, height: 568 }, { width: 568, height: 320 }, { width: 1024, height: 768 }]) {
+    await page.setViewportSize(viewport);
+    await page.goto("/preview/game-overlay.html?game=reel-read&difficulty=hard&sound=0&music=0");
+    const player = page.getByRole("dialog", { name: "Reel & Read", exact: true });
+    await player.locator(".lg-game-loading").waitFor({ state: "hidden", timeout: 20_000 });
+    await expect(player.locator('[data-rr="status"]')).toHaveText("Choose a fish, then cast.", { timeout: 8_000 });
+
+    const targets = player.locator('[data-rr="fish"]');
+    await expect(targets).toHaveCount(6);
+    const before = await targets.evaluateAll(buttons => buttons.map(button => ({ id: button.dataset.fishId, x: button.dataset.projectedX, y: button.dataset.projectedY })));
+    await page.waitForTimeout(1_800);
+    const after = await targets.evaluateAll(buttons => buttons.map(button => ({ id: button.dataset.fishId, x: button.dataset.projectedX, y: button.dataset.projectedY })));
+    expect(after.map(item => item.id)).toEqual(before.map(item => item.id));
+    expect(after.some((item, index) => item.x !== before[index].x || item.y !== before[index].y)).toBe(true);
+
+    const target = player.getByRole("button", { name: "Choose fish saur", exact: true });
+    await clickTarget(page, target);
+    await expect(target).toHaveAttribute("aria-pressed", "true");
+    const cast = player.locator('[data-rr="cast"]');
+    await cast.click();
+    await expect(cast).toHaveText("CANCEL");
+    await cast.click();
+    await expect(cast).toHaveText("CAST");
+  }
+});
+
 test("Reel & Read reports real cue delivery and keeps printed targets usable when sound is off", async ({ page }) => {
   await page.setViewportSize({ width: 1024, height: 768 });
   await page.goto("/preview/game-overlay.html?game=reel-read&sound=1&music=0");
