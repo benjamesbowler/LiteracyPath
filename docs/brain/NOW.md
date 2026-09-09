@@ -35,15 +35,20 @@ authoritative source and, when the choice is durable, record a linked decision.
   Its full-route and exhaustive layout checks are separate from human/device
   evidence. Word Climb's candidate remains isolated with unfinished climbing
   art, and Letter Leap's G09 upgrade remains unintegrated; their existing live
-  games are not evidence that those packages are finished. G16 is the next
-  assigned package after G13/G14. The full programme acceptance scope remains.
+  games are not evidence that those packages are finished. G16's Rhyme Pop
+  half now has stable native balloons, all-six-rhymes basket collection,
+  recorded comparisons and truthful audio/print recovery. Final-action saving
+  retains an unsaved receipt for retry; saved-locally sync failures cannot
+  duplicate a completion. Sound Safari is the next implementation. The user
+  has authorized this task to take over the remaining originally reserved
+  packages; all remaining package and dependency gates still apply.
 - The [Game Design Bible](../design/GAME_DESIGN_BIBLE.md) remains the product
   authority. The [Game Visual and Playability Production Guide](../design/GAME_VISUAL_PLAYABILITY_PRODUCTION_GUIDE.md)
   is the current provider-neutral workflow for raising game presentation and
   playability to the product owner's console-quality target.
 - The live Learn Games catalogue has 22 games: 13 are surfaced as the current
   Arcade roster and nine remain in the wider catalogue. Existing version 2.0
-  records document intended contracts and selected mechanic anchors; only six
+  records document intended contracts and selected mechanic anchors; seven
   currently have validated vertical-slice briefs, and none of those documents
   is direct visual, motion, human-listening, physical-device or child-play
   approval.

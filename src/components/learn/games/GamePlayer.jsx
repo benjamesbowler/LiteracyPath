@@ -7,6 +7,7 @@ import { startGameMusic, stopGameMusic } from "../../../utils/audio/gameMusic.js
 import {
   clearActiveLearnGamesProgressScope,
   saveLearnGameResult,
+  queueLearnGamesProgress,
   setActiveLearnGamesProgressScope,
   loadGameCheckpoint,
   saveGameCheckpoint,
@@ -94,6 +95,7 @@ export function GamePlayer({
   const [showGuide, setShowGuide] = useState(false);
   const [completed, setCompleted] = useState(false);
   const [completionResult, setCompletionResult] = useState(null);
+  const [saveRecovery, setSaveRecovery] = useState(false);
   const [progressStatus, setProgressStatus] = useState({ current: 0, total: 1 });
   // Resume: check for a saved checkpoint once, on open. difficulty is fixed for a
   // GamePlayer's lifetime (chosen in the arcade before entry), so a lazy initial
@@ -107,6 +109,9 @@ export function GamePlayer({
   const announcedMilestoneRef = useRef(0);
   const missionReturnPendingRef = useRef(false);
   const savedResultRef = useRef(null);
+  // At most one pending receipt belongs to this mounted run. Only explicit
+  // retry may resubmit its fixed arguments (or enqueue its already saved row).
+  const pendingResultRef = useRef(null);
   const earlyResultRef = useRef(false);
   const playerRef = useRef(null);
   const blockingDialogRef = useRef(null);
@@ -114,13 +119,14 @@ export function GamePlayer({
   const keepPlayingRef = useRef(null);
   const closeGuideRef = useRef(null);
   const completionActionRef = useRef(null);
+  const retrySaveRef = useRef(null);
   const GameComponent = LEARN_GAMES[game.id];
   const world = worldForDifficulty(difficulty);
   const scene = sceneForKey(world, game.id);
   const activeGameSurfaceName = gameFullscreenSurfaceName(game);
   const premiumProfile = premiumProfileForGame(game.id);
   const hasPremiumCompletionOverlay = Boolean(completionResult && premiumProfile && game.id !== "rocket-run");
-  const hasBlockingOverlay = startLevel === null || showQuit || showGuide || hasPremiumCompletionOverlay;
+  const hasBlockingOverlay = startLevel === null || showQuit || showGuide || hasPremiumCompletionOverlay || saveRecovery;
   const hasEngineOwnedCompletion = Boolean(completionResult && !hasPremiumCompletionOverlay);
 
   useEffect(() => {
@@ -156,25 +162,44 @@ export function GamePlayer({
   // Freeze the running game while the quit dialog is open or the tab is
   // backgrounded, so a child never loses hearts/words they can't see.
   useEffect(() => {
-    if (showQuit || showGuide) engineRef.current?.pause?.();
+    if (showQuit || showGuide || saveRecovery || document.hidden) engineRef.current?.pause?.();
     else engineRef.current?.resume?.();
     const onVis = () => {
       if (document.hidden) engineRef.current?.pause?.();
-      else if (!showQuit && !showGuide) engineRef.current?.resume?.();
+      else if (!showQuit && !showGuide && !pendingResultRef.current) engineRef.current?.resume?.();
     };
     document.addEventListener("visibilitychange", onVis);
     return () => document.removeEventListener("visibilitychange", onVis);
-  }, [showQuit, showGuide]);
+  }, [showQuit, showGuide, saveRecovery]);
 
   // Closes the player, first firing any held mission return from this
   // session's win (see handleComplete) so the celebration is never cut off.
   const closePlayer = useCallback(() => {
+    if (pendingResultRef.current) {
+      setSaveRecovery(pendingResultRef.current.savedProgress ? "sync" : true);
+      retrySaveRef.current?.focus();
+      return false;
+    }
     if (missionReturnPendingRef.current) {
       missionReturnPendingRef.current = false;
       announceMissionReturn("game");
     }
     onClose();
   }, [onClose]);
+
+  useEffect(() => {
+    if (saveRecovery) retrySaveRef.current?.focus();
+  }, [saveRecovery]);
+
+  useEffect(() => {
+    const onBeforeUnload = event => {
+      if (!pendingResultRef.current) return;
+      event.preventDefault();
+      event.returnValue = "";
+    };
+    window.addEventListener("beforeunload", onBeforeUnload);
+    return () => window.removeEventListener("beforeunload", onBeforeUnload);
+  }, []);
 
   // The score chip updates constantly; screen readers only get 50-point
   // milestones so the live region never chatters over the game.
@@ -248,19 +273,78 @@ export function GamePlayer({
   useEffect(() => {
     const onKeyDown = event => {
       if (event.key !== "Escape") return;
+      if (pendingResultRef.current) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        retrySaveRef.current?.focus();
+        return;
+      }
       if (startLevel === null) return;
       if (showGuide) setShowGuide(false);
       else if (showQuit) setShowQuit(false);
       else if (completed) closePlayer();
       else setShowQuit(true);
     };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    window.addEventListener("keydown", onKeyDown, true);
+    return () => window.removeEventListener("keydown", onKeyDown, true);
   }, [showGuide, showQuit, completed, startLevel, closePlayer]);
 
-  function handleResultReady(stars, finalScore, wordsCompleted, evidence) {
-    if (savedResultRef.current) return savedResultRef.current;
+  function retryResultSave() {
+    const pending = pendingResultRef.current;
+    if (!pending) return savedResultRef.current || false;
+    let nextProgress = pending.savedProgress;
+    let syncFailed = false;
+    try {
+      if (nextProgress) queueLearnGamesProgress(pending.args[0], nextProgress);
+      else nextProgress = saveLearnGameResult(...pending.args);
+    } catch (error) {
+      nextProgress = pending.savedProgress || error?.savedProgress;
+      if (nextProgress) pending.savedProgress = nextProgress;
+      setShowQuit(false);
+      setShowGuide(false);
+      setSaveRecovery(nextProgress ? "sync" : true);
+      engineRef.current?.pause?.();
+      if (!nextProgress) return false;
+      syncFailed = true;
+    }
+    // Mark saved only after the atomic local commit. Cache before invoking
+    // observers so even a re-entrant callback cannot duplicate this run.
+    const firstCommit = !savedResultRef.current;
+    savedResultRef.current = pending.receipt;
     setCompleted(true);
+    if (!syncFailed) {
+      pendingResultRef.current = null;
+      setSaveRecovery(false);
+      if (pending.presentCompletion) setCompletionResult(pending.receipt);
+    }
+    // Keep the existing deferred mission return, independently of presentation.
+    // Observer errors must not turn a committed result back into a failed save.
+    if (firstCommit) {
+      try {
+        if (notifyMissionTaskDone(pending.args[0], "game", { deferReturn: true })) {
+          missionReturnPendingRef.current = true;
+        }
+      } catch (error) {
+        console.error("Game saved; mission notification failed:", error);
+      }
+      try {
+        onProgressChange?.(nextProgress);
+      } catch (error) {
+        console.error("Game saved; progress notification failed:", error);
+      }
+    }
+    return pending.receipt;
+  }
+
+  function handleResultReady(stars, finalScore, wordsCompleted, evidence, presentCompletion = false) {
+    if (pendingResultRef.current) {
+      if (presentCompletion) pendingResultRef.current.presentCompletion = true;
+      return savedResultRef.current || false;
+    }
+    if (savedResultRef.current) {
+      if (presentCompletion) setCompletionResult(savedResultRef.current);
+      return savedResultRef.current;
+    }
     // The game reports its score from a stale closure that can miss the
     // final round's points; our own score state is current by now, so
     // take whichever is higher.
@@ -269,29 +353,18 @@ export function GamePlayer({
       stars: Math.max(1, Math.min(3, Number(stars) || 1)),
       score: settledScore,
       words: Math.max(0, Number(wordsCompleted) || 0),
-      evidence: evidence || null
+      evidence: evidence ? structuredClone(evidence) : null
     };
-    savedResultRef.current = receipt;
-    const nextProgress = saveLearnGameResult(progressScopeKey, game.id, stars, settledScore, wordsCompleted, evidence);
-    clearGameCheckpoint(progressScopeKey, game.id, difficulty); // finished the ladder, nothing to resume
-    // Credit the mission's game task now but hold the auto-return: the win
-    // celebration is still on screen, and the 1.6s auto-navigate would cut
-    // it off. closePlayer() announces the return when the child leaves.
-    if (notifyMissionTaskDone(progressScopeKey, "game", { deferReturn: true })) {
-      missionReturnPendingRef.current = true;
-    }
-    // Rewards are coins only (derived from stars in the Hollow economy) -
-    // no separate gem/collectible awards.
-    onProgressChange?.(nextProgress);
-    return receipt;
+    pendingResultRef.current = {
+      receipt,
+      args: [progressScopeKey, game.id, stars, settledScore, wordsCompleted, receipt.evidence, difficulty],
+      presentCompletion
+    };
+    return retryResultSave();
   }
 
   function handleComplete(stars, finalScore, wordsCompleted, evidence) {
-    // Engines adopting final-action saving identify the receipt before Finish.
-    // Other engines still report once per run through onComplete; do not let a
-    // previous run's receipt suppress their subsequent replay result.
-    if (!earlyResultRef.current) savedResultRef.current = null;
-    setCompletionResult(handleResultReady(stars, finalScore, wordsCompleted, evidence));
+    return handleResultReady(stars, finalScore, wordsCompleted, evidence, true);
   }
 
   function handleEarlyResultReady(stars, finalScore, wordsCompleted, evidence) {
@@ -300,6 +373,7 @@ export function GamePlayer({
   }
 
   function handleSessionStart() {
+    if (pendingResultRef.current) return false;
     savedResultRef.current = null;
     earlyResultRef.current = false;
     setCompleted(false);
@@ -312,6 +386,7 @@ export function GamePlayer({
   // component, which made a fresh callback... an infinite render loop that
   // froze games and reshuffled answer options every frame.
   const handleCheckpoint = useCallback((level, total) => {
+    if (pendingResultRef.current || savedResultRef.current) return;
     saveGameCheckpoint(progressScopeKey, game.id, difficulty, level, total);
   }, [progressScopeKey, game.id, difficulty]);
 
@@ -327,16 +402,29 @@ export function GamePlayer({
   }
 
   const handleProgressUpdate = useCallback((current, total) => {
+    if (pendingResultRef.current) return;
     const next = {
       current: Math.max(0, Number(current) || 0),
       total: Math.max(1, Number(total) || 1)
     };
+    // Older engines have no onSessionStart. New active play, rather than a
+    // repeated onComplete or rerender, establishes their next run.
+    if (savedResultRef.current && !earlyResultRef.current && next.current < next.total) {
+      savedResultRef.current = null;
+      setCompleted(false);
+      setCompletionResult(null);
+      setScore(0);
+    }
     setProgressStatus(previous =>
       previous.current === next.current && previous.total === next.total ? previous : next
     );
   }, []);
 
   function requestClose() {
+    if (pendingResultRef.current) {
+      closePlayer();
+      return;
+    }
     if (completed) {
       closePlayer();
       return;
@@ -428,7 +516,10 @@ export function GamePlayer({
                 onSessionStart={handleSessionStart}
                 completionPresentedByPlayer={hasPremiumCompletionOverlay}
                 onCheckpoint={handleCheckpoint}
-                onEngineReady={api => { engineRef.current = api; }}
+                onEngineReady={api => {
+                  engineRef.current = api;
+                  if (pendingResultRef.current) api?.pause?.();
+                }}
                 onExit={closePlayer}
                 isSoundEnabled={soundEnabled}
                 isMusicEnabled={musicEnabled}
@@ -452,6 +543,32 @@ export function GamePlayer({
             <div>
               <button type="button" ref={resumeActionRef} onClick={continueGame}>Continue</button>
               <button type="button" className="danger" onClick={restartGame}>Start over</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {saveRecovery && (
+        <div
+          ref={blockingDialogRef}
+          className="lg-game-confirm"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Save game progress"
+          aria-describedby="game-save-recovery-message"
+        >
+          <div>
+            <h2>Let’s save your game</h2>
+            <p id="game-save-recovery-message" role="status">{saveRecovery === "sync"
+              ? "Your result is saved on this device. Try again to sync your progress."
+              : "Your result has not been saved. Try again before you leave."}</p>
+            <div>
+              <button type="button" className="primary" ref={retrySaveRef} onClick={retryResultSave}>Try saving again</button>
+              <button type="button" className="danger" onClick={() => {
+                pendingResultRef.current = null;
+                setSaveRecovery(false);
+                closePlayer();
+              }}>{saveRecovery === "sync" ? "Leave game" : "Leave without saving"}</button>
             </div>
           </div>
         </div>

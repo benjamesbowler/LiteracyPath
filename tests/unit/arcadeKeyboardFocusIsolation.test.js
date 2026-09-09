@@ -71,7 +71,6 @@ test("SoundKeys ignores typing on controls and still accepts game-surface keys",
 
 const gameHandlerContracts = [
   ["LetterLeapGame.jsx", ["onKeyDown"]],
-  ["RhymePopArcadeGame.jsx", ["onKeyDown"]],
   ["SoundSafariArcadeGame.jsx", ["onKeyDown"]],
   ["SoundBeatGame.jsx", ["onKeyDown"]],
   ["ReelReadGame.jsx", ["onKeyDown"]],
@@ -86,6 +85,30 @@ const focusedMovementControlExceptions = new Map([
   ],
 
 ]);
+
+test("Rhyme Pop only moves focus between its own native balloons and preserves control activation", async () => {
+  const source = await readFile(new URL('../../src/components/learn/games/games/RhymePopArcadeGame.jsx', import.meta.url), 'utf8');
+  assert.doesNotMatch(source, /listen\((?:window|document), 'keydown'/);
+  const body = source.match(/listen\(root, 'keydown', event => \{([\s\S]*?)\n {2}\}\);/)[1];
+  const fieldTargets = [{ focus() { focused = 0; } }, { focus() { focused = 1; } }];
+  let focused = 0, prevented = 0;
+  const hostControl = {};
+  const document = { activeElement: fieldTargets[0] };
+  const handler = new Function('canChoose', 'el', 'document', 'cardKey', `return event => {${body}}`)(
+    () => true,
+    () => ({ contains: target => fieldTargets.includes(target), querySelectorAll: () => fieldTargets }),
+    document, null
+  );
+  const key = (target, key, repeat = false) => handler({ target, key, repeat, preventDefault() { prevented++; } });
+  for (const value of ['ArrowRight', 'ArrowLeft', 'a', 'd', 'Enter', ' ']) key(hostControl, value);
+  assert.equal(prevented, 0); assert.equal(focused, 0);
+  key(fieldTargets[0], 'Enter'); key(fieldTargets[0], ' ');
+  assert.equal(prevented, 0, 'native buttons own Enter and Space activation');
+  key(fieldTargets[0], 'ArrowRight');
+  assert.equal(prevented, 1); assert.equal(focused, 1);
+  key(fieldTargets[0], 'Enter', true);
+  assert.equal(prevented, 2, 'held activation cannot repeatedly answer');
+});
 
 for (const [fileName, handlers] of gameHandlerContracts) {
   test(`${fileName} leaves unrelated focused controls to native keyboard behaviour`, async () => {

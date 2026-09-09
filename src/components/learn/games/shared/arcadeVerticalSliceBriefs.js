@@ -1,5 +1,6 @@
 import { GAME_VERTICAL_SLICE_BRIEF_SCHEMA_VERSION } from "./premiumGameStandard.js";
 import { ROCKET_RUN_VERTICAL_SLICE_BRIEF } from "../games/rocketRunContract.js";
+import { RHYME_POP_VERTICAL_SLICE_BRIEF } from "../games/rhymePopContract.js";
 
 function deepFreeze(value) {
   if (!value || typeof value !== "object" || Object.isFrozen(value)) return value;
@@ -13,6 +14,7 @@ function deepFreeze(value) {
  * Add a brief here before substantially changing another flagship game.
  */
 export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
+  "rhyme-pop": RHYME_POP_VERTICAL_SLICE_BRIEF,
   "rocket-run": ROCKET_RUN_VERTICAL_SLICE_BRIEF,
   "letter-leap": {
     schemaVersion: GAME_VERTICAL_SLICE_BRIEF_SCHEMA_VERSION,

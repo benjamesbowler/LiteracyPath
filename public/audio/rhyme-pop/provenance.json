@@ -1,0 +1,107 @@
+{
+  "version": 3,
+  "provider": "Google Cloud Text-to-Speech",
+  "voice": "en-US-Chirp3-HD-Leda",
+  "aiGenerated": true,
+  "languageCode": "en-US",
+  "synthesis": {
+    "audioEncoding": "LINEAR16",
+    "sampleRateHertz": 24000,
+    "speakingRate": 0.94,
+    "pitch": 0
+  },
+  "normalization": {
+    "highpassHz": 60,
+    "integratedLufs": -24,
+    "truePeakDb": -2,
+    "loudnessRange": 7,
+    "fadeInSeconds": 0.015,
+    "fadeOutSeconds": 0.025,
+    "sampleRateHertz": 44100,
+    "channels": 1,
+    "bitRate": "128k"
+  },
+  "assets": {
+    "instruction": {
+      "id": "instruction",
+      "text": "Pop every word that rhymes with the target. Each rhyme adds a balloon to the basket.",
+      "role": "instruction",
+      "audio": "/audio/rhyme-pop/instruction-v3.mp3",
+      "sha256": "33064c2760bb280706d97c2772f6b684452d7d82bf67c427f8d6da7066ba857b",
+      "durationSeconds": 5.793333,
+      "humanListening": "unknown"
+    },
+    "rhymes": {
+      "id": "rhymes",
+      "text": "rhymes with",
+      "role": "instruction",
+      "audio": "/audio/rhyme-pop/rhymes-v3.mp3",
+      "sha256": "8028f0e57dca6bf8990a41bed1615a4ecd3d9725d9796293823d0e918c4cad22",
+      "durationSeconds": 1.501338,
+      "humanListening": "unknown"
+    },
+    "mismatch": {
+      "id": "mismatch",
+      "text": "does not rhyme with",
+      "role": "instruction",
+      "audio": "/audio/rhyme-pop/mismatch-v3.mp3",
+      "sha256": "736bbd5173d45edc33f334e82f663f49327447bc1d8991cfb4ecf3b05cd6135d",
+      "durationSeconds": 1.095329,
+      "humanListening": "unknown"
+    },
+    "ready": {
+      "id": "ready",
+      "text": "Balloon basket ready!",
+      "role": "instruction",
+      "audio": "/audio/rhyme-pop/ready-v3.mp3",
+      "sha256": "1fc0123cbb010d9e60a05ab4f992ed2d7abede919c920441c38f270eb58fbb80",
+      "durationSeconds": 1.501338,
+      "humanListening": "unknown"
+    },
+    "word-knit": {
+      "id": "word-knit",
+      "text": "knit",
+      "role": "isolated_word",
+      "audio": "/audio/rhyme-pop/word-knit-v3.mp3",
+      "sha256": "d61cb7c5a91a8a136fc73536864c5cb060d305a7f5a0d9d2cd048189d61f58ef",
+      "durationSeconds": 0.515329,
+      "humanListening": "unknown"
+    },
+    "word-nun": {
+      "id": "word-nun",
+      "text": "nun",
+      "role": "isolated_word",
+      "audio": "/audio/rhyme-pop/word-nun-v3.mp3",
+      "sha256": "5e96fbf639da59fd75d5185fd03c6571272106282538b619224cb4f8f259950b",
+      "durationSeconds": 0.631338,
+      "humanListening": "unknown"
+    },
+    "word-rack": {
+      "id": "word-rack",
+      "text": "rack",
+      "role": "isolated_word",
+      "audio": "/audio/rhyme-pop/word-rack-v3.mp3",
+      "sha256": "7b23a881f3a442cb80f783ebd976730511b300d6727f47cb6c28d333990828df",
+      "durationSeconds": 0.979342,
+      "humanListening": "unknown"
+    },
+    "word-rook": {
+      "id": "word-rook",
+      "text": "rook",
+      "role": "isolated_word",
+      "audio": "/audio/rhyme-pop/word-rook-v3.mp3",
+      "sha256": "2a929085f5c1c023c6d7160543e15aec60e927d188e7710edf78a1fd1190aea9",
+      "durationSeconds": 1.501338,
+      "humanListening": "unknown"
+    },
+    "word-shun": {
+      "id": "word-shun",
+      "text": "shun",
+      "role": "isolated_word",
+      "audio": "/audio/rhyme-pop/word-shun-v3.mp3",
+      "sha256": "88bd83e4e7b01558382b665bdfc5f3a14589c4a2ead5ddfd47512c6782ea7926",
+      "durationSeconds": 0.747347,
+      "humanListening": "unknown"
+    }
+  }
+}

@@ -46,7 +46,21 @@ export function saveLearnGamesProgress(progressScopeKey = DEFAULT_SCOPE, progres
     games: progress.games || {}
   };
   window.localStorage.setItem(storageKey(progressScopeKey), JSON.stringify(next));
-  queueProgressSave("learn_games", "__all__", { v: 1, ...next }, { scopeKey: progressScopeKey });
+  // Local storage is the durable commit. Expose that outcome if subsequent
+  // queue bookkeeping throws, so recovery can enqueue without saving twice.
+  try {
+    queueLearnGamesProgress(progressScopeKey, next);
+  } catch (cause) {
+    const error = new Error("Game saved locally; progress sync needs retry", { cause });
+    error.savedProgress = next;
+    throw error;
+  }
+}
+
+export function queueLearnGamesProgress(progressScopeKey, progress) {
+  // A false admission already retains the entry in progressSync's volatile
+  // recovery and emits its shared notice. Do not make a second queue for it.
+  return queueProgressSave("learn_games", "__all__", { v: 1, ...progress }, { scopeKey: progressScopeKey });
 }
 
 export function saveLearnGamesSettings(progressScopeKey = DEFAULT_SCOPE, settings = {}) {
@@ -104,7 +118,7 @@ export function saveLearnGameBestSplit(
   return next;
 }
 
-export function saveLearnGameResult(progressScopeKey = DEFAULT_SCOPE, gameId, stars = 0, score = 0, wordsCompleted = 0, evidence = null) {
+export function saveLearnGameResult(progressScopeKey = DEFAULT_SCOPE, gameId, stars = 0, score = 0, wordsCompleted = 0, evidence = null, difficulty) {
   const current = loadLearnGamesProgress(progressScopeKey);
   const previous = getLearnGameProgress(current, gameId);
   const nextGame = {
@@ -131,13 +145,10 @@ export function saveLearnGameResult(progressScopeKey = DEFAULT_SCOPE, gameId, st
       }]
     });
   }
-  const next = {
-    ...current,
-    games: {
-      ...current.games,
-      [gameId]: nextGame
-    }
-  };
+  const games = { ...current.games, [gameId]: nextGame };
+  // Omitted difficulty preserves the legacy utility contract. Player saves
+  // retire only the finished ladder in the SAME write as its result/evidence.
+  const next = { ...current, games: difficulty === undefined ? games : removeCheckpoint(games, gameId, difficulty) };
   saveLearnGamesProgress(progressScopeKey, next);
   return next;
 }

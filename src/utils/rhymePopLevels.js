@@ -110,11 +110,7 @@ export function rhymePopLevel(difficulty = "easy", levelIndex = 0) {
     rhymingWords: rotate(group.rhymingWords, level),
     distractors: rotate(distractors, level * 3),
     visibleBalloons: safeDifficulty === "easy" ? 5 : safeDifficulty === "medium" ? 6 : 7,
-    correctVisible: safeDifficulty === "easy" ? 3 : 2,
-    dropRate: 0.16 + level * 0.03 + (safeDifficulty === "hard" ? 0.1 : safeDifficulty === "medium" ? 0.05 : 0),
-    // Minimum seconds before a stop/countdown; the engine groups levels into
-    // one continuous round until this floor is met.
-    minPlaySeconds: 60
+    correctVisible: safeDifficulty === "easy" ? 3 : 2
   };
 }
 

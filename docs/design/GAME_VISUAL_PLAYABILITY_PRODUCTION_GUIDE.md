@@ -331,9 +331,11 @@ For every substantial Arcade change, add or update its record in
 match the current Game Design Bible and name exact unit, browser and hardware
 evidence. Passing `validateGameVerticalSliceBrief()` proves only that the plan
 is structurally complete; it is not proof that the game looks or plays well.
-At the time of this guide, only Letter Leap, Word Climb, Word Bridge, Sound Beat
-and Sound Racer have validated briefs. The other eight Arcade records must gain
-briefs before their 3.0 rebuilds expand.
+The live `ARCADE_VERTICAL_SLICE_BRIEFS` registry is the authority for coverage.
+It currently includes Letter Leap, Word Climb, Word Bridge, Sound Beat, Sound
+Racer, Rocket Run and Rhyme Pop. Remaining Arcade records must gain briefs
+before their 3.0 rebuilds expand; an existing brief is not implementation or
+release proof.
 
 ## 5. Asset production pipeline
 

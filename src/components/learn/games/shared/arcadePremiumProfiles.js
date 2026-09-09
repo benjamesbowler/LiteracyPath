@@ -65,13 +65,13 @@ export const ARCADE_PREMIUM_PROFILES = Object.freeze({
     rewardLabel: "words blended"
   }),
   "rhyme-pop": Object.freeze({
-    version: "2.0",
-    mission: "Pop every word that rhymes with the cue.",
+    version: "3.0",
+    mission: "Pop the rhyming words to lift each balloon basket.",
     objective: "Identify words that share the target rime.",
-    action: "Aim at and pop each rhyming balloon.",
-    controls: Object.freeze(["Aim: pointer, touch, or Arrow keys", "Pop: Space, Enter, or Up"]),
-    retry: "A miss names the chosen word and leaves the rhyming targets in play.",
-    completionTitle: "Balloon round complete",
+    action: "Choose every rhyming balloon; each different rhyme fills a basket tether.",
+    controls: Object.freeze(["Choose: released tap, Tab or Arrow keys", "Pop: Space or Enter"]),
+    retry: "Both words are compared aloud. The target and remaining rhymes stay in play.",
+    completionTitle: "Parade ready!",
     rewardLabel: "rhymes found"
   }),
   "sound-safari": Object.freeze({

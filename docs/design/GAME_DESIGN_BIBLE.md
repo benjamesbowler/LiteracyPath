@@ -274,13 +274,14 @@ unknown until each changed build is exercised on a real supported iPad.
 - **Generator and ambiguity:** each beat rebuilds four deterministic but freshly positioned choices; an audited live-unit equivalence table keeps c/k/ck, ch/tch, ee/ea and w/wh out of one-right/one-wrong choices, and every hidden unit uses one fixed marker so label length cannot leak the answer. `soundBeatTracks.test.js` verifies runtime seeds, choice uniqueness, position variation, cue coverage and the ladder.
 - **Feedback and reward:** a correct unit fills the next slot; a wrong choice names the selected and required units and stays available. Rhythm precision adds optional score and visual flourish but never changes literacy credit or stars.
 
-#### Rhyme Pop 2.0
+#### Rhyme Pop 3.0
 
-- **Age/reading band and construct:** early readers identify words sharing the cued rime. Aiming the launcher is the non-target demand.
-- **Controls:** pointer/touch aims and pops; Left/Right or A/D cycles a visible, non-answer-revealing keyboard focus ring; Space/Enter/Up fires.
-- **Level ladder and prompt/audio:** the cue remains printed at the launcher and can be replayed. Later levels widen vocabulary and distractor closeness rather than shrinking targets.
-- **Generator and ambiguity:** `rhymePopLevels.js` builds fresh balloon sets with independently checked rhyme membership; `rhymePopLevels.test.js` verifies the banks.
-- **Feedback and reward:** every popped word is named; a miss leaves the remaining rhymes in play. Only found rhymes advance progress and score.
+- **Age/reading band and construct:** early readers identify all six reviewed rhymes for a printed and recorded target. This is supported printed-word rhyme practice, not independent oral phonological assessment. Pointer aiming and animation do not grade literacy.
+- **Controls:** a released tap pops that exact stable native balloon; Tab/Arrow keys or A/D focus choices, and Space/Enter activates them. One pointer owns the interaction across all balloons. Outside, cancelled, lost, paused and stale releases create no response. Every control retains a 56-pixel minimum target.
+- **Level ladder and prompt/audio:** preserve all ten rounds at each difficulty, including cross-spelling chair/share/square and hard snow/now/cow foils. Difficulty widens vocabulary and choice count, never adds target drift, a decision deadline or a forced play timer. Exact Leda instructions, the target and all current words have replayable recordings. Missing, failed, interrupted or stalled speech exposes retry or explicit reading support and is never recorded as heard.
+- **Generator and ambiguity:** `rhymePopLevels.js` owns reviewed group membership; `rhymePopRules.js` owns seeded stable slots, multi-answer resolution and once-only responses. Each accepted rhyme replenishes only its slot; no valid rhyme is omitted, recycled or counted twice. Balloon colour and shape cannot reveal correctness.
+- **Feedback and reward:** the named selected word is accurately compared with the target, and a mismatch preserves the target and completed rhymes. A faceted balloon pop, canonical helper reaction, visible collected word and filled basket tether mark success. Six collected balloons lift a parade basket; reduced motion retains the same text, collection and state changes without movement.
+- **Completion and verification:** the final accepted rhyme freezes the receipt before animation or exit. First responses and supported retries stay separate; resumed runs count only actually played words. The shared player owns one result dialog and persistence. `rhymePopContract.js` names the rule, audio and scene checks; `rhyme-pop-parade.spec.js` exercises every authored rhyme across all difficulty/viewport combinations, native input, audio delivery/recovery and full-route persistence. Automated/browser evidence does not claim physical-iPad, human-listening or child-observation evidence.
 
 #### Sound Safari 2.0
 
