@@ -423,7 +423,11 @@ function startGame(mount, opts) {
   }
 
   function responseEvidence(item, correct) {
-    const key = `${levelIndex}:${item.word}`;
+    const learningSlot = `${levelIndex}:${caught.length}`;
+    const expectedResponse = level.orderMatters
+      ? reelReadExpectedWord(level, caught)
+      : level.target;
+    const key = learningSlot;
     const attempts = (responseAttempts.get(key) || 0) + 1;
     responseAttempts.set(key, attempts);
     const evidence = reelReadResponseEvidence({
@@ -433,6 +437,8 @@ function startGame(mount, opts) {
       response: item.word,
       correct,
       attempts,
+      learningSlot,
+      expectedResponse,
       fishId: item.id,
       audioDelivery: cueDelivery,
       cueHistory,
@@ -584,24 +590,30 @@ function startGame(mount, opts) {
     }
   }
 
-  function syncFishTargets(time = performance.now() / 1000) {
+  function syncFishTargets() {
     const visible = new Set();
     const placed = [];
-    const playableTop = waterTop + (w < 375 ? 18 : 48);
-    const playableBottom = Math.max(playableTop, h - (w < 375 ? 260 : 150));
+    const playableTop = waterTop + (w < 375 ? -38 : 48);
+    const playableBottom = w < 375
+      ? Math.max(playableTop, Math.min(h - 100, playableTop + 64))
+      : Math.max(playableTop, h - 150);
     fish.forEach((item, index) => {
       if (item.x < -80 || item.x > w + 80) return;
       visible.add(item.id);
       const compactTarget = w < 700;
       let width = compactTarget ? 56 : clamp(28 + item.word.length * 9, 56, Math.min(122, Math.max(56, w - 20)));
-      const compactColumn = compactTarget ? index % 5 : 0;
-      const compactRow = 0;
+      const compactColumns = w < 375 ? Math.min(4, level.visibleFish) : level.visibleFish;
+      const compactColumn = compactTarget ? index % compactColumns : 0;
+      const compactRow = compactTarget ? Math.floor(index / compactColumns) : 0;
+      const desktopColumns = Math.min(3, level.visibleFish);
+      const desktopColumn = compactTarget ? 0 : index % desktopColumns;
+      const desktopRow = compactTarget ? 0 : Math.floor(index / desktopColumns);
       let x = compactTarget
-        ? 10 + compactColumn * ((w - 20) / 5) + (w - 20) / 10
-        : clamp(item.x, width / 2 + 6, w - width / 2 - 6);
+        ? 10 + compactColumn * ((w - 20) / compactColumns) + (w - 20) / (compactColumns * 2)
+        : 10 + desktopColumn * ((w - 20) / desktopColumns) + (w - 20) / (desktopColumns * 2);
       let y = compactTarget
         ? clamp(playableTop + compactRow * 64, playableTop, playableBottom)
-        : clamp(item.y + Math.sin(item.wobble + time * 2.5) * 4, playableTop, playableBottom);
+        : clamp(playableTop + desktopRow * 68, playableTop, playableBottom);
       for (const previous of compactTarget ? [] : placed) {
         if (Math.abs(x - previous.x) < (width + previous.width) / 2 + 8 && Math.abs(y - previous.y) < 62) {
           y = previous.y + 62;
@@ -661,7 +673,7 @@ function startGame(mount, opts) {
     responseAttempts = new Map();
     stopTargetCue("interrupted");
     phase = "countdown";
-    phaseTimer = 3.2;
+    phaseTimer = reduceMotion ? 0 : 3.2;
     banner = level.prompt;
     bannerTimer = 4.1;
     refillFish();
