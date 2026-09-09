@@ -1,0 +1,161 @@
+.lg-game-player .lg-illustrated-game--rescue,
+.lg-game-player .lg-illustrated-game--sort {
+  grid-template-columns: minmax(260px, .75fr) minmax(0, 1.25fr);
+  grid-template-rows: minmax(0, 1fr);
+  gap: 12px;
+}
+.lg-game-player .lg-illustrated-game--rescue > .lg-game-stage,
+.lg-game-player .lg-illustrated-game--sort > .lg-game-stage {
+  grid-column: 2;
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  gap: 8px;
+  overflow: hidden;
+  padding: 12px;
+}
+.lg-game-player .lg-illustrated-game--sort > .lg-game-stage { grid-template-rows: auto minmax(0, 1fr); }
+.lg-game-player .lg-illustrated-game .adv-rescue > p:first-child,
+.lg-game-player .lg-illustrated-game .adv-sort > p:first-child { grid-row: 1; }
+.lg-game-player .lg-illustrated-game .adv-rescue > :is(.lg-game-audio, .adv-belt-item) { grid-row: 2; justify-self: center; }
+.lg-game-player .lg-illustrated-game .adv-rescue .adv-choices { grid-row: 4; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 0; }
+.lg-game-player .lg-illustrated-game .adv-rescue .adv-choices button { min-width: 0; min-height: 56px; }
+.lg-game-player .lg-illustrated-game .adventure-finish { grid-row: 3; justify-self: center; min-width: 156px; min-height: 56px; }
+.lg-game-player .lg-illustrated-game .adv-sort .adventure-finish { grid-row: 3; }
+.lg-game-player .lg-illustrated-game > .lg-game-stage.adv-rescue,
+.lg-game-player .lg-illustrated-game > .lg-game-stage.adv-sort {
+  grid-template-columns: 1fr !important;
+  grid-template-rows: auto auto minmax(0, 1fr) auto !important;
+}
+.lg-game-player .lg-illustrated-game > .lg-game-stage.adv-rescue { grid-template-rows: auto minmax(0, 1fr) auto !important; }
+.lg-game-player .lg-illustrated-game > .lg-game-stage.adv-sort { grid-template-rows: auto minmax(0, 1fr) auto !important; }
+.lg-game-player .lg-illustrated-game > .lg-game-stage.adv-rescue > p:first-child,
+.lg-game-player .lg-illustrated-game > .lg-game-stage.adv-sort > p:first-child { grid-column: 1; }
+.lg-game-player .lg-illustrated-game .adv-rescue > :is(.lg-game-audio, .adv-belt-item) {
+  position: absolute;
+  z-index: 7;
+  top: 72px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+}
+.lg-game-player .lg-illustrated-game .adv-rescue .adv-choices { grid-column: 1 !important; grid-row: 3; }
+.lg-game-player .lg-illustrated-game .river-rescue-scene.adv-bridge {
+  display: block;
+  grid-column: 1;
+  grid-row: 2;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding: 0;
+  flex: none;
+  justify-content: initial;
+  align-items: initial;
+}
+.lg-game-player .lg-illustrated-game .word-conveyor-bin.adv-bin {
+  width: 16%;
+  min-width: 76px;
+  min-height: 76px !important;
+  height: 76px !important;
+  max-height: 76px;
+  padding: 0 0 7px;
+}
+.lg-game-player .lg-illustrated-game .word-conveyor-bin.adv-bin:hover:not(:disabled) { transform: translateX(-50%); filter: brightness(1.035) saturate(1.08); }
+.lg-game-player .lg-illustrated-game .word-conveyor-bin.adv-bin:active:not(:disabled) { transform: translateX(-50%) translateY(4px) scale(.985); }
+
+.lg-game-player .river-rescue-scene {
+  grid-row: 3;
+  position: relative;
+  width: 100%;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  border: 3px solid #334155;
+  border-radius: 22px;
+  background: #BFE8F2;
+  box-shadow: 0 8px 0 #334155, inset 0 -12px 0 rgba(15,118,110,.16);
+}
+.lg-game-player .river-rescue-map { display: block; width: 100%; height: 100%; }
+.lg-game-player .river-water { fill: #8DD7E5; }
+.lg-game-player .river-bank { fill: #9DCA65; stroke: #4D7C3A; stroke-width: 7; }
+.lg-game-player .river-bank-left { fill: #A9D56D; }
+.lg-game-player .river-bank-right { fill: #93C45F; }
+.lg-game-player .river-current { fill: none; stroke: rgba(255,255,255,.55); stroke-width: 8; stroke-linecap: round; stroke-dasharray: 22 18; animation: river-flow 5s linear infinite; }
+.lg-game-player .bridge-shadow { fill: none; stroke: rgba(35,74,74,.28); stroke-width: 64; stroke-linecap: round; }
+.lg-game-player .bridge-deck { fill: #D97706; stroke: #78350F; stroke-width: 7; }
+.lg-game-player .bridge-rail { fill: none; stroke: #78350F; stroke-width: 8; stroke-linecap: round; }
+.lg-game-player .home-roof { fill: #E2725B; stroke: #7F1D1D; stroke-width: 6; }
+.lg-game-player .home-wall { fill: #FEF3C7; stroke: #78350F; stroke-width: 6; }
+.lg-game-player .home-door { fill: #7C5CBF; stroke: #334155; stroke-width: 5; }
+.lg-game-player .home-knob { fill: #FEF3C7; stroke: #334155; stroke-width: 2; }
+.lg-game-player .river-home text { fill: #334155; font: 900 22px system-ui, sans-serif; letter-spacing: 2px; }
+.lg-game-player .rescue-plank { fill: #CBD5E1; stroke: #78350F; stroke-width: 2; }
+.lg-game-player .rescue-plank.is-laid { fill: #F59E0B; }
+.lg-game-player .rescue-friend { transition: x 460ms ease-out; filter: drop-shadow(0 6px 3px rgba(39,55,34,.28)); }
+
+.lg-game-player .word-conveyor-scene {
+  grid-row: 2;
+  position: relative;
+  width: 100%;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  border: 3px solid #334155;
+  border-radius: 22px;
+  background: linear-gradient(#BFE8F2 0 42%, #8CBE62 42% 100%);
+  box-shadow: 0 8px 0 #334155;
+}
+.lg-game-player .conveyor-plant { position: absolute; left: 4%; bottom: 14%; width: 20%; height: 26%; border-radius: 60% 40% 0 0; background: #4D7C3A; opacity: .65; }
+.lg-game-player .word-conveyor-belt { position: absolute; inset: 0; overflow: hidden; border-radius: 18px; background: linear-gradient(transparent 0 42%, rgba(71,85,105,.98) 42% 70%, transparent 70%); }
+.lg-game-player .conveyor-track { position: absolute; left: 10%; right: 10%; top: 42%; height: 13%; border-radius: 999px; background: #CBD5E1; box-shadow: inset 0 -4px 0 #64748B; }
+.lg-game-player .conveyor-source-anchor { position: absolute; left: 18%; top: 42%; width: 18px; height: 18px; border: 4px solid #FEF3C7; border-radius: 50%; background: #E2725B; transform: translate(-50%,-50%); z-index: 1; }
+.lg-game-player .conveyor-item { position: absolute; z-index: 3; top: var(--item-start-y); left: var(--item-start-x); min-width: 72px; min-height: 56px; display: grid; place-items: center; border: 3px solid #E2725B; border-radius: 13px; background: #fff; color: #0F172A; box-shadow: 0 6px 0 #E2725B, 0 9px 16px rgba(15,23,42,.22); font-size: clamp(1.45rem, 3vw, 2.25rem); font-weight: 900; padding: 8px 18px; transform: translate(-50%,-50%); }
+.lg-game-player .conveyor-item--idle { animation: none; }
+.lg-game-player .conveyor-item--correct { animation: conveyor-to-bin 640ms ease-in-out forwards; }
+.lg-game-player .conveyor-item--wrong-out { animation: conveyor-to-bin 270ms ease-out forwards; filter: saturate(.6); }
+.lg-game-player .conveyor-item--wrong-return { animation: conveyor-return 300ms ease-in forwards; filter: saturate(.6); }
+.lg-game-player .word-conveyor-scene.is-paused .conveyor-item { animation-play-state: paused; }
+.lg-game-player .word-conveyor-bins { position: absolute; left: 0; right: 0; bottom: 7%; height: 30%; z-index: 4; }
+.lg-game-player .word-conveyor-bin { position: absolute; bottom: 0; width: 16%; min-width: 76px; min-height: 64px; border: 0; border-radius: 14px; background: transparent; transform: translateX(-50%); padding: 0 0 7px; }
+.lg-game-player .conveyor-bin-label { display: grid; place-items: center; min-height: 50px; border: 3px solid #3B82C4; border-radius: 14px 14px 5px 5px; background: #EAF2FA; color: #0F172A; box-shadow: 0 7px 0 #3B82C4; font-size: clamp(1.05rem, 2.4vw, 1.75rem); font-weight: 900; }
+.lg-game-player .conveyor-bin-label::before { content: "/"; margin-right: 1px; }
+.lg-game-player .conveyor-bin-label::after { content: "/"; margin-left: 1px; }
+.lg-game-player .lg-illustrated-game .word-conveyor-bin .conveyor-bin-label { width: 100% !important; min-width: 0 !important; min-height: 50px !important; height: 50px !important; padding: 0 4px !important; font-size: clamp(1.05rem, 2.4vw, 1.75rem); white-space: nowrap; }
+.lg-game-player .lg-illustrated-game .word-conveyor-bin .conveyor-bin-mouth { width: 70% !important; height: 10px !important; margin: 4px auto 0 !important; }
+.lg-game-player .word-conveyor-bin:nth-child(2) .conveyor-bin-label { border-color: #7C5CBF; background: #F1EDFA; box-shadow: 0 7px 0 #7C5CBF; }
+.lg-game-player .conveyor-bin-mouth { display: block; width: 70%; height: 10px; margin: 4px auto 0; border-radius: 999px; background: #334155; }
+.lg-game-player .word-conveyor-bin.is-target .conveyor-bin-label { outline: 5px solid #166534; }
+.lg-game-player .word-conveyor-bin.is-rejected .conveyor-bin-label { outline: 5px solid #E2725B; }
+.lg-game-player .conveyor-route { position: absolute; left: 5%; right: 5%; bottom: 1%; z-index: 5; display: flex; align-items: center; justify-content: space-between; color: #334155; font-size: .68rem; font-weight: 900; letter-spacing: .1em; }
+.lg-game-player .conveyor-route i { flex: 1; height: 3px; margin: 0 8px; background: #334155; }
+.lg-game-player .conveyor-status { position: absolute; left: 50%; bottom: 2%; z-index: 6; transform: translateX(-50%); color: #334155; font-size: .7rem; font-weight: 800; white-space: nowrap; }
+
+@keyframes river-flow { to { stroke-dashoffset: -80px; } }
+@keyframes conveyor-to-bin { from { left: var(--item-start-x); top: var(--item-start-y); } to { left: var(--item-target-x); top: var(--item-target-y); } }
+@keyframes conveyor-return { from { left: var(--item-target-x); top: var(--item-target-y); } to { left: var(--item-start-x); top: var(--item-start-y); } }
+
+@media (max-width: 740px) {
+  .lg-game-player .lg-illustrated-game--rescue,
+  .lg-game-player .lg-illustrated-game--sort { grid-template-columns: 1fr; grid-template-rows: 1fr; gap: 0; padding: 4px; }
+  .lg-game-player .lg-illustrated-game--rescue > .lg-illustrated-game-art,
+  .lg-game-player .lg-illustrated-game--sort > .lg-illustrated-game-art { display: none; }
+  .lg-game-player .lg-illustrated-game--rescue > .lg-game-stage,
+  .lg-game-player .lg-illustrated-game--sort > .lg-game-stage { grid-column: 1; grid-row: 1; padding: 4px; gap: 4px; }
+  .lg-game-player .lg-illustrated-game > .lg-game-stage.adv-rescue { grid-template-rows: auto minmax(96px,1fr) auto !important; }
+  .lg-game-player .lg-illustrated-game > .lg-game-stage.adv-sort { grid-template-rows: auto minmax(140px,1fr) auto; }
+  .lg-game-player .lg-illustrated-game .adv-rescue > :is(.lg-game-audio, .adv-belt-item) { top: 52px; min-height: 56px; height: 56px; padding: 6px 12px; }
+  .lg-game-player .river-rescue-scene.adv-bridge { min-height: 96px; height: 100%; border-radius: 16px; }
+  .lg-game-player .word-conveyor-scene { min-height: 140px; height: 100%; border-radius: 16px; }
+  .lg-game-player .lg-illustrated-game .adv-rescue .adv-choices { gap: 8px; }
+  .lg-game-player .lg-illustrated-game .adv-rescue .adv-choices button { min-height: 56px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lg-game-player .river-current,
+  .lg-game-player .rescue-friend,
+  .lg-game-player .conveyor-item { animation: none; transition: none; }
+  .lg-game-player .conveyor-item--correct { left: var(--item-target-x); top: var(--item-target-y); }
+  .lg-game-player .conveyor-item--wrong-out { left: var(--item-target-x); top: var(--item-target-y); }
+  .lg-game-player .conveyor-item--wrong-return { left: var(--item-start-x); top: var(--item-start-y); }
+}

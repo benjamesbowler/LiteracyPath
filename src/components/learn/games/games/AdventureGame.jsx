@@ -5,7 +5,7 @@ import { ConfettiCelebration } from "../shared/ConfettiCelebration.jsx";
 import { IllustratedGameScene } from "../shared/IllustratedGameScene.jsx";
 import { ProgressStars } from "../shared/ProgressStars.jsx";
 import { getChildWordAsset } from "../../../../data/childAssets.js";
-import { G12ConveyorScene, G12RiverScene } from "./G12AdventureScenes.jsx";
+import { RiverRescueScene, WordConveyorScene } from "./adventureScenes.jsx";
 import {
   buildAdventureRoundSet,
   adventureStars
@@ -162,7 +162,7 @@ function Complete({ title, stars, score, onRestart }) {
 
 // ── Word Rescue ────────────────────────────────────────────────────────────
 function RescueStage({ rounds, state, isSoundEnabled }) {
-  const { index, resumeSteps, currentSolvedSteps, paused, wrongWord, choose } = state;
+  const { index, resumeSteps, currentSolvedSteps, paused, arrivalReady, wrongWord, choose, finish } = state;
   const round = rounds[index] || rounds[rounds.length - 1];
   const canHearWord = isSoundEnabled && hasRecordedSpeech(round?.word);
 
@@ -179,26 +179,30 @@ function RescueStage({ rounds, state, isSoundEnabled }) {
         // Sound off: the target only exists as audio, so show it as a card.
         <span className="adv-belt-item" style={{ animation: "none" }}>{round.word}</span>
       )}
-      <G12RiverScene total={rounds.length} knownCompletedSteps={resumeSteps} currentSolvedSteps={currentSolvedSteps} paused={paused} />
-      <div className="adv-choices">
-        {round.choices.map(word => (
-          <button
-            key={word}
-            type="button"
-            className={wrongWord === word ? "kid-wobble" : ""}
-            onClick={() => choose(word)}
-          >
-            {word}
-          </button>
-        ))}
-      </div>
+      <RiverRescueScene total={rounds.length} knownCompletedSteps={resumeSteps} currentSolvedSteps={currentSolvedSteps} paused={paused} />
+      {arrivalReady ? (
+        <button type="button" className="lg-game-primary adventure-finish" onClick={finish}>Finish</button>
+      ) : (
+        <div className="adv-choices">
+          {round.choices.map(word => (
+            <button
+              key={word}
+              type="button"
+              className={wrongWord === word ? "kid-wobble" : ""}
+              onClick={() => choose(word)}
+            >
+              {word}
+            </button>
+          ))}
+        </div>
+      )}
     </IllustratedGameScene>
   );
 }
 
 // ── Sound Sort Factory ─────────────────────────────────────────────────────
 function SortStage({ sort, state, isSoundEnabled }) {
-  const { index, motion, paused, sortItem } = state;
+  const { index, motion, paused, arrivalReady, sortItem, finish } = state;
   const item = sort.items[index] || sort.items[sort.items.length - 1];
 
   useEffect(() => {
@@ -208,7 +212,8 @@ function SortStage({ sort, state, isSoundEnabled }) {
   return (
     <IllustratedGameScene mode="sort" stageClassName="adv-sort">
       <p data-task-mode="orthographic">Read the printed word. Sort its beginning grapheme into the matching bin.</p>
-      <G12ConveyorScene item={item} binA={sort.binA} binB={sort.binB} motion={motion} paused={paused} onSelect={bin => { if (isSoundEnabled) speakPhoneme(bin); sortItem(bin); }} />
+      <WordConveyorScene item={item} binA={sort.binA} binB={sort.binB} motion={motion} paused={paused} onSelect={bin => { if (isSoundEnabled) speakPhoneme(bin); sortItem(bin); }} />
+      {arrivalReady && <button type="button" className="lg-game-primary adventure-finish" onClick={finish}>Finish</button>}
     </IllustratedGameScene>
   );
 }
@@ -310,6 +315,8 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   const [wrongLetter, setWrongLetter] = useState("");
   const [sortMotion, setSortMotion] = useState({ phase: "idle", bin: "", token: 0 });
   const [enginePaused, setEnginePaused] = useState(false);
+  const [arrivalReady, setArrivalReady] = useState(false);
+  const [resumeSteps, setResumeSteps] = useState(initialStartLevel);
   // Busy blocks all input between a correct tap and the scheduled advance, so
   // double-taps can't double-count or fire onComplete twice. timeoutsRef tracks
   // every pending timer as {id, fn, remaining, startedAt} entries so unmount
@@ -397,6 +404,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   }, []);
 
   function finish(correctCount) {
+    setArrivalReady(false);
     const earned = adventureStars(correctCount, total, wrongs);
     setStars(earned);
     setCompleted(true);
@@ -413,11 +421,12 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   function advance(correctCount, delay = 600) {
     later(() => {
       speechTokenRef.current += 1;
+      const isFinal = index + 1 >= total;
       busyRef.current = false;
-      sortMotionRef.current = false;
-      setSortMotion({ phase: "idle", bin: "", token: 0 });
-      if (index + 1 >= total) finish(correctCount);
+      if (isFinal) setArrivalReady(true);
       else {
+        sortMotionRef.current = false;
+        setSortMotion({ phase: "idle", bin: "", token: 0 });
         const next = index + 1;
         setTyped([]); // letters never leak into the next round
         setIndex(next);
@@ -448,6 +457,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
     setVersion(v => v + 1);
     setIndex(0); scoreRef.current = 0; setScore(0); setWrongs(0); setCompleted(false); setStars(0);
     setTyped([]); setGrown([]); setPlanks(0); setSortMotion({ phase: "idle", bin: "", token: 0 });
+    setArrivalReady(false); setResumeSteps(0);
     sortMotionRef.current = false;
     resultReadyRef.current = false;
     responseEvidenceRef.current = { firstResponses: [], assistedRetries: [] };
@@ -484,7 +494,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
 
   if (mode === "rescue") {
     const state = {
-      index, planks, resumeSteps: initialStartLevel, currentSolvedSteps: Math.max(0, planks - initialStartLevel), paused: enginePaused, wrongWord,
+      index, planks, resumeSteps, currentSolvedSteps: Math.max(0, planks - resumeSteps), paused: enginePaused, arrivalReady, wrongWord,
       choose: word => {
         if (busyRef.current) return;
         const round = rescue[index];
@@ -509,12 +519,12 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
         advance(planks + 1);
       }
     };
-    return <RescueStage rounds={rescue} state={state} isSoundEnabled={isSoundEnabled} />;
+    return <RescueStage rounds={rescue} state={{ ...state, finish: () => finish(total) }} isSoundEnabled={isSoundEnabled} />;
   }
 
   if (mode === "sort") {
     const state = {
-      index, wrongBin, motion: sortMotion, paused: enginePaused,
+      index, wrongBin, motion: sortMotion, paused: enginePaused, arrivalReady,
       sortItem: bin => {
         if (busyRef.current || sortMotionRef.current) return;
         const item = sort.items[index];
@@ -544,7 +554,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
         advance(index + 1, 700);
       }
     };
-    return <SortStage sort={sort} state={state} isSoundEnabled={isSoundEnabled} />;
+    return <SortStage sort={sort} state={{ ...state, finish: () => finish(total) }} isSoundEnabled={isSoundEnabled} />;
   }
 
   const state = {
