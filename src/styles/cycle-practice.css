@@ -3,6 +3,7 @@
   --cycle-ink: #163f50;
   --cycle-blue: #147da2;
   --cycle-yellow: #ffd75c;
+  --cycle-control-gap: max(8px, calc(var(--kg-physical-hit, 56px) / 7));
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -17,10 +18,20 @@
   font-family: var(--lp-font-reading, sans-serif);
 }
 .cycle-practice-page *, .cycle-practice-page *::before, .cycle-practice-page *::after { box-sizing: border-box; }
-.cycle-practice-page button { font-family: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+.cycle-practice-page button { font-family: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+/* Outrank the shared child-shell manipulation rule: a drifting finger inside
+   an answer is still a tap, not a request to pan the page. */
+.cycle-practice-page.cycle-practice-page button { touch-action: none; }
+/* Keep enabled and listening/feedback geometry identical, with a subpixel
+   allowance so the scaled frame never rounds a 56px target below its floor. */
+.kg-stage .cycle-practice-page.cycle-practice-page button,
+.cycle-practice-page button {
+  min-width: max(56px, calc(var(--kg-physical-hit, 56px) + .5px)) !important;
+  min-height: max(56px, calc(var(--kg-physical-hit, 56px) + .5px)) !important;
+}
 .cycle-practice-page button:focus-visible { outline: 4px solid #173b58; outline-offset: 5px; }
 .cycle-practice-page button:disabled { cursor: default; }
-.cycle-practice-page button:not(:disabled):active { transform: translateY(3px) scale(.98); }
+.cycle-practice-page button:not(:disabled):active { transform: none; filter: brightness(.97); }
 .cycle-practice-topbar { display: flex; align-items: center; justify-content: space-between; flex: 0 0 auto; min-height: 68px; gap: 16px; padding: 6px 14px; border-radius: 20px; background: #fffef8; box-shadow: 0 3px 0 #d5e9e9; z-index: 2; }
 .cycle-practice-topbar__identity { display: flex; gap: 12px; align-items: center; }
 .cycle-brand-mark { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 16px; color: #174d57; background: var(--cycle-yellow); transform: rotate(-7deg); }
@@ -36,7 +47,7 @@
 .cycle-icon-button { display: grid; place-items: center; min-width: 56px; min-height: 56px; border: 0; border-radius: 18px; background: #e7f1f3; color: #245768; box-shadow: 0 3px 0 #c7dce1; }
 .cycle-icon-button svg { width: 24px; height: 24px; }
 .cycle-icon-button:disabled { opacity: .45; }
-.cycle-playground { position: relative; isolation: isolate; flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; overflow: hidden; border: 3px solid #fffef5; border-radius: 28px; background: #c6eaf3; box-shadow: 0 4px 0 #b7dadd; }
+.cycle-playground { position: relative; isolation: isolate; flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; overflow: clip; border: 3px solid #fffef5; border-radius: 28px; background: #c6eaf3; box-shadow: 0 4px 0 #b7dadd; }
 .cycle-scenery { pointer-events: none; position: absolute; z-index: -1; inset: 0; overflow: hidden; background: linear-gradient(#bbe6f0 0%, #ddf3f1 58%, #b6ddd1 59%, #8fc7b7 100%); }
 .cycle-scenery::before, .cycle-scenery::after { content: ''; position: absolute; background: #f6fff4; opacity: .7; width: 24%; height: 14%; border-radius: 50%; top: 18%; left: -8%; transform: rotate(-12deg); }
 .cycle-scenery::after { left: auto; right: -8%; top: 28%; width: 22%; }
@@ -63,7 +74,7 @@
 .cycle-answer--picture .cycle-picture { width: 100%; height: 100%; max-height: 220px; border-radius: 25%; mix-blend-mode: multiply; }
 .cycle-answer--picture::after { content: ''; position: absolute; height: 9px; width: 86%; bottom: -23px; border-radius: 50%; background: #407c821f; }
 .cycle-answer--letter { border-radius: 28px; min-height: 150px; font: 800 clamp(55px, 8vw, 90px)/1 var(--lp-font-letter, var(--lp-font-reading)); background: #fff4ce; border-color: #fffef5; box-shadow: 0 9px 0 #ceab59; }
-.cycle-answer:hover:not(:disabled) { transform: translateY(-5px); }
+.cycle-answer:hover:not(:disabled) { transform: none; }
 .cycle-answer[aria-pressed="true"] { outline: 5px solid #2383a8; outline-offset: 4px; }
 .cycle-choice-marker { position: absolute; right: 12px; bottom: 5px; font-size: 22px; color: #20759a; }
 .cycle-picture-hear { display: grid; place-items: center; width: 56px; height: 56px; min-width: 56px; min-height: 56px; padding: 10px; border: 3px solid #fff; border-radius: 50%; background: #e3f5fa; color: #266779; box-shadow: 0 4px 0 #7fafbb; z-index: 2; }
@@ -109,10 +120,10 @@
 .cycle-letter-bank { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; width: 100%; }
 .cycle-letter-block { display: grid; place-items: center; min-width: 80px; min-height: 82px; padding: 9px 18px; border: 4px solid #fffdf4; border-radius: 20px; color: #195568; background: #bfe9ed; box-shadow: 0 6px 0 #73a6b3; font: 800 44px/1 var(--lp-font-letter, var(--lp-font-reading)); }
 .cycle-sort-play { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; gap: 5px; }
-.cycle-sort-package { position: relative; }
+.cycle-sort-package { position: relative; display: flex; align-items: center; gap: var(--cycle-control-gap); }
 .cycle-sort-picture { display: grid; place-items: center; width: 170px; height: 155px; padding: 12px; border: 5px solid #fffdf3; border-radius: 24px; background: #fffdf5; box-shadow: 0 6px 0 #bd9d55; touch-action: none !important; }
 .cycle-sort-picture .cycle-picture { width: 100%; height: 100%; mix-blend-mode: multiply; }
-.cycle-sort-package > .cycle-picture-hear { position: absolute; bottom: -8px; right: -24px; }
+.cycle-sort-package > .cycle-picture-hear { position: static; flex-shrink: 0; }
 .cycle-sort-package--picked { transform: rotate(-3deg) translateY(-5px); }
 .cycle-sort-package--picked .cycle-sort-picture { outline: 4px dashed #558359; outline-offset: 5px; }
 .cycle-sort-arrow { line-height: 1; font-size: 36px; color: #4e7966; }
@@ -247,7 +258,7 @@
 .cycle-sort-tray { position: relative; display: flex; align-items: center; justify-content: center; width: 100%; }
 .cycle-sort-waiting { position: absolute; display: flex; gap: 12px; left: 0; bottom: 10px; padding: 12px; border-radius: 22px; background: #dcebea; }
 .cycle-sort-waiting .cycle-picture { width: 64px; height: 64px; object-fit: contain; border-radius: 14px; }
-.cycle-sorted-pictures { position: absolute; display: flex; justify-content: center; gap: 6px; bottom: -16px; z-index: 2; }
+.cycle-sorted-pictures { display: flex; justify-content: center; align-items: center; gap: 8px; min-height: 70px; width: 100%; padding: 4px; border-radius: 20px; background: #fff9df80; }
 .cycle-sorted-pictures .cycle-picture { width: 62px; height: 62px; border-radius: 15px; object-fit: contain; border: 3px solid #fff; background: #fff; box-shadow: 0 3px 0 #af8954; }
 .cycle-beat-dots { display: flex; flex-wrap: wrap; gap: 7px; max-width: 50px; justify-content: center; }
 .cycle-beat-dots i { width: 18px; height: 18px; background: #705129; border-radius: 50%; }
@@ -283,4 +294,112 @@
   min-height: 138px;
   font: 800 clamp(48px, 6vw, 76px)/1 var(--lp-font-letter, var(--lp-font-reading));
   background: #fffdf3;
+}
+
+/* Completed objects have their own shelf. Neither an image nor a speaker
+   overlaps the permanent letter/beat label or its touch target. */
+.cycle-sort-bins { gap: max(24px, var(--cycle-control-gap)); max-width: 730px; align-items: start; }
+.cycle-sort-bin-wrap { min-width: 0; flex: 1; gap: max(14px, var(--cycle-control-gap)); }
+.cycle-sort-bin-actions { display: flex; align-items: center; justify-content: center; gap: var(--cycle-control-gap); width: 100%; }
+.cycle-practice-page .cycle-sort-bin { min-width: max(100px, var(--kg-physical-hit, 56px)); flex: 1; }
+.cycle-sort-bin--hovered { outline: 5px dashed #165c80; outline-offset: 4px; }
+.cycle-sort-bins:has(.cycle-beat-dots) .cycle-sort-bin-actions { flex-direction: column; }
+.cycle-sort-bins:has(.cycle-beat-dots) .cycle-sort-bin { width: 100%; }
+.cycle-drag-picture { position: fixed; z-index: 10000; width: 86px; height: 86px; object-fit: contain; pointer-events: none; transform: translate(-50%, -65%); padding: 6px; border: 3px solid #fff; border-radius: 18px; background: #fffef5; box-shadow: 0 5px 10px #163f5040; }
+.cycle-readiness { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; min-height: 38px; padding: 6px 18px; border-radius: 20px; background: #f4ffec; color: #285d49; font-size: 18px; font-weight: 800; white-space: nowrap; pointer-events: none; }
+.cycle-readiness > svg { width: 25px; height: 25px; }
+.cycle-readiness--listening { background: #fff3c4; color: #624b16; }
+.cycle-readiness .cycle-audio-pulse { position: static; }
+.cycle-practice-page .cycle-letter-bank { gap: max(14px, var(--cycle-control-gap)); }
+.cycle-practice-page .cycle-practice-topbar__actions { gap: max(10px, var(--cycle-control-gap)); }
+.cycle-practice-page .cycle-choice-wrap { gap: max(14px, var(--cycle-control-gap)); }
+.cycle-choice-play--wordBuild { gap: 28px; }
+.cycle-practice-page .cycle-activity-space { padding-bottom: 12px; }
+.cycle-feedback, .cycle-readiness { position: static; transform: none; align-self: center; flex-shrink: 0; }
+.cycle-feedback { min-height: 0; }
+.cycle-feedback.is-visible, .cycle-readiness { margin: 4px 8px 10px; }
+/* Short landscape keeps the model and response together. The existing
+   instruction moves into the header; the status retains its own footer. */
+@media (max-height: 560px) {
+  .cycle-practice-topbar { position: relative; display: grid; grid-template-columns: 80px minmax(0, 1fr) auto; gap: 8px; padding: 3px 8px; }
+  .cycle-practice-topbar__identity { align-self: start; padding-top: 6px; }
+  .cycle-practice-topbar__identity h1 { font-size: 14px; }
+  .cycle-practice-topbar__identity div > span, .cycle-brand-mark, .cycle-star-trail { display: none; }
+  .cycle-practice-topbar__round { position: absolute; left: 8px; bottom: 5px; width: 80px; text-align: left; }
+  .cycle-practice-topbar__round strong { font-size: 9px; line-height: 1.15; }
+  .cycle-instruction-row { min-width: 0; padding: 0; gap: 8px; }
+  .cycle-instruction-row p { margin: 0; font-size: 16px; line-height: 1.15; }
+  .cycle-activity-name, .cycle-listen-button span { display: none; }
+  .cycle-listen-button { width: 56px; min-width: 56px; min-height: 56px; padding: 8px; }
+  .cycle-practice-page .cycle-practice-topbar__actions { gap: 8px; }
+  .cycle-practice-page .cycle-activity-space { overflow: auto; overscroll-behavior: contain; touch-action: pan-y; padding: 8px 12px 10px; }
+  .cycle-readiness { min-height: 25px; margin: 2px 8px 5px; padding: 2px 12px; font-size: 15px; }
+  .cycle-readiness > svg { width: 21px; height: 21px; }
+  .cycle-feedback.is-visible { min-height: 29px; padding: 2px 12px; font-size: 17px; margin: 2px 8px 5px; }
+  .cycle-feedback svg { width: 22px; height: 22px; }
+  .cycle-choice-play { flex-direction: row; gap: 16px; align-items: center; }
+  .cycle-play-choices, .cycle-choice-play--rhymeMatch .cycle-play-choices { gap: 16px; min-width: 0; }
+  .cycle-practice-page .cycle-choice-wrap { min-width: 0; gap: max(14px, var(--cycle-control-gap)); }
+  .cycle-answer--picture { aspect-ratio: auto; height: 100px; min-height: 0; padding: 7px; border-width: 3px; }
+  .cycle-answer--picture .cycle-picture { max-height: 85px; }
+  .cycle-answer--picture::after { display: none; }
+  .cycle-sound-sun { flex: 0 0 80px; min-width: 80px; padding: 2px 8px; }
+  .cycle-sound-sun > svg, .cycle-rhyme-link { display: none; }
+  .cycle-choice-play .cycle-picture-model { display: flex; flex-flow: row wrap; gap: 8px; flex: 0 0 120px; min-width: 0; min-height: 0; max-width: 120px; padding: 8px; border-radius: 24px; }
+  .cycle-choice-play .cycle-picture-model > .cycle-picture { width: 80px; height: 80px; }
+  .cycle-choice-play .cycle-picture-model > .cycle-picture-hear { position: static; }
+  .cycle-choice-play--letterMatch .cycle-picture-model:has(.cycle-model-letter) > .cycle-picture { width: 52px; height: 60px; }
+  .cycle-model-letter { font-size: 42px; }
+  .cycle-choice-play--letterMatch .cycle-play-choices { flex-wrap: nowrap; gap: 12px; }
+  .cycle-practice-page .cycle-answer--letter { min-height: 100px; padding: 8px; font-size: 48px; }
+  .cycle-practice-page .cycle-answer--word { min-height: 100px; min-width: 0; padding: 6px; font-size: 28px; }
+  .cycle-word-workshop { display: grid; grid-template-columns: 140px minmax(0, 1fr); grid-template-rows: auto auto; align-content: center; gap: 16px; }
+  .cycle-build-target { grid-row: 1 / 3; flex-wrap: wrap; gap: 8px; padding: 8px; width: 140px; }
+  .cycle-build-target .cycle-picture { width: 58px; height: 60px; }
+  .cycle-copy-model { order: -1; width: 100%; font-size: 32px; text-align: center; }
+  .cycle-before-word > .cycle-picture { width: 48px; height: 44px; }
+  .cycle-before-word > span { font-size: 20px; }
+  .cycle-change-arrow { width: 20px; height: 20px; }
+  .cycle-train-engine { display: none; }
+  .cycle-word-train { gap: 8px; padding: 0 0 12px; justify-content: center; }
+  .cycle-word-train::after { left: 0; right: 0; }
+  .cycle-word-car { min-width: 38px; min-height: 60px; padding: 4px; font-size: 32px; border-width: 3px; }
+  .cycle-word-car > i { width: 16px; height: 16px; border-width: 4px; left: 1px; bottom: -10px; }
+  .cycle-word-car > i:last-child { right: 1px; }
+  .cycle-word-car::after { width: 10px; right: -12px; }
+  .cycle-practice-page .cycle-letter-bank { gap: 10px; flex-wrap: nowrap; }
+  .cycle-practice-page .cycle-letter-block { padding: 6px; font-size: 32px; }
+  .cycle-sort-play { display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: 16px; align-items: center; }
+  .cycle-sort-package { flex-direction: column; }
+  .cycle-sort-picture { width: 72px; height: 72px; padding: 5px; border-width: 3px; }
+  .cycle-sort-waiting, .cycle-sort-arrow { display: none; }
+  .cycle-sort-bins { gap: 16px; }
+  .cycle-practice-page .cycle-sort-bin { min-width: 0; min-height: 94px; padding: 5px; border-width: 4px; }
+  .cycle-sort-bin strong { min-width: 0; min-height: 65px; padding: 5px 12px; font-size: 40px; }
+  .cycle-sort-bins:has(.cycle-beat-dots) { gap: 10px; }
+  .cycle-sort-bins:has(.cycle-beat-dots) .cycle-sort-bin strong { min-width: 0; padding: 4px; }
+  .cycle-sort-bins:has(.cycle-beat-dots) .cycle-sort-bin-actions { gap: 10px; }
+  .cycle-sorted-pictures { min-height: 66px; }
+  .cycle-sorted-pictures .cycle-picture { width: 58px; height: 58px; }
+  .cycle-trace { display: grid; grid-template-columns: minmax(0, 1fr) 57px; gap: 10px; align-items: stretch; }
+  .cycle-trace__workspace { min-height: 0; gap: 10px; }
+  .cycle-trace__picture-card { flex-basis: 80px; padding: 6px; }
+  .cycle-trace__picture-card img { height: 70px; }
+  .cycle-trace__target { font-size: 36px; }
+  .cycle-trace__collect { display: none; }
+  .cycle-trace__drawing { gap: 6px; }
+  .cycle-trace__caption { min-height: 0; font-size: 18px; gap: 0; }
+  .cycle-trace__status { min-height: 0; font-size: 14px; }
+  .cycle-practice-page .cycle-trace__pad { min-height: 0; max-height: none; height: 0; }
+  .cycle-trace__progress { flex: 0 0 8px; }
+  .cycle-trace__tools { flex-direction: column; gap: 8px; justify-content: center; }
+  .cycle-trace__tools button { flex: 0 0 auto; padding: 8px; }
+  .cycle-trace__tools button span { display: none; }
+}
+@media (max-width: 540px) {
+  .cycle-sort-bin-actions { flex-direction: column; }
+  .cycle-sort-bin { width: 100%; }
+  .cycle-sort-bins:has(.cycle-beat-dots) .cycle-sort-bin { min-width: max(56px, var(--kg-physical-hit, 56px)); }
+  .cycle-sorted-pictures .cycle-picture { width: 48px; height: 48px; }
+  .cycle-sorted-pictures { min-height: 56px; }
 }

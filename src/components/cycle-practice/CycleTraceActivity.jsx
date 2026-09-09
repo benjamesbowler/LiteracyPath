@@ -1,3 +1,4 @@
+import CycleButton from "./CycleButton.jsx";
 import { useEffect, useRef, useState } from "react";
 import { ArrowCounterClockwise, Eye, HandTap, PencilLine, Sparkle } from "@phosphor-icons/react";
 import { CYCLE_TRACE_RULES, createCycleTraceModel, cycleTraceCompletion, evaluateCycleTrace } from "./cycleTraceRules.js";
@@ -13,7 +14,7 @@ export default function CycleTraceActivity(props) {
 }
 
 function TraceRound({ round, grapheme, disabled = false, onCommit, supportLevel = 0,
-  reducedMotion = false, onInteraction, onRetry, onSupport, onMediaFailure }) {
+  reducedMotion = false, onInteraction, onRetry, onSupport, onMediaFailure, mediaRevision = 0 }) {
   const [model] = useState(() => createCycleTraceModel(grapheme));
   const [ink, setInk] = useState([]);
   const [liveInk, setLiveInk] = useState([]);
@@ -197,7 +198,7 @@ function TraceRound({ round, grapheme, disabled = false, onCommit, supportLevel 
       data-mechanic-stage="cycle-trace" data-reduced-motion={reducedMotion ? "true" : "false"}>
       <div className="cycle-trace__workspace">
         <aside className="cycle-trace__picture-card">
-          {picture && <img src={picture} alt={round?.targetWord || round?.word || "Letter picture"} draggable="false" onError={onMediaFailure} />}
+          {picture && <img key={`${picture}:${mediaRevision}`} src={picture} alt={round?.targetWord || round?.word || "Letter picture"} draggable="false" onError={onMediaFailure} />}
           <span className="cycle-trace__target">{grapheme}</span>
           <div className="cycle-trace__collect" aria-hidden="true">
             <PencilLine weight="fill" /><span /><Sparkle weight="fill" />
@@ -244,9 +245,9 @@ function TraceRound({ round, grapheme, disabled = false, onCommit, supportLevel 
         </div>
       </div>
       <div className="cycle-trace__tools" role="group" aria-label="Tracing tools">
-        <button type="button" disabled={disabled || isDone} onClick={reset} aria-label="Erase and start again"><ArrowCounterClockwise weight="bold" /><span>Again</span></button>
-        <button type="button" disabled={disabled || isDone} onClick={showModel} aria-label="Show me the letter trail"><Eye weight="fill" /><span>Show me</span></button>
-        <button type="button" disabled={disabled || isDone} onClick={helpTrace} aria-label="Help me trace one part"><HandTap weight="fill" /><span>Help me</span></button>
+        <CycleButton type="button" disabled={disabled || isDone} onClick={reset} aria-label="Erase and start again"><ArrowCounterClockwise weight="bold" /><span>Again</span></CycleButton>
+        <CycleButton type="button" disabled={disabled || isDone} onClick={showModel} aria-label="Show me the letter trail"><Eye weight="fill" /><span>Show me</span></CycleButton>
+        <CycleButton type="button" disabled={disabled || isDone} onClick={helpTrace} aria-label="Help me trace one part"><HandTap weight="fill" /><span>Help me</span></CycleButton>
       </div>
     </section>
   );

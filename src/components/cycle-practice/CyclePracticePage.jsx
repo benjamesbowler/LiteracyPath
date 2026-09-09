@@ -1,3 +1,4 @@
+import CycleButton from "./CycleButton.jsx";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import { elSkillsBlockCycles } from "../../data/elSkillsBlockCycles.js";
@@ -98,8 +99,13 @@ function CyclePracticeSession({
   const [feedbackTone, setFeedbackTone] = useState("ready");
   const [feedbackRound, setFeedbackRound] = useState(null);
   const [feedbackKey, setFeedbackKey] = useState("");
+  const [feedbackActivityKey, setFeedbackActivityKey] = useState("");
   const [entered, setEntered] = useState(false);
+  const [compact, setCompact] = useState(() => globalThis.matchMedia?.("(max-height: 560px)").matches || false);
   const [mediaFailed, setMediaFailed] = useState(false);
+  const [mediaRevision, setMediaRevision] = useState(0);
+  const [picturesReadyFor, setPicturesReadyFor] = useState("");
+  const activitySpace = useRef(null);
   const [subtarget, setSubtarget] = useState(null);
   const [answerPending, setAnswerPending] = useState(false);
   const [audioStatus, setAudioStatus] = useState("ready");
@@ -109,6 +115,7 @@ function CyclePracticeSession({
   const saveGuard = useRef(false);
   const advanceTimer = useRef(null);
   const audioEpoch = useRef(0);
+  const audioWatchdog = useRef(null);
   const audioDelivery = useRef("pending");
   const audioDeliveryOwner = useRef("");
   const feedbackResume = useRef(null);
@@ -132,8 +139,32 @@ function CyclePracticeSession({
   const teachingOwner = `${roundKey}:target:${teachingRound?.targetWord || ""}:audio:${teachingRound?.audio || ""}`;
   const teachingReady = audioStatus === "ready" && audioDelivery.current === "delivered"
     && audioDeliveryOwner.current === teachingOwner;
+  const pictureKey = `${feedbackActivityKey || roundRunKey}:${currentObject?.word || ""}:${mediaRevision}`;
+  const picturesReady = picturesReadyFor === pictureKey;
+  function checkPictures() {
+    const pictures = [...(activitySpace.current?.querySelectorAll("img") || [])];
+    if (pictures.length && pictures.every(image => image.complete && image.naturalWidth > 0)) setPicturesReadyFor(pictureKey);
+  }
+  useEffect(() => {
+    const frame = requestAnimationFrame(checkPictures);
+    return () => cancelAnimationFrame(frame);
+    // The mounted picture set changes only with this exact activity/object/retry.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pictureKey]);
+  useEffect(() => {
+    const media = window.matchMedia("(max-height: 560px)");
+    const resize = () => setCompact(media.matches);
+    media.addEventListener("change", resize);
+    return () => media.removeEventListener("change", resize);
+  }, []);
+  useEffect(() => {
+    if (picturesReady || mediaFailed || !entered || paused) return;
+    const timeout = setTimeout(() => setMediaFailed(true), 15000);
+    return () => clearTimeout(timeout);
+  }, [pictureKey, picturesReady, mediaFailed, entered, paused]);
 
   function invalidateTeaching() {
+    clearTimeout(audioWatchdog.current);
     audioEpoch.current += 1;
     audioDeliveryOwner.current = "";
     audioDelivery.current = "pending";
@@ -179,7 +210,7 @@ function CyclePracticeSession({
     return () => {
       tick(); save(); clearInterval(timer); clearTimeout(advanceTimer.current);
       document.removeEventListener("visibilitychange", visibility); window.removeEventListener("pagehide", save);
-      audioEpoch.current += 1; stopCueAudio();
+      clearTimeout(audioWatchdog.current); audioEpoch.current += 1; stopCueAudio();
     };
     // These long-lived listeners read mutable session values through stateRef.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -208,22 +239,30 @@ function CyclePracticeSession({
     let terminal = false;
     const fail = () => {
       if (epoch !== audioEpoch.current || owner !== audioDeliveryOwner.current || terminal) return;
-      terminal = true; audioDelivery.current = "unavailable"; setAudioStatus("unavailable"); callbacks.onUnavailable?.();
+      terminal = true; clearTimeout(audioWatchdog.current); audioDelivery.current = "unavailable"; setAudioStatus("unavailable"); callbacks.onUnavailable?.();
     };
     // A missing authored target cannot be substituted by a delivered instruction.
     if (!resolved.instructionAudio || (currentRound.contextText && !resolved.contentAudio) || !sequence.length || (requiresCycleAudio(currentRound) && !resolved.targetAudio.length && !resolved.contentAudio && currentRound.variant !== "wordParts")) { fail(); return; }
     audioDelivery.current = "pending";
     setAudioStatus("playing");
+    // A media element can stall without emitting error or ended. Recover the
+    // replay route if any short authored clip stops making delivery progress.
+    const watch = () => {
+      clearTimeout(audioWatchdog.current);
+      audioWatchdog.current = setTimeout(() => { fail(); if (epoch === audioEpoch.current) stopCueAudio(); }, 20000);
+    };
+    watch();
     playCueSequence(sequence, {
       gapMs: 40, playImmediately: callbacks.playImmediately,
+      onItemDelivery: event => { if (!terminal && epoch === audioEpoch.current && ["loading", "started", "completed"].includes(event.type)) watch(); },
       onStarted: event => { if (epoch === audioEpoch.current && owner === audioDeliveryOwner.current) callbacks.onStarted?.(event); },
       onDelivery: event => {
         if (epoch !== audioEpoch.current || owner !== audioDeliveryOwner.current || terminal) return;
         callbacks.onDelivery?.(event);
         if (event.type === "completed") {
-          terminal = true; audioDelivery.current = "delivered"; setAudioStatus("ready"); callbacks.onEnded?.(event);
+          terminal = true; clearTimeout(audioWatchdog.current); audioDelivery.current = "delivered"; setAudioStatus("ready"); callbacks.onEnded?.(event);
         } else if (event.type === "interrupted") {
-          terminal = true; audioDelivery.current = "interrupted"; setAudioStatus("unavailable"); callbacks.onInterrupted?.(event);
+          terminal = true; clearTimeout(audioWatchdog.current); audioDelivery.current = "interrupted"; setAudioStatus("unavailable"); callbacks.onInterrupted?.(event);
         } else if (["failed", "unavailable"].includes(event.type)) fail();
       }, onUnavailable: fail
     });
@@ -261,7 +300,7 @@ function CyclePracticeSession({
     if (path) playCueAudio(path, { playImmediately: true });
   }
   function resetFeedback() {
-    setFeedback(""); setFeedbackTone("ready"); setFeedbackRound(null); setFeedbackKey("");
+    setFeedback(""); setFeedbackTone("ready"); setFeedbackRound(null); setFeedbackKey(""); setFeedbackActivityKey("");
   }
   function playFeedbackThen(key, round, done, selectedAudio = "") {
     const sequence = [getCyclePracticeFeedbackAudio(key), selectedAudio, key === "correct" ? round.audio : ""].filter(Boolean);
@@ -288,7 +327,7 @@ function CyclePracticeSession({
   }
   function handleOutcome(outcome = {}) {
     if (commitGuard.current || answerPending || !currentRound || result || paused || !entered
-      || stateRef.current.pendingAttempt || mediaFailed || document.visibilityState === "hidden"
+      || stateRef.current.pendingAttempt || mediaFailed || !picturesReady || document.visibilityState === "hidden"
       || audioStatus !== "ready" || audioDelivery.current !== "delivered"
       || audioDeliveryOwner.current !== teachingOwner) return false;
     if (currentObject && (outcome.object?.word !== currentObject.word || outcome.object?.audio !== currentObject.audio)) return false;
@@ -303,7 +342,7 @@ function CyclePracticeSession({
     invalidateTeaching();
     stopCueAudio();
     setAnswerPending(true);
-    setFeedbackRound(currentRound); setFeedbackKey(roundKey);
+    setFeedbackRound(currentRound); setFeedbackKey(roundKey); setFeedbackActivityKey(roundRunKey);
     setFeedbackTone(outcome.correct ? "correct" : "incorrect");
     setFeedback(outcome.correct ? "That's right!" : mode === "assessment" ? "Not quite" : "Try again");
     const selectedChoice = currentRound.choices?.find(choice => String(choice.value) === String(outcome.selected));
@@ -413,7 +452,7 @@ function CyclePracticeSession({
           <div className="cycle-complete-stars" aria-hidden="true">{[0, 1, 2].map(i => <CycleIcon name="star" key={i} />)}</div>
           <h1 id="cycle-practice-complete-title">All done!</h1>
           <p>{result.savedToTeacher ? "Your work is saved." : "Great practice!"}</p>
-          {locked ? <p>Time for your teacher.</p> : <button className="cycle-play-button" aria-label="Back to learning" onClick={onExit} type="button"><CycleIcon name="home" /></button>}
+          {locked ? <p>Time for your teacher.</p> : <CycleButton className="cycle-play-button" aria-label="Back to learning" onClick={onExit} type="button"><CycleIcon name="home" /></CycleButton>}
           {storageFailed && <p role="alert">Keep this page open.</p>}
         </section>
       </main>
@@ -426,7 +465,7 @@ function CyclePracticeSession({
         <img className="cycle-complete-guide" src="/images/companions/pip.webp" alt="Pip waits with your work" />
         <h1>{answerPending ? "Saving…" : "Let's save your work"}</h1>
         <p role="status">{answerPending ? "One moment." : "Your answers are kept here."}</p>
-        <button type="button" className="cycle-play-button" aria-label="Retry save" disabled={answerPending} onClick={() => saveAttempt()}><CycleIcon name="retry" /></button>
+        <CycleButton type="button" className="cycle-play-button" aria-label="Retry save" disabled={answerPending} onClick={() => saveAttempt()}><CycleIcon name="retry" /></CycleButton>
         {storageFailed && <p role="alert">Keep this page open.</p>}
       </section>
     </main>
@@ -448,6 +487,7 @@ function CyclePracticeSession({
   const starsInSet = earned > 0 && earned % 6 === 0 && answerPending ? 6 : earned % 6;
   const frozen = answerPending || paused || !entered;
   const soundBlocked = audioStatus === "unavailable";
+  const listening = entered && !frozen && !soundBlocked && !mediaFailed && !teachingReady;
   const play = () => {
     setEntered(true);
     if (stateRef.current.paused) update({ paused: false });
@@ -483,6 +523,10 @@ function CyclePracticeSession({
     }
     setSubtarget({ roundRunKey, object: authored });
   };
+  const instructionRow = <div className="cycle-instruction-row">
+    <div><span className="cycle-activity-name">{shownRound.stationTitle}</span><p data-child-instruction="">{currentAudio.instructionText}</p></div>
+    <CycleButton type="button" className="cycle-listen-button" data-child-primary="" data-audio-action="replay" data-audio-state={audioStatus === "ready" && !teachingReady ? "pending" : audioStatus} aria-label="Hear what to do" disabled={frozen || audioStatus === "playing"} onClick={() => { triggerTactileFeedback(16); replayInstruction(true); }}><SpeakerIcon /><span>{listening ? "Listening…" : "Listen"}</span></CycleButton>
+  </div>;
 
   return (
     <main className="cycle-practice-page" data-cycle-id={cycle.id} data-motion={reducedMotion ? "reduced" : "full"}
@@ -496,20 +540,19 @@ function CyclePracticeSession({
           <div className="cycle-star-trail" aria-hidden="true">{Array.from({ length: 6 }, (_, i) => <CycleIcon key={i} name="star" className={i < starsInSet ? "is-earned" : ""} />)}</div>
           <strong>{mode === "assessment" ? `Cycle Check · ${currentRoundNumber} / ${totalRounds}` : `${earned} activities · ${Math.floor(earned / 6)} star trails`}</strong>
         </div>
+        {compact && instructionRow}
         <div className="cycle-practice-topbar__actions">
           {headerActions}
-          <button type="button" className="cycle-icon-button" aria-label={paused ? "Resume practice" : "Pause practice"} disabled={!entered} onClick={togglePause}><CycleIcon name={paused ? "play" : "pause"} /></button>
-          {!locked && <button type="button" className="cycle-icon-button" aria-label="Back to learning" onClick={onExit}><CycleIcon name="home" /></button>}
+          <CycleButton type="button" className="cycle-icon-button" aria-label={paused ? "Resume practice" : "Pause practice"} disabled={!entered} onClick={togglePause}><CycleIcon name={paused ? "play" : "pause"} /></CycleButton>
+          {!locked && <CycleButton type="button" className="cycle-icon-button" aria-label="Back to learning" onClick={onExit}><CycleIcon name="home" /></CycleButton>}
         </div>
       </header>
       <section className={`cycle-playground cycle-playground--${shownRound.mechanicId}`} data-mechanic-stage={shownRound.mechanicId} data-child-choices="" aria-label={shownRound.stationTitle} data-feedback={feedbackTone}>
         <div className="cycle-scenery" aria-hidden="true"><i /><i /><i /><i /></div>
-        <div className="cycle-instruction-row">
-          <div><span className="cycle-activity-name">{shownRound.stationTitle}</span><p data-child-instruction="">{currentAudio.instructionText}</p></div>
-          <button type="button" className="cycle-listen-button" data-child-primary="" data-audio-action="replay" data-audio-state={audioStatus === "ready" && !teachingReady ? "pending" : audioStatus} aria-label="Hear what to do" disabled={frozen} onClick={() => { triggerTactileFeedback(16); replayInstruction(true); }}><SpeakerIcon /><span>Listen</span></button>
-        </div>
-        <div className="cycle-activity-space" inert={frozen || mediaFailed || !teachingReady ? true : undefined}>
-          <CycleActivityRenderer key={shownRound.mechanicId === "soundSort" && shownRound.objects?.length ? `${mode}:${state.pass}:${shownRound.id}` : feedbackKey || roundKey} round={shownRound} disabled={frozen || mediaFailed || !teachingReady}
+        {!compact && instructionRow}
+        <div ref={activitySpace} className="cycle-activity-space" onLoadCapture={checkPictures} inert={frozen || mediaFailed || !picturesReady || !teachingReady ? true : undefined}>
+          <CycleActivityRenderer key={(shownRound.mechanicId === "soundSort" && shownRound.objects?.length) || (shownRound.mechanicId === "wordBuild" && shownRound.variant !== "wordParts") ? feedbackActivityKey || roundRunKey : feedbackKey || roundKey} round={shownRound} disabled={frozen || mediaFailed || !picturesReady || !teachingReady}
+            mediaRevision={mediaRevision}
             supportLevel={mode === "assessment" ? 0 : attempts} reducedMotion={reducedMotion}
             onCommit={handleOutcome} onHear={hearChoice} onStep={() => triggerTactileFeedback(10)}
             assessment={mode === "assessment"} feedbackPending={frozen} onSubtarget={selectSubtarget} priorResponses={priorResponses}
@@ -518,15 +561,17 @@ function CyclePracticeSession({
         <div className={`cycle-feedback${feedback ? " is-visible" : ""}`} role="status" aria-live="polite">
           {feedback && <><CycleIcon name={feedbackTone === "correct" ? "tick" : "retry"} /><span>{feedback}</span>{feedbackTone === "correct" && <CycleIcon name="star" />}</>}
         </div>
-        {entered && !paused && !answerPending && audioStatus === "playing" && <div className="cycle-audio-pulse" aria-hidden="true"><i /><i /><i /></div>}
+        {entered && !frozen && !mediaFailed && !soundBlocked && <div className={`cycle-readiness${listening ? " cycle-readiness--listening" : ""}`} role="status" aria-label="Activity readiness">
+          {listening ? <><SpeakerIcon /><span>Listen first</span><span className="cycle-audio-pulse" aria-hidden="true"><i /><i /><i /></span></> : !picturesReady ? <><CycleIcon name="retry" /><span>Loading pictures</span></> : <><CycleIcon name="tick" /><span>{shownRound.mechanicId === "letterTrace" ? "Your turn — trace" : "Your turn — tap"}</span></>}
+        </div>}
         {(!entered || paused || soundBlocked || mediaFailed) && <div className="cycle-play-overlay">
           <div className="cycle-launch-card">
             <img src="/images/companions/pip.webp" alt="Pip, your Little Literacy Guide" />
             <h2>{!entered ? "Let's play!" : paused ? "Take a little break" : mediaFailed ? "Let's load the pictures" : "Tap to listen"}</h2>
             {!entered && <p>Listen. Look. Play.</p>}
             {paused && <p>{formatClock(elapsedSeconds)} of {formatClock(CYCLE_PRACTICE_MINIMUM_SECONDS)} active practice</p>}
-            <button type="button" className="cycle-play-button" aria-label={!entered ? "Start playing" : paused ? "Resume practice" : mediaFailed ? "Reload pictures" : "Play instructions"}
-              onClick={!entered ? play : paused ? togglePause : mediaFailed ? () => { setMediaFailed(false); update({ attempts: attempts + 1 }); } : () => replayInstruction(true)}><CycleIcon name={mediaFailed ? "retry" : "play"} /></button>
+            <CycleButton type="button" className="cycle-play-button" aria-label={!entered ? "Start playing" : paused ? "Resume practice" : mediaFailed ? "Reload pictures" : "Play instructions"}
+              onClick={!entered ? play : paused ? togglePause : mediaFailed ? () => { setMediaFailed(false); setMediaRevision(value => value + 1); } : () => replayInstruction(true)}><CycleIcon name={mediaFailed ? "retry" : "play"} /></CycleButton>
           </div>
         </div>}
       </section>

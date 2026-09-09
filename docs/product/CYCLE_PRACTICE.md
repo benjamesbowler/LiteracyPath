@@ -47,12 +47,22 @@ persistent speaker replays the same cue. Picture speakers name unfamiliar
 objects, removing non-target vocabulary barriers. Recorded wording and the
 visible caption come from `cyclePracticeAudioScripts.js` and its generated
 Leda manifest. No device speech synthesis or live generation service is used.
+The listening state is visibly separate from “Your turn”; tapping Listen while
+it is already speaking cannot restart the waiting period. A stalled recording
+returns to the replay route. Responses require both delivered teaching audio
+and loaded pictures. A picture that fails or stalls for 15 seconds offers
+Reload pictures. Reloading never adds a literacy attempt or erases accepted
+word parts.
 
 Responses validate automatically. Practice errors remain on the same item,
 name the selected picture when appropriate, replay the learning cue, and give
 another attempt. Repeated errors reveal a teaching hint; subsequent attempts
 remain marked supported. Correct responses receive spoken and visual feedback
 before automatic advancement. Duplicate taps cannot create extra records.
+Accepted word-building letters survive a wrong next letter, pause and replay.
+Completed sorting pictures sit on a separate shelf below each sound basket,
+clear of its permanent letter and speaker. In Cycle Check, an incorrect first
+classification stays in the record while the shelf shows the corrected match.
 
 Six completed activities fill a star trail. Rewards acknowledge completed
 learning actions and supported effort; they do not confer assessment mastery,
@@ -111,6 +121,15 @@ keyboard alternative. Reduced motion removes decorative animation. Incorrect
 and correct states use words, shape and icons as well as colour. Missing media
 retains a visible replay/reload route and cannot silently turn into a text-only
 question.
+Finger and pen choices activate on release inside the same button, including a
+small drift that a browser may otherwise mistake for scrolling. Cancellation,
+lost capture, pause and lost focus discard the held gesture. Native keyboard
+activation is retained and a browser's subsequent click cannot duplicate the
+response. Dragging a sorting picture shows the carried object and destination.
+On short landscape screens the instruction shares the top bar, and the model
+and responses use a compact row. Feedback has its own footer. The complete
+tracing pad and its tools remain visible together; the picture and sorting
+destinations never require alternating scroll positions.
 
 Reference properties: [Raz-Kids](https://www.raz-kids.com/main/aboutrazkids/)
 provides modeled listening and self-paced child access; [Teach Your Monster to
@@ -124,6 +143,9 @@ the overhaul makes no claim of measured equivalence to either platform.
   `cyclePracticeReporting`, `cyclePracticeRecovery`, and `cycleTraceRules` tests.
 - Browser: `cycle-practice-overhaul.spec.js`,
   `cycle-trace-activity.spec.js`, and `cycle-practice-audio-layout.spec.js`.
+- Touch and layout: `cycle-practice-touch.spec.js` exercises all 27 cycles,
+  drift/cancellation, retained construction, sorting shelves, media recovery,
+  every activity variant, and tablet/short-landscape geometry.
 - Database: `tools/db/verifyCyclePracticeEvidence.mjs` applies all migrations in
   isolated PostgreSQL and exercises evidence validation plus all 27 actual
   cycle check payloads through the anonymous student-token boundary.
