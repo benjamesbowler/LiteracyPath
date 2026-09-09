@@ -9,7 +9,8 @@ import {
 } from "../../../../utils/audio/gameSfx.js";
 import {
   reelReadExpectedWord,
-  reelReadIsCorrectCatch,
+  reelReadAssembledWord,
+  reelReadCanAcceptWord,
   reelReadLadder,
   reelReadMatches,
   reelReadStars
@@ -237,6 +238,10 @@ function startGame(mount, opts) {
   const ctx = canvas.getContext("2d");
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
+  const targets = document.createElement("div");
+  targets.style.cssText = "position:absolute;inset:0;z-index:4;pointer-events:none";
+  mount.appendChild(targets);
+
   const controls = document.createElement("div");
   controls.style.cssText = "position:absolute;inset:0;z-index:5;pointer-events:none";
   controls.innerHTML =
@@ -245,8 +250,23 @@ function startGame(mount, opts) {
       '<button data-rr="right" aria-label="Move right" style="width:62px;height:58px;border:1px solid rgba(255,255,255,.26);background:rgba(4,11,25,.58);color:white;font-size:1.55rem;font-weight:950;backdrop-filter:blur(4px);border-radius:8px;box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 10px 24px rgba(0,0,0,.28)">&#9654;</button>' +
     '</div>' +
     '<button data-rr="replay" type="button" aria-label="Hear the target word again" style="position:absolute;left:50%;bottom:18px;transform:translateX(-50%);width:168px;min-width:96px;min-height:66px;padding:10px 18px;pointer-events:auto;border:2px solid rgba(255,255,255,.62);background:rgba(4,11,25,.78);color:#ffffff;font-family:var(--kid-font-display,Fredoka,sans-serif);font-weight:950;font-size:1rem;line-height:1.15;letter-spacing:.02em;border-radius:8px;box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 10px 24px rgba(0,0,0,.32);cursor:pointer">Hear word again</button>' +
-    '<button data-rr="cast" aria-label="Cast hook" style="position:absolute;right:18px;bottom:18px;width:108px;height:66px;pointer-events:auto;border:1px solid rgba(255,255,255,.55);background:linear-gradient(160deg,#fff2a8,#ffc43d 55%,#d97a1e);color:#211606;font-family:var(--kid-font-display,Fredoka,sans-serif);font-weight:950;font-size:.95rem;letter-spacing:.04em;border-radius:8px;box-shadow:inset 0 -8px 0 rgba(0,0,0,.24),0 14px 26px rgba(0,0,0,.28)">CAST</button>';
+      '<button data-rr="cast" type="button" aria-label="Cast at the selected fish" style="position:absolute;right:18px;bottom:18px;width:108px;height:66px;pointer-events:auto;border:1px solid rgba(255,255,255,.55);background:linear-gradient(160deg,#fff2a8,#ffc43d 55%,#d97a1e);color:#211606;font-family:var(--kid-font-display,Fredoka,sans-serif);font-weight:950;font-size:.95rem;letter-spacing:.04em;border-radius:8px;box-shadow:inset 0 -8px 0 rgba(0,0,0,.24),0 14px 26px rgba(0,0,0,.28);cursor:pointer">CAST</button>';
   mount.appendChild(controls);
+
+  const statusEl = document.createElement("div");
+  statusEl.dataset.rr = "status";
+  statusEl.setAttribute("aria-live", "polite");
+  statusEl.style.cssText = "position:absolute;left:50%;bottom:91px;transform:translateX(-50%);z-index:6;max-width:calc(100% - 230px);min-height:28px;padding:7px 13px;border-radius:999px;background:rgba(3,10,24,.78);border:1px solid rgba(255,255,255,.3);color:#fff;font:800 15px/1.2 Fredoka,Arial,sans-serif;text-align:center;pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis";
+  mount.appendChild(statusEl);
+
+  const resultEl = document.createElement("div");
+  resultEl.dataset.rr = "result";
+  resultEl.style.cssText = `position:absolute;inset:0;z-index:20;display:none;align-items:center;justify-content:center;padding:18px;pointer-events:none;font-family:var(--kid-font-display,Fredoka,sans-serif)`;
+  resultEl.innerHTML = `<div style="width:min(480px,calc(100% - 24px));padding:20px;border-radius:14px;background:${THEMES.meadow.panel};border:1px solid rgba(255,255,255,.3);box-shadow:0 20px 55px rgba(0,0,0,.42);text-align:center;pointer-events:auto"><div data-rr="result-title" style="color:#ffd34e;font-size:1.4rem;font-weight:950"></div><div data-rr="result-assembly" style="margin:12px 0 16px;color:#fff;font-size:1.12rem;line-height:1.35;font-weight:850"></div><button data-rr="next" type="button" style="min-width:150px;min-height:56px;padding:10px 18px;border:2px solid #ffd34e;border-radius:10px;background:#ffd34e;color:#211606;font:950 1rem Fredoka,Arial,sans-serif;cursor:pointer"></button></div>`;
+  mount.appendChild(resultEl);
+  const resultTitle = resultEl.querySelector('[data-rr="result-title"]');
+  const resultAssembly = resultEl.querySelector('[data-rr="result-assembly"]');
+  const btnNext = resultEl.querySelector('[data-rr="next"]');
 
   const btnLeft = controls.querySelector('[data-rr="left"]');
   const btnRight = controls.querySelector('[data-rr="right"]');
@@ -281,6 +301,10 @@ function startGame(mount, opts) {
   let floaters = [];
   let spawnSeed = 1;
   let activePointer = null;
+  let selectedFishId = null;
+  let lockedFishId = null;
+  let targetButtons = new Map();
+  let finalised = false;
   const keys = { left: false, right: false, cast: false };
   const boat = {
     x: 0,
@@ -327,6 +351,22 @@ function startGame(mount, opts) {
     btnReplay.textContent = enabled ? (compact ? "Hear word" : "Hear word again") : (compact ? "Sound off" : "Sound is off");
     btnReplay.style.cursor = enabled ? "pointer" : "not-allowed";
     btnReplay.style.opacity = enabled ? "1" : ".68";
+    refreshCastControl();
+  }
+
+  function refreshCastControl() {
+    const isCasting = boat.hookState !== "ready";
+    const canCast = phase === "playing" && boat.hookState === "ready" && Boolean(selectedFishId);
+    btnCast.disabled = !canCast && !isCasting;
+    btnCast.setAttribute("aria-disabled", String(btnCast.disabled));
+    btnCast.textContent = isCasting ? "CANCEL" : "CAST";
+    btnCast.setAttribute("aria-label", isCasting ? "Cancel cast" : canCast ? "Cast at the selected fish" : "Choose a fish before casting");
+    btnCast.style.cursor = btnCast.disabled ? "not-allowed" : "pointer";
+    btnCast.style.opacity = btnCast.disabled ? ".62" : "1";
+  }
+
+  function setStatus(message) {
+    statusEl.textContent = message;
   }
 
   function layoutReplayControl() {
@@ -349,6 +389,11 @@ function startGame(mount, opts) {
     boat.x = boat.x || w * 0.5;
     boat.x = clamp(boat.x, 78, w - 78);
     layoutReplayControl();
+    // Compact landscape/portrait layouts use the selected border and CAST/CANCEL
+    // label as the visible feedback; keep the live status available to assistive
+    // technology without placing a text pill over the named fish.
+    statusEl.style.display = w < 700 ? "none" : "block";
+    refreshCastControl();
     render();
   }
 
@@ -439,6 +484,62 @@ function startGame(mount, opts) {
     }
   }
 
+  function syncFishTargets(time = performance.now() / 1000) {
+    const visible = new Set();
+    const placed = [];
+    const playableTop = waterTop + (w < 375 ? 18 : 48);
+    const playableBottom = Math.max(playableTop, h - (w < 375 ? 260 : 150));
+    fish.forEach((item, index) => {
+      if (item.x < -80 || item.x > w + 80) return;
+      visible.add(item.id);
+      const compactTarget = w < 700;
+      let width = compactTarget ? 56 : clamp(28 + item.word.length * 9, 56, Math.min(122, Math.max(56, w - 20)));
+      const compactColumn = compactTarget ? index % 5 : 0;
+      const compactRow = 0;
+      let x = compactTarget
+        ? 10 + compactColumn * ((w - 20) / 5) + (w - 20) / 10
+        : clamp(item.x, width / 2 + 6, w - width / 2 - 6);
+      let y = compactTarget
+        ? clamp(playableTop + compactRow * 64, playableTop, playableBottom)
+        : clamp(item.y + Math.sin(item.wobble + time * 2.5) * 4, playableTop, playableBottom);
+      for (const previous of compactTarget ? [] : placed) {
+        if (Math.abs(x - previous.x) < (width + previous.width) / 2 + 8 && Math.abs(y - previous.y) < 62) {
+          y = previous.y + 62;
+          if (y > playableBottom) {
+            y = playableBottom;
+            x = clamp(x + width / 2 + previous.width / 2 + 10, width / 2 + 6, w - width / 2 - 6);
+          }
+        }
+      }
+      placed.push({ x, y, width });
+      let button = targetButtons.get(item.id);
+      if (!button) {
+        button = document.createElement("button");
+        button.type = "button";
+        button.dataset.rr = "fish";
+        button.addEventListener("click", event => {
+          event.preventDefault();
+          event.stopPropagation();
+          nominateFish(item.id);
+        });
+        targetButtons.set(item.id, button);
+        targets.appendChild(button);
+      }
+      button.textContent = item.word;
+      button.dataset.fishId = item.id;
+      button.setAttribute("aria-label", `Choose fish ${item.word}`);
+      button.setAttribute("aria-pressed", String(selectedFishId === item.id));
+      button.disabled = phase !== "playing" || boat.hookState !== "ready";
+      button.style.cssText = `position:absolute;left:${x}px;top:${y}px;transform:translate(-50%,-50%);width:${width}px;min-height:56px;padding:7px 6px;z-index:1;pointer-events:auto;border:3px solid ${selectedFishId === item.id ? theme.accent : "rgba(20,36,47,.72)"};border-radius:12px;background:${selectedFishId === item.id ? "rgba(255,245,180,.98)" : "rgba(255,248,211,.96)"};color:#17212a;font:950 ${item.word.length > 8 ? 13 : 16}px/1.05 Fredoka,Arial,sans-serif;box-shadow:${selectedFishId === item.id ? `0 0 0 5px ${theme.accent}66,0 8px 20px rgba(0,0,0,.35)` : "0 7px 18px rgba(0,0,0,.25)"};cursor:${button.disabled ? "not-allowed" : "pointer"};opacity:${button.disabled ? ".62" : "1"};touch-action:manipulation`;
+    });
+    for (const [id, button] of targetButtons) {
+      if (!visible.has(id)) {
+        button.remove();
+        targetButtons.delete(id);
+      }
+    }
+  }
+
   function startLevel(nextIndex) {
     levelIndex = clamp(nextIndex, 0, ladder.length - 1);
     level = ladder[levelIndex];
@@ -455,6 +556,8 @@ function startGame(mount, opts) {
     boat.targetX = null;
     boat.hookState = "ready";
     boat.caughtFish = null;
+    selectedFishId = null;
+    lockedFishId = null;
     phase = "countdown";
     phaseTimer = 3.2;
     banner = level.prompt;
@@ -463,13 +566,16 @@ function startGame(mount, opts) {
     opts.onProgressUpdate?.(levelIndex + 1, ladder.length);
     opts.onCheckpoint?.(levelIndex, ladder.length);
     refreshSoundState();
+    resultEl.style.display = "none";
+    targets.style.display = "block";
+    setStatus("Get ready to choose a fish.");
     speakCue(level.target);
     render();
   }
 
   function completeLevel() {
     phase = "level-complete";
-    phaseTimer = 2.0;
+    phaseTimer = 0;
     // Ladders here have only 2-3 targets, where one slip used to cost two
     // whole stars; forgive the first mistake on those small ladders.
     const gradedMistakes = level.correctWords.length <= 3 ? Math.max(0, mistakes - 1) : mistakes;
@@ -481,10 +587,25 @@ function startGame(mount, opts) {
     sfx(playStarChime);
     banner = stars === 3 ? "Perfect catch" : "Pond cleared";
     bannerTimer = 1.8;
+    targets.style.display = "none";
+    resultTitle.textContent = stars === 3 ? "Perfect catch!" : "Pond cleared!";
+    resultAssembly.textContent = level.orderMatters
+      ? `${caught.join(" + ")} = ${reelReadAssembledWord(level, caught)}`
+      : `You caught ${caught.join(", ")} — words that match ${level.target}.`;
+    btnNext.textContent = levelIndex >= ladder.length - 1 ? "FINISH TRIP" : "NEXT LEVEL";
+    resultEl.querySelector("div").style.background = theme.panel;
+    resultEl.style.display = "flex";
+    refreshCastControl();
   }
 
   function finishGame() {
+    if (finalised) return;
+    finalised = true;
     phase = "finished";
+    resultEl.style.display = "none";
+    targets.style.display = "none";
+    setStatus("Fishing trip complete.");
+    refreshCastControl();
     const totalStars = stageStars.reduce((sum, stars) => sum + (Number(stars) || 0), 0);
     const finalStars = stageStars.length ? Math.max(1, Math.round(totalStars / stageStars.length)) : 0;
     sfx(playCelebrationFanfare);
@@ -492,20 +613,56 @@ function startGame(mount, opts) {
   }
 
   function requestCast() {
-    if (phase !== "playing" || boat.hookState !== "ready") return;
+    if (boat.hookState !== "ready") {
+      cancelCast();
+      return;
+    }
+    if (phase !== "playing" || !selectedFishId) {
+      setStatus("Choose a fish first.");
+      return;
+    }
+    const target = fish.find(item => item.id === selectedFishId);
+    if (!target) {
+      selectedFishId = null;
+      setStatus("That fish swam away. Choose another fish.");
+      return;
+    }
     const tip = getRodTip();
+    lockedFishId = target.id;
     sfx(playTapSound);
     boat.hookState = "dropping";
-    boat.hookX = tip.x;
+    boat.hookX = target.x;
     boat.hookY = tip.y;
     boat.hookMaxY = h - 58;
     boat.caughtFish = null;
+    setStatus(`Casting at ${target.word}.`);
+    refreshCastControl();
+  }
+
+  function cancelCast() {
+    if (boat.hookState === "ready") return;
+    boat.hookState = "ready";
+    boat.caughtFish = null;
+    lockedFishId = null;
+    setStatus(selectedFishId ? "Cast cancelled. Cast again when ready." : "Cast cancelled. Choose a fish.");
+    refreshCastControl();
+  }
+
+  function nominateFish(id) {
+    if (phase !== "playing" || boat.hookState !== "ready") return;
+    const item = fish.find(candidate => candidate.id === id);
+    if (!item) return;
+    selectedFishId = item.id;
+    setStatus(`Selected ${item.word}. Press CAST.`);
+    speakCue(item.word);
+    refreshCastControl();
+    render();
   }
 
   function catchFish(item) {
     boat.caughtFish = item;
     boat.hookState = "returning";
-    if (reelReadIsCorrectCatch(item.word, level, caught) && !caught.includes(item.word)) {
+    if (reelReadCanAcceptWord(item.word, level, caught)) {
       fish = fish.filter(f => f !== item);
       caught.push(item.word);
       wordsCaught += 1;
@@ -529,6 +686,9 @@ function startGame(mount, opts) {
       sfx(playSoftBuzz);
       opts.onScoreUpdate?.(score);
     }
+    selectedFishId = null;
+    lockedFishId = null;
+    refreshCastControl();
     refillFish();
   }
 
@@ -566,9 +726,9 @@ function startGame(mount, opts) {
         `<div style="color:${theme.accent};font-weight:950;font-size:1.35rem;letter-spacing:.03em">Reel &amp; Read</div>` +
         '<p style="color:#ffffff;font-weight:800;font-size:1rem;margin:10px 0 0;line-height:1.4">Steer the boat and hook the fish with the right words!</p>' +
         '<div style="margin-top:14px;display:grid;gap:8px;text-align:left;color:rgba(255,255,255,.92);font-weight:700;font-size:.86rem;line-height:1.45">' +
+          '<span>Choose a named fish, then cast at that fish.</span>' +
           '<span>Steer: Arrow keys or A / D, drag on the pond, or hold the &#9664; &#9654; buttons.</span>' +
-          '<span>Cast: Space, Enter, or E, tap CAST, or tap the water.</span>' +
-          '<span>Hook every word in the list to clear the pond.</span>' +
+          '<span>Cancel a cast any time without losing a reading try.</span>' +
         '</div>' +
         `<button type="button" style="margin-top:18px;border:2px solid ${theme.accent};border-radius:10px;background:rgba(255,255,255,.08);color:${theme.accent};padding:9px 20px;font:inherit;font-weight:950;font-size:1.05rem;letter-spacing:.04em;cursor:pointer">Tap to play</button>` +
         '<div style="margin-top:6px;color:rgba(255,255,255,.72);font-weight:700;font-size:.74rem">or press Enter</div>' +
@@ -617,12 +777,8 @@ function startGame(mount, opts) {
         phase = "playing";
         banner = level.prompt;
         bannerTimer = 2.2;
-      }
-    } else if (phase === "level-complete") {
-      phaseTimer -= dt;
-      if (phaseTimer <= 0) {
-        if (levelIndex >= ladder.length - 1) finishGame();
-        else startLevel(levelIndex + 1);
+        setStatus("Choose a fish, then cast.");
+        refreshCastControl();
       }
     }
 
@@ -639,8 +795,6 @@ function startGame(mount, opts) {
       if (Math.abs(diff) < 4) boat.targetX = null;
     }
     boat.x = clamp(boat.x, 78, w - 78);
-    if (keys.cast) requestCast();
-
     fish.forEach(item => {
       item.x += item.vx * dt;
       if (item.x < 72) {
@@ -660,13 +814,14 @@ function startGame(mount, opts) {
 
     if (boat.hookState === "dropping") {
       boat.hookY += level.hookSpeed * dt;
-      for (const item of fish) {
-        const rx = Math.abs(item.x - boat.hookX);
+      const item = fish.find(candidate => candidate.id === lockedFishId);
+      if (!item) {
+        cancelCast();
+      } else {
+        // The nominated ID owns this cast. Other moving fish can never steal it.
+        boat.hookX = item.x;
         const ry = Math.abs(item.y - boat.hookY);
-        if (rx < 56 * item.scale && ry < 31 * item.scale) {
-          catchFish(item);
-          break;
-        }
+        if (ry < 34 * item.scale) catchFish(item);
       }
       if (boat.hookY >= boat.hookMaxY && boat.hookState === "dropping") {
         boat.hookState = "returning";
@@ -679,6 +834,7 @@ function startGame(mount, opts) {
       if (boat.hookY <= tip.y + 4) {
         boat.hookState = "ready";
         boat.caughtFish = null;
+        refreshCastControl();
       }
     }
 
@@ -960,6 +1116,11 @@ function startGame(mount, opts) {
     ctx.filter = "none";
     ctx.restore();
 
+    // The semantic DOM target is the one readable label. Avoid painting a
+    // second moving copy underneath it, which creates visual noise at compact
+    // sizes and makes the selected word harder to follow.
+    if (targetButtons.size) return;
+
     const labelW = clamp(46 + item.word.length * 13, 76, 162) * depthScale;
     const labelH = 30 * depthScale;
     ctx.save();
@@ -1065,7 +1226,7 @@ function startGame(mount, opts) {
   }
 
   function drawBanner() {
-    if (bannerTimer <= 0 && phase === "playing") return;
+    if (phase === "playing") return;
     let text = banner;
     if (phase === "countdown") {
       text = phaseTimer > 2.15 ? level.prompt : phaseTimer > 1.4 ? "3" : phaseTimer > 0.7 ? "2" : phaseTimer > 0.15 ? "1" : "GO";
@@ -1091,7 +1252,7 @@ function startGame(mount, opts) {
     ctx.restore();
   }
 
-  function drawScreenGrade(time) {
+  function drawScreenGrade() {
     ctx.save();
     const vignette = ctx.createRadialGradient(w * 0.5, h * 0.52, Math.min(w, h) * 0.2, w * 0.5, h * 0.55, Math.max(w, h) * 0.72);
     vignette.addColorStop(0, "rgba(0,0,0,0)");
@@ -1099,9 +1260,6 @@ function startGame(mount, opts) {
     vignette.addColorStop(1, "rgba(0,0,0,.38)");
     ctx.fillStyle = vignette;
     ctx.fillRect(0, 0, w, h);
-    ctx.globalAlpha = 0.08;
-    ctx.fillStyle = "#ffffff";
-    for (let y = Math.floor(time * 24) % 4; y < h; y += 4) ctx.fillRect(0, y, w, 1);
     ctx.restore();
   }
 
@@ -1125,7 +1283,8 @@ function startGame(mount, opts) {
     drawForeground(time);
     drawHud();
     drawBanner();
-    drawScreenGrade(time);
+    drawScreenGrade();
+    syncFishTargets(time);
   }
 
   function loop(now) {
@@ -1157,7 +1316,7 @@ function startGame(mount, opts) {
     }
     if (isActionKey(event.key)) {
       event.preventDefault();
-      keys.cast = true;
+      requestCast();
     }
   }
 
@@ -1207,7 +1366,7 @@ function startGame(mount, opts) {
     const y = event.clientY - rect.top;
     activePointer = event.pointerId;
     boat.targetX = clamp(x, 78, w - 78);
-    if (y > waterTop && phase === "playing") keys.cast = true;
+    if (y > waterTop && boat.hookState !== "ready") cancelCast();
   }
 
   function onPointerMove(event) {
@@ -1220,6 +1379,17 @@ function startGame(mount, opts) {
   function onPointerUp(event) {
     if (event.pointerId === activePointer) activePointer = null;
     keys.cast = false;
+  }
+
+  function onCastClick(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    requestCast();
+  }
+
+  function onCastCancel() {
+    keys.cast = false;
+    if (boat.hookState !== "ready") cancelCast();
   }
 
   function replayTarget(event) {
@@ -1238,7 +1408,13 @@ function startGame(mount, opts) {
   btnReplay.addEventListener("click", replayTarget);
   setButton(btnLeft, "left");
   setButton(btnRight, "right");
-  setButton(btnCast, "cast");
+  btnCast.addEventListener("click", onCastClick);
+  btnCast.addEventListener("pointercancel", onCastCancel);
+  btnCast.addEventListener("lostpointercapture", onCastCancel);
+  btnNext.addEventListener("click", () => {
+    if (levelIndex >= ladder.length - 1) finishGame();
+    else startLevel(levelIndex + 1);
+  });
 
   // Show the intro before the first level boots so its speakCue stays silent
   // and the countdown is frozen until the child dismisses the overlay.
@@ -1265,6 +1441,9 @@ function startGame(mount, opts) {
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("keyup", onKeyUp);
       btnReplay.removeEventListener("click", replayTarget);
+      btnCast.removeEventListener("click", onCastClick);
+      btnCast.removeEventListener("pointercancel", onCastCancel);
+      btnCast.removeEventListener("lostpointercapture", onCastCancel);
       observer.disconnect();
       mount.innerHTML = "";
     }

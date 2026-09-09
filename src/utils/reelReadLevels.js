@@ -279,6 +279,18 @@ export function reelReadIsCorrectCatch(word, level, caughtWords = []) {
   return reelReadMatches(word, level);
 }
 
+export function reelReadCanAcceptWord(word, level, caughtWords = []) {
+  const token = normalizeToken(word);
+  if (!token || (Array.isArray(caughtWords) && caughtWords.map(normalizeToken).includes(token))) return false;
+  return reelReadIsCorrectCatch(token, level, caughtWords);
+}
+
+export function reelReadAssembledWord(level, caughtWords = []) {
+  if (!level?.orderMatters) return level?.target || "";
+  const parts = Array.isArray(caughtWords) ? caughtWords : [];
+  return parts.join("").replaceAll("-", "") || "";
+}
+
 export function reelReadLevel(difficulty = "easy", levelIndex = 0) {
   const safeDifficulty = normalizeDifficulty(difficulty);
   const level = Math.max(0, Math.min(9, Number(levelIndex) || 0));
