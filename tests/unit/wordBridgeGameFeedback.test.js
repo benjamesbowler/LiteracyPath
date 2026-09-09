@@ -39,3 +39,20 @@ test("actual cue delivery and actual model exposure determine support", () => {
 test("feedback identifies the actual response and repair", () => {
   assert.equal(mismatchFeedback("sat", "cat"), "You chose sat. This space needs cat. Try again.");
 });
+
+test("repeated mistakes reduce the completed bridge's stars under the shared rubric", () => {
+  let state = createBridgeStage(buildLevel({ world: "meadow", target: "bat" }), 0);
+  let run = createBridgeRun();
+  const answer = (glyph, index) => {
+    const selected = state.tiles.find(tile => tile.glyph === glyph);
+    state = selectBridgeTile(state, selected.occurrenceId);
+    const result = placeBridgeTile(state, run, state.slots[index].slotId);
+    state = result.state; run = result.run;
+  };
+  const wrong = state.tiles.find(tile => !tile.correct).glyph;
+  answer(wrong, 0); answer(wrong, 0); answer(wrong, 0);
+  answer("B", 0); answer("A", 1); answer("T", 2);
+  assert.equal(run.stars[0], 1);
+  assert.equal(run.firstResponses[0].correct, false);
+  assert.equal(run.assistedRetries[0].attempts, 4);
+});

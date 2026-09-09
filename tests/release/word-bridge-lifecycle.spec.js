@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { wordBridgeLadder } from "../../src/utils/wordBridgeLevels.js";
+import { wordBridgeLadder, wordBridgeParts } from "../../src/utils/wordBridgeLevels.js";
 
 const KEY = "literacy-guide-learn-games:fullscreen-overlay-preview";
 const pageErrors = new WeakMap();
@@ -51,7 +51,7 @@ async function pickGlyph(page, glyph, { keyboard = false, last = false } = {}) {
   return chosen;
 }
 async function fill(page, level, { reverse = false, keyboard = false } = {}) {
-  const items = Array.isArray(level.target) ? level.target : level.target.toUpperCase().split("");
+  const items = wordBridgeParts(level.target);
   const indices = items.map((_, i) => i);
   if (reverse) indices.reverse();
   for (const i of indices) {
@@ -233,7 +233,7 @@ test("fresh recording hides solution, pause cancels voice, failure and mute rest
   await fill(page,wordBridgeLadder("easy")[0]);
   await cross(page);await page.getByRole("button",{name:"Next bridge",exact:true}).click();
   await expect(game(page)).toHaveAttribute("data-model","hidden");
-  await expect(page.locator("[data-wb=target]")).toHaveText("Listen to the word. Build its sounds.");
+  await expect(page.locator("[data-wb=target]")).toHaveText("Listen to the word. Build it with the pieces.");
   await expect(page.locator(".wb-socket>span")).toHaveText(["?","?","?"]);
   await page.getByRole("button",{name:"Hear",exact:true}).click();
   await expect(game(page)).toHaveAttribute("data-cue","completed");

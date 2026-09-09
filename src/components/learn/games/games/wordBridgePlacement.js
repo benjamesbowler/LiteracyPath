@@ -1,7 +1,8 @@
+import { wordBridgeParts } from "../../../../utils/wordBridgeLevels.js";
 import { starRubric } from "../../../../utils/starRubric.js";
 
 export const normalizeBridgeGlyph = value => String(value || "").trim().toLowerCase();
-export const bridgeTargetItems = target => Array.isArray(target) ? target.map(String) : String(target || "").toUpperCase().split("");
+export const bridgeTargetItems = wordBridgeParts;
 
 export function createBridgeIdentities(stageIndex, target, tiles) {
   return {
@@ -81,7 +82,7 @@ export function placeBridgeTile(state, run, slotId) {
       next.phase = "built";
       next.feedback = "Bridge built! Read it together, then ring the bell.";
       nextRun.completed += 1;
-      nextRun.stars = [...run.stars, starRubric({ correct: next.slots.length, total: next.slots.length, mistakes: next.mistakes })];
+      nextRun.stars = [...run.stars, starRubric({ correct: next.slots.length, total: next.slots.length + next.mistakes, mistakes: next.mistakes })];
     }
   }
   return { state: next, run: nextRun, outcome };

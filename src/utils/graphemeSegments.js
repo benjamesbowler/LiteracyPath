@@ -52,7 +52,8 @@ function phonemeSegments(segments) {
     !(index > 0 && segment === out[index - 1] && isSingleConsonant(segment)));
 }
 
-export function segmentWord(word) {
+// Written construction keeps every letter, including doubled consonants and split vowels.
+export function segmentWrittenWord(word) {
   const clean = String(word || "").toLowerCase().replace(/[^a-z]/g, "");
   const segments = [];
   let index = 0;
@@ -68,7 +69,11 @@ export function segmentWord(word) {
     }
   }
 
-  return phonemeSegments(segments);
+  return segments;
+}
+
+export function segmentWord(word) {
+  return phonemeSegments(segmentWrittenWord(word));
 }
 
 export function isMultiGrapheme(grapheme) {

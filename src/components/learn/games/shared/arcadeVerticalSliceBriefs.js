@@ -186,70 +186,70 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
     schemaVersion: GAME_VERTICAL_SLICE_BRIEF_SCHEMA_VERSION,
     gameId: "word-bridge",
     version: "2.0",
-    audience: "Early readers practising supported grapheme matching, with ordered sentence-part bridges for developing readers.",
+    audience: "Early readers building written graphemes and ordered sentence parts from a model or a recorded cue.",
     experiencePromise: "A tactile bridge-building journey where every useful placement completes the language construction in view.",
     learning: {
-      targetConstruct: "Match visible graphemes or words and reconstruct a modelled target in sequence.",
-      childGoal: "Carry the next matching tile to the glowing bridge slot.",
-      integratedAction: "Placing the required tile fills the next persistent bridge slot and extends the route.",
-      nonTargetDemands: "Horizontal movement, carrying, dropping and route navigation.",
+      targetConstruct: "Reconstruct written graphemes or ordered sentence parts with recorded cue and model support kept explicit.",
+      childGoal: "Choose a piece, then its numbered bridge space.",
+      integratedAction: "Placing a compatible piece in its explicit socket extends the persistent construction.",
+      nonTargetDemands: "Focus navigation, scrolling and decorative carry/crossing motion.",
       evidenceEvent: "Only a correctly matched and placed language part advances supported-practice progress; movement and collection do not.",
       movementCreatesEvidence: false
     },
     loop: {
       onboard: "Pause behind one goal line, the target construction and a visible keyboard/touch control map.",
-      perceive: "Keep completed parts, the next empty slot and every available tile readable together.",
-      act: "Move to a tile, pick it up and place it in the next bridge slot.",
+      perceive: "Keep completed parts, numbered sockets and naturally sized pieces readable; compact construction scrolls within the game.",
+      act: "Select a native piece button, then activate its explicit bridge socket.",
       feedback: "Lock a correct tile into the bridge; return a distractor with a specific contrast cue and no lost progress.",
       retry: "Leave the clue and required slot visible, return the tile to play and permit an immediate new choice.",
       complete: "Cross the completed bridge, show constructions built and continue or return through Arcade chrome."
     },
     prompt: {
-      visible: "The full word or sentence goal and ordered bridge slots remain visible during play.",
+      visible: "Worked models remain visible; fresh recorded stages conceal the solution until Show model, mute or failed playback.",
       spoken: "The current target is spoken from production audio whenever that exact recording exists.",
       replay: "A 56-pixel replay control repeats the current available production cue without browser speech."
     },
     controls: {
-      keyboard: ["Left/Right or A/D moves", "Space, Enter, E or Up picks up and places"],
-      touch: ["Hold left/right to move", "Tap the named action control to pick up or place"],
+      keyboard: ["Tab or Left/Right moves focus", "Enter or Space selects a piece or socket"],
+      touch: ["Release a tap on a piece, then its bridge space", "Scroll compact construction to keep full words readable"],
       minimumTargetCssPixels: 56,
       pointerReleaseEvents: ["pointerup", "pointercancel", "lostpointercapture"]
     },
     difficulty: {
       curriculumBeforePressure: true,
-      ladder: "Ten curriculum-led levels move from ordered graphemes to longer word and sentence constructions before route pressure changes."
+      ladder: "Ten curriculum-led targets per difficulty progress from written graphemes to longer word and sentence constructions; no route deadline grades learning."
     },
     gameFeel: {
-      movement: "Responsive side movement, readable pickup range and immediate bridge-slot response.",
-      forgiveness: ["Distractors return to play", "Correct placements persist", "The next slot remains highlighted", "No movement error removes learning evidence"],
-      camera: "A bounded side camera keeps the builder, tile bank and next bridge slot in view.",
+      movement: "Carry, snap and crossing presentation follows measured native control anchors; input dispatch retains exact IDs.",
+      forgiveness: ["Distractors return to play", "Correct placements persist", "Numbered sockets retain their identity", "No movement error removes learning evidence"],
+      camera: "Separate cue, piece bank, construction and arrival regions use responsive layout and contained vertical scrolling.",
       successFeedback: "The tile seats into the bridge, the slot changes shape and a brief chime confirms the completed language part.",
       errorFeedback: "The selected tile is named, the needed contrast remains visible and the tile returns for another attempt."
     },
     world: {
       artDirection: "Authored Meadow, Dino Valley and Moonwood illustrated routes with tactile tiles and layered atmospheric depth.",
-      route: "The walkable bank, tile positions, bridge slots and crossing route share one canvas coordinate system.",
+      route: "Piece and socket DOM rectangles supply the same anchors used by the helper and crossing pals.",
       character: "The current canonical helper and Pal art remain recognisable at play scale.",
-      assetFallback: "Missing decorative images leave a complete canvas-rendered bank, bridge, tile set and fallback helper."
+      assetFallback: "Missing decorative images leave native controls, construction and an owned vector recovery helper usable."
     },
     state: {
-      pauseResume: "Pause freezes movement and feedback; resume resets frame timing before play continues.",
+      pauseResume: "Pause invalidates held input and freezes travel, stopping cue and effect media; resume retains the construction.",
       checkpoint: "The current curriculum level is saved through the existing Arcade checkpoint callback.",
-      completion: "Existing score, stars, completed-construction count and resumable level checkpoint remain the only progress state."
+      completion: "Final accepted placement fixes one score/star receipt with immutable first responses and assisted retries; crossing and Finish do not resave."
     },
     accessibility: {
       reducedMotion: "Decorative bobbing, bursts and camera intensity are reduced while tile and slot feedback stays immediate.",
       soundOff: "The complete target, current slot and feedback remain printed when audio is unavailable or disabled.",
       nonColourCue: "Required and completed slots use position, outline, label and shape in addition to colour.",
-      semanticFallback: "Named buttons, focused onboarding and Arcade mission help expose the goal and controls outside the canvas."
+      semanticFallback: "Native named buttons, polite feedback and Arcade mission help expose the goal and controls directly."
     },
     performance: {
-      lowPowerFallback: "A single bounded Canvas2D surface, capped device pixel ratio and limited particles preserve input response.",
-      inputSafety: "Frame delta is capped and every held movement pointer releases on up, cancel and lost capture.",
+      lowPowerFallback: "Native controls remain usable without an animation surface; reduced motion shortens travel and removes secondary animation.",
+      inputSafety: "Stable occurrence/slot IDs dispatch released pointer or keyboard input; cancel, lost capture and pause epochs cannot commit.",
       assetFailure: "Bridge geometry, target tiles and controls remain playable without decorative images."
     },
     privacy: {
-      dataWritten: ["Existing score", "Existing stars", "Completed-construction count", "Existing resumable level checkpoint"],
+      dataWritten: ["Existing score", "Existing stars", "Completed-construction count", "Existing resumable level checkpoint", "Existing practice record with first responses and assisted retries"],
       network: ["Existing app progress sync only"],
       newIdentifier: false,
       newExternalService: false

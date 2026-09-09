@@ -369,7 +369,7 @@ export default function WordBridgeGame(props) {
           {isSoundEnabled && targetAudio(current.level) && <BridgeButton className="wb-tool" onActivate={listen}>Hear</BridgeButton>}
         </div>
         <p className="wb-support">{current.modelShown ? "Supported practice · printed model" : "Fresh bridge · build from the recording"}</p>
-        <div className="wb-target" data-wb="target">{printed ? fullTarget : sentence ? "Listen to the sentence. Build it in order." : "Listen to the word. Build its sounds."}</div>
+        <div className="wb-target" data-wb="target">{printed ? fullTarget : sentence ? "Listen to the sentence. Build it in order." : "Listen to the word. Build it with the pieces."}</div>
         {!current.modelShown && <BridgeButton className="wb-tool" onActivate={() => showModel("Use the model to finish your bridge.")}>Show model</BridgeButton>}
       </header>
 

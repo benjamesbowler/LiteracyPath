@@ -1,6 +1,7 @@
 // Pure level builder for Word Bridge (Mode A: Bridge).
 // DOM-free so every level is provably winnable and every distractor is sound-distinct
 // under node --test.
+import { segmentWrittenWord } from "./graphemeSegments.js";
 import { difficultyLadder } from "./curriculumLadder.js";
 import { SENTENCES } from "../data/learnGamesData.js";
 import { sharesSound } from "../components/elQuest/elQuestEngine.js";
@@ -28,10 +29,13 @@ function hashString(str) {
   return Math.abs(h);
 }
 
-// Build correct letter tiles for a word target.
+export function wordBridgeParts(target) {
+  return Array.isArray(target) ? target.map(String) : segmentWrittenWord(target).map(part => part.toUpperCase());
+}
+
+// Build correct written-grapheme tiles for a word target.
 function buildLetterTiles(word) {
-  const upper = String(word).toUpperCase();
-  return upper.split("").map((glyph, i) => ({
+  return wordBridgeParts(word).map((glyph, i) => ({
     glyph,
     correct: true,
     order: i,

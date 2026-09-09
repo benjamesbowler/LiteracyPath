@@ -259,11 +259,12 @@ unknown until each changed build is exercised on a real supported iPad.
 
 #### Word Bridge 2.0
 
-- **Age/reading band and construct:** early readers practise supported grapheme matching and ordered sentence reconstruction from a visible model. This is not recorded as independent encoding; horizontal movement, carrying and placement are non-target demands.
-- **Controls:** Left/Right or A/D moves; Space/Enter/E/Up picks, drops or rings; touch controls and the replay control meet the 56-pixel floor.
-- **Level ladder and prompt/audio:** ten levels progress from word building to longer ordered constructions. Persistent bridge slots show completed parts and the next empty position.
-- **Generator and ambiguity:** `wordBridgeLevels.js` supplies a complete fresh tile bank per target; `wordBridgeLevels.test.js` verifies the ordered solution and distractors.
-- **Feedback and reward:** a misplaced tile is returned without removing the clue. Bridge progress, score and stars reflect correctly placed language parts.
+- **Age/reading band and construct:** early readers construct words from written graphemes and reconstruct sentences from word pieces. Worked printed models alternate with fresh recorded targets when an exact cue exists. Practice remains separate from independent assessment; model exposure, actual cue delivery and assisted retries stay explicit.
+- **Controls:** native piece and socket buttons use select-then-place by released touch or keyboard activation. Tab/Left/Right selects focus; Enter/Space activates. Cancelled releases do not answer. All primary controls meet the 56-pixel floor and 8-pixel separation. Compact construction scrolls inside the fixed game surface so complete words remain readable.
+- **Level ladder and prompt/audio:** ten authored levels per difficulty preserve their targets. Fresh stages conceal the solution and socket ghosts until a whole recorded cue has played; Show model, muted sound or playback failure restores supported matching. Pause/exit stops detached cue and effect media.
+- **Generator and ambiguity:** `wordBridgeLevels.js` supplies written-grapheme pieces (including joined units such as CH, SH, IR and NG), unique occurrence/slot IDs and sound-distinct decoys. Either unused identical token fits a compatible socket, including lower rows. Correct construction persists through a wrong-piece repair.
+- **Feedback and reward:** immutable first responses retain actual target/response/correctness/support; successful assisted retries are separate. The final accepted placement fixes the result once. Carrying, crossing, Finish and replay dismissal cannot change it; a replay creates one new session. Stars use the shared accuracy rubric including mistakes.
+- **Presentation and evidence:** measured native socket anchors also drive the canonical helper's carry/snap and all pals crossing to the arrival. Completed bridges persist until the learner advances. `word-bridge-lifecycle.spec.js` checks every authored target at three sizes, actual hit testing and word clipping, lower-row/duplicate placement, media cancellation, pause, resize, fallback and receipt/replay behaviour. Browser automation does not establish physical-device, human-listening or child-play evidence.
 
 #### Sound Beat 2.0
 

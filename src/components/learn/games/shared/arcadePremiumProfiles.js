@@ -46,10 +46,10 @@ export const ARCADE_PREMIUM_PROFILES = Object.freeze({
   }),
   "word-bridge": Object.freeze({
     version: "2.0",
-    mission: "Match and carry each shown part to rebuild the target.",
-    objective: "Practise supported grapheme matching and ordered word or sentence reconstruction.",
-    action: "Pick up the next tile and place it on the bridge.",
-    controls: Object.freeze(["Move: Left / Right or A / D", "Pick or drop: Space, Enter, E, or Up"]),
+    mission: "Choose pieces to build a bridge for your pals.",
+    objective: "Build words and sentences from a model or a recorded cue.",
+    action: "Choose a piece, then choose its bridge space.",
+    controls: Object.freeze(["Choose: Tab or Left / Right", "Pick and place: Enter or Space; touch: tap each piece and space"]),
     retry: "A wrong tile stays available while the next required slot remains visible.",
     completionTitle: "Bridge complete",
     rewardLabel: "bridges built"
