@@ -210,6 +210,9 @@
   function go(d){ show(idx + d); }
 
   document.addEventListener('keydown', function(e){
+    // Let native controls receive Enter/Space instead of moving or revealing.
+    if (e.target.closest('input, select, textarea, [contenteditable]')) return;
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.closest('button, a')) return;
     if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); go(1); }
     else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(-1); }
     else if (e.key === 'f' || e.key === 'F') { toggleFs(); }

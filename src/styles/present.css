@@ -309,3 +309,7 @@
     max-height: none;
   }
 }
+
+.pr-lesson-plan { margin: 12px 0; padding-left: 22px; }
+.pr-lesson-plan li { padding: 5px 0; }
+.pr-lesson-plan p { margin: 4px 0 8px; line-height: 1.45; }

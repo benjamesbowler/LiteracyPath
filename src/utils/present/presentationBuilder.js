@@ -2,8 +2,8 @@
 // for one cycle, opened in a new window for the projector. Deterministic (same
 // cycle + same day => same deck bytes). Uses existing gold-voice audio and
 // picture-word images. Decks can be built for the whole cycle (default) or for
-// a single teaching day (Monday..Friday) - day decks reuse the same slide
-// builders, they only select which sections appear.
+// a single teaching day (Monday..Friday). Daily lessons combine source-aligned
+// teaching and response activities in five explicit budgets totalling 15 minutes.
 //
 // 2026-07-28 REDESIGN. Three structural changes, everything else is unchanged:
 //
@@ -332,7 +332,7 @@ function isBlendable(word) {
   return !BLEND_DIGRAPHS.some(d => word.includes(d));
 }
 
-function blendWordsFor(cycle) {
+function blendWordsFor(cycle, offset = 0) {
   if (isFluencyCycle(cycle) || (cycle.cycleNumber || 0) < 2) return [];
   const taught = taughtSinglesThrough(cycle.cycleNumber);
   const own = focusCards(cycle).flatMap(card => exampleWords(card.spelling, 6));
@@ -342,7 +342,7 @@ function blendWordsFor(cycle) {
     [...word].every(letter => taught.has(letter)) &&
     wordAudioPath(word));
   if (!pool.length) return [];
-  return pickPer(pool, cycle.cycleNumber, Math.min(2, pool.length));
+  return pickPer(pool, cycle.cycleNumber, Math.min(2, pool.length), offset);
 }
 
 // ── Slide shell ──────────────────────────────────────────────────────────────
@@ -407,14 +407,14 @@ function coverBlurb(cycle) {
   const poem = EL_CYCLE_POEMS.find(p => p.cycle === cycle.cycleNumber);
   const bits = [];
   if (letters.length) bits.push(letters.length === 1 ? "one new sound" : `${letters.length} sounds`);
-  if (hfw.length) bits.push(hfw.length === 1 ? "one tricky word" : `${hfw.length} tricky words`);
+  if (hfw.length) bits.push(hfw.length === 1 ? "one focus word" : `${hfw.length} focus words`);
   if (poem) bits.push("a poem");
   if (!bits.length) return "Everything we are practising this week.";
   const last = bits.pop();
   return `${bits.length ? `${bits.join(", ")} and ${last}` : last}, all together.`;
 }
 
-function titleSlide(cycle, world, dayLabel = "") {
+function titleSlide(cycle, world, dayLabel = "", dailyGoal = "") {
   const kickerParts = [
     cycle.type === "assessment" ? "Assessment week" : `Cycle ${cycle.cycleNumber}`,
     dayLabel,
@@ -425,7 +425,7 @@ function titleSlide(cycle, world, dayLabel = "") {
       <p class="p-kicker">${esc(kickerParts.join(" · "))}</p>
       <h1 class="p-title">${esc(cycleTopic(cycle))}</h1>
       <p class="p-phase">${esc(humanizePhase(cycle.phase))}</p>
-      <p class="p-blurb">${esc(coverBlurb(cycle))}</p>
+      <p class="p-blurb">${esc(dailyGoal || coverBlurb(cycle))}</p>
       <p class="p-hint">Press the right arrow key or click to begin</p>
     </div>
     <div class="p-cover-art"><span class="p-blob"></span>${palImg(world, "celebrate", "p-pal-hero")}</div>`,
@@ -521,7 +521,7 @@ function soundReviewSlide(cards, world) {
 
 function hfwSentence(cycle, word) {
   const card = (cycle?.sections?.highFrequencyWords?.cards || [])
-    .find(c => String(c.word || "").toLowerCase() === word);
+    .find(c => String(c.word || "").toLowerCase() === String(word).toLowerCase());
   return card?.sentence || "";
 }
 
@@ -531,7 +531,7 @@ function sightWordSlide(word, cycle, world) {
   return slide(world, `
     <div class="p-two-col">
       <div class="p-col-left p-col-left-text">
-        <p class="p-kicker">Tricky word</p>
+        <p class="p-kicker">Word practice</p>
         <div class="p-sight">${esc(word)}</div>
         <div class="p-tiles">${letters}</div>
       </div>
@@ -548,8 +548,8 @@ function sightWordSlide(word, cycle, world) {
   });
 }
 
-function blendSlides(cycle, world) {
-  return blendWordsFor(cycle).map(word => {
+function blendSlides(cycle, world, offset = 0) {
+  return blendWordsFor(cycle, offset).map(word => {
     const letters = word.split("").map(ch =>
       `<button class="p-tile-btn" data-play="${esc(graphemeAudio(ch))}" type="button">${esc(ch)}</button>`).join("");
     return slide(world, `
@@ -773,7 +773,7 @@ function paSkillCandidateSets(cycle) {
   return sets;
 }
 
-function paSlides(cycle, world, { skillIndex = null } = {}) {
+function paSlides(cycle, world, { skillIndex = null, offset = 0 } = {}) {
   const sets = paSkillCandidateSets(cycle);
   if (!sets.length) return [];
   const chosen = skillIndex === null ? sets : [sets[Math.min(skillIndex, sets.length - 1)]];
@@ -782,7 +782,7 @@ function paSlides(cycle, world, { skillIndex = null } = {}) {
   const out = [];
   for (const set of chosen) {
     const picked = [];
-    for (const cand of set.candidates) {
+    for (const cand of [...set.candidates.slice(offset % set.candidates.length), ...set.candidates.slice(0, offset % set.candidates.length)]) {
       if (picked.length >= perSkill) break;
       if (used.has(cand.key)) continue;
       used.add(cand.key);
@@ -810,7 +810,7 @@ function goalsSlide(cycle, world) {
   { cls: "p-goal-slide", section: "Warm-up", char: "think" });
 }
 
-function poemSlide(cycle, world) {
+function poemSlide(cycle, world, day = "") {
   const poem = EL_CYCLE_POEMS.find(p => p.cycle === cycle.cycleNumber);
   if (!poem) return "";
   const audio = getLedaInstructionAudioPath(poem.lines.join("\n"));
@@ -830,7 +830,7 @@ function poemSlide(cycle, world) {
         ${pics ? `<div class="p-poem-pics">${pics}</div>` : ""}
       </div>
     </div>`,
-  { cls: "p-poem-slide", section: "Poem", audio });
+  { cls: "p-poem-slide", section: "Poem", audio, teacher: day ? POEM_ROUTINES[day] : "Teacher-supported listening and reading; this poem is not an independent decoding check." });
 }
 
 function patternSlide(cycle, world) {
@@ -856,7 +856,7 @@ function endSlide(cycle, world) {
   const letterChips = focusCards(cycle).map(card =>
     `<button class="p-chip accent" data-play="${esc(graphemeAudio(card.spelling))}" type="button">${esc(displayGrapheme(card))}</button>`).join("");
   const wordChips = (cycle.highFrequencyWords || []).map(w => {
-    const word = String(w).toLowerCase();
+    const word = String(w);
     return `<button class="p-chip sage" data-play="${esc(wordAudio(word))}" type="button">${esc(word)}</button>`;
   }).join("");
   const recap = (letterChips || wordChips)
@@ -900,6 +900,202 @@ export function presentationCycleSummary(cycleId) {
   return parts.join(" · ");
 }
 
+// Teacher-supported language work uses the existing poem, with a different
+// purpose each day. These are teaching adaptations, not official EL lessons.
+const POEM_ROUTINES = {
+  monday: "Read aloud, explain the picture, then echo two lines with actions. Children listen; they need not decode the poem.",
+  tuesday: "Echo-read in short phrases. Point once per spoken word in the first line; notice the spaces. Swap leader and echo.",
+  wednesday: "Read aloud, then ask the poem question. Partners answer and point to the line or picture that helped.",
+  thursday: "Say the response before writing. Teacher scribes untaught words; children contribute known letters or high-frequency words.",
+  friday: "Perform the familiar poem in two groups, then retell it. Support the reading; listen for clearer language and phrasing."
+};
+
+const POEM_QUESTIONS = [
+  ["What does Muddy take up the hill?", "a map", "Muddy takes a ___.", "Muddy takes a map."],
+  ["Where does Bouncy hop?", "to the tent", "Bouncy hops to the ___.", "Bouncy hops to the tent."],
+  ["Why might Clucky build a cosy nest?", "Tiny needs a rest.", "Tiny can rest in the ___.", "Tiny can rest in the nest."],
+  ["What is the dog doing by the barn?", "napping", "The dog is ___.", "The dog is napping."],
+  ["How does Clucky help when it is dark?", "She lights the lamp.", "Clucky lights the ___.", "Clucky lights the lamp."],
+  ["Why do the friends run home?", "It is late.", "They run home because ___.", "They run home because it is late."],
+  ["Why does Muddy invite the pals inside?", "It is warm and time for bed.", "Come into the ___.", "Come into the barn."],
+  ["What happens after Woolly rolls the ball?", "It bounces off the wall.", "The ball bounces off the ___.", "The ball bounces off the wall."],
+  ["Where does Muddy land?", "in the mud", "Muddy lands in the ___.", "Muddy lands in the mud."],
+  ["What does Chompy find?", "a cap", "Chompy finds a ___.", "Chompy finds a cap."],
+  ["Which animals appear while Zippy counts?", "a pig and a fox", "I heard about a ___ and a ___.", "I heard about a pig and a fox."],
+  ["Why does Wiggly go to the vet?", "He bumped his leg.", "Wiggly needs help because ___.", "Wiggly needs help because he bumped his leg."],
+  ["What does Honky use to pour?", "a jug", "Honky pours from a ___.", "Honky pours from a jug."],
+  ["What are friends invited to do?", "play", "Come and ___ with me.", "Come and play with me."],
+  ["What does Honky dream about?", "a ship", "Honky dreams about a ___.", "Honky dreams about a ship."],
+  ["How do the pals include everyone?", "They share the ball and invite everyone.", "We can share the ___.", "We can share the ball."],
+  ["What do Cheeky and friends like?", "the leafy path and valley hike", "They like the ___.", "They like the leafy path."],
+  ["Where is the frog swimming?", "Fossil Creek", "The frog swims in ___.", "The frog swims in Fossil Creek."],
+  ["What does Pip splash in?", "puddle mud", "Pip splashes in the ___.", "Pip splashes in the mud."],
+  ["How should the friends carry the egg?", "gently", "Carry the egg ___.", "Carry the egg gently."],
+  ["What does Luna count?", "the stars", "Luna counts the ___.", "Luna counts the stars."],
+  ["What happens to the berries?", "They float and do not sink.", "The berries ___.", "The berries float."],
+  ["What do the friends do together?", "sing, hum and sway", "Together we can ___.", "Together we can sing."],
+  ["Where does Fern flutter?", "by the Crystal Stream", "Fern flutters by the ___.", "Fern flutters by the Crystal Stream."],
+  ["What do Pip and Luna do?", "read and play", "We can ___ and ___.", "We can read and play."],
+  ["Where does Fern fly?", "high, near the clouds", "Fern flies ___.", "Fern flies high."],
+  ["How do the friends share the berry?", "They have half each.", "Each friend has ___.", "Each friend has half."]
+];
+
+function cardsAvailableOn(cycle, day) {
+  const dayIndex = Object.keys(DAY_LABELS).indexOf(day);
+  return focusCards(cycle).filter(card => !card.day || Object.values(DAY_LABELS).indexOf(card.day) <= dayIndex);
+}
+
+export function presentationDayPlan(cycleId, day = "monday") {
+  const cycle = getPresentationCycle(cycleId);
+  if (!cycle) throw new Error("Unknown cycle");
+  const key = normalizeDay(day);
+  if (!key || cycle.type === "assessment") return null;
+  const labels = {
+    monday: "Meet and notice", tuesday: "Recall and practise", wednesday: "Read and use",
+    thursday: "Spell and apply", friday: /check/i.test(cycle.friday || "") ? "Review and check" : "Review and celebrate"
+  };
+  const cards = cardsAvailableOn(cycle, key);
+  const newCards = cards.filter(card => card.day === DAY_LABELS[key]);
+  const focus = isFluencyCycle(cycle) ? CYCLE_PATTERN_SORTS[cycle.cycleNumber].label
+    : (newCards.length ? newCards : cards).map(displayGrapheme).join(" · ");
+  return {
+    day: key, title: labels[key], minutes: 15, focus,
+    preparation: "Mini whiteboards or paper, pencils, and two counters per child. Use the cycle's letter or clay mat for formation support.",
+    blocks: [
+      { id: "listen", label: "Listen and warm up", minutes: 2, guidance: "Model one oral example. Everyone tries the next; hear a few individual voices." },
+      { id: "code", label: newCards.length && !isFluencyCycle(cycle) ? `Say and form ${focus}` : "Retrieve sounds and read", minutes: 4, guidance: "Model, practise together, then ask children to try without the model. Correct and retry." },
+      { id: "words", label: "Read, spell and use words", minutes: 3, guidance: `Practise ${cycle.highFrequencyWords.join(", ")}. Read the sentence aloud; children use the focus word in speech.` },
+      { id: "apply", label: key === "thursday" ? "Listen, write and check" : key === "friday" ? "Apply familiar learning" : "Poem and language", minutes: 4, guidance: key === "thursday" ? "Dictate a taught word or spelling, compare and repair, then co-write a response to the familiar poem." : key === "friday" && /check/i.test(cycle.friday || "") ? "Listen and write, then explain an idea from the familiar poem. Administer the separate Cycle Check individually when required." : POEM_ROUTINES[key] },
+      { id: "recap", label: "Show what you know", minutes: 2, guidance: "All children respond first. Sample individual responses, note support needed, and choose tomorrow's reteach." }
+    ]
+  };
+}
+
+function responseSlide(world, { title, prompt, answer, teacher, section = "Writing", cls = "p-application", audio = "" }) {
+  return slide(world, `<p class="p-kicker">${esc(title)}</p>
+    <h2 class="p-h2">${esc(prompt)}</h2>
+    ${audioButton(audio, "Hear the word")}
+    <div class="p-answer"><p class="p-response">${esc(answer)}</p></div>
+    ${revealButton()}`, { cls, section, reveal: true, teacher });
+}
+
+function wordRecallSlide(cycle, world, word) {
+  return responseSlide(world, {
+    title: "Read · hide · write · check", prompt: "Write the word you just read.", answer: word,
+    audio: wordAudio(word), section: "Words", cls: "p-word-recall",
+    teacher: `Read ${word} on the previous slide. Here, say it again; children write from memory. Reveal, compare every letter, repair, then read it.`
+  });
+}
+
+function poemTalkSlide(cycle, world, day) {
+  const item = POEM_QUESTIONS[cycle.cycleNumber - 1];
+  if (!item) return "";
+  const [question, answer, frame, model] = item;
+  return responseSlide(world, {
+    title: day === "thursday" ? "Say it · help me write it" : "Tell your partner",
+    prompt: day === "thursday" ? frame : question, answer: day === "thursday" ? model : answer,
+    section: "Poem", cls: "p-poem-talk",
+    teacher: day === "thursday"
+      ? "Rehearse a whole sentence. Scribe it on the board; invite known spellings, add spaces and punctuation, then reread together."
+      : "Ask aloud after reading the poem. Give partners thinking time. Accept a phrase or gesture, expand it into a sentence, and ask what helped them answer."
+  });
+}
+
+function dictationSlide(cycle, world, day) {
+  const words = isFluencyCycle(cycle) ? CYCLE_PATTERN_SORTS[cycle.cycleNumber].words : PATTERN_READING[cycle.cycleNumber]?.map(parts => parts.join("")) || blendWordsFor(cycle);
+  const target = words[day === "friday" ? Math.min(1, words.length - 1) : 0];
+  const card = cardsAvailableOn(cycle, day)[0];
+  return responseSlide(world, {
+    title: "Listen · say · write", prompt: target ? "Say the word. Stretch it. Write it." : "Listen to the sound. Write its letter.",
+    answer: target || card?.spelling || cycle.highFrequencyWords[0],
+    audio: target ? wordAudio(target) : graphemeAudio(card?.spelling),
+    teacher: target ? `Say ${target}, use it in speech, then say it again. Children write before the reveal. Compare the spelling, repair and reread.`
+      : `Say ${card?.sound || "the focus word"}. Children write without copying. Reveal and compare; model again if needed.`
+  });
+}
+
+const PATTERN_READING = {
+  15: [["sh", "i", "p"], ["ch", "i", "p"], ["th", "i", "n"]],
+  16: [["b", "all"], ["f", "all"], ["c", "all"]],
+  21: [["wh", "e", "n"], ["wh", "i", "p"], ["wh", "i", "sk"]],
+  22: [["s", "i", "nk"], ["p", "i", "nk"], ["b", "a", "nk"]],
+  23: [["r", "ing"], ["s", "ong"], ["h", "ung"], ["b", "ang"]],
+  24: [["p", "u", "ff"], ["m", "i", "ss"], ["b", "u", "zz"], ["w", "i", "ll"]]
+};
+
+function dailyReadingSlides(cycle, world, day) {
+  const bank = PATTERN_READING[cycle.cycleNumber];
+  const index = Object.keys(DAY_LABELS).indexOf(day);
+  if (!bank) return blendSlides(cycle, world, index);
+  return [...bank.slice(index % bank.length), ...bank.slice(0, index % bank.length)].slice(0, 2).map(parts => {
+    const word = parts.join("");
+    return slide(world, `<p class="p-kicker">Read the spelling pattern</p>
+      <div class="p-compound" data-pattern-word="${word}">${parts.map(part => `<span class="p-tile">${part}</span>`).join("")}</div>
+      <h2 class="p-h2">Read each part. Blend the word.</h2>
+      <div class="p-answer"><span class="p-response">${word}</span>${audioButton(wordAudio(word), "Read the word")}</div>${revealButton()}`,
+      { cls: "p-pattern-read", section: "Blending", reveal: true,
+        teacher: "Point to each spelling part, blend, then reread smoothly. A part may contain more than one sound. Reveal after children try; explain the word orally." });
+  });
+}
+
+function soundHuntSlide(cycle, world, day) {
+  const cards = cardsAvailableOn(cycle, day);
+  const index = Object.keys(DAY_LABELS).indexOf(day);
+  const card = cards[index % cards.length];
+  if (!card) return "";
+  const words = exampleWords(card.spelling, 6).filter(word => wordImage(word));
+  if (!words.length) return "";
+  const selected = [...words.slice(index % words.length), ...words.slice(0, index % words.length)].slice(0, 3);
+  return slide(world, `<p class="p-kicker">Listen and find the sound</p>
+    <h2 class="p-h2">Where do you hear ${esc(card.sound || card.spelling)}?</h2>
+    <div class="p-words p-words-${selected.length}">${selected.map(word => `<button class="p-word" type="button" data-play="${esc(wordAudio(word))}"><img src="${esc(wordImage(word))}" alt="${esc(word)}"/><span>${esc(word)}</span></button>`).join("")}</div>
+    <div class="p-answer"><span class="p-chip accent">${esc(displayGrapheme(card))}</span></div>${revealButton()}`,
+    { cls: "p-sound-hunt", section: "Sounds", reveal: true,
+      teacher: "Name each picture aloud. Children repeat and listen for the focus sound, then point to the matching letter on their mat. Printed words are teacher-supported labels, not a decoding test." });
+}
+
+function recapSlide(cycle, world, day) {
+  const cards = cardsAvailableOn(cycle, day);
+  const word = cycle.highFrequencyWords[(Object.keys(DAY_LABELS).indexOf(day)) % cycle.highFrequencyWords.length];
+  return slide(world, `<p class="p-kicker">Show what you know</p>
+    <h2 class="p-h2">Say it. Write it. Use it.</h2>
+    <div class="p-chips big">${isFluencyCycle(cycle) ? chipRow(CYCLE_PATTERN_SORTS[cycle.cycleNumber].words.slice(0, 2)) : cards.map(card => `<span class="p-chip accent">${esc(displayGrapheme(card))}</span>`).join("")}</div>
+    <div class="p-answer"><p class="p-sentence">${esc(word)}</p></div>${revealButton()}`, {
+    cls: "p-exit-check", section: "Review", reveal: true,
+    teacher: `Ask for a sound or pattern, then say ${word}. Children write it and use it orally before you reveal the spelling. Sample individuals. ${/check/i.test(cycle.friday || "") && day === "friday" ? "Use the separate Cycle Check for formal assessment; this shared recap is practice." : "Record who needs another model; shared responses are not an assessment score."}`
+  });
+}
+
+function assembleDailySlides(cycle, world, day) {
+  const plan = presentationDayPlan(cycle.id, day);
+  const index = Object.keys(DAY_LABELS).indexOf(day);
+  const cards = cardsAvailableOn(cycle, day);
+  const newCards = cards.filter(card => card.day === DAY_LABELS[day]);
+  const fluency = isFluencyCycle(cycle);
+  const check = day === "friday" && /check/i.test(cycle.friday || "");
+  const words = cycle.highFrequencyWords;
+  const chosenWords = day === "monday" ? words.slice(0, 1) : day === "tuesday" ? words.slice(1).length ? words.slice(1) : words : words;
+  const groups = [];
+  groups.push([titleSlide(cycle, world, `${DAY_LABELS[day]} · ${plan.title}`, `${plan.focus ? `${plan.focus}. ` : ""}Listen, try, and show what you know.`), ...paSlides(cycle, world, { skillIndex: index < 2 ? index : null, offset: index * 2 }).slice(0, 2)]);
+  groups.push(fluency ? [patternSlide(cycle, world), chainSlide(cycle, world)]
+    : newCards.length ? letterPairSlides(newCards, cycle, world)
+    : [soundReviewSlide(cards, world), ...(check ? dailyReadingSlides(cycle, world, day) : day === "friday" ? [...cards.slice(0, 2).map(card => letterSoundSlide(card, cycle, world)), ...dailyReadingSlides(cycle, world, day)] : dailyReadingSlides(cycle, world, day))]);
+  if (!fluency && !check) groups[1].push(soundHuntSlide(cycle, world, day));
+  groups.push([...chosenWords.map(word => sightWordSlide(word, cycle, world)), wordRecallSlide(cycle, world, chosenWords[chosenWords.length - 1])]);
+  groups.push(check ? [dictationSlide(cycle, world, day), poemTalkSlide(cycle, world, day)]
+    : day === "thursday" ? [dictationSlide(cycle, world, day), poemTalkSlide(cycle, world, day)]
+    : [poemSlide(cycle, world, day), index < 2 ? callResponseSlide(cycle, world, index) : poemTalkSlide(cycle, world, day)]);
+  groups.push([recapSlide(cycle, world, day)]);
+  let elapsed = 0;
+  return groups.flatMap((group, i) => {
+    const block = plan.blocks[i];
+    const start = elapsed;
+    elapsed += block.minutes;
+    return group.filter(Boolean).map((html, slideIndex) => html.replace(/<section class="([^"]*)"/, `<section class="$1" data-lesson-block="${block.id}" data-block-minutes="${block.minutes}" data-block-start="${slideIndex === 0 ? "1" : "0"}"`)
+      .replace('</section>', `<p class="p-pacing">${start}–${elapsed} min · ${esc(block.label)}</p></section>`));
+  });
+}
+
 // ── Deck assembly ────────────────────────────────────────────────────────────
 function assembleSlides(cycle, world, day) {
   const fluency = isFluencyCycle(cycle);
@@ -907,13 +1103,12 @@ function assembleSlides(cycle, world, day) {
   const cards = focusCards(cycle);
   const reviewOnly = !fluency && !assessment && !(cycle.focusLetters || []).length && cards.length > 0;
   const dayLabel = DAY_LABELS[day] || "";
-  const hfwWords = (cycle.highFrequencyWords || []).map(w => String(w).toLowerCase());
+  const hfwWords = (cycle.highFrequencyWords || []).map(String);
 
   const slides = [];
   const push = (...items) => { for (const item of items) if (item) slides.push(item); };
   const pushAll = items => { for (const item of items) if (item) slides.push(item); };
   const hfwSlides = () => hfwWords.map(word => sightWordSlide(word, cycle, world));
-  const cardsForDay = name => cards.filter(card => (card.day || "") === name);
 
   push(titleSlide(cycle, world, dayLabel));
 
@@ -927,7 +1122,6 @@ function assembleSlides(cycle, world, day) {
   const poem = poemSlide(cycle, world);
   const books = booksSlide(cycle, world);
   const blend = fluency ? [] : blendSlides(cycle, world);
-  const fridayCheck = /check|assessment|benchmark/i.test(String(cycle.friday || ""));
 
   if (!day) {
     push(goal);
@@ -941,49 +1135,9 @@ function assembleSlides(cycle, world, day) {
     pushAll(hfwSlides());
     pushAll(paSlides(cycle, world));
     push(poem, books, endSlide(cycle, world));
-  } else if (day === "monday" || day === "tuesday") {
-    push(goal);
-    if (fluency) push(patternSlide(cycle, world), chainSlide(cycle, world));
-    else if (reviewOnly && day === "monday") push(soundReviewSlide(cards, world));
-    else pushAll(letterPairSlides(cardsForDay(DAY_LABELS[day]), cycle, world));
-    push(callResponseSlide(cycle, world, day === "monday" ? 0 : 1));
-    pushAll(paSlides(cycle, world, { skillIndex: day === "monday" ? 0 : 1 }));
-    if (day === "monday") push(books);
-    push(poem, endSlide(cycle, world));
-  } else if (day === "wednesday") {
-    push(goal);
-    if (fluency) push(patternSlide(cycle, world));
-    else pushAll(letterPairSlides(cardsForDay("Wednesday"), cycle, world));
-    pushAll(hfwSlides());
-    pushAll(blend);
-    push(callResponseSlide(cycle, world, 2));
-    push(poem, endSlide(cycle, world));
-  } else if (day === "thursday") {
-    push(goal);
-    pushAll(paSlides(cycle, world));
-    pushAll(hfwSlides());
-    pushAll(blend);
-    if (fluency) push(chainSlide(cycle, world));
-    push(callResponseSlide(cycle, world, 3));
-    push(poem, endSlide(cycle, world));
-  } else if (day === "friday") {
-    if (fridayCheck) {
-      if (fluency) push(patternSlide(cycle, world), chainSlide(cycle, world));
-      else push(soundReviewSlide(cards, world));
-      pushAll(hfwSlides());
-      pushAll(blend);
-      push(endSlide(cycle, world));
-    } else {
-      push(goal);
-      if (fluency) push(patternSlide(cycle, world), chainSlide(cycle, world));
-      else if (reviewOnly) push(soundReviewSlide(cards, world));
-      else pushAll(cards.map(card => letterSoundSlide(card, cycle, world)));
-      pushAll(hfwSlides());
-      pushAll(paSlides(cycle, world));
-      pushAll(blend);
-      push(callResponseSlide(cycle, world, 1));
-      push(poem, endSlide(cycle, world));
-    }
+  } else {
+    // Daily lessons have activity budgets, not a slide-count estimate.
+    return assembleDailySlides(cycle, world, day);
   }
   return slides;
 }
@@ -1013,7 +1167,7 @@ export function buildCyclePresentation(cycleId, { day = "" } = {}) {
 <div id="start"><button id="startBtn" type="button">${ICON_PLAY}<span>Start presentation</span></button><p>Best on a projector. Arrow keys move, F is full screen, Esc leaves.</p></div>
 <script src="${deckScriptUrl}"></script>
 </body></html>`;
-  return { title, slideCount: slides.length, html };
+  return { title, slideCount: slides.length, html, lessonPlan: dayKey && cycle.type !== "assessment" ? presentationDayPlan(cycleId, dayKey) : null };
 }
 
 // Per-slide metadata for the picker's preview rail. Derived from the SAME html
@@ -1222,8 +1376,14 @@ const DECK_CSS = `
   .p-audio-ghost:active, .p-reveal-btn:active { background: var(--accent-300); }
 
   /* ── Reveal ─────────────────────────────────────────────────────────────── */
-  .p-answer { opacity: 0; transition: opacity .35s ease; }
-  .slide.revealed .p-answer { opacity: 1; }
+  .p-sound-hunt { gap: 20px; }
+  .p-sound-hunt .p-word { padding: 20px; }
+  .p-sound-hunt .p-word img { width: 180px; height: 180px; }
+  .p-sound-hunt .p-h2 { font-size: 60px; }
+  .p-pacing { position: absolute; top: 104px; right: 104px; margin: 0; font-size: 26px; color: var(--n-700); background: var(--surface); padding: 8px 16px; border-radius: 16px; }
+  .p-application .p-response, .p-poem-talk .p-response { font-size: 62px; max-width: 1200px; }
+  .p-answer { visibility: hidden; opacity: 0; transition: opacity .35s ease; }
+  .slide.revealed .p-answer { visibility: visible; opacity: 1; }
   .p-tag-sage { font-size: var(--t-kicker); font-weight: 700; color: var(--sage-700); }
   .p-tag-accent { font-size: var(--t-kicker); font-weight: 700; color: var(--accent-600); }
 
@@ -1322,7 +1482,7 @@ const DECK_CSS = `
      The articulation tip is written for the ADULT. On the old deck it sat in
      the middle of the slide in a yellow ribbon, competing with the letter the
      class was meant to be looking at. Here it is a quiet rule at the base. */
-  .p-foryou { position: absolute; left: 104px; right: 104px; bottom: 56px; margin: 0;
+  .p-foryou { position: absolute; left: 104px; right: 330px; bottom: 38px; margin: 0;
     display: flex; align-items: center; gap: 20px; border-top: 2px solid var(--n-300);
     padding-top: 24px; }
   .p-foryou b { font-size: var(--t-rail); font-weight: 700; letter-spacing: .1em;
@@ -1362,7 +1522,7 @@ const DECK_CSS = `
     #start, #nav { display: none !important; }
     .slide { position: relative; display: flex !important; page-break-after: always; }
     .p-cover, .p-close, .p-together { display: grid !important; }
-    .p-answer { opacity: 1; }
+    .p-answer { visibility: visible; opacity: 1; }
   }
 
   @media (prefers-reduced-motion: reduce) {

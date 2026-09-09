@@ -191,7 +191,7 @@ test("all of a cycle's high-frequency words get sight-word slides", () => {
   for (const cycle of numberedCycles) {
     const { html } = buildCyclePresentation(cycle.id);
     for (const word of cycle.highFrequencyWords || []) {
-      const clean = String(word).toLowerCase();
+      const clean = String(word);
       assert.ok(html.includes(`<div class="p-sight">${clean}</div>`),
         `cycle ${cycle.cycleNumber}: sight word "${clean}" has a slide`);
     }
@@ -412,4 +412,49 @@ test("the picker summary line is built from the cycle's own data", () => {
   assert.ok(summary.includes("Ff") && summary.includes("Dd"), "names the graphemes");
   assert.ok(summary.includes("2 sight words"), "counts the sight words");
   assert.ok(summary.includes("poem:"), "names the poem");
+});
+
+
+test("all 135 daily lessons have five activity budgets totalling 15 minutes", () => {
+  for (const cycle of numberedCycles) {
+    for (const day of PRESENTATION_DAYS.filter(d => d.value)) {
+      const { html, lessonPlan } = buildCyclePresentation(cycle.id, { day: day.value });
+      assert.equal(lessonPlan.minutes, 15);
+      assert.equal(lessonPlan.blocks.reduce((sum, b) => sum + b.minutes, 0), 15);
+      assert.equal((html.match(/data-block-start="1"/g) || []).length, 5, `${cycle.id} ${day.value}`);
+      assert.match(html, /p-word-recall/);
+      assert.match(html, /p-exit-check/);
+      assert.equal(presentationSlideIndex(cycle.id, { day: day.value }).length, (html.match(/<section /g) || []).length);
+    }
+  }
+});
+
+test("warm-ups vary across the week and spelling answers stay hidden until requested", () => {
+  const monday = buildCyclePresentation("cycle-3", { day: "monday" }).html;
+  const thursday = buildCyclePresentation("cycle-3", { day: "thursday" }).html;
+  const keys = html => [...html.matchAll(/data-pa-key="([^"]+)"/g)].map(m => m[1]);
+  assert.notDeepEqual(keys(monday), keys(thursday));
+  assert.match(thursday, /p-answer \{ visibility: hidden/);
+  assert.match(thursday, /Say the word. Stretch it. Write it./);
+  assert.match(thursday, /Tiny can rest in the/);
+  assert.match(buildCyclePresentation("cycle-1", { day: "tuesday" }).html, /class="p-sight">I</);
+});
+
+test("day plans retain assigned new-letter days and do not turn assessment weeks into lessons", () => {
+  for (const cycle of numberedCycles) {
+    const week = PRESENTATION_DAYS.filter(d => d.value).map(d => buildCyclePresentation(cycle.id, { day: d.value }).html).join("\n");
+    for (const word of cycle.highFrequencyWords) assert.ok(week.includes(`<div class="p-sight">${word}</div>`));
+  }
+  assert.equal(buildCyclePresentation("boy-assessment", { day: "monday" }).lessonPlan, null);
+});
+
+
+test("pattern lessons practise their own spellings and shared writing reveals a complete model", () => {
+  for (const [cycle, word] of [[15, "ship"], [16, "ball"], [21, "when"], [22, "sink"], [23, "bang"], [24, "will"]]) {
+    const html = buildCyclePresentation(`cycle-${cycle}`, { day: "thursday" }).html;
+    assert.ok(html.includes(`data-pattern-word="${word}"`), `cycle ${cycle} reads ${word}`);
+  }
+  const html = buildCyclePresentation("cycle-15", { day: "thursday" }).html;
+  assert.match(html, /Honky dreams about a ship\./);
+  assert.doesNotMatch(html, /Honky dreams about a a ship/);
 });

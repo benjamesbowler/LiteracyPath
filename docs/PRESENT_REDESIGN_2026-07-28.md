@@ -1,61 +1,83 @@
-# Present mode redesign — 2026-07-28
+# Present mode: weekly classroom lessons
 
-**Record.** Implements the approved Present-mode redesign (design handoff of 2026-07-28)
-across the four files that own the feature. No cycle data was edited; the curriculum
-logic (which slides a cycle/day gets) is unchanged from the 2026-07-26 rebuild.
+Present offers five teacher-led lessons of about 15 minutes for every numbered
+EL cycle. Monday is selected initially. The whole-cycle option remains a resource
+collection, not a timed daily lesson. Assessment weeks retain their separate decks.
 
-## What shipped
+## Curriculum and sources
 
-| File | Change |
-| --- | --- |
-| `src/utils/present/presentationBuilder.js` | Fixed 1920×1080 stage (px sizes, deck.js scales to fit); persistent section rail driven by `data-section`; organic theme (cream/terracotta/sage, Caprasimo for chrome, **Andika stays on every glyph a child decodes**); teacher tip moved to a quiet "For you" strip; new slide types: reveal warm-ups, thinking-time ring, "Everyone together" call-and-response, sight-word sentences; `POSES` whitelist (the `point` pose never existed on disk — slides that asked for it now fall back to `think`); `graphemeFontSize()` steps wide graphemes (Ww/Mm) down so they stay in the circle; new `presentationSlideIndex()` export parsed from the deck's own HTML. |
-| `public/present/deck.js` | Stage scaling, rail painting, reveal/timer runtimes; embedded-preview mode — framed same-origin, it hides the start overlay and follows `postMessage` from the picker (the projector popup ignores messages). |
-| `src/components/PresentPage.jsx` | Picker rebuilt: day `<select>` → six-tile day grid with real slide counts; structured "What's in this deck" contents list; live preview = the **actual deck in an `<iframe srcdoc>`** with a thumbnail rail driving it. |
-| `src/styles/present.css` | New. Picker-side styles only, on the teacher `--lp-*` tokens (the deck palette stays a children's surface). |
+The live `elSkillsBlockCycles.js` records own the cycle order, assigned letter days,
+high-frequency words, daily routines, and Friday practice/check designation.
+`elCyclePoems.js` owns the poems. Present does not change either sequence or formal
+assessment scoring. These daily lessons are local teaching adaptations, not official
+EL Education lesson reproductions or replacements for differentiated small groups.
 
-## Two defects found in the handoff and fixed during implementation
+The adaptation draws on the existing cycle plans and classroom resources: the
+Cycle 3 whole-group Lessons 1–3 slide decks in `Desktop/EL Sea Lions/EL Week 3`
+(poem launch, word tracking and spaces, letter formation, high-frequency word
+routines, call and response, chaining and checks for understanding), the app's
+cycle-specific letter and clay-mat resources, and the
+[EL Skills Block Resource Manual](https://eleducation.org/documents/1619/Curriculum_Tools_K2_Skills_Block_Resource_Manual-0124.pdf).
+The classroom source slides order I before N; the app's current cycle record
+assigns N to Monday and I to Tuesday. Present follows the live app sequence.
 
-1. **The thinking-time dial never rendered.** The builder set `data-timer` and deck.js
-   ran the countdown, but nothing emitted the `timerDial()` markup (ESLint flagged it as
-   unused). `slide()` now renders the dial on timer slides; the corner mascot yields the
-   spot (both occupy bottom-right). Locked by a unit test pairing every `data-timer`
-   with a `data-timer-start`.
-2. **The stage was offset and clipped on every window smaller than 1920×1080.**
-   `#scaler` used grid `place-items: center`, but Chromium start-aligns a grid item that
-   overflows its track, so the stage hung down-right and the top-left of every slide was
-   cut off. Centering is now an explicit `translate(-50%,-50%)` in the same transform
-   deck.js scales with. Caught by rendered screenshots, not by tests — the deck HTML was
-   byte-identical either way.
+## Daily teaching contract
 
-## CSP posture (verified empirically, headless Chromium against the production headers)
+Each daily deck and its teacher plan share five activity budgets:
 
-- `<iframe srcdoc>` **is allowed** under `frame-src 'none'` (about:srcdoc is exempt);
-  a `blob:` iframe is **blocked**. The preview therefore uses srcdoc and must never be
-  switched to a blob URL. `vercel.json` and `tools/checkCsp.mjs` are untouched.
-- The popup deck stays a blob document loading `/present/deck.js` (same-origin, no
-  inline script), exactly per the 2026-07-26 CSP fix. Zero CSP violations observed in
-  either context.
+| Activity | Minutes | Purpose |
+| --- | --- | --- |
+| Listen and warm up | 2 | Model one oral example, then hear children's responses to another |
+| Sounds, formation and reading | 4 | Assigned new learning or retrieval, picture-supported sound work, blending |
+| High-frequency words | 3 | Read, spell, use in speech, then write from memory and compare |
+| Apply | 4 | Purposeful poem work or dictation and supported shared writing |
+| Show what you know | 2 | Everyone responds; sample individuals and identify what needs reteaching |
 
-## Verification (all observed green, 2026-07-28)
+Timings include interaction and feedback; they are teaching budgets, not measured
+classroom durations or slide-count estimates. The projected pacing label identifies
+the current block's window. A teacher may pause, model again, or shorten a repeat.
 
-- `npm run test:unit` — 1721/1721 (TZ-matched run; `elExportEvidenceConsistency` has a
-  pre-existing timezone-literal assertion that fails under UTC with or without this
-  change).
-- `npm run lint`, `npm run build`, `npm run check:app-copy`, `node tools/checkCsp.mjs` — pass.
-- `tests/unit/presentationBuilder.test.js` re-anchored to the new markup and extended:
-  slide-index mirror, pose-files-exist, timer-dial pairing, together-slide rotation,
-  wide-grapheme sizing.
-- Rendered QA: served `dist/` with the production headers; screenshotted the srcdoc
-  preview (postMessage-driven through every slide type, reveal + timer live) and the
-  popup (start overlay → fullscreen → arrow-key nav, counter advancing).
+- Monday introduces the assigned focus and launches the poem through listening,
+  actions and echo reading.
+- Tuesday retrieves learning, introduces the next assigned focus, and uses the
+  poem to track spoken words and notice spaces.
+- Wednesday includes any assigned third spelling, word reading and use, and a
+  poem-specific question with partner talk and supporting evidence.
+- Thursday combines oral manipulation, spelling from dictation, repair, and
+  teacher-supported sentence composition using a poem-specific frame.
+- Friday revisits familiar learning. Check cycles include practice dictation and
+  a recap, with the formal Cycle Check administered separately. Practice cycles
+  revisit sounds, reading and poem performance.
 
-## Open follow-ups
+## Teaching boundaries
 
-- `PresentPage` accepts an optional `currentCycleId` and prefers it over the
-  `lp-present-last` localStorage memory. No caller passes it yet — the class model has
-  no current-cycle field to derive it from. Wiring it is a data-model task, not a
-  Present task.
-- The three `{world}-point.webp` poses can be commissioned later; add `"point"` to
-  `POSES` when they land.
-- All Andika/Caprasimo webfonts load from Google Fonts inside the deck (allowed by CSP;
-  system fallbacks keep an offline projector legible).
+- Oral language and picture labels can exceed taught code; adults read them.
+  Pictures support meaning, not guessing an unknown printed word.
+- Poems are teacher-supported listening/reading. Echoing or memorising the poem
+  is not independent decoding or fluency evidence.
+- Word blending stays within the cycle's taught code. Later pattern cycles have
+  explicit spelling-part reading; a spelling part can represent multiple sounds.
+- High-frequency words retain their authored case, including the pronoun `I`.
+- Answers are hidden visually and from accessibility until revealed. Writing
+  prompts withhold the spelling until children have attempted it.
+- Recaps and group responses do not create scores or formal mastery judgements.
+- Native keyboard activation of buttons must work without also changing slides.
+
+## Implementation and verification
+
+`presentationBuilder.js` owns daily plans, lesson assembly, teacher guidance and
+projected content. `PresentPage.jsx` shows the same plan and previews the actual
+deck in a same-origin `srcdoc` iframe. `public/present/deck.js` handles scaling,
+projection, answer reveals, thinking time and navigation. `present.css` styles
+the teacher picker.
+
+The fixed 1920×1080 stage scales to the screen. Child-decoded glyphs use Andika;
+chrome uses the existing display fonts. Asset references, audio and stroke models
+continue to come from current shared sources. Popup decks keep their same-origin
+external script for CSP compatibility.
+
+Behavioural coverage checks all 135 cycle/day combinations for complete timed
+blocks, consistent preview indexing, word coverage, varied warm-ups, retained
+letter-day assignments and assessment-week separation. Browser checks must also
+exercise the real picker, projector, new slide types, reveals and keyboard controls;
+mechanical checks do not establish observed classroom pacing.
