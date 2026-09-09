@@ -9,14 +9,17 @@ import { fileURLToPath } from "node:url";
 import { LEDA_PRODUCTION_AUDIO_BY_ROLE, LEDA_PRODUCTION_AUDIO_ROLES } from "../src/data/generated/ledaProductionAudio.generated.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const words = ["vase", "umbrella"];
+const words = process.argv.slice(2).length ? process.argv.slice(2) : ["vase", "umbrella"];
+// The name Ann supplies the stressed /æn/ pronunciation without reading
+// the article as letter names or appending a second syllable.
+const pronunciationText = Object.freeze({ an: "Ann." });
 const voice = "en-US-Chirp3-HD-Leda";
 const remakeTag = "clear-child-word-v1";
 const endpoint = "https://texttospeech.googleapis.com/v1/text:synthesize";
 const projectId = process.env.GOOGLE_CLOUD_PROJECT || "project-3c66c1c8-cc9e-4d6d-bdf";
 
 const hash = value => createHash("sha256").update(value).digest("hex").slice(0, 10);
-const publicPathFor = word => `/audio/production/en-US/isolated_word/${word}-${hash(`${voice}|isolated_word|${remakeTag}|${word}`)}.mp3`;
+const publicPathFor = word => `/audio/production/en-US/isolated_word/${word}-${hash(`${voice}|isolated_word|${word === "an" ? "clear-child-word-v3" : remakeTag}|${word}`)}.mp3`;
 const absolutePathFor = word => path.join(root, "public", publicPathFor(word).replace(/^\//, ""));
 
 function run(command, args, label) {
@@ -61,7 +64,7 @@ async function synthesize(token, word) {
       "x-goog-user-project": projectId
     },
     body: JSON.stringify({
-      input: { text: word },
+      input: { text: pronunciationText[word] || word },
       voice: { languageCode: "en-US", name: voice },
       audioConfig: {
         audioEncoding: "LINEAR16",

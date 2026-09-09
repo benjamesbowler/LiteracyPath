@@ -180,3 +180,23 @@ test("authored practice and independent checks resolve instructions plus the act
   }
   assert.deepEqual([...seen].sort(), ["pictureSound", "letterMatch", "rhymeMatch", "wordBuild", "soundSort", "letterTrace"].sort());
 });
+
+test("all Cycle an cues use the corrected whole-word recording after their context", () => {
+  const corrected = "/audio/production/en-US/isolated_word/an-4057770a92.mp3";
+  assert.equal(getCyclePracticeWordAudio("an"), corrected);
+  assert.ok(AUDIO_QUEST_PATHS.has(corrected));
+  assert.ok(!AUDIO_QUEST_PATHS.has("/audio/production/en-US/isolated_word/an-7caef2f8f8.mp3"));
+  let checked = 0;
+  for (const cycle of elSkillsBlockCycles.filter(cycle => Number.isInteger(cycle.cycleNumber))) {
+    for (const check of [false, true]) {
+      const { rounds } = buildCyclePracticePlan(cycle, "an-audio-regression", 0, check);
+      for (const round of rounds.filter(round => round.targetWord === "an" && ["wordListen", "highFrequency"].includes(round.variant))) {
+        const audio = resolveCyclePracticeAudio(round);
+        assert.equal(round.audio, corrected);
+        assert.deepEqual(audio.sequence, [audio.instructionAudio, audio.contentAudio, corrected]);
+        checked++;
+      }
+    }
+  }
+  assert.ok(checked > 0);
+});

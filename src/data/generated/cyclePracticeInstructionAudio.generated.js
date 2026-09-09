@@ -117,7 +117,7 @@ export const CYCLE_PRACTICE_WORD_AUDIO = Object.freeze({
   "again": "/audio/production/en-US/isolated_word/again-999cf4841a.mp3",
   "all": "/audio/production/en-US/isolated_word/all-9d557ffb1b.mp3",
   "am": "/audio/production/en-US/isolated_word/am-6f36b36269.mp3",
-  "an": "/audio/production/en-US/isolated_word/an-7caef2f8f8.mp3",
+  "an": "/audio/production/en-US/isolated_word/an-4057770a92.mp3",
   "anchor": "/audio/production/en-US/isolated_word/anchor-109435c631.mp3",
   "and": "/audio/production/en-US/isolated_word/and-5ed9ded057.mp3",
   "are": "/audio/production/en-US/isolated_word/are-636074bed4.mp3",
@@ -394,13 +394,13 @@ export const CYCLE_PRACTICE_AUDIO_METADATA = Object.freeze({
   "an": {
     "text": "an",
     "role": "isolated_word",
-    "audio": "/audio/production/en-US/isolated_word/an-7caef2f8f8.mp3",
+    "audio": "/audio/production/en-US/isolated_word/an-4057770a92.mp3",
     "voice": "en-US-Chirp3-HD-Leda",
     "provider": "Google Cloud Text-to-Speech",
     "aiGenerated": true,
     "reused": true,
-    "sha256": "dcfc60983996309e14c6928fbba1f6af4a1fd60fa3c9903b7021532a3d7f6625",
-    "durationSeconds": 1.398333,
+    "sha256": "34a500e6bf2b622b78574ce50f5e111122255019a24ebc4e31a3539d24098839",
+    "durationSeconds": 0.744331,
     "humanListening": "unknown"
   },
   "an apple and another apple": {
