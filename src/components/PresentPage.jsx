@@ -6,7 +6,8 @@ import {
   openCyclePresentation,
   presentationCycleDisplayTitle,
   presentationSlideIndex,
-  PRESENTATION_DAYS
+  PRESENTATION_DAYS,
+  presentationDayPlan
 } from "../utils/present/presentationBuilder.js";
 import { EL_CYCLE_POEMS } from "../data/elCyclePoems.js";
 import "../styles/worksheets.css";
@@ -18,12 +19,18 @@ const LAST_PRESENTED_KEY = "lp-present-last";
 // the builder so the deck stays free of picker vocabulary.
 const SLIDE_LABELS = {
   "p-cover": "Cover",
+  "p-pattern-read": "Read the pattern",
+  "p-sound-hunt": "Sound hunt",
+  "p-word-recall": "Spell from memory",
+  "p-application": "Dictation",
+  "p-poem-talk": "Talk and apply",
+  "p-exit-check": "Quick check",
   "p-goal-slide": "Goal",
   "p-letter-slide": "Sound",
   "p-writing": "Write it",
   "p-sound-review": "Sound check",
   "p-blend": "Blend",
-  "p-sight-slide": "Tricky word",
+  "p-sight-slide": "Word practice",
   "p-phoneme": "Warm-up",
   "p-together": "Together",
   "p-poem-slide": "Poem",
@@ -89,7 +96,7 @@ export function PresentPage({
     cycleOptions.find(opt => opt.cycleNumber)?.id ||
     cycleOptions[0]?.id || ""
   );
-  const [day, setDay] = useState("");
+  const [day, setDay] = useState("monday");
   const [preview, setPreview] = useState(0);
   const [note, setNote] = useState("");
   const [fallbackUrl, setFallbackUrl] = useState("");
@@ -97,9 +104,9 @@ export function PresentPage({
   const frameRef = useRef(null);
 
   const cycle = useMemo(() => getPresentationCycle(cycleId), [cycleId]);
-  const isFluency = (cycle?.cycleNumber || 0) >= 25;
   const isAssessment = cycle?.type === "assessment";
   const effectiveDay = isAssessment ? "" : day;
+  const lessonPlan = useMemo(() => presentationDayPlan(cycleId, effectiveDay), [cycleId, effectiveDay]);
 
   const slideIndex = useMemo(() => {
     try {
@@ -137,7 +144,7 @@ export function PresentPage({
     const letters = (cycle.focusLetters || []).length ? cycle.focusLetters : cycle.reviewLetters || [];
     const graphemes = letters.map(c => `${c.grapheme}${c.sound ? ` ${c.sound}` : ""}`).filter(Boolean);
     if (graphemes.length) rows.push(["Sounds", graphemes.join(" · ")]);
-    if ((cycle.highFrequencyWords || []).length) rows.push(["Tricky words", cycle.highFrequencyWords.join(" · ")]);
+    if ((cycle.highFrequencyWords || []).length) rows.push(["High-frequency words", cycle.highFrequencyWords.join(" · ")]);
     if ((cycle.phonemicAwareness || []).length) rows.push(["Warm-ups", cycle.phonemicAwareness.join(" · ")]);
     const poem = EL_CYCLE_POEMS.find(p => p.cycle === cycle.cycleNumber);
     if (poem) rows.push(["Poem", poem.title]);
@@ -269,7 +276,7 @@ export function PresentPage({
                       onClick={() => chooseDay(tile.value)}
                     >
                       <span className="pr-day-name">{tile.short}</span>
-                      <span className="pr-day-count">{dayCounts[tile.value] || 0} slides</span>
+                      <span className="pr-day-count">15 min · {dayCounts[tile.value] || 0} slides</span>
                     </button>
                   ))}
                   <button
@@ -287,7 +294,14 @@ export function PresentPage({
           </section>
 
           <section className="pr-card pr-contents" aria-label="Deck contents">
-            <span className="pr-card-title">What&rsquo;s in this deck</span>
+            <span className="pr-card-title">{lessonPlan ? `${lessonPlan.title} · about 15 minutes` : "Cycle resources"}</span>
+            {lessonPlan && <>
+              <ol className="pr-lesson-plan">
+                {lessonPlan.blocks.map(block => <li key={block.id}><strong>{block.minutes} min · {block.label}</strong><p>{block.guidance}</p></li>)}
+              </ol>
+              <p className="pr-foot"><strong>Prepare:</strong> {lessonPlan.preparation}</p>
+            </>}
+            <span className="pr-card-title">This week’s resources</span>
             <dl className="pr-list">
               {contents.map(([term, value]) => (
                 <div className="pr-list-row" key={term}>
@@ -299,9 +313,9 @@ export function PresentPage({
             <p className="pr-foot">
               {isAssessment
                 ? "This is an assessment week. The slides show this week's short assessment routines."
-                : isFluency
-                  ? "A fluency cycle: sight words, pattern power, word chains and the poem — no new letters."
-                  : `About ${Math.max(6, Math.round(totalSlides * 0.9))} minutes at a steady pace.`}
+                : lessonPlan
+                  ? "Pacing includes modelling, partner talk, writing and feedback. The quick check guides reteaching; use the separate Cycle Check for formal assessment."
+                  : "This is the whole-cycle resource deck. Choose Monday–Friday for five planned 15-minute lessons."}
             </p>
           </section>
         </div>
