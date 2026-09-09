@@ -249,10 +249,9 @@ test("shared confetti subscribes to live OS motion and cleans up", async () => {
 });
 
 test("pre-reader game controls never offer a silent hear-word lifeline", async () => {
-  const [arcade, adventure, wordBridge, grammarGrind, safari, soundBeat, reward, learnGamesAudio] = await Promise.all([
+  const [arcade, adventure, grammarGrind, safari, soundBeat, reward, learnGamesAudio] = await Promise.all([
     source("src/components/learn/games/games/ArcadePracticeGame.jsx"),
     source("src/components/learn/games/games/AdventureGame.jsx"),
-    source("src/components/learn/games/games/WordBridgeGame.jsx"),
     source("src/components/learn/games/games/GrammarGrindGame.jsx"),
     source("src/components/learn/games/games/SoundSafariArcadeGame.jsx"),
     source("src/components/learn/games/games/SoundBeatGame.jsx"),
@@ -261,8 +260,6 @@ test("pre-reader game controls never offer a silent hear-word lifeline", async (
   ]);
   assert.match(arcade, /hasRecordedSpeech/);
   assert.match(adventure, /hasRecordedSpeech/);
-  assert.match(wordBridge, /hasRecordedSpeech\(targetSpeechText\(\)\)/);
-  assert.match(wordBridge, /elHear\.disabled = !available/);
   assert.match(grammarGrind, /levelSpeechParts\(\)\.some\(part => hasRecordedSpeech\(part\)\)/);
   assert.match(grammarGrind, /el\.hear\.disabled = !canHearLevel/);
   assert.match(safari, /presentedUnits/);

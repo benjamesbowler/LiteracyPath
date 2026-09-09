@@ -34,6 +34,14 @@ test("every level has enough correct tiles to complete the target", () => {
   }
 });
 
+test("repeated graphemes retain distinct occurrence identities", () => {
+  const level = buildLevel({ world: "meadow", cycle: 0, mode: "bridge", target: "tent" });
+  const repeated = level.tiles.filter(tile => tile.correct && tile.glyph === "T");
+  assert.equal(repeated.length, 2);
+  assert.notEqual(repeated[0].occurrenceId, repeated[1].occurrenceId);
+  assert.match(level.levelId, /^word-bridge-meadow-/);
+});
+
 test("decoy letters are never a needed glyph of the target", () => {
   for (const d of ["easy", "medium", "hard"]) {
     const ladder = wordBridgeLadder(d);

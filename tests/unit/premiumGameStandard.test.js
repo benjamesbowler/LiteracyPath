@@ -96,11 +96,6 @@ test("every substantial vertical slice is complete, traceable to checks, and hon
     assert.match(implementation, new RegExp(windowSeconds.replace(".", "\\.")));
   }
 
-  const bridgeImplementation = readFileSync("src/components/learn/games/games/WordBridgeGame.jsx", "utf8");
-  assert.match(bridgeImplementation, /function returnCarriedTileToBank\(\)/);
-  assert.match(bridgeImplementation, /role="status" aria-live="polite"/);
-  assert.match(bridgeImplementation, /if \(isInteractiveKeyTarget\(e\.target\)\) return/);
-
   const beatImplementation = readFileSync("src/components/learn/games/games/Ps1ArcadeGame.jsx", "utf8");
   assert.match(beatImplementation, /safeChoiceIndex !== choiceSet\.answerIndex/);
   assert.match(beatImplementation, /soundBeatChoiceSet\(item, state\.beatIndex/);

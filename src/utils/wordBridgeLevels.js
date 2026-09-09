@@ -34,7 +34,8 @@ function buildLetterTiles(word) {
   return upper.split("").map((glyph, i) => ({
     glyph,
     correct: true,
-    order: i
+    order: i,
+    occurrenceId: `letter-${i}`
   }));
 }
 
@@ -43,7 +44,8 @@ function buildWordTiles(words) {
   return words.map((word, i) => ({
     glyph: String(word),
     correct: true,
-    order: i
+    order: i,
+    occurrenceId: `word-${i}`
   }));
 }
 
@@ -119,7 +121,8 @@ export function buildLevel({ world, cycle, mode, target }) {
   const decoyTiles = decoyValues.map((glyph) => ({
     glyph: isSentence ? String(glyph) : String(glyph).toUpperCase(),
     correct: false,
-    order: -1
+    order: -1,
+    occurrenceId: "decoy"
   }));
 
   const allTiles = seededShuffle([...correctTiles, ...decoyTiles], seed);
@@ -129,6 +132,7 @@ export function buildLevel({ world, cycle, mode, target }) {
   const hazard = { meadow: "river", dino: "lava", moonwood: "chasm" }[world] || "river";
 
   return {
+    levelId: `word-bridge-${world}-${cycle}-${hashString(targetStr).toString(36)}`,
     mode: mode || "bridge",
     target,
     slots: correctTiles.length,
