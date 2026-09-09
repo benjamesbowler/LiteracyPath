@@ -13,9 +13,12 @@ import {
   reelReadCanAcceptWord,
   reelReadLadder,
   reelReadMatches,
+  reelReadResponseEvidence,
   reelReadStars
 } from "../../../../utils/reelReadLevels.js";
-import { speakWord } from "../../../../utils/learnGamesAudio.js";
+import { hasRecordedSpeech } from "../../../../utils/learnGamesAudio.js";
+import { getLedaWordAudioPath } from "../../../../data/ledaProductionAudio.js";
+import { playCueAudio, stopCueAudio } from "../../../../utils/audio/cuePlayer.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import { isPrimaryActionKey, laneDirectionForKey } from "../shared/premiumGameStandard.js";
 
@@ -177,6 +180,8 @@ export default function ReelReadGame({
   onScoreUpdate,
   onProgressUpdate,
   onComplete,
+  onResultReady,
+  onSessionStart,
   onCheckpoint,
   onEngineReady,
   isSoundEnabled = true
@@ -198,6 +203,8 @@ export default function ReelReadGame({
       onScoreUpdate,
       onProgressUpdate,
       onComplete,
+      onResultReady,
+      onSessionStart,
       onCheckpoint,
       getSound: () => soundRef.current
     });
@@ -305,6 +312,13 @@ function startGame(mount, opts) {
   let lockedFishId = null;
   let targetButtons = new Map();
   let finalised = false;
+  let cueDelivery = "pending";
+  let cueHistory = [];
+  let cueSerial = 0;
+  let firstResponses = [];
+  let assistedRetries = [];
+  let responseAttempts = new Map();
+  let resultReceipt = null;
   const keys = { left: false, right: false, cast: false };
   const boat = {
     x: 0,
@@ -333,17 +347,56 @@ function startGame(mount, opts) {
     }
   }
 
-  function speakCue(word) {
-    if (introOpen) return; // stay silent until the intro is dismissed
-    try {
-      if (opts.getSound?.()) speakWord(word);
-    } catch {
-      /* speech is optional */
+  function setCueDelivery(type) {
+    cueDelivery = type;
+    cueHistory = [...new Set([...cueHistory, type])];
+    statusEl.dataset.cueDelivery = type;
+    mount.dataset.rrCueDelivery = type;
+  }
+
+  function stopTargetCue(next = "interrupted") {
+    cueSerial += 1;
+    stopCueAudio();
+    if (["loading", "started"].includes(cueDelivery)) setCueDelivery(next);
+  }
+
+  function speakCue(word = level.target) {
+    if (introOpen) return;
+    if (!opts.getSound?.()) {
+      setCueDelivery("muted");
+      return;
     }
+    const text = String(word || level.target);
+    const src = hasRecordedSpeech(text) ? getLedaWordAudioPath(text) : "";
+    stopTargetCue("interrupted");
+    if (!src) {
+      setCueDelivery("unavailable");
+      statusEl.dataset.support = "printed_target";
+      return;
+    }
+    const serial = ++cueSerial;
+    setCueDelivery("loading");
+    playCueAudio(src, {
+      cueId: `reel-read:${difficulty}:${levelIndex}:${text}`,
+      playImmediately: true,
+      onDelivery: event => {
+        if (serial !== cueSerial) return;
+        setCueDelivery(event.type);
+        if (event.type === "failed" || event.type === "unavailable") {
+          statusEl.dataset.support = "printed_target";
+          setStatus("The recording did not finish. Use the printed target.");
+        }
+        if (event.type === "interrupted") setStatus("Audio stopped. The printed target stays available.");
+      }
+    });
   }
 
   function refreshSoundState() {
     const enabled = Boolean(opts.getSound?.());
+    if (!enabled) {
+      if (["loading", "started"].includes(cueDelivery)) stopTargetCue("muted");
+      setCueDelivery("muted");
+    }
     const compact = w > 0 && w < 560;
     btnReplay.disabled = !enabled;
     btnReplay.setAttribute("aria-disabled", String(!enabled));
@@ -367,6 +420,53 @@ function startGame(mount, opts) {
 
   function setStatus(message) {
     statusEl.textContent = message;
+  }
+
+  function responseEvidence(item, correct) {
+    const key = `${levelIndex}:${item.word}`;
+    const attempts = (responseAttempts.get(key) || 0) + 1;
+    responseAttempts.set(key, attempts);
+    const evidence = reelReadResponseEvidence({
+      difficulty,
+      levelIndex,
+      target: level.target,
+      response: item.word,
+      correct,
+      attempts,
+      fishId: item.id,
+      audioDelivery: cueDelivery,
+      cueHistory,
+      supportUsed: ["printed_target", "named_fish_label"],
+      soundEnabled: Boolean(opts.getSound?.())
+    });
+    if (attempts === 1) firstResponses.push(evidence);
+    else assistedRetries.push(Object.freeze({
+      ...evidence,
+      practiceOnly: true,
+      independent: false,
+      supportUsed: Object.freeze([...evidence.supportUsed, "specific_fish_feedback", "retry_same_target"])
+    }));
+    mount.dataset.rrFirstResponses = String(firstResponses.length);
+    mount.dataset.rrAssistedRetries = String(assistedRetries.length);
+  }
+
+  function receiptForFinalLevel(stars) {
+    return Object.freeze({
+      stars,
+      score,
+      words: wordsCaught,
+      evidence: Object.freeze({
+        practiceOnly: true,
+        independent: false,
+        target: level.target,
+        levelId: `reel-read-${difficulty}-${levelIndex}`,
+        phase: "level-complete",
+        audioDelivery: cueDelivery,
+        cueHistory: Object.freeze([...cueHistory]),
+        firstResponses: Object.freeze([...firstResponses]),
+        assistedRetries: Object.freeze([...assistedRetries])
+      })
+    });
   }
 
   function layoutReplayControl() {
@@ -558,6 +658,8 @@ function startGame(mount, opts) {
     boat.caughtFish = null;
     selectedFishId = null;
     lockedFishId = null;
+    responseAttempts = new Map();
+    stopTargetCue("interrupted");
     phase = "countdown";
     phaseTimer = 3.2;
     banner = level.prompt;
@@ -568,6 +670,7 @@ function startGame(mount, opts) {
     refreshSoundState();
     resultEl.style.display = "none";
     targets.style.display = "block";
+    setCueDelivery(opts.getSound?.() ? "pending" : "muted");
     setStatus("Get ready to choose a fish.");
     speakCue(level.target);
     render();
@@ -587,6 +690,13 @@ function startGame(mount, opts) {
     sfx(playStarChime);
     banner = stars === 3 ? "Perfect catch" : "Pond cleared";
     bannerTimer = 1.8;
+    if (levelIndex >= ladder.length - 1 && !resultReceipt) {
+      resultReceipt = receiptForFinalLevel(stars);
+      resultEl.dataset.resultReady = "true";
+      resultEl.dataset.firstResponses = String(firstResponses.length);
+      resultEl.dataset.assistedRetries = String(assistedRetries.length);
+      opts.onResultReady?.(resultReceipt.stars, resultReceipt.score, resultReceipt.words, resultReceipt.evidence);
+    }
     targets.style.display = "none";
     resultTitle.textContent = stars === 3 ? "Perfect catch!" : "Pond cleared!";
     resultAssembly.textContent = level.orderMatters
@@ -606,10 +716,9 @@ function startGame(mount, opts) {
     targets.style.display = "none";
     setStatus("Fishing trip complete.");
     refreshCastControl();
-    const totalStars = stageStars.reduce((sum, stars) => sum + (Number(stars) || 0), 0);
-    const finalStars = stageStars.length ? Math.max(1, Math.round(totalStars / stageStars.length)) : 0;
+    const finalReceipt = resultReceipt || receiptForFinalLevel(stageStars[levelIndex] || 1);
     sfx(playCelebrationFanfare);
-    opts.onComplete?.(finalStars, score, wordsCaught);
+    opts.onComplete?.(finalReceipt.stars, finalReceipt.score, finalReceipt.words, finalReceipt.evidence);
   }
 
   function requestCast() {
@@ -662,7 +771,9 @@ function startGame(mount, opts) {
   function catchFish(item) {
     boat.caughtFish = item;
     boat.hookState = "returning";
-    if (reelReadCanAcceptWord(item.word, level, caught)) {
+    const correct = reelReadCanAcceptWord(item.word, level, caught);
+    responseEvidence(item, correct);
+    if (correct) {
       fish = fish.filter(f => f !== item);
       caught.push(item.word);
       wordsCaught += 1;
@@ -688,6 +799,7 @@ function startGame(mount, opts) {
     }
     selectedFishId = null;
     lockedFishId = null;
+    setStatus(correct ? `${item.word} fits!` : `Try again: ${item.word} is not the next match.`);
     refreshCastControl();
     refillFish();
   }
@@ -1265,6 +1377,9 @@ function startGame(mount, opts) {
 
   function render() {
     if (!ctx || !w || !h) return;
+    mount.dataset.rrPhase = phase;
+    mount.dataset.rrSelectedFishId = selectedFishId || "";
+    mount.dataset.rrCueDelivery = cueDelivery;
     const time = performance.now() / 1000;
     ctx.clearRect(0, 0, w, h);
     if (images.bg.ready) drawCover(ctx, images.bg.image, 0, 0, w, h, 0.5, 0.5);
@@ -1418,6 +1533,7 @@ function startGame(mount, opts) {
 
   // Show the intro before the first level boots so its speakCue stays silent
   // and the countdown is frozen until the child dismisses the overlay.
+  opts.onSessionStart?.();
   if (!readOnboarded()) showIntro();
   startLevel(startAt);
   lastTime = performance.now();
@@ -1426,6 +1542,11 @@ function startGame(mount, opts) {
   return {
     pause() {
       paused = true;
+      keys.left = false;
+      keys.right = false;
+      keys.cast = false;
+      if (boat.hookState !== "ready") cancelCast();
+      stopTargetCue("interrupted");
       // Hide the intro while the chrome quit dialog is up so they never overlap.
       if (introEl) introEl.style.display = "none";
     },
@@ -1438,12 +1559,14 @@ function startGame(mount, opts) {
     teardown() {
       running = false;
       window.cancelAnimationFrame(rafId);
+      stopTargetCue("interrupted");
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("keyup", onKeyUp);
       btnReplay.removeEventListener("click", replayTarget);
       btnCast.removeEventListener("click", onCastClick);
       btnCast.removeEventListener("pointercancel", onCastCancel);
       btnCast.removeEventListener("lostpointercapture", onCastCancel);
+      targetButtons.clear();
       observer.disconnect();
       mount.innerHTML = "";
     }

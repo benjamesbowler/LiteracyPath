@@ -3,7 +3,8 @@ import test from "node:test";
 import {
   reelReadAssembledWord,
   reelReadCanAcceptWord,
-  reelReadLadder
+  reelReadLadder,
+  reelReadResponseEvidence
 } from "../../src/utils/reelReadLevels.js";
 
 test("every Reel & Read authored ladder has a valid, non-duplicating learning sequence", () => {
@@ -39,4 +40,39 @@ test("the authored longest response remains a readable accepted target", () => {
   const brave = reelReadLadder("medium").find(level => level.target === "brave");
   assert.ok(brave);
   assert.equal(reelReadCanAcceptWord("courageous", brave, []), true);
+});
+
+test("response evidence separates delivered audio from printed support and retries", () => {
+  const evidence = reelReadResponseEvidence({
+    difficulty: "hard",
+    levelIndex: 8,
+    target: "wonderful",
+    response: "wonder",
+    correct: true,
+    attempts: 2,
+    fishId: "wonder-8",
+    audioDelivery: "failed",
+    cueHistory: ["pending", "loading", "started", "failed"],
+    supportUsed: ["printed_target", "named_fish_label"],
+    soundEnabled: true
+  });
+
+  assert.deepEqual(evidence, {
+    game: "reel-read",
+    levelId: "reel-read-hard-8",
+    target: "wonderful",
+    response: "wonder",
+    correct: true,
+    attempts: 2,
+    fishId: "wonder-8",
+    practiceOnly: true,
+    independent: false,
+    supportUsed: ["printed_target", "named_fish_label", "audio_failed"],
+    audioDelivery: "failed",
+    cueHistory: ["pending", "loading", "started", "failed"],
+    soundEnabled: true
+  });
+  assert.equal(Object.isFrozen(evidence), true);
+  assert.equal(Object.isFrozen(evidence.supportUsed), true);
+  assert.equal(Object.isFrozen(evidence.cueHistory), true);
 });

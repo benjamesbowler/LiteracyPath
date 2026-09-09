@@ -291,6 +291,39 @@ export function reelReadAssembledWord(level, caughtWords = []) {
   return parts.join("").replaceAll("-", "") || "";
 }
 
+export function reelReadResponseEvidence({
+  difficulty = "easy",
+  levelIndex = 0,
+  target = "",
+  response = "",
+  correct = false,
+  attempts = 1,
+  fishId = "",
+  audioDelivery = "pending",
+  cueHistory = [],
+  supportUsed = [],
+  soundEnabled = false
+} = {}) {
+  const safeDifficulty = normalizeDifficulty(difficulty);
+  const audioSupport = audioDelivery !== "completed" ? [`audio_${audioDelivery}`] : [];
+  const supports = [...new Set([...supportUsed, ...audioSupport].map(String).filter(Boolean))];
+  return Object.freeze({
+    game: "reel-read",
+    levelId: `reel-read-${safeDifficulty}-${Math.max(0, Number(levelIndex) || 0)}`,
+    target: String(target || ""),
+    response: String(response || ""),
+    correct: Boolean(correct),
+    attempts: Math.max(1, Number(attempts) || 1),
+    fishId: String(fishId || ""),
+    practiceOnly: true,
+    independent: false,
+    supportUsed: Object.freeze(supports),
+    audioDelivery: String(audioDelivery || "pending"),
+    cueHistory: Object.freeze([...new Set(cueHistory.map(String).filter(Boolean))]),
+    soundEnabled: Boolean(soundEnabled)
+  });
+}
+
 export function reelReadLevel(difficulty = "easy", levelIndex = 0) {
   const safeDifficulty = normalizeDifficulty(difficulty);
   const level = Math.max(0, Math.min(9, Number(levelIndex) || 0));
