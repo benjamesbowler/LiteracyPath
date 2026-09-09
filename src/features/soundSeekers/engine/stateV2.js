@@ -1,3 +1,4 @@
+import { DEFAULT_MUSIC_ENABLED } from "../../../utils/audio/audioPreferences.js";
 import {
   createContentDeckState,
   mergeAttemptReceipts,
@@ -20,8 +21,8 @@ const DEFAULT_SETTINGS = Object.freeze({
   reducedMotion: false,
   highContrast: false,
   soundEnabled: true,
-  music: true,
-  musicEnabled: true,
+  music: DEFAULT_MUSIC_ENABLED,
+  musicEnabled: DEFAULT_MUSIC_ENABLED,
   displayMode: "auto",
   autoTravel: false,
   slowerMovement: false,

@@ -1,5 +1,5 @@
 export const DEFAULT_SPOKEN_AUDIO_ENABLED = true;
-export const DEFAULT_MUSIC_ENABLED = true;
+export const DEFAULT_MUSIC_ENABLED = false;
 
 export function normalizeAudioPreferences(raw = {}) {
   const hasExplicitMusicPreference = typeof raw?.musicEnabled === "boolean";

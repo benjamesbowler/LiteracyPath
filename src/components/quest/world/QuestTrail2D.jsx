@@ -119,7 +119,7 @@ export default function QuestTrail2D({
   state,
   resume = null,
   isSoundEnabled = true,
-  isMusicEnabled = true,
+  isMusicEnabled = false,
   mode = "journey",
   routeLabel = null,
   targetsOverride = null,

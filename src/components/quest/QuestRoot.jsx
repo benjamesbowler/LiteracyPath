@@ -261,7 +261,7 @@ export default function QuestRoot({
   // remains an all-audio QA kill switch; the two child settings are otherwise
   // free to differ.
   const isSoundEnabled = isSoundEnabledProp && state.settings?.soundEnabled !== false;
-  const isMusicEnabled = isSoundEnabledProp && state.settings?.musicEnabled !== false;
+  const isMusicEnabled = isSoundEnabledProp && state.settings?.musicEnabled === true;
   const ceremonyWorldReady = worldLayers.some(layer => layer.status === "active" && layer.ready);
 
   useEffect(() => {

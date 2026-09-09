@@ -65,7 +65,7 @@ function visibleShopState(nextState, piece) {
 export default function TradingPost({
   state,
   isSoundEnabled = true,
-  isMusicEnabled = true,
+  isMusicEnabled = false,
   onMusicEnabledChange,
   onBuy,
   onBack

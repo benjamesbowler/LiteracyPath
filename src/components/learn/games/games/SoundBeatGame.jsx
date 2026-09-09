@@ -27,7 +27,7 @@ const ONBOARDING_HINTS = [
 export default function SoundBeatGame({
   onEngineReady,
   isSoundEnabled = true,
-  isMusicEnabled = true,
+  isMusicEnabled = false,
   ...props
 }) {
   const [showOnboarding, setShowOnboarding] = useState(() => !readOnboarded());

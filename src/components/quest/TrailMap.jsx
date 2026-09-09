@@ -73,7 +73,7 @@ export default function TrailMap({
   onSettings,
   settingsTriggerRef,
   isSoundEnabled = true,
-  isMusicEnabled = true,
+  isMusicEnabled = false,
   onMusicEnabledChange
 }) {
   const chapter = QUEST_CHAPTERS[Math.max(0, Math.min(QUEST_CHAPTERS.length - 1, act - 1))];

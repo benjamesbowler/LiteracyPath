@@ -83,7 +83,7 @@ export function GamePlayer({
   game,
   difficulty,
   soundEnabled,
-  musicEnabled = true,
+  musicEnabled = false,
   progressScopeKey,
   onClose,
   onSoundEnabledChange,

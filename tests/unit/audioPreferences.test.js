@@ -4,10 +4,10 @@ import test from "node:test";
 
 import { normalizeAudioPreferences } from "../../src/utils/audio/audioPreferences.js";
 
-test("music can be disabled without disabling spoken teaching audio", () => {
+test("music defaults off without disabling spoken teaching audio", () => {
   assert.deepEqual(normalizeAudioPreferences(), {
     soundEnabled: true,
-    musicEnabled: true
+    musicEnabled: false
   });
   assert.deepEqual(normalizeAudioPreferences({ musicEnabled: false, soundEnabled: true }), {
     soundEnabled: true,
@@ -69,4 +69,17 @@ test("every music-playing child surface exposes music separately from spoken aud
     assert.match(renderer, /<MusicToggle/);
     assert.match(renderer, /onMusicEnabledChange/);
   }
+});
+
+test("music opt-in survives normalization in every settings model", async () => {
+  const { normalizeAllowlistedSettings } = await import("../../src/features/soundSeekers/engine/stateV2.js");
+  const { normalizeQuestSettings } = await import("../../src/utils/questPerformance.js");
+  for (const normalize of [normalizeAudioPreferences, normalizeAllowlistedSettings, normalizeQuestSettings]) {
+    assert.equal(normalize({}).musicEnabled, false);
+    assert.equal(normalize({}).soundEnabled, true);
+    assert.equal(normalize({ musicEnabled: true }).musicEnabled, true);
+    assert.equal(normalize({ musicEnabled: false }).musicEnabled, false);
+  }
+  assert.equal(normalizeAllowlistedSettings({ music: true }).music, true);
+  assert.equal(normalizeAllowlistedSettings({}).music, false);
 });

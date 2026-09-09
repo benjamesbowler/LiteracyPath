@@ -28,7 +28,7 @@ if (params.get("resume") === "1") {
 export function GameOverlayPreview() {
   const [open, setOpen] = useState(true);
   const [soundEnabled, setSoundEnabled] = useState(params.get("sound") === "1");
-  const [musicEnabled, setMusicEnabled] = useState(params.get("music") !== "0");
+  const [musicEnabled, setMusicEnabled] = useState(params.get("music") === "1");
 
   if (!open) return <p role="status">Closed {game.title}</p>;
 

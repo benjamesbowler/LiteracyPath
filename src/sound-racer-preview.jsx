@@ -19,7 +19,7 @@ function Preview() {
   const previewDifficulty = params.get("difficulty") || "medium";
   const previewLevel = Number(params.get("level") || 0);
   const soundEnabled = params.get("sound") !== "0";
-  const musicEnabled = params.get("music") !== "0";
+  const musicEnabled = params.get("music") === "1";
   const diagnostics = import.meta.env.DEV ? {
     seed: params.get("seed") || "review",
     fallback: params.get("fallback") === "1",
