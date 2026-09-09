@@ -65,6 +65,14 @@ installed, reviewed, and trusted on 2026-08-03.
 
 - Cycle Practice now uses six pictured, recorded-audio activity families with automatic responses, forgiving guided tracing, and full distinct decks for all 27 cycles. Assessment requires 30 active minutes plus completed coverage of taught sounds, words and activity types. Legacy memory/gate/confirmation mechanics are removed from this surface. See [Cycle Practice](../product/CYCLE_PRACTICE.md). It uses typed independent/support/media-failure evidence, retained first responses, pause-safe active practice time, immutable retry payloads and owner-scoped teacher results. The hosted migration is `20260908122903`; local and rollback-only hosted SQL checks passed. Current contracts are in [Cycle Practice](../product/CYCLE_PRACTICE.md) and [Learning Policy](../design/LEARNING_POLICY.md). Browser emulation does not establish physical-device or human-listening evidence.
 
+- Cycle Practice touch choices now accept a released finger that drifts within
+  the same button and discard cancelled or interrupted holds. Sorting shelves
+  preserve visible letter labels; word-building retries preserve accepted parts.
+  Media recovery does not count as a literacy attempt. All 13 activity layouts
+  retain simultaneous models and responses on short landscape screens. Chromium,
+  WebKit and recorded-audio delivery were checked; the repaired physical iPad
+  remains untested. The current contract is in [Cycle Practice](../product/CYCLE_PRACTICE.md).
+
 - Learner session recovery preserves pending progress and assessment revisions,
   retries with the current same-learner credential, and exposes one shared retry
   notice. Hosted migration `20260908114742` adds server-owned login expiry and
