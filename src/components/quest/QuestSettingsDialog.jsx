@@ -142,7 +142,7 @@ export default function QuestSettingsDialog({
           <legend>Comfort</legend>
           <label><input type="checkbox" checked={Boolean(settings?.reducedMotion)} onChange={event => onSettingChange?.("reducedMotion", event.target.checked)} />Reduce motion</label>
           <label><input type="checkbox" checked={Boolean(settings?.highContrast)} onChange={event => onSettingChange?.("highContrast", event.target.checked)} />High contrast</label>
-          <label><input type="checkbox" checked={settings?.musicEnabled !== false} onChange={event => onSettingChange?.("musicEnabled", event.target.checked)} />Music on (spoken audio stays on)</label>
+          <label><input type="checkbox" checked={settings?.musicEnabled === true} onChange={event => onSettingChange?.("musicEnabled", event.target.checked)} />Music on (spoken audio stays on)</label>
           <label><input type="checkbox" checked={settings?.soundEnabled !== false} onChange={event => onSettingChange?.("soundEnabled", event.target.checked)} />Spoken audio and game sounds on</label>
         </fieldset>
 

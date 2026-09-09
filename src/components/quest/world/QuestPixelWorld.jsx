@@ -106,7 +106,7 @@ export default function QuestPixelWorld({
   state,
   resume = null,
   isSoundEnabled = true,
-  isMusicEnabled = true,
+  isMusicEnabled = false,
   isInteractive = true,
   ceremony = false,
   mode = "journey",

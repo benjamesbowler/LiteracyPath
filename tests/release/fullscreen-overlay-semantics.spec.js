@@ -96,3 +96,25 @@ test("game music can be muted without disabling spoken audio", async ({ page }) 
   await expect(page.getByRole("button", { name: "Turn spoken audio and game sounds on", exact: true })).toHaveAttribute("aria-pressed", "false");
   await expect(page.getByRole("button", { name: "Turn music on", exact: true })).toHaveAttribute("aria-pressed", "false");
 });
+
+for (const gameId of ["sound-racer", "sound-beat"]) {
+  test(`${gameId} starts with music off and permits opt-in without muting speech`, async ({ page }) => {
+    await page.addInitScript(() => {
+      window.__musicPlayCalls = [];
+      const play = HTMLMediaElement.prototype.play;
+      HTMLMediaElement.prototype.play = function (...args) {
+        if (this.src.includes("/music/")) window.__musicPlayCalls.push(this.src);
+        return play.apply(this, args);
+      };
+    });
+    await page.goto(`/preview/game-overlay.html?game=${gameId}&sound=1`);
+    await dismissActiveGameOnboarding(page);
+    const speech = page.getByRole("button", { name: "Turn spoken audio and game sounds off", exact: true });
+    await expect(page.getByRole("button", { name: "Turn music on", exact: true })).toHaveAttribute("aria-pressed", "false");
+    await expect(speech).toHaveAttribute("aria-pressed", "true");
+    expect(await page.evaluate(() => window.__musicPlayCalls)).toEqual([]);
+    await page.getByRole("button", { name: "Turn music on", exact: true }).click();
+    await expect(page.getByRole("button", { name: "Turn music off; spoken audio stays on", exact: true })).toHaveAttribute("aria-pressed", "true");
+    await expect(speech).toHaveAttribute("aria-pressed", "true");
+  });
+}

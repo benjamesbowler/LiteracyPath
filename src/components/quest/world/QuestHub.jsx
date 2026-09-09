@@ -3170,7 +3170,7 @@ export default function QuestHub({
   state,
   resume = null,
   isSoundEnabled = true,
-  isMusicEnabled = true,
+  isMusicEnabled = false,
   extendedResponse = false,
   isInteractive = true,
   journeyStatus = "active",

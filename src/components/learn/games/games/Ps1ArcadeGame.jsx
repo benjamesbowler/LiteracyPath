@@ -696,7 +696,7 @@ function startPs1ArcadeGame(mount, options) {
   mount.appendChild(liveStatus);
   const reduceMotion = prefersReducedMotion();
   const { soundAllowed, sfx } = createSoundGate(options);
-  const musicAllowed = () => options.getMusic ? options.getMusic() : options.isMusicEnabled !== false;
+  const musicAllowed = () => options.getMusic ? options.getMusic() : options.isMusicEnabled === true;
 
   let music = null;
   let musicBpm = 0;
@@ -1261,7 +1261,7 @@ export default function Ps1ArcadeGame({
   onCheckpoint,
   onEngineReady,
   isSoundEnabled = true,
-  isMusicEnabled = true
+  isMusicEnabled = false
 }) {
   const mountRef = useRef(null);
   const soundRef = useRef(isSoundEnabled);

@@ -46,6 +46,11 @@ The implementation exposes these regions as `data-child-title`, `data-child-inst
 
 ## Background audio rules
 
+- Music defaults off outside the main menu. Spoken teaching audio and game
+  sounds retain their independent settings. Music controls remain available
+  for opt-in, and saved explicit music preferences are respected. The main
+  menu A–Z song alone keeps its music-on default.
+
 - Child Home music is optional, non-instructional and deliberately quieter
   than activity music. Its visible header control always says whether music is
   on, off, waiting for a tap, or unavailable.

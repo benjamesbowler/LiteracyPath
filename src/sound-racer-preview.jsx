@@ -12,7 +12,7 @@ function Preview() {
   const previewDifficulty = params.get("difficulty") || "medium";
   const previewLevel = Number(params.get("level") || 0);
   const soundEnabled = params.get("sound") !== "0";
-  const musicEnabled = params.get("music") !== "0";
+  const musicEnabled = params.get("music") === "1";
 
   useEffect(() => {
     if (musicEnabled) startGameMusic("sound-racer");
