@@ -1,380 +1,286 @@
+/* Cycle Practice: a picture-led toy world, with the learning object at its centre. */
 .cycle-practice-page {
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
-  width: 100%;
-  height: 100%;
-  min-height: 0;
+  --cycle-ink: #163f50;
+  --cycle-blue: #147da2;
+  --cycle-yellow: #ffd75c;
   box-sizing: border-box;
-  gap: clamp(6px, 1vw, 12px);
-  padding: clamp(6px, 1vw, 12px);
-  overflow: hidden;
-  color: #253b35;
-  background: linear-gradient(145deg, #f8fcf5 0%, #e8f3e8 52%, #dceceb 100%);
-}
-
-.cycle-practice-topbar {
-  display: grid;
-  grid-template-columns: minmax(130px, .75fr) minmax(118px, .62fr) minmax(260px, 2.2fr) minmax(130px, .7fr) auto;
-  grid-template-areas:
-    "identity round instruction progress timer actions"
-    "status status status status status status";
-  align-items: center;
-  gap: 8px;
-  width: 100%;
-  min-height: 68px;
-  margin: 0;
-  padding: 8px 10px;
-  border: 1px solid rgba(255, 255, 255, .78);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, .78);
-  box-shadow: 0 8px 22px rgba(40, 85, 73, .08);
-}
-
-.cycle-practice-topbar__identity { grid-area: identity; min-width: 0; }
-.cycle-practice-topbar__identity h1,
-.cycle-practice-topbar__identity small,
-.cycle-practice-topbar__eyebrow { display: block; }
-.cycle-practice-topbar__eyebrow {
-  color: #47766a;
-  font-size: .68rem;
-  font-weight: 800;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-.cycle-practice-topbar__identity h1 { margin: 0; color: #173e36; font-size: 1.05rem; line-height: 1.05; }
-.cycle-practice-topbar__identity small { margin-top: 3px; color: #5a746d; font-size: .72rem; font-weight: 700; }
-
-.cycle-practice-topbar__round {
-  grid-area: round;
-  min-width: 0;
-  padding-left: 8px;
-  border-left: 1px solid rgba(45, 104, 90, .16);
-}
-.cycle-practice-topbar__round span,
-.cycle-practice-topbar__round strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.cycle-practice-topbar__round span { color: #5b746d; font-size: .68rem; font-weight: 800; text-transform: uppercase; }
-.cycle-practice-topbar__round strong { margin-top: 3px; color: #1e6d5d; font-size: 1.05rem; font-variant-numeric: tabular-nums; }
-
-.cycle-practice-topbar__instruction {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  min-width: 0;
-  color: #2c493f;
-  font-size: clamp(.82rem, 1.2vw, .98rem);
-  font-weight: 800;
-}
-.cycle-practice-topbar__instruction > span { min-width: 0; line-height: 1.15; }
-.cycle-practice-topbar__audio-actions { display: flex; flex: 0 0 auto; gap: 5px; }
-.cycle-practice-topbar__audio-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  min-width: 56px;
-  min-height: 56px;
-  padding: 6px 9px;
-  border: 1px solid rgba(52, 119, 84, .32);
-  border-radius: 11px;
-  background: #e6f6f0;
-  color: #1e6d5d;
-  cursor: pointer;
-  font-size: .7rem;
-  font-weight: 850;
-}
-.cycle-practice-topbar__audio-button svg { width: 18px; height: 18px; }
-.cycle-practice-topbar__audio-button[data-audio-state="playing"] { background: #c9edcf; box-shadow: 0 0 0 2px rgba(78, 180, 111, .18); }
-.cycle-practice-topbar__audio-button:disabled { cursor: wait; opacity: .62; }
-.cycle-practice-topbar__audio-button:not(:disabled):active {
-  transform: translateY(3px) scale(.98);
-  background: #c9edcf;
-  box-shadow: inset 0 2px 0 rgba(24, 92, 70, .14), 0 0 0 3px rgba(78, 180, 111, .18);
-}
-
-.cycle-practice-topbar__progress {
-  grid-area: progress;
+  flex-direction: column;
+  gap: 10px;
   width: 100%;
-  height: 8px;
-  overflow: hidden;
-  border-radius: 99px;
-  background: rgba(54, 105, 91, .14);
-}
-.cycle-practice-topbar__progress span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #55a887, #e7b548); transition: width .35s ease; }
-
-.cycle-practice-topbar__timer { grid-area: timer; min-width: 0; text-align: right; }
-.cycle-practice-topbar__timer span,
-.cycle-practice-topbar__timer small { display: block; color: #5b746d; font-size: .68rem; font-weight: 800; }
-.cycle-practice-topbar__timer strong { display: block; margin-top: 2px; color: #1e6d5d; font-size: 1.05rem; font-variant-numeric: tabular-nums; }
-
-.cycle-practice-topbar__actions { grid-area: actions; display: flex; align-items: center; justify-content: flex-end; gap: 7px; min-width: 0; }
-.cycle-practice-topbar__actions .lp-button { min-height: 56px; padding: 8px 12px; white-space: nowrap; }
-.cycle-practice-topbar__actions .cycle-practice-check-button {
-  border: 3px solid #117a39 !important;
-  background: #2edb63 !important;
-  color: #073b1c !important;
-  box-shadow: 0 5px 0 #117a39, 0 9px 18px rgba(17, 122, 57, .24) !important;
-  opacity: 1 !important;
-}
-.cycle-practice-topbar__actions .cycle-practice-check-button:disabled {
-  border-color: #b5c4bd !important;
-  background: #e6ece8 !important;
-  color: #52655c !important;
-  box-shadow: none !important;
-  cursor: not-allowed;
-}
-.cycle-practice-topbar__actions .cycle-practice-check-button:not(:disabled):active {
-  background: #25c957 !important;
-  box-shadow: 0 2px 0 #117a39, 0 5px 12px rgba(17, 122, 57, .2) !important;
-  transform: translateY(3px);
-}
-.cycle-practice-topbar__assessment-note { color: #5a746d; font-size: .72rem; font-weight: 800; white-space: nowrap; }
-.cycle-practice-topbar__status { grid-area: status; margin: 0; padding: 5px 8px; border-radius: 8px; background: #fff8d8; color: #6b4b21; font-size: .78rem; font-weight: 800; }
-
-.cycle-practice-page .adventure-round-frame {
-  display: grid;
-  grid-template-rows: minmax(0, 1fr);
-  width: 100%;
-  max-width: none;
-  height: 100%;
-  margin: 0 auto;
-}
-
-.cycle-practice-page .adventure-round-frame[data-frame-layout="compact"] .adventure-round-frame__body { display: block; height: 100%; }
-.cycle-practice-page .adventure-round-frame__stage {
   height: 100%;
   min-height: 0;
-  padding: clamp(12px, 2vw, 26px);
-  border-radius: 20px;
+  padding: 10px;
+  overflow: hidden;
+  color: var(--cycle-ink);
+  background: #e9f6f6;
+  font-family: var(--lp-font-reading, sans-serif);
+}
+.cycle-practice-page *, .cycle-practice-page *::before, .cycle-practice-page *::after { box-sizing: border-box; }
+.cycle-practice-page button { font-family: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+.cycle-practice-page button:focus-visible { outline: 4px solid #173b58; outline-offset: 5px; }
+.cycle-practice-page button:disabled { cursor: default; }
+.cycle-practice-page button:not(:disabled):active { transform: translateY(3px) scale(.98); }
+.cycle-practice-topbar { display: flex; align-items: center; justify-content: space-between; flex: 0 0 auto; min-height: 68px; gap: 16px; padding: 6px 14px; border-radius: 20px; background: #fffef8; box-shadow: 0 3px 0 #d5e9e9; z-index: 2; }
+.cycle-practice-topbar__identity { display: flex; gap: 12px; align-items: center; }
+.cycle-brand-mark { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 16px; color: #174d57; background: var(--cycle-yellow); transform: rotate(-7deg); }
+.cycle-brand-mark svg { width: 30px; height: 30px; }
+.cycle-practice-topbar__identity h1 { margin: 0; font-size: clamp(16px, 1.6vw, 22px); line-height: 1.1; letter-spacing: -.04em; color: var(--cycle-ink); }
+.cycle-practice-topbar__identity div > span { display: block; margin-top: 4px; color: #46656d; font-size: 12px; font-weight: 700; }
+.cycle-practice-topbar__round { display: grid; justify-items: center; gap: 2px; }
+.cycle-practice-topbar__round strong { font-size: 11px; color: #48666d; font-weight: 750; }
+.cycle-star-trail { display: flex; gap: 8px; }
+.cycle-star-trail svg { width: 28px; height: 28px; color: #d5e5e7; stroke: #a4bfc5; stroke-width: 1.5; }
+.cycle-star-trail .is-earned { color: #ffd251; stroke: #a57710; animation: cycle-star-arrive .45s ease-out; }
+.cycle-practice-topbar__actions { display: flex; align-items: center; gap: 10px; }
+.cycle-icon-button { display: grid; place-items: center; min-width: 56px; min-height: 56px; border: 0; border-radius: 18px; background: #e7f1f3; color: #245768; box-shadow: 0 3px 0 #c7dce1; }
+.cycle-icon-button svg { width: 24px; height: 24px; }
+.cycle-icon-button:disabled { opacity: .45; }
+.cycle-playground { position: relative; isolation: isolate; flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; overflow: hidden; border: 3px solid #fffef5; border-radius: 28px; background: #c6eaf3; box-shadow: 0 4px 0 #b7dadd; }
+.cycle-scenery { pointer-events: none; position: absolute; z-index: -1; inset: 0; overflow: hidden; background: linear-gradient(#bbe6f0 0%, #ddf3f1 58%, #b6ddd1 59%, #8fc7b7 100%); }
+.cycle-scenery::before, .cycle-scenery::after { content: ''; position: absolute; background: #f6fff4; opacity: .7; width: 24%; height: 14%; border-radius: 50%; top: 18%; left: -8%; transform: rotate(-12deg); }
+.cycle-scenery::after { left: auto; right: -8%; top: 28%; width: 22%; }
+.cycle-scenery i { position: absolute; bottom: -20%; left: -5%; width: 40%; height: 37%; border-radius: 50%; background: #58a593; transform: rotate(-18deg); }
+.cycle-scenery i:nth-child(2) { left: 72%; bottom: -24%; width: 36%; background: #7bbc95; transform: rotate(20deg); }
+.cycle-scenery i:nth-child(3) { left: 21%; bottom: -30%; width: 72%; height: 36%; background: #d9eaa5; }
+.cycle-scenery i:nth-child(4) { left: 10%; bottom: 9%; width: 2%; height: 5%; border-radius: 90% 0; background: #70ad80; transform: rotate(-25deg); }
+.cycle-instruction-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex: 0 0 auto; padding: clamp(12px, 1.6vw, 22px) clamp(20px, 3vw, 42px) 0; }
+.cycle-activity-name { font-size: 12px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; color: #386873; }
+.cycle-instruction-row p { margin: 5px 0 0; max-width: 42ch; font-size: clamp(18px, 2.1vw, 27px); font-weight: 850; line-height: 1.15; letter-spacing: -.035em; text-wrap: balance; }
+.cycle-listen-button { display: flex; align-items: center; justify-content: center; gap: 10px; min-width: 120px; min-height: 64px; flex-shrink: 0; padding: 12px 20px; border: 3px solid #fffdf1; border-radius: 22px; background: #ffd759; color: #493900; font-size: 18px; font-weight: 850; box-shadow: 0 5px 0 #c69b2f; }
+.cycle-listen-button svg { width: 30px; height: 30px; }
+.cycle-listen-button[data-audio-state="playing"] { background: #ffe991; }
+.cycle-activity-space { position: relative; flex: 1 1 auto; min-height: 0; display: flex; padding: 18px 32px 56px; }
+.cycle-picture { display: block; object-fit: contain; max-width: 100%; min-width: 0; user-select: none; }
+.cycle-choice-play { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: clamp(16px, 3vh, 28px); width: 100%; min-height: 0; }
+.cycle-sound-sun { position: relative; display: flex; align-items: center; justify-content: center; gap: 14px; min-width: 144px; min-height: 100px; padding: 2px 28px; border-radius: 50%; color: #6a4a04; background: #ffe17d; border: 5px solid #fff2bc; box-shadow: 0 7px 0 #d9af44; }
+.cycle-sound-sun span { font: 850 clamp(40px, 6vh, 65px)/1.1 var(--lp-font-letter, var(--lp-font-reading)); }
+.cycle-sound-sun > svg { width: 28px; height: 28px; }
+.cycle-play-choices { display: flex; justify-content: center; align-items: stretch; gap: clamp(20px, 3.4vw, 52px); width: min(100%, 1000px); }
+.cycle-choice-wrap { position: relative; flex: 1 1 0; max-width: 280px; display: flex; flex-direction: column; align-items: center; gap: 12px; min-width: 0; }
+.cycle-answer { position: relative; width: 100%; border: 5px solid #fffef5; background: #fffef9; box-shadow: 0 9px 0 #5a96a7, 0 14px 20px #296f8022; color: #194653; transition: transform .15s ease, box-shadow .15s ease; }
+.cycle-answer--picture { display: grid; place-items: center; padding: clamp(10px, 1.5vw, 20px); aspect-ratio: 1.08; border-radius: 42% 42% 28% 28%; }
+.cycle-answer--picture .cycle-picture { width: 100%; height: 100%; max-height: 220px; border-radius: 25%; mix-blend-mode: multiply; }
+.cycle-answer--picture::after { content: ''; position: absolute; height: 9px; width: 86%; bottom: -23px; border-radius: 50%; background: #407c821f; }
+.cycle-answer--letter { border-radius: 28px; min-height: 150px; font: 800 clamp(55px, 8vw, 90px)/1 var(--lp-font-letter, var(--lp-font-reading)); background: #fff4ce; border-color: #fffef5; box-shadow: 0 9px 0 #ceab59; }
+.cycle-answer:hover:not(:disabled) { transform: translateY(-5px); }
+.cycle-answer[aria-pressed="true"] { outline: 5px solid #2383a8; outline-offset: 4px; }
+.cycle-choice-marker { position: absolute; right: 12px; bottom: 5px; font-size: 22px; color: #20759a; }
+.cycle-picture-hear { display: grid; place-items: center; width: 56px; height: 56px; min-width: 56px; min-height: 56px; padding: 10px; border: 3px solid #fff; border-radius: 50%; background: #e3f5fa; color: #266779; box-shadow: 0 4px 0 #7fafbb; z-index: 2; }
+.cycle-picture-hear svg { width: 26px; height: 26px; }
+.cycle-picture-model { position: relative; display: flex; align-items: center; justify-content: center; gap: 28px; width: min(100%, 410px); padding: 15px 28px; border-radius: 24px; background: #fffef8; box-shadow: 0 6px 0 #9bc1ba; }
+.cycle-picture-model > .cycle-picture { width: 120px; height: 120px; mix-blend-mode: multiply; }
+.cycle-model-letter { font: 850 clamp(60px, 8vh, 95px)/1 var(--lp-font-letter, var(--lp-font-reading)); color: #af582b; }
+.cycle-picture-model > .cycle-picture-hear { position: absolute; left: -22px; bottom: -10px; }
+.cycle-playground--letterMatch .cycle-scenery { background: linear-gradient(#fcecc2, #fff4d9 60%, #e4cc96 60%, #d3b880); }
+.cycle-choice-play--letterMatch { flex-direction: row; gap: 7%; }
+.cycle-choice-play--letterMatch .cycle-picture-model { flex-direction: column; max-width: 280px; padding: 25px; border-radius: 100px 100px 25px 25px; background: #fffef8; box-shadow: 0 10px 0 #c79656; }
+.cycle-choice-play--letterMatch .cycle-picture-model > .cycle-picture { width: 165px; height: 165px; }
+.cycle-choice-play--letterMatch .cycle-play-choices { max-width: 610px; align-items: center; flex-wrap: wrap; gap: 20px; }
+.cycle-choice-play--letterMatch .cycle-choice-wrap { min-width: 120px; }
+.cycle-playground--rhymeMatch .cycle-scenery { background: linear-gradient(#d2e9d8, #eff2d8 60%, #b9ce9b 60%, #90b489); }
+.cycle-choice-play--rhymeMatch { flex-direction: row; gap: 50px; }
+.cycle-picture-model--rhyme { max-width: 250px; min-height: 240px; border: 5px solid #fffdf2; background: #fff3cf; box-shadow: 0 8px 0 #ae985a; }
+.cycle-picture-model--rhyme > .cycle-picture { width: 190px; height: 190px; }
+.cycle-rhyme-link { position: absolute; right: -42px; font-size: 42px; font-weight: 900; color: #527052; }
+.cycle-choice-play--rhymeMatch .cycle-play-choices { gap: 24px; }
+.cycle-choice-play--rhymeMatch .cycle-answer--picture { border-radius: 28px; box-shadow: 0 8px 0 #7e9e6c; }
+.cycle-choice-play--rhymeMatch .cycle-choice-wrap { max-width: 220px; }
+.cycle-word-workshop { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: clamp(20px, 3vh, 34px); width: 100%; }
+.cycle-playground--wordBuild .cycle-scenery { background: linear-gradient(#d9e9ee, #edf5ed 59%, #c4d8b6 60%, #abc995); }
+.cycle-build-target { position: relative; display: flex; gap: 24px; justify-content: center; align-items: center; padding: 10px 25px; border-radius: 24px; background: #fffefa; box-shadow: 0 5px 0 #a5bcad; }
+.cycle-build-target .cycle-picture { width: 130px; height: 120px; mix-blend-mode: multiply; }
+.cycle-copy-model { font: 800 clamp(35px, 5vw, 65px)/1 var(--lp-font-letter, var(--lp-font-reading)); }
+.cycle-word-train { display: flex; align-items: end; justify-content: center; gap: 14px; position: relative; padding: 0 15px 16px; max-width: 100%; }
+.cycle-word-train::after { content: ''; position: absolute; height: 7px; background: #748b7b; left: -20px; right: -20px; bottom: -2px; border-radius: 5px; box-shadow: 0 7px 0 #fff9; }
+.cycle-word-car { position: relative; display: grid; place-items: center; min-width: 74px; min-height: 90px; padding: 8px 18px; border-radius: 17px 17px 10px 10px; background: #fafdf7; border: 4px solid #a8c1c6; font: 800 clamp(35px, 5vw, 60px)/1 var(--lp-font-letter, var(--lp-font-reading)); }
+.cycle-word-car::after { content: ''; position: absolute; width: 20px; height: 7px; background: #7d979a; right: -22px; bottom: 12px; }
+.cycle-word-car:last-child::after { display: none; }
+.cycle-word-car > i, .cycle-train-engine i, .cycle-train-engine b { position: absolute; width: 24px; height: 24px; border: 6px solid #385661; background: #91b2b5; border-radius: 50%; bottom: -16px; left: 6px; }
+.cycle-word-car > i:last-child { left: auto; right: 6px; }
+.cycle-word-car--next { border-color: #dd9a20; box-shadow: inset 0 0 0 4px #ffe6a2; background: #fff9df; }
+.cycle-word-car--filled { background: #e1f6d5; border-color: #77a573; }
+.cycle-word-car > span { animation: cycle-letter-arrive .22s ease-out; }
+.cycle-train-engine { position: relative; width: 105px; height: 74px; background: #db7350; border-radius: 40px 12px 8px 12px; box-shadow: inset 0 -10px #b4543c; }
+.cycle-train-engine::before { content: ''; position: absolute; right: 4px; top: -48px; width: 45px; height: 60px; border: 9px solid #db7350; border-radius: 10px 10px 0 0; background: #e5fbfb; }
+.cycle-train-engine::after { content: ''; position: absolute; right: -2px; top: -52px; width: 58px; height: 12px; border-radius: 6px; background: #af503a; }
+.cycle-train-engine > span { position: absolute; width: 20px; height: 35px; top: -20px; left: 13px; background: #365c67; border-radius: 6px; }
+.cycle-train-engine b { left: auto; right: 8px; }
+.cycle-letter-bank { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; width: 100%; }
+.cycle-letter-block { display: grid; place-items: center; min-width: 80px; min-height: 82px; padding: 9px 18px; border: 4px solid #fffdf4; border-radius: 20px; color: #195568; background: #bfe9ed; box-shadow: 0 6px 0 #73a6b3; font: 800 44px/1 var(--lp-font-letter, var(--lp-font-reading)); }
+.cycle-sort-play { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; gap: 5px; }
+.cycle-sort-package { position: relative; }
+.cycle-sort-picture { display: grid; place-items: center; width: 170px; height: 155px; padding: 12px; border: 5px solid #fffdf3; border-radius: 24px; background: #fffdf5; box-shadow: 0 6px 0 #bd9d55; touch-action: none !important; }
+.cycle-sort-picture .cycle-picture { width: 100%; height: 100%; mix-blend-mode: multiply; }
+.cycle-sort-package > .cycle-picture-hear { position: absolute; bottom: -8px; right: -24px; }
+.cycle-sort-package--picked { transform: rotate(-3deg) translateY(-5px); }
+.cycle-sort-package--picked .cycle-sort-picture { outline: 4px dashed #558359; outline-offset: 5px; }
+.cycle-sort-arrow { line-height: 1; font-size: 36px; color: #4e7966; }
+.cycle-sort-bins { display: flex; align-items: center; justify-content: center; gap: 80px; width: 100%; }
+.cycle-sort-bin-wrap { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.cycle-sort-bin { position: relative; isolation: isolate; display: grid; place-items: center; min-width: 180px; min-height: 140px; border: 6px solid #fff4ce; border-radius: 14px 14px 45px 45px; color: #5b4216; background: #e0b66f; box-shadow: 0 8px 0 #aa7b42; }
+.cycle-sort-bin strong { display: grid; place-items: center; min-width: 92px; padding: 6px 18px; min-height: 78px; border: 3px solid #bb904e; border-radius: 18px; background: #fff6d7; font: 850 48px/1 var(--lp-font-letter, var(--lp-font-reading)); }
+.cycle-basket-weave { position: absolute; inset: 0; z-index: -1; overflow: hidden; opacity: .18; border-radius: inherit; background: repeating-linear-gradient(0deg, transparent 0 12px, #533100 12px 15px); }
+.cycle-sort-bin[aria-pressed="true"] { outline: 5px solid #276c82; outline-offset: 4px; }
+.cycle-feedback { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; gap: 16px; min-height: 42px; pointer-events: none; white-space: nowrap; }
+.cycle-feedback.is-visible { min-height: 58px; padding: 10px 24px; border: 4px solid #fff; border-radius: 24px; background: #fff4d5; color: #71481c; box-shadow: 0 5px 0 #b5985e; font-size: 23px; font-weight: 850; animation: cycle-letter-arrive .2s ease-out; }
+.cycle-feedback svg { width: 30px; height: 30px; }
+[data-feedback="correct"] .cycle-feedback { color: #1e6845; background: #e8ffc7; box-shadow: 0 5px 0 #73a764; }
+[data-feedback="correct"] .cycle-feedback svg:last-child { color: #e3ae1e; }
+.cycle-play-overlay { position: absolute; z-index: 5; inset: 0; display: grid; place-items: center; background: #e3f5edf2; }
+.cycle-launch-card { display: flex; flex-direction: column; align-items: center; gap: 14px; width: min(460px, 90%); text-align: center; }
+.cycle-launch-card > img { width: clamp(100px, 20vh, 170px); height: clamp(100px, 20vh, 170px); object-fit: contain; border-radius: 50%; border: 6px solid #fffdf4; box-shadow: 0 6px 0 #bddcba; }
+.cycle-launch-card h2 { font-size: clamp(27px, 4vw, 42px); font-weight: 900; letter-spacing: -.045em; margin: 5px 0 0; }
+.cycle-launch-card p { font-size: 18px; font-weight: 750; margin: 0; }
+.cycle-play-button { display: grid; place-items: center; width: 104px; height: 80px; border: 5px solid #fffdf3; border-radius: 28px; background: #ffda65; color: #604516; box-shadow: 0 7px 0 #c39a37; }
+.cycle-play-button svg { width: 40px; height: 40px; }
+.cycle-audio-pulse { position: absolute; bottom: 22px; left: 28px; display: flex; gap: 4px; align-items: center; height: 25px; }
+.cycle-audio-pulse i { width: 5px; height: 12px; border-radius: 3px; background: #2b7382; animation: cycle-audio-wave .7s alternate infinite ease-in-out; }
+.cycle-audio-pulse i:nth-child(2) { height: 22px; animation-delay: -.2s; }
+.cycle-audio-pulse i:nth-child(3) { animation-delay: -.4s; }
+.cycle-system-message { margin: 0; flex: 0 0 auto; padding: 6px 10px; background: #fff4ce; font-size: 13px; }
+.cycle-practice-complete-card { display: grid; justify-items: center; gap: 18px; width: min(650px, 90%); margin: auto; padding: 32px; border: 4px solid #fff; border-radius: 30px; background: #fffdf2; box-shadow: 0 8px 0 #c1d9c3; text-align: center; }
+.cycle-practice-complete-card h1 { font-size: 32px; margin: 0; }
+.cycle-practice-complete-card p { margin: 0; }
+.cycle-practice-score { display: grid; gap: 8px; }
+.cycle-practice-score strong { font-size: 64px; color: #277858; }
+.cycle-practice-page--error { align-items: center; justify-content: center; text-align: center; }
+@keyframes cycle-star-arrive { from { transform: scale(.6) rotate(-25deg); } to { transform: scale(1); } }
+@keyframes cycle-letter-arrive { from { opacity: .3; scale: .85; } to { opacity: 1; scale: 1; } }
+@keyframes cycle-audio-wave { to { transform: scaleY(.5); } }
+@media (max-height: 650px) {
+  .cycle-practice-page { padding: 7px; gap: 7px; }
+  .cycle-practice-topbar { min-height: 62px; padding-block: 3px; }
+  .cycle-instruction-row { padding-top: 10px; }
+  .cycle-activity-space { padding-top: 10px; padding-bottom: 45px; }
+  .cycle-sound-sun { min-height: 70px; }
+  .cycle-sound-sun span { font-size: 45px; }
+  .cycle-choice-play { gap: 15px; }
+  .cycle-answer--picture { max-height: 190px; aspect-ratio: 1.3; }
+  .cycle-picture-model > .cycle-picture { width: 100px; height: 100px; }
+  .cycle-choice-play--letterMatch .cycle-picture-model > .cycle-picture { width: 100px; height: 100px; }
+  .cycle-model-letter { font-size: 65px; }
+  .cycle-build-target .cycle-picture { width: 80px; height: 75px; }
+  .cycle-word-workshop { gap: 18px; }
+  .cycle-word-car { min-height: 65px; min-width: 64px; }
+  .cycle-letter-block { min-height: 64px; min-width: 66px; font-size: 34px; }
+  .cycle-sort-picture { width: 125px; height: 105px; }
+  .cycle-sort-bin { min-height: 98px; }
+  .cycle-sort-bin strong { min-height: 60px; font-size: 36px; }
+}
+@media (max-width: 800px) {
+  .cycle-practice-topbar { gap: 8px; padding-inline: 8px; }
+  .cycle-brand-mark { display: none; }
+  .cycle-star-trail { gap: 3px; }
+  .cycle-star-trail svg { width: 23px; height: 23px; }
+  .cycle-practice-topbar__actions { gap: 8px; }
+  .cycle-instruction-row { padding-inline: 18px; }
+  .cycle-activity-space { padding-inline: 22px; }
+  .cycle-choice-play--rhymeMatch { flex-direction: column; gap: 20px; }
+  .cycle-picture-model--rhyme { min-height: 145px; max-width: 230px; padding: 10px; }
+  .cycle-picture-model--rhyme > .cycle-picture { width: 135px; height: 125px; }
+  .cycle-rhyme-link { right: -48px; }
+  .cycle-play-choices { gap: 20px; }
+  .cycle-answer--letter { min-height: 130px; font-size: 60px; }
+  .cycle-word-car { min-width: 58px; padding-inline: 8px; }
+  .cycle-word-train { gap: 10px; padding-inline: 0; }
+  .cycle-train-engine { width: 70px; }
+}
+@media (max-width: 540px) {
+  .cycle-practice-topbar__round strong { font-size: 9px; }
+  .cycle-practice-topbar__identity h1 { font-size: 14px; }
+  .cycle-practice-topbar__identity div > span { font-size: 10px; }
+  .cycle-star-trail svg { width: 17px; height: 17px; }
+  .cycle-icon-button { min-width: 56px; width: 56px; border-radius: 14px; }
+  .cycle-instruction-row { padding-inline: 12px; }
+  .cycle-instruction-row p { font-size: 18px; }
+  .cycle-activity-name { font-size: 10px; }
+  .cycle-listen-button { min-width: 62px; width: 62px; min-height: 60px; padding: 8px; }
+  .cycle-listen-button span { display: none; }
+  .cycle-activity-space { padding-inline: 12px; }
+  .cycle-choice-play--letterMatch { flex-direction: column; gap: 25px; }
+  .cycle-choice-play--letterMatch .cycle-picture-model { flex-direction: row; max-width: 260px; padding: 15px; }
+  .cycle-choice-play--letterMatch .cycle-choice-wrap { min-width: 70px; }
+  .cycle-answer--letter { min-height: 115px; }
+  .cycle-play-choices, .cycle-choice-play--rhymeMatch .cycle-play-choices { gap: 12px; }
+  .cycle-answer--picture { padding: 7px; border-width: 3px; border-radius: 30% 30% 22% 22%; min-height: 110px; }
+  .cycle-sort-bins { gap: 28px; }
+  .cycle-sort-bin { min-width: 133px; }
+  .cycle-sort-bin strong { min-width: 75px; }
+  .cycle-letter-bank { gap: 10px; }
+  .cycle-letter-block { min-width: 56px; min-height: 64px; padding: 6px 10px; font-size: 34px; }
+  .cycle-train-engine { display: none; }
+  .cycle-word-car { min-width: 46px; min-height: 65px; padding: 5px; font-size: 33px; border-width: 3px; }
+  .cycle-word-car > i { width: 18px; height: 18px; border-width: 5px; left: 1px; bottom: -12px; }
+  .cycle-word-car > i:last-child { right: 1px; }
+  .cycle-build-target { gap: 12px; }
+  .cycle-copy-model { font-size: 35px; }
+}
+@media (prefers-reduced-motion: reduce) { .cycle-practice-page *, .cycle-practice-page *::before, .cycle-practice-page *::after { animation: none !important; transition: none !important; } }
+.cycle-practice-page[data-motion="reduced"] *, .cycle-practice-page[data-motion="reduced"] *::before, .cycle-practice-page[data-motion="reduced"] *::after { animation: none !important; transition: none !important; }
+/* Audio delivery disables actions without washing out the pictures children need to study. */
+.cycle-practice-page .cycle-activity-space button:disabled { opacity: 1; filter: none; }
+.cycle-practice-page .cycle-answer--picture { border-radius: 42% 42% 28% 28%; }
+.cycle-practice-page .cycle-picture-hear { border-radius: 50%; }
+.cycle-answer--hint { outline: 5px dashed #be8a1e; outline-offset: 5px; }
+[data-feedback="correct"] .cycle-answer[aria-pressed="true"] { outline-color: #308851; animation: cycle-collect .7s ease-in-out both; }
+[data-feedback="incorrect"] .cycle-answer[aria-pressed="true"] { outline-color: #a26031; }
+[data-feedback="correct"] .cycle-word-train { animation: cycle-train-go 1s ease-in-out both; }
+@keyframes cycle-collect { 40% { transform: translateY(-22px) rotate(-4deg); } 75% { transform: translateY(-5px) rotate(3deg); } }
+@keyframes cycle-train-go { 35% { transform: translateX(-10px); } 100% { transform: translateX(24px); } }
+.cycle-before-word { display: grid; justify-items: center; gap: 4px; }
+.cycle-before-word > span { font-size: 24px; font-weight: 850; }
+.cycle-before-word > .cycle-picture { width: 90px; height: 75px; }
+.cycle-change-arrow { width: 36px; height: 36px; color: #427b77; }
+.cycle-complete-guide { width: 155px; height: 155px; object-fit: contain; border-radius: 50%; }
+.cycle-complete-stars { display: flex; gap: 14px; color: #efbb36; }
+.cycle-complete-stars svg { width: 50px; height: 50px; }
+.cycle-complete-stars svg:nth-child(2) { transform: translateY(-10px); }
+.cycle-practice-page .cycle-icon-button,
+.cycle-practice-page .cycle-picture-hear,
+.cycle-practice-page .cycle-letter-block {
+  min-width: max(56px, var(--kg-physical-hit, 56px));
+  min-height: max(56px, var(--kg-physical-hit, 56px));
 }
 
-/* The compact Cycle Practice frame owns the whole viewport. The mechanics
-   should use that space as a play surface, not inherit the smaller Adventure
-   Map card width. */
-.cycle-practice-page .am-code-stage {
-  width: min(100%, 1180px);
-  min-height: 100%;
+/* Objects remain in their baskets while the next classification is spoken. */
+.cycle-sort-tray { position: relative; display: flex; align-items: center; justify-content: center; width: 100%; }
+.cycle-sort-waiting { position: absolute; display: flex; gap: 12px; left: 0; bottom: 10px; padding: 12px; border-radius: 22px; background: #dcebea; }
+.cycle-sort-waiting .cycle-picture { width: 64px; height: 64px; object-fit: contain; border-radius: 14px; }
+.cycle-sorted-pictures { position: absolute; display: flex; justify-content: center; gap: 6px; bottom: -16px; z-index: 2; }
+.cycle-sorted-pictures .cycle-picture { width: 62px; height: 62px; border-radius: 15px; object-fit: contain; border: 3px solid #fff; background: #fff; box-shadow: 0 3px 0 #af8954; }
+.cycle-beat-dots { display: flex; flex-wrap: wrap; gap: 7px; max-width: 50px; justify-content: center; }
+.cycle-beat-dots i { width: 18px; height: 18px; background: #705129; border-radius: 50%; }
+.cycle-sort-bins:has(.cycle-beat-dots) { gap: 20px; }
+.cycle-sort-bins:has(.cycle-beat-dots) .cycle-sort-bin { min-width: 120px; }
+.cycle-sort-bins:has(.cycle-beat-dots) .cycle-sort-bin strong { min-width: 80px; }
+.cycle-change-letter { display: grid; place-items: center; width: 100%; min-width: max(56px, var(--kg-physical-hit, 56px)); min-height: max(56px, var(--kg-physical-hit, 56px)); font: inherit; border: 0; background: transparent; color: inherit; border-radius: 12px; }
+.cycle-change-letter[aria-pressed="true"] { outline: 4px dashed #165c80; outline-offset: 4px; }
+@media (max-width: 800px) {
+  .cycle-sort-waiting { left: 2%; padding: 8px; flex-direction: column; }
+  .cycle-sort-waiting .cycle-picture { width: 50px; height: 50px; }
+  .cycle-sort-bins:has(.cycle-beat-dots) { gap: 12px; }
+  .cycle-sort-bins:has(.cycle-beat-dots) .cycle-sort-bin { min-width: 94px; }
+  .cycle-sort-bins:has(.cycle-beat-dots) .cycle-sort-bin strong { min-width: 62px; padding: 6px; }
+}
+@media (max-width: 540px) {
+  .cycle-sort-bins:has(.cycle-beat-dots) { gap: 8px; }
+  .cycle-sort-bins:has(.cycle-beat-dots) .cycle-sort-bin { min-width: 70px; }
+  .cycle-sort-bins:has(.cycle-beat-dots) .cycle-sort-bin strong { min-width: 52px; }
 }
 
-.cycle-practice-page .am-letter-press,
-.cycle-practice-page .am-sound-gate,
-.cycle-practice-page .am-scene-hunt,
-.cycle-practice-page .adventure-word-window,
-.cycle-practice-page .adventure-word-machine {
-  width: min(100%, 1180px);
+.cycle-answer--word { min-width: 170px; min-height: 120px; padding: 20px; font: 750 clamp(32px, 5vw, 60px)/1.2 var(--lp-font-reading); color: #245c78; background: #fff; border: 5px solid #b9d4e3; box-shadow: 0 8px 0 #88afc4; }
+@media (max-width: 540px) { .cycle-answer--word { min-width: 90px; min-height: 100px; padding: 12px; font-size: 30px; } }
+/* Learning symbols must stay large under the application's generic button skin. */
+.cycle-practice-page .cycle-letter-block {
+  min-width: max(74px, var(--kg-physical-hit, 56px));
+  min-height: max(74px, var(--kg-physical-hit, 56px));
+  font: 800 clamp(32px, 5vh, 44px)/1 var(--lp-font-letter, var(--lp-font-reading));
 }
-
-.cycle-practice-page .am-letter-press-button {
-  min-width: clamp(136px, 13vw, 188px) !important;
-  min-height: clamp(136px, 13vw, 188px) !important;
-  font-size: clamp(3.4rem, 6vw, 5.4rem);
-}
-
-.cycle-practice-page .am-code-sign-slot {
-  width: clamp(150px, 18vw, 220px);
-  min-height: clamp(190px, 29vh, 270px);
-}
-
-.cycle-practice-page .am-sound-choice {
-  width: min(100%, 1120px);
-}
-
-.cycle-practice-page .am-sound-choice__tiles {
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: clamp(18px, 2.5vw, 30px);
-}
-
-.cycle-practice-page .am-sound-choice__tile {
-  min-height: clamp(170px, 25vh, 230px) !important;
-  font-size: clamp(3.8rem, 7vw, 6.2rem) !important;
-}
-
-/* Match-the-sound-to-the-image: three large visual choices should read as the
-   main event. The check action sits in its own generous rail rather than
-   compressing the picture cards into a narrow strip. */
-.cycle-practice-page .am-scene-hunt {
-  grid-template-columns: minmax(0, 1fr) minmax(170px, 220px);
-  grid-template-rows: auto minmax(0, 1fr);
-  align-items: stretch;
-  gap: clamp(18px, 2.4vw, 30px);
-}
-
-.cycle-practice-page .am-scene-hunt-target {
-  min-height: clamp(64px, 10vh, 86px);
-  padding-inline: 28px;
-  font-size: clamp(1rem, 1.8vw, 1.3rem);
-}
-
-.cycle-practice-page .am-scene-hunt-target strong {
-  font-size: clamp(1.8rem, 3vw, 2.7rem);
-}
-
-.cycle-practice-page .am-scene-hunt-field {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: stretch;
-  gap: clamp(16px, 2vw, 26px);
-}
-
-.cycle-practice-page .am-scene-object-card {
-  gap: 12px;
-}
-
-.cycle-practice-page .am-scene-object {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: minmax(140px, 1fr) auto;
-  min-height: clamp(220px, 37vh, 330px) !important;
-  padding: clamp(14px, 1.5vw, 22px);
-  border-width: 5px;
-  border-radius: 38px 38px 24px 24px;
-}
-
-.cycle-practice-page .am-scene-object img {
-  height: clamp(140px, 24vh, 220px);
-}
-
-.cycle-practice-page .am-scene-tag-state,
-.cycle-practice-page .am-scene-object-label {
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
-}
-
-.cycle-practice-page .am-scene-object-label {
-  padding: 5px 11px;
-}
-
-.cycle-practice-page .am-scene-hunt-actions {
-  grid-column: 2;
-  align-content: center;
-  min-width: 0;
-  gap: 16px;
-}
-
-.cycle-practice-page .am-scene-hunt-actions button,
-.cycle-practice-page .am-scene-hear-name {
-  min-height: 72px !important;
-  font-size: clamp(.9rem, 1.3vw, 1.05rem);
-}
-
-.cycle-practice-page .am-scene-hear-name {
-  padding-inline: 12px;
-}
-
-/* Cycle Practice is a focused child surface. Its learning choices should
-   occupy the available stage instead of inheriting the smaller quest tiles. */
-.kg-stage .kg-main .cycle-practice-page .am-letter-press-button,
-.kg-stage .kg-main .cycle-practice-page .am-sound-choice__tile {
-  min-width: clamp(112px, 13vw, 164px) !important;
-  min-height: clamp(112px, 13vw, 164px) !important;
-  padding: 0 !important;
-  font-size: clamp(2.8rem, 6vw, 4.6rem) !important;
-}
-
-.am-sound-choice {
-  display: grid;
-  align-content: center;
-  justify-items: center;
-  gap: clamp(1.25rem, 3vw, 2.5rem);
-  width: min(100%, 860px);
-  margin: auto;
-}
-
-.am-sound-choice__prompt {
-  margin: 0;
-  color: #2c493f;
-  font: 900 clamp(1.2rem, 2.5vw, 1.75rem)/1.15 var(--lp-font-reading);
-  text-align: center;
-}
-
-.am-sound-choice__tiles {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: clamp(14px, 2vw, 24px);
-  width: 100%;
-}
-
-.am-sound-choice__tile {
-  border: 5px solid #44658c;
-  border-radius: 22px;
-  background: linear-gradient(145deg, #effaff, #a6d7e8);
-  box-shadow: 0 8px 0 #31506d, 0 14px 22px rgba(32, 57, 80, .22);
-  color: #20394c;
-  cursor: pointer;
-  font: 900 clamp(3rem, 7vw, 5.2rem)/1 var(--lp-font-letter, var(--lp-font-reading));
-}
-
-.am-sound-choice__tile[aria-pressed="true"] {
-  border-color: #347754;
-  background: linear-gradient(145deg, #f4ffd9, #a9d879);
-  box-shadow: 0 4px 0 #2d5f42, 0 0 24px rgba(153, 224, 121, .55);
-}
-
-.cycle-practice-kicker { margin: 0 0 .25rem; color: #47766a; font-size: .75rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-.cycle-practice-complete-card { max-width: 720px; margin: 10vh auto 0; padding: clamp(1.5rem, 5vw, 3rem); border: 2px solid rgba(45, 104, 90, .14); border-radius: 1.5rem; background: rgba(255, 255, 255, .9); text-align: center; box-shadow: 0 18px 50px rgba(40, 85, 73, .12); }
-.cycle-practice-complete-card h1 { margin: 0; color: #173e36; font-size: clamp(1.65rem, 3vw, 2.8rem); letter-spacing: -.04em; }
-.cycle-practice-complete-card p:not(.cycle-practice-kicker) { font-size: 1.1rem; }
-.cycle-practice-score { display: grid; gap: .2rem; margin: 1.5rem auto; color: #1e6d5d; }
-.cycle-practice-score strong { font-size: clamp(3rem, 10vw, 6rem); line-height: 1; }
-.cycle-practice-score span { color: #5a746d; font-weight: 700; }
-.cycle-practice-page--error { display: grid; min-height: 60vh; place-content: center; text-align: center; }
-
-@media (max-width: 720px) {
-  .cycle-practice-page { overflow: hidden; }
-  .cycle-practice-topbar {
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas:
-      "identity timer"
-      "round actions"
-      "instruction instruction"
-      "progress progress"
-      "status status";
-    align-items: center;
-  }
-  .cycle-practice-topbar__timer { text-align: right; }
-  .cycle-practice-topbar__instruction { align-items: stretch; flex-direction: column; }
-  .cycle-practice-topbar__instruction > span { white-space: normal; }
-  .cycle-practice-topbar__audio-actions { justify-content: flex-start; }
-  .cycle-practice-topbar__audio-button { flex: 1 1 0; }
-  .cycle-practice-topbar__actions .lp-button { width: auto; }
-}
-
-@media (max-width: 980px) {
-  .cycle-practice-page .am-scene-hunt {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-  }
-
-  .cycle-practice-page .am-scene-hunt-field {
-    grid-column: 1;
-  }
-
-  .cycle-practice-page .am-scene-hunt-actions {
-    grid-column: 1;
-    grid-template-columns: minmax(180px, 260px);
-    justify-content: center;
-  }
-}
-
-@media (max-width: 700px) {
-  .cycle-practice-page .am-code-stage {
-    width: 100%;
-  }
-
-  .cycle-practice-page .am-scene-hunt-field {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .cycle-practice-page .am-scene-object {
-    min-height: 190px !important;
-  }
-
-  .cycle-practice-page .am-scene-object img {
-    height: 120px;
-  }
-
-  .cycle-practice-page .am-sound-choice__tiles {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .cycle-practice-page .am-sound-choice__tile {
-    min-height: 140px !important;
-  }
+.cycle-practice-page .cycle-change-letter { font: 800 clamp(32px, 5vw, 52px)/1 var(--lp-font-letter, var(--lp-font-reading)); }
+.cycle-practice-page .cycle-answer--word { font: 750 clamp(30px, 5vw, 56px)/1.2 var(--lp-font-reading); }
+.cycle-practice-page .cycle-answer--letter {
+  min-height: 138px;
+  font: 800 clamp(48px, 6vw, 76px)/1 var(--lp-font-letter, var(--lp-font-reading));
+  background: #fffdf3;
 }

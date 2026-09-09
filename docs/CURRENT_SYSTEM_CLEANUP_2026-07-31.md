@@ -220,3 +220,11 @@ They do not prove the state of a hosted database, signed-in production environme
 physical device, or external service. Those environments should be checked only when
 a release specifically requires them; their absence does not revive any retired local
 rule or dataset.
+
+## Cycle Practice activity replacement
+
+Cycle Practice now owns its pictured six-mechanic curriculum and renderer in
+`src/components/cycle-practice`. Its old Adventure Map rendering, confirmation
+controls and Cycle-only Adventure CSS are removed. Shared Adventure code remains
+active for Adventure Map. The current contract is
+[Cycle Practice](product/CYCLE_PRACTICE.md).

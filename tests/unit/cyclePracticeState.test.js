@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createCycleClock, buildCyclePlan, readCycleState, writeCycleState } from '../../src/components/cycle-practice/cyclePracticeState.js';
 import { cycleQuestionRecord, summarizeCycleRecords } from '../../src/policy/cyclePracticePolicy.js';
-import { buildStationRounds, stationsForCycle, isCycleQuestEligibleRound } from '../../src/components/elQuest/elQuestEngine.js';
+import { buildCyclePracticePools, cycleFocusGraphemes } from '../../src/components/cycle-practice/cyclePracticeContent.js';
 import { elSkillsBlockCycles } from '../../src/data/elSkillsBlockCycles.js';
 
 test('activity requires bracketed inputs; background, pause, idle and check never add practice', () => {
@@ -38,7 +38,8 @@ test('all 27 cycles generate stable resumable plans and changing passes cover fr
     assert.deepEqual(first,buildCyclePlan(cycle,'coverage'));assert.ok(first.rounds.length);assert.ok(check.rounds.length);
     assert.deepEqual(first.unavailable,[],cycle.id);assert.deepEqual(check.unavailable,[],cycle.id);
     assert.ok(check.rounds.every(r=>r.mechanicId!=='phraseFlow'));
-    const constructs = new Set(stationsForCycle(cycle).filter(s=> !['check','poem'].includes(s.id)).flatMap(s=>buildStationRounds(cycle,s.id,{seed:`coverage:${s.id}`})).filter(isCycleQuestEligibleRound).filter(r=>r.mechanicId!=='poemSpotlight').map(r=>r.construct));
+    const constructs = new Set(Object.values(buildCyclePracticePools(cycle, 'coverage')).flat().filter(r => r.checkEligible).map(r => r.construct));
+    for (const grapheme of cycleFocusGraphemes(cycle)) assert.ok(check.rounds.some(r => r.targetGrapheme === grapheme), `${cycle.id}: ${grapheme}`);
     assert.deepEqual(new Set(check.rounds.map(r=>r.construct)),constructs,cycle.id);
     assert.equal(new Set(check.rounds.map(r=>r.id)).size,check.rounds.length);
     if(JSON.stringify(first.rounds)!==JSON.stringify(next.rounds))changed++;

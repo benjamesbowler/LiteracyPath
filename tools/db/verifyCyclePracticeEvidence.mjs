@@ -5,7 +5,7 @@ import { PGlite } from "@electric-sql/pglite";
 import { pgcrypto } from "@electric-sql/pglite/contrib/pgcrypto";
 import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
 import { buildCyclePlan } from "../../src/components/cycle-practice/cyclePracticeState.js";
-import { cycleQuestionRecord, summarizeCycleRecords } from "../../src/policy/cyclePracticePolicy.js";
+import { CYCLE_ACTIVITY_REVISION, cycleQuestionRecord, summarizeCycleRecords } from "../../src/policy/cyclePracticePolicy.js";
 const root = resolve(import.meta.dirname, "../..");
 const db = await PGlite.create({ extensions: { pgcrypto } });
 let failure = null;
@@ -37,9 +37,16 @@ try {
   // Exercise the real client blueprint/record contract, not only synthetic SQL tuples.
   const fixtures = readFileSync(join(root, "tests/sql/cycle_practice_evidence.sql"), "utf8").split("do $test$")[0];
   await db.exec(fixtures);
+  await db.exec(readFileSync(join(root, "tests/sql/cycle_practice_activity_audio.sql"), "utf8"));
+  console.log("PASS: six new activities require delivered audio; legacy evidence and exact retries remain valid");
   const { rows: [login] } = await db.query("select public.student_login('a1400000-0000-4000-8000-000000000001','123','real-blueprint-fixture','NULL24') as result");
   for (const cycle of elSkillsBlockCycles.filter(c => c.cycleNumber)) {
-    const records = buildCyclePlan(cycle, "client-server-contract", 0, true).rounds.map(round => cycleQuestionRecord(round, { correct: true, selected: round.answer ?? null }, { mode: "assessment", audioDelivery: "delivered" }));
+    const records = buildCyclePlan(cycle, "client-server-contract", 0, true).rounds.flatMap(round => {
+      const targets = round.objects?.length ? round.objects.map(object => ({ ...round, ...object,
+        id: `${round.id}:object:${object.word}`, targetWord: object.word, itemKey: object.word })) : [round];
+      return targets.map(target => cycleQuestionRecord(target, { correct: true, selected: target.answer ?? null,
+        evidence: { activityRevision: CYCLE_ACTIVITY_REVISION, practicePass: 0 } }, { mode: "assessment", audioDelivery: "delivered" }));
+    });
     const attempt = { attemptId: `client-cycle-${cycle.cycleNumber}`, assessmentType: "cycle_practice_check", cycleId: cycle.id, cycleNumber: cycle.cycleNumber,
       contentVersion: "cycle-practice-v2", assessmentVersion: "cycle-practice-v2", policyVersion: "cycle-practice-policy-v2",
       practiceSeconds: 1800, sessionElapsedSeconds: 2000, checkSeconds: 100, questionRecords: records, ...summarizeCycleRecords(records) };

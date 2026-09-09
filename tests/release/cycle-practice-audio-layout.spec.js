@@ -1,4 +1,10 @@
 import { expect, test } from "@playwright/test";
+import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
+import { buildCyclePlan } from "../../src/components/cycle-practice/cyclePracticeState.js";
+import { resolveCyclePracticeAudio } from "../../src/components/cycle-practice/cyclePracticeAudio.js";
+
+const cycle = elSkillsBlockCycles.find(row => row.id === "cycle-1");
+const plan = buildCyclePlan(cycle, "child-surface-preview:preview").rounds;
 
 async function installAudioSpy(page) {
   await page.addInitScript(() => {
@@ -46,59 +52,45 @@ async function installAudioSpy(page) {
   });
 }
 
-async function advanceRound(page) {
-  const before = await page.locator(".cycle-practice-topbar__round strong").textContent();
-  const choices = page.locator("[data-mechanic-stage] button:not(:disabled)");
-  const count = await choices.count();
-  for (let index = 0; index < count; index += 1) {
-    await choices.nth(index).click();
-    await page.waitForTimeout(1150);
-    if ((await page.locator(".cycle-practice-topbar__round strong").textContent()) !== before) return true;
-  }
-  return false;
-}
-
-test("Cycle Practice warms ahead and plays Sound Catch target audio first", async ({ page }) => {
+test("Cycle Practice warms the next activities and automatically speaks the instruction then the phoneme", async ({ page }) => {
   await installAudioSpy(page);
   await page.goto("/preview/child-surfaces.html?surface=cycle-practice&cycle=cycle-1");
   await expect(page.locator('[data-cycle-id="cycle-1"]')).toBeVisible();
-  const checkButton = page.getByRole("button", { name: "Start Cycle Check", exact: true });
-  await expect(checkButton).toHaveClass(/cycle-practice-check-button/);
-  await expect.poll(() => checkButton.evaluate(button => getComputedStyle(button).backgroundColor))
-    .toBe("rgb(230, 236, 232)");
-
-  await expect.poll(() => page.evaluate(() => new Set(window.__cyclePracticeCreatedAudio).size))
-    .toBeGreaterThanOrEqual(3);
-
-  await advanceRound(page);
-  await advanceRound(page);
-  await page.evaluate(() => { window.__cyclePracticePlayedAudio = []; });
-  await advanceRound(page);
-
-  await expect(page.locator('[data-mechanic-stage="sound-choice"]')).toBeVisible();
-  const played = await page.evaluate(() => window.__cyclePracticeAudioEvents.filter(event => event.mechanic === "sound-choice").map(event => event.src));
-  expect(played.length).toBeGreaterThan(0);
-  expect(played[0]).not.toMatch(/\/audio\/production\/en-US\/instruction\//u);
-  expect(played[0]).toMatch(/\/audio\/(?:phonemes|production\/en-US\/isolated_word)\//u);
+  await page.getByRole("button", { name: "Start playing", exact: true }).click();
+  await expect(page.locator(".cycle-listen-button")).toHaveAttribute("data-audio-state", "ready");
+  await expect(page.locator(".cycle-playground")).toHaveAttribute("data-mechanic-stage", "pictureSound");
+  const resolved = resolveCyclePracticeAudio(plan[0]);
+  const played = await page.evaluate(() => window.__cyclePracticePlayedAudio);
+  expect(played.slice(-resolved.sequence.length)).toEqual(resolved.sequence);
+  expect(resolved.sequence[0]).toBe(resolved.instructionAudio);
+  expect(resolved.sequence.at(-1)).toBe(plan[0].soundAudio);
+  // The named correct picture must not replace discrimination of its sound.
+  expect(played).not.toContain(plan[0].audio);
+  const nextWindow = plan.slice(0, 3).flatMap(round => [...resolveCyclePracticeAudio(round).sequence, ...(round.choices || []).map(choice => choice.audio)]).filter(Boolean);
+  await expect.poll(() => page.evaluate(paths => paths.every(path => window.__cyclePracticeCreatedAudio.includes(path)), nextWindow)).toBe(true);
+  await page.getByRole("button", { name: "Hear what to do", exact: true }).click();
+  await expect(page.locator(".cycle-listen-button")).toHaveAttribute("data-audio-state", "ready");
+  expect((await page.evaluate(() => window.__cyclePracticePlayedAudio)).slice(-resolved.sequence.length)).toEqual(resolved.sequence);
 });
 
-test("Cycle Practice gives Sound Hunt the full stage", async ({ page }) => {
+test("Cycle Practice uses large picture targets and an individual recorded-name replay for every picture", async ({ page }) => {
+  await page.setViewportSize({ width: 1024, height: 768 });
   await installAudioSpy(page);
   await page.goto("/preview/child-surfaces.html?surface=cycle-practice&cycle=cycle-1");
 
-  for (let index = 0; index < 8; index += 1) {
-    const advanced = await advanceRound(page);
-    if (!advanced) break;
-  }
-
-  await expect(page.locator('[data-mechanic-stage="scene-hunt"]')).toBeVisible();
-  const cards = page.locator(".am-scene-object");
-  await expect(cards).toHaveCount(3);
-  for (let index = 0; index < 3; index += 1) {
+  await page.getByRole("button", { name: "Start playing", exact: true }).click();
+  await expect(page.locator(".cycle-listen-button")).toHaveAttribute("data-audio-state", "ready");
+  const cards = page.locator(".cycle-answer--picture");
+  await expect(cards).toHaveCount(plan[0].choices.length);
+  for (const [index, choice] of plan[0].choices.entries()) {
     const box = await cards.nth(index).boundingBox();
-    expect(box?.width).toBeGreaterThan(220);
-    expect(box?.height).toBeGreaterThan(250);
+    expect(box.width).toBeGreaterThanOrEqual(56);
+    expect(box.height).toBeGreaterThanOrEqual(56);
+    const image = cards.nth(index).locator("img");
+    await expect.poll(() => image.evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
+    await page.getByRole("button", { name: `Hear ${choice.label}`, exact: true }).click();
+    await expect.poll(() => page.evaluate(path => window.__cyclePracticePlayedAudio.at(-1) === path, choice.audio)).toBe(true);
   }
-  await expect(page.locator('[data-audio-action="replay"]')).toHaveCount(2);
-  await expect(page.locator(".am-scene-hear-name")).toHaveCount(3);
+  await expect(page.locator(".cycle-answer--picture[aria-pressed='true']")).toHaveCount(0);
+  await expect(page.getByRole("button", { name: /check my|submit|start cycle check|sound gate|remember the word/i })).toHaveCount(0);
 });

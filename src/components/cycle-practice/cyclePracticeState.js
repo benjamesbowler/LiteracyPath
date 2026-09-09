@@ -1,37 +1,7 @@
-import { buildStationRounds, stationsForCycle, isCycleQuestEligibleRound } from "../elQuest/elQuestEngine.js";
-import { distributeAnswerPositions } from "../../utils/answerPositionShuffle.js";
+import { buildCyclePracticePlan } from "./cyclePracticeContent.js";
 import { CYCLE_ACTIVITY_GAP_MS, CYCLE_PRACTICE_VERSION } from "../../policy/cyclePracticePolicy.js";
 
-export function buildCyclePlan(cycle, seed, pass = 0, check = false) {
-  if (!cycle) return { rounds: [], unavailable: ["Cycle"] };
-  const unavailable = [];
-  let stations;
-  try { stations = stationsForCycle(cycle).filter(s => !["check", "poem"].includes(s.id)); }
-  catch { return { rounds: [], unavailable: ["Cycle content"] }; }
-  let rounds = stations.flatMap(station => {
-    try {
-      // Keep the authored pool bounded, but regenerate its distractors and
-      // picture/word choices for each practice pass. Successive passes rotate
-      // through the pool before repeating a target, while a fresh pass seed
-      // prevents the same question from returning in the same visual form.
-      const pool = buildStationRounds(cycle, station.id, { seed: `${seed}:${station.id}:pass:${pass}` }).map((round, index) => ({ ...round, id: round.id || `${cycle.id}:${station.id}:${index}` })).filter(r => r.mechanicId !== "poemSpotlight");
-      if (!pool.length) throw new Error("empty");
-      const selected = check ? pool.filter(isCycleQuestEligibleRound) : Array.from({ length: Math.min(3, pool.length) }, (_, i) => pool[(pass * 3 + i) % pool.length]);
-      return selected.map(r => ({ ...r, stationId: check ? "check" : station.id, stationTitle: check ? "Cycle Check" : station.title }));
-    } catch { unavailable.push(station.title); return []; }
-  });
-  if (check) {
-    // Filter before composing: one representative of every eligible construct,
-    // then fresh additional items to ten. Never truncate away a construct.
-    const byConstruct = new Map();
-    for (const round of rounds) if (!byConstruct.has(round.construct)) byConstruct.set(round.construct, round);
-    const first = [...byConstruct.values()];
-    const ids = new Set(first.map(r => r.id));
-    const remaining = rounds.filter(r => !ids.has(r.id));
-    rounds = [...first, ...remaining].slice(0, Math.max(10, first.length));
-  }
-  return { rounds: distributeAnswerPositions(rounds, `${seed}:${pass}:${check}`), unavailable };
-}
+export const buildCyclePlan = buildCyclePracticePlan;
 
 export function createCycleClock(now = performance.now()) {
   let lastTick = now, lastInput = null, previousCheckActive = false;

@@ -1,37 +1,133 @@
 # Cycle Practice
 
-Cycle Practice is LiteracyPath's original, teacher-controlled practice area for one phonics/word-work cycle. The name deliberately avoids presenting it as an official EL Education product or form.
+Cycle Practice is spoken, pictured practice for children learning English who
+cannot yet read instructions independently. Its current runtime is
+`src/components/cycle-practice/CyclePracticePage.jsx`; its curriculum and
+question source is `cyclePracticeContent.js` in the same directory. It no
+longer uses the Adventure Map's memory, gate, poem or confirmation mechanics.
 
-## Learning contract
+## Learning through play
 
-The teacher can start Cycle Practice for the whole active class or selected students. The teacher chooses one cycle for everyone or an exact cycle for each student. Each child's iPad is held inside the Cycle Practice route for the session; the app lock is an in-app focus lock, so Apple MDM or Single App Mode is still a separate device-operation control.
+All 27 numbered cycles use the taught sounds, patterns and words from
+`elSkillsBlockCycles.js`. Full interleaved decks provide distinct learning tasks before any replay.
+Earlier taught content supplies spaced review; choices and answer positions vary. Review cycles retain all their
+assigned mappings. A missing image or instruction blocks the affected item
+without recording a literacy error.
 
-Each session has two parts:
+| Activity | Child's action | Learning evidence |
+| --- | --- | --- |
+| Sound Safari | Tap a pictured object for the heard sound or ending | Picture identification for the declared first sound, final sound or ending chunk |
+| Letter Friends | Match a heard sound, letter case, or spoken word | Grapheme–phoneme matching, visual letter identity, or auditory word recognition |
+| Rhyme Picnic | Join a pictured word to a rhyming picture | Oral rhyme recognition, with picture-name replay available |
+| Word Workshop | Fill word-train cars by tapping letters; choose which letter to change, then replace it; choose the remaining pictured word part | Encoding, sound substitution, or explicitly named compound deletion |
+| Sound Delivery | Sort three objects into persistent sound baskets, or match a spoken word to beat dots | First/final sound or ending classification and spoken syllable counting; dragging is optional |
+| Rainbow Writing | Follow a large letter trail with a finger or pointer | Supported formation practice, never independent handwriting mastery |
 
-1. At least 30 minutes of cycle-bounded practice.
-2. A Cycle Check with one independent first response recorded for each check item.
+High-frequency words stay visible while the child learns to build them.
+Each word is modeled and copied before its recognition task appears. A spoken
+sentence connects the target to a meaningful pictured object. These are
+supported learning opportunities and are excluded from the independent check.
+A separate practiced task asks children to match a spoken high-frequency word
+to its printed form without a model. This checks auditory word recognition,
+not independent decoding, with a meaningful context picture.
+The child never has to hide a word, recall an interface instruction, or press a
+button to check an answer, letter, or drawing.
 
-Practice reuses the reviewed Cycle Quest mechanics and the cycle's own content. Depending on the cycle, this includes matching letter forms and sounds, initial or ending sound picture sorts, tracing a letter or grapheme, rhyming/word play, sound boxes and segmentation, word chains, and joining or breaking compound-word parts. Every mechanic uses the existing image and production-audio resolver where the authored item has approved media, with an explicit supported alternative or unscored unavailable-media record when required audio cannot be delivered. Connected-print word finding remains a separate Poem activity in Adventure Map; it is not part of Cycle Practice or its check.
+`cyclePracticeSessionBlueprint` reports each cycle's unique tasks, response
+actions, activity and construct coverage, taught/review content, and planning
+allowances. These allowances size the content bank; they are not measured child
+timings or enforced waits. The actual active-time gate is independent of the
+estimate. Inactive, hidden and paused intervals do not satisfy it.
 
-The result is saved against the teacher-controlled session through an RPC that checks the assigned cycle, the 30-minute minimum, the check payload, and the student token. A non-session teacher preview retains its result on the device only; it does not enter the learner progress queue or claim teacher acknowledgment.
+## Instruction and feedback
 
-## Practice, timing and check blueprint
+A single Play tap establishes browser audio permission. Every question then
+plays its short recorded instruction and exact target automatically. The
+persistent speaker replays the same cue. Picture speakers name unfamiliar
+objects, removing non-target vocabulary barriers. Recorded wording and the
+visible caption come from `cyclePracticeAudioScripts.js` and its generated
+Leda manifest. No device speech synthesis or live generation service is used.
 
-Policy v2 is defined by `src/policy/cyclePracticePolicy.js`; [Learning policy](../design/LEARNING_POLICY.md#cycle-practice-activity-and-check-evidence) defines the explicit foreground, pause and idle rule. Duration is client-reported activity, bounded by server session time, not proof of learning. Check time never increases practice time.
+Responses validate automatically. Practice errors remain on the same item,
+name the selected picture when appropriate, replay the learning cue, and give
+another attempt. Repeated errors reveal a teaching hint; subsequent attempts
+remain marked supported. Correct responses receive spoken and visual feedback
+before automatic advancement. Duplicate taps cannot create extra records.
 
-`src/components/cycle-practice/cyclePracticeState.js` owns the Cycle-only blueprint. It excludes poem tracking and support-only phrase rehearsal before choosing check items, includes every remaining eligible construct, then fills to ten where content permits. The display and saved manifest use the actual item count. No mixed-cycle score establishes every named skill as secure.
+Six completed activities fill a star trail. Rewards acknowledge completed
+learning actions and supported effort; they do not confer assessment mastery,
+change the reporting denominator, or depend on speed.
 
-Practice passes rotate through each station's full eligible pool before repeating; answer arrangements change with the pass. Wrong responses stay on the same item for coaching and supported retry. First-response records remain intact, and subsequent passes revisit mappings after intervening activity. Check responses get neutral transitions; coaching appears only after submission in the teacher's **Practise next** panel.
+## Writing tolerance
 
-The learner can pause/resume; refresh retains the session, pass, current item, support history and check responses. The final payload is frozen once. Retry uses the same attempt ID and answers, including after a network interruption or renewed learner sign-in. Server acknowledgment is distinct from local storage. Supported and media-failed items remain unscored and make independent check evidence incomplete. Teacher results disclose the independent denominator, support/media counts and separate durations; CSV exports retain those distinctions.
+`cycleTraceRules.js` is the single tracing rule source. The visible guide is a
+wide corridor; either direction, out-of-order strokes, shortened endpoints,
+wobble and several finger lifts are accepted. Coverage is checked separately
+for every letter in a team. Taps and unrelated scribbles cannot complete a
+letter. Partial useful ink survives a retry. Completion happens on finger
+release; erasing and visual demonstrations are optional. The accessible
+stroke-building alternative records its assistance. All guided tracing is
+supported evidence.
 
-## EL-aligned research boundary
+## Session and results
 
-EL Education's official K-2 Skills Block materials describe modules as a series of cycles, with repeated instructional practices followed by a cycle assessment and goal-setting. The official implementation guide describes a typical one-hour block as whole-group instruction plus differentiated small-group/independent work. LiteracyPath uses those structural ideas while keeping the Cycle Practice content, media, UI, and assessment records original to this product.
+The existing teacher-assigned cycle, foreground active-practice clock,
+30-minute practice minimum, pause/resume, local recovery, immutable final
+payload and retry-save behavior remain in force. Cycle Check requires both at least 1,800 seconds of active
+practice and completed coverage of every assigned sound and high-frequency word,
+all six activity families, rhyme, word parts, syllable counting, and the cycle
+applicable letter-case and sound-change work. At least 36 distinct semantic
+tasks must be completed. Repeated IDs, changed distractors and reshuffled answers
+do not manufacture distinct tasks. Finishing the current activity then
+automatically starts Cycle Check.
+There is no child-facing Start Check or answer-confirmation button.
 
-Sources:
+Cycle Check covers the taught sounds, high-frequency words and practiced
+phonological constructs. It records one independent response per item or sorting object, then gives feedback and
+moves on. Guided writing and visible-model HFW copying are not check items.
+The last response is frozen before saving; retrying a failed save resends that
+same attempt. A saved result is announced only after the corresponding save
+succeeds. Children see a brief completion celebration; teachers retain the
+existing detailed results and support/media distinctions.
 
-- [EL Education: Implementing the K-2 Reading Foundations Skills Block](https://curriculum.eleducation.org/sites/default/files/curriculumtools_implementingthek-2readingfoundationsskillsblock_052217.pdf)
-- [EL Education Grade K Skills Block curriculum](https://curriculum.eleducation.org/curriculum/ela/grade-K/skillsblock-2)
-- [EL Education K-2 Skills Block Resource Manual](https://eleducation.org/documents/1619/Curriculum_Tools_K2_Skills_Block_Resource_Manual-0124.pdf)
-- [EL Education Grade 1 Cycle 18](https://curriculum.eleducation.org/curriculum/ela/grade-1/skillsblock-3/cycle-18)
+The reporting protocol remains `cycle-practice-v2`; the activity revision is
+`cycle-play-2026-09`. Change this revision when a future deck replacement makes
+saved indexes or question identities incompatible. Old unfinished local sessions restart against the new deck
+and retain their previous evidence locally. Frozen pending saves and completed
+results remain unchanged. Sorting resumes from its recorded object responses.
+The forward `cycle_practice_activity_audio_contract` migration extends the
+existing saved-result validator with the new activities and required-audio rules.
+Its token, ownership, duration and immutable-retry protections are unchanged.
+The report retains exact question ids,
+constructs, selected responses, audio-delivery evidence and support retained.
+This is descriptive cycle practice, not formal Skills mastery or placement.
+
+## Visual and access contract
+
+The activity occupies the full available frame with compact controls, large
+pictures and a short caption. Important controls retain at least 56 rendered pixels even inside the scaled child stage.
+Keyboard activation reaches all tap actions; tracing has an explicit supported
+keyboard alternative. Reduced motion removes decorative animation. Incorrect
+and correct states use words, shape and icons as well as colour. Missing media
+retains a visible replay/reload route and cannot silently turn into a text-only
+question.
+
+Reference properties: [Raz-Kids](https://www.raz-kids.com/main/aboutrazkids/)
+provides modeled listening and self-paced child access; [Teach Your Monster to
+Read](https://help.teachyourmonster.org/en/articles/5586062-what-areas-does-teach-your-monster-to-read-cover)
+connects games to phonics, blending and word practice. These inform the design;
+the overhaul makes no claim of measured equivalence to either platform.
+
+## Verification
+
+- Unit: `cyclePracticeContent`, `cyclePracticeAudio`, `cyclePracticeState`,
+  `cyclePracticeReporting`, `cyclePracticeRecovery`, and `cycleTraceRules` tests.
+- Browser: `cycle-practice-overhaul.spec.js`,
+  `cycle-trace-activity.spec.js`, and `cycle-practice-audio-layout.spec.js`.
+- Database: `tools/db/verifyCyclePracticeEvidence.mjs` applies all migrations in
+  isolated PostgreSQL and exercises evidence validation plus all 27 actual
+  cycle check payloads through the anonymous student-token boundary.
+- Repository: unit suite, lint, build and repository hygiene.
+- Direct visual and real recorded-audio delivery are checked in the running
+  activity. Human listening quality, physical-iPad play and observed independent
+  child play remain separate evidence; browser checks do not establish them.

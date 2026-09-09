@@ -1,0 +1,21 @@
+{
+  "source": "Built-in image generation",
+  "created": "2026-09-09",
+  "review": "Direct visual inspection: rung identifies the highlighted horizontal ladder part; fizz depicts rising bubbles and effervescence. No embedded words or character faces.",
+  "assets": [
+    {
+      "word": "rung",
+      "path": "/images/cycle-practice/rung.webp",
+      "prompt": "Use case: scientific-educational. Asset type: individual vocabulary picture for young ESL children, square. Subject: one simple wooden ladder on a pure white background, six horizontal rungs clearly joining two straight wooden side rails. One middle rung is bright coral orange while every other rung and both rails are warm pale wood. A single short dark navy arrow in the white space points precisely to the highlighted horizontal rung, clearly teaching the PART of the ladder called a rung. Style: polished friendly children's educational object illustration, clean confident outlines, subtle warm shading, natural proportions. Front view, entire ladder visible with generous margins. No people, face, eyes, hands, letters, words, numbers, labels, captions, watermark, scenery, glow or decoration. The highlighted rung must be a horizontal crosspiece between the rails, not a side rail. Image intended to accompany a spoken 'rung' recording; accuracy more important than decoration.",
+      "sourceImageId": "exec-649ea51b-04b2-4176-8c99-63f37e2b15b9.png",
+      "sourceSha256": "4080b31b2cd62ff27f1c43c88bdef35b066f73394768ccfae29d2dc3baa2f94b"
+    },
+    {
+      "word": "fizz",
+      "path": "/images/cycle-practice/fizz.webp",
+      "prompt": "Use case: scientific-educational. Asset type: individual vocabulary action picture for young ESL children, square. Subject: fizz, clearly visible effervescence in one clear drinking glass of sparkling water, on a pure white background. A big central glass of pale light-blue transparent water, numerous clearly drawn small bubbles rising from the bottom in streams, many tiny bubbles breaking at the water surface, and a few lively bubbles just above its rim. Make the active fizzing bubbles the visual focus, unmistakably carbonated water, not boiling water. Style: polished friendly children's educational object illustration, clean confident dark-blue outlines, soft simple shading, crisp bubbles; a subtle short curved action arrow can guide gaze toward the rising bubbles but no text. Full glass visible with generous margins, front three-quarter view. No straw, fruit, garnish, ice cubes, bottle, label, words, numbers, caption, watermark, face, eyes, hands, people, steam, kettle, explosion, scenery or decoration. Intended to accompany a spoken 'fizz' recording; clear depiction of the physical bubbling action is more important than decoration.",
+      "sourceImageId": "exec-28bc930d-3e02-4e8b-b86b-9513432ea877.png",
+      "sourceSha256": "3bda7af9feb1d36335354858c53672d0051292bebabd29c1895abef2b5efc116"
+    }
+  ]
+}

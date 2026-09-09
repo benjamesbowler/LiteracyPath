@@ -1,5 +1,6 @@
 import { isIndependentOutcome } from "./outcomeIndependence.js";
 
+export const CYCLE_ACTIVITY_REVISION = "cycle-play-2026-09";
 export const CYCLE_PRACTICE_VERSION = "cycle-practice-v2";
 export const CYCLE_PRACTICE_POLICY_VERSION = "cycle-practice-policy-v2";
 export const CYCLE_PRACTICE_MINIMUM_SECONDS = 1800;
@@ -7,7 +8,7 @@ export const CYCLE_PRACTICE_MINIMUM_SECONDS = 1800;
 // learner input; a gap over one minute is idle and earns no active time.
 export const CYCLE_ACTIVITY_GAP_MS = 60_000;
 const AUDIO_REQUIRED = new Set(["soundGate", "sceneHunt", "soundBoxes", "wordMachine", "wordChain", "phraseFlow"]);
-export function requiresCycleAudio(round) { return AUDIO_REQUIRED.has(round?.mechanicId); }
+export function requiresCycleAudio(round) { return round?.audioRequired === true || AUDIO_REQUIRED.has(round?.mechanicId); }
 
 export function cycleQuestionRecord(round, outcome, { mode, attempts = 0, audioDelivery = "pending", recordedAt = new Date().toISOString() } = {}) {
   const audioRequired = requiresCycleAudio(round);
@@ -16,7 +17,8 @@ export function cycleQuestionRecord(round, outcome, { mode, attempts = 0, audioD
   const responseStatus = audioRequired && delivery !== "delivered" ? "media_failed"
     : !isIndependentOutcome({ evidence }) ? "supported" : outcome.correct ? "correct" : "incorrect";
   return {
-    questionId: round.id, construct: round.construct || round.mechanicId,
+    questionId: round.id, semanticKey: round.semanticKey || round.id, coverageTags: round.coverageTags || [],
+    activityCompleted: Boolean(outcome.correct && !outcome.partial), construct: round.construct || round.mechanicId,
     evidenceConstruct: outcome.construct || round.construct || round.mechanicId,
     mechanicId: round.mechanicId, stationId: round.stationId || "",
     itemKey: String(round.itemKey || round.targetWord || round.targetGrapheme || round.toWord || round.word || round.answer || ""),

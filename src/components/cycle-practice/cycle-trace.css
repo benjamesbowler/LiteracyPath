@@ -1,0 +1,120 @@
+.cycle-trace {
+  --trace-deep: #244458;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 0;
+  gap: 14px;
+  color: var(--trace-deep);
+}
+.cycle-trace__workspace { display: flex; align-items: stretch; gap: 20px; min-height: 0; }
+.cycle-trace__picture-card {
+  position: relative;
+  flex: 0 0 clamp(120px, 19vw, 214px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 18px 12px;
+  border: 3px solid #fff;
+  border-radius: 32px;
+  background: #fff8e8;
+  box-shadow: 0 5px 0 #e8d9b3, 0 12px 24px #7b734014;
+  overflow: hidden;
+}
+.cycle-trace__picture-card img { width: 100%; height: clamp(92px, 16vh, 160px); object-fit: contain; mix-blend-mode: multiply; }
+.cycle-trace__target { font-family: Andika, sans-serif; font-weight: 700; font-size: clamp(42px, 6vw, 72px); line-height: 1.2; }
+.cycle-trace__collect { display: flex; align-items: center; justify-content: center; width: 84%; gap: 8px; color: #ca861e; }
+.cycle-trace__collect svg { flex: 0 0 26px; width: 26px; height: 26px; }
+.cycle-trace__collect span { flex: 1; border-top: 3px dotted #dcc384; }
+.cycle-trace__drawing { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 9px; }
+.cycle-trace__caption { display: flex; align-items: baseline; justify-content: space-between; min-height: 32px; gap: 12px; font-size: clamp(20px, 2.6vw, 30px); font-weight: 800; }
+.cycle-trace__caption strong { font-family: Andika, sans-serif; }
+.cycle-trace__status { font-size: clamp(16px, 1.8vw, 21px); font-weight: 700; color: #28664c; }
+.cycle-trace__pad {
+  display: block;
+  width: 100%;
+  min-height: 190px;
+  max-height: min(46vh, 390px);
+  flex: 1;
+  background: #fffef8;
+  border: 3px solid #fff;
+  border-radius: 28px;
+  box-shadow: 0 5px 0 #d8e5db, inset 0 0 0 1px #ecf0dd;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: crosshair;
+}
+.cycle-trace__pad[aria-disabled="true"] { cursor: default; }
+.cycle-trace__guide { fill: none; stroke: #e5e8db; stroke-width: 2; stroke-dasharray: 7 10; }
+.cycle-trace__path-shadow, .cycle-trace__path, .cycle-trace__path-dots { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.cycle-trace__path-shadow { stroke: #dddabc; stroke-width: 40px; }
+.cycle-trace__path { stroke: #eaf0ca; stroke-width: 34px; }
+.cycle-trace__path-dots { stroke: #9ba96c; stroke-width: 4px; stroke-dasharray: 1 11; }
+.cycle-trace__ink, .cycle-trace__assisted { fill: none; stroke: #188f8a; stroke-width: 16; stroke-linecap: round; stroke-linejoin: round; opacity: .9; }
+.cycle-trace__ink-dot { fill: #188f8a; }
+.cycle-trace__assisted { stroke: #a487d0; stroke-dasharray: 12 5; }
+.cycle-trace__start { pointer-events: none; }
+.cycle-trace__start circle { fill: #f6ba3d; stroke: #fff; stroke-width: 4; }
+.cycle-trace__start path { fill: none; stroke: #72501b; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.cycle-trace__demo { pointer-events: none; }
+.cycle-trace__demo polyline { fill: none; stroke: #db9132; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: cycle-trace-demo 700ms ease-in-out forwards; }
+.cycle-trace__finish-mark circle { fill: #147257; stroke: #fff; stroke-width: 3; }
+.cycle-trace__finish-mark path { fill: none; stroke: #fff; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.cycle-trace__progress { height: 10px; border-radius: 999px; background: #dce7d9; overflow: hidden; }
+.cycle-trace__progress span { display: block; height: 100%; border-radius: inherit; background: #25886e; transition: width 220ms ease-out; }
+.cycle-trace__tools { display: flex; gap: 12px; justify-content: center; }
+.cycle-trace__tools button {
+  min-width: max(96px, var(--kg-physical-hit, 56px));
+  min-height: max(56px, var(--kg-physical-hit, 56px));
+  padding: 8px 15px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid #cfdecf;
+  border-radius: 18px;
+  color: var(--trace-deep);
+  background: #fffdf6;
+  box-shadow: 0 3px 0 #cfdecf;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+.cycle-trace__tools button svg { width: 26px; height: 26px; flex-shrink: 0; }
+.cycle-trace__tools button:active { transform: translateY(2px); box-shadow: 0 1px 0 #cfdecf; }
+.cycle-trace__tools button:focus-visible { outline: 4px solid #305b9c; outline-offset: 4px; }
+.cycle-trace__tools button:disabled { opacity: .5; cursor: default; }
+.cycle-trace[data-reduced-motion="true"] .cycle-trace__demo polyline { animation: none; stroke-dashoffset: 0; }
+.cycle-trace[data-reduced-motion="true"] .cycle-trace__progress span { transition: none; }
+@keyframes cycle-trace-demo { 75% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+@media (max-width: 640px) {
+  .cycle-trace { gap: 10px; }
+  .cycle-trace__workspace { gap: 10px; }
+  .cycle-trace__picture-card { flex-basis: 90px; border-radius: 22px; padding: 9px 6px; }
+  .cycle-trace__picture-card img { height: 100px; }
+  .cycle-trace__target { font-size: 38px; }
+  .cycle-trace__collect { display: none; }
+  .cycle-trace__pad { min-height: 200px; }
+  .cycle-trace__caption { align-items: flex-start; flex-direction: column; gap: 0; }
+  .cycle-trace__status { min-height: 22px; }
+  .cycle-trace__tools { gap: 8px; }
+  .cycle-trace__tools button { min-width: max(56px, var(--kg-physical-hit, 56px)); flex: 1; padding: 8px; font-size: 15px; }
+}
+@media (max-height: 560px) and (min-width: 641px) {
+  .cycle-trace { gap: 8px; }
+  .cycle-trace__picture-card { flex-basis: 125px; padding: 8px; }
+  .cycle-trace__picture-card img { height: 82px; }
+  .cycle-trace__target { font-size: 36px; }
+  .cycle-trace__collect { display: none; }
+  .cycle-trace__pad { min-height: 120px; max-height: 43vh; }
+  .cycle-trace__caption { min-height: 25px; font-size: 21px; }
+  .cycle-trace__tools button { min-height: max(56px, var(--kg-physical-hit, 56px)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cycle-trace__demo polyline { animation: none; stroke-dashoffset: 0; }
+  .cycle-trace__progress span { transition: none; }
+}
