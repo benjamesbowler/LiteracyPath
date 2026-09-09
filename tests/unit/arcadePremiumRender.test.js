@@ -47,7 +47,7 @@ test("Arcade premium rendering scales image quality without removing the low-pow
 
 test("the other live WebGL Arcade games use and dispose the premium renderer", () => {
   const games = [
-    "RocketRunGame.jsx",
+    "rocketRunScene.js",
     "GrammarGrindGame.jsx",
     "StarGalleryArcadeGame.jsx"
   ];

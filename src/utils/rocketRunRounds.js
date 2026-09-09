@@ -35,9 +35,9 @@ const EXTRA_WORDS = {
   c: ["cab", "car", "cod", "cop", "cow", "cub", "cut", "cake", "call", "camp", "card", "coat", "cold", "cook", "cool", "corn"],
   g: ["gas", "get", "got", "guy", "game", "gate", "girl", "give", "glad", "goal", "gold", "golf", "good", "grin"],
   p: ["pad", "paw", "pay", "pen", "pet", "pie", "pin", "pop", "pack", "park", "pick", "play", "pond", "pool"],
-  y: ["yam", "yap", "yet", "yum", "yard", "yawn", "year", "yell", "yoga", "yolk", "your", "young", "yours", "youth"],
+  y: ["yam", "yap", "yet", "yum", "yard", "yawn", "year", "yell", "yoga", "yolk", "your", "young", "yours", "youth", "yarn", "yellow"],
   e: ["ebb", "elf", "elk", "elm", "edge", "else", "envy", "epic", "elbow", "enter", "error", "edgy", "ember", "engine"],
-  v: ["vat", "vow", "vast", "veil", "vent", "verb", "very", "veto", "void", "vote"],
+  v: ["vat", "vow", "vast", "veil", "vent", "verb", "very", "veto", "void", "vote", "valley", "vanish", "venom", "view", "vine", "visit", "voice"],
   k: ["key", "kid", "keep", "kick", "kite", "kind", "king", "kiss", "kitten", "kettle", "kiwi", "koala"],
   j: ["jar", "jaw", "job", "jog", "joy", "jeep", "joke", "jelly", "juice", "jacket"],
   z: ["zag", "zen", "zig", "zit", "zany", "zest", "zinc", "zone", "zoom", "zebra", "zipper", "zero", "zigzag", "zesty", "zippy", "zombie"],
@@ -53,19 +53,21 @@ const EXTRA_WORDS = {
 // boundary, words such as city, item or them can be scored against a different
 // sound even though their first printed grapheme matches.
 const TARGET_SOUND_OVERRIDES = Object.freeze({
-  a: Object.freeze(["add", "am", "an", "and", "as", "at", "act", "ash", "alley", "ankle", "actor", "angry", "animal", "apple", "attic", "action", "adder", "album", "anchor"]),
-  e: Object.freeze(["ebb", "elf", "elk", "elm", "edge", "else", "envy", "epic", "elbow", "enter", "error", "engine", "empty", "echo", "ember"]),
-  i: Object.freeze(["if", "ill", "in", "inn", "it", "inch", "into", "issue", "image", "indoor", "inbox", "invent", "itchy", "index", "insect", "igloo", "infant"]),
+  // Existing recorded words extend the short-vowel coverage without admitting
+  // long vowels or schwa on spelling alone (e.g. acorn, about, item, open).
+  a: Object.freeze(["add", "am", "an", "and", "as", "at", "act", "ash", "alley", "ankle", "actor", "angry", "animal", "apple", "attic", "action", "adder", "album", "anchor", "active", "actual", "added", "adds", "ants", "apples", "arrow"]),
+  e: Object.freeze(["ebb", "elf", "elk", "elm", "edge", "else", "envy", "epic", "elbow", "enter", "error", "engine", "empty", "echo", "ember", "eggs", "elves", "ended", "enemy", "ever", "every", "exit", "extra"]),
+  i: Object.freeze(["if", "ill", "in", "inn", "it", "inch", "into", "issue", "image", "indoor", "inbox", "invent", "itchy", "index", "insect", "igloo", "infant", "inside", "inward", "itself"]),
   o: Object.freeze(["odd", "odds", "off", "on", "ox", "oxen", "onto", "offer", "often", "office", "option", "orange", "omelet", "oblong"]),
   c: Object.freeze(["cab", "cat", "can", "cap", "car", "cod", "cop", "cow", "cub", "cut", "cake", "call", "camp", "card", "coat", "cold", "cook", "cool", "corn"]),
   g: Object.freeze(["gas", "get", "got", "guy", "game", "gate", "girl", "give", "glad", "goal", "gold", "golf", "good", "grin", "green", "grow", "grab", "glow", "grape", "grass"]),
   th: Object.freeze(["thin", "thud", "thank", "thick", "thief", "thorn", "throw", "thump", "thumb", "three", "thread", "thrill", "throat", "thing"])
 });
 
-function shuffle(items) {
+function shuffle(items, random = Math.random) {
   const copy = [...items];
   for (let i = copy.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
+    const j = Math.floor(random() * (i + 1));
     [copy[i], copy[j]] = [copy[j], copy[i]];
   }
   return copy;
@@ -107,8 +109,8 @@ export function rocketRunTargets(minCorrect = 3) {
     .filter(g => wordsStartingWithTargetSound(g).length >= minCorrect);
 }
 
-function uniqueSample(pool, n) {
-  return shuffle([...new Set(pool)]).slice(0, Math.max(0, n));
+function uniqueSample(pool, n, random) {
+  return shuffle([...new Set(pool)], random).slice(0, Math.max(0, n));
 }
 
 // Word length band per difficulty, so the words a round shows suit the level.
@@ -116,26 +118,26 @@ const LEN_RANGE = { easy: [2, 4], low: [2, 4], medium: [3, 5], mid: [3, 5], hard
 
 // One round: DISTINCT correct words to catch (never "vest, vest, vest") + MORE,
 // also-distinct, sound-distinct distractors, interleaved into a fair spawn order.
-export function buildRocketRunRound(targetGrapheme, { count = 6, difficulty } = {}) {
+export function buildRocketRunRound(targetGrapheme, { count = 6, difficulty, random = Math.random, wordFilter = () => true } = {}) {
   const g = String(targetGrapheme || "").toLowerCase();
   const range = LEN_RANGE[String(difficulty || "").toLowerCase()];
   const inRange = w => !range || (w.length >= range[0] && w.length <= range[1]);
 
-  const correctPool = wordsStartingWithTargetSound(g);
+  const correctPool = wordsStartingWithTargetSound(g).filter(wordFilter);
   let cp = correctPool.filter(inRange);
   if (cp.length < 3) cp = correctPool;                 // never starve a small sound
-  const correct = uniqueSample(cp, count);             // distinct, no cycling/repeats
+  const correct = uniqueSample(cp, count, random);     // distinct, no cycling/repeats
 
   const correctSet = new Set(correct);
-  const distractorPool = ALL_WORDS.filter(w => !sharesSound(onsetGrapheme(w), g) && !correctSet.has(w));
+  const distractorPool = ALL_WORDS.filter(w => !sharesSound(onsetGrapheme(w), g) && !correctSet.has(w) && wordFilter(w));
   let dp = distractorPool.filter(inRange);
   if (dp.length < count) dp = distractorPool;
-  const distractors = uniqueSample(dp, count + Math.ceil(count / 2)); // more, all distinct
+  const distractors = uniqueSample(dp, count + Math.ceil(count / 2), random); // more, all distinct
 
   const sequence = shuffle([
     ...correct.map(word => ({ word, correct: true })),
     ...distractors.map(word => ({ word, correct: false }))
-  ]);
+  ], random);
   return { targetGrapheme: g, correct, distractors, sequence, needed: correct.length };
 }
 

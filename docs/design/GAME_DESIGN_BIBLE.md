@@ -187,20 +187,20 @@ Before a new flagship game—or a substantial change to one—moves beyond its f
 
 Letter Leap 2.0 is the reference brief. It records the real 0.12-second coyote window, 0.14-second jump buffer, catch-up queue, production-audio replay, checkpoint path and still-unknown physical-iPad result. `premiumGameStandard.test.js` checks the brief, named evidence files and implementation anchors so the plan cannot silently drift away from the playable slice.
 
-### Rocket Run reference record
+### Rocket Run 3.0 reference record
 
 - **Age/reading band:** early readers practising taught initial sounds.
 - **Target construct:** decide whether a spoken and printed word begins with the shown target grapheme/phoneme.
-- **Non-target demands:** choose one of three lanes; hazards are supportive game pressure and never decide literacy correctness.
-- **Controls:** tap left/right screen regions, swipe, Arrow Left/Right, or A/D. The game pauses for the app exit prompt, hidden tabs and WebGL context loss.
-- **Level ladder:** completion-paced rounds move from common single-letter onsets towards later sounds and digraphs according to the selected difficulty. Difficulty changes the word/sound demand before hazard pressure.
-- **Prompt/audio:** “Catch the [target] words.” The target is shown, spoken and replayed after the first trusted iPad user gesture; easy mode also speaks incoming words.
-- **Generator/ambiguity proof:** `rocketRunRounds.js` builds unique correct words and distractors with a different onset sound; its full target set is exercised by `rocketRunRounds.test.js`.
-- **Feedback:** a correct catch repeats the word and celebrates it; a wrong catch names the word and its actual onset; missed correct words return with support instead of disappearing.
-- **Reward:** score, combo, sector progress and stars reflect correct catches and recovery. Cosmetic motion does not create learning evidence.
+- **Non-target demands:** steering, flight and scenery never decide literacy correctness. A decision has no deadline or motor penalty.
+- **Controls:** released word buttons or held left/right controls nominate one of three gates; released Fly through commits. Arrow Left/Right or A/D steers; native buttons and Enter/Space retain keyboard operation. Exit prompts, hidden tabs and WebGL context loss pause the flight.
+- **Level ladder:** ten completion-paced targets retain the existing curriculum and difficulty word-length bands. Three authored sectors move from cargo hangar through amber canyon to receiving station.
+- **Prompt/audio:** the exact Leda onboarding instruction is “Choose the word that starts with the sound. Tap its gate, then tap Fly through.” Hear instructions plays on the card before launch. During play, “Find the [target] word” accompanies the recorded phoneme and all three words. A sound-enabled answer waits for completed delivery or explicit printed support; Hear replays the current set or feedback.
+- **Generator/ambiguity proof:** `rocketRunRounds.js` and `rocketRunFlight.js` build seeded, unique, recorded words and sound-distinct distractors, including unvoiced th. Correct lanes are balanced and retries bring fresh alternatives. Executable unit checks cover every target and recording path.
+- **Feedback:** recorded word/onset feedback names a match or contrasts a wrong onset with the retained target. Correct choices open a gate; wrong choices return the rocket. The next choices wait for spoken feedback delivery, while unavailable feedback remains readable and replayable. Completed deliveries and first responses are retained.
+- **Reward:** completed word gates power ten delivery bays. First responses remain immutable and assisted retries are separate; movement does not create evidence. The final correct action saves the receipt before docking or exit.
 - **Reduced motion/no audio:** reduced motion selects the low rendering tier and quiets non-essential movement; all essential cues remain printed when sound is off.
-- **Data:** normal local/cloud game progress only—score, stars, completed words and resumable round checkpoint. No new identifier, profile or network service.
-- **Automated checks:** `rocketRunRounds.test.js`, `premiumGameStandard.test.js`, `gameCheckpoints.test.js`, and the all-games iPad activity viewport browser check.
+- **Data:** existing local/cloud game progress, round checkpoints and completion-evidence envelope; supported practice remains `practiceOnly` and `independent:false`. No new identifier, profile or network service.
+- **Automated checks:** `rocketRunRounds.test.js`, `rocketRunFlight.test.js`, `rocketRunScene.test.js`, `premiumGameStandard.test.js`, `rocket-run-flight.spec.js` and `rocket-run-audio-replay.spec.js`. Structural brief validation does not replace rendered or browser evidence.
 - **Physical-device result:** unknown until the changed build is exercised on a real supported iPad; browser emulation is not recorded as a physical-device pass.
 
 ### Flagship arcade records
@@ -210,8 +210,8 @@ decisions. Shared automated checks assert named structure, prose fields and
 selected implementation anchors; they do not prove that all thirteen contracts
 or mechanics work end to end, and they do not certify the games against the
 composed-scene, motion, human-listening, physical-device or child-play evidence
-in the Game Visual and Playability Production Guide. Only Letter Leap, Word
-Climb, Word Bridge, Sound Beat and Sound Racer currently have validated
+in the Game Visual and Playability Production Guide. Letter Leap, Word
+Climb, Word Bridge, Sound Beat, Sound Racer and Rocket Run currently have validated
 vertical-slice briefs. The records share these product decisions: progress contains only the existing
 score, stars, completed-item count and resumable checkpoint; no new identifier or
 network service is introduced; sound-off preserves a non-audio goal, choice and
@@ -224,13 +224,13 @@ Arcade** action. Their shared automated coverage is `premiumGameStandard.test.js
 and the all-games activity-viewport browser check. Physical-device result remains
 unknown until each changed build is exercised on a real supported iPad.
 
-#### Rocket Run 2.0
+#### Rocket Run 3.0
 
 - **Age/reading band and construct:** early readers decide whether a word begins with the shown and spoken target sound. Lane steering and flight scenery are non-target demands.
-- **Controls:** Left/Right or A/D, tap-side steering and swipe share one cancellation-safe release rule; focused chrome controls keep their native keyboard behaviour.
+- **Controls:** Left/Right or A/D, held steering and released word choices nominate; deliberate Fly through commits. Focused chrome controls keep their native keyboard behaviour.
 - **Level ladder and prompt/audio:** ten curriculum-ramped targets retain a visible grapheme, an approved phoneme cue and a replay action throughout each run.
 - **Generator and ambiguity:** exact target-sound pools handle short vowels, hard c/g and unvoiced th; distractors use the shared phonetic-onset classifier so alternate spellings cannot become false negatives.
-- **Feedback and reward:** correct catches reinforce the target sound, wrong catches name the word's real onset, and missed targets return without turning vehicle handling into literacy evidence.
+- **Feedback and reward:** the reference record above supersedes timed catches: correct word gates open for the rocket, wrong choices return with onset feedback and fresh alternatives, and delivery progress never treats vehicle handling as literacy evidence.
 
 #### Letter Leap 2.0
 

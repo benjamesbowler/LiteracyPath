@@ -1,0 +1,39 @@
+{
+  "provider": "Google Cloud Text-to-Speech",
+  "voice": "en-US-Chirp3-HD-Leda",
+  "aiGenerated": true,
+  "assets": {
+    "instruction": {
+      "id": "instruction",
+      "text": "Choose the word that starts with the sound. Tap its gate, then tap Fly through.",
+      "audio": "/audio/rocket-run/instruction-v3.mp3",
+      "sha256": "555d085c063eea8b060e1c9f255be37178c72f2abf94abcf7563f0923d19358c",
+      "durationSeconds": 8.519342,
+      "humanListening": "unknown"
+    },
+    "begins": {
+      "id": "begins",
+      "text": "begins with",
+      "audio": "/audio/rocket-run/begins-v3.mp3",
+      "sha256": "cdf144542983bb3bd1fa8933393dc1b1340155d2a53933b6eee8ce55c2be1ed8",
+      "durationSeconds": 1.385556,
+      "humanListening": "unknown"
+    },
+    "find": {
+      "id": "find",
+      "text": "Find",
+      "audio": "/audio/rocket-run/find-v3.mp3",
+      "sha256": "210f51aa5f091edf384a3801f7b4b061e9b108cb457faa14bdadcabe0d30f418",
+      "durationSeconds": 1.095329,
+      "humanListening": "unknown"
+    },
+    "powered": {
+      "id": "powered",
+      "text": "Gate powered!",
+      "audio": "/audio/rocket-run/powered-v3.mp3",
+      "sha256": "fa848ca56b6f6c5c2896b47abbb6d8aa996e7b931a228b624d9f64e4705f878a",
+      "durationSeconds": 0.979342,
+      "humanListening": "unknown"
+    }
+  }
+}

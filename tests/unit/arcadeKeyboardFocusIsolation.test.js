@@ -71,7 +71,6 @@ test("SoundKeys ignores typing on controls and still accepts game-surface keys",
 
 const gameHandlerContracts = [
   ["LetterLeapGame.jsx", ["onKeyDown"]],
-  ["RocketRunGame.jsx", ["onKey", "onIntroKey"]],
   ["RhymePopArcadeGame.jsx", ["onKeyDown"]],
   ["SoundSafariArcadeGame.jsx", ["onKeyDown"]],
   ["SoundBeatGame.jsx", ["onKeyDown"]],
@@ -84,10 +83,6 @@ const focusedMovementControlExceptions = new Map([
   [
     "LetterLeapGame.jsx:onKeyDown",
     /if \(isInteractiveKeyTarget\(e\.target\) && !padWrap\.contains\(e\.target\)\) return;/
-  ],
-  [
-    "RocketRunGame.jsx:onKey",
-    /const steeringControlOwnsFocus = event\.target\?\.matches\?\.\('\[data-rr="left-control"\],\[data-rr="right-control"\]'\);\s+if \(isInteractiveKeyTarget\(event\.target\) && !steeringControlOwnsFocus\) return;/
   ],
 
 ]);
@@ -141,27 +136,22 @@ test("held movement keys still release after focus moves to a control", async ()
   assert.doesNotMatch(groveKeyUp, /preventDefault|isInteractiveKeyTarget/);
 });
 
-test("lane press controls reject a second pointer before it can replace the repeat owner", async () => {
-  const contracts = [
-    ["RocketRunGame.jsx", "attachRocketPressControl"],
-  ];
-
-  for (const [fileName, helperName] of contracts) {
-    const source = await readFile(
-      new URL(`../../src/components/learn/games/games/${fileName}`, import.meta.url),
-      "utf8"
-    );
-    const helper = readFunction(source, helperName);
-    const ownershipGuard = helper.indexOf("if (pointerId != null) return;");
-    const pointerAssignment = helper.indexOf("pointerId = event.pointerId;");
-    assert.ok(ownershipGuard >= 0, `${helperName} should reject an extra pointer`);
-    assert.ok(
-      ownershipGuard < pointerAssignment,
-      `${helperName} must reject an extra pointer before replacing the repeat owner`
-    );
-    assert.match(helper, /event\.pointerId !== pointerId\) return;/);
-    assert.match(helper, /element\.addEventListener\("lostpointercapture", release\)/);
-  }
+test("Rocket release controls preserve their pointer owner through unrelated cancellation", async () => {
+  const source = await readFile(new URL('../../src/components/learn/games/games/RocketRunGame.jsx', import.meta.url), 'utf8');
+  const attach = new Function(`return (${readFunction(source, 'attachRelease')})`)();
+  const button = Object.assign(new EventTarget(), { disabled: false, dataset: {}, setPointerCapture() {},
+    getBoundingClientRect: () => ({ left: 0, top: 0, right: 100, bottom: 60 }) });
+  const dispatch = (type, pointerId) => button.dispatchEvent(Object.assign(new Event(type), { pointerId, button: 0, clientX: 50, clientY: 30 }));
+  let calls = 0, epoch = 0;
+  const cleanup = attach(button, () => calls++, () => epoch);
+  dispatch('pointerdown', 1); dispatch('pointerdown', 2); dispatch('pointercancel', 2); dispatch('pointerup', 1);
+  assert.equal(calls, 1);
+  dispatch('pointerdown', 3); dispatch('lostpointercapture', 3); dispatch('pointerup', 3);
+  assert.equal(calls, 1);
+  dispatch('pointerdown', 4); epoch++; dispatch('pointerup', 4);
+  assert.equal(calls, 1);
+  cleanup(); dispatch('pointerdown', 5); dispatch('pointerup', 5);
+  assert.equal(calls, 1);
 });
 
 test("SoundKeys provider keeps the interactive-target guard beside repeat filtering", async () => {

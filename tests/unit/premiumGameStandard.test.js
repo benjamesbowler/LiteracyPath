@@ -73,7 +73,7 @@ test("every live arcade game has an individual premium mission and recovery prof
 test("every substantial vertical slice is complete, traceable to checks, and honest about hardware validation", () => {
   assert.deepEqual(
     Object.keys(ARCADE_VERTICAL_SLICE_BRIEFS).sort(),
-    ["letter-leap", "sound-beat", "sound-racer", "word-bridge", "word-climb"]
+    ["letter-leap", "rocket-run", "sound-beat", "sound-racer", "word-bridge", "word-climb"]
   );
   for (const [gameId, brief] of Object.entries(ARCADE_VERTICAL_SLICE_BRIEFS)) {
     assert.equal(brief.gameId, gameId);
@@ -133,31 +133,16 @@ test("every substantial vertical slice is complete, traceable to checks, and hon
   assert.match(playerImplementation, /if \(showGuide\) setShowGuide\(false\);\n {6}else if \(showQuit\) setShowQuit\(false\);/);
 });
 
-test("Rocket Run keeps the exact target cue replayable and reinforces it after every catch", () => {
-  const implementation = readFileSync("src/components/learn/games/games/RocketRunGame.jsx", "utf8");
-
-  assert.match(implementation, /const ROCKET_PREMIUM_PIXEL_BUDGET = 1_600_000/);
-  assert.match(implementation, /function rocketRenderTierForViewport\(/);
-  assert.match(implementation, /backingPixels <= ROCKET_PREMIUM_PIXEL_BUDGET \? requestedTier : "low"/);
-  assert.match(implementation, /for \(let i = 0; i < setpieceBudget\.setpieceCopies; i \+= 1\)[\s\S]*await yieldSceneryFrame\(\)/);
-  assert.match(implementation, /data-rr="hear-target"/);
-  assert.match(implementation, /width:62px;height:56px/);
-  assert.match(implementation, /function replayTarget\(\)/);
-  assert.match(implementation, /say\(\(\) => speakPhoneme\(target\)\)/);
-  assert.match(implementation, /await speakWord\(bubble\.userData\.word\)/);
-  assert.match(implementation, /await speakPhoneme\(roundTarget\)/);
-  assert.match(implementation, /starts with '" \+ roundTarget \+ "' ✓/);
-  assert.match(implementation, /isolateRocketRunCompletion\(hud, overlay, done\)/);
-  assert.match(implementation, /isolateRocketRunActionOverlay\(hud, overlay, retry, "Retry Rocket Run round"\)/);
-  assert.match(implementation, /isolateRocketRunActionOverlay\(hud, overlay, next, "Rocket Run round complete"\)/);
-  assert.match(implementation, /"min-height:56px"/);
-  assert.match(implementation, /<button type="button" data-rr="done"/);
+test("Rocket Run retains shared completion isolation alongside its executable flight and browser checks", () => {
+  const brief = ARCADE_VERTICAL_SLICE_BRIEFS["rocket-run"];
+  assert.ok(brief.validation.unit.includes("tests/unit/rocketRunFlight.test.js"));
+  assert.ok(brief.validation.browser.includes("tests/release/rocket-run-audio-replay.spec.js"));
+  assert.ok(brief.validation.browser.includes("tests/release/rocket-run-flight.spec.js"));
   const rocketCompletion = readFileSync("src/components/learn/games/shared/rocketRunCompletion.js", "utf8");
   assert.match(rocketCompletion, /overlay\.setAttribute\("aria-modal", "true"\)/);
   assert.match(rocketCompletion, /child\.inert = child !== overlay/);
   assert.match(rocketCompletion, /overlay\.addEventListener\("keydown", trapFocus\)/);
   assert.match(rocketCompletion, /child\.inert = wasInert/);
-  assert.doesNotMatch(implementation, /\belse say\(\(\) => speak\(/);
 });
 
 test("the vertical-slice gate rejects unsafe controls, evidence and privacy claims", () => {

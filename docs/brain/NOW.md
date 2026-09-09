@@ -29,20 +29,21 @@ authoritative source and, when the choice is durable, record a linked decision.
 
 ## Current game-production direction
 
-- The improvement programme has integrated G01–G06 and G08. The latter adds
-  authored workshop object actions, short onset/rime reuse missions and
-  one-letter garden transformations; response records remain supported
-  practice rather than independent proficiency. Word Climb engineering is
-  isolated while its required climbing art remains unfinished. Independent
-  phonics batches may continue from G08's verified wrapper; the full Arcade,
-  phonics and Cycle Practice acceptance scope is unchanged.
+- The improvement programme has integrated G01–G06, G08 and G10–G14. Rocket
+  Run now uses deliberate word gates, three authored delivery sectors,
+  recoverable recorded instructions/feedback and final-action practice receipts.
+  Its full-route and exhaustive layout checks are separate from human/device
+  evidence. Word Climb's candidate remains isolated with unfinished climbing
+  art, and Letter Leap's G09 upgrade remains unintegrated; their existing live
+  games are not evidence that those packages are finished. G16 is the next
+  assigned package after G13/G14. The full programme acceptance scope remains.
 - The [Game Design Bible](../design/GAME_DESIGN_BIBLE.md) remains the product
   authority. The [Game Visual and Playability Production Guide](../design/GAME_VISUAL_PLAYABILITY_PRODUCTION_GUIDE.md)
   is the current provider-neutral workflow for raising game presentation and
   playability to the product owner's console-quality target.
 - The live Learn Games catalogue has 22 games: 13 are surfaced as the current
   Arcade roster and nine remain in the wider catalogue. Existing version 2.0
-  records document intended contracts and selected mechanic anchors; only five
+  records document intended contracts and selected mechanic anchors; only six
   currently have validated vertical-slice briefs, and none of those documents
   is direct visual, motion, human-listening, physical-device or child-play
   approval.

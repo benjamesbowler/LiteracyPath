@@ -3755,3 +3755,12 @@
 @media (prefers-reduced-motion: reduce) {
   .lg-game-player .lg-illustrated-game .adv-pal { transition: none; }
 }
+
+/* Four 56px utility controls must remain fully reachable on narrow phones.
+   The decorative points chip yields space, never the close or audio controls. */
+@media (max-width: 400px) {
+  .lg-game-player[data-fullbleed] .lg-game-player-header { grid-template-columns: minmax(0, 1fr); }
+  .lg-game-player[data-fullbleed] .lg-game-player-actions { min-width: 0; gap: 8px; }
+  .lg-game-player[data-fullbleed] .lg-game-score { display: none; }
+  .lg-game-player[data-fullbleed] .lg-game-header-meter { grid-template-columns: minmax(0, 1fr) auto; }
+}

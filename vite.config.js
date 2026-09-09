@@ -71,6 +71,11 @@ function bundleAnalysisPlugin() {
 
 // https://vite.dev/config/
 export default defineConfig({
+  // Playwright writes HTML snapshots while a test is running. They are
+  // evidence, not app entries: watching them reloads and erases live sessions.
+  server: {
+    watch: { ignored: ['**/.artifacts/**', '**/test-results/**', '**/playwright-report/**'] }
+  },
   plugins: [react(), bundleAnalysisPlugin(), questOfflinePlugin({
     includeQuestPreview: releaseQuestPreview,
     buildVariant: offlineBuildVariant

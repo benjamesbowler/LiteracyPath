@@ -211,7 +211,6 @@ test("reported Arcade objectives and replay controls keep child-readable hierarc
 
 test("every 3D arcade surface re-probes quality on resize and motion changes", async () => {
   const files = [
-    "src/components/learn/games/games/RocketRunGame.jsx",
     "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
     "src/components/learn/games/games/GrammarGrindGame.jsx"
   ];
@@ -226,6 +225,11 @@ test("every 3D arcade surface re-probes quality on resize and motion changes", a
     assert.match(text, /addEventListener\?\.\("change", syncMotionPreference\)/, `${relativePath} ignores a live motion change`);
     assert.match(text, /removeEventListener\?\.\("change", syncMotionPreference\)/, `${relativePath} leaks its motion probe`);
   }
+  // Rocket Run's extracted scene now has executable resize/media/cleanup
+  // coverage in rocketRunScene.test.js and real quality/context browser tests.
+  const rocketScene = await source("src/components/learn/games/games/rocketRunScene.js");
+  assert.match(rocketScene, /detectQualityTier\(\)/);
+  assert.match(rocketScene, /removeEventListener/);
 });
 
 test("Sound Racer re-probes scene quality on resize and owns live motion updates", async () => {

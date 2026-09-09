@@ -1,0 +1,57 @@
+.rocket-run { position: relative; width: 100%; height: 100%; min-height: 0; overflow: hidden; background: #081a30; touch-action: none; color: #f5f5e8; }
+.rocket-run > canvas, .rr-hud { position: absolute; inset: 0; width: 100%; height: 100%; }
+.rr-hud { pointer-events: none; font-family: var(--font-primary, 'Nunito', sans-serif); }
+.rr-hud button { min-width: 56px; min-height: 56px; border: 2px solid #91b5ba; border-radius: 14px; background: #193a48; color: #f7f6e7; line-height: 1.15; font-family: inherit; font-size: 18px; font-weight: 800; pointer-events: auto; touch-action: none; user-select: none; -webkit-user-select: none; cursor: pointer; }
+.rr-hud button:focus-visible { outline: 3px solid #fff3b1; outline-offset: 3px; }
+.rr-hud button[data-pressed="true"] { filter: brightness(1.18); }
+.rr-hud button:disabled { cursor: default; }
+.rr-mission { position: absolute; inset: 8px 12px auto; display: flex; align-items: center; gap: 12px; min-height: 56px; }
+.rr-mission [data-rr="hear-target"] { flex: 0 0 60px; width: 60px; display: grid; place-content: center; gap: 1px; padding: 3px; background: #112833; border-color: #b1c8c7; }
+.rr-mission [data-rr="letter"] { font-size: 27px; line-height: 29px; }
+.rr-mission small { font-size: 11px; line-height: 12px; font-weight: 700; }
+.rr-mission-copy { min-width: 0; display: grid; gap: 2px; text-shadow: 0 2px 5px #08121d; }
+.rr-mission-copy strong { font-size: clamp(16px, 2.5vw, 23px); line-height: 1.15; }
+.rr-mission-copy span { font-size: 12px; color: #e0e1d9; }
+.rr-deliveries { margin-left: auto; padding: 8px; border-radius: 9px; background: #102332e8; font-weight: 800; font-size: 16px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.rr-gates { position: absolute; inset: 0; }
+.rr-hud .rr-word-gate { position: absolute; transform: translate(-50%, -50%); height: 56px; min-width: 56px; padding: 4px; z-index: 3; background: #102c3bee; border-color: #b1d4d3; box-shadow: 0 4px 0 #06111d, inset 0 1px #e6e6d94d; }
+.rr-word { font-size: clamp(17px, 2.8vw, 25px); line-height: 30px; white-space: nowrap; }
+.rr-hud .rr-word-gate[aria-pressed="true"] { border-color: #ffe5a2; box-shadow: 0 0 0 3px #b6803f, 0 5px 0 #06111d; background: #4b402e; }
+.rr-hud[data-phase="commit"] .rr-word-gate { opacity: 0.14; }
+.rr-side-zone { position: absolute; top: 68px; bottom: 145px; width: 8px; pointer-events: auto; touch-action: none; }
+.rr-left-zone { left: 0; } .rr-right-zone { right: 0; }
+.rr-feedback { position: absolute; bottom: 77px; left: 12px; right: 12px; min-height: 42px; display: grid; align-content: end; justify-items: center; gap: 3px; text-align: center; padding: 4px 6px; border-radius: 9px; background: #091c2bcf; }
+.rr-feedback [role="status"] { font-size: clamp(13px, 1.7vw, 18px); font-weight: 800; line-height: 1.25; }
+.rr-feedback small { font-size: 11px; color: #e0e5df; }
+.rr-controls { position: absolute; bottom: max(10px, env(safe-area-inset-bottom)); left: max(12px, env(safe-area-inset-left)); right: max(12px, env(safe-area-inset-right)); display: flex; justify-content: center; gap: 12px; }
+.rr-controls [data-rr="left"], .rr-controls [data-rr="right"] { width: 60px; height: 56px; flex: 0 0 60px; }
+.rr-controls [data-rr="fly"] { width: clamp(130px, 30vw, 190px); color: #102d32; border-color: #bdd8b6; background: #bee4cb; }
+.rr-controls [data-rr="fly"]:disabled { background: #334b50; border-color: #9dafad; color: #d4e1df; }
+.rr-audio-recovery { position: absolute; bottom: 10px; left: 8px; right: 8px; display: grid; grid-template-columns: repeat(2, minmax(0, 140px)); justify-content: center; align-items: center; gap: 8px; padding: 8px; background: #152b38; border: 2px solid #f1cd93; border-radius: 12px; z-index: 8; pointer-events: auto; }
+.rr-audio-recovery[hidden], .rr-gates[hidden], .rr-flat-world[hidden], .rr-controls[hidden], .rr-feedback[hidden] { display: none; }
+.rr-audio-recovery span { grid-column: 1 / -1; font-size: 14px; line-height: 17px; text-align: center; }
+.rr-audio-recovery button { font-size: 14px; padding: 6px 10px; }
+.rr-overlay { position: absolute; inset: 0; display: none; place-items: center; padding: 12px; background: #061322b8; z-index: 10; pointer-events: auto; }
+.rr-card { box-sizing: border-box; width: min(100%, 430px); padding: 24px; border: 2px solid #99bab7; border-radius: 22px; background: #132d3c; box-shadow: 0 15px 60px #0005; text-align: center; }
+.rr-card h2 { margin: 0 0 12px; font-size: clamp(24px, 4vw, 34px); line-height: 1.1; color: #ffedb8; }
+.rr-card p { margin: 0 0 18px; font-size: 18px; line-height: 1.45; }
+.rr-card button { width: 100%; color: #122e36; background: #c9e4d1; border-color: #e2eedb; padding: 12px; }
+.rr-card button + button { margin-top: 8px; }
+.rr-card button:disabled { opacity: 0.6; }
+.rr-loading { position: absolute; inset: 0; z-index: 12; display: grid; place-items: center; padding: 20px; text-align: center; background: #081a30; }
+.rr-flat-world { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 15%, #2d5663, #0b1c30 75%); }
+.rr-flat-terminal { position: absolute; top: 14%; bottom: 30%; left: 12%; right: 12%; border: 14px solid #5b8290; border-bottom: 0; box-shadow: 0 0 0 5px #193647; transform: perspective(500px) rotateX(-8deg); }
+.rr-flat-route { position: absolute; width: 70%; height: 65%; bottom: 0; left: 15%; background: repeating-linear-gradient(90deg, transparent 0 32%, #7198a78c 32% 33%, transparent 33% 65%, #7198a78c 65% 66%, transparent 66%); transform: perspective(230px) rotateX(40deg); }
+.rr-flat-ship { position: absolute; width: 54px; height: 70px; transform: translate(-50%, -50%); }
+[data-sector="canyon"] .rr-flat-world { background: radial-gradient(ellipse at top, #a1744e, #281d1b 75%); }
+[data-sector="canyon"] .rr-flat-terminal { border-color: #b88b61; border-width: 24px; clip-path: polygon(0 0, 28% 0, 28% 25%, 36% 25%, 36% 100%, 0 100%, 0 0, 100% 0, 100% 100%, 68% 100%, 68% 30%, 76% 30%, 76% 0); }
+[data-sector="destination"] .rr-flat-world { background: radial-gradient(ellipse at top, #525b7d, #181b32 75%); }
+[data-sector="destination"] .rr-flat-terminal { border-radius: 50% 50% 0 0; border-color: #b5b8ce; }
+@media (max-width: 400px) {
+  .rr-mission { gap: 8px; } .rr-deliveries { padding: 5px; font-size: 14px; }
+  .rr-audio-recovery { flex-wrap: wrap; } .rr-audio-recovery span { flex-basis: 100%; text-align: center; }
+  .rr-card { padding: 20px 16px; }
+}
+@media (max-height: 400px) {
+  .rr-card { padding: 8px 16px; } .rr-card h2 { margin-bottom: 6px; font-size: 22px; } .rr-card p { font-size: 14px; line-height: 1.25; margin-bottom: 8px; }
+}

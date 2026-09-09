@@ -5,14 +5,14 @@
 
 export const ARCADE_PREMIUM_PROFILES = Object.freeze({
   "rocket-run": Object.freeze({
-    version: "2.0",
-    mission: "Catch words that start with the shown sound.",
+    version: "3.0",
+    mission: "Power word gates to deliver the cargo.",
     objective: "Match a spoken and printed word to its beginning sound.",
-    action: "Steer into a matching word.",
-    controls: Object.freeze(["Steer: Left / Right or A / D", "Touch: tap a side or swipe"]),
-    retry: "A missed target returns with support; a wrong catch names its real first sound.",
-    completionTitle: "Flight complete",
-    rewardLabel: "words caught"
+    action: "Choose a matching word, then fly through its gate.",
+    controls: Object.freeze(["Steer: Left / Right or A / D", "Touch: choose a gate, then Fly through", "Fly: Enter / Space outside a button; Enter activates the focused button"]),
+    retry: "A wrong gate names the word's first sound and returns you to fresh choices. No word is lost to timing or steering.",
+    completionTitle: "Delivery complete",
+    rewardLabel: "word gates powered"
   }),
   "letter-leap": Object.freeze({
     version: "2.0",

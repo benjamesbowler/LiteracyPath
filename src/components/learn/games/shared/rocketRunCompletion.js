@@ -15,8 +15,11 @@ export function isolateRocketRunActionOverlay(hud, overlay, action, label) {
   });
   const trapFocus = event => {
     if (event.key !== "Tab") return;
+    const actions = [...overlay.querySelectorAll('button:not([disabled])')].filter(button => button.getClientRects().length);
     event.preventDefault();
-    action?.focus();
+    const current = actions.indexOf(document.activeElement);
+    const next = (current + (event.shiftKey ? -1 : 1) + actions.length) % actions.length;
+    (actions[next] || action)?.focus();
   };
   overlay.addEventListener("keydown", trapFocus);
   overlayIsolation.set(overlay, { previousInert, trapFocus });
