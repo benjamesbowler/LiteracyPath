@@ -1,4 +1,6 @@
 import { expect, test } from '@playwright/test';
+import { mkdir, writeFile, unlink } from 'node:fs/promises';
+import { randomUUID } from 'node:crypto';
 import { SENTENCE_FIX } from '../../src/data/learnGamesData.js';
 
 const scope = 'literacy-guide-learn-games:fullscreen-overlay-preview';
@@ -196,4 +198,26 @@ test('a paused mismatch keeps its flip lock and resumes on the same two cards',a
  await page.getByRole('button',{name:'Keep playing',exact:true}).click();
  await expect(page.locator('.lg-match-card.revealed')).toHaveCount(0);
  expect((await readResult(page,'sight-word-memory'))?.plays||0).toBe(0);
+});
+
+test('the host preserves completion-only engine replay while deduplicating early-result engines',async({page})=>{
+ const file=`.artifacts/g10-legacy-fixture-${randomUUID()}.js`;
+ await mkdir('.artifacts',{recursive:true});
+ await writeFile(file,`
+import React from 'react';
+export default function Fixture({onComplete}) {
+ const [completed,setCompleted]=React.useState(false);
+ return React.createElement('button',{onClick:()=>{
+  if(completed)setCompleted(false);else{onComplete(1,10,1);setCompleted(true);}
+ }},completed?'Replay fixture':'Complete fixture run');
+}`);
+ try {
+  await page.route('**/src/components/learn/games/games/WordRescue.jsx*',route=>route.fulfill({contentType:'application/javascript',body:`export {default} from "/${file}";`}));
+  await open(page,'word-rescue');
+  for(let i=1;i<=2;i++) {
+   await page.getByRole('button',{name:'Complete fixture run'}).click();
+   expect((await readResult(page,'word-rescue')).plays).toBe(i);
+   await page.getByRole('button',{name:'Replay fixture'}).click();
+  }
+ } finally { await unlink(file); }
 });

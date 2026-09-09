@@ -107,6 +107,7 @@ export function GamePlayer({
   const announcedMilestoneRef = useRef(0);
   const missionReturnPendingRef = useRef(false);
   const savedResultRef = useRef(null);
+  const earlyResultRef = useRef(false);
   const playerRef = useRef(null);
   const blockingDialogRef = useRef(null);
   const resumeActionRef = useRef(null);
@@ -286,11 +287,21 @@ export function GamePlayer({
   }
 
   function handleComplete(stars, finalScore, wordsCompleted, evidence) {
+    // Engines adopting final-action saving identify the receipt before Finish.
+    // Other engines still report once per run through onComplete; do not let a
+    // previous run's receipt suppress their subsequent replay result.
+    if (!earlyResultRef.current) savedResultRef.current = null;
     setCompletionResult(handleResultReady(stars, finalScore, wordsCompleted, evidence));
+  }
+
+  function handleEarlyResultReady(stars, finalScore, wordsCompleted, evidence) {
+    earlyResultRef.current = true;
+    return handleResultReady(stars, finalScore, wordsCompleted, evidence);
   }
 
   function handleSessionStart() {
     savedResultRef.current = null;
+    earlyResultRef.current = false;
     setCompleted(false);
     setCompletionResult(null);
     setScore(0);
@@ -413,7 +424,7 @@ export function GamePlayer({
                 onScoreUpdate={setScore}
                 onProgressUpdate={handleProgressUpdate}
                 onComplete={handleComplete}
-                onResultReady={handleResultReady}
+                onResultReady={handleEarlyResultReady}
                 onSessionStart={handleSessionStart}
                 completionPresentedByPlayer={hasPremiumCompletionOverlay}
                 onCheckpoint={handleCheckpoint}
