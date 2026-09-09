@@ -63,6 +63,14 @@ installed, reviewed, and trusted on 2026-08-03.
 
 - Sound Racer uses an authored village rally with held word-choice forks, deliberate confirmation, curved travel and preserved first responses. Its DOM/SVG recovery scene shares the same rules and evidence as the authored renderer. Final completion saves once and has one result dialog. Current contracts and evidence boundaries remain in the [Game Design Bible](../design/GAME_DESIGN_BIBLE.md); local/browser checks do not establish physical-device or human-listening approval.
 
+- Reel & Read now locks a nominated fish before casting. The fish, written label
+  and hook share measured safe positions; cancelled holds do not answer, and
+  accepted words return to a persistent collection, visible in the compact prompt strip or on the larger boat hull. All 30 authored levels
+  were completed at all three supported sizes with readable separated controls.
+  Immutable first responses, separate assisted retries and recorded-media
+  delivery feed a receipt fixed at the final catch; trip stars use only levels
+  actually played. See [Game Design Bible](../design/GAME_DESIGN_BIBLE.md).
+
 - Cycle Practice now uses six pictured, recorded-audio activity families with automatic responses, forgiving guided tracing, and full distinct decks for all 27 cycles. Assessment requires 30 active minutes plus completed coverage of taught sounds, words and activity types. Legacy memory/gate/confirmation mechanics are removed from this surface. See [Cycle Practice](../product/CYCLE_PRACTICE.md). It uses typed independent/support/media-failure evidence, retained first responses, pause-safe active practice time, immutable retry payloads and owner-scoped teacher results. The hosted migration is `20260908122903`; local and rollback-only hosted SQL checks passed. Current contracts are in [Cycle Practice](../product/CYCLE_PRACTICE.md) and [Learning Policy](../design/LEARNING_POLICY.md). Browser emulation does not establish physical-device or human-listening evidence.
 
 - Cycle Practice touch choices now accept a released finger that drifts within

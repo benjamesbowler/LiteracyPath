@@ -293,10 +293,11 @@ unknown until each changed build is exercised on a real supported iPad.
 #### Reel & Read 2.0
 
 - **Age/reading band and construct:** developing readers apply word-part, meaning and morphology knowledge. Boat steering and casting are non-target demands.
-- **Controls:** Left/Right or A/D steers; Space/Enter/E/Up/Down casts; drag and held touch buttons provide direct alternatives.
-- **Level ladder and prompt/audio:** ten levels per difficulty mix word parts, meaning matches and morphology; ordered constructions retain visible catch slots.
-- **Generator and ambiguity:** `reelReadLevels.js` proves every catch against the current rule and expected order; `gameSurfaces.test.js` exercises all three task types and distractors.
-- **Feedback and reward:** a wrong fish explains why it does not fit while the clue remains. Score and stars count literacy catches, not steering precision.
+- **Controls:** nominate a named fish, then cast or cancel. The locked fish ID owns the catch. Native buttons support keyboard and released touch, including small finger drift; cancelled/outside holds do not answer. Left/Right or A/D and held steering buttons move the boat. Shared projected coordinates position the fish, label and hook together.
+- **Level ladder and prompt/audio:** ten levels per difficulty mix word parts, meaning matches and morphology. Recorded replay reports delivery, failure and interruption; visible print remains explicit support. Written parts assemble in order and accepted fish return to the boat, with collected words docked on the hull on larger screens or in the clear prompt strip on compact screens until Next. Completed construction waits for the learner.
+- **Generator and ambiguity:** `reelReadLevels.js` validates every authored sequence, accepted alternatives and distractors. Actual word measurements and separated rows preserve readable labels and 56-pixel targets above the controls at all three supported sizes; the compact prompt remains clear.
+- **Feedback and reward:** wrong reading responses retain their original learning-slot evidence, while assisted retries stay separate. Casting cancellation never creates a reading mistake. Trip stars average the levels actually played, without inventing earlier grades on resume. The final accepted catch fixes one immutable receipt before its return animation or dismissal; all evidence is supported print practice, not independent oral fluency or mastery.
+- **Verification:** `reel-read-g14.spec.js` completes all 30 authored levels at each of three sizes, including keyboard/touch construction, real text bounds and target separation. `reel-read-interaction.spec.js` covers released drift, cancellation, pause, steering, actual recorded delivery and failure/replay. Browser proof does not establish physical-device, human-listening or child-observation evidence.
 
 #### Sentence Grove 2.0
 

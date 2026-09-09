@@ -358,3 +358,8 @@ export function reelReadLadder(difficulty = "easy") {
 export function reelReadStars({ correct, total, mistakes } = {}) {
   return starRubric({ correct, total, mistakes, deaths: 0 });
 }
+
+export function reelReadTripStars(levelStars = []) {
+  const played = levelStars.filter(Number.isFinite);
+  return played.length ? Math.max(1, Math.round(played.reduce((sum, stars) => sum + stars, 0) / played.length)) : 0;
+}

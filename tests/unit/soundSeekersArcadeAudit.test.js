@@ -201,8 +201,8 @@ test("reported Arcade objectives and replay controls keep child-readable hierarc
   assert.match(reel, /function refreshSoundState\(\)[\s\S]*?btnReplay\.disabled = !enabled;[\s\S]*?Word replay unavailable while sound is off/);
   assert.match(reel, /engineRef\.current\?\.refreshSoundState\?\.\(\)/);
   assert.match(reel, /if \(!opts\.getSound\?\.\(\)\) return;/);
-  assert.match(reel, /btnReplay\.addEventListener\("click", replayTarget\)/);
-  assert.match(reel, /btnReplay\.removeEventListener\("click", replayTarget\)/);
+  // Replay activation and teardown are exercised through actual touch/audio in
+  // reel-read-interaction.spec.js; do not require a click-only listener shape.
 
   assert.match(racer, /data-sr="hear-target" aria-label=\{`Hear \$\{mission\.target\.toUpperCase\(\)\} sound again`\}/);
   const racerCss = await source("src/features/soundRacer/sound-racer.css");

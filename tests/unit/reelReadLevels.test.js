@@ -4,7 +4,8 @@ import {
   reelReadAssembledWord,
   reelReadCanAcceptWord,
   reelReadLadder,
-  reelReadResponseEvidence
+  reelReadResponseEvidence,
+  reelReadTripStars
 } from "../../src/utils/reelReadLevels.js";
 
 test("every Reel & Read authored ladder has a valid, non-duplicating learning sequence", () => {
@@ -40,6 +41,15 @@ test("the authored longest response remains a readable accepted target", () => {
   const brave = reelReadLadder("medium").find(level => level.target === "brave");
   assert.ok(brave);
   assert.equal(reelReadCanAcceptWord("courageous", brave, []), true);
+});
+
+test("trip reward includes earlier performance and does not fabricate missing resumed levels", () => {
+  assert.equal(reelReadTripStars([1, 1, 1, 1, 1, 1, 1, 1, 1, 3]), 1);
+  assert.equal(reelReadTripStars([1, 3]), 2);
+  const resumed = Array(9);
+  resumed[9] = 3;
+  assert.equal(reelReadTripStars(resumed), 3);
+  assert.equal(reelReadTripStars([]), 0);
 });
 
 test("response evidence separates delivered audio from printed support and retries", () => {

@@ -238,14 +238,25 @@ test("Reel & Read keeps the accepted final receipt when the learner exits immedi
   await player.locator(".lg-game-loading").waitFor({ state: "hidden", timeout: 20_000 });
   await expect(player.locator('[data-rr="status"]')).toHaveText("Choose a fish, then cast.", { timeout: 8_000 });
 
-  for (const word of reelReadLadder("easy")[9].correctWords) {
+  const finalWords = reelReadLadder("easy")[9].correctWords;
+  for (const [index, word] of finalWords.entries()) {
     const fish = player.getByRole("button", { name: `Choose fish ${word}`, exact: true });
     await clickTarget(page, fish);
+    if (index === finalWords.length - 1) {
+      await page.clock.install({ time: new Date("2026-09-09T00:00:00Z") });
+      await page.clock.pauseAt(new Date("2026-09-09T00:00:01Z"));
+    }
     await player.locator('[data-rr="cast"]').click();
-    await expect(player.locator('[data-rr="cast"]')).toHaveText("CAST", { timeout: 5_000 });
+    if (index < finalWords.length - 1) await expect(player.locator('[data-rr="cast"]')).toHaveText("CAST", { timeout: 5_000 });
+    else {
+      for (let frame = 0; frame < 150 && await player.locator('[data-rr="result"]').getAttribute("data-result-ready") !== "true"; frame++) await page.clock.runFor(16);
+    }
   }
-  await expect(player.locator('[data-rr="result"]')).toBeVisible({ timeout: 5_000 });
+  await expect(player.locator('[data-rr="result"]')).toHaveAttribute("data-result-ready", "true");
+  await expect(player.locator('[data-rr="result"]')).toBeHidden();
+  await expect(player.locator('[data-rr="cast"]')).toHaveText("CANCEL");
   const savedBeforeExit = await page.evaluate(() => JSON.parse(window.localStorage.getItem("literacy-guide-learn-games:fullscreen-overlay-preview")));
+  await page.screenshot({ path: ".artifacts/g14-production/returning-fish.png" });
 
   await page.keyboard.press("Escape");
   await expect(page.getByText("Closed Reel & Read", { exact: true })).toBeVisible();
@@ -253,60 +264,76 @@ test("Reel & Read keeps the accepted final receipt when the learner exits immedi
   expect(savedAfterExit).toEqual(savedBeforeExit);
 });
 
-test("Reel & Read renders every authored target and longest label at every required viewport", async ({ page }) => {
-  test.setTimeout(300_000);
-  const progressKey = "literacy-guide-learn-games:fullscreen-overlay-preview";
-  const viewports = [{ width: 320, height: 568 }, { width: 568, height: 320 }, { width: 1024, height: 768 }];
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("/preview/game-overlay.html?game=reel-read&difficulty=easy&sound=0&music=0");
+test.use({ hasTouch: true });
 
-  for (const difficulty of ["easy", "medium", "hard"]) {
-    for (const [levelIndex, level] of reelReadLadder(difficulty).entries()) {
-        const viewport = viewports[levelIndex % viewports.length];
-        await page.setViewportSize(viewport);
-        await page.evaluate(({ key, difficulty, levelIndex }) => {
-          if (levelIndex === 0) localStorage.removeItem(key);
-          else localStorage.setItem(key, JSON.stringify({
-            games: { "reel-read": { checkpoints: { [difficulty]: { level: levelIndex, totalLevels: 10 } } } }
-          }));
-        }, { key: progressKey, difficulty, levelIndex });
+for (const viewport of [{ width: 320, height: 568 }, { width: 568, height: 320 }, { width: 1024, height: 768 }]) {
+  test(`Reel & Read completes all 30 authored levels with readable separated targets at ${viewport.width}x${viewport.height}`, async ({ page }) => {
+    test.setTimeout(600_000);
+    const progressKey = "literacy-guide-learn-games:fullscreen-overlay-preview";
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.setViewportSize(viewport);
+    await page.goto("/preview/game-overlay.html?game=reel-read&sound=0&music=0");
+    await page.addInitScript(key => {
+      const seed = JSON.parse(sessionStorage.getItem("g14-level-seed") || "null");
+      if (!seed) return;
+      localStorage.removeItem(key);
+      if (seed.levelIndex) localStorage.setItem(key, JSON.stringify({ games: {
+        "reel-read": { checkpoints: { [seed.difficulty]: { level: seed.levelIndex, totalLevels: 10 } } }
+      } }));
+    }, progressKey);
+
+    for (const difficulty of ["easy", "medium", "hard"]) {
+      for (const [levelIndex, level] of reelReadLadder(difficulty).entries()) {
+        await page.evaluate(seed => sessionStorage.setItem("g14-level-seed", JSON.stringify(seed)), { difficulty, levelIndex });
         await page.goto(`/preview/game-overlay.html?game=reel-read&difficulty=${difficulty}&sound=0&music=0`);
-
-        if (levelIndex > 0) {
-          const resume = page.getByRole("alertdialog").filter({ hasText: "Welcome back" });
-          await expect(resume).toBeVisible();
-          await resume.getByRole("button", { name: "Continue", exact: true }).click();
-        }
-
+        if (levelIndex) await page.getByRole("alertdialog").filter({ hasText: "Welcome back" }).getByRole("button", { name: "Continue", exact: true }).click();
         const player = page.getByRole("dialog", { name: "Reel & Read", exact: true });
-        await player.locator(".lg-game-loading").waitFor({ state: "hidden", timeout: 20_000 });
         await expect(player.locator('[data-rr="status"]')).toHaveText("Choose a fish, then cast.", { timeout: 8_000 });
-        const game = player.locator('[data-rr-cue-delivery]').first();
-        await expect(game).toHaveAttribute("data-rr-phase", "playing");
-
+        await page.evaluate(() => document.fonts.ready);
         const targets = player.locator('[data-rr="fish"]');
         await expect(targets).toHaveCount(level.visibleFish);
-        const geometry = await targets.evaluateAll(buttons => buttons.map(button => {
-          const rect = button.getBoundingClientRect();
-          const center = document.elementFromPoint(rect.left + rect.width / 2, rect.top + rect.height / 2);
-          return {
-            width: rect.width,
-            height: rect.height,
-            centerIsTarget: center === button || center?.closest('[data-rr="fish"]') === button
-          };
+        const boxes = await player.locator('[data-rr="fish"], [data-rr="left"], [data-rr="right"], [data-rr="cast"], [data-rr="replay"]').evaluateAll(buttons => buttons.map(button => {
+          const r = button.getBoundingClientRect();
+          const range = document.createRange();
+          range.selectNodeContents(button);
+          const text = range.getBoundingClientRect();
+          const hit = document.elementFromPoint(r.x+r.width/2, r.y+r.height/2);
+          return { label: button.textContent, fish: button.dataset.rr === "fish", left:r.left, right:r.right, top:r.top, bottom:r.bottom, width:r.width, height:r.height,
+            textLeft:text.left, textRight:text.right, centerOwned:button === hit || button.contains(hit) };
         }));
-        for (const item of geometry) {
-          expect(item.width).toBeGreaterThanOrEqual(56);
-          expect(item.height).toBeGreaterThanOrEqual(56);
-          expect(item.centerIsTarget, `${difficulty} level ${levelIndex} at ${viewport.width}x${viewport.height}: ${JSON.stringify(geometry)}`).toBe(true);
+        for (const [index, box] of boxes.entries()) {
+          const context = `${difficulty}/${level.target} ${viewport.width}x${viewport.height}: ${JSON.stringify(box)}`;
+          expect(box.width, context).toBeGreaterThanOrEqual(56);
+          expect(box.height, context).toBeGreaterThanOrEqual(56);
+          expect(box.left, context).toBeGreaterThanOrEqual(0);
+          expect(box.right, context).toBeLessThanOrEqual(viewport.width);
+          expect(box.bottom, context).toBeLessThanOrEqual(viewport.height);
+          expect(box.centerOwned, context).toBe(true);
+          if (box.fish) {
+            expect(box.textLeft, context).toBeGreaterThanOrEqual(box.left+3);
+            expect(box.textRight, context).toBeLessThanOrEqual(box.right-3);
+          }
+          for (const other of boxes.slice(index+1)) {
+            const dx = Math.max(0, box.left-other.right, other.left-box.right);
+            const dy = Math.max(0, box.top-other.bottom, other.top-box.bottom);
+            expect(Math.hypot(dx,dy), `${context}; next:${other.label}`).toBeGreaterThanOrEqual(7.99);
+          }
         }
-
-        const longest = [...level.correctWords].sort((a, b) => b.length - a.length)[0];
-        const longestTarget = player.getByRole("button", { name: `Choose fish ${longest}`, exact: true });
-        await expect(longestTarget).toBeVisible();
-        await clickTarget(page, longestTarget);
-        await expect(longestTarget).toHaveAttribute("aria-pressed", "true");
-        await expect(player.locator('[data-rr="cast"]')).toBeEnabled();
+        if ((difficulty === "easy" && levelIndex === 0) || level.target === "brave" || (difficulty === "hard" && levelIndex === 0)) {
+          await page.screenshot({ path: `.artifacts/g14-production/${viewport.width}x${viewport.height}-${difficulty}-${level.target}.png` });
+        }
+        for (const [partIndex, word] of level.correctWords.entries()) {
+          const target = player.getByRole("button", { name: `Choose fish ${word}`, exact: true });
+          if (partIndex % 2) await target.tap();
+          else { await target.focus(); await page.keyboard.press("Enter"); }
+          await expect(target).toHaveAttribute("aria-pressed", "true");
+          await player.locator('[data-rr="cast"]').tap();
+          await expect(player.locator('[data-rr="status"]')).toHaveText(`${word} fits!`, { timeout: 5000 });
+          await expect(player.locator('[data-rr="cast"]')).toHaveText("CAST", { timeout:5000 });
+        }
+        await expect(player.locator('[data-rr="result"]')).toBeVisible();
+        await expect(player.locator('[data-rr="result-assembly"]')).toContainText(level.target);
+      }
     }
-  }
-});
+  });
+}
