@@ -71,7 +71,6 @@ test("SoundKeys ignores typing on controls and still accepts game-surface keys",
 
 const gameHandlerContracts = [
   ["LetterLeapGame.jsx", ["onKeyDown"]],
-  ["SoundSafariArcadeGame.jsx", ["onKeyDown"]],
   ["SoundBeatGame.jsx", ["onKeyDown"]],
   ["ReelReadGame.jsx", ["onKeyDown"]],
   ["StarGalleryArcadeGame.jsx", ["onKeyDown", "onIntroKey"]],
@@ -85,6 +84,27 @@ const focusedMovementControlExceptions = new Map([
   ],
 
 ]);
+
+test("Sound Safari engine scopes arrow keys to its own native choices and leaves activation native", async () => {
+  const source = await readFile(new URL('../../src/components/learn/games/games/soundSafariEngine.js', import.meta.url), 'utf8');
+  assert.doesNotMatch(source, /listen\((?:window|document),\s*['"]keydown['"]/);
+  const body = source.match(/listen\(root,\s*'keydown',\s*event\s*=>\s*\{([\s\S]*?)\n {2}\}\);/)?.[1];
+  assert.ok(body, 'the engine must install its handler on the game root');
+  let focused = 0, prevented = 0, active = true;
+  const buttons = [{ focus() { focused = 0; } }, { focus() { focused = 1; } }];
+  const document = { activeElement: buttons[0] }, host = {};
+  const handler = new Function('canChoose', 'el', 'document', 'cardKey', `return event => {${body}}`)(
+    () => active, () => ({ contains: node => buttons.includes(node), querySelectorAll: () => buttons }), document, ''
+  );
+  const key = (target, key, repeat = false) => handler({ target, key, repeat, preventDefault() { prevented++; } });
+  for (const value of ['ArrowRight', 'ArrowLeft', 'a', 'd', 'Enter', ' ']) key(host, value);
+  assert.equal(prevented, 0); assert.equal(focused, 0);
+  key(buttons[0], 'Enter'); key(buttons[0], ' ');
+  assert.equal(prevented, 0, 'native buttons own Enter and Space');
+  key(buttons[0], 'ArrowRight'); assert.equal(focused, 1); assert.equal(prevented, 1);
+  key(buttons[0], 'Enter', true); assert.equal(prevented, 2, 'held activation cannot answer twice');
+  active = false; focused = 0; key(buttons[0], 'ArrowRight'); assert.equal(focused, 0);
+});
 
 test("Rhyme Pop only moves focus between its own native balloons and preserves control activation", async () => {
   const source = await readFile(new URL('../../src/components/learn/games/games/RhymePopArcadeGame.jsx', import.meta.url), 'utf8');

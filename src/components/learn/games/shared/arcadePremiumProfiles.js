@@ -75,14 +75,14 @@ export const ARCADE_PREMIUM_PROFILES = Object.freeze({
     rewardLabel: "rhymes found"
   }),
   "sound-safari": Object.freeze({
-    version: "2.0",
-    mission: "Net each sound in the word, in order.",
-    objective: "Segment a spoken word into its ordered phoneme sequence.",
-    action: "Move the net to the next sound and catch it.",
-    controls: Object.freeze(["Move: Arrow keys or W / A / S / D", "Catch: Space or Enter"]),
-    retry: "The field guide keeps the next sound visible and replays the word when needed.",
+    version: "3.0",
+    mission: "Guide each word part home, in order.",
+    objective: "Listen for the next authored word part and choose its creature.",
+    action: "Catch the next word part to build the path home.",
+    controls: Object.freeze(["Choose: released tap, Tab or Arrow keys", "Catch: Space or Enter"]),
+    retry: "The specific word part stays in play, with a replay or printed model when sound needs help.",
     completionTitle: "Safari complete",
-    rewardLabel: "sounds collected"
+    rewardLabel: "word parts guided"
   }),
   "reel-read": Object.freeze({
     version: "2.0",

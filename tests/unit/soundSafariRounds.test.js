@@ -1,12 +1,96 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { KNOWN_BAD_AUDIO_PATHS } from "../../src/data/knownBadWordAudio.js";
+import { getLedaWordAudioPath } from "../../src/data/ledaProductionAudio.js";
 import {
-  selectSafariCapture,
   soundSafariAudioCoverage,
   soundSafariLadder,
   soundSafariPresentedStars,
   soundSafariStars
 } from "../../src/utils/soundSafariRounds.js";
+
+const EXPECTED_WORDS = {
+  easy: "cat sun mop big hat log pen cup dog jam red wet run bug pig web hen fox zip van top net mud duck bed ten cap bus pot leg".split(" "),
+  medium: "frog plant crisp drum stone flame brush green splash track clock snail train clap brain sleep float smile chair thread crash string spring bright twist storm shark three slide prize".split(" "),
+  hard: "sunlight rainbow moon star meadow forest river rabbit silver night dark owl glow badger thunder glimmer squirrel acorn mist fern oak butterfly moss woodland dream mushroom glowing stream shining sunset".split(" ")
+};
+
+test("every authored word retains its exact level and position", () => {
+  for (const [difficulty, expected] of Object.entries(EXPECTED_WORDS)) {
+    assert.deepEqual(soundSafariLadder(difficulty).flatMap(level => level.words.map(item => item.word)), expected);
+  }
+});
+
+test("rounds expose contextual units rather than spelling-derived sound guesses", () => {
+  const all = Object.fromEntries(Object.keys(EXPECTED_WORDS).flatMap(difficulty =>
+    soundSafariLadder(difficulty).flatMap(level => level.words.map(item => [item.word, item]))));
+  for (const [word, expected] of Object.entries({
+    thread: ["th", "r", "ea_e", "d"],
+    meadow: ["m", "ea_e", "d", "ow"],
+    owl: ["ow_ou", "l"],
+    acorn: ["a_e", "c", "or", "n"],
+    shining: ["sh", "i_e", "n", "short_i", "ng"],
+    badger: ["b", "short_a", "g_j", "er"],
+    squirrel: ["s", "qu", "er", "schwa", "l"]
+  })) {
+    assert.ok(Array.isArray(all[word].units), `${word} needs explicit units`);
+    assert.deepEqual(all[word].units.map(unit => unit.soundKey), expected, word);
+    assert.deepEqual(all[word].graphemes, all[word].units.map(unit => unit.grapheme));
+  }
+});
+
+test("quarantined word audio is unavailable without filtering or shifting the bank", () => {
+  const audioPath = getLedaWordAudioPath("cat");
+  KNOWN_BAD_AUDIO_PATHS.add(audioPath);
+  try {
+    const words = soundSafariLadder("easy").flatMap(level => level.words);
+    assert.deepEqual(words.map(item => item.word), EXPECTED_WORDS.easy);
+    assert.equal(words[0].wordAudio.path, "");
+    assert.equal(words[0].wordAudio.available, false);
+    assert.equal(words[0].wordAudio.status, "unavailable");
+    assert.deepEqual(soundSafariAudioCoverage().easy.missing, ["cat"]);
+  } finally {
+    KNOWN_BAD_AUDIO_PATHS.delete(audioPath);
+  }
+});
+
+test("a missing approved unit recording stays explicit while the word remains playable for supported integration", () => {
+  const forest = soundSafariLadder("hard")[1].words[2];
+  assert.equal(forest.word, "forest");
+  assert.ok(Array.isArray(forest.units));
+  const schwa = forest.units.find(unit => unit.soundKey === "schwa");
+  assert.deepEqual(schwa.audio, { path: "", available: false, status: "unavailable" });
+  assert.equal(forest.wordAudio.available, true);
+});
+
+test("round word coverage selects the same exact recordings as game playback", () => {
+  const all = Object.keys(EXPECTED_WORDS).flatMap(difficulty => soundSafariLadder(difficulty).flatMap(level => level.words));
+  for (const item of all) {
+    assert.equal(item.wordAudio?.path, getLedaWordAudioPath(item.word), item.word);
+  }
+  assert.equal(all.find(item => item.word === "cup").wordAudio.path, "/audio/production/en-US/isolated_word/cup-9da8aac3a3.mp3");
+  assert.equal(all.find(item => item.word === "mist").wordAudio.path, "/audio/production/en-US/isolated_word/mist-8d7b88a5f7.mp3");
+});
+
+test("all round distractors carry distinct contextual sounds and available recordings", async () => {
+  const { soundSafariSoundsEquivalent } = await import("../../src/data/soundSafariPronunciations.js");
+  for (const difficulty of Object.keys(EXPECTED_WORDS)) {
+    for (const level of soundSafariLadder(difficulty)) {
+      assert.equal(Object.hasOwn(level, "minPlaySeconds"), false);
+      for (const item of level.words) {
+        assert.ok(item.decoyUnits.length >= 4 && item.decoyUnits.length <= 7);
+        assert.deepEqual(item.decoys, item.decoyUnits.map(unit => unit.grapheme));
+        for (const [index, decoy] of item.decoyUnits.entries()) {
+          assert.equal(decoy.audio.available, true);
+          for (const other of [...item.units, ...item.decoyUnits.slice(0, index)]) {
+            assert.notEqual(decoy.grapheme, other.grapheme);
+            assert.equal(soundSafariSoundsEquivalent(decoy, other), false, `${item.word}: ${decoy.soundKey}/${other.soundKey}`);
+          }
+        }
+      }
+    }
+  }
+});
 
 test("soundSafariLadder returns 10 levels for every difficulty", () => {
   for (const difficulty of ["easy", "medium", "hard"]) {
@@ -55,17 +139,6 @@ test("every Sound Safari task has recorded gold-voice word audio", () => {
     assert.deepEqual(result.missing, [], `${difficulty} has silent words`);
     assert.equal(result.recorded.length, 30);
   }
-});
-
-test("ambiguous overlapping Safari hits cannot turn a correct aim into a false miss", () => {
-  const correct = { critter: { label: "sh", r: 42, hitRadius: 80 }, distance: 50, inLabel: false };
-  const marginallyCloserWrong = { critter: { label: "ch", r: 42, hitRadius: 80 }, distance: 43, inLabel: false };
-  assert.equal(selectSafariCapture([marginallyCloserWrong, correct], "sh"), correct);
-
-  const intentionalWrong = { ...marginallyCloserWrong, distance: 8 };
-  assert.equal(selectSafariCapture([intentionalWrong, correct], "sh"), intentionalWrong);
-  const exactCorrectLabel = { ...correct, inLabel: true };
-  assert.equal(selectSafariCapture([exactCorrectLabel, intentionalWrong], "sh"), exactCorrectLabel);
 });
 
 test("soundSafariStars follows the shared star rubric", () => {

@@ -1,0 +1,71 @@
+{
+  "version": 3,
+  "provider": "Google Cloud Text-to-Speech",
+  "voice": "en-US-Chirp3-HD-Leda",
+  "aiGenerated": true,
+  "languageCode": "en-US",
+  "synthesis": {
+    "audioEncoding": "LINEAR16",
+    "sampleRateHertz": 24000,
+    "speakingRate": 0.94,
+    "pitch": 0
+  },
+  "normalization": {
+    "highpassHz": 60,
+    "integratedLufs": -24,
+    "truePeakDb": -2,
+    "loudnessRange": 7,
+    "fadeInSeconds": 0.015,
+    "fadeOutSeconds": 0.025,
+    "sampleRateHertz": 44100,
+    "channels": 1,
+    "bitRate": "128k"
+  },
+  "assets": {
+    "instruction": {
+      "id": "instruction",
+      "text": "Listen to the word. Catch its word parts in order. Some letters stay together.",
+      "role": "instruction",
+      "audio": "/audio/sound-safari/instruction-v3.mp3",
+      "sha256": "815311e9cd88f74878d14fe64016d9a7bc4bfbb27ec826467e7908920acfe733",
+      "durationSeconds": 6.663333,
+      "humanListening": "unknown"
+    },
+    "model": {
+      "id": "model",
+      "text": "Watch this word. Then you will try a different word.",
+      "role": "instruction",
+      "audio": "/audio/sound-safari/model-v3.mp3",
+      "sha256": "aace55034002462c8357f9db8c76c13349ae4d93bf418b274cce53d08f7112c9",
+      "durationSeconds": 4.517347,
+      "humanListening": "unknown"
+    },
+    "turn": {
+      "id": "turn",
+      "text": "Now try a new word. Listen and catch its word parts.",
+      "role": "instruction",
+      "audio": "/audio/sound-safari/turn-v3.mp3",
+      "sha256": "b1166de472f79ba472ec19855b1a20704bfd2256ff8431a0e3603aa33813d355",
+      "durationSeconds": 3.357347,
+      "humanListening": "unknown"
+    },
+    "retry": {
+      "id": "retry",
+      "text": "Listen to the word again. Which part comes next?",
+      "role": "instruction",
+      "audio": "/audio/sound-safari/retry-v3.mp3",
+      "sha256": "949b329f858fe73622902ea6a0166d88ec2004e920f60a72ec390a8cea15bdf4",
+      "durationSeconds": 3.647347,
+      "humanListening": "unknown"
+    },
+    "home": {
+      "id": "home",
+      "text": "The path is ready. Guide the creatures home!",
+      "role": "instruction",
+      "audio": "/audio/sound-safari/home-v3.mp3",
+      "sha256": "7f46395d4db3ae60874e4cd89d7b8c70cab4af833b22e1a640a2d17b29c651d9",
+      "durationSeconds": 2.777347,
+      "humanListening": "unknown"
+    }
+  }
+}
