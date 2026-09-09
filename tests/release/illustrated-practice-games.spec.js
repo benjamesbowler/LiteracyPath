@@ -12,7 +12,7 @@ const GAMES = [
   "letter-garden"
 ];
 
-const INTEGRATED_SCENES = new Set(["sight-word-memory", "pop-the-word", "word-hopscotch", "reading-race"]);
+const INTEGRATED_SCENES = new Set(["sight-word-memory", "pop-the-word", "word-hopscotch", "reading-race", "word-rescue", "sound-sort-factory"]);
 
 const ONBOARDING_KEYS = [
   "lp-arcade-onboarded-v1:word-rescue",
@@ -521,17 +521,18 @@ test("Word Rescue completion focuses and contains its engine-owned Play again ac
   await page.goto("/preview/game-overlay.html?game=word-rescue&sound=0&music=0");
 
   const targetCue = page.locator(".adv-rescue > .adv-belt-item");
-  await expect(page.locator(".adv-destination")).toHaveText("HOME");
+  await expect(page.locator(".river-home")).toContainText("HOME");
   for (let round = 0; round < 6; round += 1) {
     const target = await targetCue.textContent();
     expect(target).toBeTruthy();
     await page.locator(".adv-choices").getByRole("button", { name: target, exact: true }).click();
     if (round < 5) {
-      await expect(page.locator(".adv-bridge")).toHaveAttribute("aria-label", `${round + 1} of 6 planks built; friend moves toward Home`);
+      await expect(page.locator(".adv-bridge")).toHaveAttribute("aria-label", `River rescue route: ${round + 1} of 6 bridge steps complete`);
       await expect(targetCue).not.toHaveText(target);
     }
   }
 
+  await page.getByRole("button", { name: "Finish", exact: true }).click();
   const playAgain = page.getByRole("button", { name: "Play again", exact: true });
   await expect(playAgain).toBeVisible();
   await expect(playAgain).toBeFocused();
@@ -596,7 +597,7 @@ test("Sound Sort declares its print task and routes a word into the chosen bin",
     window.localStorage.setItem("lp-arcade-onboarded-v1:sound-sort-factory", "1");
   });
   await page.goto("/preview/game-overlay.html?game=sound-sort-factory&sound=0&music=0");
-  await expect(page.locator('[data-task-mode="orthographic"]')).toHaveCount(2);
+  await expect(page.locator('[data-task-mode="orthographic"]')).toHaveCount(1);
   const belt = page.locator(".adv-belt-item");
   const firstWord = (await belt.textContent()).trim();
   const labels = await page.locator(".adv-bin-label").allTextContents();
@@ -604,6 +605,7 @@ test("Sound Sort declares its print task and routes a word into the chosen bin",
   expect(correctIndex).toBeGreaterThanOrEqual(0);
   await page.locator(".adv-bin").nth(correctIndex === 0 ? 1 : 0).click();
   await expect(belt).toHaveText(firstWord);
+  await expect(page.locator(".word-conveyor-scene")).toHaveAttribute("data-motion", "idle");
   await page.locator(".adv-bin").nth(correctIndex).click();
-  await expect(page.locator(".adv-sort-route")).toContainText("Routed to");
+  await expect(page.locator(".conveyor-status")).toContainText("Routed to");
 });

@@ -5,6 +5,8 @@ import { ConfettiCelebration } from "../shared/ConfettiCelebration.jsx";
 import { IllustratedGameScene } from "../shared/IllustratedGameScene.jsx";
 import { ProgressStars } from "../shared/ProgressStars.jsx";
 import { getChildWordAsset } from "../../../../data/childAssets.js";
+import { useRecordedPracticeCue } from "../shared/useRecordedPracticeCue.js";
+import { stopCueAudio } from "../../../../utils/audio/cuePlayer.js";
 import { RiverRescueScene, WordConveyorScene } from "./adventureScenes.jsx";
 import {
   buildAdventureRoundSet,
@@ -164,17 +166,13 @@ function Complete({ title, stars, score, onRestart }) {
 function RescueStage({ rounds, state, isSoundEnabled }) {
   const { index, resumeSteps, currentSolvedSteps, paused, arrivalReady, wrongWord, choose, finish } = state;
   const round = rounds[index] || rounds[rounds.length - 1];
-  const canHearWord = isSoundEnabled && hasRecordedSpeech(round?.word);
-
-  useEffect(() => {
-    if (canHearWord && round) speakWord(round.word);
-  }, [canHearWord, round]);
+  const { canHear: canHearWord, replay } = useRecordedPracticeCue(round?.word, isSoundEnabled && !paused);
 
   return (
     <IllustratedGameScene mode="rescue" stageClassName="adv-rescue">
       <p>{canHearWord ? "Hear the word, then tap the matching word to lay a plank." : "Read the word, then tap it to lay a plank."}</p>
       {canHearWord ? (
-        <button type="button" className="lg-game-audio" onClick={() => speakWord(round.word)}>Hear word</button>
+        <button type="button" className="lg-game-audio" onClick={replay}>Hear word</button>
       ) : (
         // Sound off: the target only exists as audio, so show it as a card.
         <span className="adv-belt-item" style={{ animation: "none" }}>{round.word}</span>
@@ -189,7 +187,7 @@ function RescueStage({ rounds, state, isSoundEnabled }) {
               key={word}
               type="button"
               className={wrongWord === word ? "kid-wobble" : ""}
-              onClick={() => choose(word)}
+              onClick={() => choose(word, canHearWord)}
             >
               {word}
             </button>
@@ -304,7 +302,8 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
 
   const [index, setIndex] = useState(initialStartLevel);
   const [score, setScore] = useState(0);
-  const [wrongs, setWrongs] = useState(0);
+  const wrongsRef = useRef(0);
+  const completionReportedRef = useRef(false);
   const [completed, setCompleted] = useState(false);
   const [stars, setStars] = useState(0);
   const [typed, setTyped] = useState([]);
@@ -350,6 +349,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
     if (!isSoundEnabled) {
       speechTokenRef.current += 1;
       cancelSpeech();
+      stopCueAudio();
     }
   }, [isSoundEnabled]);
 
@@ -358,6 +358,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   useEffect(() => () => {
     speechTokenRef.current += 1;
     cancelSpeech();
+    stopCueAudio();
     timeoutsRef.current.forEach(entry => window.clearTimeout(entry.id));
     timeoutsRef.current = [];
   }, []);
@@ -382,6 +383,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
     setEnginePaused(true);
     speechTokenRef.current += 1;
     cancelSpeech();
+    stopCueAudio();
     const now = Date.now();
     timeoutsRef.current.forEach(entry => {
       window.clearTimeout(entry.id);
@@ -404,8 +406,10 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   }, []);
 
   function finish(correctCount) {
+    if (completionReportedRef.current) return;
+    completionReportedRef.current = true;
     setArrivalReady(false);
-    const earned = adventureStars(correctCount, total, wrongs);
+    const earned = adventureStars(correctCount, total, wrongsRef.current);
     setStars(earned);
     setCompleted(true);
     if (isSoundEnabled) playCelebrationFanfare();
@@ -413,9 +417,9 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   }
 
   function notifyResultReady(correctCount) {
-    if (resultReadyRef.current || correctCount < total) return;
+    if (resultReadyRef.current || index + 1 < total) return;
     resultReadyRef.current = true;
-    onResultReadyRef.current?.(adventureStars(correctCount, total, wrongs), scoreRef.current, correctCount, responseEvidenceRef.current);
+    onResultReadyRef.current?.(adventureStars(correctCount, total, wrongsRef.current), scoreRef.current, correctCount, responseEvidenceRef.current);
   }
 
   function advance(correctCount, delay = 600) {
@@ -423,7 +427,8 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
       speechTokenRef.current += 1;
       const isFinal = index + 1 >= total;
       busyRef.current = false;
-      if (isFinal) setArrivalReady(true);
+      if (isFinal && mode === "garden") finish(correctCount);
+      else if (isFinal) setArrivalReady(true);
       else {
         sortMotionRef.current = false;
         setSortMotion({ phase: "idle", bin: "", token: 0 });
@@ -436,7 +441,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   }
 
   function miss(setter, value, replayWord) {
-    setWrongs(w => w + 1);
+    wrongsRef.current += 1;
     setter(value);
     if (isSoundEnabled) {
       playSoftBuzz();
@@ -455,7 +460,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
     speechTokenRef.current += 1;
     busyRef.current = false;
     setVersion(v => v + 1);
-    setIndex(0); scoreRef.current = 0; setScore(0); setWrongs(0); setCompleted(false); setStars(0);
+    setIndex(0); scoreRef.current = 0; setScore(0); wrongsRef.current = 0; completionReportedRef.current = false; setCompleted(false); setStars(0);
     setTyped([]); setGrown([]); setPlanks(0); setSortMotion({ phase: "idle", bin: "", token: 0 });
     setArrivalReady(false); setResumeSteps(0);
     sortMotionRef.current = false;
@@ -495,22 +500,21 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   if (mode === "rescue") {
     const state = {
       index, planks, resumeSteps, currentSolvedSteps: Math.max(0, planks - resumeSteps), paused: enginePaused, arrivalReady, wrongWord,
-      choose: word => {
+      choose: (word, canReplay) => {
         if (busyRef.current) return;
         const round = rescue[index];
         if (!round) return;
         if (!responseEvidenceRef.current.firstResponses.some(item => item.round === index)) {
-          const canReplay = isSoundEnabled && hasRecordedSpeech(round.word);
           recordFirstResponse({ game: "word-rescue", round: index, target: round.word, response: word, correct: word === round.word, practiceOnly: true, independent: false, supportUsed: [canReplay ? "spoken_target" : "printed_target"], audioDelivery: canReplay ? "requested" : "not_available", soundEnabled: isSoundEnabled });
         }
         if (word !== round.word) {
           responseAttemptsRef.current.set(index, (responseAttemptsRef.current.get(index) || 0) + 1);
-          miss(setWrongWord, word, round.word);
+          miss(setWrongWord, word, canReplay ? round.word : null);
           return;
         }
         busyRef.current = true;
         const attempts = responseAttemptsRef.current.get(index) || 0;
-        if (attempts) recordAssistedRetry({ game: "word-rescue", round: index, target: round.word, attempts, supportUsed: ["target_replay"] });
+        if (attempts) recordAssistedRetry({ game: "word-rescue", round: index, target: round.word, attempts, supportUsed: [canReplay ? "target_replay" : "printed_target"] });
         if (isSoundEnabled) playPopSound();
         scoreRef.current += 20;
         setScore(scoreRef.current);
@@ -563,6 +567,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
       const round = garden[index];
       speechTokenRef.current += 1;
       cancelSpeech();
+      stopCueAudio();
       if (round && soundEnabledRef.current && hasRecordedSpeech(round.word)) speakWord(round.word);
     },
     pickLetter: letter => {
@@ -589,6 +594,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
       if (isSoundEnabled) playCorrectChime();
       setGrown(g => [...g, round]);
       setTyped(nextTyped);
+      notifyResultReady(grown.length + 1);
       advance(grown.length + 1);
     }
   };

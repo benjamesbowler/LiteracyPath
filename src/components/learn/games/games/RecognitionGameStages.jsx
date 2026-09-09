@@ -1,8 +1,7 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { getChildWordAsset } from "../../../../data/childAssets.js";
-import { hasRecordedSpeech, speakWord } from "../../../../utils/learnGamesAudio.js";
-import { getLedaInstructionAudioPath, getLedaWordAudioPath } from "../../../../data/ledaProductionAudio.js";
-import { playCueAudio, stopCueAudio } from "../../../../utils/audio/cuePlayer.js";
+import { speakWord } from "../../../../utils/learnGamesAudio.js";
+import { useRecordedPracticeCue } from "../shared/useRecordedPracticeCue.js";
 import { playPopSound } from "../../../../utils/audio/gameSfx.js";
 import { hfwOptions, sentenceTiles, shuffled } from "../../../../utils/recognitionPractice.js";
 import { completeRepairDisplay } from "../../../../utils/repairSentence.js";
@@ -10,23 +9,6 @@ import { IllustratedGameScene } from "../shared/IllustratedGameScene.jsx";
 import { GameMeter } from "../shared/PracticeGameMeter.jsx";
 
 const practice = (construct, supportUsed) => ({ construct, practiceOnly: true, independent: false, supportUsed, audioDelivery: "not_measured" });
-
-// Use the shared cue session so failed playback has a visible fallback, and
-// mute, replay, pause and leaving the stage cannot leak a stale sentence.
-function useRecognitionCue(text, enabled, autoPlay = true) {
-  const [failedText, setFailedText] = useState("");
-  const canHear = enabled && hasRecordedSpeech(text) && failedText !== text;
-  const replay = useCallback(() => {
-    if (!canHear) return;
-    const src = /^[a-z]+$/i.test(text) ? getLedaWordAudioPath(text) : getLedaInstructionAudioPath(text);
-    playCueAudio(src, { onUnavailable: () => setFailedText(text) });
-  }, [canHear, text]);
-  useEffect(() => {
-    if (autoPlay) replay();
-    return stopCueAudio;
-  }, [autoPlay, replay]);
-  return { canHear, replay };
-}
 
 function CollectedPicture({ word }) {
   const [failed, setFailed] = useState(false);
@@ -98,7 +80,7 @@ export function TargetGame({ state, round, setRound, correct, setCorrect, addSco
   const target = state.words[round];
   const options = useMemo(() => hfwOptions(target, state.pool), [target, state.pool]);
   const [popped, setPopped] = useState(false);
-  const { canHear, replay } = useRecognitionCue(target, isSoundEnabled, !popped);
+  const { canHear, replay } = useRecordedPracticeCue(target, isSoundEnabled, !popped);
   const [wrong, setWrong] = useState("");
   const [pressed, setPressed] = useState(false);
   const solvedRef = useRef(false);
@@ -143,7 +125,7 @@ export function SentenceGame({ state, round, setRound, correct, setCorrect, addS
   const consumedRef = useRef(new Set());
   const attemptsRef = useRef(0);
   const modeledRef = useRef(false);
-  const { canHear, replay } = useRecognitionCue(sentence, isSoundEnabled, phase === "build");
+  const { canHear, replay } = useRecordedPracticeCue(sentence, isSoundEnabled, phase === "build");
   useEffect(() => {
     if (phase !== "build") return;
     if (!canHear) modeledRef.current = true;
@@ -195,7 +177,7 @@ export function FixGame({ state, round, setRound, correct, setCorrect, addScore,
   const options = useMemo(() => shuffled(fix.options), [fix]);
   const completedSentence = completeRepairDisplay(fix.display, answer);
   const spokenText = answer ? completedSentence : fix.prompt;
-  const { canHear, replay } = useRecognitionCue(spokenText, isSoundEnabled);
+  const { canHear, replay } = useRecordedPracticeCue(spokenText, isSoundEnabled);
 
   function choose(option) {
     if (solvedRef.current) return;

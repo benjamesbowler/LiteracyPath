@@ -12,8 +12,8 @@ export const RIVER_ROUTE_ANCHORS = Object.freeze({
 
 export const WORD_CONVEYOR_ANCHORS = Object.freeze({
   itemStart: 18,
-  binA: 64,
-  binB: 86,
+  binA: 54,
+  binB: 82,
   itemY: 42,
   binY: 84
 });

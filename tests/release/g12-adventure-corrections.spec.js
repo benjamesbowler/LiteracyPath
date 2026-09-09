@@ -144,3 +144,80 @@ test("Sound Sort uses fixed native bin endpoints and a rejected route before ret
     await expect(page.getByRole("heading", { name: "Sound Sort Factory complete!", exact: true })).toBeVisible();
   }
 });
+
+test('last-frame Rescue retry retains its first wrong answer, reward and saved result on close',async({page})=>{
+ await openGame(page,'word-rescue','easy');
+ for(let r=0;r<6;r++) {
+  const cue=page.locator('.adv-rescue > .adv-belt-item');
+  const target=(await cue.textContent()).trim();
+  if(r<5) {
+   await page.locator('.adv-choices').getByRole('button',{name:target,exact:true}).click();
+   await expect(cue).not.toHaveText(target);
+  } else await page.locator('.adv-choices').evaluate((e,target)=>{
+   const buttons=[...e.querySelectorAll('button')];
+   buttons.find(b=>b.textContent!==target).click();
+   const correct=buttons.find(b=>b.textContent===target);for(let i=0;i<6;i++)correct.click();
+  },target);
+ }
+ const result=await page.evaluate(()=>JSON.parse(localStorage.getItem('literacy-guide-learn-games:fullscreen-overlay-preview')).games['word-rescue']);
+ expect(result.plays).toBe(1);expect(result.stars).toBe(2);
+ expect(result.practiceRecord.completions[0].steps.at(-1).correct).toBe(false);
+ expect(result.practiceRecord.completions[0].assistedRetries).toHaveLength(1);
+ await page.getByRole('button',{name:'Close Word Rescue',exact:true}).click();
+ await expect(page.getByRole('status')).toHaveText('Closed Word Rescue');
+ expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('literacy-guide-learn-games:fullscreen-overlay-preview')).games['word-rescue'].plays)).toBe(1);
+});
+
+test('shared Adventure completion still finishes Letter Garden and saves at its final change',async({page})=>{
+ await page.addInitScript(()=>localStorage.setItem('lp-arcade-onboarded-v1:letter-garden','1'));
+ await openGame(page,'letter-garden','easy');
+ await expect(page.locator('.adv-slots')).toBeVisible();
+ const total=Number((await page.locator('.lg-game-header-meter').getAttribute('aria-label')).split(' of ')[1]);
+ for(let i=0;i<total;i++) {
+  const word=(await page.locator('.adv-slots').getAttribute('aria-label')).split(' to spell ')[1];
+  const index=await page.locator('.adv-slot').evaluateAll(es=>es.findIndex(e=>e.dataset.changeIndex==='true'));
+  await page.locator('.adv-letters').getByRole('button',{name:word[index],exact:true}).click();
+  if(i<total-1)await expect(page.locator('.adv-slots')).not.toHaveAttribute('aria-label',new RegExp(`spell ${word}$`));
+ }
+ expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('literacy-guide-learn-games:fullscreen-overlay-preview')).games['letter-garden'].plays)).toBe(1);
+ await expect(page.getByRole('heading',{name:'Letter Garden complete!',exact:true})).toBeVisible();
+});
+
+test("Rescue reveals a printed target when recorded audio fails", async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem("lp-arcade-onboarded-v1:word-rescue", "1");
+    HTMLMediaElement.prototype.play = function () { return Promise.reject(new Error("offline audio")); };
+    window.syntheticCalls = 0;
+    window.speechSynthesis.speak = () => { window.syntheticCalls += 1; };
+  });
+  await page.goto("/preview/game-overlay.html?game=word-rescue&sound=1&music=0");
+  await expect(page.locator(".adv-rescue > p")).toContainText("Read the word");
+  const word = await page.locator(".adv-rescue > .adv-belt-item").textContent();
+  await page.locator(".adv-choices").getByRole("button", { name: word, exact: true }).click();
+  await expect(page.locator(".river-rescue-scene")).toHaveAttribute("data-progress", "0.1667");
+  expect(await page.evaluate(() => window.syntheticCalls)).toBe(0);
+});
+
+test("conveyor words and separate bins remain readable at all small-screen sizes", async ({ page }) => {
+  for (const viewport of [{ width: 320, height: 568 }, { width: 568, height: 320 }, { width: 1024, height: 768 }]) {
+    await openGame(page, "sound-sort-factory", "medium");
+    await page.setViewportSize(viewport);
+    await expect(page.locator(".word-conveyor-scene")).toBeVisible();
+    // Exercise the longest authored word rather than relying on a lucky seed.
+    await page.locator(".conveyor-item").evaluate(element => { element.textContent = "cheese"; });
+    const geometry = await page.locator(".word-conveyor-scene").evaluate(scene => {
+      const plain = element => { const r = element.getBoundingClientRect(); return { x: r.x, y: r.y, right: r.right, bottom: r.bottom, w: r.width, h: r.height }; };
+      const item = scene.querySelector(".conveyor-item");
+      const range = document.createRange(); range.selectNodeContents(item);
+      return { scene: plain(scene), word: plain(range), item: plain(item), bins: [...scene.querySelectorAll("button")].map(button => ({ ...plain(button), reachable: button.contains(document.elementFromPoint(button.getBoundingClientRect().x + button.clientWidth / 2, button.getBoundingClientRect().y + button.clientHeight / 2)) })) };
+    });
+    expect(geometry.item.x).toBeGreaterThanOrEqual(geometry.scene.x);
+    expect(geometry.word.x).toBeGreaterThanOrEqual(geometry.item.x);
+    expect(geometry.word.right).toBeLessThanOrEqual(geometry.item.right);
+    expect(geometry.bins[1].x - geometry.bins[0].right).toBeGreaterThanOrEqual(8);
+    for (const bin of geometry.bins) {
+      expect(bin.w).toBeGreaterThanOrEqual(56); expect(bin.h).toBeGreaterThanOrEqual(56);
+      expect(bin.reachable).toBe(true); expect(bin.bottom).toBeLessThanOrEqual(viewport.height);
+    }
+  }
+});
