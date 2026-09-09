@@ -28,6 +28,7 @@
 //   data-teacher   - the articulation tip renders as a quiet bottom strip
 import { elSkillsBlockCycles, LETTER_EXAMPLES } from "../../data/elSkillsBlockCycles.js";
 import { EL_CYCLE_POEMS } from "../../data/elCyclePoems.js";
+import { cyclePoemImagePath } from "../../data/elCyclePoemImages.js";
 import { graphemeAudioPath, wordAudioPath } from "../../components/elQuest/elQuestEngine.js";
 import { getChildWordAsset } from "../../data/childAssets.js";
 import { getLedaInstructionAudioPath } from "../../data/ledaProductionAudio.js";
@@ -817,7 +818,7 @@ function poemSlide(cycle, world) {
     const asset = getChildWordAsset(word) || {};
     return asset.image ? `<img src="${esc(assetUrl(asset.image))}" alt="${esc(word)}" data-hide-on-error="self"/>` : "";
   }).filter(Boolean).slice(0, 3).join("");
-  const poemImg = assetUrl(`/images/pals/poems/cycle-${String(cycle.cycleNumber).padStart(2, "0")}.webp`);
+  const poemImg = assetUrl(cyclePoemImagePath(cycle.cycleNumber));
   return slide(world, `
     <div class="p-two-col p-two-col-poem">
       <img class="p-poem-hero washed" src="${esc(poemImg)}" alt="" data-hide-on-error="self"/>
@@ -1299,7 +1300,7 @@ const DECK_CSS = `
 
   /* ── Poem and books ─────────────────────────────────────────────────────── */
   .washed { filter: saturate(.6) contrast(.85) brightness(1.1) opacity(.94); }
-  .p-poem-hero { width: 100%; height: 720px; object-fit: cover; border-radius: 36px; box-shadow: var(--shadow-lg); }
+  .p-poem-hero { width: 100%; height: auto; max-height: 720px; object-fit: contain; border-radius: 36px; box-shadow: var(--shadow-lg); }
   .p-poem-title { margin: 0; font-family: ${FONT_DISPLAY}; font-weight: 400; font-size: 80px; line-height: 1.1; }
   .p-poem { white-space: pre-wrap; font-family: ${FONT_LETTER}; font-size: 50px; line-height: 1.55; }
   .p-poem-pics { display: flex; gap: 24px; }
