@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { runInNewContext } from "node:vm";
 import test from "node:test";
 
-import { serviceWorkerSource } from "../../tools/viteQuestOfflinePlugin.mjs";
+import { questOfflinePlugin, serviceWorkerSource } from "../../tools/viteQuestOfflinePlugin.mjs";
 
 function createWorkerHarness({ cachedResponse = null, networkResponse }) {
   const listeners = new Map();
@@ -127,3 +127,24 @@ test("the offline worker warms canonical book-character art without accepting ge
     failed: 0
   }]);
 });
+
+ test("offline precache follows selected v2 runtime without reviving emitted legacy chunks", async () => {
+  const {selectQuestExecutablePolicy}=await import("../../tools/checkQuestOffline.mjs");
+  const chunk=(fileName,imports=[],extra={})=>({type:"chunk",fileName,imports,dynamicImports:[],code:"",...extra});
+  const bundle={
+    "assets/main.js":chunk("assets/main.js",[],{isEntry:true}),
+    "assets/SoundSeekersRoute-new.js":chunk("assets/SoundSeekersRoute-new.js",[],{dynamicImports:["assets/ActiveStage-new.js"]}),
+    "assets/ActiveStage-new.js":chunk("assets/ActiveStage-new.js"),
+    "assets/QuestRoot-old.js":chunk("assets/QuestRoot-old.js",["assets/QuestPixelWorld-old.js"]),
+    "assets/QuestPixelWorld-old.js":chunk("assets/QuestPixelWorld-old.js")
+  };
+  const build=source=>{const emitted=[];questOfflinePlugin().generateBundle.call({emitFile:item=>emitted.push(item)}, {}, source);return JSON.parse(emitted.find(item=>item.fileName==="offline-build.json").source);};
+  const current=build(bundle);
+  assert.ok(current.precache.includes("/assets/ActiveStage-new.js"));
+  assert.ok(!current.precache.some(url=>/QuestRoot|QuestPixelWorld/.test(url)));
+  assert.equal(selectQuestExecutablePolicy(current.precache,current.questExecutable).mode,"v2");
+  const legacy={...bundle};delete legacy["assets/SoundSeekersRoute-new.js"];delete legacy["assets/ActiveStage-new.js"];
+  const old=build(legacy);assert.equal(selectQuestExecutablePolicy(old.precache,old.questExecutable).mode,"legacy");
+  const explicitPreview=build({...bundle,"assets/preview.js":chunk("assets/preview.js",["assets/QuestRoot-old.js"],{isEntry:true})});
+  assert.throws(()=>selectQuestExecutablePolicy(explicitPreview.precache,explicitPreview.questExecutable),/legacy QuestRoot/);
+ });

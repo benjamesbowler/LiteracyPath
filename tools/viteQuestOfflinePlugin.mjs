@@ -214,7 +214,10 @@ export function questOfflinePlugin({ includeQuestPreview = false, buildVariant =
           };
         })
       };
-      const selectedChunks = collectChunkClosure(bundle, [...entries, ...questEntries, ...v2QuestEntries]);
+      // Precache the selected runtime, not every historical route chunk emitted
+      // by a remaining lazy import. Explicit entry dependencies are still kept;
+      // the release checker rejects a genuinely mixed legacy/v2 entry graph.
+      const selectedChunks = collectChunkClosure(bundle, [...entries, ...questExecutableRoots]);
       for (const fileName of questExecutableClosure) selectedChunks.add(fileName);
       const selected = new Set([...selectedChunks].map(fileName => `/${fileName}`));
       selected.add("/index.html");
