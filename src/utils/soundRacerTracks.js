@@ -103,6 +103,30 @@ function nearestFreeIndex(ideal, taken, limit) {
   return ideal;
 }
 
+// The racer is authored around a world-space centreline, rather than a
+// straight strip with a moving backdrop.  The points are deliberately broad
+// and forgiving for early readers, but they include real left/right bends and
+// a hairpin that the vehicle and collision surfaces can share.
+export function buildCircuitPath(totalLength, rng) {
+  const samples = Math.max(24, Math.ceil(totalLength / 5));
+  const points = [];
+  const variation = (rng() - 0.5) * 2.4;
+  for (let index = 0; index <= samples; index += 1) {
+    const distance = (index / samples) * totalLength;
+    const theta = (index / samples) * Math.PI * 2 + Math.PI / 2;
+    const x = Math.sin(theta) * (26 + variation) + Math.sin(theta * 3) * 2.2;
+    const y = Math.sin(theta * 2 + variation) * 0.82 + Math.sin(theta * 5) * 0.2;
+    const z = -38 + Math.cos(theta) * 29 + Math.sin(theta * 2) * 3.2;
+    points.push({ distance, x, y, z, heading: 0 });
+  }
+  for (let index = 0; index < points.length; index += 1) {
+    const previous = points[(index - 1 + samples) % samples];
+    const next = points[(index + 1) % samples];
+    points[index].heading = Math.atan2(next.x - previous.x, -(next.z - previous.z));
+  }
+  return points;
+}
+
 function spacedGatePositions(profile, rng) {
   const { gateCount, minGateGap, totalLength } = profile;
   const start = TRACK_START_BUFFER;
@@ -285,5 +309,15 @@ export function buildTrack(target, { difficulty, seed } = {}) {
     ...gate
   }));
 
-  return { target: g, gates, needed, totalLength };
+  const path = buildCircuitPath(totalLength, rng);
+  return {
+    target: g,
+    gates,
+    needed,
+    totalLength,
+    path,
+    closedCircuit: true,
+    laps: 1,
+    checkpoints: [0, Math.round(totalLength / 3), Math.round((totalLength * 2) / 3), totalLength]
+  };
 }

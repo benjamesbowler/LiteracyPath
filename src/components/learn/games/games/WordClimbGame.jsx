@@ -253,7 +253,7 @@ export default function WordClimbGame({
       className="word-climb"
       aria-label={`Word Climb. Choose words that start with ${session.target}.`}
       data-wc-progress={step}
-      style={{ "--wc-rise": `${climbPercent * 0.18}px`, "--wc-lane": `${lanePercent}%` }}
+    style={{ "--wc-rise": `${Math.min(52, step * 8.5)}vh`, "--wc-lane": `${lanePercent}%` }}
     >
       <BeanstalkScene />
 
@@ -288,6 +288,17 @@ export default function WordClimbGame({
           ))}
         </div>
         <strong>{step}/{session.summit}</strong>
+      </div>
+
+      <div className="wc-ledge-trail" aria-hidden="true">
+        {Array.from({ length: session.summit }, (_, index) => (
+          <span
+            className={index < step ? "is-reached" : ""}
+            data-wc-ledge-index={index}
+            key={index}
+            style={{ left: `${18 + ((index * 29) % 64)}%`, bottom: `calc(7% + ${index * 9.5}vh)` }}
+          />
+        ))}
       </div>
 
       <div className="wc-choice-field" role="group" aria-label={`Choose a word that starts with ${session.target}`}>

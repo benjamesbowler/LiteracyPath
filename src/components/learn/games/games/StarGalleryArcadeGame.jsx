@@ -202,6 +202,24 @@ function repairForState(state) {
   return state.level?.items[state.itemIndex]?.repairs[0] || null;
 }
 
+const SENTENCE_GROVE_PICTURES = Object.freeze([
+  ["cat", "/images/child-mode/cvc/cat.webp", "A cat"],
+  ["dog", "/images/child-mode/cvc/dog.webp", "A dog"],
+  ["ship", "/images/child-mode/digraphs/ship.webp", "A ship"],
+  ["fish", "/images/child-mode/short-i/fish.png", "A fish"],
+  ["sun", "/images/child-mode/short-u/sun.webp", "The sun"],
+  ["hat", "/images/child-mode/sentence-scenes/hats.webp", "Hats"],
+  ["book", "/images/child-mode/sentence-scenes/books.webp", "Books"],
+  ["moon", "/images/child-mode/sentence-scenes/ring.webp", "A moon scene"],
+  ["duck", "/images/child-mode/sentence-scenes/duck.webp", "A duck"]
+]);
+
+function pictureForRepair(repair) {
+  const haystack = `${repair?.id || ""} ${repair?.display || ""}`.toLowerCase();
+  return SENTENCE_GROVE_PICTURES.find(([token]) => haystack.includes(token))
+    || ["/images/child-mode/sentence-scenes/map.webp", "A story map"];
+}
+
 function themeFor(state) {
   return WORLD_CONFIG[state.level?.world || "meadow"] || WORLD_CONFIG.meadow;
 }
@@ -1146,9 +1164,9 @@ function createHud() {
       <div data-role="title" style="font-size:22px;font-weight:900;color:#7fffe9;">Sentence Grove</div>
       <div data-role="room" style="margin-top:4px;font-size:13px;font-weight:800;"></div>
     </div>
-    <div data-role="prompt-panel" style="position:absolute;left:50%;top:88px;transform:translateX(-50%);width:min(680px,86vw);padding:16px 22px 18px;background:rgba(3,7,18,.9);border:2px solid rgba(255,226,92,.78);clip-path:polygon(5% 0,96% 0,100% 26%,94% 100%,5% 100%,0 70%,0 18%);text-align:center;pointer-events:auto;box-shadow:0 14px 34px rgba(0,0,0,.34);">
+    <div data-role="prompt-panel" style="position:absolute;left:50%;top:82px;transform:translateX(-50%);width:min(560px,62vw);padding:10px 16px 12px;background:rgba(3,7,18,.84);border:2px solid rgba(255,226,92,.72);clip-path:polygon(5% 0,96% 0,100% 26%,94% 100%,5% 100%,0 70%,0 18%);text-align:center;pointer-events:auto;box-shadow:0 14px 34px rgba(0,0,0,.3);">
       <div data-role="prompt" data-child-instruction style="font-size:clamp(18px,2.2vw,24px);font-weight:900;color:#ffe45c;line-height:1.12;text-wrap:balance;"></div>
-      <div data-role="cue" aria-label="Picture cue" style="margin-top:6px;font-size:clamp(18px,2.4vw,26px);font-weight:900;color:#9fffe9;line-height:1.12;text-wrap:balance;"></div>
+      <div data-role="picture" style="display:flex;justify-content:center;align-items:center;height:52px;margin:3px auto 0;"><img data-role="picture-image" alt="" style="display:block;max-width:104px;max-height:52px;object-fit:contain;filter:drop-shadow(0 5px 8px rgba(0,0,0,.38));" /></div>
       <div data-role="display" data-repair-sentence style="margin-top:6px;font-size:clamp(24px,3.2vw,36px);font-weight:900;line-height:1.12;overflow-wrap:anywhere;text-wrap:balance;"></div>
       <button data-role="replay" type="button" aria-label="Hear the sentence again" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:220px;min-height:56px;margin-top:12px;padding:10px 18px;border:2px solid rgba(159,255,233,.78);border-radius:12px;background:linear-gradient(180deg,rgba(24,75,78,.96),rgba(8,38,48,.96));color:#d9fff7;font-family:inherit;font-size:16px;font-weight:900;line-height:1.1;letter-spacing:.02em;text-shadow:0 2px 0 rgba(0,0,0,.8);box-shadow:0 5px 0 rgba(0,0,0,.45);cursor:pointer;touch-action:none;">
         <span aria-hidden="true" style="font-size:20px;">&#128266;</span>
@@ -1183,7 +1201,7 @@ function createHud() {
     </div>
     <div data-role="countdown" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,4,16,.50),rgba(2,4,16,.24));display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;">
       <div data-role="countdown-prompt" style="max-width:min(860px,86vw);font-size:clamp(26px,5vw,46px);font-weight:900;line-height:1.05;text-wrap:balance;"></div>
-      <div data-role="countdown-cue" aria-label="Picture cue" style="max-width:min(880px,88vw);margin-top:18px;font-size:clamp(18px,2.6vw,28px);font-weight:900;color:#9fffe9;line-height:1.12;text-wrap:balance;"></div>
+      <div data-role="countdown-picture" style="display:flex;justify-content:center;align-items:center;height:100px;margin-top:12px;"><img data-role="countdown-picture-image" alt="" style="display:block;max-width:180px;max-height:100px;object-fit:contain;filter:drop-shadow(0 8px 12px rgba(0,0,0,.4));" /></div>
       <div data-role="countdown-display" data-repair-sentence style="max-width:min(880px,88vw);margin-top:8px;font-size:clamp(24px,3.8vw,36px);font-weight:900;color:#ffe45c;line-height:1.12;overflow-wrap:anywhere;"></div>
       <div data-role="countdown-main" style="font-size:clamp(76px,16vw,144px);font-weight:900;color:#52ffe1;line-height:1.05;"></div>
     </div>
@@ -1927,8 +1945,11 @@ function createStarGalleryEngine(mount, options) {
     }
     nodes.room.textContent = `${theme.name} ${state.stage + 1} of 10`;
     nodes.prompt.textContent = currentPrompt();
-    nodes.cue.textContent = repair?.cue ? `Picture cue: ${repair.cue}` : "";
-    nodes.cue.setAttribute("aria-label", repair?.cue ? `Picture cue: ${repair.cue}` : "Picture cue");
+    const picture = pictureForRepair(repair);
+    if (nodes.pictureImage) {
+      if (nodes.pictureImage.getAttribute("src") !== picture[0]) nodes.pictureImage.setAttribute("src", picture[0]);
+      nodes.pictureImage.alt = picture[1];
+    }
     nodes.display.textContent = state.gateLocked
       ? completedSentenceForRepair(repair, state.selectedAnswer || repair?.answer)
       : repair?.display || "";
@@ -1956,7 +1977,10 @@ function createStarGalleryEngine(mount, options) {
       const repair = repairForState(state);
       nodes.countdown.style.display = "flex";
       nodes.countdownPrompt.textContent = `Find the tree that fixes:`;
-      nodes.countdownCue.textContent = repair?.cue ? `Picture cue: ${repair.cue}` : "";
+      if (nodes.countdownPictureImage) {
+        if (nodes.countdownPictureImage.getAttribute("src") !== picture[0]) nodes.countdownPictureImage.setAttribute("src", picture[0]);
+        nodes.countdownPictureImage.alt = picture[1];
+      }
       nodes.countdownDisplay.textContent = repair?.display || "";
       nodes.countdownMain.textContent = state.countdown <= 0.72 ? "BEGIN" : String(Math.ceil(state.countdown));
       nodes.countdownMain.style.color = state.countdown <= 0.72 ? theme.accent : theme.accent2;
@@ -2123,7 +2147,7 @@ function createStarGalleryEngine(mount, options) {
     event.stopPropagation();
     speakItem();
   });
-  startLevel(state.stage, { countdown: true });
+  startLevel(state.stage);
 
   let introActive = false;
 
@@ -2213,7 +2237,7 @@ function createStarGalleryEngine(mount, options) {
       };
     },
     debugStartLevel(stage) {
-      startLevel(stage, { countdown: true });
+      startLevel(stage);
       updateHud();
       return api.debugSnapshot();
     }

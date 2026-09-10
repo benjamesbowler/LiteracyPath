@@ -53,48 +53,18 @@ function recordWordEvidence(completedKeys, stageIndex, sentenceLegIndex, wordInd
   return { added, count: completedKeys.size };
 }
 
-function buildLetterLeapChoicePlan(levelWords, worldKey, levelIndex, random = Math.random) {
+function buildLetterLeapChoicePlan(levelWords, worldKey, levelIndex) {
   const words = levelWords.map(value => String(value).toUpperCase());
-  const requiredLetters = new Set(words.join("").split(""));
-  const stageLetters = [...requiredLetters];
-  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-  const offsets = [-84, 0, 84];
   const hard = worldKey !== "meadow";
 
   return words.map((up, wordIndex) => Array.from(up, (target, order) => {
-    const shuffle = values => {
-      const pool = [...values];
-      for (let i = pool.length - 1; i > 0; i -= 1) {
-        const j = Math.floor(random() * (i + 1));
-        [pool[i], pool[j]] = [pool[j], pool[i]];
-      }
-      return pool;
-    };
-    // At least one distractor is another live stage letter. This prevents the
-    // old exploitable rule where every useful stage letter was always safe and
-    // only a stable set of rare, never-used letters could be wrong.
-    const plausible = shuffle(stageLetters.filter(letter => letter !== target));
-    const firstDecoy = plausible[0]
-      || shuffle(alphabet.filter(letter => letter !== target))[0];
-    const secondPool = shuffle(alphabet.filter(letter => (
-      letter !== target && letter !== firstDecoy
-    )));
-    const secondDecoy = plausible[1] && random() < 0.55
-      ? plausible[1]
-      : secondPool[0];
-    const decoys = [firstDecoy, secondDecoy];
-    const choices = [
-      { ch: target, word: wordIndex, order },
-      ...decoys.map(ch => ({ ch, word: -1, order: -1 }))
-    ];
-    for (let i = choices.length - 1; i > 0; i -= 1) {
-      const j = Math.floor(random() * (i + 1));
-      [choices[i], choices[j]] = [choices[j], choices[i]];
-    }
     return {
       choiceId: wordIndex + ":" + order,
       raised: hard && levelIndex >= 1 && order > 0 && (wordIndex + order) % 3 === 2,
-      choices: choices.map((choice, slot) => ({ ...choice, slot, offsetX: offsets[slot] }))
+      // Each letter is a persistent physical pickup with an authored world
+      // coordinate. The old relocating group of three made this platformer
+      // behave like a worksheet and could move answers through the terrain.
+      choices: [{ ch: target, word: wordIndex, order, slot: 0, offsetX: 0 }]
     };
   }));
 }
@@ -136,14 +106,6 @@ function letterLeapInitialChoiceCenter(width) {
   return Math.max(200, Math.min(320, Math.max(1, width) - 120));
 }
 
-function letterLeapChoiceAheadDistance(width) {
-  return Math.max(150, Math.min(280, Math.max(1, width) * 0.44));
-}
-
-function letterLeapChoiceSpacing(width) {
-  return Math.max(72, Math.min(84, Math.max(1, width) * 0.2));
-}
-
 function letterLeapCameraLookahead(width) {
   return Math.min(90, Math.max(48, Math.max(1, width) * 0.16));
 }
@@ -155,42 +117,6 @@ function letterLeapGroundHeight(height) {
   // below the compact target strip while retaining the authored 96px ground
   // everywhere with enough vertical room.
   return Math.min(GROUND_H, Math.max(40, Math.round(Math.max(1, height) * 0.25)));
-}
-
-function findLetterLeapRecoveryCenter(level, requestedCenterX, segmentWidth = 440) {
-  let centerX = requestedCenterX;
-  for (let attempts = 0; attempts < level.bubbles.length + 4; attempts += 1) {
-    const overlapsPit = level.pits.some(pit => centerX + 118 > pit[0] && centerX - 118 < pit[1]);
-    const overlapsBlock = level.blocks.some(block => (
-      !block.broken &&
-      centerX + 118 > block.x &&
-      centerX - 118 < block.x + block.w
-    ));
-    const overlapsPlatform = level.plats.some(platform => (
-      centerX + 118 > platform.x && centerX - 118 < platform.x + platform.w
-    ));
-    const overlapsFoe = level.foes.some(foe => (
-      centerX + 118 > foe.x0 && centerX - 118 < foe.x1
-    ));
-    // Inactive letter decisions are deliberately hidden and non-colliding, so
-    // they do not force the current decision farther down the course. They are
-    // repositioned in turn if the player has already passed their old slot.
-    if (!overlapsPit && !overlapsBlock && !overlapsPlatform && !overlapsFoe) return centerX;
-    centerX += segmentWidth;
-  }
-  return centerX;
-}
-
-function reserveLetterLeapChoiceLane(level, centerX, halfWidth = 118) {
-  const overlaps = (left, right) => centerX + halfWidth > left && centerX - halfWidth < right;
-  // A literacy retry is the primary game action. If the nearest readable retry
-  // lane is occupied, clear that small corridor instead of teleporting all
-  // three letters several screens away. The old behaviour made a single wrong
-  // choice look as though the letters had vanished.
-  level.pits = level.pits.filter(pit => !overlaps(pit[0], pit[1]));
-  level.blocks = level.blocks.filter(block => !overlaps(block.x, block.x + block.w));
-  level.plats = level.plats.filter(platform => !overlaps(platform.x, platform.x + platform.w));
-  level.foes = level.foes.filter(foe => !overlaps(foe.x0, foe.x1));
 }
 
 function startGame(mount, opts) {
@@ -448,15 +374,12 @@ function startGame(mount, opts) {
     const hard = worldKey !== "meadow";
     const choicePlan = buildLetterLeapChoicePlan(levelWords, worldKey, levelIndex);
 
-    // Keep all three equivalent choices inside a narrow phone viewport. The
-    // former fixed x=320 start put the right-hand option offscreen at 390px.
+    // Place each grapheme once in the authored route.  Pickups are persistent
+    // world objects: they never regroup, chase the player or move through a
+    // platform after a nearby answer is collected.
     let cx = letterLeapInitialChoiceCenter(W);
     levelWords.forEach((up, wi) => {
       for (let i = 0; i < up.length; i += 1) {
-        // Every grapheme is one freshly shuffled three-choice decision. All
-        // three bubbles share the same height, spacing and route geometry, so
-        // the letter itself — never a regular platform/offset pattern — is the
-        // only way to identify the next answer.
         const decision = choicePlan[wi][i];
         let bubbleY = groundY() - 46;
         if (decision.raised) {
@@ -467,10 +390,9 @@ function startGame(mount, opts) {
           blocks.push({ x: cx - 194, y: groundY() - 60, w: 44, h: 40, type: "brick", broken: false, used: false });
           bubbleY = py - 40;
         }
-        const choiceSpacing = letterLeapChoiceSpacing(W);
         for (const choice of decision.choices) {
           bubbles.push({
-            x: cx + Math.sign(choice.offsetX) * choiceSpacing,
+            x: cx,
             y: bubbleY,
             ch: choice.ch,
             word: choice.word,
@@ -561,52 +483,10 @@ function startGame(mount, opts) {
     return { L, pits, plats, blocks, pickups, bubbles, foes, flag, coins: coinsArr, stars: starsArr, springs: springsArr };
   }
   function inPit(x) { return level.pits.some(p => x > p[0] && x < p[1]); }
-  function refreshChoiceGroup(choiceId, requestedCenterX) {
-    const choices = level.bubbles.filter(bubble => bubble.choiceId === choiceId);
-    if (!choices.length) return;
-    const scannedCenter = findLetterLeapRecoveryCenter(level, requestedCenterX);
-    // One full segment is already beyond a phone's readable choice lane. Keep
-    // the recovery close and reserve that corridor when the scan would jump a
-    // whole scene past a secondary obstacle.
-    const centerX = scannedCenter - requestedCenterX <= letterLeapChoiceSpacing(W)
-      ? scannedCenter
-      : requestedCenterX;
-    reserveLetterLeapChoiceLane(level, centerX);
-    // A recovery cluster must not sit over a hazard. Only this decision is
-    // visible, so inactive later choices can safely reuse the same course space
-    // and will be placed in turn when they become current.
-    if (centerX + 150 >= level.flag) {
-      level.flag = centerX + 260;
-      level.L = Math.max(level.L, level.flag + 160);
-    }
-    const spacing = letterLeapChoiceSpacing(W);
-    const offsets = [-spacing, 0, spacing];
-    shuffleArr(choices.slice()).forEach((choice, slot) => {
-      choice.x = centerX + offsets[slot];
-      choice.y = groundY() - 46;
-      choice.taken = false;
-    });
-  }
   function clearChoiceGroup(choiceId) {
     for (const choice of level.bubbles) {
       if (choice.choiceId === choiceId) choice.taken = true;
     }
-  }
-
-  function keepCurrentChoiceAhead(requestedCenterX = player?.x + letterLeapChoiceAheadDistance(W)) {
-    if (!level || !player || !Number.isFinite(requestedCenterX)) return;
-    const target = level.bubbles.find(choice => (
-      !choice.taken &&
-      choice.word === wIx &&
-      choice.order === nextIx &&
-      isLetterLeapCurrentChoice(choice, wIx, nextIx)
-    ));
-    // Newly activated decisions were authored a full 440px course segment
-    // apart. On phones that leaves the next group clipped at the right edge,
-    // even though the previous letter was collected correctly. Re-seat every
-    // newly active group in the same readable lane; this also fresh-shuffles
-    // the three equivalent positions without revealing the answer.
-    if (target) refreshChoiceGroup(target.choiceId, requestedCenterX);
   }
 
   function startStage() {
@@ -713,7 +593,6 @@ function startGame(mount, opts) {
       word = words[wIx];
       nextIx = 0;
       renderWord();
-      keepCurrentChoiceAhead();
       return;
     }
     elLab.textContent = word + " built · reach the finish";
@@ -1017,13 +896,8 @@ function startGame(mount, opts) {
     idleT = (p.vx === 0 && p.onGround) ? idleT + dt : 0;
     p.squash *= 0.8;
     if (p.x < 18) p.x = 18;
-    // Catch-up: if the decision they still need is now behind them, rebuild and
-    // reshuffle the whole equivalent choice group ahead. Moving only the answer
-    // would turn recovery into a spatial giveaway.
-    const need = level.bubbles.find(b => !b.taken && b.word === wIx && b.order === nextIx);
-    if (need && need.x < p.x - 40) {
-      refreshChoiceGroup(need.choiceId, p.x + letterLeapChoiceAheadDistance(W));
-    }
+    // A missed pickup stays at its authored coordinate; backtracking is the
+    // recovery action and preserves every surrounding platform and hazard.
     for (const b of level.bubbles) {
       if (b.taken) continue;
       if (!isLetterLeapCurrentChoice(b, wIx, nextIx)) continue;
@@ -1036,7 +910,6 @@ function startGame(mount, opts) {
           const tip = "That's " + b.ch + " — you need " + word[Math.min(nextIx, word.length - 1)] + "!";
           addFloat(b.x, b.y - 26, tip); // teach, don't punish: no heart lost
           sfx(() => speak(tip));
-          refreshChoiceGroup(b.choiceId, p.x + letterLeapChoiceAheadDistance(W));
         }
         else if (b.word === wIx && b.order === nextIx) {
           const alreadySaved = completedWordEvidence.has([stageIdx, legIx, wIx].join(":"));
@@ -1053,7 +926,6 @@ function startGame(mount, opts) {
             p.vx = 0;
             renderWord();
           }
-          keepCurrentChoiceAhead();
         }
       }
     }
@@ -1394,7 +1266,6 @@ function startGame(mount, opts) {
     }
     for (const b of level.bubbles) {
       if (b.taken) continue;
-      if (!isLetterLeapCurrentChoice(b, wIx, nextIx)) continue;
       const bob = reduceMotion ? 0 : Math.sin(t * 2.4 + b.x) * 4;
       bubble(b.x, b.y + bob, b.ch);
     }

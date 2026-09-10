@@ -15,7 +15,7 @@ import {
   rocketRunLadder
 } from "../../../../utils/rocketRunRounds.js";
 import { starRubric } from "../../../../utils/starRubric.js";
-import { speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
+import { cancelSpeech, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import { onsetGrapheme } from "../../../elQuest/elQuestEngine.js";
 import { loadThree, createRenderer, createScene, createPerspectiveCamera, attachResize, createFrameLoop, attachContextLossGuard, attachSteerZones, attachSwipeSteer, prefersReducedMotion, detectQualityTier, applyQualityTier, shadowMapForTier, particleCountForTier, QUALITY_TIERS, disposeRenderer, disposeObject as disposeGroup, setTextureSrgb } from "../shared/threeShell.js";
@@ -176,6 +176,7 @@ function startGame(THREE, mount, opts) {
   // Speech rides the same live sound gate as sfx and is purely additive —
   // with sound off nothing is spoken and the game stays fully playable.
   const say = fn => { if (opts.getSound ? opts.getSound() : opts.isSoundEnabled) { try { fn(); } catch { /* speech optional */ } } };
+  const APPROACH_CUE_DISTANCE = 14;
   const motionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)") || null;
   let reduceMotion = motionQuery?.matches ?? prefersReducedMotion();
   // Scene quality controls authored geometry, setpieces, particles and effects.
@@ -951,12 +952,18 @@ function startGame(THREE, mount, opts) {
     group.position.set(laneX(lane), 1.05, -46);
     group.userData = {
       word, correct, lane, orb, cage, halo, alive: true, tries: tries || 0,
+      approachCueSpoken: false,
       setFade: a => {
         mat.uniforms.uFade.value = a;
         sprite.material.opacity = a;
         glowIn.material.opacity = 0.18 * a;
         cage.material.opacity = 0.36 * a;
         halo.material.opacity = 0.36 * a;
+      },
+      setApproachCue: active => {
+        halo.material.color.setHex(active ? 0xffffff : 0xffe36a);
+        halo.material.opacity = active ? 0.98 : 0.36;
+        cage.material.opacity = active ? 0.68 : 0.36;
       }
     };
     scene.add(group);
@@ -1065,12 +1072,34 @@ function startGame(THREE, mount, opts) {
   let cometStreakT = 6 + Math.random() * 14;       // ambient comet streak timer
   let countdownT = 0;                              // start-of-round get-ready countdown
   let roundTarget = "";                            // current target grapheme (for refill)
+  let approachCueCarrier = null;
                      // one-time "how to steer" countdown hint
   // (speedLines is declared up in the scene-setup section, before it's populated)
 
   const hearTargetButton = el("hear-target");
   function replayTarget() {
     if (roundTarget) say(() => speakPhoneme(roundTarget));
+  }
+  function clearApproachCue() {
+    if (approachCueCarrier?.userData?.setApproachCue) approachCueCarrier.userData.setApproachCue(false);
+    approachCueCarrier = null;
+    cancelSpeech();
+  }
+  function cueNearestApproach(noseZ) {
+    if (!(opts.getSound ? opts.getSound() : opts.isSoundEnabled)) return;
+    if (approachCueCarrier && (!approachCueCarrier.userData.alive || approachCueCarrier.userData.passed)) {
+      clearApproachCue();
+    }
+    const candidate = bubbles
+      .filter(bubble => bubble.userData.alive && bubble.userData.word && !bubble.userData.passed && !bubble.userData.approachCueSpoken)
+      .map(bubble => ({ bubble, distance: noseZ - bubble.position.z }))
+      .filter(item => item.distance > 0 && item.distance <= APPROACH_CUE_DISTANCE)
+      .sort((a, b) => a.distance - b.distance)[0]?.bubble;
+    if (!candidate || approachCueCarrier) return;
+    approachCueCarrier = candidate;
+    candidate.userData.approachCueSpoken = true;
+    candidate.userData.setApproachCue?.(true);
+    say(() => speakWord(candidate.userData.word));
   }
   function syncHearTargetControl() {
     if (!hearTargetButton) return;
@@ -1118,7 +1147,7 @@ function startGame(THREE, mount, opts) {
     missed += 1; // a missed catch counts as a mistake in the end-of-game rubric
     resetCombo(); // a correct word slipping past breaks the streak
     missCue();
-    say(() => speakWord(data.word)); // hear the word that slipped past
+    if (approachCueCarrier?.userData?.word === data.word) clearApproachCue();
     if (tries <= 2) queue.splice(Math.min(3, queue.length), 0, { word: data.word, correct: true, tries });
     else queue.splice(Math.min(1, queue.length), 0, { word: data.word, correct: true, tries, guaranteed: true });
   }
@@ -1130,6 +1159,7 @@ function startGame(THREE, mount, opts) {
   }
 
   function startRound() {
+    clearApproachCue();
     theme = ROUND_THEMES[roundIx % ROUND_THEMES.length];       // themed sector
     fogTarget.set(theme.fog); ambientTarget.set(theme.ambient); // tweened in tick
     // Recolour the world so each sector looks distinct — stars, rails, backdrop sun.
@@ -1246,6 +1276,7 @@ function startGame(THREE, mount, opts) {
   }
 
   function resolveBubble(bubble) {
+    if (approachCueCarrier === bubble) clearApproachCue();
     bubble.userData.alive = false;
     const hit = bubble.userData.lane === laneIx;
     if (bubble.userData.ring) {
@@ -1275,10 +1306,9 @@ function startGame(THREE, mount, opts) {
       sfx(playCorrectChime);
       sfx(playPopSound);
       showBanner("'" + bubble.userData.word + "' starts with '" + roundTarget + "' ✓", 2.0);
-      say(async () => {
-        try { await speakWord(bubble.userData.word); } catch { /* word clip optional */ }
-        try { await speakPhoneme(roundTarget); } catch { /* phoneme cue optional */ }
-      });
+      // The word was already spoken on its approach. Repeating it after the
+      // collision would make the next carrier's cue stale or overlap it.
+      say(() => speakPhoneme(roundTarget));
       burst(bubble.position, 0x8affc0);
     } else if (hit && !bubble.userData.correct) {
       // Wrong word = SOFT penalty (hearts are for meteors only): the bubble
@@ -1290,10 +1320,7 @@ function startGame(THREE, mount, opts) {
       sfx(playSoftBuzz);
       const onset = onsetGrapheme(bubble.userData.word);
       showBanner("'" + bubble.userData.word + "' starts with '" + onset + "'", 2.4);
-      say(async () => {
-        try { await speakWord(bubble.userData.word); } catch { /* word clip optional */ }
-        try { await speakPhoneme(onset); } catch { /* phoneme cue optional */ }
-      });
+      say(() => speakPhoneme(onset));
       burst(bubble.position, 0xffd34e);
     }
     scene.remove(bubble); disposeGroup(bubble);
@@ -1586,10 +1613,6 @@ function startGame(THREE, mount, opts) {
           let lane = item.guaranteed ? laneIx : Math.floor(Math.random() * 3);
           if (avoidLane != null && lane === avoidLane) lane = (lane + 1 + Math.floor(Math.random() * 2)) % 3;
           bubbles.push(item.ring ? makeRing(lane) : item.heart ? makeHeart(lane) : item.meteor ? makeMeteor(lane) : makeBubble(item.word, item.correct, lane, item.tries));
-          // Entry readers should not need to decode a moving word before they
-          // can practise its first sound. Easy mode says each word as it enters,
-          // creating a true listen → identify → steer loop.
-          if (opts.difficulty === "easy" && item.word) say(() => speakWord(item.word));
           return lane;
         };
         const lane = spawnOne(null);
@@ -1605,6 +1628,7 @@ function startGame(THREE, mount, opts) {
           : Math.max(0.7, 1.2 / Math.sqrt(speed));
       }
       const noseZ = ship.position.z - 1.9; // catch at the rocket's NOSE, not its centre/tail
+      cueNearestApproach(noseZ);
       for (const bubble of bubbles) {
         if (!bubble.userData.alive) continue;
         bubble.position.z += dt * 11 * speed * boost;
@@ -1624,6 +1648,7 @@ function startGame(THREE, mount, opts) {
           if (bubble.position.z > noseZ + 0.7) {
             // Crossed the ROCKET NOSE uncaught — pass-by cue fires HERE.
             bubble.userData.passed = true;
+            if (approachCueCarrier === bubble) clearApproachCue();
             if (bubble.userData.correct) requeueMissed(bubble.userData);
             else if (!bubble.userData.meteor && !bubble.userData.ring && !bubble.userData.heart) sfx(playWhoosh);
           }
@@ -1667,7 +1692,14 @@ function startGame(THREE, mount, opts) {
   loop.start();
 
   let paused = false, savedRunning = false, introActive = false;
-  function pause() { if (paused) return; paused = true; savedRunning = running; running = false; }
+  function pause() {
+    if (paused) return;
+    paused = true;
+    savedRunning = running;
+    running = false;
+    if (approachCueCarrier) approachCueCarrier.userData.approachCueSpoken = false;
+    clearApproachCue();
+  }
   function resume() { if (!paused || introActive) return; paused = false; last = performance.now(); if (savedRunning) running = true; }
 
   const detachContextGuard = attachContextLossGuard(renderer, {
@@ -1678,6 +1710,7 @@ function startGame(THREE, mount, opts) {
     }
   });
   function teardown() {
+    clearApproachCue();
     loop.stop();
     detachContextGuard();
     detachSteerZones();

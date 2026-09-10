@@ -29,10 +29,52 @@ const TRACK_WIDTH = 9.6;
 const TRACK_SEGMENT_LENGTH = 8;
 const TRACK_SEGMENTS = 28;
 const VIEW_DISTANCE = 34;
-const CATCH_Z = 2.4;
 const CATCH_WINDOW = 0.58;
 const SCENERY_WRAP_Z = -235;
 const SCENERY_RESET_Z = 18;
+
+function sampleCircuitPath(path, distance) {
+  if (!Array.isArray(path) || path.length < 2) return { x: 0, y: 0, z: -distance, heading: 0 };
+  const first = path[0];
+  const last = path[path.length - 1];
+  const target = Number(distance) || 0;
+  if (target <= first.distance) return { ...first };
+  if (target >= last.distance) {
+    const heading = last.heading || 0;
+    const extra = target - last.distance;
+    return {
+      x: last.x + Math.sin(heading) * extra,
+      y: last.y,
+      z: last.z - Math.cos(heading) * extra,
+      heading
+    };
+  }
+  let low = 0;
+  let high = path.length - 1;
+  while (low + 1 < high) {
+    const mid = Math.floor((low + high) / 2);
+    if (path[mid].distance <= target) low = mid;
+    else high = mid;
+  }
+  const a = path[low];
+  const b = path[high];
+  const ratio = (target - a.distance) / Math.max(0.001, b.distance - a.distance);
+  return {
+    x: a.x + (b.x - a.x) * ratio,
+    y: a.y + (b.y - a.y) * ratio,
+    z: a.z + (b.z - a.z) * ratio,
+    heading: a.heading + (b.heading - a.heading) * ratio
+  };
+}
+
+function offsetCircuitPoint(point, lateral) {
+  const amount = Number(lateral) || 0;
+  return {
+    x: point.x + Math.cos(point.heading) * amount,
+    y: point.y,
+    z: point.z + Math.sin(point.heading) * amount
+  };
+}
 
 // The broad side zones make a full-screen racer comfortable to tap and swipe,
 // but they must not be the focusable controls: the global Arcade focus ring
@@ -449,6 +491,7 @@ function startGame(THREE, mount, opts) {
     '<div data-sr-panel="status" style="position:absolute;top:16px;right:16px;text-align:right;background:rgba(7,10,22,.62);border:1px solid rgba(255,255,255,.16);padding:9px 12px;min-width:160px;clip-path:polygon(12px 0,100% 0,100% 100%,0 100%,0 12px)">' +
       '<div data-sr="timer" style="font-size:1.15rem;font-weight:900;font-variant-numeric:tabular-nums">0:00.00</div>' +
       '<div data-sr="words" style="font-size:.98rem;opacity:.9">0 / 0 words</div>' +
+      '<div data-sr="checkpoint" style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#b7f7df;opacity:.82;margin-top:3px">Checkpoint 1 / 4 · Lap 1 / 1</div>' +
       '<div data-sr="shield" style="font-size:1.05rem;letter-spacing:2px;margin-top:2px">◆◆◆</div>' +
       '<div style="height:9px;background:rgba(255,255,255,.12);overflow:hidden;margin-top:7px"><i data-sr="speed" style="display:block;height:100%;width:0%;background:#7cf0b6;transition:width .18s ease"></i></div></div>' +
     '<div data-sr="left-zone" aria-hidden="true" style="position:absolute;left:0;top:84px;bottom:0;width:42%;pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none"></div>' +
@@ -504,6 +547,10 @@ function startGame(THREE, mount, opts) {
   let laneIx = 1;
   hud.dataset.soundRacerLane = String(laneIx);
   let playerZ = 0;
+  let lateralOffset = 0;
+  let lateralTarget = 0;
+  let offRoadCooldown = 0;
+  let checkpointIndex = 0;
   let speed = 0;
   let timeMs = 0;
   let score = 0;
@@ -2597,14 +2644,21 @@ function startGame(THREE, mount, opts) {
 
     for (let i = 0; i < 10; i += 1) {
       const gantry = makeTrackGantry(i);
-      gantry.position.set(0, 0.02, -34 - i * 27);
+      const point = sampleCircuitPath(track?.path, 24 + i * 27);
+      gantry.position.set(point.x, point.y + 0.02, point.z);
+      gantry.rotation.y = point.heading;
+      gantry.userData.trackBound = true;
       sceneryGroup.add(gantry);
     }
 
     for (let i = 0; i < 30; i += 1) {
       for (const side of [-1, 1]) {
         const bank = makeTracksideBank(i, side);
-        bank.position.z = -10 - i * 8.1;
+        const point = sampleCircuitPath(track?.path, 12 + i * 8.1);
+        const offset = offsetCircuitPoint(point, side * (TRACK_WIDTH / 2 + 3.2));
+        bank.position.set(offset.x, offset.y, offset.z);
+        bank.rotation.y = point.heading;
+        bank.userData.trackBound = true;
         sceneryGroup.add(bank);
       }
     }
@@ -2612,7 +2666,11 @@ function startGame(THREE, mount, opts) {
     for (let i = 0; i < 58; i += 1) {
       const side = i % 2 === 0 ? -1 : 1;
       const prop = makeRoadsideProp(i, side);
-      prop.position.z = -9 - i * 4.7;
+      const point = sampleCircuitPath(track?.path, 10 + i * 4.7);
+      const offset = offsetCircuitPoint(point, side * (TRACK_WIDTH / 2 + 4.5));
+      prop.position.set(offset.x, offset.y, offset.z);
+      prop.rotation.y = point.heading;
+      prop.userData.trackBound = true;
       sceneryGroup.add(prop);
     }
 
@@ -2636,6 +2694,7 @@ function startGame(THREE, mount, opts) {
         rail.position.x = x;
         rail.position.y = 0.18;
         rail.userData.segmentIx = i;
+        rail.userData.railLane = x;
         railGroup.add(rail);
         railSegments.push(rail);
       }
@@ -2699,12 +2758,16 @@ function startGame(THREE, mount, opts) {
     cancelRecordedCue(overlayCueTimer);
     overlayCueTimer = null;
     currentMap = mapForLevel(world, levelIdx);
-    resetSceneForMap();
     const target = ladder[levelIdx % ladder.length];
     track = buildTrack(target, { difficulty, seed: levelIdx });
+    resetSceneForMap();
     gateObjects = track.gates.map(makeGateObject);
     playerZ = -4;
     laneIx = 1;
+    lateralOffset = LANES[laneIx];
+    lateralTarget = LANES[laneIx];
+    offRoadCooldown = 0;
+    checkpointIndex = 0;
     speed = difficulty === "hard" || difficulty === "high" ? 6.8 : difficulty === "medium" || difficulty === "mid" ? 6.1 : 5.4;
     timeMs = 0;
     wordsCorrect = 0;
@@ -2774,12 +2837,14 @@ function startGame(THREE, mount, opts) {
     if (!track) return;
     const timerEl = el("timer");
     const wordsEl = el("words");
+    const checkpointEl = el("checkpoint");
     const shieldEl = el("shield");
     const speedEl = el("speed");
     const hearTargetEl = el("hear-target");
     const replayAvailable = opts.getSound ? opts.getSound() : opts.isSoundEnabled !== false;
     if (timerEl) timerEl.textContent = formatTime(timeMs);
     if (wordsEl) wordsEl.textContent = `${wordsCorrect} / ${track.needed} words`;
+    if (checkpointEl) checkpointEl.textContent = `Checkpoint ${Math.min(checkpointIndex + 1, (track.checkpoints?.length || 1))} / ${track.checkpoints?.length || 1} · Lap 1 / ${track.laps || 1}`;
     if (shieldEl) shieldEl.textContent = "◆".repeat(Math.max(0, shield)) + "◇".repeat(Math.max(0, 3 - shield));
     if (hearTargetEl) {
       hearTargetEl.hidden = !replayAvailable;
@@ -2790,6 +2855,7 @@ function startGame(THREE, mount, opts) {
       speedEl.style.background = "#" + currentMap.gate.toString(16).padStart(6, "0");
       speedEl.style.width = `${Math.min(100, Math.max(0, (speed / maxSpeed) * 100))}%`;
     }
+    hud.dataset.soundRacerCheckpoint = String(checkpointIndex);
   }
 
   function addBurst(x, y, z, color, count = 16) {
@@ -2839,7 +2905,9 @@ function startGame(THREE, mount, opts) {
 
   function resolveGate(obj) {
     obj.resolved = true;
-    const hit = obj.lane === laneIx;
+    const hit = Math.abs(lateralOffset - LANES[obj.lane]) <= 1.18;
+    const point = sampleCircuitPath(track?.path, obj.z);
+    const impact = offsetCircuitPoint(point, LANES[obj.lane]);
     if (obj.correct && hit) {
       if (!caughtCorrectWords.has(obj.word)) {
         caughtCorrectWords.add(obj.word);
@@ -2853,19 +2921,19 @@ function startGame(THREE, mount, opts) {
         // caught onset instead of allowing apparently random silent successes.
         sfx(() => speakPhoneme(track.target));
         showBanner(`${obj.word} starts with ${String(track.target).toUpperCase()} ✓`);
-        addBurst(LANES[obj.lane], 1.1, CATCH_Z, currentMap.gate, 20);
+        addBurst(impact.x, impact.y + 1.1, impact.z, currentMap.gate, 20);
       }
     } else if (obj.kind === "obstacle" && hit) {
       obstaclesHit += 1;
       hurtShip("obstacle");
-      addBurst(LANES[obj.lane], 0.9, CATCH_Z, 0xff7a66, 14);
+      addBurst(impact.x, impact.y + 0.9, impact.z, 0xff7a66, 14);
     } else if (hit && obj.kind === "word" && !obj.correct) {
       wordsWrong += 1;
       hurtShip("wrong");
       // Name the word's real onset so a wrong catch teaches something.
       const onset = onsetGrapheme(obj.word);
       if (onset) showBanner(`${obj.word} starts with ${String(onset).toUpperCase()}`);
-      addBurst(LANES[obj.lane], 1.1, CATCH_Z, 0xff7a66, 12);
+      addBurst(impact.x, impact.y + 1.1, impact.z, 0xff7a66, 12);
     } else if (obj.correct && !hit) {
       missedCorrect += 1;
       queueCatchUp(obj.word, (obj.tries || 0) + 1);
@@ -2984,6 +3052,7 @@ function startGame(THREE, mount, opts) {
     const next = Math.max(0, Math.min(2, laneIx + dir));
     if (next !== laneIx) {
       laneIx = next;
+      lateralTarget = LANES[laneIx];
       hud.dataset.soundRacerLane = String(laneIx);
       sfx(playTapSound);
     }
@@ -3042,17 +3111,22 @@ function startGame(THREE, mount, opts) {
 
   function updateTrackVisuals(dt) {
     const opticalFlowScale = reduceMotion ? 0.45 : 1;
-    const travel = ((playerZ * TRACK_UNIT) % TRACK_SEGMENT_LENGTH + TRACK_SEGMENT_LENGTH) % TRACK_SEGMENT_LENGTH;
     if (roadTexture) roadTexture.offset.y = (playerZ * 0.012 + elapsed * 0.045 * opticalFlowScale) % 1;
     for (let i = 0; i < trackSegments.length; i += 1) {
-      trackSegments[i].position.z = CATCH_Z + travel - i * TRACK_SEGMENT_LENGTH;
+      const point = sampleCircuitPath(track?.path, playerZ + i * TRACK_SEGMENT_LENGTH - 16);
+      trackSegments[i].position.set(point.x, point.y, point.z);
+      trackSegments[i].rotation.y = point.heading;
     }
     for (let i = 0; i < railSegments.length; i += 1) {
       const segmentIx = railSegments[i].userData.segmentIx ?? Math.floor(i / 4);
-      railSegments[i].position.z = CATCH_Z + travel - segmentIx * TRACK_SEGMENT_LENGTH;
+      const point = sampleCircuitPath(track?.path, playerZ + segmentIx * TRACK_SEGMENT_LENGTH - 16);
+      const offset = offsetCircuitPoint(point, railSegments[i].userData.railLane ?? 0);
+      railSegments[i].position.set(offset.x, offset.y + 0.18, offset.z);
+      railSegments[i].rotation.y = point.heading;
       railSegments[i].material.opacity = 0.34 + Math.abs(Math.sin(elapsed * 2 + segmentIx * 0.3)) * 0.3;
     }
     for (const prop of sceneryGroup.children) {
+      if (prop.userData?.trackBound) continue;
       const scrollFactor = prop.userData?.scrollFactor;
       if (!scrollFactor) continue;
       // Preserve the authored 60fps rate while making the motion frame-rate
@@ -3087,13 +3161,14 @@ function startGame(THREE, mount, opts) {
       if (distance < -3 || distance > VIEW_DISTANCE) {
         obj.mesh.visible = false;
       } else {
-        const z = CATCH_Z - distance * TRACK_UNIT;
+        const point = sampleCircuitPath(track.path, obj.z);
+        const offset = offsetCircuitPoint(point, LANES[obj.lane]);
         const t = Math.max(0, 1 - distance / VIEW_DISTANCE);
         obj.mesh.visible = true;
-        obj.mesh.position.set(LANES[obj.lane], 0.78 + t * 0.34, z);
+        obj.mesh.position.set(offset.x, offset.y + 0.78 + t * 0.34, offset.z);
         const scale = 0.55 + t * 0.72;
         obj.mesh.scale.setScalar(scale);
-        obj.mesh.rotation.y += dt * obj.mesh.userData.spin;
+        obj.mesh.rotation.y = point.heading + elapsed * obj.mesh.userData.spin;
         if (obj.kind === "obstacle") obj.mesh.rotation.x += dt * 0.8;
       }
       if (obj.catchup && obj.tries >= 2 && !obj.hintShown && distance > 0 && distance <= VIEW_DISTANCE) {
@@ -3117,11 +3192,14 @@ function startGame(THREE, mount, opts) {
 
   function updateShip(dt, now) {
     if (!ship) return;
-    const targetX = LANES[laneIx];
-    ship.position.x += (targetX - ship.position.x) * Math.min(1, dt * 10);
-    ship.rotation.z = (targetX - ship.position.x) * -0.22;
+    lateralOffset += (lateralTarget - lateralOffset) * Math.min(1, dt * 8);
+    const point = sampleCircuitPath(track?.path, playerZ);
+    const worldPosition = offsetCircuitPoint(point, lateralOffset);
+    ship.position.set(worldPosition.x, worldPosition.y + 1.03, worldPosition.z);
+    ship.rotation.y = point.heading;
+    ship.rotation.z = (lateralTarget - lateralOffset) * -0.12;
     ship.rotation.x = reduceMotion ? 0 : Math.sin(now * 0.004) * 0.045;
-    ship.position.y = reduceMotion ? 1.03 : 1.03 + Math.sin(now * 0.006) * 0.045;
+    ship.position.y += reduceMotion ? 0 : Math.sin(now * 0.006) * 0.045;
     const boostScale = boostT > 0 ? 1.55 : 1;
     if (ship.userData.engines) {
       for (const engine of ship.userData.engines) {
@@ -3198,14 +3276,36 @@ function startGame(THREE, mount, opts) {
       dragT = Math.max(0, dragT - dt);
       shakeT = Math.max(0, shakeT - dt);
       playerZ += speed * dt * (reduceMotion ? 0.55 : 1);
+      while (checkpointIndex < (track.checkpoints?.length || 1) - 1 && playerZ >= track.checkpoints[checkpointIndex + 1]) {
+        checkpointIndex += 1;
+        sfx(playStarChime);
+      }
       updateGates(dt);
       updateHud();
     }
 
-    updateTrackVisuals(dt);
-    updateAtmosphere(now);
-    updateShip(dt, now);
-    updateBursts(dt);
+      updateTrackVisuals(dt);
+      updateAtmosphere(now);
+      updateShip(dt, now);
+      offRoadCooldown = Math.max(0, offRoadCooldown - dt);
+      if (Math.abs(lateralOffset) > TRACK_WIDTH / 2 - 0.55 && offRoadCooldown <= 0) {
+        obstaclesHit += 1;
+        offRoadCooldown = 0.8;
+        lateralTarget = Math.max(-TRACK_WIDTH / 2 + 0.72, Math.min(TRACK_WIDTH / 2 - 0.72, lateralTarget));
+        hurtShip("off-road");
+        showBanner("Back on the road!");
+      }
+      updateBursts(dt);
+
+      // The camera is attached to the same centreline as the kart.  It turns
+      // through corners and looks into the next section instead of keeping a
+      // fixed heading while a decorative backdrop scrolls behind it.
+      const cameraPath = sampleCircuitPath(track.path, playerZ - 8);
+      const lookPath = sampleCircuitPath(track.path, playerZ + 18);
+      camera.position.x += (cameraPath.x - camera.position.x) * Math.min(1, dt * 5);
+      camera.position.y += (cameraPath.y + cameraBaseY - camera.position.y) * Math.min(1, dt * 5);
+      camera.position.z += (cameraPath.z + cameraBaseZ - camera.position.z) * Math.min(1, dt * 5);
+      camera.lookAt(lookPath.x, lookPath.y + 1.0, lookPath.z);
 
     const wantedFov = boostT > 0 && !reduceMotion ? 73 : cameraBaseFov;
     if (Math.abs(fov - wantedFov) > 0.1) {
@@ -3214,11 +3314,10 @@ function startGame(THREE, mount, opts) {
       camera.updateProjectionMatrix();
     }
     if (!reduceMotion && shakeT > 0) {
-      camera.position.x = Math.sin(now * 0.08) * shakeT * 0.6;
-      camera.position.y = cameraBaseY + Math.cos(now * 0.06) * shakeT * 0.24;
+      camera.position.x += Math.sin(now * 0.08) * shakeT * 0.6;
+      camera.position.y += Math.cos(now * 0.06) * shakeT * 0.24;
     } else {
-      camera.position.x *= 0.84;
-      camera.position.y += (cameraBaseY - camera.position.y) * 0.12;
+      // Centreline following above owns the base camera position.
     }
     const renderedTier = premiumRender.render(dt);
     if (renderedTier !== qualityTier) {

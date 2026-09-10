@@ -20,9 +20,9 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
     experiencePromise: "A forgiving side-scrolling spelling adventure where every useful jump completes the word in view.",
     learning: {
       targetConstruct: "Encode a spoken or picture-cued word by selecting its graphemes in order.",
-      childGoal: "Run and jump through the correct next letter in each three-choice cluster to spell the word.",
+      childGoal: "Run and jump through each persistent letter in order to spell the word.",
       integratedAction: "Colliding with the next required grapheme fills the next persistent word slot.",
-      nonTargetDemands: "Horizontal movement, jumping, platforms, hazards and route navigation.",
+      nonTargetDemands: "Horizontal movement, jumping, platforms, hazards and route navigation without moving the letters.",
       evidenceEvent: "Only a completed ordered word advances recorded word progress; movement, coins and survival do not.",
       movementCreatesEvidence: false
     },
@@ -31,7 +31,7 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
       perceive: "Keep a picture or masked sentence cue, completed graphemes and the next empty slot visible together.",
       act: "Move and jump into the next required grapheme.",
       feedback: "Fill the matching slot immediately; wrong collisions retain the goal and give a specific contrast cue.",
-      retry: "Respawn missed letters ahead and return a failed stage through the catch-up queue.",
+      retry: "Leave missed letters at their authored coordinates so the child can backtrack and try again.",
       complete: "Show words spelled, score and earned collectibles, then continue or return through Arcade chrome."
     },
     prompt: {
@@ -111,7 +111,7 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
       targetConstruct: "Identify which printed word begins with the shown and spoken target phoneme.",
       childGoal: "Read three leaf words and choose the one that starts with the target sound.",
       integratedAction: "Choosing the matching word completes one climb and reveals a fresh equal-position choice set.",
-      nonTargetDemands: "Scanning three equivalent leaf positions and following the climber's decorative route.",
+      nonTargetDemands: "Comparing three equal leaf ledges while following the climber's vertical route.",
       evidenceEvent: "Only a deliberate correct word choice advances the recorded climb; route animation and position do not.",
       movementCreatesEvidence: false
     },

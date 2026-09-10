@@ -271,7 +271,35 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(18px, 5vw, 80px);
-  transform: translateX(-50%);
+  transform: translate(-50%, calc(var(--wc-rise, 0px) * -.22));
+  transition: transform 700ms cubic-bezier(.2, .8, .2, 1);
+}
+
+.wc-ledge-trail {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.wc-ledge-trail span {
+  position: absolute;
+  width: clamp(82px, 13vw, 156px);
+  height: 18px;
+  transform: translateX(-50%) skewX(-18deg);
+  border: 2px solid rgba(222, 255, 172, .42);
+  border-radius: 60% 20% 60% 20%;
+  background: linear-gradient(180deg, rgba(113, 209, 117, .84), rgba(25, 104, 75, .94));
+  box-shadow: 0 8px 14px rgba(2, 24, 22, .3), inset 0 2px rgba(255, 255, 255, .18);
+  opacity: .6;
+  transition: filter 600ms ease, opacity 600ms ease, transform 600ms ease;
+}
+
+.wc-ledge-trail span.is-reached {
+  opacity: 1;
+  filter: brightness(1.25) drop-shadow(0 0 12px rgba(219, 255, 128, .46));
+  transform: translateX(-50%) skewX(-18deg) scale(1.04);
 }
 
 .wc-word-ledge {
@@ -311,7 +339,7 @@
   position: absolute;
   z-index: 9;
   left: var(--wc-lane, 50%);
-  bottom: 3.5%;
+  bottom: calc(3.5% + var(--wc-rise, 0px));
   width: clamp(70px, 8vw, 106px);
   height: clamp(86px, 11vw, 136px);
   transform: translateX(-50%);
