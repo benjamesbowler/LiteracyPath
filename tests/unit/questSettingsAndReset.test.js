@@ -64,9 +64,9 @@ test("comfort and sound settings survive normalisation", () => {
   assert.equal("quietSoundscape" in settings, false);
 });
 
-test("spoken audio and music default on independently", () => {
+test("spoken audio defaults on while music defaults off", () => {
   assert.equal(normalizeQuestSettings({}).soundEnabled, true);
-  assert.equal(normalizeQuestSettings({}).musicEnabled, true);
+  assert.equal(normalizeQuestSettings({}).musicEnabled, false);
   assert.deepEqual(
     normalizeQuestSettings({ musicEnabled: false, soundEnabled: true }),
     {
@@ -74,7 +74,8 @@ test("spoken audio and music default on independently", () => {
       reducedMotion: false,
       highContrast: false,
       soundEnabled: true,
-      musicEnabled: false
+      musicEnabled: false,
+      musicPreferenceVersion: 1
     }
   );
 });

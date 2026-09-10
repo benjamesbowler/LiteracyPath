@@ -1,3 +1,4 @@
+import { MUSIC_PREFERENCE_VERSION, normalizeAudioPreferences } from "./audio/audioPreferences.js";
 import { mergePracticeProgressValue, mergePracticeProgressRecords } from "./practiceCompletionRecords.js";
 // Pure merge rules for hydrating cloud progress into local storage.
 // Kept separate from progressSync.js so it can be unit-tested without pulling in
@@ -431,7 +432,11 @@ export function computeHydratedValue(area, key, existing, payload) {
       else delete merged.checkpoints;
       games[id] = merged;
     }
-    return { ...base, ...cloud, games };
+    // Do not attach a local migration marker to an old cloud music-on value.
+    const musicSource = cloud.musicPreferenceVersion === MUSIC_PREFERENCE_VERSION
+      ? cloud : base.musicPreferenceVersion === MUSIC_PREFERENCE_VERSION ? base : cloud;
+    const { musicEnabled, musicPreferenceVersion } = normalizeAudioPreferences(musicSource);
+    return { ...base, ...cloud, games, musicEnabled, musicPreferenceVersion };
   }
 
   // Per-item progress records: forward-merge so completed/words/scores can't regress.

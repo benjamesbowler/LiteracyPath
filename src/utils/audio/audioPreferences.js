@@ -1,18 +1,17 @@
 export const DEFAULT_SPOKEN_AUDIO_ENABLED = true;
 export const DEFAULT_MUSIC_ENABLED = false;
+export const MUSIC_PREFERENCE_VERSION = 1;
 
 export function normalizeAudioPreferences(raw = {}) {
-  const hasExplicitMusicPreference = typeof raw?.musicEnabled === "boolean";
+  // Older saves contain music-on values written by the former default, not
+  // necessarily a child choosing music. Reset those once; subsequent choices
+  // travel with this version through local storage and progress sync.
+  const currentPreference = raw?.musicPreferenceVersion === MUSIC_PREFERENCE_VERSION;
   return {
     soundEnabled: raw?.soundEnabled !== false,
-    // Sound Seekers previously stored the inverse preference as
-    // `quietSoundscape`, while Arcade's single sound switch muted everything.
-    // Read either legacy mute as music-off so an already-quiet child never gets
-    // surprise music, but emit only the current positive setting everywhere.
-    musicEnabled: hasExplicitMusicPreference
+    musicEnabled: currentPreference && typeof raw?.musicEnabled === "boolean"
       ? raw.musicEnabled
-      : raw?.quietSoundscape || raw?.soundEnabled === false
-        ? false
-        : DEFAULT_MUSIC_ENABLED
+      : DEFAULT_MUSIC_ENABLED,
+    musicPreferenceVersion: MUSIC_PREFERENCE_VERSION
   };
 }
