@@ -1,4 +1,4 @@
-import { DEFAULT_MUSIC_ENABLED } from "../../../utils/audio/audioPreferences.js";
+import { normalizeAudioPreferences } from "../../../utils/audio/audioPreferences.js";
 import {
   createContentDeckState,
   mergeAttemptReceipts,
@@ -16,21 +16,6 @@ import { createCharacterAppearance } from "../visual/characterCustomization.js";
 export const SOUND_SEEKERS_SCHEMA_VERSION = 2;
 export const SOUND_SEEKERS_CONTENT_VERSION = "sound-seekers-v2";
 export const MAX_SOUND_SEEKERS_EVIDENCE = 1200;
-
-const DEFAULT_SETTINGS = Object.freeze({
-  reducedMotion: false,
-  highContrast: false,
-  soundEnabled: true,
-  music: DEFAULT_MUSIC_ENABLED,
-  musicEnabled: DEFAULT_MUSIC_ENABLED,
-  displayMode: "auto",
-  autoTravel: false,
-  slowerMovement: false,
-  noDamageTravel: false,
-  largerTargets: false,
-  simplifiedScene: false,
-  extendedResponse: false
-});
 
 function asObject(value) {
   return value && typeof value === "object" && !Array.isArray(value) ? value : {};
@@ -53,19 +38,16 @@ function normalizeIdList(value) {
 
 export function normalizeAllowlistedSettings(raw = {}) {
   const value = asObject(raw);
-  const quietLegacyAudio = value.quietSoundscape === true || value.soundEnabled === false;
-  const music = typeof value.music === "boolean"
-    ? value.music
-    : typeof value.musicEnabled === "boolean"
-      ? value.musicEnabled
-      : quietLegacyAudio ? false : DEFAULT_SETTINGS.music;
+  const audio = normalizeAudioPreferences({
+    ...value,
+    musicEnabled: typeof value.music === "boolean" ? value.music : value.musicEnabled
+  });
   const displayMode = value.displayMode === "pixel" ? "pixel" : "auto";
   const normalized = {
     reducedMotion: Boolean(value.reducedMotion),
     highContrast: Boolean(value.highContrast),
-    soundEnabled: value.soundEnabled !== false,
-    music,
-    musicEnabled: music,
+    ...audio,
+    music: audio.musicEnabled,
     displayMode,
     autoTravel: value.autoTravel === true,
     slowerMovement: value.slowerMovement === true,

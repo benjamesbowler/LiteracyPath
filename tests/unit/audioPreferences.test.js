@@ -4,35 +4,14 @@ import test from "node:test";
 
 import { normalizeAudioPreferences } from "../../src/utils/audio/audioPreferences.js";
 
-test("music defaults off without disabling spoken teaching audio", () => {
-  assert.deepEqual(normalizeAudioPreferences(), {
-    soundEnabled: true,
-    musicEnabled: false
-  });
-  assert.deepEqual(normalizeAudioPreferences({ musicEnabled: false, soundEnabled: true }), {
-    soundEnabled: true,
-    musicEnabled: false
-  });
-  assert.deepEqual(normalizeAudioPreferences({ musicEnabled: true, soundEnabled: false }), {
-    soundEnabled: false,
-    musicEnabled: true
-  });
-});
-
-test("the retired quiet-soundscape setting migrates to the current music preference", () => {
-  assert.deepEqual(normalizeAudioPreferences({ quietSoundscape: true }), {
-    soundEnabled: true,
-    musicEnabled: false
-  });
-  assert.equal(
-    normalizeAudioPreferences({ quietSoundscape: true, musicEnabled: true }).musicEnabled,
-    true,
-    "an explicit current preference must outrank the retired inverse field"
-  );
-  assert.deepEqual(normalizeAudioPreferences({ soundEnabled: false }), {
-    soundEnabled: false,
-    musicEnabled: false
-  }, "a previously muted child must not suddenly hear music after migration");
+test("old automatic music-on saves migrate off without changing speech", () => {
+  for (const raw of [{}, { musicEnabled: true }, { musicEnabled: false }, { quietSoundscape: false }, { soundEnabled: false, musicEnabled: true }]) {
+    const next = normalizeAudioPreferences(raw);
+    assert.equal(next.musicEnabled, false);
+    assert.equal(next.soundEnabled, raw.soundEnabled !== false);
+    assert.equal(next.musicPreferenceVersion, 1);
+    assert.deepEqual(normalizeAudioPreferences(next), next);
+  }
 });
 
 test("every music-playing child surface exposes music separately from spoken audio", () => {
@@ -76,10 +55,39 @@ test("music opt-in survives normalization in every settings model", async () => 
   const { normalizeQuestSettings } = await import("../../src/utils/questPerformance.js");
   for (const normalize of [normalizeAudioPreferences, normalizeAllowlistedSettings, normalizeQuestSettings]) {
     assert.equal(normalize({}).musicEnabled, false);
+    assert.equal(normalize({ musicEnabled: true }).musicEnabled, false);
     assert.equal(normalize({}).soundEnabled, true);
-    assert.equal(normalize({ musicEnabled: true }).musicEnabled, true);
+    assert.equal(normalize({ musicPreferenceVersion: 1, musicEnabled: true }).musicEnabled, true);
     assert.equal(normalize({ musicEnabled: false }).musicEnabled, false);
   }
-  assert.equal(normalizeAllowlistedSettings({ music: true }).music, true);
+  assert.equal(normalizeAllowlistedSettings({ ...normalizeAllowlistedSettings({}), music: true }).music, true);
   assert.equal(normalizeAllowlistedSettings({}).music, false);
+  assert.equal(normalizeAllowlistedSettings({ music: true }).music, false);
+});
+
+test("stale cloud music cannot inherit a new local migration marker", async () => {
+  const { computeHydratedValue } = await import("../../src/utils/progressMerge.js");
+  for (const enabled of [false, true]) {
+    const local = { ...normalizeAudioPreferences({}), musicEnabled: enabled, games: {} };
+    const merged = computeHydratedValue("learn_games", "__all__", local, { musicEnabled: true, games: {} });
+    assert.equal(normalizeAudioPreferences(merged).musicEnabled, enabled);
+  }
+});
+
+test("an existing Arcade save migrates, keeps progress, and remembers a fresh opt-in", async () => {
+  const storage = new Map();
+  globalThis.window = { localStorage: { getItem: key => storage.get(key) ?? null, setItem: (key, value) => storage.set(key, value) } };
+  try {
+    const { loadLearnGamesProgress, saveLearnGamesSettings } = await import("../../src/utils/learnGamesProgress.js");
+    const key = "literacy-guide-learn-games:music-regression";
+    storage.set(key, JSON.stringify({ soundEnabled: true, musicEnabled: true, games: { "rocket-run": { stars: 3 } } }));
+    const migrated = loadLearnGamesProgress("music-regression");
+    assert.equal(migrated.musicEnabled, false);
+    assert.equal(migrated.soundEnabled, true);
+    assert.equal(migrated.games["rocket-run"].stars, 3);
+    saveLearnGamesSettings("music-regression", { musicEnabled: true });
+    assert.equal(loadLearnGamesProgress("music-regression").musicEnabled, true);
+    saveLearnGamesSettings("music-regression", { musicEnabled: false });
+    assert.equal(loadLearnGamesProgress("music-regression").musicEnabled, false);
+  } finally { delete globalThis.window; }
 });
