@@ -23,6 +23,9 @@ import { sampleCircuitPath, offsetCircuitPoint, createKart, stepKart, chasePose 
 import { laneDirectionForKey } from "../shared/premiumGameStandard.js";
 import { createArcadePremiumRenderPipeline } from "../shared/arcadePremiumRender.js";
 
+import { createRacerKart } from "./soundRacerKartAsset.js";
+import { createRacerScenery } from "./soundRacerScenery.js";
+
 const LANES = [-3.15, 0, 3.15];
 const LANE_NAMES = ["left", "middle", "right"];
 const TRACK_WIDTH = 9.6;
@@ -337,6 +340,7 @@ function startGame(THREE, mount, opts) {
   keyLight.shadow.camera.top = 9;
   keyLight.shadow.camera.bottom = -9;
   scene.add(keyLight);
+  scene.add(keyLight.target);
   const fillLight = new THREE.HemisphereLight(0xffffff, 0x101020, 0.6);
   scene.add(fillLight);
 
@@ -443,6 +447,8 @@ function startGame(THREE, mount, opts) {
   scene.add(trackGroup, railGroup, sceneryGroup, gateGroup, burstGroup);
 
   let ship = null;
+  let racerKart = null;
+  let racerScenery = null;
 
 
   let gateObjects = [];
@@ -458,6 +464,7 @@ function startGame(THREE, mount, opts) {
   let lateralOffset = 0;
   let kart = null;
   const heldSteering = new Map();
+  const brakeHolds = new Set();
   let steeringPulse = 0;
   let steeringPulseT = 0;
   let gateVoice = null;
@@ -570,12 +577,12 @@ function startGame(THREE, mount, opts) {
       ctx.clearRect(0, 0, w, h);
       const ranges = layer === 0
         ? [
-            { base: 316, amp: 205, step: 58, color: mixHex(currentMap.fog, 0x141a28, 0.5), alpha: 0.98 },
-            { base: 340, amp: 136, step: 42, color: mixHex(currentMap.fog, 0x24313c, 0.42), alpha: 0.82 }
+            { base: 316, amp: 142, step: 48, color: mixHex(currentMap.fog, 0x344853, 0.23), alpha: 0.88 },
+            { base: 340, amp: 106, step: 42, color: mixHex(currentMap.fog, 0x405c57, 0.2), alpha: 0.75 }
           ]
         : [
-            { base: 326, amp: 118, step: 44, color: mixHex(currentMap.fog, currentMap.terrain, 0.38), alpha: 0.9 },
-            { base: 354, amp: 82, step: 34, color: mixHex(currentMap.terrain, 0x0e1711, 0.34), alpha: 0.74 }
+            { base: 326, amp: 118, step: 44, color: mixHex(currentMap.fog, currentMap.terrain, 0.23), alpha: 0.65 },
+            { base: 354, amp: 82, step: 34, color: mixHex(currentMap.fog, currentMap.terrain, 0.3), alpha: 0.56 }
           ];
 
       for (const [rangeIx, range] of ranges.entries()) {
@@ -590,42 +597,16 @@ function startGame(THREE, mount, opts) {
         ctx.beginPath();
         ctx.moveTo(0, h);
         ctx.lineTo(points[0].x, points[0].y);
-        for (const p of points) ctx.lineTo(p.x, p.y);
+        for (let i = 0; i < points.length - 1; i++) {
+          const p = points[i], next = points[i + 1];
+          ctx.quadraticCurveTo(p.x, p.y, (p.x + next.x) / 2, (p.y + next.y) / 2);
+        }
+        ctx.lineTo(points.at(-1).x, points.at(-1).y);
         ctx.lineTo(w, h);
         ctx.closePath();
         ctx.fillStyle = colorStyle(range.color, range.alpha);
         ctx.fill();
 
-        for (let i = 1; i < points.length - 1; i += 2) {
-          const p = points[i];
-          const left = points[i - 1];
-          const right = points[i + 1];
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y + 2);
-          ctx.lineTo((p.x + right.x) / 2, range.base + 14);
-          ctx.lineTo(p.x + 14, range.base + 34);
-          ctx.closePath();
-          ctx.fillStyle = colorStyle(mixHex(range.color, 0x05070d, 0.36), 0.34);
-          ctx.fill();
-
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y + 4);
-          ctx.lineTo((p.x + left.x) / 2, range.base + 10);
-          ctx.lineTo(p.x - 10, range.base + 24);
-          ctx.closePath();
-          ctx.fillStyle = colorStyle(mixHex(range.color, 0xffffff, 0.18), 0.24);
-          ctx.fill();
-
-          if (layer === 0 && i % 4 === 1) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y + 6);
-            ctx.lineTo(p.x - 17, p.y + 38);
-            ctx.lineTo(p.x + 22, p.y + 42);
-            ctx.closePath();
-            ctx.fillStyle = "rgba(230,240,235,.18)";
-            ctx.fill();
-          }
-        }
       }
 
       if (world === "dino" && layer === 0) {
@@ -706,8 +687,8 @@ function startGame(THREE, mount, opts) {
         ctx.fillStyle = colorStyle(mixHex(currentMap.terrain, 0xf3ffcf, 0.22), 0.62);
         ctx.beginPath();
         ctx.moveTo(0, h * 0.72);
-        for (let x = 0; x <= w; x += 32) {
-          ctx.lineTo(x, h * 0.68 + Math.sin(x * 0.016) * 18 + Math.cos(x * 0.029) * 9);
+        for (let x = 0; x <= w; x += 8) {
+          ctx.lineTo(x, h * 0.72 + Math.sin(x * 0.008) * 12 + Math.cos(x * 0.013) * 7);
         }
         ctx.lineTo(w, h);
         ctx.lineTo(0, h);
@@ -717,37 +698,27 @@ function startGame(THREE, mount, opts) {
 
       const haze = ctx.createLinearGradient(0, 0, 0, h);
       haze.addColorStop(0, colorStyle(currentMap.sky, 0));
-      haze.addColorStop(0.55, colorStyle(currentMap.fog, 0.12));
-      haze.addColorStop(1, colorStyle(currentMap.fog, 0.5));
+      haze.addColorStop(0.55, colorStyle(currentMap.fog, 0.2));
+      haze.addColorStop(1, colorStyle(currentMap.fog, 0.72));
       ctx.fillStyle = haze;
       ctx.fillRect(0, 0, w, h);
     });
   }
 
   function makeCloudTexture() {
-    return cachedCanvasTexture(`${world}:clouds`, 1024, 256, (ctx, w, h) => {
+    return cachedCanvasTexture(`${world}:soft-clouds`, 1024, 256, (ctx, w, h) => {
       ctx.clearRect(0, 0, w, h);
-      for (let i = 0; i < 18; i += 1) {
-        const x = (i * 137) % w;
-        const y = 42 + (i * 31) % 130;
-        const widthValue = 120 + (i % 5) * 36;
-        const heightValue = (world === "dino" ? 24 : 16) + (i % 4) * 7;
-        const gradient = ctx.createRadialGradient(x, y, 8, x, y, widthValue * 0.62);
-        if (world === "dino") {
-          gradient.addColorStop(0, "rgba(82,70,60,.38)");
-          gradient.addColorStop(0.45, "rgba(118,100,82,.2)");
-        } else if (world === "moonwood") {
-          gradient.addColorStop(0, "rgba(194,212,255,.24)");
-          gradient.addColorStop(0.45, "rgba(122,136,214,.14)");
-        } else {
-          gradient.addColorStop(0, "rgba(255,255,245,.36)");
-          gradient.addColorStop(0.45, "rgba(240,245,235,.2)");
-        }
-        gradient.addColorStop(1, "rgba(255,255,255,0)");
-        ctx.fillStyle = gradient;
-        ctx.beginPath();
-        ctx.ellipse(x, y, widthValue, heightValue, -0.04 + i * 0.01, 0, Math.PI * 2);
-        ctx.fill();
+      for (let i = 0; i < 18; i++) {
+        const x = (i * 137) % w, y = 42 + (i * 31) % 130;
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.scale(110 + (i % 5) * 28, 18 + (i % 4) * 8);
+        const mist = ctx.createRadialGradient(0, 0, .05, 0, 0, 1);
+        mist.addColorStop(0, world === "dino" ? "rgba(91,79,67,.18)" : world === "moonwood" ? "rgba(194,212,255,.17)" : "rgba(255,252,235,.25)");
+        mist.addColorStop(.45, world === "dino" ? "rgba(112,96,78,.09)" : "rgba(242,245,237,.1)");
+        mist.addColorStop(1, "rgba(242,245,237,0)");
+        ctx.fillStyle = mist; ctx.beginPath(); ctx.arc(0, 0, 1, 0, Math.PI * 2); ctx.fill();
+        ctx.restore();
       }
     });
   }
@@ -947,59 +918,20 @@ function startGame(THREE, mount, opts) {
   }
 
   function makeGroundTexture() {
-    const texture = cachedCanvasTexture(`${currentMap.name}:ground`, 512, 512, (ctx, w, h) => {
-      const base = ctx.createLinearGradient(0, 0, w, h);
-      base.addColorStop(0, colorStyle(mixHex(currentMap.ground, 0xffffff, world === "meadow" ? 0.18 : 0.04), 1));
-      base.addColorStop(0.52, colorStyle(currentMap.ground, 1));
-      base.addColorStop(1, colorStyle(mixHex(currentMap.ground, 0x000000, world === "moonwood" ? 0.42 : 0.18), 1));
-      ctx.fillStyle = base;
+    const texture = cachedCanvasTexture(`${currentMap.name}:ground-natural`, 512, 512, (ctx, w, h) => {
+      ctx.fillStyle = colorStyle(mixHex(currentMap.ground, currentMap.terrain, .22));
       ctx.fillRect(0, 0, w, h);
-
-      for (let i = 0; i < 900; i += 1) {
-        const x = (i * 53) % w;
-        const y = (i * 97) % h;
-        const alpha = 0.06 + (i % 7) * 0.012;
-        ctx.fillStyle = i % 2
-          ? colorStyle(mixHex(currentMap.terrain, 0xffffff, 0.18), alpha)
-          : colorStyle(mixHex(currentMap.ground, 0x000000, 0.32), alpha);
-        ctx.fillRect(x, y, 1 + (i % 8), 1 + (i % 4));
-      }
-
-      if (world === "dino") {
-        ctx.strokeStyle = colorStyle(0x8bdc7b, 0.18);
-        ctx.lineWidth = 4;
-        for (let i = 0; i < 34; i += 1) {
-          const x = (i * 41) % w;
-          ctx.beginPath();
-          ctx.moveTo(x, h);
-          ctx.quadraticCurveTo(x - 18, h - 88 - (i % 5) * 11, x + 10, h - 142 - (i % 3) * 9);
-          ctx.stroke();
-        }
-      } else if (world === "moonwood") {
-        ctx.strokeStyle = colorStyle(currentMap.trim, 0.16);
-        ctx.lineWidth = 2;
-        for (let i = 0; i < 36; i += 1) {
-          const x = (i * 47) % w;
-          const y = (i * 83) % h;
-          ctx.beginPath();
-          ctx.moveTo(x - 18, y);
-          ctx.lineTo(x + 18, y + 8);
-          ctx.stroke();
-        }
-      } else {
-        ctx.strokeStyle = colorStyle(0xd8ef91, 0.18);
-        ctx.lineWidth = 3;
-        for (let y = 12; y < h; y += 38) {
-          ctx.beginPath();
-          ctx.moveTo(0, y);
-          for (let x = 0; x <= w; x += 38) ctx.lineTo(x, y + Math.sin(x * 0.04) * 4);
-          ctx.stroke();
-        }
+      let seed = 731 + world.length * 83;
+      const random = () => { seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0; return seed / 4294967296; };
+      for (let i = 0; i < 3200; i++) {
+        const x = random() * w, y = random() * h;
+        ctx.fillStyle = i % 2 ? "rgba(224,227,175,.055)" : "rgba(18,32,17,.045)";
+        ctx.beginPath(); ctx.ellipse(x, y, .5 + random() * 2.5, .4 + random() * 1.3, random() * Math.PI, 0, Math.PI * 2); ctx.fill();
       }
     });
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.set(9, 12);
+    texture.repeat.set(16, 16);
     return texture;
   }
 
@@ -1178,85 +1110,19 @@ function startGame(THREE, mount, opts) {
     return engine;
   }
 
-  function finishShip(group, engines, light, scale = 1.08) {
-    const shadow = new THREE.Mesh(
-      new THREE.CircleGeometry(1.18, 28),
-      basic(0x000000, { transparent: true, opacity: 0.32, depthWrite: false, side: THREE.DoubleSide })
-    );
-    shadow.rotation.x = -Math.PI / 2;
-    shadow.position.set(0, -0.48, 0.38);
-    shadow.scale.set(1.45, 0.54, 1);
-    group.add(shadow);
-
-    const hoverGlow = new THREE.Mesh(
-      new THREE.CircleGeometry(1.0, 28),
-      basic(currentMap.boost, {
-        transparent: true,
-        opacity: 0.2,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false,
-        side: THREE.DoubleSide
-      })
-    );
-    hoverGlow.rotation.x = -Math.PI / 2;
-    hoverGlow.position.set(0, -0.46, 0.28);
-    hoverGlow.scale.set(1.2, 0.38, 1);
-    hoverGlow.userData.pulse = 2.4;
-    hoverGlow.userData.baseOpacity = 0.2;
-    pulseObjects.push(hoverGlow);
-    group.add(hoverGlow);
-
-    group.userData.engines = engines;
-    group.userData.light = light;
-    group.position.set(0, 1.0, 4.35);
-    group.scale.set(scale, scale, scale);
-    return setModelShadows(group, true, true);
-  }
-
   function makeShip() {
-    const group=new THREE.Group();
-    const paint=material(world === "meadow" ? 0x20a88c : world === "moonwood" ? 0x8963d6 : 0xf07842,
-      {roughness:0.28,metalness:0.3});
-    const cream=material(0xffe8ac,{roughness:0.35,metalness:0.18});
-    const rubber=material(0x182430,{roughness:0.95});
-    const leather=material(0x293144,{roughness:0.9});
-    // A curved authored shell, with a narrower nose, cockpit recess and rear
-    // haunches. The silhouette is geometry rather than a stack of cuboids.
-    const shell=new THREE.Shape();
-    shell.moveTo(-0.44,-1.35);
-    shell.bezierCurveTo(-0.85,-1.35,-0.95,-0.45,-0.9,0.8);
-    shell.quadraticCurveTo(-0.9,1.3,0,1.3);
-    shell.quadraticCurveTo(0.9,1.3,0.9,0.8);
-    shell.bezierCurveTo(0.95,-0.45,0.85,-1.35,0.44,-1.35);
-    shell.quadraticCurveTo(0,-1.55,-0.44,-1.35);
-    const body=new THREE.Mesh(new THREE.ExtrudeGeometry(shell,{depth:0.24,bevelEnabled:true,bevelThickness:0.14,bevelSize:0.12,bevelSegments:4,steps:1,curveSegments:24}),paint);
-    body.rotation.x=Math.PI/2;body.position.y=0.14;group.add(body);
-    const cockpit=new THREE.Mesh(new THREE.SphereGeometry(0.55,32,16),leather);
-    cockpit.scale.set(1,0.35,1.3);cockpit.position.set(0,0.19,0.35);group.add(cockpit);
-    const seat=new THREE.Mesh(new THREE.SphereGeometry(0.52,24,16),leather);
-    seat.scale.set(0.82,1.1,0.25);seat.position.set(0,0.42,0.79);seat.rotation.x=-0.18;group.add(seat);
-    const steering=new THREE.Mesh(new THREE.TorusGeometry(0.23,0.035,10,28),cream);
-    steering.rotation.x=-0.55;steering.position.set(0,0.55,-0.25);group.add(steering);
-    const wheels=[];
-    for (const x of [-0.98,0.98]) for (const z of [-0.82,0.86]) {
-      const pivot=new THREE.Group();pivot.position.set(x,-0.2,z);group.add(pivot);
-      const wheel=new THREE.Group();pivot.add(wheel);wheel.userData.front=z<0;
-      const tire=new THREE.Mesh(new THREE.TorusGeometry(0.27,0.13,12,28),rubber);
-      tire.rotation.y=Math.PI/2;wheel.add(tire);
-      const hub=new THREE.Mesh(new THREE.CylinderGeometry(0.17,0.17,0.18,20),cream);
-      hub.rotation.z=Math.PI/2;wheel.add(hub);wheels.push(wheel);
-    }
-    const stripe=new THREE.Mesh(new THREE.PlaneGeometry(0.2,0.8),cream);
-    stripe.rotation.x=-Math.PI/2;stripe.position.set(0,0.3,-0.82);group.add(stripe);
-    for(const side of [-1,1]) {
-      const lamp=new THREE.Mesh(new THREE.SphereGeometry(0.12,16,12),material(0xfff3bc,{emissive:0xffde78,emissiveIntensity:0.4}));
-      lamp.position.set(side*0.48,0.16,-1.38);group.add(lamp);
-    }
-    const engines=[makeBoostCone(-0.44,-0.1,1.4,0.12,0.5),makeBoostCone(0.44,-0.1,1.4,0.12,0.5)];
-    engines.forEach(engine=>group.add(engine));
-    const light=new THREE.PointLight(currentMap.boost,1,5);light.position.set(0,0.1,1.4);group.add(light);
-    group.userData.wheels=wheels;
-    return finishShip(group,engines,light,1);
+    racerKart = createRacerKart({ world });
+    const group = racerKart.root;
+    const engines = [makeBoostCone(-0.56, 0.34, 1.43, 0.08, 0.38), makeBoostCone(0.56, 0.34, 1.43, 0.08, 0.38)];
+    engines.forEach(engine => group.add(engine));
+    group.userData.engines = engines;
+    const current = racerKart;
+    current.ready.then(ready => {
+      if (!ready || racerKart !== current) return;
+      premiumRender.prepareObject(group);
+      pausedFrameRendered = false;
+    });
+    return group;
   }
 
   function makeBillboard(label, side) {
@@ -1294,45 +1160,39 @@ function startGame(THREE, mount, opts) {
 
   function makeTrackGantry(index) {
     const group = new THREE.Group();
-    const metal = material(0x232938, { metalness: 0.55, roughness: 0.38 });
-    const light = basic(currentMap.gate, { transparent: true, opacity: 0.8, blending: THREE.AdditiveBlending, depthWrite: false });
+    const curve = new THREE.CatmullRomCurve3([
+      new THREE.Vector3(-5.9, 0, 0), new THREE.Vector3(-5.9, 3.4, 0),
+      new THREE.Vector3(-5.25, 4.5, 0), new THREE.Vector3(0, 4.65, 0),
+      new THREE.Vector3(5.25, 4.5, 0), new THREE.Vector3(5.9, 3.4, 0), new THREE.Vector3(5.9, 0, 0)
+    ]);
+    const frame = new THREE.Mesh(new THREE.TubeGeometry(curve, 48, .13, 8, false), material(0xf6dda3, { roughness: .5, metalness: .25 }));
+    frame.castShadow = qualityTier !== "low";
+    group.add(frame);
+    const texture = canvasTexture(128, 128, (ctx, w, h) => {
+      ctx.fillStyle = "#183e43"; ctx.beginPath(); ctx.arc(w / 2, h / 2, 58, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = "#f7d985"; ctx.lineWidth = 8; ctx.stroke();
+      ctx.fillStyle = "#fff5da"; ctx.font = "800 72px Fredoka, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(String(index), w / 2, h / 2 + 3);
+    });
     for (const side of [-1, 1]) {
-      const x = side * 6.45;
-      const post = new THREE.Mesh(new THREE.BoxGeometry(0.2, 2.65, 0.2), metal);
-      post.position.set(x, 1.3, 0);
-      group.add(post);
-
-      const flag = new THREE.Mesh(new THREE.BoxGeometry(1.15, 0.48, 0.1), material(index % 2 ? currentMap.trackB : currentMap.trackA, {
-        metalness: 0.26,
-        roughness: 0.38,
-        emissive: currentMap.gate,
-        emissiveIntensity: 0.07
-      }));
-      flag.position.set(x + side * 0.54, 2.22, -0.02);
-      flag.rotation.y = side * -0.22;
-      group.add(flag);
-
-      const lamp = new THREE.Mesh(new THREE.BoxGeometry(0.96, 0.08, 0.18), light);
-      lamp.position.set(x + side * 0.36, 1.82, -0.1);
-      lamp.rotation.y = side * -0.22;
-      group.add(lamp);
+      const number = new THREE.Sprite(new THREE.SpriteMaterial({ map: texture, depthTest: true }));
+      number.position.set(side * 5.85, 3.0, 0); number.scale.set(.9, .9, 1); group.add(number);
     }
-    group.userData.scrollFactor = 0.16;
+    group.userData.checkpointNumber = index;
     return group;
   }
 
   function makeMeadowTree(index, scale = 1) {
     const group = new THREE.Group();
     const trunkMat = material(0x8b5630, { roughness: 0.8, metalness: 0.02 });
-    const leafA = material(mixHex(currentMap.terrain, 0xcff49b, 0.36), { roughness: 0.75, metalness: 0.02 });
-    const leafB = material(mixHex(currentMap.terrain, 0x24572c, 0.18), { roughness: 0.78, metalness: 0.02 });
+    const leafA = material(mixHex(currentMap.terrain, 0xc5d4a1, 0.22), { roughness: .98, metalness: 0, flatShading: false });
+    const leafB = material(mixHex(currentMap.terrain, 0x345d39, 0.26), { roughness: .98, metalness: 0, flatShading: false });
     const trunkH = 0.96 * scale;
     const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.1 * scale, 0.15 * scale, trunkH, 6), trunkMat);
     trunk.position.y = trunkH * 0.5;
     group.add(trunk);
 
     for (let i = 0; i < 5; i += 1) {
-      const crown = new THREE.Mesh(new THREE.DodecahedronGeometry((0.46 + (i % 2) * 0.08) * scale, 0), i % 2 ? leafA : leafB);
+      const crown = new THREE.Mesh(new THREE.IcosahedronGeometry((0.46 + (i % 2) * 0.08) * scale, 2), i % 2 ? leafA : leafB);
       crown.position.set(((i % 3) - 1) * 0.22 * scale, trunkH + (0.2 + i * 0.055) * scale, ((i % 2) - 0.5) * 0.22 * scale);
       crown.scale.set(1.08, 0.82, 1);
       group.add(crown);
@@ -1370,7 +1230,8 @@ function startGame(THREE, mount, opts) {
       roughness: 0.76,
       metalness: 0.04,
       emissive: currentMap.trim,
-      emissiveIntensity: 0.025
+      emissiveIntensity: 0.012,
+      flatShading: false
     });
     const trunkH = 1.36 * scale;
     for (let i = 0; i < 3; i += 1) {
@@ -1386,7 +1247,7 @@ function startGame(THREE, mount, opts) {
       limb.rotation.z = ((branch % 2) ? -0.52 : 0.52);
       group.add(limb);
     }
-    const crown = new THREE.Mesh(new THREE.DodecahedronGeometry(0.46 * scale, 0), leafMat);
+    const crown = new THREE.Mesh(new THREE.IcosahedronGeometry(0.46 * scale, 2), leafMat);
     crown.position.set(0.04 * scale, trunkH + 0.18 * scale, 0);
     crown.scale.set(1.18, 0.8, 1.08);
     group.add(crown);
@@ -1693,138 +1554,6 @@ function startGame(THREE, mount, opts) {
     return group;
   }
 
-  function makeTracksideBank(index, side) {
-    const group = new THREE.Group();
-    const bankBase = world === "dino"
-      ? mixHex(currentMap.ground, 0x16361f, 0.32)
-      : mixHex(currentMap.terrain, currentMap.ground, 0.35);
-    const ridgeBase = world === "dino"
-      ? mixHex(currentMap.hazard, 0x1c1510, 0.42)
-      : mixHex(currentMap.hazard, currentMap.ground, 0.18);
-    const bankMat = material(bankBase, {
-      roughness: 0.84,
-      metalness: world === "moonwood" ? 0.12 : 0.04,
-      emissive: world === "moonwood" ? currentMap.trim : 0x000000,
-      emissiveIntensity: world === "moonwood" ? 0.025 : 0
-    });
-    const ridgeMat = material(ridgeBase, {
-      roughness: 0.9,
-      metalness: world === "dino" ? 0.1 : 0.03
-    });
-
-    const slab = new THREE.Mesh(new THREE.BoxGeometry(5.8 + (index % 3) * 0.62, 0.24, 8.6), bankMat);
-    slab.position.set(side * 0.6, 0.04, 0);
-    slab.rotation.z = side * -0.07;
-    slab.rotation.y = side * (0.04 + (index % 2) * 0.03);
-    group.add(slab);
-
-    const ridge = new THREE.Mesh(new THREE.BoxGeometry(0.58, 0.7 + (index % 4) * 0.09, 8.2), ridgeMat);
-    ridge.position.set(side * 2.52, 0.28, -0.12);
-    ridge.rotation.z = side * -0.18;
-    group.add(ridge);
-
-    const light = new THREE.Mesh(
-      new THREE.BoxGeometry(0.08, 0.05, 7.6),
-      basic(world === "meadow" ? currentMap.rail : currentMap.gate, {
-        transparent: true,
-        opacity: world === "dino" ? 0.34 : 0.26,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false
-      })
-    );
-    light.position.set(side * -1.98, 0.22, 0);
-    light.userData.pulse = 0.6 + index * 0.19;
-    light.userData.baseOpacity = world === "dino" ? 0.34 : 0.26;
-    pulseObjects.push(light);
-    group.add(light);
-
-    if (world === "dino") {
-      const swampWater = new THREE.Mesh(
-        new THREE.BoxGeometry(2.7 + (index % 2) * 0.42, 0.035, 7.4),
-        basic(mixHex(currentMap.ground, 0x19c39f, 0.46), {
-          transparent: true,
-          opacity: 0.36,
-          blending: THREE.AdditiveBlending,
-          depthWrite: false
-        })
-      );
-      swampWater.position.set(side * -0.92, 0.19, 0.14);
-      swampWater.rotation.z = side * -0.04;
-      swampWater.userData.pulse = 0.3 + index * 0.15;
-      swampWater.userData.baseOpacity = 0.36;
-      pulseObjects.push(swampWater);
-      group.add(swampWater);
-
-      for (let i = 0; i < 5; i += 1) {
-        const reed = new THREE.Mesh(
-          new THREE.BoxGeometry(0.045, 0.66 + (i % 3) * 0.16, 0.045),
-          material(mixHex(currentMap.terrain, 0xd8d46d, 0.22), { roughness: 0.86, metalness: 0.02 })
-        );
-        reed.position.set(side * (-1.74 + i * 0.32), 0.48, -2.8 + i * 1.34);
-        reed.rotation.z = side * (0.16 + i * 0.025);
-        group.add(reed);
-      }
-
-      const lava = new THREE.Mesh(
-        new THREE.BoxGeometry(0.26, 0.04, 5.4),
-        basic(0xff7337, { transparent: true, opacity: 0.42, blending: THREE.AdditiveBlending, depthWrite: false })
-      );
-      lava.position.set(side * 0.52, 0.2, -0.3);
-      lava.rotation.y = side * 0.16;
-      lava.userData.pulse = 1.2 + index * 0.23;
-      lava.userData.baseOpacity = 0.42;
-      pulseObjects.push(lava);
-      group.add(lava);
-      for (let i = 0; i < 3; i += 1) {
-        const steam = new THREE.Mesh(
-          new THREE.IcosahedronGeometry(0.22 + i * 0.05, 1),
-          basic(0xc7bda4, { transparent: true, opacity: 0.2, blending: THREE.AdditiveBlending, depthWrite: false })
-        );
-        steam.position.set(side * (0.35 + i * 0.24), 0.54 + i * 0.14, -1.1 + i * 1.9);
-        steam.scale.set(1.4, 0.58, 1);
-        steam.userData.pulse = 0.8 + index * 0.17 + i;
-        steam.userData.baseOpacity = 0.2;
-        pulseObjects.push(steam);
-        group.add(steam);
-      }
-    } else if (world === "moonwood") {
-      for (let i = 0; i < 4; i += 1) {
-        const crystal = new THREE.Mesh(
-          new THREE.ConeGeometry(0.12 + i * 0.025, 0.58 + i * 0.12, 5),
-          material(mixHex(currentMap.trim, 0xffffff, 0.16), {
-            roughness: 0.28,
-            metalness: 0.26,
-            emissive: currentMap.trim,
-            emissiveIntensity: 0.2,
-            transparent: true,
-            opacity: 0.82
-          })
-        );
-        crystal.position.set(side * (0.2 + i * 0.42), 0.38 + i * 0.04, -2.8 + i * 1.6);
-        crystal.rotation.z = side * (0.08 + i * 0.04);
-        crystal.userData.pulse = 0.7 + index * 0.13 + i;
-        crystal.userData.baseOpacity = 0.82;
-        pulseObjects.push(crystal);
-        group.add(crystal);
-      }
-    } else {
-      for (let i = 0; i < 5; i += 1) {
-        const grass = new THREE.Mesh(
-          new THREE.BoxGeometry(0.06, 0.52 + (i % 3) * 0.13, 0.05),
-          material(mixHex(currentMap.terrain, 0xf1ef92, 0.24), { roughness: 0.78, metalness: 0.02 })
-        );
-        grass.position.set(side * (-1.0 + i * 0.46), 0.36, -3.2 + i * 1.34);
-        grass.rotation.z = side * (0.12 + i * 0.04);
-        group.add(grass);
-      }
-    }
-
-    group.position.x = side * 8.1;
-    group.rotation.y = side * 0.08;
-    group.userData.scrollFactor = 0.16;
-    return group;
-  }
-
   function makeAtmosphereParticle(index, texture) {
     const color = world === "dino"
       ? 0xffb36a
@@ -1930,7 +1659,8 @@ function startGame(THREE, mount, opts) {
         roughness: 0.82,
         metalness: 0.04,
         emissive: currentMap.trim,
-        emissiveIntensity: 0.025
+        emissiveIntensity: 0.012,
+      flatShading: false
       });
       const glowMat = basic(currentMap.trim, {
         transparent: true,
@@ -2100,6 +1830,8 @@ function startGame(THREE, mount, opts) {
   }
 
   function resetSceneForMap() {
+    racerScenery?.dispose();
+    racerScenery = null;
     for (const obj of gateObjects) {
       gateGroup.remove(obj.mesh);
       disposeObject(obj.mesh);
@@ -2139,11 +1871,11 @@ function startGame(THREE, mount, opts) {
     for(let side=0;side<4;side++) {
       const angle=side*Math.PI/2;
       const mountain=makeBackdropPlane(makeMountainTexture(side%2),560,95,
-        40+Math.sin(angle)*270,32,-60+Math.cos(angle)*270,1);
+        40+Math.sin(angle)*270,26,-60+Math.cos(angle)*270,.8);
       mountain.rotation.y=angle;
       sceneryGroup.add(mountain);
       const forest=makeBackdropPlane(makeForestTexture(side%2),500,36,
-        40+Math.sin(angle)*240,12,-60+Math.cos(angle)*240,1);
+        40+Math.sin(angle)*240,9,-60+Math.cos(angle)*240,.55);
       forest.rotation.y=angle;
       sceneryGroup.add(forest);
     }
@@ -2157,9 +1889,11 @@ function startGame(THREE, mount, opts) {
     const groundTexture = makeGroundTexture();
     const ground = new THREE.Mesh(
       groundGeo,
-      material(mixHex(currentMap.ground, 0x000000, 0.08), {
-        roughness: 0.82,
-        metalness: world === "moonwood" ? 0.08 : 0.03,
+      material(0xffffff, {
+        roughness: 1,
+        metalness: 0,
+        envMapIntensity: .3,
+        flatShading: false,
         map: groundTexture
       })
     );
@@ -2168,8 +1902,8 @@ function startGame(THREE, mount, opts) {
     sceneryGroup.add(ground);
 
     const sun = new THREE.Mesh(
-      new THREE.SphereGeometry(9, 16, 16),
-      basic(currentMap.sun, { transparent: true, opacity: 0.5, blending: THREE.AdditiveBlending, depthWrite: false })
+      new THREE.SphereGeometry(9, 32, 20),
+      basic(currentMap.sun, { transparent: true, opacity: 0.7, depthWrite: false })
     );
     sun.position.set(-24, 21, -92);
     sceneryGroup.add(sun);
@@ -2180,29 +1914,16 @@ function startGame(THREE, mount, opts) {
       sceneryGroup.add(particle);
     }
 
-    for (let i = 0; i < 10; i += 1) {
-      const gantry = makeTrackGantry(i);
-      const point = sampleCircuitPath(track?.path, 24 + i * (track.totalLength - 48) / 10);
-      gantry.position.set(point.x, point.y + 0.02, point.z);
+    for (let i = 1; i < track.checkpoints.length - 1; i += 1) {
+      const gantry = makeTrackGantry(i + 1);
+      const point = sampleCircuitPath(track.path, track.checkpoints[i]);
+      gantry.position.set(point.x, point.y, point.z);
       gantry.rotation.y = -point.heading;
       gantry.userData.trackBound = true;
       sceneryGroup.add(gantry);
     }
 
-    const bankCount = qualityTier === "low" ? 12 : 30;
-    for (let i = 0; i < bankCount; i += 1) {
-      for (const side of [-1, 1]) {
-        const bank = makeTracksideBank(i, side);
-        const point = sampleCircuitPath(track?.path, 12 + i * (track.totalLength - 24) / bankCount);
-        const offset = offsetCircuitPoint(point, side * (TRACK_WIDTH / 2 + 3.2));
-        bank.position.set(offset.x, offset.y, offset.z);
-        bank.rotation.y = -point.heading;
-        bank.userData.trackBound = true;
-        sceneryGroup.add(bank);
-      }
-    }
-
-    const propCount = qualityTier === "low" ? 20 : 58;
+    const propCount = qualityTier === "low" ? 18 : 36;
     for (let i = 0; i < propCount; i += 1) {
       const side = i % 2 === 0 ? -1 : 1;
       const prop = makeRoadsideProp(i, side);
@@ -2263,7 +1984,7 @@ function startGame(THREE, mount, opts) {
       const mesh=new THREE.Mesh(geometry,mat);mesh.receiveShadow=true;trackGroup.add(mesh);
       return mesh;
     };
-    ribbon(-TRACK_WIDTH/2,TRACK_WIDTH/2,0,material(currentMap.trackA,{roughness:0.85,metalness:0.04,map:roadTexture,side:THREE.DoubleSide}));
+    ribbon(-TRACK_WIDTH/2,TRACK_WIDTH/2,0,material(0xffffff,{roughness:0.85,metalness:0.04,map:roadTexture,side:THREE.DoubleSide}));
     ribbon(-TRACK_WIDTH/2,TRACK_WIDTH/2,-0.16,material(0x9a8667,{roughness:0.9,side:THREE.DoubleSide}));
     for(const side of [-1,1]) {
       const edge=side*TRACK_WIDTH/2;
@@ -2273,8 +1994,17 @@ function startGame(THREE, mount, opts) {
 
     if (ship) {
       scene.remove(ship);
+      racerKart?.dispose();
       disposeObject(ship);
     }
+    racerScenery = createRacerScenery(track, world, qualityTier);
+    sceneryGroup.add(racerScenery.root);
+    const currentScenery = racerScenery;
+    currentScenery.ready.then(ready => {
+      if (!ready || racerScenery !== currentScenery) return;
+      premiumRender.prepareObject(currentScenery.root);
+      pausedFrameRendered = false;
+    });
     ship = makeShip();
     scene.add(ship);
   }
@@ -2339,6 +2069,7 @@ function startGame(THREE, mount, opts) {
     camera.position.set(initialCamera.x, initialCamera.y, initialCamera.z);
     camera.lookAt(initialCamera.lookX, initialCamera.lookY, initialCamera.lookZ);
     heldSteering.clear();
+    brakeHolds.clear();
     steeringPulseT = 0;
     gateVoice?.abort();
     for (const gate of track.gates.filter(gate => gate.word).slice(0, 6)) preloadWordAudio(gate.word);
@@ -2539,6 +2270,7 @@ function startGame(THREE, mount, opts) {
   }
 
   function completeLevel() {
+    celebrationT = 1.2;
     running = false;
     const result = levelResult();
     levelResults[levelIdx] = result;
@@ -2675,16 +2407,37 @@ function startGame(THREE, mount, opts) {
   hearTargetButton?.addEventListener("click", replayTargetSound);
   opts.registerCleanup?.(() => hearTargetButton?.removeEventListener("click", replayTargetSound));
 
+  const brakeControl = document.createElement("button");
+  brakeControl.type = "button";
+  brakeControl.textContent = "Brake";
+  brakeControl.setAttribute("aria-label", "Hold to brake");
+  brakeControl.dataset.sr = "brake-control";
+  brakeControl.style.cssText = "position:absolute;left:max(16px,env(safe-area-inset-left));bottom:max(94px,calc(env(safe-area-inset-bottom) + 78px));width:68px;min-height:56px;border:2px solid #ffdb8b;border-radius:16px;background:rgba(20,35,47,.92);color:#fff1c8;font:700 .86rem var(--kid-font-display,Fredoka,sans-serif);pointer-events:auto;touch-action:none;cursor:pointer";
+  hud.appendChild(brakeControl);
+  const pressBrake = event => {
+    if (paused || overlayActive) return;
+    event.preventDefault();
+    brakeControl.setPointerCapture?.(event.pointerId);
+    brakeHolds.add(`pointer-${event.pointerId}`);
+  };
+  const releaseBrake = event => brakeHolds.delete(`pointer-${event.pointerId}`);
+  brakeControl.addEventListener("pointerdown", pressBrake);
+  for (const type of ["pointerup", "pointercancel", "lostpointercapture"]) brakeControl.addEventListener(type, releaseBrake);
   const onKey = event => {
-    const steeringControlOwnsFocus = event.target?.matches?.('[data-sr="left-control"],[data-sr="right-control"]');
+    if (paused || overlayActive) return;
+    const steeringControlOwnsFocus = event.target?.matches?.('[data-sr="left-control"],[data-sr="right-control"],[data-sr="brake-control"]');
     if (isInteractiveKeyTarget(event.target) && !steeringControlOwnsFocus) return;
+    if (event.code === "Space" || event.key === "ArrowDown") { event.preventDefault(); brakeHolds.add(`key-${event.code}`); return; }
     const direction = laneDirectionForKey(event.key);
     if (!direction) return;
     event.preventDefault();
     heldSteering.set(`key-${event.code}`, direction);
   };
-  const keyUp = event => heldSteering.delete(`key-${event.code}`);
-  const clearControls = () => { heldSteering.clear(); steeringPulseT = 0; gateVoice?.abort(); };
+  const keyUp = event => { heldSteering.delete(`key-${event.code}`); brakeHolds.delete(`key-${event.code}`); };
+  const clearControls = () => {
+    heldSteering.clear(); brakeHolds.clear(); steeringPulseT = 0; gateVoice?.abort();
+    for (const control of hud.querySelectorAll("[data-pressed]")) control.dataset.pressed = "false";
+  };
   window.addEventListener("keydown", onKey);
   window.addEventListener("keyup", keyUp);
   window.addEventListener("blur", clearControls);
@@ -2780,19 +2533,26 @@ function startGame(THREE, mount, opts) {
     if (playerZ >= track.totalLength && checkpointIndex === track.checkpoints.length - 1 && wordsCorrect >= track.needed) completeLevel();
   }
 
-  function updateShip(dt, now) {
+  function updateShip(dt) {
     if (!ship) return;
     if (!kart) return;
-    ship.position.set(kart.x, kart.y + 0.53, kart.z);
+    ship.position.set(kart.x, kart.y, kart.z);
+    keyLight.position.set(kart.x - 8, kart.y + 14, kart.z + 8);
+    keyLight.target.position.set(kart.x, kart.y, kart.z);
+    keyLight.target.updateMatrixWorld();
     ship.rotation.y = -kart.heading;
-    ship.rotation.z = (kart.bank || 0) - kart.steering * 0.075;
+    ship.rotation.z = kart.bank || 0;
     const ahead = sampleCircuitPath(track.path, kart.progress + 1);
     const behind = sampleCircuitPath(track.path, kart.progress - 1);
-    ship.rotation.x = Math.atan2(ahead.y - behind.y, 2) + (reduceMotion ? 0 : Math.sin(now * 0.012) * speed * 0.0008);
-    if (ship.userData.wheels) for (const wheel of ship.userData.wheels) {
-      wheel.rotation.x -= speed * dt / 0.34;
-      if (wheel.userData.front) wheel.parent.rotation.y = -kart.steering * 0.4;
-    }
+    ship.rotation.x = Math.atan2(ahead.y - behind.y, 2);
+    racerKart?.update(dt, { steering: kart.steering, speed: running ? kart.speed : 0, recovered: kart.recovered, reducedMotion: reduceMotion, braking: brakeHolds.size > 0, complete: !running && overlayActive });
+    hud.dataset.soundRacerAsset = ship.userData.assetState;
+    hud.dataset.soundRacerDriver = ship.userData.driverState;
+    brakeControl.dataset.pressed = brakeHolds.size ? "true" : "false";
+    hud.dataset.soundRacerBraking = String(brakeHolds.size > 0);
+    hud.dataset.soundRacerSpeed = String(kart.speed || 0);
+    hud.dataset.soundRacerWheelRoll = String(ship.userData.wheelRoll || 0);
+    hud.dataset.soundRacerScenery = racerScenery?.root.userData.assetState || "loading";
     const boostScale = boostT > 0 ? 1.55 : 1;
     if (ship.userData.engines) {
       for (const engine of ship.userData.engines) {
@@ -2823,16 +2583,27 @@ function startGame(THREE, mount, opts) {
     }
   }
 
+  let celebrationT = 0;
+  let frameCount = 0;
   function tick(now) {
+    frameCount += 1;
     const dt = Math.max(0, Math.min(0.05, ((now - last) || 16) / 1000));
     last = now;
     if (!opts.getSound?.()) gateVoice?.abort();
     if (paused || (overlayActive && !running)) {
+      if (!paused && overlayActive && celebrationT > 0) {
+        celebrationT = Math.max(0, celebrationT - dt);
+        racerKart?.update(dt, { complete: true, reducedMotion: reduceMotion });
+        hud.dataset.soundRacerDriver = ship?.userData.driverState || "celebrate";
+        premiumRender.render(dt);
+        return;
+      }
       if (!pausedFrameRendered) {
         const renderedTier = premiumRender.render(0);
         if (renderedTier !== qualityTier) {
           qualityTier = renderedTier;
           applyQualityTier(renderer, qualityTier);
+          racerScenery?.setTier(qualityTier);
         }
         pausedFrameRendered = true;
       }
@@ -2870,7 +2641,7 @@ function startGame(THREE, mount, opts) {
       shakeT = Math.max(0, shakeT - dt);
       steeringPulseT = Math.max(0, steeringPulseT - dt);
       const steer = heldSteering.size ? [...heldSteering.values()].at(-1) : steeringPulseT > 0 ? steeringPulse : 0;
-      kart = stepKart(track.path, kart, { steer, speed: speed * 1.65 }, dt);
+      kart = stepKart(track.path, kart, { steer, speed: speed * 1.65, brake: brakeHolds.size > 0 }, dt);
       playerZ = kart.progress;
       lateralOffset = kart.lateral;
       laneIx = lateralOffset < -1.5 ? 0 : lateralOffset > 1.5 ? 2 : 1;
@@ -2922,18 +2693,23 @@ function startGame(THREE, mount, opts) {
     if (renderedTier !== qualityTier) {
       qualityTier = renderedTier;
       applyQualityTier(renderer, qualityTier);
+      racerScenery?.setTier(qualityTier);
     }
   }
 
+  if (import.meta.env.DEV) Object.defineProperty(mount, "racerInspection", { configurable: true, get: () => ({
+    frames: frameCount, tier: qualityTier, renderCalls: renderer.info.render.calls, triangles: renderer.info.render.triangles,
+    geometries: renderer.info.memory.geometries, textures: renderer.info.memory.textures,
+    kart: racerKart?.snapshot(), scenery: racerScenery?.root.userData,
+    progress: kart?.progress, speed: kart?.speed, steering: kart?.steering, running, paused
+  }) });
   startLevel();
   const loop = createFrameLoop(tick);
   loop.start();
   opts.registerCleanup?.(() => loop.stop());
 
   function pause() {
-    heldSteering.clear();
-    steeringPulseT = 0;
-    gateVoice?.abort();
+    clearControls();
     if (paused) return;
     paused = true;
     pausedFrameRendered = false;
@@ -2960,6 +2736,7 @@ function startGame(THREE, mount, opts) {
   opts.registerCleanup?.(detachContextGuard);
 
   function teardown() {
+    if (import.meta.env.DEV) delete mount.racerInspection;
     loop.stop();
     cancelIdleWork();
     for (const timer of recordedCueTimers) window.clearTimeout(timer);
@@ -2968,11 +2745,15 @@ function startGame(THREE, mount, opts) {
     detachContextGuard();
     motionQuery?.removeEventListener?.("change", syncMotionPreference);
     window.removeEventListener("keydown", onKey);
+    window.removeEventListener("keyup", keyUp);
+    window.removeEventListener("blur", clearControls);
+    gateVoice?.abort();
 
     detachSwipeSteer();
     detachResize();
     if (ship) {
       scene.remove(ship);
+      racerKart?.dispose();
       disposeObject(ship);
     }
     for (const obj of gateObjects) {
@@ -2981,6 +2762,8 @@ function startGame(THREE, mount, opts) {
     }
     disposeObject(trackGroup);
     disposeObject(railGroup);
+    racerScenery?.dispose();
+    racerScenery = null;
     disposeObject(sceneryGroup);
     disposeObject(burstGroup);
     premiumRender.destroy();

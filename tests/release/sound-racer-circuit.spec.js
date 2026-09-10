@@ -1,20 +1,29 @@
 import {test,expect} from '@playwright/test';
+import fs from 'node:fs';
 import {buildTrack} from '../../src/utils/soundRacerTracks.js';
 import {sampleCircuitPath,offsetCircuitPoint,angleDelta} from '../../src/utils/soundRacerPhysics.js';
 
 test('Sound Racer steering drives a real full circuit and catches words', async({page},testInfo)=>{
   test.setTimeout(900000);
+  // Cap startup rendering while assets arrive. Playwright clock.install
+  // subsequently owns RAF at about60Hz; report actual frame counters below.
+  await page.addInitScript(() => {
+    window.requestAnimationFrame = callback => window.setTimeout(() => callback(performance.now()), 50);
+    window.cancelAnimationFrame = id => window.clearTimeout(id);
+  });
   const errors=[];page.on('pageerror',error=>errors.push(error.message));
   await page.setViewportSize({width:960,height:600});
   await page.emulateMedia({reducedMotion:'reduce'});
   await page.goto('/preview/game-overlay.html?game=sound-racer&sound=0&music=0');
   const hud=page.locator('[data-sound-racer-position]');
   await expect(hud).toBeVisible({timeout:45000});
+  await expect(hud).toHaveAttribute('data-sound-racer-asset','ready',{timeout:30000});
   await page.clock.install();
   const track=buildTrack('b',{difficulty:'easy',seed:0});
   let held='',left=0,right=0,lastProgress=0;
   for(let i=0;i<950;i++) {
     const state=JSON.parse(await hud.getAttribute('data-sound-racer-position'));
+    if(i%100===0) fs.writeFileSync(testInfo.outputPath('route-progress.json'),JSON.stringify({iterations:i,simulatedSeconds:i/10,state,render:await page.locator('.sound-racer').evaluate(node=>node.racerInspection)},null,2));
     if(state.progress>=track.totalLength) {lastProgress=state.progress;break;}
     const gate=track.gates.find(gate=>gate.z>state.progress+1);
     const lookDistance=6;
@@ -39,6 +48,8 @@ test('Sound Racer steering drives a real full circuit and catches words', async(
   await expect(page.locator('[data-sr="words"]')).toHaveText('10 / 10 words');
   await expect(page.getByText('Track cleared',{exact:true})).toBeVisible();
   expect(errors).toEqual([]);
+  fs.writeFileSync(testInfo.outputPath('finished-route.json'),JSON.stringify({state:JSON.parse(await hud.getAttribute('data-sound-racer-position')),render:await page.locator('.sound-racer').evaluate(node=>node.racerInspection)},null,2));
+  await testInfo.attach('race-render-metrics',{body:JSON.stringify(await page.locator('.sound-racer').evaluate(node=>node.racerInspection)),contentType:'application/json'});
   await testInfo.attach('race-result',{body:await hud.getAttribute('data-sound-racer-position'),contentType:'application/json'});
   await page.screenshot({path:testInfo.outputPath('full-circuit.png')});
   await page.getByRole('button',{name:'Go to the next map'}).click();

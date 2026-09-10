@@ -1,0 +1,119 @@
+{
+  "scope": "Sound Racer retained scenery; no bank copied or republished",
+  "sourcePacks": [
+    {
+      "id": "kaykit-city",
+      "name": "KayKit City Builder Bits",
+      "creator": "Kay Lousberg",
+      "source": "https://github.com/KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0",
+      "sourceRevision": "63976910ca04d16f0fc531b9c614244be8128713",
+      "license": "CC0-1.0",
+      "licensePath": "/models/library/kaykit/city/LICENSE.txt",
+      "categories": [
+        "city",
+        "buildings",
+        "vehicles",
+        "street-props"
+      ],
+      "modelCount": 41,
+      "bytes": 163914
+    },
+    {
+      "id": "kaykit-medieval",
+      "name": "KayKit Medieval Hexagon Pack",
+      "creator": "Kay Lousberg",
+      "source": "https://github.com/KayKit-Game-Assets/KayKit-Medieval-Hexagon-Pack-1.0",
+      "sourceRevision": "84fa4e91af6a88989be7c99e0891cede11f2ca38",
+      "license": "CC0-1.0",
+      "licensePath": "/models/library/kaykit/medieval/LICENSE.txt",
+      "categories": [
+        "medieval",
+        "buildings",
+        "terrain",
+        "props"
+      ],
+      "modelCount": 221,
+      "bytes": 762881
+    }
+  ],
+  "retainedAssets": [
+    {
+      "path": "public/game-assets/sound-racer/models/treeB.glb",
+      "bytes": 9196,
+      "sha256": "317e5185d2b432e84bb17f94f44fa1baa38021358e63fc80b0fd8267fe679dbd"
+    },
+    {
+      "path": "public/game-assets/sound-racer/models/treeA.glb",
+      "bytes": 5164,
+      "sha256": "2ec0fac952820c528e4224b3ee92a7d586dc064eb9892f0ec5d36eb728c1a7bf"
+    },
+    {
+      "path": "public/game-assets/sound-racer/models/bush.glb",
+      "bytes": 4832,
+      "sha256": "a7dd062897f61e0feab2b240c0cada15191c0b119a1d5e315b1882b20b6ad6a1"
+    },
+    {
+      "path": "public/game-assets/sound-racer/models/lamp.glb",
+      "bytes": 8972,
+      "sha256": "c418da5517b495c8490fc82012bb2df140424c78fcfab9256ff7609eea05af63"
+    },
+    {
+      "path": "public/game-assets/sound-racer/models/houseB.glb",
+      "bytes": 40692,
+      "sha256": "e34eb18b8f34f9fa64baace5a90885173842ae0549702920ecc130f6d7f504b4"
+    },
+    {
+      "path": "public/game-assets/sound-racer/models/houseA.glb",
+      "bytes": 30664,
+      "sha256": "56b34b78bdb9755596a5e2e9fd69087cb74b5dca309079237b17d5e2d514e63f"
+    },
+    {
+      "path": "public/game-assets/sound-racer/models/flag.glb",
+      "bytes": 4244,
+      "sha256": "895103324183dd244762b7c83e75e694c76617db1fa1d844a4331beb734407c1"
+    },
+    {
+      "path": "public/game-assets/sound-racer/models/hero.glb",
+      "bytes": 59124,
+      "sha256": "1d1b61235be4d482df85210821f45128e2852e76e23a2a1826da6972a1cdbdce"
+    },
+    {
+      "path": "public/game-assets/sound-racer/models/signal.glb",
+      "bytes": 32512,
+      "sha256": "59d9fdbb28b59c8206b6768fffa951a8351eaa20ee72d1686b158f4a20be9c9a"
+    },
+    {
+      "path": "public/game-assets/sound-racer/models/bridge.glb",
+      "bytes": 27368,
+      "sha256": "d778ede32cfe40d90bef2cebf564fa2992649c596219e795ae0f26a3205363a9"
+    },
+    {
+      "path": "public/game-assets/sound-racer/models/rival.glb",
+      "bytes": 60876,
+      "sha256": "a3432249949efd52b1b9838a8037b1e056b9a0079c7b68e96c6773f3aac99c40"
+    },
+    {
+      "path": "public/game-assets/sound-racer/textures/medieval.png",
+      "bytes": 15783,
+      "sha256": "5301a06866ba3be68dcc14cc429bd6d0f69004b72884283715d7e233f2e9782e"
+    },
+    {
+      "path": "public/game-assets/sound-racer/textures/city.png",
+      "bytes": 19885,
+      "sha256": "6d2d9a5a13bce32209cd8c04572ab170504d68f34b1519165c9b0c41871e235b"
+    },
+    {
+      "path": "public/game-assets/sound-racer/licenses/kaykit-city.txt",
+      "bytes": 828,
+      "sha256": "b076d86beec660e1550e00796ca24a8b70d7b2187d79954b2e29722b666dce93"
+    },
+    {
+      "path": "public/game-assets/sound-racer/licenses/kaykit-medieval.txt",
+      "bytes": 1027,
+      "sha256": "893a2b22391f4589070ba416f2cdb11bc5f54ad9a543d4f59f6d22b19072f39c"
+    }
+  ],
+  "review": "Retained hero hatchback, stone bridge, shop and tree rendered from actual GLB before selection. hero is used only as parked pit scenery, never the driver. All art remains outside the driveable envelope.",
+  "driverRecord": "asset-record.json",
+  "runtimeClosure": "Selected models and two referenced textures. No external network asset dependency."
+}
