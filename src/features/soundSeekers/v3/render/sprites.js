@@ -41,6 +41,10 @@ export function preload(srcs) {
   return Promise.all([...new Set(srcs.filter(Boolean))].map(loadImage));
 }
 
+export function retryFailedImages(srcs) {
+  for (const src of srcs) if (cache.get(src)?.failed) cache.delete(src);
+}
+
 // ── puppet ──────────────────────────────────────────────────────────────────
 export function createPuppet() {
   return { squash: 0, squashT: 0, hopT: 0, blinkT: 0, lastFacing: 1 };

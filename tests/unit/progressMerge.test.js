@@ -1,3 +1,4 @@
+import { normalizeCampaignProgress, beginCampaignMission, recordCampaignEvidence } from "../../src/features/soundSeekers/v3/engine/campaignProgress.js";
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
@@ -747,4 +748,30 @@ test('learn_games keeps whole immutable practice sessions and flags conflicting 
  assert.deepEqual(result.practiceRecord.completions[0],event);
  assert.deepEqual(result.practiceRecord.completionConflictIds,['session-a']);
  assert.deepEqual(computeHydratedValue('learn_games','__all__',{games:{pop:{plays:3}}},local).games.pop.practiceRecord.completions,[event]);
+});
+
+
+function campaignFixture(eventId) {
+  const catalog = { stages: [{ id: "stage" }], missions: [{ id: "mission", stageId: "stage" }] };
+  const started = beginCampaignMission(normalizeCampaignProgress(null), "mission", { attemptId: "attempt", challenges: [{ id: "one" }], beatState: {} }, catalog, 1);
+  return recordCampaignEvidence(started, "mission", { id: eventId, attemptId: "attempt", independent: true, targetIds: ["gpc-a"] }, catalog, 2);
+}
+
+test("campaign hydration uses immutable evidence union and requires an explicit learner scope", () => {
+  const a = campaignFixture("a"), b = campaignFixture("b");
+  const merged = computeHydratedValue("phonics_quest", "sound_seekers_v3", a, b, { scopeKey: "child" });
+  assert.equal(merged.evidence.length, 2);
+  assert.equal(merged.targets["gpc-a"].independent, 2);
+  assert.equal(merged.campaign.checkpoints.mission.attemptId, "attempt");
+  assert.throws(() => computeHydratedValue("phonics_quest", "sound_seekers_v3", a, b), /scope/);
+  assert.throws(() => computeHydratedValue("phonics_quest", "sound_seekers_v3", a, { v: 99 }, { scopeKey: "child" }), /Unsupported/);
+});
+
+test("campaign cloud sanitation removes nested migration recovery snapshots", () => {
+  const raw = campaignFixture("a");
+  raw.campaign.legacySave = { assignment: { note: "device only" }, telemetry: { sessions: [] } };
+  const safe = sanitizeCloudProgressPayload("phonics_quest", raw);
+  assert.equal(safe.campaign.legacySave, undefined);
+  assert.ok(raw.campaign.legacySave);
+  assert.deepEqual(safe.evidence, raw.evidence);
 });

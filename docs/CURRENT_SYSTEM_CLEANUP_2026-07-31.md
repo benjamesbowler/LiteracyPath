@@ -238,3 +238,45 @@ Mandatory Arcade instruction cards and startup countdown gates were removed on 2
 ## Game upgrade planning correction — 10 September 2026
 
 The complete gameplay/graphics/learning plan now covers 22 catalogue games plus Sound Seekers. The untracked eight-game draft was expanded and renamed rather than retained as a competing plan. Stale brain descriptions of the rejected select/confirm engines were replaced with the restored-runtime baseline and current upgrade handoff. The Story Trail plan now marks the newer gameplay/pacing requirements explicitly. No runtime code, learner data or user source assets were removed by this documentation pass.
+
+
+## Sound Seekers campaign cutover — 10 September 2026
+
+The local child route now mounts `v3/SoundSeekersCampaign.jsx`: three worlds,
+30 stages, 150 main missions and 60 optional quests. The current contract is
+[Sound Seekers release bible](SOUND_SEEKERS_RELEASE_BIBLE.md). This entry records
+local implementation and scoped cleanup, not a pushed or deployed release.
+The twenty-hour main campaign remains a production estimate requiring measured
+first-play timing; authored records and automated completion do not validate it.
+
+After retargeting maintained tests and verifying zero executable references in
+`src`, `tests` and `tools`, these disconnected files were removed from
+`src/features/soundSeekers/v3/`: `SoundSeekersV3.jsx`,
+`sound-seekers-v3.css`, `render/mapScene.js`, `render/encounterScene.js`,
+`engine/director.js`, `engine/audio.js` and `storage.js`. Git retains recovery
+history. Shared cast, trail, sprites, curriculum, challenge authority and target
+ledger modules remain active inputs and were preserved. Existing learner saves
+continue through the campaign storage adapter on the same journey row.
+
+`tests/unit/soundSeekersGameContract.test.js` now exercises the real campaign's
+eight-Pal chooser and hub controls. `tests/unit/soundSeekersV3.test.js` now
+builds campaign missions while retaining shared authority, decodability, target
+ledger and source-media regressions. The two focused suites passed 20 tests;
+focused lint passed. Legacy QuestRoot preview, pixel, pacing and offline gates
+still have distinct consumers and must not be described as campaign coverage.
+
+The initial 1,205 campaign audio files were expanded to 3,820 current MP3s.
+All retain exact script and byte-hash provenance; the final sequential
+210-mission build resolves 4,413 audio references with zero missing files.
+The expansion adds 876 oral transfer situations and 180 sentence/grammar
+situations, with the runtime retaining correlated-phase evidence boundaries.
+Twenty-three superseded unsupported spatial-choice label clips were removed
+after exact reference checks; one changed spatial prompt was regenerated.
+A palette-only source refactor required provenance re-verification, not audio
+regeneration: original generation source hashes are preserved alongside current
+source hashes where changed. Unchanged scripts retained their generated MP3 bytes. The local pacing model
+is approximately 12–24 hours, requiring learner validation rather than a
+measured twenty-hour claim. Human
+listening, physical-device play, observed learner comprehension and measured
+playthrough duration remain distinct evidence; no approval or readiness claim
+is inferred from technical checks.

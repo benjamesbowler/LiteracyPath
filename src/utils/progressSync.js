@@ -1,3 +1,10 @@
+import { campaignWorkerAvailable, campaignQueueBytes, runCampaignPersistenceWork, disposeCampaignPersistenceWorker } from './campaignPersistenceWorker.js';
+import { campaignLiveKey, campaignBaseSignature, applyCampaignLiveJournal } from './campaignLiveJournal.js';
+import { campaignPositionKey, applyCampaignPositions } from './campaignPosition.js';
+import { createCampaignAckTracker } from './campaignDelta.js';
+import { encodeCampaignTransport } from './campaignTransport.js';
+import { normalizeCampaignProgress } from '../features/soundSeekers/v3/engine/campaignProgress.js';
+import { encodeProgressStorage, decodeProgressStorage } from './progressStorageCodec.js';
 import { supabase } from "../supabaseClient.js";
 import { selectAllRows } from "../data/pagedSelect.js";
 import {
@@ -10,7 +17,9 @@ import {
   RETIRED_PROGRESS_AREAS,
   localLearnerDataKeysForStudent,
   localProgressKeysForStudent,
+  localProgressStorageKeyForRow,
   localProgressStorageKey,
+  localProgressStorageKeysForArea,
   retiredLocalProgressStorageKey,
   RESET_AREA,
   shouldApplyReset
@@ -48,6 +57,10 @@ export const PRACTICE_RESET_RETAINED_AREAS = Object.freeze([
   "story_quests"
 ]);
 
+const campaignAcks = createCampaignAckTracker();
+const campaignQueueJobs = new Map();
+const campaignQueueEpoch = new Map();
+const syncEmissionSequence = new Map();
 let activeSession = null;
 const syncStates = new Map();
 const rejectedTokens = new Set();
@@ -102,7 +115,7 @@ function engagementStorage() {
 function readJson(key, fallback) {
   if (!isBrowser()) return fallback;
   try {
-    return JSON.parse(window.localStorage.getItem(key) || "null") ?? fallback;
+    return decodeProgressStorage(window.localStorage.getItem(key) || "null") ?? fallback;
   } catch {
     return fallback;
   }
@@ -111,7 +124,7 @@ function readJson(key, fallback) {
 function writeJson(key, value) {
   if (!isBrowser()) return false;
   try {
-    window.localStorage.setItem(key, JSON.stringify(value));
+    window.localStorage.setItem(key, encodeProgressStorage(value));
     return true;
   } catch {
     // Local progress buffering must never block the child experience.
@@ -125,7 +138,7 @@ function readStoredJson(key) {
     const raw = window.localStorage.getItem(key);
     if (raw === null) return { exists: false, ok: true, value: {} };
     try {
-      return { exists: true, ok: true, raw, value: JSON.parse(raw) };
+      return { exists: true, ok: true, raw, value: decodeProgressStorage(raw) };
     } catch {
       return { exists: true, ok: false, raw, value: {} };
     }
@@ -190,7 +203,7 @@ export function inspectLocalProgressForStudent(studentId, {
   try {
     const retainedStorageKeys = new Set(
       [...retainedAreas]
-        .map(area => localProgressStorageKey(area, scopedStudentId))
+        .flatMap(area => localProgressStorageKeysForArea(area, scopedStudentId))
         .filter(Boolean)
     );
     const inspectedKeys = retainedAreas.size > 0
@@ -216,7 +229,7 @@ export function inspectLocalProgressForStudent(studentId, {
         residuals.push("engagement_health");
       }
     }
-    const cachedRows = JSON.parse(localStorage.getItem(CLOUD_ROW_STORAGE_KEY) || "{}");
+    const cachedRows = decodeProgressStorage(localStorage.getItem(CLOUD_ROW_STORAGE_KEY) || "{}");
     if (cachedRows && Object.prototype.hasOwnProperty.call(cachedRows, scopedStudentId)) {
       const studentRows = cachedRows[scopedStudentId];
       const hasResidualRows = retainedAreas.size === 0
@@ -267,7 +280,9 @@ export function clearLocalProgressForStudent(studentId, {
   preserveAreas = [],
   storage
 } = {}) {
+  campaignAcks.clear();
   const scopedStudentId = String(studentId || "").trim();
+  campaignQueueEpoch.set(scopedStudentId,(campaignQueueEpoch.get(scopedStudentId)||0)+1);
   const localStorage = operationStorage(storage);
   const retainedAreas = preservedProgressAreas({ preserveProfile, preserveAreas });
   if (!scopedStudentId || !localStorage) {
@@ -276,7 +291,7 @@ export function clearLocalProgressForStudent(studentId, {
   if (blockFutureWrites) blockedStudentWrites.add(scopedStudentId);
   const retainedStorageKeys = new Set(
     [...retainedAreas]
-      .map(area => localProgressStorageKey(area, scopedStudentId))
+      .flatMap(area => localProgressStorageKeysForArea(area, scopedStudentId))
       .filter(Boolean)
   );
   // A practice reset retains device navigation preferences. A full privacy
@@ -330,7 +345,7 @@ export function clearLocalProgressForStudent(studentId, {
   }
   // Drop their cached cloud rows.
   try {
-    const cache = JSON.parse(localStorage.getItem(CLOUD_ROW_STORAGE_KEY) || "{}");
+    const cache = decodeProgressStorage(localStorage.getItem(CLOUD_ROW_STORAGE_KEY) || "{}");
     if (retainedAreas.size > 0 && Array.isArray(cache[scopedStudentId])) {
       const retainedRows = cache[scopedStudentId].filter(row => (
         isPreservedProgressArea(row?.area, retainedAreas)
@@ -340,7 +355,7 @@ export function clearLocalProgressForStudent(studentId, {
     } else {
       delete cache[scopedStudentId];
     }
-    localStorage.setItem(CLOUD_ROW_STORAGE_KEY, JSON.stringify(cache));
+    localStorage.setItem(CLOUD_ROW_STORAGE_KEY, encodeProgressStorage(cache));
   } catch { /* verified below */ }
   emitProgressSyncState("cleared", { studentId: scopedStudentId });
   return inspectLocalProgressForStudent(scopedStudentId, {
@@ -422,9 +437,13 @@ export function getCachedCloudProgressRows(studentId) {
   return readJson(CLOUD_ROW_STORAGE_KEY, {})[studentId] || [];
 }
 
-function emitProgressSyncState(status, entry) {
+function emitProgressSyncState(status, entry, knownPending = null) {
   if (!isBrowser() || !entry?.studentId) return;
-  const pending = readProgressQueueRecords(engagementStorage())
+  if(campaignWorkerAvailable()&&knownPending===null){
+    const sequence=(syncEmissionSequence.get(entry.studentId)||0)+1;syncEmissionSequence.set(entry.studentId,sequence);
+    void runCampaignPersistenceWork({operation:'metadata',records:campaignQueueBytes(engagementStorage())}).then(records=>{if(syncEmissionSequence.get(entry.studentId)===sequence)emitProgressSyncState(status,entry,records.filter(r=>r.studentId===entry.studentId).length);}).catch(()=>{});return;
+  }
+  const pending = knownPending ?? readProgressQueueRecords(engagementStorage())
     .filter(record => record.entry.studentId === entry.studentId).length;
   const volatilePending = [...volatileEntries.values()]
     .filter(candidate => candidate.studentId === entry.studentId).length;
@@ -466,6 +485,7 @@ function discardRetiredProgressForStudent(studentId) {
 }
 
 export function configureProgressSync(session = null) {
+  campaignAcks.clear();
   activeSession = session?.studentId ? session : null;
   if (isBrowser() && !migrateProgressQueueCredentials(engagementStorage()) && activeSession) {
     emitProgressSyncState("storage-failed", activeSession);
@@ -487,6 +507,25 @@ export function getActiveProgressSyncSession() {
 }
 
 function enqueueWrite(entry, { deferred = false } = {}) {
+  if(campaignWorkerAvailable()&&entry.area==='phonics_quest'&&entry.key==='sound_seekers_v3'&&entry.payload?.campaign?.v===1){
+    const identity=progressEntryIdentity(entry),epoch=campaignQueueEpoch.get(entry.studentId)||0,previous=campaignQueueJobs.get(identity)||Promise.resolve();
+    const run=previous.catch(()=>{}).then(async()=>{
+      const storage=engagementStorage(),candidate=volatileEntries.get(identity)?mergeProgressQueueEntries(volatileEntries.get(identity),entry):entry;
+      try{
+        const job=await runCampaignPersistenceWork({operation:'enqueue',records:campaignQueueBytes(storage),incoming:candidate,deferred,revision:crypto.randomUUID()});
+        if(isProgressWriteBlocked(entry.studentId,entry.area)||(campaignQueueEpoch.get(entry.studentId)||0)!==epoch)return {stored:false,cancelled:true,entry:candidate};
+        for(const [key,bytes]of job.writes)storage.setItem(key,bytes);
+        for(const [key,raw]of job.removed)if(storage.getItem(key)===raw)storage.removeItem(key);
+        volatileEntries.delete(identity);
+        return {stored:true,entry:{...candidate,...job.entry,payload:candidate.payload}};
+      }catch{
+        if(isProgressWriteBlocked(entry.studentId,entry.area)||(campaignQueueEpoch.get(entry.studentId)||0)!==epoch)return {stored:false,cancelled:true,entry:candidate};
+        volatileEntries.set(identity,candidate);
+        return {stored:false,entry:candidate};
+      }
+    });
+    campaignQueueJobs.set(identity,run);void run.finally(()=>{if(campaignQueueJobs.get(identity)===run)campaignQueueJobs.delete(identity);});return run;
+  }
   const identity = progressEntryIdentity(entry);
   const candidate = mergeProgressQueueEntries(volatileEntries.get(identity), entry);
   const result = enqueueProgressQueueEntry(engagementStorage(), candidate, { deferred });
@@ -504,8 +543,15 @@ async function saveCloudProgress(entry, client = supabase) {
   if (!PROGRESS_AREAS.includes(entry.area)) return;
   // Defence in depth for old queued rows and future callers: privacy-bound
   // fields must not leave the device even if they predate queue sanitisation.
-  const uploadPayload = sanitizeCloudProgressPayload(entry.area, entry.payload);
+  const sessionBeforeEncoding = activeSession;
+  const fullPayload=sanitizeCloudProgressPayload(entry.area,entry.payload);
+  const ackScope=JSON.stringify([entry.studentId,entry.mode,entry.token||'',entry.area,entry.key]);
+  const candidate=campaignAcks.prepare(ackScope,fullPayload);
+  const uploadPayload=campaignWorkerAvailable()&&fullPayload?.campaign?.v===1
+    ? await runCampaignPersistenceWork({operation:'transport',payload:candidate})
+    : await encodeCampaignTransport(candidate);
 
+  if (activeSession !== sessionBeforeEncoding) throw new Error("progress_session_changed");
   if (entry.mode === "student") {
     if (!entry.token) throw new Error("invalid_session");
     const { data, error } = await client.call("student_save_progress", {
@@ -514,7 +560,8 @@ async function saveCloudProgress(entry, client = supabase) {
       p_key: entry.key,
       p_payload: uploadPayload
     });
-    if (error || data?.ok !== true) throw error || new Error(data?.error || "student_save_progress unacknowledged");
+    if (error || data?.ok !== true) {campaignAcks.forget(ackScope);throw error || new Error(data?.error || "student_save_progress unacknowledged");}
+    campaignAcks.acknowledge(ackScope,fullPayload);
     return;
   }
 
@@ -527,7 +574,8 @@ async function saveCloudProgress(entry, client = supabase) {
       payload: uploadPayload,
       updated_at: new Date().toISOString()
     }, { onConflict: "student_id,area,key" });
-  if (error) throw error;
+  if (error) {campaignAcks.forget(ackScope);throw error;}
+  campaignAcks.acknowledge(ackScope,fullPayload);
 }
 
 async function flushEntry(entry, records, volatileRevision = null, client = supabase) {
@@ -537,7 +585,7 @@ async function flushEntry(entry, records, volatileRevision = null, client = supa
     return { ok: false, needsRecovery: false };
   }
   if (typeof navigator !== "undefined" && navigator.onLine === false) {
-    const queued = enqueueWrite(entry, { deferred: true });
+    const queued = await enqueueWrite(entry, { deferred: true });
     emitProgressSyncState(queued.stored ? "deferred" : "storage-failed", queued.entry);
     return { ok: false, needsRecovery: true };
   }
@@ -562,7 +610,7 @@ async function flushEntry(entry, records, volatileRevision = null, client = supa
       volatileEntries.delete(progressEntryIdentity(entry));
       return { ok: false, needsRecovery: false };
     }
-    const queued = enqueueWrite(entry, { deferred: true });
+    const queued = await enqueueWrite(entry, { deferred: true });
     emitProgressSyncState(queued.stored ? "deferred" : "storage-failed", queued.entry);
     return { ok: false, needsRecovery: true };
   }
@@ -591,12 +639,18 @@ async function flushQueuedKey(identity, session = activeSession) {
     let lastEntry = null;
     while (true) {
       if (activeSession !== sessionAtStart || !sessionCanFlush(session)) return false;
-      const records = readProgressQueueRecords(engagementStorage())
-        .filter(record => progressEntryIdentity(record.entry) === identity);
       const volatile = volatileEntries.get(identity) || null;
-      const current = mergeProgressQueueRecords(volatile
-        ? [...records, { storageKey: null, legacy: false, entry: volatile }]
-        : records);
+      let records,current;
+      if(campaignWorkerAvailable()&&identity.endsWith(':phonics_quest:sound_seekers_v3')){
+        await campaignQueueJobs.get(identity);
+        ({records,current}=await runCampaignPersistenceWork({operation:'read',identity,records:campaignQueueBytes(engagementStorage()),volatile}));
+      }else{
+        records=readProgressQueueRecords(engagementStorage()).filter(record=>progressEntryIdentity(record.entry)===identity);
+        current=mergeProgressQueueRecords(volatile?[...records,{storageKey:null,legacy:false,entry:volatile}]:records);
+      }
+      // Queue preparation can await the worker while sign-in changes. Recheck
+      // before binding this snapshot to any credential or dispatching a request.
+      if (activeSession !== sessionAtStart || !sessionCanFlush(session)) return false;
       if (!current || current.studentId !== session.studentId) {
         if (lastEntry) emitProgressSyncState(recovered ? "recovered" : "saved", lastEntry);
         return true;
@@ -644,6 +698,11 @@ export function queueProgressSave(area, key, payload, { scopeKey } = {}) {
     payload: sanitizeCloudProgressPayload(area, payload)
   };
   const queued = enqueueWrite(entry);
+  if(queued?.then)return queued.then(result=>finishQueuedProgress(result,scopeKey,area,key));
+  return finishQueuedProgress(queued,scopeKey,area,key);
+}
+function finishQueuedProgress(queued,scopeKey,area,key){
+  if(queued.cancelled)return false;
   if (isBrowser()) {
     window.dispatchEvent(new CustomEvent("lp-progress-updated", {
       detail: { studentId: scopeKey, area, key }
@@ -662,16 +721,19 @@ export function queueProgressSave(area, key, payload, { scopeKey } = {}) {
 
 export async function flushQueuedProgressWrites(session = activeSession) {
   if (!sessionCanFlush(session)) return;
+  const pendingCampaignJobs = [...campaignQueueJobs].filter(([identity])=>identity.startsWith(`${session.studentId}:`)).map(([,job])=>job);
+  if (pendingCampaignJobs.length) await Promise.all(pendingCampaignJobs);
   if (blockedStudentWrites.has(String(session.studentId))) {
     clearLocalProgressForStudent(session.studentId, {
       blockFutureWrites: true
     });
     return;
   }
-  const own = readProgressQueueRecords(engagementStorage())
-    .filter(record => record.entry.studentId === session.studentId);
+  const own = campaignWorkerAvailable()
+    ? (await runCampaignPersistenceWork({operation:'metadata',records:campaignQueueBytes(engagementStorage())})).filter(record=>record.studentId===session.studentId).map(record=>record.identity)
+    : readProgressQueueRecords(engagementStorage()).filter(record=>record.entry.studentId===session.studentId).map(record=>progressEntryIdentity(record.entry));
   const identities = [...new Set([
-    ...own.map(record => progressEntryIdentity(record.entry)),
+    ...own,
     ...[...volatileEntries.entries()]
       .filter(([, entry]) => entry.studentId === session.studentId)
       .map(([identity]) => identity)
@@ -743,8 +805,51 @@ export async function hydrateCloudProgress(session) {
   const resetApplied = await applyResetTombstone(session, rows);
   cacheCloudRows(session.studentId, rows);
   rows.forEach(row => {
-    const storageKey = localProgressStorageKey(row.area, session.studentId);
+    const storageKey = localProgressStorageKeyForRow(row.area, row.key, session.studentId);
     if (!storageKey) return;
+    if (row.area === "phonics_quest" && row.key === "sound_seekers_v3") {
+      let campaignStored = readStoredJson(storageKey);
+      if (!campaignStored.exists) {
+        const legacyBase = localProgressStorageKey(row.area, session.studentId);
+        campaignStored = readStoredJson(`${legacyBase}:v3`);
+        if (!campaignStored.exists) campaignStored = readStoredJson(legacyBase);
+        if (campaignStored.ok && campaignStored.exists && [1,2].includes(campaignStored.value?.v)) {
+          campaignStored = { ...campaignStored, value: normalizeCampaignProgress(campaignStored.value) };
+        }
+      }
+      if (!campaignStored.ok) return;
+      if (!campaignStored.exists && (!row.payload || row.payload.v !== 3 || (row.payload.campaign?.v && row.payload.campaign.v !== 1))) {
+        // A future/malformed cloud record is not an empty adventure. Keep its
+        // opaque payload locally so the child surface can request recovery.
+        writeJson(storageKey, row.payload);
+        return;
+      }
+      // Malformed/future local payloads and incompatible immutable attempts
+      // remain untouched. The mounted campaign receives the hydrated row via
+      // the existing event and surfaces its recoverable conflict state.
+      if (campaignStored.exists && (!campaignStored.value || campaignStored.value.v !== 3)) return;
+      try {
+        const canonicalBytes=window.localStorage.getItem(storageKey);
+        const liveRecord=readStoredJson(campaignLiveKey(storageKey)),positionRecord=readStoredJson(campaignPositionKey(storageKey));
+        if(!liveRecord.ok||!positionRecord.ok)return;
+        const live=liveRecord.exists?liveRecord.value:null,positions=positionRecord.exists?positionRecord.value:null;
+        const local=applyCampaignPositions(applyCampaignLiveJournal(campaignStored.value,live,canonicalBytes?campaignBaseSignature(canonicalBytes):null),positions);
+        const hydrated = computeHydratedValue(row.area, row.key, local, row.payload, { scopeKey: session.studentId });
+        if(writeJson(storageKey, hydrated)===false)return;
+        window.localStorage.removeItem(campaignLiveKey(storageKey));window.localStorage.removeItem(campaignPositionKey(storageKey));
+        const identity = `${session.studentId}:${row.area}:${row.key}`;
+        const records = readProgressQueueRecords(engagementStorage())
+          .filter(record => progressEntryIdentity(record.entry) === identity);
+        const volatile = volatileEntries.get(identity) || null;
+        const pending = mergeProgressQueueRecords(volatile
+          ? [...records, { storageKey: null, legacy: false, entry: volatile }]
+          : records);
+        if (pending) enqueueWrite({ ...pending, payload: computeHydratedValue(
+          row.area, row.key, pending.payload, hydrated, { scopeKey: session.studentId }
+        ) });
+      } catch { /* preserve local bytes and the cached original cloud row */ }
+      return;
+    }
     const stored = row.area === "el_quest" ? readStoredJson(storageKey) : null;
     const existing = stored ? stored.value : readJson(storageKey, {});
     if (stored) {
@@ -805,6 +910,8 @@ export async function hydrateCloudProgress(session) {
 }
 
 export function clearProgressSyncSession() {
+  disposeCampaignPersistenceWorker();
+  campaignAcks.clear();
   if (activeSession?.token) rejectedTokens.add(activeSession.token);
   activeSession = null;
   pendingTimers.forEach(timer => window.clearTimeout?.(timer));

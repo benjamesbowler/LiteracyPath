@@ -247,6 +247,7 @@
     "dotenv": "^17.4.2",
     "exceljs": "^4.4.0",
     "express": "^5.2.1",
+    "fflate": "^0.8.3",
     "framer-motion": "^12.39.0",
     "howler": "^2.2.4",
     "jszip": "^3.10.1",

@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import SoundSeekersV3 from "./v3/SoundSeekersV3.jsx";
-import { loadV3Progress, saveV3Progress } from "./v3/storage.js";
+import SoundSeekersCampaign from "./v3/SoundSeekersCampaign.jsx";
 
 const EMPTY_ACCESSIBILITY_SETTINGS = Object.freeze({});
 const FOCUSABLE_SELECTOR = [
@@ -147,16 +146,14 @@ export default function SoundSeekersRoute({
     onExit();
   }, [onExit]);
 
-  // v3 "Story Trail" (2026-09-04) replaces the v2 DOM game. The v2 engine stays
-  // on disk for the zero-reference cleanup pass; nothing here imports it.
+  // One keyed campaign owns this learner’s active scene and save lifecycle.
   const game = (
-    <SoundSeekersV3
+    <SoundSeekersCampaign
+      key={progressScopeKey}
       progressScopeKey={progressScopeKey}
       isSoundEnabled={isSoundEnabled}
       onExit={leave}
       accessibilitySettings={accessibilitySettings}
-      loadProgress={loadV3Progress}
-      saveProgress={saveV3Progress}
       initialStopId={initialFixtureId && /^s\d+$/.test(initialFixtureId) ? initialFixtureId : null}
     />
   );

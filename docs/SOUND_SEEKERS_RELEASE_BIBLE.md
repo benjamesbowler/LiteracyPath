@@ -1,144 +1,329 @@
 # Sound Seekers current product bible
 
-## Authority
+## Authority and implementation
 
-This document describes the current product only. The live runtime, imported
-data modules, and maintained checks are the final authority when wording here
-becomes stale.
+This document describes the current child route. Current imports, authored
+content and maintained checks are the implementation authority; historical
+pass counts, review scores and named-person approvals are not product rules.
 
-Current child-route implementation ownership:
+The child route is `src/features/soundSeekers/SoundSeekersRoute.jsx`, which
+mounts `v3/SoundSeekersCampaign.jsx`. Its owners are:
 
-- `src/features/soundSeekers/SoundSeekersRoute.jsx`
-- `src/features/soundSeekers/v3/SoundSeekersV3.jsx`
-- `src/features/soundSeekers/v3/content/`
-- `src/features/soundSeekers/v3/engine/`
-- `src/features/soundSeekers/v3/render/`
-- `src/features/soundSeekers/v3/storage.js`
+- `v3/content/campaign.js`: worlds, stages, residents, mission prerequisites,
+  curriculum anchors, restoration outcomes and production duration estimates.
+- `v3/content/campaignLanguage.js`, `campaignLearningPacks.js` and
+  `campaignNarration.js`, `campaignTransferPacks.js` and
+  `campaignSentenceTransfer.js`: exact oral prompts, choices, word/sentence content,
+  encounter narration and help.
+- `v3/content/campaignLayouts.js` and `v3/render/campaignWorldScene.js`:
+  hub geometry, encounter rooms, collision surfaces and physical actions.
+- `v3/engine/campaignChallenges.js`: executable private challenge records and
+  action resolution, using the shared challenge, authority and lexicon modules.
+- `v3/render/campaignRestoration.js`: thirty explicit before/partial/restored
+  hub compositions, installing recovered objects from completed main missions.
+- `v3/engine/campaignActionMotion.js` and `v3/render/campaignActionMotion.js`:
+  visible routing, delivery, cart and workshop motion; motor presentation never
+  decides literacy correctness.
+- `v3/engine/campaignProgress.js` and `v3/campaignStorage.js`: campaign
+  progression, formative evidence, checkpoints and learner-scoped storage.
+- `v3/engine/campaignAudio.js`, `v3/render/campaignProps.js`,
+  `v3/render/campaignHeroes.js` and `v3/sound-seekers-campaign.css`:
+  narration delivery, visible objects, canonical Pal animation and interface.
 
-The v3 trail consumes the canonical stop order and teaching records from
-`src/data/questSequence.js`. Existing `src/components/quest/` and
-`src/utils/quest*` modules are compatibility and non-child-route consumers
-until their zero-reference retirement checks pass; they do not define the
-current Sound Seekers child presentation.
+Paths above are relative to `src/features/soundSeekers/`. The former
+`SoundSeekersV3.jsx` presentation, its map/encounter renderers, director,
+stylesheet and storage/audio adapters have been retired after their executable
+references were removed. Shared `v3/content/trail.js`, cast, lexicon,
+challenges, authority, progress and sprite modules remain live dependencies.
+Legacy QuestRoot, pixel and v2 components still have preview or compatibility
+consumers; their presence does not define the current child presentation.
 
-Historical pass numbers, scores, audit rounds, bundle baselines, prototype
-targets, and named-person approvals are not product rules.
+## Current campaign and duration boundary
 
-## Product standard
+The authored campaign contains three worlds: Sunny Meadow Farm, Sunny Hollow
+and Moonwood. Each has ten stages. Each stage has five main missions and two
+optional quests: 150 main missions and 60 optional quests overall. Eight
+canonical Pals are selectable. Residents have explicit alternate characters
+when the chosen hero would otherwise meet a duplicate of itself.
 
-Sound Seekers is a phonics adventure, not a question bank wrapped in a game.
-The current experience must preserve these outcomes:
+Stage progression preserves structured teaching access with choices between
+available missions. Optional quests do not gate the main campaign. Stage
+repairs and finales represent narrative progress, not curriculum mastery.
+The forty existing `s1`–`s40` curriculum records remain teaching anchors;
+they are not thirty stage IDs or an inferred EL cycle map. Available print is
+explicitly gated by the taught code. Opening teaching separates a/m from t/s
+before mat/sat construction becomes available.
 
-- A child can understand the next action through audio, staging, iconography,
-  and concise text.
-- Answer objects are readable, reachable, and forgiving across supported input
-  and display modes.
-- Movement, interaction, correction, chapter handoff, and resume behavior do not
-  create or erase learning evidence.
-- Every chapter has a recognisable place, cast, interaction language, reward,
-  and destination.
-- Educational progression is decodable, recoverable after error, and honest
-  about what the child independently demonstrated.
-- Accessible and low-power presentations preserve the same learning intent,
-  correction state, progress, and rewards.
+The production plan allocates 1,020 minutes to main missions and 180 minutes
+to hub exploration, for a **20-hour target**. Optional quests are excluded.
+`estimatedMinutes` and `explorationMinutes` are authoring estimates, not
+observed duration. Runtime coverage marks duration as requiring measured
+playthrough. A spelling tile placement is a diagnostic substep, not a whole
+word mastered; `coverage.decisionCount` must not be presented as an equivalent
+number of independent literacy decisions.
 
-## Current world
+Validate first-play active time separately from pause, loading, inactivity,
+help, retries and recovery across learners with different reading and motor
+confidence. Add meaningful authored content if the campaign is materially
+short. Waiting, forced grinding or blocking a fast learner cannot establish
+the advertised duration. Automated completion does not validate twenty hours.
 
-The adventure has eight current chapters and 40 route-authored stops. Chapter
-maps, casts, scenery, interaction assets, gates, ceremonies, and rewards are
-resolved from the current modules listed above. Project-authored and licensed
-pixel-art provenance is consolidated in
-`public/game-assets/quest-pixel/SOURCE.md`.
+### Pre-expansion pacing review — not measured playtime
 
-Pixel mode is the primary authored adventure presentation. The maintained 3D
-and accessible 2D paths are supported presentations where the runtime exposes
-them; they must not become parallel curriculum or progress systems.
+Before the three-act expansion, a sequential first-configuration build on
+10 September 2026 produced 1,425
+main-campaign beats: 103 signposts, 12 sound choices, 149 word-construction
+beats, 25 sorting beats, 90 sentence beats and 1,046 oral/reading/story beats.
+There are 1,322 keyed beats and 1,975 counted tile/item action units. Repeated
+pickup/delivery phases share scenarios, so neither count represents an equal
+number of independent educational situations.
 
-## Learning and mastery
+The authored main-room spawn-to-exit horizontal spans total about 1.98 million
+world pixels. At the current maximum movement speed of 340 pixels/second that
+is about 97 minutes of unobstructed horizontal travel, before stops, jumps,
+return paths and motor assistance. This is geometry arithmetic, not a simulated
+or observed playthrough. Prompt occurrences found in the campaign audio manifest
+sum to 36.9 minutes; 522 additional canonical cue occurrences are outside that
+subtotal. Instructions can overlap movement, and optional audio replay varies.
 
-`src/utils/questMastery.js` is the single source for Sound Seekers mastery
-rules. This document deliberately does not duplicate its numeric values.
+A reasonable **initial expert estimate is roughly 6–12 hours for the present
+pre-expansion main content**, with substantial learner variation. The estimate assumes
+approximately 4–10 seconds of response/handling beyond a short primary prompt
+for simple choices, 12–30 seconds for multi-part construction, 1.3–2 times the
+unobstructed traversal arithmetic for navigation, plus meaningful help/retry,
+encounters and hub choices. These are uncalibrated assumptions, not a promised
+range. Fast supported input can finish sooner; a learner needing substantial
+help can take longer. Those baseline counts did not justify a typical twenty-hour claim. New sections
+require a fresh count and timing review; the old range is not a claim about the
+expanded build.
 
-The current principles are:
+The review identified insufficient depth within missions. The opening finale has four
+scenarios; each of the other 29 finales then had six authored scenarios
+presented as twelve pickup/delivery beats. This does not yet deliver the plan's
+12–18 distinct decisions in a multi-family finale. Most extra room length adds
+walking rather than a new educational situation.
 
-- only independent attempts contribute knowledge evidence;
-- evidence must meet the active target type's rule;
-- different days protect against same-sitting cramming;
-- different task contexts protect against game-specific guessing where the
-  target type supports more than one context;
-- consecutive misses can invalidate an earlier mastery claim;
-- completing a stop or narrative gate never automatically means mastery;
-- narrative progress is not withheld because a mastery state is incomplete.
+Meaningful expansion should therefore prioritise:
 
-Review scheduling is owned by `src/utils/questReviewScheduler.js`. Reporting
-must derive from the same stored attempts and mastery state used by the game.
+- Three connected finale phases: infer a plan from evidence, build or repair
+  the relevant structure, then use the resulting route to solve a fresh
+  transfer problem. Give later finales 12–18 distinct, curriculum-valid
+  situations across genuinely different actions, not duplicated pickups.
+- Two or three purposeful sections in each regular mission, with an earlier
+  choice changing the later world problem. For example, identify what the
+  chick needs, construct the appropriate crossing, and interpret a new note
+  to deliver it; retain a checkpoint between sections.
+- Context-rich listening and reading: new short messages, conflicting clues,
+  causal choices and explanation through action, with oral support clearly
+  distinguished from independent print. Teach any additional code before use.
+- Authored target-specific workshop contrasts where canonical taught words
+  permit them, and honest alternative missions where they do not. Add novel
+  uses of the same skill rather than another pass through the same word list.
 
-## Interaction contract
+An authoring budget of 2–4 additional meaningful minutes per regular mission
+and 5–8 per finale would add roughly 6.5–12 hours of designed substance, but
+that is still a proposal to test, not duration evidence. Pilot representative
+stages first, then expand and retime. Optional quests, repeat play, compulsory
+waiting and redundant traversal must remain outside the main-play claim.
 
-- One child action produces at most one attempt.
-- A missed tap never becomes a different action or an unintended answer.
-- A wrong answer preserves the active problem long enough to teach the
-  correction; it must not silently regenerate the choices.
-- Assistance and timeouts are recorded honestly and cannot be converted into
-  independent success.
-- Active tasks survive pause, route rebuild, and checkpoint resume without
-  changing their target or choices.
-- Every audio-dependent phonics task resolves a current committed clip.
-- Browser text-to-speech is not a production phonics-audio fallback.
+### Three-act expansion — local implementation
 
-## Presentation and accessibility contract
+`v3/content/campaignTransferPacks.js` now authors 876 distinct new oral
+situations for 29 later finales and 44 regular main missions, twelve per
+mission. Retrieval requires interpreting an object's relation to a landmark;
+later-world retrieval requires both size and relation. Application uses a new
+object/station arrangement. The 876 full requests are unique across this
+expansion and do not repeat the original scenarios in the same mission.
+Options have explicit object appearance, landmark geometry and exact narration.
+Each pack identifies its retrieval/application act and physical family, allowing
+climbing, carrying, route travel, search and placement to vary by the mission.
+Opening missions remain short and retain the a/m then t/s teaching boundary.
 
-- The child sees one clear immediate objective.
-- Essential instructions never rely on text, colour, motion, or sound alone.
-- Keyboard, touch, pointer, reduced-motion, high-contrast, and accessible
-  alternatives retain equivalent educational meaning.
-- Focus cannot escape into content behind a modal.
-- Renderer or asset failure must lead to a calm supported fallback, not a blank
-  or permanently loading screen.
-- Current media selection comes from runtime manifests; old request packs and
-  source-board workspaces are not fallback libraries.
+The builder now consumes those packs plus 180 new sentence/temporal-grammar
+situations in `campaignSentenceTransfer.js`, and cumulative canonical taught-word
+retrieval/application. Sequential construction of all 210 missions finds 3,648
+main beats, 2,853 de-correlated main scenarios and 5,558 tile/item action units.
+The main beats include 429 word-construction, 270 sentence, 36 sorting, 12 sound
+choice, 103 signpost and 2,798 oral/reading/story beats. Optional quests add 311
+beats and 274 scenarios, excluded from the main duration model. The runtime's
+scenario count separates correlated pickup/delivery phases and counts the
+separate classifications in sorting; it remains a content count, not observed
+independent mastery or time.
 
-## Data and lifecycle contract
+The expanded room spans total 5,099,520 world pixels: approximately 250 minutes
+at maximum unobstructed horizontal movement speed. More room length is movement,
+not additional educational depth. The new semantic scenarios are the substance
+added by this expansion; walking alone cannot justify its target duration.
 
-- One journey uses one progress model and one active scene lifecycle.
-- Timers, listeners, tweens, and scene resources are disposed when their owner
-  ends.
-- Offline progress is queued before network work and reconciled without losing
-  or inventing attempts.
-- Telemetry is minimal, child-safe, and limited to product reliability and
-  teaching evidence needs.
-- Debug shortcuts and test hooks cannot create release evidence that the real
-  child input path does not support.
+Primary campaign prompt occurrences total about 97 minutes of verified audio;
+another 1,224 canonical cue occurrences are outside that subtotal. Optional
+choice-label replay is excluded and audio can overlap movement.
 
-## Current verification
+A provisional expanded-main estimate is **roughly 12–24 hours**, with substantial
+learner variation. This models about 2,154 non-construction situations at 4–10
+seconds of response/handling beyond their primary prompt, 699 word/sentence
+constructions at 12–30 seconds, and navigation at 1.3–2 times the 250-minute
+unobstructed arithmetic, plus primary narration, encounters and hub choices.
+Narration/navigation overlap must be subtracted; help/retry time varies and must
+be reported separately. These are uncalibrated expert assumptions, not measured
+playtime. Audio completion and direct-input pacing checks remain separate work.
+This range makes the twenty-hour target plausible to investigate, but does not
+establish a typical twenty-hour game. Pilot fast, typical and supported learners
+across early, middle and late stages before advertising duration.
 
-Use the checks relevant to the changed system:
+## Learning and evidence
 
-```text
-npm test
-npm run lint
-npm run build
-npm run check:quest
-npm run check:quest-pixel
-npm run check:quest-pacing
-npm run check:quest-pixel-bundle
-npm run check:quest-offline
-npm run test:quest-browser
-```
+The campaign currently records **formative practice**, not formal assessment
+or a mastery determination. `campaignChallenges.js` and the shared authority
+own prompt/answer separation and assistance outcomes;
+`campaignProgress.js` owns campaign evidence and narrative unlocks. Retained
+legacy target counters do not turn this into an assessment instrument.
+`src/utils/questMastery.js` and the old review scheduler remain separate
+legacy consumers; do not claim they govern this campaign's new evidence.
 
-The pixel-bundle check verifies the current lazy-chunk architecture and required
-subsystems. It does not enforce a historical byte ceiling, module-count target,
-or percentage reduction.
+- Teach before independent print use; keep oral vocabulary and grammar
+  distinct from decoding, spelling and heart-word evidence.
+- Only an unassisted eligible response may be recorded as independent.
+  Models, text help, answer reveals and missing essential audio affect support.
+- Word construction produces one word-level outcome with diagnostic substeps.
+  Pickup and delivery within one scenario are correlated evidence.
+- Narrative completion never creates mastery or independent evidence.
+- Replay and resumed checkpoint actions must not duplicate evidence or rewards.
+- Old saves retain their original evidence and narrative anchors. An old
+  completed stop does not silently complete newly expanded missions.
 
-Local checks prove source consistency and exercised behavior. They do not by
-themselves prove physical-device performance, assistive-technology behavior,
-classroom audio, or observed child comprehension. Those are release-specific
-external checks, not hidden publication switches or permanent approval fields.
+### Workshop contract
 
-## Definition of ready
+Across all fifteen workshop missions, nine currently have a valid taught
+canonical one-part replacement; six use explicit supported word assembly.
+Replacement keeps the existing word visible, asks for the changed part and
+preserves the original on error. Its outcome records the base word, changed
+slot and substitution construct. Supported assembly is labeled instructional
+word assembly and cannot be claimed as independent phoneme substitution.
+The six assembly missions are `meadow-08-2`, `dino-12-2`, `dino-13-4`,
+`dino-16-2`, `dino-20-4` and `moonwood-29-2`.
 
-Sound Seekers is ready for a release only when the enabled current journey
-passes its maintained automated checks, the affected real-input paths have been
-exercised, and any untested external environment is stated plainly. No dated
-audit, pass score, reviewer name, historical baseline, or missing evidence pack
-can override the current application.
+## Interaction, presentation and media
+
+Sound Seekers must integrate the literacy decision with meaningful world
+action: choosing a route, placing a bridge piece, carrying an object, aiming
+at a printed target or helping a resident. Repeated families require authored
+content and layout variation. One clear immediate objective should be legible
+through staging, audio and concise text.
+
+Answer objects must remain readable, reachable and forgiving. Wrong answers
+keep the current problem and choices long enough for specific correction.
+Motor misses must not fabricate language mistakes. Movement, jump and one
+contextual action coexist with keyboard and accessible object selection.
+Touch targets, focus, reduced motion and modal isolation follow the current
+Game Design Bible. An accessible route must preserve the same educational
+meaning, correction state and progress. Missing assets must lead to a calm
+supported recovery, not a blank or permanently loading scene.
+
+Canonical cast and existing land artwork remain the visual identity anchors.
+`campaignRestoration.js` shows actual recovered supplies and structures at
+the authored hub landmark. Bath supplies, shelter bedding, egg/nest access,
+crossings, signal equipment and community gathering objects persist by main
+mission ID. Optional completions and mastery values do not alter restoration;
+a finale ID alone cannot fabricate a finished composition. Action motion
+shows routing and item return on incorrect outcomes. Reduced motion preserves
+the same action and evidence contract.
+
+The campaign renders authored Canvas scenes; it is not the older Phaser pixel
+presentation. Prop silhouettes and semantic attributes must distinguish the
+actual choices without revealing which answer is correct.
+
+`campaignSoundscape.js` owns the current route's recorded world music,
+ambience and action effects. Music defaults off under the shared audio
+preference contract and has an explicit saved pause-menu toggle. Spoken
+teaching silences the other layers for the entire cue sequence. Pause, mute,
+hidden tabs and disposal stop owned audio; quiet settings suppress continuous
+layers and reduce effects. This lifecycle is tested separately from listening
+quality. Failed scene images have a visible retry which reloads failed exact
+assets while preserving progress and successful image loads.
+
+Every essential audio prompt must resolve a current committed clip. New
+campaign narration uses the existing Google Cloud Leda provider and exact
+scripts, with provenance in `public/audio/sound-seekers/campaign/manifest.json`.
+The authored inventory currently comprises 3,820 MP3 clips (136,482,793 bytes,
+137.881 minutes of unique recorded audio). A sequential build of all 210
+missions resolves all 4,413 referenced audio paths, including canonical words
+and tiles outside the campaign directory. Exact text, file bytes and current
+source hashes are verified; unchanged clips preserve original generation
+source hashes when their source module changes. Canonical phoneme
+clips remain separate and are not synthesized by the campaign generator.
+`tools/generateSoundSeekersCampaignAudio.mjs` defaults to a dry run and requires
+explicit generation. Format, duration, text and byte hashes are technical
+evidence. The manifest's unreviewed human listening state must remain honest;
+technical probes do not establish pronunciation or classroom listening quality.
+Browser speech synthesis is not a production phonics fallback.
+
+## Data and lifecycle
+
+One learner journey uses one progress model and one active scene lifecycle.
+The campaign retains the existing `sound_seekers_v3` cloud row and uses the
+canonical learner-local `:v3:campaign-v1` key suffix. The storage adapter owns save status, corruption recovery,
+per-learner lifecycle and conservative cross-tab reconciliation. Offline and
+sync status must never conceal a failed local save. Unknown future schemas
+and conflicting saves are preserved rather than silently overwritten.
+
+Dispose owned timers, listeners, scene resources and audio when their owner
+ends. Checkpoints preserve actual choices, target, support, attempt ID and
+physical position across resume. The current hub is saved explicitly in
+`campaign.currentStageId`; `visitedStageIds` is history, not a reliable last
+location after a cross-tab union. An active mission's stage takes precedence
+on resume, and a saved hub must still pass its unlock check. Test hooks cannot fabricate evidence that
+the real child input path would not support. Reliability and learning data
+remain minimal and child-safe.
+
+## Maintained verification and release evidence
+
+Run relevant source tests, lint and build. Campaign-specific suites include
+`tests/unit/soundSeekersCampaign*.test.js`, the current component contract in
+`tests/unit/soundSeekersGameContract.test.js`, and retained shared engine
+regressions in `tests/unit/soundSeekersV3.test.js`. Curriculum anchor and
+source-media tests remain useful even where their historic filenames persist.
+
+The current route preview is `preview/quest-preview.html`, which imports
+`src/quest-preview.jsx` and `SoundSeekersRoute`. Its `stage` parameter selects
+an explicit synthetic fixture through `preview/campaignPreview.js` under an
+isolated `sound-seekers-preview:` scope. Earlier main completions and taught
+code are seeded solely to inspect that stage, marked `previewFixture.synthetic`;
+they are not earned progress or educational evidence. `resume=1` preserves the
+preview save unless explicitly reset. These fixtures do not enter the real
+child route. By contrast,
+`preview/quest.html` mounts the older QuestRoot. Existing quest pixel,
+pixel-bundle, forty-stop pacing, v2 content and legacy browser/offline checks
+must not be cited as current campaign proof merely because they pass. Retain
+checks for their actual consumers; campaign coverage must exercise the new
+route, actual asset graph and campaign audio paths.
+
+Current-route verification must cover each world and family, branch unlocks,
+help/retry, real input and motor recovery, quit/resume, learner switching,
+conflicting saves, failed audio/assets and supported display sizes. Source
+checks and browser automation are distinct from physical iPad use, assistive
+technology, listening review and observed child play. Report each evidence
+class and its untested boundaries accurately; these are not hidden permanent
+publication switches.
+
+A release is ready only when its enabled current journey passes the applicable
+maintained checks, the affected real-input paths have been exercised, and
+known defects are corrected. The 210 authored mission records, generated
+audio inventory and green automated tests do not alone establish a finished,
+classroom-validated twenty-hour educational game.
+
+Current local verification (10 September): the production build, lint and
+repository hygiene checks pass. After integration with the latest game work,
+the full suite ran 3,597 tests with 3,592 passing. The campaign first-render
+loading regression was then fixed, with all 30 controller/media checks
+passing. The other four failures reproduce on parent commit `4462102c8`:
+two EL export assertions, one Arcade completion-policy assertion and the
+legacy Sound Seekers import graph. Campaign persistence passed its 146
+focused checks plus journal, worker and credential-race follow-ups. Actual
+browser input completed the five main opening missions and opened stage two;
+later Dino workshop and Moonwood raft checks used explicitly synthetic
+fixtures. Picture failure/retry, audio failure/text support, character choice
+and saved music preference were also exercised locally. Neither physical
+iPad use, pronunciation listening, observed learner pacing nor hosted save
+behaviour is established by these checks. The tested campaign SQL migration
+must precede publication of the new cloud-enabled client; it is not deployed.

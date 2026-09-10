@@ -1,7 +1,7 @@
 ---
 type: workstream-register
 status: active
-updated: 2026-09-09
+updated: 2026-09-10
 authority: coordination-only
 ---
 
@@ -21,6 +21,8 @@ authoritative source or decision note.
 | Game improvement programme | Active | All 22 catalogue games; shared input/audio/HUD boundaries | The parent task took over implementation after auditing d8447fc52. Active checkout: `.worktrees/restore-arcade`, branch `fix/complete-gameplay-upgrades`. Luna is idle; its partial patch is not programme completion. Sound Seekers is now separately owned by task `01a08980-ad87-7082-9161-d0c046648fd8` in `.worktrees/sound-seekers-adventure`; do not edit its feature files here. That task preserves this lane’s shared audio ownership. The owner rejected staged select/confirm replacements. Use the restored engines as the baseline and the [complete upgrade plan](../design/GAMEPLAY_GRAPHICS_LEARNING_UPGRADE_PLAN.md) for current direction. The plan includes reported blockers and full gameplay overhauls; it is not implementation evidence. Serialize edits to shared wrappers, practice engines, audio and result persistence. Recheck live task status and worktree changes before resuming; historical package counts and `.worktrees/g13-rocket-run` are not current release authority. | `01a088de-2e7a-7823-83e8-a13365467d07` |
 
 ## Entry rules
+
+Sound Seekers ownership is separate from the Arcade restoration lane: task `01a08980-ad87-7082-9161-d0c046648fd8` owns `.worktrees/sound-seekers-adventure`, the campaign runtime/content/media and shared progress merge/queue/storage changes. Do not duplicate those edits. Its tested campaign SQL merge must precede client release; manual hosted mutation is not authorised by the standing Git-push rule. See the [release Bible](../SOUND_SEEKERS_RELEASE_BIBLE.md) for the current implementation and verification scope.
 
 - Use `Active`, `Blocked`, `Handoff`, or `Complete`.
 - Name concrete files or surfaces when collision risk exists.

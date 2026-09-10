@@ -7,15 +7,14 @@ import SoundSeekersRoute from "./features/soundSeekers/SoundSeekersRoute.jsx";
 import {
   resolveSoundSeekersPreviewFixture
 } from "./features/soundSeekers/preview/previewFixtures.js";
-import {
-  createSoundSeekersState,
-  normalizeSoundSeekersState
-} from "./features/soundSeekers/engine/stateV2.js";
-import { questProgressStorageKey } from "./utils/questStore.js";
+import { createCampaignPreviewProgress } from "./features/soundSeekers/preview/campaignPreview.js";
+import { campaignStorageKey } from "./features/soundSeekers/v3/campaignStorage.js";
+import { CAMPAIGN_STAGES } from "./features/soundSeekers/v3/content/campaign.js";
+import { localProgressStorageKeysForArea } from "./utils/progressKeys.js";
 
 const ALLOWED_PARAMS = new Set([
   "fixture", "stop", "phase", "power", "scope", "reset", "resume", "sound",
-  "seed", "profile"
+  "seed", "profile", "stage"
 ]);
 const params = new URLSearchParams(window.location.search);
 
@@ -23,6 +22,7 @@ function previewError() {
   for (const key of params.keys()) {
     if (!ALLOWED_PARAMS.has(key)) return `Unknown preview option: ${key}`;
   }
+  if(params.has("stage")&&!CAMPAIGN_STAGES.some(stage=>stage.id===params.get("stage")))return "Unknown campaign stage";
   const fixtureId = params.get("fixture");
   if (!fixtureId) return null;
   try {
@@ -47,25 +47,10 @@ const safeScopeSuffix = (params.get("scope") || fixture?.id || "campaign")
 const scope = `sound-seekers-preview:${safeScopeSuffix}`;
 const soundEnabled = params.get("sound") !== "0";
 
-function freshPreviewState() {
-  const base = createSoundSeekersState();
-  if (!fixture) return base;
-  const stopOrdinal = Number(fixture.stopId.slice(1));
-  return normalizeSoundSeekersState({
-    ...base,
-    trail: {
-      ...base.trail,
-      routeCursor: stopOrdinal,
-      journeyStep: stopOrdinal
-    }
-  });
-}
-
+const previewStage=params.get("stage") || CAMPAIGN_STAGES.find(stage=>stage.legacyStopIds.includes(fixture?.stopId))?.id || "meadow-01";
 if (!error && (params.get("resume") !== "1" || params.get("reset") === "1")) {
-  window.localStorage.setItem(
-    questProgressStorageKey(scope),
-    JSON.stringify(freshPreviewState())
-  );
+  for(const key of localProgressStorageKeysForArea('phonics_quest',scope))window.localStorage.removeItem(key);
+  window.localStorage.setItem(campaignStorageKey(scope),JSON.stringify(createCampaignPreviewProgress(previewStage)));
 }
 
 function InvalidPreview({ message }) {

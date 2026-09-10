@@ -1,3 +1,4 @@
+import { encodeProgressStorage, decodeProgressStorage } from './progressStorageCodec.js';
 import { mergePracticeProgressRecords } from "./practiceCompletionRecords.js";
 import {
   computeHydratedValue,
@@ -21,7 +22,7 @@ export function progressEntryIdentity(entry) {
 
 function safeParse(raw, fallback = null) {
   try {
-    return JSON.parse(raw || "null") ?? fallback;
+    return decodeProgressStorage(raw || "null") ?? fallback;
   } catch {
     return fallback;
   }
@@ -79,12 +80,15 @@ export function mergeProgressQueueEntries(existing, incoming) {
       payload: sanitizeCloudProgressPayload(incoming.area, incoming.payload)
     };
   }
+  if (existing.studentId !== incoming.studentId || existing.area !== incoming.area || existing.key !== incoming.key) {
+    throw new Error("Progress queue identity mismatch");
+  }
   let payload;
   if (incoming.area === "phonics_quest") {
     // Queue coalescing is chronological, unlike cloud hydration: the newest
     // local write owns routeCursor/checkpoint while achievements from the older
     // revision still union forward.
-    payload = computeHydratedValue(incoming.area, incoming.key, incoming.payload, existing.payload);
+    payload = computeHydratedValue(incoming.area, incoming.key, incoming.payload, existing.payload, { scopeKey: incoming.studentId });
   } else if (incoming.area === "learn_games") {
     payload = computeHydratedValue(incoming.area, incoming.key, existing.payload, incoming.payload);
     const latestGames = incoming.payload?.games || {};
@@ -158,7 +162,7 @@ export function enqueueProgressQueueEntry(storage, incoming, {
   try {
     // Write the replacement before deleting older records. A quota failure
     // therefore leaves the previous durable queue intact.
-    storage.setItem(storageKey, JSON.stringify(entry));
+    storage.setItem(storageKey, encodeProgressStorage(entry));
   } catch {
     return { entry, storageKey: null, stored: false };
   }
@@ -186,7 +190,7 @@ export function removeProgressQueueRecords(storage, records = []) {
   if (!Array.isArray(latestLegacy)) return;
   const remaining = latestLegacy.filter(entry => !legacySignatures.has(entrySignature(entry)));
   try {
-    if (remaining.length) storage.setItem(LEGACY_PROGRESS_QUEUE_KEY, JSON.stringify(remaining));
+    if (remaining.length) storage.setItem(LEGACY_PROGRESS_QUEUE_KEY, encodeProgressStorage(remaining));
     else storage.removeItem(LEGACY_PROGRESS_QUEUE_KEY);
   } catch { /* best effort */ }
 }
@@ -210,7 +214,7 @@ export function migrateProgressQueueCredentials(storage) {
     const clean = { ...record.entry, revision: newRevision() };
     delete clean.token;
     const target = `${PROGRESS_QUEUE_ENTRY_PREFIX}${encodeURIComponent(clean.revision)}`;
-    const encoded = JSON.stringify(clean);
+    const encoded = encodeProgressStorage(clean);
     try {
       storage.setItem(target, encoded);
       if (storage.getItem(target) !== encoded) throw new Error("Queue transfer failed");
