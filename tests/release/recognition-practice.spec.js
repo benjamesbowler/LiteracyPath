@@ -25,11 +25,12 @@ for(const difficulty of ['easy','medium','hard']) {
   }
   await expect.poll(async()=>(await result(page,'cvc-word-builder'))?.plays).toBe(1);
  });
- test(`${difficulty} blend town builds three objects per family with a reusable rime`,async({page})=>{
+ test(`${difficulty} blend town builds its reviewed objects per family with a reusable rime`,async({page})=>{
   test.setTimeout(150000);await open(page,'blend-and-build',difficulty);const total=Number((await page.locator('.pp-progress').textContent()).split('/')[1]);
   for(let family=0;family<total;family++) {
    await expect(page.locator('.pp-onset-socket')).toBeEnabled();const rime=await page.locator('.pp-rime').textContent();
-   for(let n=0;n<3;n++){
+   const targetCount=await page.evaluate(({difficulty,family})=>JSON.parse(localStorage.getItem(`literacy-guide-phonics-play:fullscreen-overlay-preview:family:${difficulty}`)).gameState.missions[family].targets?.length || 3,{difficulty,family});
+   for(let n=0;n<targetCount;n++){
     const target=(await page.locator('.pp-prompt').textContent()).replace(/^Build /,'');
     const onset=target.slice(0,-rime.length);
     await place(page,page.locator('.pp-piece-bank button').getByText(onset,{exact:true}),page.locator('.pp-onset-socket'),n===0);
@@ -100,7 +101,7 @@ test('paused memory mismatch preserves both revealed cards until play resumes',a
 });
 test('failed recorded cue leaves a playable printed word target without synthetic speech',async({page})=>{
  await page.addInitScript(()=>{HTMLMediaElement.prototype.play=function(){return Promise.reject(new Error('offline audio'));};window.syntheticCalls=0;window.speechSynthesis.speak=()=>{window.syntheticCalls++;};});
- await page.goto('/preview/game-overlay.html?game=pop-the-word&sound=1&music=0');await expect(page.locator('.pp-prompt')).toHaveText(/^Pop (?!the word you hear)/);const target=(await page.locator('.pp-prompt').textContent()).replace('Pop ','');await page.locator('.pp-word-balloon').getByText(target,{exact:true}).click();await expect(page.locator('.pp-progress')).toHaveText('1/6');expect(await page.evaluate(()=>window.syntheticCalls)).toBe(0);
+ await page.goto('/preview/game-overlay.html?game=pop-the-word&sound=1&music=0');await expect(page.locator('.pp-prompt')).toHaveText(/^Pop (?!the word you hear)/);const target=(await page.locator('.pp-prompt').textContent()).replace('Pop ','');await page.locator('.pp-word-balloon').getByText(target,{exact:true}).click();await expect(page.locator('.pp-progress')).toHaveText('1/48');expect(await page.evaluate(()=>window.syntheticCalls)).toBe(0);
 });
 test('keyboard pieces, cancelled drags and wrong hop landings preserve progress',async({page})=>{
  await open(page,'cvc-word-builder');const tile=page.locator('[data-tile-id]:not([data-tile-id^="decoy"])').first();const tileId=await tile.getAttribute('data-tile-id');const index=Number(tileId.match(/(\d+)$/)[1]);const slot=page.locator('.pp-slot').nth(index);
@@ -109,12 +110,14 @@ test('keyboard pieces, cancelled drags and wrong hop landings preserve progress'
  await open(page,'word-hopscotch');const target=(await page.locator('.pp-prompt').textContent()).split(' ')[0];const hero=page.locator('.pp-hop-course .pp-hero');const before=await hero.evaluate(e=>e.style.left);await page.locator('.pp-hop-stone:not(:disabled)').filter({hasNotText:new RegExp(`^${target}$`)}).click();await expect(page.locator('.pp-local-feedback')).toBeVisible();await expect.poll(()=>hero.evaluate(e=>e.style.left)).toBe(before);await expect(page.locator('.pp-hop-stone.is-reached')).toHaveCount(0);
 });
 test('keyboard target stays still and a replay saves a separate completion exactly once',async({page})=>{
- test.setTimeout(90000);await open(page,'pop-the-word');
+ // Two fresh48-target outings include96 ordinary700ms target transitions.
+ test.setTimeout(180000);await open(page,'pop-the-word');
  for(let run=0;run<2;run++){
-  for(let round=0;round<6;round++){
+  const total=Number((await page.locator('.pp-progress').textContent()).split('/')[1]);expect(total).toBe(48);
+  for(let round=0;round<total;round++){
    await expect(page.locator('.pp-word-balloon').first()).toBeEnabled();const target=(await page.locator('.pp-prompt').textContent()).replace('Pop ','');const button=page.locator('.pp-word-balloon').getByText(target,{exact:true});
    if(!round){await button.focus();await page.keyboard.down('Space');const before=await button.boundingBox();await page.waitForTimeout(350);expect(await button.boundingBox()).toEqual(before);await page.keyboard.up('Space');}else await button.click();
-   await expect(page.locator('.pp-progress')).toHaveText(`${round+1}/6`);
+   await expect(page.locator('.pp-progress')).toHaveText(`${round+1}/${total}`);
   }
   await expect.poll(async()=>(await result(page,'pop-the-word'))?.plays).toBe(run+1);
   await page.setViewportSize({width:568,height:320});
@@ -124,10 +127,10 @@ test('keyboard target stays still and a replay saves a separate completion exact
    const b=await action.boundingBox();expect(b.height).toBeGreaterThanOrEqual(56);expect(b.y).toBeGreaterThanOrEqual(0);expect(b.y+b.height).toBeLessThanOrEqual(320);
   }
   await page.screenshot({path:test.info().outputPath(`completion-${run}.png`)});
-  if(!run){await page.setViewportSize({width:1280,height:900});await page.getByRole('button',{name:'Replay level',exact:true}).click();await expect(page.locator('.pp-progress')).toHaveText('0/6');}
+  if(!run){await page.setViewportSize({width:1280,height:900});await page.getByRole('button',{name:'Replay level',exact:true}).click();await expect(page.locator('.pp-progress')).toHaveText('0/48');}
  }
  const saved=await result(page,'pop-the-word');expect(saved.practiceRecord.completions).toHaveLength(2);expect(saved.practiceRecord.completions.every(c=>c.steps.every(s=>s.independent===false))).toBe(true);
- await page.getByRole('button',{name:'Next level',exact:true}).click();await expect(page.locator('.pp-progress')).toHaveText('0/8');
+ await page.getByRole('button',{name:'Next level',exact:true}).click();await expect(page.locator('.pp-progress')).toHaveText('0/54');
 });
 test('all six games restore their generated identity and physical work without awarding it twice',async({page})=>{
  test.setTimeout(150000);
@@ -180,7 +183,7 @@ export default function Fixture({onComplete,onSessionStart}) {
 test('a cleared host checkpoint discards old partial construction work',async({page})=>{
  await open(page,'cvc-word-builder');const tile=page.locator('[data-tile-id]:not([data-tile-id^="decoy"])').first(),index=Number((await tile.getAttribute('data-tile-id')).match(/(\d+)$/)[1]);await place(page,tile,page.locator('.pp-slot').nth(index));await expect(page.locator('.pp-slot.is-filled')).toHaveCount(1);
  // Simulate the existing host action that clears its checkpoint before mounting.
- await page.evaluate(({scope})=>{const data=JSON.parse(localStorage.getItem(scope));delete data.games['cvc-word-builder'].checkpoints.easy;localStorage.setItem(scope,JSON.stringify(data));},{scope});await page.reload();await expect(page.locator('.pp-slot.is-filled')).toHaveCount(0);await expect(page.locator('.pp-progress')).toHaveText('0/6');
+ await page.evaluate(({scope})=>{const data=JSON.parse(localStorage.getItem(scope));delete data.games['cvc-word-builder'].checkpoints.easy;localStorage.setItem(scope,JSON.stringify(data));},{scope});await page.reload();await expect(page.locator('.pp-slot.is-filled')).toHaveCount(0);await expect(page.locator('.pp-progress')).toHaveText('0/10');
 });
 test.describe('touch input',()=>{
  test.use({hasTouch:true,viewport:{width:568,height:320}});
@@ -191,9 +194,9 @@ test.describe('touch input',()=>{
    if(game==='cvc-word-builder'){const tile=page.locator('[data-tile-id]:not([data-tile-id^="decoy"])').first(),i=Number((await tile.getAttribute('data-tile-id')).match(/(\d+)$/)[1]);await tile.tap();await page.locator('.pp-slot').nth(i).tap();await expect(page.locator('.pp-slot.is-filled')).toHaveCount(1);}
    else if(game==='blend-and-build'){const rime=await page.locator('.pp-rime').textContent(),word=(await page.locator('.pp-prompt').textContent()).replace('Build ','');await page.locator('.pp-piece-bank button').getByText(word.slice(0,-rime.length),{exact:true}).tap();await page.locator('.pp-onset-socket').tap();await expect(page.locator('.pp-family-house')).toHaveCount(1);}
    else if(game==='sight-word-memory'){const id=await page.locator('.pp-memory-card').first().getAttribute('data-pair-id'),pair=page.locator(`[data-pair-id="${id}"]`);await pair.first().tap();await pair.last().tap();await expect(page.locator('.pp-memory-card.is-matched')).toHaveCount(2);}
-   else if(game==='pop-the-word'){const word=(await page.locator('.pp-prompt').textContent()).replace('Pop ','');await page.locator('.pp-word-balloon').getByText(word,{exact:true}).tap();await expect(page.locator('.pp-progress')).toHaveText('1/6');await expect(page.locator('.pp-word-balloon').first()).toBeEnabled();}
+   else if(game==='pop-the-word'){const word=(await page.locator('.pp-prompt').textContent()).replace('Pop ','');await page.locator('.pp-word-balloon').getByText(word,{exact:true}).tap();await expect(page.locator('.pp-progress')).toHaveText('1/48');await expect(page.locator('.pp-word-balloon').first()).toBeEnabled();}
    else if(game==='word-hopscotch'){const word=(await page.locator('.pp-prompt').textContent()).split(' ')[0];await page.locator('.pp-hop-stone:not(:disabled)').getByText(word,{exact:true}).tap();await expect(page.locator('.pp-hop-stone.is-reached')).toHaveCount(1);const hero=await page.locator('.pp-hop-course .pp-hero').boundingBox(),world=await page.locator('.pp-hop-world').boundingBox();expect(hero.y).toBeGreaterThanOrEqual(world.y);expect(hero.y+hero.height).toBeLessThanOrEqual(world.y+world.height);}
-   else{const display=(await page.locator('.pp-repair-sign').textContent()).replace('…','___'),fix=SENTENCE_FIX.easy.find(f=>f.display===display);await page.locator('.pp-piece-bank button').getByText(fix.answer,{exact:true}).tap();await page.locator('.pp-repair-socket').tap();await expect(page.locator('.pp-progress')).toHaveText('1/6');}
+   else{const display=(await page.locator('.pp-repair-sign').textContent()).replace('…','___'),fix=SENTENCE_FIX.easy.find(f=>f.display===display);await page.locator('.pp-piece-bank button').getByText(fix.answer,{exact:true}).tap();await page.locator('.pp-repair-socket').tap();await expect(page.locator('.pp-progress')).toHaveText('1/12');}
    const selector=game==='sight-word-memory'?'.pp-memory-card:not(:disabled)':game==='word-hopscotch'?'.pp-hop-stone:not(:disabled)':game==='pop-the-word'?'.pp-word-balloon:not(:disabled)':'.pp-piece-bank button:not(:disabled)';
    for(const button of await page.locator(selector).all())expect(await button.evaluate(e=>{const r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));}),game).toBe(true);
   }
