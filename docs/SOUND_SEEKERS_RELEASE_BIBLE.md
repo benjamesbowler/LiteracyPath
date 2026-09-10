@@ -325,5 +325,15 @@ later Dino workshop and Moonwood raft checks used explicitly synthetic
 fixtures. Picture failure/retry, audio failure/text support, character choice
 and saved music preference were also exercised locally. Neither physical
 iPad use, pronunciation listening, observed learner pacing nor hosted save
-behaviour is established by these checks. The tested campaign SQL migration
-must precede publication of the new cloud-enabled client; it is not deployed.
+behaviour is established by those local checks.
+
+Hosted release verification (10 September): `sound_seekers_campaign_merge`
+and `sound_seekers_campaign_search_path` were applied to the linked production
+project before client publication, following explicit owner authorization.
+The actual engine checkpoint and ACK delta matched the hosted merge exactly;
+repeated submission was idempotent with two evidence events retained. The
+follow-up configuration pins all 14 campaign function search paths; the
+security advisor reports no campaign-specific findings. This pure-function
+check does not establish an authenticated learner save round trip. Both SQL
+migrations passed 18 checks. Integration with main `3e4b1c70f` passed the
+production build and 69 route, controller, image and save-recovery checks.

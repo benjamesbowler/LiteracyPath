@@ -33,6 +33,7 @@ test('campaign SQL merge matches client evidence, checkpoints, replay and retain
     create function public.lp_quest_merge_learning_v2(existing jsonb,incoming jsonb) returns jsonb language sql immutable as $$ select jsonb_build_object('legacyDispatch', true); $$;`);
   const sql = await readFile(new URL('../../supabase/migrations/20260910120000_sound_seekers_campaign_merge.sql', import.meta.url), 'utf8');
   await db.exec(sql);
+  await db.exec(await readFile(new URL('../../supabase/migrations/20260910123000_sound_seekers_campaign_search_path.sql', import.meta.url), 'utf8'));
   const serverMerge = async (a, b) => (await db.query('select public.lp_merge_phonics_quest($1::jsonb,$2::jsonb) result', [JSON.stringify(a), JSON.stringify(b)])).rows[0].result;
   const compare = async (a, b) => {
     const expected = clientMerge(a, b);
@@ -41,6 +42,11 @@ test('campaign SQL merge matches client evidence, checkpoints, replay and retain
     assert.deepEqual(await serverMerge(expected, expected), clientMerge(expected, expected));
     return expected;
   };
+  await t.test('all campaign functions and the legacy dispatcher pin an empty search path', async () => {
+    const rows = (await db.query("select proname, proconfig from pg_proc join pg_namespace n on n.oid=pronamespace where n.nspname='public' and (proname like 'lp_campaign_%' or proname in ('lp_merge_phonics_quest','lp_merge_sound_seekers_campaign'))")).rows;
+    assert.equal(rows.length,14);
+    for (const row of rows) assert.ok(row.proconfig?.includes('search_path=""'), row.proname);
+  });
   await t.test('disjoint tab responses union once and preserve retained original counters', async () => {
     const base = fresh();
     base.targets = { 'gpc-a': { independent: 5, supported: 2, missed: 1, taught: true, lastSeenStep: 0, confusions: { cap: 1 } } };

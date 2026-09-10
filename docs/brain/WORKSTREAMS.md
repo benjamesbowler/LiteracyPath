@@ -22,7 +22,7 @@ authoritative source or decision note.
 
 ## Entry rules
 
-Sound Seekers ownership is separate from the Arcade restoration lane: task `01a08980-ad87-7082-9161-d0c046648fd8` owns `.worktrees/sound-seekers-adventure`, the campaign runtime/content/media and shared progress merge/queue/storage changes. Do not duplicate those edits. Its tested campaign SQL merge must precede client release; manual hosted mutation is not authorised by the standing Git-push rule. See the [release Bible](../SOUND_SEEKERS_RELEASE_BIBLE.md) for the current implementation and verification scope.
+Sound Seekers ownership is separate from the Arcade restoration lane: task `01a08980-ad87-7082-9161-d0c046648fd8` owns `.worktrees/sound-seekers-adventure`, the campaign runtime/content/media and shared progress merge/queue/storage changes. Do not duplicate those edits. Its campaign SQL merge and fixed-search-path migrations were applied with explicit owner authorization on 10 September; hosted engine parity and retry idempotence passed before client release. See the [release Bible](../SOUND_SEEKERS_RELEASE_BIBLE.md) for the current implementation and verification scope.
 
 - Use `Active`, `Blocked`, `Handoff`, or `Complete`.
 - Name concrete files or surfaces when collision risk exists.
