@@ -83,6 +83,7 @@ immediately. Missing review metadata is not a publication queue.
 
 ## Product plans
 
+- [Sound Seekers three-world adventure](design/SOUND_SEEKERS_THREE_WORLD_ADVENTURE_PLAN.md) — proposed 20-hour campaign, 30 stages, 150 main missions, learning and production plan; not an active runtime cutover.
 - [Public free tier spec](product/FREE_TIER_SPEC.md) — email + password, two children, ~20% of the
   content, no parent reporting. Spec only; no code.
 ## Operations, research, legal and security
