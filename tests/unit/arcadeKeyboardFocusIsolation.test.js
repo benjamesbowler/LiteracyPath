@@ -71,17 +71,21 @@ test("SoundKeys ignores typing on controls and still accepts game-surface keys",
 
 const gameHandlerContracts = [
   ["LetterLeapGame.jsx", ["onKeyDown"]],
-  ["RocketRunGame.jsx", ["onKey", "onIntroKey"]],
+  ["RocketRunGame.jsx", ["onKey"]],
   ["RhymePopArcadeGame.jsx", ["onKeyDown"]],
-  ["SoundRacerGame.jsx", ["onKey", "onIntroKey"]],
+  ["SoundRacerGame.jsx", ["onKey"]],
   ["SoundSafariArcadeGame.jsx", ["onKeyDown"]],
-  ["SoundBeatGame.jsx", ["onKeyDown"]],
+  ["Ps1ArcadeGame.jsx", ["onKeyDown"]],
   ["ReelReadGame.jsx", ["onKeyDown"]],
-  ["StarGalleryArcadeGame.jsx", ["onKeyDown", "onIntroKey"]],
-  ["GrammarGrindGame.jsx", ["onKeyDown", "onIntroKey"]]
+  ["StarGalleryArcadeGame.jsx", ["onKeyDown"]],
+  ["GrammarGrindGame.jsx", ["onKeyDown"]]
 ];
 
 const focusedMovementControlExceptions = new Map([
+  [
+    "Ps1ArcadeGame.jsx:onKeyDown",
+    /if \(isInteractiveKeyTarget\(event\.target\) && !padGroup\.contains\(event\.target\)\) return;/
+  ],
   [
     "LetterLeapGame.jsx:onKeyDown",
     /if \(isInteractiveKeyTarget\(e\.target\) && !padWrap\.contains\(e\.target\)\) return;/
@@ -145,10 +149,9 @@ test("held movement keys still release after focus moves to a control", async ()
   assert.doesNotMatch(groveKeyUp, /preventDefault|isInteractiveKeyTarget/);
 });
 
-test("lane press controls reject a second pointer before it can replace the repeat owner", async () => {
+test("Rocket Run lane repeat controls reject a second pointer before it can replace the repeat owner", async () => {
   const contracts = [
-    ["RocketRunGame.jsx", "attachRocketPressControl"],
-    ["SoundRacerGame.jsx", "attachSoundRacerPressControl"]
+    ["RocketRunGame.jsx", "attachRocketPressControl"]
   ];
 
   for (const [fileName, helperName] of contracts) {

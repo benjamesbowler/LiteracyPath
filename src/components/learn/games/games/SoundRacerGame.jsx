@@ -13,124 +13,23 @@ import {
 } from "../../../../utils/audio/gameSfx";
 import { soundRacerLadder, buildTrack, buildSoundRacerEvidenceResult, worldObstacles } from "../../../../utils/soundRacerTracks.js";
 import { worldForGameDifficulty, LEVELS_PER_DIFFICULTY } from "../../../../utils/curriculumLadder.js";
-import { hasRecordedSpeech, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
+import { hasRecordedSpeech, speakPhoneme, speakWord, preloadWordAudio } from "../../../../utils/learnGamesAudio.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import { playCueAudio, stopCueAudio } from "../../../../utils/audio/cuePlayer.js";
 import { onsetGrapheme } from "../../../elQuest/elQuestEngine.js";
 import { getLedaInstructionAudioPath } from "../../../../data/ledaProductionAudio.js";
-import { loadThree, createRenderer, createScene, createPerspectiveCamera, attachResize, createFrameLoop, attachContextLossGuard, attachSteerZones, attachSwipeSteer, prefersReducedMotion, detectQualityTier, applyQualityTier, shadowMapForTier, particleCountForTier, QUALITY_TIERS, disposeRenderer, disposeObject, setTextureSrgb } from "../shared/threeShell.js";
+import { loadThree, createRenderer, createScene, createPerspectiveCamera, attachResize, createFrameLoop, attachContextLossGuard, attachSwipeSteer, prefersReducedMotion, detectQualityTier, applyQualityTier, shadowMapForTier, particleCountForTier, QUALITY_TIERS, disposeRenderer, disposeObject, setTextureSrgb } from "../shared/threeShell.js";
+import { sampleCircuitPath, offsetCircuitPoint, createKart, stepKart, chasePose } from "../../../../utils/soundRacerPhysics.js";
 import { laneDirectionForKey } from "../shared/premiumGameStandard.js";
 import { createArcadePremiumRenderPipeline } from "../shared/arcadePremiumRender.js";
 
 const LANES = [-3.15, 0, 3.15];
 const LANE_NAMES = ["left", "middle", "right"];
-const TRACK_UNIT = 3.05;
 const TRACK_WIDTH = 9.6;
-const TRACK_SEGMENT_LENGTH = 8;
-const TRACK_SEGMENTS = 28;
 const VIEW_DISTANCE = 34;
 const CATCH_WINDOW = 0.58;
-const SCENERY_WRAP_Z = -235;
-const SCENERY_RESET_Z = 18;
 
-function sampleCircuitPath(path, distance) {
-  if (!Array.isArray(path) || path.length < 2) return { x: 0, y: 0, z: -distance, heading: 0 };
-  const first = path[0];
-  const last = path[path.length - 1];
-  const target = Number(distance) || 0;
-  if (target <= first.distance) return { ...first };
-  if (target >= last.distance) {
-    const heading = last.heading || 0;
-    const extra = target - last.distance;
-    return {
-      x: last.x + Math.sin(heading) * extra,
-      y: last.y,
-      z: last.z - Math.cos(heading) * extra,
-      heading
-    };
-  }
-  let low = 0;
-  let high = path.length - 1;
-  while (low + 1 < high) {
-    const mid = Math.floor((low + high) / 2);
-    if (path[mid].distance <= target) low = mid;
-    else high = mid;
-  }
-  const a = path[low];
-  const b = path[high];
-  const ratio = (target - a.distance) / Math.max(0.001, b.distance - a.distance);
-  return {
-    x: a.x + (b.x - a.x) * ratio,
-    y: a.y + (b.y - a.y) * ratio,
-    z: a.z + (b.z - a.z) * ratio,
-    heading: a.heading + (b.heading - a.heading) * ratio
-  };
-}
 
-function offsetCircuitPoint(point, lateral) {
-  const amount = Number(lateral) || 0;
-  return {
-    x: point.x + Math.cos(point.heading) * amount,
-    y: point.y,
-    z: point.z + Math.sin(point.heading) * amount
-  };
-}
-
-// The broad side zones make a full-screen racer comfortable to tap and swipe,
-// but they must not be the focusable controls: the global Arcade focus ring
-// would otherwise outline almost half the game. These compact, visible buttons
-// move immediately on press, repeat while held, and still support Enter/Space.
-function attachSoundRacerPressControl(element, onActivate) {
-  if (!element) return () => {};
-  let pointerId = null;
-  let repeatDelay = 0;
-  let repeatTimer = 0;
-
-  const clearRepeat = () => {
-    window.clearTimeout(repeatDelay);
-    window.clearInterval(repeatTimer);
-    repeatDelay = 0;
-    repeatTimer = 0;
-  };
-  const release = event => {
-    if (pointerId == null) return;
-    if (event?.pointerId != null && event.pointerId !== pointerId) return;
-    clearRepeat();
-    element.dataset.pressed = "false";
-    pointerId = null;
-  };
-  const onPointerDown = event => {
-    if (event.button != null && event.button !== 0) return;
-    // One physical control owns one press. A second finger must not replace the
-    // active pointer and orphan its repeat timer.
-    if (pointerId != null) return;
-    event.preventDefault();
-    pointerId = event.pointerId;
-    element.dataset.pressed = "true";
-    element.setPointerCapture?.(event.pointerId);
-    onActivate();
-    repeatDelay = window.setTimeout(() => {
-      repeatTimer = window.setInterval(onActivate, 220);
-    }, 360);
-  };
-  const onClick = event => {
-    if (event.detail === 0) onActivate();
-  };
-
-  element.addEventListener("pointerdown", onPointerDown);
-  element.addEventListener("pointerup", release);
-  element.addEventListener("pointercancel", release);
-  element.addEventListener("lostpointercapture", release);
-  element.addEventListener("click", onClick);
-  return () => {
-    clearRepeat();
-    element.removeEventListener("pointerdown", onPointerDown);
-    element.removeEventListener("pointerup", release);
-    element.removeEventListener("pointercancel", release);
-    element.removeEventListener("lostpointercapture", release);
-    element.removeEventListener("click", onClick);
-  };
-}
 
 const WORLD_MAPS = {
   meadow: [
@@ -342,7 +241,7 @@ function instructionFor() {
   // Matching is initial-sound only at every difficulty, so the copy must
   // say "start with" everywhere (hard mode used to promise "carrying this
   // sound", which the track builder does not deliver).
-  return "Catch words that start with";
+  return "Starts with";
 }
 
 function startGame(THREE, mount, opts) {
@@ -392,13 +291,16 @@ function startGame(THREE, mount, opts) {
 
   const scene = createScene(THREE);
   const cameraBaseFov = 64;
+  // Keep the whole road width readable in portrait, rather than cropping
+  // the outside word gates with a landscape-only vertical field of view.
+  const roadFov = () => Math.max(cameraBaseFov, 2 * Math.atan(Math.tan(29 * Math.PI / 180) / (width() / height())) * 180 / Math.PI);
   const cameraBaseY = 3.95;
   const cameraBaseZ = 10.45;
   const camera = createPerspectiveCamera(THREE, {
-    fov: cameraBaseFov,
+    fov: roadFov(),
     aspect: width() / height(),
     near: 0.1,
-    far: 190,
+    far: 650,
     position: [0, cameraBaseY, cameraBaseZ],
     lookAt: [0, 1.0, -11.8]
   });
@@ -485,8 +387,8 @@ function startGame(THREE, mount, opts) {
     '<style>[data-sr-steer-control][data-pressed="true"]{transform:scale(.94)!important;filter:brightness(1.16)!important}</style>' +
     '<div data-sr-panel="target" style="position:absolute;top:14px;left:16px;display:flex;align-items:center;gap:12px;background:rgba(7,10,22,.72);border:1px solid rgba(255,255,255,.18);box-shadow:0 10px 24px rgba(0,0,0,.25);padding:8px 14px 8px 8px;clip-path:polygon(0 0,100% 0,calc(100% - 14px) 100%,0 100%)">' +
       '<div data-sr="target" style="width:54px;height:54px;display:grid;place-items:center;font-size:1.85rem;font-weight:900;color:#071033;background:#ffd34e;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22)"></div>' +
-      '<div><div data-sr="mission" style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.76">Catch the sound</div>' +
-      '<div data-sr="map" style="font-size:1.02rem;font-weight:800;white-space:nowrap">Track 1</div></div>' +
+      '<div style="min-width:0"><div data-sr="mission" style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.76">Catch the sound</div>' +
+      '<div data-sr="map" style="font-size:1.02rem;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Track 1</div></div>' +
       '<button data-sr="hear-target" type="button" aria-label="Hear the target sound again" style="min-width:56px;min-height:56px;padding:6px 10px;border:2px solid rgba(255,255,255,.68);background:#7cf0b6;color:#071033;font:900 1rem/1.05 var(--kid-font-display,Fredoka,sans-serif);box-shadow:inset 0 -4px 0 rgba(0,0,0,.2);pointer-events:auto;cursor:pointer">Hear<br>sound</button></div>' +
     '<div data-sr-panel="status" style="position:absolute;top:16px;right:16px;text-align:right;background:rgba(7,10,22,.62);border:1px solid rgba(255,255,255,.16);padding:9px 12px;min-width:160px;clip-path:polygon(12px 0,100% 0,100% 100%,0 100%,0 12px)">' +
       '<div data-sr="timer" style="font-size:1.15rem;font-weight:900;font-variant-numeric:tabular-nums">0:00.00</div>' +
@@ -498,7 +400,7 @@ function startGame(THREE, mount, opts) {
     '<div data-sr="right-zone" aria-hidden="true" style="position:absolute;right:0;top:84px;bottom:0;width:42%;pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none"></div>' +
     '<button type="button" data-sr="left-control" data-sr-steer-control aria-label="Steer left" style="position:absolute;left:max(16px,env(safe-area-inset-left));bottom:max(16px,env(safe-area-inset-bottom));width:68px;height:68px;display:grid;place-items:center;padding:0;border:2px solid rgba(124,240,182,.9);border-radius:18px;background:linear-gradient(160deg,rgba(14,45,64,.96),rgba(5,20,37,.94));box-shadow:inset 0 0 0 2px rgba(255,255,255,.08),0 10px 24px rgba(0,0,0,.42);color:#fff;font:900 2rem/1 var(--kid-font-display,Fredoka,sans-serif);pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer;transition:transform .08s ease,filter .08s ease">&#8592;</button>' +
     '<button type="button" data-sr="right-control" data-sr-steer-control aria-label="Steer right" style="position:absolute;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));width:68px;height:68px;display:grid;place-items:center;padding:0;border:2px solid rgba(124,240,182,.9);border-radius:18px;background:linear-gradient(160deg,rgba(14,45,64,.96),rgba(5,20,37,.94));box-shadow:inset 0 0 0 2px rgba(255,255,255,.08),0 10px 24px rgba(0,0,0,.42);color:#fff;font:900 2rem/1 var(--kid-font-display,Fredoka,sans-serif);pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer;transition:transform .08s ease,filter .08s ease">&#8594;</button>' +
-    '<div data-sr="banner" role="status" aria-live="polite" aria-atomic="true" style="position:absolute;top:34%;left:0;right:0;text-align:center;pointer-events:none;font-style:italic;font-weight:900;font-size:clamp(1.25rem,5vw,2.5rem);letter-spacing:.12em;text-transform:uppercase;color:#f5fbff;text-shadow:0 3px 18px rgba(0,0,0,.7);opacity:0;transition:opacity .25s ease,transform .25s ease;transform:translateX(-36px)"></div>' +
+    '<div data-sr="banner" role="status" aria-live="polite" aria-atomic="true" style="position:absolute;bottom:20px;left:100px;right:100px;text-align:center;pointer-events:none;font-style:italic;font-weight:900;font-size:clamp(.8rem,2vw,1.05rem);letter-spacing:.02em;color:#f5fbff;text-shadow:0 3px 18px rgba(0,0,0,.7);opacity:0;transition:opacity .25s ease,transform .25s ease;transform:translateX(-36px)"></div>' +
     '<div data-sr="countdown" style="position:absolute;inset:0;display:none;place-items:center;text-align:center;pointer-events:none;background:radial-gradient(120% 90% at 50% 42%,rgba(9,12,30,.62),rgba(5,7,18,.24));z-index:12"></div>' +
     '<div style="position:absolute;inset:0;pointer-events:none;z-index:14;opacity:.13;background:linear-gradient(180deg,rgba(145,225,255,.12),transparent 25%,transparent 76%,rgba(4,7,18,.42));mix-blend-mode:soft-light"></div>' +
     '<div data-sr="overlay" style="position:absolute;inset:0;display:none;place-items:center;text-align:center;background:radial-gradient(120% 90% at 50% 24%,rgba(25,34,72,.76),rgba(5,7,18,.95));pointer-events:auto;z-index:20"></div>';
@@ -519,10 +421,16 @@ function startGame(THREE, mount, opts) {
       targetPanel.style.padding = compact ? "7px 12px 7px 7px" : "8px 14px 8px 8px";
     }
     if (statusPanel) {
-      statusPanel.style.top = compact ? "82px" : "16px";
-      statusPanel.style.right = compact ? "10px" : "16px";
-      statusPanel.style.minWidth = compact ? "138px" : "160px";
-      statusPanel.style.padding = compact ? "7px 10px" : "9px 12px";
+      statusPanel.style.top = compact ? "auto" : "16px";
+      statusPanel.style.bottom = compact ? "16px" : "auto";
+      statusPanel.style.left = compact ? "96px" : "auto";
+      statusPanel.style.right = compact ? "96px" : "16px";
+      statusPanel.style.minWidth = compact ? "0" : "160px";
+      statusPanel.style.padding = compact ? "5px" : "9px 12px";
+      statusPanel.style.textAlign = compact ? "center" : "right";
+      for(const key of ["timer","shield","speed"]) el(key).style.display=compact?"none":"";
+      el("checkpoint").style.fontSize=compact?".6rem":".72rem";
+      el("banner").style.bottom=compact?"94px":"20px";
     }
   }
   layoutHud();
@@ -535,8 +443,8 @@ function startGame(THREE, mount, opts) {
   scene.add(trackGroup, railGroup, sceneryGroup, gateGroup, burstGroup);
 
   let ship = null;
-  let trackSegments = [];
-  let railSegments = [];
+
+
   let gateObjects = [];
   let burstParticles = [];
   let pulseObjects = [];
@@ -548,8 +456,12 @@ function startGame(THREE, mount, opts) {
   hud.dataset.soundRacerLane = String(laneIx);
   let playerZ = 0;
   let lateralOffset = 0;
-  let lateralTarget = 0;
-  let offRoadCooldown = 0;
+  let kart = null;
+  const heldSteering = new Map();
+  let steeringPulse = 0;
+  let steeringPulseT = 0;
+  let gateVoice = null;
+
   let checkpointIndex = 0;
   let speed = 0;
   let timeMs = 0;
@@ -569,10 +481,8 @@ function startGame(THREE, mount, opts) {
   let boostT = 0;
   let dragT = 0;
   let shakeT = 0;
-  let catchUpSerial = 0;
-  let elapsed = 0;
   let last = 0;
-  let fov = cameraBaseFov;
+  let fov = roadFov();
   let pausedFrameRendered = false;
   let completionSent = false;
   let overlayCueTimer = null;
@@ -1183,7 +1093,7 @@ function startGame(THREE, mount, opts) {
         depthWrite: false
       })
     );
-    torus.rotation.y = Math.PI / 2;
+    torus.rotation.y = 0;
     group.add(torus);
 
     const core = new THREE.Mesh(
@@ -1303,412 +1213,50 @@ function startGame(THREE, mount, opts) {
     return setModelShadows(group, true, true);
   }
 
-  function makeMeadowVehicle() {
-    const group = new THREE.Group();
-    const green = material(0x4d9f4f, { roughness: 0.45, metalness: 0.18, emissive: 0x193918, emissiveIntensity: 0.05 });
-    const yellow = material(0xe8c246, { roughness: 0.38, metalness: 0.32, emissive: 0x5a4100, emissiveIntensity: 0.05 });
-    const wood = material(0x9a6535, { roughness: 0.72, metalness: 0.04 });
-    const dark = material(0x12161b, { roughness: 0.52, metalness: 0.3 });
-    const glass = material(0xa8efff, {
-      roughness: 0.12,
-      metalness: 0.06,
-      emissive: 0x2ca8d2,
-      emissiveIntensity: 0.34,
-      transparent: true,
-      opacity: 0.86
-    });
-
-    const hood = new THREE.Mesh(new THREE.BoxGeometry(1.08, 0.38, 1.2), green);
-    hood.position.set(0, 0.02, -0.38);
-    hood.rotation.x = -0.04;
-    group.add(hood);
-
-    const nose = new THREE.Mesh(new THREE.BoxGeometry(0.82, 0.3, 0.36), yellow);
-    nose.position.set(0, -0.02, -1.15);
-    group.add(nose);
-
-    const grill = new THREE.Mesh(new THREE.BoxGeometry(0.58, 0.22, 0.06), dark);
-    grill.position.set(0, -0.02, -1.36);
-    group.add(grill);
-
-    const cab = new THREE.Mesh(new THREE.BoxGeometry(0.82, 0.58, 0.58), green);
-    cab.position.set(0, 0.34, 0.22);
-    cab.rotation.x = -0.05;
-    group.add(cab);
-
-    const windscreen = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.32, 0.08), glass);
-    windscreen.position.set(0, 0.42, -0.1);
-    group.add(windscreen);
-
-    const roof = new THREE.Mesh(new THREE.BoxGeometry(1.02, 0.12, 0.72), yellow);
-    roof.position.set(0, 0.72, 0.2);
-    group.add(roof);
-
-    const bed = new THREE.Mesh(new THREE.BoxGeometry(1.34, 0.28, 0.86), wood);
-    bed.position.set(0, 0.02, 0.88);
-    group.add(bed);
-
-    for (const x of [-0.48, 0.48]) {
-      const rail = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.34, 0.9), wood);
-      rail.position.set(x, 0.26, 0.88);
-      group.add(rail);
-    }
-
-    for (const side of [-1, 1]) {
-      for (const z of [-0.7, 0.78]) {
-        const tire = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.18, 12), dark);
-        tire.rotation.z = Math.PI / 2;
-        tire.position.set(side * 0.74, -0.28, z);
-        group.add(tire);
-
-        const hub = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.13, 0.2, 10), yellow);
-        hub.rotation.z = Math.PI / 2;
-        hub.position.set(side * 0.76, -0.28, z);
-        group.add(hub);
-      }
-
-      const wing = new THREE.Mesh(new THREE.BoxGeometry(0.46, 0.08, 1.38), yellow);
-      wing.position.set(side * 0.98, -0.06, 0.1);
-      wing.rotation.z = side * -0.1;
-      group.add(wing);
-    }
-
-    const engines = [
-      makeBoostCone(-0.36, -0.12, 1.46, 0.2, 0.9),
-      makeBoostCone(0.36, -0.12, 1.46, 0.2, 0.9)
-    ];
-    for (const engine of engines) group.add(engine);
-
-    const light = new THREE.PointLight(currentMap.boost, 2, 8);
-    light.position.set(0, -0.02, 1.58);
-    group.add(light);
-    return finishShip(group, engines, light, 1.03);
-  }
-
-  function makeDinoVehicle() {
-    const group = new THREE.Group();
-    const skin = material(mixHex(currentMap.vehicle, 0x244b26, 0.18), {
-      metalness: 0.16,
-      roughness: 0.5,
-      flatShading: true,
-      emissive: mixHex(currentMap.vehicle, currentMap.trim, 0.18),
-      emissiveIntensity: 0.055
-    });
-    const trim = material(currentMap.trim, {
-      metalness: 0.26,
-      roughness: 0.48,
-      emissive: currentMap.trim,
-      emissiveIntensity: 0.14
-    });
-    const lava = material(0xff8a34, { metalness: 0.2, roughness: 0.34, emissive: 0xff4a1f, emissiveIntensity: 0.26 });
-    const bone = material(0xf1e2bc, { metalness: 0.1, roughness: 0.52 });
-    const dark = material(0x151a18, { metalness: 0.36, roughness: 0.48 });
-    const black = material(0x05070a, { metalness: 0.5, roughness: 0.38 });
-    const bellyMat = material(0x172015, { metalness: 0.28, roughness: 0.6, emissive: 0x0a1608, emissiveIntensity: 0.04 });
-    const amberEye = basic(0xffd34e, { transparent: true, opacity: 0.9, blending: THREE.AdditiveBlending, depthWrite: false });
-
-    const body = new THREE.Mesh(new THREE.DodecahedronGeometry(0.78, 0), skin);
-    body.scale.set(1.12, 0.5, 1.56);
-    body.position.set(0, 0.08, 0.08);
-    group.add(body);
-
-    const belly = new THREE.Mesh(new THREE.BoxGeometry(1.18, 0.18, 1.82), bellyMat);
-    belly.position.set(0, -0.2, 0.17);
-    belly.rotation.x = -0.03;
-    group.add(belly);
-
-    const saddle = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.18, 0.74), black);
-    saddle.position.set(0, 0.42, -0.02);
-    saddle.rotation.x = -0.08;
-    group.add(saddle);
-
-    const saddleStripe = new THREE.Mesh(
-      new THREE.BoxGeometry(0.48, 0.035, 0.62),
-      basic(currentMap.gate, { transparent: true, opacity: 0.78, blending: THREE.AdditiveBlending, depthWrite: false })
-    );
-    saddleStripe.position.set(0, 0.525, -0.03);
-    saddleStripe.rotation.x = -0.08;
-    group.add(saddleStripe);
-
-    const head = new THREE.Mesh(new THREE.DodecahedronGeometry(0.44, 0), skin);
-    head.scale.set(0.9, 0.62, 0.72);
-    head.position.set(0, 0.24, -1.1);
-    group.add(head);
-
-    const snout = new THREE.Mesh(new THREE.BoxGeometry(0.48, 0.2, 0.5), bone);
-    snout.position.set(0, 0.16, -1.42);
-    group.add(snout);
-
-    for (const side of [-1, 1]) {
-      const eye = new THREE.Mesh(new THREE.DodecahedronGeometry(0.08, 0), amberEye);
-      eye.position.set(side * 0.24, 0.34, -1.28);
-      group.add(eye);
-
-      const spot = new THREE.Mesh(new THREE.DodecahedronGeometry(0.1, 0), lava);
-      spot.position.set(side * 0.42, 0.26, -0.28);
-      spot.scale.set(1, 0.54, 0.86);
-      group.add(spot);
-
-      const nostril = new THREE.Mesh(new THREE.BoxGeometry(0.07, 0.04, 0.05), black);
-      nostril.position.set(side * 0.14, 0.18, -1.68);
-      group.add(nostril);
-
-      const cheekStripe = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.045, 0.64), trim);
-      cheekStripe.position.set(side * 0.34, 0.31, -1.08);
-      cheekStripe.rotation.y = side * 0.22;
-      cheekStripe.rotation.z = side * -0.18;
-      group.add(cheekStripe);
-    }
-
-    for (let i = 0; i < 6; i += 1) {
-      const plate = new THREE.Mesh(new THREE.ConeGeometry(0.2 - i * 0.012, 0.56 - i * 0.035, 3), i % 2 ? lava : bone);
-      plate.position.set(0, 0.62 - i * 0.018, -0.86 + i * 0.34);
-      plate.rotation.y = Math.PI / 6;
-      plate.rotation.x = -0.08;
-      group.add(plate);
-    }
-
-    const tail = new THREE.Mesh(new THREE.ConeGeometry(0.28, 0.9, 8), skin);
-    tail.rotation.x = Math.PI / 2;
-    tail.position.set(0, 0.16, 1.22);
-    group.add(tail);
-
-    for (const side of [-1, 1]) {
-      const flank = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.18, 1.5), trim);
-      flank.position.set(side * 0.78, -0.02, 0.16);
-      flank.rotation.z = side * -0.14;
-      flank.rotation.y = side * 0.14;
-      group.add(flank);
-
-      const lowerStripe = new THREE.Mesh(
-        new THREE.BoxGeometry(0.08, 0.05, 1.28),
-        basic(currentMap.gate, { transparent: true, opacity: 0.68, blending: THREE.AdditiveBlending, depthWrite: false })
-      );
-      lowerStripe.position.set(side * 0.86, 0.12, 0.18);
-      lowerStripe.rotation.y = side * 0.14;
-      group.add(lowerStripe);
-
-      const pod = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.26, 1.0), dark);
-      pod.position.set(side * 0.55, -0.27, 0.66);
-      group.add(pod);
-
-      const intake = new THREE.Mesh(new THREE.BoxGeometry(0.26, 0.12, 0.18), black);
-      intake.position.set(side * 0.55, -0.2, 0.08);
-      group.add(intake);
-    }
-
-    const engines = [
-      makeBoostCone(-0.38, -0.08, 1.24),
-      makeBoostCone(0.38, -0.08, 1.24)
-    ];
-    for (const engine of engines) group.add(engine);
-
-    const light = new THREE.PointLight(currentMap.boost, 2.4, 9);
-    light.position.set(0, -0.05, 1.38);
-    group.add(light);
-    return finishShip(group, engines, light, 0.98);
-  }
-
-  function makeMoonwoodVehicle() {
-    const group = new THREE.Group();
-    const wood = material(0x5b3a2d, { roughness: 0.74, metalness: 0.06 });
-    const bristle = material(0xa87b46, { roughness: 0.82, metalness: 0.03 });
-    const purple = material(0x4e336e, { roughness: 0.48, metalness: 0.2, emissive: 0x24113d, emissiveIntensity: 0.1 });
-    const dark = material(0x11111d, { roughness: 0.5, metalness: 0.32 });
-    const silver = material(0xc7d6ff, { roughness: 0.24, metalness: 0.42, emissive: 0x5e76c8, emissiveIntensity: 0.1 });
-    const glow = material(currentMap.trim, {
-      roughness: 0.12,
-      metalness: 0.04,
-      emissive: currentMap.trim,
-      emissiveIntensity: 0.7,
-      transparent: true,
-      opacity: 0.9
-    });
-
-    const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.08, 3.15, 8), wood);
-    shaft.rotation.x = Math.PI / 2;
-    shaft.position.set(0, -0.06, 0.05);
-    group.add(shaft);
-
-    const bristles = new THREE.Mesh(new THREE.ConeGeometry(0.42, 0.78, 9), bristle);
-    bristles.rotation.x = -Math.PI / 2;
-    bristles.position.set(0, -0.06, 1.54);
-    bristles.scale.x = 1.28;
-    group.add(bristles);
-
-    const prow = new THREE.Mesh(new THREE.ConeGeometry(0.22, 0.72, 8), silver);
-    prow.rotation.x = Math.PI / 2;
-    prow.position.set(0, -0.06, -1.44);
-    group.add(prow);
-
-    const seat = new THREE.Mesh(new THREE.BoxGeometry(0.92, 0.25, 0.72), purple);
-    seat.position.set(0, 0.14, 0.18);
-    seat.rotation.x = -0.08;
-    group.add(seat);
-
-    const back = new THREE.Mesh(new THREE.BoxGeometry(0.82, 0.62, 0.18), purple);
-    back.position.set(0, 0.44, 0.52);
-    back.rotation.x = -0.24;
-    group.add(back);
-
-    const brim = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.4, 0.05, 18), dark);
-    brim.position.set(0, 0.66, -0.04);
-    group.add(brim);
-
-    const hat = new THREE.Mesh(new THREE.ConeGeometry(0.28, 0.72, 9), dark);
-    hat.position.set(0, 1.02, -0.04);
-    hat.rotation.z = -0.18;
-    group.add(hat);
-
-    const hatBand = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.24, 0.06, 12), purple);
-    hatBand.position.set(0, 0.79, -0.04);
-    group.add(hatBand);
-
-    for (const side of [-1, 1]) {
-      const rail = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.12, 1.18), silver);
-      rail.position.set(side * 0.62, 0.08, 0.18);
-      rail.rotation.z = side * -0.1;
-      group.add(rail);
-
-      const wisp = new THREE.Mesh(new THREE.DodecahedronGeometry(0.18, 0), glow);
-      wisp.position.set(side * 0.42, 0.08, 1.06);
-      group.add(wisp);
-    }
-
-    const lantern = new THREE.Mesh(new THREE.DodecahedronGeometry(0.2, 0), glow);
-    lantern.position.set(0, 0.14, -1.16);
-    group.add(lantern);
-
-    const engines = [
-      makeBoostCone(-0.3, -0.04, 1.5, 0.18, 0.82),
-      makeBoostCone(0.3, -0.04, 1.5, 0.18, 0.82)
-    ];
-    for (const engine of engines) group.add(engine);
-
-    const light = new THREE.PointLight(currentMap.boost, 2.8, 9);
-    light.position.set(0, 0.05, 1.3);
-    group.add(light);
-    return finishShip(group, engines, light, 1.02);
-  }
-
   function makeShip() {
-    if (world === "meadow") return makeMeadowVehicle();
-    if (world === "moonwood") return makeMoonwoodVehicle();
-    return makeDinoVehicle();
-  }
-
-  function makeTrackSegment(index, roadTexture) {
-    const group = new THREE.Group();
-    const shadow = new THREE.Mesh(
-      new THREE.BoxGeometry(TRACK_WIDTH + 1.35, 0.08, TRACK_SEGMENT_LENGTH * 0.98),
-      basic(0x020308, { transparent: true, opacity: 0.52, depthWrite: false })
-    );
-    shadow.position.y = -0.13;
-    shadow.position.z = 0.08;
-    group.add(shadow);
-
-    const slab = new THREE.Mesh(
-      new THREE.BoxGeometry(TRACK_WIDTH, 0.16, TRACK_SEGMENT_LENGTH * 0.94),
-      material(index % 2 ? currentMap.trackA : currentMap.trackB, {
-        metalness: 0.48,
-        roughness: 0.34,
-        emissive: currentMap.trackA,
-        emissiveIntensity: 0.025,
-        map: roadTexture
-      })
-    );
-    slab.receiveShadow = true;
-    group.add(slab);
-
-    const centerPanel = new THREE.Mesh(
-      new THREE.BoxGeometry(TRACK_WIDTH * 0.6, 0.028, TRACK_SEGMENT_LENGTH * 0.68),
-      basic(currentMap.rail, { transparent: true, opacity: 0.11, blending: THREE.AdditiveBlending, depthWrite: false })
-    );
-    centerPanel.position.y = 0.105;
-    centerPanel.position.z = -0.14;
-    group.add(centerPanel);
-
-    const inset = new THREE.Mesh(
-      new THREE.BoxGeometry(TRACK_WIDTH * 0.42, 0.032, TRACK_SEGMENT_LENGTH * 0.42),
-      material(mixHex(currentMap.trackB, 0xffffff, 0.04), {
-        metalness: 0.42,
-        roughness: 0.38,
-        emissive: currentMap.rail,
-        emissiveIntensity: 0.02
-      })
-    );
-    inset.position.set(0, 0.11, 0.1);
-    group.add(inset);
-
-    for (const z of [-2.6, 0, 2.6]) {
-      const cross = new THREE.Mesh(
-        new THREE.BoxGeometry(TRACK_WIDTH * 0.92, 0.03, 0.08),
-        basic(currentMap.rail, { transparent: true, opacity: 0.18 })
-      );
-      cross.position.set(0, 0.12, z);
-      group.add(cross);
+    const group=new THREE.Group();
+    const paint=material(world === "meadow" ? 0x20a88c : world === "moonwood" ? 0x8963d6 : 0xf07842,
+      {roughness:0.28,metalness:0.3});
+    const cream=material(0xffe8ac,{roughness:0.35,metalness:0.18});
+    const rubber=material(0x182430,{roughness:0.95});
+    const leather=material(0x293144,{roughness:0.9});
+    // A curved authored shell, with a narrower nose, cockpit recess and rear
+    // haunches. The silhouette is geometry rather than a stack of cuboids.
+    const shell=new THREE.Shape();
+    shell.moveTo(-0.44,-1.35);
+    shell.bezierCurveTo(-0.85,-1.35,-0.95,-0.45,-0.9,0.8);
+    shell.quadraticCurveTo(-0.9,1.3,0,1.3);
+    shell.quadraticCurveTo(0.9,1.3,0.9,0.8);
+    shell.bezierCurveTo(0.95,-0.45,0.85,-1.35,0.44,-1.35);
+    shell.quadraticCurveTo(0,-1.55,-0.44,-1.35);
+    const body=new THREE.Mesh(new THREE.ExtrudeGeometry(shell,{depth:0.24,bevelEnabled:true,bevelThickness:0.14,bevelSize:0.12,bevelSegments:4,steps:1,curveSegments:24}),paint);
+    body.rotation.x=Math.PI/2;body.position.y=0.14;group.add(body);
+    const cockpit=new THREE.Mesh(new THREE.SphereGeometry(0.55,32,16),leather);
+    cockpit.scale.set(1,0.35,1.3);cockpit.position.set(0,0.19,0.35);group.add(cockpit);
+    const seat=new THREE.Mesh(new THREE.SphereGeometry(0.52,24,16),leather);
+    seat.scale.set(0.82,1.1,0.25);seat.position.set(0,0.42,0.79);seat.rotation.x=-0.18;group.add(seat);
+    const steering=new THREE.Mesh(new THREE.TorusGeometry(0.23,0.035,10,28),cream);
+    steering.rotation.x=-0.55;steering.position.set(0,0.55,-0.25);group.add(steering);
+    const wheels=[];
+    for (const x of [-0.98,0.98]) for (const z of [-0.82,0.86]) {
+      const pivot=new THREE.Group();pivot.position.set(x,-0.2,z);group.add(pivot);
+      const wheel=new THREE.Group();pivot.add(wheel);wheel.userData.front=z<0;
+      const tire=new THREE.Mesh(new THREE.TorusGeometry(0.27,0.13,12,28),rubber);
+      tire.rotation.y=Math.PI/2;wheel.add(tire);
+      const hub=new THREE.Mesh(new THREE.CylinderGeometry(0.17,0.17,0.18,20),cream);
+      hub.rotation.z=Math.PI/2;wheel.add(hub);wheels.push(wheel);
     }
-
-    for (const side of [-1, 1]) {
-      const curb = new THREE.Mesh(
-        new THREE.BoxGeometry(0.42, 0.34, TRACK_SEGMENT_LENGTH * 0.86),
-        material(currentMap.trackB, { metalness: 0.24, roughness: 0.54 })
-      );
-      curb.receiveShadow = true;
-      curb.position.set(side * (TRACK_WIDTH / 2 + 0.08), 0.18, 0);
-      curb.rotation.z = side * 0.06;
-      group.add(curb);
-
-      const glow = new THREE.Mesh(
-        new THREE.BoxGeometry(0.1, 0.06, TRACK_SEGMENT_LENGTH * 0.86),
-        basic(currentMap.rail, { transparent: true, opacity: 0.72, blending: THREE.AdditiveBlending, depthWrite: false })
-      );
-      glow.position.set(side * (TRACK_WIDTH / 2 - 0.18), 0.38, 0);
-      glow.userData.pulse = 0.22 + index * 0.17 + side;
-      glow.userData.baseOpacity = 0.72;
-      pulseObjects.push(glow);
-      group.add(glow);
-
-      const outerWall = new THREE.Mesh(
-        new THREE.BoxGeometry(0.22, 0.98, TRACK_SEGMENT_LENGTH * 0.86),
-        material(mixHex(currentMap.trackB, 0xffffff, 0.1), {
-          metalness: 0.48,
-          roughness: 0.34,
-          emissive: currentMap.rail,
-          emissiveIntensity: 0.025
-        })
-      );
-      outerWall.receiveShadow = true;
-      outerWall.position.set(side * (TRACK_WIDTH / 2 + 0.56), 0.48, 0);
-      outerWall.rotation.z = side * -0.08;
-      group.add(outerWall);
-
-      const lowerSkirt = new THREE.Mesh(
-        new THREE.BoxGeometry(0.5, 0.2, TRACK_SEGMENT_LENGTH * 0.82),
-        material(mixHex(currentMap.trackA, 0x000000, 0.5), { metalness: 0.28, roughness: 0.58 })
-      );
-      lowerSkirt.position.set(side * (TRACK_WIDTH / 2 + 0.92), -0.02, 0);
-      lowerSkirt.rotation.z = side * -0.18;
-      group.add(lowerSkirt);
-
-      for (let i = 0; i < 3; i += 1) {
-        const chevron = new THREE.Mesh(
-          new THREE.BoxGeometry(0.12, 0.045, 0.74),
-          basic(i % 2 ? currentMap.gate : currentMap.rail, {
-            transparent: true,
-            opacity: 0.46,
-            blending: THREE.AdditiveBlending,
-            depthWrite: false
-          })
-        );
-        chevron.position.set(side * (TRACK_WIDTH / 2 + 0.02), 0.56, -2.38 + i * 2.34);
-        chevron.rotation.y = side * 0.48;
-        chevron.rotation.z = side * -0.18;
-        group.add(chevron);
-      }
+    const stripe=new THREE.Mesh(new THREE.PlaneGeometry(0.2,0.8),cream);
+    stripe.rotation.x=-Math.PI/2;stripe.position.set(0,0.3,-0.82);group.add(stripe);
+    for(const side of [-1,1]) {
+      const lamp=new THREE.Mesh(new THREE.SphereGeometry(0.12,16,12),material(0xfff3bc,{emissive:0xffde78,emissiveIntensity:0.4}));
+      lamp.position.set(side*0.48,0.16,-1.38);group.add(lamp);
     }
-
-    return group;
+    const engines=[makeBoostCone(-0.44,-0.1,1.4,0.12,0.5),makeBoostCone(0.44,-0.1,1.4,0.12,0.5)];
+    engines.forEach(engine=>group.add(engine));
+    const light=new THREE.PointLight(currentMap.boost,1,5);light.position.set(0,0.1,1.4);group.add(light);
+    group.userData.wheels=wheels;
+    return finishShip(group,engines,light,1);
   }
 
   function makeBillboard(label, side) {
@@ -2580,42 +2128,32 @@ function startGame(THREE, mount, opts) {
     scene.background = new THREE.Color(mixHex(currentMap.sky, 0x0b1020, world === "moonwood" ? 0.3 : world === "dino" ? 0.14 : 0.08));
     scene.fog = new THREE.FogExp2(currentMap.fog, world === "dino" ? 0.0094 : world === "moonwood" ? 0.0115 : 0.009);
     ambient.color.setHex(currentMap.ambient);
-    ambient.intensity = world === "moonwood" ? 0.42 : world === "dino" ? 0.46 : 0.52;
+    ambient.intensity = qualityTier === "low" ? 1.45 : world === "moonwood" ? 0.42 : world === "dino" ? 0.46 : 0.52;
     keyLight.color.setHex(currentMap.sun);
     keyLight.intensity = world === "dino" ? 1.72 : 1.42;
     fillLight.color.setHex(currentMap.ambient);
     fillLight.intensity = world === "moonwood" ? 0.5 : 0.42;
 
-    const mountainBack = makeBackdropPlane(makeMountainTexture(0), 190, 66, 0, 18, -146, 0.96);
-    sceneryGroup.add(mountainBack);
-    const mountainFront = makeBackdropPlane(makeMountainTexture(1), 210, 48, 0, 10, -116, 0.86);
-    sceneryGroup.add(mountainFront);
-    const horizonGlow = makeBackdropPlane(makeHorizonGlowTexture(), 180, 40, 0, 11.4, -112, world === "moonwood" ? 0.66 : 0.78);
-    sceneryGroup.add(horizonGlow);
-    const clouds = makeBackdropPlane(makeCloudTexture(), 165, 38, 3, 20, -102, 0.7);
+    // Distant painted horizon stays outside the whole circuit. The old
+    // straight-runner cards crossed the road when the camera turned.
+    for(let side=0;side<4;side++) {
+      const angle=side*Math.PI/2;
+      const mountain=makeBackdropPlane(makeMountainTexture(side%2),560,95,
+        40+Math.sin(angle)*270,32,-60+Math.cos(angle)*270,1);
+      mountain.rotation.y=angle;
+      sceneryGroup.add(mountain);
+      const forest=makeBackdropPlane(makeForestTexture(side%2),500,36,
+        40+Math.sin(angle)*240,12,-60+Math.cos(angle)*240,1);
+      forest.rotation.y=angle;
+      sceneryGroup.add(forest);
+    }
+    const clouds=makeBackdropPlane(makeCloudTexture(),500,45,40,65,-260,0.7);
     sceneryGroup.add(clouds);
-    const forestFar = makeBackdropPlane(makeForestTexture(1), 168, 34, 0, 7.2, -90, 0.74);
-    sceneryGroup.add(forestFar);
-    const forestLeft = makeBackdropPlane(makeForestTexture(0), 72, 31, -43, 6.4, -62, 0.84);
-    forestLeft.rotation.y = Math.PI * 0.09;
-    sceneryGroup.add(forestLeft);
-    const forestRight = makeBackdropPlane(makeForestTexture(0), 72, 31, 43, 6.4, -62, 0.84);
-    forestRight.rotation.y = -Math.PI * 0.09;
-    sceneryGroup.add(forestRight);
 
     const monument = makeWorldMonument();
     sceneryGroup.add(monument);
 
-    const groundGeo = new THREE.PlaneGeometry(170, 260, 24, 30);
-    const groundPositions = groundGeo.attributes.position;
-    for (let i = 0; i < groundPositions.count; i += 1) {
-      const x = groundPositions.getX(i);
-      const y = groundPositions.getY(i);
-      const distanceFromTrack = Math.max(0, Math.abs(x) - TRACK_WIDTH * 0.65);
-      const ridge = Math.sin(i * 1.7 + levelIdx) * 0.16 + Math.cos(y * 0.09 + x * 0.03) * 0.2;
-      groundPositions.setZ(i, distanceFromTrack > 0 ? ridge * Math.min(1.7, distanceFromTrack / 12) : -0.06);
-    }
-    groundGeo.computeVertexNormals();
+    const groundGeo = new THREE.PlaneGeometry(500, 500, 24, 30);
     const groundTexture = makeGroundTexture();
     const ground = new THREE.Mesh(
       groundGeo,
@@ -2626,7 +2164,7 @@ function startGame(THREE, mount, opts) {
       })
     );
     ground.rotation.x = -Math.PI / 2;
-    ground.position.set(0, -0.08, -70);
+    ground.position.set(40, -0.22, -60);
     sceneryGroup.add(ground);
 
     const sun = new THREE.Mesh(
@@ -2637,67 +2175,100 @@ function startGame(THREE, mount, opts) {
     sceneryGroup.add(sun);
 
     const particleTexture = makeParticleTexture();
-    for (let i = 0; i < 64; i += 1) {
+    for (let i = 0; i < (qualityTier === "low" ? 16 : 64); i += 1) {
       const particle = makeAtmosphereParticle(i, particleTexture);
       sceneryGroup.add(particle);
     }
 
     for (let i = 0; i < 10; i += 1) {
       const gantry = makeTrackGantry(i);
-      const point = sampleCircuitPath(track?.path, 24 + i * 27);
+      const point = sampleCircuitPath(track?.path, 24 + i * (track.totalLength - 48) / 10);
       gantry.position.set(point.x, point.y + 0.02, point.z);
-      gantry.rotation.y = point.heading;
+      gantry.rotation.y = -point.heading;
       gantry.userData.trackBound = true;
       sceneryGroup.add(gantry);
     }
 
-    for (let i = 0; i < 30; i += 1) {
+    const bankCount = qualityTier === "low" ? 12 : 30;
+    for (let i = 0; i < bankCount; i += 1) {
       for (const side of [-1, 1]) {
         const bank = makeTracksideBank(i, side);
-        const point = sampleCircuitPath(track?.path, 12 + i * 8.1);
+        const point = sampleCircuitPath(track?.path, 12 + i * (track.totalLength - 24) / bankCount);
         const offset = offsetCircuitPoint(point, side * (TRACK_WIDTH / 2 + 3.2));
         bank.position.set(offset.x, offset.y, offset.z);
-        bank.rotation.y = point.heading;
+        bank.rotation.y = -point.heading;
         bank.userData.trackBound = true;
         sceneryGroup.add(bank);
       }
     }
 
-    for (let i = 0; i < 58; i += 1) {
+    const propCount = qualityTier === "low" ? 20 : 58;
+    for (let i = 0; i < propCount; i += 1) {
       const side = i % 2 === 0 ? -1 : 1;
       const prop = makeRoadsideProp(i, side);
-      const point = sampleCircuitPath(track?.path, 10 + i * 4.7);
+      const point = sampleCircuitPath(track?.path, 10 + i * (track.totalLength - 20) / propCount);
       const offset = offsetCircuitPoint(point, side * (TRACK_WIDTH / 2 + 4.5));
       prop.position.set(offset.x, offset.y, offset.z);
-      prop.rotation.y = point.heading;
+      prop.rotation.y = -point.heading;
       prop.userData.trackBound = true;
       sceneryGroup.add(prop);
     }
 
-    trackSegments = [];
-    roadTexture = makeTrackTexture();
-    for (let i = 0; i < TRACK_SEGMENTS; i += 1) {
-      const seg = makeTrackSegment(i, roadTexture);
-      seg.position.y = 0;
-      trackGroup.add(seg);
-      trackSegments.push(seg);
-    }
-
-    railSegments = [];
-    const railXs = [-TRACK_WIDTH / 2, -TRACK_WIDTH / 6, TRACK_WIDTH / 6, TRACK_WIDTH / 2];
-    for (let i = 0; i < TRACK_SEGMENTS; i += 1) {
-      for (const x of railXs) {
-        const rail = new THREE.Mesh(
-          new THREE.BoxGeometry(x === railXs[0] || x === railXs[railXs.length - 1] ? 0.18 : 0.08, 0.08, TRACK_SEGMENT_LENGTH * 0.82),
-          basic(currentMap.rail, { transparent: true, opacity: x === railXs[0] || x === railXs[railXs.length - 1] ? 0.68 : 0.38 })
-        );
-        rail.position.x = x;
-        rail.position.y = 0.18;
-        rail.userData.segmentIx = i;
-        rail.userData.railLane = x;
-        railGroup.add(rail);
-        railSegments.push(rail);
+    // Raised bridge section follows the same sampled deck as the tyres and
+    // gates. Supports and guard rails sit outside the playable road boundary.
+    for(let distance=0;distance<track.totalLength;distance+=6) {
+      const point=sampleCircuitPath(track.path,distance);
+      if(point.y<0.65) continue;
+      for(const side of [-1,1]) {
+        const edge=offsetCircuitPoint(point,side*(TRACK_WIDTH/2+0.4));
+        const height=edge.y+0.25;
+        const support=new THREE.Mesh(new THREE.CylinderGeometry(0.24,0.38,height,12),material(0xe4cca0,{roughness:0.88}));
+        support.position.set(edge.x,height/2-0.22,edge.z);sceneryGroup.add(support);
+        const nextPoint=offsetCircuitPoint(sampleCircuitPath(track.path,distance+6),side*(TRACK_WIDTH/2+0.4));
+        const start=new THREE.Vector3(edge.x,edge.y+0.65,edge.z),end=new THREE.Vector3(nextPoint.x,nextPoint.y+0.65,nextPoint.z);
+        const rail=new THREE.Mesh(new THREE.CylinderGeometry(0.075,0.075,start.distanceTo(end),8),material(0xffe1a3,{roughness:0.6}));
+        rail.position.copy(start).add(end).multiplyScalar(0.5);
+        rail.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),end.sub(start).normalize());
+        sceneryGroup.add(rail);
       }
+    }
+    const finish=new THREE.Group();
+    const flagTexture=canvasTexture(512,96,(ctx,w,h)=>{
+      ctx.fillStyle="#f6edc8";ctx.fillRect(0,0,w,h);
+      ctx.fillStyle="#182d3d";ctx.font="900 48px sans-serif";ctx.textAlign="center";ctx.fillText("START / FINISH",w/2,66);
+    });
+    const finishSign=new THREE.Mesh(new THREE.PlaneGeometry(TRACK_WIDTH,1.1),basic(0xffffff,{map:flagTexture,side:THREE.DoubleSide}));
+    finishSign.position.y=4.4;finish.add(finishSign);
+    sceneryGroup.userData.finishSign = finishSign;
+    for(const side of [-1,1]) {
+      const pole=new THREE.Mesh(new THREE.CylinderGeometry(0.12,0.16,4.8,12),material(0xf8e8be,{roughness:0.65}));
+      pole.position.set(side*5,2.4,0);finish.add(pole);
+    }
+    const start=sampleCircuitPath(track.path,0);finish.position.set(start.x,start.y,start.z);finish.rotation.y=-start.heading;sceneryGroup.add(finish);
+    roadTexture = makeTrackTexture();
+    const ribbon = (left, right, height, mat) => {
+      const positions=[],uvs=[],indices=[];
+      track.path.forEach((point,index) => {
+        for (const lateral of [left,right]) {
+          const edge=offsetCircuitPoint(point,lateral);
+          positions.push(edge.x,edge.y+height,edge.z);
+          uvs.push(lateral===left?0:1,point.distance/10);
+        }
+        if(index) { const n=index*2; indices.push(n-2,n,n-1,n-1,n,n+1); }
+      });
+      const geometry=new THREE.BufferGeometry();
+      geometry.setAttribute("position",new THREE.Float32BufferAttribute(positions,3));
+      geometry.setAttribute("uv",new THREE.Float32BufferAttribute(uvs,2));
+      geometry.setIndex(indices);geometry.computeVertexNormals();
+      const mesh=new THREE.Mesh(geometry,mat);mesh.receiveShadow=true;trackGroup.add(mesh);
+      return mesh;
+    };
+    ribbon(-TRACK_WIDTH/2,TRACK_WIDTH/2,0,material(currentMap.trackA,{roughness:0.85,metalness:0.04,map:roadTexture,side:THREE.DoubleSide}));
+    ribbon(-TRACK_WIDTH/2,TRACK_WIDTH/2,-0.16,material(0x9a8667,{roughness:0.9,side:THREE.DoubleSide}));
+    for(const side of [-1,1]) {
+      const edge=side*TRACK_WIDTH/2;
+      ribbon(edge-0.3,edge+0.3,0.04,material(0xf5dd96,{roughness:0.8,side:THREE.DoubleSide}));
+      ribbon(edge-0.08,edge+0.08,0.08,basic(currentMap.rail,{side:THREE.DoubleSide}));
     }
 
     if (ship) {
@@ -2762,11 +2333,19 @@ function startGame(THREE, mount, opts) {
     track = buildTrack(target, { difficulty, seed: levelIdx });
     resetSceneForMap();
     gateObjects = track.gates.map(makeGateObject);
-    playerZ = -4;
+    playerZ = 0;
+    kart = createKart(track.path);
+    const initialCamera = chasePose(kart);
+    camera.position.set(initialCamera.x, initialCamera.y, initialCamera.z);
+    camera.lookAt(initialCamera.lookX, initialCamera.lookY, initialCamera.lookZ);
+    heldSteering.clear();
+    steeringPulseT = 0;
+    gateVoice?.abort();
+    for (const gate of track.gates.filter(gate => gate.word).slice(0, 6)) preloadWordAudio(gate.word);
     laneIx = 1;
     lateralOffset = LANES[laneIx];
-    lateralTarget = LANES[laneIx];
-    offRoadCooldown = 0;
+
+
     checkpointIndex = 0;
     speed = difficulty === "hard" || difficulty === "high" ? 6.8 : difficulty === "medium" || difficulty === "mid" ? 6.1 : 5.4;
     timeMs = 0;
@@ -2778,7 +2357,6 @@ function startGame(THREE, mount, opts) {
     boostT = 0;
     dragT = 0;
     shakeT = 0;
-    catchUpSerial = 0;
     caughtCorrectWords.clear();
     countdownT = 0;
     running = true;
@@ -2844,7 +2422,10 @@ function startGame(THREE, mount, opts) {
     const replayAvailable = opts.getSound ? opts.getSound() : opts.isSoundEnabled !== false;
     if (timerEl) timerEl.textContent = formatTime(timeMs);
     if (wordsEl) wordsEl.textContent = `${wordsCorrect} / ${track.needed} words`;
-    if (checkpointEl) checkpointEl.textContent = `Checkpoint ${Math.min(checkpointIndex + 1, (track.checkpoints?.length || 1))} / ${track.checkpoints?.length || 1} · Lap 1 / ${track.laps || 1}`;
+    const lapLabel = playerZ >= track.totalLength && wordsCorrect >= track.needed
+      ? "Finished"
+      : `Lap ${Math.floor(Math.max(0, playerZ) / track.totalLength) + 1}`;
+    if (checkpointEl) checkpointEl.textContent = `Checkpoint ${Math.min(checkpointIndex + 1, (track.checkpoints?.length || 1))} / ${track.checkpoints?.length || 1} · ${lapLabel}`;
     if (shieldEl) shieldEl.textContent = "◆".repeat(Math.max(0, shield)) + "◇".repeat(Math.max(0, 3 - shield));
     if (hearTargetEl) {
       hearTargetEl.hidden = !replayAvailable;
@@ -2881,13 +2462,14 @@ function startGame(THREE, mount, opts) {
 
   function queueCatchUp(word, tries = 0) {
     if (!track || !word) return;
-    catchUpSerial += 1;
-    const z = Math.max(track.totalLength + 18, playerZ + 28 + (catchUpSerial % 3) * 9);
+    const lastPending = Math.max(playerZ, ...gateObjects.filter(gate => !gate.resolved).map(gate => gate.z));
+    const z = Math.max(lastPending + 18, playerZ + 28);
     // Always a random lane: placing repeat words in the player's current lane
     // after two misses made the game catch the word by itself.
     const lane = Math.floor(Math.random() * LANES.length);
     const gate = { kind: "word", word, correct: true, lane, z, catchup: true, tries };
-    track.totalLength = Math.max(track.totalLength, z + 36);
+    preloadWordAudio(word);
+    // Catch-up gates wrap onto the same circuit; the road length never changes.
     gateObjects.push(makeGateObject(gate));
   }
 
@@ -3044,30 +2626,42 @@ function startGame(THREE, mount, opts) {
   }
 
   function moveLane(dir) {
-    // Let the child choose a lane during the visible countdown. Discarding
-    // those first presses makes the controls feel broken on slower devices,
-    // even though the race has mounted correctly. Pause and modal overlays
-    // still freeze steering.
     if (paused || overlayActive) return;
-    const next = Math.max(0, Math.min(2, laneIx + dir));
-    if (next !== laneIx) {
-      laneIx = next;
-      lateralTarget = LANES[laneIx];
-      hud.dataset.soundRacerLane = String(laneIx);
-      sfx(playTapSound);
-    }
+    steeringPulse = dir;
+    steeringPulseT = 0.24;
   }
-
-  const onLeft = () => moveLane(-1);
-  const onRight = () => moveLane(1);
-  // Broad side zones keep release/swipe steering while compact arrows respond
-  // on press; native Enter/Space clicks retain one activation path.
-  const detachSteerZones = attachSteerZones({ left: el("left-zone"), right: el("right-zone"), onLeft, onRight });
-  const detachLeftControl = attachSoundRacerPressControl(el("left-control"), onLeft);
-  const detachRightControl = attachSoundRacerPressControl(el("right-control"), onRight);
-  opts.registerCleanup?.(detachSteerZones);
-  opts.registerCleanup?.(detachLeftControl);
-  opts.registerCleanup?.(detachRightControl);
+  // Holding turns the wheels continuously; a tap gives a short steering nudge.
+  // Every input acts on the same kart heading, including native keyboard clicks.
+  for (const [key, direction] of [["left-zone",-1],["right-zone",1],["left-control",-1],["right-control",1]]) {
+    const control = el(key);
+    let pressedAt = 0;
+    const down = event => {
+      event.preventDefault();
+      if (paused || overlayActive) return;
+      pressedAt = performance.now();
+      control.setPointerCapture?.(event.pointerId);
+      heldSteering.set(`pointer-${event.pointerId}`, direction);
+      control.dataset.pressed = "true";
+    };
+    const up = event => {
+      if (event.type === "pointerup" && heldSteering.has(`pointer-${event.pointerId}`) && performance.now() - pressedAt < 180) moveLane(direction);
+      heldSteering.delete(`pointer-${event.pointerId}`);
+      control.dataset.pressed = "false";
+    };
+    const click = event => { if (event.detail === 0) moveLane(direction); };
+    control.addEventListener("pointerdown", down);
+    control.addEventListener("pointerup", up);
+    control.addEventListener("pointercancel", up);
+    control.addEventListener("lostpointercapture", up);
+    control.addEventListener("click", click);
+    opts.registerCleanup?.(() => {
+      control.removeEventListener("pointerdown", down);
+      control.removeEventListener("pointerup", up);
+      control.removeEventListener("pointercancel", up);
+      control.removeEventListener("lostpointercapture", up);
+      control.removeEventListener("click", click);
+    });
+  }
 
   const hearTargetButton = el("hear-target");
   const replayTargetSound = event => {
@@ -3087,10 +2681,19 @@ function startGame(THREE, mount, opts) {
     const direction = laneDirectionForKey(event.key);
     if (!direction) return;
     event.preventDefault();
-    moveLane(direction);
+    heldSteering.set(`key-${event.code}`, direction);
   };
+  const keyUp = event => heldSteering.delete(`key-${event.code}`);
+  const clearControls = () => { heldSteering.clear(); steeringPulseT = 0; gateVoice?.abort(); };
   window.addEventListener("keydown", onKey);
-  opts.registerCleanup?.(() => window.removeEventListener("keydown", onKey));
+  window.addEventListener("keyup", keyUp);
+  window.addEventListener("blur", clearControls);
+  opts.registerCleanup?.(() => {
+    window.removeEventListener("keydown", onKey);
+    window.removeEventListener("keyup", keyUp);
+    window.removeEventListener("blur", clearControls);
+    gateVoice?.abort();
+  });
 
   const detachSwipeSteer = attachSwipeSteer(renderer.domElement, { threshold: 40, onSteer: dir => moveLane(dir) });
   opts.registerCleanup?.(detachSwipeSteer);
@@ -3108,33 +2711,6 @@ function startGame(THREE, mount, opts) {
     }
   });
   opts.registerCleanup?.(detachResize);
-
-  function updateTrackVisuals(dt) {
-    const opticalFlowScale = reduceMotion ? 0.45 : 1;
-    if (roadTexture) roadTexture.offset.y = (playerZ * 0.012 + elapsed * 0.045 * opticalFlowScale) % 1;
-    for (let i = 0; i < trackSegments.length; i += 1) {
-      const point = sampleCircuitPath(track?.path, playerZ + i * TRACK_SEGMENT_LENGTH - 16);
-      trackSegments[i].position.set(point.x, point.y, point.z);
-      trackSegments[i].rotation.y = point.heading;
-    }
-    for (let i = 0; i < railSegments.length; i += 1) {
-      const segmentIx = railSegments[i].userData.segmentIx ?? Math.floor(i / 4);
-      const point = sampleCircuitPath(track?.path, playerZ + segmentIx * TRACK_SEGMENT_LENGTH - 16);
-      const offset = offsetCircuitPoint(point, railSegments[i].userData.railLane ?? 0);
-      railSegments[i].position.set(offset.x, offset.y + 0.18, offset.z);
-      railSegments[i].rotation.y = point.heading;
-      railSegments[i].material.opacity = 0.34 + Math.abs(Math.sin(elapsed * 2 + segmentIx * 0.3)) * 0.3;
-    }
-    for (const prop of sceneryGroup.children) {
-      if (prop.userData?.trackBound) continue;
-      const scrollFactor = prop.userData?.scrollFactor;
-      if (!scrollFactor) continue;
-      // Preserve the authored 60fps rate while making the motion frame-rate
-      // independent and materially calmer under reduced motion.
-      prop.position.z += speed * TRACK_UNIT * scrollFactor * dt * 60 * opticalFlowScale;
-      if (prop.position.z > SCENERY_RESET_Z) prop.position.z = SCENERY_WRAP_Z - Math.random() * 28;
-    }
-  }
 
   function updateAtmosphere(now) {
     const t = now * 0.001;
@@ -3158,6 +2734,10 @@ function startGame(THREE, mount, opts) {
     for (const obj of gateObjects) {
       if (obj.resolved) continue;
       const distance = obj.z - playerZ;
+      if (obj.word && !obj.prewarmed && distance > 0 && distance < VIEW_DISTANCE) {
+        obj.prewarmed = true;
+        preloadWordAudio(obj.word);
+      }
       if (distance < -3 || distance > VIEW_DISTANCE) {
         obj.mesh.visible = false;
       } else {
@@ -3168,7 +2748,7 @@ function startGame(THREE, mount, opts) {
         obj.mesh.position.set(offset.x, offset.y + 0.78 + t * 0.34, offset.z);
         const scale = 0.55 + t * 0.72;
         obj.mesh.scale.setScalar(scale);
-        obj.mesh.rotation.y = point.heading + elapsed * obj.mesh.userData.spin;
+        obj.mesh.rotation.y = -point.heading;
         if (obj.kind === "obstacle") obj.mesh.rotation.x += dt * 0.8;
       }
       if (obj.catchup && obj.tries >= 2 && !obj.hintShown && distance > 0 && distance <= VIEW_DISTANCE) {
@@ -3180,26 +2760,39 @@ function startGame(THREE, mount, opts) {
           ? speakWord(obj.word)
           : speakPhoneme(track.target));
       }
-      if (distance <= CATCH_WINDOW) resolveGate(obj);
+      if (obj.kind === "word" && !obj.spoken && distance > 0 && distance < Math.max(9, kart.speed * 1.25)) {
+        obj.spoken = true;
+        gateVoice?.abort();
+        gateVoice = new AbortController();
+        const signal = gateVoice.signal;
+        if (hasRecordedSpeech(obj.word)) sfx(() => speakWord(obj.word, { signal }));
+      }
+      if (distance <= CATCH_WINDOW) {
+        if (obj.spoken) gateVoice?.abort();
+        resolveGate(obj);
+      }
     }
     const hasPendingCorrect = gateObjects.some(obj => obj.correct && !obj.resolved);
     if (playerZ >= track.totalLength - 2 && wordsCorrect < track.needed && !hasPendingCorrect) {
       const missed = gateObjects.find(obj => obj.correct && obj.resolved && !caughtCorrectWords.has(obj.word))?.word;
       queueCatchUp(missed || track.gates.find(gate => gate.correct)?.word, 2);
     }
-    if (playerZ >= track.totalLength && wordsCorrect >= track.needed) completeLevel();
+    if (playerZ >= track.totalLength && checkpointIndex === track.checkpoints.length - 1 && wordsCorrect >= track.needed) completeLevel();
   }
 
   function updateShip(dt, now) {
     if (!ship) return;
-    lateralOffset += (lateralTarget - lateralOffset) * Math.min(1, dt * 8);
-    const point = sampleCircuitPath(track?.path, playerZ);
-    const worldPosition = offsetCircuitPoint(point, lateralOffset);
-    ship.position.set(worldPosition.x, worldPosition.y + 1.03, worldPosition.z);
-    ship.rotation.y = point.heading;
-    ship.rotation.z = (lateralTarget - lateralOffset) * -0.12;
-    ship.rotation.x = reduceMotion ? 0 : Math.sin(now * 0.004) * 0.045;
-    ship.position.y += reduceMotion ? 0 : Math.sin(now * 0.006) * 0.045;
+    if (!kart) return;
+    ship.position.set(kart.x, kart.y + 0.53, kart.z);
+    ship.rotation.y = -kart.heading;
+    ship.rotation.z = (kart.bank || 0) - kart.steering * 0.075;
+    const ahead = sampleCircuitPath(track.path, kart.progress + 1);
+    const behind = sampleCircuitPath(track.path, kart.progress - 1);
+    ship.rotation.x = Math.atan2(ahead.y - behind.y, 2) + (reduceMotion ? 0 : Math.sin(now * 0.012) * speed * 0.0008);
+    if (ship.userData.wheels) for (const wheel of ship.userData.wheels) {
+      wheel.rotation.x -= speed * dt / 0.34;
+      if (wheel.userData.front) wheel.parent.rotation.y = -kart.steering * 0.4;
+    }
     const boostScale = boostT > 0 ? 1.55 : 1;
     if (ship.userData.engines) {
       for (const engine of ship.userData.engines) {
@@ -3231,8 +2824,9 @@ function startGame(THREE, mount, opts) {
   }
 
   function tick(now) {
-    const dt = Math.min(0.05, ((now - last) || 16) / 1000);
+    const dt = Math.max(0, Math.min(0.05, ((now - last) || 16) / 1000));
     last = now;
+    if (!opts.getSound?.()) gateVoice?.abort();
     if (paused || (overlayActive && !running)) {
       if (!pausedFrameRendered) {
         const renderedTier = premiumRender.render(0);
@@ -3245,7 +2839,6 @@ function startGame(THREE, mount, opts) {
       return;
     }
 
-    elapsed += dt;
     if (countdownT > 0) {
       countdownT -= dt;
       updateCountdown();
@@ -3275,7 +2868,20 @@ function startGame(THREE, mount, opts) {
       boostT = Math.max(0, boostT - dt);
       dragT = Math.max(0, dragT - dt);
       shakeT = Math.max(0, shakeT - dt);
-      playerZ += speed * dt * (reduceMotion ? 0.55 : 1);
+      steeringPulseT = Math.max(0, steeringPulseT - dt);
+      const steer = heldSteering.size ? [...heldSteering.values()].at(-1) : steeringPulseT > 0 ? steeringPulse : 0;
+      kart = stepKart(track.path, kart, { steer, speed: speed * 1.65 }, dt);
+      playerZ = kart.progress;
+      lateralOffset = kart.lateral;
+      laneIx = lateralOffset < -1.5 ? 0 : lateralOffset > 1.5 ? 2 : 1;
+      hud.dataset.soundRacerLane = String(laneIx);
+      hud.dataset.soundRacerPosition = JSON.stringify({x:kart.x,z:kart.z,heading:kart.heading,progress:playerZ,lateral:lateralOffset,recoveries:kart.recoveries,wordsCorrect,wordsWrong,missedCorrect});
+      if (kart.recovered) {
+        obstaclesHit += 1;
+        hurtShip("off-road");
+        gateVoice?.abort();
+        showBanner("Back on track — keep steering!");
+      }
       while (checkpointIndex < (track.checkpoints?.length || 1) - 1 && playerZ >= track.checkpoints[checkpointIndex + 1]) {
         checkpointIndex += 1;
         sfx(playStarChime);
@@ -3284,30 +2890,23 @@ function startGame(THREE, mount, opts) {
       updateHud();
     }
 
-      updateTrackVisuals(dt);
       updateAtmosphere(now);
       updateShip(dt, now);
-      offRoadCooldown = Math.max(0, offRoadCooldown - dt);
-      if (Math.abs(lateralOffset) > TRACK_WIDTH / 2 - 0.55 && offRoadCooldown <= 0) {
-        obstaclesHit += 1;
-        offRoadCooldown = 0.8;
-        lateralTarget = Math.max(-TRACK_WIDTH / 2 + 0.72, Math.min(TRACK_WIDTH / 2 - 0.72, lateralTarget));
-        hurtShip("off-road");
-        showBanner("Back on the road!");
-      }
       updateBursts(dt);
+      if (kart) {
+        // An overhead sign between the kart and its chase camera must not
+        // become a full-screen billboard immediately after crossing the line.
+        const lapPosition = ((playerZ % track.totalLength) + track.totalLength) % track.totalLength;
+        sceneryGroup.userData.finishSign.visible = lapPosition > 12;
+        const pose = chasePose(kart);
+        const follow = Math.min(1, dt * 8);
+        camera.position.x += (pose.x - camera.position.x) * follow;
+        camera.position.y += (pose.y - camera.position.y) * follow;
+        camera.position.z += (pose.z - camera.position.z) * follow;
+        camera.lookAt(pose.lookX, pose.lookY, pose.lookZ);
+      }
 
-      // The camera is attached to the same centreline as the kart.  It turns
-      // through corners and looks into the next section instead of keeping a
-      // fixed heading while a decorative backdrop scrolls behind it.
-      const cameraPath = sampleCircuitPath(track.path, playerZ - 8);
-      const lookPath = sampleCircuitPath(track.path, playerZ + 18);
-      camera.position.x += (cameraPath.x - camera.position.x) * Math.min(1, dt * 5);
-      camera.position.y += (cameraPath.y + cameraBaseY - camera.position.y) * Math.min(1, dt * 5);
-      camera.position.z += (cameraPath.z + cameraBaseZ - camera.position.z) * Math.min(1, dt * 5);
-      camera.lookAt(lookPath.x, lookPath.y + 1.0, lookPath.z);
-
-    const wantedFov = boostT > 0 && !reduceMotion ? 73 : cameraBaseFov;
+    const wantedFov = roadFov() + (boostT > 0 && !reduceMotion ? 9 : 0);
     if (Math.abs(fov - wantedFov) > 0.1) {
       fov += (wantedFov - fov) * Math.min(1, dt * 5);
       camera.fov = fov;
@@ -3332,6 +2931,9 @@ function startGame(THREE, mount, opts) {
   opts.registerCleanup?.(() => loop.stop());
 
   function pause() {
+    heldSteering.clear();
+    steeringPulseT = 0;
+    gateVoice?.abort();
     if (paused) return;
     paused = true;
     pausedFrameRendered = false;
@@ -3368,7 +2970,6 @@ function startGame(THREE, mount, opts) {
     window.removeEventListener("keydown", onKey);
 
     detachSwipeSteer();
-    detachSteerZones();
     detachResize();
     if (ship) {
       scene.remove(ship);

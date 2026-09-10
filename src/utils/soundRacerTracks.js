@@ -107,24 +107,46 @@ function nearestFreeIndex(ideal, taken, limit) {
 // straight strip with a moving backdrop.  The points are deliberately broad
 // and forgiving for early readers, but they include real left/right bends and
 // a hairpin that the vehicle and collision surfaces can share.
-export function buildCircuitPath(totalLength, rng) {
-  const samples = Math.max(24, Math.ceil(totalLength / 5));
-  const points = [];
-  const variation = (rng() - 0.5) * 2.4;
-  for (let index = 0; index <= samples; index += 1) {
-    const distance = (index / samples) * totalLength;
-    const theta = (index / samples) * Math.PI * 2 + Math.PI / 2;
-    const x = Math.sin(theta) * (26 + variation) + Math.sin(theta * 3) * 2.2;
-    const y = Math.sin(theta * 2 + variation) * 0.82 + Math.sin(theta * 5) * 0.2;
-    const z = -38 + Math.cos(theta) * 29 + Math.sin(theta * 2) * 3.2;
-    points.push({ distance, x, y, z, heading: 0 });
+export function buildCircuitPath(totalLength, rng = () => 0.5) {
+  // Authored S bend, long straights and a broad return hairpin. Catmull-Rom
+  // joins the authored landmarks; cumulative lengths determine all distances.
+  const bend = (rng() - 0.5) * 5;
+  const anchors = [[0,0],[0,-42],[-22,-77],[-4,-112],[39,-130],
+    [75,-108],[75,-57],[52,-30],[73,6],[57,40],[18,43],[0,23]];
+  const raw=[];
+  for(let i=0;i<anchors.length;i++) {
+    const p0=anchors[(i+anchors.length-1)%anchors.length],p1=anchors[i],
+      p2=anchors[(i+1)%anchors.length],p3=anchors[(i+2)%anchors.length];
+    for(let j=0;j<36;j++) {
+      const t=j/36,t2=t*t,t3=t2*t;
+      const value=k=>0.5*((2*p1[k])+(-p0[k]+p2[k])*t+
+        (2*p0[k]-5*p1[k]+4*p2[k]-p3[k])*t2+(-p0[k]+3*p1[k]-3*p2[k]+p3[k])*t3);
+      const phase=(i+t)/anchors.length;
+      const bridgeRise=phase>0.36 && phase<0.56 ? Math.sin((phase-0.36)/0.2*Math.PI)**2*3.4 : 0;
+      raw.push({x:value(0)+Math.sin(phase*Math.PI*2)*bend,y:bridgeRise,z:value(1)});
+    }
   }
-  for (let index = 0; index < points.length; index += 1) {
-    const previous = points[(index - 1 + samples) % samples];
-    const next = points[(index + 1) % samples];
-    points[index].heading = Math.atan2(next.x - previous.x, -(next.z - previous.z));
+  raw.push({...raw[0]});
+  let length=0;
+  for(let i=0;i<raw.length;i++) {
+    if(i) length+=Math.hypot(raw[i].x-raw[i-1].x,raw[i].y-raw[i-1].y,raw[i].z-raw[i-1].z);
+    raw[i].distance=length;
   }
-  return points;
+  const scale=totalLength/length;
+  for(let i=0;i<raw.length;i++) {
+    const previous=raw[(i-1+raw.length-1)%(raw.length-1)],next=raw[(i+1)%(raw.length-1)];
+    raw[i].heading=Math.atan2(next.x-previous.x,-(next.z-previous.z));
+  }
+  for(let i=0;i<raw.length;i++) {
+    raw[i].x*=scale;raw[i].y*=scale;raw[i].z*=scale;raw[i].distance*=scale;
+  }
+  for(let i=0;i<raw.length;i++) {
+    const previous=raw[(i-1+raw.length-1)%(raw.length-1)],next=raw[(i+1)%(raw.length-1)];
+    const turn=Math.atan2(Math.sin(next.heading-previous.heading),Math.cos(next.heading-previous.heading));
+    raw[i].bank=-Math.max(-0.04,Math.min(0.04,turn*1.2));
+  }
+  raw.at(-1).distance=totalLength;
+  return raw;
 }
 
 function spacedGatePositions(profile, rng) {

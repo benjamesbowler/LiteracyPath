@@ -252,16 +252,16 @@ unknown until each changed build is exercised on a real supported iPad.
 
 #### Word Climb 2.0
 
-- **Age/reading band and construct:** early readers identify which printed word begins with the shown and spoken target phoneme. Following the climber's route is a decorative, non-target demand.
-- **Controls:** native word buttons support tap/click, Tab/Shift+Tab and Enter/Space; the component relies on native button activation rather than a custom pointer-capture contract.
+- **Age/reading band and construct:** early readers identify which printed word begins with the shown and spoken target phoneme. Jumping and steering through the climbing world are non-target motor demands; reading evidence is recorded only at a matching-word landing.
+- **Controls:** word leaves support tap/click, Tab/Shift+Tab and Enter/Space; selecting a leaf launches the same gravity-based jump as keyboard controls. Left/Right and held touch lean controls adjust the airborne character. Solid leaves preserve earned height, and the camera follows the ascent.
 - **Level ladder and prompt/audio:** authored onset and vocabulary sets change with difficulty while the target, exact instruction, three choices and current climb count remain visible. A 56-pixel replay control uses the current local production-audio library when available.
 - **Generator and ambiguity:** `wordClimbLevels.js` supplies fresh equal-position word sets with one valid onset match; `wordClimbLevels.test.js` and `word-climb-premium.spec.js` exercise the choice, feedback, pause, checkpoint and completion contracts.
-- **Feedback and reward:** a correct word names the matching onset and advances the climb; a wrong word names its actual onset while every choice and the target remain available for immediate retry. Route animation never creates learning evidence.
+- **Feedback and reward:** a correct word names the matching onset and advances the climb; a wrong word names its actual onset while every choice and the target remain available for immediate retry. Motor falls use the safety vine to recover to the last earned shelf without adding a reading error; pause and saved checkpoints preserve the physical ascent.
 
 #### Sound Racer 2.0
 
-- **Age/reading band and construct:** early readers discriminate whether a word begins with the target grapheme/phoneme. Lane steering and light hazards are non-target demands.
-- **Controls:** Left/Right or A/D, tap-side steering and swipe have parity; keyboard input accepts either letter case.
+- **Age/reading band and construct:** early readers discriminate whether a word begins with the target grapheme/phoneme. Kart steering and track hazards are non-target demands.
+- **Controls:** Left/Right or A/D and held touch steering turn the kart heading on a closed circuit. Short taps nudge steering; release stops steering input. The road, collision boundary, progress checkpoints and chase camera use the same world geometry.
 - **Level ladder and prompt/audio:** ten tracks change the onset demand and world before raising track pressure. The tutorial names the target, shows an example and keeps a 56-pixel replay action.
 - **Generator and ambiguity:** `soundRacerTracks.js` rebuilds each gate set with exact-sound correct pools and sound-distinct distractors; the shared phonetic-onset classifier covers soft c, silent letters and other live alternate spellings. `soundRacerTracks.test.js` covers multiple seeds, track bands and tutorial rules.
 - **Feedback and reward:** wrong gates name the mismatch and missed correct gates return. Obstacles affect the ship and race score only; sound accuracy and stars follow caught word choices, not vehicle speed or collisions.

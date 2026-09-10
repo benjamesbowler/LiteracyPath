@@ -1,0 +1,17 @@
+.letter-leap [data-ll="target-panel"] {
+  background: linear-gradient(135deg, #fffdeb, #f6ebc9) !important;
+  color: #233e30;
+  border: 2px solid #6a9860 !important;
+  border-radius: 22px;
+  clip-path: none !important;
+  box-shadow: 0 5px 0 #37533b, 0 9px 18px #182a2930 !important;
+  padding: 8px 16px !important;
+  min-height: 64px !important;
+}
+.letter-leap [data-ll="lab"] { color: #37543c !important; letter-spacing: .025em !important; }
+.letter-leap [data-ll="picture"] { width: 52px !important; height: 52px !important; box-shadow: none !important; }
+.letter-leap [data-ll="word"] > div { clip-path: none !important; border-radius: 9px; width: 36px !important; height: 40px !important; font-size: 1.45rem !important; }
+.letter-leap [data-ll="coins"], .letter-leap [data-ll="world"] { background: #294632dd !important; border-color: #9cb97e !important; clip-path: none !important; border-radius: 12px; }
+.letter-leap [data-ll="left"], .letter-leap [data-ll="right"], .letter-leap [data-ll="hear"] { background: linear-gradient(#5b8051, #294e35) !important; border: 2px solid #bbd99e !important; border-radius: 16px; clip-path: none !important; }
+.letter-leap [data-ll="jump"] { border-radius: 20px; clip-path: none !important; }
+.letter-leap[data-world="moonwood"] [data-ll="target-panel"] { background: linear-gradient(135deg, #f1ecff, #cdd3ef) !important; border-color: #a8a8da !important; }

@@ -102,10 +102,10 @@ test("every substantial vertical slice is complete, traceable to checks, and hon
   assert.match(bridgeImplementation, /if \(isInteractiveKeyTarget\(e\.target\)\) return/);
 
   const beatImplementation = readFileSync("src/components/learn/games/games/Ps1ArcadeGame.jsx", "utf8");
-  assert.match(beatImplementation, /function tapBeat\(\)/);
+  assert.match(beatImplementation, /function tapBeat\(lane =/);
   assert.match(beatImplementation, /soundBeatMercyPolicy\(task.attempts\)/);
   assert.match(beatImplementation, /now - targetTime > autoMissWindow/);
-  assert.match(beatImplementation, /replayPrompt: speakActiveNote/);
+  assert.match(beatImplementation, /replayPrompt: \(\) => speakActiveNote/);
 
 
   const racerImplementation = readFileSync("src/components/learn/games/games/SoundRacerGame.jsx", "utf8");
@@ -116,12 +116,12 @@ test("every substantial vertical slice is complete, traceable to checks, and hon
 
   const climbImplementation = readFileSync("src/components/learn/games/games/WordClimbGame.jsx", "utf8");
   assert.match(climbImplementation, /startLevel = 0/);
-  assert.match(climbImplementation, /onCheckpoint\?\.\(Math\.min\(step, session\.summit - 1\), session\.summit\)/);
-  assert.match(climbImplementation, /onEngineReady\?\.\(\{ pause: pauseEngine, resume: resumeEngine \}\)/);
-  assert.match(climbImplementation, /entry\.remaining = Math\.max\(0, entry\.remaining - \(now - entry\.startedAt\)\)/);
-  assert.match(climbImplementation, /if \(soundEnabledRef\.current\) void speakWord\(choice\.word\)/);
-  assert.match(climbImplementation, /safeSfx\(soundEnabledRef\.current, playCelebrationFanfare\)/);
-  assert.match(climbImplementation, /timersRef\.current\.clear\(\);\n {4}cancelSpeech\(\);/);
+  assert.match(climbImplementation, /onCheckpoint\?\.\(Math\.min\(world.step, world.summit - 1\), world.summit\)/);
+  assert.match(climbImplementation, /onEngineReady\?\.\(\{ pause, resume \}\)/);
+  assert.match(climbImplementation, /advanceClimbWorld\(world, dt/);
+  assert.match(climbImplementation, /if \(audio\) void speakWord\(event.platform.word\)/);
+  assert.match(climbImplementation, /safeSfx\(callbacks.current.isSoundEnabled, playCelebrationFanfare\)/);
+  assert.match(climbImplementation, /cancelAnimationFrame\(animation\)/);
   assert.doesNotMatch(climbImplementation, /aria-label="Word Climb complete"/);
 
   const playerImplementation = readFileSync("src/components/learn/games/GamePlayer.jsx", "utf8");
@@ -145,10 +145,10 @@ test("Rocket Run keeps the exact target cue replayable and reinforces it after e
   assert.match(implementation, /data-rr="hear-target"/);
   assert.match(implementation, /width:62px;height:56px/);
   assert.match(implementation, /function replayTarget\(\)/);
-  assert.match(implementation, /say\(\(\) => speakPhoneme\(target\)\)/);
-  assert.match(implementation, /await speakWord\(bubble\.userData\.word\)/);
-  assert.match(implementation, /await speakPhoneme\(roundTarget\)/);
-  assert.match(implementation, /starts with '" \+ roundTarget \+ "' ✓/);
+  assert.match(implementation, /say\(\(\) => speakPhoneme\(roundTarget\)\)/);
+  assert.match(implementation, /speakWord\(candidate\.userData\.word, \{/);
+  assert.match(implementation, /say\(\(\) => speakPhoneme\(roundTarget\)\)/);
+  assert.match(implementation, /signal: controller.signal/);
   assert.match(implementation, /isolateRocketRunCompletion\(hud, overlay, done\)/);
   assert.match(implementation, /isolateRocketRunActionOverlay\(hud, overlay, retry, "Retry Rocket Run round"\)/);
   assert.match(implementation, /isolateRocketRunActionOverlay\(hud, overlay, next, "Rocket Run round complete"\)/);

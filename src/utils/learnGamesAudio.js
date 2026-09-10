@@ -1,4 +1,5 @@
 import { Howl, Howler } from "howler";
+import { playOwnedClip } from "./audio/playOwnedClip.js";
 import { hasKnownBadWordAudio, isKnownBadAudioPath } from "../data/knownBadWordAudio.js";
 import { getLetterSoundCue } from "../components/learn/phonics/cvc/cvcHelpers";
 import { AUDIO_QUEST_PATHS } from "../data/generated/audioQuestPaths.generated.js";
@@ -17,6 +18,7 @@ function existingAudioPaths(paths) {
 }
 
 const howlCache = new Map();
+let currentCueController = null;
 const MAX_HOWL_CACHE_ENTRIES = 24;
 const VOWEL_SOUND_TEXT = {
   a: "ah",
@@ -74,49 +76,32 @@ function evictOldestHowlIfNeeded() {
   }
 }
 
-function playAudio(src) {
-  return new Promise((resolve, reject) => {
-    const howl = getHowl(src);
-    if (!howl) {
-      reject(new Error("No audio source"));
-      return;
-    }
-
-    const soundId = howl.play();
-    // Settle exactly once and detach every sibling listener. A clip cut off by
-    // Howler.stop() fires "stop" (never "end"); without that handler the
-    // promise hung forever and its listeners accumulated on the cached Howl —
-    // a real leak on the hottest clips during a long tap-happy session.
-    let settled = false;
-    const onEnd = () => settle(resolve, src);
-    const onStop = () => settle(resolve, src); // interrupted by a newer cue counts as done
-    const onLoadError = () => settle(reject, new Error(`Unable to load ${src}`));
-    const onPlayError = () => settle(reject, new Error(`Unable to play ${src}`));
-    function settle(finish, value) {
-      if (settled) return;
-      settled = true;
-      howl.off("end", onEnd, soundId);
-      howl.off("stop", onStop, soundId);
-      howl.off("loaderror", onLoadError, soundId);
-      howl.off("playerror", onPlayError, soundId);
-      finish(value);
-    }
-    howl.once("end", onEnd, soundId);
-    howl.once("stop", onStop, soundId);
-    howl.once("loaderror", onLoadError, soundId);
-    howl.once("playerror", onPlayError, soundId);
-  });
+function playAudio(src, options) {
+  const howl = getHowl(src);
+  return howl ? playOwnedClip(howl, src, options) : Promise.reject(new Error("No audio source"));
 }
 
-async function playFirstAvailable(paths) {
+async function playFirstAvailable(paths, options = {}) {
   for (const path of existingAudioPaths(paths)) {
+    if (options.signal?.aborted) return null;
     try {
-      return await playAudio(path);
+      return await playAudio(path, options);
     } catch {
-      // Try the next local recording; if all fail the caller stays silent.
+      // Try the next verified recording only while this cue is still relevant.
     }
   }
   return null;
+}
+
+export function preloadWordAudio(word) {
+  const path = existingAudioPaths(wordAudioCandidates(slugify(word)))[0];
+  if (path) getHowl(path);
+}
+
+export function wordAudioDuration(word) {
+  const path = existingAudioPaths(wordAudioCandidates(slugify(word)))[0];
+  const duration = path ? getHowl(path)?.duration() : 0;
+  return Number.isFinite(duration) && duration > 0 ? duration : 0.8;
 }
 
 // Gold-voice policy: we NEVER play robotic browser TTS. When no recorded clip
@@ -125,21 +110,28 @@ async function playFirstAvailable(paths) {
 function speakWithBrowser() {}
 
 export function cancelSpeech() {
-  Howler.stop();
-  if (typeof window !== "undefined" && window.speechSynthesis) {
-    window.speechSynthesis.cancel();
-  }
+  stopCurrentCues();
 }
 
 function stopCurrentCues() {
+  currentCueController?.abort();
+  currentCueController = null;
   Howler.stop();
   if (typeof window !== "undefined" && window.speechSynthesis) {
     window.speechSynthesis.cancel();
   }
 }
 
-export async function speakPhoneme(letter, options = {}) {
+function ownCurrentCue(options) {
+  if (options.signal) return options;
   stopCurrentCues();
+  currentCueController = new AbortController();
+  return { ...options, signal: currentCueController.signal };
+}
+
+export async function speakPhoneme(letter, options = {}) {
+  if (options.signal?.aborted) return;
+  options = ownCurrentCue(options);
   const normalized = normalizedText(letter);
   const normalizedLetter = normalized.slice(0, 1);
   const cue = getLetterSoundCue(normalizedLetter, { vowel: VOWELS.has(normalizedLetter) ? normalizedLetter : "" });
@@ -149,7 +141,7 @@ export async function speakPhoneme(letter, options = {}) {
   // short /a/ after a child catches "ai" teaches the wrong sound. Try every
   // recorded gold-voice grapheme folder, then stay silent if none exists.
   if (normalized.length > 1) {
-    const played = await playFirstAvailable(phonemeAudioCandidates(normalized));
+    const played = await playFirstAvailable(phonemeAudioCandidates(normalized), options);
     if (played) return;
     speakWithBrowser(normalized, options);
     return;
@@ -163,7 +155,7 @@ export async function speakPhoneme(letter, options = {}) {
   }
 
   if (candidates.length) {
-    const played = await playFirstAvailable(candidates);
+    const played = await playFirstAvailable(candidates, options);
     if (played) return;
   }
 
@@ -171,13 +163,14 @@ export async function speakPhoneme(letter, options = {}) {
 }
 
 export async function speakWord(word, options = {}) {
-  stopCurrentCues();
+  if (options.signal?.aborted) return;
+  options = ownCurrentCue(options);
   const slug = slugify(word);
   // Words whose only recordings are defective stay silent; never substitute a
   // synthetic voice for a phonics model.
   const candidates = wordAudioCandidates(slug);
-  const played = await playFirstAvailable(candidates);
-  if (!played) speakWithBrowser(word, options);
+  const played = await playFirstAvailable(candidates, options);
+  if (!played && !options.signal?.aborted) speakWithBrowser(word, options);
 }
 
 // True when a real recorded clip exists for this text - games use this to
@@ -196,16 +189,16 @@ export function hasRecordedSpeech(text) {
 }
 
 export async function speak(text, options = {}) {
-  stopCurrentCues();
+  if (options.signal?.aborted) return;
+  options = ownCurrentCue(options);
   const value = String(text || "").trim();
   if (!value) return;
   if (/^[a-z]+$/i.test(value)) {
-    speakWord(value, options);
-    return;
+    return speakWord(value, options);
   }
   const played = await playFirstAvailable([
     getLedaInstructionAudioPath(value)
-  ]);
+  ], options);
   if (played) return;
   speakWithBrowser(value, options);
 }

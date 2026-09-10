@@ -3756,8 +3756,8 @@
   .lg-game-player .lg-illustrated-game .adv-pal { transition: none; }
 }
 
-/* Keep narrow-screen chrome to one control row; the playfield gets the height. */
-@media (max-width: 600px) {
+/* Keep compact game chrome to one control row; the playfield gets the height. */
+@media (max-width: 1100px) {
   .lg-game-player[data-fullbleed] .lg-game-player-header {
     display: grid; grid-template-columns: minmax(0, 1fr) auto;
     grid-template-rows: 56px; min-height: 64px; height: 64px; gap: 4px; padding: 4px 6px;

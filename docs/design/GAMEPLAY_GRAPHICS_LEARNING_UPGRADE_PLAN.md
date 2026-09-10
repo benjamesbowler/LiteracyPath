@@ -6,9 +6,12 @@ Baseline: restored gameplay in `4c4108437`, with immediate activity access in `8
 
 ### Implementation ledger
 
-- Baseline audit: `d8447fc52` is a partial five-game patch, not completion of the programme. Its racing, climbing, letter-choice and paired-word audio defects remain to be repaired.
+- Baseline audit: `d8447fc52` was a partial five-game patch, not completion of the programme. The follow-through below repairs its racing, climbing, letter-choice and paired-word audio defects.
 - First repair batch: Sentence Grove uses the committed word-image resolver; Sentence Grove and Spell & Skate have compact prompts with separate control space; Sound Beat has separate collected-letter, note-arrival and press-pad regions; narrow-screen shared chrome keeps all utility controls in one row. Local picture/content, geometry, responsive interaction, lint and build checks cover this batch. These repairs do not complete those games’ gameplay, art or content upgrades.
-- Remaining: every full per-game upgrade and the Sound Seekers adventure remain in scope. Continue the package order below; do not stop at this repair batch.
+- Second repair batch, under verification: Rocket Run owns each approaching word clip and cancels stale loading/playback; Letter Leap uses persistent physical pickups and continuous movement; Word Climb lands on lasting higher ledges; Sound Racer shares real circuit geometry across steering, collisions and rendering. Sound Beat has timed independent pads, a shared musical clock, preserved final-word playback and a new stage. These are substantive mechanics repairs; final character animation, scene production and full catalogue upgrades remain unfinished.
+- Recording coverage: 97 missing current circuit words generated using the existing Leda word workflow. All live circuit word gates resolve to shipped recordings in the focused coverage check. This establishes file coverage, not a pronunciation listening claim.
+- Sound Seekers is owned by the separate `Plan Sound Seekers game` task (`01a08980-ad87-7082-9161-d0c046648fd8`), implementing its three-world adventure plan. This task owns the 22 catalogue games and shared integration. The adventure is handed off, not completed.
+- Remaining: continue every full per-game upgrade below. The nine Phonics modes, Word Bridge and SoundKeys have active independent implementation lanes; their edits are not release evidence until verified. Do not stop at the repair batches.
 
 ## 1. The requested result
 

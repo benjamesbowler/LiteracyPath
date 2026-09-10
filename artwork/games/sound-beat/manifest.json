@@ -1,0 +1,10 @@
+{
+  "asset": "sound-beat-woodland-stage",
+  "source": "woodland-stage.png",
+  "runtime": "../../../public/images/learn-games/sound-beat/woodland-stage.webp",
+  "created": "2026-09-10",
+  "generator": "built-in image_gen",
+  "references": [],
+  "usage": "Environment backdrop aligned to the runtime stage vanishing point. Gameplay rails, notes, controls, lighting and characters are rendered independently.",
+  "prompt": "Use case: stylized-concept. Asset type: production backdrop for LiteracyPath Sound Beat, an interactive educational rhythm game, not a screenshot or UI mockup. Create a polished console-quality stylized 3D woodland concert stage, landscape 16:9. A sculpted warm wooden amphitheatre with layered curved timber architecture, distant leafy trees, softly lit acoustic panels and softly glowing amber pendant lamps. Camera centred, looking down a low stage toward the back wall, stable one-point perspective, vanishing point at 50% width and 33% height. Smooth dark blue-teal stage floor occupies lower two thirds and especially a completely empty central trapezoid from x40\u201360% at y34% widening to x18\u201382% at the bottom: this is reserved for separately rendered moving rhythm notes. Props and warm natural details stay at far sides and upper background. Elegant restrained cyan and honey lighting, tangible bevelled materials, soft contact shadows, depth and crafted shapes, clean antialiased rendering, high resolution, warm inviting child-friendly atmosphere. There are NO characters, people, animals, instruments crossing the play area, roads, notes, letters, words, numbers, symbols, logos, watermark, HUD, controls, graphic borders, scanlines, pixel-art or faceted low-poly blocks. Not a flat illustration: use the polished sculptural depth of a lovingly authored family console game. Understated stage backdrop that allows crisp bright runtime letters to be legible."
+}

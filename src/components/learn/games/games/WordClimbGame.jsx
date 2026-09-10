@@ -1,342 +1,197 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import {
-  playCelebrationFanfare,
-  playCorrectChime,
-  playPopSound,
-  playSoftBuzz,
-  playStarChime,
-  playTapSound
-} from "../../../../utils/audio/gameSfx";
+import { playCelebrationFanfare, playCorrectChime, playSoftBuzz, playTapSound } from "../../../../utils/audio/gameSfx";
 import { cancelSpeech, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
 import { rocketRunStars } from "../../../../utils/rocketRunRounds.js";
-import {
-  createWordClimbSession,
-  wordClimbChoicesForStep
-} from "../../../../utils/wordClimbLevels.js";
+import { createWordClimbSession } from "../../../../utils/wordClimbLevels.js";
 import { onsetGrapheme } from "../../../elQuest/elQuestEngine.js";
+import { advanceClimbWorld, CLIMB_VIEW_HEIGHT, createClimbWorld, jumpToClimbPlatform, reachableClimbPlatforms } from "./wordClimbWorld.js";
 import "./WordClimbGame.css";
 
-const SCORE_PER_CLIMB = 10;
+function safeSfx(enabled, effect) { if (enabled) { try { effect(); } catch { /* Playback is optional. */ } } }
 
-function safeSfx(enabled, effect) {
-  if (!enabled) return;
-  try {
-    effect();
-  } catch {
-    // Spoken teaching cues remain optional when a device blocks audio.
-  }
+function ClimbScenery({ summit, camera }) {
+  const height = summit * 210 + 600;
+  const trunk = useMemo(() => {
+    const points = [];
+    for (let y = 0; y <= height; y += 25) points.push(`${500 + Math.sin(y / 155) * 32},${y}`);
+    return `M${points.join(" L")}`;
+  }, [height]);
+  return <>
+    <div className="wc-distant-canopy" aria-hidden="true" style={{ transform: `translateY(${camera * .025}px)` }} />
+    <svg className="wc-living-trunk" aria-hidden="true" viewBox={`0 0 1000 ${height}`} preserveAspectRatio="none"
+      style={{ top: `${100 - (height - 160 - camera) / CLIMB_VIEW_HEIGHT * 100}%`, height: `${height / CLIMB_VIEW_HEIGHT * 100}%` }}>
+      <defs>
+        <linearGradient id="wc-bark" x1="0" x2="1"><stop stopColor="#153e36" /><stop offset=".28" stopColor="#4d9b53" /><stop offset=".53" stopColor="#b8dc77" /><stop offset=".75" stopColor="#42864c" /><stop offset="1" stopColor="#123f34" /></linearGradient>
+        <linearGradient id="wc-foliage"><stop stopColor="#a5d36d" /><stop offset=".5" stopColor="#559b52" /><stop offset="1" stopColor="#245840" /></linearGradient>
+        <linearGradient id="wc-cloud-shade" x1="0" y1="0" x2="0" y2="1"><stop stopColor="#f3f8e5" stopOpacity=".8"/><stop offset="1" stopColor="#b6d8c9" stopOpacity=".15"/></linearGradient>
+      </defs>
+      {Array.from({ length: summit + 2 }, (_, i) => {
+        const y = i * 210 + 100;
+        const left = i % 2 === 0;
+        return <g key={i}>
+          <path d={left ? `M485 ${y + 65} Q365 ${y + 60} 330 ${y}` : `M520 ${y + 65} Q640 ${y + 60} 680 ${y}`} fill="none" stroke="#2a6246" strokeWidth="13"/>
+          <path d={left ? `M340 ${y} Q240 ${y - 100} 120 ${y - 20} Q180 ${y + 75} 340 ${y}Z` : `M670 ${y} Q780 ${y - 100} 890 ${y - 20} Q830 ${y + 75} 670 ${y}Z`} fill="url(#wc-foliage)"/>
+          <path d={left ? `M145 ${y - 18} Q245 ${y + 14} 335 ${y}` : `M865 ${y - 18} Q770 ${y + 14} 675 ${y}`} fill="none" stroke="#c7eaa4" strokeOpacity=".4" strokeWidth="3"/>
+          {i % 3 === 1 && <path d={`M40 ${y - 70} Q60 ${y - 110} 120 ${y - 110} Q155 ${y - 170} 215 ${y - 125} Q300 ${y - 135} 310 ${y - 70}Z`} fill="url(#wc-cloud-shade)"/>}
+        </g>;
+      })}
+      <path d={trunk} fill="none" stroke="url(#wc-bark)" strokeWidth="125" />
+      <path d={trunk} fill="none" stroke="#d8edaa" strokeWidth="5" opacity=".22" transform="translate(-22 0)" />
+      <path d={trunk} fill="none" stroke="#0f4b39" strokeWidth="12" opacity=".32" transform="translate(38 0)" />
+    </svg>
+  </>;
 }
 
-function BeanstalkScene() {
-  return (
-    <>
-      <div className="wc-sky-glow" aria-hidden="true" />
-      <div className="wc-cloud wc-cloud-one" aria-hidden="true" />
-      <div className="wc-cloud wc-cloud-two" aria-hidden="true" />
-      <svg className="wc-beanstalk" viewBox="0 0 760 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-        <defs>
-          <linearGradient id="wc-trunk" x1="0" x2="1">
-            <stop offset="0" stopColor="#123f39" />
-            <stop offset="0.23" stopColor="#35a86b" />
-            <stop offset="0.52" stopColor="#84dc75" />
-            <stop offset="0.75" stopColor="#2a8c58" />
-            <stop offset="1" stopColor="#0b352f" />
-          </linearGradient>
-          <linearGradient id="wc-vine" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#c3f38c" />
-            <stop offset="0.5" stopColor="#49b964" />
-            <stop offset="1" stopColor="#17654c" />
-          </linearGradient>
-          <radialGradient id="wc-leaf" cx="35%" cy="28%" r="72%">
-            <stop offset="0" stopColor="#b9f184" />
-            <stop offset="0.55" stopColor="#47b762" />
-            <stop offset="1" stopColor="#146047" />
-          </radialGradient>
-          <filter id="wc-shadow" x="-30%" y="-20%" width="160%" height="160%">
-            <feDropShadow dx="0" dy="16" stdDeviation="18" floodColor="#061d24" floodOpacity=".5" />
-          </filter>
-        </defs>
-        <g filter="url(#wc-shadow)">
-          <path d="M392 960 C280 760 500 655 372 480 C272 340 460 210 356 -40 L476 -40 C560 230 378 352 506 512 C630 670 416 790 536 960 Z" fill="url(#wc-trunk)" />
-          <path d="M420 930 C358 760 520 662 414 488 C338 364 488 230 412 10" fill="none" stroke="url(#wc-vine)" strokeWidth="25" strokeLinecap="round" opacity=".92" />
-          <path d="M405 888 C430 812 480 748 537 709" fill="none" stroke="#163f32" strokeWidth="13" strokeLinecap="round" />
-          <path d="M420 633 C346 590 288 535 264 468" fill="none" stroke="#173f32" strokeWidth="13" strokeLinecap="round" />
-          <path d="M436 374 C488 330 545 305 610 298" fill="none" stroke="#173f32" strokeWidth="12" strokeLinecap="round" />
-          <path d="M394 192 C334 150 282 100 250 44" fill="none" stroke="#173f32" strokeWidth="11" strokeLinecap="round" />
-          <path d="M536 707 C598 645 677 650 710 705 C648 758 577 755 536 707 Z" fill="url(#wc-leaf)" />
-          <path d="M267 465 C202 403 117 413 78 474 C144 533 220 526 267 465 Z" fill="url(#wc-leaf)" />
-          <path d="M609 297 C670 234 738 251 760 310 C706 353 649 346 609 297 Z" fill="url(#wc-leaf)" />
-          <path d="M251 45 C190 -7 115 4 81 66 C142 116 211 106 251 45 Z" fill="url(#wc-leaf)" />
-        </g>
-      </svg>
-      <div className="wc-canopy wc-canopy-left" aria-hidden="true" />
-      <div className="wc-canopy wc-canopy-right" aria-hidden="true" />
-      <div className="wc-distance-hills" aria-hidden="true" />
-      <div className="wc-ground" aria-hidden="true" />
-      <div className="wc-mist" aria-hidden="true" />
-      <div className="wc-fireflies" aria-hidden="true">
-        {Array.from({ length: 12 }, (_, index) => <i key={index} />)}
-      </div>
-    </>
-  );
-}
-
-export default function WordClimbGame({
-  difficulty = "easy",
-  startLevel = 0,
-  onScoreUpdate,
-  onProgressUpdate,
-  onComplete,
-  onCheckpoint,
-  onEngineReady,
-  isSoundEnabled = true
-}) {
+export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onScoreUpdate,
+  onProgressUpdate, onComplete, onCheckpoint, onEngineReady, isSoundEnabled = true }) {
   const session = useMemo(() => createWordClimbSession(difficulty), [difficulty]);
-  const initialStep = Math.max(0, Math.min(Number(startLevel) || 0, session.summit - 1));
-  const [step, setStep] = useState(() => initialStep);
-  const [choices, setChoices] = useState(() => wordClimbChoicesForStep(session.round, initialStep));
-  const [feedback, setFeedback] = useState("Read all three leaves, then choose.");
-  const [busy, setBusy] = useState(false);
-  const [finished, setFinished] = useState(false);
-  const [selectedLane, setSelectedLane] = useState(1);
-  const [choiceState, setChoiceState] = useState({ word: "", state: "" });
-  const [isClimbing, setIsClimbing] = useState(false);
-  const wrongHitsRef = useRef(0);
-  const timersRef = useRef(new Set());
-  const pausedRef = useRef(false);
-  const soundEnabledRef = useRef(isSoundEnabled);
+  const world = useMemo(() => createClimbWorld(session, Number(startLevel) || 0), [session, startLevel]);
+  const [frame, setFrame] = useState(0);
+  const [feedback, setFeedback] = useState("Tap a word leaf to climb.");
+  const [selected, setSelected] = useState(1);
+  const callbacks = useRef({});
+  const input = useRef({ left: false, right: false });
+  const completionDelay = useRef(null);
+  useLayoutEffect(() => { callbacks.current = { onScoreUpdate, onProgressUpdate, onCheckpoint, onComplete, isSoundEnabled }; }, [onScoreUpdate, onProgressUpdate, onCheckpoint, onComplete, isSoundEnabled]);
+  const canJump = !world.paused && !world.completed && ["grounded", "landed"].includes(world.state);
+  const reachable = reachableClimbPlatforms(world);
+  const projectY = y => 100 - (y - world.camera) / CLIMB_VIEW_HEIGHT * 100;
 
-  const armTimer = useCallback(entry => {
-    entry.startedAt = Date.now();
-    entry.id = window.setTimeout(() => {
-      entry.id = null;
-      timersRef.current.delete(entry);
-      entry.callback();
-    }, entry.remaining);
-  }, []);
+  const jump = useCallback(id => {
+    if (jumpToClimbPlatform(world, id)) {
+      safeSfx(callbacks.current.isSoundEnabled, playTapSound);
+      setFeedback("Up we go!");
+      setFrame(n => n + 1);
+    }
+  }, [world]);
 
-  const later = useCallback((callback, delay) => {
-    const entry = { id: null, callback, remaining: delay, startedAt: 0 };
-    timersRef.current.add(entry);
-    if (!pausedRef.current) armTimer(entry);
+  useEffect(() => {
+    const pause = () => { world.paused = true; input.current = { left: false, right: false }; cancelSpeech(); setFrame(n => n + 1); };
+    const resume = () => { world.paused = false; setFrame(n => n + 1); };
+    onEngineReady?.({ pause, resume });
+    return () => { input.current = { left: false, right: false }; cancelSpeech(); };
+  }, [onEngineReady, world]);
 
-    return () => {
-      if (entry.id !== null) window.clearTimeout(entry.id);
-      timersRef.current.delete(entry);
+  useEffect(() => {
+    completionDelay.current = null;
+    callbacks.current.onProgressUpdate?.(world.step, world.summit);
+    callbacks.current.onScoreUpdate?.(world.step * 10);
+    callbacks.current.onCheckpoint?.(Math.min(world.step, world.summit - 1), world.summit);
+  }, [world]);
+
+  useEffect(() => {
+    let animation;
+    let last;
+    const tick = time => {
+      const dt = last === undefined ? 0 : Math.min((time - last) / 1000, 0.05);
+      last = time;
+      advanceClimbWorld(world, dt, Number(input.current.right) - Number(input.current.left));
+      const event = world.event;
+      if (event) {
+        const audio = callbacks.current.isSoundEnabled;
+        if (event.type === "correct" || event.type === "summit") {
+          setFeedback(`${event.platform.word} starts with /${session.target}/. Keep climbing!`);
+          safeSfx(audio, playCorrectChime);
+          if (audio) void speakWord(event.platform.word);
+          callbacks.current.onScoreUpdate?.(world.step * 10);
+          callbacks.current.onProgressUpdate?.(world.step, world.summit);
+          callbacks.current.onCheckpoint?.(Math.min(world.step, world.summit - 1), world.summit);
+          if (event.type === "summit") completionDelay.current = 0.85;
+        } else if (event.type === "wrong") {
+          const onset = onsetGrapheme(event.platform.word) || event.platform.word[0];
+          setFeedback(`${event.platform.word} starts with /${onset}/. Try a /${session.target}/ word.`);
+          safeSfx(audio, playSoftBuzz);
+          if (audio) void speakWord(event.platform.word);
+        } else if (event.type === "fall") {
+          setFeedback("The safety vine caught you. Try that jump again.");
+        }
+      }
+      if (!world.paused && completionDelay.current !== null) {
+        completionDelay.current -= dt;
+        if (completionDelay.current <= 0) {
+          completionDelay.current = null;
+          safeSfx(callbacks.current.isSoundEnabled, playCelebrationFanfare);
+          callbacks.current.onComplete?.(rocketRunStars(world.step, world.summit, world.wrong), world.step * 10, world.step);
+        }
+      }
+      if (!world.paused) setFrame(n => n + 1);
+      animation = requestAnimationFrame(tick);
     };
-  }, [armTimer]);
+    animation = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(animation);
+  }, [session.target, world]);
 
-  const pauseEngine = useCallback(() => {
-    if (pausedRef.current) return;
-    pausedRef.current = true;
-    cancelSpeech();
-    const now = Date.now();
-    timersRef.current.forEach(entry => {
-      if (entry.id === null) return;
-      window.clearTimeout(entry.id);
-      entry.id = null;
-      entry.remaining = Math.max(0, entry.remaining - (now - entry.startedAt));
-    });
+  useEffect(() => { if (!isSoundEnabled) cancelSpeech(); else if (!world.paused) void speakPhoneme(session.target); }, [isSoundEnabled, session.target, world]);
+  useEffect(() => {
+    const clear = () => { input.current = { left: false, right: false }; };
+    window.addEventListener("blur", clear);
+    return () => window.removeEventListener("blur", clear);
   }, []);
 
-  const resumeEngine = useCallback(() => {
-    if (!pausedRef.current) return;
-    pausedRef.current = false;
-    timersRef.current.forEach(entry => {
-      if (entry.id === null) armTimer(entry);
-    });
-  }, [armTimer]);
-
-  useEffect(() => {
-    onEngineReady?.({ pause: pauseEngine, resume: resumeEngine });
-  }, [onEngineReady, pauseEngine, resumeEngine]);
-
-  useEffect(() => () => {
-    timersRef.current.forEach(entry => {
-      if (entry.id !== null) window.clearTimeout(entry.id);
-    });
-    timersRef.current.clear();
-    cancelSpeech();
-  }, []);
-
-  useEffect(() => {
-    onProgressUpdate?.(step, session.summit);
-    onScoreUpdate?.(step * SCORE_PER_CLIMB);
-  }, [onProgressUpdate, onScoreUpdate, session.summit, step]);
-
-  useEffect(() => {
-    // GamePlayer stores the next unfinished 0-based step. While the final
-    // celebration delay is pending, keep the resumable value on the last
-    // playable choice instead of writing an impossible level 7 of 6.
-    onCheckpoint?.(Math.min(step, session.summit - 1), session.summit);
-  }, [onCheckpoint, session.summit, step]);
-
-  useEffect(() => {
-    if (!isSoundEnabled) return undefined;
-    return later(() => {
-      if (soundEnabledRef.current) void speakPhoneme(session.target);
-    }, 280);
-  }, [isSoundEnabled, later, session.target]);
-
-  useLayoutEffect(() => {
-    soundEnabledRef.current = isSoundEnabled;
-  }, [isSoundEnabled]);
-
-  useEffect(() => {
-    if (!isSoundEnabled) cancelSpeech();
-  }, [isSoundEnabled]);
-
-  const replayTarget = useCallback(() => {
-    if (!isSoundEnabled) return;
-    safeSfx(true, playTapSound);
-    void speakPhoneme(session.target);
-  }, [isSoundEnabled, session.target]);
-
-  const chooseWord = useCallback((choice, lane) => {
-    if (busy || finished) return;
-    setBusy(true);
-    setSelectedLane(lane);
-    setChoiceState({ word: choice.word, state: choice.correct ? "correct" : "wrong" });
-
-    if (!choice.correct) {
-      wrongHitsRef.current += 1;
-      const actualOnset = onsetGrapheme(choice.word) || choice.word.slice(0, 1);
-      setFeedback(`${choice.word} starts with /${actualOnset}/. Try a /${session.target}/ word.`);
-      safeSfx(isSoundEnabled, playSoftBuzz);
-      if (isSoundEnabled) later(() => {
-        if (soundEnabledRef.current) void speakWord(choice.word);
-      }, 110);
-      later(() => {
-        setChoiceState({ word: "", state: "" });
-        setBusy(false);
-      }, 560);
-      return;
+  const setDirection = (direction, down) => { input.current[direction] = down; };
+  const onKeyDown = event => {
+    if (event.altKey || event.metaKey || event.ctrlKey || world.paused) return;
+    const key = event.key.toLowerCase();
+    if (["arrowleft", "a", "arrowright", "d"].includes(key)) {
+      event.preventDefault();
+      const right = key === "arrowright" || key === "d";
+      setDirection(right ? "right" : "left", true);
+      if (!event.repeat && canJump) setSelected(n => (n + (right ? 1 : 2)) % 3);
+    } else if (["arrowup", "w"].includes(key) || (event.target.tagName !== "BUTTON" && [" ", "enter"].includes(key))) {
+      event.preventDefault(); jump(reachable[selected]?.id);
     }
+  };
 
-    const nextStep = step + 1;
-    setStep(nextStep);
-    setIsClimbing(true);
-    setFeedback(`${choice.word} starts with /${session.target}/. Up we go!`);
-    safeSfx(isSoundEnabled, playCorrectChime);
-    safeSfx(isSoundEnabled, playPopSound);
-    if (isSoundEnabled) later(() => {
-      if (soundEnabledRef.current) void speakWord(choice.word);
-    }, 170);
-
-    if (nextStep >= session.summit) {
-      later(() => {
-        const stars = rocketRunStars(nextStep, session.summit, wrongHitsRef.current);
-        setFinished(true);
-        setBusy(false);
-        safeSfx(soundEnabledRef.current, playStarChime);
-        safeSfx(soundEnabledRef.current, playCelebrationFanfare);
-        onComplete?.(stars, nextStep * SCORE_PER_CLIMB, nextStep);
-      }, 720);
-      return;
-    }
-
-    later(() => {
-      setChoices(wordClimbChoicesForStep(session.round, nextStep));
-      setChoiceState({ word: "", state: "" });
-      setIsClimbing(false);
-      setSelectedLane(1);
-      setFeedback(`Choose another word that starts with /${session.target}/.`);
-      setBusy(false);
-    }, 720);
-  }, [busy, finished, isSoundEnabled, later, onComplete, session, step]);
-
-  const climbPercent = Math.round((step / session.summit) * 100);
-  const lanePercent = 18 + selectedLane * 32;
-
-  return (
-    <section
-      className="word-climb"
-      aria-label={`Word Climb. Choose words that start with ${session.target}.`}
-      data-wc-progress={step}
-    style={{ "--wc-rise": `${Math.min(52, step * 8.5)}vh`, "--wc-lane": `${lanePercent}%` }}
-    >
-      <BeanstalkScene />
-
-      <div className="wc-mission-card">
-        <div className="wc-target-token" aria-label={`Target sound ${session.target}`}>
-          <span>STARTING SOUND</span>
-          <strong data-wc="target">/{session.target}/</strong>
-        </div>
-        <div className="wc-prompt">
-          <span className="wc-prompt-kicker">READ · CHOOSE · CLIMB</span>
-          <h2>Choose the word starting with /{session.target}/.</h2>
-          <p data-wc="feedback" role="status" aria-live="polite">{feedback}</p>
-        </div>
-        <button
-          type="button"
-          className="wc-replay"
-          data-wc="replay"
-          disabled={!isSoundEnabled}
-          onClick={replayTarget}
-          aria-label={isSoundEnabled ? `Hear the ${session.target} sound again` : `Target is ${session.target}; sound is off`}
-        >
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4Zm11.5-.7v7.4a4.5 4.5 0 0 0 0-7.4Zm0-3.3v2.1a7 7 0 0 1 0 9.8V19a9 9 0 0 0 0-14Z" /></svg>
-          <span>{isSoundEnabled ? "Hear sound" : "Sound off"}</span>
-        </button>
+  return <section className="word-climb" aria-label={`Word Climb. Choose words that start with ${session.target}.`}
+    tabIndex={0} onKeyDown={onKeyDown} onKeyUp={event => {
+      if (["arrowleft", "a"].includes(event.key.toLowerCase())) setDirection("left", false);
+      if (["arrowright", "d"].includes(event.key.toLowerCase())) setDirection("right", false);
+    }} data-wc-progress={world.step} data-world-height={world.y.toFixed(2)} data-camera-height={world.camera.toFixed(2)}
+    data-motion-state={world.state} data-motor-falls={world.motorFalls} data-reading-errors={world.wrong} data-standing-ledge={world.standingId || ""} data-frame={frame}>
+    <header className="wc-mission-card">
+      <h2>Climb with <strong data-wc="target">/{session.target}/</strong></h2>
+      <span className="wc-height">{world.step}/{world.summit} <span>leaves</span></span>
+      <button className="wc-replay" data-wc="replay" type="button" disabled={!isSoundEnabled}
+        aria-label={isSoundEnabled ? `Hear the ${session.target} sound again` : `Target is ${session.target}; sound is off`}
+        onClick={() => { if (!world.paused) void speakPhoneme(session.target); }}>♪</button>
+    </header>
+    <div className="wc-world" data-wc="world">
+      <div className="wc-altitude-sky" style={{ opacity: Math.min(.85, world.camera / (world.summit * 210)) }} />
+      <ClimbScenery summit={world.summit} camera={world.camera} />
+      <div className="wc-root-island" style={{ top: `${projectY(-20)}%` }} aria-hidden="true" />
+      <div className="wc-summit-nest" style={{ top: `${projectY(world.summit * 210 + 65)}%` }} aria-hidden="true">✦</div>
+      <svg className="wc-branches" viewBox={`0 0 1000 ${CLIMB_VIEW_HEIGHT}`} preserveAspectRatio="none" aria-hidden="true">
+        {world.platforms.filter(p => Math.abs(p.y - world.camera) < 600).map(p =>
+          <path key={p.id} d={`M500 ${CLIMB_VIEW_HEIGHT - (p.y - world.camera) + 60} Q${p.x} ${CLIMB_VIEW_HEIGHT - (p.y - world.camera) + 80} ${p.x} ${CLIMB_VIEW_HEIGHT - (p.y - world.camera) + 20}`} />)}
+        {["clinging", "recovering"].includes(world.state) && <path className="wc-safety-vine" d={`M500 ${CLIMB_VIEW_HEIGHT - (world.y - world.camera) - 180} Q${world.x + 50} ${CLIMB_VIEW_HEIGHT - (world.y - world.camera) - 110} ${world.x} ${CLIMB_VIEW_HEIGHT - (world.y - world.camera) - 20}`} />}
+      </svg>
+      {world.platforms.filter(p => Math.abs(p.y - world.camera) < 560).map(p => {
+        const active = p.row === world.step + 1;
+        return <button key={p.id} type="button" className={`wc-word-ledge${active ? " is-reachable" : ""}${p.id === world.standingId ? " is-standing" : ""}`}
+          data-wc={active ? "choice" : "ledge"} data-state={p.id === world.standingId && world.state === "clinging" && active && !p.correct ? "wrong" : undefined} data-ledge-id={p.id} data-world-y={p.y} data-world-x={p.x}
+          data-selected={active && reachable[selected]?.id === p.id || undefined}
+          style={{ left: `${p.x / 10}%`, top: `${projectY(p.y)}%`, width: `${p.width / 10}%` }}
+          aria-label={active ? `Climb to ${p.word}` : p.word ? `Passed ${p.word} leaf` : "Root resting leaf"}
+          tabIndex={active ? 0 : -1} disabled={!active || !canJump} onClick={() => jump(p.id)}>
+          <strong>{p.word || "✦"}</strong><span className="wc-leaf-vein" aria-hidden="true" />
+        </button>;
+      })}
+      <div className={`wc-climber ${world.state}`} aria-hidden="true"
+        style={{ left: `${world.x / 10}%`, top: `${projectY(world.y)}%`, "--wc-tilt": `${Math.max(-15, Math.min(15, world.vx / 35))}deg` }}>
+        <span className="wc-climber-shadow" />
+        <img draggable="false" src="/game-assets/sound-seekers/v3/cast/meadow/bouncy.webp" alt="" />
       </div>
-
-      <div className="wc-summit-meter" aria-label={`${step} of ${session.summit} climbs complete`}>
-        <span>CANOPY</span>
-        <div aria-hidden="true">
-          {Array.from({ length: session.summit }, (_, index) => (
-            <i className={index < step ? "filled" : ""} key={index} />
-          ))}
-        </div>
-        <strong>{step}/{session.summit}</strong>
+    </div>
+    <div className="wc-bottom-bar">
+      <p data-wc="feedback" role="status" aria-live="polite">{feedback}</p>
+      <div className="wc-air-controls" aria-label="Adjust your jump">
+        {["left", "right"].map(direction => <button type="button" key={direction} aria-label={`Lean ${direction} during jump`}
+          onPointerDown={event => { event.currentTarget.setPointerCapture(event.pointerId); setDirection(direction, true); }}
+          onPointerUp={() => setDirection(direction, false)} onPointerCancel={() => setDirection(direction, false)}
+          onLostPointerCapture={() => setDirection(direction, false)} onBlur={() => setDirection(direction, false)}
+          onKeyDown={event => { if ([" ", "Enter"].includes(event.key)) setDirection(direction, true); }}
+          onKeyUp={() => setDirection(direction, false)}>{direction === "left" ? "←" : "→"}</button>)}
       </div>
-
-      <div className="wc-ledge-trail" aria-hidden="true">
-        {Array.from({ length: session.summit }, (_, index) => (
-          <span
-            className={index < step ? "is-reached" : ""}
-            data-wc-ledge-index={index}
-            key={index}
-            style={{ left: `${18 + ((index * 29) % 64)}%`, bottom: `calc(7% + ${index * 9.5}vh)` }}
-          />
-        ))}
-      </div>
-
-      <div className="wc-choice-field" role="group" aria-label={`Choose a word that starts with ${session.target}`}>
-        {choices.map((choice, lane) => {
-          const state = choiceState.word === choice.word ? choiceState.state : "";
-          return (
-            <button
-              type="button"
-              className="wc-word-ledge"
-              data-wc="choice"
-              data-state={state || undefined}
-              disabled={busy || finished}
-              key={`${step}-${choice.word}`}
-              onClick={() => chooseWord(choice, lane)}
-              aria-label={`Choose ${choice.word}`}
-            >
-              <span aria-hidden="true" className="wc-leaf-vein" />
-              <strong>{choice.word}</strong>
-              <span aria-hidden="true" className="wc-choice-mark">↟</span>
-            </button>
-          );
-        })}
-      </div>
-
-      <div
-        className={`wc-climber${isClimbing ? " climbing" : ""}`}
-        aria-hidden="true"
-      >
-        <span className="wc-climber-ring" />
-        <img src="/images/pals/poses/meadow-wave.webp" alt="" />
-      </div>
-
-      <div className="wc-route-caption" aria-hidden="true">
-        <span>{step === 0 ? "ROOT TRAIL" : `CLIMB ${step}`}</span>
-        <i><b style={{ width: `${climbPercent}%` }} /></i>
-        <strong>{climbPercent}%</strong>
-      </div>
-
-    </section>
-  );
+    </div>
+  </section>;
 }

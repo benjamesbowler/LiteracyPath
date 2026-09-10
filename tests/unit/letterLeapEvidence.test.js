@@ -27,15 +27,11 @@ const letterLeapRenderScale = readFunction(
   "const MAX_RETINA_BACKING_PIXELS = 1_600_000;"
 );
 const letterLeapInitialChoiceCenter = readFunction("letterLeapInitialChoiceCenter");
-const letterLeapChoiceAheadDistance = readFunction("letterLeapChoiceAheadDistance");
-const letterLeapChoiceSpacing = readFunction("letterLeapChoiceSpacing");
 const letterLeapCameraLookahead = readFunction("letterLeapCameraLookahead");
-const reserveLetterLeapChoiceLane = readFunction("reserveLetterLeapChoiceLane");
 const letterLeapGroundHeight = readFunction(
   "letterLeapGroundHeight",
   "const GROUND_H = 96;"
 );
-const findLetterLeapRecoveryCenter = readFunction("findLetterLeapRecoveryCenter");
 
 function seededRandom(seed) {
   let state = seed >>> 0;
@@ -77,61 +73,6 @@ test("Letter Leap failure keeps evidence without adding an answer-revealing worl
   assert.match(implementation, /index === wIx \? "_"\.repeat/);
 });
 
-test("Letter Leap shuffles every grapheme into equivalent reachable choice geometry", () => {
-  const targetSlots = new Set();
-  const stageSignatures = new Set();
-  const stageLettersSeenAsDecoys = new Set();
-  const outsideLettersSeenAsDecoys = new Set();
-
-  for (let seed = 1; seed <= 32; seed += 1) {
-    const plan = buildLetterLeapChoicePlan(
-      ["CAT", "SHIP"],
-      seed % 2 ? "meadow" : "moonwood",
-      seed % 10,
-      seededRandom(seed)
-    );
-    const signature = [];
-
-    for (const wordGroups of plan) {
-      for (const group of wordGroups) {
-        assert.equal(group.choices.length, 3);
-        assert.deepEqual(group.choices.map(choice => choice.slot), [0, 1, 2]);
-        assert.deepEqual(group.choices.map(choice => choice.offsetX), [-84, 0, 84]);
-
-        const targets = group.choices.filter(choice => choice.word >= 0);
-        const decoys = group.choices.filter(choice => choice.word === -1);
-        assert.equal(targets.length, 1);
-        assert.equal(decoys.length, 2);
-        assert.equal(new Set(group.choices.map(choice => choice.ch)).size, 3);
-        assert.ok(decoys.every(choice => choice.ch !== targets[0].ch));
-        assert.ok(decoys.some(choice => "CATSHIP".includes(choice.ch)));
-        for (const decoy of decoys) {
-          if ("CATSHIP".includes(decoy.ch)) stageLettersSeenAsDecoys.add(decoy.ch);
-          else outsideLettersSeenAsDecoys.add(decoy.ch);
-        }
-
-        targetSlots.add(targets[0].slot);
-        signature.push(targets[0].slot);
-      }
-    }
-    stageSignatures.add(signature.join(""));
-  }
-
-  assert.deepEqual([...targetSlots].sort(), [0, 1, 2]);
-  assert.deepEqual([...stageLettersSeenAsDecoys].sort(), [...new Set("CATSHIP")].sort());
-  assert.ok(outsideLettersSeenAsDecoys.size >= 8, "decoys need broad alphabet diversity");
-  assert.ok(stageSignatures.size > 8, "fresh stages do not repeat one answer-position pattern");
-  assert.doesNotMatch(implementation, /decoySlots/);
-  assert.match(implementation, /y: bubbleY/);
-  assert.match(implementation, /refreshChoiceGroup\(need\.choiceId, p\.x \+ letterLeapChoiceAheadDistance\(W\)\)/);
-  assert.match(implementation, /refreshChoiceGroup\(b\.choiceId, p\.x \+ letterLeapChoiceAheadDistance\(W\)\)/);
-  assert.match(implementation, /clearChoiceGroup\(b\.choiceId\)/);
-  assert.match(implementation, /if \(!isLetterLeapCurrentChoice\(b, wIx, nextIx\)\) continue/);
-  assert.match(implementation, /keepCurrentChoiceAhead\(\)/);
-  assert.match(implementation, /level\.flag = centerX \+ 260/);
-  assert.doesNotMatch(implementation, /need\.x\s*=|need\.y\s*=/);
-});
-
 test("Letter Leap exposes only the fresh ordered decision that can respond", () => {
   const current = { decisionWord: 1, decisionOrder: 2 };
   const futureLetter = { decisionWord: 1, decisionOrder: 3 };
@@ -149,40 +90,6 @@ test("Letter Leap labels model-supported play when no picture or recording ident
   assert.match(implementation, /`MODEL · SPELL \$\{word\}`/);
   assert.match(implementation, /refreshSoundState: renderWord/);
   assert.doesNotMatch(implementation, /allowBlockedAssessmentImage: true/);
-});
-
-test("Letter Leap recovery reuses hidden decision space but scans past hazards", () => {
-  const center = findLetterLeapRecoveryCenter({
-    bubbles: [
-      { choiceId: "current", x: 400, taken: false },
-      { choiceId: "later", x: 600, taken: false }
-    ],
-    pits: [[850, 1030]],
-    blocks: [{ x: 1300, w: 160, broken: false }],
-    plats: [{ x: 1720, w: 180 }],
-    foes: [{ x0: 2160, x1: 2280 }]
-  }, 900);
-
-  assert.equal(center, 2660);
-  assert.match(implementation, /const overlapsPlatform = level\.plats\.some/);
-});
-
-test("Letter Leap keeps a retry visible by reserving the nearby literacy lane", () => {
-  const level = {
-    pits: [[460, 620], [900, 980]],
-    blocks: [{ x: 500, w: 44 }, { x: 1100, w: 44 }],
-    plats: [{ x: 450, w: 180 }, { x: 1200, w: 180 }],
-    foes: [{ x0: 480, x1: 590 }, { x0: 1400, x1: 1500 }]
-  };
-
-  reserveLetterLeapChoiceLane(level, 540);
-
-  assert.deepEqual(level.pits, [[900, 980]]);
-  assert.deepEqual(level.blocks, [{ x: 1100, w: 44 }]);
-  assert.deepEqual(level.plats, [{ x: 1200, w: 180 }]);
-  assert.deepEqual(level.foes, [{ x0: 1400, x1: 1500 }]);
-  assert.match(implementation, /scannedCenter - requestedCenterX <= letterLeapChoiceSpacing\(W\)/);
-  assert.match(implementation, /reserveLetterLeapChoiceLane\(level, centerX\)/);
 });
 
 test("Letter Leap rebases every grounded gameplay object when its viewport height changes", () => {
@@ -208,7 +115,6 @@ test("Letter Leap rebases every grounded gameplay object when its viewport heigh
   assert.equal(level.coins[0].y, 370);
   assert.equal(level.stars[0].y, 360);
   assert.match(implementation, /rebaseLetterLeapWorld\(level, player, \(H - letterLeapGroundHeight\(H\)\) - previousGroundY\)/);
-  assert.match(implementation, /const py = groundY\(\) - 96/);
   assert.match(implementation, /bubbleY = py - 40/);
 });
 
@@ -251,43 +157,6 @@ test("Letter Leap caps oversized Retina backing stores and caches its cinematic 
   assert.doesNotMatch(implementation, /repeating-linear-gradient/);
 });
 
-test("Letter Leap gives a single touch a visible run and forward-leap response", () => {
-  assert.match(implementation, /tapMoveT = 0\.18/);
-  assert.match(implementation, /pointerJumpHoldT = 0\.3/);
-  assert.match(implementation, /autoLeapT = 1\.2/);
-  assert.match(implementation, /autoLeapStopX = nextTouchLeapStop\(\)/);
-  assert.match(implementation, /const stops = \[/);
-  assert.match(implementation, /const reachedLeapStop = autoLeapT > 0/);
-  assert.match(implementation, /const assistedAxis = heldAxis \|\|/);
-  assert.match(implementation, /touchChoiceArmed = false/);
-  assert.match(implementation, /if \(!touchChoiceArmed\) continue/);
-  assert.match(implementation, /if \(k === "left" \|\| k === "right"\) \{\n\s+touchChoiceArmed = true/);
-  assert.match(implementation, /isInteractiveKeyTarget\(e\.target\) && !padWrap\.contains\(e\.target\)/);
-  assert.match(implementation, /movingLeft \? "Leap left" : "Leap right"/);
-  assert.match(implementation, /el\.addEventListener\("pointercancel", cancel\)/);
-  assert.match(implementation, /el\.addEventListener\("lostpointercapture", up\)/);
-});
-
-test("Letter Leap keeps every fresh choice inside narrow phone play space", () => {
-  assert.equal(letterLeapInitialChoiceCenter(1467), 320);
-  assert.equal(letterLeapInitialChoiceCenter(390), 270);
-  assert.equal(letterLeapInitialChoiceCenter(320), 200);
-  assert.equal(letterLeapChoiceAheadDistance(1467), 280);
-  assert.ok(Math.abs(letterLeapChoiceAheadDistance(568) - 249.92) < 0.001);
-  assert.ok(Math.abs(letterLeapChoiceAheadDistance(390) - 171.6) < 0.001);
-  assert.equal(letterLeapChoiceAheadDistance(320), 150);
-  assert.equal(letterLeapChoiceSpacing(568), 84);
-  assert.equal(letterLeapChoiceSpacing(390), 78);
-  assert.equal(letterLeapChoiceSpacing(320), 72);
-  assert.equal(letterLeapCameraLookahead(568), 90);
-  assert.equal(letterLeapCameraLookahead(390), 62.4);
-  assert.equal(letterLeapCameraLookahead(320), 51.2);
-  assert.match(implementation, /let cx = letterLeapInitialChoiceCenter\(W\)/);
-  assert.match(implementation, /Math\.sign\(choice\.offsetX\) \* choiceSpacing/);
-  assert.match(implementation, /p\.face \* letterLeapCameraLookahead\(W\)/);
-  assert.match(implementation, /if \(target\) refreshChoiceGroup\(target\.choiceId, requestedCenterX\)/);
-});
-
 test("Letter Leap keeps a usable play lane in 320px phone landscape", () => {
   assert.equal(letterLeapGroundHeight(164), 41);
   assert.equal(letterLeapGroundHeight(320), 80);
@@ -299,17 +168,120 @@ test("Letter Leap keeps a usable play lane in 320px phone landscape", () => {
 });
 
 test("Letter Leap marks the controllable avatar instead of presenting it as scenery", () => {
-  assert.match(implementation, /meadow: \["char-meadow-b\.webp", "char-meadow-c\.webp", "char-meadow-a\.webp"\]/);
+  assert.match(implementation, /CAST\[HEROES\.find/);
+  assert.match(implementation, /loadHero\.src = hero\.heroSprite/);
+  assert.doesNotMatch(implementation, /char-meadow|char-dino|char-hero/);
   assert.match(implementation, /ctx\.fillText\("YOU", p\.x, cueY \+ 1\)/);
   assert.match(implementation, /ctx\.ellipse\(p\.x, groundY\(\) - 2, 30, 9/);
-  assert.match(implementation, /const h = H < 320 \? 82 : 86/);
+  assert.match(implementation, /const h = H < 240 \? 56 : 76/);
 });
 
-test("Letter Leap holds the completed word for a readable feedback beat", () => {
+
+const letterLeapVelocity = readFunction("letterLeapVelocity", "const MOVE = 4.8;");
+
+test("Letter Leap authors separate persistent encounters with taught decoys and no first-position shortcut", () => {
+  const targetSlots = new Set();
+  for (let seed = 1; seed <= 32; seed += 1) {
+    const plan = buildLetterLeapChoicePlan(["CAT", "LETTER"], "meadow", 4, seededRandom(seed));
+    for (const [wi, decisions] of plan.entries()) for (const [order, decision] of decisions.entries()) {
+      assert.equal(decision.choices.length, 2);
+      assert.equal(decision.choices[1].offsetX - decision.choices[0].offsetX, 170);
+      assert.equal(decision.choices[0].rise, 0);
+      assert.ok(decision.choices[1].rise >= 72 && decision.choices[1].rise <= 96);
+      const targets = decision.choices.filter(c => c.word === wi);
+      assert.equal(targets.length, 1);
+      assert.equal(targets[0].ch, ["CAT", "LETTER"][wi][order]);
+      targetSlots.add(targets[0].slot);
+      const decoy = decision.choices.find(c => c.word === -1);
+      assert.notEqual(decoy.ch, targets[0].ch);
+      assert.ok("CATLETTER".includes(decoy.ch));
+    }
+    assert.notEqual(plan[1][2].choiceId, plan[1][3].choiceId, "repeated T letters are independent pickups");
+  }
+  assert.deepEqual([...targetSlots].sort(), [0, 1]);
+});
+
+test("Letter Leap accelerates smoothly, brakes reliably and retains aerial control", () => {
+  let velocity = 0;
+  velocity = letterLeapVelocity(velocity, 1, true);
+  assert.ok(velocity > 0 && velocity < 4.8);
+  for (let n = 0; n < 12; n += 1) velocity = letterLeapVelocity(velocity, 1, true);
+  assert.equal(velocity, 4.8);
+  for (let n = 0; n < 5; n += 1) velocity = letterLeapVelocity(velocity, 0, true);
+  assert.equal(velocity, 0);
+  assert.ok(letterLeapVelocity(4.8, -1, false) < 4.8);
+  assert.equal(letterLeapInitialChoiceCenter(390), 270);
+  assert.equal(letterLeapCameraLookahead(390), 62.4);
+});
+
+test("Letter Leap completion feedback never disables input or freezes platform physics", () => {
+  assert.doesNotMatch(implementation, /touchChoiceArmed|refreshChoiceGroup|reserveLetterLeapChoiceLane/);
+  const start = implementation.indexOf("function wordDone()");
+  const end = implementation.indexOf("function finishWordTransition()", start);
+  assert.doesNotMatch(implementation.slice(start, end), /releaseInputs|running = false|vx = 0/);
   assert.match(implementation, /wordTransitionT = reduceMotion \? 0\.48 : 0\.72/);
-  assert.match(implementation, /elLab\.textContent = word \+ " built · get ready"/);
-  assert.match(implementation, /function finishWordTransition\(\)/);
-  assert.match(implementation, /wordTransitionT > 0 && \(direction !== 0 \|\| isJumpKey\(e\.key\)\)/);
-  assert.match(implementation, /word \+ " built · reach the finish"/);
-  assert.match(implementation, /releaseInputs\(\);\n\s+touchChoiceArmed = false;\n\s+p\.vx = 0;\n\s+renderWord\(\)/);
+  assert.match(implementation, /b\.cooldown = 1\.4/);
+  assert.match(implementation, /const assistedAxis = heldAxis \|\|/);
+  assert.match(implementation, /autoLeapStopX = nextTouchLeapStop\(\)/);
+  assert.match(implementation, /el\.addEventListener\("pointercancel", cancel\)/);
+});
+
+function nestedFunction(name) {
+  const visit = node => {
+    if (!node || typeof node !== 'object') return null;
+    if (node.type === 'FunctionDeclaration' && node.id?.name === name) return node;
+    for (const value of Object.values(node)) {
+      for (const child of Array.isArray(value) ? value : [value]) {
+        const result = visit(child);
+        if (result) return result;
+      }
+    }
+    return null;
+  };
+  const declaration = visit(syntaxTree.program);
+  assert.ok(declaration);
+  return implementation.slice(declaration.start, declaration.end);
+}
+
+test('Letter Leap terrain supports every pickup in all thirty curriculum levels and sentence legs', async () => {
+  const { difficultyLadder, worldForGameDifficulty } = await import('../../src/utils/curriculumLadder.js');
+  const pickFoeType = readFunction('pickFoeType');
+  const makeLevel = Function('buildLetterLeapChoicePlan', 'letterLeapInitialChoiceCenter', 'pickFoeType', `
+    const W = 568, SEG = 440, WORD_GAP = 560;
+    const groundY = () => 240;
+    const shuffleArr = a => a;
+    ${nestedFunction('makeLevel')}
+    return makeLevel;
+  `)(buildLetterLeapChoicePlan, letterLeapInitialChoiceCenter, pickFoeType);
+  let routes = 0;
+  for (const difficulty of ['easy', 'medium', 'hard']) {
+    const world = worldForGameDifficulty(difficulty);
+    for (const [index, stage] of difficultyLadder('letter-leap', difficulty).entries()) {
+      for (const words of stage.mode === 'sentence' ? stage.targets : [stage.targets]) {
+        const level = makeLevel(words.map(w => w.toUpperCase()), world, index);
+        routes += 1;
+        expectSafeRoute(level);
+      }
+    }
+  }
+  assert.ok(routes >= 30);
+  function expectSafeRoute(level) {
+    const targets = level.bubbles.filter(b => b.word !== -1);
+    assert.ok(targets.length > 0);
+    for (const b of level.bubbles) {
+      assert.ok(!level.pits.some(([left, right]) => b.x > left && b.x < right), 'letters never sit over an open pit');
+      if (b.y < 240 - 46) {
+        assert.ok(level.plats.some(p => b.x >= p.x && b.x <= p.x + p.w && p.y === b.y + 40), 'upper letters have a real landing surface');
+      } else {
+        assert.ok(!level.plats.some(p => b.x >= p.x && b.x <= p.x + p.w && p.y < b.y), 'ground letters are not hidden under optional shelves');
+      }
+      const partner = level.bubbles.find(other => other !== b && other.choiceId === b.choiceId);
+      assert.equal(Math.abs(partner.x - b.x), 170);
+      assert.ok(Math.abs(partner.y - b.y) >= 66);
+    }
+    for (const bonus of [...level.coins, ...level.stars]) {
+      assert.ok(!level.bubbles.some(b => Math.abs(bonus.x - b.x) < 45 && Math.abs(bonus.y - b.y) < 45), "bonus art never obscures a letter");
+    }
+    assert.ok(level.flag > Math.max(...targets.map(b => b.x)));
+  }
 });

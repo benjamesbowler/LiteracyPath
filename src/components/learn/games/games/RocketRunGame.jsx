@@ -15,7 +15,8 @@ import {
   rocketRunLadder
 } from "../../../../utils/rocketRunRounds.js";
 import { starRubric } from "../../../../utils/starRubric.js";
-import { cancelSpeech, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
+import { preloadWordAudio, wordAudioDuration, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
+import { rocketWordSpeed, rocketCueLead, rocketWordSpacing } from "../shared/rocketApproach.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import { onsetGrapheme } from "../../../elQuest/elQuestEngine.js";
 import { loadThree, createRenderer, createScene, createPerspectiveCamera, attachResize, createFrameLoop, attachContextLossGuard, attachSteerZones, attachSwipeSteer, prefersReducedMotion, detectQualityTier, applyQualityTier, shadowMapForTier, particleCountForTier, QUALITY_TIERS, disposeRenderer, disposeObject as disposeGroup, setTextureSrgb } from "../shared/threeShell.js";
@@ -176,7 +177,6 @@ function startGame(THREE, mount, opts) {
   // Speech rides the same live sound gate as sfx and is purely additive —
   // with sound off nothing is spoken and the game stays fully playable.
   const say = fn => { if (opts.getSound ? opts.getSound() : opts.isSoundEnabled) { try { fn(); } catch { /* speech optional */ } } };
-  const APPROACH_CUE_DISTANCE = 14;
   const motionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)") || null;
   let reduceMotion = motionQuery?.matches ?? prefersReducedMotion();
   // Scene quality controls authored geometry, setpieces, particles and effects.
@@ -358,7 +358,7 @@ function startGame(THREE, mount, opts) {
     '<button type="button" data-rr="left-control" data-rr-steer-control aria-label="Steer left" style="position:absolute;left:max(16px,env(safe-area-inset-left));bottom:max(16px,env(safe-area-inset-bottom));width:68px;height:68px;display:grid;place-items:center;padding:0;border:2px solid rgba(127,240,255,.82);border-radius:18px;background:linear-gradient(160deg,rgba(13,40,72,.96),rgba(5,18,38,.94));box-shadow:inset 0 0 0 2px rgba(255,255,255,.08),0 10px 24px rgba(0,0,0,.42);color:#fff;font:900 2rem/1 var(--kid-font-display,Fredoka,sans-serif);pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer;transition:transform .08s ease,filter .08s ease">&#8592;</button>' +
     '<button type="button" data-rr="right-control" data-rr-steer-control aria-label="Steer right" style="position:absolute;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));width:68px;height:68px;display:grid;place-items:center;padding:0;border:2px solid rgba(127,240,255,.82);border-radius:18px;background:linear-gradient(160deg,rgba(13,40,72,.96),rgba(5,18,38,.94));box-shadow:inset 0 0 0 2px rgba(255,255,255,.08),0 10px 24px rgba(0,0,0,.42);color:#fff;font:900 2rem/1 var(--kid-font-display,Fredoka,sans-serif);pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer;transition:transform .08s ease,filter .08s ease">&#8594;</button>' +
     '<div data-rr="reticle" style="position:absolute;left:50%;top:58%;width:72px;height:28px;transform:translate(-50%,-50%);opacity:.38;border-left:2px solid #7ff0ff;border-right:2px solid #7ff0ff;border-radius:50%;box-shadow:0 0 18px rgba(127,240,255,.42)"></div>' +
-    '<div data-rr="banner" style="position:absolute;top:34%;left:0;right:0;text-align:center;pointer-events:none;font-weight:900;font-size:clamp(1.3rem,5vw,2.4rem);letter-spacing:.12em;text-transform:uppercase;color:#eaf2ff;text-shadow:0 3px 18px rgba(0,0,0,.75),0 0 22px rgba(127,240,255,.45);opacity:0;transition:opacity .3s ease,transform .3s ease;transform:translateX(-40px)"></div>' +
+    '<div data-rr="banner" style="position:absolute;top:80px;left:14px;max-width:calc(100% - 28px);padding:6px 10px;border-radius:9px;background:rgba(4,14,32,.82);text-align:left;pointer-events:none;font-weight:700;font-size:clamp(14px,2vw,18px);line-height:1.3;color:#eaf2ff;text-shadow:0 2px 8px rgba(0,0,0,.5);opacity:0;transition:opacity .3s ease,transform .3s ease;transform:translateX(-40px)"></div>' +
     '<div data-rr="countdown" style="position:absolute;inset:0;display:none;place-items:center;text-align:center;pointer-events:none;background:radial-gradient(120% 90% at 50% 42%,rgba(10,16,40,.6),rgba(6,9,24,.25))"></div>' +
     '<div data-rr="overlay" style="position:absolute;inset:0;display:none;place-items:center;text-align:center;background:radial-gradient(120% 90% at 50% 25%,rgba(30,44,96,.72),rgba(6,9,24,.94));pointer-events:auto"></div>';
   mount.appendChild(hud);
@@ -927,6 +927,7 @@ function startGame(THREE, mount, opts) {
     });
   }
   function makeBubble(word, correct, lane, tries) {
+    preloadWordAudio(word);
     const group = new THREE.Group();
     const mat = bubbleMaterial(0x3f7dff);
     const orb = new THREE.Mesh(new THREE.IcosahedronGeometry(0.78, 2), mat);
@@ -1073,6 +1074,7 @@ function startGame(THREE, mount, opts) {
   let countdownT = 0;                              // start-of-round get-ready countdown
   let roundTarget = "";                            // current target grapheme (for refill)
   let approachCueCarrier = null;
+  let approachCueController = null;
                      // one-time "how to steer" countdown hint
   // (speedLines is declared up in the scene-setup section, before it's populated)
 
@@ -1081,29 +1083,41 @@ function startGame(THREE, mount, opts) {
     if (roundTarget) say(() => speakPhoneme(roundTarget));
   }
   function clearApproachCue() {
-    if (approachCueCarrier?.userData?.setApproachCue) approachCueCarrier.userData.setApproachCue(false);
+    approachCueCarrier?.userData?.setApproachCue?.(false);
     approachCueCarrier = null;
-    cancelSpeech();
+    approachCueController?.abort();
+    approachCueController = null;
   }
-  function cueNearestApproach(noseZ) {
-    if (!(opts.getSound ? opts.getSound() : opts.isSoundEnabled)) return;
-    if (approachCueCarrier && (!approachCueCarrier.userData.alive || approachCueCarrier.userData.passed)) {
+  function cueNearestApproach(noseZ, wordSpeed) {
+    if (!(opts.getSound ? opts.getSound() : opts.isSoundEnabled)) {
       clearApproachCue();
+      return;
     }
+    if (approachCueCarrier && (!approachCueCarrier.userData.alive || approachCueCarrier.userData.passed)) clearApproachCue();
     const candidate = bubbles
       .filter(bubble => bubble.userData.alive && bubble.userData.word && !bubble.userData.passed && !bubble.userData.approachCueSpoken)
-      .map(bubble => ({ bubble, distance: noseZ - bubble.position.z }))
-      .filter(item => item.distance > 0 && item.distance <= APPROACH_CUE_DISTANCE)
-      .sort((a, b) => a.distance - b.distance)[0]?.bubble;
+      .map(bubble => {
+        const duration = wordAudioDuration(bubble.userData.word);
+        return { bubble, remaining: (noseZ - bubble.position.z) / wordSpeed, lead: rocketCueLead(duration) };
+      })
+      .filter(item => item.remaining > 0 && item.remaining <= item.lead)
+      .sort((a, b) => a.remaining - b.remaining)[0]?.bubble;
     if (!candidate || approachCueCarrier) return;
+    const controller = new AbortController();
     approachCueCarrier = candidate;
+    approachCueController = controller;
     candidate.userData.approachCueSpoken = true;
-    candidate.userData.setApproachCue?.(true);
-    say(() => speakWord(candidate.userData.word));
+    void speakWord(candidate.userData.word, {
+      signal: controller.signal,
+      onStart: () => candidate.userData.setApproachCue?.(true)
+    }).finally(() => {
+      if (approachCueController === controller) clearApproachCue();
+    });
   }
   function syncHearTargetControl() {
     if (!hearTargetButton) return;
     const soundEnabled = Boolean(opts.getSound ? opts.getSound() : opts.isSoundEnabled);
+    if (!soundEnabled && approachCueController) clearApproachCue();
     hearTargetButton.disabled = !soundEnabled;
     hearTargetButton.style.cursor = soundEnabled ? "pointer" : "default";
     hearTargetButton.style.opacity = soundEnabled ? "1" : ".84";
@@ -1305,7 +1319,7 @@ function startGame(THREE, mount, opts) {
       setFuel();
       sfx(playCorrectChime);
       sfx(playPopSound);
-      showBanner("'" + bubble.userData.word + "' starts with '" + roundTarget + "' ✓", 2.0);
+      showBanner(bubble.userData.word + " · " + roundTarget + " ✓", 1.1);
       // The word was already spoken on its approach. Repeating it after the
       // collision would make the next carrier's cue stale or overlap it.
       say(() => speakPhoneme(roundTarget));
@@ -1604,34 +1618,29 @@ function startGame(THREE, mount, opts) {
     }
 
     if (running) {
+      const longestClip = Math.max(0.8, ...bubbles.filter(b => b.userData.alive && b.userData.word).map(b => wordAudioDuration(b.userData.word)), queue[0]?.word ? wordAudioDuration(queue[0].word) : 0);
+      const wordSpeed = rocketWordSpeed(11 * speed * boost, longestClip);
+      const previousWord = bubbles.filter(b => b.userData.alive && b.userData.word).sort((a, b) => a.position.z - b.position.z)[0];
+      // Reserve separation for the fastest possible later boost; all words
+      // share a velocity so short clips cannot overtake longer recordings.
+      const spawnClear = !queue[0]?.word || !previousWord || previousWord.position.z + 46 >= rocketWordSpeed(Infinity, longestClip) * rocketWordSpacing(longestClip, opts.difficulty);
       spawnTimer -= dt;
-      if (spawnTimer <= 0 && queue.length) {
-        // Pair spawns: two objects in different lanes as depth ramps — real
-        // hands-busy difficulty, not a single-file trickle.
-        const spawnOne = avoidLane => {
-          const item = queue.shift();
-          let lane = item.guaranteed ? laneIx : Math.floor(Math.random() * 3);
-          if (avoidLane != null && lane === avoidLane) lane = (lane + 1 + Math.floor(Math.random() * 2)) % 3;
-          bubbles.push(item.ring ? makeRing(lane) : item.heart ? makeHeart(lane) : item.meteor ? makeMeteor(lane) : makeBubble(item.word, item.correct, lane, item.tries));
-          return lane;
-        };
-        const lane = spawnOne(null);
-        const pairChance = opts.difficulty === "easy"
-          ? 0
-          : Math.min(0.35, 0.08 + roundIx * 0.03 + (opts.difficulty === "hard" ? 0.1 : 0));
-        if (queue.length && Math.random() < pairChance) spawnOne(lane);
-        // Spacing GROWS with speed: the old 1.0/speed collapsed the reaction gap to
-        // ~0.3s at high speed. Floor it (~0.7s min) so faster = more spread out, not
-        // an unavoidable wall — the child always has time to change lanes.
-        spawnTimer = opts.difficulty === "easy"
-          ? 2.05
-          : Math.max(0.7, 1.2 / Math.sqrt(speed));
+      if (spawnTimer <= 0 && queue.length && spawnClear) {
+        const item = queue.shift();
+        const lane = item.guaranteed ? laneIx : Math.floor(Math.random() * 3);
+        bubbles.push(item.ring ? makeRing(lane) : item.heart ? makeHeart(lane) : item.meteor ? makeMeteor(lane) : makeBubble(item.word, item.correct, lane, item.tries));
+        // Simultaneous word pairs cannot both receive an intelligible approach
+        // cue. Separate encounters also preserve a readable steering window.
+        spawnTimer = rocketWordSpacing(item.word ? wordAudioDuration(item.word) : 0.8, opts.difficulty);
       }
       const noseZ = ship.position.z - 1.9; // catch at the rocket's NOSE, not its centre/tail
-      cueNearestApproach(noseZ);
+      cueNearestApproach(noseZ, wordSpeed);
       for (const bubble of bubbles) {
         if (!bubble.userData.alive) continue;
-        bubble.position.z += dt * 11 * speed * boost;
+        const travelSpeed = bubble.userData.word
+          ? wordSpeed
+          : 11 * speed * boost;
+        bubble.position.z += dt * travelSpeed;
         if (bubble.userData.meteor) bubble.userData.rock.rotation.x += dt * 1.8;
         else if (bubble.userData.ring) bubble.rotation.z += dt * 1.4;
         else if (bubble.userData.orb) {

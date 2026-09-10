@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { existsSync } from "node:fs";
 import {
   soundRacerLadder,
   buildTrack,
@@ -29,6 +30,20 @@ const hasRecordedWordAudio = word => [
 
 // Cover every target Sound Racer can inherit from the sound ladder.
 const TEST_TARGETS = rocketRunTargets();
+
+test("every live circuit gate has a shipped word recording", () => {
+  for (const difficulty of ["easy", "medium", "hard"]) {
+    soundRacerLadder(difficulty).forEach((target, level) => {
+      const track = buildTrack(target, { difficulty, seed: level });
+      for (const gate of track.gates) {
+        if (gate.kind !== "word") continue;
+        const path = getLedaWordAudioPath(gate.word);
+        assert.ok(path && AUDIO_FILE_PATHS.has(path), `${difficulty}/${level}: missing ${gate.word}`);
+        assert.ok(existsSync(new URL(`../../public${path}`, import.meta.url)), `${gate.word}: recording is absent`);
+      }
+    });
+  }
+});
 
 const BASE_SPEEDS = {
   easy: 5.4,

@@ -72,7 +72,11 @@ function pulseNoise(context, output, { start, duration = 0.06, volume = 0.08, fi
   source.stop(start + duration + 0.02);
 }
 
-export function startSoundBeatMusic({ bpm = 96, volume = 0.14 } = {}) {
+export function getGameAudioTime() {
+  return audioContext?.state === "running" ? audioContext.currentTime : null;
+}
+
+export function startSoundBeatMusic({ bpm = 96, volume = 0.14, beatAt = performance.now() / 1000 } = {}) {
   const context = getAudioContext();
   if (!context) return null;
   if (activeMusic) activeMusic.stop();
@@ -88,12 +92,11 @@ export function startSoundBeatMusic({ bpm = 96, volume = 0.14 } = {}) {
   const stepSeconds = 60 / Math.max(70, Math.min(150, bpm)) / 2;
   const bass = [98, 98, 146.83, 98, 130.81, 98, 164.81, 146.83, 98, 98, 146.83, 196, 174.61, 146.83, 130.81, 98];
   const lead = [392, 0, 493.88, 0, 587.33, 0, 493.88, 0, 440, 0, 523.25, 0, 659.25, 587.33, 493.88, 0];
-  let step = 0;
+  const origin = context.currentTime + beatAt - performance.now() / 1000;
+  let nextStep = Math.max(0, Math.ceil((context.currentTime - origin) / stepSeconds));
   let stopped = false;
 
-  function scheduleStep() {
-    if (stopped) return;
-    const start = context.currentTime + 0.025;
+  function scheduleStep(step, start) {
     if (step % 4 === 0) {
       pulseOscillator(context, master, { frequency: 70, endFrequency: 36, start, duration: 0.16, type: "sine", volume: 0.28 });
     }
@@ -121,11 +124,20 @@ export function startSoundBeatMusic({ bpm = 96, volume = 0.14 } = {}) {
         volume: 0.036
       });
     }
-    step = (step + 1) % 16;
   }
 
-  scheduleStep();
-  const timer = window.setInterval(scheduleStep, stepSeconds * 1000);
+  function scheduleAhead() {
+    if (stopped || context.state !== "running") return;
+    const now = context.currentTime;
+    // Skip elapsed beats after a delayed timer; never dump a catch-up burst.
+    nextStep = Math.max(nextStep, Math.ceil((now - origin) / stepSeconds));
+    while (origin + nextStep * stepSeconds < now + 0.12) {
+      scheduleStep(nextStep % 16, Math.max(now, origin + nextStep * stepSeconds));
+      nextStep += 1;
+    }
+  }
+  scheduleAhead();
+  const timer = window.setInterval(scheduleAhead, 25);
   activeMusic = {
     stop() {
       if (stopped) return;

@@ -21,6 +21,7 @@ function rotate(values, amount) {
 
 function syllableItems(parts) {
   return parts.map(beats => ({
+    unit: "syllables",
     word: beats.join(""),
     beats,
     say: beats.join("")
@@ -28,13 +29,14 @@ function syllableItems(parts) {
 }
 
 function wordItem(word) {
-  return { word, beats: segmentWord(word), say: word };
+  return { unit: "sounds", word, beats: segmentWord(word), say: word };
 }
 
 function sentenceItem(sentence) {
   const clean = String(sentence || "").replace(/[.!?]/g, "");
   const words = clean.split(/\s+/).filter(Boolean);
   return {
+    unit: "words",
     word: clean,
     beats: words,
     say: sentence
@@ -75,7 +77,11 @@ export function soundBeatLevel(difficulty = "easy", levelIndex = 0) {
     // Minimum seconds of play before a stop/countdown: the engine groups
     // consecutive levels into one continuous round until this floor is met.
     minPlaySeconds: 60,
-    items: levelItems(safeDifficulty, level)
+    items: levelItems(safeDifficulty, level).map((item, index) => {
+      const phrases = [[0, 1, 2, 3], [0, 2, 1, 3], [3, 2, 1, 0], [0, 1, 0, 2, 3], [1, 2, 0, 3]];
+      const phrase = phrases[(level + index) % phrases.length];
+      return { ...item, lanes: [...item.beats, "blend"].map((_, beat) => phrase[beat % phrase.length]) };
+    })
   };
 }
 

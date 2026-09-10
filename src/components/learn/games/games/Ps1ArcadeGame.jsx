@@ -1,3 +1,4 @@
+import { createRhythmClock, nextPhraseBeat } from "../../../../utils/audio/rhythmClock.js";
 import { soundBeatLayout } from "../shared/soundBeatLayout.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import { useEffect, useRef } from "react";
@@ -7,9 +8,10 @@ import {
   playStarChime,
   playTapSound,
   playWhoosh,
-  startSoundBeatMusic
+  startSoundBeatMusic,
+  getGameAudioTime
 } from "../../../../utils/audio/gameSfx.js";
-import { speak, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
+import { speak, speakPhoneme, speakWord, wordAudioDuration, preloadWordAudio } from "../../../../utils/learnGamesAudio.js";
 import { soundBeatLadder, soundBeatMercyPolicy, soundBeatStars } from "../../../../utils/soundBeatTracks.js";
 import {
   TWO_PI,
@@ -21,7 +23,6 @@ import {
   panel,
   drawCover,
   drawFallback,
-  drawScreenGrade,
   createGameCanvas,
   sizeCanvasToMount,
   prefersReducedMotion,
@@ -35,7 +36,7 @@ const CONFIG = {
   "sound-beat": {
     title: "Sound Beat",
     action: "Tap each sound on the beat",
-    bg: "/images/learn-games/ps1-arcade/sound-beat-stage-v2.webp",
+    bg: "/images/learn-games/sound-beat/woodland-stage.webp",
     accent: "#b8ff3d",
     accent2: "#ff3d8b",
     ladder: soundBeatLadder,
@@ -118,8 +119,8 @@ function drawBeatBackdrop(ctx, state, config, w, h) {
 
 function beatLanePoint(lane, progress, w, h) {
   const { hitY: targetY, stageY } = soundBeatLayout(w, h);
-  const bottomLeft = w * 0.25;
-  const bottomRight = w * 0.75;
+  const bottomLeft = w < 600 ? 44 : w * 0.25;
+  const bottomRight = w - bottomLeft;
   const topLeft = w * 0.39;
   const topRight = w * 0.61;
   const bottomStep = (bottomRight - bottomLeft) / (BEAT_LANES.length - 1);
@@ -249,8 +250,9 @@ function drawSoundBeatRunway(ctx, state, config, w, h) {
 function drawBeatTarget(ctx, lane, state, w, h, active) {
   const point = { ...beatLanePoint(lane, 1, w, h), y: soundBeatLayout(w, h).padY };
   const laneStyle = BEAT_LANES[lane];
-  const pulse = active ? state.beatPulse || 0 : 0;
+  const pulse = state.padPress?.[lane] || 0;
   ctx.save();
+  ctx.translate(0, pulse * 5);
   ctx.globalCompositeOperation = "screen";
   const glow = ctx.createRadialGradient(point.x, point.y, 8, point.x, point.y, 64 + pulse * 30);
   glow.addColorStop(0, `${laneStyle.color}78`);
@@ -286,6 +288,7 @@ function drawBeatTarget(ctx, lane, state, w, h, active) {
   ctx.beginPath();
   ctx.arc(point.x, point.y, 8 + pulse * 5, 0, TWO_PI);
   ctx.fill();
+  text(ctx, ["D", "F", "J", "K"][lane], point.x, point.y, 17, "#fff", "center", 900);
   ctx.restore();
 }
 
@@ -400,6 +403,22 @@ function drawBeat(ctx, state, config, w, h, now) {
 
   ctx.save();
   drawBeatBackdrop(ctx, state, config, w, h);
+  for (let index = 0; index < (state.performers?.length || 0); index += 1) {
+    const actor = state.performers[index];
+    if (!actor.complete || !actor.naturalWidth) continue;
+    const actorHeight = Math.min(185, h * 0.29, w * 0.34);
+    const actorWidth = actorHeight * actor.naturalWidth / actor.naturalHeight;
+    const x = w * (index ? 0.9 : 0.1);
+    const footY = h * 0.59;
+    const response = state.beatPulse * (index ? 0.8 : 1);
+    ctx.save();
+    ctx.fillStyle = "rgba(2,18,23,.45)";
+    ctx.beginPath(); ctx.ellipse(x, footY + 2, actorWidth * 0.4, 7, 0, 0, TWO_PI); ctx.fill();
+    ctx.translate(x, footY - response * 12);
+    ctx.rotate((index ? -1 : 1) * response * 0.08);
+    ctx.drawImage(actor, -actorWidth / 2, -actorHeight, actorWidth, actorHeight);
+    ctx.restore();
+  }
 
   const layout = soundBeatLayout(w, h);
   ctx.save();
@@ -409,13 +428,14 @@ function drawBeat(ctx, state, config, w, h, now) {
   ctx.fillStyle = titlePanel;
   roundedRect(ctx, w * 0.25, layout.wordY - 24, w * 0.5, 46, 12);
   ctx.fill();
-  text(ctx, item.say, w / 2, layout.wordY, clamp(w * 0.045, 28, 42), "#fff", "center", 900);
+  const title = item.unit === "words" ? (item.beats[Math.min(state.beatIndex, item.beats.length - 1)] || item.say) : item.say;
+  text(ctx, title, w / 2, layout.wordY, Math.min(clamp(w * 0.045, 28, 42), w * 0.64 / Math.max(1, title.length * 0.62)), "#fff", "center", 900);
   ctx.restore();
 
   drawSoundBeatRunway(ctx, state, config, w, h);
 
   for (let lane = 0; lane < BEAT_LANES.length; lane += 1) {
-    drawBeatTarget(ctx, lane, state, w, h, lane === state.beatIndex % BEAT_LANES.length);
+    drawBeatTarget(ctx, lane, state, w, h, lane === item.lanes[state.beatIndex]);
   }
 
   for (let i = state.beatIndex; i < notes.length; i += 1) {
@@ -425,7 +445,7 @@ function drawBeat(ctx, state, config, w, h, now) {
     const timeToHit = Math.abs(noteTime - now);
     const active = i === state.beatIndex;
     const nearHit = 1 - clamp(timeToHit / 0.5, 0, 1);
-    drawBeatPad(ctx, notes[i] === "blend" ? "GO" : notes[i], i % BEAT_LANES.length, progress, active && nearHit > 0.2, config, state, w, h);
+    drawBeatPad(ctx, notes[i] === "blend" ? "GO" : notes[i], item.lanes[i], progress, active && nearHit > 0.2, config, state, w, h);
   }
 
   const slotW = Math.min(78, (w * 0.34) / notes.length);
@@ -439,11 +459,13 @@ function drawBeat(ctx, state, config, w, h, now) {
   for (const burst of state.hitBursts) drawBeatBurst(ctx, burst);
   if (state.judgementT > 0) {
     const p = clamp(state.judgementT / 0.72, 0, 1);
-    const lanePoint = beatLanePoint(Math.max(0, (state.beatIndex - 1) % BEAT_LANES.length), 1, w, h);
-    text(ctx, state.judgement, lanePoint.x, lanePoint.y - 92 - (1 - p) * 20, 34, state.judgement === "MISS" ? "#ff8d8d" : config.accent, "center", 900);
+    const lanePoint = beatLanePoint(item.lanes[Math.max(0, state.beatIndex - 1)], 1, w, h);
+    const size = Math.min(28, w / Math.max(1, state.judgement.length * 0.72));
+    const halfWidth = state.judgement.length * size * 0.35;
+    text(ctx, state.judgement, clamp(lanePoint.x, halfWidth + 8, w - halfWidth - 8), lanePoint.y - 78 - (1 - p) * 12, size, state.judgement === "MISS" ? "#ff8d8d" : config.accent, "center", 900);
   }
 
-  text(ctx, "SPACE / TAP", w / 2, h - 14, 16, "#dff7ff", "center", 900);
+  text(ctx, item.unit === "syllables" ? "SYLLABLE RHYTHM" : item.unit === "words" ? "WORD RHYTHM" : "SOUND RHYTHM", w / 2, layout.wordY - 31, 12, "#dff7ff", "center", 700);
   ctx.restore();
 }
 
@@ -453,12 +475,19 @@ function startPs1ArcadeGame(mount, options) {
   const total = totalUnits(options.kind, ladder);
   const image = new Image();
   image.src = config.bg;
+  const performerBank = Object.fromEntries(Object.entries({ meadow: ["bouncy", "woolly"], dino: ["chompy", "sunny"], moonwood: ["pip", "wren"] }).map(([world, names]) => [world, names.map(name => {
+    const image = new Image(); image.src = `/game-assets/sound-seekers/v3/cast/${world}/${name}.webp`; return image;
+  })]));
 
   const { canvas, ctx } = createGameCanvas(mount);
   const reduceMotion = prefersReducedMotion();
   const { soundAllowed, sfx } = createSoundGate(options);
   const musicAllowed = () => options.getMusic ? options.getMusic() : options.isMusicEnabled === true;
 
+  const rhythmClock = createRhythmClock({ wallTime: () => performance.now() / 1000, audioTime: getGameAudioTime });
+  let voiceController = null;
+  let voiceUntil = 0;
+  let pendingNoteCue = false;
   let music = null;
   let musicBpm = 0;
   let musicUnsupported = false;
@@ -476,7 +505,7 @@ function startPs1ArcadeGame(mount, options) {
     if (!bpm) return;
     if (music && musicBpm === bpm) return;
     stopMusic();
-    music = startSoundBeatMusic({ bpm });
+    music = startSoundBeatMusic({ bpm, beatAt: performance.now() / 1000 + state.roundStartAt - rhythmClock.now() });
     musicBpm = bpm;
     if (!music) musicUnsupported = true;
   }
@@ -504,6 +533,7 @@ function startPs1ArcadeGame(mount, options) {
     progress: 0,
     paused: false,
     ended: false,
+    resultAt: null,
     time: 0,
     beatIndex: 0,
     noteStart: 0,
@@ -516,10 +546,10 @@ function startPs1ArcadeGame(mount, options) {
     wordsEnded: 0,
     totalUnits: total,
     inputLockedUntil: 0,
-    pausedAt: 0,
     judgement: "",
     judgementT: 0,
     beatPulse: 0,
+    padPress: [0, 0, 0, 0],
     soundEnabled: soundAllowed(),
     musicEnabled: musicAllowed(),
     hitBursts: [],
@@ -529,12 +559,34 @@ function startPs1ArcadeGame(mount, options) {
   let w = 1;
   let h = 1;
   let dpr = 1;
+  const padGroup = document.createElement("div");
+  padGroup.setAttribute("role", "group");
+  padGroup.setAttribute("aria-label", "Rhythm pads");
+  padGroup.style.cssText = "position:absolute;inset:0;pointer-events:none";
+  const padButtons = BEAT_LANES.map((_, lane) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.setAttribute("aria-label", `Play ${["cyan", "gold", "red", "purple"][lane]} pad (${"DFJK"[lane]})`);
+    button.style.cssText = "position:absolute;transform:translate(-50%,-50%);pointer-events:auto;background:transparent;border:0;border-radius:50%;color:transparent;touch-action:manipulation;min-width:56px;min-height:56px";
+    button.textContent = "DFJK"[lane];
+    const play = () => { if (!state.paused && !state.ended) tapBeat(lane); };
+    button.addEventListener("pointerdown", event => { event.preventDefault(); event.stopPropagation(); play(); });
+    button.addEventListener("click", event => { if (event.detail === 0) play(); });
+    padGroup.appendChild(button);
+    return button;
+  });
+  mount.appendChild(padGroup);
 
   function resize() {
     const size = sizeCanvasToMount(mount, canvas, ctx);
     w = size.width;
     h = size.height;
     dpr = size.dpr;
+    const actual = mount.getBoundingClientRect();
+    padButtons.forEach((button, lane) => {
+      const point = beatLanePoint(lane, 1, w, h);
+      Object.assign(button.style, { left: `${point.x / w * 100}%`, top: `${soundBeatLayout(w, h).padY / h * 100}%`, width: `${Math.max(56, 88 * actual.width / w)}px`, height: `${Math.max(56, 72 * actual.height / h)}px` });
+    });
   }
 
   const setScore = createScoreReporter(state, options);
@@ -548,6 +600,7 @@ function startPs1ArcadeGame(mount, options) {
 
   function startLevel() {
     state.level = ladder[state.stage];
+    state.performers = performerBank[state.level.world];
     image.src = config.bgByWorld?.[state.level.world] || config.bg;
     state.tasks = makeTasks(options.kind, state.level);
     state.taskIndex = 0;
@@ -557,7 +610,7 @@ function startPs1ArcadeGame(mount, options) {
     // level of a round pays the 3-2-1 stop/start; the rest flow straight on,
     // keeping one steady timing window per round.
     const roundFloor = state.level.minPlaySeconds || 60;
-    const nowSec = performance.now() / 1000;
+    const nowSec = rhythmClock.now();
     const startNewRound = !state.roundStartAt
       || (nowSec - state.roundStartAt) >= roundFloor;
 
@@ -585,8 +638,9 @@ function startPs1ArcadeGame(mount, options) {
     state.beatIndex = 0;
     state.currentWordClean = true;
     if (!state.currentTask) return;
-    const now = performance.now() / 1000;
-    state.noteStart = now + 1.05;
+    const now = rhythmClock.now();
+    state.noteStart = nextPhraseBeat(now, state.roundStartAt, 60 / state.roundBpm, Math.max(1.05, voiceUntil - now + 0.8));
+    preloadWordAudio(state.currentTask.item.word);
     // Mid-round the next word starts right away, so sound out its first note;
     // after a countdown the tick's countdown-end branch does it instead.
     if (state.countdown <= 0) speakActiveNote();
@@ -605,7 +659,7 @@ function startPs1ArcadeGame(mount, options) {
     state.currentWordClean = false;
     if (mercy.advanceWithoutCredit) {
       state.judgement = "KEEP GOING";
-      state.inputLockedUntil = performance.now() / 1000 + 0.2;
+      state.inputLockedUntil = rhythmClock.now() + 0.2;
       endCurrentWord(0);
       return;
     }
@@ -615,7 +669,7 @@ function startPs1ArcadeGame(mount, options) {
     // motor-delayed child back to the beginning forever.
     if (mercy.replayFromStart) state.beatIndex = 0;
     const spacing = 60 / (state.roundBpm || state.level.bpm);
-    state.noteStart = performance.now() / 1000 + 0.9 - state.beatIndex * spacing;
+    state.noteStart = nextPhraseBeat(rhythmClock.now(), state.roundStartAt, spacing, 0.9) - state.beatIndex * spacing;
     speakActiveNote();
   }
 
@@ -658,7 +712,9 @@ function startPs1ArcadeGame(mount, options) {
       stopMusic();
       state.progress = 1;
       options.onProgressUpdate?.(ladder.length, ladder.length);
-      options.onComplete?.(config.stars({ correct: state.correct, total, mistakes: state.mistakes }), state.score, total);
+      // Let the child's final blend finish before shared completion pauses the
+      // engine. This uses the same pausable clock, not a background timer.
+      state.resultAt = Math.max(rhythmClock.now() + 0.2, voiceUntil);
       return;
     }
     state.stage = nextStage;
@@ -668,26 +724,40 @@ function startPs1ArcadeGame(mount, options) {
   // Sound out the note the child is about to tap: the grapheme as it becomes
   // the active beat, and the whole word when the final "GO"/blend arrives.
   // Additive only — gated on the live sound flag, silent with sound off.
-  function speakActiveNote() {
+  function speakActiveNote({ blendAction = false, manual = false } = {}) {
     if (!soundAllowed()) return;
     const item = state.currentTask?.item;
     if (!item) return;
     const note = [...item.beats, "blend"][state.beatIndex];
     if (!note) return;
-    if (note === "blend") {
-      if (/\s/.test(item.word)) speak(item.say);
-      else speakWord(item.word);
-    } else if (note.length === 1) {
-      speakPhoneme(note);
-    } else {
-      speak(note);
-    }
+    if (rhythmClock.now() < voiceUntil && !manual) { pendingNoteCue = true; return; }
+    if (note === "blend" && !blendAction && !manual) return;
+    voiceController?.abort();
+    const controller = new AbortController();
+    voiceController = controller;
+    pendingNoteCue = false;
+    const options = { signal: controller.signal };
+    let playback;
+    if (note === "blend" || (item.unit === "syllables" && (state.beatIndex === 0 || manual))) {
+      voiceUntil = rhythmClock.now() + (/\s/.test(item.word) ? item.word.split(/\s+/).reduce((sum, word) => sum + wordAudioDuration(word), 0) : wordAudioDuration(item.word)) + 0.15;
+      playback = /\s/.test(item.word) ? speak(item.say, options) : speakWord(item.word, options);
+    } else if (item.unit === "sounds") playback = speakPhoneme(note, options);
+    else if (item.unit === "words") playback = speakWord(note, options);
+    void Promise.resolve(playback).finally(() => {
+      if (voiceController === controller) { voiceController = null; voiceUntil = 0; }
+    });
   }
 
-  function tapBeat() {
+  function tapBeat(lane = state.currentTask?.item.lanes[state.beatIndex]) {
     const task = state.currentTask;
     if (!task || state.countdown > 0) return;
-    const now = performance.now() / 1000;
+    if (lane != null) state.padPress[lane] = 1;
+    if (lane !== task.item.lanes[state.beatIndex]) {
+      state.judgement = "FOLLOW THE NOTE";
+      state.judgementT = 0.5;
+      return;
+    }
+    const now = rhythmClock.now();
     // Post-hit lockout: a jittery second tap right after a hit must not be
     // judged against the NEXT note and scored as a miss.
     if (now < state.inputLockedUntil) return;
@@ -717,7 +787,7 @@ function startPs1ArcadeGame(mount, options) {
       state.judgement = quality;
       state.judgementT = 0.72;
       state.beatPulse = quality === "PERFECT" ? 1 : quality === "GREAT" ? 0.82 : 0.65;
-      const burstPoint = beatLanePoint(state.beatIndex % BEAT_LANES.length, 1, w, h);
+      const burstPoint = beatLanePoint(task.item.lanes[state.beatIndex], 1, w, h);
       state.hitBursts.push({
         x: burstPoint.x,
         y: burstPoint.y,
@@ -728,6 +798,7 @@ function startPs1ArcadeGame(mount, options) {
       });
       sfx(playTapSound);
       state.inputLockedUntil = now + 0.15;
+      if (isBlend) speakActiveNote({ blendAction: true });
       state.beatIndex += 1;
       if (state.beatIndex >= notes.length) endCurrentWord(180);
       else speakActiveNote();
@@ -747,24 +818,38 @@ function startPs1ArcadeGame(mount, options) {
   function onPointerDown(event) {
     state.pointer = pointerPosition(event);
     if (state.paused || state.ended || state.countdown > 0) return;
-    tapBeat();
+    const lane = BEAT_LANES.findIndex((_, index) => {
+      const point = beatLanePoint(index, 1, w, h);
+      return Math.abs(state.pointer.x - point.x) <= 44 && Math.abs(state.pointer.y - soundBeatLayout(w, h).padY) <= 36;
+    });
+    if (lane >= 0) tapBeat(lane);
   }
 
   function onKeyDown(event) {
-    if (isInteractiveKeyTarget(event.target)) return;
-    if (event.key !== " " && event.key !== "Enter" && event.key !== "ArrowUp") return;
+    if (isInteractiveKeyTarget(event.target) && !padGroup.contains(event.target)) return;
+    if (padGroup.contains(event.target) && [" ", "Enter"].includes(event.key)) return;
+    const lane = ["d", "f", "j", "k"].indexOf(event.key.toLowerCase());
+    if (lane < 0 && event.key !== " " && event.key !== "Enter" && event.key !== "ArrowUp") return;
     event.preventDefault();
-    if (!state.paused && !state.ended && state.countdown <= 0) tapBeat();
+    if (!event.repeat && !state.paused && !state.ended && state.countdown <= 0) tapBeat(lane < 0 ? undefined : lane);
   }
 
-  function tickFrame(now, dt) {
+  function tickFrame(_wallNow, dt) {
+    const now = rhythmClock.now();
+    if (!state.paused && state.resultAt !== null && now >= state.resultAt) {
+      state.resultAt = null;
+      options.onComplete?.(config.stars({ correct: state.correct, total, mistakes: state.mistakes }), state.score, total);
+    }
     canvas.dataset.soundBeatReady = String(state.countdown <= 0);
     canvas.dataset.soundBeatIndex = String(state.beatIndex);
     if (!state.paused && !state.ended) {
       state.soundEnabled = soundAllowed();
+      if (!state.soundEnabled) { voiceController?.abort(); voiceController = null; voiceUntil = 0; pendingNoteCue = false; }
+      else if (pendingNoteCue && now >= voiceUntil) speakActiveNote();
       state.musicEnabled = musicAllowed();
       state.time += reduceMotion ? dt * 0.35 : dt;
       state.beatPulse = Math.max(0, state.beatPulse - dt * 2.8);
+      state.padPress = state.padPress.map(value => Math.max(0, value - dt * 6));
       state.judgementT = Math.max(0, state.judgementT - dt);
       state.hitBursts = state.hitBursts
         .map(burst => ({ ...burst, t: burst.t + dt }))
@@ -801,7 +886,6 @@ function startPs1ArcadeGame(mount, options) {
     ctx.save();
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     if (!drawCover(ctx, image, w, h)) drawFallback(ctx, w, h, config, state.time);
-    drawScreenGrade(ctx, w, h);
     drawBeat(ctx, state, config, w, h, now);
     drawSoundBeatHud(ctx, state, config, w, h);
     drawCountdown(ctx, state, config, w, h);
@@ -818,37 +902,42 @@ function startPs1ArcadeGame(mount, options) {
   loop.start();
 
   const api = {
-    replayPrompt: speakActiveNote,
+    replayPrompt: () => speakActiveNote({ manual: true }),
     pause() {
       if (state.paused) return;
       state.paused = true;
-      state.pausedAt = performance.now() / 1000;
+      rhythmClock.pause();
+      voiceController?.abort(); voiceController = null; voiceUntil = 0; pendingNoteCue = true;
       stopMusic();
     },
     resume() {
       if (!state.paused) return;
-      const nowSec = performance.now() / 1000;
-      // Note timing is wall-clock: push the schedule forward by the paused
-      // span so the in-flight word resumes where it froze instead of missing.
-      if (state.pausedAt) state.noteStart += nowSec - state.pausedAt;
-      state.pausedAt = 0;
+      rhythmClock.resume();
       state.paused = false;
-      loop.reset(nowSec);
+      loop.reset(performance.now() / 1000);
       ensureMusic();
     },
     destroy() {
       state.ended = true;
+      voiceController?.abort();
       stopMusic();
       loop.cancel();
       resizeObserver.disconnect();
       canvas.removeEventListener("pointermove", onPointerMove);
       canvas.removeEventListener("pointerdown", onPointerDown);
       window.removeEventListener("keydown", onKeyDown);
+      padGroup.remove();
       if (canvas.parentNode === mount) mount.removeChild(canvas);
     },
     debugSnapshot() {
       return {
         kind: options.kind,
+        beatIndex: state.beatIndex,
+        targetTime: state.noteStart + state.beatIndex * 60 / state.roundBpm,
+        clockTime: rhythmClock.now(),
+        lane: state.currentTask?.item.lanes[state.beatIndex],
+        paused: state.paused,
+        ended: state.ended,
         stage: state.stage,
         score: state.score,
         combo: state.combo,

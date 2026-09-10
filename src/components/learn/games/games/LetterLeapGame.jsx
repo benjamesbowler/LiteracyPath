@@ -1,4 +1,6 @@
 import { useEffect, useRef } from "react";
+import "./LetterLeapGame.css";
+import { CAST, HEROES } from "../../../../features/soundSeekers/v3/content/cast.js";
 import {
   playCorrectChime,
   playPopSound,
@@ -15,7 +17,7 @@ import {
 } from "../../../../utils/curriculumLadder.js";
 import { makeCatchUp } from "../../../../utils/catchUpQueue.js";
 import { starRubric } from "../../../../utils/starRubric.js";
-import { hasRecordedSpeech, speak, speakWord } from "../../../../utils/learnGamesAudio.js";
+import { hasRecordedSpeech, speakWord } from "../../../../utils/learnGamesAudio.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import { getChildWordAsset } from "../../../../data/childAssets.js";
 import { laneDirectionForKey, verticalDirectionForKey } from "../shared/premiumGameStandard.js";
@@ -25,7 +27,7 @@ import { laneDirectionForKey, verticalDirectionForKey } from "../shared/premiumG
 //   difficulty -> world + cast (low=meadow, mid=dino, high=moonwood),
 //   10 ramped, no-repeat levels from curriculumLadder, sentences on the hard
 //   world's top levels, and catch-up (a failed stage returns later; a missed
-//   word's letters respawn ahead).
+//   word's uncollected letters stay on their original platforms).
 // Kept imperative (out of React) so the render stays one container, like Rocket Run.
 
 const WORLD_THEME = {
@@ -53,20 +55,31 @@ function recordWordEvidence(completedKeys, stageIndex, sentenceLegIndex, wordInd
   return { added, count: completedKeys.size };
 }
 
-function buildLetterLeapChoicePlan(levelWords, worldKey, levelIndex) {
+function buildLetterLeapChoicePlan(levelWords, worldKey, levelIndex, random = Math.random) {
   const words = levelWords.map(value => String(value).toUpperCase());
-  const hard = worldKey !== "meadow";
-
+  const taught = [...new Set(words.join(""))];
   return words.map((up, wordIndex) => Array.from(up, (target, order) => {
+    const pool = taught.filter(ch => ch !== target);
+    const decoy = pool[Math.floor(random() * pool.length)] || (target === "A" ? "T" : "A");
+    const targetFirst = random() < 0.5;
+    // Two separate encounters along the trail, with identical appearance and
+    // reachable terrain. Neither the first object nor the upper route predicts
+    // the answer. Coordinates are assigned once and survive every retry.
     return {
       choiceId: wordIndex + ":" + order,
-      raised: hard && levelIndex >= 1 && order > 0 && (wordIndex + order) % 3 === 2,
-      // Each letter is a persistent physical pickup with an authored world
-      // coordinate. The old relocating group of three made this platformer
-      // behave like a worksheet and could move answers through the terrain.
-      choices: [{ ch: target, word: wordIndex, order, slot: 0, offsetX: 0 }]
+      choices: [targetFirst ? target : decoy, targetFirst ? decoy : target].map((ch, slot) => ({
+        ch, word: ch === target ? wordIndex : -1, order, slot, offsetX: slot * 170,
+        rise: slot === 1 ? (worldKey === "meadow" && levelIndex < 3 ? 72 : 96) : 0
+      }))
     };
   }));
+}
+
+function letterLeapVelocity(velocity, axis, grounded) {
+  const target = axis * MOVE;
+  const acceleration = axis ? (grounded ? 0.78 : 0.48) : (grounded ? 1.05 : 0.3);
+  const difference = target - velocity;
+  return Math.abs(difference) <= acceleration ? target : velocity + Math.sign(difference) * acceleration;
 }
 
 function isLetterLeapCurrentChoice(choice, wordIndex, letterIndex) {
@@ -122,6 +135,7 @@ function letterLeapGroundHeight(height) {
 function startGame(mount, opts) {
   const world = worldForGameDifficulty(opts.difficulty);
   const theme = WORLD_THEME[world] || WORLD_THEME.meadow;
+  mount.dataset.world = world;
   const ladder = difficultyLadder("letter-leap", opts.difficulty);
   const sfx = fn => { try { if (opts.getSound && opts.getSound()) fn(); } catch { /* audio optional */ } };
   const reduceMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
@@ -203,7 +217,7 @@ function startGame(mount, opts) {
       '.letter-leap [data-ll="coins"],.letter-leap [data-ll="world"]{display:none!important}' +
       '.letter-leap [data-ll="hearts"]{top:4px!important;right:7px!important;font-size:1.05rem!important}' +
       '.letter-leap [data-ll="hear"]{top:30px!important;right:6px!important;width:56px!important;height:56px!important}' +
-      '.letter-leap [data-ll="move-controls"]{bottom:4px!important;left:4px!important;gap:4px!important}' +
+      '.letter-leap [data-ll="move-controls"]{bottom:4px!important;left:4px!important;gap:8px!important}' +
       '.letter-leap [data-ll="move-controls"] button{width:56px!important;height:56px!important}' +
       '.letter-leap [data-ll="leap-controls"]{bottom:4px!important;right:4px!important}' +
       '.letter-leap [data-ll="jump"]{width:96px!important;height:56px!important;font-size:.82rem!important;box-shadow:0 5px 0 #9a5a14,inset 0 0 0 2px rgba(255,255,255,.24)!important}' +
@@ -233,29 +247,12 @@ function startGame(mount, opts) {
   overlay.style.cssText = "position:absolute;inset:0;display:none;place-items:center;text-align:center;padding:24px;z-index:20;background:radial-gradient(120% 90% at 50% 25%,rgba(20,40,70,.72),rgba(6,10,22,.94))";
   mount.appendChild(overlay);
 
-  const grainCanvas = document.createElement("canvas");
-  grainCanvas.width = grainCanvas.height = 96;
-  const grainCtx = grainCanvas.getContext("2d");
-  for (let y = 0; y < grainCanvas.height; y += 2) {
-    for (let x = 0; x < grainCanvas.width; x += 2) {
-      const v = 120 + Math.floor(Math.random() * 90);
-      grainCtx.fillStyle = "rgba(" + v + "," + v + "," + v + ",0.055)";
-      grainCtx.fillRect(x, y, 1, 1);
-    }
-  }
   const visualOverlay = document.createElement("canvas");
   rebuildVisualOverlay = () => {
     visualOverlay.width = Math.max(1, Math.round(W));
     visualOverlay.height = Math.max(1, Math.round(H));
     const overlayCtx = visualOverlay.getContext("2d");
     overlayCtx.clearRect(0, 0, W, H);
-    const grainPattern = overlayCtx.createPattern(grainCanvas, "repeat");
-    if (grainPattern) {
-      overlayCtx.globalAlpha = 0.12;
-      overlayCtx.fillStyle = grainPattern;
-      overlayCtx.fillRect(0, 0, W, H);
-      overlayCtx.globalAlpha = 1;
-    }
     const light = overlayCtx.createLinearGradient(0, 0, 0, H);
     light.addColorStop(0, "rgba(220,248,255,.05)");
     light.addColorStop(0.6, "rgba(255,255,255,0)");
@@ -315,8 +312,7 @@ function startGame(mount, opts) {
         const px = x + off;
         const peak = layer.base - layer.amp * (0.48 + 0.52 * Math.abs(Math.sin((x + time * 18) * 0.011)));
         ctx.lineTo(px, layer.base);
-        ctx.lineTo(px + layer.step * 0.46, peak);
-        ctx.lineTo(px + layer.step, layer.base);
+        ctx.bezierCurveTo(px + layer.step * 0.15, peak, px + layer.step * 0.72, peak, px + layer.step, layer.base);
       }
       ctx.lineTo(W + layer.step, H);
       ctx.closePath();
@@ -327,7 +323,7 @@ function startGame(mount, opts) {
 
   // ── state ────────────────────────────────────────────────────────────────
   const keys = { left: false, right: false, jump: false };
-  let words, wIx, word, nextIx, hearts, running = false, cam = 0, last = 0, frameAccumulator = 0, invuln = 0;
+  let words, wIx, word, nextIx, hearts, running = false, cam = 0, camY = 0, last = 0, frameAccumulator = 0, invuln = 0;
   let particles = [], spores = [], floats = [];
   let score = 0, wrongHits = 0, wordsDoneGlobal = 0;
   let wordTransitionT = 0;
@@ -336,7 +332,7 @@ function startGame(mount, opts) {
   const COYOTE = 0.12, JUMP_BUFFER = 0.14;
   let coyoteT = 0, jumpBufT = 0, runDustT = 0, shakeT = 0;
   let tapMoveT = 0, tapMoveDir = 0, pointerJumpHoldT = 0, autoLeapT = 0, autoLeapStopX = null;
-  let touchChoiceArmed = true;
+
   let coins = 0, starTokens = 0, starFlash = 0; // collectibles (Mission 2)
   let idleT = 0; // idle-animation timer (Mission 5)
   const startLevel = Math.max(0, Math.min(Number(opts.startLevel) || 0, ladder.length - 1));
@@ -381,18 +377,17 @@ function startGame(mount, opts) {
     levelWords.forEach((up, wi) => {
       for (let i = 0; i < up.length; i += 1) {
         const decision = choicePlan[wi][i];
-        let bubbleY = groundY() - 46;
-        if (decision.raised) {
-          // The platform is high enough to require a jump but low enough to
-          // reach with a short touch press after the variable-jump cut-off.
-          const py = groundY() - 96;
-          plats.push({ x: cx - 126, y: py, w: 252 });
-          blocks.push({ x: cx - 194, y: groundY() - 60, w: 44, h: 40, type: "brick", broken: false, used: false });
-          bubbleY = py - 40;
-        }
         for (const choice of decision.choices) {
+          let bubbleY = groundY() - 46;
+          if (choice.rise) {
+            const py = groundY() - choice.rise;
+            // An upper trail sits beyond the lower letter, so neither pickup
+            // is hidden beneath a shelf. Both routes stay physically reachable.
+            plats.push({ x: cx + choice.offsetX - 72, y: py, w: 144, letterShelf: true });
+            bubbleY = py - 40;
+          }
           bubbles.push({
-            x: cx,
+            x: cx + choice.offsetX,
             y: bubbleY,
             ch: choice.ch,
             word: choice.word,
@@ -400,10 +395,10 @@ function startGame(mount, opts) {
             decisionWord: wi,
             decisionOrder: i,
             choiceId: decision.choiceId,
-            taken: false
+            taken: false, cooldown: 0
           });
         }
-        letterX.push(cx); cx += SEG;
+        letterX.push(cx, cx + 170); cx += SEG;
       }
       if (wi < levelWords.length - 1) {
         // Feature room between words: a RAVINE crossed by two staggered hop
@@ -419,14 +414,14 @@ function startGame(mount, opts) {
           plats.push(hop2);
           cx += wRav + WORD_GAP * 0.5;
         } else {
-          plats.push({ x: cx - WORD_GAP * 0.5 - 60, y: groundY() - 104, w: 120 });
+          plats.push({ x: cx + 80, y: groundY() - 104, w: 120 });
           cx += WORD_GAP;
         }
       }
     });
     const flag = cx + 200, L = cx + 360;
 
-    // Hazards use the open midpoint between complete choice clusters.
+    // Hazards use open travel space between the individual letter encounters.
     const hazardSlots = [];
     for (let i = 0; i < letterX.length - 1; i += 1) {
       const a = letterX[i], b = letterX[i + 1];
@@ -473,9 +468,9 @@ function startGame(mount, opts) {
       if (pr - pl < 140) continue; // ravines only, not tiny hazard pits
       for (let i = 0; i < 5; i += 1) { const u = (i + 0.5) / 5; coinsArr.push({ x: pl + (pr - pl) * u, y: groundY() - 90 - Math.sin(u * Math.PI) * 58, taken: false }); }
     }
-    for (const pl of plats) { if (pl.y < groundY() - 70) coinsArr.push({ x: pl.x + pl.w / 2, y: pl.y - 22, taken: false }); }
+    for (const pl of plats) { if (!pl.letterShelf && pl.y < groundY() - 70) coinsArr.push({ x: pl.x + pl.w / 2, y: pl.y - 22, taken: false }); }
     const starsArr = [];
-    for (const pl of plats.slice().sort((a, b) => a.y - b.y).slice(0, 3)) starsArr.push({ x: pl.x + pl.w / 2, y: pl.y - 32, taken: false });
+    for (const pl of plats.filter(pl => !pl.letterShelf).sort((a, b) => a.y - b.y).slice(0, 3)) starsArr.push({ x: pl.x + pl.w / 2, y: pl.y - 32, taken: false });
     // Springs on the ground below the highest star tokens (bounce up to reach them).
     const springsArr = [];
     for (const st of starsArr) { if (st.y < groundY() - 130) springsArr.push({ x: Math.max(140, st.x - 60), press: 0, taken: false }); }
@@ -499,7 +494,7 @@ function startGame(mount, opts) {
     wordTransitionT = 0;
     level = makeLevel(words, world, stageIdx);
     player = { x: 70, y: groundY() - 46, w: 32, h: 46, vx: 0, vy: 0, onGround: true, face: 1, anim: 0, spawnX: 70, squash: 0 };
-    hearts = 3; cam = 0; invuln = 0; particles = [];
+    hearts = 3; cam = 0; camY = 0; invuln = 0; particles = [];
     spores = []; for (let i = 0; i < 26; i += 1) spores.push({ x: Math.random() * 2400, y: Math.random() * H, s: 1 + Math.random() * 2.4, ph: Math.random() * 6 });
     elWorld.textContent = theme.name + " · Lvl " + (stageIdx + 1) + "/" + LEVELS_PER_DIFFICULTY;
     elLab.dataset.sentence = plan.mode === "sentence" ? "1" : "";
@@ -582,9 +577,8 @@ function startGame(mount, opts) {
     // the slots were replaced by the next word in the same collision frame,
     // which made correct play look as if it had been discarded.
     renderWord();
-    elLab.textContent = word + " built · get ready";
+    elLab.textContent = word + " built!";
     wordTransitionT = reduceMotion ? 0.48 : 0.72;
-    releaseInputs();
   }
   function finishWordTransition() {
     wordTransitionT = 0;
@@ -702,7 +696,6 @@ function startGame(mount, opts) {
     pointerJumpHoldT = 0;
     autoLeapT = 0;
     autoLeapStopX = null;
-    touchChoiceArmed = true;
   }
   function syncLeapDirection() {
     if (!elJump) return;
@@ -711,22 +704,7 @@ function startGame(mount, opts) {
     elJump.textContent = movingLeft ? "LEAP ◀" : "LEAP ▶";
   }
   function nextTouchLeapStop() {
-    if (!level || !player) return null;
-    const active = level.bubbles
-      .filter(bubble => !bubble.taken && isLetterLeapCurrentChoice(bubble, wIx, nextIx))
-      .map(bubble => bubble.x)
-      .sort((a, b) => a - b);
-    if (active.length < 3) return player.x + player.face * 190;
-    const stops = [
-      (active[0] + active[1]) / 2,
-      (active[1] + active[2]) / 2,
-      active[2] + 54
-    ];
-    if (player.face < 0) {
-      stops.unshift(active[0] - 54);
-      return stops.slice().reverse().find(stop => stop < player.x - 20) ?? player.x - 190;
-    }
-    return stops.find(stop => stop > player.x + 20) ?? player.x + 190;
+    return player ? player.x + player.face * 190 : null;
   }
   const isJumpKey = key => key === " " || verticalDirectionForKey(key) === -1;
   const onKeyDown = e => {
@@ -737,9 +715,8 @@ function startGame(mount, opts) {
     // click. Away from a button, Space keeps its game-wide leap behaviour.
     if (padWrap.contains(e.target) && (e.key === "Enter" || e.key === " ")) return;
     const direction = laneDirectionForKey(e.key);
-    if (wordTransitionT > 0 && (direction !== 0 || isJumpKey(e.key))) { e.preventDefault(); return; }
-    if (direction < 0) { touchChoiceArmed = true; keys.left = true; e.preventDefault(); }
-    else if (direction > 0) { touchChoiceArmed = true; keys.right = true; e.preventDefault(); }
+    if (direction < 0) { keys.left = true; e.preventDefault(); }
+    else if (direction > 0) { keys.right = true; e.preventDefault(); }
     else if (isJumpKey(e.key)) {
       keys.jump = true;
       if (!e.repeat) jumpBufT = JUMP_BUFFER;
@@ -757,9 +734,7 @@ function startGame(mount, opts) {
   const hold = (sel, k) => {
     const el = padWrap.querySelector(sel);
     const activateTap = () => {
-      if (wordTransitionT > 0) return;
       if (k === "left" || k === "right") {
-        touchChoiceArmed = true;
         autoLeapT = 0;
         autoLeapStopX = null;
         tapMoveDir = k === "left" ? -1 : 1;
@@ -767,21 +742,16 @@ function startGame(mount, opts) {
       } else {
         jumpBufT = JUMP_BUFFER;
         pointerJumpHoldT = 0.3;
-        // Stop in the safe gap between the first two choices. The previous
-        // 0.78s assist carried a one-finger leap through its landing and into
-        // the middle letter, so a child could be given a wrong answer they had
-        // never chosen. From this neutral landing they can tap either arrow or
-        // leap once more to reach any of the three positions deliberately.
+        // One-finger leap follows the same physical arc and can collect a
+        // letter; a held direction always takes over the assist immediately.
         if (!keys.left && !keys.right) {
           autoLeapT = 1.2;
           autoLeapStopX = nextTouchLeapStop();
-          touchChoiceArmed = false;
         }
       }
     };
     const down = e => {
       e.preventDefault();
-      if (wordTransitionT > 0) return;
       el.setPointerCapture?.(e.pointerId);
       el.style.filter = "brightness(1.12)";
       el.style.transform = "translateY(2px) scale(.98)";
@@ -801,7 +771,7 @@ function startGame(mount, opts) {
     const cancel = () => {
       up();
       if ((k === "left" && tapMoveDir < 0) || (k === "right" && tapMoveDir > 0)) tapMoveT = 0;
-      if (k === "jump") { pointerJumpHoldT = 0; autoLeapT = 0; autoLeapStopX = null; touchChoiceArmed = true; }
+      if (k === "jump") { pointerJumpHoldT = 0; autoLeapT = 0; autoLeapStopX = null; }
     };
     el.addEventListener("pointerdown", down);
     el.addEventListener("pointerup", up);
@@ -819,13 +789,7 @@ function startGame(mount, opts) {
     const p = player;
     if (wordTransitionT > 0) {
       wordTransitionT = Math.max(0, wordTransitionT - dt);
-      p.vx = 0;
-      for (const pt of particles) { pt.x += pt.vx; pt.y += pt.vy; pt.vy += 0.3; pt.life -= dt; }
-      particles = particles.filter(pt => pt.life > 0);
-      for (const fl of floats) { fl.y -= dt * 50; fl.life -= dt; }
-      floats = floats.filter(fl => fl.life > 0);
       if (wordTransitionT === 0) finishWordTransition();
-      return;
     }
     // Mission 3: move platforms and carry the rider (uses LAST frame's p.stood),
     // then clear p.stood so this frame's collisions can re-establish it.
@@ -840,7 +804,7 @@ function startGame(mount, opts) {
     p.stood = null;
     const heldAxis = (keys.right ? 1 : 0) - (keys.left ? 1 : 0);
     const assistedAxis = heldAxis || (tapMoveT > 0 ? tapMoveDir : (autoLeapT > 0 ? p.face : 0));
-    p.vx = assistedAxis * MOVE;
+    p.vx = letterLeapVelocity(p.vx, assistedAxis, p.onGround);
     // Coyote time + jump buffering + variable jump height (modern platformer feel).
     coyoteT = p.onGround ? COYOTE : Math.max(0, coyoteT - dt);
     jumpBufT = Math.max(0, jumpBufT - dt);
@@ -900,16 +864,21 @@ function startGame(mount, opts) {
     // recovery action and preserves every surrounding platform and hazard.
     for (const b of level.bubbles) {
       if (b.taken) continue;
+      b.cooldown = Math.max(0, (b.cooldown || 0) - dt);
       if (!isLetterLeapCurrentChoice(b, wIx, nextIx)) continue;
-      if (!touchChoiceArmed) continue;
-      if (Math.abs(b.x - p.x) < 34 && Math.abs(b.y - p.y) < 42) {
+      const touching = Math.abs(b.x - p.x) < 34 && Math.abs(b.y - p.y) < 42;
+      if (!touching) b.touching = false;
+      if (touching) {
         if (b.word === -1) {
-          if (invuln > 0) continue; // i-frames: never consume a decoy for free
+          const freshContact = !b.touching;
+          b.touching = true;
+          if (!freshContact || b.cooldown > 0) continue;
+          b.cooldown = 1.4;
           wrongHits += 1; // literacy mistakes — the ONLY mistakes the star rubric sees
           burst(b.x, b.y, "#ff7a66"); sfx(playSoftBuzz);
           const tip = "That's " + b.ch + " — you need " + word[Math.min(nextIx, word.length - 1)] + "!";
           addFloat(b.x, b.y - 26, tip); // teach, don't punish: no heart lost
-          sfx(() => speak(tip));
+          sfx(() => speakWord(word.toLowerCase()));
         }
         else if (b.word === wIx && b.order === nextIx) {
           const alreadySaved = completedWordEvidence.has([stageIdx, legIx, wIx].join(":"));
@@ -918,12 +887,6 @@ function startGame(mount, opts) {
           else { addScore(10); addFloat(b.x, b.y - 22, "+10"); }
           if (nextIx >= word.length) wordDone();
           else {
-            // Each grapheme needs a fresh, deliberate input. Without this gate
-            // one held arrow could run through two newly compacted phone-size
-            // groups and complete multiple letters from a single decision.
-            releaseInputs();
-            touchChoiceArmed = false;
-            p.vx = 0;
             renderWord();
           }
         }
@@ -962,7 +925,10 @@ function startGame(mount, opts) {
     } else if (p.x > level.flag && !stageDone) p.x = level.flag - 4;
     // Camera lookahead: bias the view the way the child is facing (SMW feel).
     const camTarget = Math.max(0, Math.min(level.L - W, p.x - W * 0.35 + p.face * letterLeapCameraLookahead(W)));
-    cam += (camTarget - cam) * Math.min(1, dt * 4);
+    cam += (camTarget - cam) * Math.min(1, dt * 7);
+    const verticalTarget = Math.min(0, p.y - Math.max(120, H * 0.52));
+    camY += (verticalTarget - camY) * Math.min(1, dt * 9);
+    camY = Math.min(camY, p.y - Math.min(H - 40, 154));
     for (const pt of particles) { pt.x += pt.vx; pt.y += pt.vy; pt.vy += 0.3; pt.life -= dt; }
     particles = particles.filter(pt => pt.life > 0);
     for (const fl of floats) { fl.y -= dt * 50; fl.life -= dt; }
@@ -985,38 +951,32 @@ function startGame(mount, opts) {
   function grassStrip(x, w) {
     if (w <= 0) return;
     const y = groundY();
-    const top = ctx.createLinearGradient(0, y - 10, 0, y + 20);
-    top.addColorStop(0, theme.grass);
-    top.addColorStop(0.45, theme.ground);
-    top.addColorStop(1, theme.dirt[0]);
-    ctx.fillStyle = top;
-    ctx.beginPath();
-    ctx.moveTo(x, y + 8);
-    for (let gx = x; gx <= x + w + 20; gx += 28) {
-      ctx.lineTo(gx + 9, y - 9);
-      ctx.lineTo(gx + 22, y + 6);
+    const end = x + w;
+    const left = Math.max(x, Math.floor(cam / 128) * 128 - 128);
+    const right = Math.min(end, cam + W + 128);
+    const side = ctx.createLinearGradient(0, y, 0, H + 200);
+    side.addColorStop(0, theme.dirt[0]); side.addColorStop(1, theme.dirt[1]);
+    ctx.fillStyle = side; ctx.fillRect(x, y, w, H + 200 - y);
+    // The committed terrain asset is a sheet, not a transparent single tile.
+    // Sample the solid grass/rock centre instead of stretching its white gutters.
+    const im = SPR.platform;
+    if (im?.width) {
+      ctx.save(); ctx.beginPath(); ctx.rect(x, y, w, H + 200 - y); ctx.clip();
+      for (let gx = left; gx < right; gx += 128) {
+        ctx.drawImage(im, 140, 238, 185, 101, gx, y, 128, 78);
+      }
+      ctx.restore();
     }
-    ctx.lineTo(x + w, y + 20);
-    ctx.lineTo(x, y + 20);
-    ctx.closePath();
-    ctx.fill();
-    ctx.fillStyle = "rgba(255,255,255,.16)";
-    ctx.fillRect(x, y - 2, w, 2);
-    const side = ctx.createLinearGradient(0, y + 16, 0, H);
-    side.addColorStop(0, theme.dirt[0]);
-    side.addColorStop(0.55, theme.dirt[1]);
-    side.addColorStop(1, "#071022");
-    ctx.fillStyle = side;
-    ctx.fillRect(x, y + 16, w, H - y - 16);
-    ctx.strokeStyle = "rgba(255,255,255,.08)";
-    ctx.lineWidth = 1;
-    for (let gx = x + 20; gx < x + w; gx += 64) {
-      ctx.beginPath();
-      ctx.moveTo(gx, y + 24);
-      ctx.lineTo(gx - 22, H);
-      ctx.stroke();
+    ctx.fillStyle = theme.grass;
+    ctx.fillRect(x, y - 2, w, 5);
+    ctx.strokeStyle = theme.ground; ctx.lineWidth = 2;
+    for (let gx = left; gx < right; gx += 18) {
+      if (gx < x || gx > end) continue;
+      const length = 3 + 3 * Math.abs(Math.sin(gx * 0.17));
+      ctx.beginPath(); ctx.moveTo(gx, y + 2); ctx.quadraticCurveTo(gx - 2, y - length, gx - 5, y - length); ctx.stroke();
     }
   }
+
   function platform(pl) {
     ctx.fillStyle = "rgba(0,0,0,.26)";
     panelPath(pl.x + 6, pl.y + 12, pl.w, 26, 8);
@@ -1026,10 +986,9 @@ function startGame(mount, opts) {
       ctx.save();
       panelPath(pl.x, pl.y, pl.w, 32, 9);
       ctx.clip();
-      const th = 50, tw = im.width / im.height * th;
-      for (let gx = pl.x; gx < pl.x + pl.w; gx += tw) ctx.drawImage(im, gx, pl.y - 8, tw, th);
-      ctx.fillStyle = "rgba(8,18,34,.2)";
-      ctx.fillRect(pl.x, pl.y + 22, pl.w, 10);
+      for (let gx = pl.x; gx < pl.x + pl.w; gx += 96) {
+        ctx.drawImage(im, 140, 238, 185, 101, gx, pl.y, 96, 52);
+      }
       ctx.restore();
       return;
     }
@@ -1048,21 +1007,21 @@ function startGame(mount, opts) {
   function bubble(x, y, ch) {
     ctx.save();
     ctx.shadowColor = "rgba(126,232,255,.7)";
-    ctx.shadowBlur = 20;
-    ctx.fillStyle = "rgba(8,18,42,.58)";
-    panelPath(x - 33, y - 29, 66, 58, 10);
+    ctx.shadowBlur = 8;
+    ctx.fillStyle = "rgba(39,55,33,.35)";
+    rr(x - 33, y - 29, 66, 58, 16);
     ctx.fill();
     const rg = ctx.createLinearGradient(x - 30, y - 27, x + 32, y + 29);
-    rg.addColorStop(0, "#eaffff");
-    rg.addColorStop(0.34, "#8ff6ff");
-    rg.addColorStop(1, "#2f83ff");
+    rg.addColorStop(0, "#fff9d9");
+    rg.addColorStop(0.34, "#ffe9a0");
+    rg.addColorStop(1, "#dfae52");
     ctx.fillStyle = rg;
-    panelPath(x - 30, y - 27, 60, 54, 9);
+    rr(x - 30, y - 27, 60, 54, 14);
     ctx.fill();
     ctx.shadowBlur = 0;
     ctx.strokeStyle = "rgba(255,255,255,.72)";
     ctx.lineWidth = 2;
-    panelPath(x - 30, y - 27, 60, 54, 9);
+    rr(x - 30, y - 27, 60, 54, 14);
     ctx.stroke();
     ctx.fillStyle = "#061022";
     ctx.font = "900 32px Fredoka, sans-serif";
@@ -1159,53 +1118,50 @@ function startGame(mount, opts) {
     const p = player; if (invuln > 0 && Math.floor(invuln * 12) % 2 === 0) return;
     const sq = p.squash, sx = 1 - sq, sy = 1 + sq, bob = !reduceMotion && p.onGround ? Math.sin(p.anim) * 1.5 : 0;
     ctx.save();
-    const cueY = p.y - (H >= 220 ? 74 : 54);
-    ctx.shadowColor = "rgba(88,241,255,.84)";
-    ctx.shadowBlur = 14;
-    ctx.strokeStyle = "rgba(126,246,255,.96)";
-    ctx.lineWidth = 3;
-    ctx.beginPath();
-    ctx.ellipse(p.x, groundY() - 2, 30, 9, 0, 0, 7);
-    ctx.stroke();
-    ctx.shadowBlur = 0;
-    if (H >= 220) {
-      ctx.fillStyle = "rgba(7,12,32,.9)";
-      panelPath(p.x - 27, cueY - 10, 54, 22, 6);
-      ctx.fill();
-      ctx.strokeStyle = "#8ff6ff";
-      ctx.lineWidth = 2;
-      panelPath(p.x - 27, cueY - 10, 54, 22, 6);
+    // Identify the hero on arrival, then clear the label as movement begins.
+    if (p.anim < 1) {
+      const cueY = p.y - (H >= 220 ? 74 : 54);
+      ctx.shadowColor = "rgba(88,241,255,.84)";
+      ctx.shadowBlur = 14;
+      ctx.strokeStyle = "rgba(126,246,255,.96)";
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.ellipse(p.x, groundY() - 2, 30, 9, 0, 0, 7);
       ctx.stroke();
-      ctx.fillStyle = "#fff";
-      ctx.font = "900 13px Fredoka, sans-serif";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillText("YOU", p.x, cueY + 1);
+      ctx.shadowBlur = 0;
+      if (H >= 220) {
+        ctx.fillStyle = "rgba(7,12,32,.9)";
+        panelPath(p.x - 27, cueY - 10, 54, 22, 6);
+        ctx.fill();
+        ctx.strokeStyle = "#8ff6ff";
+        ctx.lineWidth = 2;
+        panelPath(p.x - 27, cueY - 10, 54, 22, 6);
+        ctx.stroke();
+        ctx.fillStyle = "#fff";
+        ctx.font = "900 13px Fredoka, sans-serif";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("YOU", p.x, cueY + 1);
+      }
+      ctx.fillStyle = "#ffe879";
+      ctx.strokeStyle = "rgba(7,12,32,.88)";
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(p.x - 9, cueY + (H >= 220 ? 17 : 1));
+      ctx.lineTo(p.x + 9, cueY + (H >= 220 ? 17 : 1));
+      ctx.lineTo(p.x, cueY + (H >= 220 ? 29 : 13));
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
     }
-    ctx.fillStyle = "#ffe879";
-    ctx.strokeStyle = "rgba(7,12,32,.88)";
-    ctx.lineWidth = 3;
-    ctx.beginPath();
-    ctx.moveTo(p.x - 9, cueY + (H >= 220 ? 17 : 1));
-    ctx.lineTo(p.x + 9, cueY + (H >= 220 ? 17 : 1));
-    ctx.lineTo(p.x, cueY + (H >= 220 ? 29 : 13));
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
     ctx.fillStyle = "rgba(0,0,0,.34)"; ctx.beginPath(); ctx.ellipse(p.x, groundY() - 2 > p.y + 22 ? p.y + 24 : groundY() - 2, 23, 6, 0, 0, 7); ctx.fill();
     ctx.translate(p.x, p.y + bob); ctx.scale(p.face * sx, sy);
     const cim = currentChar();
     if (cim && cim.width) {
-      const h = H < 320 ? 82 : 86, w = cim.width / cim.height * h;
-      ctx.shadowColor = "rgba(126,232,255,.42)";
-      ctx.shadowBlur = 14;
-      ctx.drawImage(cim, -w / 2, -h / 2 - 8, w, h);
-      ctx.shadowBlur = 0;
-      ctx.globalCompositeOperation = "screen";
-      ctx.globalAlpha = 0.22;
-      ctx.fillStyle = "#8ff6ff";
-      panelPath(-w / 2 + 4, -h / 2 - 6, w - 8, h - 6, 12);
-      ctx.fill();
+      const h = H < 240 ? 56 : 76, w = cim.width / cim.height * h;
+      const lean = reduceMotion ? 0 : (p.onGround ? Math.sin(p.anim) * Math.min(0.055, Math.abs(p.vx) * 0.012) : Math.max(-0.12, Math.min(0.12, p.vy * 0.012)));
+      ctx.rotate(lean);
+      ctx.drawImage(cim, -w / 2, p.h / 2 - h, w, h);
       ctx.restore();
       return;
     }
@@ -1228,7 +1184,7 @@ function startGame(mount, opts) {
       else ctx.drawImage(im, x, 0, iw, H);
       ctx.restore();
     }
-    drawDepthScenery(time);
+    ctx.save(); ctx.globalAlpha = 0.18; drawDepthScenery(time); ctx.restore();
     const ground = groundY();
     const sh = ctx.createLinearGradient(0, ground - 70, 0, ground); sh.addColorStop(0, "rgba(6,10,20,0)"); sh.addColorStop(1, "rgba(6,10,20,.28)"); ctx.fillStyle = sh; ctx.fillRect(0, ground - 70, W, 70);
     return true;
@@ -1247,7 +1203,7 @@ function startGame(mount, opts) {
     for (const s of spores) { const sx = ((s.x - cam * 0.5) % (W + 60) + W + 60) % (W + 60) - 30; const sy = reduceMotion ? s.y : s.y + Math.sin(t * 0.8 + s.ph) * 14; ctx.globalAlpha = 0.5; ctx.fillStyle = theme.moon ? "#ffe9a0" : "#ffffff"; ctx.beginPath(); ctx.arc(sx, sy, s.s, 0, 7); ctx.fill(); ctx.globalAlpha = 1; }
     const shx = (shakeT > 0 && !reduceMotion) ? (Math.random() - 0.5) * 6 * (shakeT / 0.22) : 0;
     const shy = (shakeT > 0 && !reduceMotion) ? (Math.random() - 0.5) * 6 * (shakeT / 0.22) : 0;
-    ctx.save(); ctx.translate(-cam + shx, shy);
+    ctx.save(); ctx.translate(-cam + shx, -camY + shy);
     let x = 0; const dg = ctx.createLinearGradient(0, groundY(), 0, H); dg.addColorStop(0, theme.dirt[0]); dg.addColorStop(1, theme.dirt[1]); ctx.fillStyle = dg; ctx.fillRect(0, groundY() + 16, level.L, letterLeapGroundHeight(H));
     for (const p of level.pits) { grassStrip(x, p[0] - x); x = p[1]; } grassStrip(x, level.L - x);
     for (const pl of level.plats) platform(pl);
@@ -1286,9 +1242,7 @@ function startGame(mount, opts) {
     drawCinematicOverlay();
   }
 
-  // ── art (committed webp). Per-world playable-character roster so different
-  // pals appear on different levels; falls back to char-hero until the art lands.
-  // Moonwood keeps the current sprout hero; meadow/dino get their own pals. ──
+  // ── Current canonical book art ─────────────────────────────────────────────
   // Crop transparent padding off a sprite once at load — padding is why enemies
   // and pals appeared to FLOAT above the ground.
   function alphaTrim(img) {
@@ -1314,26 +1268,23 @@ function startGame(mount, opts) {
     out.getContext("2d").drawImage(img, -left, -top);
     return out;
   }
-  const CHAR_ROSTER = {
-    // Begin with the running rabbit. The former stage-one sheep had the same
-    // still, grounded silhouette as the decorative meadow animals, so children
-    // reasonably read their controllable avatar as background scenery.
-    meadow: ["char-meadow-b.webp", "char-meadow-c.webp", "char-meadow-a.webp"],
-    dino: ["char-dino-a.webp", "char-dino-b.webp", "char-dino-c.webp"],
-    moonwood: ["char-hero.webp", "char-moonwood-a.webp", "char-moonwood-b.webp"]
-  };
-  const BGIMG = {}, SPR = {}, charImgs = [];
-  const heroImg = new Image(); heroImg.src = "/images/games/char-hero.webp";
+  // Use the current book-cast registry: Speedy, Chompy and Pip have authored
+  // side-view hero art. A character's identity stays stable throughout its world.
+  const hero = CAST[HEROES.find(candidate => candidate.land === world).id];
+  const BGIMG = {}, SPR = {};
+  let heroImage = null;
+  const loadHero = new Image();
+  loadHero.onload = () => { try { heroImage = alphaTrim(loadHero); } catch { heroImage = loadHero; } };
+  loadHero.onerror = () => { loadHero.onerror = null; loadHero.src = hero.sprite; };
+  loadHero.src = hero.heroSprite;
+  cv.setAttribute("aria-label", `${hero.name} runs and jumps through the letter trail`);
   ["meadow", "dino", "moonwood"].forEach(k => { const im = new Image(); im.onload = () => { BGIMG[k] = im; }; im.src = "/images/games/bg-" + k + ".webp"; });
-  (CHAR_ROSTER[world] || []).forEach((file, i) => { const im = new Image(); im.onload = () => { try { charImgs[i] = alphaTrim(im); } catch { charImgs[i] = im; } }; im.src = "/images/games/" + file; });
-  const currentChar = () => {
-    const roster = CHAR_ROSTER[world] || [];
-    const idx = roster.length ? stageIdx % roster.length : 0;   // one stable pal per stage — no load-swap/cycling
-    return (charImgs[idx] && charImgs[idx].width) ? charImgs[idx] : (heroImg.width ? heroImg : null);
-  };
+  const currentChar = () => heroImage;
   const sprLoad = (key, file) => { const im = new Image(); im.onload = () => { try { SPR[key] = alphaTrim(im); } catch { SPR[key] = im; } }; im.src = "/images/games/" + file; };
   sprLoad("grumper", "enemy-grumper.webp");
-  sprLoad("platform", "tile-platform.webp");
+  const platformImage = new Image();
+  platformImage.onload = () => { SPR.platform = platformImage; };
+  platformImage.src = "/images/games/tile-platform.webp";
 
   function loop(now) {
     rafId = requestAnimationFrame(loop);
@@ -1355,6 +1306,7 @@ function startGame(mount, opts) {
 
   function teardown() {
     running = false;
+    delete mount.__letterLeapSnapshot;
     closeOverlayDialog();
     cancelAnimationFrame(rafId);
     window.removeEventListener("keydown", onKeyDown); window.removeEventListener("keyup", onKeyUp);
@@ -1368,6 +1320,17 @@ function startGame(mount, opts) {
     elHear?.removeEventListener("click", speakTarget);
     ro.disconnect();
     [cv, hud, responsiveStyle, padWrap, overlay].forEach(n => { try { n.remove(); } catch { /* ignore */ } });
+  }
+  if (import.meta.env.DEV && window.location.pathname === "/preview/game-overlay.html") {
+    mount.__letterLeapSnapshot = () => ({
+      player: player ? { ...player, stood: undefined } : null, cam, camY, running,
+      word, wordIndex: wIx, letterIndex: nextIx, stageIndex: stageIdx,
+      wordsDone: wordsDoneGlobal, wrongHits, wordTransitionT,
+      bubbles: level.bubbles.map(b => ({ ...b })),
+      foes: level.foes.map(f => ({ ...f })), blocks: level.blocks.map(b => ({ ...b })),
+      platforms: level.plats.map(p => ({ ...p })), pits: level.pits.map(p => [...p]),
+      groundY: groundY(), flag: level.flag, height: H
+    });
   }
   return { teardown, pause, resume, refreshSoundState: renderWord };
 }
