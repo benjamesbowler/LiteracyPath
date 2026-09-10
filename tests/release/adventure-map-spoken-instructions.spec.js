@@ -292,3 +292,56 @@ test("leaving a round stops active directions", async ({ page }) => {
   await page.waitForTimeout(300);
   expect(await playedAudio(page)).not.toContain(letterInstruction);
 });
+
+test("map front door speaks its recorded action while the stop stays usable", async ({ page }) => {
+  await installAudioRecorder(page);
+  await page.goto('/preview/child-surfaces.html?surface=adventure-map');
+  const speaker = page.locator('[data-map-instruction-audio]');
+  const path = await speaker.getAttribute('data-map-instruction-audio');
+  expect(path).toMatch(/tap-the-card-with-the-arrow-to-start/);
+  await expect.poll(()=>playedAudio(page)).toContain(path);
+  await page.evaluate(()=>{window.__adventureAudioEndMs=60000;});
+  await speaker.click();
+  await expect(page.locator('button[data-child-primary]')).toBeEnabled();
+  await page.locator('button[data-child-primary]').click();
+  await expect(speaker).toHaveCount(0);
+  await expect.poll(()=>pausedAudio(page)).toContain(path);
+});
+
+test("map autoplay rejection recovers on a gesture without a listening gate", async ({ page }) => {
+  await installAudioRecorder(page);
+  await page.addInitScript(()=>{
+    const original=window.Audio.prototype.play;
+    let blocked=true;
+    window.Audio.prototype.play=function(){
+      if(blocked){blocked=false;return Promise.reject(new DOMException('Gesture required','NotAllowedError'));}
+      return original.call(this);
+    };
+  });
+  await page.goto('/preview/child-surfaces.html?surface=adventure-map');
+  const speaker=page.locator('[data-map-instruction-audio]');
+  await expect(speaker).toBeEnabled();
+  await expect(page.locator('button[data-child-primary]')).toBeEnabled();
+  await page.locator('h1').click();
+  const path=await speaker.getAttribute('data-map-instruction-audio');
+  await expect.poll(()=>playedAudio(page)).toContain(path);
+  await clearAudioLog(page);
+  await speaker.click();
+  await expect.poll(()=>playedAudio(page)).toContain(path);
+});
+
+test("map recorded directions decode and play through the native browser audio element", async ({ page }) => {
+  await page.addInitScript(()=>{
+    window.__nativeMapAudio=[];
+    const original=HTMLMediaElement.prototype.play;
+    HTMLMediaElement.prototype.play=function(...args){
+      const result=original.apply(this,args);
+      result?.then(()=>window.__nativeMapAudio.push({src:this.currentSrc||this.src,duration:this.duration})).catch(()=>{});
+      return result;
+    };
+  });
+  await page.goto('/preview/child-surfaces.html?surface=adventure-map');
+  await page.locator('[data-map-instruction-audio]').click();
+  await expect.poll(()=>page.evaluate(()=>window.__nativeMapAudio.some(item=>item.src.includes('tap-the-card-with-the-arrow-to-start')&&item.duration>1))).toBe(true);
+  await expect(page.locator('button[data-child-primary]')).toBeEnabled();
+});

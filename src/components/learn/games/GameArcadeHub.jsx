@@ -10,7 +10,6 @@ import {
 } from "../../../utils/learnGamesProgress";
 import { ProgressStars } from "./shared/ProgressStars.jsx";
 import { SoundToggle } from "./shared/SoundToggle.jsx";
-import { MusicToggle } from "../../audio/MusicToggle.jsx";
 import { GamePlayer } from "./GamePlayer.jsx";
 import { LEARN_GAMES } from "./games/index.js";
 import { ChildRecommendationExplanation } from "../../recommendations/RecommendationExplanation.jsx";
@@ -230,9 +229,6 @@ export function GameArcadeHub({
     setProgress(saveLearnGamesSettings(progressScopeKey, { soundEnabled }));
   }
 
-  function setMusicEnabled(musicEnabled) {
-    setProgress(saveLearnGamesSettings(progressScopeKey, { musicEnabled }));
-  }
 
   const world = worldForDifficulty(progress.difficulty);
   // Recomputed each render so a try session's sample takes effect; the scope is
@@ -324,12 +320,6 @@ export function GameArcadeHub({
             <SoundToggle
               enabled={progress.soundEnabled}
               onToggle={() => setSoundEnabled(!progress.soundEnabled)}
-              showLabel
-            />
-            <MusicToggle
-              className="lg-sound-toggle lg-audio-toggle-labelled"
-              enabled={progress.musicEnabled}
-              onToggle={() => setMusicEnabled(!progress.musicEnabled)}
               showLabel
             />
           </div>
@@ -472,14 +462,12 @@ export function GameArcadeHub({
           game={displayedActiveGame}
           difficulty={progress.difficulty}
           soundEnabled={progress.soundEnabled}
-          musicEnabled={progress.musicEnabled}
           progressScopeKey={progressScopeKey}
           onClose={() => {
             setActiveGame(null);
             setLeaderboardRefresh(value => value + 1);
           }}
           onSoundEnabledChange={setSoundEnabled}
-          onMusicEnabledChange={setMusicEnabled}
           onProgressChange={setProgress}
         />
       )}

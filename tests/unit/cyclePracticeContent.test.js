@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { elSkillsBlockCycles } from '../../src/data/elSkillsBlockCycles.js';
@@ -214,4 +215,34 @@ test('readiness combines active 30 minutes with meaningful completed breadth, no
     assert.deepEqual(buildCyclePracticePlan(cycle, 'scope').blueprint.curriculumPhonemicAwareness, cycle.phonemicAwareness);
 
   }
+});
+
+
+test('practice retains every taught predecessor in sound pictures, matching, sorting and formation', () => {
+  for (const cycle of cycles) {
+    const pools = buildCyclePracticePools(cycle, 'cumulative-review');
+    for (const grapheme of cycleTaughtGraphemes(cycle)) {
+      for (const mechanic of ['pictureSound', 'letterMatch', 'soundSort', 'letterTrace']) {
+        assert.ok(pools[mechanic].some(round => round.targetGrapheme === grapheme), `${cycle.id} ${mechanic} reviews ${grapheme}`);
+      }
+    }
+  }
+});
+
+test('early cycles mix every taught sound into the opening activities with varied n pictures', () => {
+  for (const cycle of cycles.slice(0, 3)) {
+    const rounds = buildCyclePracticePlan(cycle, 'child-surface-preview:preview').rounds;
+    const opening = rounds.slice(0, 36);
+    for (const grapheme of cycleTaughtGraphemes(cycle)) assert.ok(opening.some(round => (round.focusGrapheme || round.targetGrapheme?.toLowerCase()) === grapheme), `${cycle.id}: ${grapheme} is visible in initial play`);
+    if (cycle.cycleNumber === 3) {
+      const nWords = opening.filter(round => round.targetGrapheme === 'n').map(round => round.targetWord);
+      assert.ok(new Set(nWords).size >= 3);
+      assert.ok(opening.filter(round => round.targetWord === 'net').length <= 1);
+    }
+  }
+});
+
+test('cumulative practice preserves all 27 original Cycle Check decks and evidence fields', () => {
+  const hashes = cycles.map(cycle => createHash('sha256').update(JSON.stringify(buildCyclePracticePlan(cycle, 'check-contract', 0, true).rounds)).digest('hex'));
+  assert.equal(createHash('sha256').update(hashes.join('|')).digest('hex'), '7e565e5e053b506c55b58e8f53a43795e316c6b639ae4c30e89bdc2f5d3a82be');
 });

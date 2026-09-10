@@ -30,7 +30,8 @@ test("every music-playing child surface exposes music separately from spoken aud
   ].map(path => fs.readFileSync(path, "utf8"));
 
   assert.match(home, /Turn music off/);
-  assert.match(arcade, /onMusicEnabledChange=\{setMusicEnabled\}/);
+  assert.doesNotMatch(arcade, /musicEnabled=\{progress\.musicEnabled\}/);
+  assert.match(player, /useActivityMusic/);
   assert.match(arcade, /soundEnabled=\{progress\.soundEnabled\}/);
   assert.match(player, /if \(musicEnabled && game\.id !== "sound-beat"\) startGameMusic/);
   assert.match(player, /if \(!soundEnabled\) cancelSpeech\(\)/);

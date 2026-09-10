@@ -88,8 +88,8 @@ installed, reviewed, and trusted on 2026-08-03.
   visible to PostgREST. The in-app lock still needs physical-iPad classroom
   verification.
 - Music defaults off outside the main menu; the A–Z song keeps its on default.
-  Old saved music-on defaults migrate off once; new choices are versioned and
-  remembered. Spoken audio stays independent.
+  Game, Quest and Sound Seekers music opt-ins last only for the current visit;
+  saved or synced music-on settings cannot start a new activity. Spoken audio stays independent.
 - Child-facing background music is independently controllable from spoken
   teaching audio and game sounds across Home, Arcade/full-screen games, Sound
   Beat, and Sound Seekers. Existing whole-sound or quiet-soundscape preferences

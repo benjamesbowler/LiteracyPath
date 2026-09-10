@@ -32,7 +32,7 @@
 // seven-point arc is gone: it was invented, and it stood the Farm Gate in the
 // middle of a carrot patch.
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import StudentGlassShell from "./StudentGlassShell.jsx";
 import { ChildRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
@@ -50,7 +50,10 @@ import {
   readElQuestLocalProgress
 } from "../utils/adventureMapLocalProgress.js";
 import { PAL_WORLDS } from "../utils/palWorlds.js";
-import { speakStudentRailLabel } from "../policy/studentRailPolicy.js";
+import { playCueAudio, stopCueAudio } from "../utils/audio/cuePlayer.js";
+import { ADVENTURE_MAP_INSTRUCTIONS } from "./elQuest/adventureRoundAudio.js";
+import { ADVENTURE_MAP_INSTRUCTION_AUDIO } from "../data/generated/adventureMapInstructionAudio.generated.js";
+import { normalizeLedaAudioText } from "../data/ledaProductionAudio.js";
 import {
   ADVENTURE_MAP_PARTS,
   adventureMapPartFor,
@@ -249,10 +252,43 @@ export function StudentAdventureMapPage({
       ? `Your pal is waiting at ${scene.next.name}.`
       : "Every stop here is done.";
 
-  function hear(text) {
-    const spoken = speakStudentRailLabel(text, window);
-    setSpeechStatus(spoken ? "Reading it out." : "Speech is unavailable.");
-  }
+  const mapAudio = read.ok && scene.next && !openCycleId
+    ? ADVENTURE_MAP_INSTRUCTION_AUDIO[normalizeLedaAudioText(ADVENTURE_MAP_INSTRUCTIONS.mapEntry)]
+    : "";
+  const hear = useCallback(() => {
+    if (!mapAudio) return;
+    playCueAudio(mapAudio, {
+      playImmediately: true,
+      onDelivery: event => {
+        if (event.type === "started") setSpeechStatus("Reading it out.");
+        if (event.type === "completed") setSpeechStatus("");
+      },
+      onUnavailable: () => setSpeechStatus("Tap the speaker to hear the directions.")
+    });
+  }, [mapAudio]);
+  useEffect(() => {
+    if (!mapAudio) return undefined;
+    let active = true;
+    let retryOnGesture = false;
+    const play = () => playCueAudio(mapAudio, {
+      playImmediately: true,
+      onUnavailable: () => { if (active) retryOnGesture = true; }
+    });
+    const retry = event => {
+      if (!retryOnGesture || event.target?.closest?.("button, a")) return;
+      retryOnGesture = false;
+      play();
+    };
+    play();
+    window.addEventListener("pointerdown", retry);
+    window.addEventListener("keydown", retry);
+    return () => {
+      active = false;
+      window.removeEventListener("pointerdown", retry);
+      window.removeEventListener("keydown", retry);
+      stopCueAudio();
+    };
+  }, [mapAudio]);
 
   const stateLabel = stop => {
     if (stop.state === "done") return `${stop.stars} of 3 stars`;
@@ -377,7 +413,9 @@ export function StudentAdventureMapPage({
             type="button"
             className="kg-speaker kg-speaker--md kg-glass"
             aria-label="Hear this"
-            onClick={() => hear(`Adventure Map. ${context} ${instruction}`)}
+            onClick={hear}
+            disabled={!mapAudio}
+            data-map-instruction-audio={mapAudio}
           >
             <SpeakerGlyph />
           </button>

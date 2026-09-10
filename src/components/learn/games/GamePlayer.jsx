@@ -1,3 +1,4 @@
+import { useActivityMusic } from "../../../utils/audio/useActivityMusic.js";
 import { Component, Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { GAME_LIST } from "../../../data/learnGamesData";
@@ -83,13 +84,12 @@ export function GamePlayer({
   game,
   difficulty: initialDifficulty,
   soundEnabled,
-  musicEnabled = false,
   progressScopeKey,
   onClose,
   onSoundEnabledChange,
-  onMusicEnabledChange,
   onProgressChange
 }) {
+  const [musicEnabled, onMusicEnabledChange] = useActivityMusic(`${progressScopeKey}:${game.id}`);
   const [difficulty, setDifficulty] = useState(initialDifficulty);
   const [runIndex, setRunIndex] = useState(0);
   const [score, setScore] = useState(0);

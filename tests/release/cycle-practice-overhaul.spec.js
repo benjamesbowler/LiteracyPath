@@ -526,3 +526,24 @@ for (const mode of ['practice', 'assessment']) {
     expect(played[1].src).toBe(last.audio);
   });
 }
+
+test("cycle 3 plays cumulative taught sounds with varied pictured examples", async ({ page }) => {
+  test.setTimeout(60_000);
+  const current = elSkillsBlockCycles.find(row => row.id === "cycle-3");
+  const rounds = buildCyclePlan(current, seed).rounds;
+  const storageKey = cycleStorageKey(scope, "preview", current.id);
+  const selected = ["n", "i", "a", "m", "t", "s"].map(sound => rounds.findIndex(round => round.mechanicId === "pictureSound" && round.targetGrapheme === sound));
+  const nExamples = rounds.flatMap((round, index) => round.mechanicId === "pictureSound" && round.targetGrapheme === "n" ? [index] : []).slice(0, 3);
+  expect(new Set(nExamples.map(index => rounds[index].targetWord)).size).toBe(3);
+  await audioDouble(page);
+  for (const index of [...new Set([...selected, ...nExamples])]) {
+    await page.addInitScript(({ key, value }) => localStorage.setItem(key, JSON.stringify(value)), { key: storageKey, value: initialState({ practiceIndex: index }) });
+    await page.goto("/preview/child-surfaces.html?surface=cycle-practice&cycle=cycle-3&motion=reduced");
+    await ready(page);
+    await expect(page.locator('.cycle-practice-page')).toHaveAttribute('data-cycle-id', 'cycle-3');
+    const round = rounds[index];
+    for (const image of await page.locator('.cycle-activity-space img').all()) expect(await image.evaluate(node => node.complete && node.naturalWidth > 0)).toBe(true);
+    await choose(page, round);
+    await expect.poll(() => page.evaluate(({ key, id }) => JSON.parse(localStorage.getItem(key)).practiceRecords.some(record => record.questionId === id && record.activityCompleted), { key: storageKey, id: round.id })).toBe(true);
+  }
+});

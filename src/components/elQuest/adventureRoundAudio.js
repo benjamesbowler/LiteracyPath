@@ -7,6 +7,7 @@ import {
 } from "../../data/ledaProductionAudio.js";
 
 export const ADVENTURE_MAP_INSTRUCTIONS = Object.freeze({
+  mapEntry: "Tap the card with the arrow to start.",
   letterPair: "Press the big or small letter that pairs with the model.",
   soundGate: "Listen to the sound. Load its spelling into the sound gate, then open it.",
   sceneHunt: "Listen to each picture name. Tag every word that starts with the target sound, then check your tags.",

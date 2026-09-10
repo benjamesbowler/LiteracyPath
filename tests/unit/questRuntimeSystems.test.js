@@ -1959,7 +1959,7 @@ test("Sound Seekers preserves its authored mix across scene state and tab visibi
   const cues = fs.readFileSync("src/utils/audio/cuePlayer.js", "utf8");
 
   assert.match(root, /mode: musicMode/, "later chapters do not receive travel, encounter, and ceremony music mixes");
-  assert.match(root, /const isMusicEnabled = isSoundEnabledProp && state\.settings\?\.musicEnabled === true/, "background audio cannot be quieted independently of phonics cues");
+  assert.match(root, /const isMusicEnabled = isSoundEnabledProp && musicEnabled/, "background audio cannot be quieted independently of phonics cues");
   assert.match(root, /if \(isMusicEnabled\) startGameMusic/, "the separate music preference does not stop the score");
   assert.doesNotMatch(root, /DenScreen/, "the retired duplicate Den sits between the child and the real chapter map");
   assert.match(root, /initialView === VIEW\.DEN[\s\S]*?\? VIEW\.MAP/, "old Den links do not migrate to the real map");

@@ -164,6 +164,9 @@ function playRoundInstruction(round, {
   ].filter(Boolean);
   if (sequence.length) {
     playCueSequence(sequence, {
+      // Keep the first play attached to the station tap even while its preload
+      // is pending; the browser can buffer without losing media permission.
+      playImmediately: true,
       gapMs: 180,
       onDelivery,
       onStarted,

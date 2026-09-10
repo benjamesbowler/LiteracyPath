@@ -184,7 +184,7 @@ export function cycleTaughtGraphemes(cycle) {
 }
 export function cyclePracticeGraphemes(cycle) {
   const focus = cycleFocusGraphemes(cycle);
-  const review = cycleTaughtGraphemes(cycle).filter(g => !focus.includes(g)).slice(-6);
+  const review = cycleTaughtGraphemes(cycle).filter(g => !focus.includes(g));
   return [...focus, ...review];
 }
 export function cycleFocusGraphemes(cycle) {
@@ -221,14 +221,17 @@ function soundChoices(grapheme, taught, seed, count = 3) {
   for (const g of others) { if (selected.every(s => !cycleSoundsEquivalent(g, s))) selected.push(g); if (selected.length >= count) break; }
   return selected.map(value => ({ id: value, label: value, value, audio: getPreferredPhonemeAudioPath(value), soundAudio: getPreferredPhonemeAudioPath(value) }));
 }
-export function buildCyclePracticePools(cycle, seed) {
-  const taught = cycleTaughtGraphemes(cycle), focus = cycleFocusGraphemes(cycle), practiceGraphemes = cyclePracticeGraphemes(cycle), coverage = cyclePictureCoverage();
+export function buildCyclePracticePools(cycle, seed, check = false) {
+  const taught = cycleTaughtGraphemes(cycle), focus = cycleFocusGraphemes(cycle), coverage = cyclePictureCoverage();
+  // Assessment keeps its assigned-target sampling contract. Practice reviews
+  // every taught mapping, rather than dropping all but the six most recent.
+  const practiceGraphemes = check ? [...focus, ...taught.filter(g => !focus.includes(g)).slice(-6)] : cyclePracticeGraphemes(cycle);
   const pools = Object.fromEntries(Object.keys(STATIONS).map(key => [key, []]));
   const picturePool = unique(Object.values(coverage).flat());
   for (const grapheme of practiceGraphemes) {
     const soundAudio = getPreferredPhonemeAudioPath(grapheme), position = cycleSoundPosition(grapheme);
     if (!soundAudio) continue;
-    for (const word of coverage[grapheme] || []) {
+    for (const word of (check ? coverage[grapheme] || [] : shuffled(coverage[grapheme] || [], `${cycle.id}:word-examples:${grapheme}`))) {
       const common = { targetGrapheme: grapheme, soundAudio, soundPosition: position };
       const endingPart = ENDING_PARTS.has(grapheme);
       const distractors = shuffled(picturePool.filter(w => !cycleSoundMatches(w, grapheme)), `${seed}:pictures:${word}`).slice(0, 2);
@@ -265,7 +268,8 @@ export function buildCyclePracticePools(cycle, seed) {
     pools.soundSort.push(roundBase(cycle, 'soundSort', word, { variant: 'syllableSort', instructionKey: 'syllableSort', construct: 'spoken_syllable_counting', beats, answer: String(beats), choices: [1, 2, 3, 4].map(count => ({ id: String(count), value: String(count), label: String(count), beats: count, audio: cycleWordAudio(['', 'one', 'two', 'three', 'four'][count]) })) }));
   }
   for (const grapheme of practiceGraphemes.filter(g => g.length === 1)) {
-    const word = coverage[grapheme]?.[0];
+    const words = coverage[grapheme] || [];
+    const word = check ? words[0] : shuffled(words, `${cycle.id}:case-example:${grapheme}`)[0];
     if (!word) continue;
     for (const upperModel of [true, false]) {
       const model = upperModel ? grapheme.toUpperCase() : grapheme;
@@ -278,7 +282,7 @@ export function buildCyclePracticePools(cycle, seed) {
   for (const word of BUILD_WORDS) {
     const letters = tokensFor(word, taught);
     if (letters.length < 2 || !picture(word)) continue;
-    if (cycle.cycleNumber >= 15 && !focus.some(g => letters.includes(g))) continue;
+    if (check && cycle.cycleNumber >= 15 && !focus.some(g => letters.includes(g))) continue;
     const spare = shuffled(taught.filter(g => !letters.includes(g) && getPreferredPhonemeAudioPath(g)), `${seed}:build:${word}`).slice(0, 2);
     const choices = unique([...letters, ...spare]).map(value => ({ id: value, label: value, value, audio: getPreferredPhonemeAudioPath(value) }));
     pools.wordBuild.push(roundBase(cycle, 'wordBuild', word, { instructionKey: 'wordBuild', letters, graphemes: letters, choices, answer: letters }));
@@ -287,7 +291,7 @@ export function buildCyclePracticePools(cycle, seed) {
     const beforeLetters = tokensFor(beforeWord, taught), letters = tokensFor(word, taught);
     if (!picture(beforeWord) || !picture(word) || !letters.length || beforeLetters.length !== letters.length) continue;
     const changed = letters.flatMap((letter, index) => letter === beforeLetters[index] ? [] : [index]);
-    if (changed.length !== 1 || !focus.some(g => letters.includes(g) || beforeLetters.includes(g))) continue;
+    if (changed.length !== 1 || (check && !focus.some(g => letters.includes(g) || beforeLetters.includes(g)))) continue;
     const changeIndex = changed[0];
     const choices = soundChoices(letters[changeIndex], taught, `${seed}:change:${beforeWord}:${word}`);
     pools.wordBuild.push(roundBase(cycle, 'wordBuild', word, { variant: 'wordChange', instructionKey: 'wordChange', beforeWord, beforeImage: cycleWordImage(beforeWord), beforeAudio: cycleWordAudio(beforeWord), beforeLetters, letters, graphemes: letters, changeIndex, choices, answer: letters, construct: changeIndex === 0 ? 'initial_phoneme_substitution' : 'medial_phoneme_substitution' }));
@@ -360,35 +364,56 @@ export function cyclePracticeSemanticKey(round) {
 export function buildCyclePracticePlan(cycle, seed, pass = 0, check = false) {
   if (!cycle?.cycleNumber) return { rounds: [], unavailable: ['Cycle content'] };
   const stableSeed = `${seed}:${cycle.id}`;
-  const pools = buildCyclePracticePools(cycle, `${stableSeed}:pass:${pass}`);
+  const pools = buildCyclePracticePools(cycle, `${stableSeed}:pass:${pass}`, check);
   const authored = Object.values(pools).flat();
   const required = check ? [] : requiredCoverage(cycle, authored);
-  const core = new Set(), coveredCoreTags = new Set();
+  const core = new Set(), coveredCoreTags = new Set(), coreWords = new Set();
   for (const tag of required) {
     if (coveredCoreTags.has(tag)) continue;
-    const candidate = authored.find(round => round.coverageTags.includes(tag) && !core.has(round.semanticKey));
-    if (candidate) { core.add(candidate.semanticKey); candidate.coverageTags.forEach(value => coveredCoreTags.add(value)); }
+    const matches = authored.filter(round => round.coverageTags.includes(tag) && !core.has(round.semanticKey));
+    const candidate = matches.find(round => !coreWords.has(round.imageWord || round.targetWord)) || matches[0];
+    if (candidate) { core.add(candidate.semanticKey); coreWords.add(candidate.imageWord || candidate.targetWord); candidate.coverageTags.forEach(value => coveredCoreTags.add(value)); }
   }
   const ordered = Object.entries(pools).map(([mechanicId, rows]) => {
     const pool = shuffled(rows.filter(r => !check || r.checkEligible), `${stableSeed}:order:${mechanicId}:${pass}`);
-    return pool.sort((a, b) => Number(core.has(b.semanticKey)) - Number(core.has(a.semanticKey)) || Number(b.isCurrentFocus || b.variant === 'highFrequency') - Number(a.isCurrentFocus || a.variant === 'highFrequency'));
+    return pool.sort((a, b) => Number(core.has(b.semanticKey)) - Number(core.has(a.semanticKey)) || (check ? Number(b.isCurrentFocus || b.variant === 'highFrequency') - Number(a.isCurrentFocus || a.variant === 'highFrequency') : 0));
   });
   // Core breadth comes first; every genuine authored task is retained. Empty
   // activity queues are skipped rather than replaying a short station loop.
   let rounds = [], previousMechanic = '';
-  const modeledWords = new Set();
+  const modeledWords = new Set(), recentPictures = [], soundUse = new Map(), activityUse = new Map();
   while (ordered.some(pool => pool.length)) {
     // Nonreaders meet each visible word model before choosing its printed
     // form independently. Assessment follows completed practice, so it can
     // use recognition without retaining the supported copy activities.
+    if (!check) for (const pool of ordered) {
+      if (!pool.length) continue;
+      const needsCore = core.has(pool[0].semanticKey);
+      const eligible = pool.filter(round => core.has(round.semanticKey) === needsCore && (round.variant !== 'wordListen' || modeledWords.has(round.targetWord)));
+      // Balance genuine sound targets across current and earlier learning.
+      // Different activity labels must not produce net/net/net/net in a row.
+      const useCount = round => soundUse.get(round.focusGrapheme || round.targetGrapheme?.toLowerCase() || round.construct) || 0;
+      const best = eligible.reduce((best, round) => {
+        if (!best) return round;
+        const repeated = Number(recentPictures.includes(round.imageWord || round.targetWord));
+        const previousRepeated = Number(recentPictures.includes(best.imageWord || best.targetWord));
+        return repeated < previousRepeated || (repeated === previousRepeated && useCount(round) < useCount(best)) ? round : best;
+      }, null);
+      if (best) { const index = pool.indexOf(best); pool.unshift(...pool.splice(index, 1)); }
+    }
     const available = ordered.filter(pool => pool.length && (check || pool[0].variant !== 'wordListen' || modeledWords.has(pool[0].targetWord)));
     const different = available.filter(pool => pool[0].mechanicId !== previousMechanic);
     const candidates = different.length ? different : available;
     const selected = candidates.find(pool => core.has(pool[0].semanticKey))
-      || candidates.reduce((best, pool) => pool.length > best.length ? pool : best);
+      || candidates.reduce((best, pool) => check ? (pool.length > best.length ? pool : best) : ((activityUse.get(pool[0].mechanicId) || 0) < (activityUse.get(best[0].mechanicId) || 0) ? pool : best));
     const next = selected.shift();
     if (next.variant === 'highFrequency') modeledWords.add(next.targetWord);
     rounds.push(next); previousMechanic = next.mechanicId;
+    recentPictures.push(next.imageWord || next.targetWord);
+    if (recentPictures.length > 4) recentPictures.shift();
+    const mapping = next.focusGrapheme || next.targetGrapheme?.toLowerCase() || next.construct;
+    soundUse.set(mapping, (soundUse.get(mapping) || 0) + 1);
+    activityUse.set(next.mechanicId, (activityUse.get(next.mechanicId) || 0) + 1);
   }
   if (check) {
     const representatives = new Map();
@@ -458,7 +483,7 @@ export function cyclePracticeSessionBlueprint(cycle, suppliedRounds) {
     byConstruct: Object.fromEntries(unique(rounds.map(round => round.construct)).map(construct => [construct, rounds.filter(round => round.construct === construct).length])),
     responseActions: rounds.reduce((count, round) => count + (round.objects?.length || (Array.isArray(round.answer) ? round.variant === 'wordChange' ? 2 : round.answer.length : 1)), 0),
     practisedConstructs: unique(rounds.map(round => round.construct)),
-    assessedConstructs: unique(rounds.filter(round => round.checkEligible).map(round => round.construct)),
+    assessedConstructs: unique(Object.values(buildCyclePracticePools(cycle, 'assessment-blueprint', true)).flat().filter(round => round.checkEligible).map(round => round.construct)),
     curriculumPhonemicAwareness: [...(cycle.phonemicAwareness || [])],
     curriculumCoverageBoundary: 'The source phonemic-awareness notes provide curriculum context. This original programme practises and checks the declared constructs; it does not assess every source lesson subroutine or oral production. Supported copying and letter formation are practice, not independent handwriting or spelling proficiency.',
     focusGraphemes: cycleFocusGraphemes(cycle),

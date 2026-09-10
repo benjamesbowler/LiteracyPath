@@ -38,9 +38,11 @@ test('all 27 cycles generate stable resumable plans and changing passes cover fr
     assert.deepEqual(first,buildCyclePlan(cycle,'coverage'));assert.ok(first.rounds.length);assert.ok(check.rounds.length);
     assert.deepEqual(first.unavailable,[],cycle.id);assert.deepEqual(check.unavailable,[],cycle.id);
     assert.ok(check.rounds.every(r=>r.mechanicId!=='phraseFlow'));
-    const constructs = new Set(Object.values(buildCyclePracticePools(cycle, 'coverage')).flat().filter(r => r.checkEligible).map(r => r.construct));
+    const constructs = new Set(Object.values(buildCyclePracticePools(cycle, 'coverage', true)).flat().filter(r => r.checkEligible).map(r => r.construct));
     for (const grapheme of cycleFocusGraphemes(cycle)) assert.ok(check.rounds.some(r => r.targetGrapheme === grapheme), `${cycle.id}: ${grapheme}`);
     assert.deepEqual(new Set(check.rounds.map(r=>r.construct)),constructs,cycle.id);
+    assert.deepEqual(new Set(first.blueprint.assessedConstructs), constructs, `${cycle.id}: report only actual Check constructs`);
+    for (const construct of constructs) assert.ok(first.blueprint.practisedConstructs.includes(construct));
     assert.equal(new Set(check.rounds.map(r=>r.id)).size,check.rounds.length);
     if(JSON.stringify(first.rounds)!==JSON.stringify(next.rounds))changed++;
   }

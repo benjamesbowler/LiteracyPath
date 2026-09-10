@@ -6,7 +6,7 @@ export const appVisualAssetReview = {
   "reviewedBy": "codex-direct-visual-audit",
   "status": "complete",
   "scope": {
-    "imageCount": 7150,
+    "imageCount": 7151,
     "sources": [
       "runtime-media-registry",
       "source-literals",
@@ -28915,6 +28915,12 @@ export const appVisualAssetReview = {
       "path": "/media/initial-sounds/images/m/marshmallow.webp",
       "sha256": "a61b999973febe316f023259f45e7a230dbef1cba079f5519c9b35b0e9269ff1",
       "status": "approved"
+    },
+    {
+      "path": "/media/initial-sounds/images/m/mat.webp",
+      "sha256": "26e569b73278d4799e5fc3243ba502bfd297a88b0878d3a30199f59c9d0b639f",
+      "status": "approved",
+      "reviewedAt": "2026-09-10"
     },
     {
       "path": "/media/initial-sounds/images/m/mermaid.webp",

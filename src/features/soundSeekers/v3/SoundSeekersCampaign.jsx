@@ -1,3 +1,4 @@
+import { useActivityMusic } from "../../../utils/audio/useActivityMusic.js";
 import { soundSeekersCampaignCssVariables } from '../visual/visualTokens.js';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { CAST } from './content/cast.js';
@@ -13,7 +14,7 @@ import { loadCampaignProgress, saveCampaignProgress, subscribeCampaignProgress, 
 import { createCampaignPlayClock,advanceCampaignPlayClock,campaignPlayTimeSnapshot,mergeCampaignPlayTime } from './engine/campaignPlayTime.js';
 import { createCampaignAudio } from './engine/campaignAudio.js';
 import { createCampaignSoundscape } from './engine/campaignSoundscape.js';
-import { normalizeAudioPreferences,MUSIC_PREFERENCE_VERSION } from '../../../utils/audio/audioPreferences.js';
+import { normalizeAudioPreferences } from '../../../utils/audio/audioPreferences.js';
 import { createCampaignWorldScene } from './render/campaignWorldScene.js';
 import { HERO_ANIMATIONS,drawCampaignHero } from './render/campaignHeroes.js';
 import { preload,retryFailedImages } from './render/sprites.js';
@@ -41,7 +42,7 @@ export default function SoundSeekersCampaign({ progressScopeKey, isSoundEnabled 
   const [encounterError,setEncounterError]=useState('');
   const [line, setLine] = useState('');
   const [sound, setSound] = useState(()=>isSoundEnabled&&normalizeAudioPreferences(initial.progress?.audioPreferences).soundEnabled);
-  const music=normalizeAudioPreferences(progress?.audioPreferences).musicEnabled;
+  const [music, setMusic] = useActivityMusic(progressScopeKey);
   const soundscapeRef=useRef(null);
   const [sceneEpoch,setSceneEpoch]=useState(0);
   const [audioFailed, setAudioFailed] = useState(false);
@@ -106,7 +107,7 @@ export default function SoundSeekersCampaign({ progressScopeKey, isSoundEnabled 
   }, [persist,refreshHud,readPlayTime]);
 
   useEffect(() => {
-    soundscapeRef.current=createCampaignSoundscape({preferences:progressRef.current?.audioPreferences});
+    soundscapeRef.current=createCampaignSoundscape({preferences:{...progressRef.current?.audioPreferences,musicEnabled:false}});
     audioRef.current = createCampaignAudio({ onFailure: () => setAudioFailed(true),onSpeakingChange:speaking=>soundscapeRef.current?.configure({speaking}) });
     const unsubscribe = subscribeCampaignProgress(progressScopeKey, result => {
       setSaveStatus(result);
@@ -249,7 +250,7 @@ export default function SoundSeekersCampaign({ progressScopeKey, isSoundEnabled 
   }
   function leaveGame(){const c=controllerRef.current;persist(c?updateCampaignCheckpoint(progressRef.current,c.missionId,{attemptId:c.attemptId,playTime:readPlayTime(c),position:sceneRef.current?.snapshot()},Date.now()):progressRef.current,{forceSync:true});if(lastSaveResultRef.current.ok || lastSaveResultRef.current.status==='sync-failed')onExit();}
   function toggleSound() {const enabled=!sound;setSound(enabled);soundRef.current=enabled;setAudioFailed(false);if(!enabled)audioRef.current?.stop();persist({...progressRef.current,audioPreferences:{...progressRef.current.audioPreferences,...normalizeAudioPreferences(progressRef.current.audioPreferences),soundEnabled:enabled},updatedAt:Date.now()});}
-  function toggleMusic(){persist({...progressRef.current,audioPreferences:{...progressRef.current.audioPreferences,...normalizeAudioPreferences(progressRef.current.audioPreferences),musicEnabled:!music,musicPreferenceVersion:MUSIC_PREFERENCE_VERSION},updatedAt:Date.now()});}
+  function toggleMusic(){setMusic(!music);}
   const move = (name,value) => sceneRef.current?.setInput(name,value);
   if(!progress)return <div style={soundSeekersCampaignCssVariables()} className="ss-campaign ss-error" role="alert"><p>{saveStatus.error?.message}</p><button onClick={onExit}>Back</button></div>;
   return <main style={soundSeekersCampaignCssVariables()} className="ss-campaign" data-sound-seekers-game aria-label="Sound Seekers adventure" tabIndex={-1}>

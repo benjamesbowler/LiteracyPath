@@ -13,6 +13,7 @@ export function MusicToggle({ enabled, onToggle, className = "", showLabel = fal
         <path d="M9 18V6l10-2v12" />
         <circle cx="6" cy="18" r="3" />
         <circle cx="16" cy="16" r="3" />
+        {!enabled && <path d="M3 3l18 18" />}
       </svg>
       {showLabel && <span>Music {stateLabel}</span>}
     </button>

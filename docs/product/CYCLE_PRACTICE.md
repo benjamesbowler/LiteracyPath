@@ -10,7 +10,7 @@ longer uses the Adventure Map's memory, gate, poem or confirmation mechanics.
 
 All 27 numbered cycles use the taught sounds, patterns and words from
 `elSkillsBlockCycles.js`. Full interleaved decks provide distinct learning tasks before any replay.
-Earlier taught content supplies spaced review; choices and answer positions vary. Review cycles retain all their
+Every previously taught phoneme remains in the practice decks, interleaved with current sounds; only the assigned targets define Cycle Check coverage. Pictured examples rotate across the existing reviewed, recorded vocabulary rather than repeatedly using the first noun in each sound bank. Earlier taught content supplies spaced review; choices and answer positions vary. Review cycles retain all their
 assigned mappings. A missing picture offers reload without recording a literacy error. Instruction playback and audio failure never lock the response controls.
 
 | Activity | Child's action | Learning evidence |
@@ -94,7 +94,7 @@ succeeds. Children see a brief completion celebration; teachers retain the
 existing detailed results and support/media distinctions.
 
 The reporting protocol remains `cycle-practice-v2`; the activity revision is
-`cycle-play-2026-09`. Change this revision when a future deck replacement makes
+`cycle-play-cumulative-2026-09`. Change this revision when a future deck replacement makes
 saved indexes or question identities incompatible. Old unfinished local sessions restart against the new deck
 and retain their previous evidence locally. Frozen pending saves and completed
 results remain unchanged. Sorting resumes from its recorded object responses.

@@ -1,6 +1,8 @@
 # Complete gameplay, graphics and learning upgrade plan
 
 Status: active implementation; the full programme remains unfinished. The ledger below distinguishes delivered repairs from planned upgrades.
+
+Release audit, 11 September: all completed game batches through `03fa50f21` are on `origin/main` and its production deployment is READY. The only uncommitted game feature draft in this checkout before the new corrections was the explicitly deferred SoundKeys update. This confirms publication of delivered work, not completion of every graphics requirement below. Music regression found: the previous test explicitly preserved a saved opt-in across different games. The corrected policy is an activity-local opt-in, with quiet new visits regardless of saved/cloud settings; Home A–Z remains independent.
 Scope: all 22 catalogue games (13 Arcade and nine Phonics), plus the separately routed Sound Seekers adventure. Updated with product-owner feedback on 10 September 2026.
 Baseline: restored gameplay in `4c4108437`, with immediate activity access in `85598ee85`.
 
@@ -137,7 +139,7 @@ Track motor outcomes separately from learning outcomes. A missed gate may be a d
 
 ### Audio and interface
 
-Keep speech intelligible above effects and optional music, with short, game-specific sounds for actions and results. Preserve the current music defaults and opt-in settings. No new mandatory soundtrack, narration wait, timed reading overlay or repeated spoken lecture.
+Keep speech intelligible above effects and optional music, with short, game-specific sounds for actions and results. Music starts off on every newly opened game or activity; opt-in lasts only for that visit. The Home A–Z song is the sole default-on exception. No new mandatory soundtrack, narration wait, timed reading overlay or repeated spoken lecture.
 
 Maintain the current 56 CSS-pixel control floor, keyboard equivalents, focus visibility, safe areas and release-on-cancel behaviour. Test short landscape as well as portrait. In reduced motion, preserve object positions and timing while reducing camera roll, parallax and decorative movement. Colour alone never identifies a correct target.
 

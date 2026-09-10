@@ -10,6 +10,7 @@ import {
   getLedaInstructionAudioPath,
   normalizeLedaAudioText
 } from "../src/data/ledaProductionAudio.js";
+import { ADVENTURE_MAP_INSTRUCTION_AUDIO } from "../src/data/generated/adventureMapInstructionAudio.generated.js";
 import { ADVENTURE_MAP_AUDIO_TEXTS } from "../src/components/elQuest/adventureRoundAudio.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -72,7 +73,7 @@ function normalizeMp3(wavPath, mp3Path) {
 }
 
 const rows = ADVENTURE_MAP_AUDIO_TEXTS.map(text => {
-  const existing = getLedaInstructionAudioPath(text);
+  const existing = ADVENTURE_MAP_INSTRUCTION_AUDIO[normalizeLedaAudioText(text)] || getLedaInstructionAudioPath(text);
   return {
     text,
     normalized: normalizeLedaAudioText(text),

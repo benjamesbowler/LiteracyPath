@@ -1402,12 +1402,14 @@ export const childWordMediaManifest = {
     "word": "mat",
     "source": "child_word_media",
     "category": "assessment",
-    "image": "/images/child-mode/initial-sounds/mat.webp",
+    "image": "/media/initial-sounds/images/m/mat.webp",
+    "fallbackImage": "/media/initial-sounds/images/m/mat.webp",
+    "alt": "A rectangular floor mat",
     "imageCategory": "initial-sounds",
     "audio": "/audio/child-mode/words/mat.mp3",
     "audioCategory": "words",
     "notes": "CVC short vowel word",
-    "imageNote": "Exact duplicate of public/images/child-mode/initial-sounds/mat.webp",
+    "imageNote": "Approved rectangular mat imported from the assessment replacement pack in d64edbae1; replaces the ambiguous oval child-mode image.",
     "audioNote": "Exact duplicate of public/audio/child-mode/words/mat.mp3"
   },
   "meat": {

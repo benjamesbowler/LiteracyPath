@@ -1,3 +1,4 @@
+import { useActivityMusic } from "../../utils/audio/useActivityMusic.js";
 // SOUND SEEKERS — the root.
 //
 // Portals to document.body and goes full-screen. That is not a style choice:
@@ -261,7 +262,8 @@ export default function QuestRoot({
   // remains an all-audio QA kill switch; the two child settings are otherwise
   // free to differ.
   const isSoundEnabled = isSoundEnabledProp && state.settings?.soundEnabled !== false;
-  const isMusicEnabled = isSoundEnabledProp && state.settings?.musicEnabled === true;
+  const [musicEnabled, setMusicEnabled] = useActivityMusic(progressScopeKey);
+  const isMusicEnabled = isSoundEnabledProp && musicEnabled;
   const ceremonyWorldReady = worldLayers.some(layer => layer.status === "active" && layer.ready);
 
   useEffect(() => {
@@ -856,6 +858,7 @@ export default function QuestRoot({
   }, []);
 
   const updateQuestSetting = useCallback((key, value) => {
+    if (key === "musicEnabled") { setMusicEnabled(value); return; }
     const current = stateRef.current;
     commit({
       ...current,
@@ -864,7 +867,7 @@ export default function QuestRoot({
     });
     setForce2d(false);
     setRuntimeQualityId(null);
-  }, [commit]);
+  }, [commit, setMusicEnabled]);
 
   const resetCharacter = useCallback(() => {
     const current = stateRef.current;
@@ -1139,7 +1142,7 @@ export default function QuestRoot({
       <QuestSettingsDialog
         open={settingsOpen}
         triggerRef={settingsTriggerRef}
-        settings={state.settings}
+        settings={{ ...state.settings, musicEnabled }}
         onSettingChange={updateQuestSetting}
         onResetCharacter={resetCharacter}
         onResetProgress={resetProgress}
