@@ -5,6 +5,7 @@
 
 export const ARCADE_PREMIUM_PROFILES = Object.freeze({
   "rocket-run": Object.freeze({
+    completionPresentation: "engine",
     version: "2.0",
     mission: "Catch words that start with the shown sound.",
     objective: "Match a spoken and printed word to its beginning sound.",
@@ -105,6 +106,7 @@ export const ARCADE_PREMIUM_PROFILES = Object.freeze({
     rewardLabel: "sentences fixed"
   }),
   "sentence-express": Object.freeze({
+    completionPresentation: "engine",
     version: "2.0",
     mission: "Couple word cars to build the sentence in order.",
     objective: "Reconstruct sentence order, capitals, words and punctuation.",

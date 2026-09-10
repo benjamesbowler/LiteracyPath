@@ -1,3 +1,4 @@
+import { groveVehicleYaw, nearestCuttableTree } from "./sentenceGroveContact.js";
 import "../shared/arcadeMissionHud.css";
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
@@ -1372,7 +1373,7 @@ function createStarGalleryEngine(mount, options) {
     state.player.speed = 0;
     if (state.vehicle) {
       state.vehicle.position.set(state.player.x, 0, state.player.z);
-      state.vehicle.rotation.y = state.player.yaw;
+      state.vehicle.rotation.y = groveVehicleYaw(state.player.yaw);
     }
     camera.position.set(state.player.x - 10, 8, state.player.z + 14);
     camera.lookAt(state.player.x, 1.4, state.player.z);
@@ -1658,17 +1659,8 @@ function createStarGalleryEngine(mount, options) {
 
   function tryCutNearestTree() {
     if (state.countdown > 0 || state.gateLocked) return;
-    let closest = null;
-    let closestDistance = Infinity;
-    for (const token of state.tokens) {
-      if (token.smashed || token.cooldown > 0) continue;
-      const dist = distance2({ x: state.player.x, z: state.player.z }, token.group.position);
-      if (dist < closestDistance) {
-        closest = token;
-        closestDistance = dist;
-      }
-    }
-    if (closest && closestDistance < 4.2) {
+    const closest = nearestCuttableTree(state.player, state.tokens);
+    if (closest) {
       cutChoiceTree(closest);
     } else {
       setFeedback("NO TREE NEARBY", "Move closer before cutting", "bad", 0.62);
@@ -1725,7 +1717,7 @@ function createStarGalleryEngine(mount, options) {
     const roll = -state.steerVisual * 0.22 * speedNorm;
     const pitch = -Math.sign(state.player.speed) * speedNorm * 0.035;
     state.vehicle.position.set(state.player.x, 0.04 + bounce, state.player.z);
-    state.vehicle.rotation.set(pitch, state.player.yaw, roll);
+    state.vehicle.rotation.set(pitch, groveVehicleYaw(state.player.yaw), roll);
     for (const wheel of state.vehicle.userData.wheels || []) {
       wheel.rotation.x += state.player.speed * dt * 2.2;
     }
@@ -1809,8 +1801,6 @@ function createStarGalleryEngine(mount, options) {
   }
 
   function updateTokens(dt) {
-    let closest = null;
-    let closestDistance = Infinity;
     for (const token of state.tokens) {
       token.cooldown = Math.max(0, token.cooldown - dt);
       if (token.smashed) {
@@ -1828,10 +1818,6 @@ function createStarGalleryEngine(mount, options) {
       token.bump = Math.max(0, token.bump - dt);
       const bumpWave = token.bump > 0 ? Math.sin(token.bump * 28) * token.bump : 0;
       const dist = distance2({ x: state.player.x, z: state.player.z }, token.group.position);
-      if (dist < closestDistance) {
-        closest = token;
-        closestDistance = dist;
-      }
       token.group.position.set(
         token.home.x,
         token.home.y + Math.sin(elapsedTime * 2.1 + token.home.x) * 0.025 + Math.abs(bumpWave) * 0.38,
@@ -1845,7 +1831,7 @@ function createStarGalleryEngine(mount, options) {
     }
     // Cutting is always deliberate: Space/Enter/E, or the on-screen CUT button
     // (see tryCutNearestTree) — never a proximity accident.
-    state.nearTreeLabel = closest && closestDistance < 5.2 ? closest.label : "";
+    state.nearTreeLabel = state.gateLocked ? "" : (nearestCuttableTree(state.player, state.tokens)?.label || "");
   }
 
   function updateHazards(dt) {
@@ -2174,6 +2160,7 @@ function createStarGalleryEngine(mount, options) {
       disposeRenderer(renderer);
       if (overlay.parentNode === mount) mount.removeChild(overlay);
       if (options.debugGlobalName && window[options.debugGlobalName] === api) delete window[options.debugGlobalName];
+      if (import.meta.env.DEV && window.__sentenceGroveSnapshot === readSnapshot) delete window.__sentenceGroveSnapshot;
       mount.style.position = previousPosition;
     },
     debugSnapshot() {
@@ -2194,6 +2181,7 @@ function createStarGalleryEngine(mount, options) {
         currentCompletedSentence: completedSentenceForRepair(repairForState(state), state.selectedAnswer || repairForState(state)?.answer),
         currentAcceptedAnswers: acceptedRepairAnswers(repairForState(state)),
         player: { ...state.player },
+        vehicleYaw: state.vehicle?.rotation.y,
         gateLocked: state.gateLocked,
         nearTreeLabel: state.nearTreeLabel,
         elapsedTime,
@@ -2239,6 +2227,8 @@ function createStarGalleryEngine(mount, options) {
       api.resume();
     }
   });
+  const readSnapshot = () => api.debugSnapshot();
+  if (import.meta.env.DEV) window.__sentenceGroveSnapshot = readSnapshot;
   if (options.debugGlobalName) window[options.debugGlobalName] = api;
   options.onEngineReady?.(api);
   loop.start(true); // immediate first tick preserves the old synchronous animate() call

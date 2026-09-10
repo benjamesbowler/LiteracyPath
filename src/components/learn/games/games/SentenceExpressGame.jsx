@@ -1,19 +1,22 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { buildLevel, WORLD_BY_DIFFICULTY, LEVELS_PER_LINE } from "../../../../utils/sentenceExpressLevels.js";
 import { starRubric } from "../../../../utils/starRubric.js";
 import { sfx } from "../../../../utils/trainSfx.js";
 import { wordAudioPath } from "../../../elQuest/elQuestEngine.js";
 import "../../../../styles/sentence-express.css";
+import { loadExpressSnapshot, saveExpressSnapshot } from "./sentenceExpressSession.js";
+import { createJourneyClock } from "./sentenceExpressJourney.js";
+import CarSvg from "./SentenceExpressRollingStock.jsx";
 
 // SENTENCE EXPRESS - flagship game. You are the yard master: rebuild the
 // broken sentence-train (couple carriages in order, swap the rusty wrong-word
 // car at the repair shed, load the missing crate, pick the capital engine and
 // the end-mark caboose), pull the whistle, then read the sentence back as the
 // train departs through a scrolling low-poly landscape.
-// Prototype scope: full loop + juice; arcade registration/persistence land in
-// the integration pass.
+// The arcade adapter owns run totals; the game preserves the current train.
 
 const PHASES = { INTRO: "intro", SHUNT: "shunt", DEPART: "depart", TALLY: "tally" };
+const STOPS = { meadow: ["Willow Halt", "River Bridge", "Orchard Yard", "Hilltop Station"], dino: ["Canyon Halt", "Fossil Bridge", "Fern Valley", "Red Rock Yard"], moonwood: ["Lantern Halt", "Moon Bridge", "Moss Hollow", "Star Station"] };
 const WORLD_LABELS = { meadow: "MEADOW LINE", dino: "DINO CANYON LINE", moonwood: "MOONWOOD NIGHT LINE" };
 
 // One-line corrective hint per miss kind (the engine shed's
@@ -28,82 +31,6 @@ const MISS_HINTS = {
   crate: "That is not the missing word."
 };
 const TONES = [["#4a90d9", "#2f5d94"], ["#e9a23b", "#a96f16"], ["#3aa17e", "#256b52"], ["#8d6bd9", "#5a3f93"]];
-
-// -- SVG rolling stock --------------------------------------------------------
-function Wheel({ cx, cy, r }) {
-  return (
-    <g className="sx-wheel">
-      <circle cx={cx} cy={cy} r={r} fill="#1d232e" stroke="#0c0f15" strokeWidth="3" />
-      <rect x={cx - 1.5} y={cy - r + 3.5} width="3" height={2 * r - 7} rx="1.5" fill="#5a6474" />
-      <rect x={cx - r + 3.5} y={cy - 1.5} width={2 * r - 7} height="3" rx="1.5" fill="#5a6474" />
-      <circle cx={cx} cy={cy} r={r * 0.3} fill="#5a6474" stroke="#0c0f15" strokeWidth="2" />
-    </g>
-  );
-}
-
-function CarSvg({ kind = "wagon", tone = 0, rusty = false }) {
-  const [hi, lo] = rusty
-    ? ["#8a6e52", "#5d4630"]
-    : kind === "engine" ? ["#e2543e", "#992e1f"]
-      : kind === "caboose" ? ["#c9563f", "#8f3527"]
-        : TONES[tone % TONES.length];
-  if (kind === "engine") {
-    return (
-      <svg className="sx-carsvg" viewBox="0 0 170 116" aria-hidden="true">
-        <polygon points="2,98 24,98 24,70" fill="#39424f" stroke="#10151d" strokeWidth="3" />
-        <rect x="26" y="16" width="16" height="34" rx="3" fill="#2c3440" stroke="#10151d" strokeWidth="3" />
-        <rect x="20" y="10" width="28" height="9" rx="3" fill="#39424f" stroke="#10151d" strokeWidth="3" />
-        <rect x="14" y="46" width="94" height="44" rx="9" fill={hi} stroke="#10151d" strokeWidth="3" />
-        <rect x="16" y="68" width="90" height="20" rx="7" fill={lo} />
-        <ellipse cx="76" cy="44" rx="11" ry="8" fill="#d8b13c" stroke="#10151d" strokeWidth="3" />
-        <rect x="102" y="20" width="60" height="70" rx="7" fill={hi} stroke="#10151d" strokeWidth="3" />
-        <rect x="104" y="62" width="56" height="26" rx="5" fill={lo} />
-        <rect x="112" y="30" width="24" height="20" rx="3" fill="#bfe3f2" stroke="#10151d" strokeWidth="3" />
-        <rect x="97" y="13" width="70" height="10" rx="4" fill="#2c3440" stroke="#10151d" strokeWidth="3" />
-        <rect x="8" y="90" width="158" height="10" rx="4" fill="#242b36" stroke="#10151d" strokeWidth="3" />
-        <circle cx="10" cy="60" r="6" fill="#ffd76a" stroke="#10151d" strokeWidth="3" />
-        <Wheel cx="54" cy="101" r="13" />
-        <Wheel cx="102" cy="103" r="10" />
-        <Wheel cx="140" cy="103" r="10" />
-      </svg>
-    );
-  }
-  if (kind === "caboose") {
-    return (
-      <svg className="sx-carsvg" viewBox="0 0 150 116" aria-hidden="true">
-        <rect x="50" y="8" width="50" height="24" rx="4" fill={hi} stroke="#10151d" strokeWidth="3" />
-        <rect x="58" y="14" width="14" height="10" rx="2" fill="#bfe3f2" stroke="#10151d" strokeWidth="2" />
-        <rect x="4" y="28" width="142" height="10" rx="4" fill="#2c3440" stroke="#10151d" strokeWidth="3" />
-        <rect x="10" y="36" width="130" height="54" rx="8" fill={hi} stroke="#10151d" strokeWidth="3" />
-        <rect x="12" y="64" width="126" height="24" rx="6" fill={lo} />
-        <circle cx="140" cy="52" r="5" fill="#ffd76a" stroke="#10151d" strokeWidth="2" />
-        <rect x="8" y="90" width="134" height="10" rx="4" fill="#242b36" stroke="#10151d" strokeWidth="3" />
-        <Wheel cx="42" cy="103" r="11" />
-        <Wheel cx="108" cy="103" r="11" />
-      </svg>
-    );
-  }
-  return (
-    <svg className="sx-carsvg" viewBox="0 0 150 116" aria-hidden="true">
-      <rect x="2" y="26" width="146" height="10" rx="4" fill="#39424f" stroke="#10151d" strokeWidth="3" />
-      <rect x="8" y="34" width="134" height="56" rx="8" fill={hi} stroke="#10151d" strokeWidth="3" />
-      <rect x="10" y="63" width="130" height="25" rx="6" fill={lo} />
-      {[38, 68, 98, 122].map(x => (
-        <line key={x} x1={x} y1="38" x2={x} y2="86" stroke="#10151d" strokeWidth="2" opacity="0.22" />
-      ))}
-      {rusty && (
-        <g opacity="0.9">
-          <circle cx="40" cy="52" r="8" fill="#6b4a2c" />
-          <circle cx="112" cy="72" r="10" fill="#6b4a2c" />
-          <circle cx="80" cy="44" r="5" fill="#6b4a2c" />
-        </g>
-      )}
-      <rect x="6" y="90" width="138" height="9" rx="4" fill="#242b36" stroke="#10151d" strokeWidth="3" />
-      <Wheel cx="42" cy="103" r="11" />
-      <Wheel cx="108" cy="103" r="11" />
-    </svg>
-  );
-}
 
 function StarIcon({ filled }) {
   return (
@@ -173,74 +100,17 @@ function TrainCar({ kind = "wagon", tone = 0, word, ghost = false, lit = false, 
     </>
   );
   if (onClick) {
-    return <button type="button" className={cls} onClick={onClick} aria-label={label || `carriage ${word}`}>{body}</button>;
+    return <button type="button" className={cls} style={{ "--car-length": `${Math.max(kind === "engine" ? 130 : 106, String(word || "").length * 13 + 40)}px` }} onClick={onClick} aria-label={label || `carriage ${word}`}>{body}</button>;
   }
   return <div className={cls}>{body}</div>;
 }
 
-// Horizon buildings: a little station house (left) and water tower (right).
-function StationHouse() {
-  return (
-    <svg className="sx-building sx-house" viewBox="0 0 120 80" aria-hidden="true">
-      <rect x="14" y="34" width="92" height="44" rx="4" />
-      <polygon points="6,38 60,8 114,38" />
-      <rect x="50" y="52" width="20" height="26" rx="3" className="sx-b-dark" />
-      <rect x="24" y="46" width="14" height="12" rx="2" className="sx-b-glow" />
-      <rect x="82" y="46" width="14" height="12" rx="2" className="sx-b-glow" />
-    </svg>
-  );
-}
-function WaterTower() {
-  return (
-    <svg className="sx-building sx-tower" viewBox="0 0 90 110" aria-hidden="true">
-      <rect x="22" y="10" width="46" height="38" rx="8" />
-      <polygon points="18,14 45,2 72,14" />
-      <rect x="28" y="48" width="6" height="58" />
-      <rect x="56" y="48" width="6" height="58" />
-      <rect x="24" y="72" width="42" height="5" />
-    </svg>
-  );
-}
-
-// -- World scenery (low-poly silhouettes, clouds, fireflies) ------------------
 function Scenery({ world }) {
-  if (world === "moonwood") {
-    return (
-      <>
-        <div className="sx-starfield" />
-        <div className="sx-moon" />
-        <StationHouse /><WaterTower />
-        <span className="sx-glowbug" style={{ left: "16%", top: "50%" }} />
-        <span className="sx-glowbug" style={{ left: "55%", top: "44%", animationDelay: "0.9s" }} />
-        <span className="sx-glowbug" style={{ left: "83%", top: "53%", animationDelay: "1.7s" }} />
-      </>
-    );
-  }
-  if (world === "dino") {
-    return (
-      <>
-        <div className="sx-sun sx-dinosun" />
-        <span className="sx-cloud" style={{ left: "14%", top: "10%" }} />
-        <span className="sx-cloud" style={{ left: "62%", top: "6%", animationDelay: "7s" }} />
-        <span className="sx-ptero" style={{ left: "70%", top: "16%" }} />
-        <StationHouse /><WaterTower />
-        <span className="sx-ember" style={{ left: "24%", top: "46%" }} />
-        <span className="sx-ember" style={{ left: "60%", top: "52%", animationDelay: "1.2s" }} />
-        <span className="sx-ember" style={{ left: "88%", top: "44%", animationDelay: "2.1s" }} />
-      </>
-    );
-  }
-  return (
-    <>
-      <div className="sx-sun" />
-      <span className="sx-cloud" style={{ left: "8%", top: "9%" }} />
-      <span className="sx-cloud" style={{ left: "48%", top: "5%", animationDelay: "5s" }} />
-      <span className="sx-cloud" style={{ left: "78%", top: "14%", animationDelay: "10s" }} />
-      <StationHouse /><WaterTower />
-      <span className="sx-butterfly" style={{ left: "30%", top: "42%" }} />
-      <span className="sx-butterfly sx-butterfly2" style={{ left: "72%", top: "48%", animationDelay: "2.4s" }} />
-    </>
-  );
+  return <>
+    <div className="sx-landscape" aria-hidden="true" />
+    {world === "moonwood" && [18, 38, 65, 84].map((left, i) =>
+      <span key={left} className="sx-glowbug" aria-hidden="true" style={{ left: `${left}%`, top: `${31 + i * 4}%`, animationDelay: `${i * .7}s` }} />)}
+  </>;
 }
 
 // Scrolling foreground strip under the track: grass tufts (meadow),
@@ -283,14 +153,31 @@ function playWord(word, onEnd) {
 
 // Every timeout and word-audio element is registered so pause and unmount
 // can cancel all of them (GamePlayer pauses on tab-hide and quit dialog).
-function later(registry, ms, fn) {
-  const id = window.setTimeout(() => { registry.delete(id); fn(); }, ms);
-  registry.add(id);
-  return id;
+function scheduleTimer(registry, timer) {
+  timer.started = performance.now();
+  timer.native = window.setTimeout(() => { registry.delete(timer); timer.fn(); }, timer.remaining);
 }
-function cancelLater(registry, id) {
-  registry.delete(id);
-  window.clearTimeout(id);
+function later(registry, ms, fn) {
+  const timer = { remaining: ms, fn, native: null, started: performance.now() };
+  registry.add(timer);
+  if (!registry.paused) scheduleTimer(registry, timer);
+  return timer;
+}
+function cancelLater(registry, timer) {
+  registry.delete(timer);
+  window.clearTimeout(timer.native);
+}
+function pauseTimers(registry) {
+  registry.paused = true;
+  for (const timer of registry) {
+    if (timer.native !== null) timer.remaining = Math.max(0, timer.remaining - (performance.now() - timer.started));
+    window.clearTimeout(timer.native);
+    timer.native = null;
+  }
+}
+function resumeTimers(registry) {
+  registry.paused = false;
+  for (const timer of registry) scheduleTimer(registry, timer);
 }
 function playWordTracked(registry, word, onEnd) {
   const audio = playWord(word, onEnd);
@@ -305,38 +192,44 @@ function playWordTracked(registry, word, onEnd) {
 export default function SentenceExpressGame({
   difficulty = "easy",
   startLevel = 0,
+  sessionKey,
+  resumeEligible = false,
   isSoundEnabled = true,
   onComplete = () => {},
   onQuit = () => {},
+  onReplay,
   // GamePlayer pauses on tab-hide and while its quit dialog is open.
   onEngineReady,
   // The arcade shell (GamePlayer) has its own close button; hide ours there
   // so onQuit fires only at the true end of the 10-level run.
   showQuit = true
 }) {
+  const [saved] = useState(() => resumeEligible ? loadExpressSnapshot(sessionKey, startLevel) : null);
   const world = WORLD_BY_DIFFICULTY[difficulty] || "meadow";
   const [levelIndex, setLevelIndex] = useState(Math.max(0, Math.min(LEVELS_PER_LINE - 1, startLevel)));
   const level = useMemo(() => buildLevel(difficulty, levelIndex), [difficulty, levelIndex]);
-  const [trainIndex, setTrainIndex] = useState(0);
-  const [queue, setQueue] = useState([]); // catch-up: failed trains re-run once
+  const [trainIndex, setTrainIndex] = useState(saved?.trainIndex || 0);
+  const [queue, setQueue] = useState(() => (saved?.queue || []).map(id => level.trains.find(t => t.id === id)).filter(Boolean)); // catch-up: failed trains re-run once
   const train = queue.length && trainIndex >= level.trains.length
     ? queue[0]
     : level.trains[Math.min(trainIndex, level.trains.length - 1)];
 
-  const [phase, setPhase] = useState(PHASES.SHUNT);
-  const [coupled, setCoupled] = useState([]);
-  const [engineChoice, setEngineChoice] = useState(null);
-  const [cabooseChoice, setCabooseChoice] = useState(null);
-  const [rustyFixed, setRustyFixed] = useState(false);
-  const [gapFilled, setGapFilled] = useState(false);
+  const [finished, setFinished] = useState(false);
+  const ticketButton = useRef(null);
+  const [phase, setPhase] = useState(saved?.phase ?? PHASES.SHUNT);
+  const [coupled, setCoupled] = useState(saved?.coupled ?? []);
+  const [engineChoice, setEngineChoice] = useState(saved?.engineChoice ?? null);
+  const [cabooseChoice, setCabooseChoice] = useState(saved?.cabooseChoice ?? null);
+  const [rustyFixed, setRustyFixed] = useState(saved?.rustyFixed ?? false);
+  const [gapFilled, setGapFilled] = useState(saved?.gapFilled ?? false);
   const [jolt, setJolt] = useState(false);
   const [bump, setBump] = useState(false);
   const [banner, setBanner] = useState("");
   const [stamp, setStamp] = useState(false);
-  const [delay, setDelay] = useState(0);       // this train's mistakes
-  const [mistakes, setMistakes] = useState(0); // level total
-  const [combo, setCombo] = useState(1);
-  const [express, setExpress] = useState(0);
+  const [delay, setDelay] = useState(saved?.delay ?? 0);       // this train's mistakes
+  const [mistakes, setMistakes] = useState(saved?.mistakes ?? 0); // level total
+  const [combo, setCombo] = useState(saved?.combo ?? 1);
+  const [express, setExpress] = useState(saved?.express ?? 0);
   const [litWord, setLitWord] = useState(-1);
   const [motion, setMotion] = useState("enter"); // enter -> idle -> out
   const [blast, setBlast] = useState(false);     // whistle steam burst
@@ -344,6 +237,11 @@ export default function SentenceExpressGame({
   const [hint, setHint] = useState(""); // one-line corrective hint after a miss
 
   const paused = useRef(false);
+  const stageRef = useRef(null);
+  const pausedAnimations = useRef([]);
+  const departureFrame = useRef(null);
+  const journeyClock = useRef(null);
+  const journeyAnimations = useRef([]);
   const audioRef = useRef(null);
   const chuffStop = useRef(null);
   const timers = useRef(new Set());       // every pending timeout id
@@ -352,6 +250,17 @@ export default function SentenceExpressGame({
   const announceResume = useRef(null);    // station-master read-aloud continuation
   const phaseRef = useRef(PHASES.SHUNT);
   const soundRef = useRef(isSoundEnabled);
+  const speechGeneration = useRef(0);
+  const [journey, setJourney] = useState(0);
+
+  useLayoutEffect(() => {
+    // Departure scores and its old train index must never be stored together.
+    // Reloading mid-journey restores the already-built train before its award.
+    if (phase === PHASES.DEPART) return;
+    saveExpressSnapshot(sessionKey, { levelIndex, trainIndex, queue: queue.map(t => t.id), phase, coupled, engineChoice, cabooseChoice, rustyFixed, gapFilled, delay, mistakes, combo, express });
+  }, [sessionKey, levelIndex, trainIndex, queue, phase, coupled, engineChoice, cabooseChoice, rustyFixed, gapFilled, delay, mistakes, combo, express]);
+
+  useEffect(() => { if (phase === PHASES.TALLY) ticketButton.current?.focus(); }, [phase]);
 
   // The corrected word sequence the child must rebuild.
   const solution = useMemo(() => train.words.map((w, i) => {
@@ -366,7 +275,18 @@ export default function SentenceExpressGame({
     && (!train.caboose || cabooseChoice === train.endMark)
     && (!train.engine || engineChoice === train.engine.correct);
 
-  useEffect(() => { soundRef.current = isSoundEnabled; }, [isSoundEnabled]);
+  useEffect(() => {
+    soundRef.current = isSoundEnabled;
+    if (!isSoundEnabled) {
+      speechGeneration.current += 1;
+      audioRef.current?.pause?.();
+      audioRef.current = null;
+      chuffStop.current?.();
+      chuffStop.current = null;
+      announceResume.current = null;
+      departResume.current = null;
+    }
+  }, [isSoundEnabled]);
   useEffect(() => { phaseRef.current = phase; }, [phase]);
 
   // GamePlayer freezes the game on tab-hide and while its quit dialog is
@@ -375,6 +295,10 @@ export default function SentenceExpressGame({
   function enginePause() {
     if (paused.current) return;
     paused.current = true;
+    pauseTimers(timers.current);
+    journeyClock.current?.pause(performance.now());
+    pausedAnimations.current = stageRef.current?.getAnimations({ subtree: true }).filter(animation => animation.playState === "running") || [];
+    pausedAnimations.current.forEach(animation => animation.pause());
     chuffStop.current?.();
     chuffStop.current = null;
     audioRef.current?.pause?.();
@@ -382,11 +306,15 @@ export default function SentenceExpressGame({
   function engineResume() {
     if (!paused.current) return;
     paused.current = false;
+    resumeTimers(timers.current);
+    journeyClock.current?.resume(performance.now());
+    pausedAnimations.current.forEach(animation => animation.play());
+    pausedAnimations.current = [];
     const pending = departResume.current || announceResume.current;
     departResume.current = null;
     announceResume.current = null;
     if (pending) pending();
-    else {
+    else if (soundRef.current) {
       const audio = audioRef.current;
       if (audio && !audio.ended && audio.paused) audio.play().catch(() => { /* needs a gesture first */ });
     }
@@ -404,7 +332,8 @@ export default function SentenceExpressGame({
     const pendingTimers = timers.current;
     const liveAudios = wordAudios.current;
     return () => {
-      for (const id of pendingTimers) window.clearTimeout(id);
+      cancelAnimationFrame(departureFrame.current);
+      for (const timer of pendingTimers) window.clearTimeout(timer.native);
       pendingTimers.clear();
       chuffStop.current?.();
       for (const audio of liveAudios) { try { audio.pause(); } catch { /* already gone */ } }
@@ -413,11 +342,12 @@ export default function SentenceExpressGame({
   }, []);
 
   function announce() {
-    if (!isSoundEnabled) return;
+    if (!soundRef.current) return;
+    const generation = ++speechGeneration.current;
     audioRef.current?.pause?.();
     let i = 0;
     const speakNext = () => {
-      if (i >= solution.length) return;
+      if (generation !== speechGeneration.current || i >= solution.length) return;
       if (paused.current) { announceResume.current = speakNext; return; }
       audioRef.current = playWordTracked(wordAudios.current, solution[i], () => { i += 1; speakNext(); });
     };
@@ -475,7 +405,7 @@ export default function SentenceExpressGame({
   }
 
   function couple(wordIndex) {
-    if (phase !== PHASES.SHUNT || needsEngine) return;
+    if (phaseRef.current !== PHASES.SHUNT || paused.current || needsEngine || coupled.includes(wordIndex)) return;
     if (train.rusty && wordIndex === train.rusty.index && !rustyFixed) {
       miss("rusty"); // rusty car won't couple - repair shed first
       return;
@@ -483,7 +413,7 @@ export default function SentenceExpressGame({
     // Correct if this carriage carries the word the next empty slot needs
     // (identical words like "the" are interchangeable by design).
     if (solution[wordIndex] === solution[nextSlot]) {
-      setCoupled(c => [...c, wordIndex]);
+      setCoupled(c => c.includes(wordIndex) ? c : [...c, wordIndex]);
       goodBump();
       return;
     }
@@ -491,6 +421,7 @@ export default function SentenceExpressGame({
   }
 
   function chooseEngine(option) {
+    if (phaseRef.current !== PHASES.SHUNT || paused.current) return;
     if (option === train.engine.correct) {
       setEngineChoice(option);
       setCoupled(c => (c.includes(0) ? c : [0, ...c]));
@@ -498,21 +429,26 @@ export default function SentenceExpressGame({
     } else miss("engine");
   }
   function chooseCaboose(mark) {
+    if (phaseRef.current !== PHASES.SHUNT || paused.current) return;
     if (coupled.length < train.words.length) { miss("early-caboose"); return; }
     if (mark === train.endMark) { setCabooseChoice(mark); goodBump(); }
     else miss("caboose");
   }
   function repairRusty(option) {
+    if (phaseRef.current !== PHASES.SHUNT || paused.current) return;
     if (option === train.rusty.correct) { setRustyFixed(true); if (isSoundEnabled) sfx.ding(); }
     else miss("repair");
   }
   function loadCrate(option) {
+    if (phaseRef.current !== PHASES.SHUNT || paused.current) return;
     if (option === train.gap.correct) { setGapFilled(true); if (isSoundEnabled) sfx.ding(); }
     else miss("crate");
   }
 
   function depart() {
-    if (!trackDone) return;
+    if (!trackDone || phaseRef.current !== PHASES.SHUNT || paused.current) return;
+    phaseRef.current = PHASES.DEPART;
+    stageRef.current?.querySelector(".sx-train")?.scrollTo({ left: 0 });
     const onTime = delay === 0;
     if (onTime) {
       setExpress(e => e + 1);
@@ -523,7 +459,7 @@ export default function SentenceExpressGame({
         later(timers.current, 1400, () => setComboToast(""));
       }
       setStamp(true);
-      if (isSoundEnabled) later(timers.current, 550, () => sfx.stamp());
+      if (isSoundEnabled) later(timers.current, 550, () => { if (soundRef.current) sfx.stamp(); });
     }
     setBlast(true);
     later(timers.current, 1100, () => setBlast(false));
@@ -533,35 +469,53 @@ export default function SentenceExpressGame({
       chuffStop.current = sfx.startChuff();
     }
     setPhase(PHASES.DEPART);
-    let i = 0;
-    const leaveStation = () => {
-      // Read-back done: the train accelerates out of the scene.
-      setMotion("out");
-      later(timers.current, 1500, () => {
-        if (paused.current) { departResume.current = finishTrain; return; }
-        finishTrain();
-      });
-    };
-    // Pause checkpoints the chain: a timer that fires while paused stores its
-    // continuation instead of advancing, and engineResume runs it later.
-    const step = () => {
-      if (paused.current) { departResume.current = step; return; }
-      if (i >= solution.length) {
-        later(timers.current, 450, () => {
-          if (paused.current) { departResume.current = leaveStation; return; }
-          leaveStation();
-        });
-        return;
+    // The whistle starts travel immediately. Reading follows the moving train,
+    // with one current clip and no narration gate before departure or next play.
+    const generation = ++speechGeneration.current;
+    audioRef.current?.pause?.();
+    announceResume.current = null;
+    setMotion("out");
+    setJourney(0);
+    journeyClock.current = createJourneyClock(performance.now());
+    journeyAnimations.current = [];
+    const travel = () => {
+      const elapsed = journeyClock.current.elapsed(performance.now());
+      if (!journeyAnimations.current.length) {
+        const names = ["sx-follow-train", "sx-route-pan", "sx-station-pass", "sx-arriving-station"];
+        journeyAnimations.current = stageRef.current?.getAnimations({ subtree: true }).filter(animation => names.includes(animation.animationName)) || [];
       }
-      setLitWord(i);
-      if (isSoundEnabled) {
-        audioRef.current = playWordTracked(wordAudios.current, solution[i], () => { i += 1; step(); });
-      } else later(timers.current, 560, () => { i += 1; step(); });
+      // The train, scenery and destination share the same unpaused clock even
+      // after a long frame gap. Wheel rotation remains independent.
+      if (!paused.current) for (const animation of journeyAnimations.current) animation.currentTime = Math.min(elapsed, 6500);
+      setJourney(Math.min(1, elapsed / 6500));
+      if (!paused.current && elapsed >= 6500) { departureFrame.current = null; finishTrain(); }
+      else departureFrame.current = requestAnimationFrame(travel);
     };
-    later(timers.current, 950, step);
+    departureFrame.current = requestAnimationFrame(travel);
+    let i = 0;
+    const step = () => {
+      if (generation !== speechGeneration.current || i >= solution.length) return;
+      if (paused.current) { departResume.current = step; return; }
+      if (soundRef.current) {
+        const wordIndex = i;
+        setLitWord(-1);
+        audioRef.current = playWordTracked(wordAudios.current, solution[i], () => { i += 1; step(); });
+        audioRef.current?.addEventListener("playing", () => {
+          if (generation === speechGeneration.current) setLitWord(wordIndex);
+        }, { once: true });
+      } else {
+        setLitWord(i);
+        later(timers.current, 560, () => { i += 1; step(); });
+      }
+    };
+    step();
   }
 
   function finishTrain() {
+    speechGeneration.current += 1;
+    audioRef.current?.pause?.();
+    departResume.current = null;
+    announceResume.current = null;
     chuffStop.current?.();
     chuffStop.current = null;
     setLitWord(-1);
@@ -595,6 +549,8 @@ export default function SentenceExpressGame({
   });
 
   function nextLevel() {
+    if (phaseRef.current !== PHASES.TALLY || paused.current) return;
+    phaseRef.current = PHASES.SHUNT;
     onComplete({ level: levelIndex, stars, mistakes, express });
     if (levelIndex + 1 < LEVELS_PER_LINE) {
       setLevelIndex(l => l + 1);
@@ -602,8 +558,21 @@ export default function SentenceExpressGame({
       resetTrainState();
       setPhase(PHASES.SHUNT);
     } else {
+      saveExpressSnapshot(sessionKey, null);
+      setFinished(true);
       onQuit();
     }
+  }
+
+  function replayLine() {
+    if (paused.current || !finished) return;
+    onReplay?.();
+    saveExpressSnapshot(sessionKey, null);
+    setLevelIndex(0); setTrainIndex(0); setQueue([]);
+    setMistakes(0); setExpress(0); setCombo(1); setFinished(false);
+    resetTrainState();
+    phaseRef.current = PHASES.SHUNT;
+    setPhase(PHASES.SHUNT);
   }
 
   const rolling = phase === PHASES.DEPART;
@@ -621,10 +590,8 @@ export default function SentenceExpressGame({
             : "Pull the whistle.";
 
   return (
-    <div className={`sx-stage sx-${world} sx-motion-${motion} ${jolt ? "sx-jolt" : ""} ${bump ? "sx-bump" : ""} ${rolling ? "sx-scroll" : ""}`} data-phase={phase}>
+    <div ref={stageRef} className={`sx-stage sx-${world} sx-motion-${motion} ${jolt ? "sx-jolt" : ""} ${bump ? "sx-bump" : ""} ${rolling ? "sx-scroll" : ""}`} data-phase={phase} data-train-id={train.id} data-journey={journey.toFixed(3)} style={{ "--route-position": `${(levelIndex * 9 + trainIndex * 3) % 100}%` }}>
       <div className="sx-sky"><Scenery world={world} /></div>
-      <div className="sx-far" />
-      <div className="sx-mid" />
       <div className="sx-flash" aria-hidden="true" />
 
       <header className="sx-hud">
@@ -641,20 +608,24 @@ export default function SentenceExpressGame({
         {showQuit && <button type="button" className="sx-quit" onClick={onQuit} aria-label="Leave the game">X</button>}
       </header>
 
-      <div className="sx-mainline">
+      <div className="sx-mainline" inert={phase === PHASES.TALLY ? true : undefined}>
+        <div className="sx-raildeck">
+      <div className="sx-station" aria-hidden="true"><span>{STOPS[world][(levelIndex * 3 + trainIndex) % 4]}</span><i /><i /></div>
+      {rolling && <div className="sx-destination" aria-hidden="true"><span>{STOPS[world][(levelIndex * 3 + trainIndex + 1) % 4]}</span><i /><i /></div>}
+
         <div className={`sx-signal ${(trackDone && phase === PHASES.SHUNT) || rolling ? "sx-go" : ""}`} aria-hidden="true">
           <i className="sx-arm" /><i className="sx-lamp" />
         </div>
-        <div className={`sx-train ${rolling || motion !== "idle" ? "sx-rolling" : ""}`}>
+        <div className={`sx-train ${rolling || motion !== "idle" ? "sx-rolling" : ""}`} role="region" aria-label="Sentence train: scroll to see every carriage" tabIndex={0}>
           <TrainCar kind="engine" word={train.engine ? (engineChoice ?? "?") : solution[0]}
             ghost={train.engine ? engineChoice === null : coupled.length === 0}
-            lit={litWord === 0} smoking={rolling || motion !== "idle"} blasting={blast} />
+            onClick={phase === PHASES.SHUNT && coupled.length === 1 ? () => { setCoupled([]); setEngineChoice(null); setCabooseChoice(null); } : undefined} label="Uncouple last car" lit={litWord === 0} smoking={rolling || motion !== "idle"} blasting={blast} />
           {solution.slice(1).map((word, i) => {
             const slot = i + 1;
             const filled = coupled.length > slot;
             return (
               <TrainCar key={slot} tone={slot % TONES.length} word={word} ghost={!filled}
-                lit={litWord === slot} arrived={filled && coupled.length === slot + 1 && phase === PHASES.SHUNT} />
+                onClick={filled && coupled.length === slot + 1 && phase === PHASES.SHUNT ? () => { setCoupled(c => c.slice(0, -1)); setCabooseChoice(null); } : undefined} label="Uncouple last car" lit={litWord === slot} arrived={filled && coupled.length === slot + 1 && phase === PHASES.SHUNT} />
             );
           })}
           <TrainCar kind="caboose" word={train.caboose ? (cabooseChoice ?? "?") : train.endMark}
@@ -662,6 +633,7 @@ export default function SentenceExpressGame({
         </div>
         <div className="sx-trackbed" />
         <div className="sx-fore" aria-hidden="true"><ForeSvg world={world} /><ForeSvg world={world} /></div>
+        </div>
         {rolling && (
           <div className="sx-karaoke" aria-live="polite">
             {solution.map((w, i) => (
@@ -675,6 +647,7 @@ export default function SentenceExpressGame({
 
       {phase === PHASES.SHUNT && (
         <section className="sx-yard">
+          <div className="sx-workbench" role="region" aria-label="Sidings and repair tools: scroll for more" tabIndex={0}>
           <div className="sx-spur">
             <div className="sx-spurlabel">SIDINGS - TAP TO COUPLE</div>
             <div className="sx-spurcars">
@@ -743,17 +716,17 @@ export default function SentenceExpressGame({
             )}
           </div>
 
+          </div>
           <div className="sx-master">
             <span className="sx-pal" aria-hidden="true"><LanternBadge /></span>
             <div className="sx-bubble">
-              <p className="sx-objective" data-child-instruction>{yardInstruction}</p>
+              <p className="sx-objective" data-child-instruction>{hint ? <span className="sx-hint" role="status">{hint}</span> : yardInstruction}</p>
               <p className="sx-target">{targetSentence}</p>
               {isSoundEnabled ? (
                 <button type="button" className="sx-bell" onClick={announce} aria-label="Hear the sentence again">
                   <BellIcon /> Hear sentence again
                 </button>
               ) : null}
-              {hint && <p className="sx-hint" role="status">{hint}</p>}
             </div>
           </div>
 
@@ -770,7 +743,7 @@ export default function SentenceExpressGame({
       {banner && <div className="sx-banner">{banner}</div>}
 
       {phase === PHASES.TALLY && (
-        <section className="sx-ticket">
+        <section className="sx-ticket" role={finished ? "dialog" : "region"} aria-modal={finished ? true : undefined} aria-label={finished ? "Sentence Express complete" : `Level ${levelIndex + 1} complete`}>
           {stars > 1 && Array.from({ length: 16 }, (_, i) => (
             <span key={i} className="sx-confetti" aria-hidden="true"
               style={{ left: `${(i * 6.3 + 2) % 96}%`, animationDelay: `${(i % 8) * 0.14}s`, background: TONES[i % TONES.length][0] }} />
@@ -781,8 +754,8 @@ export default function SentenceExpressGame({
             <span>Express departures <b>{express} of {level.trains.length}</b></span>
             <span>Delays <b>{mistakes ? `+${mistakes} min` : "none"}</b></span>
           </div>
-          <button type="button" className="sx-golden" onClick={nextLevel}>
-            {levelIndex + 1 < LEVELS_PER_LINE ? "NEXT DEPARTURE ->" : "FINISH THE LINE"}
+          <button ref={ticketButton} type="button" className="sx-golden" onClick={finished ? replayLine : nextLevel}>
+            {finished ? "Play again" : levelIndex + 1 < LEVELS_PER_LINE ? "NEXT DEPARTURE ->" : "FINISH THE LINE"}
           </button>
         </section>
       )}

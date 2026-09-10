@@ -1,0 +1,16 @@
+{
+  "kind": "authored-vector-scene-kit",
+  "origin": "Original project-authored SVG rolling stock; no external art or generated text.",
+  "source": "../../../src/components/learn/games/games/SentenceExpressRollingStock.jsx",
+  "consumer": "../../../src/components/learn/games/games/SentenceExpressGame.jsx",
+  "assets": [
+    "steam locomotive",
+    "four painted wagon finishes",
+    "rusted wagon finish",
+    "end-mark caboose",
+    "rotating wheel assembly"
+  ],
+  "geometry": "Three-quarter roof and end surfaces, curved boiler, layered metal rims, separate wheel pivots and connecting rod. Live words remain HTML above clear side panels.",
+  "motion": "Rolling stock settles during movement while the parent train translates independently; travel and animation pause together.",
+  "review": "Directly inspected in all three world scenes on 10 September 2026, including assembled short landscape and moving train views. Words remain readable on wagon sides; wheels, train translation and scene movement have separate ownership. Browser journey, pause, input and completion checks are recorded by the release lane; this asset receipt is not a claim that all 22 games are finished."
+}

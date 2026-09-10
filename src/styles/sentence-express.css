@@ -60,88 +60,26 @@
 .sx-moonwood .sx-sky::after { background: linear-gradient(180deg, transparent 10%, rgba(116, 163, 193, 0.12) 27%, rgba(8, 18, 31, 0.1) 45%, rgba(2, 7, 12, 0.34) 100%); }
 .sx-moonwood { color: #eef2f9; }
 
-.sx-sun {
-  position: absolute; top: 7%; right: 9%;
-  width: 68px; height: 68px; border-radius: 50%;
-  background: #ffe28a;
-  box-shadow: 0 0 40px 12px rgba(255, 226, 138, 0.55);
+.sx-landscape {
+  position: absolute; inset: 0 -3% auto; height: 66%;
+  background-position: center bottom; background-size: cover;
+  transform-origin: 50% 80%;
+  transition: height .7s ease;
 }
-.sx-dinosun { background: #ffcf7e; box-shadow: 0 0 46px 14px rgba(255, 160, 90, 0.5); }
-.sx-moon {
-  position: absolute; top: 6%; left: 8%;
-  width: 58px; height: 58px; border-radius: 50%;
-  background: #f2ecd8;
-  box-shadow: 0 0 34px 8px rgba(242, 236, 216, 0.35);
+.sx-meadow .sx-landscape { background-image: url('/images/learn-games/sentence-express/meadow-panorama.webp'); }
+.sx-dino .sx-landscape { background-image: url('/images/learn-games/sentence-express/dino-panorama.webp'); }
+.sx-moonwood .sx-landscape { background-image: url('/images/learn-games/sentence-express/moonwood-panorama.webp'); }
+.sx-landscape::after {
+  content: ''; position: absolute; inset: 65% 0 -1px;
+  background: linear-gradient(transparent, var(--sx-ground));
 }
-.sx-starfield {
-  position: absolute; inset: 0; height: 46%;
-  background-image:
-    radial-gradient(#fff 1px, transparent 1.6px),
-    radial-gradient(#9fd8ff 1px, transparent 1.6px);
-  background-size: 150px 90px, 230px 140px;
-  opacity: 0.7;
-}
-.sx-cloud {
-  position: absolute; width: 96px; height: 30px; border-radius: 999px;
-  background: rgba(255, 255, 255, 0.92);
-  animation: sx-drift 26s ease-in-out infinite alternate;
-}
-.sx-cloud::before, .sx-cloud::after {
-  content: ""; position: absolute; border-radius: 50%; background: inherit;
-}
-.sx-cloud::before { width: 44px; height: 44px; left: 14px; top: -20px; }
-.sx-cloud::after { width: 32px; height: 32px; right: 16px; top: -13px; }
-.sx-dino .sx-cloud { background: rgba(255, 236, 214, 0.88); }
-@keyframes sx-drift { from { transform: translateX(0); } to { transform: translateX(46px); } }
-.sx-glowbug {
-  position: absolute; width: 7px; height: 7px; border-radius: 50%;
-  background: #9fe1cb;
-  box-shadow: 0 0 10px 3px rgba(159, 225, 203, 0.7);
-  animation: sx-float 3s ease-in-out infinite;
-}
+.sx-meadow { --sx-ground: #486745; }
+.sx-dino { --sx-ground: #715039; }
+.sx-moonwood { --sx-ground: #142e31; }
+.sx-scroll .sx-landscape { height: 80%; animation: sx-landscape-travel 10s linear both; }
+@keyframes sx-landscape-travel { from { transform: translateX(0) scale(1.02); } to { transform: translateX(2%) scale(1.04); } }
+.sx-glowbug { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: #c5edbf; box-shadow: 0 0 8px 2px #b5eac777; animation: sx-float 3s ease-in-out infinite; }
 @keyframes sx-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
-.sx-ptero {
-  position: absolute; width: 46px; height: 16px;
-  background: #4a2a18;
-  clip-path: polygon(0 62%, 34% 0, 50% 44%, 66% 0, 100% 62%, 50% 34%);
-  animation: sx-drift 18s ease-in-out infinite alternate;
-}
-
-/* ── Low-poly silhouettes ──────────────────────────────────────────────── */
-.sx-far, .sx-mid {
-  position: absolute; left: -2%; right: -2%; pointer-events: none;
-  transform-origin: 50% 100%;
-}
-.sx-far { top: 5%; height: 21%; z-index: 1; opacity: 0.82; filter: saturate(0.82) blur(0.35px); }
-.sx-mid { top: 12%; height: 15%; z-index: 2; filter: drop-shadow(0 12px 16px rgba(9, 17, 19, 0.22)); }
-.sx-meadow .sx-far {
-  background: linear-gradient(180deg, #a9c894, #789b67);
-  clip-path: polygon(0 100%, 5% 55%, 13% 80%, 22% 35%, 33% 75%, 43% 45%, 54% 85%, 65% 40%, 76% 72%, 87% 48%, 100% 100%);
-}
-.sx-meadow .sx-mid {
-  background: linear-gradient(180deg, #789f62, #4a6f46);
-  clip-path: polygon(0 100%, 8% 60%, 18% 90%, 30% 50%, 42% 85%, 55% 55%, 68% 92%, 80% 58%, 92% 88%, 100% 100%);
-}
-.sx-dino .sx-far {
-  background: linear-gradient(180deg, #b86550, #864538);
-  clip-path: polygon(0 100%, 4% 40%, 16% 40%, 20% 75%, 30% 30%, 44% 30%, 49% 70%, 58% 45%, 72% 45%, 78% 85%, 88% 38%, 97% 38%, 100% 100%);
-}
-.sx-dino .sx-mid {
-  background: linear-gradient(180deg, #8f4b39, #5c3028);
-  clip-path: polygon(0 100%, 7% 55%, 20% 55%, 26% 90%, 38% 48%, 52% 48%, 58% 88%, 70% 52%, 84% 52%, 90% 92%, 100% 100%);
-}
-.sx-moonwood .sx-far {
-  background: linear-gradient(180deg, #1b3152, #101d35);
-  clip-path: polygon(0 100%, 4% 30%, 9% 75%, 15% 20%, 22% 70%, 28% 35%, 36% 85%, 44% 25%, 52% 65%, 60% 30%, 68% 80%, 77% 28%, 85% 70%, 93% 38%, 100% 100%);
-}
-.sx-moonwood .sx-mid {
-  background: linear-gradient(180deg, #1a3b2c, #0d211b);
-  clip-path: polygon(0 100%, 6% 40%, 14% 90%, 23% 30%, 31% 75%, 40% 45%, 49% 95%, 58% 35%, 66% 80%, 75% 50%, 84% 90%, 100% 100%);
-}
-.sx-scroll .sx-far { animation: sx-parallax-far 9s ease-in-out infinite alternate; }
-.sx-scroll .sx-mid { animation: sx-parallax-mid 5.5s ease-in-out infinite alternate; }
-@keyframes sx-parallax-far { from { transform: translate3d(-8px, 0, 0) scale(1.015); } to { transform: translate3d(8px, 0, 0) scale(1.015); } }
-@keyframes sx-parallax-mid { from { transform: translate3d(-18px, 0, 0) scale(1.025); } to { transform: translate3d(18px, 0, 0) scale(1.025); } }
 
 /* ── Feedback: jolt shake, coupling bump, red flash ────────────────────── */
 .sx-jolt { animation: sx-shake 0.46s ease; }
@@ -309,7 +247,7 @@ button.sx-carbox:active { transform: translateY(2px); }
 }
 
 /* Wheels spin while rolling */
-.sx-rolling { animation: sx-chug 0.55s ease-in-out infinite; }
+.sx-rolling > .sx-carbox { animation: sx-chug 0.55s ease-in-out infinite; }
 @keyframes sx-chug { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
 .sx-rolling .sx-wheel {
   animation: sx-spin 0.55s linear infinite;
@@ -497,7 +435,7 @@ button.sx-carbox:active { transform: translateY(2px); }
 .sx-lever.sx-ready { opacity: 1; animation: sx-throb 1.3s ease-in-out infinite; }
 .sx-lever.sx-ready .sx-leverarm { transform: rotate(-18deg); }
 .sx-lever:disabled { cursor: not-allowed; }
-@keyframes sx-throb { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@keyframes sx-throb { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.16); } }
 
 /* ── Depart run extras ─────────────────────────────────────────────────── */
 .sx-karaoke {
@@ -570,10 +508,10 @@ button.sx-carbox:active { transform: translateY(2px); }
 }
 .sx-golden:active { transform: translateY(2px); box-shadow: 2px 2px 0 rgba(10, 15, 24, 0.45); }
 
-/* ── Train motion: roll in from the left, accelerate out to the right ──── */
+/* The locomotive faces left; enter from the right and depart engine-first. */
 .sx-train { transition: transform 1.15s cubic-bezier(0.22, 0.75, 0.3, 1); }
-.sx-motion-enter .sx-train { transform: translateX(-115%); transition: none; }
-.sx-motion-out .sx-train { transform: translateX(118vw); transition: transform 1.5s cubic-bezier(0.55, 0, 0.85, 0.4); }
+.sx-motion-enter .sx-train { transform: translateX(115%); transition: none; }
+.sx-motion-out .sx-train { transform: translateX(-118vw); transition: transform 1.5s cubic-bezier(0.55, 0, 0.85, 0.4); }
 .sx-motion-out .sx-wheel { animation-duration: 0.28s; }
 /* Track is empty while the ticket shows or the train has left. */
 .sx-stage[data-phase="intro"] .sx-train, .sx-stage[data-phase="tally"] .sx-train { transform: translateX(-115%); transition: none; }
@@ -621,41 +559,6 @@ button.sx-carbox:active { transform: translateY(2px); }
 .sx-moonwood .sx-f-stem { fill: #c8d2e4; }
 .sx-moonwood .sx-f-cap { fill: #7d5bc2; }
 .sx-moonwood .sx-f-spot { fill: #cfe3ff; }
-
-/* ── Horizon buildings ─────────────────────────────────────────────────── */
-.sx-building { position: absolute; opacity: 0.85; }
-.sx-building rect, .sx-building polygon { fill: #57724a; }
-.sx-dino .sx-building rect, .sx-dino .sx-building polygon { fill: #79402a; }
-.sx-moonwood .sx-building rect, .sx-moonwood .sx-building polygon { fill: #0e1830; }
-.sx-building .sx-b-dark { fill: rgba(0, 0, 0, 0.35); }
-.sx-building .sx-b-glow { fill: #ffd76a; opacity: 0.85; }
-.sx-house { left: 3%; top: 13.5%; width: 108px; height: 72px; }
-.sx-tower { right: 7%; top: 10.5%; width: 66px; height: 84px; }
-
-/* ── Ambient critters ──────────────────────────────────────────────────── */
-.sx-butterfly {
-  position: absolute; width: 12px; height: 9px;
-  background: #e5739b;
-  clip-path: polygon(50% 45%, 0 0, 10% 90%, 50% 55%, 90% 90%, 100% 0);
-  animation: sx-flutter 9s ease-in-out infinite;
-}
-.sx-butterfly2 { background: #8d6bd9; }
-@keyframes sx-flutter {
-  0%, 100% { transform: translate(0, 0) rotate(-8deg); }
-  25% { transform: translate(46px, -30px) rotate(10deg); }
-  50% { transform: translate(-14px, -52px) rotate(-6deg); }
-  75% { transform: translate(-42px, -18px) rotate(12deg); }
-}
-.sx-ember {
-  position: absolute; width: 6px; height: 6px; border-radius: 50%;
-  background: #ffb25e;
-  box-shadow: 0 0 9px 3px rgba(255, 150, 70, 0.55);
-  animation: sx-emberfloat 5s ease-in-out infinite;
-}
-@keyframes sx-emberfloat {
-  0%, 100% { transform: translate(0, 0); opacity: 0.9; }
-  50% { transform: translate(14px, -44px); opacity: 0.3; }
-}
 
 /* ── Combo toast + karaoke word pop ────────────────────────────────────── */
 .sx-combotoast {
@@ -713,18 +616,16 @@ button.sx-carbox:active { transform: translateY(2px); }
 
 /* ── Accessibility + small screens ─────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .sx-rolling, .sx-rolling .sx-wheel, .sx-scroll .sx-trackbed, .sx-cloud, .sx-ptero,
+  .sx-rolling > .sx-carbox, .sx-rolling .sx-wheel, .sx-scroll .sx-trackbed, .sx-scroll .sx-landscape,
   .sx-glowbug, .sx-lever.sx-ready, .sx-rustwisp, .sx-smoke, .sx-jolt, .sx-bump,
-  .sx-butterfly, .sx-ember, .sx-dust, .sx-confetti, .sx-word-lit, .sx-scroll .sx-fore,
-  .sx-route i.sx-here, .sx-scroll .sx-far, .sx-scroll .sx-mid { animation: none; }
+  .sx-dust, .sx-confetti, .sx-word-lit, .sx-scroll .sx-fore,
+  .sx-route i.sx-here { animation: none; }
   .sx-train, .sx-motion-out .sx-train { transition: none; }
   .sx-plate, .sx-crate, .sx-disc, .sx-golden, .sx-carbox { transition: none; }
 }
 @media (update: slow) {
   .sx-sky::before { display: none; }
-  .sx-far { filter: none; }
-  .sx-mid { filter: drop-shadow(0 8px 10px rgba(9, 17, 19, 0.16)); }
-  .sx-scroll .sx-far, .sx-scroll .sx-mid { animation: none; }
+  .sx-scroll .sx-landscape { animation: none; }
 }
 @media (max-width: 700px) {
   .sx-stage { --carw: clamp(64px, 13vw, 92px); }
@@ -738,3 +639,118 @@ button.sx-carbox:active { transform: translateY(2px); }
   .sx-bell { width: 100%; min-width: 0; min-height: 56px; font-size: 16px; padding: 8px 10px; }
   .sx-karaoke { white-space: normal; }
 }
+
+/* Workbench rows reserve space for every control; car banks scroll at full size. */
+.sx-stage { min-height: 0; --carw: 116px; display: grid; grid-template-rows: auto minmax(120px, 1fr) minmax(180px, 1fr); container-type: size; }
+.sx-hud { position: relative; inset: auto; min-height: 36px; flex-wrap: wrap; gap: 6px; padding: 6px 12px; z-index: 6; }
+.sx-title { display: none; }
+.sx-mainline, .sx-stage[data-phase="depart"] .sx-mainline, .sx-stage[data-phase="tally"] .sx-mainline { position: relative; top: auto; min-height: 0; align-self: end; padding-top: 36px; }
+.sx-train { gap: 4px; padding-left: 12px; padding-right: 12px; }
+.sx-trackbed { height: 25px; }
+.sx-fore { height: 20px; }
+.sx-signal { height: 90px; bottom: 25px; right: 12px; }
+.sx-carbox { width: var(--car-length, var(--carw)); height: 90px; min-width: 100px; min-height: 56px; }
+.sx-carbox.sx-small { width: var(--car-length, 106px); height: 82px; min-width: 100px; min-height: 56px; }
+.sx-carbox.sx-kind-engine { width: max(130px, var(--car-length, 130px)); }
+.sx-carword, .sx-small .sx-carword { font-size: 20px; line-height: 1.1; }
+.sx-yard { position: relative; inset: auto; min-height: 0; display: grid; grid-template-rows: minmax(90px,1fr) auto; grid-template-columns: minmax(0,1fr) auto; gap: 0; padding: 0; overflow: hidden; background: linear-gradient(#16251e60,#12231ee8); }
+.sx-workbench { grid-column: 1 / -1; display: flex; align-items: center; overflow: auto; min-height: 0; padding: 4px 12px 8px; gap: 16px; }
+.sx-spur { flex: 1 0 auto; padding: 0; }
+.sx-spurcars { flex-wrap: nowrap; justify-content: flex-start; gap: 8px; }
+.sx-spurlabel { font-size: 11px; color: #fff2d6; }
+.sx-spurtrack { margin-top: -8px; }
+.sx-structures { display: flex; flex-wrap: nowrap; padding: 0; gap: 8px; flex: 0 0 auto; }
+.sx-structure { padding: 6px 8px; flex: 0 0 auto; }
+.sx-structure h4 { margin: 0 0 3px; }
+.sx-structure small { display: none; }
+.sx-optionrow { flex-wrap: nowrap; gap: 8px; }
+.sx-master { position: relative; inset: auto; width: auto; min-width: 0; padding: 6px 10px; }
+.sx-pal { display: none; }
+.sx-bubble { display: grid; grid-template-columns: minmax(0,1fr) auto; column-gap: 8px; width: auto; max-width: none; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; color: #fff4dc; }
+.sx-bubble::before, .sx-bubble::after { display: none; }
+.sx-bubble .sx-objective { grid-column: 1; margin: 0; font-size: 13px; }
+.sx-bubble .sx-target { grid-column: 1; margin: 2px 0; font-size: 19px; line-height: 1.2; }
+.sx-bell { grid-column: 2; grid-row: 1 / 3; width: 56px; min-width: 56px; height: 56px; min-height: 56px; padding: 6px; font-size: 0; }
+.sx-bell svg { width: 28px; height: 28px; }
+.sx-hint { grid-column: 1 / -1; margin: 0; font-size: 13px; color: #ffe5a6; }
+.sx-lever { position: relative; inset: auto; align-self: center; min-height: 56px; width: 104px; margin: 6px 8px; padding: 8px; font-size: 13px; }
+.sx-leverarm, .sx-lever small { display: none; }
+.sx-karaoke { margin: 8px auto; padding: 8px 16px; font-size: 21px; }
+.sx-stage[data-phase="depart"] { grid-template-rows: auto 1fr 0; }
+.sx-stage[data-phase="depart"] .sx-mainline { align-self: center; }
+.sx-stamp { top: 45px; right: 12px; font-size: 17px; border-width: 2px; padding: 4px 8px; }
+.sx-combotoast { display: none; }
+.sx-banner { top: 44px; padding: 4px 12px; font-size: 13px; pointer-events: none; }
+@container (max-height: 430px) {
+  .sx-hud { min-height: 26px; padding: 2px 8px; }
+  .sx-clock, .sx-combochip { display: none; }
+  .sx-mainline { padding-top: 12px; }
+  .sx-stage .sx-carbox { height: 72px; }
+  .sx-stage .sx-small { height: 64px; }
+  .sx-workbench { padding-top: 0; padding-bottom: 0; }
+  .sx-spurlabel { display: none; }
+  .sx-fore { height: 8px; }
+  .sx-trackbed { height: 12px; }
+  .sx-bubble .sx-target { font-size: 16px; }
+  .sx-bubble .sx-objective { font-size: 11px; }
+  .sx-master { padding: 2px 8px; }
+  .sx-lever { margin: 2px 4px; }
+  .sx-structure { padding: 2px 6px; }
+  .sx-structure h4 { font-size: 9px; }
+}
+@media (max-height: 600px) {
+ .sx-stage { grid-template-rows: auto minmax(86px,1fr) minmax(124px,1.1fr); }
+ .sx-ticket { padding: 10px 16px; }
+ .sx-stars { margin: 0; }
+}
+@media (max-width: 480px) {
+ .sx-stage { grid-template-rows: auto minmax(130px,1fr) minmax(180px,1fr); }
+ .sx-bubble { grid-template-columns: minmax(0,1fr); }
+ .sx-bell { grid-column: 1; grid-row: auto; width: 56px; }
+ .sx-lever { width: 90px; }
+}
+.sx-stage { grid-template-columns: minmax(0, 1fr); }
+.sx-mainline, .sx-yard, .sx-workbench { min-width: 0; }
+.sx-yard { grid-template-rows: minmax(0,1fr) auto; }
+.sx-master { display: block; }
+.sx-bubble { width: 100%; }
+@container (max-height: 430px) {
+ .sx-workbench { align-items: end; }
+ .sx-yard { row-gap: 0; }
+ .sx-master { padding: 0 8px; }
+ .sx-lever { height: 56px; margin-top: 0; margin-bottom: 0; }
+}
+/* A following camera keeps the sentence readable while the railway passes. */
+.sx-landscape { left: -65%; right: -5%; background-position: var(--route-position) bottom; }
+.sx-scroll .sx-landscape { animation: sx-route-pan 6.5s linear both; }
+@keyframes sx-route-pan { from { transform: translateX(0); } to { transform: translateX(30%); } }
+.sx-motion-out .sx-train { transform: none; transition: none; animation: sx-follow-train 6.5s linear both; }
+@keyframes sx-follow-train { 0% { transform: translateX(0); } 20% { transform: translateX(-6%); } 76% { transform: translateX(-10%); } 100% { transform: translateX(-118vw); } }
+.sx-scroll .sx-fore { animation-direction: reverse; }
+.sx-station, .sx-destination { position: absolute; pointer-events: none; z-index: 1; left: 12%; top: 15%; width: 150px; height: 72px; padding-top: 18px; background: linear-gradient(90deg,#543e2b 0 6%,#b78d58 6% 88%,#745435 88%); border: 3px solid #493222; box-shadow: 12px 9px 0 #18231a40; }
+.sx-station::before, .sx-destination::before { content: ''; position: absolute; top: -13px; left: -12px; width: 174px; height: 24px; background: linear-gradient(#8b4937,#4e2d28); clip-path: polygon(10% 0,90% 0,100% 100%,0 100%); }
+.sx-station span, .sx-destination span { display: block; position: absolute; top: 5px; left: 5px; right: 5px; background: #203d36; border: 2px solid #e1c17a; color: #fff1ce; text-align: center; font-size: 12px; }
+.sx-station i, .sx-destination i { display: inline-block; width: 26px; height: 33px; margin: 9px 15px; background: linear-gradient(90deg,transparent 46%,#613d23 46% 54%,transparent 54%),linear-gradient(#f8d687 45%,#654928 45% 53%,#e9b969 53%); border: 3px solid #5e3e23; }
+.sx-scroll .sx-station { animation: sx-station-pass 6.5s linear both; }
+@keyframes sx-station-pass { to { transform: translateX(130vw); } }
+.sx-destination { left: -180px; animation: sx-arriving-station 6.5s linear both; }
+@keyframes sx-arriving-station { 0%,45% { transform: translateX(0); } 100% { transform: translateX(65vw); } }
+@container (max-height: 430px) { .sx-station, .sx-destination { top: 18%; transform-origin: bottom; scale: .65; } }
+@media (prefers-reduced-motion: reduce) { .sx-motion-out .sx-train { animation: none; transform: translateX(-6%); } .sx-station, .sx-destination { animation: none; } }
+/* Only the two deliberate railway strips may scroll, never the whole scene. */
+.sx-stage, .sx-mainline { overflow: clip; }
+.sx-stage .sx-yard .sx-target { color: #fff0ca; }
+/* Small railway signs identify the authored panoramic stations without hiding them. */
+.sx-station, .sx-destination { background: none; border: 0; box-shadow: none; height: 60px; width: 150px; }
+.sx-station::before, .sx-destination::before { display: none; }
+.sx-station span, .sx-destination span { top: 0; padding: 3px 0; z-index: 1; box-shadow: 3px 3px 0 #102a24; }
+.sx-station i, .sx-destination i { width: 6px; height: 40px; margin: 0 32px; background: linear-gradient(90deg,#dbc797,#695138); border: 0; }
+.sx-arrive .sx-coupler { transform-box: fill-box; transform-origin: left center; animation: sx-couple-lock .35s ease-out; }
+@keyframes sx-couple-lock { from { transform: translateX(6px) scaleX(.5); } to { transform: translateX(0) scaleX(1); } }
+.sx-train, .sx-workbench { scrollbar-width: thin; scrollbar-color: #d9b774 #14271c; }
+.sx-train::-webkit-scrollbar, .sx-workbench::-webkit-scrollbar { display: block; height: 6px; }
+.sx-train::-webkit-scrollbar-thumb, .sx-workbench::-webkit-scrollbar-thumb { background: #d9b774; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) { .sx-arrive .sx-coupler { animation: none; } }
+.sx-raildeck { position: relative; }
+.sx-raildeck .sx-station, .sx-raildeck .sx-destination { top: auto; bottom: 42px; }
+@container (max-height: 430px) { .sx-raildeck .sx-station, .sx-raildeck .sx-destination { bottom: 20px; } }

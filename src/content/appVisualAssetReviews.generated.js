@@ -6,7 +6,7 @@ export const appVisualAssetReview = {
   "reviewedBy": "codex-direct-visual-audit",
   "status": "complete",
   "scope": {
-    "imageCount": 7133,
+    "imageCount": 7150,
     "sources": [
       "runtime-media-registry",
       "source-literals",
@@ -25399,11 +25399,6 @@ export const appVisualAssetReview = {
       "status": "approved"
     },
     {
-      "path": "/images/learn-games/ps1-arcade/sound-beat-stage-v2.webp",
-      "sha256": "c4df522b7cf4a726442e190cfbb9697fbc918ebe9ed5e6c87564568b81878172",
-      "status": "approved"
-    },
-    {
       "path": "/images/learn-games/ps1-arcade/sound-safari-dino-bg-v1.webp",
       "sha256": "461bba915945ea3c1d180fac8f537d6d4390cc0996026456e65ee7263450c833",
       "status": "approved"
@@ -25452,6 +25447,30 @@ export const appVisualAssetReview = {
       "path": "/images/learn-games/reel-read/moonwood-lake.webp",
       "sha256": "02005f8b57c83ed85d30478501febc005c8227d56c5d07ffd24f71041cc41583",
       "status": "approved"
+    },
+    {
+      "path": "/images/learn-games/sentence-express/dino-panorama.webp",
+      "sha256": "e447efa809a304a44cf0d819db22361f43592f19dadf201ae4e62f287d0243e0",
+      "status": "approved",
+      "reviewedAt": "2026-09-10"
+    },
+    {
+      "path": "/images/learn-games/sentence-express/meadow-panorama.webp",
+      "sha256": "969fac08fe35ac3090774ed3dc2d83d37ec20eba2ab327466f75a37b65373999",
+      "status": "approved",
+      "reviewedAt": "2026-09-10"
+    },
+    {
+      "path": "/images/learn-games/sentence-express/moonwood-panorama.webp",
+      "sha256": "258b2d31064ae33a697ce5fe614e901f12f0fb65535d0fe73f64b1fe5ba3a04e",
+      "status": "approved",
+      "reviewedAt": "2026-09-10"
+    },
+    {
+      "path": "/images/learn-games/sound-beat/woodland-stage.webp",
+      "sha256": "0a01de53f0330c988b741184af10466ff2da52d3f12cf065d34aa72748fb04cd",
+      "status": "approved",
+      "reviewedAt": "2026-09-10"
     },
     {
       "path": "/images/learn-games/word-bridge/dino-background-clean-v2.webp",

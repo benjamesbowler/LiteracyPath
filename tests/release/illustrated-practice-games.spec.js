@@ -84,3 +84,17 @@ test('Pop stores its directly popped word and keyboard focus steadies the target
 test('Factory states its print task and physically returns a wrong parcel before a correct diversion',async({page})=>{
  test.setTimeout(45000);await open(page,'sound-sort-factory');await expect(page.locator('.aw-objective')).toContainText('Match the first letters');const parcel=page.locator('[data-aw="parcel"]');await expect(parcel).toBeEnabled();const word=(await parcel.locator('strong').innerText()).trim(),bins=await page.locator('[data-aw="chute"]').evaluateAll(es=>es.map(e=>e.dataset.bin));const correct=bins.findIndex(bin=>word.toLowerCase().startsWith(bin.toLowerCase()));expect(correct).toBeGreaterThanOrEqual(0);await page.locator('[data-aw="chute"]').nth(correct===0?1:0).click();await expect(page.locator('.aw-stage')).toHaveAttribute('data-belt-phase','returning');await expect(page.locator('.aw-stage')).toHaveAttribute('data-belt-phase','ready');await expect(parcel.locator('strong')).toHaveText(word);await page.locator('[data-aw="chute"]').nth(correct).click();await expect(page.locator('.aw-stage')).toHaveAttribute('data-aw-index','1');
 });
+
+test('a failed primary and fallback picture stops retrying and leaves readable play', async ({ page }) => {
+  let imageRequests=0;
+  await page.route('**/*',route=>{
+    if(route.request().resourceType()==='image'){imageRequests++;return route.abort();}
+    return route.continue();
+  });
+  await open(page,'cvc-word-builder');
+  await expect(page.locator('.pp-picture-fallback').first()).toBeVisible();
+  const settled=imageRequests;
+  await page.waitForTimeout(500);
+  expect(imageRequests).toBe(settled);
+  await expect(page.locator('.pp-piece-bank button').first()).toBeEnabled();
+});

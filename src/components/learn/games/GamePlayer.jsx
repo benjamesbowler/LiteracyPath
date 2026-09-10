@@ -125,7 +125,7 @@ export function GamePlayer({
   const scene = sceneForKey(world, game.id);
   const activeGameSurfaceName = gameFullscreenSurfaceName(game);
   const premiumProfile = premiumProfileForGame(game.id);
-  const hasPremiumCompletionOverlay = Boolean(completionResult && premiumProfile && game.id !== "rocket-run");
+  const hasPremiumCompletionOverlay = Boolean(completionResult && premiumProfile && premiumProfile.completionPresentation !== "engine");
   const hasBlockingOverlay = startLevel === null || showQuit || showGuide || hasPremiumCompletionOverlay || saveRecovery;
   const hasEngineOwnedCompletion = Boolean(completionResult && !hasPremiumCompletionOverlay);
 
@@ -225,11 +225,11 @@ export function GamePlayer({
   }, [hasPremiumCompletionOverlay]);
 
   useEffect(() => {
-    if (!hasEngineOwnedCompletion || game.id === "rocket-run") return;
+    if (!hasEngineOwnedCompletion || premiumProfile?.completionPresentation === "engine") return;
     const action = [...(playerRef.current?.querySelectorAll(".lg-game-player-main button:not([disabled])") || [])]
       .find(element => !element.closest("[inert]") && element.getClientRects().length > 0);
     action?.focus();
-  }, [game.id, hasEngineOwnedCompletion]);
+  }, [game.id, hasEngineOwnedCompletion, premiumProfile]);
 
   useEffect(() => {
     if (startLevel === null) resumeActionRef.current?.focus();
@@ -622,7 +622,7 @@ export function GamePlayer({
         </div>
       )}
 
-      {completionResult && premiumProfile && game.id !== "rocket-run" && (
+      {hasPremiumCompletionOverlay && (
         <div
           ref={blockingDialogRef}
           className="lg-game-confirm lg-premium-complete"

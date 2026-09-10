@@ -7,10 +7,10 @@ import './phonics-play.css';
 
 export function WordPicture({ word, label, className = '', secret = false }) {
   const asset = getChildWordAsset(word);
-  const [failed, setFailed] = useState('');
-  const src = failed === asset?.image ? asset?.fallbackImage : asset?.image;
-  if (!src || failed === src) return secret ? null : <span className={`pp-picture-fallback ${className}`}>{word}</span>;
-  return <img className={`pp-word-picture ${className}`} src={src} alt={secret ? '' : label || asset.alt || word} draggable="false" onError={() => setFailed(src)} />;
+  const [failed, setFailed] = useState([]);
+  const src = [asset?.image, asset?.fallbackImage].find(candidate => candidate && !failed.includes(candidate));
+  if (!src) return secret ? null : <span className={`pp-picture-fallback ${className}`}>{word}</span>;
+  return <img className={`pp-word-picture ${className}`} src={src} alt={secret ? '' : label || asset.alt || word} draggable="false" onError={() => setFailed(previous => [...new Set([...previous, src])])} />;
 }
 
 export function PlayHero({ difficulty = 'easy', className = '', style }) {

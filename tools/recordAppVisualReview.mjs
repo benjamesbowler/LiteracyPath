@@ -33,6 +33,8 @@ let review = {
 // A repair review must not approve unrelated images whose bytes also changed.
 // Receipts contain only directly inspected public paths and their final hashes.
 const receiptIndex = process.argv.indexOf("--receipts");
+const retiredPaths = new Set(process.argv.flatMap((arg, index) => arg === "--retire" ? [process.argv[index + 1]] : []));
+if (retiredPaths.size && receiptIndex === -1) throw new Error("Retiring an image requires scoped review receipts.");
 if (receiptIndex !== -1) {
   const receipts = JSON.parse(fs.readFileSync(process.argv[receiptIndex + 1], "utf8"));
   if (!Array.isArray(receipts) || !receipts.length) throw new Error("Expected non-empty visual review receipts.");
@@ -46,13 +48,19 @@ if (receiptIndex !== -1) {
     replacements.set(receipt.path, { path: receipt.path, sha256, status: "approved", reviewedAt });
   }
   const existingPaths = new Set(appVisualAssetReview.assets.map(item => item.path));
+  for (const retired of retiredPaths) {
+    if (!existingPaths.has(retired) || currentByPath.has(retired)) {
+      throw new Error("A retired review must name an existing record absent from the current inventory: " + retired);
+    }
+  }
   review = {
     ...appVisualAssetReview,
     assets: [
-      ...appVisualAssetReview.assets.map(item => replacements.get(item.path) || item),
+      ...appVisualAssetReview.assets.filter(item => !retiredPaths.has(item.path)).map(item => replacements.get(item.path) || item),
       ...[...replacements.values()].filter(item => !existingPaths.has(item.path))
     ].sort((left, right) => left.path.localeCompare(right.path))
   };
+  review.scope = { ...review.scope, imageCount: review.assets.length };
   console.log("Updated " + replacements.size + " directly reviewed images; all unrelated review records preserved.");
 }
 

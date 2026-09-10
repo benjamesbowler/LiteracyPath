@@ -414,7 +414,7 @@ for (const game of GAME_LIST) {
     assert.equal(h.read().practiceRecord.completions.length, 1);
     assert.equal(h.read().highScore, 80);
     assert.equal(h.read().checkpoints.easy, undefined);
-    assert.equal(h.dialogs().length, premiumProfileForGame(game.id) && game.id !== "rocket-run" ? 1 : 0);
+    assert.equal(h.dialogs().length, premiumProfileForGame(game.id) && !["rocket-run", "sentence-express"].includes(game.id) ? 1 : 0);
     assert.equal(h.missions.length, 1);
     callbacks.onSessionStart();
     assert.ok(callbacks.onResultReady(3, 100, 5, evidence()));

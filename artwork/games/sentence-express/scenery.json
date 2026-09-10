@@ -1,0 +1,39 @@
+{
+  "assets": [
+    {
+      "world": "meadow",
+      "source": "meadow-panorama.png",
+      "runtime": "/images/learn-games/sentence-express/meadow-panorama.webp",
+      "generator": "Built-in image generation",
+      "prompt": "Create ONE finished horizontal 3:1 panoramic background environment asset for an original premium children's literacy railway game. MEADOW RAILWAY: rolling emerald hills, a winding reflective stream crossed by a small warm sandstone arch bridge, a tiny cream plaster red-tile-roof village, an old timber watermill, willow and oak trees. Soft sunny morning with warm brass light and light blue sky. Use richly shaped stylized 3D game-art rendering with painted material detail, soft contact shadows, atmospheric depth, appealing curves, crafted architecture, lush layered vegetation; polished family console adventure quality, not flat vector art, not low-poly triangles, not photorealism. Camera is a level side-view across a broad landscape, slightly above the distant ground, suitable behind side-on train carriages in a 2.5D game. Compose a coherent continuous panorama, skyline in upper third, interesting distant landmarks across width, gentle unobstructed horizontal grass/earth verge across entire lowest 15%. The foreground rail track and all gameplay trains will be rendered separately over this asset. Do not include ANY trains, rails, characters, words, lettering, numbers, signs, interface, border, captions, watermark or collage. One complete panorama filling the image.",
+      "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a088de-2e7a-7823-83e8-a13365467d07/exec-2f3b0778-93e5-4a3c-9de9-e8d8056a6ad1.png"
+    },
+    {
+      "world": "dino",
+      "source": "dino-panorama.png",
+      "runtime": "/images/learn-games/sentence-express/dino-panorama.webp",
+      "generator": "Built-in image generation",
+      "prompt": "Create ONE finished horizontal 3:1 panoramic background environment asset for an original premium children's literacy railway game. DINO CANYON RAILWAY: majestic sculpted terracotta canyon mesas, green prehistoric fern groves and cycads, a distant stone viaduct across a blue river, small cozy timber station buildings nestled in rock shelves, distant gentle waterfalls. Golden evening light, peach sky, no dinosaurs or characters. Use richly shaped stylized 3D game-art rendering with painted material detail, soft contact shadows, atmospheric depth, appealing curves, crafted architecture, lush layered vegetation; polished family console adventure quality, not flat vector art, not low-poly triangles, not photorealism. Camera is a level side-view across a broad landscape, slightly above the distant ground, suitable behind side-on train carriages in a 2.5D game. Compose a coherent continuous panorama, skyline in upper third, interesting distant landmarks across width, gentle unobstructed horizontal grass/earth verge across entire lowest 15%. The foreground rail track and all gameplay trains will be rendered separately over this asset. Do not include ANY trains, rails, characters, words, lettering, numbers, signs, interface, border, captions, watermark or collage. One complete panorama filling the image.",
+      "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a088de-2e7a-7823-83e8-a13365467d07/exec-e352e3ce-159b-4626-b1de-58d5495cba07.png"
+    },
+    {
+      "world": "moonwood",
+      "source": "moonwood-panorama.png",
+      "runtime": "/images/learn-games/sentence-express/moonwood-panorama.webp",
+      "generator": "Built-in image generation",
+      "prompt": "Create ONE finished horizontal 3:1 panoramic background environment asset for an original premium children's literacy railway game. MOONWOOD RAILWAY: enchanted deep teal woodland valley, huge graceful old trees, a winding blue stream, a small arched stone bridge with warm lanterns, a tiny timber railway station and glowing cottage windows sheltered among trees, moonlit blue hills. Rich blue twilight with warm amber lighting, no creatures or characters. Use richly shaped stylized 3D game-art rendering with painted material detail, soft contact shadows, atmospheric depth, appealing curves, crafted architecture, lush layered vegetation; polished family console adventure quality, not flat vector art, not low-poly triangles, not photorealism. Camera is a level side-view across a broad landscape, slightly above the distant ground, suitable behind side-on train carriages in a 2.5D game. Compose a coherent continuous panorama, skyline in upper third, interesting distant landmarks across width, gentle unobstructed horizontal grass/earth verge across entire lowest 15%. The foreground rail track and all gameplay trains will be rendered separately over this asset. Do not include ANY trains, rails, characters, words, lettering, numbers, signs, interface, border, captions, watermark or collage. One complete panorama filling the image.",
+      "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a088de-2e7a-7823-83e8-a13365467d07/exec-b792880b-a19b-40fd-80e7-0190a00fe013.png"
+    }
+  ],
+  "review": {
+    "date": "2026-09-10",
+    "scope": "All three exported panoramas directly inspected alone and as running game scenery; sources retained above.",
+    "renderedViews": [
+      "easy-journey",
+      "medium-journey",
+      "hard-journey",
+      "assembled-568"
+    ],
+    "runtimeHashes": "Current scoped entries in src/content/appVisualAssetReviews.generated.js"
+  }
+}

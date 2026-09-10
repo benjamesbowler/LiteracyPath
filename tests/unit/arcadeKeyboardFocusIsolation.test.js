@@ -96,7 +96,7 @@ const focusedMovementControlExceptions = new Map([
   ],
   [
     "SoundRacerGame.jsx:onKey",
-    /const steeringControlOwnsFocus = event\.target\?\.matches\?\.\('\[data-sr="left-control"\],\[data-sr="right-control"\]'\);\s+if \(isInteractiveKeyTarget\(event\.target\) && !steeringControlOwnsFocus\) return;/
+    /const steeringControlOwnsFocus = event\.target\?\.matches\?\.\('\[data-sr="left-control"\],\[data-sr="right-control"\](?:,\[data-sr="brake-control"\])?'\);\s+if \(isInteractiveKeyTarget\(event\.target\) && !steeringControlOwnsFocus\) return;/
   ]
 ]);
 
@@ -172,10 +172,27 @@ test("Rocket Run lane repeat controls reject a second pointer before it can repl
   }
 });
 
-test("SoundKeys provider keeps the interactive-target guard beside repeat filtering", async () => {
-  const source = await readFile(
-    new URL("../../src/features/soundkeys/inputProviders.js", import.meta.url),
-    "utf8"
-  );
-  assert.match(source, /if \(event\.repeat \|\| isInteractiveKeyTarget\(event\.target\)\) return;/);
+test("SoundKeys accepts only explicitly owned instrument focus and suppresses held-key repeats", () => {
+  const previousWindow = globalThis.window;
+  let handler;
+  const events = [];
+  const owned = interactiveTarget();
+  globalThis.window = { addEventListener(type, value) { if (type === "keydown") handler = value; }, removeEventListener() {} };
+  try {
+    const cleanup = createComputerKeyboardProvider(event => events.push(event), {
+      acceptTarget: target => target === owned,
+      resolveKey: key => key === "1" ? "sh" : null
+    });
+    handler({ key: "1", target: interactiveTarget(), preventDefault() { throw new Error("unrelated control was intercepted"); } });
+    handler({ key: "1", target: owned, repeat: true, preventDefault() { throw new Error("repeat was intercepted"); } });
+    assert.deepEqual(events, []);
+    let prevented = false;
+    handler({ key: "1", target: owned, preventDefault() { prevented = true; } });
+    assert.equal(prevented, true);
+    assert.deepEqual(events, [{ type: "token", token: "sh", source: "computer", key: "1" }]);
+    cleanup();
+  } finally {
+    if (previousWindow === undefined) delete globalThis.window;
+    else globalThis.window = previousWindow;
+  }
 });
