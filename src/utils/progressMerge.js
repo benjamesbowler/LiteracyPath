@@ -1,3 +1,4 @@
+import { mergeCampaignProgress } from "../features/soundSeekers/v3/engine/campaignProgress.js";
 import { MUSIC_PREFERENCE_VERSION, normalizeAudioPreferences } from "./audio/audioPreferences.js";
 import { mergePracticeProgressValue, mergePracticeProgressRecords } from "./practiceCompletionRecords.js";
 // Pure merge rules for hydrating cloud progress into local storage.
@@ -203,6 +204,12 @@ export function sanitizeCloudProgressPayload(area, payload) {
     const { assignment, telemetry, ...safePayload } = payload;
     void assignment;
     void telemetry;
+    if (safePayload.campaign) {
+      const { legacySave, legacySaves, ...campaign } = safePayload.campaign;
+      void legacySave;
+      void legacySaves;
+      return { ...safePayload, campaign };
+    }
     return safePayload;
   }
   if (area === "profile") {
@@ -369,8 +376,20 @@ export function reconcileQuestSaveWithStored(writer, stored) {
 
 // Decide the value to write to local storage for one hydrated cloud row.
 // `existing` is the current local value for that storage key. Pure + testable.
-export function computeHydratedValue(area, key, existing, payload) {
+export function computeHydratedValue(area, key, existing, payload, { scopeKey } = {}) {
   const base = existing && typeof existing === "object" ? existing : {};
+
+  if (area === "phonics_quest" && (key === "sound_seekers_v3" || base.campaign || payload?.campaign)) {
+    if (!scopeKey) throw new Error("Campaign hydration requires an explicit learner scope");
+    if (payload && (typeof payload !== "object" || Array.isArray(payload) || payload.v !== 3)) {
+      throw new Error("Unsupported campaign cloud payload");
+    }
+    // Queue callers validate their entry identities; hydration obtains scope
+    // from the validated session. Never invent a common fallback account.
+    return mergeCampaignProgress(
+      { scopeKey, progress: base }, { scopeKey, progress: payload }
+    ).progress;
+  }
 
   // Transfer missions are evidence samples, not mastery. Completion and
   // evidence must union across devices, while the most recently updated

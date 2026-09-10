@@ -1,3 +1,5 @@
+import { BrowserWorker } from '../helpers/campaignBrowserWorker.js';
+import { normalizeCampaignProgress } from '../../src/features/soundSeekers/v3/engine/campaignProgress.js';
 import test from "node:test";
 import assert from "node:assert/strict";
 import { clearProgressSyncSession, configureProgressSync, flushQueuedProgressWrites, fetchStudentCloudProgress, getProgressSyncState, queueProgressSave } from "../../src/utils/progressSync.js";
@@ -83,20 +85,56 @@ test("restoration distinguishes rejected credentials from a transport failure", 
 
 test("fresh sign-in recovers even while an old credential upload is still in flight", async t => {
   const { storage } = browser(t);
-  let release;
+  let release, markStarted;
+  const started = new Promise(resolve => { markStarted = resolve; });
   const old = { studentId: "racing-session", mode: "student", token: "racing-old", client: {
-    call: () => new Promise(resolve => { release = resolve; })
+    call: () => new Promise(resolve => { release = resolve; markStarted(); })
   } };
   configureProgressSync(old);
   queueProgressSave("phonics_letters", "a", { status: "done" }, { scopeKey: old.studentId });
   const oldFlush = flushQueuedProgressWrites();
+  // Reach the actual unresolved RPC before rotating credentials. Preparation
+  // may legitimately await a worker; a microtask count or timer is no barrier.
+  await started;
   let uploads = 0;
   configureProgressSync({ ...old, token: "racing-fresh", client: { call: async (_, args) => {
     assert.equal(args.p_token, "racing-fresh"); uploads++; return { data: { ok: true } };
   } } });
   const freshFlush = flushQueuedProgressWrites();
+  assert.equal(uploads, 0, "fresh credential must join the unresolved old upload");
+  assert.equal(readProgressQueueRecords(storage).length, 1);
   release({ data: { ok: false, error: "invalid_session" } });
   await Promise.all([oldFlush, freshFlush]);
   assert.equal(uploads, 1);
+  assert.equal(readProgressQueueRecords(storage).length, 0);
+});
+
+
+for (const phase of ["read", "transport"]) test(`fresh sign-in during worker ${phase} prevents the old credential from being dispatched`, async t => {
+  const { storage } = browser(t);
+  let markReading;
+  const reading = new Promise(resolve => { markReading = resolve; });
+  const previousWorker = globalThis.Worker;
+  globalThis.Worker = class extends BrowserWorker {
+    postMessage(value) {
+      super.postMessage(value);
+      if (value.job.operation === phase) markReading();
+    }
+  };
+  t.after(() => { clearProgressSyncSession(); globalThis.Worker = previousWorker; });
+  let oldUploads = 0, freshUploads = 0;
+  const old = { studentId: `preparing-session-${phase}`, mode: "student", token: `preparing-old-${phase}`, client: {
+    call: async () => { oldUploads++; return { data: { ok: true } }; }
+  } };
+  configureProgressSync(old);
+  assert.equal(await queueProgressSave("phonics_quest", "sound_seekers_v3", normalizeCampaignProgress(null), { scopeKey: old.studentId }), true);
+  const oldFlush = flushQueuedProgressWrites();
+  await reading;
+  configureProgressSync({ ...old, token: `preparing-fresh-${phase}`, client: { call: async (_, args) => {
+    assert.equal(args.p_token, `preparing-fresh-${phase}`); freshUploads++; return { data: { ok: true } };
+  } } });
+  await Promise.all([oldFlush, flushQueuedProgressWrites()]);
+  assert.equal(oldUploads, 0);
+  assert.equal(freshUploads, 1);
   assert.equal(readProgressQueueRecords(storage).length, 0);
 });

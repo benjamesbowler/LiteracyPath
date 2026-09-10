@@ -1,60 +1,47 @@
-import assert from "node:assert/strict";
-import test from "node:test";
-import React from "react";
-import { renderToStaticMarkup } from "react-dom/server";
-import { createServer } from "vite";
+import assert from 'node:assert/strict';
+import test from 'node:test';
+import React from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { createServer } from 'vite';
+import { CAST } from '../../src/features/soundSeekers/v3/content/cast.js';
+import { createProgress } from '../../src/features/soundSeekers/v3/engine/progress.js';
 
-import { HEROES } from "../../src/features/soundSeekers/v3/content/cast.js";
-import { createProgress } from "../../src/features/soundSeekers/v3/engine/progress.js";
-
-let SoundSeekersV3;
-let vite;
-
+let SoundSeekersCampaign, storage, vite;
+const originalWindow = globalThis.window;
+const values = new Map();
 test.before(async () => {
-  vite = await createServer({ appType: "custom", logLevel: "silent", server: { middlewareMode: true } });
-  ({ default: SoundSeekersV3 } = await vite.ssrLoadModule("/src/features/soundSeekers/v3/SoundSeekersV3.jsx"));
+  globalThis.window = { localStorage: { getItem: key => values.get(key) ?? null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key) }, addEventListener() {}, removeEventListener() {} };
+  vite = await createServer({ appType: 'custom', logLevel: 'silent', server: { middlewareMode: true } });
+  ({ default: SoundSeekersCampaign } = await vite.ssrLoadModule('/src/features/soundSeekers/v3/SoundSeekersCampaign.jsx'));
+  storage = await vite.ssrLoadModule('/src/features/soundSeekers/v3/campaignStorage.js');
 });
-
-test.after(async () => vite?.close());
-
-const noop = () => {};
-const renderGame = progress => renderToStaticMarkup(React.createElement(SoundSeekersV3, {
-  progressScopeKey: "sound-seekers-contract",
-  isSoundEnabled: false,
-  onExit: noop,
-  accessibilitySettings: {},
-  loadProgress: () => progress,
-  saveProgress: noop
-}));
-
-function count(html, marker) {
-  return (html.match(new RegExp(marker, "gu")) || []).length;
+test.after(async () => { await vite?.close(); if (originalWindow === undefined) delete globalThis.window; else globalThis.window = originalWindow; });
+function renderGame(progress, scope) {
+  values.set(storage.campaignStorageKey(scope), JSON.stringify(progress));
+  return renderToStaticMarkup(React.createElement(SoundSeekersCampaign, { progressScopeKey: scope, isSoundEnabled: false, onExit() {}, accessibilitySettings: {} }));
 }
 
-test("current Story Trail exposes the complete child-surface contract at hero selection", () => {
-  const html = renderGame(createProgress());
-
-  assert.match(html, /data-child-surface="sound-seekers"/u);
-  assert.equal(count(html, "data-child-title="), 1);
-  assert.equal(count(html, "data-child-instruction="), 1);
-  assert.equal(count(html, "data-child-choices="), 1);
-  assert.equal(count(html, "data-child-progress="), 1);
-  assert.equal(count(html, "data-child-primary="), 1);
-  assert.match(html, /Who will you be\?/u);
-  assert.match(html, /Start the trail/u);
-  assert.equal(count(html, "class=\"ss3__hero-card\""), HEROES.length);
+test('current campaign presents eight canonical playable Pals in one accessible chooser', () => {
+  const html = renderGame(createProgress(), 'contract-hero');
+  assert.match(html, /data-sound-seekers-game/);
+  assert.match(html, /aria-label="Sound Seekers adventure"/);
+  assert.match(html, /Who will you be\?/);
+  assert.match(html, /role="dialog" aria-modal="true" aria-label="Choose your Pal"/);
+  const chooser = html.split('class="ss-hero-grid"')[1].split('</section>')[0];
+  assert.equal((chooser.match(/<button/g) || []).length, 8);
+  for (const id of ['speedy','bouncy','woolly','splashy','clucky','muddy','chompy','pip']) assert.ok(chooser.includes(CAST[id].name), id);
+  assert.match(html, /<canvas inert=""/);
+  assert.doesNotMatch(html, /aria-label="Movement"/);
 });
 
-test("current Story Trail exposes the complete child-surface contract on the map", () => {
-  const progress = { ...createProgress(), heroChosen: true };
-  const html = renderGame(progress);
-
-  assert.match(html, /data-child-surface="sound-seekers"/u);
-  assert.equal(count(html, "data-child-title="), 1);
-  assert.equal(count(html, "data-child-instruction="), 1);
-  assert.equal(count(html, "data-child-choices="), 1);
-  assert.equal(count(html, "data-child-progress="), 1);
-  assert.equal(count(html, "data-child-primary="), 1);
-  assert.match(html, /Sound Seekers/u);
-  assert.match(html, /Help .* ✋/u);
+test('current campaign hub exposes movement, map, pause and accessible object actions', () => {
+  const html = renderGame({ ...createProgress(), heroChosen: true }, 'contract-hub');
+  assert.match(html, /data-sound-seekers-game/);
+  assert.match(html, /Hollow Tree/);
+  assert.match(html, /Sunny Meadow Farm/);
+  for (const label of ['World map','Pause adventure','Movement','Move left','Move right','Jump','Interact with nearby object']) assert.ok(html.includes(`aria-label="${label}"`), label);
+  assert.match(html, /Choose nearby/);
+  assert.match(html, /role="status" aria-live="polite"/);
+  assert.doesNotMatch(html, /role="dialog"/);
+  assert.doesNotMatch(html, /<canvas inert/);
 });

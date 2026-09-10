@@ -45,10 +45,24 @@ export function localProgressStorageKey(area, scopeKey) {
   return "";
 }
 
+// A progress area can own more than one versioned local record. Keep row
+// routing and privacy/reset enumeration together so campaign data cannot be
+// hydrated into a legacy record or survive deletion of its learner.
+export function localProgressStorageKeyForRow(area, key, scopeKey) {
+  const base = localProgressStorageKey(area, scopeKey);
+  return base && area === "phonics_quest" && key === "sound_seekers_v3" ? `${base}:v3:campaign-v1` : base;
+}
+
+export function localProgressStorageKeysForArea(area, scopeKey) {
+  const base = localProgressStorageKey(area, scopeKey);
+  if (!base) return [];
+  return area === "phonics_quest" ? [base, `${base}:v3`, localProgressStorageKeyForRow(area, "sound_seekers_v3", scopeKey), `${localProgressStorageKeyForRow(area, "sound_seekers_v3", scopeKey)}:position-v1`, `${localProgressStorageKeyForRow(area, "sound_seekers_v3", scopeKey)}:live-v1`] : [base];
+}
+
 // Every localStorage key that holds progress for one student.
 export function localProgressKeysForStudent(studentId) {
   return [
-    ...PROGRESS_AREAS.map(area => localProgressStorageKey(area, studentId)),
+    ...PROGRESS_AREAS.flatMap(area => localProgressStorageKeysForArea(area, studentId)),
     ...RETIRED_PROGRESS_AREAS.map(area => retiredLocalProgressStorageKey(area, studentId))
   ].filter(Boolean);
 }

@@ -1,9 +1,11 @@
+import { normalizeCampaignProgress } from "../../src/features/soundSeekers/v3/engine/campaignProgress.js";
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
   enqueueProgressQueueEntry,
   LEGACY_PROGRESS_QUEUE_KEY,
   mergeProgressQueueRecords,
+  mergeProgressQueueEntries,
   PROGRESS_QUEUE_ENTRY_PREFIX,
   readProgressQueueRecords,
   removeProgressQueueRecords
@@ -299,4 +301,14 @@ test("credential migration keeps evidence on quota failure and transfers before 
   assert.equal(storage.getItem(LEGACY_PROGRESS_QUEUE_KEY), null);
   assert.deepEqual(readProgressQueueRecords(storage)[0].entry.payload, entry.payload);
   assert.equal([...storage.values.values()].some(raw => raw.includes("synthetic-secret")), false);
+});
+
+
+test("campaign queue entries cannot coalesce across learner, area or row identities", () => {
+  const entry = { studentId: "A", area: "phonics_quest", key: "sound_seekers_v3", payload: normalizeCampaignProgress(null) };
+  const result = mergeProgressQueueEntries(entry, { ...entry, payload: { ...entry.payload, hero: "bouncy", updatedAt: 10 } });
+  assert.equal(result.payload.hero, "bouncy");
+  for (const different of [{ studentId: "B" }, { area: "el_quest" }, { key: "__all__" }]) {
+    assert.throws(() => mergeProgressQueueEntries(entry, { ...entry, ...different }), /identity mismatch/);
+  }
 });

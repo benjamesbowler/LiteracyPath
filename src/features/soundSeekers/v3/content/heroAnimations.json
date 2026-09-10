@@ -1,0 +1,422 @@
+{
+  "speedy": {
+    "src": "/game-assets/sound-seekers/campaign/heroes/speedy-walk.png",
+    "width": 1774,
+    "height": 887,
+    "fps": 8,
+    "referenceHeight": 360,
+    "frames": [
+      {
+        "x": 0,
+        "y": 0,
+        "width": 444,
+        "height": 444,
+        "anchorX": 237.5,
+        "anchorY": 429,
+        "bodyHeight": 351
+      },
+      {
+        "x": 444,
+        "y": 0,
+        "width": 443,
+        "height": 444,
+        "anchorX": 220,
+        "anchorY": 435,
+        "bodyHeight": 357
+      },
+      {
+        "x": 887,
+        "y": 0,
+        "width": 443,
+        "height": 444,
+        "anchorX": 210,
+        "anchorY": 434,
+        "bodyHeight": 356
+      },
+      {
+        "x": 1330,
+        "y": 0,
+        "width": 444,
+        "height": 444,
+        "anchorX": 212,
+        "anchorY": 433,
+        "bodyHeight": 355
+      },
+      {
+        "x": 0,
+        "y": 444,
+        "width": 444,
+        "height": 443,
+        "anchorX": 237,
+        "anchorY": 392,
+        "bodyHeight": 351
+      },
+      {
+        "x": 444,
+        "y": 444,
+        "width": 443,
+        "height": 443,
+        "anchorX": 223,
+        "anchorY": 401,
+        "bodyHeight": 360
+      },
+      {
+        "x": 887,
+        "y": 444,
+        "width": 443,
+        "height": 443,
+        "anchorX": 212,
+        "anchorY": 400,
+        "bodyHeight": 358
+      },
+      {
+        "x": 1330,
+        "y": 444,
+        "width": 444,
+        "height": 443,
+        "anchorX": 209.5,
+        "anchorY": 392,
+        "bodyHeight": 349
+      }
+    ],
+    "sha256": "fbdbf8bcda45f0d4eae29db4804f697b55ebde3ced3bcc0e663e74d23ee5e278",
+    "provenance": "Generated character walk drawings referenced to the current Pal identity. Original PNG copied unchanged; measured alpha bounds and distinct frames verified. Canonical identity reference is the fidelity anchor, not an assertion of production animation approval.",
+    "canonicalIdentityReference": "/game-assets/sound-seekers/v3/cast/meadow/speedy-hero.webp"
+  },
+  "bouncy": {
+    "src": "/game-assets/sound-seekers/campaign/heroes/bouncy-walk.png",
+    "width": 1222,
+    "height": 1287,
+    "fps": 6,
+    "referenceHeight": 567,
+    "frames": [
+      {
+        "x": 0,
+        "y": 0,
+        "width": 611,
+        "height": 644,
+        "anchorX": 346.5,
+        "anchorY": 602,
+        "bodyHeight": 567
+      },
+      {
+        "x": 611,
+        "y": 0,
+        "width": 611,
+        "height": 644,
+        "anchorX": 323,
+        "anchorY": 593,
+        "bodyHeight": 554
+      },
+      {
+        "x": 0,
+        "y": 644,
+        "width": 611,
+        "height": 643,
+        "anchorX": 344,
+        "anchorY": 594,
+        "bodyHeight": 558
+      },
+      {
+        "x": 611,
+        "y": 644,
+        "width": 611,
+        "height": 643,
+        "anchorX": 358.5,
+        "anchorY": 584,
+        "bodyHeight": 551
+      }
+    ],
+    "sha256": "d130e6a014f8c0ce6d0d852463a176640bb7f21e3208e7eb150ce1c4dd181881",
+    "provenance": "Generated character walk drawings referenced to the current Pal identity. Original PNG copied unchanged; measured alpha bounds and distinct frames verified. Canonical identity reference is the fidelity anchor, not an assertion of production animation approval.",
+    "canonicalIdentityReference": "/game-assets/sound-seekers/v3/cast/meadow/bouncy.webp"
+  },
+  "woolly": {
+    "src": "/game-assets/sound-seekers/campaign/heroes/woolly-walk.png",
+    "width": 1254,
+    "height": 1254,
+    "fps": 6,
+    "referenceHeight": 496,
+    "frames": [
+      {
+        "x": 0,
+        "y": 0,
+        "width": 627,
+        "height": 627,
+        "anchorX": 325,
+        "anchorY": 563,
+        "bodyHeight": 490
+      },
+      {
+        "x": 627,
+        "y": 0,
+        "width": 627,
+        "height": 627,
+        "anchorX": 332,
+        "anchorY": 569,
+        "bodyHeight": 496
+      },
+      {
+        "x": 0,
+        "y": 627,
+        "width": 627,
+        "height": 627,
+        "anchorX": 324,
+        "anchorY": 547,
+        "bodyHeight": 491
+      },
+      {
+        "x": 627,
+        "y": 627,
+        "width": 627,
+        "height": 627,
+        "anchorX": 333,
+        "anchorY": 541,
+        "bodyHeight": 485
+      }
+    ],
+    "sha256": "92c03390cab9402557b64f74f4b858a651c096adc29b535acb702a8f8e507503",
+    "provenance": "Generated character walk drawings referenced to the current Pal identity. Original PNG copied unchanged; measured alpha bounds and distinct frames verified. Canonical identity reference is the fidelity anchor, not an assertion of production animation approval.",
+    "canonicalIdentityReference": "/game-assets/sound-seekers/v3/cast/meadow/woolly.webp"
+  },
+  "splashy": {
+    "src": "/game-assets/sound-seekers/campaign/heroes/splashy-walk.png",
+    "width": 1245,
+    "height": 1263,
+    "fps": 6,
+    "referenceHeight": 541,
+    "frames": [
+      {
+        "x": 0,
+        "y": 0,
+        "width": 622,
+        "height": 632,
+        "anchorX": 347,
+        "anchorY": 587,
+        "bodyHeight": 541
+      },
+      {
+        "x": 622,
+        "y": 0,
+        "width": 623,
+        "height": 632,
+        "anchorX": 289.5,
+        "anchorY": 587,
+        "bodyHeight": 541
+      },
+      {
+        "x": 0,
+        "y": 632,
+        "width": 622,
+        "height": 631,
+        "anchorX": 341.5,
+        "anchorY": 567,
+        "bodyHeight": 539
+      },
+      {
+        "x": 622,
+        "y": 632,
+        "width": 623,
+        "height": 631,
+        "anchorX": 299,
+        "anchorY": 567,
+        "bodyHeight": 541
+      }
+    ],
+    "sha256": "8793e68e7ec892b81783410d068e714debc35b98a9af9529328b90247d2df039",
+    "provenance": "Generated character walk drawings referenced to the current Pal identity. Original PNG copied unchanged; measured alpha bounds and distinct frames verified. Canonical identity reference is the fidelity anchor, not an assertion of production animation approval.",
+    "canonicalIdentityReference": "/game-assets/sound-seekers/v3/cast/meadow/splashy.webp"
+  },
+  "clucky": {
+    "src": "/game-assets/sound-seekers/campaign/heroes/clucky-walk.png",
+    "width": 1214,
+    "height": 1295,
+    "fps": 6,
+    "referenceHeight": 581,
+    "frames": [
+      {
+        "x": 0,
+        "y": 0,
+        "width": 607,
+        "height": 648,
+        "anchorX": 368.5,
+        "anchorY": 595,
+        "bodyHeight": 581
+      },
+      {
+        "x": 607,
+        "y": 0,
+        "width": 607,
+        "height": 648,
+        "anchorX": 264.5,
+        "anchorY": 596,
+        "bodyHeight": 581
+      },
+      {
+        "x": 0,
+        "y": 648,
+        "width": 607,
+        "height": 647,
+        "anchorX": 368,
+        "anchorY": 600,
+        "bodyHeight": 578
+      },
+      {
+        "x": 607,
+        "y": 648,
+        "width": 607,
+        "height": 647,
+        "anchorX": 270,
+        "anchorY": 600,
+        "bodyHeight": 578
+      }
+    ],
+    "sha256": "916d122de3998bc1e8d466c16af0e76e245c55f93ecc6aeb5f152b5f8c9ee674",
+    "provenance": "Generated character walk drawings referenced to the current Pal identity. Original PNG copied unchanged; measured alpha bounds and distinct frames verified. Canonical identity reference is the fidelity anchor, not an assertion of production animation approval.",
+    "canonicalIdentityReference": "/game-assets/sound-seekers/v3/cast/meadow/clucky.webp"
+  },
+  "muddy": {
+    "src": "/game-assets/sound-seekers/campaign/heroes/muddy-walk.png",
+    "width": 1206,
+    "height": 1305,
+    "fps": 6,
+    "referenceHeight": 517,
+    "frames": [
+      {
+        "x": 0,
+        "y": 0,
+        "width": 603,
+        "height": 652,
+        "anchorX": 309.5,
+        "anchorY": 585,
+        "bodyHeight": 513
+      },
+      {
+        "x": 603,
+        "y": 0,
+        "width": 603,
+        "height": 652,
+        "anchorX": 282.5,
+        "anchorY": 582,
+        "bodyHeight": 510
+      },
+      {
+        "x": 0,
+        "y": 652,
+        "width": 603,
+        "height": 653,
+        "anchorX": 308,
+        "anchorY": 555,
+        "bodyHeight": 506
+      },
+      {
+        "x": 603,
+        "y": 652,
+        "width": 603,
+        "height": 653,
+        "anchorX": 289,
+        "anchorY": 562,
+        "bodyHeight": 517
+      }
+    ],
+    "sha256": "396b430e61a6e9dc5e56196ba9b9fcc44449ec1777f9950f9ba45f6d1a6d31e9",
+    "provenance": "Generated character walk drawings referenced to the current Pal identity. Original PNG copied unchanged; measured alpha bounds and distinct frames verified. Canonical identity reference is the fidelity anchor, not an assertion of production animation approval.",
+    "canonicalIdentityReference": "/game-assets/sound-seekers/v3/cast/meadow/muddy.webp"
+  },
+  "chompy": {
+    "src": "/game-assets/sound-seekers/campaign/heroes/chompy-walk.png",
+    "width": 1230,
+    "height": 1278,
+    "fps": 6,
+    "referenceHeight": 563,
+    "frames": [
+      {
+        "x": 0,
+        "y": 0,
+        "width": 615,
+        "height": 639,
+        "anchorX": 342.5,
+        "anchorY": 597,
+        "bodyHeight": 559
+      },
+      {
+        "x": 615,
+        "y": 0,
+        "width": 615,
+        "height": 639,
+        "anchorX": 296.5,
+        "anchorY": 600,
+        "bodyHeight": 563
+      },
+      {
+        "x": 0,
+        "y": 639,
+        "width": 615,
+        "height": 639,
+        "anchorX": 339,
+        "anchorY": 577,
+        "bodyHeight": 548
+      },
+      {
+        "x": 615,
+        "y": 639,
+        "width": 615,
+        "height": 639,
+        "anchorX": 291.5,
+        "anchorY": 586,
+        "bodyHeight": 557
+      }
+    ],
+    "sha256": "378d6eb9f51937bdec263f1c187004b059db56a6b9a2ccfcb333082f9176465c",
+    "provenance": "Generated character walk drawings referenced to the current Pal identity. Original PNG copied unchanged; measured alpha bounds and distinct frames verified. Canonical identity reference is the fidelity anchor, not an assertion of production animation approval.",
+    "canonicalIdentityReference": "/game-assets/sound-seekers/v3/cast/dino/chompy-hero.webp"
+  },
+  "pip": {
+    "src": "/game-assets/sound-seekers/campaign/heroes/pip-walk.png",
+    "width": 1230,
+    "height": 1278,
+    "fps": 6,
+    "referenceHeight": 627,
+    "frames": [
+      {
+        "x": 0,
+        "y": 0,
+        "width": 615,
+        "height": 647,
+        "anchorX": 356,
+        "anchorY": 642,
+        "bodyHeight": 627
+      },
+      {
+        "x": 615,
+        "y": 0,
+        "width": 615,
+        "height": 647,
+        "anchorX": 248,
+        "anchorY": 639,
+        "bodyHeight": 621
+      },
+      {
+        "x": 0,
+        "y": 647,
+        "width": 615,
+        "height": 631,
+        "anchorX": 345.5,
+        "anchorY": 586,
+        "bodyHeight": 582
+      },
+      {
+        "x": 615,
+        "y": 647,
+        "width": 615,
+        "height": 631,
+        "anchorX": 287.5,
+        "anchorY": 586,
+        "bodyHeight": 580
+      }
+    ],
+    "sha256": "743884e3e35dcdb52cb68c81cf598e94c6c9626414166ea5a628a060f7c61f92",
+    "provenance": "Generated character walk drawings referenced to the current Pal identity. Original PNG copied unchanged; measured alpha bounds and distinct frames verified. Canonical identity reference is the fidelity anchor, not an assertion of production animation approval.",
+    "canonicalIdentityReference": "/guided-reading/reference/characters/moonwood-cast-master.webp"
+  }
+}
