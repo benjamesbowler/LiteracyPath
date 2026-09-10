@@ -350,7 +350,7 @@ function CyclePracticeSession({
     if (outcome.partial) {
       if (mode === "assessment") update({ assessmentRecords: [...current.assessmentRecords, record] });
       else update({ practiceRecords: [...current.practiceRecords, record], attempts: outcome.correct ? current.attempts : current.attempts + 1 });
-      playFeedbackThen(outcome.correct ? "correct" : mode === "assessment" ? "notQuite" : "retry", { ...currentRound, audio: outcome.object?.audio || currentRound.audio }, release);
+      playFeedbackThen(outcome.correct ? "correct" : mode === "assessment" ? "notQuite" : "retry", responseRound, release);
       return;
     }
     if (mode === "assessment") {
@@ -358,23 +358,23 @@ function CyclePracticeSession({
       if (assessmentIndex + 1 >= assessmentPlan.length) {
         const attempt = freezeAttempt(records);
         update({ assessmentRecords: records, pendingAttempt: attempt });
-        playFeedbackThen(outcome.correct ? "correct" : "notQuite", currentRound, () => { resetFeedback(); void saveAttempt(attempt); });
+        playFeedbackThen(outcome.correct ? "correct" : "notQuite", responseRound, () => { resetFeedback(); void saveAttempt(attempt); });
         return;
       }
       update({ assessmentRecords: records, assessmentIndex: assessmentIndex + 1 });
-      playFeedbackThen(outcome.correct ? "correct" : "notQuite", currentRound, release);
+      playFeedbackThen(outcome.correct ? "correct" : "notQuite", responseRound, release);
       return;
     }
     const practiceRecords = [...current.practiceRecords, record];
     if (!outcome.correct) {
       update({ attempts: current.attempts + 1, practiceRecords });
-      playFeedbackThen("retry", currentRound, release, selectedChoice?.audio);
+      playFeedbackThen("retry", responseRound, release, selectedChoice?.audio);
       return;
     }
     const last = practiceIndex + 1 >= practicePlan.length;
     update({ practiceRecords, attempts: 0, earnedCount: (current.earnedCount || 0) + 1,
       practiceIndex: last ? 0 : practiceIndex + 1, pass: last ? current.pass + 1 : current.pass });
-    playFeedbackThen((current.earnedCount || 0) % 6 === 5 ? "complete" : "correct", currentRound, () => {
+    playFeedbackThen((current.earnedCount || 0) % 6 === 5 ? "complete" : "correct", responseRound, () => {
       release();
       if (cyclePracticeReadiness(cycle, stateRef.current.practiceRecords, clockRef.current.values.activePracticeSeconds).ready && !practice.unavailable.length && !check.unavailable.length) startAssessment();
     });

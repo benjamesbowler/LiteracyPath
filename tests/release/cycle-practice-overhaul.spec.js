@@ -508,3 +508,24 @@ const first = await page.evaluate(() => window.__cycleSaveCalls[0].args.p_attemp
   expect(final.pendingAttempt).toBeNull();
   expect(final.result.savedToTeacher).toBe(true);
 });
+
+for (const mode of ['practice', 'assessment']) {
+  test(`${mode} sorting feedback names the last sorted picture rather than the first`, async ({ page }) => {
+    const rounds = mode === 'assessment' ? check : plan;
+    const index = rounds.findIndex(round => round.objects?.length > 1 && round.objects.at(-1).audio !== round.audio);
+    expect(index).toBeGreaterThanOrEqual(0);
+    const round = rounds[index];
+    await startAt(page, { mode, practiceIndex: index, assessmentIndex: index });
+    for (const object of round.objects.slice(0, -1)) {
+      await ready(page);
+      await page.locator(`[data-cycle-bin="${object.answer}"]`).click();
+    }
+    await ready(page);
+    await page.evaluate(() => { window.__cycleAudio.played = []; });
+    const last = round.objects.at(-1);
+    await page.locator(`[data-cycle-bin="${last.answer}"]`).click();
+    await expect.poll(() => page.evaluate(() => window.__cycleAudio.played.length)).toBeGreaterThanOrEqual(2);
+    const played = await page.evaluate(() => window.__cycleAudio.played);
+    expect(played[1].src).toBe(last.audio);
+  });
+}

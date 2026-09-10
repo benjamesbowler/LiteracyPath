@@ -135,3 +135,57 @@ createRoot(document.getElementById('root')).render(React.createElement(App));`);
   expect(result.evidence.firstResponses[0].supportUsed).toContain('printed_target');
   expect(result.evidence.assistedRetries[0]).toMatchObject({ round:0, attempts:1, independent:false });
 });
+
+async function expectReachableControls(page, selector) {
+  const controls = page.locator(selector);
+  for (const control of await controls.all()) {
+    await expect(control).toBeVisible();
+    const rect = await control.boundingBox();
+    const viewport = page.viewportSize();
+    expect(rect.width).toBeGreaterThanOrEqual(56);
+    expect(rect.height).toBeGreaterThanOrEqual(56);
+    expect(rect.x).toBeGreaterThanOrEqual(0);
+    expect(rect.y).toBeGreaterThanOrEqual(0);
+    expect(rect.x + rect.width).toBeLessThanOrEqual(viewport.width);
+    expect(rect.y + rect.height).toBeLessThanOrEqual(viewport.height);
+    expect(await control.evaluate(el => {
+      const r = el.getBoundingClientRect();
+      return el.contains(document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2));
+    })).toBe(true);
+  }
+}
+
+for (const viewport of [{ width: 568, height: 320 }, { width: 390, height: 844 }, { width: 1024, height: 768 }, { width: 768, height: 1024 }, { width: 1366, height: 768 }, { width: 1280, height: 720 }]) {
+  for (const [difficulty, count] of [["easy", 6], ["medium", 8], ["hard", 10]]) {
+    test(`workshop ${difficulty} tiles, repairs and blending fit ${viewport.width}x${viewport.height}`, async ({ page }) => {
+      test.setTimeout(60000);
+      await page.setViewportSize(viewport);
+      await page.emulateMedia({ reducedMotion: 'reduce' });
+      await page.goto(`/preview/game-overlay.html?game=cvc-word-builder&sound=1&music=0&difficulty=${difficulty}`);
+      for (let round = 0; round < count; round += 1) {
+        const word = (await page.locator('.lg-game-build > .lg-game-picture img').getAttribute('alt')).replace(/^A |^The /, '').toLowerCase();
+        await expectReachableControls(page, '.lg-workshop-bank button:not([disabled]), .lg-game-build .lg-game-audio');
+        if (round === 0) {
+          // Two mistakes expose both correction controls and the printed hint.
+          for (let attempt = 0; attempt < 2; attempt += 1) {
+            await page.locator('.lg-workshop-bank button').filter({ hasText: new RegExp(`^(?!${WORKSHOP_OBJECTS[word].units[0].grapheme}$).+`) }).first().click();
+            for (let index = 1; index < WORKSHOP_OBJECTS[word].units.length; index += 1) await page.locator('.lg-workshop-bank button:not([disabled])').first().click();
+            await expect(page.locator('.lg-workshop-slots button')).toHaveCount(0);
+            await expectReachableControls(page, '.lg-build-compare, .lg-workshop-bank button:not([disabled])');
+          }
+          await expect(page.locator('.lg-build-hint')).toBeVisible();
+          await page.getByRole('button', { name: 'Compare sounds', exact: true }).click();
+          await expectReachableControls(page, '.lg-build-comparison button');
+          await page.getByRole('button', { name: 'Hear target sound', exact: true }).click();
+          if (process.env.LP_G08_SCREENSHOTS) await page.screenshot({ path: `${process.env.LP_G08_SCREENSHOTS}/repair-${difficulty}-${viewport.width}.png` });
+        }
+        for (const unit of WORKSHOP_OBJECTS[word].units) await page.locator('.lg-workshop-bank button:not([disabled])').getByText(unit.grapheme, { exact: true }).first().click();
+        await expectReachableControls(page, '.lg-build-blend');
+        await page.getByRole('button', { name: `Blend ${word}`, exact: true }).click();
+        await page.getByRole('button', { name: 'Use object', exact: true }).click();
+        await page.getByRole('button', { name: round === count - 1 ? 'Finish' : 'Next build', exact: true }).click();
+      }
+      await expect(page.getByRole('heading', { name: 'CVC Word Builder complete!', exact: true })).toBeVisible();
+    });
+  }
+}

@@ -592,7 +592,7 @@ function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss
       </div>
       {canHearTarget && <button type="button" className="lg-game-audio" onClick={hearTarget}><span aria-hidden="true">♪</span> Hear word</button>}
       <WordImageCard word={targetWord} label={target.label} />
-      {attempts >= 2 && <div className="lg-game-picture lg-game-picture-text" aria-label={`Hint: the word is ${targetWord}`}><span>{targetWord}</span></div>}
+      {attempts >= 2 && <div className="lg-build-hint" aria-label={`Hint: the word is ${targetWord}`}><span>{targetWord}</span></div>}
       {phase === "build" && <div className="lg-build-label">Place the sounds in order</div>}
       {phase === "blending" && <div className="lg-build-state" role="status"><strong>Blend it</strong><span>{placed.map(item => item.grapheme).join(" ")}</span><button type="button" className="lg-build-blend" onClick={blendWord}>Blend {targetWord}</button></div>}
       {["reveal", "used"].includes(phase) && <div className="lg-build-reveal lg-build-object-result" data-object-action={targetWord} role="status">
@@ -608,9 +608,11 @@ function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss
           <button key={unit.id} type="button" className={`filled${wrongIndex === index ? " wrong" : ""}`} aria-label={`Undo sound ${placed[index].grapheme}`} onClick={() => removeAt(index)} disabled={phase !== "build"}>{placed[index].grapheme}</button>
           ) : <span key={unit.id} className={wrongIndex === index ? "wrong" : ""} />)}
       </div>
-      {wrongIndex >= 0 && <div className="lg-build-feedback" role="status"><strong>Check that sound.</strong> The <b>{attempted?.grapheme || "sound"}</b> sound needs repair.</div>}
-      {attempted && <button type="button" className="lg-build-compare" onClick={compareSounds} disabled={!isSoundEnabled}>Compare sounds</button>}
-      {comparison && <div className="lg-build-comparison" role="status"><span>First, you placed <b>{comparison.attempted}</b>.</span><button type="button" onClick={hearComparisonTarget} disabled={!isSoundEnabled}>Hear target sound</button></div>}
+      <div className="lg-build-repair">
+        {wrongIndex >= 0 && <div className="lg-build-feedback" role="status"><strong>Check that sound.</strong> The <b>{attempted?.grapheme || "sound"}</b> sound needs repair.</div>}
+        {attempted && <button type="button" className="lg-build-compare" onClick={compareSounds} disabled={!isSoundEnabled}>Compare sounds</button>}
+        {comparison && <div className="lg-build-comparison" role="status"><span>First, you placed <b>{comparison.attempted}</b>.</span><button type="button" onClick={hearComparisonTarget} disabled={!isSoundEnabled}>Hear target sound</button></div>}
+      </div>
       <div className="lg-game-letter-bank lg-workshop-bank" aria-label="Sound tiles">
         {letters.map(tile => <button key={tile.id} type="button" data-tile-id={tile.id} disabled={phase !== "build" || usedTileIds.has(tile.id)} className={usedTileIds.has(tile.id) ? "used" : ""} onClick={() => placeTile(tile)}>{tile.grapheme}</button>)}
       </div>

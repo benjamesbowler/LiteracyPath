@@ -3764,3 +3764,48 @@
   .lg-game-player[data-fullbleed] .lg-game-score { display: none; }
   .lg-game-player[data-fullbleed] .lg-game-header-meter { grid-template-columns: minmax(0, 1fr) auto; }
 }
+
+/* Keep every workshop tile and repair action inside the child game frame. */
+.lg-build-repair { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.lg-build-repair:empty { display: none; }
+.lg-build-hint { font-weight: 850; font-size: 1.1rem; }
+@media (max-width: 1100px), (max-height: 850px) {
+  .lg-game-player .lg-illustrated-game--build { grid-template-columns: 1fr; grid-template-rows: 1fr; }
+  .lg-game-player .lg-illustrated-game--build > .lg-illustrated-game-art,
+  .lg-game-player .lg-illustrated-game--build .lg-workshop-scene { display: none; }
+  .lg-game-player .lg-illustrated-game .lg-game-build:not(.lg-build-phase-reveal):not(.lg-build-phase-used) {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 8px;
+  }
+  .lg-game-player .lg-illustrated-game .lg-game-build :is(.lg-build-label, .lg-build-feedback, .lg-build-compare, .lg-build-state, .lg-game-audio) { position: static; }
+  .lg-game-player .lg-illustrated-game .lg-game-build .lg-build-label { display: none; }
+  .lg-game-player .lg-illustrated-game .lg-game-build .lg-workshop-slots { gap: 8px; flex-wrap: nowrap; }
+  .lg-game-player .lg-illustrated-game .lg-game-build .lg-workshop-slots :is(span, button) { min-width: 56px; width: 56px; min-height: 56px; height: 56px; }
+  .lg-game-player .lg-illustrated-game .lg-game-build .lg-workshop-bank { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .lg-game-player .lg-illustrated-game .lg-game-build .lg-workshop-bank button { min-width: 56px; width: 56px; min-height: 56px; height: 56px; padding: 4px; }
+  .lg-game-player .lg-illustrated-game .lg-game-build .lg-build-comparison { display: flex; align-items: center; gap: 8px; }
+  .lg-game-player .lg-illustrated-game .lg-game-build .lg-build-repair:has(.lg-build-comparison) > :not(.lg-build-comparison) { display: none; }
+  .lg-game-player .lg-illustrated-game .lg-game-build.lg-build-phase-blending > :is(.lg-workshop-bank, .lg-workshop-slots, .lg-build-hint) { display: none; }
+}
+@media (max-height: 420px) and (orientation: landscape) {
+  .lg-game-player .lg-illustrated-game .lg-game-build:not(.lg-build-phase-reveal):not(.lg-build-phase-used) {
+    display: grid; grid-template-columns: 96px minmax(0, 1fr); grid-template-rows: minmax(56px, 1fr) 56px 56px; gap: 8px; padding: 4px;
+  }
+  .lg-game-player .lg-illustrated-game .lg-game-build > .lg-workshop-scene { display: none; }
+  .lg-game-player .lg-illustrated-game .lg-game-build .lg-game-picture { grid-column: 1; grid-row: 1; width: 88px; height: 88px; }
+  .lg-game-player .lg-illustrated-game .lg-game-build .lg-game-audio { grid-column: 1; grid-row: 2; min-width: 56px; min-height: 56px; padding: 4px; }
+  .lg-game-player .lg-illustrated-game .lg-game-build .lg-workshop-slots { grid-column: 2; grid-row: 1; justify-self: center; }
+  .lg-game-player .lg-illustrated-game .lg-game-build .lg-build-repair { grid-column: 2; grid-row: 2; flex-wrap: nowrap; font-size: .8rem; }
+  .lg-game-player .lg-illustrated-game .lg-game-build .lg-build-feedback { font-size: .8rem; }
+  .lg-game-player .lg-illustrated-game .lg-game-build .lg-build-compare { flex-shrink: 0; padding: 4px; font-size: .8rem; }
+  .lg-game-player .lg-illustrated-game .lg-game-build .lg-workshop-bank { display: flex; grid-column: 1 / -1; grid-row: 3; flex-wrap: nowrap; }
+  .lg-game-player .lg-illustrated-game .lg-game-build .lg-build-state { grid-column: 2; grid-row: 1 / 4; min-width: 0; }
+}
+.lg-game-player .lg-build-comparison button { min-width: 56px; min-height: 56px; border: 2px solid var(--lg-accent-blue); border-radius: 10px; padding: 4px 8px; background: var(--lg-surface); }
+.lg-game-player .lg-build-feedback { display: block; }
+.lg-game-player .lg-build-feedback strong { display: block; }
+@media (max-height: 420px) and (orientation: landscape) {
+  .lg-game-player .lg-illustrated-game .lg-game-build > p:first-child { display: grid; grid-column: 2; grid-row: 2; min-height: 0; border: 0; background: transparent; padding: 0; }
+  .lg-game-player .lg-illustrated-game .lg-game-build:has(.lg-build-feedback) > p:first-child,
+  .lg-game-player .lg-illustrated-game .lg-game-build.lg-build-phase-blending > p:first-child { display: none; }
+  .lg-game-player .lg-illustrated-game .lg-game-build .lg-build-hint { display: block; position: absolute; left: 4px; top: 66px; width: 88px; text-align: center; background: var(--lg-surface); font-size: .85rem; border-radius: 6px; }
+}
