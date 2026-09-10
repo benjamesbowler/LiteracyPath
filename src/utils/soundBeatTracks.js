@@ -49,7 +49,10 @@ function levelItems(difficulty, levelIndex) {
   }
 
   if (difficulty === "easy") {
-    return rotate(CVC_WORDS.easy, levelIndex * 3).slice(0, 3).map(wordItem);
+    // x represents /k/ + /s/: the one-spelling/one-beat display cannot teach
+    // that as one phoneme. Keep these words in spelling games, not this mode.
+    const soundWords = CVC_WORDS.easy.filter(word => !word.includes("x"));
+    return rotate(soundWords, levelIndex * 3).slice(0, 3).map(wordItem);
   }
 
   if (difficulty === "medium") {

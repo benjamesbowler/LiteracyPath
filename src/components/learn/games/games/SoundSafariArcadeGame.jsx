@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { soundSafariLayout } from "../../../../utils/soundSafariLayout.js";
 import {
   playCorrectChime,
   playPopSound,
@@ -11,6 +12,8 @@ import { speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import {
   selectSafariCapture,
+  safariSoundKey,
+  safariDistractors,
   soundSafariLadder,
   soundSafariStars,
   soundSafariPresentedStars
@@ -64,48 +67,7 @@ const CONFIG = {
   }
 };
 
-const SAFARI_LAYOUTS = {
-  4: [
-    { x: 0.2, y: 0.36 },
-    { x: 0.46, y: 0.32 },
-    { x: 0.76, y: 0.42 },
-    { x: 0.44, y: 0.6 }
-  ],
-  5: [
-    { x: 0.2, y: 0.34 },
-    { x: 0.48, y: 0.31 },
-    { x: 0.78, y: 0.41 },
-    { x: 0.3, y: 0.56 },
-    { x: 0.6, y: 0.6 }
-  ],
-  6: [
-    { x: 0.18, y: 0.34 },
-    { x: 0.42, y: 0.3 },
-    { x: 0.68, y: 0.35 },
-    { x: 0.31, y: 0.54 },
-    { x: 0.57, y: 0.6 },
-    { x: 0.82, y: 0.5 }
-  ],
-  7: [
-    { x: 0.17, y: 0.33 },
-    { x: 0.4, y: 0.29 },
-    { x: 0.64, y: 0.34 },
-    { x: 0.84, y: 0.45 },
-    { x: 0.29, y: 0.55 },
-    { x: 0.52, y: 0.62 },
-    { x: 0.74, y: 0.58 }
-  ],
-  8: [
-    { x: 0.16, y: 0.32 },
-    { x: 0.37, y: 0.29 },
-    { x: 0.58, y: 0.32 },
-    { x: 0.8, y: 0.4 },
-    { x: 0.26, y: 0.52 },
-    { x: 0.47, y: 0.6 },
-    { x: 0.68, y: 0.59 },
-    { x: 0.86, y: 0.56 }
-  ]
-};
+
 const DIFFICULTY_RANK = { easy: 0, medium: 1, hard: 2 };
 const CREATURE_COLORS = [
   ["#79fff3", "#10455c"],
@@ -215,24 +177,6 @@ function psxPanel(ctx, x, y, w, h, color = "rgba(5,10,22,.72)", stroke = "rgba(2
   ctx.restore();
 }
 
-function drawBolt(ctx, x, y, color) {
-  ctx.save();
-  ctx.fillStyle = color;
-  ctx.strokeStyle = "rgba(0,0,0,.55)";
-  ctx.lineWidth = 1.5;
-  ctx.beginPath();
-  for (let i = 0; i < 6; i += 1) {
-    const angle = Math.PI / 6 + i * Math.PI / 3;
-    const px = x + Math.cos(angle) * 5;
-    const py = y + Math.sin(angle) * 5;
-    if (i === 0) ctx.moveTo(px, py);
-    else ctx.lineTo(px, py);
-  }
-  ctx.closePath();
-  ctx.fill();
-  ctx.stroke();
-  ctx.restore();
-}
 
 function lowPolyShape(ctx, points, fill, stroke = "rgba(0,0,0,.38)") {
   ctx.beginPath();
@@ -647,37 +591,26 @@ function drawSoundPlaque(ctx, label, x, y, w, h, theme, isNeeded, time) {
   ctx.lineTo(x + w - 18, y + h - 11);
   ctx.stroke();
   ctx.globalCompositeOperation = "source-over";
-  plateText(ctx, label, x + w / 2, y + h * 0.56, w - 26, clamp(h * 0.72, 36, 54), 30);
+  plateText(ctx, label, x + w / 2, y + h * 0.56, w - 12, 34, 20);
   ctx.restore();
 }
 
 function drawHud(ctx, state, config, theme, w, h) {
-  const leftW = Math.min(560, w - 32);
-  psxPanel(ctx, 16, 14, leftW, 72, theme.panel, `${theme.accent}a8`, 18);
-  drawBolt(ctx, 35, 33, theme.accent2);
-  drawBolt(ctx, leftW - 6, 67, theme.accent);
-  text(ctx, config.title, 54, 38, 25, theme.accent, "left", 900);
-  text(ctx, config.action, 54, 66, 15, "#eaf8ff", "left", 700);
-
-  const rightW = Math.min(360, w * 0.42);
-  psxPanel(ctx, w - rightW - 16, 14, rightW, 72, "rgba(4,8,20,.78)", "rgba(255,255,255,.32)", 18);
-  text(ctx, `${state.score} pts`, w - rightW + 18, 40, 23, "#fff", "left", 900);
-  text(ctx, `Level ${state.stage + 1} of 10`, w - 30, 38, 18, theme.accent2, "right", 900);
-  text(ctx, `Combo x${Math.max(1, state.combo)}`, w - 30, 65, 15, "#ffeaa0", "right", 800);
+  text(ctx, `${state.score} pts`, w - 16, h - 15, 16, "#fff", "right", 900);
 
   const progressX = 24;
-  const progressY = h - 24;
-  const progressW = Math.min(420, w - 48);
+  const progressY = h - 10;
+  const progressW = Math.min(420, w - 150);
   ctx.fillStyle = "rgba(2,7,18,.68)";
-  roundedRect(ctx, progressX - 4, progressY - 5, progressW + 8, 19, 4);
+  roundedRect(ctx, progressX - 4, progressY - 3, progressW + 8, 11, 4);
   ctx.fill();
   ctx.strokeStyle = "rgba(255,255,255,.28)";
   ctx.stroke();
   ctx.fillStyle = "rgba(255,255,255,.16)";
-  roundedRect(ctx, progressX, progressY, progressW, 9, 4);
+  roundedRect(ctx, progressX, progressY, progressW, 5, 2);
   ctx.fill();
   ctx.fillStyle = theme.accent;
-  roundedRect(ctx, progressX, progressY, progressW * state.progress, 9, 4);
+  roundedRect(ctx, progressX, progressY, progressW * state.progress, 5, 2);
   ctx.fill();
   for (let i = 1; i < 10; i += 1) {
     const x = progressX + (progressW * i) / 10;
@@ -685,7 +618,7 @@ function drawHud(ctx, state, config, theme, w, h) {
     ctx.lineWidth = 2;
     ctx.beginPath();
     ctx.moveTo(x, progressY - 2);
-    ctx.lineTo(x, progressY + 11);
+    ctx.lineTo(x, progressY + 6);
     ctx.stroke();
   }
 }
@@ -738,10 +671,6 @@ function rotate(values, amount) {
   return [...values.slice(offset), ...values.slice(0, offset)];
 }
 
-function unique(values) {
-  return [...new Set(values.filter(Boolean))];
-}
-
 function difficultyRank(difficulty) {
   return DIFFICULTY_RANK[difficulty] ?? 0;
 }
@@ -755,16 +684,10 @@ function challengeSettings(difficulty, stage) {
   };
 }
 
-function safariLayout(count) {
-  return SAFARI_LAYOUTS[clamp(count, 4, 8)] || SAFARI_LAYOUTS[4];
-}
 
 function critterLabels(task, stage, taskIndex, difficulty) {
   const needed = neededSound(task);
-  const distractors = unique([
-    ...task.item.decoys,
-    ...task.item.graphemes.filter(label => label !== needed)
-  ]).filter(label => label !== needed);
+  const distractors = safariDistractors(task.item, task.index);
   const count = challengeSettings(difficulty, stage).targetCount;
   const ordered = rotate(distractors, stage + taskIndex + task.index).slice(0, count - 1);
   const insertAt = (stage + taskIndex * 2 + task.index) % (ordered.length + 1);
@@ -773,60 +696,38 @@ function critterLabels(task, stage, taskIndex, difficulty) {
 
 function drawSoundSlots(ctx, task, theme, w, h) {
   const slots = task.item.graphemes;
+  const slotY = h - (h < 360 ? 52 : 74);
+  const slotH = h < 360 ? 34 : 56;
   const slotW = Math.min(82, (w - 90) / Math.max(4, slots.length));
   const startX = w / 2 - (slotW * slots.length) / 2;
   for (let i = 0; i < slots.length; i += 1) {
     const filled = i < task.index;
     const x = startX + i * slotW;
-    psxPanel(ctx, x, h - 104, slotW - 8, 56, filled ? `${theme.accent}d8` : "rgba(4,9,20,.72)", filled ? "#f6ffe7" : "rgba(255,255,255,.33)", 11);
+    psxPanel(ctx, x, slotY, slotW - 8, slotH, filled ? `${theme.accent}d8` : "rgba(4,9,20,.72)", filled ? "#f6ffe7" : "rgba(255,255,255,.33)", 11);
     if (filled) {
       ctx.save();
       ctx.globalCompositeOperation = "screen";
       ctx.fillStyle = `${theme.accent}45`;
-      roundedRect(ctx, x + 5, h - 99, slotW - 18, 46, 4);
+      roundedRect(ctx, x + 5, slotY + 5, slotW - 18, slotH - 10, 4);
       ctx.fill();
       ctx.restore();
     }
-    text(ctx, filled ? slots[i] : "", x + slotW / 2 - 4, h - 75, 23, filled ? "#07101d" : "#fff", "center", 900);
+    text(ctx, filled ? slots[i] : "", x + slotW / 2 - 4, slotY + slotH / 2, h < 360 ? 20 : 23, filled ? "#07101d" : "#fff", "center", 900);
   }
 }
 
-function drawFieldGuide(ctx, task, theme, w, h, showNeeded) {
-  const guideW = Math.min(560, w * 0.62);
-  const x = w / 2 - guideW / 2;
-  psxPanel(ctx, x, h * 0.112, guideW, 112, "rgba(3,8,18,.72)", `${theme.accent2}92`, 24);
-  ctx.save();
-  ctx.globalCompositeOperation = "screen";
-  ctx.fillStyle = `${theme.accent}18`;
-  for (let i = 0; i < 8; i += 1) {
-    ctx.fillRect(x + 28 + i * (guideW - 56) / 8, h * 0.122, 3, 92);
-  }
-  ctx.restore();
-  text(ctx, titleWord(task.item.word), w / 2, h * 0.156, clamp(w * 0.046, 35, 66), "#fff", "center", 900);
-  if (showNeeded) {
-    psxPanel(ctx, w / 2 - Math.min(280, guideW * 0.42) / 2, h * 0.198, Math.min(280, guideW * 0.42), 38, "rgba(0,0,0,.38)", `${theme.accent}86`, 10);
-    text(ctx, `Next sound: ${neededSound(task)}`, w / 2, h * 0.222, clamp(w * 0.024, 20, 30), theme.accent, "center", 900);
-  }
-
-  // The whole field guide is a generous replay target; this speaker mark gives
-  // pre-readers a persistent, language-independent way to hear the word again.
-  const speakerX = x + guideW - 40;
-  const speakerY = h * 0.156;
-  ctx.save();
-  ctx.fillStyle = `${theme.accent}2e`;
-  ctx.strokeStyle = `${theme.accent}b8`;
-  ctx.lineWidth = 2;
-  ctx.beginPath();
-  ctx.arc(speakerX, speakerY, 25, 0, TWO_PI);
-  ctx.fill();
-  ctx.stroke();
-  text(ctx, "♪", speakerX, speakerY + 1, 27, theme.accent, "center", 900);
-  ctx.restore();
+function drawFieldGuide(ctx, task, theme, w, h, showNeeded, coach = "") {
+  const box = fieldGuideReplayBox(w, h);
+  psxPanel(ctx, box.x, box.y, box.w, box.h, "rgba(3,8,18,.82)", `${theme.accent2}92`, 14);
+  const label = titleWord(task.item.word);
+  const caption = h < 360 && coach ? coach : showNeeded ? `Next sound: ${neededSound(task)}` : "";
+  plateText(ctx, label, w / 2 - 22, box.y + (caption ? 20 : 28), box.w - 88, caption ? 27 : 32, 20);
+  if (caption) plateText(ctx, caption, w / 2 - 22, box.y + 43, box.w - 88, 16, 12);
+  text(ctx, "♪", box.x + box.w - 28, box.y + 28, 27, theme.accent, "center", 900);
 }
 
 function fieldGuideReplayBox(w, h) {
-  const guideW = Math.min(560, w * 0.62);
-  return { x: w / 2 - guideW / 2, y: h * 0.112, w: guideW, h: 112 };
+  return soundSafariLayout(w, h, 4).guide;
 }
 
 function pointInside(box, x, y) {
@@ -834,9 +735,10 @@ function pointInside(box, x, y) {
 }
 
 function drawGuide(ctx, image, theme, w, h, time) {
-  const baseX = clamp(w * 0.12, 78, 150);
-  const baseY = h - clamp(h * 0.2, 110, 168);
-  const size = clamp(w * 0.19, 128, 214);
+  if (w < 800 || h < 440) return;
+  const baseX = 64;
+  const baseY = h - 64;
+  const size = 92;
   const bob = Math.sin(time * 2.3) * 2.5;
   ctx.save();
   ctx.fillStyle = "rgba(0,0,0,.42)";
@@ -933,8 +835,8 @@ function critterCenter(critter, time) {
   const wobbleX = Math.sin(time * critter.wobbleSpeed + critter.phase) * critter.wobble;
   const wobbleY = Math.cos(time * (critter.wobbleSpeed * 0.8) + critter.phase) * critter.wobbleY;
   return {
-    x: critter.x + wobbleX,
-    y: critter.y + wobbleY
+    x: clamp(critter.x + wobbleX, critter.homeX - critter.travelX, critter.homeX + critter.travelX),
+    y: clamp(critter.y + wobbleY, critter.homeY - critter.travelY, critter.homeY + critter.travelY)
   };
 }
 
@@ -1054,8 +956,8 @@ function drawCritter(ctx, critter, needed, theme, time, world, sprite, renderPro
   const spriteMaxH = r * (2.42 + depth * 0.62);
   const spriteMaxW = spriteMaxH * 1.14;
   const plateTextValue = String(critter.label);
-  const plateW = clamp(122 + plateTextValue.length * 34 + r * 0.4, 146, 238);
-  const plateH = clamp(r * 0.86, 58, 76);
+  const plateW = critter.plateWidth || 140;
+  const plateH = 56;
   const plateY = footY - clamp(r * 0.04, 3, 8);
 
   critter.hitX = center.x;
@@ -1154,12 +1056,12 @@ function drawCaptureBurst(ctx, burst) {
 }
 
 function drawCoach(ctx, state, theme, w, h) {
-  if (!state.coachT || !state.coachText) return;
+  if (h < 360 || !state.coachT || !state.coachText) return;
   const p = clamp(state.coachT / 1.15, 0, 1);
   ctx.save();
   ctx.globalAlpha = p;
-  psxPanel(ctx, w * 0.25, h * 0.615, w * 0.5, 48, "rgba(3,8,18,.72)", `${theme.accent}78`, 12);
-  text(ctx, state.coachText, w / 2, h * 0.645, clamp(w * 0.018, 17, 24), "#eaf8ff", "center", 900);
+  psxPanel(ctx, 12, h - 106, w - 24, 26, "rgba(3,8,18,.72)", `${theme.accent}78`, 12);
+  text(ctx, state.coachText, w / 2, h - 93, clamp(w * 0.018, 12, 18), "#eaf8ff", "center", 900);
   ctx.restore();
 }
 
@@ -1185,9 +1087,11 @@ function drawSafari(ctx, state, config, theme, images, w, h) {
   drawHabitatFloor(ctx, state, theme, w, h);
   drawWorldGeometry(ctx, state, theme, w, h, "back");
   drawWorldMotion(ctx, state, theme, w, h);
-  drawFieldGuide(ctx, task, theme, w, h, showHint);
+  drawWorldGeometry(ctx, state, theme, w, h, "front");
+  drawFieldGuide(ctx, task, theme, w, h, showHint, state.coachT ? state.coachText : "");
   const palSprite = images.pals[state.level?.world] || images.pals.meadow;
   for (const critter of [...state.critters].sort((a, b) => (a.hitY || a.y) - (b.hitY || b.y))) {
+    if (critter.hidden) continue;
     drawCritter(
       ctx,
       critter,
@@ -1201,14 +1105,13 @@ function drawSafari(ctx, state, config, theme, images, w, h) {
   }
   for (const burst of state.bursts) drawCaptureBurst(ctx, burst);
   drawSoundSlots(ctx, task, theme, w, h);
-  drawWorldGeometry(ctx, state, theme, w, h, "front");
   drawGuide(ctx, images.guide, theme, w, h, state.time * (state.renderProfile?.ambientMotion ?? 1));
   drawNet(ctx, state, theme, w, h, images.net);
 
   if (state.judgementT > 0) {
     const p = clamp(state.judgementT / 0.72, 0, 1);
     const color = state.judgement === "CAUGHT" ? theme.accent : "#ff9aa8";
-    text(ctx, state.judgement, w / 2, h * 0.55 - (1 - p) * 20, 34, color, "center", 900);
+    if (!state.coachT) text(ctx, state.judgement, w / 2, h - 93, 20 * p, color, "center", 900);
   }
   drawCoach(ctx, state, theme, w, h);
   drawWordClear(ctx, state, theme, w, h);
@@ -1289,9 +1192,9 @@ function startSoundSafariArcadeGame(mount, options) {
     state.renderProfile = renderProfile;
     const size = sizeCanvasToMount(mount, canvas, ctx);
     w = size.width;
-    h = size.height;
+    h = Math.max(220, mount.getBoundingClientRect().height || size.height);
     const cappedDpr = Math.min(size.dpr, renderProfile.pixelRatioCap);
-    if (cappedDpr !== size.dpr) {
+    if (cappedDpr !== size.dpr || h !== size.height) {
       canvas.width = Math.floor(w * cappedDpr);
       canvas.height = Math.floor(h * cappedDpr);
       ctx.setTransform(cappedDpr, 0, 0, cappedDpr, 0, 0);
@@ -1360,21 +1263,11 @@ function startSoundSafariArcadeGame(mount, options) {
     const challenge = challengeSettings(options.difficulty, state.stage);
     const labels = critterLabels(task, state.stage, state.taskIndex, options.difficulty);
     const styles = challenge.rank === 0 ? ["drift", "orbit"] : challenge.rank === 1 ? ["drift", "orbit", "zigzag"] : ["drift", "orbit", "zigzag", "peek"];
-    const layout = safariLayout(labels.length);
-    const crowdScale = labels.length >= 8 ? 0.66 : labels.length >= 7 ? 0.72 : labels.length >= 6 ? 0.8 : labels.length >= 5 ? 0.88 : 1;
+    const layout = soundSafariLayout(w, h, labels.length).positions;
     state.critters = labels.map((label, index) => {
       const position = layout[(index + state.waveSeed) % layout.length];
-      const y = clamp(
-        h * position.y + Math.cos(index * 1.7 + state.stage + task.index + state.waveSeed) * h * 0.011,
-        h * 0.3,
-        h - clamp(h * 0.34, 178, 244)
-      );
-      const depth = clamp((y - h * 0.28) / (h * 0.38), 0, 1);
-      const x = clamp(
-        w * position.x + Math.sin(index * 1.8 + state.stage + task.index + state.waveSeed) * w * 0.012,
-        w * 0.12,
-        w * 0.9
-      );
+      const { x, y } = position;
+      const depth = clamp((y - 76) / Math.max(1, h - 164), 0, 1);
       const moveStyle = styles[(index + state.stage + task.index + state.waveSeed) % styles.length];
       const speedScale = challenge.speed * (0.88 + (index % 4) * 0.12);
       return {
@@ -1384,7 +1277,8 @@ function startSoundSafariArcadeGame(mount, options) {
         homeX: x,
         homeY: y,
         depth,
-        r: clamp(Math.min(w, h) * (0.046 + depth * 0.018) * crowdScale, 28, 58),
+        r: position.radius,
+        plateWidth: position.plateWidth, travelX: position.travelX, travelY: position.travelY,
         vx: (index % 2 ? -1 : 1) * (7 + depth * 6 + state.stage * 0.75 + index) * speedScale,
         vy: (index % 3 - 1) * (3 + depth * 2.5) * speedScale,
         phase: state.stage * 1.4 + state.taskIndex * 0.9 + task.index * 0.6 + index * 1.7,
@@ -1403,23 +1297,25 @@ function startSoundSafariArcadeGame(mount, options) {
         caught: false
       };
     });
+    repositionCritters(w, h);
   }
 
   // Resize must not rebuild critters: recreating them would resurrect caught
   // ones. Scale their positions into the new bounds instead.
   function repositionCritters(prevW, prevH) {
     if (!state.critters.length || prevW < 10 || prevH < 10) return;
-    const scaleX = w / prevW;
-    const scaleY = h / prevH;
-    const maxY = h - clamp(h * 0.34, 178, 244);
-    for (const critter of state.critters) {
-      critter.x = clamp(critter.x * scaleX, w * 0.12, w * 0.9);
-      critter.y = clamp(critter.y * scaleY, h * 0.3, maxY);
-      critter.homeX = clamp(critter.homeX * scaleX, w * 0.12, w * 0.9);
-      critter.homeY = clamp(critter.homeY * scaleY, h * 0.3, maxY);
-      critter.orbitX *= scaleX;
-      critter.orbitY *= scaleY;
-    }
+    const positions = soundSafariLayout(w, h, state.critters.length).positions;
+    const visible = state.critters.map((_, index) => index).slice(0, positions.length);
+    const neededIndex = state.critters.findIndex(critter => critter.label === neededSound(state.currentTask));
+    if (neededIndex >= 0 && !visible.includes(neededIndex)) visible[state.waveSeed % visible.length] = neededIndex;
+    state.critters.forEach((critter, index) => {
+      const slot = visible.indexOf(index);
+      critter.hidden = slot < 0;
+      if (critter.hidden) { critter.labelBox = null; return; }
+      const position = positions[(slot + state.waveSeed) % positions.length];
+      Object.assign(critter, { x: position.x, y: position.y, homeX: position.x, homeY: position.y,
+        r: position.radius, plateWidth: position.plateWidth, travelX: position.travelX, travelY: position.travelY });
+    });
   }
 
   function setCoach(message) {
@@ -1488,6 +1384,7 @@ function startSoundSafariArcadeGame(mount, options) {
     }
 
     const hitEntries = state.critters
+      .filter(critter => !critter.hidden)
       .map(critter => {
         const center = critterCenter(critter, state.time);
         const labelBox = critter.labelBox;
@@ -1540,12 +1437,13 @@ function startSoundSafariArcadeGame(mount, options) {
     state.judgement = "CAUGHT";
     state.judgementT = 0.72;
     state.pulse = 1;
+    const caughtSoundKey = safariSoundKey(task.item, task.index);
     task.found.push(needed);
     task.index += 1;
     task.attempts = 0;
     finishUnit(95);
     sfx(playPopSound);
-    if (soundAllowed()) speakGrapheme(needed);
+    if (soundAllowed()) speakGrapheme(caughtSoundKey);
     updateProgress();
     if (task.index >= task.item.graphemes.length) {
       scheduleWordClear(task);
@@ -1563,6 +1461,7 @@ function startSoundSafariArcadeGame(mount, options) {
   }
 
   function onPointerMove(event) {
+    if (state.paused || state.ended) return;
     const point = pointerPosition(event);
     state.pointer = point;
     state.net.targetX = clamp(point.x, w * 0.1, w * 0.93);
@@ -1578,6 +1477,8 @@ function startSoundSafariArcadeGame(mount, options) {
 
   function onKeyDown(event) {
     if (isInteractiveKeyTarget(event.target)) return;
+    if (state.paused || state.ended) return;
+    if (event.repeat && (event.key === " " || event.key === "Enter")) return;
 
     const move = 48;
     let handled = true;
@@ -1638,11 +1539,10 @@ function startSoundSafariArcadeGame(mount, options) {
         critter.y += Math.sin(t * 5.1) * critter.scareT * 30 * motionDt;
       }
       critter.depth = clamp((critter.y - h * 0.28) / (h * 0.38), 0, 1);
-      const edgePad = Math.max(76, critter.r * 1.75);
-      const minX = edgePad;
-      const maxX = w - edgePad;
-      const minY = h * 0.3;
-      const maxY = h - clamp(h * 0.34, 178, 244);
+      const minX = critter.homeX - critter.travelX;
+      const maxX = critter.homeX + critter.travelX;
+      const minY = critter.homeY - critter.travelY;
+      const maxY = critter.homeY + critter.travelY;
       if (critter.x < minX || critter.x > maxX) {
         critter.x = clamp(critter.x, minX, maxX);
         critter.vx *= -1;
@@ -1711,6 +1611,7 @@ function startSoundSafariArcadeGame(mount, options) {
       canvas.removeEventListener("pointerdown", onPointerDown);
       window.removeEventListener("keydown", onKeyDown);
       motionQuery?.removeEventListener?.("change", syncReducedMotion);
+      if (import.meta.env.DEV && window.__soundSafariSnapshot === snapshot) delete window.__soundSafariSnapshot;
       if (canvas.parentNode === mount) mount.removeChild(canvas);
     },
     debugSnapshot() {
@@ -1724,10 +1625,14 @@ function startSoundSafariArcadeGame(mount, options) {
         combo: state.combo,
         taskIndex: state.taskIndex,
         countdown: state.countdown,
+        paused: state.paused,
+        ended: state.ended,
+        net: { ...state.net },
         onboarding: state.onboarding,
         needed: neededSound(state.currentTask),
         currentTask: state.currentTask,
         critters: state.critters.map(critter => ({
+          hidden: Boolean(critter.hidden),
           label: critter.label,
           x: critter.hitX || critter.x,
           y: critter.hitY || critter.y,
@@ -1748,6 +1653,8 @@ function startSoundSafariArcadeGame(mount, options) {
       };
     }
   };
+  const snapshot = () => structuredClone(api.debugSnapshot());
+  if (import.meta.env.DEV) window.__soundSafariSnapshot = snapshot;
   options.onEngineReady?.(api);
   return api;
 }

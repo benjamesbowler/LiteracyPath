@@ -1,26 +1,32 @@
-import { segmentWord } from "./graphemeSegments.js";
+import { SOUND_SAFARI_MODELS } from "./soundSafariWords.js";
+import { getPreferredPhonemeAudioPath } from "../data/phonemeAudioBank.js";
 import { starRubric } from "./starRubric.js";
 import { hasWordAudio } from "./questAudio.js";
 
 const WORLDS = { easy: "meadow", medium: "dino", hard: "moonwood" };
-export const SOUND_SAFARI_WORDS = {
-  easy: [
-    "cat", "sun", "mop", "big", "hat", "log", "pen", "cup", "dog", "jam",
-    "red", "wet", "run", "bug", "pig", "web", "hen", "fox", "zip", "van",
-    "top", "net", "mud", "duck", "bed", "ten", "cap", "bus", "pot", "leg"
-  ],
-  medium: [
-    "frog", "plant", "crisp", "drum", "stone", "flame", "brush", "green", "splash", "track",
-    "clock", "snail", "train", "clap", "brain", "sleep", "float", "smile", "chair", "thread",
-    "crash", "string", "spring", "bright", "twist", "storm", "shark", "three", "slide", "prize"
-  ],
-  hard: [
-    "sunlight", "rainbow", "moon", "star", "meadow", "forest", "river", "rabbit", "silver", "night",
-    "dark", "owl", "glow", "badger", "thunder", "glimmer", "squirrel", "acorn", "mist", "fern",
-    "oak", "butterfly", "moss", "woodland", "dream", "mushroom", "glowing", "stream", "shining", "sunset"
-  ]
-};
-const DECOYS = ["a", "e", "i", "o", "u", "sh", "ch", "th", "ai", "ee", "oa", "oo", "ar", "or"];
+export const SOUND_SAFARI_WORDS = Object.fromEntries(
+  Object.entries(SOUND_SAFARI_MODELS).map(([difficulty, words]) => [difficulty, words.map(item => item.word)])
+);
+const DECOYS = ["a", "e", "i", "o", "u", "sh", "ch", "th", "ai", "ee", "oa", "oo", "ar", "or", "b", "d", "f", "g", "h", "j", "l", "m", "n", "p", "r", "s", "t", "v", "w", "z"];
+
+export function safariSoundKey(item, index) {
+  return item?.soundKeys?.[index] || "";
+}
+
+export function safariDistractors(item, index) {
+  const needed = item.graphemes[index];
+  const cue = getPreferredPhonemeAudioPath(safariSoundKey(item, index));
+  const candidates = [
+    ...item.decoys.map(label => ({ label, soundKey: label })),
+    ...item.graphemes.map((label, offset) => ({ label, soundKey: item.soundKeys[offset] }))
+  ];
+  // Exclude an ambiguous label even if another occurrence uses a different
+  // pronunciation. A child must never be penalised for an identical sound.
+  const excluded = new Set(candidates.filter(candidate =>
+    candidate.label === needed || getPreferredPhonemeAudioPath(candidate.soundKey) === cue
+  ).map(candidate => candidate.label));
+  return [...new Set(candidates.filter(candidate => !excluded.has(candidate.label)).map(candidate => candidate.label))];
+}
 
 function rotate(values, amount) {
   if (!values.length) return [];
@@ -28,10 +34,14 @@ function rotate(values, amount) {
   return [...values.slice(offset), ...values.slice(0, offset)];
 }
 
-function safariWord(word, seed) {
-  const graphemes = segmentWord(word);
-  const decoys = rotate(DECOYS, seed).filter(label => !graphemes.includes(label)).slice(0, 5);
-  return { word, graphemes, decoys };
+function safariWord(model, seed) {
+  const graphemes = model.units.map(unit => unit.label);
+  const soundKeys = model.units.map(unit => unit.soundKey);
+  const usedCues = new Set(soundKeys.map(key => getPreferredPhonemeAudioPath(key)));
+  const decoys = rotate(DECOYS, seed).filter(label =>
+    !graphemes.includes(label) && !usedCues.has(getPreferredPhonemeAudioPath(label))
+  ).slice(0, 8);
+  return { word: model.word, graphemes, soundKeys, decoys };
 }
 
 export function soundSafariLevel(difficulty = "easy", levelIndex = 0) {
@@ -40,7 +50,7 @@ export function soundSafariLevel(difficulty = "easy", levelIndex = 0) {
   // Sound Safari is an audio-led segmentation game. Missing recordings are
   // never allowed to fall through to a silent, text-only task; the coverage
   // test also requires every curated bank to retain all 30 recorded words.
-  const source = SOUND_SAFARI_WORDS[safeDifficulty].filter(hasWordAudio);
+  const source = SOUND_SAFARI_MODELS[safeDifficulty].filter(item => hasWordAudio(item.word));
   const start = level * 3;
   return {
     difficulty: safeDifficulty,

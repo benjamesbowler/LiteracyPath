@@ -67,3 +67,20 @@ test("Sound Beat mercy widens timing, retains the current beat, then guarantees 
   assert.ok(soundBeatMercyPolicy(2).windowScale > 1);
   assert.equal(soundBeatMercyPolicy(4).advanceWithoutCredit, true);
 });
+
+
+test("sound beats exclude multi-phoneme x and resolve every played phoneme", async () => {
+  const { getPreferredPhonemeAudioPath } = await import("../../src/data/phonemeAudioBank.js");
+  const { existsSync } = await import("node:fs");
+  for (const difficulty of ["easy", "medium", "hard"]) {
+    for (const level of soundBeatLadder(difficulty)) {
+      for (const item of level.items.filter(item => item.unit === "sounds")) {
+        assert.ok(!item.word.includes("x"), `${item.word} cannot teach x as one sound`);
+        for (const beat of item.beats) {
+          const path = getPreferredPhonemeAudioPath(beat);
+          assert.ok(path && existsSync(`public${path}`), `${item.word}/${beat} has no shipped cue`);
+        }
+      }
+    }
+  }
+});
