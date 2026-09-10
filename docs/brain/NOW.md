@@ -33,34 +33,10 @@ The product owner requires games, assessments, Cycles and phonics activities to 
 
 ## Current game-production direction
 
-- The improvement programme has integrated G01–G06, G08 and G10–G14. Rocket
-  Run now uses deliberate word gates, three authored delivery sectors,
-  recoverable recorded instructions/feedback and final-action practice receipts.
-  Its full-route and exhaustive layout checks are separate from human/device
-  evidence. Word Climb's candidate remains isolated with unfinished climbing
-  art, and Letter Leap's G09 upgrade remains unintegrated; their existing live
-  games are not evidence that those packages are finished. G16's Rhyme Pop
-  half now has stable native balloons, all-six-rhymes basket collection,
-  recorded comparisons and truthful audio/print recovery. Final-action saving
-  retains an unsaved receipt for retry; saved-locally sync failures cannot
-  duplicate a completion. Sound Safari is the next implementation. The user
-  has authorized this task to take over the remaining originally reserved
-  packages; all remaining package and dependency gates still apply.
-- The [Game Design Bible](../design/GAME_DESIGN_BIBLE.md) remains the product
-  authority. The [Game Visual and Playability Production Guide](../design/GAME_VISUAL_PLAYABILITY_PRODUCTION_GUIDE.md)
-  is the current provider-neutral workflow for raising game presentation and
-  playability to the product owner's console-quality target.
-- The live Learn Games catalogue has 22 games: 13 are surfaced as the current
-  Arcade roster and nine remain in the wider catalogue. Existing version 2.0
-  records document intended contracts and selected mechanic anchors; seven
-  currently have validated vertical-slice briefs, and none of those documents
-  is direct visual, motion, human-listening, physical-device or child-play
-  approval.
-- [TASKS.md](../../TASKS.md) tracks the full catalogue plus Sound Seekers,
-  Adventure Map and other game-like surfaces. It proposes Sound Racer 3.0 as the
-  first gold-standard implementation, followed by shared production/evidence
-  tooling and the wider fleet; that order remains a programme recommendation,
-  not a durable product-priority decision.
+- The owner rejected the staged select/confirm Arcade replacements. Gameplay restoration is the baseline, not completion of the requested console-quality upgrades. Earlier descriptions of held word gates, nominated fish and six-answer basket collection are superseded and must not guide new implementation.
+- The [complete upgrade plan](../design/GAMEPLAY_GRAPHICS_LEARNING_UPGRADE_PLAN.md) covers all 22 catalogue games (13 Arcade, nine Phonics) plus Sound Seekers. It incorporates the 10 September reports: near-rocket word audio, persistent Letter Leap pickups/platforming, actual Word Climb ascent, real 3D turning Sound Racer, unobstructed Sound Beat/Sentence Grove/Spell & Skate views, and restored Sound Seekers adventure pacing. It is a plan, not evidence that those changes are implemented.
+- Preserve the owner-valued play in Rhyme Pop, Sound Safari and Reel & Read; build on Sentence Express’s strong mechanics. Resolve reported blockers before broad presentation work. Sound Racer’s requested flagship requires real track geometry, vehicle heading and steering, not decorative curvature behind a straight runner.
+- The [Game Design Bible](../design/GAME_DESIGN_BIBLE.md) and [production guide](../design/GAME_VISUAL_PLAYABILITY_PRODUCTION_GUIDE.md) retain learning, input, quality and evidence requirements. No instruction playback may block starting or continuing an activity. The new plan supplies the current detailed upgrade direction; historical package counts and structural briefs do not establish finished gameplay or visual quality.
 
 ## Known blockers
 
@@ -71,15 +47,7 @@ installed, reviewed, and trusted on 2026-08-03.
 
 - Letter and Word Workshop practice retain immutable v3 completion events through local storage, queue coalescing and hydration. Trace, Listen, Match, Hear, Build and Magic use larger learning objects, recoverable recorded audio and explicit supported continuation. Magic preserves the intended target and first deliberate response separately from its modeled example. Completion describes supported practice/exposure, not mastery; Workshop sequencing names the actual authored grapheme prerequisites. The `check:phonics-learning` release check exercises media, response evidence, audio recovery and trusted-touch browser interaction. See [Learning Policy](../design/LEARNING_POLICY.md).
 
-- Sound Racer uses an authored village rally with held word-choice forks, deliberate confirmation, curved travel and preserved first responses. Its DOM/SVG recovery scene shares the same rules and evidence as the authored renderer. Final completion saves once and has one result dialog. Current contracts and evidence boundaries remain in the [Game Design Bible](../design/GAME_DESIGN_BIBLE.md); local/browser checks do not establish physical-device or human-listening approval.
-
-- Reel & Read now locks a nominated fish before casting. The fish, written label
-  and hook share measured safe positions; cancelled holds do not answer, and
-  accepted words return to a persistent collection, visible in the compact prompt strip or on the larger boat hull. All 30 authored levels
-  were completed at all three supported sizes with readable separated controls.
-  Immutable first responses, separate assisted retries and recorded-media
-  delivery feed a receipt fixed at the final catch; trip stars use only levels
-  actually played. See [Game Design Bible](../design/GAME_DESIGN_BIBLE.md).
+- Sound Racer and Reel & Read use their restored real-time engines. The prior held-fork confirmation and nominated-fish descriptions are superseded. Current reported defects and requested upgrades are tracked in the [complete upgrade plan](../design/GAMEPLAY_GRAPHICS_LEARNING_UPGRADE_PLAN.md); restoration does not establish that these later requests have been delivered.
 
 - Cycle Practice now uses six pictured, recorded-audio activity families with automatic responses, forgiving guided tracing, and full distinct decks for all 27 cycles. Assessment requires 30 active minutes plus completed coverage of taught sounds, words and activity types. Legacy memory/gate/confirmation mechanics are removed from this surface. See [Cycle Practice](../product/CYCLE_PRACTICE.md). It uses typed independent/support/media-failure evidence, retained first responses, pause-safe active practice time, immutable retry payloads and owner-scoped teacher results. The hosted migration is `20260908122903`; local and rollback-only hosted SQL checks passed. Current contracts are in [Cycle Practice](../product/CYCLE_PRACTICE.md) and [Learning Policy](../design/LEARNING_POLICY.md). Browser emulation does not establish physical-device or human-listening evidence.
 

@@ -1,11 +1,6 @@
 # Sound Seekers v3 — "The Story Trail"
 
-**Status:** decided and in build (2026-09-04). This document replaces the 2026-09-01
-spec's invented resident cast and the 2026-09-04 "10000%" proposal as the plan of
-record for the child-facing Sound Seekers game. Learning rules from
-`docs/design/GAME_DESIGN_BIBLE.md`, `docs/design/LEARNING_POLICY.md`,
-`docs/content/QUESTION_DESIGN_BIBLE.md` and `docs/design/CHILD_SURFACE_RULES.md`
-still apply in full.
+**Status:** current v3 implementation background. The [complete game upgrade plan](GAMEPLAY_GRAPHICS_LEARNING_UPGRADE_PLAN.md#25-sound-seekers--restore-the-adventure) supersedes this document’s future gameplay/pacing and presentation prescriptions where they conflict with the owner’s 10 September feedback. The owner reports too little gameplay and constant activities; substantial exploration and physical interaction must be restored. Existing curriculum, progress and lifecycle authority remains in the current Sound Seekers bible. This historical design description is not evidence that the requested overhaul is complete.
 
 **The brief (Ben, 2026-09-04):** keep the main idea — moving around a large world
 map along a corridor, meeting characters from our books who have problems we fix

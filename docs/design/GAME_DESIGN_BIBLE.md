@@ -1,5 +1,7 @@
 # LiteracyPath game design bible
 
+Current planned upgrades: [all 22 games plus Sound Seekers](GAMEPLAY_GRAPHICS_LEARNING_UPGRADE_PLAN.md). This supplies the 10 September product-owner changes, including real 3D turning racing, actual platforming/climbing and restored adventure pacing. Planned behaviour must not be represented as already implemented. Where older presentation prescriptions conflict with those explicit requests, the new plan governs future changes; current learning/evidence rules remain in force.
+
 Status: canonical product standard
 Scope: every child-facing game, mini-game, world, map and game-like reward surface
 Companion standards: [Game Visual and Playability Production Guide](GAME_VISUAL_PLAYABILITY_PRODUCTION_GUIDE.md), [Question Design Bible](../content/QUESTION_DESIGN_BIBLE.md), [Learning Policy](LEARNING_POLICY.md), [Child Surface Rules](CHILD_SURFACE_RULES.md), [Sound Seekers Release Bible](../SOUND_SEEKERS_RELEASE_BIBLE.md)

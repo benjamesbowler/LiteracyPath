@@ -2,6 +2,13 @@
 
 ## Active
 
+Current product-owner upgrade direction: [complete gameplay, graphics and learning plan](docs/design/GAMEPLAY_GRAPHICS_LEARNING_UPGRADE_PLAN.md), covering all 22 catalogue games plus Sound Seekers. Its 10 September reported-defect priorities and explicit mechanical requirements supersede older sequencing or presentation prescriptions below where they conflict. These are planned outputs, not completed upgrades.
+
+- [ ] Resolve the reported audio/layout/playability defects: Rocket Run near-rocket speech; Letter Leap relocating triples; Word Climb non-persistent ascent; Sound Beat pads; Sentence Grove picture/HUD; Spell & Skate HUD.
+- [ ] Deliver Sound Racer as a real 3D turning circuit with kart steering and heading; visual curvature on a straight lane runner is insufficient.
+- [ ] Restore substantial Sound Seekers exploration and physical world interaction between learning encounters across its complete journey.
+- [ ] Complete every game-specific gameplay, graphics and educational-content package in the linked plan, preserving the positively reviewed games and Sentence Express’s strong mechanics.
+
 - [ ] **P0 Step 1 — Establish the pilot game-quality evidence and runtime contract** - complete this minimum browser/diagnostic foundation before the proposed Sound Racer production expands
   - [ ] Define the production-disabled diagnostic-adapter contract and implement it first for `sound-racer`, with named seeded gameplay/presentation streams, checkpoint/state, quality, sound, motion, offline/asset-failure, visibility/pause and WebGL-context-loss controls plus a stable read-only snapshot.
   - [ ] Extend the real game preview through the pilot adapter without writing learner progress; the current preview's game/resume/sound/music inputs are not enough.

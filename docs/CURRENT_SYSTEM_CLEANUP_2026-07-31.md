@@ -234,3 +234,7 @@ active for Adventure Map. The current contract is
 The original Arcade engines are the active runtime. Superseded select/confirm engine modules and their exclusive tests were removed; Git retains recovery history. Shared result-save protection, current classroom code and music preferences are preserved. The Game Design Bible requires gameplay preservation.
 
 Mandatory Arcade instruction cards and startup countdown gates were removed on 2026-09-10. Cycle and phonics response controls no longer wait for narration; replay and actual audio-delivery evidence are retained.
+
+## Game upgrade planning correction — 10 September 2026
+
+The complete gameplay/graphics/learning plan now covers 22 catalogue games plus Sound Seekers. The untracked eight-game draft was expanded and renamed rather than retained as a competing plan. Stale brain descriptions of the rejected select/confirm engines were replaced with the restored-runtime baseline and current upgrade handoff. The Story Trail plan now marks the newer gameplay/pacing requirements explicitly. No runtime code, learner data or user source assets were removed by this documentation pass.
