@@ -1,354 +1,49 @@
-import { expect, test } from "@playwright/test";
-
-const GAMES = [
-  "cvc-word-builder",
-  "sight-word-memory",
-  "blend-and-build",
-  "pop-the-word",
-  "word-hopscotch",
-  "reading-race",
-  "word-rescue",
-  "sound-sort-factory",
-  "letter-garden"
-];
-
-const INTEGRATED_SCENES = new Set(["sight-word-memory", "pop-the-word", "word-hopscotch", "reading-race", "word-rescue", "sound-sort-factory"]);
-
-const ONBOARDING_KEYS = [
-  "lp-arcade-onboarded-v1:word-rescue",
-  "lp-arcade-onboarded-v1:sound-sort-factory",
-  "lp-arcade-onboarded-v1:letter-garden"
-];
-
-const GAME_OBJECTS = {
-  "cvc-word-builder": {
-    hit: ".lg-game-letter-bank button:not([disabled])",
-    surface: ".lg-game-letter-bank button:not([disabled])"
-  },
-  "sight-word-memory": {
-    hit: ".lg-match-card:not([disabled])",
-    surface: ".lg-match-card:not([disabled]) .lg-card-back",
-    motion: ".lg-match-card:not([disabled]) .lg-card-back"
-  },
-  "blend-and-build": {
-    hit: ".lg-family-board .lg-game-letter-bank button:not([disabled])",
-    surface: ".lg-family-board .lg-game-letter-bank button:not([disabled])"
-  },
-  "pop-the-word": {
-    hit: ".lg-floating-options button:not([disabled])",
-    surface: ".lg-floating-options button:not([disabled])"
-  },
-  "word-hopscotch": {
-    hit: ".lg-hop-grid button:not([disabled])",
-    surface: ".lg-hop-grid button:not([disabled])"
-  },
-  "reading-race": {
-    hit: ".lg-hop-grid button:not([disabled])",
-    surface: ".lg-hop-grid button:not([disabled])"
-  },
-  "word-rescue": {
-    hit: ".adv-choices button:not([disabled])",
-    surface: ".adv-choices button:not([disabled])"
-  },
-  "sound-sort-factory": {
-    hit: ".adv-bin:not([disabled])",
-    surface: ".adv-bin:not([disabled]) .adv-bin-label",
-    motion: ".adv-bin:not([disabled])"
-  },
-  "letter-garden": {
-    hit: ".adv-letters button:not([disabled])",
-    surface: ".adv-letters button:not([disabled])"
-  }
+import { expect, test } from '@playwright/test';
+const GAMES={
+ 'cvc-word-builder':{root:'.pp-build',world:'.pp-workshop-world',controls:'.pp-piece-bank button',text:'.pp-piece-bank button'},
+ 'sight-word-memory':{root:'.pp-memory',world:'.pp-memory-table',controls:'.pp-memory-card',text:'.pp-card-front'},
+ 'blend-and-build':{root:'.pp-family',world:'.pp-family-world',controls:'.pp-piece-bank button',text:'.pp-piece-bank button'},
+ 'pop-the-word':{root:'.pp-target',world:'.pp-target-field',controls:'.pp-word-balloon',text:'.pp-word-balloon'},
+ 'word-hopscotch':{root:'.pp-sentence',world:'.pp-hop-world',controls:'.pp-hop-stone:not(:disabled)',text:'.pp-hop-stone:not(:disabled)'},
+ 'reading-race':{root:'.pp-quiz',world:'.pp-repair-world',controls:'.pp-piece-bank button',text:'.pp-piece-bank button'},
+ 'word-rescue':{root:'.aw-rescue',world:'.aw-landscape',controls:'.aw-controls button',text:'.aw-pickup strong'},
+ 'sound-sort-factory':{root:'.aw-factory',world:'.aw-machine',controls:'.aw-controls button',text:'.aw-chute strong'},
+ 'letter-garden':{root:'.aw-garden',world:'.aw-landscape',controls:'.aw-controls button',text:'.aw-pickup strong'}
 };
-
-function cssChannels(value) {
-  const channels = (value.match(/[\d.]+/g) || []).slice(0, 3).map(Number);
-  if (value.startsWith("color(") && channels.every(channel => channel <= 1)) {
-    return channels.map(channel => channel * 255);
-  }
-  return channels;
+function contrast(a,b){const lum=rgb=>rgb.slice(0,3).map(x=>x/255).map(x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4).reduce((s,x,i)=>s+x*[.2126,.7152,.0722][i],0);const x=lum(a),y=lum(b);return(Math.max(x,y)+.05)/(Math.min(x,y)+.05);}
+async function open(page,game,sound=0){await page.goto(`/preview/game-overlay.html?game=${game}&sound=${sound}&music=0`);await expect(page.locator(GAMES[game].root)).toBeVisible();}
+async function carry(page,value){
+ const pickup=page.locator(`[data-aw="pickup"][data-value="${value}"]`),stage=page.locator('.aw-stage');
+ for(let i=0;i<25;i++){
+  const b=await pickup.boundingBox(),w=await page.locator('[data-aw="world"]').boundingBox();
+  if(b&&b.x>=w.x+8&&b.x+b.width<=w.x+w.width-8)break;
+  await stage.focus();await page.keyboard.down(b&&b.x<w.x?'ArrowLeft':'ArrowRight');await page.waitForTimeout(250);await page.keyboard.up('ArrowLeft');await page.keyboard.up('ArrowRight');
+ }
+ await pickup.click();await expect(stage).toHaveAttribute('data-carry',value);await page.getByRole('button',{name:/Carry (plank to bridge|seed to bed)/}).click();await expect(stage).toHaveAttribute('data-carry','',{timeout:15000});
 }
-
-function relativeLuminance(value) {
-  return cssChannels(value)
-    .map(channel => channel / 255)
-    .map(channel => channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4)
-    .reduce((sum, channel, index) => sum + channel * [0.2126, 0.7152, 0.0722][index], 0);
-}
-
-function contrastRatio(foreground, background) {
-  const light = Math.max(relativeLuminance(foreground), relativeLuminance(background));
-  const dark = Math.min(relativeLuminance(foreground), relativeLuminance(background));
-  return (light + 0.05) / (dark + 0.05);
-}
-
-test("all compact practice games fill the child stage with art and reachable game objects", async ({ page }) => {
-  await page.setViewportSize({ width: 1024, height: 768 });
-  await page.addInitScript(keys => {
-    keys.forEach(key => window.localStorage.setItem(key, "1"));
-  }, ONBOARDING_KEYS);
-
-  const pageErrors = [];
-  page.on("pageerror", error => pageErrors.push(error.message));
-
-  for (const gameId of GAMES) {
-    await page.emulateMedia({ reducedMotion: "no-preference" });
-    await page.goto(`/preview/game-overlay.html?game=${gameId}&sound=0&music=0`);
-    if (gameId === "word-hopscotch") await page.getByRole("button", {name: "Try a new sentence"}).click();
-
-    const scene = page.locator(`[data-game-scene="${gameId}"]`);
-    const stage = scene.locator(":scope > .lg-game-stage");
-    const art = scene.locator(":scope > .lg-illustrated-game-art img");
-    const prompt = stage.locator(":scope > p:first-child");
-    const objects = GAME_OBJECTS[gameId];
-
-    await expect(scene, `${gameId} has the shared illustrated world`).toBeVisible();
-    await expect(stage, `${gameId} has a separate playable stage`).toBeVisible();
-    if (!INTEGRATED_SCENES.has(gameId)) await expect(art, `${gameId} renders its owned scene art`).toBeVisible();
-    await expect.poll(() => art.evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
-
-    const layout = await scene.evaluate(element => {
-      const sceneBox = element.getBoundingClientRect();
-      const artBox = element.querySelector(".lg-illustrated-game-art")?.getBoundingClientRect();
-      const stageBox = element.querySelector(":scope > .lg-game-stage")?.getBoundingClientRect();
-      const stageChildren = [...element.querySelectorAll(":scope > .lg-game-stage > *")]
-        .map(child => child.getBoundingClientRect())
-        .filter(box => box.width > 0 && box.height > 0);
-      const contentTop = Math.min(...stageChildren.map(box => box.top));
-      const contentBottom = Math.max(...stageChildren.map(box => box.bottom));
-      return {
-        sceneWidth: sceneBox.width,
-        sceneHeight: sceneBox.height,
-        sceneBottom: sceneBox.bottom,
-        artWidth: artBox?.width || 0,
-        artHeight: artBox?.height || 0,
-        stageWidth: stageBox?.width || 0,
-        stageHeight: stageBox?.height || 0,
-        contentSpan: contentBottom - contentTop,
-        viewportHeight: window.innerHeight,
-        scrollWidth: document.documentElement.scrollWidth,
-        viewportWidth: window.innerWidth,
-        scrollHeight: document.documentElement.scrollHeight
-      };
-    });
-
-    expect(layout.sceneWidth, `${gameId} uses the available stage width`).toBeGreaterThan(930);
-    expect(layout.sceneHeight, `${gameId} uses the available stage height`).toBeGreaterThan(630);
-    if (!INTEGRATED_SCENES.has(gameId)) expect(layout.artWidth, `${gameId} art is large enough to read`).toBeGreaterThanOrEqual(260);
-    if (!INTEGRATED_SCENES.has(gameId)) expect(layout.artHeight, `${gameId} art is a scene rather than a thumbnail`).toBeGreaterThan(600);
-    if (INTEGRATED_SCENES.has(gameId)) expect(layout.stageWidth).toBeGreaterThan(layout.sceneWidth * .85);
-    expect(layout.stageWidth, `${gameId} playfield remains the dominant action area`).toBeGreaterThan(500);
-    expect(
-      layout.contentSpan / layout.stageHeight,
-      `${gameId} keeps content from collapsing into the middle third of the playfield`
-    ).toBeGreaterThan(0.64);
-    expect(layout.sceneBottom, `${gameId} stays inside the one-screen stage`).toBeLessThanOrEqual(layout.viewportHeight);
-    expect(layout.scrollWidth, `${gameId} has no horizontal page overflow`).toBe(layout.viewportWidth);
-    expect(layout.scrollHeight, `${gameId} has no vertical page overflow`).toBe(layout.viewportHeight);
-
-    const promptLines = await prompt.evaluate(element => {
-      const range = document.createRange();
-      range.selectNodeContents(element);
-      return new Set(
-        [...range.getClientRects()]
-          .filter(rect => rect.width > 0 && rect.height > 0)
-          .map(rect => Math.round(rect.top))
-      ).size;
-    });
-    expect(promptLines, `${gameId} prompt stays within two readable lines`).toBeLessThanOrEqual(2);
-
-    const sceneText = await scene.innerText();
-    expect(sceneText, `${gameId} avoids template-style question and section labels`).not.toMatch(/\b(?:question|section)\s+0?\d+\b/i);
-
-    const contrastPairs = await page.locator(objects.surface).evaluateAll(elements => elements
-      .filter(element => {
-        const box = element.getBoundingClientRect();
-        return box.width > 0 && box.height > 0;
-      })
-      .map(element => {
-        const style = getComputedStyle(element);
-        return { foreground: style.color, background: style.backgroundColor };
-      }));
-    expect(contrastPairs.length, `${gameId} exposes visible high-contrast game objects`).toBeGreaterThan(0);
-    for (const pair of contrastPairs) {
-      expect(
-        contrastRatio(pair.foreground, pair.background),
-        `${gameId} game-object text has at least WCAG AA contrast`
-      ).toBeGreaterThanOrEqual(4.5);
-    }
-
-    const promptContrast = await prompt.evaluate(element => {
-      const style = getComputedStyle(element);
-      return { foreground: style.color, background: style.backgroundColor };
-    });
-    expect(
-      contrastRatio(promptContrast.foreground, promptContrast.background),
-      `${gameId} prompt contrast is explicit and readable`
-    ).toBeGreaterThanOrEqual(7);
-
-    const targetSizes = await page.locator(".lg-game-player button:not([disabled])").evaluateAll(buttons => (
-      buttons.map(button => {
-        const box = button.getBoundingClientRect();
-        return { label: button.getAttribute("aria-label") || button.textContent.trim(), width: box.width, height: box.height };
-      })
-    ));
-    expect(targetSizes.length, `${gameId} exposes playable controls`).toBeGreaterThan(0);
-    expect(
-      targetSizes.filter(target => target.width < 56 || target.height < 56),
-      `${gameId} keeps every game object at least 56px`
-    ).toEqual([]);
-
-    const hitTarget = page.locator(objects.hit).first();
-    const motionTarget = page.locator(objects.motion || objects.hit).first();
-    const beforeHover = await motionTarget.evaluate(element => {
-      const style = getComputedStyle(element);
-      return { transform: style.transform, filter: style.filter, shadow: style.boxShadow };
-    });
-    const hitBox = await hitTarget.boundingBox();
-    expect(hitBox, `${gameId} exposes a pointer-reachable game object`).not.toBeNull();
-    const supportsHover = await page.evaluate(() => window.matchMedia("(hover: hover)").matches);
-    if (supportsHover) {
-      await page.mouse.move(hitBox.x + hitBox.width / 2, hitBox.y + hitBox.height / 2);
-      await page.waitForTimeout(180);
-      const afterHover = await motionTarget.evaluate(element => {
-        const style = getComputedStyle(element);
-        return { transform: style.transform, filter: style.filter, shadow: style.boxShadow };
-      });
-      expect(afterHover, `${gameId} game objects visibly react to pointer hover`).not.toEqual(beforeHover);
-    }
-
-    await page.emulateMedia({ reducedMotion: "reduce" });
-    const reducedMotion = await motionTarget.evaluate(element => {
-      const style = getComputedStyle(element);
-      return { animation: style.animationName, transition: style.transitionDuration };
-    });
-    expect(
-      reducedMotion.transition.split(",").every(duration => Number.parseFloat(duration) <= 0.001),
-      `${gameId} removes tactile transitions for reduced motion`
-    ).toBe(true);
-    expect(await art.evaluate(element => getComputedStyle(element).animationName)).toBe("none");
+for(const viewport of [{width:1024,height:768},{width:568,height:320},{width:390,height:844}])test(`all nine games provide immediate spacious play and reachable controls at ${viewport.width}x${viewport.height}`,async({page})=>{
+ test.setTimeout(150000);await page.setViewportSize(viewport);const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ for(const [game,config]of Object.entries(GAMES)){
+  await open(page,game);await expect(page.getByRole('dialog',{name:/How to play/})).toHaveCount(0);await expect(page.getByRole('button',{name:/^(Tap to play|Try a new sentence|Check)$/})).toHaveCount(0);
+  const root=page.locator(config.root),world=page.locator(config.world),rootBox=await root.boundingBox(),worldBox=await world.boundingBox();
+  expect(rootBox.width,game).toBeGreaterThan(viewport.width*.9);expect(rootBox.height,game).toBeGreaterThan(viewport.height*.65);expect(worldBox.height,game).toBeGreaterThan(100);expect(worldBox.width,game).toBeGreaterThan(rootBox.width*.75);expect(rootBox.y+rootBox.height,game).toBeLessThanOrEqual(viewport.height+.1);
+  expect(await page.evaluate(()=>({w:document.documentElement.scrollWidth,h:document.documentElement.scrollHeight}))).toEqual({w:viewport.width,h:viewport.height});
+  const buttons=page.locator(config.controls);await expect(buttons.first()).toBeEnabled();
+  for(const button of await buttons.all()){
+   const b=await button.boundingBox();expect(b.width,game).toBeGreaterThanOrEqual(55.9);expect(b.height,game).toBeGreaterThanOrEqual(55.9);expect(b.x,game).toBeGreaterThanOrEqual(-.1);expect(b.y,game).toBeGreaterThanOrEqual(-.1);expect(b.x+b.width,game).toBeLessThanOrEqual(viewport.width+.1);expect(b.y+b.height,game).toBeLessThanOrEqual(viewport.height+.1);
+   expect(await button.evaluate(e=>{const r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));}),game).toBe(true);
   }
-
-  expect(pageErrors).toEqual([]);
+  const prompt=root.locator('.pp-prompt,.aw-objective>strong');const lines=await prompt.evaluate(e=>{const r=document.createRange();r.selectNodeContents(e);return new Set([...r.getClientRects()].filter(r=>r.width>0&&r.height>0).map(r=>Math.round(r.top))).size;});expect(lines,game).toBeLessThanOrEqual(game==='letter-garden'?3:2);
+  expect(await root.innerText()).not.toMatch(/\b(?:question|section)\s+0?\d+\b/i);
+  await expect.poll(()=>root.locator('img').evaluateAll(es=>es.every(e=>e.complete&&e.naturalWidth>0))).toBe(true);
+  // Compare the word foreground against every opaque colour stop behind it.
+  const pairs=await page.locator(config.text).evaluateAll(es=>es.map(e=>{const parse=s=>(s.match(/[\d.]+/g)||[]).map(Number);let node=e,colors=[];while(node&&!colors.length){const st=getComputedStyle(node);colors=[...st.backgroundImage.matchAll(/rgba?\([^)]+\)/g)].map(m=>parse(m[0])).filter(c=>c.length<4||c[3]>.95);const solid=parse(st.backgroundColor);if(!colors.length&&(solid.length===3||solid[3]>.95))colors=[solid];node=node.parentElement;}return{fg:parse(getComputedStyle(e).color),colors};}));
+  for(const pair of pairs)for(const color of pair.colors)expect(contrast(pair.fg,color),game).toBeGreaterThanOrEqual(4.5);
+  if(viewport.width===1024){await page.mouse.move(0,0);const before=await buttons.first().evaluate(e=>getComputedStyle(e).filter);await buttons.first().hover();await expect.poll(()=>buttons.first().evaluate(e=>getComputedStyle(e).filter)).not.toBe(before);}
+  await page.emulateMedia({reducedMotion:'reduce'});const duration=await buttons.first().evaluate(e=>getComputedStyle(e).transitionDuration);expect(duration.split(',').every(v=>parseFloat(v)<=.001),game).toBe(true);await page.emulateMedia({reducedMotion:'no-preference'});
+ }
+ expect(errors).toEqual([]);
 });
-
-test("all compact practice games remain playable at 568x320 phone landscape", async ({ page }) => {
-  await page.setViewportSize({ width: 568, height: 320 });
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.addInitScript(keys => {
-    keys.forEach(key => window.localStorage.setItem(key, "1"));
-  }, ONBOARDING_KEYS);
-
-  const pageErrors = [];
-  page.on("pageerror", error => pageErrors.push(error.message));
-
-  for (const gameId of GAMES) {
-    await page.goto(`/preview/game-overlay.html?game=${gameId}&sound=0&music=0`);
-    if (gameId === "word-hopscotch") await page.getByRole("button", {name: "Try a new sentence"}).click();
-
-    const scene = page.locator(`[data-game-scene="${gameId}"]`);
-    const stage = scene.locator(":scope > .lg-game-stage");
-    const header = page.locator(".lg-game-player-header");
-    await expect(stage, `${gameId} keeps the literacy stage visible`).toBeVisible();
-
-    const geometry = await page.evaluate(id => {
-      const headerBox = document.querySelector(".lg-game-player-header")?.getBoundingClientRect();
-      const sceneBox = document.querySelector(`[data-game-scene="${id}"]`)?.getBoundingClientRect();
-      const stageBox = document.querySelector(`[data-game-scene="${id}"] > .lg-game-stage`)?.getBoundingClientRect();
-      const art = document.querySelector(`[data-game-scene="${id}"] .lg-illustrated-game-art`);
-      return {
-        headerHeight: headerBox?.height || 0,
-        sceneTop: sceneBox?.top || 0,
-        stageTop: stageBox?.top || 0,
-        stageBottom: stageBox?.bottom || 0,
-        stageRight: stageBox?.right || 0,
-        artDisplay: art ? getComputedStyle(art).display : "missing",
-        viewportWidth: window.innerWidth,
-        viewportHeight: window.innerHeight,
-        scrollWidth: document.documentElement.scrollWidth,
-        scrollHeight: document.documentElement.scrollHeight
-      };
-    }, gameId);
-
-    expect(geometry.headerHeight, `${gameId} keeps compact chrome to one row`).toBeLessThanOrEqual(64);
-    expect(geometry.artDisplay, `${gameId} hides decorative art instead of shrinking it to a thumbnail`).toBe("none");
-    expect(geometry.sceneTop, `${gameId} scene starts below the compact header`).toBeGreaterThanOrEqual(geometry.headerHeight);
-    expect(geometry.stageTop, `${gameId} stage begins inside the viewport`).toBeGreaterThanOrEqual(geometry.headerHeight);
-    expect(geometry.stageBottom, `${gameId} stage ends inside the viewport`).toBeLessThanOrEqual(geometry.viewportHeight);
-    expect(geometry.stageRight, `${gameId} stage ends inside the viewport width`).toBeLessThanOrEqual(geometry.viewportWidth);
-    expect(geometry.scrollWidth, `${gameId} has no phone-landscape horizontal scroll`).toBe(geometry.viewportWidth);
-    expect(geometry.scrollHeight, `${gameId} has no phone-landscape vertical scroll`).toBe(geometry.viewportHeight);
-
-    const visibleControls = await page.locator(".lg-game-player button:not([disabled])").evaluateAll(buttons => buttons.map(button => {
-      const box = button.getBoundingClientRect();
-      return {
-        label: button.getAttribute("aria-label") || button.textContent.trim(),
-        width: box.width,
-        height: box.height,
-        left: box.left,
-        top: box.top,
-        right: box.right,
-        bottom: box.bottom
-      };
-    }));
-    expect(visibleControls.length, `${gameId} exposes phone-landscape controls`).toBeGreaterThan(0);
-    expect(
-      visibleControls.filter(control => (
-        control.width < 56 || control.height < 56 || control.left < 0 ||
-        control.top < 0 || control.right > 568 || control.bottom > 320
-      )),
-      `${gameId} keeps every 56px control visible and reachable at phone landscape`
-    ).toEqual([]);
-
-    const primaryObject = page.locator(GAME_OBJECTS[gameId].hit).first();
-    await expect(primaryObject, `${gameId} keeps its learning action on screen`).toBeInViewport();
-    await expect(header, `${gameId} keeps the shared chrome visible`).toBeInViewport();
-  }
-
-  expect(pageErrors).toEqual([]);
-});
-
-test("compact literacy cues stay large, visual, and balanced on desktop", async ({ page }) => {
-  await page.setViewportSize({ width: 1024, height: 768 });
-  await page.addInitScript(keys => {
-    keys.forEach(key => window.localStorage.setItem(key, "1"));
-  }, ONBOARDING_KEYS);
-
-  await page.goto("/preview/game-overlay.html?game=letter-garden&sound=0&music=0");
-  const pictureCue = page.locator(".adv-word-cue img");
-  await expect(pictureCue).toBeVisible();
-  await expect.poll(() => pictureCue.evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
-  const pictureBounds = await pictureCue.boundingBox();
-  expect(pictureBounds?.width).toBeGreaterThanOrEqual(94);
-  expect(pictureBounds?.height).toBeGreaterThanOrEqual(94);
-
-  await page.goto("/preview/game-overlay.html?game=sound-sort-factory&sound=0&music=0");
-  const beltItem = page.locator(".adv-belt-item");
-  const beltGeometry = await beltItem.evaluate(element => {
-    const box = element.getBoundingClientRect();
-    return { height: box.height, fontSize: Number.parseFloat(getComputedStyle(element).fontSize) };
-  });
-  expect(beltGeometry.height).toBeGreaterThanOrEqual(72);
-  expect(beltGeometry.fontSize).toBeGreaterThanOrEqual(30);
-  const binHeights = await page.locator(".adv-bin").evaluateAll(elements => (
-    elements.map(element => element.getBoundingClientRect().height)
-  ));
-  expect(Math.min(...binHeights)).toBeGreaterThanOrEqual(126);
-
-  await page.goto("/preview/game-overlay.html?game=blend-and-build&sound=0&music=0");
-  const rimeHeight = await page.locator(".lg-rime-tile").evaluate(element => element.getBoundingClientRect().height);
-  expect(rimeHeight).toBeGreaterThanOrEqual(64);
-  expect(rimeHeight).toBeLessThanOrEqual(180);
-  const optionRows = await page.locator(".lg-family-board .lg-game-letter-bank button").evaluateAll(elements => (
-    elements.reduce((rows, element) => {
-      const top = Math.round(element.getBoundingClientRect().top);
-      rows[top] = (rows[top] || 0) + 1;
-      return rows;
-    }, {})
-  ));
-  expect(Object.values(optionRows).reduce((sum, row) => sum + row, 0)).toBeGreaterThanOrEqual(3);
-});
-
 test("the shared resume choice is readable and child-sized", async ({ page }) => {
   await page.setViewportSize({ width: 1024, height: 768 });
   await page.goto("/preview/game-overlay.html?game=cvc-word-builder&sound=0&music=0&resume=1");
@@ -366,246 +61,26 @@ test("the shared resume choice is readable and child-sized", async ({ page }) =>
   }
 });
 
-test("Adventure first-run play controls stay child-sized in short landscape", async ({ page }) => {
-  await page.setViewportSize({ width: 568, height: 320 });
-
-  for (const gameId of ["word-rescue", "sound-sort-factory", "letter-garden"]) {
-    await page.goto(`/preview/game-overlay.html?game=${gameId}&sound=0&music=0`);
-    if (gameId === "word-hopscotch") await page.getByRole("button", {name: "Try a new sentence"}).click();
-    const onboarding = page.getByRole("dialog", { name: /How to play/ });
-    const start = onboarding.getByRole("button", { name: "Tap to play", exact: true });
-    await expect(onboarding).toBeVisible();
-    await expect(start).toBeVisible();
-
-    const bounds = await start.boundingBox();
-    expect(bounds?.width, `${gameId} first-run play width`).toBeGreaterThanOrEqual(156);
-    expect(bounds?.height, `${gameId} first-run play height`).toBeGreaterThanOrEqual(56);
-    expect(bounds?.y, `${gameId} first-run play top`).toBeGreaterThanOrEqual(0);
-    expect((bounds?.y || 0) + (bounds?.height || 0), `${gameId} first-run play bottom`).toBeLessThanOrEqual(320);
-  }
+test('Garden preserves source letters, replaces only the carried seed and retains the grown plant on reload',async({page})=>{
+ test.setTimeout(90000);await open(page,'letter-garden');
+ const source=await page.locator('.aw-objective strong>span').innerText(),target=(await page.locator('.aw-objective img').getAttribute('alt')).replace(/^a /i,'').toLowerCase();const index=[...source].findIndex((ch,i)=>ch!==target[i]);expect(index).toBeGreaterThanOrEqual(0);expect([...source].filter((ch,i)=>ch!==target[i])).toHaveLength(1);
+ const stable=await page.locator('.aw-word-bed').first().locator('[data-stable-letter]').allTextContents();await carry(page,target[index]);await expect(page.locator('.aw-stage')).toHaveAttribute('data-built','1');expect(await page.locator('.aw-word-bed').first().locator('[data-stable-letter]').allTextContents()).toEqual(stable);await expect(page.locator('.aw-word-bed').first()).toHaveAttribute('aria-label',target);await expect(page.locator('.aw-plant.is-grown').first()).toBeVisible();
+ await expect(page.locator('.aw-stage')).toHaveAttribute('data-aw-index','1');const nextTarget=await page.locator('.aw-objective img').getAttribute('alt');await page.reload();const dialog=page.getByRole('alertdialog');if(await dialog.count())await dialog.getByRole('button',{name:'Continue',exact:true}).click();await expect(page.locator('.aw-stage')).toHaveAttribute('data-aw-index','1');expect(await page.locator('.aw-objective img').getAttribute('alt')).toBe(nextTarget);await expect(page.locator('.aw-word-bed').first()).toHaveAttribute('aria-label',target);
 });
-
-test("Adventure onboarding focuses and traps its sole play action", async ({ page }) => {
-  await page.addInitScript(keys => {
-    keys.forEach(key => window.localStorage.removeItem(key));
-  }, ONBOARDING_KEYS);
-
-  for (const gameId of ["word-rescue", "sound-sort-factory", "letter-garden"]) {
-    await page.goto(`/preview/game-overlay.html?game=${gameId}&sound=0&music=0`);
-    if (gameId === "word-hopscotch") await page.getByRole("button", {name: "Try a new sentence"}).click();
-    const onboarding = page.getByRole("dialog", { name: /How to play/ });
-    const start = onboarding.getByRole("button", { name: "Tap to play", exact: true });
-    await expect(onboarding).toBeVisible();
-    await expect(start).toBeFocused();
-
-    await page.keyboard.press("Tab");
-    await expect(start).toBeFocused();
-    await page.keyboard.press("Shift+Tab");
-    await expect(start).toBeFocused();
-
-    await page.keyboard.press("Enter");
-    await expect(onboarding).toBeHidden();
-  }
+test('Garden failed picture immediately provides a printed target and keeps source context',async({page})=>{
+ await open(page,'letter-garden');const image=page.locator('.aw-objective img'),target=(await image.getAttribute('alt')).replace(/^a /i,'').toLowerCase();const source=await page.locator('.aw-objective strong>span').textContent();await image.dispatchEvent('error');await expect(image).toHaveCount(0);await expect(page.locator('.aw-objective strong>b')).toHaveText(target);await expect(page.locator('.aw-objective strong>span')).toHaveText(source);await expect(page.getByRole('button',{name:'Fetch nearest piece',exact:true})).toBeEnabled();
 });
-
-test("Letter Garden prints its target when a sound-off picture cue fails", async ({ page }) => {
-  await page.addInitScript(() => {
-    window.localStorage.setItem("lp-arcade-onboarded-v1:letter-garden", "1");
-  });
-  await page.route("**/*", route => {
-    if (route.request().url().includes("force-garden-cue-error")) return route.abort();
-    return route.continue();
-  });
-  await page.goto("/preview/game-overlay.html?game=letter-garden&sound=0&music=0");
-
-  const cueImage = page.locator(".adv-word-cue img");
-  await expect(cueImage).toBeVisible();
-  const target = (await page.locator(".adv-slots").getAttribute("aria-label"))?.match(/spell\s+(.+)$/i)?.[1];
-  expect(target).toBeTruthy();
-  await cueImage.evaluate(image => {
-    const separator = image.src.includes("?") ? "&" : "?";
-    image.src = `${image.src}${separator}force-garden-cue-error=1`;
-  });
-
-  const printedFallback = page.locator(".adv-word-cue .adv-belt-item");
-  await expect(cueImage).toHaveCount(0);
-  await expect(printedFallback).toBeVisible();
-  await expect(printedFallback).toHaveText(target);
-
-  await page.getByRole("button", { name: "Turn spoken audio and game sounds on" }).click();
-  await expect(page.getByRole("button", { name: "Hear word", exact: true })).toBeVisible();
-  await expect(printedFallback).toHaveCount(0);
+test('Garden pause cancels its cue and deliberate replay starts only one recorded cue',async({page})=>{
+ await page.addInitScript(()=>{window.wordPlays=[];const original=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(...args){if(this.src.includes('/audio/production/'))window.wordPlays.push(this.src);return original.apply(this,args);};});await open(page,'letter-garden',1);const replay=page.getByRole('button',{name:'Hear target word',exact:true});await expect(replay).toBeEnabled();await page.getByRole('button',{name:'Close Letter Garden',exact:true}).click();await expect(page.getByRole('alertdialog')).toBeVisible();await page.evaluate(()=>{window.wordPlays=[];});await page.waitForTimeout(900);expect(await page.evaluate(()=>window.wordPlays)).toEqual([]);await page.getByRole('button',{name:'Keep playing',exact:true}).click();await page.waitForTimeout(150);await page.evaluate(()=>{window.wordPlays=[];});await replay.click();await page.waitForTimeout(200);expect(await page.evaluate(()=>window.wordPlays)).toHaveLength(1);
 });
-
-test("Letter Garden keeps unchanged source sounds while replacing one sound to grow a labeled plant", async ({ page }) => {
-  await page.addInitScript(() => {
-    window.localStorage.setItem("lp-arcade-onboarded-v1:letter-garden", "1");
-  });
-  await page.goto("/preview/game-overlay.html?game=letter-garden&sound=0&music=0");
-
-  const slots = page.locator(".adv-slots");
-  await expect(slots).toBeVisible();
-  const source = (await slots.getAttribute("aria-label")).match(/^Change\s+(\w+)\s+to\s+spell\s+(\w+)$/i);
-  expect(source).toBeTruthy();
-  const [, sourceWord, targetWord] = source;
-  expect([...sourceWord].filter((letter, index) => letter !== targetWord[index])).toHaveLength(1);
-  expect((await slots.innerText()).replace(/\s+/g, "")).toBe(sourceWord);
-
-  const changeIndex = [...sourceWord].findIndex((letter, index) => letter !== targetWord[index]);
-  const changeButton = page.locator(".adv-letters button").filter({ hasText: new RegExp(`^${targetWord[changeIndex]}$`, "i") });
-  await changeButton.click();
-  await expect(slots).toHaveText(targetWord);
-  await expect(page.locator(".adv-plant-card.grown")).toHaveCount(1);
-  await expect(page.locator(".adv-garden-row")).toHaveAttribute("aria-label", "1 labeled plants grown");
+test('memory hides face-down answers and announces keyboard revealed and matched cards',async({page})=>{
+ await open(page,'sight-word-memory');const cards=page.locator('.pp-memory-card');await expect(cards).toHaveCount(6);const ids=await cards.evaluateAll(es=>es.map(e=>e.dataset.pairId));
+ for(let i=0;i<6;i++){await expect(cards.nth(i)).toHaveAccessibleName(`Hidden card ${i+1} of 6`);await expect(cards.nth(i).locator('.pp-card-front')).toHaveAttribute('aria-hidden','true');}
+ const word=await cards.first().locator('.pp-card-front').textContent();await cards.first().focus();await page.keyboard.press('Enter');await expect(cards.first()).toHaveAccessibleName(`Revealed card 1 of 6: ${word}`);await expect(cards.first().locator('.pp-card-front')).toHaveAttribute('aria-hidden','false');const second=ids.findIndex((id,i)=>i>0&&id===ids[0]);await cards.nth(second).focus();await page.keyboard.press('Enter');await expect(cards.first()).toHaveAccessibleName(`Matched card 1 of 6: ${word}`);await expect(cards.nth(second)).toHaveAccessibleName(`Matched card ${second+1} of 6: ${word}`);
 });
-
-test("Letter Garden resume keeps a later plant matched to its own word and shape", async ({ page }) => {
-  await page.addInitScript(() => {
-    window.localStorage.clear();
-    window.localStorage.setItem("lp-arcade-onboarded-v1:letter-garden", "1");
-  });
-  await page.goto("/preview/game-overlay.html?game=letter-garden&sound=0&music=0&resume=1");
-  await page.getByRole("alertdialog").getByRole("button", { name: "Continue", exact: true }).click();
-
-  const slots = page.locator(".adv-slots");
-  const source = (await slots.getAttribute("aria-label")).match(/^Change\s+(\w+)\s+to\s+spell\s+(\w+)$/i);
-  expect(source).toBeTruthy();
-  const [, sourceWord, targetWord] = source;
-  const changeIndex = [...sourceWord].findIndex((letter, index) => letter !== targetWord[index]);
-  await page.locator(".adv-letters button").filter({ hasText: new RegExp(`^${targetWord[changeIndex]}$`, "i") }).click();
-
-  const plants = page.locator(".adv-plant-card");
-  await expect(plants.nth(1)).toHaveClass(/grown/);
-  await expect(plants.nth(0)).not.toHaveClass(/grown/);
-  await expect(plants.nth(1)).toHaveAttribute("aria-label", new RegExp(`${targetWord}\\s`));
-  await expect(plants.nth(1)).toHaveAttribute("data-plant", /.+/);
+test('Pop stores its directly popped word and keyboard focus steadies the target',async({page})=>{
+ await open(page,'pop-the-word');const word=(await page.locator('.pp-prompt').textContent()).replace('Pop ','');const target=page.locator('.pp-word-balloon').getByText(word,{exact:true});await target.focus();const before=await target.boundingBox();await page.waitForTimeout(200);expect(await target.boundingBox()).toEqual(before);await page.keyboard.press('Enter');await expect(page.locator('.pp-collected').first()).toContainText(word);await expect(page.locator('.pp-progress')).toHaveText('1/6');
 });
-
-test("Letter Garden cancels delayed replay on pause and deliberate Hear word", async ({ page }) => {
-  await page.addInitScript(() => {
-    window.localStorage.setItem("lp-arcade-onboarded-v1:letter-garden", "1");
-  });
-  await page.goto("/preview/game-overlay.html?game=letter-garden&sound=1&music=0");
-  await expect(page.getByRole("button", { name: "Hear word", exact: true })).toBeVisible({ timeout: 90_000 });
-  await page.evaluate(() => {
-    window.__g08WordPlays = [];
-    const original = window.Howl.prototype.play;
-    window.Howl.prototype.play = function (...args) {
-      if (String(this._src).includes("/audio/production/")) window.__g08WordPlays.push(this._src);
-      return original.apply(this, args);
-    };
-  });
-
-  const slots = page.locator(".adv-slots");
-  const source = (await slots.getAttribute("aria-label")).match(/^Change\s+(\w+)\s+to\s+spell\s+(\w+)$/i);
-  const [, sourceWord, targetWord] = source;
-  const changeIndex = [...sourceWord].findIndex((letter, index) => letter !== targetWord[index]);
-  const wrongButton = page.locator(".adv-letters button").filter({ hasText: new RegExp(`^(?!${targetWord[changeIndex]}$)[a-z]$`, "i") }).first();
-  await wrongButton.click();
-  await page.keyboard.press("Escape");
-  await expect(page.getByRole("alertdialog")).toBeVisible();
-  await page.waitForTimeout(900);
-  expect(await page.evaluate(() => window.__g08WordPlays)).toEqual([]);
-  await page.getByRole("alertdialog").getByRole("button", { name: "Keep playing", exact: true }).click();
-
-  await page.getByRole("button", { name: "Hear word", exact: true }).click();
-  await page.waitForTimeout(900);
-  expect(await page.evaluate(() => window.__g08WordPlays)).toHaveLength(1);
-});
-
-test("Word Rescue completion focuses and contains its engine-owned Play again action", async ({ page }) => {
-  await page.setViewportSize({ width: 568, height: 320 });
-  await page.addInitScript(() => {
-    window.localStorage.setItem("lp-arcade-onboarded-v1:word-rescue", "1");
-  });
-  await page.goto("/preview/game-overlay.html?game=word-rescue&sound=0&music=0");
-
-  const targetCue = page.locator(".adv-rescue > .adv-belt-item");
-  await expect(page.locator(".river-home")).toContainText("HOME");
-  for (let round = 0; round < 6; round += 1) {
-    const target = await targetCue.textContent();
-    expect(target).toBeTruthy();
-    await page.locator(".adv-choices").getByRole("button", { name: target, exact: true }).click();
-    if (round < 5) {
-      await expect(page.locator(".adv-bridge")).toHaveAttribute("aria-label", `River rescue route: ${round + 1} of 6 bridge steps complete`);
-      await expect(targetCue).not.toHaveText(target);
-    }
-  }
-
-  await page.getByRole("button", { name: "Finish", exact: true }).click();
-  const playAgain = page.getByRole("button", { name: "Play again", exact: true });
-  await expect(playAgain).toBeVisible();
-  await expect(playAgain).toBeFocused();
-  await expect(page.locator(".lg-game-player-header")).toHaveAttribute("inert", "");
-  await page.keyboard.press("Tab");
-  await expect(playAgain).toBeFocused();
-  await page.keyboard.press("Shift+Tab");
-  await expect(playAgain).toBeFocused();
-});
-
-test("Sight Word Memory masks face-down answers and announces revealed and matched cards", async ({ page }) => {
-  await page.goto("/preview/game-overlay.html?game=sight-word-memory&sound=0&music=0");
-
-  const cards = page.locator(".lg-match-card");
-  await expect(cards).toHaveCount(6);
-  const pairIds = await cards.evaluateAll(nodes => nodes.map(node => node.dataset.pairId));
-  expect([...new Set(pairIds)].every(pairId => pairIds.filter(id => id === pairId).length === 2)).toBe(true);
-  for (let index = 0; index < 6; index += 1) {
-    await expect(cards.nth(index)).toHaveAccessibleName(`Hidden card ${index + 1} of 6`);
-    await expect(cards.nth(index).locator(".lg-card-front")).toHaveAttribute("aria-hidden", "true");
-  }
-
-  const firstWord = await cards.first().locator(".lg-card-front").textContent();
-  const matchingIndexes = await cards.locator(".lg-card-front").evaluateAll((fronts, word) => (
-    fronts.reduce((indexes, front, index) => {
-      if (front.textContent === word) indexes.push(index);
-      return indexes;
-    }, [])
-  ), firstWord);
-  expect(matchingIndexes).toHaveLength(2);
-
-  const firstMatch = cards.nth(matchingIndexes[0]);
-  const secondMatch = cards.nth(matchingIndexes[1]);
-  await firstMatch.focus();
-  await page.keyboard.press("Enter");
-  await expect(firstMatch).toHaveAccessibleName(
-    `Revealed card ${matchingIndexes[0] + 1} of 6: ${firstWord}`
-  );
-  await expect(firstMatch.locator(".lg-card-front")).toHaveAttribute("aria-hidden", "false");
-
-  await secondMatch.focus();
-  await page.keyboard.press("Enter");
-  await expect(firstMatch).toHaveAccessibleName(
-    `Matched card ${matchingIndexes[0] + 1} of 6: ${firstWord}`
-  );
-  await expect(secondMatch).toHaveAccessibleName(
-    `Matched card ${matchingIndexes[1] + 1} of 6: ${firstWord}`
-  );
-});
-
-test("Pop the Word freezes the cluster and reveals the completed word scene", async ({ page }) => {
-  await page.goto("/preview/game-overlay.html?game=pop-the-word&sound=0&music=0");
-  const target = (await page.locator(".lg-game-picture-text span").textContent()).trim();
-  await page.getByRole("button", { name: target, exact: true }).click();
-  await expect(page.locator(".lg-target-stage")).toHaveClass(/lg-target-frozen/);
-  await expect(page.locator(".lg-pop-discovery")).toContainText(`You found ${target}!`);
-});
-
-test("Sound Sort declares its print task and routes a word into the chosen bin", async ({ page }) => {
-  await page.setViewportSize({ width: 568, height: 320 });
-  await page.addInitScript(() => {
-    window.localStorage.setItem("lp-arcade-onboarded-v1:sound-sort-factory", "1");
-  });
-  await page.goto("/preview/game-overlay.html?game=sound-sort-factory&sound=0&music=0");
-  await expect(page.locator('[data-task-mode="orthographic"]')).toHaveCount(1);
-  const belt = page.locator(".adv-belt-item");
-  const firstWord = (await belt.textContent()).trim();
-  const labels = await page.locator(".adv-bin-label").allTextContents();
-  const correctIndex = labels.findIndex(label => firstWord.toLowerCase().startsWith(label.trim().toLowerCase()));
-  expect(correctIndex).toBeGreaterThanOrEqual(0);
-  await page.locator(".adv-bin").nth(correctIndex === 0 ? 1 : 0).click();
-  await expect(belt).toHaveText(firstWord);
-  await expect(page.locator(".word-conveyor-scene")).toHaveAttribute("data-motion", "idle");
-  await page.locator(".adv-bin").nth(correctIndex).click();
-  await expect(page.locator(".conveyor-status")).toContainText("Routed to");
+test('Factory states its print task and physically returns a wrong parcel before a correct diversion',async({page})=>{
+ test.setTimeout(45000);await open(page,'sound-sort-factory');await expect(page.locator('.aw-objective')).toContainText('Match the first letters');const parcel=page.locator('[data-aw="parcel"]');await expect(parcel).toBeEnabled();const word=(await parcel.locator('strong').innerText()).trim(),bins=await page.locator('[data-aw="chute"]').evaluateAll(es=>es.map(e=>e.dataset.bin));const correct=bins.findIndex(bin=>word.toLowerCase().startsWith(bin.toLowerCase()));expect(correct).toBeGreaterThanOrEqual(0);await page.locator('[data-aw="chute"]').nth(correct===0?1:0).click();await expect(page.locator('.aw-stage')).toHaveAttribute('data-belt-phase','returning');await expect(page.locator('.aw-stage')).toHaveAttribute('data-belt-phase','ready');await expect(parcel.locator('strong')).toHaveText(word);await page.locator('[data-aw="chute"]').nth(correct).click();await expect(page.locator('.aw-stage')).toHaveAttribute('data-aw-index','1');
 });

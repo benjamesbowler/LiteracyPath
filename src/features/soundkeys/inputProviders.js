@@ -1,15 +1,21 @@
 import { normalizeSoundKeyEvent } from "./engine.js";
 import { isInteractiveKeyTarget } from "../../utils/interactiveEventTarget.js";
 
-export function createComputerKeyboardProvider(onEvent) {
+export function createComputerKeyboardProvider(onEvent, options = {}) {
   const handler = event => {
-    if (event.repeat || isInteractiveKeyTarget(event.target)) return;
     const key = String(event.key || "").toLowerCase();
+    if (event.repeat || (isInteractiveKeyTarget(event.target) && !options.acceptTarget?.(event.target, key))) return;
+    const mapped = options.resolveKey?.(key);
+    if (mapped) { event.preventDefault(); onEvent({ type: "token", token: mapped, source: "computer", key }); return; }
     if (/^[a-z]$/.test(key)) onEvent({ type: "token", token: key, source: "computer" });
     if (key === "backspace") onEvent({ type: "control", action: "clear" });
   };
   window.addEventListener("keydown", handler);
-  return () => window.removeEventListener("keydown", handler);
+  const release = event => onEvent({ type: "release", key: String(event.key || "").toLowerCase(), source: "computer" });
+  const blur = () => onEvent({ type: "release-all", source: "computer" });
+  window.addEventListener("keyup", release);
+  window.addEventListener("blur", blur);
+  return () => { window.removeEventListener("keydown", handler); window.removeEventListener("keyup", release); window.removeEventListener("blur", blur); };
 }
 
 function unsupportedMidiError() {
@@ -44,6 +50,9 @@ export async function connectWebMidi(onEvent, midiNavigator = globalThis.navigat
     if (!input || input.state === "disconnected" || attached.has(input)) return;
     input.onmidimessage = message => {
       const [status, note, velocity] = message.data || [];
+      const command = status & 0xf0;
+      if (command === 0x80 || (command === 0x90 && velocity === 0)) { onEvent({ type: "release", note, source: input.name || "MIDI" }); return; }
+      if (command !== 0x90) return;
       const type = (status & 0xf0) === 0x90 && velocity > 0 ? "noteOn" : "noteOff";
       const normalized = normalizeSoundKeyEvent({ note, velocity, type });
       if (!normalized) return;
@@ -69,6 +78,7 @@ export async function connectWebMidi(onEvent, midiNavigator = globalThis.navigat
 
   const detach = input => {
     if (!input || !attached.has(input)) return;
+    onEvent({ type: "release-all", source: input.name || "MIDI" });
     input.onmidimessage = null;
     attached.delete(input);
   };

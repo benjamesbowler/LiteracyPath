@@ -28,10 +28,16 @@ function hashString(str) {
   return Math.abs(h);
 }
 
+// Only these taught, contiguous graphemes are grouped; repeated units remain
+// separate physical pieces. Split digraphs are not silently fused.
+export function wordBridgeUnits(word) {
+  return String(word).toUpperCase().match(/SH|CH|TH|NG|CK|QU|AI|EE|OA|OO|AR|OR|[A-Z]|[^A-Z]/g) || [];
+}
+
 // Build correct letter tiles for a word target.
 function buildLetterTiles(word) {
   const upper = String(word).toUpperCase();
-  return upper.split("").map((glyph, i) => ({
+  return wordBridgeUnits(upper).map((glyph, i) => ({
     glyph,
     correct: true,
     order: i
@@ -103,15 +109,17 @@ function getWordDecoys(targetWords, world, seed) {
  */
 export function buildLevel({ world, cycle, mode, target }) {
   const isSentence = Array.isArray(target);
+  const units = isSentence ? target.map(String).flatMap(word => word.match(/[^.?!]+|[.?!]/g) || []) : wordBridgeUnits(target);
+  if (isSentence && !/[.?!]$/.test(units.at(-1) || "")) units.push(".");
   const targetStr = isSentence ? target.join(" ") : String(target);
   const seed = hashString(targetStr + (cycle || 0));
 
   const correctTiles = isSentence
-    ? buildWordTiles(target)
+    ? buildWordTiles(units)
     : buildLetterTiles(target);
 
   const decoyValues = isSentence
-    ? getWordDecoys(target, world, seed)
+    ? getWordDecoys(units, world, seed)
     : getLetterDecoys(target, world, seed);
 
   // Sentence decoys keep their natural (bank) casing so they blend in with
@@ -131,6 +139,8 @@ export function buildLevel({ world, cycle, mode, target }) {
   return {
     mode: mode || "bridge",
     target,
+    units,
+    evidenceType: "supported-reconstruction",
     slots: correctTiles.length,
     tiles: allTiles,
     decoys: decoyValues,

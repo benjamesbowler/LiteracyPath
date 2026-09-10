@@ -1,223 +1,193 @@
-import { expect, test } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 import { mkdir, writeFile, unlink } from 'node:fs/promises';
 import { randomUUID } from 'node:crypto';
 import { SENTENCE_FIX } from '../../src/data/learnGamesData.js';
-
-const scope = 'literacy-guide-learn-games:fullscreen-overlay-preview';
-const readResult = (page, game) => page.evaluate(({scope,game}) => JSON.parse(localStorage.getItem(scope) || '{}').games?.[game], {scope,game});
-async function open(page, game, difficulty='easy') {
-  await page.goto(`/preview/game-overlay.html?game=${game}&difficulty=${difficulty}&sound=0&music=0`);
+const scope='literacy-guide-learn-games:fullscreen-overlay-preview';
+const result=(page,game)=>page.evaluate(({scope,game})=>JSON.parse(localStorage.getItem(scope)||'{}').games?.[game],{scope,game});
+async function open(page,game,difficulty='easy') { await page.goto(`/preview/game-overlay.html?game=${game}&difficulty=${difficulty}&sound=0&music=0`);await expect(page.locator('.pp-play')).toBeVisible(); }
+async function place(page,piece,slot,drag=false) {
+ if(drag){await slot.scrollIntoViewIfNeeded();const a=await piece.boundingBox(),b=await slot.boundingBox();await page.mouse.move(a.x+a.width/2,a.y+a.height/2);await page.mouse.down();await page.mouse.move(b.x+b.width/2,b.y+b.height/2,{steps:10});await page.mouse.up();}
+ else {await piece.click();await slot.click();}
 }
-async function tapWord(page, word) {
-  await page.locator('.lg-hop-grid button:not([disabled])').getByText(word, {exact:true}).first().click();
-}
-async function saveShot(page, name) {
-  if (process.env.LP_G10_SCREENSHOTS) await page.screenshot({path:`${process.env.LP_G10_SCREENSHOTS}/${name}.png`});
-}
-async function fitControls(page, selector) {
-  await expect(page.locator(selector).first()).toBeVisible();
-  for(const button of await page.locator(selector).all()) {
-    expect(await button.evaluate(e=>{const r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));})).toBe(true);
+for(const difficulty of ['easy','medium','hard']) {
+ test(`${difficulty} construction activates every assembled object without a confirmation gate`,async({page})=>{
+  test.setTimeout(150000);await open(page,'cvc-word-builder',difficulty);const total=Number((await page.locator('.pp-progress').textContent()).split('/')[1]);
+  for(let round=0;round<total;round++){
+   await expect(page.locator('.pp-progress')).toHaveText(`${round}/${total}`);
+   await expect(page.locator('.pp-slot').first()).toBeEnabled();
+   const tiles=await page.locator('[data-tile-id]').evaluateAll(es=>es.filter(e=>!e.dataset.tileId.startsWith('decoy')).map(e=>({id:e.dataset.tileId,text:e.textContent})));
+   tiles.sort((a,b)=>Number(a.id.match(/(\d+)$/)?.[1])-Number(b.id.match(/(\d+)$/)?.[1]));
+   if(!round){const wrong=page.locator('[data-tile-id^="decoy"]').first();if(await wrong.count()){await place(page,wrong,page.locator('.pp-slot').first());await expect(page.locator('.pp-local-feedback')).toBeVisible();}}
+   for(let i=0;i<tiles.length;i++)await place(page,page.locator(`[data-tile-id="${tiles[i].id}"]`),page.locator('.pp-slot').nth(i),i===0);
+   await expect(page.locator('.pp-workshop-world')).toHaveClass(/is-built/);
+   await expect(page.locator('.pp-slot.is-filled')).toHaveCount(tiles.length);
+   if(round+1<total)await expect(page.locator('.pp-workshop-world')).not.toHaveClass(/is-built/);
   }
-  const boxes=await page.locator(selector).evaluateAll(es=>es.map(e=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height};}));
-  const {width,height}=page.viewportSize();
-  for (const r of boxes) {
-    expect(r.w).toBeGreaterThanOrEqual(55.9); expect(r.h).toBeGreaterThanOrEqual(55.9);
-    expect(r.x).toBeGreaterThanOrEqual(0); expect(r.y).toBeGreaterThanOrEqual(0);
-    expect(r.x+r.w).toBeLessThanOrEqual(width+.1); expect(r.y+r.h).toBeLessThanOrEqual(height+.1);
-  }
-  for (let i=0;i<boxes.length;i++) for (let j=i+1;j<boxes.length;j++) {
-    const a=boxes[i],b=boxes[j];
-    const gapX=Math.max(a.x-b.x-b.w,b.x-a.x-a.w), gapY=Math.max(a.y-b.y-b.h,b.y-a.y-a.h);
-    expect(Math.max(gapX,gapY)).toBeGreaterThanOrEqual(7.9);
-  }
-}
-for (const [difficulty, rounds, pairs] of [['easy',6,3],['medium',8,6],['hard',10,10]]) {
-  test(`${difficulty} Memory collects every pair across bounded boards and saves before leaving`, async ({page}) => {
-    await open(page,'sight-word-memory',difficulty);
-    await expect(page.locator('.lg-match-card').first()).toBeVisible();
-    let collected=0;
-    while(collected<pairs) {
-      const cards=page.locator('.lg-match-card');
-      expect(await cards.count()).toBeLessThanOrEqual(10);
-      // Structural pairing fixture: this verifies input/commit behaviour, not child reading.
-      const ids=[...new Set(await cards.evaluateAll(es=>es.map(e=>e.dataset.pairId)))];
-      for(const id of ids) {
-        const pair=page.locator(`.lg-match-card[data-pair-id="${id}"]`);
-        await pair.first().evaluate(b=>{b.click();b.click();});
-        await expect(pair.first()).not.toBeDisabled();
-        await pair.last().click(); collected++;
-        await expect(page.locator('.lg-memory-collection .collected')).toHaveCount(collected);
-      }
-      if(collected<pairs) await page.getByRole('button',{name:'Next card set',exact:true}).click();
-    }
-    await expect.poll(async()=> (await readResult(page,'sight-word-memory'))?.plays).toBe(1);
-    await expect(page.getByRole('button',{name:'Finish collection'})).toBeVisible();
-    await expect.poll(()=>page.locator('.lg-memory-collection img').evaluateAll(es=>es.every(e=>e.complete&&e.naturalWidth>0))).toBe(true);
-    await expect(page.locator('.lg-game-header-meter')).toHaveAttribute('aria-label',`${pairs} of ${pairs}`);
-    expect(await page.locator('.lg-memory-collection img').evaluateAll(es=>es.every(e=>{const image=e.getBoundingClientRect(),frame=e.parentElement.getBoundingClientRect();return image.width<=frame.width&&image.height<=frame.height;}))).toBe(true);
-    await saveShot(page,`memory-${difficulty}-collection`);
-    await page.getByRole('button',{name:'Close Sight Word Memory',exact:true}).click();
-    expect((await readResult(page,'sight-word-memory')).plays).toBe(1);
-  });
-  test(`${difficulty} Pop advances deliberately, preserves retry and saves one result per replay`, async ({page}) => {
-    test.setTimeout(90_000);
-    await open(page,'pop-the-word',difficulty);
-    for(let r=0;r<rounds;r++) {
-      const target=(await page.locator('.lg-game-picture-text span').textContent()).trim();
-      if(r===0) {
-        const wrong=page.locator('.lg-floating-options button').filter({hasNotText:new RegExp(`^${target}$`)}).first();
-        await wrong.click(); await expect(page.locator('.lg-pop-feedback')).toBeVisible();
-      }
-      await page.locator('.lg-floating-options button').getByText(target,{exact:true}).evaluate(b=>{for(let i=0;i<6;i++)b.click();});
-      await expect(page.locator('.lg-pop-discovery')).toContainText(`You found ${target}!`);
-      await expect.poll(()=>page.locator('.lg-pop-meadow').evaluate(i=>i.complete&&i.naturalWidth>0)).toBe(true);
-      if(r===rounds-1) {
-        expect((await readResult(page,'pop-the-word')).plays).toBe(1);
-        await saveShot(page,`pop-${difficulty}-discovery`);
-      }
-      await page.getByRole('button',{name:r===rounds-1?'Finish':'Next word',exact:true}).click();
-    }
-    const saved=await readResult(page,'pop-the-word');
-    expect(saved.plays).toBe(1);
-    expect(saved.practiceRecord.completions).toHaveLength(1);
-    expect(saved.practiceRecord.completions[0].steps[0].correct).toBe(false);
-    expect(saved.practiceRecord.completions[0].assistedRetries).toHaveLength(1);
-    expect(saved.practiceRecord.completions[0].steps.every(s=>s.independent===false)).toBe(true);
-    await page.getByRole('button',{name:'Play again',exact:true}).click();
-    await expect(page.locator('.lg-floating-options button')).toHaveCount(6);
-    expect((await readResult(page,'pop-the-word')).plays).toBe(1);
-    if(difficulty==='easy') {
-      for(let r=0;r<rounds;r++) {
-        const target=await page.locator('.lg-game-picture-text span').textContent();
-        await page.locator('.lg-floating-options button').getByText(target,{exact:true}).click();
-        await page.getByRole('button',{name:r===rounds-1?'Finish':'Next word',exact:true}).click();
-      }
-      const replay=await readResult(page,'pop-the-word');
-      expect(replay.plays).toBe(2); expect(replay.practiceRecord.completions).toHaveLength(2);
-      expect(replay.practiceRecord.completions[0]).toEqual(saved.practiceRecord.completions[0]);
-    }
-  });
-  test(`${difficulty} Hop uses a fresh target and moves to each committed word stone`, async ({page}) => {
-    test.setTimeout(90_000); await page.emulateMedia({reducedMotion:'reduce'});
-    await open(page,'word-hopscotch',difficulty);
-    const model=await page.locator('.lg-sentence-model > span').textContent();
-    await page.getByRole('button',{name:'Try a new sentence'}).click();
-    const total=difficulty==='hard'?7:rounds;
-    for(let r=0;r<total;r++) {
-      const sentence=await page.locator('.lg-hop-model > span').textContent();
-      expect(sentence).not.toBe(model);
-      const words=sentence.replace(/[.?!]/g,'').split(/\s+/);
-      for(let i=0;i<words.length;i++) {
-        const before=await page.locator('.lg-hop-pal').evaluate(e=>e.getBoundingClientRect().x);
-        await tapWord(page,words[i]);
-        await expect(page.locator('.lg-sentence-path .done')).toHaveCount(i+1);
-        const after=await page.locator('.lg-hop-pal').evaluate(e=>e.getBoundingClientRect().x);
-        expect(after).toBeGreaterThan(before);
-      }
-      await expect(page.locator('.lg-sentence-complete')).toContainText(sentence);
-      await expect(page.locator('.lg-game-audio')).toHaveCount(0);
-      if(r===total-1) expect((await readResult(page,'word-hopscotch')).plays).toBe(1);
-      await page.getByRole('button',{name:r===total-1?'Finish':'Next sentence',exact:true}).click();
-    }
-    expect((await readResult(page,'word-hopscotch')).plays).toBe(1);
-  });
-  test(`${difficulty} Fix-It keeps the repaired message until Next and saves on the last repair`, async ({page}) => {
-    test.setTimeout(90_000); await open(page,'reading-race',difficulty);
-    const total=Math.min(rounds,SENTENCE_FIX[difficulty].length);
-    for(let r=0;r<total;r++) {
-      const display=(await page.locator('.lg-fix-sentence').textContent()).trim();
-      const fix=SENTENCE_FIX[difficulty].find(f=>f.display===display); expect(fix).toBeTruthy();
-      await tapWord(page,fix.answer);
-      await expect(page.locator('.lg-repair-piece')).toHaveText(fix.answer);
-      await expect(page.locator('.lg-game-audio')).toHaveCount(0);
-      if(r===total-1) expect((await readResult(page,'reading-race')).plays).toBe(1);
-      await page.getByRole('button',{name:r===total-1?'Finish':'Next message',exact:true}).click();
-    }
-    expect((await readResult(page,'reading-race')).plays).toBe(1);
-  });
-}
-for(const viewport of [{width:568,height:320},{width:393,height:851},{width:1024,height:768}]) {
- test(`G10 choices and finished products fit ${viewport.width}x${viewport.height}`,async({page})=>{
-  test.setTimeout(90_000); await page.setViewportSize(viewport);
-  for(const game of ['sight-word-memory','pop-the-word','word-hopscotch','reading-race']) {
-   await open(page,game,'hard');
-   if(game==='word-hopscotch') await page.getByRole('button',{name:'Try a new sentence'}).click();
-   const selector=game==='sight-word-memory'?'.lg-match-card':game==='pop-the-word'?'.lg-floating-options button':'.lg-hop-grid button';
-   await fitControls(page,selector);
-   await saveShot(page,`${game}-${viewport.width}`);
-   if(game==='word-hopscotch') {
-     const sentence=await page.locator('.lg-hop-model > span').textContent();
-     for(const word of sentence.replace(/[.?!]/g,'').split(/\s+/)) await tapWord(page,word);
-     await expect(page.locator('.lg-sentence-complete')).toContainText(sentence);
-     await fitControls(page,'.lg-sentence-complete button');
-     await saveShot(page,`hop-result-${viewport.width}`);
+  await expect.poll(async()=>(await result(page,'cvc-word-builder'))?.plays).toBe(1);
+ });
+ test(`${difficulty} blend town builds three objects per family with a reusable rime`,async({page})=>{
+  test.setTimeout(150000);await open(page,'blend-and-build',difficulty);const total=Number((await page.locator('.pp-progress').textContent()).split('/')[1]);
+  for(let family=0;family<total;family++) {
+   await expect(page.locator('.pp-onset-socket')).toBeEnabled();const rime=await page.locator('.pp-rime').textContent();
+   for(let n=0;n<3;n++){
+    const target=(await page.locator('.pp-prompt').textContent()).replace(/^Build /,'');
+    const onset=target.slice(0,-rime.length);
+    await place(page,page.locator('.pp-piece-bank button').getByText(onset,{exact:true}),page.locator('.pp-onset-socket'),n===0);
+    await expect(page.locator('.pp-family-house')).toHaveCount(n+1);
    }
-   if(game==='reading-race') {
-     const display=(await page.locator('.lg-fix-sentence').textContent()).trim();
-     await tapWord(page,SENTENCE_FIX.hard.find(f=>f.display===display).answer);
-     await fitControls(page,'.lg-fix-complete button');
-     await saveShot(page,`repair-result-${viewport.width}`);
-   }
-   if(game==='pop-the-word') {
-     const target=await page.locator('.lg-game-picture-text span').textContent();
-     const button=page.locator(selector).getByText(target,{exact:true});
-     const box=await button.boundingBox(); await button.focus(); await page.keyboard.down('Space');
-     expect(await button.boundingBox()).toEqual(box); await page.keyboard.up('Space');
-     await expect(page.locator('.lg-pop-world')).toBeVisible(); await fitControls(page,'.lg-pop-discovery button');
-   }
+   if(family+1<total){await expect(page.locator('.pp-family-house')).toHaveCount(0);}
   }
+  await expect.poll(async()=>(await result(page,'blend-and-build'))?.plays).toBe(1);
+ });
+ test(`${difficulty} memory preserves physical card positions and automatically completes all boards`,async({page})=>{
+  test.setTimeout(90000);await open(page,'sight-word-memory',difficulty);const total=Number((await page.locator('.pp-progress').textContent()).split('/')[1]);let matched=0;
+  while(matched<total){
+   await expect(page.locator('.pp-memory-card:not(:disabled)').first()).toBeEnabled();
+   const ids=[...new Set(await page.locator('.pp-memory-card').evaluateAll(es=>es.map(e=>e.dataset.pairId)))];
+   const before=await page.locator('.pp-memory-card').evaluateAll(es=>es.map(e=>{const r=e.getBoundingClientRect();return {id:e.dataset.cardId,x:r.x,y:r.y};}));
+   for(const id of ids){const pair=page.locator(`.pp-memory-card[data-pair-id="${id}"]`);await pair.first().click();await pair.first().click();await expect(pair.first()).toBeEnabled();await pair.last().click();matched++;await expect(pair.first()).toBeDisabled();await expect(pair.last()).toBeDisabled();if(id!==ids.at(-1)){const after=await page.locator('.pp-memory-card').evaluateAll(es=>es.map(e=>{const r=e.getBoundingClientRect();return {id:e.dataset.cardId,x:r.x,y:r.y};}));expect(after).toEqual(before);}}
+  }
+  await expect.poll(async()=>(await result(page,'sight-word-memory'))?.plays).toBe(1);
+ });
+ test(`${difficulty} moving word targets accept direct pops and preserve first mistakes`,async({page})=>{
+  test.setTimeout(90000);await open(page,'pop-the-word',difficulty);const total=Number((await page.locator('.pp-progress').textContent()).split('/')[1]);
+  for(let round=0;round<total;round++){
+   await expect(page.locator('.pp-word-balloon').first()).toBeEnabled();
+   const target=(await page.locator('.pp-prompt').textContent()).replace('Pop ','');
+   if(!round){await page.locator('.pp-word-balloon').filter({hasNotText:new RegExp(`^${target}$`)}).first().click();await expect(page.locator('.pp-local-feedback')).toBeVisible();}
+   await page.locator('.pp-word-balloon').getByText(target,{exact:true}).click();await expect(page.locator('.pp-progress')).toHaveText(`${round+1}/${total}`);
+   if(round+1<total)await expect(page.locator('.pp-word-balloon').first()).toBeEnabled();
+  }
+  await expect.poll(async()=>(await result(page,'pop-the-word'))?.plays).toBe(1);
+  const saved=await result(page,'pop-the-word');expect(saved.practiceRecord.completions[0].steps[0].correct).toBe(false);expect(saved.practiceRecord.completions[0].assistedRetries).toHaveLength(1);
+ });
+ test(`${difficulty} hopscotch lands on each chosen word and extends the course across sentences`,async({page})=>{
+  test.setTimeout(180000);await open(page,'word-hopscotch',difficulty);const total=Number((await page.locator('.pp-progress').textContent()).split('/')[1]);let previousX=0;
+  for(let round=0;round<total;round++){
+   await expect(page.locator('.pp-hop-stone:not(:disabled)').first()).toBeEnabled();const sentence=await page.locator('.pp-prompt').textContent();const words=sentence.replace(/[.?!]/g,'').split(/\s+/);
+   for(let i=0;i<words.length;i++){
+    const stone=page.locator('.pp-hop-stone:not(:disabled)').getByText(words[i],{exact:true});await expect(stone).toBeVisible();const id=await stone.getAttribute('data-stone-id');const x=Number(await stone.getAttribute('data-world-x'));expect(x).toBeGreaterThan(previousX);
+    await stone.click();await expect(page.locator(`[data-stone-id="${id}"]`)).toHaveClass(/is-reached/);expect(await page.locator('.pp-prompt').evaluate(e=>{const r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));})).toBe(true);previousX=x;
+   }
+   if(round+1<total)await expect(page.locator('.pp-prompt')).not.toHaveText(sentence);
+  }
+  await expect.poll(async()=>(await result(page,'word-hopscotch'))?.plays).toBe(1);
+ });
+ test(`${difficulty} direct repair opens each district gate and retains repaired signs`,async({page})=>{
+  test.setTimeout(120000);await open(page,'reading-race',difficulty);const total=Number((await page.locator('.pp-progress').textContent()).split('/')[1]);
+  for(let round=0;round<total;round++){
+   const sign=page.locator(`.pp-repair-sign[data-sign-index="${round}"]`);await expect(sign.locator('button')).toBeEnabled();const display=(await sign.textContent()).replace('…','___');const fix=SENTENCE_FIX[difficulty].find(f=>f.display===display);expect(fix).toBeTruthy();
+   const answer=fix.acceptedAnswers?.at(-1)||fix.answer;
+   await place(page,page.locator('.pp-piece-bank button').getByText(answer,{exact:true}),sign.locator('button'),true);
+   await expect(sign.locator('button')).toHaveText(answer);await expect(sign.locator('..')).toHaveClass(/is-repaired/);
+   if(round+1<total)await expect(page.locator(`.pp-repair-sign[data-sign-index="${round+1}"]`)).toBeVisible();
+  }
+  await expect.poll(async()=>(await result(page,'reading-race'))?.plays).toBe(1);
  });
 }
-
-test('failed recorded cue offers a playable printed target without using synthetic speech',async({page})=>{
- await page.addInitScript(()=>{
-   HTMLMediaElement.prototype.play=function(){return Promise.reject(new Error('offline audio'));};
-   window.syntheticCalls=0;window.speechSynthesis.speak=()=>{window.syntheticCalls++;};
- });
- await page.goto('/preview/game-overlay.html?game=pop-the-word&sound=1&music=0');
- await expect(page.locator('.lg-game-picture-text span')).toBeVisible();
- await expect(page.locator('.lg-pop-stage > p')).toContainText('unavailable');
- const word=await page.locator('.lg-game-picture-text span').textContent();
- await page.locator('.lg-floating-options button').getByText(word,{exact:true}).click();
- await expect(page.locator('.lg-pop-discovery')).toContainText(word);
- expect(await page.evaluate(()=>window.syntheticCalls)).toBe(0);
+for(const viewport of [{width:568,height:320},{width:390,height:844},{width:1024,height:768}])test(`six phonics control bounds ${viewport.width}`,async({page})=>{
+ test.setTimeout(120000);await page.setViewportSize(viewport);
+ for(const [game,selector] of [['cvc-word-builder','.pp-slot,.pp-piece-bank button'],['blend-and-build','.pp-onset-socket,.pp-piece-bank button'],['sight-word-memory','.pp-memory-card'],['pop-the-word','.pp-word-balloon'],['word-hopscotch','.pp-hop-stone:not(:disabled)'],['reading-race','.pp-repair-socket,.pp-piece-bank button']]){
+  await open(page,game,'hard');await page.waitForTimeout(350);
+  const boxes=await page.locator(selector).evaluateAll(es=>es.map(e=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height,hit:e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2))};}));
+  for(const b of boxes){expect(b.w,game).toBeGreaterThanOrEqual(55.9);expect(b.h,game).toBeGreaterThanOrEqual(55.9);expect(b.x,game).toBeGreaterThanOrEqual(-.1);expect(b.y,game).toBeGreaterThanOrEqual(-.1);expect(b.x+b.w,game).toBeLessThanOrEqual(viewport.width+.1);expect(b.y+b.h,game).toBeLessThanOrEqual(viewport.height+.1);expect(b.hit,game).toBe(true);}
+ }
+});
+test('paused memory mismatch preserves both revealed cards until play resumes',async({page})=>{
+ await open(page,'sight-word-memory');const cards=page.locator('.pp-memory-card');const ids=await cards.evaluateAll(es=>es.map(e=>e.dataset.pairId));await cards.first().click();await cards.nth(ids.findIndex(id=>id!==ids[0])).click();
+ await page.getByRole('button',{name:'Close Sight Word Memory',exact:true}).click();await expect(page.getByRole('alertdialog')).toBeVisible();await page.waitForTimeout(1400);await expect(page.locator('.pp-memory-card.is-revealed')).toHaveCount(2);
+ await page.getByRole('button',{name:'Keep playing',exact:true}).click();await expect(page.locator('.pp-memory-card.is-revealed')).toHaveCount(0);
+});
+test('failed recorded cue leaves a playable printed word target without synthetic speech',async({page})=>{
+ await page.addInitScript(()=>{HTMLMediaElement.prototype.play=function(){return Promise.reject(new Error('offline audio'));};window.syntheticCalls=0;window.speechSynthesis.speak=()=>{window.syntheticCalls++;};});
+ await page.goto('/preview/game-overlay.html?game=pop-the-word&sound=1&music=0');await expect(page.locator('.pp-prompt')).toHaveText(/^Pop (?!the word you hear)/);const target=(await page.locator('.pp-prompt').textContent()).replace('Pop ','');await page.locator('.pp-word-balloon').getByText(target,{exact:true}).click();await expect(page.locator('.pp-progress')).toHaveText('1/6');expect(await page.evaluate(()=>window.syntheticCalls)).toBe(0);
+});
+test('keyboard pieces, cancelled drags and wrong hop landings preserve progress',async({page})=>{
+ await open(page,'cvc-word-builder');const tile=page.locator('[data-tile-id]:not([data-tile-id^="decoy"])').first();const tileId=await tile.getAttribute('data-tile-id');const index=Number(tileId.match(/(\d+)$/)[1]);const slot=page.locator('.pp-slot').nth(index);
+ const a=await tile.boundingBox();await page.mouse.move(a.x+a.width/2,a.y+a.height/2);await page.mouse.down();await page.mouse.move(a.x+40,a.y-45,{steps:5});await expect(page.locator('.pp-drag-piece')).toBeVisible();await tile.dispatchEvent('pointercancel');await page.mouse.up();await expect(page.locator('.pp-drag-piece')).toHaveCount(0);await expect(page.locator('.pp-slot.is-filled')).toHaveCount(0);
+ await tile.focus();await page.keyboard.press('Enter');await slot.focus();await page.keyboard.press('Enter');await expect(slot).toHaveClass(/is-filled/);
+ await open(page,'word-hopscotch');const target=(await page.locator('.pp-prompt').textContent()).split(' ')[0];const hero=page.locator('.pp-hop-course .pp-hero');const before=await hero.evaluate(e=>e.style.left);await page.locator('.pp-hop-stone:not(:disabled)').filter({hasNotText:new RegExp(`^${target}$`)}).click();await expect(page.locator('.pp-local-feedback')).toBeVisible();await expect.poll(()=>hero.evaluate(e=>e.style.left)).toBe(before);await expect(page.locator('.pp-hop-stone.is-reached')).toHaveCount(0);
+});
+test('keyboard target stays still and a replay saves a separate completion exactly once',async({page})=>{
+ test.setTimeout(90000);await open(page,'pop-the-word');
+ for(let run=0;run<2;run++){
+  for(let round=0;round<6;round++){
+   await expect(page.locator('.pp-word-balloon').first()).toBeEnabled();const target=(await page.locator('.pp-prompt').textContent()).replace('Pop ','');const button=page.locator('.pp-word-balloon').getByText(target,{exact:true});
+   if(!round){await button.focus();await page.keyboard.down('Space');const before=await button.boundingBox();await page.waitForTimeout(350);expect(await button.boundingBox()).toEqual(before);await page.keyboard.up('Space');}else await button.click();
+   await expect(page.locator('.pp-progress')).toHaveText(`${round+1}/6`);
+  }
+  await expect.poll(async()=>(await result(page,'pop-the-word'))?.plays).toBe(run+1);
+  if(!run){await page.getByRole('button',{name:'Play again',exact:true}).click();await expect(page.locator('.pp-progress')).toHaveText('0/6');}
+ }
+ const saved=await result(page,'pop-the-word');expect(saved.practiceRecord.completions).toHaveLength(2);expect(saved.practiceRecord.completions.every(c=>c.steps.every(s=>s.independent===false))).toBe(true);
+});
+test('all six games restore their generated identity and physical work without awarding it twice',async({page})=>{
+ test.setTimeout(150000);
+ const snapshot=()=>page.evaluate(()=>{const key=Object.keys(localStorage).find(k=>k.startsWith('literacy-guide-phonics-play:'));return key?JSON.parse(localStorage.getItem(key)):null;});
+ for(const game of ['cvc-word-builder','blend-and-build','sight-word-memory','pop-the-word','word-hopscotch','reading-race']){
+  await page.goto('/');await page.evaluate(()=>localStorage.clear());await open(page,game);
+  if(game==='cvc-word-builder'){
+   const tile=page.locator('[data-tile-id]:not([data-tile-id^="decoy"])').first();const index=Number((await tile.getAttribute('data-tile-id')).match(/(\d+)$/)[1]);await place(page,tile,page.locator('.pp-slot').nth(index));
+  }else if(game==='blend-and-build'){
+   const rime=await page.locator('.pp-rime').textContent(),word=(await page.locator('.pp-prompt').textContent()).replace('Build ','');await place(page,page.locator('.pp-piece-bank button').getByText(word.slice(0,-rime.length),{exact:true}),page.locator('.pp-onset-socket'));
+  }else if(game==='sight-word-memory'){
+   const id=await page.locator('.pp-memory-card').first().getAttribute('data-pair-id');const pair=page.locator(`[data-pair-id="${id}"]`);await pair.first().click();await pair.last().click();
+  }else if(game==='pop-the-word'){
+   const target=(await page.locator('.pp-prompt').textContent()).replace('Pop ','');await page.locator('.pp-word-balloon').getByText(target,{exact:true}).click();await page.getByRole('button',{name:'Close Pop the Word',exact:true}).click();
+  }else if(game==='word-hopscotch'){
+   const word=(await page.locator('.pp-prompt').textContent()).split(' ')[0];await page.locator('.pp-hop-stone:not(:disabled)').getByText(word,{exact:true}).click();await expect(page.locator('.pp-hop-stone.is-reached')).toHaveCount(1);
+  }else{
+   const display=(await page.locator('.pp-repair-sign').textContent()).replace('…','___'),fix=SENTENCE_FIX.easy.find(f=>f.display===display);await place(page,page.locator('.pp-piece-bank button').getByText(fix.answer,{exact:true}),page.locator('.pp-repair-socket'));await page.getByRole('button',{name:/^Close /}).click();
+  }
+  const before=await snapshot();expect(before.stage.data).toBeTruthy();await page.reload();await expect(page.locator('.pp-play')).toBeVisible();const after=await snapshot();expect(after.gameState).toEqual(before.gameState);expect(after.score).toEqual(before.score);expect(after.correct).toEqual(before.correct);expect(after.evidence).toEqual(before.evidence);
+  if(game==='cvc-word-builder')await expect(page.locator('.pp-slot.is-filled')).toHaveCount(1);
+  if(game==='blend-and-build')await expect(page.locator('.pp-family-house')).toHaveCount(1);
+  if(game==='sight-word-memory')await expect(page.locator('.pp-memory-card.is-matched')).toHaveCount(2);
+  if(game==='word-hopscotch')expect(after.stage.data.hero).toEqual(before.stage.data.hero);
+  if(game==='pop-the-word'||game==='reading-race'){await expect.poll(async()=>(await snapshot()).round).toBe(1);expect((await snapshot()).score).toBe(before.score);expect((await snapshot()).correct).toBe(1);}
+ }
 });
 
-test('a paused mismatch keeps its flip lock and resumes on the same two cards',async({page})=>{
- await open(page,'sight-word-memory');
- await expect(page.locator('.lg-match-card').first()).toBeVisible();
- const cards=page.locator('.lg-match-card');
- const ids=await cards.evaluateAll(es=>es.map(e=>e.dataset.pairId));
- const wrongIndex=ids.findIndex(id=>id!==ids[0]);
- await cards.first().click(); await cards.nth(wrongIndex).click();
- await page.getByRole('button',{name:'Close Sight Word Memory'}).click();
- await expect(page.getByRole('alertdialog')).toBeVisible();
- await page.waitForTimeout(700); // Exceed the 650 ms mismatch timer while the engine is paused.
- await expect(page.locator('.lg-match-card.revealed')).toHaveCount(2);
- await page.getByRole('button',{name:'Keep playing',exact:true}).click();
- await expect(page.locator('.lg-match-card.revealed')).toHaveCount(0);
- expect((await readResult(page,'sight-word-memory'))?.plays||0).toBe(0);
-});
-
-test('the host preserves completion-only engine replay while deduplicating early-result engines',async({page})=>{
+test('completion-only engines announce replay explicitly and duplicate completion callbacks save once',async({page})=>{
  const file=`.artifacts/g10-legacy-fixture-${randomUUID()}.js`;
  await mkdir('.artifacts',{recursive:true});
  await writeFile(file,`
 import React from 'react';
-export default function Fixture({onComplete}) {
+export default function Fixture({onComplete,onSessionStart}) {
  const [completed,setCompleted]=React.useState(false);
  return React.createElement('button',{onClick:()=>{
-  if(completed)setCompleted(false);else{onComplete(1,10,1);setCompleted(true);}
+  if(completed){onSessionStart();setCompleted(false);}else{onComplete(1,10,1);onComplete(1,10,1);setCompleted(true);}
  }},completed?'Replay fixture':'Complete fixture run');
 }`);
  try {
   await page.route('**/src/components/learn/games/games/WordRescue.jsx*',route=>route.fulfill({contentType:'application/javascript',body:`export {default} from "/${file}";`}));
-  await open(page,'word-rescue');
+  await page.goto('/preview/game-overlay.html?game=word-rescue&sound=0&music=0');
   for(let i=1;i<=2;i++) {
    await page.getByRole('button',{name:'Complete fixture run'}).click();
-   expect((await readResult(page,'word-rescue')).plays).toBe(i);
+   expect((await result(page,'word-rescue')).plays).toBe(i);
    await page.getByRole('button',{name:'Replay fixture'}).click();
   }
  } finally { await unlink(file); }
+});
+test('a cleared host checkpoint discards old partial construction work',async({page})=>{
+ await open(page,'cvc-word-builder');const tile=page.locator('[data-tile-id]:not([data-tile-id^="decoy"])').first(),index=Number((await tile.getAttribute('data-tile-id')).match(/(\d+)$/)[1]);await place(page,tile,page.locator('.pp-slot').nth(index));await expect(page.locator('.pp-slot.is-filled')).toHaveCount(1);
+ // Simulate the existing host action that clears its checkpoint before mounting.
+ await page.evaluate(({scope})=>{const data=JSON.parse(localStorage.getItem(scope));delete data.games['cvc-word-builder'].checkpoints.easy;localStorage.setItem(scope,JSON.stringify(data));},{scope});await page.reload();await expect(page.locator('.pp-slot.is-filled')).toHaveCount(0);await expect(page.locator('.pp-progress')).toHaveText('0/6');
+});
+test.describe('touch input',()=>{
+ test.use({hasTouch:true,viewport:{width:568,height:320}});
+ test('all six short-landscape games accept touch directly and leave the next target reachable',async({page})=>{
+  test.setTimeout(90000);
+  for(const game of ['cvc-word-builder','blend-and-build','sight-word-memory','pop-the-word','word-hopscotch','reading-race']){
+   await open(page,game);
+   if(game==='cvc-word-builder'){const tile=page.locator('[data-tile-id]:not([data-tile-id^="decoy"])').first(),i=Number((await tile.getAttribute('data-tile-id')).match(/(\d+)$/)[1]);await tile.tap();await page.locator('.pp-slot').nth(i).tap();await expect(page.locator('.pp-slot.is-filled')).toHaveCount(1);}
+   else if(game==='blend-and-build'){const rime=await page.locator('.pp-rime').textContent(),word=(await page.locator('.pp-prompt').textContent()).replace('Build ','');await page.locator('.pp-piece-bank button').getByText(word.slice(0,-rime.length),{exact:true}).tap();await page.locator('.pp-onset-socket').tap();await expect(page.locator('.pp-family-house')).toHaveCount(1);}
+   else if(game==='sight-word-memory'){const id=await page.locator('.pp-memory-card').first().getAttribute('data-pair-id'),pair=page.locator(`[data-pair-id="${id}"]`);await pair.first().tap();await pair.last().tap();await expect(page.locator('.pp-memory-card.is-matched')).toHaveCount(2);}
+   else if(game==='pop-the-word'){const word=(await page.locator('.pp-prompt').textContent()).replace('Pop ','');await page.locator('.pp-word-balloon').getByText(word,{exact:true}).tap();await expect(page.locator('.pp-progress')).toHaveText('1/6');await expect(page.locator('.pp-word-balloon').first()).toBeEnabled();}
+   else if(game==='word-hopscotch'){const word=(await page.locator('.pp-prompt').textContent()).split(' ')[0];await page.locator('.pp-hop-stone:not(:disabled)').getByText(word,{exact:true}).tap();await expect(page.locator('.pp-hop-stone.is-reached')).toHaveCount(1);const hero=await page.locator('.pp-hop-course .pp-hero').boundingBox(),world=await page.locator('.pp-hop-world').boundingBox();expect(hero.y).toBeGreaterThanOrEqual(world.y);expect(hero.y+hero.height).toBeLessThanOrEqual(world.y+world.height);}
+   else{const display=(await page.locator('.pp-repair-sign').textContent()).replace('…','___'),fix=SENTENCE_FIX.easy.find(f=>f.display===display);await page.locator('.pp-piece-bank button').getByText(fix.answer,{exact:true}).tap();await page.locator('.pp-repair-socket').tap();await expect(page.locator('.pp-progress')).toHaveText('1/6');}
+   const selector=game==='sight-word-memory'?'.pp-memory-card:not(:disabled)':game==='word-hopscotch'?'.pp-hop-stone:not(:disabled)':game==='pop-the-word'?'.pp-word-balloon:not(:disabled)':'.pp-piece-bank button:not(:disabled)';
+   for(const button of await page.locator(selector).all())expect(await button.evaluate(e=>{const r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));}),game).toBe(true);
+  }
+ });
 });

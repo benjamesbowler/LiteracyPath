@@ -1,0 +1,6 @@
+.word-bridge-world [data-wb-panel=target]{max-width:calc(100% - 200px);border-radius:16px;clip-path:none!important;backdrop-filter:blur(10px)}
+.word-bridge-world [data-wb-panel=status]{border-radius:14px;clip-path:none!important}
+.word-bridge-world [data-wb=target]{flex-wrap:nowrap!important;overflow:auto;max-width:65vw}
+.word-bridge-world [data-wb=banner]{top:auto!important;bottom:84px;font-size:clamp(14px,2vw,20px)!important;letter-spacing:0!important;text-transform:none!important;font-style:normal!important}
+@media(max-width:600px){.word-bridge-world [data-wb-panel=target]{max-width:none;right:8px!important;left:8px!important;top:6px!important;padding:4px 8px!important}.word-bridge-world [data-wb-panel=status]{top:86px!important;right:8px!important;padding:4px 8px!important;min-width:0!important}.word-bridge-world [data-wb=world],.word-bridge-world [data-wb=patience]{display:none}}
+@media(max-height:500px){.word-bridge-world [data-wb-panel=target]{top:4px!important;padding:3px 7px!important}.word-bridge-world [data-wb-panel=status]{top:4px!important;padding:3px 8px!important}.word-bridge-world [data-wb=banner]{bottom:72px!important}}

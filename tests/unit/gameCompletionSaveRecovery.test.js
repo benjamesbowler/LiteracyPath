@@ -422,3 +422,32 @@ for (const game of GAME_LIST) {
     assert.equal(h.read().practiceRecord.completions.length, 2);
   });
 }
+
+
+
+test("legacy progress reset establishes a new run while repeated completion callbacks deduplicate", t => {
+  const h = setup(t, "word-rescue"), callbacks = h.engine();
+  const first = callbacks.onComplete(2, 40, 3, evidence());
+  assert.strictEqual(callbacks.onComplete(3, 999, 9), first);
+  callbacks.onProgressUpdate(3, 3);
+  assert.strictEqual(callbacks.onComplete(3, 999, 9), first);
+  assert.equal(h.read().plays, 1);
+  callbacks.onProgressUpdate(0, 3);
+  const second = callbacks.onComplete(2, 50, 3, evidence());
+  assert.notStrictEqual(second, first);
+  assert.equal(h.read().plays, 2);
+  assert.strictEqual(callbacks.onComplete(3, 999, 9), second);
+});
+
+test("early-result engines retain their receipt until their explicit session callback", t => {
+  const h = setup(t, "word-rescue"), callbacks = h.engine();
+  const first = callbacks.onResultReady(2, 40, 3, evidence());
+  callbacks.onComplete(2, 40, 3, evidence());
+  callbacks.onProgressUpdate(0, 3);
+  assert.strictEqual(callbacks.onComplete(3, 999, 9), first);
+  assert.equal(h.read().plays, 1);
+  callbacks.onSessionStart();
+  callbacks.onResultReady(2, 50, 3, evidence());
+  callbacks.onComplete(2, 50, 3, evidence());
+  assert.equal(h.read().plays, 2);
+});

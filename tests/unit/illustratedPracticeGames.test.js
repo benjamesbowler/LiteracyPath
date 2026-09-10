@@ -27,7 +27,7 @@ const EXPECTED_SCENES = {
   garden: "letter-garden"
 };
 
-test("the compact practice roster has one owned illustrated scene per game", () => {
+test("the legacy scene inventory retains its referenced roster assets", () => {
   assert.deepEqual(
     Object.fromEntries(Object.entries(ILLUSTRATED_GAME_SCENES).map(([mode, scene]) => [mode, scene.id])),
     EXPECTED_SCENES
@@ -42,31 +42,31 @@ test("the compact practice roster has one owned illustrated scene per game", () 
   }
 });
 
-test("both shared engines use the scene shell and the obsolete PS2 hook is gone", () => {
-  const practiceSource = readFileSync(
-    path.join(ROOT, "src/components/learn/games/games/ArcadePracticeGame.jsx"),
-    "utf8"
-  );
-  const recognitionSource = readFileSync(path.join(ROOT, "src/components/learn/games/games/RecognitionGameStages.jsx"), "utf8");
-  const adventureSource = readFileSync(
-    path.join(ROOT, "src/components/learn/games/games/AdventureGame.jsx"),
-    "utf8"
-  );
-  const styles = readFileSync(path.join(ROOT, "src/styles/learn-games.css"), "utf8");
-
+test("live practice modes own distinct playable stages with canonical cast and responsive controls", () => {
+  const read = name => readFileSync(path.join(ROOT, "src/components/learn/games/games", name), "utf8");
+  const practice = read("ArcadePracticeGame.jsx");
+  const recognition = read("RecognitionGameStages.jsx");
+  const construction = read("PhonicsPlayConstruction.jsx");
+  const adventure = read("AdventureGame.jsx");
+  const world = read("AdventureWorldStages.jsx");
+  const shared = read("PhonicsPlayShared.jsx");
+  const styles = read("phonics-play.css");
+  assert.match(practice, /from ['"]\.\/PhonicsPlayConstruction\.jsx['"]/);
+  assert.match(practice, /from ['"]\.\/RecognitionGameStages\.jsx['"]/);
   for (const mode of ["build", "memory", "family", "target", "sentence", "quiz"]) {
-    assert.match(practiceSource + recognitionSource, new RegExp(`IllustratedGameScene mode="${mode}"`));
+    assert.match(recognition + construction, new RegExp(`PhonicsPlayScene mode="${mode}"`));
   }
-  for (const mode of ["rescue", "sort", "garden"]) {
-    assert.match(adventureSource, new RegExp(`IllustratedGameScene mode="${mode}"`));
+  for (const stage of ["RescueWorldStage", "FactoryWorldStage", "GardenWorldStage"]) {
+    assert.match(adventure, new RegExp(`<${stage}\\b`));
   }
-
-  assert.doesNotMatch(practiceSource, /lg-ps2-practice/);
-  assert.doesNotMatch(styles, /lg-ps2-practice|lg-ps2-/);
-  assert.match(practiceSource, /width="240"[\s\S]*height="240"/);
-  assert.match(styles, /\.lg-game-picture \{[\s\S]*clamp\(190px, 27vh, 250px\)/);
-  assert.match(styles, /min-height: 56px/);
-  assert.match(styles, /@media \(prefers-reduced-motion: reduce\)/);
+  assert.match(world, /advanceCarryWorld/);
+  assert.match(world, /advanceConveyor/);
+  assert.match(shared, /CAST/);
+  assert.match(world, /CAST/);
+  assert.doesNotMatch(recognition + construction + shared, /pals\/poses|char-meadow-b|IllustratedGameScene/);
+  assert.doesNotMatch(practice, /lg-ps2-practice/);
+  assert.match(styles, /min-height:\s*56px/);
+  assert.match(styles, /prefers-reduced-motion: reduce/);
 });
 
 test("Sentence Fix-It preserves reviewed alternatives instead of treating them as wrong", () => {

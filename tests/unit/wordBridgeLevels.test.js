@@ -135,3 +135,16 @@ test("world parameters map correctly", () => {
   assert.ok(dino.patience <= meadow.patience);
   assert.ok(moonwood.patience <= dino.patience);
 });
+
+test("Word Bridge groups taught digraphs and preserves separate repeated pieces", () => {
+  const level = buildLevel({world:'dino',cycle:0,target:'shoo',mode:'bridge'});
+  assert.deepEqual(level.units,['SH','OO']);
+  const repeated = buildLevel({world:'meadow',cycle:1,target:'tent',mode:'bridge'});
+  assert.equal(repeated.tiles.filter(tile=>tile.correct&&tile.glyph==='T').length,2);
+  assert.equal(repeated.evidenceType,'supported-reconstruction');
+});
+test("sentence construction includes a separate final punctuation piece",()=>{
+  const level=buildLevel({world:'moonwood',cycle:0,target:['The','cat','sat'],mode:'bridge'});
+  assert.deepEqual(level.units,['The','cat','sat','.']);
+  assert.ok(level.tiles.some(tile=>tile.correct&&tile.glyph==='.'&&tile.order===3));
+});

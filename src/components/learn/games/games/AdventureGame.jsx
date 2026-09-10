@@ -1,13 +1,13 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import { cancelSpeech, hasRecordedSpeech, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { cancelSpeech, hasRecordedSpeech, speakWord } from "../../../../utils/learnGamesAudio";
 import { playCelebrationFanfare, playCorrectChime, playPopSound, playSoftBuzz } from "../../../../utils/audio/gameSfx";
 import { ConfettiCelebration } from "../shared/ConfettiCelebration.jsx";
-import { IllustratedGameScene } from "../shared/IllustratedGameScene.jsx";
+import { CAST } from "../../../../features/soundSeekers/v3/content/cast.js";
+import { RescueWorldStage, FactoryWorldStage, GardenWorldStage } from "./AdventureWorldStages.jsx";
+import { adventureSessionKey, loadAdventureSession, saveAdventureSession } from "./adventureWorldModel.js";
+import { loadLearnGamesProgress } from "../../../../utils/learnGamesProgress.js";
 import { ProgressStars } from "../shared/ProgressStars.jsx";
-import { getChildWordAsset } from "../../../../data/childAssets.js";
-import { useRecordedPracticeCue } from "../shared/useRecordedPracticeCue.js";
 import { stopCueAudio } from "../../../../utils/audio/cuePlayer.js";
-import { RiverRescueScene, WordConveyorScene } from "./adventureScenes.jsx";
 import {
   buildAdventureRoundSet,
   adventureStars
@@ -24,7 +24,7 @@ function Complete({ title, stars, score, onRestart }) {
   return (
     <div className="lg-game-complete">
       <ConfettiCelebration show={stars > 0} />
-      <img className="kid-cheer" src="/images/learn-games/phinny-cheering.webp" alt="" onError={e => { e.currentTarget.style.display = "none"; }} />
+      <img className="kid-cheer" src={CAST.woolly.sprite} alt="" onError={e => { e.currentTarget.style.display = "none"; }} />
       <h2>{title} complete!</h2>
       <ProgressStars stars={stars} size="lg" />
       <p>{score} points</p>
@@ -34,150 +34,33 @@ function Complete({ title, stars, score, onRestart }) {
   );
 }
 
-// ── Word Rescue ────────────────────────────────────────────────────────────
-function RescueStage({ rounds, state, isSoundEnabled }) {
-  const { index, resumeSteps, currentSolvedSteps, paused, arrivalReady, wrongWord, choose, finish } = state;
-  const round = rounds[index] || rounds[rounds.length - 1];
-  const { canHear: canHearWord, replay } = useRecordedPracticeCue(round?.word, isSoundEnabled && !paused);
-
-  return (
-    <IllustratedGameScene mode="rescue" stageClassName="adv-rescue">
-      <p>{canHearWord ? "Hear the word, then tap the matching word to lay a plank." : "Read the word, then tap it to lay a plank."}</p>
-      {canHearWord ? (
-        <button type="button" className="lg-game-audio" onClick={replay}>Hear word</button>
-      ) : (
-        // Sound off: the target only exists as audio, so show it as a card.
-        <span className="adv-belt-item" style={{ animation: "none" }}>{round.word}</span>
-      )}
-      <RiverRescueScene total={rounds.length} knownCompletedSteps={resumeSteps} currentSolvedSteps={currentSolvedSteps} paused={paused} />
-      {arrivalReady ? (
-        <button type="button" className="lg-game-primary adventure-finish" onClick={finish}>Finish</button>
-      ) : (
-        <div className="adv-choices">
-          {round.choices.map(word => (
-            <button
-              key={word}
-              type="button"
-              className={wrongWord === word ? "kid-wobble" : ""}
-              onClick={() => choose(word, canHearWord)}
-            >
-              {word}
-            </button>
-          ))}
-        </div>
-      )}
-    </IllustratedGameScene>
-  );
-}
-
-// ── Sound Sort Factory ─────────────────────────────────────────────────────
-function SortStage({ sort, state, isSoundEnabled }) {
-  const { index, motion, paused, arrivalReady, sortItem, finish } = state;
-  const item = sort.items[index] || sort.items[sort.items.length - 1];
-
-  useEffect(() => {
-    if (isSoundEnabled && item) speakWord(item.word);
-  }, [isSoundEnabled, item]);
-
-  return (
-    <IllustratedGameScene mode="sort" stageClassName="adv-sort">
-      <p data-task-mode="orthographic">Read the printed word. Sort its beginning grapheme into the matching bin.</p>
-      <WordConveyorScene item={item} binA={sort.binA} binB={sort.binB} motion={motion} paused={paused} onSelect={bin => { if (isSoundEnabled) speakPhoneme(bin); sortItem(bin); }} />
-      {arrivalReady && <button type="button" className="lg-game-primary adventure-finish" onClick={finish}>Finish</button>}
-    </IllustratedGameScene>
-  );
-}
-
-// ── Letter Garden ──────────────────────────────────────────────────────────
-function GardenStage({ rounds, state, isSoundEnabled }) {
-  const { index, typed, grown, wrongLetter, pickLetter, hearWord } = state;
-  const round = rounds[index] || rounds[rounds.length - 1];
-  const canHearWord = isSoundEnabled && hasRecordedSpeech(round?.word);
-  const cueAsset = getChildWordAsset(round?.word);
-  const cueImage = cueAsset?.image || cueAsset?.fallbackImage || "";
-  const displayLetters = typed.length ? typed : [...round.sourceWord];
-  const isChanged = typed.length > 0;
-  const [failedCueImage, setFailedCueImage] = useState("");
-  const showPictureCue = Boolean(cueImage) && failedCueImage !== cueImage;
-
-  useEffect(() => {
-    if (canHearWord && round) speakWord(round.word);
-  }, [canHearWord, round]);
-
-  return (
-    <IllustratedGameScene mode="garden" stageClassName="adv-garden">
-      <p><span>Change <strong>{round?.sourceWord}</strong> → grow!</span></p>
-      <div className="adv-garden-scene" aria-hidden="true"><span className="adv-garden-sun" /><span className="adv-garden-hill" /><span className="adv-garden-watering-can" /></div>
-      <div className="adv-word-cue">
-        {showPictureCue && (
-          <img
-            src={cueImage}
-            alt={round.targetLabel || cueAsset?.alt || `Picture for ${round.word}`}
-            onError={() => setFailedCueImage(cueImage)}
-          />
-        )}
-        {canHearWord && <button type="button" className="lg-game-audio" onClick={hearWord}>Hear word</button>}
-        {!canHearWord && !showPictureCue && (
-          // No reliable picture or audio cue: show the target so the round stays possible.
-          <span className="adv-belt-item" style={{ animation: "none" }}>{round.word}</span>
-        )}
-      </div>
-      <div className="adv-change-arrow" aria-hidden="true"><span>{round.sourceWord}</span><b>→</b><span>new plant word</span></div>
-      <div className="adv-slots" aria-label={`Change ${round.sourceWord} to spell ${round.word}`}>
-        {[...round.word].map((letter, i) => (
-          <span key={i} data-change-index={i === round.changeIndex ? "true" : "false"} className={`adv-slot${displayLetters[i] ? " filled" : ""}${i === round.changeIndex ? " changeable" : ""}${isChanged && i === round.changeIndex ? " changed" : ""}`}>
-            {displayLetters[i] || ""}
-          </span>
-        ))}
-      </div>
-      <div className="adv-letters">
-        {round.bank.map(letter => (
-          <button
-            key={letter}
-            type="button"
-            className={wrongLetter === letter ? "kid-wobble" : ""}
-            onClick={() => pickLetter(letter)}
-          >
-            {letter}
-          </button>
-        ))}
-      </div>
-      <div className="adv-garden-row" aria-label={`${grown.length} labeled plants grown`}>
-        {rounds.map((r, i) => {
-          const grownRound = grown.find(item => item.id === r.id);
-          const label = grownRound ? `${grownRound.word} ${grownRound.plantName}` : `Ready for ${r.plantName}`;
-          return (
-            <div key={r.id || i} className={`adv-plant-card${grownRound ? " grown" : ""}`} data-plant={r.flower} aria-label={label}>
-              <span className="adv-plant" aria-hidden="true"><span className="adv-plant-stem" /><span className="adv-plant-crown" /></span>
-              <span className="adv-plant-label">{grownRound ? grownRound.word : "ready"}</span>
-              <span className="adv-plant-name">{grownRound ? grownRound.plantName : r.plantName}</span>
-            </div>
-          );
-        })}
-      </div>
-    </IllustratedGameScene>
-  );
-}
-
-export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onResultReady, onSessionStart, onCheckpoint, onEngineReady, isSoundEnabled = true }) {
+export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onResultReady, onSessionStart, onCheckpoint, onEngineReady, isSoundEnabled = true, progressScopeKey = "default" }) {
   const [version, setVersion] = useState(0);
+  const sessionKey = adventureSessionKey(progressScopeKey, mode, difficulty);
+  const [saved] = useState(() => {
+    const gameId = { rescue: "word-rescue", sort: "sound-sort-factory", garden: "letter-garden" }[mode];
+    const checkpoint = loadLearnGamesProgress(progressScopeKey).games[gameId]?.checkpoints?.[difficulty];
+    return loadAdventureSession(sessionKey, Number(startLevel) || 0, Boolean(checkpoint));
+  });
+  const worldSnapshotRef = useRef(saved?.worldSnapshot || null);
+  const saveStateRef = useRef(null);
 
   const roundSet = useMemo(
-    () => buildAdventureRoundSet(mode, difficulty, version),
-    [mode, difficulty, version]
+    () => version === 0 && saved ? saved.roundSet : buildAdventureRoundSet(mode, difficulty, version),
+    [mode, difficulty, version, saved]
   );
   const { rescue, sort, garden } = roundSet;
   const total = mode === "rescue" ? rescue.length : mode === "sort" ? sort.items.length : garden.length;
   const initialStartLevel = Math.max(0, Math.min(Number(startLevel) || 0, Math.max(total - 1, 0)));
 
   const [index, setIndex] = useState(initialStartLevel);
-  const [score, setScore] = useState(0);
-  const wrongsRef = useRef(0);
+  const [score, setScore] = useState(saved?.score || 0);
+  const wrongsRef = useRef(saved?.wrongs || 0);
   const completionReportedRef = useRef(false);
   const [completed, setCompleted] = useState(false);
   const [stars, setStars] = useState(0);
   const [typed, setTyped] = useState([]);
-  const [grown, setGrown] = useState([]);
+  const [grown, setGrown] = useState(saved?.grown || []);
   const [planks, setPlanks] = useState(initialStartLevel);
   const [wrongWord, setWrongWord] = useState("");
   const [wrongBin, setWrongBin] = useState("");
@@ -195,22 +78,32 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   const busyRef = useRef(false);
   const timeoutsRef = useRef([]);
   const pausedRef = useRef(false);
-  const scoreRef = useRef(0);
+  const scoreRef = useRef(saved?.score || 0);
   const activeIndexRef = useRef(index);
   const soundEnabledRef = useRef(isSoundEnabled);
   const speechTokenRef = useRef(0);
-  const responseEvidenceRef = useRef({ firstResponses: [], assistedRetries: [] });
-  const responseAttemptsRef = useRef(new Map());
+  const responseEvidenceRef = useRef(saved?.evidence || { firstResponses: [], assistedRetries: [] });
+  const responseAttemptsRef = useRef(new Map(saved?.attempts || []));
   const sortMotionRef = useRef(false);
   const resultReadyRef = useRef(false);
   const onResultReadyRef = useRef(onResultReady);
   const onSessionStartRef = useRef(onSessionStart);
+
+  useLayoutEffect(() => {
+    saveStateRef.current = { roundSet, index, score, grown, wrongs: wrongsRef.current, evidence: responseEvidenceRef.current, attempts: [...responseAttemptsRef.current], worldSnapshot: worldSnapshotRef.current };
+    if (completed || !busyRef.current) saveAdventureSession(sessionKey, completed ? null : saveStateRef.current);
+  }, [roundSet, index, score, grown, completed, sessionKey]);
+  function saveWorldSnapshot(snapshot) {
+    worldSnapshotRef.current = snapshot;
+    if (saveStateRef.current && !completionReportedRef.current && !busyRef.current) saveAdventureSession(sessionKey, { ...saveStateRef.current, wrongs: wrongsRef.current, evidence: responseEvidenceRef.current, attempts: [...responseAttemptsRef.current], worldSnapshot: snapshot });
+  }
 
   useEffect(() => { activeIndexRef.current = index; }, [index]);
   useEffect(() => { soundEnabledRef.current = isSoundEnabled; }, [isSoundEnabled]);
   useEffect(() => { onResultReadyRef.current = onResultReady; }, [onResultReady]);
   useEffect(() => { onSessionStartRef.current = onSessionStart; }, [onSessionStart]);
   useEffect(() => { onSessionStartRef.current?.(); }, []);
+  useEffect(() => { onCheckpoint?.(index, total); }, [index, total, version, onCheckpoint]);
 
   useEffect(() => { onScoreUpdate?.(score); }, [onScoreUpdate, score]);
   useEffect(() => { onProgressUpdate?.(Math.min(index + 1, total), total || 1); }, [onProgressUpdate, index, total]);
@@ -305,7 +198,6 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
         const next = index + 1;
         setTyped([]); // letters never leak into the next round
         setIndex(next);
-        onCheckpoint?.(next, total);
       }
     }, delay);
   }
@@ -330,6 +222,8 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
     speechTokenRef.current += 1;
     busyRef.current = false;
     setVersion(v => v + 1);
+    worldSnapshotRef.current = null;
+    saveAdventureSession(sessionKey, null);
     setIndex(0); scoreRef.current = 0; setScore(0); wrongsRef.current = 0; completionReportedRef.current = false; setCompleted(false); setStars(0);
     setTyped([]); setGrown([]); setPlanks(0); setSortMotion({ phase: "idle", bin: "", token: 0 });
     setArrivalReady(false); setResumeSteps(0);
@@ -356,7 +250,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
     const state = {
       index, planks, resumeSteps, currentSolvedSteps: Math.max(0, planks - resumeSteps), paused: enginePaused, arrivalReady, wrongWord,
       choose: (word, canReplay) => {
-        if (busyRef.current) return;
+        if (busyRef.current || pausedRef.current) return;
         const round = rescue[index];
         if (!round) return;
         if (!responseEvidenceRef.current.firstResponses.some(item => item.round === index)) {
@@ -374,18 +268,17 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
         scoreRef.current += 20;
         setScore(scoreRef.current);
         setPlanks(p => p + 1);
-        notifyResultReady(index + 1);
         advance(planks + 1);
       }
     };
-    return <RescueStage rounds={rescue} state={{ ...state, finish: () => finish(total) }} isSoundEnabled={isSoundEnabled} />;
+    return <RescueWorldStage rounds={rescue} state={{ ...state, worldSnapshot: version === 0 ? saved?.worldSnapshot : null, onWorldSnapshot: saveWorldSnapshot, finish: () => { notifyResultReady(total); finish(total); } }} isSoundEnabled={isSoundEnabled} />;
   }
 
   if (mode === "sort") {
     const state = {
       index, wrongBin, motion: sortMotion, paused: enginePaused, arrivalReady,
       sortItem: bin => {
-        if (busyRef.current || sortMotionRef.current) return;
+        if (busyRef.current || sortMotionRef.current || pausedRef.current) return;
         const item = sort.items[index];
         if (!item) return;
         if (!responseEvidenceRef.current.firstResponses.some(entry => entry.round === index)) {
@@ -409,15 +302,14 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
         setScore(scoreRef.current);
         sortMotionRef.current = true;
         setSortMotion({ phase: "correct", bin, token: sortMotion.token + 1 });
-        notifyResultReady(index + 1);
-        advance(index + 1, 700);
+        advance(index + 1, 1000);
       }
     };
-    return <SortStage sort={sort} state={{ ...state, finish: () => finish(total) }} isSoundEnabled={isSoundEnabled} />;
+    return <FactoryWorldStage sort={sort} state={{ ...state, worldSnapshot: version === 0 ? saved?.worldSnapshot : null, onWorldSnapshot: saveWorldSnapshot, finish: () => { notifyResultReady(total); finish(total); } }} isSoundEnabled={isSoundEnabled} />;
   }
 
   const state = {
-    index, typed, grown, wrongLetter,
+    index, typed, grown, wrongLetter, paused: enginePaused, worldSnapshot: version === 0 ? saved?.worldSnapshot : null, onWorldSnapshot: saveWorldSnapshot,
     hearWord: () => {
       const round = garden[index];
       speechTokenRef.current += 1;
@@ -426,7 +318,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
       if (round && soundEnabledRef.current && hasRecordedSpeech(round.word)) speakWord(round.word);
     },
     pickLetter: letter => {
-      if (busyRef.current) return;
+      if (busyRef.current || pausedRef.current) return;
       const round = garden[index];
       if (!round) return;
       const expected = round.word[round.changeIndex];
@@ -449,11 +341,10 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
       if (isSoundEnabled) playCorrectChime();
       setGrown(g => [...g, round]);
       setTyped(nextTyped);
-      notifyResultReady(grown.length + 1);
-      advance(grown.length + 1);
+      advance(index + 1, 1250);
     }
   };
-  return <GardenStage rounds={garden} state={state} isSoundEnabled={isSoundEnabled} />;
+  return <GardenWorldStage difficulty={difficulty} rounds={garden} state={state} isSoundEnabled={isSoundEnabled} />;
 }
 
 export default AdventureGame;

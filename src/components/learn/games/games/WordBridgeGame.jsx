@@ -1,4 +1,6 @@
 import { useEffect, useRef } from "react";
+import { CAST } from "../../../../features/soundSeekers/v3/content/cast.js";
+import "./WordBridgeGame.css";
 import {
   playCorrectChime,
   playPopSound,
@@ -97,7 +99,7 @@ const WORLD_THEME = {
 };
 
 const KEY_WIDTH = 44;
-const KEY_HEIGHT = 50;
+const KEY_HEIGHT = 58;
 
 function clamp(value, min, max) {
   return Math.max(min, Math.min(max, value));
@@ -251,7 +253,7 @@ export default function WordBridgeGame({
         position: "relative",
         width: "100%",
         height: "100%",
-        minHeight: "460px",
+        minHeight: "0",
         overflow: "hidden",
         background: "#070b1e",
         touchAction: "none"
@@ -320,6 +322,7 @@ function startGame(mount, opts) {
       '<div data-wb="world" style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.84;margin-top:2px">Meadow</div>' +
       '<div style="height:8px;background:rgba(255,255,255,.12);overflow:hidden;margin-top:7px"><i data-wb="patience" style="display:block;height:100%;width:100%;background:#ffd34e;transition:width .18s ease"></i></div></div>' +
     '<div data-wb="banner" role="status" aria-live="polite" aria-atomic="true" style="position:absolute;top:31%;left:0;right:0;padding:0 18px;text-align:center;pointer-events:none;font-style:italic;font-weight:950;font-size:clamp(1.1rem,4.2vw,2.35rem);letter-spacing:.07em;text-transform:uppercase;color:#f8fbff;text-shadow:0 4px 20px rgba(0,0,0,.76);opacity:0;transform:translateY(16px);transition:opacity .22s ease,transform .22s ease"></div>';
+  mount.classList.add("word-bridge-world");
   mount.appendChild(hud);
 
   const elTarget = hud.querySelector('[data-wb="target"]');
@@ -396,7 +399,6 @@ function startGame(mount, opts) {
   let paused = false;
   let onboarding = false;
   let rafId = 0;
-  let levelCompleteTimer = 0;
   let last = 0;
   let currentLevel = null;
   let builder = null;
@@ -406,7 +408,7 @@ function startGame(mount, opts) {
   let particles = [];
   let floats = [];
   let score = 0;
-  let wordsDone = 0;
+  let wordsDone = Math.max(0, Math.min(Number(opts.startLevel) || 0, ladder.length - 1));
   let levelMistakes = 0;
   let stageStars = [];
   let stageIdx = 0;
@@ -419,6 +421,10 @@ function startGame(mount, opts) {
   let patienceLeft = 0;
   let actionButtonLabel = "";
   let GROUND_Y = 0;
+  let worldWidth = 1600;
+  let cameraX = 0;
+  let sceneTime = 0;
+  let targetedAction = null;
   let gap = { x: 0, w: 0 };
   let bell = { x: 0, y: 0, r: 22 };
   let moveTargetX = null;
@@ -427,8 +433,8 @@ function startGame(mount, opts) {
   let stageQueue = makeCatchUp(ladder.map((_, i) => i).slice(startIdx));
   const sceneAssets = {
     background: loadSceneImage(theme.assets?.background),
-    helper: loadSceneImage(theme.assets?.helper),
-    pals: loadSceneImage(theme.assets?.pals)
+    helper: loadSceneImage(CAST[world === "dino" ? "chompy" : world === "moonwood" ? "pip" : "speedy"].heroSprite),
+    pals: (world === "dino" ? ["sunny", "dozy", "zippy", "wiggly", "honky"] : world === "moonwood" ? ["wren", "burrow", "fern", "flint", "spark"] : ["woolly", "clucky", "splashy"]).map(id => loadSceneImage(CAST[id].sprite))
   };
 
   function loadSceneImage(src) {
@@ -598,24 +604,27 @@ function startGame(mount, opts) {
   function canvasIntentAt(event) {
     if (!(phase === "PLAYING" || phase === "BELL_READY") || !builder) return;
     const rect = cv.getBoundingClientRect();
-    const x = event.clientX - rect.left;
+    const x = event.clientX - rect.left + cameraX;
     const y = event.clientY - rect.top;
     const tileIx = hitTestTile(x, y);
     const slot = hitTestSlot(x, y);
     const bellHit = Math.hypot(x - bell.x, y - bell.y) < bell.r + 18;
     let targetX;
     let action = null;
-    if (tileIx >= 0) {
-      targetX = clamp(tiles[tileIx].x, 18, W - 18);
-      action = { type: "tile", x: targetX };
+    if (slot && builder.carrying) {
+      targetX = clamp(slot.x + slot.w / 2, 18, worldWidth - 18);
+      action = { type: "slot", index: slot.order, x: targetX };
+    } else if (tileIx >= 0) {
+      targetX = clamp(tiles[tileIx].x, 18, worldWidth - 18);
+      action = { type: "tile", index: tileIx, x: targetX };
     } else if (slot) {
-      targetX = clamp(slot.x + slot.w / 2, 18, W - 18);
-      action = { type: "slot", x: targetX };
+      targetX = clamp(slot.x + slot.w / 2, 18, worldWidth - 18);
+      action = { type: "slot", index: slot.order, x: targetX };
     } else if (bellHit) {
-      targetX = clamp(bell.x, 18, W - 18);
+      targetX = clamp(bell.x, 18, worldWidth - 18);
       action = { type: "bell", x: targetX };
     } else {
-      targetX = clamp(x, 18, W - 18);
+      targetX = clamp(x, 18, worldWidth - 18);
     }
     return { pointerId: event.pointerId, startX: x, startY: y, targetX, action };
   }
@@ -632,7 +641,7 @@ function startGame(mount, opts) {
     if (!canvasPointerIntent || canvasPointerIntent.pointerId !== event.pointerId) return;
     event.preventDefault();
     const rect = cv.getBoundingClientRect();
-    const x = event.clientX - rect.left;
+    const x = event.clientX - rect.left + cameraX;
     const y = event.clientY - rect.top;
     const intent = canvasPointerIntent;
     canvasPointerIntent = null;
@@ -640,6 +649,7 @@ function startGame(mount, opts) {
     if (intent.action && Math.abs(builder.x - intent.targetX) < 34) {
       moveTargetX = null;
       pendingTapAction = null;
+      targetedAction = intent.action;
       actionQueued = true;
       actionConsumed = false;
       return;
@@ -655,7 +665,7 @@ function startGame(mount, opts) {
   function renderTargetHUD() {
     elTarget.innerHTML = "";
     const target = currentLevel.target;
-    const items = Array.isArray(target) ? target : String(target).toUpperCase().split("");
+    const items = targetItemsFor(currentLevel);
     const compact = W < 590;
     for (let i = 0; i < items.length; i += 1) {
       const item = String(items[i]);
@@ -675,9 +685,7 @@ function startGame(mount, opts) {
   }
 
   function targetItemsFor(level) {
-    return Array.isArray(level.target)
-      ? level.target.map(item => String(item))
-      : String(level.target).toUpperCase().split("");
+    return level.units || (Array.isArray(level.target) ? level.target.map(String) : String(level.target).toUpperCase().split(""));
   }
 
   // Geometry for the current stage. startStage calls this with initial=true to
@@ -686,23 +694,24 @@ function startGame(mount, opts) {
   function layoutScene(initial) {
     const items = targetItemsFor(currentLevel);
     const isSentence = Array.isArray(currentLevel.target);
-    GROUND_Y = Math.max(330, H - 86);
+    GROUND_Y = Math.max(150, H - Math.min(190, Math.max(90, H * .2)));
+    worldWidth = Math.max(1600, W, items.reduce((sum, item) => sum + Math.max(64, tileWidthFor(item, isSentence)), 0) + 2 * Math.max(525, Math.max(...currentLevel.tiles.map(tile => Math.max(64, tileWidthFor(tile.glyph, isSentence)))) * Math.ceil(currentLevel.tiles.length / 4) + 140));
 
     const gapPad = isSentence ? 70 : 54;
     const baseSlotGap = isSentence ? 7 : 9;
-    const maxGapW = Math.min(W - 128, isSentence ? 520 : 380);
+    const maxGapW = worldWidth - 960;
     const totalFor = (widths, sGap) =>
       widths.reduce((sum, width) => sum + width, 0) + sGap * Math.max(0, widths.length - 1);
     // Long sentences must shrink to fit the available gap instead of spilling
     // past the bridge onto the tile banks (happens below ~700px wide).
     const baseWidths = items.map(item => tileWidthFor(item, isSentence));
-    const fitScale = Math.min(1, Math.max(140, maxGapW - gapPad) / Math.max(1, totalFor(baseWidths, baseSlotGap)));
-    const tileFitWidth = width => Math.max(isSentence ? 30 : 26, Math.round(width * fitScale));
+    const fitScale = 1;
+    const tileFitWidth = width => Math.max(64, Math.round(width * fitScale));
     const widths = baseWidths.map(tileFitWidth);
     const slotGap = Math.max(3, Math.round(baseSlotGap * fitScale));
     const slotTotal = totalFor(widths, slotGap);
     const gapW = clamp(slotTotal + gapPad, 190, maxGapW);
-    const gapX = (W - gapW) / 2;
+    const gapX = (worldWidth - gapW) / 2;
     gap = { x: gapX, w: gapW };
 
     const slotY = GROUND_Y - KEY_HEIGHT + 7;
@@ -729,7 +738,7 @@ function startGame(mount, opts) {
         w: 28,
         h: 38,
         vx: 0,
-        speed: W < 560 ? 190 : 210,
+        speed: 310,
         carrying: null,
         anim: 0,
         facing: 1
@@ -746,14 +755,16 @@ function startGame(mount, opts) {
         const glyph = String(entry.tile.glyph);
         const w = tileFitWidth(tileWidthFor(glyph, isSentence));
         const bankStart = side < 0 ? 52 : gapX + gapW + 46;
-        const bankEnd = side < 0 ? gapX - 42 : W - 52;
+        const bankEnd = side < 0 ? gapX - 42 : worldWidth - 52;
         const bankWidth = Math.max(60, bankEnd - bankStart);
-        const x = bankStart + (sideIndex + 0.5) * (bankWidth / Math.max(sideCount, 1));
+        const columns = Math.ceil(sideCount / 2);
+        const row = Math.floor(sideIndex / columns);
+        const x = bankStart + (sideIndex % columns + 0.5) * (bankWidth / columns) + (row ? 24 : -24);
         return {
           ...entry.tile,
           glyph,
-          x: clamp(x, 38 + w / 2, W - 38 - w / 2),
-          y: GROUND_Y - 29 - (entry.i % 3) * 5,
+          x: clamp(x, 38 + w / 2, worldWidth - 38 - w / 2),
+          y: GROUND_Y - 32 - Math.floor(sideIndex / Math.ceil(sideCount / 2)) * 72,
           w,
           h: KEY_HEIGHT,
           placed: false,
@@ -764,10 +775,11 @@ function startGame(mount, opts) {
           bankSide: side,
           bankIndex: sideIndex,
           bankCount: sideCount,
-          bankRow: entry.i % 3
+          bankRow: Math.floor(sideIndex / Math.ceil(sideCount / 2))
         };
       }
 
+      cameraX = clamp(builder.x - W * .45, 0, worldWidth - W);
       tiles = [
         ...leftTiles.map((entry, i) => placeTile(entry, i, leftTiles.length, -1)),
         ...rightTiles.map((entry, i) => placeTile(entry, i, rightTiles.length, 1))
@@ -777,8 +789,8 @@ function startGame(mount, opts) {
       slots = slots.map((slot, i) => ({ ...slot, ...rects[i] }));
       if (builder) {
         builder.y = GROUND_Y - 36;
-        builder.x = clamp(builder.x, 18, W - 18);
-        builder.speed = W < 560 ? 190 : 210;
+        builder.x = clamp(builder.x, 18, worldWidth - 18);
+        builder.speed = 310;
         if (builder.carrying) {
           builder.carrying.w = tileFitWidth(tileWidthFor(String(builder.carrying.glyph), isSentence));
           builder.carrying.h = KEY_HEIGHT;
@@ -788,13 +800,15 @@ function startGame(mount, opts) {
         t.w = tileFitWidth(tileWidthFor(String(t.glyph), isSentence));
         t.h = KEY_HEIGHT;
         if (t.placed || t.lost) continue;
+        if (t.localReturn) { t.y = GROUND_Y - 32; continue; }
         const bankStart = t.bankSide < 0 ? 52 : gap.x + gap.w + 46;
-        const bankEnd = t.bankSide < 0 ? gap.x - 42 : W - 52;
+        const bankEnd = t.bankSide < 0 ? gap.x - 42 : worldWidth - 52;
         const bankWidth = Math.max(60, bankEnd - bankStart);
-        const x = bankStart + (t.bankIndex + 0.5) * (bankWidth / Math.max(t.bankCount, 1));
+        const columns = Math.ceil(t.bankCount / 2);
+        const x = bankStart + (t.bankIndex % columns + 0.5) * (bankWidth / columns) + (t.bankRow ? 24 : -24);
         t.homeX = x;
-        t.x = clamp(x, 38 + t.w / 2, W - 38 - t.w / 2);
-        t.y = GROUND_Y - 29 - t.bankRow * 5;
+        t.x = clamp(x, 38 + t.w / 2, worldWidth - 38 - t.w / 2);
+        t.y = GROUND_Y - 32 - t.bankRow * 72;
       }
     }
 
@@ -806,7 +820,7 @@ function startGame(mount, opts) {
         y: GROUND_Y - 9,
         state: "waiting",
         t: i * 0.8,
-        speed: 80 + (i % 3) * 8,
+        speed: 220 + (i % 3) * 12,
         color: i % 2 ? theme.palA : theme.palB
       }));
     } else {
@@ -816,7 +830,7 @@ function startGame(mount, opts) {
       });
     }
 
-    bell = { x: W - 54, y: GROUND_Y - 96, r: 21 };
+    bell = { x: worldWidth - 54, y: GROUND_Y - 96, r: 21 };
   }
 
   function startStage() {
@@ -875,8 +889,9 @@ function startGame(mount, opts) {
 
   function finishGame() {
     phase = "FINISHED";
-    const totalStars = stageStars.reduce((sum, stars) => sum + stars, 0);
-    const runStars = stageStars.length ? Math.max(1, Math.round(totalStars / stageStars.length)) : 0;
+    const earnedStars = stageStars.filter(Number.isFinite);
+    const totalStars = earnedStars.reduce((sum, stars) => sum + stars, 0);
+    const runStars = earnedStars.length ? Math.max(1, Math.round(totalStars / earnedStars.length)) : 0;
     showOverlay("Cup complete", `Score ${score} · Bridges ${wordsDone}/${ladder.length}`, "Play again", () => {
       overlay.style.display = "none";
       wordsDone = 0;
@@ -905,11 +920,7 @@ function startGame(mount, opts) {
     opts.onScoreUpdate?.(score);
     opts.onProgressUpdate?.(wordsDone, ladder.length);
 
-    window.clearTimeout(levelCompleteTimer);
-    levelCompleteTimer = window.setTimeout(() => {
-      levelCompleteTimer = 0;
-      if (phase === "LEVEL_COMPLETE") startStage();
-    }, 1800);
+
   }
 
   function hitTestTile(x, y) {
@@ -943,7 +954,7 @@ function startGame(mount, opts) {
       const dx = Math.abs(builder.x - t.x);
       const dy = Math.abs(builder.y - t.y);
       const range = Math.max(40, t.w * 0.5 + 22);
-      if (dx < range && dy < 58 && dx + dy * 0.2 < bestDist) {
+      if (dx < range && dy < 120 && dx + dy * 0.2 < bestDist) {
         best = i;
         bestDist = dx + dy * 0.2;
       }
@@ -973,7 +984,7 @@ function startGame(mount, opts) {
     const carried = builder.carrying;
     tiles.push({
       ...carried,
-      x: clamp(builder.x, 36 + carried.w / 2, W - 36 - carried.w / 2),
+      x: clamp(builder.x, 36 + carried.w / 2, worldWidth - 36 - carried.w / 2),
       y: GROUND_Y - 29,
       placed: false,
       lost: false,
@@ -996,19 +1007,21 @@ function startGame(mount, opts) {
       sourceTile.placed = false;
       sourceTile.lost = false;
       sourceTile.x = clamp(
-        sourceTile.homeX ?? sourceTile.x,
+        builder.x - builder.facing * (sourceTile.w / 2 + 52),
         38 + sourceTile.w / 2,
-        W - 38 - sourceTile.w / 2
+        worldWidth - 38 - sourceTile.w / 2
       );
-      sourceTile.y = GROUND_Y - 29 - (sourceTile.bankRow || 0) * 5;
+      sourceTile.y = GROUND_Y - 32;
+      sourceTile.localReturn = true;
       sourceTile.returnT = 0.9;
     } else {
       const looseTile = { ...carried };
       delete looseTile.sourceIndex;
       returnedTile = {
         ...looseTile,
-        x: looseTile.homeX ?? clamp(builder.x, 36 + looseTile.w / 2, W - 36 - looseTile.w / 2),
-        y: GROUND_Y - 29 - (looseTile.bankRow || 0) * 5,
+        x: clamp(builder.x - builder.facing * (looseTile.w / 2 + 52), 36 + looseTile.w / 2, worldWidth - 36 - looseTile.w / 2),
+        y: GROUND_Y - 32,
+        localReturn: true,
         placed: false,
         lost: false,
         returnT: 0.9,
@@ -1021,7 +1034,8 @@ function startGame(mount, opts) {
     return returnedTile;
   }
 
-  function handleAction() {
+  function handleAction(intent = targetedAction) {
+    targetedAction = null;
     if (!builder) return;
     if (phase === "BELL_READY") {
       const d = Math.hypot(builder.x - bell.x, builder.y - bell.y);
@@ -1039,8 +1053,8 @@ function startGame(mount, opts) {
     if (phase !== "PLAYING") return;
 
     if (builder.carrying) {
-      const slot = nearestOpenSlot();
-      if (!slot) {
+      const slot = intent?.type === "slot" ? slots[intent.index] : nearestOpenSlot();
+      if (!slot || slot.filled) {
         dropCarriedOnGround();
         return;
       }
@@ -1087,8 +1101,8 @@ function startGame(mount, opts) {
         }
       }
     } else {
-      const idx = nearestLooseTile();
-      if (idx >= 0) {
+      const idx = intent?.type === "tile" ? intent.index : nearestLooseTile();
+      if (idx >= 0 && !tiles[idx].placed && !tiles[idx].lost) {
         tiles[idx].placed = true;
         builder.carrying = {
           ...tiles[idx],
@@ -1102,7 +1116,12 @@ function startGame(mount, opts) {
 
   function update(dt) {
     if (!currentLevel || !builder) return;
+    sceneTime += dt;
     phaseTimer -= dt;
+    if (phase === "LEVEL_COMPLETE" && phaseTimer <= 0) { startStage(); return; }
+    const crossingPals = pals.filter(pal => pal.state !== "crossed");
+    const cameraTarget = phase === "PALS_CROSSING" && crossingPals.length ? Math.max(...crossingPals.map(pal => pal.x)) : builder.x;
+    cameraX += (clamp(cameraTarget - W * .45, 0, worldWidth - W) - cameraX) * Math.min(1, dt * 7);
     updateActionButton();
 
     if (bannerT > 0) {
@@ -1129,7 +1148,7 @@ function startGame(mount, opts) {
           builder.vx = 0;
           moveTargetX = null;
           if (pendingTapAction) {
-            handleAction();
+            handleAction(pendingTapAction);
             pendingTapAction = null;
             actionConsumed = true;
           }
@@ -1140,7 +1159,7 @@ function startGame(mount, opts) {
 
       if (Math.abs(builder.vx) > 1) builder.facing = builder.vx > 0 ? 1 : -1;
       builder.x += builder.vx * dt;
-      builder.x = clamp(builder.x, 18, W - 18);
+      builder.x = clamp(builder.x, 18, worldWidth - 18);
 
       if (phase === "PLAYING") {
         patienceLeft = Math.max(0, patienceLeft - dt);
@@ -1178,11 +1197,11 @@ function startGame(mount, opts) {
         if (pal.state === "walking") {
           pal.t += dt;
           pal.x += pal.speed * dt;
-          if (pal.x >= W - 24) {
+          if (pal.x >= worldWidth - 24) {
             pal.state = "crossed";
             score += 12;
             sfx(playPopSound);
-            emitBurst(W - 26, pal.y - 10, theme.light, 8, 0.6);
+            emitBurst(worldWidth - 26, pal.y - 10, theme.light, 8, 0.6);
           }
         }
       }
@@ -1238,7 +1257,7 @@ function startGame(mount, opts) {
       }
 
       ctx.fillStyle = "rgba(255,255,255,.045)";
-      for (let y = 20; y < H; y += 6) ctx.fillRect(0, y, W, 1);
+
       return;
     }
 
@@ -1276,7 +1295,7 @@ function startGame(mount, opts) {
     }
 
     ctx.fillStyle = "rgba(255,255,255,.08)";
-    for (let y = 20; y < H; y += 5) ctx.fillRect(0, y, W, 1);
+
   }
 
   function drawMountains() {
@@ -1391,14 +1410,14 @@ function startGame(mount, opts) {
       }
 
       drawPlatform(0, gap.x, 0.4);
-      drawPlatform(gap.x + gap.w, W, 2.1);
+      drawPlatform(gap.x + gap.w, worldWidth, 2.1);
 
       ctx.fillStyle = "rgba(0,0,0,.25)";
       ctx.fillRect(0, GROUND_Y - 2, gap.x, 9);
-      ctx.fillRect(gap.x + gap.w, GROUND_Y - 2, W - gap.x - gap.w, 9);
+      ctx.fillRect(gap.x + gap.w, GROUND_Y - 2, worldWidth - gap.x - gap.w, 9);
 
       for (let i = 0; i < 22; i += 1) {
-        const x = (i * 73 + 19) % W;
+        const x = (i * 73 + 19) % worldWidth;
         if (x > gap.x - 18 && x < gap.x + gap.w + 18) continue;
         const baseY = GROUND_Y - 23 + Math.sin(now + i) * 2;
         if (world === "dino") {
@@ -1450,22 +1469,22 @@ function startGame(mount, opts) {
     leftGrad.addColorStop(1, theme.groundDark);
     ctx.fillStyle = leftGrad;
     ctx.fillRect(0, GROUND_Y - 28, gap.x, H - GROUND_Y + 28);
-    ctx.fillRect(gap.x + gap.w, GROUND_Y - 28, W - gap.x - gap.w, H - GROUND_Y + 28);
+    ctx.fillRect(gap.x + gap.w, GROUND_Y - 28, worldWidth - gap.x - gap.w, H - GROUND_Y + 28);
 
     ctx.fillStyle = "rgba(255,255,255,.12)";
-    for (let x = 0; x < W; x += 36) {
+    for (let x = 0; x < worldWidth; x += 36) {
       if (x > gap.x - 10 && x < gap.x + gap.w + 10) continue;
       ctx.fillRect(x, GROUND_Y - 30 + Math.sin(now * 1.2 + x * 0.03) * 2, 20, 3);
     }
 
     ctx.fillStyle = "rgba(0,0,0,.24)";
     ctx.fillRect(0, GROUND_Y - 2, gap.x, 9);
-    ctx.fillRect(gap.x + gap.w, GROUND_Y - 2, W - gap.x - gap.w, 9);
+    ctx.fillRect(gap.x + gap.w, GROUND_Y - 2, worldWidth - gap.x - gap.w, 9);
 
     if (world === "dino") {
       ctx.fillStyle = "rgba(30,45,22,.58)";
       for (let i = 0; i < 14; i += 1) {
-        const x = (i * 61) % W;
+        const x = (i * 61) % worldWidth;
         if (x > gap.x - 16 && x < gap.x + gap.w + 16) continue;
         ctx.save();
         ctx.translate(x, GROUND_Y - 28);
@@ -1480,7 +1499,7 @@ function startGame(mount, opts) {
     } else if (world === "moonwood") {
       ctx.fillStyle = "rgba(210,235,255,.42)";
       for (let i = 0; i < 10; i += 1) {
-        const x = (i * 97 + 30) % W;
+        const x = (i * 97 + 30) % worldWidth;
         if (x > gap.x - 20 && x < gap.x + gap.w + 20) continue;
         drawPoly(ctx, [[x, GROUND_Y - 24], [x + 8, GROUND_Y - 56], [x + 17, GROUND_Y - 24]], "rgba(182,210,255,.45)");
       }
@@ -1879,6 +1898,28 @@ function startGame(mount, opts) {
     ctx.restore();
   }
 
+  function drawWorkRacks() {
+    for (const side of [-1, 1]) {
+      const rackTiles = tiles.filter(tile => tile.bankSide === side && !tile.localReturn);
+      if (!rackTiles.length) continue;
+      const left = Math.min(...rackTiles.map(tile => tile.homeX - tile.w / 2)) - 14;
+      const right = Math.max(...rackTiles.map(tile => tile.homeX + tile.w / 2)) + 14;
+      const top = GROUND_Y - 137;
+      const wood = ctx.createLinearGradient(0, top, 0, GROUND_Y);
+      wood.addColorStop(0, "#bc8955"); wood.addColorStop(1, "#61412d");
+      for (const x of [left + 8, right - 8]) fillRound(ctx, x, top, 12, GROUND_Y - top, 4, wood);
+      for (const y of [GROUND_Y - 68, GROUND_Y + 2]) {
+        fillRound(ctx, left, y, right - left + 18, 12, 4, wood);
+        ctx.fillStyle = "#f1c78866";ctx.fillRect(left+4,y+2,right-left+10,2);
+      }
+    }
+    // A destination preview locates the socket; it does not reveal correctness.
+    if (builder?.carrying) {
+      const slot = nearestOpenSlot();
+      if (slot) { ctx.save();ctx.strokeStyle = "#b5edff";ctx.lineWidth=3;ctx.setLineDash([6,5]);ctx.strokeRect(slot.x-3,slot.y-3,slot.w+6,slot.h+6);ctx.restore(); }
+    }
+  }
+
   function drawTiles(now) {
     for (const t of tiles) {
       if (t.placed || t.lost) continue;
@@ -1891,7 +1932,6 @@ function startGame(mount, opts) {
     const walking = Math.abs(builder.vx) > 8 && (phase === "PLAYING" || phase === "BELL_READY");
     const bob = walking && !reduceMotion ? Math.sin(builder.anim * 13) * 3 : 0;
     const x = builder.x;
-    const y = builder.y + bob;
 
     ctx.fillStyle = "rgba(0,0,0,.25)";
     ctx.beginPath();
@@ -1902,8 +1942,8 @@ function startGame(mount, opts) {
       const img = sceneAssets.helper.image;
       const iw = img.naturalWidth || img.width;
       const ih = img.naturalHeight || img.height;
-      const sourceH = ih * 0.94;
-      const drawH = clamp(H * 0.2, 78, 108);
+      const sourceH = ih;
+      const drawH = clamp(H * 0.24, 80, 158);
       const drawW = drawH * (iw / sourceH);
       const footY = GROUND_Y - 1 + bob * 0.28;
 
@@ -1919,79 +1959,32 @@ function startGame(mount, opts) {
       if (builder.carrying) {
         drawTile({
           ...builder.carrying,
-          x: x - builder.carrying.w / 2,
-          y: footY - drawH - 44,
+          x: x + builder.facing * 24 - builder.carrying.w / 2,
+          y: footY - drawH * .57,
           h: KEY_HEIGHT
         }, now, true);
       }
       return;
     }
 
-    ctx.strokeStyle = theme.builderTrim;
-    ctx.lineWidth = 5;
-    ctx.lineCap = "round";
-    ctx.beginPath();
-    ctx.moveTo(x - 7, y + 23);
-    ctx.lineTo(x - 13 + Math.sin(builder.anim * 10) * 4, GROUND_Y - 5);
-    ctx.moveTo(x + 7, y + 23);
-    ctx.lineTo(x + 13 - Math.sin(builder.anim * 10) * 4, GROUND_Y - 5);
-    ctx.stroke();
-
-    const bodyGrad = ctx.createLinearGradient(0, y - 6, 0, y + 36);
-    bodyGrad.addColorStop(0, theme.builder);
-    bodyGrad.addColorStop(1, theme.builderTrim);
-    fillRound(ctx, x - builder.w / 2, y - 4, builder.w, builder.h, 8, bodyGrad);
-    fillRound(ctx, x - builder.w / 2 + 5, y + 2, builder.w - 10, 6, 4, "rgba(255,255,255,.28)");
-
-    ctx.strokeStyle = theme.builderTrim;
-    ctx.lineWidth = 4;
-    ctx.beginPath();
-    ctx.moveTo(x - 9, y + 7);
-    ctx.lineTo(x - 20 * builder.facing, y + 14);
-    ctx.moveTo(x + 9, y + 7);
-    ctx.lineTo(x + 14 * builder.facing, y + 19);
-    ctx.stroke();
-
-    ctx.fillStyle = "#ffe2ad";
-    ctx.beginPath();
-    ctx.arc(x, y - 12, 10, 0, Math.PI * 2);
-    ctx.fill();
-    fillRound(ctx, x - 13, y - 24, 26, 9, 5, theme.builderTrim);
-    drawPoly(ctx, [[x + 8 * builder.facing, y - 24], [x + 24 * builder.facing, y - 20], [x + 8 * builder.facing, y - 18]], theme.builderTrim);
-    ctx.fillStyle = "#2a2216";
-    ctx.beginPath();
-    ctx.arc(x + 4 * builder.facing, y - 12, 2, 0, Math.PI * 2);
-    ctx.fill();
-
-    if (builder.carrying) {
-      drawTile({
-        ...builder.carrying,
-        x: x - builder.carrying.w / 2,
-        y: y - 74,
-        h: KEY_HEIGHT
-      }, now, true);
-    }
   }
 
   function drawPal(pal, index, now) {
     if (pal.state === "crossed") return;
     const bob = Math.sin(now * 5 + index) * 2;
     const x = pal.x;
-    const y = pal.y + bob;
     ctx.fillStyle = "rgba(0,0,0,.18)";
     ctx.beginPath();
     ctx.ellipse(x, GROUND_Y - 4, 12, 4, 0, 0, Math.PI * 2);
     ctx.fill();
 
-    if (imageReady(sceneAssets.pals)) {
-      const img = sceneAssets.pals.image;
-      const frameCount = 4;
-      const frameW = (img.naturalWidth || img.width) / frameCount;
+    const palAsset = sceneAssets.pals[index % sceneAssets.pals.length];
+    if (imageReady(palAsset)) {
+      const img = palAsset.image;
+      const frameW = img.naturalWidth || img.width;
       const frameH = img.naturalHeight || img.height;
-      const frame = pal.state === "walking"
-        ? Math.floor(now * 8 + index) % frameCount
-        : index % frameCount;
-      const drawH = clamp(H * 0.1, 44, 58);
+      const frame = 0;
+      const drawH = clamp(H * 0.13, 52, 88);
       const drawW = drawH * (frameW / frameH);
       const footY = GROUND_Y - 2 + bob * 0.25;
 
@@ -2014,55 +2007,6 @@ function startGame(mount, opts) {
       return;
     }
 
-    if (world === "dino") {
-      ctx.fillStyle = pal.color;
-      ctx.beginPath();
-      ctx.ellipse(x, y - 8, 12, 8, 0, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.beginPath();
-      ctx.arc(x + 9, y - 13, 6, 0, Math.PI * 2);
-      ctx.fill();
-      drawPoly(ctx, [[x - 12, y - 9], [x - 22, y - 16], [x - 14, y - 4]], pal.color);
-      ctx.fillStyle = theme.light;
-      ctx.beginPath();
-      ctx.arc(x + 11, y - 14, 2, 0, Math.PI * 2);
-      ctx.fill();
-    } else if (world === "moonwood") {
-      ctx.fillStyle = pal.color;
-      ctx.beginPath();
-      ctx.arc(x, y - 11, 9, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.fillStyle = "rgba(255,255,255,.45)";
-      ctx.beginPath();
-      ctx.arc(x - 4, y - 13, 2, 0, Math.PI * 2);
-      ctx.arc(x + 4, y - 13, 2, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.strokeStyle = pal.color;
-      ctx.lineWidth = 3;
-      ctx.beginPath();
-      ctx.moveTo(x - 8, y - 3);
-      ctx.lineTo(x - 13, y + 4);
-      ctx.moveTo(x + 8, y - 3);
-      ctx.lineTo(x + 13, y + 4);
-      ctx.stroke();
-    } else {
-      ctx.fillStyle = pal.color;
-      ctx.beginPath();
-      ctx.ellipse(x, y - 10, 13, 9, 0, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.fillStyle = "#2c2a23";
-      ctx.beginPath();
-      ctx.arc(x + 9, y - 12, 5, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.strokeStyle = "#2c2a23";
-      ctx.lineWidth = 3;
-      ctx.beginPath();
-      ctx.moveTo(x - 7, y - 2);
-      ctx.lineTo(x - 7, y + 6);
-      ctx.moveTo(x + 5, y - 2);
-      ctx.lineTo(x + 5, y + 6);
-      ctx.stroke();
-    }
   }
 
   function drawPals(now, crossingOnly = false) {
@@ -2143,7 +2087,7 @@ function startGame(mount, opts) {
     }
   }
 
-  function drawPostFx(now) {
+  function drawPostFx() {
     ctx.save();
     const tone = ctx.createLinearGradient(0, 0, W, H);
     tone.addColorStop(0, world === "dino" ? "rgba(255,136,48,.08)" : world === "moonwood" ? "rgba(120,122,255,.09)" : "rgba(95,220,255,.06)");
@@ -2159,36 +2103,30 @@ function startGame(mount, opts) {
     ctx.fillStyle = vignette;
     ctx.fillRect(0, 0, W, H);
 
-    ctx.globalAlpha = 0.18;
-    ctx.fillStyle = "rgba(255,255,255,.18)";
-    for (let y = (Math.floor(now * 20) % 4); y < H; y += 4) {
-      ctx.fillRect(0, y, W, 1);
-    }
-    ctx.globalAlpha = 0.09;
-    ctx.fillStyle = "rgba(0,0,0,.42)";
-    for (let x = 0; x < W; x += 3) {
-      ctx.fillRect(x, 0, 1, H);
-    }
     ctx.restore();
   }
 
   function render() {
     syncHearControl();
-    const now = performance.now() * 0.001;
+    const now = sceneTime;
     ctx.clearRect(0, 0, W, H);
     if (!currentLevel || !builder) return;
     drawSky();
     drawMountains();
+    ctx.save();
+    ctx.translate(-cameraX, 0);
     drawHazard(now);
     drawGround(now);
     drawPals(now, false);
     drawSlots();
     drawPals(now, true);
+    drawWorkRacks();
     drawTiles(now);
     drawBell(now);
     drawBuilder(now);
     drawEffects();
-    drawPostFx(now);
+    ctx.restore();
+    drawPostFx();
     drawPhaseOverlay();
   }
 
@@ -2204,15 +2142,19 @@ function startGame(mount, opts) {
       return;
     }
     rafId = requestAnimationFrame(loop);
-    const dt = Math.min(((ts - last) || 16) / 1000, 0.05);
+    const dt = Math.max(0, Math.min(((ts - last) || 16) / 1000, 0.05));
     last = ts;
     if (!paused) update(dt);
     render();
   }
 
-  function pause() {
-    paused = true;
+  function clearHeldControls() {
+    keys.left = false; keys.right = false; actionQueued = false;
+    moveTargetX = null; pendingTapAction = null; targetedAction = null; canvasPointerIntent = null;
   }
+  window.addEventListener("blur", clearHeldControls);
+
+  function pause() { paused = true; clearHeldControls(); cancelSpeech(); }
 
   function resume() {
     if (!paused || onboarding) return;
@@ -2227,15 +2169,20 @@ function startGame(mount, opts) {
     rafId = 0;
     // Cancel the level-complete timer too, or it fires after unmount and
     // restarts the render loop on a detached canvas.
-    window.clearTimeout(levelCompleteTimer);
-    levelCompleteTimer = 0;
     cancelSpeech();
+    window.removeEventListener("blur", clearHeldControls);
     window.removeEventListener("keydown", onKeyDown);
     window.removeEventListener("keyup", onKeyUp);
     ro.disconnect();
+    delete mount.bridgeSnapshot;
+    mount.classList.remove("word-bridge-world");
     mount.innerHTML = "";
   }
 
+  if (import.meta.env.DEV) {
+    const snapshot = () => JSON.parse(JSON.stringify({ phase, stageIdx, wordsDone, levelMistakes, cameraX, worldWidth, W, H, builder, slots, tiles, bell, pals }));
+    Object.defineProperty(mount, "bridgeSnapshot", { value: snapshot, configurable: true });
+  }
   startStage();
 
   return { teardown, pause, resume };

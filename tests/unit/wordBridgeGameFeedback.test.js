@@ -46,7 +46,12 @@ test("Word Bridge returns a wrong distractor without changing completed slots", 
   assert.match(returnSource, /placed: false/);
   assert.match(returnSource, /builder\.carrying = null/);
   assert.doesNotMatch(returnSource, /slots/);
-  assert.match(returnSource, /sourceTile\.homeX \?\? sourceTile\.x,\s+38 \+ sourceTile\.w \/ 2/);
+  const builder = { x: 700, facing: 1, carrying: { sourceIndex: 0, w: 64 } };
+  const tiles = [{ x: 80, homeX: 80, w: 64, placed: true }];
+  const returned = Function("builder", "tiles", "clamp", "worldWidth", "GROUND_Y", `${returnSource}; return returnCarriedTileToBank();`)(builder, tiles, (v, lo, hi) => Math.max(lo, Math.min(hi, v)), 1600, 650);
+  assert.equal(builder.carrying, null);
+  assert.ok(Math.abs(returned.x - builder.x) < 120, "wrong piece stays near the attempted socket");
+  assert.equal(returned.placed, false);
   assert.match(
     source,
     /setBanner\(mismatchFeedback\(carried\.glyph, slot\.needed\), 1\.9\);\s+const returnedTile = returnCarriedTileToBank\(\)/
@@ -86,4 +91,11 @@ test("Word Bridge literacy actions commit on release and clear cancelled pointer
   assert.match(source, /Math\.hypot\(x - intent\.startX, y - intent\.startY\) > 32/);
   assert.match(source, /cv\.addEventListener\("pointercancel", clearCanvasPointerIntent\)/);
   assert.match(source, /cv\.addEventListener\("lostpointercapture", clearCanvasPointerIntent\)/);
+});
+
+test("Word Bridge pause and blur discard queued tap destinations without dropping a carried piece",async()=>{
+  const source=readFunction(await gameSource(),'clearHeldControls');
+  const result=Function(`const keys={left:true,right:true};let actionQueued=true,moveTargetX=800,pendingTapAction={type:'tile'},targetedAction={type:'slot'},canvasPointerIntent={pointerId:1};${source};clearHeldControls();return {keys,actionQueued,moveTargetX,pendingTapAction,targetedAction,canvasPointerIntent};`)();
+  assert.deepEqual(result,{keys:{left:false,right:false},actionQueued:false,moveTargetX:null,pendingTapAction:null,targetedAction:null,canvasPointerIntent:null});
+  assert.doesNotMatch(source,/carrying/);
 });

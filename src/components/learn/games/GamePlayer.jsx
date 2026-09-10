@@ -584,7 +584,7 @@ export function GamePlayer({
         >
           <div>
             <h2>Leave this game?</h2>
-            <p>Your current round will not be saved.</p>
+            <p>Your saved progress will be kept.</p>
             <div>
               <button type="button" ref={keepPlayingRef} onClick={() => setShowQuit(false)}>Keep playing</button>
               <button type="button" className="danger" onClick={closePlayer}>Leave</button>
