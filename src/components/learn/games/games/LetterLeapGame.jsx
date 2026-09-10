@@ -86,6 +86,73 @@ function isLetterLeapCurrentChoice(choice, wordIndex, letterIndex) {
   return choice.decisionWord === wordIndex && choice.decisionOrder === letterIndex;
 }
 
+function collectLetterLeapChoice(choice) {
+  // A pickup owns only its own removal. Its neighbour remains in the world.
+  choice.taken = true;
+}
+
+function bounceLetterLeapSpring(player, spring, ground, previousFeet) {
+  const feet = player.y + player.h / 2;
+  const cap = ground - 32;
+  const crossingCap = previousFeet <= cap + 4 && feet >= cap;
+  const walkingOntoSpring = player.onGround && feet >= cap && feet <= ground + 1;
+  if (player.vy < 0 || Math.abs(spring.x - player.x) >= 24 ||
+      (!crossingCap && !walkingOntoSpring) || spring.press > 0) return false;
+  player.y = cap - player.h / 2;
+  player.vy = -19;
+  player.springLaunch = true;
+  player.onGround = false;
+  player.stood = null;
+  player.squash = -0.45;
+  spring.press = 0.2;
+  return true;
+}
+
+function buildLetterLeapTrail(x, ground, stage, encounter, world) {
+  const plats = [], pits = [], springs = [], coins = [];
+  const worldOffset = { meadow: 0, dino: 2, moonwood: 4 }[world] || 0;
+  const sections = [];
+  const roomWidth = 460 + (stage % 5) * 24;
+  // Four playable rooms between spelling encounters. Each has a safe approach,
+  // a different jump line and an optional upper reward route.
+  for (let room = 0; room < 4; room += 1) {
+    const left = x + room * roomWidth;
+    const kind = (stage + Math.floor(stage / 3) + encounter * 5 + room * (stage % 2 ? 5 : 1) + worldOffset) % 6;
+    sections.push({ x: left, kind });
+    const shelf = (dx, rise, w = 104, move = null) => {
+      const p = { x: left + dx, y: ground - rise, w, trailShelf: true };
+      if (move) Object.assign(p, { baseX: p.x, baseY: p.y, move });
+      plats.push(p);
+      coins.push({ x: p.x + w / 2, y: p.y - 26, taken: false });
+    };
+    if (kind === 0) {
+      springs.push({ x: left + 70, press: 0 });
+      shelf(138, 150, 128); shelf(296, 222, 110); shelf(392, 104, 64);
+    } else if (kind === 1) {
+      pits.push([left + 110, left + 350]);
+      shelf(122, 70); shelf(262, 116);
+    } else if (kind === 2) {
+      shelf(45, 66); shelf(185, 140); shelf(325, 208);
+    } else if (kind === 3) {
+      shelf(45, 80);
+      shelf(205, 126, 110, { axis: "y", range: 24, speed: 1.2 + (stage % 3) * 0.15, t: encounter + room });
+      shelf(360, 78, 84);
+    } else if (kind === 4) {
+      pits.push([left + 100, left + 190], [left + 280, left + 365]);
+      shelf(188, 76, 88); shelf(294, 145, 88);
+    } else {
+      shelf(55, 90, 150); shelf(250, 162, 150);
+      springs.push({ x: left + 222, press: 0 });
+    }
+    // Ground coins and the upper trail make a route choice visible through play.
+    for (const dx of [35, 225, 420]) {
+      const coinX = left + dx;
+      if (!pits.some(([a, b]) => coinX > a - 24 && coinX < b + 24)) coins.push({ x: coinX, y: ground - 28, taken: false });
+    }
+  }
+  return { length: roomWidth * 4, plats, pits, springs, coins, sections };
+}
+
 function rebaseLetterLeapWorld(level, player, deltaY) {
   if (!Number.isFinite(deltaY) || deltaY === 0) return;
   const shift = (item, keys) => {
@@ -365,7 +432,7 @@ function startGame(mount, opts) {
 
   function makeLevel(levelWords, worldKey, levelIndex) {
     const plats = [], bubbles = [], blocks = [], pickups = [], letterX = [];
-    const pits = [], foes = [];
+    const pits = [], foes = [], trailSprings = [], trailCoins = [], sections = [];
     const bump = { meadow: 0, dino: 2, moonwood: 4 }[worldKey] || 0;
     const hard = worldKey !== "meadow";
     const choicePlan = buildLetterLeapChoicePlan(levelWords, worldKey, levelIndex);
@@ -399,6 +466,11 @@ function startGame(mount, opts) {
           });
         }
         letterX.push(cx, cx + 170); cx += SEG;
+        const trail = buildLetterLeapTrail(cx, groundY(), levelIndex, bubbles.length / 2 - 1, worldKey);
+        plats.push(...trail.plats); pits.push(...trail.pits);
+        trailSprings.push(...trail.springs); trailCoins.push(...trail.coins);
+        sections.push(...trail.sections);
+        cx += trail.length;
       }
       if (wi < levelWords.length - 1) {
         // Feature room between words: a RAVINE crossed by two staggered hop
@@ -463,26 +535,28 @@ function startGame(mount, opts) {
 
     // ── Mission 2: collectibles — a coin arc over every ravine, coins on the
     //    high platforms, and 3 star tokens on the highest platforms (risk/reward).
-    const coinsArr = [];
+    const coinsArr = [...trailCoins];
     for (const [pl, pr] of pits) {
       if (pr - pl < 140) continue; // ravines only, not tiny hazard pits
       for (let i = 0; i < 5; i += 1) { const u = (i + 0.5) / 5; coinsArr.push({ x: pl + (pr - pl) * u, y: groundY() - 90 - Math.sin(u * Math.PI) * 58, taken: false }); }
     }
-    for (const pl of plats) { if (!pl.letterShelf && pl.y < groundY() - 70) coinsArr.push({ x: pl.x + pl.w / 2, y: pl.y - 22, taken: false }); }
+    for (const pl of plats) { if (!pl.letterShelf && !pl.trailShelf && pl.y < groundY() - 70) coinsArr.push({ x: pl.x + pl.w / 2, y: pl.y - 22, taken: false }); }
     const starsArr = [];
     for (const pl of plats.filter(pl => !pl.letterShelf).sort((a, b) => a.y - b.y).slice(0, 3)) starsArr.push({ x: pl.x + pl.w / 2, y: pl.y - 32, taken: false });
     // Springs on the ground below the highest star tokens (bounce up to reach them).
-    const springsArr = [];
-    for (const st of starsArr) { if (st.y < groundY() - 130) springsArr.push({ x: Math.max(140, st.x - 60), press: 0, taken: false }); }
+    const springsArr = [...trailSprings];
+    for (const st of starsArr) {
+      if (st.y >= groundY() - 130) continue;
+      let x = Math.max(140, st.x - 60);
+      const pit = pits.find(([left, right]) => x > left - 32 && x < right + 32);
+      if (pit) x = pit[0] - 48;
+      if (!springsArr.some(sp => Math.abs(sp.x - x) < 48)) springsArr.push({ x, press: 0 });
+    }
 
-    return { L, pits, plats, blocks, pickups, bubbles, foes, flag, coins: coinsArr, stars: starsArr, springs: springsArr };
+    const visibleCoins = coinsArr.filter(coin => !bubbles.some(b => Math.abs(coin.x - b.x) < 60 && Math.abs(coin.y - b.y) < 60));
+    return { L, pits, plats, blocks, pickups, bubbles, foes, flag, coins: visibleCoins, stars: starsArr, springs: springsArr, sections };
   }
   function inPit(x) { return level.pits.some(p => x > p[0] && x < p[1]); }
-  function clearChoiceGroup(choiceId) {
-    for (const choice of level.bubbles) {
-      if (choice.choiceId === choiceId) choice.taken = true;
-    }
-  }
 
   function startStage() {
     stageIdx = stageQueue.peek();
@@ -811,12 +885,13 @@ function startGame(mount, opts) {
     if (jumpBufT > 0 && (p.onGround || coyoteT > 0)) {
       p.vy = -JUMP; p.onGround = false; coyoteT = 0; jumpBufT = 0; p.squash = -0.3; sfx(playTapSound);
     }
-    if (!keys.jump && pointerJumpHoldT <= 0 && p.vy < -4) p.vy = -4; // release early = shorter hop
+    if (!p.springLaunch && !keys.jump && pointerJumpHoldT <= 0 && p.vy < -4) p.vy = -4; // release early = shorter manual hop
     tapMoveT = Math.max(0, tapMoveT - dt);
     pointerJumpHoldT = Math.max(0, pointerJumpHoldT - dt);
     autoLeapT = Math.max(0, autoLeapT - dt);
     if (autoLeapT === 0) autoLeapStopX = null;
     p.vy += GRAV; if (p.vy > 18) p.vy = 18;
+    if (p.vy >= 0) p.springLaunch = false;
     const nextPlayerX = p.x + p.vx;
     const reachedLeapStop = autoLeapT > 0 && Number.isFinite(autoLeapStopX) && (
       (p.face > 0 && nextPlayerX >= autoLeapStopX) ||
@@ -835,11 +910,11 @@ function startGame(mount, opts) {
       if (nextFace !== p.face) { p.face = nextFace; syncLeapDirection(); }
     }
     p.anim += Math.abs(p.vx) * 0.07;
+    const previousFeet = p.y + p.h / 2;
     p.y += p.vy;
     const wasAir = !p.onGround; p.onGround = false;
     const feet = p.y + p.h / 2;
     for (const pl of level.plats) { if (p.x + p.w / 2 > pl.x && p.x - p.w / 2 < pl.x + pl.w && p.vy >= 0 && feet >= pl.y && feet <= pl.y + 24) { p.y = pl.y - p.h / 2; p.vy = 0; p.onGround = true; if (!inPit(p.x)) p.spawnX = p.x; p.stood = pl; } }
-    for (const sp of level.springs) { if (Math.abs(sp.x - p.x) < 24 && p.onGround && p.y + p.h / 2 >= groundY() - 10) { p.vy = -19; p.onGround = false; p.squash = -0.45; sp.press = 0.2; sfx(playWhoosh); } }
     for (const bl of level.blocks) {
       if (bl.broken) continue;
       const ox = p.x + p.w / 2 > bl.x + 4 && p.x - p.w / 2 < bl.x + bl.w - 4;
@@ -852,6 +927,10 @@ function startGame(mount, opts) {
       }
     }
     if (feet >= groundY()) { if (inPit(p.x)) { if (p.y > H + 40) hurt(); } else { p.y = groundY() - p.h / 2; p.vy = 0; p.onGround = true; if (p.x > 70 && !inPit(p.x - 24)) p.spawnX = Math.max(p.spawnX, p.x - 24); } }
+    for (const sp of level.springs) {
+      sp.press = Math.max(0, sp.press - dt);
+      if (bounceLetterLeapSpring(p, sp, groundY(), previousFeet)) { coyoteT = 0; sfx(playWhoosh); }
+    }
     if (p.onGround && wasAir) {
       p.squash = 0.35;
       for (let i = 0; i < 6; i += 1) particles.push({ x: p.x + (Math.random() - 0.5) * 20, y: p.y + p.h / 2 - 2, vx: (Math.random() - 0.5) * 4, vy: -Math.random() * 1.5, life: 0.5, c: "#cfc9bd" });
@@ -882,7 +961,7 @@ function startGame(mount, opts) {
         }
         else if (b.word === wIx && b.order === nextIx) {
           const alreadySaved = completedWordEvidence.has([stageIdx, legIx, wIx].join(":"));
-          clearChoiceGroup(b.choiceId); nextIx += 1; sfx(playPopSound); burst(b.x, b.y, "#ffd34e");
+          collectLetterLeapChoice(b); nextIx += 1; sfx(playPopSound); burst(b.x, b.y, "#ffd34e");
           if (alreadySaved) addFloat(b.x, b.y - 22, "✓ saved");
           else { addScore(10); addFloat(b.x, b.y - 22, "+10"); }
           if (nextIx >= word.length) wordDone();
@@ -949,7 +1028,7 @@ function startGame(mount, opts) {
     ctx.restore();
   }
   function grassStrip(x, w) {
-    if (w <= 0) return;
+    if (w <= 0 || x > cam + W + 128 || x + w < cam - 128) return;
     const y = groundY();
     const end = x + w;
     const left = Math.max(x, Math.floor(cam / 128) * 128 - 128);
@@ -978,6 +1057,7 @@ function startGame(mount, opts) {
   }
 
   function platform(pl) {
+    if (pl.x > cam + W + 100 || pl.x + pl.w < cam - 100) return;
     ctx.fillStyle = "rgba(0,0,0,.26)";
     panelPath(pl.x + 6, pl.y + 12, pl.w, 26, 8);
     ctx.fill();
@@ -1059,7 +1139,8 @@ function startGame(mount, opts) {
     ctx.closePath(); ctx.fill(); ctx.stroke(); ctx.restore();
   }
   function drawSpring(sp) {
-    const y = groundY(); const press = sp.press > 0 ? 8 : 0; sp.press = Math.max(0, sp.press - 0.02);
+    if (sp.x < cam - 64 || sp.x > cam + W + 64) return;
+    const y = groundY(); const press = sp.press > 0 ? 8 : 0;
     ctx.save();
     ctx.fillStyle = "#c9331f"; rr(sp.x - 14, y - 10 + press, 28, 10 - press, 4); ctx.fill();
     ctx.strokeStyle = "#9aa4b2"; ctx.lineWidth = 3;
@@ -1223,9 +1304,10 @@ function startGame(mount, opts) {
     for (const b of level.bubbles) {
       if (b.taken) continue;
       const bob = reduceMotion ? 0 : Math.sin(t * 2.4 + b.x) * 4;
+      if (b.x < cam - 64 || b.x > cam + W + 64) continue;
       bubble(b.x, b.y + bob, b.ch);
     }
-    for (const cn of level.coins) { if (cn.taken) continue; const wob = reduceMotion ? 1 : Math.abs(Math.cos(t * 4 + cn.x)); ctx.save(); ctx.fillStyle = "#ffd34e"; ctx.strokeStyle = "#b7841a"; ctx.lineWidth = 2; ctx.beginPath(); ctx.ellipse(cn.x, cn.y + (reduceMotion ? 0 : Math.sin(t * 3 + cn.x) * 3), 9 * wob + 1, 10, 0, 0, 7); ctx.fill(); ctx.stroke(); ctx.fillStyle = "rgba(255,255,255,.7)"; ctx.beginPath(); ctx.arc(cn.x - 2, cn.y - 3, 2, 0, 7); ctx.fill(); ctx.restore(); }
+    for (const cn of level.coins) { if (cn.taken || cn.x < cam - 32 || cn.x > cam + W + 32) continue; const wob = reduceMotion ? 1 : Math.abs(Math.cos(t * 4 + cn.x)); ctx.save(); ctx.fillStyle = "#ffd34e"; ctx.strokeStyle = "#b7841a"; ctx.lineWidth = 2; ctx.beginPath(); ctx.ellipse(cn.x, cn.y + (reduceMotion ? 0 : Math.sin(t * 3 + cn.x) * 3), 9 * wob + 1, 10, 0, 0, 7); ctx.fill(); ctx.stroke(); ctx.fillStyle = "rgba(255,255,255,.7)"; ctx.beginPath(); ctx.arc(cn.x - 2, cn.y - 3, 2, 0, 7); ctx.fill(); ctx.restore(); }
     for (const st of level.stars) { if (!st.taken) drawStarToken(st.x, reduceMotion ? st.y : st.y + Math.sin(t * 2 + st.x) * 4, reduceMotion ? 0 : t); }
     for (const f of level.foes) drawFoe(f);
     if (player) drawPlayer();
@@ -1329,6 +1411,7 @@ function startGame(mount, opts) {
       bubbles: level.bubbles.map(b => ({ ...b })),
       foes: level.foes.map(f => ({ ...f })), blocks: level.blocks.map(b => ({ ...b })),
       platforms: level.plats.map(p => ({ ...p })), pits: level.pits.map(p => [...p]),
+      springs: level.springs.map(sp => ({ ...sp })), sections: level.sections.map(section => ({ ...section })),
       groundY: groundY(), flag: level.flag, height: H
     });
   }

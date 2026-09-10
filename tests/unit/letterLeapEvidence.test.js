@@ -20,6 +20,9 @@ function readFunction(name, prelude = "") {
 const recordWordEvidence = readFunction("recordWordEvidence");
 const buildLetterLeapChoicePlan = readFunction("buildLetterLeapChoicePlan");
 const isLetterLeapCurrentChoice = readFunction("isLetterLeapCurrentChoice");
+const collectLetterLeapChoice = readFunction("collectLetterLeapChoice");
+const bounceLetterLeapSpring = readFunction("bounceLetterLeapSpring");
+const buildLetterLeapTrail = readFunction("buildLetterLeapTrail");
 const rebaseLetterLeapWorld = readFunction("rebaseLetterLeapWorld");
 const letterLeapDecorativeTime = readFunction("letterLeapDecorativeTime");
 const letterLeapRenderScale = readFunction(
@@ -40,6 +43,45 @@ function seededRandom(seed) {
     return state / 0x100000000;
   };
 }
+
+test("collecting one letter preserves its paired and following world objects", () => {
+  const choices = [
+    { choiceId: '0:0', x: 300, taken: false },
+    { choiceId: '0:0', x: 470, taken: false },
+    { choiceId: '0:1', x: 740, taken: false },
+  ];
+  const neighbours = structuredClone(choices.slice(1));
+  collectLetterLeapChoice(choices[0]);
+  assert.equal(choices[0].taken, true);
+  assert.deepEqual(choices.slice(1), neighbours);
+  assert.doesNotMatch(implementation, /clearChoiceGroup/);
+});
+
+test("springs launch grounded walkers and falling players once, never rising players", () => {
+  for (const entry of [
+    { y: 277, vy: 0, onGround: true, previousFeet: 300 },
+    { y: 249, vy: 8, onGround: false, previousFeet: 264 },
+  ]) {
+    const player = { x: 200, h: 46, ...entry };
+    const spring = { x: 200, press: 0 };
+    assert.equal(bounceLetterLeapSpring(player, spring, 300, entry.previousFeet), true);
+    assert.equal(player.vy, -19);
+    assert.equal(player.springLaunch, true, 'spring flight is independent of holding the jump button');
+    assert.equal(player.y + player.h / 2, 268);
+    assert.equal(player.onGround, false);
+    assert.equal(bounceLetterLeapSpring(player, spring, 300, 268), false);
+  }
+  assert.equal(bounceLetterLeapSpring({ x: 200, h: 46, y: 249, vy: -4 }, { x: 200, press: 0 }, 300, 280), false);
+  assert.equal(bounceLetterLeapSpring({ x: 300, h: 46, y: 277, vy: 0, onGround: true }, { x: 200, press: 0 }, 300, 300), false);
+  assert.match(implementation, /!p\.springLaunch && !keys\.jump/);
+});
+
+test("each difficulty's ten courses change room order or terrain spacing", () => {
+  for (const world of ['meadow', 'dino', 'moonwood']) {
+    const layouts = Array.from({ length: 10 }, (_, stage) => buildLetterLeapTrail(0, 320, stage, 0, world));
+    assert.equal(new Set(layouts.map(route => JSON.stringify(route.sections))).size, 10);
+  }
+});
 
 test("Letter Leap preserves unique completed-word evidence across a catch-up replay", () => {
   const completedKeys = new Set();
@@ -246,13 +288,13 @@ function nestedFunction(name) {
 test('Letter Leap terrain supports every pickup in all thirty curriculum levels and sentence legs', async () => {
   const { difficultyLadder, worldForGameDifficulty } = await import('../../src/utils/curriculumLadder.js');
   const pickFoeType = readFunction('pickFoeType');
-  const makeLevel = Function('buildLetterLeapChoicePlan', 'letterLeapInitialChoiceCenter', 'pickFoeType', `
+  const makeLevel = Function('buildLetterLeapChoicePlan', 'letterLeapInitialChoiceCenter', 'pickFoeType', 'buildLetterLeapTrail', `
     const W = 568, SEG = 440, WORD_GAP = 560;
     const groundY = () => 240;
     const shuffleArr = a => a;
     ${nestedFunction('makeLevel')}
     return makeLevel;
-  `)(buildLetterLeapChoicePlan, letterLeapInitialChoiceCenter, pickFoeType);
+  `)(buildLetterLeapChoicePlan, letterLeapInitialChoiceCenter, pickFoeType, buildLetterLeapTrail);
   let routes = 0;
   for (const difficulty of ['easy', 'medium', 'hard']) {
     const world = worldForGameDifficulty(difficulty);
@@ -283,5 +325,8 @@ test('Letter Leap terrain supports every pickup in all thirty curriculum levels 
       assert.ok(!level.bubbles.some(b => Math.abs(bonus.x - b.x) < 45 && Math.abs(bonus.y - b.y) < 45), "bonus art never obscures a letter");
     }
     assert.ok(level.flag > Math.max(...targets.map(b => b.x)));
+    assert.ok((level.flag - 70) / (4.8 * 60) >= 120, 'even maximum-speed traversal provides over two minutes of terrain');
+    for (const spring of level.springs) assert.ok(!level.pits.some(([a, b]) => spring.x > a - 24 && spring.x < b + 24), 'springs sit on solid ground');
+    assert.ok(new Set(level.sections.map(section => section.kind)).size >= 5, 'courses combine distinct physical room types');
   }
 });

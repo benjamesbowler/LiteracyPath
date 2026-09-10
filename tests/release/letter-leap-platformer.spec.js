@@ -3,12 +3,36 @@ import { expect, test } from '@playwright/test';
 const snapshot = page => page.evaluate(() => document.querySelector('.letter-leap').__letterLeapSnapshot());
 const coordinates = s => s.bubbles.map(({ x, y, ch }) => ({ x, y, ch }));
 async function openGame(page, difficulty = 'easy') {
+  const moduleResponse = page.waitForResponse(response => response.url().includes('/games/LetterLeapGame.jsx') && response.status() === 200);
   await page.goto(`/preview/game-overlay.html?game=letter-leap&difficulty=${difficulty}&sound=0&music=0`, { waitUntil: 'domcontentloaded' });
+  expect(await (await moduleResponse).text()).toContain('bounceLetterLeapSpring');
   await page.waitForFunction(() => document.querySelector('.letter-leap')?.__letterLeapSnapshot);
 }
 
+test('Letter Leap preserves the neighbouring block and springs launch without holding jump', async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 1024, height: 768 });
+  await page.addInitScript(() => { Math.random = () => 0.15; });
+  await openGame(page);
+  const initial = await snapshot(page);
+  const target = initial.bubbles.find(b => b.word === 0 && b.order === 0);
+  const neighbour = initial.bubbles.find(b => b !== target && b.choiceId === target.choiceId && b.word === -1);
+  await page.keyboard.down('ArrowRight');
+  await expect.poll(async () => (await snapshot(page)).letterIndex).toBe(1);
+  const collected = await snapshot(page);
+  expect(collected.bubbles.find(b => b.x === neighbour.x)).toMatchObject({ x: neighbour.x, y: neighbour.y, taken: false });
+  await expect.poll(async () => (await snapshot(page)).player.springLaunch, { timeout: 12000 }).toBe(true);
+  await page.keyboard.up('ArrowRight');
+  await page.waitForTimeout(250);
+  const launched = await snapshot(page);
+  // Polling can observe the top of the arc. Height proves the spring was not
+  // cancelled by released jump input, regardless of the sampled velocity.
+  expect(launched.player.y + 23).toBeLessThan(launched.groundY - 180);
+  expect(coordinates(launched)).toEqual(coordinates(initial));
+  await page.screenshot({ path: testInfo.outputPath('spring-launch.png') });
+});
+
 test('Letter Leap completes a real keyboard route with jumps, stable letters and continuous word feedback', async ({ page }) => {
-  test.setTimeout(150000);
+  test.setTimeout(360000);
   await page.setViewportSize({ width: 1024, height: 768 });
   await page.addInitScript(() => { Math.random = () => 0.85; });
   await openGame(page);
@@ -21,7 +45,7 @@ test('Letter Leap completes a real keyboard route with jumps, stable letters and
     keys = desired;
   };
   let jumpUntil = 0, jumps = 0, landings = 0, wasAir = false, movingFeedback = false;
-  for (let frame = 0; frame < 1200; frame += 1) {
+  for (let frame = 0; frame < 4000; frame += 1) {
     const s = await snapshot(page);
     expect(coordinates(s)).toEqual(original);
     if (!s.running) break;
@@ -36,8 +60,14 @@ test('Letter Leap completes a real keyboard route with jumps, stable letters and
     }
     const decoyAhead = s.bubbles.some(b => !b.taken && b.word === -1 && b.decisionWord === s.wordIndex && b.decisionOrder === s.letterIndex && Math.sign(b.x - s.player.x) === Math.sign(dx) && Math.abs(b.x - s.player.x) < 85 && Math.abs(b.x - s.player.x) > 35);
     const foeAhead = s.foes.some(f => Math.sign(f.x - s.player.x) === Math.sign(dx) && Math.abs(f.x - s.player.x) < 120);
+    const direction = Math.sign(dx);
+    const support = s.platforms.find(p => s.player.x >= p.x - 12 && s.player.x <= p.x + p.w + 12 && Math.abs(s.player.y + 23 - p.y) < 5);
+    const edgeX = support ? (direction > 0 ? support.x + support.w : support.x) : s.player.x;
+    const gapAhead = support
+      ? Math.abs(edgeX - s.player.x) < 60 && s.pits.some(([a, b]) => edgeX + direction * 35 > a && edgeX + direction * 35 < b)
+      : s.pits.some(([a, b]) => s.player.x + direction * 85 > a && s.player.x + direction * 85 < b);
     let jump = frame < jumpUntil;
-    if (s.player.onGround && !jump && (decoyAhead || foeAhead || (target && target.y < s.player.y - 50 && Math.abs(dx) < 125))) {
+    if (s.player.onGround && !jump && (gapAhead || decoyAhead || foeAhead || (target && target.y < s.player.y - 50 && Math.abs(dx) < 125))) {
       jumpUntil = frame + 7; jump = true; jumps += 1;
     }
     await input(Math.abs(dx) < 15 ? 0 : Math.sign(dx), jump);
