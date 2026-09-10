@@ -1,3 +1,4 @@
+import { soundBeatLayout } from "../shared/soundBeatLayout.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import { useEffect, useRef } from "react";
 import {
@@ -116,8 +117,7 @@ function drawBeatBackdrop(ctx, state, config, w, h) {
 }
 
 function beatLanePoint(lane, progress, w, h) {
-  const targetY = h * 0.86;
-  const stageY = h * 0.48;
+  const { hitY: targetY, stageY } = soundBeatLayout(w, h);
   const bottomLeft = w * 0.25;
   const bottomRight = w * 0.75;
   const topLeft = w * 0.39;
@@ -137,8 +137,7 @@ function beatLanePoint(lane, progress, w, h) {
 
 function drawSoundBeatRunway(ctx, state, config, w, h) {
   const pulse = state.beatPulse || 0;
-  const topY = h * 0.48;
-  const bottomY = h * 0.91;
+  const { stageY: topY, padY: bottomY } = soundBeatLayout(w, h);
   const leftTop = w * 0.33;
   const rightTop = w * 0.67;
   const leftBottom = w * 0.1;
@@ -248,7 +247,7 @@ function drawSoundBeatRunway(ctx, state, config, w, h) {
 }
 
 function drawBeatTarget(ctx, lane, state, w, h, active) {
-  const point = beatLanePoint(lane, 1, w, h);
+  const point = { ...beatLanePoint(lane, 1, w, h), y: soundBeatLayout(w, h).padY };
   const laneStyle = BEAT_LANES[lane];
   const pulse = active ? state.beatPulse || 0 : 0;
   ctx.save();
@@ -331,181 +330,14 @@ function drawBeatPad(ctx, label, lane, progress, active, config, state, w, h) {
   text(ctx, label, point.x, point.y + 1, clamp(25 * point.scale, 14, 34), "#ffffff", "center", 900);
 }
 
-function drawSoundBeatPortrait(ctx, x, y, scale, now) {
+function drawSoundBeatHud(ctx, state, config, w) {
+  const item = state.currentTask?.item;
+  const total = item ? item.beats.length + 1 : 4;
   ctx.save();
-  ctx.translate(x, y + Math.sin(now * 2.3) * 1.6);
-  ctx.scale(scale, scale);
-
-  ctx.fillStyle = "rgba(0,0,0,.26)";
-  ctx.beginPath();
-  ctx.ellipse(0, 45, 36, 12, 0, 0, TWO_PI);
-  ctx.fill();
-
-  ctx.fillStyle = "#e34158";
-  ctx.beginPath();
-  ctx.moveTo(-36, 58);
-  ctx.lineTo(-21, 19);
-  ctx.lineTo(21, 19);
-  ctx.lineTo(38, 58);
-  ctx.closePath();
-  ctx.fill();
-  ctx.strokeStyle = "rgba(0,0,0,.58)";
-  ctx.lineWidth = 4;
-  ctx.stroke();
-
-  const face = ctx.createLinearGradient(-18, -34, 22, 30);
-  face.addColorStop(0, "#f3b36e");
-  face.addColorStop(0.7, "#c66f32");
-  face.addColorStop(1, "#8a401f");
-  ctx.fillStyle = face;
-  ctx.beginPath();
-  ctx.ellipse(0, -6, 30, 34, 0, 0, TWO_PI);
-  ctx.fill();
-  ctx.strokeStyle = "rgba(0,0,0,.58)";
-  ctx.lineWidth = 4;
-  ctx.stroke();
-
-  ctx.fillStyle = "#2a170f";
-  ctx.beginPath();
-  ctx.moveTo(-30, -18);
-  ctx.lineTo(-18, -45);
-  ctx.lineTo(-6, -26);
-  ctx.lineTo(8, -48);
-  ctx.lineTo(17, -23);
-  ctx.lineTo(33, -36);
-  ctx.lineTo(25, -9);
-  ctx.lineTo(-25, -7);
-  ctx.closePath();
-  ctx.fill();
-
-  ctx.strokeStyle = "#39e6df";
-  ctx.lineWidth = 7;
-  ctx.beginPath();
-  ctx.arc(0, -15, 38, Math.PI * 1.08, Math.PI * 1.92);
-  ctx.stroke();
-  ctx.fillStyle = "#1c4d58";
-  ctx.strokeStyle = "rgba(0,0,0,.62)";
-  ctx.lineWidth = 4;
-  ctx.beginPath();
-  ctx.roundRect?.(-43, -20, 16, 31, 7);
-  if (!ctx.roundRect) roundedRect(ctx, -43, -20, 16, 31, 7);
-  ctx.fill();
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.roundRect?.(27, -20, 16, 31, 7);
-  if (!ctx.roundRect) roundedRect(ctx, 27, -20, 16, 31, 7);
-  ctx.fill();
-  ctx.stroke();
-
-  ctx.fillStyle = "#07101d";
-  ctx.beginPath();
-  ctx.arc(-10, -6, 3.5, 0, TWO_PI);
-  ctx.arc(13, -6, 3.5, 0, TWO_PI);
-  ctx.fill();
-  ctx.strokeStyle = "#551d1d";
-  ctx.lineWidth = 2.5;
-  ctx.beginPath();
-  ctx.arc(2, 6, 11, 0.13 * Math.PI, 0.87 * Math.PI);
-  ctx.stroke();
-
-  ctx.fillStyle = "#ffd23d";
-  ctx.beginPath();
-  ctx.moveTo(0, 21);
-  ctx.lineTo(5, 31);
-  ctx.lineTo(17, 32);
-  ctx.lineTo(8, 39);
-  ctx.lineTo(11, 51);
-  ctx.lineTo(0, 44);
-  ctx.lineTo(-11, 51);
-  ctx.lineTo(-8, 39);
-  ctx.lineTo(-17, 32);
-  ctx.lineTo(-5, 31);
-  ctx.closePath();
-  ctx.fill();
-  ctx.restore();
-}
-
-function drawSoundBeatHud(ctx, state, config, w, h) {
-  const current = state.currentTask?.item;
-  const totalBeats = current ? current.beats.length + 1 : 4;
-  const filledBeats = Math.min(totalBeats, state.beatIndex || 0);
-  const compact = w < 760 || h < 520;
-  const hudY = 16;
-  const portraitX = compact ? 50 : 70;
-  const portraitY = compact ? 62 : 78;
-  const portraitRadius = compact ? 43 : 58;
-  const portraitScale = compact ? 0.56 : 0.78;
-  const scoreX = compact ? 98 : 150;
-  const scoreW = compact ? Math.min(214, w * 0.38) : 260;
-  const scoreH = compact ? 56 : 72;
-  const meterX = compact ? 18 : w * 0.38;
-  const meterY = compact ? 112 : 42;
-  const meterW = compact ? w - 36 : w * 0.28;
-  const meterPanelY = compact ? 90 : hudY + 6;
-  const meterPanelH = compact ? 44 : 50;
-  const starsW = compact ? Math.min(162, w * 0.28) : 344;
-  const starsX = w - starsW - 16;
-
-  ctx.save();
-  ctx.fillStyle = "rgba(3,7,18,.78)";
-  ctx.strokeStyle = "rgba(180,220,255,.7)";
-  ctx.lineWidth = 3;
-  ctx.beginPath();
-  for (let i = 0; i < 8; i += 1) {
-    const angle = Math.PI / 8 + i * Math.PI / 4;
-    const x = portraitX + Math.cos(angle) * portraitRadius;
-    const y = portraitY + Math.sin(angle) * portraitRadius;
-    if (i === 0) ctx.moveTo(x, y);
-    else ctx.lineTo(x, y);
-  }
-  ctx.closePath();
-  ctx.fill();
-  ctx.stroke();
-  drawSoundBeatPortrait(ctx, portraitX, portraitY + (compact ? 5 : 0), portraitScale, state.time);
-
-  panel(ctx, scoreX, hudY, scoreW, scoreH, "rgba(3,7,18,.8)", "rgba(255,255,255,.34)");
-  text(ctx, "♪", scoreX + 28, hudY + scoreH * 0.48, compact ? 27 : 34, config.accent2, "center", 900);
-  text(ctx, String(state.score).padStart(6, "0"), scoreX + 66, hudY + scoreH * 0.45, compact ? 24 : 31, "#f8d64b", "left", 900);
-  const bars = Math.max(1, Math.min(8, state.combo + 1));
-  for (let i = 0; i < 8; i += 1) {
-    ctx.fillStyle = i < bars ? "#55fff0" : "rgba(255,255,255,.16)";
-    roundedRect(ctx, scoreX + 52 + i * (compact ? 15 : 18), hudY + scoreH - 18, compact ? 10 : 13, compact ? 9 : 11, 4);
-    ctx.fill();
-  }
-  if (!compact) text(ctx, "⚡", scoreX + scoreW - 34, hudY + 50, 28, "#ffdf3d", "center", 900);
-
-  panel(ctx, meterX, meterPanelY, meterW, meterPanelH, "rgba(3,7,18,.78)", "rgba(255,255,255,.34)");
-  for (let i = 0; i < 10; i += 1) {
-    const dotX = meterX + 32 + i * ((meterW - 64) / 9);
-    ctx.fillStyle = i < filledBeats ? config.accent2 : (i < totalBeats ? config.accent : "rgba(255,255,255,.18)");
-    ctx.beginPath();
-    ctx.arc(dotX, meterY, compact ? 7 : 9, 0, TWO_PI);
-    ctx.fill();
-    ctx.strokeStyle = "rgba(0,0,0,.55)";
-    ctx.lineWidth = 2;
-    ctx.stroke();
-  }
-  const activeDotX = meterX + 32 + Math.min(9, filledBeats) * ((meterW - 64) / 9);
-  ctx.strokeStyle = "#ffb13d";
-  ctx.lineWidth = compact ? 3 : 4;
-  ctx.beginPath();
-  ctx.moveTo(activeDotX, meterY - (compact ? 22 : 30));
-  ctx.lineTo(activeDotX, meterY + (compact ? 22 : 30));
-  ctx.stroke();
-
-  panel(ctx, starsX, hudY, starsW, scoreH, "rgba(3,7,18,.8)", "rgba(255,255,255,.34)");
-  const starGap = compact ? 26 : 38;
-  const starStart = starsX + (compact ? 24 : 28);
-  // Live projection: stars the child would earn if every remaining word lands
-  // clean from here, using the game's real rubric inputs.
-  const remainingWords = Math.max(0, (state.totalUnits || 0) - (state.wordsEnded || 0));
-  const projectedStars = state.totalUnits
-    ? config.stars({ correct: state.correct + remainingWords, total: state.totalUnits, mistakes: state.mistakes })
-    : 0;
-  for (let i = 0; i < (compact ? 3 : 5); i += 1) {
-    const lit = i < projectedStars;
-    text(ctx, lit ? "★" : "☆", starStart + i * starGap, hudY + scoreH * 0.44, compact ? 22 : 28, lit ? "#ffd53b" : "rgba(255,255,255,.34)", "center", 900);
-  }
+  panel(ctx, 12, 10, w - 24, 44, "rgba(3,7,18,.84)", "rgba(180,220,255,.3)");
+  text(ctx, `${state.score} pts`, 26, 32, w < 500 ? 16 : 20, "#f8d64b", "left", 900);
+  text(ctx, `${Math.min(total, state.beatIndex || 0)} / ${total} beats`, w / 2, 32, 16, "#fff", "center", 800);
+  text(ctx, `×${Math.max(1, state.combo)}`, w - 28, 32, 20, config.accent, "right", 900);
   ctx.restore();
 }
 
@@ -569,14 +401,15 @@ function drawBeat(ctx, state, config, w, h, now) {
   ctx.save();
   drawBeatBackdrop(ctx, state, config, w, h);
 
+  const layout = soundBeatLayout(w, h);
   ctx.save();
   const titlePanel = ctx.createLinearGradient(w * 0.29, h * 0.22, w * 0.71, h * 0.4);
   titlePanel.addColorStop(0, "rgba(3,15,14,.42)");
   titlePanel.addColorStop(1, "rgba(1,6,18,.22)");
   ctx.fillStyle = titlePanel;
-  roundedRect(ctx, w * 0.31, h * 0.2, w * 0.38, h * 0.16, 8);
+  roundedRect(ctx, w * 0.25, layout.wordY - 24, w * 0.5, 46, 12);
   ctx.fill();
-  text(ctx, item.say, w / 2, h * 0.3, clamp(w * 0.055, 38, 74), "#fff", "center", 900);
+  text(ctx, item.say, w / 2, layout.wordY, clamp(w * 0.045, 28, 42), "#fff", "center", 900);
   ctx.restore();
 
   drawSoundBeatRunway(ctx, state, config, w, h);
@@ -599,8 +432,8 @@ function drawBeat(ctx, state, config, w, h, now) {
   const slotStart = w * 0.5 - (slotW * notes.length) / 2;
   for (let i = 0; i < notes.length; i += 1) {
     const filled = i < state.beatIndex;
-    panel(ctx, slotStart + i * slotW, h - 142, slotW - 10, 38, filled ? `${config.accent}d8` : "rgba(5,10,22,.64)", filled ? "#f4ffd8" : "rgba(255,255,255,.22)");
-    text(ctx, filled ? (notes[i] === "blend" ? "GO" : notes[i]) : "", slotStart + i * slotW + slotW / 2 - 5, h - 123, 18, filled ? "#07101d" : "#fff", "center", 900);
+    panel(ctx, slotStart + i * slotW, layout.slotsY, slotW - 10, 28, filled ? `${config.accent}d8` : "rgba(5,10,22,.64)", filled ? "#f4ffd8" : "rgba(255,255,255,.22)");
+    text(ctx, filled ? (notes[i] === "blend" ? "GO" : notes[i]) : "", slotStart + i * slotW + slotW / 2 - 5, layout.slotsY + 14, 16, filled ? "#07101d" : "#fff", "center", 900);
   }
 
   for (const burst of state.hitBursts) drawBeatBurst(ctx, burst);
@@ -610,7 +443,7 @@ function drawBeat(ctx, state, config, w, h, now) {
     text(ctx, state.judgement, lanePoint.x, lanePoint.y - 92 - (1 - p) * 20, 34, state.judgement === "MISS" ? "#ff8d8d" : config.accent, "center", 900);
   }
 
-  text(ctx, "SPACE / TAP", w / 2, h * 0.96, 16, "#dff7ff", "center", 900);
+  text(ctx, "SPACE / TAP", w / 2, h - 14, 16, "#dff7ff", "center", 900);
   ctx.restore();
 }
 

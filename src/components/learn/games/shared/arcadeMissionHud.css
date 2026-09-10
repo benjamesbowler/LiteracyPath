@@ -1,0 +1,57 @@
+/* Prompt content and touch controls occupy separate regions. Both engines
+   keep all movement available while narration and local feedback run. */
+.sg-game-hud, .gg-game-hud { container-type: size; }
+.sg-game-hud [data-role="prompt-panel"] {
+  top: 10px !important; width: min(620px, calc(100% - 290px)) !important;
+  padding: 8px 12px !important; clip-path: none !important; border-radius: 18px;
+  display: grid; grid-template-columns: auto minmax(0, 1fr) 56px;
+  grid-template-rows: auto auto; column-gap: 10px; align-items: center;
+}
+.sg-game-hud [data-role="prompt"] { grid-column: 2; font-size: 14px !important; line-height: 1.2 !important; text-align: left; }
+.sg-game-hud [data-role="display"] { grid-column: 2; font-size: clamp(20px, 2.4cqw, 28px) !important; line-height: 1.15 !important; text-align: left; margin-top: 3px !important; }
+.sg-game-hud [data-role="picture"] { grid-column: 1; grid-row: 1 / 3; width: 56px; height: 56px !important; margin: 0 !important; }
+.sg-game-hud [data-role="picture"][hidden], .sg-game-hud [data-role="countdown-picture"][hidden] { display: none !important; }
+.sg-game-hud [data-role="picture-image"] { width: 56px; height: 56px; max-height: 56px !important; }
+.sg-game-hud [data-role="replay"] { grid-column: 3; grid-row: 1 / 3; width: 56px; min-width: 56px !important; height: 56px; margin: 0 !important; padding: 0 !important; }
+.sg-game-hud [data-role="replay-label"] { display: none; }
+.sg-game-hud [data-role="title"] { font-size: 15px !important; }
+.sg-game-hud [data-role="room"] { font-size: 11px !important; max-width: 110px; }
+.sg-game-hud [data-role="feedback"] { top: auto !important; bottom: 132px; padding: 8px 14px !important; max-width: min(520px, 80%) !important; }
+.sg-game-hud [data-role="feedback-main"] { font-size: 18px !important; }
+.sg-game-hud [data-role="feedback-sub"] { font-size: 13px !important; }
+.gg-game-hud [data-gg-panel="center"] {
+  top: 10px !important; width: min(620px, calc(100% - 310px)) !important; min-width: 0 !important;
+  padding: 8px 12px !important; clip-path: none !important; border-radius: 16px;
+  display: grid; grid-template-columns: minmax(0, 1fr) 56px; column-gap: 10px; align-items: center;
+}
+.gg-game-hud [data-gg="prompt"] { grid-column: 1; font-size: 16px !important; line-height: 1.15 !important; text-align: left; }
+.gg-game-hud [data-gg="sentence"] { grid-column: 1; font-size: 22px !important; line-height: 1.15 !important; letter-spacing: .03em !important; margin-top: 3px !important; text-align: left; }
+.gg-game-hud [data-gg="hear"] { grid-column: 2; grid-row: 1 / 3; width: 56px; min-width: 56px !important; height: 56px; margin: 0 !important; padding: 0 !important; font-size: 26px !important; }
+.gg-game-hud [data-gg="cue"], .gg-game-hud [data-gg="coach"] { display: none; }
+.gg-game-hud [data-gg-panel="left"], .gg-game-hud [data-gg-panel="right"] { min-width: 0 !important; width: 126px !important; padding: 8px 10px !important; }
+.gg-game-hud [data-gg="world"], .gg-game-hud [data-gg="level"] { font-size: 11px !important; letter-spacing: 0 !important; }
+.gg-game-hud [data-gg="style"], .gg-game-hud [data-gg="combo"], .gg-game-hud [data-gg-guide] { display: none; }
+@container (max-width: 740px) {
+  .sg-game-hud [data-role="prompt-panel"], .gg-game-hud [data-gg-panel="center"] { top: 44px !important; width: calc(100% - 20px) !important; }
+  .sg-game-hud [data-role="title"], .sg-game-hud [data-role="room"] { display: none; }
+  .gg-game-hud [data-gg-panel="left"], .gg-game-hud [data-gg-panel="right"] { top: 4px !important; padding: 4px 8px !important; }
+  .gg-game-hud [data-gg="speed"], .gg-game-hud [data-gg="trick"], .gg-game-hud [data-gg="boostbar"] { display: none; }
+}
+@container (max-height: 430px) and (min-width: 741px) {
+  .sg-game-hud [data-role="prompt-panel"] { width: calc(100% - 250px) !important; }
+  .sg-game-hud [data-role="room"], .gg-game-hud [data-gg="trick"] { display: none; }
+}
+
+.gg-game-hud [data-gg-guide] { display: none !important; }
+.gg-game-hud[data-correction="true"] [data-gg="coach"] {
+  display: block; position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%);
+  width: min(480px, 80%); padding: 8px 12px; margin: 0 !important; border-radius: 12px;
+  font-size: 16px !important; background: #0c2234ed; color: #fff2c6;
+}
+@container (max-width: 600px) {
+  .sg-game-hud [data-role="move-controls"] { left: 10px !important; gap: 6px !important; bottom: 18px !important; }
+  .sg-game-hud [data-role="steer-controls"] { right: 10px !important; gap: 6px !important; bottom: 18px !important; }
+  .sg-game-hud [data-role="move-controls"] button,
+  .sg-game-hud [data-role="steer-controls"] button { width: 56px !important; min-width: 56px !important; height: 56px !important; padding: 0 !important; }
+  .sg-game-hud [data-role="steer-controls"] [data-role="cut"] { width: 68px !important; font-size: 20px !important; }
+}

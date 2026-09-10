@@ -1,11 +1,13 @@
 import test from "node:test";
+import { existsSync } from "node:fs";
 import assert from "node:assert/strict";
 import {
   acceptedRepairAnswers,
   completedSentenceForRepair,
   isAcceptedRepairAnswer,
   starGalleryLadder,
-  starGalleryStars
+  starGalleryStars,
+  starGalleryPicture
 } from "../../src/utils/starGalleryRounds.js";
 
 test("starGalleryLadder returns 10 levels for every difficulty", () => {
@@ -155,4 +157,21 @@ test("Sentence Grove punctuation specifies the intended tone or mark across the 
   assert.equal(completedSentenceForRepair(quoteOpen), '"I found it!"');
   const pairedQuotes = repairs.find(repair => repair.id === "punct-quote");
   assert.deepEqual(acceptedRepairAnswers(pairedQuotes), ['"', "'"]);
+});
+
+
+test("Sentence Grove pictures resolve committed word assets without token URLs or unrelated fallbacks", () => {
+  for (const difficulty of ["easy", "medium", "hard"]) {
+    for (const level of starGalleryLadder(difficulty)) for (const item of level.items) for (const repair of item.repairs) {
+      const picture = starGalleryPicture(repair);
+      if (repair.category === "short vowel") assert.ok(picture, repair.id);
+      if (picture) {
+        assert.ok(picture.src.startsWith("/"), repair.id);
+        assert.ok(existsSync(`public${picture.src}`), `${repair.id}: ${picture.src}`);
+        assert.ok(picture.alt && !picture.alt.startsWith("/"), repair.id);
+      }
+    }
+  }
+  assert.equal(starGalleryPicture({ cue: "not-an-authored-word" }), null);
+  assert.match(starGalleryPicture({ cue: "cat" }).src, /cat\.webp$/);
 });

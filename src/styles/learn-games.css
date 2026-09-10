@@ -3756,13 +3756,19 @@
   .lg-game-player .lg-illustrated-game .adv-pal { transition: none; }
 }
 
-/* Four 56px utility controls must remain fully reachable on narrow phones.
-   The decorative points chip yields space, never the close or audio controls. */
-@media (max-width: 400px) {
-  .lg-game-player[data-fullbleed] .lg-game-player-header { grid-template-columns: minmax(0, 1fr); }
-  .lg-game-player[data-fullbleed] .lg-game-player-actions { min-width: 0; gap: 8px; }
+/* Keep narrow-screen chrome to one control row; the playfield gets the height. */
+@media (max-width: 600px) {
+  .lg-game-player[data-fullbleed] .lg-game-player-header {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 56px; min-height: 64px; height: 64px; gap: 4px; padding: 4px 6px;
+  }
+  .lg-game-player[data-fullbleed] .lg-game-title-chip { grid-column: 1; grid-row: 1; display: grid; justify-content: start; gap: 1px; }
+  .lg-game-player[data-fullbleed] .lg-game-title-chip strong { font-size: 13px; white-space: normal; line-height: 1.1; }
+  .lg-game-player[data-fullbleed] .lg-game-title-chip span { justify-self: start; min-height: 16px; padding: 0 4px; font-size: 10px; }
+  .lg-game-player[data-fullbleed] .lg-game-player-center { display: none; }
+  .lg-game-player[data-fullbleed] .lg-game-player-actions { grid-column: 2; grid-row: 1; min-width: 0; gap: 2px; }
+  .lg-game-player[data-fullbleed] .lg-game-player-actions button { width: 56px; min-width: 56px; height: 56px; min-height: 56px; }
   .lg-game-player[data-fullbleed] .lg-game-score { display: none; }
-  .lg-game-player[data-fullbleed] .lg-game-header-meter { grid-template-columns: minmax(0, 1fr) auto; }
 }
 
 /* Keep every workshop tile and repair action inside the child game frame. */

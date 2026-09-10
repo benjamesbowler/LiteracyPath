@@ -1,3 +1,4 @@
+import "../shared/arcadeMissionHud.css";
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import {
@@ -12,7 +13,8 @@ import {
   completedSentenceForRepair,
   isAcceptedRepairAnswer,
   starGalleryLadder,
-  starGalleryStars
+  starGalleryStars,
+  starGalleryPicture
 } from "../../../../utils/starGalleryRounds.js";
 import { cancelSpeech, speak } from "../../../../utils/learnGamesAudio.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
@@ -200,24 +202,6 @@ function rotate(values, amount) {
 
 function repairForState(state) {
   return state.level?.items[state.itemIndex]?.repairs[0] || null;
-}
-
-const SENTENCE_GROVE_PICTURES = Object.freeze([
-  ["cat", "/images/child-mode/cvc/cat.webp", "A cat"],
-  ["dog", "/images/child-mode/cvc/dog.webp", "A dog"],
-  ["ship", "/images/child-mode/digraphs/ship.webp", "A ship"],
-  ["fish", "/images/child-mode/short-i/fish.png", "A fish"],
-  ["sun", "/images/child-mode/short-u/sun.webp", "The sun"],
-  ["hat", "/images/child-mode/sentence-scenes/hats.webp", "Hats"],
-  ["book", "/images/child-mode/sentence-scenes/books.webp", "Books"],
-  ["moon", "/images/child-mode/sentence-scenes/ring.webp", "A moon scene"],
-  ["duck", "/images/child-mode/sentence-scenes/duck.webp", "A duck"]
-]);
-
-function pictureForRepair(repair) {
-  const haystack = `${repair?.id || ""} ${repair?.display || ""}`.toLowerCase();
-  return SENTENCE_GROVE_PICTURES.find(([token]) => haystack.includes(token))
-    || ["/images/child-mode/sentence-scenes/map.webp", "A story map"];
 }
 
 function themeFor(state) {
@@ -1159,6 +1143,7 @@ function createHud() {
     "color:white",
     "text-shadow:0 2px 0 rgba(0,0,0,.9),0 0 12px rgba(0,0,0,.8)"
   ].join(";");
+  overlay.classList.add("sg-game-hud");
   overlay.innerHTML = `
     <div data-role="panel-left" style="position:absolute;left:16px;top:12px;width:218px;padding:12px 16px;background:rgba(3,7,18,.76);border:2px solid rgba(105,255,230,.6);clip-path:polygon(9% 0,100% 0,100% 76%,90% 100%,0 100%,0 18%);">
       <div data-role="title" style="font-size:22px;font-weight:900;color:#7fffe9;">Sentence Grove</div>
@@ -1531,7 +1516,7 @@ function createStarGalleryEngine(mount, options) {
     });
     premiumRender.prepareObject(scene);
     if (feedback) {
-      setFeedback(respawn ? "SEARCH AGAIN" : "FORESTER BRIEF", "Find and cut the tree with the missing part", respawn ? "bad" : "good", 1.05);
+      if (respawn) setFeedback("Try again", "Find the missing part", "bad", 1.05);
       speakItem();
     }
   }
@@ -1945,10 +1930,14 @@ function createStarGalleryEngine(mount, options) {
     }
     nodes.room.textContent = `${theme.name} ${state.stage + 1} of 10`;
     nodes.prompt.textContent = currentPrompt();
-    const picture = pictureForRepair(repair);
-    if (nodes.pictureImage) {
-      if (nodes.pictureImage.getAttribute("src") !== picture[0]) nodes.pictureImage.setAttribute("src", picture[0]);
-      nodes.pictureImage.alt = picture[1];
+    const picture = starGalleryPicture(repair);
+    nodes.picture.hidden = !picture;
+    if (picture) {
+      if (nodes.pictureImage.getAttribute("src") !== picture.src) nodes.pictureImage.src = picture.src;
+      nodes.pictureImage.alt = picture.alt;
+    } else {
+      nodes.pictureImage.removeAttribute("src");
+      nodes.pictureImage.alt = "";
     }
     nodes.display.textContent = state.gateLocked
       ? completedSentenceForRepair(repair, state.selectedAnswer || repair?.answer)
@@ -1977,9 +1966,10 @@ function createStarGalleryEngine(mount, options) {
       const repair = repairForState(state);
       nodes.countdown.style.display = "flex";
       nodes.countdownPrompt.textContent = `Find the tree that fixes:`;
-      if (nodes.countdownPictureImage) {
-        if (nodes.countdownPictureImage.getAttribute("src") !== picture[0]) nodes.countdownPictureImage.setAttribute("src", picture[0]);
-        nodes.countdownPictureImage.alt = picture[1];
+      nodes.countdownPicture.hidden = !picture;
+      if (picture) {
+        nodes.countdownPictureImage.src = picture.src;
+        nodes.countdownPictureImage.alt = picture.alt;
       }
       nodes.countdownDisplay.textContent = repair?.display || "";
       nodes.countdownMain.textContent = state.countdown <= 0.72 ? "BEGIN" : String(Math.ceil(state.countdown));

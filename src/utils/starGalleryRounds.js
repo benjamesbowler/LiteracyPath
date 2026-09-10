@@ -1,3 +1,4 @@
+import { getChildWordAsset } from "../data/childAssets.js";
 import { starRubric } from "./starRubric.js";
 
 const WORLDS = { easy: "meadow", medium: "dino", hard: "moonwood" };
@@ -199,9 +200,7 @@ const WORLD_TITLES = {
   moonwood: ["Moonwood Grove", "Lantern Hollow", "Mushroom Walk", "Crescent Woods"]
 };
 
-// The cue is an authored, short word label rendered beside the sentence in
-// the game scene. It remains meaningful across platforms without relying on
-// operating-system emoji artwork.
+// Content identity for the committed word illustration; never child-facing metadata.
 function cueForId(id) {
   return String(id || "")
     .replace(/^[^-]+-/, "")
@@ -254,6 +253,11 @@ function rotate(values, amount) {
   if (!values.length) return [];
   const offset = ((amount % values.length) + values.length) % values.length;
   return [...values.slice(offset), ...values.slice(0, offset)];
+}
+
+export function starGalleryPicture(repair) {
+  const asset = getChildWordAsset(repair?.cue);
+  return asset?.image ? { src: asset.image, alt: asset.alt || repair.cue } : null;
 }
 
 function repairFromTuple(tuple, level, index) {

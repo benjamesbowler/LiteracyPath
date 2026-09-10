@@ -1,8 +1,14 @@
 # Complete gameplay, graphics and learning upgrade plan
 
-Status: detailed implementation plan; upgrades described here are not yet built.
+Status: active implementation; the full programme remains unfinished. The ledger below distinguishes delivered repairs from planned upgrades.
 Scope: all 22 catalogue games (13 Arcade and nine Phonics), plus the separately routed Sound Seekers adventure. Updated with product-owner feedback on 10 September 2026.
 Baseline: restored gameplay in `4c4108437`, with immediate activity access in `85598ee85`.
+
+### Implementation ledger
+
+- Baseline audit: `d8447fc52` is a partial five-game patch, not completion of the programme. Its racing, climbing, letter-choice and paired-word audio defects remain to be repaired.
+- First repair batch: Sentence Grove uses the committed word-image resolver; Sentence Grove and Spell & Skate have compact prompts with separate control space; Sound Beat has separate collected-letter, note-arrival and press-pad regions; narrow-screen shared chrome keeps all utility controls in one row. Local picture/content, geometry, responsive interaction, lint and build checks cover this batch. These repairs do not complete those games’ gameplay, art or content upgrades.
+- Remaining: every full per-game upgrade and the Sound Seekers adventure remain in scope. Continue the package order below; do not stop at this repair batch.
 
 ## 1. The requested result
 

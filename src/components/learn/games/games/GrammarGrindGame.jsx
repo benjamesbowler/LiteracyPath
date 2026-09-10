@@ -1,3 +1,4 @@
+import "../shared/arcadeMissionHud.css";
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import {
@@ -816,6 +817,7 @@ function startGame(mount, opts) {
   scene.add(skater);
 
   const overlay = document.createElement("div");
+  overlay.classList.add("gg-game-hud");
   overlay.style.cssText = "position:absolute;inset:0;pointer-events:none;z-index:5;font-family:var(--kid-font-display,Fredoka,Arial,sans-serif);color:#fff";
   overlay.innerHTML =
     '<div data-gg-panel="left" style="position:absolute;top:14px;left:16px;min-width:220px;background:linear-gradient(135deg,rgba(6,10,28,.9),rgba(20,32,70,.72));border:1px solid rgba(125,242,255,.32);padding:12px 16px;clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%);box-shadow:0 12px 34px rgba(0,0,0,.32)">' +
@@ -977,6 +979,9 @@ function startGame(mount, opts) {
     style: overlay.querySelector('[data-gg="style"]'),
     banner: overlay.querySelector('[data-gg="banner"]')
   };
+  overlay.appendChild(el.coach);
+  el.coach.setAttribute("role", "status");
+  el.coach.setAttribute("aria-live", "polite");
   if (difficulty === "easy") {
     el.score.style.display = "none";
     el.combo.style.display = "none";
@@ -1001,6 +1006,7 @@ function startGame(mount, opts) {
   let message = "";
   let messageTimer = 0;
   let coachText = level.teaching || level.cue;
+  let correctionTimer = 0;
   let boost = 42;
   let boostFlash = 0;
   let styleWindow = 0;
@@ -1278,10 +1284,9 @@ function startGame(mount, opts) {
       ? level.segments.map((segment, index) => (index < lineStep ? segment : "_")).join("  ")
       : level.sentence;
     el.cue.textContent = level.focus || level.cue;
-    el.coach.textContent = difficulty === "easy"
-      ? `Build ${level.audioWord}: ${(level.segments || []).join(" → ")}`
-      : coachText || level.teaching || level.cue;
-    el.hear.textContent = level.audioWord ? `HEAR ${level.audioWord.toUpperCase()} AGAIN` : "HEAR WORD AGAIN";
+    overlay.dataset.correction = String(correctionTimer > 0);
+    el.coach.textContent = correctionTimer > 0 ? coachText : "";
+    el.hear.textContent = "♪";
     el.hear.setAttribute("aria-label", level.audioWord ? `Hear ${level.audioWord} again` : "Hear the word again");
     el.world.textContent = theme.name;
     el.speed.textContent = `${Math.round(Math.abs(player.speed) * 3.2)} kmh`;
@@ -1345,7 +1350,8 @@ function startGame(mount, opts) {
       player.air = 0;
       player.onGround = true;
     }
-    message = introMessage;
+    message = index === startAt && introMessage === "Collect the sounds" ? "" : introMessage;
+    correctionTimer = 0;
     coachText = introCoach || level.teaching || level.cue;
     messageTimer = 1.25;
     gateCooldown = 0.6;
@@ -1471,6 +1477,7 @@ function startGame(mount, opts) {
       sfx(playSoftBuzz);
       message = "Try that word again";
       coachText = grammarGrindChoiceFeedback(gate.choice, level, { reveal: levelMisses >= 2 });
+      correctionTimer = 4;
       messageTimer = 1.6;
       gateCooldown = 0.8;
     }
@@ -1812,6 +1819,7 @@ function startGame(mount, opts) {
     }
     lineReadyDelay = Math.max(0, lineReadyDelay - dt);
     messageTimer = Math.max(0, messageTimer - dt);
+    correctionTimer = Math.max(0, correctionTimer - dt);
     comboTimer = Math.max(0, comboTimer - dt);
     if (comboTimer <= 0 && combo > 1 && player.grind <= 0) combo = 1;
     updatePlayer(dt);

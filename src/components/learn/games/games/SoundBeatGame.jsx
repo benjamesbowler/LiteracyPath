@@ -33,8 +33,8 @@ export default function SoundBeatGame({
           onClick={() => engineRef.current?.replayPrompt?.()}
           style={{
             position: "absolute",
-            top: 86,
-            right: 16,
+            top: 62,
+            right: 10,
             zIndex: 2,
             minWidth: 56,
             minHeight: 56,
