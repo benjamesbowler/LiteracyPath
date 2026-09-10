@@ -150,17 +150,7 @@ function isActionKey(key) {
   return isPrimaryActionKey(key) || key === "ArrowDown";
 }
 
-// First-run onboarding is remembered per device; storage can be denied
-// (private mode), in which case the intro simply shows again next session.
 const ONBOARD_KEY = "lp-arcade-onboarded-v1:reel-read";
-
-function readOnboarded() {
-  try {
-    return window.localStorage.getItem(ONBOARD_KEY) === "1";
-  } catch {
-    return false;
-  }
-}
 
 function markOnboarded() {
   try {
@@ -260,8 +250,6 @@ function startGame(mount, opts) {
   let lastTime = 0;
   let running = true;
   let paused = false;
-  // First-run intro overlay: independent of the chrome pause so GamePlayer's
-  // resume can't unpause gameplay behind the overlay. update() halts on either.
   let introOpen = false;
   let introEl = null;
   let score = 0;
@@ -455,8 +443,8 @@ function startGame(mount, opts) {
     boat.targetX = null;
     boat.hookState = "ready";
     boat.caughtFish = null;
-    phase = "countdown";
-    phaseTimer = 3.2;
+    phase = "playing";
+    phaseTimer = 0;
     banner = level.prompt;
     bannerTimer = 4.1;
     refillFish();
@@ -549,43 +537,6 @@ function startGame(mount, opts) {
 
   function addFloater(x, y, text, color) {
     floaters.push({ x, y, text, color, life: 1, ttl: 1 });
-  }
-
-  function showIntro() {
-    introOpen = true;
-    introEl = document.createElement("div");
-    introEl.setAttribute("role", "dialog");
-    introEl.setAttribute("aria-modal", "true");
-    introEl.setAttribute("aria-label", "How to play Reel & Read");
-    // Static card (no animated intro) so prefers-reduced-motion is respected.
-    introEl.style.cssText =
-      "position:absolute;inset:0;z-index:30;display:flex;align-items:center;justify-content:center;" +
-      "background:rgba(3,8,18,.68);cursor:pointer;font-family:var(--kid-font-display,Fredoka,sans-serif)";
-    introEl.innerHTML =
-      `<div style="max-width:min(440px,88%);background:${theme.panel};border:1px solid rgba(255,255,255,.24);border-radius:12px;padding:22px 26px;text-align:center;box-shadow:0 18px 46px rgba(0,0,0,.45)">` +
-        `<div style="color:${theme.accent};font-weight:950;font-size:1.35rem;letter-spacing:.03em">Reel &amp; Read</div>` +
-        '<p style="color:#ffffff;font-weight:800;font-size:1rem;margin:10px 0 0;line-height:1.4">Steer the boat and hook the fish with the right words!</p>' +
-        '<div style="margin-top:14px;display:grid;gap:8px;text-align:left;color:rgba(255,255,255,.92);font-weight:700;font-size:.86rem;line-height:1.45">' +
-          '<span>Steer: Arrow keys or A / D, drag on the pond, or hold the &#9664; &#9654; buttons.</span>' +
-          '<span>Cast: Space, Enter, or E, tap CAST, or tap the water.</span>' +
-          '<span>Hook every word in the list to clear the pond.</span>' +
-        '</div>' +
-        `<button type="button" style="margin-top:18px;border:2px solid ${theme.accent};border-radius:10px;background:rgba(255,255,255,.08);color:${theme.accent};padding:9px 20px;font:inherit;font-weight:950;font-size:1.05rem;letter-spacing:.04em;cursor:pointer">Tap to play</button>` +
-        '<div style="margin-top:6px;color:rgba(255,255,255,.72);font-weight:700;font-size:.74rem">or press Enter</div>' +
-      '</div>';
-    const startButton = introEl.querySelector("button");
-    startButton?.addEventListener("pointerdown", event => {
-      event.stopPropagation();
-    });
-    startButton?.addEventListener("click", event => {
-      event.preventDefault();
-      dismissIntro();
-    });
-    introEl.addEventListener("pointerdown", event => {
-      event.preventDefault();
-      dismissIntro();
-    });
-    mount.appendChild(introEl);
   }
 
   function dismissIntro() {
@@ -1240,9 +1191,6 @@ function startGame(mount, opts) {
   setButton(btnRight, "right");
   setButton(btnCast, "cast");
 
-  // Show the intro before the first level boots so its speakCue stays silent
-  // and the countdown is frozen until the child dismisses the overlay.
-  if (!readOnboarded()) showIntro();
   startLevel(startAt);
   lastTime = performance.now();
   rafId = window.requestAnimationFrame(loop);

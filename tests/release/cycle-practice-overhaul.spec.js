@@ -59,7 +59,7 @@ async function startAt(page, patch = {}, options = {}) {
   await audioDouble(page, options.unavailable);
   await page.addInitScript(({ storageKey, state }) => { if (!localStorage.getItem(storageKey)) localStorage.setItem(storageKey, JSON.stringify(state)); }, { storageKey: key, state: initialState(patch) });
   await page.goto("/preview/child-surfaces.html?surface=cycle-practice&cycle=cycle-1&motion=reduced");
-  await page.getByRole("button", { name: "Start playing", exact: true }).click();
+  await expect(page.locator(".cycle-play-overlay")).toHaveCount(0);
   if (!options.unavailable && options.waitReady !== false) await ready(page);
 }
 
@@ -144,26 +144,23 @@ for (const mechanic of ["pictureSound", "letterMatch", "rhymeMatch", "wordBuild"
     expect(ownRecords.length).toBe(mechanic === "letterTrace" ? 1 : 1 + (round.objects?.length || 1));
     if (mechanic !== "letterTrace") {
       const copying = round.variant === "highFrequency" || Boolean(round.modelWord);
-      expect(state.practiceRecords[0].responseStatus).toBe(copying ? "supported" : "incorrect");
+      const first = state.practiceRecords[0];
+      const unheard = first.audioRequired && first.audioDelivery !== "delivered";
+      expect(first.responseStatus).toBe(unheard ? "media_failed" : copying ? "supported" : "incorrect");
       expect(state.practiceRecords[0].selected).not.toEqual(round.answer);
     }
     expect(ownRecords.some(record => record.responseStatus === "supported")).toBe(true);
   });
 }
 
-test("unavailable instructions block answers and award no independent response until successful replay", async ({ page }) => {
+test("unavailable instructions leave answers usable and retain honest audio evidence", async ({ page }) => {
   await startAt(page, {}, { unavailable: true });
-  await expect(page.getByRole("button", { name: "Play instructions", exact: true })).toBeVisible();
-  for (const button of await page.locator(".cycle-answer").all()) await expect(button).toBeDisabled();
-  await page.keyboard.press("Enter");
-  expect((await saved(page)).practiceRecords).toEqual([]);
-  expect((await saved(page)).practiceIndex).toBe(0);
-  await page.evaluate(() => { window.__cycleAudio.unavailable = false; });
-  await page.getByRole("button", { name: "Play instructions", exact: true }).click();
-  await ready(page);
+  await expect(page.locator(".cycle-listen-button")).toHaveAttribute("data-audio-state", "unavailable");
+  await expect(page.locator(".cycle-play-overlay")).toHaveCount(0);
+  for (const button of await page.locator(".cycle-answer").all()) await expect(button).toBeEnabled();
   await choose(page, plan[0]);
   await expect.poll(async () => (await saved(page)).practiceIndex).toBe(1);
-  expect((await saved(page)).practiceRecords[0].audioDelivery).toBe("delivered");
+  expect((await saved(page)).practiceRecords[0].audioDelivery).toBe("unavailable");
 });
 
 test("a missing tracing picture blocks practice and successfully reloads before the child can trace", async ({ page }) => {
@@ -241,7 +238,7 @@ test("refreshing a partly sorted check resumes the next object without scoring t
   const firstResponse = (await saved(page)).assessmentRecords[0];
   expect(firstResponse.responseStatus).toBe("incorrect");
   await page.reload();
-  await page.getByRole("button", { name: "Start playing", exact: true }).click();
+  await expect(page.locator(".cycle-play-overlay")).toHaveCount(0);
   await ready(page);
   await expect(page.getByRole("button", { name: `Pick up ${round.objects[1].word}`, exact: true })).toBeVisible();
   for (const object of round.objects.slice(1)) {
@@ -305,7 +302,7 @@ for (const viewport of [{ width: 1024, height: 768 }, { width: 768, height: 1024
       const practiceIndex = plan.findIndex(round => round.mechanicId === mechanic);
       await page.evaluate(state => sessionStorage.setItem("cycle-overhaul-layout-fixture", JSON.stringify(state)), initialState({ practiceIndex }));
       await page.reload();
-      await page.getByRole("button", { name: "Start playing", exact: true }).click();
+      await expect(page.locator(".cycle-play-overlay")).toHaveCount(0);
       await ready(page);
       await expect(page.locator(".cycle-playground")).toHaveAttribute("data-mechanic-stage", mechanic);
       await largeLearningType(page);
@@ -346,7 +343,7 @@ for (const [cycleId, variant] of [["cycle-2", "highFrequency"], ["cycle-3", unde
     await audioDouble(page);
     await page.addInitScript(({ storageKey, state }) => localStorage.setItem(storageKey, JSON.stringify(state)), { storageKey, state: initialState({ practiceIndex }) });
     await page.goto(`/preview/child-surfaces.html?surface=cycle-practice&cycle=${cycleId}&motion=reduced`);
-    await page.getByRole("button", { name: "Start playing", exact: true }).click();
+    await expect(page.locator(".cycle-play-overlay")).toHaveCount(0);
     await ready(page);
     await largeLearningType(page);
     await page.screenshot({ path: `.artifacts/cycle-overhaul-word-train-${variant || "spelling"}.png` });
@@ -372,7 +369,7 @@ test("changing a word requires finding the changed sound before adding its repla
   await audioDouble(page);
   await page.addInitScript(({ storageKey, state }) => localStorage.setItem(storageKey, JSON.stringify(state)), { storageKey, state: initialState({ practiceIndex }) });
   await page.goto(`/preview/child-surfaces.html?surface=cycle-practice&cycle=${chosenCycle.id}&motion=reduced`);
-  await page.getByRole("button", { name: "Start playing", exact: true }).click();
+  await expect(page.locator(".cycle-play-overlay")).toHaveCount(0);
   await ready(page);
   await largeLearningType(page);
   await page.screenshot({ path: ".artifacts/cycle-overhaul-word-change.png" });
@@ -405,7 +402,7 @@ test("high frequency word listening keeps picture context and scores the heard w
   await audioDouble(page);
   await page.addInitScript(({ storageKey, state }) => localStorage.setItem(storageKey, JSON.stringify(state)), { storageKey, state: initialState({ practiceIndex }) });
   await page.goto(`/preview/child-surfaces.html?surface=cycle-practice&cycle=${chosenCycle.id}&motion=reduced`);
-  await page.getByRole("button", { name: "Start playing", exact: true }).click();
+  await expect(page.locator(".cycle-play-overlay")).toHaveCount(0);
   await ready(page);
   await largeLearningType(page);
   await expect(page.locator(".cycle-answer--word")).toHaveCount(round.choices.length);
@@ -432,7 +429,7 @@ test("case matching, spoken beats, and word parts retain distinct picture-led ac
     expect(round).toBeTruthy();
     await page.evaluate(state => sessionStorage.setItem("cycle-overhaul-variant-fixture", JSON.stringify(state)), initialState({ practiceIndex }));
     await page.reload();
-    await page.getByRole("button", { name: "Start playing", exact: true }).click();
+    await expect(page.locator(".cycle-play-overlay")).toHaveCount(0);
     await ready(page);
     await largeLearningType(page);
     await page.screenshot({ path: `.artifacts/cycle-overhaul-${variant}.png` });
@@ -476,7 +473,7 @@ createRoot(document.getElementById('root')).render(React.createElement(CyclePrac
   });
   await audioDouble(page);
   await page.goto("/cycle-overhaul-session-check");
-  await page.getByRole("button", { name: "Start playing", exact: true }).click();
+  await expect(page.locator(".cycle-play-overlay")).toHaveCount(0);
   await ready(page);
   await choose(page, sessionPlan.at(-1));
   await expect(page.getByRole("button", { name: "Retry save", exact: true })).toBeEnabled();

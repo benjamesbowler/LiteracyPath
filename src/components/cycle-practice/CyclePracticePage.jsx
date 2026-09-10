@@ -100,7 +100,6 @@ function CyclePracticeSession({
   const [feedbackRound, setFeedbackRound] = useState(null);
   const [feedbackKey, setFeedbackKey] = useState("");
   const [feedbackActivityKey, setFeedbackActivityKey] = useState("");
-  const [entered, setEntered] = useState(false);
   const [compact, setCompact] = useState(() => globalThis.matchMedia?.("(max-height: 560px)").matches || false);
   const [mediaFailed, setMediaFailed] = useState(false);
   const [mediaRevision, setMediaRevision] = useState(0);
@@ -158,10 +157,10 @@ function CyclePracticeSession({
     return () => media.removeEventListener("change", resize);
   }, []);
   useEffect(() => {
-    if (picturesReady || mediaFailed || !entered || paused) return;
+    if (picturesReady || mediaFailed || paused) return;
     const timeout = setTimeout(() => setMediaFailed(true), 15000);
     return () => clearTimeout(timeout);
-  }, [pictureKey, picturesReady, mediaFailed, entered, paused]);
+  }, [pictureKey, picturesReady, mediaFailed, paused]);
 
   function invalidateTeaching() {
     clearTimeout(audioWatchdog.current);
@@ -226,7 +225,7 @@ function CyclePracticeSession({
   }, [cycle, practicePlan.length, assessmentPlan.length, practice.unavailable.length, check.unavailable.length, onContentAvailabilityChange]);
 
   function playRoundAudio(includeContent = false, callbacks = {}, targetsOnly = false) {
-    if (!currentRound || paused || !entered || document.visibilityState === "hidden") return;
+    if (!currentRound || paused || document.visibilityState === "hidden") return;
     const epoch = ++audioEpoch.current;
     const owner = teachingOwner;
     audioDeliveryOwner.current = owner;
@@ -268,7 +267,7 @@ function CyclePracticeSession({
     });
   }
   useEffect(() => {
-    if (!currentRound || result || state.pendingAttempt || paused || answerPending || !entered) return undefined;
+    if (!currentRound || result || state.pendingAttempt || paused || answerPending) return undefined;
     const plan = mode === "assessment" ? assessmentPlan : practicePlan;
     const index = mode === "assessment" ? assessmentIndex : practiceIndex;
     const sources = [...new Set(plan.slice(index, index + 3).flatMap(r => roundAudioSources(r)))];
@@ -284,7 +283,7 @@ function CyclePracticeSession({
     return () => { cancelled = true; clearTimeout(startTimer); invalidateTeaching(); stopCueAudio(); release(); };
     // roundKey includes retries so every callback belongs to one mounted mechanic.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [teachingOwner, paused, answerPending, entered, Boolean(result), Boolean(state.pendingAttempt)]);
+  }, [teachingOwner, paused, answerPending, Boolean(result), Boolean(state.pendingAttempt)]);
 
   useEffect(() => {
     if (!result) return undefined;
@@ -326,10 +325,8 @@ function CyclePracticeSession({
     }, 0);
   }
   function handleOutcome(outcome = {}) {
-    if (commitGuard.current || answerPending || !currentRound || result || paused || !entered
-      || stateRef.current.pendingAttempt || mediaFailed || !picturesReady || document.visibilityState === "hidden"
-      || audioStatus !== "ready" || audioDelivery.current !== "delivered"
-      || audioDeliveryOwner.current !== teachingOwner) return false;
+    if (commitGuard.current || answerPending || !currentRound || result || paused
+      || stateRef.current.pendingAttempt || mediaFailed || !picturesReady || document.visibilityState === "hidden") return false;
     if (currentObject && (outcome.object?.word !== currentObject.word || outcome.object?.audio !== currentObject.audio)) return false;
     commitGuard.current = true;
     activity();
@@ -485,17 +482,9 @@ function CyclePracticeSession({
   const currentAudio = roundAudio(shownRound);
   const earned = state.earnedCount || 0;
   const starsInSet = earned > 0 && earned % 6 === 0 && answerPending ? 6 : earned % 6;
-  const frozen = answerPending || paused || !entered;
+  const frozen = answerPending || paused;
   const soundBlocked = audioStatus === "unavailable";
-  const listening = entered && !frozen && !soundBlocked && !mediaFailed && !teachingReady;
-  const play = () => {
-    setEntered(true);
-    if (stateRef.current.paused) update({ paused: false });
-    activity();
-    // The first tap unlocks the same retained teaching-audio player on Safari.
-    const sources = playbackAudioSequence(currentRound);
-    if (sources.length) playCueAudio(sources[0], { playImmediately: true });
-  };
+  const listening = !frozen && !soundBlocked && !mediaFailed && !teachingReady;
   const hearChoice = (path, word) => {
     activity();
     const owner = audioDeliveryOwner.current;
@@ -543,15 +532,15 @@ function CyclePracticeSession({
         {compact && instructionRow}
         <div className="cycle-practice-topbar__actions">
           {headerActions}
-          <CycleButton type="button" className="cycle-icon-button" aria-label={paused ? "Resume practice" : "Pause practice"} disabled={!entered} onClick={togglePause}><CycleIcon name={paused ? "play" : "pause"} /></CycleButton>
+          <CycleButton type="button" className="cycle-icon-button" aria-label={paused ? "Resume practice" : "Pause practice"} onClick={togglePause}><CycleIcon name={paused ? "play" : "pause"} /></CycleButton>
           {!locked && <CycleButton type="button" className="cycle-icon-button" aria-label="Back to learning" onClick={onExit}><CycleIcon name="home" /></CycleButton>}
         </div>
       </header>
       <section className={`cycle-playground cycle-playground--${shownRound.mechanicId}`} data-mechanic-stage={shownRound.mechanicId} data-child-choices="" aria-label={shownRound.stationTitle} data-feedback={feedbackTone}>
         <div className="cycle-scenery" aria-hidden="true"><i /><i /><i /><i /></div>
         {!compact && instructionRow}
-        <div ref={activitySpace} className="cycle-activity-space" onLoadCapture={checkPictures} inert={frozen || mediaFailed || !picturesReady || !teachingReady ? true : undefined}>
-          <CycleActivityRenderer key={(shownRound.mechanicId === "soundSort" && shownRound.objects?.length) || (shownRound.mechanicId === "wordBuild" && shownRound.variant !== "wordParts") ? feedbackActivityKey || roundRunKey : feedbackKey || roundKey} round={shownRound} disabled={frozen || mediaFailed || !picturesReady || !teachingReady}
+        <div ref={activitySpace} className="cycle-activity-space" onLoadCapture={checkPictures} inert={frozen || mediaFailed || !picturesReady ? true : undefined}>
+          <CycleActivityRenderer key={(shownRound.mechanicId === "soundSort" && shownRound.objects?.length) || (shownRound.mechanicId === "wordBuild" && shownRound.variant !== "wordParts") ? feedbackActivityKey || roundRunKey : feedbackKey || roundKey} round={shownRound} disabled={frozen || mediaFailed || !picturesReady}
             mediaRevision={mediaRevision}
             supportLevel={mode === "assessment" ? 0 : attempts} reducedMotion={reducedMotion}
             onCommit={handleOutcome} onHear={hearChoice} onStep={() => triggerTactileFeedback(10)}
@@ -561,17 +550,16 @@ function CyclePracticeSession({
         <div className={`cycle-feedback${feedback ? " is-visible" : ""}`} role="status" aria-live="polite">
           {feedback && <><CycleIcon name={feedbackTone === "correct" ? "tick" : "retry"} /><span>{feedback}</span>{feedbackTone === "correct" && <CycleIcon name="star" />}</>}
         </div>
-        {entered && !frozen && !mediaFailed && !soundBlocked && <div className={`cycle-readiness${listening ? " cycle-readiness--listening" : ""}`} role="status" aria-label="Activity readiness">
-          {listening ? <><SpeakerIcon /><span>Listen first</span><span className="cycle-audio-pulse" aria-hidden="true"><i /><i /><i /></span></> : !picturesReady ? <><CycleIcon name="retry" /><span>Loading pictures</span></> : <><CycleIcon name="tick" /><span>{shownRound.mechanicId === "letterTrace" ? "Your turn — trace" : "Your turn — tap"}</span></>}
+        {!frozen && !mediaFailed && !soundBlocked && <div className={`cycle-readiness${listening ? " cycle-readiness--listening" : ""}`} role="status" aria-label="Activity readiness">
+          {listening ? <><SpeakerIcon /><span>Play while you listen</span><span className="cycle-audio-pulse" aria-hidden="true"><i /><i /><i /></span></> : !picturesReady ? <><CycleIcon name="retry" /><span>Loading pictures</span></> : <><CycleIcon name="tick" /><span>{shownRound.mechanicId === "letterTrace" ? "Your turn — trace" : "Your turn — tap"}</span></>}
         </div>}
-        {(!entered || paused || soundBlocked || mediaFailed) && <div className="cycle-play-overlay">
+        {(paused || mediaFailed) && <div className="cycle-play-overlay">
           <div className="cycle-launch-card">
             <img src="/images/companions/pip.webp" alt="Pip, your Little Literacy Guide" />
-            <h2>{!entered ? "Let's play!" : paused ? "Take a little break" : mediaFailed ? "Let's load the pictures" : "Tap to listen"}</h2>
-            {!entered && <p>Listen. Look. Play.</p>}
+            <h2>{paused ? "Take a little break" : "Let's load the pictures"}</h2>
             {paused && <p>{formatClock(elapsedSeconds)} of {formatClock(CYCLE_PRACTICE_MINIMUM_SECONDS)} active practice</p>}
-            <CycleButton type="button" className="cycle-play-button" aria-label={!entered ? "Start playing" : paused ? "Resume practice" : mediaFailed ? "Reload pictures" : "Play instructions"}
-              onClick={!entered ? play : paused ? togglePause : mediaFailed ? () => { setMediaFailed(false); setMediaRevision(value => value + 1); } : () => replayInstruction(true)}><CycleIcon name={mediaFailed ? "retry" : "play"} /></CycleButton>
+            <CycleButton type="button" className="cycle-play-button" aria-label={paused ? "Resume practice" : "Reload pictures"}
+              onClick={paused ? togglePause : () => { setMediaFailed(false); setMediaRevision(value => value + 1); }}><CycleIcon name={mediaFailed ? "retry" : "play"} /></CycleButton>
           </div>
         </div>}
       </section>

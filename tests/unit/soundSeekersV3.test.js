@@ -256,12 +256,9 @@ test("sound sort: one evidence event per item, item stays until placed correctly
   assert.equal(st.done, true);
 });
 
-test("heart lantern: must hear before finding; find is scored; phrase is unscored", () => {
+test("heart lantern: finding is available before narration ends; phrase is unscored", () => {
   const beat = firstBeat(MECHANICS.HEART_LANTERN, 2);
   let st = createBeatState(beat);
-  const blocked = resolveAction(beat, st, { type: "READY" });
-  assert.equal(blocked.outcome.type, "blocked");
-  st = resolveAction(beat, st, { type: "HEARD" }).state;
   st = resolveAction(beat, st, { type: "READY" }).state;
   assert.equal(st.phase, "find");
   const r = resolveAction(beat, st, { type: "CHOOSE", optionId: beat.key.optionId });
@@ -274,11 +271,13 @@ test("heart lantern: must hear before finding; find is scored; phrase is unscore
   }
 });
 
-test("signpost: every card must be heard before Got it, and it never produces evidence", () => {
+test("signpost: learners may continue before narration without fabricating heard cards or evidence", () => {
   const beat = firstBeat(MECHANICS.SIGNPOST);
   let st = createBeatState(beat);
   const early = resolveAction(beat, st, { type: "FINISH" });
-  assert.equal(early.outcome.type, "blocked");
+  assert.equal(early.outcome.type, "complete");
+  assert.deepEqual(early.state.cardsHeard, []);
+  assert.equal(early.outcome.evidence, null);
   for (const card of beat.view.cards) st = resolveAction(beat, st, { type: "HEARD_CARD", targetId: card.targetId }).state;
   const fin = resolveAction(beat, st, { type: "FINISH" });
   assert.equal(fin.outcome.type, "complete");

@@ -733,7 +733,7 @@ function startPs1ArcadeGame(mount, options) {
       state.roundStartAt = nowSec;
       state.roundBpm = state.level.bpm;
       state.roundWindow = state.level.hitWindowMs;
-      state.countdown = 3.45;
+      state.countdown = 0;
       state.countdownTarget = countdownTarget();
     } else {
       // Continue the current round: no countdown, keep tempo + music running.

@@ -18,23 +18,7 @@ import {
 } from "../../../../utils/grammarGrindLevels.js";
 import { hasRecordedSpeech, speak } from "../../../../utils/learnGamesAudio.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
-import {
-  createRenderer,
-  createScene,
-  createPerspectiveCamera,
-  attachResize,
-  createFrameLoop,
-  attachContextLossGuard,
-  detectQualityTier,
-  applyQualityTier,
-  shadowMapForTier,
-  particleCountForTier,
-  QUALITY_TIERS,
-  hasSeenOnboarding,
-  markOnboardingSeen,
-  disposeRenderer,
-  disposeObject
-} from "../shared/threeShell.js";
+import { createRenderer, createScene, createPerspectiveCamera, attachResize, createFrameLoop, attachContextLossGuard, detectQualityTier, applyQualityTier, shadowMapForTier, particleCountForTier, QUALITY_TIERS, disposeRenderer, disposeObject } from "../shared/threeShell.js";
 import { createArcadePremiumRenderPipeline } from "../shared/arcadePremiumRender.js";
 
 const THEMES = {
@@ -1026,8 +1010,8 @@ function startGame(mount, opts) {
   let lineReadyDelay = 0;
   let lineChoiceCooldown = 0;
   let trailTimer = 0;
-  let phase = "countdown";
-  let phaseTimer = 4.2;
+  let phase = "playing";
+  let phaseTimer = 0;
   let completed = false;
   const keys = { left: false, right: false, push: false, brake: false, boost: false, jump: false, jumpPressed: false };
   const player = {
@@ -1924,55 +1908,7 @@ function startGame(mount, opts) {
   camera.lookAt(0, 1.8, 0);
   loop.start();
 
-  // First-run onboarding: one spelling goal + the skate controls, shown once
-  // per device. update() returns immediately while paused is set, so the
-  // countdown, skater and particles all freeze behind the overlay, and a
-  // GamePlayer chrome resume is ignored until the child dismisses — the two
-  // pauses can't fight. (paused is set directly here, not via api.pause(), so
-  // the level intro speech keeps playing while the child reads.)
   let introActive = false;
-  let introEl = null;
-  function dismissIntro() {
-    if (!introActive) return;
-    introActive = false;
-    markOnboardingSeen("grammar-grind");
-    if (introEl) introEl.remove();
-    introEl = null;
-    window.removeEventListener("keydown", onIntroKey, true);
-    paused = false;
-  }
-  function onIntroKey(event) {
-    if (isInteractiveKeyTarget(event.target)) return;
-    event.preventDefault();
-    dismissIntro();
-  }
-  if (!hasSeenOnboarding("grammar-grind")) {
-    introActive = true;
-    paused = true;
-    introEl = document.createElement("div");
-    introEl.style.cssText = "position:absolute;inset:0;display:grid;place-items:center;text-align:center;background:rgba(4,8,22,.9);pointer-events:auto;cursor:pointer";
-    introEl.innerHTML = difficulty === "easy"
-      ? '<div style="display:grid;gap:14px;justify-items:center;max-width:min(520px,88vw);padding:20px">' +
-          '<div style="font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:#9bf4ff;font-weight:900">Spell & Skate</div>' +
-          '<div style="font-size:clamp(1.55rem,4.2vw,2.2rem);font-weight:950;line-height:1.12;text-wrap:balance">Build the word in order</div>' +
-          '<div aria-hidden="true" style="display:flex;align-items:center;gap:12px;font-size:2rem"><svg viewBox="0 0 24 24" width="34" height="34"><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4Zm11.5-.7v7.4a4.5 4.5 0 0 0 0-7.4Zm0-3.3v2.1a7 7 0 0 1 0 9.8V19a9 9 0 0 0 0-14Z"/></svg><span>c</span><span>→</span><span>a</span><span>→</span><span>t</span></div>' +
-          '<div style="font-size:1rem;font-weight:800;line-height:1.45;opacity:.94">Explore the skate park. Find each sound in order, then find the whole word.</div>' +
-          '<div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center"><span style="display:grid;place-items:center;width:68px;height:58px;border-radius:16px;background:rgba(125,242,255,.18);font-size:1rem">↑ GO</span><span style="display:grid;place-items:center;width:68px;height:58px;border-radius:16px;background:rgba(125,242,255,.18);font-size:1rem">↓ BACK</span><span style="display:grid;place-items:center;width:68px;height:58px;border-radius:16px;background:rgba(125,242,255,.18);font-size:1.7rem">←</span><span style="display:grid;place-items:center;width:68px;height:58px;border-radius:16px;background:rgba(125,242,255,.18);font-size:1.7rem">→</span></div>' +
-          '<div style="padding:12px 30px;border:1px solid rgba(255,255,255,.58);background:linear-gradient(160deg,#fff0a8,#ffc83d 55%,#f59e0b);color:#201400;font-weight:950;border-radius:16px;box-shadow:0 10px 24px rgba(0,0,0,.3),inset 0 -7px 0 rgba(0,0,0,.16)">Play</div>' +
-        '</div>'
-      : '<div style="display:grid;gap:12px;justify-items:center;max-width:min(600px,88vw);padding:20px">' +
-          '<div style="font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:#9bf4ff;font-weight:900">Spell & Skate</div>' +
-          '<div style="font-size:clamp(1.25rem,3.6vw,1.8rem);font-weight:950;line-height:1.25;text-wrap:balance">Listen to the word. Collect its sounds in order, then skate through the word you built.</div>' +
-          '<div style="font-size:.95rem;font-weight:800;line-height:1.6;opacity:.92">Steer with ← →, push with ↑, brake with ↓.<br>Press Space to jump. Hold Shift to boost.</div>' +
-          '<div style="padding:12px 28px;border:1px solid rgba(255,255,255,.58);background:linear-gradient(160deg,#fff0a8,#ffc83d 55%,#f59e0b);color:#201400;font-weight:950;border-radius:8px;box-shadow:0 10px 24px rgba(0,0,0,.3),inset 0 -8px 0 rgba(0,0,0,.2)">Play</div>' +
-        '</div>';
-    introEl.addEventListener("pointerdown", event => {
-      event.preventDefault();
-      dismissIntro();
-    });
-    window.addEventListener("keydown", onIntroKey, true);
-    overlay.appendChild(introEl);
-  }
 
   const api = {
     pause() {
@@ -1988,7 +1924,7 @@ function startGame(mount, opts) {
       detachContextGuard();
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("keyup", onKeyUp);
-      window.removeEventListener("keydown", onIntroKey, true);
+
       motionQuery?.removeEventListener?.("change", syncMotionPreference);
       detachResize();
       clearGates();

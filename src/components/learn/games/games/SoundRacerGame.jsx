@@ -11,41 +11,14 @@ import {
   playWhoosh,
   playStarChime
 } from "../../../../utils/audio/gameSfx";
-import {
-  soundRacerLadder,
-  buildTrack,
-  buildSoundRacerTutorial,
-  buildSoundRacerEvidenceResult,
-  worldObstacles
-} from "../../../../utils/soundRacerTracks.js";
+import { soundRacerLadder, buildTrack, buildSoundRacerEvidenceResult, worldObstacles } from "../../../../utils/soundRacerTracks.js";
 import { worldForGameDifficulty, LEVELS_PER_DIFFICULTY } from "../../../../utils/curriculumLadder.js";
 import { hasRecordedSpeech, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import { playCueAudio, stopCueAudio } from "../../../../utils/audio/cuePlayer.js";
 import { onsetGrapheme } from "../../../elQuest/elQuestEngine.js";
 import { getLedaInstructionAudioPath } from "../../../../data/ledaProductionAudio.js";
-import {
-  loadThree,
-  createRenderer,
-  createScene,
-  createPerspectiveCamera,
-  attachResize,
-  createFrameLoop,
-  attachContextLossGuard,
-  attachSteerZones,
-  attachSwipeSteer,
-  prefersReducedMotion,
-  detectQualityTier,
-  applyQualityTier,
-  shadowMapForTier,
-  particleCountForTier,
-  QUALITY_TIERS,
-  hasSeenOnboarding,
-  markOnboardingSeen,
-  disposeRenderer,
-  disposeObject,
-  setTextureSrgb
-} from "../shared/threeShell.js";
+import { loadThree, createRenderer, createScene, createPerspectiveCamera, attachResize, createFrameLoop, attachContextLossGuard, attachSteerZones, attachSwipeSteer, prefersReducedMotion, detectQualityTier, applyQualityTier, shadowMapForTier, particleCountForTier, QUALITY_TIERS, disposeRenderer, disposeObject, setTextureSrgb } from "../shared/threeShell.js";
 import { laneDirectionForKey } from "../shared/premiumGameStandard.js";
 import { createArcadePremiumRenderPipeline } from "../shared/arcadePremiumRender.js";
 
@@ -330,11 +303,6 @@ function instructionFor() {
   return "Catch words that start with";
 }
 
-function countdownPrompt(target) {
-  const letter = String(target || "").toUpperCase();
-  return `Find Words Beginning With ${letter}`;
-}
-
 function startGame(THREE, mount, opts) {
   const width = () => mount.clientWidth || 720;
   const height = () => mount.clientHeight || 460;
@@ -369,26 +337,7 @@ function startGame(THREE, mount, opts) {
     recordedCueTimers.add(timer);
     return timer;
   }
-  function queueRecordedAction(action, delayMs = 0) {
-    if (!(opts.getSound && opts.getSound())) return null;
-    const run = () => {
-      try {
-        void action();
-      } catch {
-        // Recorded guidance is supplementary; the visual example remains.
-      }
-    };
-    if (delayMs <= 0) {
-      run();
-      return null;
-    }
-    const timer = window.setTimeout(() => {
-      recordedCueTimers.delete(timer);
-      if (opts.getSound && opts.getSound()) run();
-    }, delayMs);
-    recordedCueTimers.add(timer);
-    return timer;
-  }
+
   function cancelRecordedCue(timer) {
     if (timer == null) return;
     window.clearTimeout(timer);
@@ -580,7 +529,7 @@ function startGame(THREE, mount, opts) {
   let pausedFrameRendered = false;
   let completionSent = false;
   let overlayCueTimer = null;
-  let introCueTimer = null;
+
   const levelResults = new Array(levelCount);
   const caughtCorrectWords = new Set();
   const textureCanvasCache = new Map();
@@ -2709,23 +2658,6 @@ function startGame(THREE, mount, opts) {
     bannerT = 1.5;
   }
 
-  function showCountdown(target) {
-    const cd = el("countdown");
-    if (!cd) return;
-    const prompt = countdownPrompt(target, difficulty);
-    const letter = String(target || "").toUpperCase();
-    const accent = "#" + currentMap.gate.toString(16).padStart(6, "0");
-    cd.innerHTML =
-      '<div style="width:min(88vw,720px);display:grid;justify-items:center;gap:18px;padding:30px 18px;color:#f8fbff;text-shadow:0 4px 20px rgba(0,0,0,.72)">' +
-        '<div style="font-size:.85rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.78)">Sound Racer</div>' +
-        `<div style="font-size:clamp(2.15rem,8vw,5.35rem);line-height:.92;font-weight:950;letter-spacing:.01em;text-transform:uppercase;max-width:680px;text-wrap:balance">${prompt}</div>` +
-        `<div style="width:min(38vw,172px);height:min(38vw,172px);display:grid;place-items:center;font-size:clamp(4.5rem,18vw,7.4rem);font-weight:950;color:#071033;background:#ffd34e;border:4px solid rgba(255,255,255,.72);box-shadow:inset 0 -12px 0 rgba(0,0,0,.26),0 18px 48px rgba(0,0,0,.42);clip-path:polygon(8% 0,100% 0,92% 100%,0 100%)">${letter}</div>` +
-        `<div style="width:min(72vw,420px);height:8px;background:rgba(255,255,255,.15);box-shadow:0 0 26px ${accent};overflow:hidden"><i style="display:block;width:100%;height:100%;background:${accent}"></i></div>` +
-        '<div data-sr="cd-num" style="font-size:clamp(4.2rem,17vw,9rem);line-height:.82;font-weight:950;font-variant-numeric:tabular-nums;color:#ffffff;text-shadow:0 0 20px rgba(255,211,78,.7),0 5px 24px rgba(0,0,0,.9)">3</div>' +
-      '</div>';
-    cd.style.display = "grid";
-  }
-
   function hideCountdown() {
     const cd = el("countdown");
     if (cd) cd.style.display = "none";
@@ -2785,10 +2717,10 @@ function startGame(THREE, mount, opts) {
     shakeT = 0;
     catchUpSerial = 0;
     caughtCorrectWords.clear();
-    countdownT = 3.8;
-    running = false;
+    countdownT = 0;
+    running = true;
     hideOverlay();
-    showCountdown(target);
+    hideCountdown();
     // Replay the exact target phoneme at countdown. The approved phoneme bank
     // includes both single letters and the digraphs used by this ladder.
     sfx(() => speakPhoneme(target));
@@ -3224,8 +3156,6 @@ function startGame(THREE, mount, opts) {
     const dt = Math.min(0.05, ((now - last) || 16) / 1000);
     last = now;
     if (paused || (overlayActive && !running)) {
-      // The scene is static behind pause/onboarding overlays. Render it once,
-      // then stop submitting identical WebGL frames until state changes.
       if (!pausedFrameRendered) {
         const renderedTier = premiumRender.render(0);
         if (renderedTier !== qualityTier) {
@@ -3319,82 +3249,6 @@ function startGame(THREE, mount, opts) {
     if (savedRunning) running = true;
   }
 
-  // First-run onboarding: one goal line + the controls, shown once per device.
-  // Gameplay freezes through the game's own pause path (the tick renders but
-  // never advances while paused), so the GamePlayer chrome pause and this
-  // overlay can't fight — a chrome resume is ignored until the child dismisses.
-  function dismissIntro() {
-    if (!introActive) return;
-    introActive = false;
-    cancelRecordedCue(introCueTimer);
-    introCueTimer = null;
-    stopCueAudio();
-    markOnboardingSeen("sound-racer");
-    hideOverlay();
-    window.removeEventListener("keydown", onIntroKey, true);
-    resume();
-  }
-  function onIntroKey(event) {
-    if (isInteractiveKeyTarget(event.target)) return;
-    const key = String(event.key || "").toLowerCase();
-    const activates = key === " " || key === "enter" || key === "arrowleft" || key === "arrowright" || key === "a" || key === "d";
-    if (!activates) return;
-    event.preventDefault();
-    dismissIntro();
-  }
-  function playTutorialExample(tutorial) {
-    if (!(opts.getSound && opts.getSound())) return;
-    void speakPhoneme(tutorial.target)
-      .then(() => {
-        if (opts.getSound && opts.getSound()) return speakWord(tutorial.exampleWord);
-        return null;
-      })
-      .catch(() => {
-        // Gold-voice policy stays silent when a recording cannot play.
-      });
-  }
-  function onIntroPointerDown(event) {
-    if (event.target.closest('[data-sr="intro-hear"]')) return;
-    dismissIntro();
-  }
-  if (!hasSeenOnboarding("sound-racer")) {
-    introActive = true;
-    pause();
-    const tutorial = buildSoundRacerTutorial(track, { hasRecordedAudio: hasRecordedSpeech });
-    const overlay = showOverlay(
-      '<div style="display:grid;gap:14px;justify-items:center;padding:24px;max-width:min(560px,88vw)">' +
-        '<div style="font-size:.85rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.78)">Sound Racer</div>' +
-        '<div style="font-size:clamp(1.3rem,4vw,1.8rem);font-weight:900;line-height:1.25;text-wrap:balance">Catch the words that start with the target sound. Dodge everything else!</div>' +
-        `<section data-sr="tutorial-phonics" aria-label="Sound example" style="display:grid;gap:10px;justify-items:center;padding:14px 18px;border:2px solid rgba(124,240,182,.58);background:rgba(5,30,46,.7)">` +
-          '<div aria-hidden="true" style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap">' +
-            `<span data-sr="tutorial-target" style="min-width:58px;height:58px;padding:0 10px;display:grid;place-items:center;background:#ffd34e;color:#071033;font-size:2rem;font-weight:950">${tutorial.targetLabel}</span>` +
-            '<span style="font-size:1.8rem">→</span>' +
-            `<span data-sr="tutorial-word" style="min-width:94px;height:58px;padding:0 12px;display:grid;place-items:center;border:3px solid #7cf0b6;color:#fff;font-size:1.35rem;font-weight:900">${tutorial.exampleWord}</span>` +
-            '<span style="font-size:2rem;color:#7cf0b6">✓</span>' +
-          '</div>' +
-          `<p style="margin:0;font-size:.92rem;font-weight:800">${tutorial.phonicsInstruction}</p>` +
-          `<button data-sr="intro-hear" aria-label="Hear ${tutorial.targetLabel} in ${tutorial.exampleWord}" style="font-family:inherit;font-weight:900;color:#071033;background:#7cf0b6;border:0;min-height:56px;padding:8px 18px;cursor:pointer">Hear the example</button>` +
-        '</section>' +
-        `<section data-sr="tutorial-motor" aria-label="How to steer" style="display:grid;gap:4px;padding:10px 14px;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.06)">` +
-          `<strong>${tutorial.motorInstruction}</strong>` +
-          '<span style="font-size:.9rem;font-weight:700;line-height:1.5;opacity:.88">Use ← → or A and D. You can also tap or swipe left and right.</span>' +
-        '</section>' +
-        '<button data-sr="intro-play" style="font-family:inherit;font-weight:900;font-size:1.1rem;color:#071033;background:#ffd34e;border:0;padding:13px 30px;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22);cursor:pointer">Tap to play</button>' +
-        '<div style="font-size:.78rem;font-weight:700;opacity:.65">or press Space / Enter / a steer key</div>' +
-      '</div>',
-      "Sound Racer instructions"
-    );
-    overlay.querySelector('[data-sr="intro-play"]').addEventListener("click", dismissIntro);
-    overlay.querySelector('[data-sr="intro-hear"]').addEventListener("click", () => playTutorialExample(tutorial));
-    overlay.addEventListener("pointerdown", onIntroPointerDown);
-    window.addEventListener("keydown", onIntroKey, true);
-    opts.registerCleanup?.(() => {
-      window.removeEventListener("keydown", onIntroKey, true);
-      overlay.removeEventListener("pointerdown", onIntroPointerDown);
-    });
-    introCueTimer = queueRecordedAction(() => playTutorialExample(tutorial), 650);
-  }
-
   const detachContextGuard = attachContextLossGuard(renderer, {
     onLost: pause,
     onRestored: () => {
@@ -3413,7 +3267,7 @@ function startGame(THREE, mount, opts) {
     detachContextGuard();
     motionQuery?.removeEventListener?.("change", syncMotionPreference);
     window.removeEventListener("keydown", onKey);
-    window.removeEventListener("keydown", onIntroKey, true);
+
     detachSwipeSteer();
     detachSteerZones();
     detachResize();

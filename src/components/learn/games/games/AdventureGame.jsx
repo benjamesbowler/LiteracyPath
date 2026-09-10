@@ -17,136 +17,8 @@ import {
 // out. Every mistake coaches (replay + retry), every win is a visible thing
 // the child MADE (a bridge, a sorted factory line, a transformed plant).
 
-// First-run onboarding is remembered per device and per arcade game id (the
-// three modes are three separate games in the hub); storage can be denied
-// (private mode), in which case the intro simply shows again next session.
-const ONBOARD = {
-  rescue: {
-    key: "lp-arcade-onboarded-v1:word-rescue",
-    goal: "Build the bridge by matching each word you hear!",
-    hints: [
-      "Listen to the word.",
-      "Tap the matching word to lay a plank."
-    ]
-  },
-  sort: {
-    key: "lp-arcade-onboarded-v1:sound-sort-factory",
-    goal: "Sort every word into the bin with the same starting sound!",
-    hints: [
-      "Read the word on the belt.",
-      "Tap its starting-sound bin."
-    ]
-  },
-  garden: {
-    key: "lp-arcade-onboarded-v1:letter-garden",
-    goal: "Change one word to grow a labeled plant!",
-    hints: [
-      "Start with the known word.",
-      "Change one sound, then spell the new word."
-    ]
-  }
-};
-
-function readOnboarded(key) {
-  try {
-    return window.localStorage.getItem(key) === "1";
-  } catch {
-    return false;
-  }
-}
-
-function markOnboarded(key) {
-  try {
-    window.localStorage.setItem(key, "1");
-  } catch {
-    /* onboarding is optional */
-  }
-}
-
 // Static card (no animated intro) so prefers-reduced-motion is respected;
 // light panel matches the lg-game-complete card these games already use.
-function AdventureOnboarding({ title, copy, onStart }) {
-  const startRef = useRef(null);
-
-  useEffect(() => {
-    const startButton = startRef.current;
-    startButton?.focus({ preventScroll: true });
-    const focusFrame = window.requestAnimationFrame(() => startButton?.focus({ preventScroll: true }));
-    const onKey = event => {
-      if (event.key === "Tab") {
-        event.preventDefault();
-        startButton?.focus({ preventScroll: true });
-        return;
-      }
-      if (!["Enter", " "].includes(event.key)) return;
-      if (event.target === startButton) return;
-      event.preventDefault();
-      onStart();
-    };
-    document.addEventListener("keydown", onKey, true);
-    return () => {
-      window.cancelAnimationFrame(focusFrame);
-      document.removeEventListener("keydown", onKey, true);
-    };
-  }, [onStart]);
-
-  return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-label={`How to play ${title}`}
-      style={{
-        position: "fixed",
-        inset: 0,
-        zIndex: 1, // below GamePlayer's quit/resume dialogs (z-index 2)
-        display: "grid",
-        placeItems: "center",
-        background: "rgba(15, 23, 42, 0.55)",
-        padding: 20,
-        cursor: "pointer"
-      }}
-      onClick={onStart}
-    >
-      <div
-        style={{
-          width: "min(100%, 420px)",
-          display: "grid",
-          gap: 12,
-          justifyItems: "center",
-          border: "1px solid var(--lg-border, #CBD5E1)",
-          borderRadius: "var(--lg-radius, 16px)",
-          background: "var(--lg-surface, #ffffff)",
-          boxShadow: "var(--lp-shadow-soft, 0 18px 40px rgba(15, 23, 42, 0.18))",
-          padding: "clamp(22px, 4vw, 32px)",
-          textAlign: "center"
-        }}
-      >
-        <h2 style={{ margin: 0, color: "#0F172A", fontSize: "clamp(1.4rem, 3vw, 1.9rem)", fontWeight: 700 }}>{title}</h2>
-        <p style={{ margin: 0, color: "#475569", fontWeight: 600, lineHeight: 1.4 }}>{copy.goal}</p>
-        <div style={{ width: "100%", display: "grid", gap: 10, textAlign: "left", color: "#334155", fontSize: "1.02rem", lineHeight: 1.4, fontWeight: 650 }}>
-          {copy.hints.map((hint, index) => (
-            <span key={hint} style={{ minHeight: 44, display: "grid", gridTemplateColumns: "36px 1fr", alignItems: "center", gap: 10 }}>
-              <b aria-hidden="true" style={{ width: 34, height: 34, display: "grid", placeItems: "center", borderRadius: 12, background: "var(--game-accent-soft, #EAF7F0)", color: "#0F172A" }}>{index + 1}</b>
-              {hint}
-            </span>
-          ))}
-        </div>
-        <div>
-          <button
-            ref={startRef}
-            type="button"
-            className="lg-game-primary"
-            onClick={onStart}
-            style={{ minWidth: 156, minHeight: 56 }}
-          >
-            Tap to play
-          </button>
-          <div style={{ marginTop: 8, fontSize: "0.74rem", fontWeight: 700, color: "#64748B" }}>or press Enter</div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function Complete({ title, stars, score, onRestart }) {
   return (
@@ -289,8 +161,6 @@ function GardenStage({ rounds, state, isSoundEnabled }) {
 
 export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onResultReady, onSessionStart, onCheckpoint, onEngineReady, isSoundEnabled = true }) {
   const [version, setVersion] = useState(0);
-  const onboard = ONBOARD[mode] || ONBOARD.garden;
-  const [introOpen, setIntroOpen] = useState(() => !readOnboarded(onboard.key));
 
   const roundSet = useMemo(
     () => buildAdventureRoundSet(mode, difficulty, version),
@@ -481,21 +351,6 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   }
 
   if (completed) return <Complete title={title} stars={stars} score={score} onRestart={restart} />;
-
-  // First-run intro: the stage mounts only after dismissal, so gameplay is
-  // trivially frozen behind the overlay (no timers or speech can run).
-  if (introOpen) {
-    return (
-      <AdventureOnboarding
-        title={title}
-        copy={onboard}
-        onStart={() => {
-          markOnboarded(onboard.key);
-          setIntroOpen(false);
-        }}
-      />
-    );
-  }
 
   if (mode === "rescue") {
     const state = {

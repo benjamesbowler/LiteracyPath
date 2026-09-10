@@ -232,3 +232,5 @@ active for Adventure Map. The current contract is
 ## Arcade engine restoration
 
 The original Arcade engines are the active runtime. Superseded select/confirm engine modules and their exclusive tests were removed; Git retains recovery history. Shared result-save protection, current classroom code and music preferences are preserved. The Game Design Bible requires gameplay preservation.
+
+Mandatory Arcade instruction cards and startup countdown gates were removed on 2026-09-10. Cycle and phonics response controls no longer wait for narration; replay and actual audio-delivery evidence are retained.

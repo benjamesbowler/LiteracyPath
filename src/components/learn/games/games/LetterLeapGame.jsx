@@ -45,9 +45,6 @@ const GRAV = 0.62, MOVE = 4.8, JUMP = 13.6, GROUND_H = 96;
 const SEG = 440, WORD_GAP = 560, MAXH = 5;
 const FIXED_STEP = 1 / 60;
 const MAX_RETINA_BACKING_PIXELS = 1_600_000;
-// First-run onboarding dismissal is remembered once per device; a denied
-// storage (private mode) simply shows the card again next session.
-const ONBOARD_KEY = "lp-arcade-onboarded-v1:letter-leap";
 
 function recordWordEvidence(completedKeys, stageIndex, sentenceLegIndex, wordIndex) {
   const evidenceKey = [stageIndex, sentenceLegIndex, wordIndex].join(":");
@@ -817,37 +814,6 @@ function startGame(mount, opts) {
     overlay.querySelector('[data-ll="cta"]').onclick = () => { closeOverlayDialog(); sfx(playTapSound); fn(); };
   }
 
-  // First-run onboarding: one goal line + the controls (desktop AND touch),
-  // shown once per device. Gameplay stays frozen behind it (pause path) until
-  // the child dismisses the card.
-  function showOnboarding() {
-    overlay.innerHTML =
-      '<div style="max-width:520px;padding:24px 30px;background:linear-gradient(140deg,rgba(7,12,32,.92),rgba(22,39,83,.72));border:1px solid rgba(126,232,255,.36);clip-path:polygon(18px 0,100% 0,calc(100% - 18px) 100%,0 100%);box-shadow:0 20px 60px rgba(0,0,0,.42),inset 0 0 0 1px rgba(255,255,255,.08)"><h1 style="font-size:clamp(1.6rem,6vw,2.6rem);margin:0">Letter Leap</h1>' +
-      '<p style="opacity:.94;margin:10px auto 14px;max-width:440px;line-height:1.4">Look at the picture. Collect each letter in order to spell the word.</p>' +
-      '<ul style="text-align:left;opacity:.9;margin:0 auto 22px;max-width:400px;line-height:1.55;padding-left:20px">' +
-        '<li><b>Move:</b> Arrow keys or A/D. Tap or hold &#9664; &#9654; on touch screens.</li>' +
-        '<li><b>Leap:</b> Space or Up. On touch, LEAP moves safely past letters; tap an arrow to choose.</li></ul>' +
-      '<button data-ll="cta" style="' + ctaStyle + '">Start leaping</button></div>';
-    openOverlayDialog("Letter Leap instructions");
-    const btn = overlay.querySelector('[data-ll="cta"]');
-    btn.onclick = () => {
-      try { window.localStorage.setItem(ONBOARD_KEY, "1"); } catch { /* storage optional */ }
-      closeOverlayDialog();
-      releaseInputs(); // the dismiss tap/key never leaks a buffered jump
-      onboarding = false;
-      sfx(playTapSound);
-      resume();
-    };
-  }
-  function maybeOnboard() {
-    let seen;
-    try { seen = window.localStorage.getItem(ONBOARD_KEY) === "1"; } catch { seen = false; }
-    if (seen) return;
-    onboarding = true; // set BEFORE pause so a chrome resume can't slip past it
-    pause();
-    showOnboarding();
-  }
-
   // ── input ─────────────────────────────────────────────────────────────────
   function releaseInputs() {
     keys.left = keys.right = keys.jump = false;
@@ -1515,7 +1481,7 @@ function startGame(mount, opts) {
   let paused = false, savedRunning = false, onboarding = false;
   function pause() { if (paused) return; paused = true; savedRunning = running; running = false; releaseInputs(); }
   function resume() { if (!paused || onboarding) return; paused = false; last = performance.now(); frameAccumulator = 0; if (savedRunning) running = true; }
-  maybeOnboard();
+
   function teardown() {
     running = false;
     closeOverlayDialog();

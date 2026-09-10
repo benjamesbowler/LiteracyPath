@@ -7,9 +7,10 @@ for (const game of games) {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
-    await page.addInitScript(id => localStorage.setItem(`lp-arcade-onboarded-v1:${id}`, '1'), game);
     await page.goto(`/preview/game-overlay.html?game=${game}&sound=0&music=0`);
     await expect(page.locator('.lg-game-loading')).toHaveCount(0, { timeout: 40_000 });
+    await expect(page.getByRole('dialog', { name: /instructions|how to play/i })).toHaveCount(0);
+    await expect(page.getByRole('button', { name: /^(tap to play|play|to the yard)/i })).toHaveCount(0);
     const canvas = page.locator('canvas').first();
     await expect(canvas).toBeVisible();
     await expect(page.getByRole('button', { name: /^(Fly through|Drive through|Next delivery|Next basket)$/i })).toHaveCount(0);

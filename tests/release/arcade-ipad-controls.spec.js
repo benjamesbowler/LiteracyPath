@@ -8,11 +8,6 @@ test("every Arcade control keeps browser gestures from stealing iPad input", asy
   test.setTimeout(180_000);
   // Input-style coverage uses the low rendering tier; cinematic rendering has its own suite.
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.addInitScript(gameIds => {
-    for (const gameId of gameIds) {
-      window.localStorage.setItem(`lp-arcade-onboarded-v1:${gameId}`, "1");
-    }
-  }, ARCADE_GAMES.map(game => game.id));
 
   for (const game of ARCADE_GAMES) {
     await page.goto(`/preview/game-overlay.html?game=${encodeURIComponent(game.id)}&sound=0`);
@@ -20,6 +15,8 @@ test("every Arcade control keeps browser gestures from stealing iPad input", asy
     await expect(player).toBeVisible();
     await player.locator(".lg-game-loading").waitFor({ state: "hidden", timeout: 40_000 });
 
+    await expect(player.getByRole("dialog", { name: /instructions|how to play/i })).toHaveCount(0);
+    await expect(player.getByRole("button", { name: /^(tap to play|play|to the yard)/i })).toHaveCount(0);
     const controlStyles = await player.locator('button, [role="button"]').evaluateAll(controls =>
       controls.map(control => {
         const styles = getComputedStyle(control);

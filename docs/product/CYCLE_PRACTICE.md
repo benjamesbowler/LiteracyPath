@@ -11,8 +11,7 @@ longer uses the Adventure Map's memory, gate, poem or confirmation mechanics.
 All 27 numbered cycles use the taught sounds, patterns and words from
 `elSkillsBlockCycles.js`. Full interleaved decks provide distinct learning tasks before any replay.
 Earlier taught content supplies spaced review; choices and answer positions vary. Review cycles retain all their
-assigned mappings. A missing image or instruction blocks the affected item
-without recording a literacy error.
+assigned mappings. A missing picture offers reload without recording a literacy error. Instruction playback and audio failure never lock the response controls.
 
 | Activity | Child's action | Learning evidence |
 | --- | --- | --- |
@@ -41,18 +40,12 @@ estimate. Inactive, hidden and paused intervals do not satisfy it.
 
 ## Instruction and feedback
 
-A single Play tap establishes browser audio permission. Every question then
-plays its short recorded instruction and exact target automatically. The
+Activities open ready for input. Every question plays its short recorded instruction and exact target automatically when browser audio permission allows it. The
 persistent speaker replays the same cue. Picture speakers name unfamiliar
 objects, removing non-target vocabulary barriers. Recorded wording and the
 visible caption come from `cyclePracticeAudioScripts.js` and its generated
 Leda manifest. No device speech synthesis or live generation service is used.
-The listening state is visibly separate from “Your turn”; tapping Listen while
-it is already speaking cannot restart the waiting period. A stalled recording
-returns to the replay route. Responses require both delivered teaching audio
-and loaded pictures. A picture that fails or stalls for 15 seconds offers
-Reload pictures. Reloading never adds a literacy attempt or erases accepted
-word parts.
+Children can respond while narration plays, or continue if it cannot play. Replay remains available without a launch card or a listen-first gate. Actual audio delivery is retained: an early response never fabricates delivered-audio evidence or an independent listening score. Loaded pictures remain necessary for picture-based responses; a picture that fails or stalls for 15 seconds offers Reload pictures without adding an attempt or erasing accepted word parts.
 
 Responses validate automatically. Practice errors remain on the same item,
 name the selected picture when appropriate, replay the learning cue, and give

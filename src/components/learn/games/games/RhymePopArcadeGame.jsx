@@ -62,58 +62,7 @@ const RHYME_ORB_COLORS = [
 ];
 const RHYME_BALLOON_ROWS = [0.18, 0.40, 0.26, 0.46, 0.20, 0.36, 0.30];
 
-// First-run onboarding: one intro card per device, dismissed forever after.
-// Storage may be denied (private mode) — then the card shows again next
-// session, but it must never crash the game.
-function hasSeenOnboarding(kind) {
-  try {
-    return window.localStorage.getItem(`lp-arcade-onboarded-v1:${kind}`) === "1";
-  } catch {
-    return false;
-  }
-}
-
-function markOnboardingSeen(kind) {
-  try {
-    window.localStorage.setItem(`lp-arcade-onboarded-v1:${kind}`, "1");
-  } catch { /* storage denied: the card simply returns next session */ }
-}
-
 // Hint lines shrink to fit the panel instead of overflowing narrow screens.
-function drawFittedHint(ctx, value, x, y, maxWidth, size, color) {
-  let fitted = size;
-  ctx.save();
-  ctx.font = `700 ${fitted}px "Trebuchet MS", "Arial Rounded MT Bold", system-ui, sans-serif`;
-  while (fitted > 12 && ctx.measureText(value).width > maxWidth) {
-    fitted -= 1;
-    ctx.font = `700 ${fitted}px "Trebuchet MS", "Arial Rounded MT Bold", system-ui, sans-serif`;
-  }
-  ctx.restore();
-  text(ctx, value, x, y, fitted, color, "center", 700);
-}
-
-function drawOnboarding(ctx, state, config, w, h) {
-  if (!state.onboarding) return;
-  ctx.save();
-  ctx.fillStyle = "rgba(2,5,16,.84)";
-  ctx.fillRect(0, 0, w, h);
-  const panelW = Math.min(w * 0.86, 600);
-  const panelH = Math.min(h * 0.66, 400);
-  const px = (w - panelW) / 2;
-  const py = (h - panelH) / 2;
-  panel(ctx, px, py, panelW, panelH, "rgba(4,9,20,.94)", `${config.accent}aa`);
-  text(ctx, config.title, w / 2, py + panelH * 0.17, clamp(w * 0.05, 30, 52), config.accent, "center", 900);
-  text(ctx, config.action, w / 2, py + panelH * 0.31, clamp(w * 0.026, 17, 24), "#fff", "center", 900);
-  const hints = config.onboardingHints || [];
-  const hintSize = clamp(w * 0.021, 14, 20);
-  const firstY = py + panelH * 0.46;
-  const gap = panelH * 0.125;
-  for (let i = 0; i < hints.length; i += 1) {
-    drawFittedHint(ctx, hints[i], w / 2, firstY + i * gap, panelW * 0.86, hintSize, "#dce8ff");
-  }
-  text(ctx, "Tap to play · or press any key", w / 2, py + panelH * 0.88, clamp(w * 0.024, 16, 22), config.accent2, "center", 900);
-  ctx.restore();
-}
 
 function drawHud(ctx, state, config, w, h) {
   panel(ctx, 16, 14, Math.min(520, w - 32), 62, "rgba(7,10,24,.74)", `${config.accent}88`);
@@ -788,7 +737,7 @@ function startRhymePopArcadeGame(mount, options) {
     progress: 0,
     paused: false,
     ended: false,
-    onboarding: !hasSeenOnboarding(options.kind),
+    onboarding: false,
     time: 0,
     judgement: "",
     judgementT: 0,
@@ -858,7 +807,7 @@ function startRhymePopArcadeGame(mount, options) {
       const firstEver = !state.roundStartAt;
       state.roundStartAt = nowSec;
       state.countdownIntro = options.kind === "rhyme-pop" && firstEver;
-      state.countdown = state.countdownIntro ? 4.25 : 3.25;
+      state.countdown = 0;
       state.countdownTarget = countdownTarget();
     } else {
       // Continue the current round: flow straight into the next level.
@@ -867,18 +816,7 @@ function startRhymePopArcadeGame(mount, options) {
     }
     setupTask();
     updateProgress();
-    // "Listen and rhyme": say the target word as each level starts. Held while
-    // the first-run card is up; dismissOnboarding says it instead.
     if (!state.onboarding) speakCue(state.level.targetWord);
-  }
-
-  // First-run intro card: dropping the flag lets the frozen countdown start.
-  // Independent of state.paused so the chrome pause and the card never fight.
-  function dismissOnboarding() {
-    if (!state.onboarding) return;
-    state.onboarding = false;
-    markOnboardingSeen(options.kind);
-    if (state.level?.targetWord) speakCue(state.level.targetWord);
   }
 
   function countdownTarget() {
@@ -1152,23 +1090,14 @@ function startRhymePopArcadeGame(mount, options) {
   function onPointerDown(event) {
     const point = pointerPosition(event);
     state.pointer = point;
-    if (state.onboarding) {
-      dismissOnboarding();
-      return;
-    }
+
     if (state.paused || state.ended || state.countdown > 0) return;
     if (options.kind === "rhyme-pop") tapRhyme(point.x, point.y);
   }
 
   function onKeyDown(event) {
     if (isInteractiveKeyTarget(event.target)) return;
-    // Any key starts play from the intro card (Esc stays with the chrome).
-    if (state.onboarding) {
-      if (event.key === "Escape") return;
-      if (event.key === " " || event.key === "Enter" || event.key.startsWith("Arrow")) event.preventDefault();
-      dismissOnboarding();
-      return;
-    }
+
     if (options.kind !== "rhyme-pop" || state.paused || state.ended || state.countdown > 0) return;
     const direction = laneDirectionForKey(event.key);
     if (direction && state.bubbles.length) {
@@ -1274,7 +1203,7 @@ function startRhymePopArcadeGame(mount, options) {
     drawRhymePop(ctx, state, config, w, h);
     drawHud(ctx, state, config, w, h);
     drawCountdown(ctx, state, config, w, h);
-    drawOnboarding(ctx, state, config, w, h);
+
     ctx.restore();
   }
 

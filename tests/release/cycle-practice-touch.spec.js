@@ -36,7 +36,7 @@ async function start(page, cycle, match, { duration = 8, mode = 'practice' } = {
   }, { key, index, duration, mode, revision: CYCLE_ACTIVITY_REVISION, version: CYCLE_PRACTICE_VERSION });
   page.on('pageerror', error => { throw error; });
   await page.goto(`/preview/child-surfaces.html?surface=cycle-practice&cycle=${cycle.id}&motion=reduced`, { waitUntil: 'domcontentloaded' });
-  await page.getByRole('button', { name: 'Start playing', exact: true }).tap();
+  await expect(page.locator(".cycle-play-overlay")).toHaveCount(0);
   return { round: rounds[index], index, key, records: () => page.evaluate(({ key, mode }) => JSON.parse(localStorage.getItem(key))[`${mode}Records`], { key, mode }) };
 }
 
@@ -222,16 +222,13 @@ test('a wrong check classification keeps its first record while the gallery show
   expect((await records())[0].selected).toBe(wrong.value);
 });
 
-test('stalled teaching audio exposes replay without scoring the waiting child', async ({ page }) => {
-  await page.clock.install();
-  const { records } = await start(page, cycles[0], round => round.mechanicId === 'pictureSound', { duration: 60000 });
+test('stalled teaching audio never blocks the playfield or fabricates delivery', async ({ page }) => {
+  const { round, records } = await start(page, cycles[0], round => round.mechanicId === 'pictureSound', { duration: 60000 });
   await expect(page.locator('.cycle-listen-button')).toHaveAttribute('data-audio-state', 'playing');
-  await page.clock.fastForward(21000);
-  await expect(page.getByRole('button', { name: 'Play instructions', exact: true })).toBeVisible();
-  expect(await records()).toHaveLength(0);
-  await page.evaluate(() => { window.__touchAudio.duration = 8; });
-  await page.getByRole('button', { name: 'Play instructions', exact: true }).tap();
-  await ready(page);
+  await expect(page.locator('.cycle-activity-space')).not.toHaveAttribute('inert');
+  await answer(page, round);
+  await expect.poll(async () => (await records()).length).toBe(1);
+  expect((await records())[0].audioDelivery).not.toBe('delivered');
 });
 
 test('WebKit touch unlocks the real recorded instruction and records a delivered-audio word response', async ({ page, browserName }) => {
@@ -253,7 +250,7 @@ test('WebKit touch unlocks the real recorded instruction and records a delivered
     };
   }, { key, index, version: CYCLE_PRACTICE_VERSION, revision: CYCLE_ACTIVITY_REVISION });
   await page.goto('/preview/child-surfaces.html?surface=cycle-practice&cycle=cycle-3&motion=reduced');
-  await page.getByRole('button', { name: 'Start playing', exact: true }).tap();
+  await expect(page.locator(".cycle-play-overlay")).toHaveCount(0);
   await expect(page.locator('.cycle-listen-button')).toHaveAttribute('data-audio-state', 'ready', { timeout: 25000 });
   await ready(page);
   expect((await page.evaluate(() => window.__realMediaEnded)).length).toBeGreaterThanOrEqual(2);
@@ -417,14 +414,13 @@ test('the full short-landscape letter team accepts continuous released finger st
   expect(await page.locator('.cycle-activity-space').evaluate(space => space.scrollTop)).toBe(0);
 });
 
-test('instruction playback is visible and repeated Listen taps cannot restart the pending cue', async ({ page }) => {
-  const { records } = await start(page, cycles[0], round => round.mechanicId === 'pictureSound', { duration: 350 });
+test('a Cycle Check answer is accepted while its instruction is still playing', async ({ page }) => {
+  const { round, records } = await start(page, cycles[0], round => round.mechanicId === 'pictureSound', { duration: 60000, mode: 'assessment' });
   await expect(page.locator('.cycle-listen-button')).toHaveAttribute('data-audio-state', 'playing');
-  await expect(page.locator('.cycle-listen-button')).toBeDisabled();
-  await expect(page.getByRole('status', { name: 'Activity readiness' })).toContainText('Listen');
-  await page.locator('.cycle-answer').first().tap({ force: true });
-  expect(await records()).toHaveLength(0);
-  await ready(page);
+  await expect(page.locator('.cycle-answer').first()).toBeEnabled();
+  await answer(page, round);
+  await expect.poll(async () => (await records()).length).toBe(1);
+  expect((await records())[0].audioDelivery).not.toBe('delivered');
 });
 
 for (const cycle of cycles) {

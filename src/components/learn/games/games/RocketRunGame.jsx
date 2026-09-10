@@ -18,28 +18,7 @@ import { starRubric } from "../../../../utils/starRubric.js";
 import { speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import { onsetGrapheme } from "../../../elQuest/elQuestEngine.js";
-import {
-  loadThree,
-  createRenderer,
-  createScene,
-  createPerspectiveCamera,
-  attachResize,
-  createFrameLoop,
-  attachContextLossGuard,
-  attachSteerZones,
-  attachSwipeSteer,
-  prefersReducedMotion,
-  detectQualityTier,
-  applyQualityTier,
-  shadowMapForTier,
-  particleCountForTier,
-  QUALITY_TIERS,
-  hasSeenOnboarding,
-  markOnboardingSeen,
-  disposeRenderer,
-  disposeObject as disposeGroup,
-  setTextureSrgb
-} from "../shared/threeShell.js";
+import { loadThree, createRenderer, createScene, createPerspectiveCamera, attachResize, createFrameLoop, attachContextLossGuard, attachSteerZones, attachSwipeSteer, prefersReducedMotion, detectQualityTier, applyQualityTier, shadowMapForTier, particleCountForTier, QUALITY_TIERS, disposeRenderer, disposeObject as disposeGroup, setTextureSrgb } from "../shared/threeShell.js";
 import {
   createOwnedModelInstance,
   disposeOwnedModelInstance
@@ -392,25 +371,6 @@ function startGame(THREE, mount, opts) {
   }
   // Start-of-round "get ready" popup: the target letter, big, plus a 3-2-1 count.
   // Spawning is gated on running=false until the countdown flips it true (in tick).
-  function showCountdown(target) {
-    const cd = el("countdown"); if (!cd) return;
-    // One-time steering hint, shown during the session's first countdown only.
-    const steerHint = steeringHintShown ? "" :
-      '<div style="margin-top:16px;font-size:.95rem;font-weight:700;color:#bfe6ff;opacity:.92">Tap the sides or use the arrow keys to steer</div>';
-    steeringHintShown = true;
-    cd.innerHTML =
-      '<div>' +
-      '<div style="font-size:.78rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#7ff0ff;margin-bottom:12px">Find words beginning with</div>' +
-      '<div style="width:136px;height:120px;margin:0 auto;display:grid;place-items:center;font-size:5rem;font-weight:900;color:#071033;background:linear-gradient(160deg,#ffe879,#ff9f24);clip-path:polygon(10% 0,100% 0,90% 100%,0 100%);box-shadow:0 10px 0 #9a5a14,inset 0 0 0 2px rgba(255,255,255,.28)">' + target + '</div>' +
-      '<div data-rr="cd-num" style="font-size:3.6rem;font-weight:900;margin-top:18px;letter-spacing:.08em;text-shadow:0 3px 18px rgba(0,0,0,.75),0 0 24px rgba(127,240,255,.55)">3</div>' +
-      steerHint +
-      '</div>';
-    cd.style.display = "grid";
-    countdownT = 3.4;
-    // The approved phoneme route handles both single letters and digraphs, so
-    // every round introduction uses the exact same cue as the replay control.
-    say(() => speakPhoneme(target));
-  }
 
   const ambient = new THREE.AmbientLight(0x8899ff, 0.7);
   scene.add(ambient);
@@ -1105,7 +1065,7 @@ function startGame(THREE, mount, opts) {
   let cometStreakT = 6 + Math.random() * 14;       // ambient comet streak timer
   let countdownT = 0;                              // start-of-round get-ready countdown
   let roundTarget = "";                            // current target grapheme (for refill)
-  let steeringHintShown = false;                   // one-time "how to steer" countdown hint
+                     // one-time "how to steer" countdown hint
   // (speedLines is declared up in the scene-setup section, before it's populated)
 
   const hearTargetButton = el("hear-target");
@@ -1247,20 +1207,18 @@ function startGame(THREE, mount, opts) {
     hearts = 3;
     bubbles = [];
     spawnTimer = 0.3;
-    running = false;          // held until the get-ready countdown finishes (in tick)
+    running = true;
     resetCombo();
     setFuel();
     updateHearts();
     showBanner("Round " + (roundIx + 1) + " — " + theme.name);
-    showCountdown(target);    // big target letter + 3-2-1 before any words fly
+    sfx(() => speakPhoneme(target));
     if (roundIx === ROUNDS_PER_GAME - 1 && !finaleComet) spawnFinaleComet(); // Comet Chase finale
     if (opts.onProgressUpdate) opts.onProgressUpdate(roundIx + 1, ROUNDS_PER_GAME);
     if (opts.onCheckpoint) opts.onCheckpoint(roundIx, ROUNDS_PER_GAME);
   }
 
   function moveLane(dir) {
-    // Let the child pre-position during the short launch countdown. Steering is
-    // still locked under onboarding, pause, retry and completion overlays.
     const canSteer = !paused && !introActive && (running || countdownT > 0);
     if (!canSteer) return;
     const next = Math.max(0, Math.min(2, laneIx + dir));
@@ -1712,53 +1670,6 @@ function startGame(THREE, mount, opts) {
   function pause() { if (paused) return; paused = true; savedRunning = running; running = false; }
   function resume() { if (!paused || introActive) return; paused = false; last = performance.now(); if (savedRunning) running = true; }
 
-  // First-run onboarding: one goal line + the controls, shown once per device.
-  // Gameplay freezes through the game's own pause path (countdown and spawns
-  // are both gated on paused/running), so the GamePlayer chrome pause and this
-  // overlay can't fight — a chrome resume is ignored until the child dismisses.
-  function dismissIntro() {
-    if (!introActive) return;
-    introActive = false;
-    markOnboardingSeen("rocket-run");
-    const overlay = el("overlay");
-    if (overlay) {
-      restoreRocketRunHud(hud, overlay);
-      overlay.removeEventListener("pointerdown", dismissIntro);
-      overlay.style.display = "none";
-    }
-    window.removeEventListener("keydown", onIntroKey, true);
-    // This is the first guaranteed user gesture on iPad. Replay the target here
-    // so Safari's audio lock cannot swallow the round's essential cue.
-    sfx(playTapSound);
-    replayTarget();
-    resume();
-  }
-  function onIntroKey(event) {
-    if (isInteractiveKeyTarget(event.target)) return;
-    const key = String(event.key || "").toLowerCase();
-    if (!(key === " " || key === "enter" || laneDirectionForKey(event.key))) return;
-    event.preventDefault();
-    dismissIntro();
-  }
-  if (!hasSeenOnboarding("rocket-run")) {
-    introActive = true;
-    pause();
-    const overlay = showOverlay(
-      '<div style="display:grid;gap:12px;justify-items:center;max-width:min(520px,88vw)">' +
-      '<div style="font-size:.8rem;font-weight:900;letter-spacing:.22em;text-transform:uppercase;color:#7ff0ff">Rocket Run</div>' +
-      '<div style="font-size:clamp(1.55rem,4.5vw,2.2rem);font-weight:900;line-height:1.08;text-wrap:balance">Listen. Choose. Fly!</div>' +
-      '<div aria-hidden="true" style="display:flex;align-items:center;gap:16px;font-size:2.2rem"><svg viewBox="0 0 24 24" width="38" height="38"><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4Zm11.5-.7v7.4a4.5 4.5 0 0 0 0-7.4Zm0-3.3v2.1a7 7 0 0 1 0 9.8V19a9 9 0 0 0 0-14Z"/></svg><span>→</span><svg viewBox="0 0 24 24" width="44" height="44"><path fill="currentColor" d="M14.4 3.1c2.2-.9 4.4-.8 6.5-.6.2 2.2.2 4.5-.7 6.6l-3.1 3.1-5.3-5.3 2.6-3.8ZM10.7 8l5.3 5.3-3 3-2.2-.6-2.5 2.5-2.5-2.5 2.5-2.5-.6-2.2 3-3Zm-4.2 9.3c-.9.2-2.4 1.2-2.8 3 .9-.4 2.1-.7 3.2-.5.2-1 .9-1.9 1.7-2.5l-2.1-.1Z"/></svg></div>' +
-      '<div style="font-size:1rem;font-weight:750;line-height:1.45;opacity:.94">Hear the word. Fly to it if it begins with the target sound.</div>' +
-      '<div style="display:flex;align-items:center;gap:12px;font-size:.92rem;font-weight:750;opacity:.82"><span>← tap left</span><span>tap right →</span></div>' +
-      '<button type="button" data-rr="intro-play" style="' + overlayButtonStyle + '">Play</button>' +
-      '</div>'
-    );
-    const play = overlay.querySelector('[data-rr="intro-play"]');
-    isolateRocketRunActionOverlay(hud, overlay, play, "Rocket Run instructions");
-    play.addEventListener("click", dismissIntro);
-    overlay.addEventListener("pointerdown", dismissIntro);
-    window.addEventListener("keydown", onIntroKey, true);
-  }
   const detachContextGuard = attachContextLossGuard(renderer, {
     onLost: pause,
     onRestored: () => {
@@ -1775,7 +1686,7 @@ function startGame(THREE, mount, opts) {
     detachSwipeSteer();
     motionQuery?.removeEventListener?.("change", syncMotionPreference);
     window.removeEventListener("keydown", onKey);
-    window.removeEventListener("keydown", onIntroKey, true);
+
     hearTargetButton?.removeEventListener("pointerdown", onHearTargetPointerDown);
     hearTargetButton?.removeEventListener("click", replayTarget);
     detachResize();

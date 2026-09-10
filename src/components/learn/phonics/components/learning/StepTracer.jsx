@@ -246,6 +246,8 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
   }, []);
 
   const completeNextStroke = useCallback(() => {
+    setDemoActive(false);
+    setDemoDone(true);
     const strokes = strokesRef.current;
     const visitedSets = visitedByStrokeRef.current;
     // A switch cannot draw a freehand pointer path. Advance the same sampled
@@ -296,13 +298,14 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
   }, [toCanvasCoords]);
 
   const handlePointerDown = useCallback((clientX, clientY) => {
-    if (!demoDone || demoActive) return;
+    setDemoActive(false);
+    setDemoDone(true);
     isDrawingRef.current = true;
     lastCanvasPoint.current = null;
     const svgPoint = toSVGCoords(clientX, clientY);
     if (svgPoint) markProgress(svgPoint.x, svgPoint.y);
     drawOnCanvas(clientX, clientY);
-  }, [demoActive, demoDone, drawOnCanvas, markProgress, toSVGCoords]);
+  }, [drawOnCanvas, markProgress, toSVGCoords]);
 
   const handlePointerMove = useCallback((clientX, clientY) => {
     if (!isDrawingRef.current) return;
@@ -317,12 +320,12 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
   }, []);
 
   const onPointerDown = useCallback(event => {
-    if (!demoDone || demoActive || activePointerIdRef.current !== null) return;
+    if (activePointerIdRef.current !== null) return;
     event.preventDefault();
     activePointerIdRef.current = event.pointerId;
     event.currentTarget.setPointerCapture?.(event.pointerId);
     handlePointerDown(event.clientX, event.clientY);
-  }, [demoActive, demoDone, handlePointerDown]);
+  }, [handlePointerDown]);
 
   const onPointerMove = useCallback(event => {
     if (activePointerIdRef.current !== event.pointerId) return;
@@ -517,11 +520,11 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
             </motion.p>
           ) : demoActive ? (
             <motion.p key="demo" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-              Watch first...
+              Follow the guide, or start tracing.
             </motion.p>
           ) : !demoDone ? (
             <motion.p key="demo-ready" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-              Watch the strokes, then try.
+              Start tracing whenever you are ready.
             </motion.p>
           ) : (
             <motion.p key="hint" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -543,7 +546,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
             Show me
           </PhonicsButton>
         )}
-        {demoDone && !isComplete && nextAccessibleStroke >= 0 && (
+        {!isComplete && nextAccessibleStroke >= 0 && (
           <PhonicsButton variant="secondary" size="small" onClick={completeNextStroke}>
             Trace stroke {nextAccessibleStroke + 1} of {renderStrokes.length}
           </PhonicsButton>

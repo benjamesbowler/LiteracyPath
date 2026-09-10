@@ -99,13 +99,7 @@ test("Sound Racer retains its one-shot, cleanup, cache, static-overlay, and redu
   assert.match(racer, /if \(!pausedFrameRendered\)/);
   assert.match(racer, /playerZ \+= speed \* dt \* \(reduceMotion \? 0\.55 : 1\)/);
   assert.match(racer, /const opticalFlowScale = reduceMotion \? 0\.45 : 1/);
-  assert.match(racer, /if \(!activates\) return;[\s\S]*event\.preventDefault\(\)/);
   assert.match(racer, /getLedaInstructionAudioPath\("Great job"\)/);
-  assert.match(racer, /buildSoundRacerTutorial\(track, \{ hasRecordedAudio: hasRecordedSpeech \}\)/);
-  assert.match(racer, /data-sr="tutorial-phonics" aria-label="Sound example"/);
-  assert.match(racer, /data-sr="tutorial-motor" aria-label="How to steer"/);
-  assert.match(racer, /data-sr="intro-hear"/);
-  assert.match(racer, /speakPhoneme\(tutorial\.target\)[\s\S]*speakWord\(tutorial\.exampleWord\)/);
   assert.doesNotMatch(racer, />S<\/span>[\s\S]*>sun<\/span>/);
 });
 
@@ -255,7 +249,7 @@ test("pre-reader game controls never offer a silent hear-word lifeline", async (
   assert.match(safari, /presentedUnits/);
   assert.match(safari, /fieldGuideReplayBox/);
   assert.match(safari, /speakPhoneme\(value\)/);
-  assert.match(soundBeat, /getLedaWordAudioPath\("tap"\)/);
+  assert.match(soundBeat, /engineRef\.current\?\.replayPrompt\?\.\(\)/);
   assert.match(learnGamesAudio, /phonemeAudioCandidates\(normalized\)/);
   assert.doesNotMatch(learnGamesAudio, /clean-human\/graphemes/);
   assert.match(learnGamesAudio, /if \(played\) return;\s*speakWithBrowser\(normalized, options\);\s*return;/);
@@ -289,7 +283,6 @@ test("the early adventure and skate routes stay book-led, physical, and recovera
 
   assert.match(skate, /MAX_SPEED = \{ easy: 9,/);
   assert.match(skate, /TOKEN_COUNT = \{ easy: 0,/);
-  assert.match(skate, /Explore the skate park\. Find each sound in order/);
   assert.match(skate, /grammarGrindSegmentChoices/);
   assert.match(skate, /rebuildLineChoices\(\)/);
   assert.match(skate, /Move forward/);

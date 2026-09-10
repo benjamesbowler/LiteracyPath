@@ -96,9 +96,6 @@ function resolveSignpost(beat, s, action) {
     return { state: { ...s, cardsHeard, heard: true }, outcome: { type: "progress" } };
   }
   if (action.type === "FINISH") {
-    // every card must have been heard (or audio is unavailable) before moving on
-    const all = beat.view.cards.every(card => s.cardsHeard.includes(card.targetId) || !card.phonemeAudio && !card.anchorAudio);
-    if (!all) return { state: s, outcome: { type: "blocked", line: "Tap each sign to hear it first." } };
     return { state: { ...s, done: true }, outcome: { type: "complete", taught: beat.targetIds, evidence: null } };
   }
   return { state: s, outcome: { type: "ignored" } };
@@ -258,7 +255,6 @@ function resolveHeart(beat, s, action) {
   if (s.phase === "learn") {
     if (action.type === "HEARD") return { state: { ...s, heard: true }, outcome: { type: "progress" } };
     if (action.type === "READY") {
-      if (!s.heard && beat.view.wordAudio) return { state: s, outcome: { type: "blocked", line: "Tap the lantern to hear the word first." } };
       return { state: { ...s, phase: "find" }, outcome: { type: "phase", phase: "find" } };
     }
     return { state: s, outcome: { type: "ignored" } };

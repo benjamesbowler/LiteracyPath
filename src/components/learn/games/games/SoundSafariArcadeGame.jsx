@@ -163,71 +163,7 @@ function detectSafariRenderProfile(reduceMotion = false) {
   };
 }
 
-// First-run onboarding: one intro card per device, dismissed forever after.
-// Storage may be denied (private mode) — then the card shows again next
-// session, but it must never crash the game.
-function hasSeenOnboarding(kind) {
-  try {
-    return window.localStorage.getItem(`lp-arcade-onboarded-v1:${kind}`) === "1";
-  } catch {
-    return false;
-  }
-}
-
-function markOnboardingSeen(kind) {
-  try {
-    window.localStorage.setItem(`lp-arcade-onboarded-v1:${kind}`, "1");
-  } catch { /* storage denied: the card simply returns next session */ }
-}
-
 // Hint lines shrink to fit the panel instead of overflowing narrow screens.
-function drawFittedHint(ctx, value, x, y, maxWidth, size, color) {
-  let fitted = size;
-  ctx.save();
-  ctx.font = `700 ${fitted}px "Trebuchet MS", "Arial Rounded MT Bold", system-ui, sans-serif`;
-  while (fitted > 12 && ctx.measureText(value).width > maxWidth) {
-    fitted -= 1;
-    ctx.font = `700 ${fitted}px "Trebuchet MS", "Arial Rounded MT Bold", system-ui, sans-serif`;
-  }
-  ctx.restore();
-  text(ctx, value, x, y, fitted, color, "center", 700);
-}
-
-function drawOnboarding(ctx, state, config, theme, w, h) {
-  if (!state.onboarding) return;
-  ctx.save();
-  ctx.fillStyle = "rgba(2,5,16,.84)";
-  ctx.fillRect(0, 0, w, h);
-  const panelW = Math.min(w * 0.86, 600);
-  const panelH = Math.min(h * 0.66, 400);
-  const px = (w - panelW) / 2;
-  const py = (h - panelH) / 2;
-  psxPanel(ctx, px, py, panelW, panelH, "rgba(3,8,18,.94)", `${theme.accent}aa`, 24);
-  text(ctx, config.title, w / 2, py + panelH * 0.14, clamp(w * 0.05, 30, 52), theme.accent, "center", 900);
-  text(ctx, config.action, w / 2, py + panelH * 0.25, clamp(w * 0.026, 17, 24), "#fff", "center", 900);
-
-  // Picture-first rule: listen -> find the shown sound -> net the critter.
-  // The text remains for readers/translation, but is no longer the only way a
-  // pre-reader can understand the first-run card.
-  const iconY = py + panelH * 0.39;
-  const iconSize = clamp(panelH * 0.13, 42, 58);
-  const iconXs = [w / 2 - iconSize * 1.65, w / 2, w / 2 + iconSize * 1.65];
-  for (const iconX of iconXs) psxPanel(ctx, iconX - iconSize / 2, iconY - iconSize / 2, iconSize, iconSize, "rgba(255,255,255,.1)", `${theme.accent2}aa`, 9);
-  text(ctx, "♪", iconXs[0], iconY + 2, iconSize * 0.62, theme.accent2, "center", 900);
-  text(ctx, "sh", iconXs[1], iconY + 1, iconSize * 0.42, "#fff", "center", 900);
-  text(ctx, "◎", iconXs[2], iconY + 2, iconSize * 0.62, theme.accent, "center", 900);
-  text(ctx, "→", (iconXs[0] + iconXs[1]) / 2, iconY + 2, iconSize * 0.42, "#fff", "center", 900);
-  text(ctx, "→", (iconXs[1] + iconXs[2]) / 2, iconY + 2, iconSize * 0.42, "#fff", "center", 900);
-  const hints = config.onboardingHints || [];
-  const hintSize = clamp(w * 0.021, 14, 20);
-  const firstY = py + panelH * 0.57;
-  const gap = panelH * 0.09;
-  for (let i = 0; i < hints.length; i += 1) {
-    drawFittedHint(ctx, hints[i], w / 2, firstY + i * gap, panelW * 0.86, hintSize, "#eaf8ff");
-  }
-  text(ctx, "Tap to play · or press any key", w / 2, py + panelH * 0.88, clamp(w * 0.024, 16, 22), theme.accent2, "center", 900);
-  ctx.restore();
-}
 
 function plateText(ctx, value, x, y, maxWidth, maxSize, minSize = 24) {
   const label = String(value);
@@ -1319,7 +1255,7 @@ function startSoundSafariArcadeGame(mount, options) {
     progress: 0,
     paused: false,
     ended: false,
-    onboarding: !hasSeenOnboarding(options.kind),
+    onboarding: false,
     time: 0,
     pulse: 0,
     judgement: "",
@@ -1396,7 +1332,7 @@ function startSoundSafariArcadeGame(mount, options) {
     state.wordClearT = 0;
     state.pendingAdvance = false;
     state.waveSeed = state.stage * 9;
-    state.countdown = 3.0;
+    state.countdown = 0;
     setupTask();
     state.countdownTarget = countdownTarget();
     updateProgress();
@@ -1413,19 +1349,9 @@ function startSoundSafariArcadeGame(mount, options) {
       state.presentedTaskIds.add(state.currentTask.id);
       state.presentedUnits += taskUnits(state.currentTask);
     }
-    // Held while the first-run card is up; dismissOnboarding says it instead.
     if (!state.onboarding && soundAllowed()) speakWord(state.currentTask.item.word);
     state.waveSeed += 1;
     setupCritters();
-  }
-
-  // First-run intro card: dropping the flag lets the frozen countdown start.
-  // Independent of state.paused so the chrome pause and the card never fight.
-  function dismissOnboarding() {
-    if (!state.onboarding) return;
-    state.onboarding = false;
-    markOnboardingSeen(options.kind);
-    if (state.currentTask && soundAllowed()) speakWord(state.currentTask.item.word);
   }
 
   function setupCritters() {
@@ -1646,24 +1572,13 @@ function startSoundSafariArcadeGame(mount, options) {
   function onPointerDown(event) {
     const point = pointerPosition(event);
     state.pointer = point;
-    if (state.onboarding) {
-      dismissOnboarding();
-      return;
-    }
+
     captureAt(point.x, point.y);
   }
 
   function onKeyDown(event) {
     if (isInteractiveKeyTarget(event.target)) return;
-    // Only game activation keys dismiss the card. Tab and assistive-tech or
-    // browser shortcuts must continue to work while onboarding is visible.
-    if (state.onboarding) {
-      const activates = event.key === " " || event.key === "Enter" || event.key.startsWith("Arrow");
-      if (!activates) return;
-      event.preventDefault();
-      dismissOnboarding();
-      return;
-    }
+
     const move = 48;
     let handled = true;
     const horizontal = laneDirectionForKey(event.key);
@@ -1767,7 +1682,7 @@ function startSoundSafariArcadeGame(mount, options) {
     drawSafari(ctx, state, config, activeTheme, images, w, h);
     drawHud(ctx, state, config, activeTheme, w, h);
     drawCountdown(ctx, state, config, activeTheme, w, h);
-    drawOnboarding(ctx, state, config, activeTheme, w, h);
+
     ctx.restore();
   }
 

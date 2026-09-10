@@ -27,6 +27,10 @@ Live task state is read from Codex rather than copied here. Use
 and handoffs. A task that changes an authoritative rule must update the
 authoritative source and, when the choice is durable, record a linked decision.
 
+## Immediate activity access
+
+The product owner requires games, assessments, Cycles and phonics activities to accept input while instructions play, with optional replay and no mandatory onboarding or countdown overlays. The [game design bible](../design/GAME_DESIGN_BIBLE.md) and [Cycle Practice contract](../product/CYCLE_PRACTICE.md) carry this rule. Audio evidence records actual delivery even when the learner responds early.
+
 ## Current game-production direction
 
 - The improvement programme has integrated G01–G06, G08 and G10–G14. Rocket

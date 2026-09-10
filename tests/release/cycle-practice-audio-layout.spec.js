@@ -56,7 +56,7 @@ test("Cycle Practice warms the next activities and automatically speaks the inst
   await installAudioSpy(page);
   await page.goto("/preview/child-surfaces.html?surface=cycle-practice&cycle=cycle-1");
   await expect(page.locator('[data-cycle-id="cycle-1"]')).toBeVisible();
-  await page.getByRole("button", { name: "Start playing", exact: true }).click();
+  await expect(page.locator(".cycle-play-overlay")).toHaveCount(0);
   await expect(page.locator(".cycle-listen-button")).toHaveAttribute("data-audio-state", "ready");
   await expect(page.locator(".cycle-playground")).toHaveAttribute("data-mechanic-stage", "pictureSound");
   const resolved = resolveCyclePracticeAudio(plan[0]);
@@ -78,7 +78,7 @@ test("Cycle Practice uses large picture targets and an individual recorded-name 
   await installAudioSpy(page);
   await page.goto("/preview/child-surfaces.html?surface=cycle-practice&cycle=cycle-1");
 
-  await page.getByRole("button", { name: "Start playing", exact: true }).click();
+  await expect(page.locator(".cycle-play-overlay")).toHaveCount(0);
   await expect(page.locator(".cycle-listen-button")).toHaveAttribute("data-audio-state", "ready");
   const cards = page.locator(".cycle-answer--picture");
   await expect(cards).toHaveCount(plan[0].choices.length);

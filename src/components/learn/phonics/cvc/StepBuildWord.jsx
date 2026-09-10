@@ -100,7 +100,7 @@ const StepBuildWord = memo(function StepBuildWord({ family, onComplete }) {
     if (hasAdvancedRef.current) return;
     hasAdvancedRef.current = true;
     const records = [...recordsRef.current, {
-      ...responseRef.current, audioDelivery: deliveryRef.current,
+      ...responseRef.current, audioDelivery: ["pending", "playing"].includes(deliveryRef.current) ? "interrupted" : deliveryRef.current,
       supportUsed: ["scaffolded_construction", ...(wordIndex < 2 ? ["authored_ghost"] : []),
         ...(responseRef.current.mistakes ? ["correction"] : []),
         ...(deliveryRef.current !== "delivered" ? ["media_unavailable"] : [])]
@@ -220,7 +220,7 @@ const StepBuildWord = memo(function StepBuildWord({ family, onComplete }) {
               <p>The sound did not finish. Your word is still built.</p>
               <PhonicsButton onClick={() => { void runCompletionSequence(); }}>Retry sound</PhonicsButton>
             </>}
-            <PhonicsButton onClick={advanceWord} disabled={!completionReady}>
+            <PhonicsButton onClick={advanceWord}>
               {isLastWord ? "Continue" : "Next Word"}
             </PhonicsButton>
           </motion.div>

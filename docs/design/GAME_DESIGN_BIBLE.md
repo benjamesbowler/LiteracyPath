@@ -10,6 +10,10 @@ This document separates **research-backed requirements** from **LiteracyPath pro
 
 The product owner restored the continuous Arcade engines on 2026-09-10. Preserve each game's movement, aiming, catching, steering and real-time play. Fix learning validity and accessibility inside that gameplay; do not replace it with staged select/confirm rounds or a shared practice shell without an explicit request to change the game.
 
+## Immediate activity access
+
+Games, assessments, Cycle Practice and phonics activities accept input without compulsory instruction cards, demonstrations, narration completion or get-ready countdowns. Keep help and replay accessible without covering the playfield. A learner can begin while instructions play. Actual audio-delivery evidence remains truthful; do not claim an unheard target was delivered. Pause, save recovery and loading essential question media remain distinct from instruction gates.
+
 ## 1. The non-negotiable promise
 
 A LiteracyPath game must be a good game and a valid learning activity at the same time. Movement, collecting, speed or visual celebration are not evidence of literacy learning. The action that advances the game must require the child to perceive, recall, discriminate, build, read or apply the target knowledge.
@@ -60,7 +64,7 @@ If any link is missing, the activity is decoration around a quiz or movement aro
 
 ## 4. Goal, instruction and feedback
 
-- One primary instruction is visible and spoken before play begins.
+- One primary instruction is available as play begins. Narration runs alongside enabled controls; it never gates input.
 - Instruction text and audio must describe the exact current action. “Build the word” is not valid when the task is “Find /m/.”
 - A replay control remains visible during play. Audio is never the only carrier of essential information.
 - Prompts use a verb plus target: “Find /m/,” “Build cat,” “Choose the sentence that matches the picture.”

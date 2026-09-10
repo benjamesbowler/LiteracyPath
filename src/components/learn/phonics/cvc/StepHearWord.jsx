@@ -14,7 +14,7 @@ const StepHearWord = memo(function StepHearWord({ family, onComplete }) {
   const attemptsRef = useRef(0);
   const advancedRef = useRef(false);
   const soundOutRunRef = useRef(0);
-  const { playCue, stopCue, isPlaying } = useCvcSoundCue();
+  const { playCue, stopCue } = useCvcSoundCue();
   const currentWord = words[wordIndex];
   const isLastWord = wordIndex === words.length - 1;
 
@@ -46,12 +46,12 @@ const StepHearWord = memo(function StepHearWord({ family, onComplete }) {
   useEffect(() => { advancedRef.current = false; }, [wordIndex]);
 
   const handleNext = useCallback(() => {
-    if (advancedRef.current || !["delivered", "unavailable", "interrupted"].includes(delivery)) return;
+    if (advancedRef.current) return;
     advancedRef.current = true;
     soundOutRunRef.current += 1;
     stopCue();
     const records = [...recordsRef.current, {
-      audioDelivery: delivery, attempts: attemptsRef.current,
+      audioDelivery: ["pending", "playing"].includes(delivery) ? "interrupted" : delivery, attempts: attemptsRef.current,
       firstResponse: { word: currentWord.word, action: "hear_model" },
       supportUsed: delivery === "delivered" ? ["recorded_model"] : ["visual_continuation", "media_unavailable"]
     }];
@@ -110,11 +110,9 @@ const StepHearWord = memo(function StepHearWord({ family, onComplete }) {
         </button>
         {["unavailable", "interrupted"].includes(delivery) && <p role="status">The sound did not finish. Retry Audio, or continue with picture support.</p>}
         <AnimatePresence>
-          {["delivered", "unavailable", "interrupted"].includes(delivery) && !isPlaying && (
-            <motion.span initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
-              <PhonicsButton onClick={handleNext}>{delivery === "delivered" ? (isLastWord ? "Continue" : "Next Word") : "Continue with support"}</PhonicsButton>
-            </motion.span>
-          )}
+          <motion.span initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
+              <PhonicsButton onClick={handleNext}>{isLastWord ? "Continue" : "Next Word"}</PhonicsButton>
+          </motion.span>
         </AnimatePresence>
       </div>
     </motion.div>
