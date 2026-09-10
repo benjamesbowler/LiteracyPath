@@ -89,6 +89,8 @@ export default function SoundSeekersRoute({
     });
     const host = ownerDocument.createElement("div");
     host.setAttribute("data-sound-seekers-route-portal", "");
+    // Keep the isolated game above the underlying app's floating navigation.
+    Object.assign(host.style, { position: "fixed", inset: "0", zIndex: "1000" });
     body.append(host);
     body.style.setProperty("overflow", "hidden", "important");
 

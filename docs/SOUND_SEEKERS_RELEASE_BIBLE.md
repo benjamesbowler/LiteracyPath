@@ -337,3 +337,11 @@ security advisor reports no campaign-specific findings. This pure-function
 check does not establish an authenticated learner save round trip. Both SQL
 migrations passed 18 checks. Integration with main `3e4b1c70f` passed the
 production build and 69 route, controller, image and save-recovery checks.
+
+Production `1ead74fbf` reached READY on literacy.guide. All eight hero atlases
+and one recorded cue per world matched local SHA-256 bytes. The normal public
+try flow reached Sounds, the eight-Pal chooser, live movement, the first NPC
+encounter and its mission. This is public trial play, not an authenticated
+learner save check. Direct viewing exposed underlying floating Back navigation
+overlapping Map; the route portal now establishes its own fullscreen stacking
+layer above the inert app shell. Its route check, lint and rebuilt bundle pass.
