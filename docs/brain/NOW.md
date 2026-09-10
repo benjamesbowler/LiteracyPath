@@ -142,3 +142,7 @@ installed, reviewed, and trusted on 2026-08-03.
   notices for deliberately RPC-only tables and teacher-authorized
   `SECURITY DEFINER` entry points. No Student Sessions table was accidentally
   exposed to browser roles; advisor cleanup remains a separate workstream.
+
+## Arcade restoration
+
+- The product owner rejected the staged select/confirm Arcade rewrites. Rocket Run, Sound Racer, Word Bridge, Rhyme Pop, Sound Safari and Reel & Read use their pre-rewrite engines again; Sound Beat restores its original rhythm performance; shared result-save protection and music defaults remain current. Preserve real-time gameplay as required by the Game Design Bible.

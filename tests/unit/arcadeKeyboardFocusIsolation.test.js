@@ -71,6 +71,10 @@ test("SoundKeys ignores typing on controls and still accepts game-surface keys",
 
 const gameHandlerContracts = [
   ["LetterLeapGame.jsx", ["onKeyDown"]],
+  ["RocketRunGame.jsx", ["onKey", "onIntroKey"]],
+  ["RhymePopArcadeGame.jsx", ["onKeyDown"]],
+  ["SoundRacerGame.jsx", ["onKey", "onIntroKey"]],
+  ["SoundSafariArcadeGame.jsx", ["onKeyDown"]],
   ["SoundBeatGame.jsx", ["onKeyDown"]],
   ["ReelReadGame.jsx", ["onKeyDown"]],
   ["StarGalleryArcadeGame.jsx", ["onKeyDown", "onIntroKey"]],
@@ -82,53 +86,15 @@ const focusedMovementControlExceptions = new Map([
     "LetterLeapGame.jsx:onKeyDown",
     /if \(isInteractiveKeyTarget\(e\.target\) && !padWrap\.contains\(e\.target\)\) return;/
   ],
-
+  [
+    "RocketRunGame.jsx:onKey",
+    /const steeringControlOwnsFocus = event\.target\?\.matches\?\.\('\[data-rr="left-control"\],\[data-rr="right-control"\]'\);\s+if \(isInteractiveKeyTarget\(event\.target\) && !steeringControlOwnsFocus\) return;/
+  ],
+  [
+    "SoundRacerGame.jsx:onKey",
+    /const steeringControlOwnsFocus = event\.target\?\.matches\?\.\('\[data-sr="left-control"\],\[data-sr="right-control"\]'\);\s+if \(isInteractiveKeyTarget\(event\.target\) && !steeringControlOwnsFocus\) return;/
+  ]
 ]);
-
-test("Sound Safari engine scopes arrow keys to its own native choices and leaves activation native", async () => {
-  const source = await readFile(new URL('../../src/components/learn/games/games/soundSafariEngine.js', import.meta.url), 'utf8');
-  assert.doesNotMatch(source, /listen\((?:window|document),\s*['"]keydown['"]/);
-  const body = source.match(/listen\(root,\s*'keydown',\s*event\s*=>\s*\{([\s\S]*?)\n {2}\}\);/)?.[1];
-  assert.ok(body, 'the engine must install its handler on the game root');
-  let focused = 0, prevented = 0, active = true;
-  const buttons = [{ focus() { focused = 0; } }, { focus() { focused = 1; } }];
-  const document = { activeElement: buttons[0] }, host = {};
-  const handler = new Function('canChoose', 'el', 'document', 'cardKey', `return event => {${body}}`)(
-    () => active, () => ({ contains: node => buttons.includes(node), querySelectorAll: () => buttons }), document, ''
-  );
-  const key = (target, key, repeat = false) => handler({ target, key, repeat, preventDefault() { prevented++; } });
-  for (const value of ['ArrowRight', 'ArrowLeft', 'a', 'd', 'Enter', ' ']) key(host, value);
-  assert.equal(prevented, 0); assert.equal(focused, 0);
-  key(buttons[0], 'Enter'); key(buttons[0], ' ');
-  assert.equal(prevented, 0, 'native buttons own Enter and Space');
-  key(buttons[0], 'ArrowRight'); assert.equal(focused, 1); assert.equal(prevented, 1);
-  key(buttons[0], 'Enter', true); assert.equal(prevented, 2, 'held activation cannot answer twice');
-  active = false; focused = 0; key(buttons[0], 'ArrowRight'); assert.equal(focused, 0);
-});
-
-test("Rhyme Pop only moves focus between its own native balloons and preserves control activation", async () => {
-  const source = await readFile(new URL('../../src/components/learn/games/games/RhymePopArcadeGame.jsx', import.meta.url), 'utf8');
-  assert.doesNotMatch(source, /listen\((?:window|document), 'keydown'/);
-  const body = source.match(/listen\(root, 'keydown', event => \{([\s\S]*?)\n {2}\}\);/)[1];
-  const fieldTargets = [{ focus() { focused = 0; } }, { focus() { focused = 1; } }];
-  let focused = 0, prevented = 0;
-  const hostControl = {};
-  const document = { activeElement: fieldTargets[0] };
-  const handler = new Function('canChoose', 'el', 'document', 'cardKey', `return event => {${body}}`)(
-    () => true,
-    () => ({ contains: target => fieldTargets.includes(target), querySelectorAll: () => fieldTargets }),
-    document, null
-  );
-  const key = (target, key, repeat = false) => handler({ target, key, repeat, preventDefault() { prevented++; } });
-  for (const value of ['ArrowRight', 'ArrowLeft', 'a', 'd', 'Enter', ' ']) key(hostControl, value);
-  assert.equal(prevented, 0); assert.equal(focused, 0);
-  key(fieldTargets[0], 'Enter'); key(fieldTargets[0], ' ');
-  assert.equal(prevented, 0, 'native buttons own Enter and Space activation');
-  key(fieldTargets[0], 'ArrowRight');
-  assert.equal(prevented, 1); assert.equal(focused, 1);
-  key(fieldTargets[0], 'Enter', true);
-  assert.equal(prevented, 2, 'held activation cannot repeatedly answer');
-});
 
 for (const [fileName, handlers] of gameHandlerContracts) {
   test(`${fileName} leaves unrelated focused controls to native keyboard behaviour`, async () => {
@@ -179,22 +145,28 @@ test("held movement keys still release after focus moves to a control", async ()
   assert.doesNotMatch(groveKeyUp, /preventDefault|isInteractiveKeyTarget/);
 });
 
-test("Rocket release controls preserve their pointer owner through unrelated cancellation", async () => {
-  const source = await readFile(new URL('../../src/components/learn/games/games/RocketRunGame.jsx', import.meta.url), 'utf8');
-  const attach = new Function(`return (${readFunction(source, 'attachRelease')})`)();
-  const button = Object.assign(new EventTarget(), { disabled: false, dataset: {}, setPointerCapture() {},
-    getBoundingClientRect: () => ({ left: 0, top: 0, right: 100, bottom: 60 }) });
-  const dispatch = (type, pointerId) => button.dispatchEvent(Object.assign(new Event(type), { pointerId, button: 0, clientX: 50, clientY: 30 }));
-  let calls = 0, epoch = 0;
-  const cleanup = attach(button, () => calls++, () => epoch);
-  dispatch('pointerdown', 1); dispatch('pointerdown', 2); dispatch('pointercancel', 2); dispatch('pointerup', 1);
-  assert.equal(calls, 1);
-  dispatch('pointerdown', 3); dispatch('lostpointercapture', 3); dispatch('pointerup', 3);
-  assert.equal(calls, 1);
-  dispatch('pointerdown', 4); epoch++; dispatch('pointerup', 4);
-  assert.equal(calls, 1);
-  cleanup(); dispatch('pointerdown', 5); dispatch('pointerup', 5);
-  assert.equal(calls, 1);
+test("lane press controls reject a second pointer before it can replace the repeat owner", async () => {
+  const contracts = [
+    ["RocketRunGame.jsx", "attachRocketPressControl"],
+    ["SoundRacerGame.jsx", "attachSoundRacerPressControl"]
+  ];
+
+  for (const [fileName, helperName] of contracts) {
+    const source = await readFile(
+      new URL(`../../src/components/learn/games/games/${fileName}`, import.meta.url),
+      "utf8"
+    );
+    const helper = readFunction(source, helperName);
+    const ownershipGuard = helper.indexOf("if (pointerId != null) return;");
+    const pointerAssignment = helper.indexOf("pointerId = event.pointerId;");
+    assert.ok(ownershipGuard >= 0, `${helperName} should reject an extra pointer`);
+    assert.ok(
+      ownershipGuard < pointerAssignment,
+      `${helperName} must reject an extra pointer before replacing the repeat owner`
+    );
+    assert.match(helper, /event\.pointerId !== pointerId\) return;/);
+    assert.match(helper, /element\.addEventListener\("lostpointercapture", release\)/);
+  }
 });
 
 test("SoundKeys provider keeps the interactive-target guard beside repeat filtering", async () => {
@@ -203,16 +175,4 @@ test("SoundKeys provider keeps the interactive-target guard beside repeat filter
     "utf8"
   );
   assert.match(source, /if \(event\.repeat \|\| isInteractiveKeyTarget\(event\.target\)\) return;/);
-});
-
- test("Sound Racer's mission isolates native focus and commits only explicit nonrepeat action", async () => {
-  const source = await readFile(new URL("../../src/features/soundRacer/RacerSession.jsx", import.meta.url), "utf8");
-  assert.match(source, /const nativeTarget = isInteractiveKeyTarget\(event\.target\)/);
-  assert.match(source, /closest\?\.\('\[data-sr-driving-control\]'\)/);
-  assert.match(source, /if \(nativeTarget && !steerControl\) return;/);
-  assert.match(source, /else if \(!nativeTarget && \[' ', 'Enter'\]\.includes\(event\.key\)\)/);
-  assert.match(source, /if \(!event\.repeat\) commit\(\)/);
-  assert.match(source, /window\.removeEventListener\('keydown', key\)/);
-  assert.match(source, /onClick=\{\(\) => selectLane/);
-  assert.doesNotMatch(source, /setInterval|setPointerCapture/);
 });

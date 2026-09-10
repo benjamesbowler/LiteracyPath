@@ -228,3 +228,7 @@ Cycle Practice now owns its pictured six-mechanic curriculum and renderer in
 controls and Cycle-only Adventure CSS are removed. Shared Adventure code remains
 active for Adventure Map. The current contract is
 [Cycle Practice](product/CYCLE_PRACTICE.md).
+
+## Arcade engine restoration
+
+The original Arcade engines are the active runtime. Superseded select/confirm engine modules and their exclusive tests were removed; Git retains recovery history. Shared result-save protection, current classroom code and music preferences are preserved. The Game Design Bible requires gameplay preservation.

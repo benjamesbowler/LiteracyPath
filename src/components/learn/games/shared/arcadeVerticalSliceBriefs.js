@@ -1,6 +1,4 @@
 import { GAME_VERTICAL_SLICE_BRIEF_SCHEMA_VERSION } from "./premiumGameStandard.js";
-import { ROCKET_RUN_VERTICAL_SLICE_BRIEF } from "../games/rocketRunContract.js";
-import { RHYME_POP_VERTICAL_SLICE_BRIEF } from "../games/rhymePopContract.js";
 
 function deepFreeze(value) {
   if (!value || typeof value !== "object" || Object.isFrozen(value)) return value;
@@ -14,8 +12,6 @@ function deepFreeze(value) {
  * Add a brief here before substantially changing another flagship game.
  */
 export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
-  "rhyme-pop": RHYME_POP_VERTICAL_SLICE_BRIEF,
-  "rocket-run": ROCKET_RUN_VERTICAL_SLICE_BRIEF,
   "letter-leap": {
     schemaVersion: GAME_VERTICAL_SLICE_BRIEF_SCHEMA_VERSION,
     gameId: "letter-leap",
@@ -190,70 +186,70 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
     schemaVersion: GAME_VERTICAL_SLICE_BRIEF_SCHEMA_VERSION,
     gameId: "word-bridge",
     version: "2.0",
-    audience: "Early readers building written graphemes and ordered sentence parts from a model or a recorded cue.",
+    audience: "Early readers practising supported grapheme matching, with ordered sentence-part bridges for developing readers.",
     experiencePromise: "A tactile bridge-building journey where every useful placement completes the language construction in view.",
     learning: {
-      targetConstruct: "Reconstruct written graphemes or ordered sentence parts with recorded cue and model support kept explicit.",
-      childGoal: "Choose a piece, then its numbered bridge space.",
-      integratedAction: "Placing a compatible piece in its explicit socket extends the persistent construction.",
-      nonTargetDemands: "Focus navigation, scrolling and decorative carry/crossing motion.",
+      targetConstruct: "Match visible graphemes or words and reconstruct a modelled target in sequence.",
+      childGoal: "Carry the next matching tile to the glowing bridge slot.",
+      integratedAction: "Placing the required tile fills the next persistent bridge slot and extends the route.",
+      nonTargetDemands: "Horizontal movement, carrying, dropping and route navigation.",
       evidenceEvent: "Only a correctly matched and placed language part advances supported-practice progress; movement and collection do not.",
       movementCreatesEvidence: false
     },
     loop: {
       onboard: "Pause behind one goal line, the target construction and a visible keyboard/touch control map.",
-      perceive: "Keep completed parts, numbered sockets and naturally sized pieces readable; compact construction scrolls within the game.",
-      act: "Select a native piece button, then activate its explicit bridge socket.",
+      perceive: "Keep completed parts, the next empty slot and every available tile readable together.",
+      act: "Move to a tile, pick it up and place it in the next bridge slot.",
       feedback: "Lock a correct tile into the bridge; return a distractor with a specific contrast cue and no lost progress.",
       retry: "Leave the clue and required slot visible, return the tile to play and permit an immediate new choice.",
       complete: "Cross the completed bridge, show constructions built and continue or return through Arcade chrome."
     },
     prompt: {
-      visible: "Worked models remain visible; fresh recorded stages conceal the solution until Show model, mute or failed playback.",
+      visible: "The full word or sentence goal and ordered bridge slots remain visible during play.",
       spoken: "The current target is spoken from production audio whenever that exact recording exists.",
       replay: "A 56-pixel replay control repeats the current available production cue without browser speech."
     },
     controls: {
-      keyboard: ["Tab or Left/Right moves focus", "Enter or Space selects a piece or socket"],
-      touch: ["Release a tap on a piece, then its bridge space", "Scroll compact construction to keep full words readable"],
+      keyboard: ["Left/Right or A/D moves", "Space, Enter, E or Up picks up and places"],
+      touch: ["Hold left/right to move", "Tap the named action control to pick up or place"],
       minimumTargetCssPixels: 56,
       pointerReleaseEvents: ["pointerup", "pointercancel", "lostpointercapture"]
     },
     difficulty: {
       curriculumBeforePressure: true,
-      ladder: "Ten curriculum-led targets per difficulty progress from written graphemes to longer word and sentence constructions; no route deadline grades learning."
+      ladder: "Ten curriculum-led levels move from ordered graphemes to longer word and sentence constructions before route pressure changes."
     },
     gameFeel: {
-      movement: "Carry, snap and crossing presentation follows measured native control anchors; input dispatch retains exact IDs.",
-      forgiveness: ["Distractors return to play", "Correct placements persist", "Numbered sockets retain their identity", "No movement error removes learning evidence"],
-      camera: "Separate cue, piece bank, construction and arrival regions use responsive layout and contained vertical scrolling.",
+      movement: "Responsive side movement, readable pickup range and immediate bridge-slot response.",
+      forgiveness: ["Distractors return to play", "Correct placements persist", "The next slot remains highlighted", "No movement error removes learning evidence"],
+      camera: "A bounded side camera keeps the builder, tile bank and next bridge slot in view.",
       successFeedback: "The tile seats into the bridge, the slot changes shape and a brief chime confirms the completed language part.",
       errorFeedback: "The selected tile is named, the needed contrast remains visible and the tile returns for another attempt."
     },
     world: {
       artDirection: "Authored Meadow, Dino Valley and Moonwood illustrated routes with tactile tiles and layered atmospheric depth.",
-      route: "Piece and socket DOM rectangles supply the same anchors used by the helper and crossing pals.",
+      route: "The walkable bank, tile positions, bridge slots and crossing route share one canvas coordinate system.",
       character: "The current canonical helper and Pal art remain recognisable at play scale.",
-      assetFallback: "Missing decorative images leave native controls, construction and an owned vector recovery helper usable."
+      assetFallback: "Missing decorative images leave a complete canvas-rendered bank, bridge, tile set and fallback helper."
     },
     state: {
-      pauseResume: "Pause invalidates held input and freezes travel, stopping cue and effect media; resume retains the construction.",
+      pauseResume: "Pause freezes movement and feedback; resume resets frame timing before play continues.",
       checkpoint: "The current curriculum level is saved through the existing Arcade checkpoint callback.",
-      completion: "Final accepted placement fixes one score/star receipt with immutable first responses and assisted retries; crossing and Finish do not resave."
+      completion: "Existing score, stars, completed-construction count and resumable level checkpoint remain the only progress state."
     },
     accessibility: {
       reducedMotion: "Decorative bobbing, bursts and camera intensity are reduced while tile and slot feedback stays immediate.",
       soundOff: "The complete target, current slot and feedback remain printed when audio is unavailable or disabled.",
       nonColourCue: "Required and completed slots use position, outline, label and shape in addition to colour.",
-      semanticFallback: "Native named buttons, polite feedback and Arcade mission help expose the goal and controls directly."
+      semanticFallback: "Named buttons, focused onboarding and Arcade mission help expose the goal and controls outside the canvas."
     },
     performance: {
-      lowPowerFallback: "Native controls remain usable without an animation surface; reduced motion shortens travel and removes secondary animation.",
-      inputSafety: "Stable occurrence/slot IDs dispatch released pointer or keyboard input; cancel, lost capture and pause epochs cannot commit.",
+      lowPowerFallback: "A single bounded Canvas2D surface, capped device pixel ratio and limited particles preserve input response.",
+      inputSafety: "Frame delta is capped and every held movement pointer releases on up, cancel and lost capture.",
       assetFailure: "Bridge geometry, target tiles and controls remain playable without decorative images."
     },
     privacy: {
-      dataWritten: ["Existing score", "Existing stars", "Completed-construction count", "Existing resumable level checkpoint", "Existing practice record with first responses and assisted retries"],
+      dataWritten: ["Existing score", "Existing stars", "Completed-construction count", "Existing resumable level checkpoint"],
       network: ["Existing app progress sync only"],
       newIdentifier: false,
       newExternalService: false
@@ -272,43 +268,43 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
     gameId: "sound-beat",
     version: "2.0",
     audience: "Early readers identifying and ordering taught phoneme, syllable and word units.",
-    experiencePromise: "A welcoming band performance where each deliberate literacy choice builds the target and the beat adds expression, not pressure.",
+    experiencePromise: "Play a musical rhythm game by tapping arriving sound notes and blending each completed word.",
     learning: {
-      targetConstruct: "Identify and order taught phoneme, syllable or word units to reconstruct a word or sentence.",
-      childGoal: "Choose the next matching pad, then choose GO to blend or read the completed target.",
-      integratedAction: "Selecting the correct unit from fresh sound-distinct choices fills the next ordered slot; equivalent taught spellings never compete as right and wrong, and GO models the complete target.",
+      targetConstruct: "Supported sound-sequence rehearsal during a rhythm performance; rhythm score is not independent literacy evidence.",
+      childGoal: "Tap the sounds on the beat, then tap GO to blend the word.",
+      integratedAction: "Each timed tap plays the next authored sound; completing the sequence models the whole word.",
       nonTargetDemands: "Following musical pulse, watching stage effects and navigating equivalent pad positions.",
-      evidenceEvent: "Only a correct unit choice advances the ordered literacy sequence; beat timing never creates or removes evidence.",
+      evidenceEvent: "Completed performances and rhythm scores record practice, not independent sound identification or mastery.",
       movementCreatesEvidence: false
     },
     loop: {
-      onboard: "Freeze the stage behind one goal line, the printed target, ordered slots and selectable pad controls.",
-      perceive: "With sound on, keep the masked target, completed sequence, unknown next slot and fresh choice pads visible; with sound off, label and show a model-supported target.",
-      act: "Tap a pad or navigate to it and press the primary action, then activate GO after the ordered sequence.",
-      feedback: "Fill a correct unit immediately; name a wrong choice and required contrast without changing the timing rules.",
-      retry: "Keep the same fresh choice set available after an error and replay the current production cue.",
+      onboard: "Show the tap-on-the-beat instruction over the paused stage.",
+      perceive: "Watch the next authored sound note approach the hit line.",
+      act: "Tap the stage or press Space as the sound reaches the line.",
+      feedback: "Show Perfect, Great or Good timing and play the accepted sound.",
+      retry: "Repeat a missed word with slower timing and a wider hit window.",
       complete: "Blend the completed word, celebrate the performance and continue or return through Arcade chrome."
     },
     prompt: {
-      visible: "With sound on, completed units are unmasked and each unreached unit uses one fixed marker so label length cannot leak the choice. Sound off is explicitly labelled Match the model and prints the target for supported reconstruction.",
+      visible: "The authored word and arriving sound notes remain visible.",
       spoken: "Approved production recordings model the target phoneme, whole word or current sentence word.",
       replay: "The 56-pixel replay control repeats the current approved cue without browser speech."
     },
     controls: {
-      keyboard: ["Left/Right selects a pad", "Space, Enter or Up activates it", "Number keys 1-4 choose directly"],
-      touch: ["Tap and release on the chosen pad", "Drag away or cancel to abort the choice"],
+      keyboard: ["Space, Enter or Up taps the arriving note"],
+      touch: ["Tap the full stage as the note reaches the line"],
       minimumTargetCssPixels: 56,
       pointerReleaseEvents: ["pointerup", "pointercancel", "lostpointercapture"]
     },
     difficulty: {
       curriculumBeforePressure: true,
-      ladder: "Tracks move from phoneme choices to syllable and sentence-word ordering before musical density changes; timing never changes correctness."
+      ladder: "Words progress to syllables and sentence-word sequences across ten tracks, with forgiving rhythm windows."
     },
     gameFeel: {
-      movement: "Four equivalent pads support direct touch plus bounded keyboard selection while the stage responds to confirmed choices.",
-      forgiveness: ["Late correct choices remain valid", "Wrong choices stay available", "The ordered strip never clears on timing", "GO waits for the completed sequence"],
+      movement: "Notes travel toward the hit line while the band and stage respond to taps.",
+      forgiveness: ["Early taps give a Wait cue", "Repeated misses widen the timing window", "Repeated misses retain the current note", "The final GO waits for the learner"],
       camera: "A fixed performance-stage frame keeps the target, choices, ordered slots and performers visible.",
-      successFeedback: "The selected unit locks into the sequence, the band responds and an on-beat choice adds optional flourish.",
+      successFeedback: "A timed tap lights the stage and plays the next sound; GO plays the whole target.",
       errorFeedback: "A wrong pad names the selected and required units, replays the cue and leaves the complete choice set available."
     },
     world: {
@@ -324,13 +320,13 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
     },
     accessibility: {
       reducedMotion: "Camera pulse, flashes and particles are reduced while phoneme state and action feedback remain clear.",
-      soundOff: "A clearly labelled Match the model mode prints the complete target, choices and blend action. It preserves playability as supported reconstruction and is not described as independent listening evidence.",
+      soundOff: "The printed target and moving sound labels preserve rhythm play with sound off; performance is not independent listening evidence.",
       nonColourCue: "Current and completed sounds use position, outline, labels and icons in addition to stage colour.",
       semanticFallback: "The named action target, focused onboarding and Arcade mission help expose the complete loop outside canvas art."
     },
     performance: {
       lowPowerFallback: "A single bounded Canvas2D surface, capped pixel ratio and reduced stage effects preserve tap response.",
-      inputSafety: "Keyboard commits one selected pad; pointer commits on release and clears on cancel or lost capture; frame timing never determines correctness.",
+      inputSafety: "A discrete tap or keyboard action strikes the note; a short input lock rejects jittery double taps. No held pointer action can remain stuck.",
       assetFailure: "The sound sequence and playable action remain available when decorative stage artwork fails."
     },
     privacy: {
@@ -340,7 +336,7 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
       newExternalService: false
     },
     validation: {
-      unit: ["tests/unit/soundBeatTracks.test.js", "tests/unit/soundBeatLiteracyTiming.test.js", "tests/unit/premiumGameStandard.test.js"],
+      unit: ["tests/unit/soundBeatTracks.test.js", "tests/unit/premiumGameStandard.test.js"],
       browser: ["tests/release/sound-beat-replay.spec.js", "tests/release/arcade-ipad-controls.spec.js", "tests/release/student-activity-viewport.spec.js"],
       physicalDevice: {
         status: "unknown",
@@ -352,67 +348,67 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
     schemaVersion: GAME_VERTICAL_SLICE_BRIEF_SCHEMA_VERSION,
     gameId: "sound-racer",
     version: "2.0",
-    audience: "Early readers comparing the beginning sounds of taught printed words.",
-    experiencePromise: "Drive a Meadow Pals rally through readable road forks; each deliberate sound match opens the next route toward finish bunting.",
+    audience: "Early readers discriminating whether printed and spoken words begin with the current target sound.",
+    experiencePromise: "A forgiving three-lane sound race where every deliberate word choice teaches and missed targets return.",
     learning: {
-      targetConstruct: "Identify which of three taught printed words begins with the current shown grapheme and recorded phoneme.",
-      childGoal: "Choose the matching road sign, then press Drive through to open that route.",
-      integratedAction: "Lane selection aims the car; only an explicit Drive-through commitment submits the selected word at the held fork.",
-      nonTargetDemands: "Optional lane steering, boost, route scenery and companion vehicles provide movement without determining the answer.",
-      evidenceEvent: "A seeded round accepts one immutable first response with cue-delivery and support facts; later correct retries are supported recovery. Movement, time, collisions and route animation never create reading evidence.",
+      targetConstruct: "Decide whether a word begins with the shown target grapheme and phoneme.",
+      childGoal: "Steer through words that start with the target sound and avoid other gates.",
+      integratedAction: "Crossing a word gate is the onset decision; correctly matched words advance the target count.",
+      nonTargetDemands: "Lane steering, route scanning, scenery obstacles and vehicle control.",
+      evidenceEvent: "Only caught correct and incorrect word gates affect literacy evidence; missed targets and obstacles remain race events.",
       movementCreatesEvidence: false
     },
     loop: {
-      onboard: "Show the sound, one recorded example and the select-then-commit controls before an explicit Start button releases the car.",
-      perceive: "Approach stops at a held fork with three stable equivalent HTML word signs, the current sound and a visible selected lane.",
-      act: "Select a sign by touch, pointer or arrows/A/D, then use the separate Drive-through action to commit.",
-      feedback: "A correct committed word opens its route; a wrong commitment names that word's actual onset while retaining the same fork.",
-      retry: "Keep the original first response and target, show specific contrast feedback, then allow a supported retry without a deadline.",
-      complete: "Settle beneath the finish bunting; distinguish first-response results from supported recovery and provide next track, replay and exit."
+      onboard: "Freeze the race behind the current target, one recorded example and the complete steer map.",
+      perceive: "Keep the target card visible while spaced word gates approach in readable lanes.",
+      act: "Steer through a matching word gate or avoid a non-matching gate.",
+      feedback: "Name why a caught word matches or does not match the current onset.",
+      retry: "Queue every missed correct word later in the track with increased lane support and no evidence penalty.",
+      complete: "Clear the required sound matches, show literacy and race results separately and continue or return through Arcade chrome."
     },
     prompt: {
-      visible: "The shown target sound, three real-text word signs, selected-lane label and mission progress remain visible in portrait and landscape.",
-      spoken: "Replay the exact current approved target cue through one owner-bound audio request; record delivered, interrupted or unavailable separately from task completion.",
-      replay: "The 56-pixel Hear sound control retries the current cue. Missing or interrupted audio is visible and permits explicitly supported text-based continuation."
+      visible: "The target grapheme, match instruction and correct-word count remain visible throughout the race.",
+      spoken: "The countdown plays the approved production target phoneme, including current digraph targets.",
+      replay: "A 56-pixel Hear sound control repeats the current production target cue during play."
     },
     controls: {
-      keyboard: ["Left/Right or A/D selects a lane", "Space or Enter commits when the game surface owns focus", "Focused native buttons retain their normal keyboard behavior"],
-      touch: ["Tap a word sign to select its lane", "Tap Drive through to commit the selected word", "Tap Hear sound to replay the current cue"],
+      keyboard: ["Left/Right or A/D steers", "Tab and Enter reach the Hear sound control"],
+      touch: ["Tap a side or swipe to steer", "Tap Hear sound to replay the target"],
       minimumTargetCssPixels: 56,
       pointerReleaseEvents: ["pointerup", "pointercancel", "lostpointercapture"]
     },
     difficulty: {
       curriculumBeforePressure: true,
-      ladder: "Preserve ten curriculum-track checkpoints and each buildTrack target count. Taught vocabulary and onset complexity change before decorative route intensity; forks always wait for a deliberate answer."
+      ladder: "Ten tracks change onset complexity and vocabulary before speed or route pressure increases."
     },
     gameFeel: {
-      movement: "Fixed-step acceleration follows a gently curving analytic route; wheels rotate with distance, front wheels steer and damped body lean settles at the held fork.",
-      forgiveness: ["The decision zone waits without a timeout", "Wrong choices retain the same fork", "Supported retries preserve the original response", "Optional boost and companions never grade literacy"],
-      camera: "A damped chase camera shares the road's centerline and lane coordinates; its reading plane keeps all three quiet word signs legible.",
-      successFeedback: "The chosen route opens visibly, its word and matching onset are named and the car drives through before the next fork.",
-      errorFeedback: "Name the chosen word's actual onset, retain the target and choices, and explicitly invite a supported retry."
+      movement: "Immediate three-lane steering, bounded boost feedback and spaced gates preserve readable decisions.",
+      forgiveness: ["Missed targets return", "Repeated misses gain a lane callout", "Obstacles do not lower literacy stars", "The target cue remains replayable"],
+      camera: "A stable chase camera keeps all three lanes, approaching labels and the current route visible.",
+      successFeedback: "The caught word and its matching onset appear in a high-contrast banner with chime, speech and a bounded burst.",
+      errorFeedback: "A wrong caught word is named with its actual onset while the target stays visible."
     },
     world: {
-      artDirection: "One warm low-poly Meadow rally with consistent authored kit, navy HUD, cream signs, green verges, slate road, teal vehicle and amber route accents; existing world palettes vary coherently.",
-      route: "Road mesh, fork anchors, vehicle and chase camera use one analytic centerline/lane coordinate system through village start, bridge or courtyard waypoint and finish bunting.",
-      character: "An owned KayKit rounded hatchback with readable wheels and glass carries a canonical Muddy badge; sedan companions animate the world without blocking answers.",
-      assetFallback: "Missing models, WebGL failure or context loss selects a complete semantic DOM rally board with the same mission, choices, feedback and completion; no primitive substitute hero is claimed as final 3D art."
+      artDirection: "Authored Meadow, Dino Valley and Moonwood racing circuits with coherent low-poly scenery, lighting and atmosphere.",
+      route: "Track, collision lanes, gate centres, ship route and camera use the same three-lane coordinate system.",
+      character: "The current player vehicle remains distinctive and readable against every world palette.",
+      assetFallback: "Procedural geometry, labels, track and complete low-tier scenery remain playable without decorative assets."
     },
     state: {
-      pauseResume: "Pause, hidden state and exit cancel held input and owned audio. Resume resets frame timing; hidden time cannot move the car or submit a word.",
-      checkpoint: "Save the current curriculum track through the existing Arcade checkpoint callback; seeded mission, round and token IDs reject stale or duplicate intents.",
-      completion: "Preserve immutable first responses and support facts within the mission. Existing score, stars, completed-word count and track checkpoint remain the only persisted progress fields; completion fires once."
+      pauseResume: "Pause freezes route and animation time; resume resets the frame clock without advancing a gate.",
+      checkpoint: "The current curriculum track is saved through the existing Arcade checkpoint callback.",
+      completion: "Existing score, stars, completed-word count and resumable track checkpoint remain the only progress state."
     },
     accessibility: {
-      reducedMotion: "Reduce travel intensity, camera motion and effects while keeping the held fork, deliberate commitment and feedback unchanged.",
-      soundOff: "Label text-supported play explicitly; keep the target grapheme, word signs and feedback visible without claiming independent listening evidence.",
-      nonColourCue: "Selection uses outline, position and text; correct and wrong feedback name the word and onset rather than relying on colour.",
-      semanticFallback: "A complete DOM rally board runs the identical controller through onboarding, held forks, retry, checkpoint, finish, replay and exit when 3D is unavailable."
+      reducedMotion: "Optical flow, shake and bursts are reduced while steering, gate labels and feedback remain immediate.",
+      soundOff: "The target grapheme, word labels, match count and specific feedback remain printed.",
+      nonColourCue: "Target, shield, correct feedback and wrong feedback use words, symbols, position and shape as well as colour.",
+      semanticFallback: "Named steer and replay buttons, focused onboarding and Arcade mission help expose the goal outside WebGL."
     },
     performance: {
-      lowPowerFallback: "Shared Three quality tiers and the existing measured frame-budget policy reduce effects and shadows while retaining the authored hero; sustained low-tier stalls enter the same complete semantic rally.",
-      inputSafety: "Fixed-step simulation bounds stalls; typed select and commit intents share keyboard/touch rules and every held pointer releases on up, cancel, lost capture, pause and exit.",
-      assetFailure: "Bounded asset loading and context-loss recovery retain the current mission and switch to the complete DOM rally board without losing first responses or creating extra commits."
+      lowPowerFallback: "The shared Three.js quality tier caps pixel ratio and removes nonessential shadows and particle density first.",
+      inputSafety: "Steer zones, swipes and keyboard share one lane action and every pointer path has up, cancel and lost-capture handling.",
+      assetFailure: "The procedural ship, track, gates and labels remain a complete playable race if decorative assets fail."
     },
     privacy: {
       dataWritten: ["Existing score", "Existing stars", "Completed-word count", "Existing resumable track checkpoint"],
@@ -421,8 +417,8 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
       newExternalService: false
     },
     validation: {
-      unit: ["tests/unit/soundRacerTracks.test.js", "tests/unit/soundRacerMission.test.js", "tests/unit/soundRacerRoute.test.js", "tests/unit/soundRacerSimulation.test.js", "tests/unit/soundRacerAudio.test.js", "tests/unit/soundRacerSceneKit.test.js", "tests/unit/soundRacerPerformance.test.js", "tests/unit/premiumGameStandard.test.js"],
-      browser: ["tests/release/sound-racer-rally.spec.js", "tests/release/sound-racer-lifecycle.spec.js", "tests/release/sound-racer-render-recovery.spec.js", "tests/release/sound-racer-tutorial.spec.js", "tests/release/arcade-ipad-controls.spec.js", "tests/release/student-activity-viewport.spec.js"],
+      unit: ["tests/unit/soundRacerTracks.test.js", "tests/unit/premiumGameStandard.test.js"],
+      browser: ["tests/release/sound-racer-tutorial.spec.js", "tests/release/arcade-ipad-controls.spec.js", "tests/release/student-activity-viewport.spec.js"],
       physicalDevice: {
         status: "unknown",
         note: "A real supported iPad playtest is still required; browser emulation is not recorded as a hardware pass."

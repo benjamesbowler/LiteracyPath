@@ -88,51 +88,49 @@ test("gold voice policy stays recorded-only across shared phonics and login audi
   }
 });
 
-test("Sound Racer keeps one-shot completion, owned rendering, audio and reduced-motion recovery", async () => {
-  const racer = await source("src/features/soundRacer/RacerSession.jsx");
-  const scene = await source("src/features/soundRacer/scene.js");
-  const fallback = await source("src/features/soundRacer/RacerFallback.jsx");
-  assert.match(racer, /current\.phase === 'finished' && !finished\.current/);
-  assert.match(racer, /finished\.current = true/);
-  assert.match(racer, /cancelAnimationFrame\(frame\)/);
-  assert.match(racer, /abort\.abort\(\); owner\?\.dispose\(\)/);
-  assert.match(scene, /disposeRenderer\(renderer, \{ forceContextLoss: true \}\)/);
-  assert.match(scene, /disposeOwnedModelInstance/);
-  assert.match(racer, /query\.addEventListener\('change', change\)/);
-  assert.match(racer, /query\.removeEventListener\('change', change\)/);
-  assert.match(fallback, /cameraDistance = reducedMotion/);
-  assert.match(racer, /playRacerTarget\(mission\.target/);
-  assert.match(racer, /const exampleWord = mission\.exampleWord/);
-  assert.match(racer, /role="region" aria-label="Sound example"/);
-  assert.match(racer, /role="region" aria-label="How to steer"/);
-  assert.match(racer, /playRacerExample\(exampleWord/);
-  assert.match(racer, /isCurrent: \(\) => alive\.current && sound\.current/);
+test("Sound Racer retains its one-shot, cleanup, cache, static-overlay, and reduced-motion guards", async () => {
+  const racer = await source("src/components/learn/games/games/SoundRacerGame.jsx");
+  assert.match(racer, /if \(completionSent\) return;/);
+  assert.match(racer, /doneButton\.disabled = true/);
+  assert.match(racer, /registerCleanup: cleanup => startupCleanups\.push\(cleanup\)/);
+  assert.match(racer, /disposeRenderer\(renderer, \{ forceContextLoss: true \}\)/);
+  assert.match(racer, /textureCanvasCache = new Map\(\)/);
+  assert.match(racer, /prewarmMapTextures\(levelIdx \+ 1\)/);
+  assert.match(racer, /if \(!pausedFrameRendered\)/);
+  assert.match(racer, /playerZ \+= speed \* dt \* \(reduceMotion \? 0\.55 : 1\)/);
+  assert.match(racer, /const opticalFlowScale = reduceMotion \? 0\.45 : 1/);
+  assert.match(racer, /if \(!activates\) return;[\s\S]*event\.preventDefault\(\)/);
+  assert.match(racer, /getLedaInstructionAudioPath\("Great job"\)/);
+  assert.match(racer, /buildSoundRacerTutorial\(track, \{ hasRecordedAudio: hasRecordedSpeech \}\)/);
+  assert.match(racer, /data-sr="tutorial-phonics" aria-label="Sound example"/);
+  assert.match(racer, /data-sr="tutorial-motor" aria-label="How to steer"/);
+  assert.match(racer, /data-sr="intro-hear"/);
+  assert.match(racer, /speakPhoneme\(tutorial\.target\)[\s\S]*speakWord\(tutorial\.exampleWord\)/);
   assert.doesNotMatch(racer, />S<\/span>[\s\S]*>sun<\/span>/);
 });
 
-test("Sound Safari removes nonessential capture travel on live OS motion changes", async () => {
-  const safari = await source("src/components/learn/games/games/soundSafariEngine.js");
-  const css = await source("src/components/learn/games/games/SoundSafariArcadeGame.css");
-  assert.match(safari, /matchMedia\('\(prefers-reduced-motion: reduce\)'\)/);
-  assert.match(safari, /listen\(motion,'change',.*reduced=motion\.matches; if \(reduced\) clearFlight\(\); paint\(\)/);
-  assert.match(safari, /if \(!response\.correct \|\| reduced\) return/);
-  assert.match(css, /\[data-motion="reduced"\] \*\{animation:none!important;transition:none!important\}/);
-  assert.match(safari, /target\.removeEventListener\(name,fn\)/);
-  assert.match(safari, /attachReleasedGameAction\(button,\(\)=>choose\(choice\.id\),input\)/);
+test("Sound Safari reduces actual critter travel and follows live OS motion changes", async () => {
+  const safari = await source("src/components/learn/games/games/SoundSafariArcadeGame.jsx");
+  assert.match(safari, /let reduceMotion = motionQuery\?\.matches \?\? prefersReducedMotion\(\)/);
+  assert.match(safari, /const syncReducedMotion = event => \{[\s\S]*reduceMotion = Boolean\(event\.matches\);[\s\S]*renderProfile = detectSafariRenderProfile\(reduceMotion\);[\s\S]*resize\(\);[\s\S]*\};/);
+  assert.match(safari, /motionQuery\?\.addEventListener\?\.\("change", syncReducedMotion\)/);
+  assert.match(safari, /motionQuery\?\.removeEventListener\?\.\("change", syncReducedMotion\)/);
+  assert.match(safari, /const motionDt = reduceMotion \? dt \* 0\.35 : dt/);
+  assert.match(safari, /critter\.x \+= critter\.vx \* motionDt/);
+  assert.match(safari, /critter\.y \+= critter\.vy \* motionDt/);
+  assert.match(safari, /function onPointerDown\(event\)[\s\S]*captureAt\(point\.x, point\.y\)/);
+  assert.match(safari, /drawNet\(ctx, state, theme, w, h, images\.net\)/);
 });
 
-test("Sound Safari keeps original art behind readable native spelling labels and survives missing decoration", async () => {
-  const safari = await source("src/components/learn/games/games/soundSafariEngine.js");
-  const css = await source("src/components/learn/games/games/SoundSafariArcadeGame.css");
-  const component = await source("src/components/learn/games/games/SoundSafariArcadeGame.jsx");
-  assert.match(component, /startSoundSafari\(root\.current/);
-  assert.doesNotMatch(component, /getContext|drawSafari|<canvas/);
-  assert.match(safari, /document\.createElement\('button'\)/);
-  assert.match(safari, /label\.textContent=displaySafariGrapheme\(choice\.grapheme\)/);
-  assert.match(safari, /safariCreatureForSlot\(choice\.slot,seed\+run\.wordIndex\)/);
-  assert.match(safari, /listen\(img,'error',\(\)=>\{img\.hidden=true/);
-  assert.match(css, /\.ss-world\{[^}]*z-index:-2;pointer-events:none/);
-  assert.match(css, /\.ss-game button\{[^}]*min-width:56px;min-height:56px;touch-action:none/);
+test("Sound Safari keeps cinematic grading behind crisp literacy surfaces and tiers decorative work", async () => {
+  const safari = await source("src/components/learn/games/games/SoundSafariArcadeGame.jsx");
+  assert.match(safari, /const SAFARI_RENDER_PROFILES = \{[\s\S]*pixelRatioCap: 1,[\s\S]*pixelRatioCap: 1\.5,[\s\S]*pixelRatioCap: 2/);
+  assert.match(safari, /const cappedDpr = Math\.min\(size\.dpr, renderProfile\.pixelRatioCap\)/);
+  assert.match(safari, /ctx\.imageSmoothingEnabled = true/);
+  assert.doesNotMatch(safari, /ctx\.imageSmoothingEnabled = false/);
+  assert.doesNotMatch(safari, /function drawScreenGrade/);
+  assert.doesNotMatch(safari, /for \(let y = 0; y < h; y \+= (?:4|8)\)/);
+  assert.match(safari, /drawSceneLighting\(ctx, w, h, activeTheme, renderProfile\);\s*drawSafari\(ctx, state, config, activeTheme, images, w, h\);\s*drawHud/);
 });
 
 test("Sentence Express layers its world without grading over literacy controls", async () => {
@@ -170,7 +168,7 @@ test("reported Arcade objectives and replay controls keep child-readable hierarc
     source("src/components/learn/games/games/SoundKeysGame.jsx"),
     source("src/features/soundkeys/soundkeys.css"),
     source("src/components/learn/games/games/ReelReadGame.jsx"),
-    source("src/features/soundRacer/RacerSession.jsx")
+    source("src/components/learn/games/games/SoundRacerGame.jsx")
   ]);
 
   assert.match(skate, /data-gg="prompt" data-child-instruction/);
@@ -202,16 +200,16 @@ test("reported Arcade objectives and replay controls keep child-readable hierarc
   assert.match(reel, /function refreshSoundState\(\)[\s\S]*?btnReplay\.disabled = !enabled;[\s\S]*?Word replay unavailable while sound is off/);
   assert.match(reel, /engineRef\.current\?\.refreshSoundState\?\.\(\)/);
   assert.match(reel, /if \(!opts\.getSound\?\.\(\)\) return;/);
-  // Replay activation and teardown are exercised through actual touch/audio in
-  // reel-read-interaction.spec.js; do not require a click-only listener shape.
+  assert.match(reel, /btnReplay\.addEventListener\("click", replayTarget\)/);
+  assert.match(reel, /btnReplay\.removeEventListener\("click", replayTarget\)/);
 
-  assert.match(racer, /data-sr="hear-target" aria-label=\{`Hear \$\{mission\.target\.toUpperCase\(\)\} sound again`\}/);
-  const racerCss = await source("src/features/soundRacer/sound-racer.css");
-  assert.match(racerCss, /min-height:\s*56px/);
+  assert.match(racer, /data-sr="hear-target"[\s\S]*?min-width:56px;min-height:56px[\s\S]*?font:900 1rem\/1\.05/);
 });
 
 test("every 3D arcade surface re-probes quality on resize and motion changes", async () => {
   const files = [
+    "src/components/learn/games/games/RocketRunGame.jsx",
+    "src/components/learn/games/games/SoundRacerGame.jsx",
     "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
     "src/components/learn/games/games/GrammarGrindGame.jsx"
   ];
@@ -226,22 +224,6 @@ test("every 3D arcade surface re-probes quality on resize and motion changes", a
     assert.match(text, /addEventListener\?\.\("change", syncMotionPreference\)/, `${relativePath} ignores a live motion change`);
     assert.match(text, /removeEventListener\?\.\("change", syncMotionPreference\)/, `${relativePath} leaks its motion probe`);
   }
-  // Rocket Run's extracted scene now has executable resize/media/cleanup
-  // coverage in rocketRunScene.test.js and real quality/context browser tests.
-  const rocketScene = await source("src/components/learn/games/games/rocketRunScene.js");
-  assert.match(rocketScene, /detectQualityTier\(\)/);
-  assert.match(rocketScene, /removeEventListener/);
-});
-
-test("Sound Racer re-probes scene quality on resize and owns live motion updates", async () => {
-  const scene = await source("src/features/soundRacer/scene.js");
-  const session = await source("src/features/soundRacer/RacerSession.jsx");
-  assert.match(scene, /const resize = \(\) => \{[\s\S]*?pipeline\.setTier\(requestedQuality\(\)\)/);
-  assert.match(scene, /const requestedQuality = [^;]*detectQualityTier\(\)[^;]*qualityCeiling/);
-  assert.match(scene, /pipeline\.setTier\(/);
-  assert.match(scene, /onResize: resize/);
-  assert.match(session, /query\.addEventListener\('change', change\)/);
-  assert.match(session, /query\.removeEventListener\('change', change\)/);
 });
 
 test("shared confetti subscribes to live OS motion and cleans up", async () => {
@@ -254,24 +236,25 @@ test("shared confetti subscribes to live OS motion and cleans up", async () => {
 });
 
 test("pre-reader game controls never offer a silent hear-word lifeline", async () => {
-  const [arcade, adventure, grammarGrind, safari, soundBeat, reward, learnGamesAudio] = await Promise.all([
+  const [arcade, adventure, wordBridge, grammarGrind, safari, soundBeat, reward, learnGamesAudio] = await Promise.all([
     source("src/components/learn/games/games/ArcadePracticeGame.jsx"),
     source("src/components/learn/games/games/AdventureGame.jsx"),
+    source("src/components/learn/games/games/WordBridgeGame.jsx"),
     source("src/components/learn/games/games/GrammarGrindGame.jsx"),
-    source("src/components/learn/games/games/soundSafariEngine.js"),
+    source("src/components/learn/games/games/SoundSafariArcadeGame.jsx"),
     source("src/components/learn/games/games/SoundBeatGame.jsx"),
     source("src/components/quest/RewardScreen.jsx"),
     source("src/utils/learnGamesAudio.js")
   ]);
   assert.match(arcade, /hasRecordedSpeech/);
   assert.match(adventure, /hasRecordedSpeech/);
+  assert.match(wordBridge, /hasRecordedSpeech\(targetSpeechText\(\)\)/);
+  assert.match(wordBridge, /elHear\.disabled = !available/);
   assert.match(grammarGrind, /levelSpeechParts\(\)\.some\(part => hasRecordedSpeech\(part\)\)/);
   assert.match(grammarGrind, /el\.hear\.disabled = !canHearLevel/);
-  assert.match(safari, /playCueSequence\(clips/);
-  assert.match(safari, /clips\.some\(clip => !clip\)/);
-  assert.match(safari, /action\('Use printed models',usePrintedModel,'print'/);
-  assert.match(safari, /delivery==='completed' \|\| printMode/);
-  assert.doesNotMatch(safari, /speakWithBrowser|SpeechSynthesisUtterance|speakPhoneme/);
+  assert.match(safari, /presentedUnits/);
+  assert.match(safari, /fieldGuideReplayBox/);
+  assert.match(safari, /speakPhoneme\(value\)/);
   assert.match(soundBeat, /getLedaWordAudioPath\("tap"\)/);
   assert.match(learnGamesAudio, /phonemeAudioCandidates\(normalized\)/);
   assert.doesNotMatch(learnGamesAudio, /clean-human\/graphemes/);

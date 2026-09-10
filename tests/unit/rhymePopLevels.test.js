@@ -64,10 +64,3 @@ test("rhymePopStars follows the shared star rubric", () => {
   assert.equal(rhymePopStars({ correct: 5, total: 6, mistakes: 2 }), 2);
   assert.equal(rhymePopStars({ correct: 2, total: 6, mistakes: 6 }), 1);
 });
-
-test("reviewed rhyme demand has no drifting-target speed or forced play timer", () => {
-  for (const difficulty of ["easy", "medium", "hard"]) for (const level of rhymePopLadder(difficulty)) {
-    assert.equal(Object.hasOwn(level, "dropRate"), false);
-    assert.equal(Object.hasOwn(level, "minPlaySeconds"), false);
-  }
-});

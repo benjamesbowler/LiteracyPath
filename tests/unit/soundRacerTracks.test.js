@@ -3,11 +3,10 @@ import assert from "node:assert/strict";
 import {
   soundRacerLadder,
   buildTrack,
-  buildSoundRacerEvidenceResult
+  buildSoundRacerTutorial,
+  buildSoundRacerEvidenceResult,
+  worldObstacles
 } from "../../src/utils/soundRacerTracks.js";
-import { buildRacerMission, createRacerState } from "../../src/utils/soundRacerMission.js";
-import { createRacerSimulation, advanceRacerFrame } from "../../src/utils/soundRacerSimulation.js";
-import { getChildAudioPath } from "../../src/data/childAssets.js";
 import { AUDIO_FILE_PATHS } from "../../src/data/generated/audioFilePaths.generated.js";
 import { getPreferredPhonemeAudioPath } from "../../src/data/phonemeAudioBank.js";
 import {
@@ -30,6 +29,38 @@ const hasRecordedWordAudio = word => [
 
 // Cover every target Sound Racer can inherit from the sound ladder.
 const TEST_TARGETS = rocketRunTargets();
+
+const BASE_SPEEDS = {
+  easy: 5.4,
+  medium: 6.1,
+  hard: 6.8
+};
+
+function idealClearSeconds(track, difficulty) {
+  const correctZs = track.gates.filter(gate => gate.correct).map(gate => gate.z).sort((a, b) => a - b);
+  let nextCorrect = 0;
+  let wordsCorrect = 0;
+  let boostT = 0;
+  let playerZ = -4;
+  let seconds = 0;
+  const dt = 0.05;
+
+  while (seconds < 180 && (playerZ < track.totalLength || wordsCorrect < track.needed)) {
+    const boost = boostT > 0 ? 2.4 : 0;
+    const speed = BASE_SPEEDS[difficulty] + boost + wordsCorrect * 0.07;
+    playerZ += speed * dt;
+    seconds += dt;
+    boostT = Math.max(0, boostT - dt);
+
+    while (nextCorrect < correctZs.length && playerZ >= correctZs[nextCorrect] - 0.58) {
+      wordsCorrect += 1;
+      boostT = 1.25;
+      nextCorrect += 1;
+    }
+  }
+
+  return seconds;
+}
 
 // 1. Every track has ≥ needed correct gates and is winnable
 //    (winnable = distinct z positions, player can switch lanes between gates)
@@ -147,15 +178,29 @@ test("same seed produces an identical track", () => {
   }
 });
 
-test("the runtime mission tutorial example matches its current sound and has recorded audio", () => {
+test("tutorial example always matches the current level target and has recorded word audio", () => {
   for (const difficulty of ["easy", "medium", "hard"]) {
-    for (let trackIndex = 0; trackIndex < soundRacerLadder(difficulty).length; trackIndex += 1) {
+    const ladder = soundRacerLadder(difficulty);
+    for (let level = 0; level < ladder.length; level += 1) {
+      const target = ladder[level];
       for (const seed of [0, 7, 42]) {
-        const mission = buildRacerMission({ difficulty, trackIndex, seed });
-        const exampleWord = mission.exampleWord;
-        assert.equal(wordStartsWithTargetSound(exampleWord, mission.target), true);
-        assert.ok(AUDIO_FILE_PATHS.has(getChildAudioPath(exampleWord)), `${difficulty}/${trackIndex}/${seed}: ${exampleWord} has no runtime example audio`);
-        assert.equal(hasRecordedWordAudio(exampleWord), true, exampleWord);
+        const track = buildTrack(target, { difficulty, seed });
+        const tutorial = buildSoundRacerTutorial(track, { hasRecordedAudio: hasRecordedWordAudio });
+        assert.equal(tutorial.target, target, `${difficulty}/${level}/${seed}: tutorial target drifted`);
+        assert.equal(tutorial.targetLabel, target.toUpperCase());
+        assert.equal(
+          wordStartsWithTargetSound(tutorial.exampleWord, target),
+          true,
+          `${difficulty}/${level}/${seed}: "${tutorial.exampleWord}" does not model the ${target} cue`
+        );
+        assert.equal(
+          hasRecordedWordAudio(tutorial.exampleWord),
+          true,
+          `${difficulty}/${level}/${seed}: "${tutorial.exampleWord}" needs recorded example audio`
+        );
+        assert.match(tutorial.phonicsInstruction, new RegExp(`^Listen: ${target.toUpperCase()} starts `));
+        assert.match(tutorial.motorInstruction, /Steer left or right/);
+        assert.doesNotMatch(tutorial.phonicsInstruction, /arrow keys|swipe|change lanes/i);
       }
     }
   }
@@ -235,19 +280,35 @@ test("no two gates occupy the same z position", () => {
   }
 });
 
-test("actual simulation holds a readable fork indefinitely without scoring movement", () => {
-  for (const difficulty of ["easy", "medium", "hard"]) {
-    const mission = buildRacerMission({ difficulty, trackIndex: 0, seed: 7 });
-    let state = createRacerState(mission), sim = createRacerSimulation();
-    for (let frame = 0; frame < 1200; frame += 1) {
-      const next = advanceRacerFrame(sim, state, 250);
-      sim = next.sim; state = next.state;
+// 9. Tracks are long enough for a full lap and keep gates readable
+test("tracks are paced as full 90-second laps with readable gate spacing", () => {
+  for (const g of TEST_TARGETS) {
+    for (const d of ["easy", "medium", "hard"]) {
+      const track = buildTrack(g, { difficulty: d, seed: 7 });
+      const sorted = track.gates.map(gate => gate.z).sort((a, b) => a - b);
+      const gaps = sorted.slice(1).map((z, i) => z - sorted[i]);
+      const minGap = Math.min(...gaps);
+      const clearSeconds = idealClearSeconds(track, d);
+
+      assert.ok(
+        minGap >= 14,
+        `${g}/${d}: expected gates at least 14 track units apart, got ${minGap}`
+      );
+      assert.ok(
+        clearSeconds >= 90,
+        `${g}/${d}: expected ideal clear time >= 90s, got ${clearSeconds.toFixed(1)}s`
+      );
     }
-    assert.equal(state.phase, "decision");
-    assert.equal(sim.distance, mission.rounds[0].distance);
-    assert.equal(state.index, 0);
-    assert.deepEqual(state.evidence, []);
   }
+});
+
+// 10. worldObstacles returns the expected obstacle type per world
+test("worldObstacles maps worlds correctly", () => {
+  assert.equal(worldObstacles("meadow"), "haybale");
+  assert.equal(worldObstacles("dino"), "rock");
+  assert.equal(worldObstacles("moonwood"), "cloudbank");
+  assert.equal(worldObstacles("unknown"), "rock");
+  assert.equal(worldObstacles("MEADOW"), "haybale");
 });
 
 test("every Sound Racer target has an exact approved replay phoneme", () => {

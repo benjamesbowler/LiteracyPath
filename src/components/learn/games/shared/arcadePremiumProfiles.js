@@ -5,14 +5,14 @@
 
 export const ARCADE_PREMIUM_PROFILES = Object.freeze({
   "rocket-run": Object.freeze({
-    version: "3.0",
-    mission: "Power word gates to deliver the cargo.",
+    version: "2.0",
+    mission: "Catch words that start with the shown sound.",
     objective: "Match a spoken and printed word to its beginning sound.",
-    action: "Choose a matching word, then fly through its gate.",
-    controls: Object.freeze(["Steer: Left / Right or A / D", "Touch: choose a gate, then Fly through", "Fly: Enter / Space outside a button; Enter activates the focused button"]),
-    retry: "A wrong gate names the word's first sound and returns you to fresh choices. No word is lost to timing or steering.",
-    completionTitle: "Delivery complete",
-    rewardLabel: "word gates powered"
+    action: "Steer into a matching word.",
+    controls: Object.freeze(["Steer: Left / Right or A / D", "Touch: tap a side or swipe"]),
+    retry: "A missed target returns with support; a wrong catch names its real first sound.",
+    completionTitle: "Flight complete",
+    rewardLabel: "words caught"
   }),
   "letter-leap": Object.freeze({
     version: "2.0",
@@ -36,53 +36,53 @@ export const ARCADE_PREMIUM_PROFILES = Object.freeze({
   }),
   "sound-racer": Object.freeze({
     version: "2.0",
-    mission: "Choose a matching word to open each village road.",
-    objective: "Identify a printed word whose beginning sound matches the target; printed-target support remains explicit.",
-    action: "Choose a word on a road sign, then press Drive through.",
-    controls: Object.freeze(["Choose: Left / Right or A / D; drive: Space", "Touch: tap a word sign, then Drive through"]),
-    retry: "A wrong choice names its real beginning sound. The same fork stays open for another try.",
-    completionTitle: "Rally complete",
-    rewardLabel: "roads opened"
+    mission: "Drive through words that start with the sound.",
+    objective: "Discriminate the target onset in printed and spoken words.",
+    action: "Steer through a matching word gate.",
+    controls: Object.freeze(["Steer: Left / Right or A / D", "Touch: tap a side or swipe"]),
+    retry: "A wrong gate names the word and the target stays available on the next run.",
+    completionTitle: "Race complete",
+    rewardLabel: "sound matches"
   }),
   "word-bridge": Object.freeze({
     version: "2.0",
-    mission: "Choose pieces to build a bridge for your pals.",
-    objective: "Build words and sentences from a model or a recorded cue.",
-    action: "Choose a piece, then choose its bridge space.",
-    controls: Object.freeze(["Choose: Tab or Left / Right", "Pick and place: Enter or Space; touch: tap each piece and space"]),
+    mission: "Match and carry each shown part to rebuild the target.",
+    objective: "Practise supported grapheme matching and ordered word or sentence reconstruction.",
+    action: "Pick up the next tile and place it on the bridge.",
+    controls: Object.freeze(["Move: Left / Right or A / D", "Pick or drop: Space, Enter, E, or Up"]),
     retry: "A wrong tile stays available while the next required slot remains visible.",
     completionTitle: "Bridge complete",
     rewardLabel: "bridges built"
   }),
   "sound-beat": Object.freeze({
     version: "2.0",
-    mission: "Choose each matching sound or word part, then blend.",
-    objective: "Identify and order the taught units that rebuild a word or sentence.",
-    action: "Choose the next matching pad, then choose GO to blend or read the result.",
-    controls: Object.freeze(["Choose: Left/Right, then Space or Enter", "Touch: tap a sound pad"]),
-    retry: "A wrong pad names the contrast and stays available; beat timing only adds bonus feedback.",
+    mission: "Tap the arriving sounds on the beat, then blend the word.",
+    objective: "Practise the sound sequence of a word through a musical performance.",
+    action: "Tap as each sound reaches the line, then tap GO.",
+    controls: Object.freeze(["Tap: Space, Enter or Up", "Touch: tap the stage on the beat"]),
+    retry: "Missed notes return with a slower, wider timing window; the final GO waits for you.",
     completionTitle: "Set complete",
-    rewardLabel: "words blended"
+    rewardLabel: "words performed"
   }),
   "rhyme-pop": Object.freeze({
-    version: "3.0",
-    mission: "Pop the rhyming words to lift each balloon basket.",
+    version: "2.0",
+    mission: "Pop every word that rhymes with the cue.",
     objective: "Identify words that share the target rime.",
-    action: "Choose every rhyming balloon; each different rhyme fills a basket tether.",
-    controls: Object.freeze(["Choose: released tap, Tab or Arrow keys", "Pop: Space or Enter"]),
-    retry: "Both words are compared aloud. The target and remaining rhymes stay in play.",
-    completionTitle: "Parade ready!",
+    action: "Aim at and pop each rhyming balloon.",
+    controls: Object.freeze(["Aim: pointer, touch, or Arrow keys", "Pop: Space, Enter, or Up"]),
+    retry: "A miss names the chosen word and leaves the rhyming targets in play.",
+    completionTitle: "Balloon round complete",
     rewardLabel: "rhymes found"
   }),
   "sound-safari": Object.freeze({
-    version: "3.0",
-    mission: "Guide each word part home, in order.",
-    objective: "Listen for the next authored word part and choose its creature.",
-    action: "Catch the next word part to build the path home.",
-    controls: Object.freeze(["Choose: released tap, Tab or Arrow keys", "Catch: Space or Enter"]),
-    retry: "The specific word part stays in play, with a replay or printed model when sound needs help.",
+    version: "2.0",
+    mission: "Net each sound in the word, in order.",
+    objective: "Segment a spoken word into its ordered phoneme sequence.",
+    action: "Move the net to the next sound and catch it.",
+    controls: Object.freeze(["Move: Arrow keys or W / A / S / D", "Catch: Space or Enter"]),
+    retry: "The field guide keeps the next sound visible and replays the word when needed.",
     completionTitle: "Safari complete",
-    rewardLabel: "word parts guided"
+    rewardLabel: "sounds collected"
   }),
   "reel-read": Object.freeze({
     version: "2.0",

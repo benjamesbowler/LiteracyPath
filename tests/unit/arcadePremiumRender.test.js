@@ -45,9 +45,10 @@ test("Arcade premium rendering scales image quality without removing the low-pow
   assert.equal(arcadeRenderProfile("high", { softwareRenderer: true }).id, "performance");
 });
 
-test("the other live WebGL Arcade games use and dispose the premium renderer", () => {
+test("all four live WebGL Arcade games use and dispose the premium renderer", () => {
   const games = [
-    "rocketRunScene.js",
+    "RocketRunGame.jsx",
+    "SoundRacerGame.jsx",
     "GrammarGrindGame.jsx",
     "StarGalleryArcadeGame.jsx"
   ];
@@ -58,16 +59,6 @@ test("the other live WebGL Arcade games use and dispose the premium renderer", (
     assert.match(source, /premiumRender\.destroy\(\)/);
     assert.doesNotMatch(source, /renderer\.render\(scene, camera\)/);
   }
-});
-
-test("Sound Racer's owned scene uses and tears down the premium pipeline", () => {
-  const source = fs.readFileSync("src/features/soundRacer/scene.js", "utf8");
-  assert.match(source, /createArcadePremiumRenderPipeline/);
-  assert.match(source, /pipeline\.render\(/);
-  assert.match(source, /pipeline\?\.destroy\(\)/);
-  assert.match(source, /disposeOwnedModelInstance/);
-  assert.match(source, /disposeRenderer\(renderer, \{ forceContextLoss: true \}\)/);
-  assert.doesNotMatch(source, /renderer\.render\(scene, camera\)/);
 });
 
 test("material preparation changes texture sampling once instead of re-uploading it", () => {

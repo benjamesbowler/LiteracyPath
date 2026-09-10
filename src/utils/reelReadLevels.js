@@ -279,55 +279,6 @@ export function reelReadIsCorrectCatch(word, level, caughtWords = []) {
   return reelReadMatches(word, level);
 }
 
-export function reelReadCanAcceptWord(word, level, caughtWords = []) {
-  const token = normalizeToken(word);
-  if (!token || (Array.isArray(caughtWords) && caughtWords.map(normalizeToken).includes(token))) return false;
-  return reelReadIsCorrectCatch(token, level, caughtWords);
-}
-
-export function reelReadAssembledWord(level, caughtWords = []) {
-  if (!level?.orderMatters) return level?.target || "";
-  const parts = Array.isArray(caughtWords) ? caughtWords : [];
-  return parts.join("").replaceAll("-", "") || "";
-}
-
-export function reelReadResponseEvidence({
-  difficulty = "easy",
-  levelIndex = 0,
-  target = "",
-  response = "",
-  correct = false,
-  attempts = 1,
-  learningSlot = "",
-  expectedResponse = "",
-  fishId = "",
-  audioDelivery = "pending",
-  cueHistory = [],
-  supportUsed = [],
-  soundEnabled = false
-} = {}) {
-  const safeDifficulty = normalizeDifficulty(difficulty);
-  const audioSupport = audioDelivery !== "completed" ? [`audio_${audioDelivery}`] : [];
-  const supports = [...new Set([...supportUsed, ...audioSupport].map(String).filter(Boolean))];
-  return Object.freeze({
-    game: "reel-read",
-    levelId: `reel-read-${safeDifficulty}-${Math.max(0, Number(levelIndex) || 0)}`,
-    target: String(target || ""),
-    response: String(response || ""),
-    correct: Boolean(correct),
-    attempts: Math.max(1, Number(attempts) || 1),
-    learningSlot: String(learningSlot || ""),
-    expectedResponse: String(expectedResponse || ""),
-    fishId: String(fishId || ""),
-    practiceOnly: true,
-    independent: false,
-    supportUsed: Object.freeze(supports),
-    audioDelivery: String(audioDelivery || "pending"),
-    cueHistory: Object.freeze([...new Set(cueHistory.map(String).filter(Boolean))]),
-    soundEnabled: Boolean(soundEnabled)
-  });
-}
-
 export function reelReadLevel(difficulty = "easy", levelIndex = 0) {
   const safeDifficulty = normalizeDifficulty(difficulty);
   const level = Math.max(0, Math.min(9, Number(levelIndex) || 0));
@@ -344,7 +295,7 @@ export function reelReadLevel(difficulty = "easy", levelIndex = 0) {
     correctWords,
     distractors,
     visibleFish: safeDifficulty === "hard" ? 6 : 5,
-    correctVisible: source.correctWords.length,
+    correctVisible: source.mode === "meaning" ? 3 : 2,
     fishSpeed: 58 + level * 5 + (safeDifficulty === "hard" ? 24 : safeDifficulty === "medium" ? 12 : 0),
     hookSpeed: 430 + level * 10,
     minPlaySeconds: 80
@@ -357,9 +308,4 @@ export function reelReadLadder(difficulty = "easy") {
 
 export function reelReadStars({ correct, total, mistakes } = {}) {
   return starRubric({ correct, total, mistakes, deaths: 0 });
-}
-
-export function reelReadTripStars(levelStars = []) {
-  const played = levelStars.filter(Number.isFinite);
-  return played.length ? Math.max(1, Math.round(played.reduce((sum, stars) => sum + stars, 0) / played.length)) : 0;
 }

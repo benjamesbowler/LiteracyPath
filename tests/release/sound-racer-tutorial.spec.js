@@ -19,7 +19,7 @@ test("A2.9 Sound Racer renders the current target example apart from steering he
   await page.addInitScript(() => {
     window.localStorage.removeItem("lp-arcade-onboarded-v1:sound-racer");
   });
-  await page.goto(`/preview/sound-racer-preview.html?difficulty=${difficulty}&level=${level}&sound=1&music=0&quality=low`);
+  await page.goto(`/preview/sound-racer-preview.html?difficulty=${difficulty}&level=${level}&sound=1&music=0`);
 
   const overlay = page.locator('[data-sr="overlay"]');
   const phonics = overlay.getByRole("region", { name: "Sound example" });
@@ -37,7 +37,7 @@ test("A2.9 Sound Racer renders the current target example apart from steering he
   await expect(hearExample).toBeVisible();
   await hearExample.click();
   await expect(phonics).toBeVisible();
-  await expect(motor).toContainText("Drive through");
+  await expect(motor).toContainText("Steer left or right");
   await expect(phonics).not.toContainText("Use ← →");
 
   const overlayBox = await overlay.boundingBox();
@@ -69,7 +69,7 @@ test("Sound Racer hides its target replay control when production sound is off",
   await page.addInitScript(() => {
     window.localStorage.setItem("lp-arcade-onboarded-v1:sound-racer", "1");
   });
-  await page.goto("/preview/sound-racer-preview.html?difficulty=hard&level=0&sound=0&music=0&fallback=1");
+  await page.goto("/preview/sound-racer-preview.html?difficulty=hard&level=0&sound=0&music=0");
   await expect(page.locator('[data-sr="hear-target"]')).toBeHidden();
   const feedback = page.locator('[data-sr="banner"]');
   await expect(feedback).toHaveAttribute("role", "status");
@@ -81,20 +81,27 @@ test("Sound Racer uses compact visible steering controls without blocking lane k
   await page.addInitScript(() => {
     window.localStorage.setItem("lp-arcade-onboarded-v1:sound-racer", "1");
   });
-  await page.goto("/preview/sound-racer-preview.html?difficulty=easy&level=0&sound=0&music=0&fallback=1");
+  await page.goto("/preview/sound-racer-preview.html?difficulty=easy&level=0&sound=0&music=0");
 
   const hud = page.locator(".sound-racer-hud");
+  const leftZone = hud.locator('[data-sr="left-zone"]');
+  const rightZone = hud.locator('[data-sr="right-zone"]');
   const leftControl = hud.getByRole("button", { name: "Steer left", exact: true });
   const rightControl = hud.getByRole("button", { name: "Steer right", exact: true });
-  for (const control of [leftControl, rightControl]) {
-    await expect(control).toBeVisible();
-    const box = await control.boundingBox();
-    expect(box?.width).toBeGreaterThanOrEqual(56);
-    expect(box?.height).toBeGreaterThanOrEqual(56);
-  }
-  await expect(page.getByRole("group", { name: "Choose a road" }).getByRole("button")).toHaveCount(3);
 
-  await expect(page.locator(".sr-mission")).toHaveAttribute("data-sr-phase", "decision", { timeout: 45_000 });
+  await expect(leftControl).toBeVisible();
+  await expect(rightControl).toBeVisible();
+  for (const control of [leftControl, rightControl]) {
+    const box = await control.boundingBox();
+    expect(box?.width).toBe(68);
+    expect(box?.height).toBe(68);
+  }
+  for (const zone of [leftZone, rightZone]) {
+    await expect(zone).toHaveAttribute("aria-hidden", "true");
+    await expect(zone).toHaveJSProperty("tabIndex", -1);
+  }
+
+  await page.waitForTimeout(3_800);
   await expect(hud).toHaveAttribute("data-sound-racer-lane", "1");
   await rightControl.click();
   await expect(hud).toHaveAttribute("data-sound-racer-lane", "2");
@@ -103,8 +110,4 @@ test("Sound Racer uses compact visible steering controls without blocking lane k
   await expect(rightControl).toBeFocused();
   await page.keyboard.press("ArrowLeft");
   await expect(hud).toHaveAttribute("data-sound-racer-lane", "1");
-  await expect(page.locator(".sr-mission")).toHaveAttribute("data-sr-phase", "decision", { timeout: 45_000 });
-  await expect(page.getByRole("button", { name: /^Drive through / })).toBeEnabled();
-  const evidence = await page.evaluate(() => window.__SOUND_RACER__.snapshot().state.evidence);
-  expect(evidence).toEqual([]);
 });

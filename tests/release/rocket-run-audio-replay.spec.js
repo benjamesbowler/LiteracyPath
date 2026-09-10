@@ -142,7 +142,7 @@ test("Rocket Run engine-owned completion is a focused modal that isolates gamepl
     overlay.innerHTML = '<button type="button" data-rr="done">Back to Arcade</button>';
     overlay.style.display = "grid";
     const action = overlay.querySelector('[data-rr="done"]');
-    root.querySelector('[data-rr="right"]').inert = true;
+    root.querySelector('[data-rr="right-control"]').inert = true;
     isolateRocketRunCompletion(hud, overlay, action);
     return {
       role: overlay.getAttribute("role"),
@@ -150,8 +150,8 @@ test("Rocket Run engine-owned completion is a focused modal that isolates gamepl
       ariaLabel: overlay.getAttribute("aria-label"),
       focused: document.activeElement === action,
       replayIsolated: root.querySelector('[data-rr="hear-target"]').closest("[inert]") !== null,
-      leftIsolated: root.querySelector('[data-rr="left"]').closest("[inert]") !== null,
-      rightIsolated: root.querySelector('[data-rr="right"]').closest("[inert]") !== null
+      leftIsolated: root.querySelector('[data-rr="left-control"]').closest("[inert]") !== null,
+      rightIsolated: root.querySelector('[data-rr="right-control"]').closest("[inert]") !== null
     };
   });
 
@@ -178,7 +178,7 @@ test("Rocket Run engine-owned completion is a focused modal that isolates gamepl
     restoreRocketRunHud(hud, overlay);
     return {
       replayInert: root.querySelector('[data-rr="hear-target"]').closest("[inert]") !== null,
-      rightStillInert: root.querySelector('[data-rr="right"]').inert,
+      rightStillInert: root.querySelector('[data-rr="right-control"]').inert,
       modalRole: overlay.getAttribute("role")
     };
   });

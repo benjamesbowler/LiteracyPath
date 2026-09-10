@@ -18,9 +18,9 @@ function readOnboarded() {
 }
 
 const ONBOARDING_HINTS = [
-  "Listen, then choose the matching sound pad; with sound off, match the shown model.",
-  "Beat timing adds bonus points; only the sound choice affects learning progress.",
-  "Tap a pad, or use Left/Right and Space on a keyboard.",
+  "Listen for each sound, then tap on the beat.",
+  "Follow the moving sound notes and tap as they reach the line.",
+  "Tap the screen, or press Space on a keyboard.",
   "Finish with GO to blend the whole word."
 ];
 
@@ -157,7 +157,7 @@ export default function SoundBeatGame({
           >
             <div style={{ fontSize: 34, fontWeight: 900, color: "#b8ff3d" }}>Sound Beat</div>
             <p style={{ fontSize: 19, fontWeight: 800, color: "#fff", margin: "10px 0 14px" }}>
-              Choose each sound in order, then GO to blend.
+              Tap each sound on the beat, then GO to blend.
             </p>
             <div
               aria-hidden="true"

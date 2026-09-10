@@ -1,3 +1,4 @@
+import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import { useEffect, useRef } from "react";
 import {
   playCorrectChime,
@@ -7,16 +8,8 @@ import {
   playWhoosh,
   startSoundBeatMusic
 } from "../../../../utils/audio/gameSfx.js";
-import { speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
-import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
-import {
-  soundBeatBlendCompletionAction,
-  soundBeatChoiceSet,
-  soundBeatLadder,
-  soundBeatVisiblePrompt,
-  soundBeatStars,
-  soundBeatTapFeedback
-} from "../../../../utils/soundBeatTracks.js";
+import { speak, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
+import { soundBeatLadder, soundBeatMercyPolicy, soundBeatStars } from "../../../../utils/soundBeatTracks.js";
 import {
   TWO_PI,
   clamp,
@@ -40,7 +33,7 @@ import {
 const CONFIG = {
   "sound-beat": {
     title: "Sound Beat",
-    action: "Choose each sound, then GO",
+    action: "Tap each sound on the beat",
     bg: "/images/learn-games/ps1-arcade/sound-beat-stage-v2.webp",
     accent: "#b8ff3d",
     accent2: "#ff3d8b",
@@ -125,8 +118,8 @@ function drawBeatBackdrop(ctx, state, config, w, h) {
 function beatLanePoint(lane, progress, w, h) {
   const targetY = h * 0.86;
   const stageY = h * 0.48;
-  const bottomLeft = w * (w < 560 ? 0.14 : 0.25);
-  const bottomRight = w * (w < 560 ? 0.86 : 0.75);
+  const bottomLeft = w * 0.25;
+  const bottomRight = w * 0.75;
   const topLeft = w * 0.39;
   const topRight = w * 0.61;
   const bottomStep = (bottomRight - bottomLeft) / (BEAT_LANES.length - 1);
@@ -300,7 +293,7 @@ function drawBeatTarget(ctx, lane, state, w, h, active) {
 function drawBeatPad(ctx, label, lane, progress, active, config, state, w, h) {
   const point = beatLanePoint(lane, progress, w, h);
   const laneStyle = BEAT_LANES[lane];
-  const width = Math.min(76 * point.scale, Math.max(58, w / 4 - 10));
+  const width = 76 * point.scale;
   const height = 48 * point.scale;
   const pulse = active ? state.beatPulse || 0 : 0;
 
@@ -335,9 +328,7 @@ function drawBeatPad(ctx, label, lane, progress, active, config, state, w, h) {
   ctx.stroke();
   ctx.restore();
 
-  const labelLength = Math.max(1, String(label).length);
-  const labelSize = clamp(width / Math.max(2.4, labelLength * 0.68), 12, 32);
-  text(ctx, label, point.x, point.y + 1, labelSize, "#ffffff", "center", 900);
+  text(ctx, label, point.x, point.y + 1, clamp(25 * point.scale, 14, 34), "#ffffff", "center", 900);
 }
 
 function drawSoundBeatPortrait(ctx, x, y, scale, now) {
@@ -550,14 +541,13 @@ function drawCountdown(ctx, state, config, w, h) {
   const target = state.countdownTarget || config.action;
   text(ctx, target, w / 2, h * 0.32, clamp(w * 0.042, 25, 54), "#fff", "center");
   ctx.translate(w / 2, h * 0.52);
-  const countdownScale = state.reduceMotion ? 1 : 0.86 + scale * 0.18;
-  ctx.scale(countdownScale, countdownScale);
+  ctx.scale(0.86 + scale * 0.18, 0.86 + scale * 0.18);
   text(ctx, main, 0, 0, clamp(w * 0.13, 82, 170), main === "GO!" ? config.accent : config.accent2, "center", 900);
   ctx.restore();
 }
 
 function makeTasks(kind, level) {
-  return level.items.map(item => ({ type: kind, item }));
+  return level.items.map(item => ({ type: kind, item, attempts: 0 }));
 }
 
 function taskUnits() {
@@ -568,14 +558,13 @@ function totalUnits(kind, ladder) {
   return ladder.reduce((sum, level) => sum + makeTasks(kind, level).reduce((inner, task) => inner + taskUnits(kind, task), 0), 0);
 }
 
-function drawBeat(ctx, state, config, w, h) {
+function drawBeat(ctx, state, config, w, h, now) {
   const task = state.currentTask;
   if (!task) return;
   const item = task.item;
   const notes = [...item.beats, "blend"];
-  const visiblePrompt = soundBeatVisiblePrompt(item, state.beatIndex, {
-    soundEnabled: state.soundEnabled
-  });
+  const spacing = 60 / (state.roundBpm || state.level.bpm);
+  const approachSeconds = Math.max(1.65, spacing * 3.8);
 
   ctx.save();
   drawBeatBackdrop(ctx, state, config, w, h);
@@ -587,92 +576,41 @@ function drawBeat(ctx, state, config, w, h) {
   ctx.fillStyle = titlePanel;
   roundedRect(ctx, w * 0.31, h * 0.2, w * 0.38, h * 0.16, 8);
   ctx.fill();
-  text(
-    ctx,
-    state.soundEnabled ? "LISTEN · CHOOSE NEXT" : "SOUND OFF · MATCH THE MODEL",
-    w / 2,
-    h * 0.235,
-    clamp(w * 0.016, 11, 17),
-    state.soundEnabled ? "#dff7ff" : config.accent,
-    "center",
-    900
-  );
-  const titleSize = clamp(
-    Math.min(w * 0.055, (w * 0.48) / Math.max(2.4, visiblePrompt.length * 0.58)),
-    20,
-    74
-  );
-  text(ctx, visiblePrompt, w / 2, h * 0.3, titleSize, "#fff", "center", 900);
+  text(ctx, item.say, w / 2, h * 0.3, clamp(w * 0.055, 38, 74), "#fff", "center", 900);
   ctx.restore();
 
   drawSoundBeatRunway(ctx, state, config, w, h);
 
-  const choiceSet = state.choiceSet || soundBeatChoiceSet(item, state.beatIndex);
-  const choiceLanes = choiceSet.choices.length === 1 ? [1] : choiceSet.choices.map((_, index) => index);
   for (let lane = 0; lane < BEAT_LANES.length; lane += 1) {
-    const selected = choiceLanes[state.selectedChoice] === lane;
-    drawBeatTarget(ctx, lane, state, w, h, selected);
+    drawBeatTarget(ctx, lane, state, w, h, lane === state.beatIndex % BEAT_LANES.length);
   }
 
-  // All pads share equivalent geometry. The correct sound changes lane for
-  // every beat, so position and rhythm timing cannot reveal or determine it.
-  for (let index = 0; index < choiceSet.choices.length; index += 1) {
-    const lane = choiceLanes[index];
-    drawBeatPad(
-      ctx,
-      choiceSet.choices[index],
-      lane,
-      1,
-      index === state.selectedChoice,
-      config,
-      state,
-      w,
-      h
-    );
+  for (let i = state.beatIndex; i < notes.length; i += 1) {
+    const noteTime = state.noteStart + i * spacing;
+    const progress = 1 - (noteTime - now) / approachSeconds;
+    if (progress < -0.04 || progress > 1.18) continue;
+    const timeToHit = Math.abs(noteTime - now);
+    const active = i === state.beatIndex;
+    const nearHit = 1 - clamp(timeToHit / 0.5, 0, 1);
+    drawBeatPad(ctx, notes[i] === "blend" ? "GO" : notes[i], i % BEAT_LANES.length, progress, active && nearHit > 0.2, config, state, w, h);
   }
 
   const slotW = Math.min(78, (w * 0.34) / notes.length);
   const slotStart = w * 0.5 - (slotW * notes.length) / 2;
-  const slotY = h - 142;
-  ctx.save();
-  ctx.strokeStyle = "rgba(255,255,255,.2)";
-  ctx.lineWidth = 4;
-  ctx.beginPath();
-  ctx.moveTo(slotStart + slotW / 2 - 5, slotY + 19);
-  ctx.lineTo(slotStart + (notes.length - 0.5) * slotW - 5, slotY + 19);
-  ctx.stroke();
   for (let i = 0; i < notes.length; i += 1) {
     const filled = i < state.beatIndex;
-    const active = i === state.beatIndex;
-    const focusOffset = active && !state.reduceMotion ? Math.sin(state.time * 5) * 2 : 0;
-    const label = notes[i] === "blend" ? "GO" : notes[i];
-    const fill = filled ? `${config.accent}d8` : active ? "rgba(255,61,139,.34)" : "rgba(5,10,22,.72)";
-    const stroke = filled ? "#f4ffd8" : active ? config.accent2 : "rgba(255,255,255,.22)";
-    panel(ctx, slotStart + i * slotW, slotY + focusOffset, slotW - 10, 38, fill, stroke);
-    text(ctx, filled ? label : active ? (label === "GO" ? "GO" : "?") : "", slotStart + i * slotW + slotW / 2 - 5, slotY + 19 + focusOffset, clamp(slotW * 0.3, 12, 18), filled ? "#07101d" : "#fff", "center", 900);
-    if (active) {
-      ctx.fillStyle = config.accent2;
-      ctx.beginPath();
-      ctx.moveTo(slotStart + i * slotW + slotW / 2 - 11, slotY - 8 + focusOffset);
-      ctx.lineTo(slotStart + i * slotW + slotW / 2 + 1, slotY - 8 + focusOffset);
-      ctx.lineTo(slotStart + i * slotW + slotW / 2 - 5, slotY - 1 + focusOffset);
-      ctx.closePath();
-      ctx.fill();
-    }
+    panel(ctx, slotStart + i * slotW, h - 142, slotW - 10, 38, filled ? `${config.accent}d8` : "rgba(5,10,22,.64)", filled ? "#f4ffd8" : "rgba(255,255,255,.22)");
+    text(ctx, filled ? (notes[i] === "blend" ? "GO" : notes[i]) : "", slotStart + i * slotW + slotW / 2 - 5, h - 123, 18, filled ? "#07101d" : "#fff", "center", 900);
   }
-  ctx.restore();
 
-  if (!state.reduceMotion) {
-    for (const burst of state.hitBursts) drawBeatBurst(ctx, burst);
-  }
+  for (const burst of state.hitBursts) drawBeatBurst(ctx, burst);
   if (state.judgementT > 0) {
     const p = clamp(state.judgementT / 0.72, 0, 1);
     const lanePoint = beatLanePoint(Math.max(0, (state.beatIndex - 1) % BEAT_LANES.length), 1, w, h);
-    const judgementColor = state.judgement === "SOUND ON!" ? "#ffd23d" : config.accent;
-    text(ctx, state.judgement, lanePoint.x, lanePoint.y - 92 - (1 - p) * 20, 34, judgementColor, "center", 900);
+    text(ctx, state.judgement, lanePoint.x, lanePoint.y - 92 - (1 - p) * 20, 34, state.judgement === "MISS" ? "#ff8d8d" : config.accent, "center", 900);
   }
 
-  text(ctx, "TAP A PAD · ← → + SPACE", w / 2, h * 0.96, 16, "#dff7ff", "center", 900);
+  text(ctx, "SPACE / TAP", w / 2, h * 0.96, 16, "#dff7ff", "center", 900);
   ctx.restore();
 }
 
@@ -684,16 +622,6 @@ function startPs1ArcadeGame(mount, options) {
   image.src = config.bg;
 
   const { canvas, ctx } = createGameCanvas(mount);
-  canvas.tabIndex = 0;
-  canvas.setAttribute("role", "application");
-  canvas.setAttribute("aria-label", "Sound Beat choice stage. Use Left and Right to select a pad, then Space or Enter to choose it.");
-  const liveStatus = document.createElement("div");
-  liveStatus.setAttribute("role", "status");
-  liveStatus.setAttribute("aria-live", "polite");
-  liveStatus.setAttribute("aria-atomic", "true");
-  liveStatus.dataset.soundBeatStatus = "true";
-  liveStatus.style.cssText = "position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0";
-  mount.appendChild(liveStatus);
   const reduceMotion = prefersReducedMotion();
   const { soundAllowed, sfx } = createSoundGate(options);
   const musicAllowed = () => options.getMusic ? options.getMusic() : options.isMusicEnabled === true;
@@ -745,15 +673,13 @@ function startPs1ArcadeGame(mount, options) {
     ended: false,
     time: 0,
     beatIndex: 0,
-    choiceSet: null,
-    selectedChoice: 0,
     noteStart: 0,
     // A "round" groups several levels so a stop/countdown only happens every
     // >= ROUND_MIN_SECONDS. Tempo + music are held steady across a round.
     roundStartAt: 0,
     roundBpm: 0,
     roundWindow: 0,
-    wordRhythmBonus: 0,
+    currentWordClean: true,
     wordsEnded: 0,
     totalUnits: total,
     inputLockedUntil: 0,
@@ -764,12 +690,7 @@ function startPs1ArcadeGame(mount, options) {
     soundEnabled: soundAllowed(),
     musicEnabled: musicAllowed(),
     hitBursts: [],
-    pointer: { x: 0, y: 0 },
-    pendingPointer: null,
-    awaitingBlend: false,
-    pendingBlendCompletion: null,
-    promptMode: "",
-    reduceMotion
+    pointer: { x: 0, y: 0 }
   };
 
   let w = 1;
@@ -823,64 +744,46 @@ function startPs1ArcadeGame(mount, options) {
   }
 
   function countdownTarget() {
-    return `Choose matching sounds in ${state.level.world}`;
+    return `Tap sounds in ${state.level.world}`;
   }
 
   function setupTask() {
     state.currentTask = state.tasks[state.taskIndex] || null;
     state.beatIndex = 0;
-    state.wordRhythmBonus = 0;
+    state.currentWordClean = true;
     if (!state.currentTask) return;
-    setupBeatChoice();
     const now = performance.now() / 1000;
     state.noteStart = now + 1.05;
     // Mid-round the next word starts right away, so sound out its first note;
     // after a countdown the tick's countdown-end branch does it instead.
-    if (state.countdown <= 0 && !state.paused) speakActiveNote();
+    if (state.countdown <= 0) speakActiveNote();
   }
 
-  function syncChoiceAccessibility({ announce = true } = {}) {
-    const item = state.currentTask?.item;
-    const choiceSet = state.choiceSet;
-    if (!item || !choiceSet) return;
-    const promptMode = state.soundEnabled ? "listen" : "model";
-    const modeChanged = state.promptMode !== promptMode;
-    state.promptMode = promptMode;
-    canvas.dataset.soundBeatPromptMode = promptMode;
-    const model = String(item.say || item.word || "");
-    canvas.setAttribute(
-      "aria-label",
-      promptMode === "model"
-        ? `Sound Beat model matching stage. Model: ${model}. Use Left and Right to select a pad, then Space or Enter to choose it.`
-        : "Sound Beat listening stage. Use Left and Right to select a pad, then Space or Enter to choose it."
-    );
-    if (!announce && !modeChanged) return;
-    if (choiceSet.beatUnit === "blend") {
-      liveStatus.textContent = promptMode === "model"
-        ? `Model: ${model}. Choose GO to complete the target.`
-        : "Choose GO to hear the completed target.";
+  function missCurrent() {
+    if (!state.currentTask || state.ended) return;
+    state.currentTask.attempts += 1;
+    const mercy = soundBeatMercyPolicy(state.currentTask.attempts);
+    state.mistakes += 1;
+    state.combo = 0;
+    state.judgement = "TRY AGAIN";
+    state.judgementT = 0.85;
+    state.beatPulse = 0.7;
+    sfx(playSoftBuzz);
+    state.currentWordClean = false;
+    if (mercy.advanceWithoutCredit) {
+      state.judgement = "KEEP GOING";
+      state.inputLockedUntil = performance.now() / 1000 + 0.2;
+      endCurrentWord(0);
       return;
     }
-    liveStatus.textContent = promptMode === "model"
-      ? `Sound is off. Model: ${model}. Match the next ${choiceSet.beatUnit}. Options: ${choiceSet.choices.join(", ")}.`
-      : `Choose the next ${choiceSet.beatUnit}. Options: ${choiceSet.choices.join(", ")}.`;
-  }
 
-  function setupBeatChoice() {
-    const item = state.currentTask?.item;
-    if (!item) {
-      state.choiceSet = null;
-      state.selectedChoice = 0;
-      return;
-    }
-    state.choiceSet = soundBeatChoiceSet(item, state.beatIndex, {
-      seed: `${state.stage}:${state.taskIndex}`
-    });
-    state.selectedChoice = 0;
-    canvas.dataset.soundBeatIndex = String(state.beatIndex);
-    canvas.dataset.soundBeatAnswerIndex = String(state.choiceSet.answerIndex);
-    canvas.dataset.soundBeatChoiceCount = String(state.choiceSet.choices.length);
-    syncChoiceAccessibility();
+    // First miss rehearses the blend from sound one. Repeated misses retain
+    // the current beat and widen its timing window instead of bouncing a
+    // motor-delayed child back to the beginning forever.
+    if (mercy.replayFromStart) state.beatIndex = 0;
+    const spacing = 60 / (state.roundBpm || state.level.bpm);
+    state.noteStart = performance.now() / 1000 + 0.9 - state.beatIndex * spacing;
+    speakActiveNote();
   }
 
   function finishUnit(points = 100) {
@@ -895,11 +798,12 @@ function startPs1ArcadeGame(mount, options) {
     nextTask();
   }
 
-  // Completing the ordered sounds plus GO is the literacy success. Timing is
-  // represented only by the accumulated optional rhythm bonus.
+  // A word only counts as "correct" if every beat in it was hit cleanly;
+  // otherwise it still advances (no requeue, no repeat) but earns no credit.
   function endCurrentWord(points = 120) {
     state.wordsEnded += 1;
-    finishTask(points + state.wordRhythmBonus);
+    if (state.currentWordClean) finishTask(points);
+    else nextTask();
   }
 
   function nextTask() {
@@ -931,102 +835,55 @@ function startPs1ArcadeGame(mount, options) {
   // Sound out the note the child is about to tap: the grapheme as it becomes
   // the active beat, and the whole word when the final "GO"/blend arrives.
   // Additive only — gated on the live sound flag, silent with sound off.
-  async function speakActiveNote() {
+  function speakActiveNote() {
     if (!soundAllowed()) return;
     const item = state.currentTask?.item;
     if (!item) return;
     const note = [...item.beats, "blend"][state.beatIndex];
     if (!note) return;
     if (note === "blend") {
-      await speakCompletedTarget(item);
-    } else if (item.beatUnit === "phoneme") {
-      await speakPhoneme(note);
-    } else if (item.beatUnit === "syllable") {
-      await speakWord(item.word);
+      if (/\s/.test(item.word)) speak(item.say);
+      else speakWord(item.word);
+    } else if (note.length === 1) {
+      speakPhoneme(note);
     } else {
-      await speakWord(note);
+      speak(note);
     }
   }
 
-  async function speakCompletedTarget(item) {
-    if (!soundAllowed() || !item) return;
-    if (item.beatUnit === "word") {
-      for (const word of item.beats) {
-        if (!soundAllowed()) return;
-        await speakWord(word);
-      }
-      return;
-    }
-    await speakWord(item.word);
-  }
-
-  async function finishBlendedWord(task, points) {
-    if (state.awaitingBlend) return;
-    state.awaitingBlend = true;
-    liveStatus.textContent = `Blending ${task.item.say}.`;
-    let releaseInputLock = true;
-    try {
-      await speakCompletedTarget(task.item);
-    } catch {
-      // The printed completed target remains available if playback fails.
-    } finally {
-      const action = soundBeatBlendCompletionAction({
-        paused: state.paused,
-        ended: state.ended,
-        sameTask: state.currentTask === task
-      });
-      if (action === "defer") {
-        state.pendingBlendCompletion = { task, points };
-        releaseInputLock = false;
-      } else if (action === "advance") {
-        endCurrentWord(points);
-      }
-      if (releaseInputLock) state.awaitingBlend = false;
-    }
-  }
-
-  function tapBeat(choiceIndex = state.selectedChoice) {
+  function tapBeat() {
     const task = state.currentTask;
-    if (!task || state.countdown > 0 || state.awaitingBlend) return;
+    if (!task || state.countdown > 0) return;
     const now = performance.now() / 1000;
     // Post-hit lockout: a jittery second tap right after a hit must not be
     // judged against the NEXT note and scored as a miss.
     if (now < state.inputLockedUntil) return;
     ensureMusic();
     const notes = [...task.item.beats, "blend"];
-    const choiceSet = state.choiceSet || soundBeatChoiceSet(task.item, state.beatIndex);
-    const safeChoiceIndex = clamp(Number(choiceIndex) || 0, 0, choiceSet.choices.length - 1);
-    const selectedChoice = choiceSet.choices[safeChoiceIndex];
-    if (choiceSet.beatUnit !== "blend" && safeChoiceIndex !== choiceSet.answerIndex) {
-      state.mistakes += 1;
-      state.combo = 0;
-      state.judgement = `${String(selectedChoice).toUpperCase()} → TRY ${String(choiceSet.answer).toUpperCase()}`;
-      state.judgementT = 1.05;
-      state.beatPulse = 0;
-      state.inputLockedUntil = now + 0.24;
-      sfx(playSoftBuzz);
-      liveStatus.textContent = `You chose ${selectedChoice}. The next unit is ${choiceSet.answer}. Try again.`;
-      void speakActiveNote();
-      return;
-    }
     const spacing = 60 / (state.roundBpm || state.level.bpm);
     const targetTime = state.noteStart + state.beatIndex * spacing;
     const isBlend = notes[state.beatIndex] === "blend";
-    const windowSeconds = (state.roundWindow || state.level.hitWindowMs) / 1000;
+    const mercy = soundBeatMercyPolicy(task.attempts);
+    const windowSeconds = ((state.roundWindow || state.level.hitWindowMs) / 1000) * mercy.windowScale;
     const signedDelta = now - targetTime;
-    const feedback = soundBeatTapFeedback({
-      deltaMs: signedDelta * 1000,
-      windowMs: windowSeconds * 1000,
-      isBlend
-    });
-
-    // The selected unit is the literacy action. Only the required choice reaches
-    // this path; timing changes bonus/game feel but never correctness.
-    state.judgement = feedback.rhythmLabel;
-    state.judgementT = 0.72;
-    state.beatPulse = state.reduceMotion ? 0 : feedback.pulse;
-    state.wordRhythmBonus += feedback.rhythmBonus;
-    if (!state.reduceMotion) {
+    const delta = Math.abs(signedDelta);
+    // Real timing: you must tap the beat inside its window. The final "GO"/blend
+    // is the one forgiving beat — it waits for the tap so a good run is never
+    // lost at the finish line. Everything else is a proper rhythm hit or a miss.
+    if (!isBlend && signedDelta < -windowSeconds) {
+      // An eager tap before the approach window is guidance, not a mistake.
+      state.judgement = "WAIT";
+      state.judgementT = 0.5;
+      state.inputLockedUntil = now + 0.12;
+      return;
+    }
+    if (isBlend || delta <= windowSeconds) {
+      const quality = isBlend
+        ? "PERFECT"
+        : delta <= windowSeconds * 0.34 ? "PERFECT" : delta <= windowSeconds * 0.67 ? "GREAT" : "GOOD";
+      state.judgement = quality;
+      state.judgementT = 0.72;
+      state.beatPulse = quality === "PERFECT" ? 1 : quality === "GREAT" ? 0.82 : 0.65;
       const burstPoint = beatLanePoint(state.beatIndex % BEAT_LANES.length, 1, w, h);
       state.hitBursts.push({
         x: burstPoint.x,
@@ -1034,45 +891,20 @@ function startPs1ArcadeGame(mount, options) {
         t: 0,
         life: 0.5,
         seed: state.time + state.beatIndex,
-        color: feedback.rhythmBonus >= 25 ? config.accent : config.accent2
+        color: quality === "PERFECT" ? config.accent : config.accent2
       });
-    }
-    sfx(playTapSound);
-    state.inputLockedUntil = now + 0.15;
-    state.beatIndex += 1;
-    if (state.beatIndex >= notes.length) {
-      void finishBlendedWord(task, 180);
+      sfx(playTapSound);
+      state.inputLockedUntil = now + 0.15;
+      state.beatIndex += 1;
+      if (state.beatIndex >= notes.length) endCurrentWord(180);
+      else speakActiveNote();
     } else {
-      // After a late activation, give the next sound a fresh, readable approach
-      // instead of inheriting an already-expired visual schedule.
-      if (signedDelta > windowSeconds) {
-        state.noteStart = now + spacing * 0.72 - state.beatIndex * spacing;
-      }
-      setupBeatChoice();
-      if (state.beatIndex < task.item.beats.length) void speakActiveNote();
+      missCurrent();
     }
   }
 
   function pointerPosition(event) {
     return canvasPoint(canvas, event, w, h);
-  }
-
-  function choiceIndexAtPoint(point) {
-    const choices = state.choiceSet?.choices || [];
-    const lanes = choices.length === 1 ? [1] : choices.map((_, index) => index);
-    let nearest = -1;
-    let nearestDistance = Infinity;
-    for (let index = 0; index < lanes.length; index += 1) {
-      const pad = beatLanePoint(lanes[index], 1, w, h);
-      const dx = point.x - pad.x;
-      const dy = point.y - pad.y;
-      const distance = Math.hypot(dx, dy);
-      if (Math.abs(dx) <= 58 && Math.abs(dy) <= 48 && distance < nearestDistance) {
-        nearest = index;
-        nearestDistance = distance;
-      }
-    }
-    return nearest;
   }
 
   function onPointerMove(event) {
@@ -1082,68 +914,23 @@ function startPs1ArcadeGame(mount, options) {
   function onPointerDown(event) {
     state.pointer = pointerPosition(event);
     if (state.paused || state.ended || state.countdown > 0) return;
-    const choiceIndex = choiceIndexAtPoint(state.pointer);
-    if (choiceIndex < 0) return;
-    state.selectedChoice = choiceIndex;
-    state.pendingPointer = { pointerId: event.pointerId, choiceIndex };
-    canvas.focus({ preventScroll: true });
-    canvas.setPointerCapture?.(event.pointerId);
-  }
-
-  function clearPendingPointer(event) {
-    if (state.pendingPointer && event?.pointerId != null && event.pointerId !== state.pendingPointer.pointerId) return;
-    state.pendingPointer = null;
-  }
-
-  function onPointerUp(event) {
-    state.pointer = pointerPosition(event);
-    const pending = state.pendingPointer;
-    if (!pending || pending.pointerId !== event.pointerId) return;
-    const releaseChoice = choiceIndexAtPoint(state.pointer);
-    clearPendingPointer(event);
-    canvas.releasePointerCapture?.(event.pointerId);
-    if (releaseChoice === pending.choiceIndex) tapBeat(releaseChoice);
-  }
-
-  function onPointerCancel(event) {
-    clearPendingPointer(event);
-  }
-
-  function onLostPointerCapture(event) {
-    clearPendingPointer(event);
+    tapBeat();
   }
 
   function onKeyDown(event) {
     if (isInteractiveKeyTarget(event.target)) return;
-    if (state.paused || state.ended || state.countdown > 0) return;
-    const choices = state.choiceSet?.choices || [];
-    if ((event.key === "ArrowLeft" || event.key === "ArrowRight") && choices.length > 1) {
-      event.preventDefault();
-      const direction = event.key === "ArrowLeft" ? -1 : 1;
-      state.selectedChoice = (state.selectedChoice + direction + choices.length) % choices.length;
-      liveStatus.textContent = `Selected ${choices[state.selectedChoice]}. Press Space or Enter to choose.`;
-      return;
-    }
-    if (/^[1-4]$/.test(event.key) && Number(event.key) <= choices.length) {
-      event.preventDefault();
-      state.selectedChoice = Number(event.key) - 1;
-      tapBeat(state.selectedChoice);
-      return;
-    }
     if (event.key !== " " && event.key !== "Enter" && event.key !== "ArrowUp") return;
     event.preventDefault();
-    if (event.repeat) return;
-    if (!state.paused && !state.ended && state.countdown <= 0) tapBeat(state.selectedChoice);
+    if (!state.paused && !state.ended && state.countdown <= 0) tapBeat();
   }
 
   function tickFrame(now, dt) {
+    canvas.dataset.soundBeatReady = String(state.countdown <= 0);
+    canvas.dataset.soundBeatIndex = String(state.beatIndex);
     if (!state.paused && !state.ended) {
-      const soundEnabled = soundAllowed();
-      const soundModeChanged = soundEnabled !== state.soundEnabled;
-      state.soundEnabled = soundEnabled;
+      state.soundEnabled = soundAllowed();
       state.musicEnabled = musicAllowed();
-      if (soundModeChanged) syncChoiceAccessibility({ announce: true });
-      if (!reduceMotion) state.time += dt;
+      state.time += reduceMotion ? dt * 0.35 : dt;
       state.beatPulse = Math.max(0, state.beatPulse - dt * 2.8);
       state.judgementT = Math.max(0, state.judgementT - dt);
       state.hitBursts = state.hitBursts
@@ -1151,26 +938,38 @@ function startPs1ArcadeGame(mount, options) {
         .filter(burst => burst.t < burst.life);
       const countdownBefore = state.countdown;
       state.countdown = Math.max(0, state.countdown - dt);
-      canvas.dataset.soundBeatReady = String(state.countdown <= 0);
       if (countdownBefore > 0 && state.countdown === 0) {
         state.beatIndex = 0;
         state.noteStart = now + 0.82;
         ensureMusic();
         speakActiveNote();
       }
-      if (state.currentTask && state.countdown <= 0) ensureMusic();
+      if (state.currentTask && state.countdown <= 0) {
+        ensureMusic();
+        const notes = [...state.currentTask.item.beats, "blend"];
+        const spacing = 60 / (state.roundBpm || state.level.bpm);
+        const targetTime = state.noteStart + state.beatIndex * spacing;
+        const autoMissWindow = ((state.roundWindow || state.level.hitWindowMs) / 1000)
+          * soundBeatMercyPolicy(state.currentTask.attempts).windowScale;
+        // Letter beats time out if you never tap them (that's the rhythm). The
+        // final "GO"/blend is exempt — it waits for the tap so the word is never
+        // lost at the finish line.
+        if (state.beatIndex < notes.length - 1 && now - targetTime > autoMissWindow + 0.12) {
+          missCurrent();
+        }
+      }
     }
-    draw();
+    draw(now);
   }
 
   const loop = createFrameLoop(tickFrame);
 
-  function draw() {
+  function draw(now) {
     ctx.save();
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     if (!drawCover(ctx, image, w, h)) drawFallback(ctx, w, h, config, state.time);
     drawScreenGrade(ctx, w, h);
-    drawBeat(ctx, state, config, w, h);
+    drawBeat(ctx, state, config, w, h, now);
     drawSoundBeatHud(ctx, state, config, w, h);
     drawCountdown(ctx, state, config, w, h);
     ctx.restore();
@@ -1178,9 +977,6 @@ function startPs1ArcadeGame(mount, options) {
 
   canvas.addEventListener("pointermove", onPointerMove);
   canvas.addEventListener("pointerdown", onPointerDown);
-  canvas.addEventListener("pointerup", onPointerUp);
-  canvas.addEventListener("pointercancel", onPointerCancel);
-  canvas.addEventListener("lostpointercapture", onLostPointerCapture);
   window.addEventListener("keydown", onKeyDown);
   const resizeObserver = new ResizeObserver(resize);
   resizeObserver.observe(mount);
@@ -1189,6 +985,7 @@ function startPs1ArcadeGame(mount, options) {
   loop.start();
 
   const api = {
+    replayPrompt: speakActiveNote,
     pause() {
       if (state.paused) return;
       state.paused = true;
@@ -1199,36 +996,22 @@ function startPs1ArcadeGame(mount, options) {
       if (!state.paused) return;
       const nowSec = performance.now() / 1000;
       // Note timing is wall-clock: push the schedule forward by the paused
-      // span so rhythm feedback resumes where it froze.
+      // span so the in-flight word resumes where it froze instead of missing.
       if (state.pausedAt) state.noteStart += nowSec - state.pausedAt;
       state.pausedAt = 0;
       state.paused = false;
       loop.reset(nowSec);
-      const deferredBlend = state.pendingBlendCompletion;
-      state.pendingBlendCompletion = null;
-      if (deferredBlend && !state.ended && state.currentTask === deferredBlend.task) {
-        state.awaitingBlend = false;
-        endCurrentWord(deferredBlend.points);
-      }
       ensureMusic();
-    },
-    replayPrompt() {
-      speakActiveNote();
     },
     destroy() {
       state.ended = true;
-      state.pendingBlendCompletion = null;
       stopMusic();
       loop.cancel();
       resizeObserver.disconnect();
       canvas.removeEventListener("pointermove", onPointerMove);
       canvas.removeEventListener("pointerdown", onPointerDown);
-      canvas.removeEventListener("pointerup", onPointerUp);
-      canvas.removeEventListener("pointercancel", onPointerCancel);
-      canvas.removeEventListener("lostpointercapture", onLostPointerCapture);
       window.removeEventListener("keydown", onKeyDown);
       if (canvas.parentNode === mount) mount.removeChild(canvas);
-      if (liveStatus.parentNode === mount) mount.removeChild(liveStatus);
     },
     debugSnapshot() {
       return {

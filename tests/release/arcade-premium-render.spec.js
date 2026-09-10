@@ -48,10 +48,6 @@ test("reduced motion keeps the direct-render performance profile", async ({ page
 });
 
 test("the cinematic profile renders through the full post-processing path", async ({ page }) => {
-  // This deliberately defeats the software-GPU guard, compiles the cinematic
-  // pipeline twice (including real context recovery), then changes quality.
-  // Measured at 34s locally; keep every assertion with the slow-test budget.
-  test.slow();
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));
   await page.addInitScript(() => {

@@ -332,7 +332,7 @@ export const GAME_LIST = [
     category: "Phonics",
     ...GAME_ACCENTS.blue,
     icon: "/images/learn-games/icon-sound-slide.webp",
-    description: "Choose a matching word on a road sign, then drive Muddy through the village.",
+    description: "Race the track — grab the words that start with your sound to boost.",
     fullBleed: true,
     surfaces: ["arcade"]
   },
@@ -354,7 +354,7 @@ export const GAME_LIST = [
     category: "Phonics",
     ...GAME_ACCENTS.violet,
     icon: "/images/learn-games/icon-sound-slide.webp",
-    description: "Choose each matching sound, then use GO to blend the word.",
+    description: "Tap the sounds on the beat, then GO to blend the word.",
     fullBleed: true,
     surfaces: ["arcade"]
   },

@@ -34,14 +34,6 @@ test("every level has enough correct tiles to complete the target", () => {
   }
 });
 
-test("repeated graphemes retain distinct occurrence identities", () => {
-  const level = buildLevel({ world: "meadow", cycle: 0, mode: "bridge", target: "tent" });
-  const repeated = level.tiles.filter(tile => tile.correct && tile.glyph === "T");
-  assert.equal(repeated.length, 2);
-  assert.notEqual(repeated[0].occurrenceId, repeated[1].occurrenceId);
-  assert.match(level.levelId, /^word-bridge-meadow-/);
-});
-
 test("decoy letters are never a needed glyph of the target", () => {
   for (const d of ["easy", "medium", "hard"]) {
     const ladder = wordBridgeLadder(d);
@@ -142,17 +134,4 @@ test("world parameters map correctly", () => {
   assert.ok(meadow.patience >= 20);
   assert.ok(dino.patience <= meadow.patience);
   assert.ok(moonwood.patience <= dino.patience);
-});
-
-test("written grapheme construction keeps joined sounds together without losing letters", async () => {
-  const { wordBridgeParts } = await import("../../src/utils/wordBridgeLevels.js");
-  const { segmentWord, segmentWrittenWord } = await import("../../src/utils/graphemeSegments.js");
-  for (const [word, parts] of [["chin", ["CH", "I", "N"]], ["shirt", ["SH", "IR", "T"]], ["ring", ["R", "I", "NG"]], ["kick", ["K", "I", "CK"]], ["splash", ["S", "P", "L", "A", "SH"]]]) {
-    assert.deepEqual(wordBridgeParts(word), parts);
-    const level = buildLevel({ world: "moonwood", cycle: 0, target: word });
-    assert.equal(level.slots, parts.length);
-    assert.deepEqual(level.tiles.filter(tile => tile.correct).sort((a, b) => a.order - b.order).map(tile => tile.glyph), parts);
-  }
-  for (const word of ["tent", "glimmer", "stone", "cheese"]) assert.equal(segmentWrittenWord(word).join(""), word);
-  assert.deepEqual(segmentWord("stone"), ["s", "t", "o_e", "n"]);
 });

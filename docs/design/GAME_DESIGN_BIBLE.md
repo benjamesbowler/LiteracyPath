@@ -6,6 +6,10 @@ Companion standards: [Game Visual and Playability Production Guide](GAME_VISUAL_
 
 This document separates **research-backed requirements** from **LiteracyPath product decisions**. A product decision may be stricter than the research floor. It may not weaken accessibility, learning integrity, child safety or privacy.
 
+## Arcade gameplay preservation
+
+The product owner restored the continuous Arcade engines on 2026-09-10. Preserve each game's movement, aiming, catching, steering and real-time play. Fix learning validity and accessibility inside that gameplay; do not replace it with staged select/confirm rounds or a shared practice shell without an explicit request to change the game.
+
 ## 1. The non-negotiable promise
 
 A LiteracyPath game must be a good game and a valid learning activity at the same time. Movement, collecting, speed or visual celebration are not evidence of literacy learning. The action that advances the game must require the child to perceive, recall, discriminate, build, read or apply the target knowledge.
@@ -187,20 +191,20 @@ Before a new flagship game—or a substantial change to one—moves beyond its f
 
 Letter Leap 2.0 is the reference brief. It records the real 0.12-second coyote window, 0.14-second jump buffer, catch-up queue, production-audio replay, checkpoint path and still-unknown physical-iPad result. `premiumGameStandard.test.js` checks the brief, named evidence files and implementation anchors so the plan cannot silently drift away from the playable slice.
 
-### Rocket Run 3.0 reference record
+### Rocket Run reference record
 
 - **Age/reading band:** early readers practising taught initial sounds.
 - **Target construct:** decide whether a spoken and printed word begins with the shown target grapheme/phoneme.
-- **Non-target demands:** steering, flight and scenery never decide literacy correctness. A decision has no deadline or motor penalty.
-- **Controls:** released word buttons or held left/right controls nominate one of three gates; released Fly through commits. Arrow Left/Right or A/D steers; native buttons and Enter/Space retain keyboard operation. Exit prompts, hidden tabs and WebGL context loss pause the flight.
-- **Level ladder:** ten completion-paced targets retain the existing curriculum and difficulty word-length bands. Three authored sectors move from cargo hangar through amber canyon to receiving station.
-- **Prompt/audio:** the exact Leda onboarding instruction is “Choose the word that starts with the sound. Tap its gate, then tap Fly through.” Hear instructions plays on the card before launch. During play, “Find the [target] word” accompanies the recorded phoneme and all three words. A sound-enabled answer waits for completed delivery or explicit printed support; Hear replays the current set or feedback.
-- **Generator/ambiguity proof:** `rocketRunRounds.js` and `rocketRunFlight.js` build seeded, unique, recorded words and sound-distinct distractors, including unvoiced th. Correct lanes are balanced and retries bring fresh alternatives. Executable unit checks cover every target and recording path.
-- **Feedback:** recorded word/onset feedback names a match or contrasts a wrong onset with the retained target. Correct choices open a gate; wrong choices return the rocket. The next choices wait for spoken feedback delivery, while unavailable feedback remains readable and replayable. Completed deliveries and first responses are retained.
-- **Reward:** completed word gates power ten delivery bays. First responses remain immutable and assisted retries are separate; movement does not create evidence. The final correct action saves the receipt before docking or exit.
+- **Non-target demands:** choose one of three lanes; hazards are supportive game pressure and never decide literacy correctness.
+- **Controls:** tap left/right screen regions, swipe, Arrow Left/Right, or A/D. The game pauses for the app exit prompt, hidden tabs and WebGL context loss.
+- **Level ladder:** completion-paced rounds move from common single-letter onsets towards later sounds and digraphs according to the selected difficulty. Difficulty changes the word/sound demand before hazard pressure.
+- **Prompt/audio:** “Catch the [target] words.” The target is shown, spoken and replayed after the first trusted iPad user gesture; easy mode also speaks incoming words.
+- **Generator/ambiguity proof:** `rocketRunRounds.js` builds unique correct words and distractors with a different onset sound; its full target set is exercised by `rocketRunRounds.test.js`.
+- **Feedback:** a correct catch repeats the word and celebrates it; a wrong catch names the word and its actual onset; missed correct words return with support instead of disappearing.
+- **Reward:** score, combo, sector progress and stars reflect correct catches and recovery. Cosmetic motion does not create learning evidence.
 - **Reduced motion/no audio:** reduced motion selects the low rendering tier and quiets non-essential movement; all essential cues remain printed when sound is off.
-- **Data:** existing local/cloud game progress, round checkpoints and completion-evidence envelope; supported practice remains `practiceOnly` and `independent:false`. No new identifier, profile or network service.
-- **Automated checks:** `rocketRunRounds.test.js`, `rocketRunFlight.test.js`, `rocketRunScene.test.js`, `premiumGameStandard.test.js`, `rocket-run-flight.spec.js` and `rocket-run-audio-replay.spec.js`. Structural brief validation does not replace rendered or browser evidence.
+- **Data:** normal local/cloud game progress only—score, stars, completed words and resumable round checkpoint. No new identifier, profile or network service.
+- **Automated checks:** `rocketRunRounds.test.js`, `premiumGameStandard.test.js`, `gameCheckpoints.test.js`, and the all-games iPad activity viewport browser check.
 - **Physical-device result:** unknown until the changed build is exercised on a real supported iPad; browser emulation is not recorded as a physical-device pass.
 
 ### Flagship arcade records
@@ -210,8 +214,8 @@ decisions. Shared automated checks assert named structure, prose fields and
 selected implementation anchors; they do not prove that all thirteen contracts
 or mechanics work end to end, and they do not certify the games against the
 composed-scene, motion, human-listening, physical-device or child-play evidence
-in the Game Visual and Playability Production Guide. Letter Leap, Word
-Climb, Word Bridge, Sound Beat, Sound Racer and Rocket Run currently have validated
+in the Game Visual and Playability Production Guide. Only Letter Leap, Word
+Climb, Word Bridge, Sound Beat and Sound Racer currently have validated
 vertical-slice briefs. The records share these product decisions: progress contains only the existing
 score, stars, completed-item count and resumable checkpoint; no new identifier or
 network service is introduced; sound-off preserves a non-audio goal, choice and
@@ -224,13 +228,13 @@ Arcade** action. Their shared automated coverage is `premiumGameStandard.test.js
 and the all-games activity-viewport browser check. Physical-device result remains
 unknown until each changed build is exercised on a real supported iPad.
 
-#### Rocket Run 3.0
+#### Rocket Run 2.0
 
 - **Age/reading band and construct:** early readers decide whether a word begins with the shown and spoken target sound. Lane steering and flight scenery are non-target demands.
-- **Controls:** Left/Right or A/D, held steering and released word choices nominate; deliberate Fly through commits. Focused chrome controls keep their native keyboard behaviour.
+- **Controls:** Left/Right or A/D, tap-side steering and swipe share one cancellation-safe release rule; focused chrome controls keep their native keyboard behaviour.
 - **Level ladder and prompt/audio:** ten curriculum-ramped targets retain a visible grapheme, an approved phoneme cue and a replay action throughout each run.
 - **Generator and ambiguity:** exact target-sound pools handle short vowels, hard c/g and unvoiced th; distractors use the shared phonetic-onset classifier so alternate spellings cannot become false negatives.
-- **Feedback and reward:** the reference record above supersedes timed catches: correct word gates open for the rocket, wrong choices return with onset feedback and fresh alternatives, and delivery progress never treats vehicle handling as literacy evidence.
+- **Feedback and reward:** correct catches reinforce the target sound, wrong catches name the word's real onset, and missed targets return without turning vehicle handling into literacy evidence.
 
 #### Letter Leap 2.0
 
@@ -250,38 +254,34 @@ unknown until each changed build is exercised on a real supported iPad.
 
 #### Sound Racer 2.0
 
-- **Age/reading band and construct:** early readers choose a printed word whose beginning sound matches the target. Printed-target and audio-supported practice are distinguished in response evidence; vehicle motion never decides correctness.
-- **Controls:** native word signs select a road; Drive through confirms. Left/Right or A/D selects, Space/Enter confirms when the game surface owns focus; focused native buttons retain normal keyboard activation. Decisions wait without a time limit. Touch controls meet the 56-pixel floor.
-- **Level ladder and prompt/audio:** ten authored curriculum tracks retain their exact eligible target quotas. The tutorial uses a verified recorded example for the current target and a game-owned exact instruction. Muted or unavailable audio leaves printed practice usable with truthful support records.
-- **Generator and ambiguity:** `soundRacerTracks.js` supplies exact-sound pools; `soundRacerMission.js` creates stable seeded forks with one valid match and two sound-distinct alternatives. The current classifier excludes soft c, silent-letter and vowel mismatches. Mission and track tests exercise every current difficulty and target.
-- **Feedback and reward:** a wrong choice names its actual onset and preserves the same fork for supported retry. First responses remain immutable; stars reward deliberate first choices while independent sound evidence is counted separately. The selected barrier opens and the car travels only after a validated correct choice. Checkpoints and completion fire once per mission.
-- **Presentation and recovery:** an owned authored village/vehicle kit follows one curved route model, with wheel and chassis animation, responsive quality and reduced motion. The DOM/SVG rally uses the same controller after missing assets, WebGL failure or context loss. Local pause, hidden tabs and parent overlays hold independent pause reasons. `sound-racer-rally.spec.js` and `sound-racer-lifecycle.spec.js` exercise the complete loop and recovery.
+- **Age/reading band and construct:** early readers discriminate whether a word begins with the target grapheme/phoneme. Lane steering and light hazards are non-target demands.
+- **Controls:** Left/Right or A/D, tap-side steering and swipe have parity; keyboard input accepts either letter case.
+- **Level ladder and prompt/audio:** ten tracks change the onset demand and world before raising track pressure. The tutorial names the target, shows an example and keeps a 56-pixel replay action.
+- **Generator and ambiguity:** `soundRacerTracks.js` rebuilds each gate set with exact-sound correct pools and sound-distinct distractors; the shared phonetic-onset classifier covers soft c, silent letters and other live alternate spellings. `soundRacerTracks.test.js` covers multiple seeds, track bands and tutorial rules.
+- **Feedback and reward:** wrong gates name the mismatch and missed correct gates return. Obstacles affect the ship and race score only; sound accuracy and stars follow caught word choices, not vehicle speed or collisions.
 
 #### Word Bridge 2.0
 
-- **Age/reading band and construct:** early readers construct words from written graphemes and reconstruct sentences from word pieces. Worked printed models alternate with fresh recorded targets when an exact cue exists. Practice remains separate from independent assessment; model exposure, actual cue delivery and assisted retries stay explicit.
-- **Controls:** native piece and socket buttons use select-then-place by released touch or keyboard activation. Tab/Left/Right selects focus; Enter/Space activates. Cancelled releases do not answer. All primary controls meet the 56-pixel floor and 8-pixel separation. Compact construction scrolls inside the fixed game surface so complete words remain readable.
-- **Level ladder and prompt/audio:** ten authored levels per difficulty preserve their targets. Fresh stages conceal the solution and socket ghosts until a whole recorded cue has played; Show model, muted sound or playback failure restores supported matching. Pause/exit stops detached cue and effect media.
-- **Generator and ambiguity:** `wordBridgeLevels.js` supplies written-grapheme pieces (including joined units such as CH, SH, IR and NG), unique occurrence/slot IDs and sound-distinct decoys. Either unused identical token fits a compatible socket, including lower rows. Correct construction persists through a wrong-piece repair.
-- **Feedback and reward:** immutable first responses retain actual target/response/correctness/support; successful assisted retries are separate. The final accepted placement fixes the result once. Carrying, crossing, Finish and replay dismissal cannot change it; a replay creates one new session. Stars use the shared accuracy rubric including mistakes.
-- **Presentation and evidence:** measured native socket anchors also drive the canonical helper's carry/snap and all pals crossing to the arrival. Completed bridges persist until the learner advances. `word-bridge-lifecycle.spec.js` checks every authored target at three sizes, actual hit testing and word clipping, lower-row/duplicate placement, media cancellation, pause, resize, fallback and receipt/replay behaviour. Browser automation does not establish physical-device, human-listening or child-play evidence.
+- **Age/reading band and construct:** early readers practise supported grapheme matching and ordered sentence reconstruction from a visible model. This is not recorded as independent encoding; horizontal movement, carrying and placement are non-target demands.
+- **Controls:** Left/Right or A/D moves; Space/Enter/E/Up picks, drops or rings; touch controls and the replay control meet the 56-pixel floor.
+- **Level ladder and prompt/audio:** ten levels progress from word building to longer ordered constructions. Persistent bridge slots show completed parts and the next empty position.
+- **Generator and ambiguity:** `wordBridgeLevels.js` supplies a complete fresh tile bank per target; `wordBridgeLevels.test.js` verifies the ordered solution and distractors.
+- **Feedback and reward:** a misplaced tile is returned without removing the clue. Bridge progress, score and stars reflect correctly placed language parts.
 
 #### Sound Beat 2.0
 
-- **Age/reading band and construct:** early readers identify and order taught phoneme, syllable and sentence-word units. Beat timing supports the action but does not replace the literacy decision.
-- **Controls:** Left/Right selects among equivalent pads; Space/Enter/Up activates the selected pad, number keys choose directly, and touch commits on release. GO models the completed target.
-- **Level ladder and prompt/audio:** `soundBeatTracks.js` changes the literacy unit from phonemes to syllables and sentence words before BPM. With sound on, unreached units remain masked; sound off is a labelled model-supported reconstruction mode. Approved recordings cover every live listening state.
-- **Generator and ambiguity:** each beat rebuilds four deterministic but freshly positioned choices; an audited live-unit equivalence table keeps c/k/ck, ch/tch, ee/ea and w/wh out of one-right/one-wrong choices, and every hidden unit uses one fixed marker so label length cannot leak the answer. `soundBeatTracks.test.js` verifies runtime seeds, choice uniqueness, position variation, cue coverage and the ladder.
-- **Feedback and reward:** a correct unit fills the next slot; a wrong choice names the selected and required units and stays available. Rhythm precision adds optional score and visual flourish but never changes literacy credit or stars.
+- Sound Beat is a rhythm performance: tap the arriving authored sound notes, then GO to blend. Space, Enter, Up and a full-stage touch tap share the action.
+- Missed words return with slower timing and wider hit windows. The final GO waits for the learner. Pause shifts the note schedule so hidden time cannot create misses.
+- Rhythm scores and completed performances describe supported practice, not independent literacy mastery. Preserve the rhythm mechanic rather than substituting untimed multiple-choice pads.
+- The visible word, recorded cues, replay, music preference and ten-track curriculum remain part of the game. Browser coverage is `arcade-gameplay-restoration.spec.js` and `sound-beat-replay.spec.js`.
 
-#### Rhyme Pop 3.0
+#### Rhyme Pop 2.0
 
-- **Age/reading band and construct:** early readers identify all six reviewed rhymes for a printed and recorded target. This is supported printed-word rhyme practice, not independent oral phonological assessment. Pointer aiming and animation do not grade literacy.
-- **Controls:** a released tap pops that exact stable native balloon; Tab/Arrow keys or A/D focus choices, and Space/Enter activates them. One pointer owns the interaction across all balloons. Outside, cancelled, lost, paused and stale releases create no response. Every control retains a 56-pixel minimum target.
-- **Level ladder and prompt/audio:** preserve all ten rounds at each difficulty, including cross-spelling chair/share/square and hard snow/now/cow foils. Difficulty widens vocabulary and choice count, never adds target drift, a decision deadline or a forced play timer. Exact Leda instructions, the target and all current words have replayable recordings. Missing, failed, interrupted or stalled speech exposes retry or explicit reading support and is never recorded as heard.
-- **Generator and ambiguity:** `rhymePopLevels.js` owns reviewed group membership; `rhymePopRules.js` owns seeded stable slots, multi-answer resolution and once-only responses. Each accepted rhyme replenishes only its slot; no valid rhyme is omitted, recycled or counted twice. Balloon colour and shape cannot reveal correctness.
-- **Feedback and reward:** the named selected word is accurately compared with the target, and a mismatch preserves the target and completed rhymes. A faceted balloon pop, canonical helper reaction, visible collected word and filled basket tether mark success. Six collected balloons lift a parade basket; reduced motion retains the same text, collection and state changes without movement.
-- **Completion and verification:** the final accepted rhyme freezes the receipt before animation or exit. First responses and supported retries stay separate; resumed runs count only actually played words. The shared player owns one result dialog and persistence. `rhymePopContract.js` names the rule, audio and scene checks; `rhyme-pop-parade.spec.js` exercises every authored rhyme across all difficulty/viewport combinations, native input, audio delivery/recovery and full-route persistence. Automated/browser evidence does not claim physical-iPad, human-listening or child-observation evidence.
+- **Age/reading band and construct:** early readers identify words sharing the cued rime. Aiming the launcher is the non-target demand.
+- **Controls:** pointer/touch aims and pops; Left/Right or A/D cycles a visible, non-answer-revealing keyboard focus ring; Space/Enter/Up fires.
+- **Level ladder and prompt/audio:** the cue remains printed at the launcher and can be replayed. Later levels widen vocabulary and distractor closeness rather than shrinking targets.
+- **Generator and ambiguity:** `rhymePopLevels.js` builds fresh balloon sets with independently checked rhyme membership; `rhymePopLevels.test.js` verifies the banks.
+- **Feedback and reward:** every popped word is named; a miss leaves the remaining rhymes in play. Only found rhymes advance progress and score.
 
 #### Sound Safari 2.0
 
@@ -294,11 +294,10 @@ unknown until each changed build is exercised on a real supported iPad.
 #### Reel & Read 2.0
 
 - **Age/reading band and construct:** developing readers apply word-part, meaning and morphology knowledge. Boat steering and casting are non-target demands.
-- **Controls:** nominate a named fish, then cast or cancel. The locked fish ID owns the catch. Native buttons support keyboard and released touch, including small finger drift; cancelled/outside holds do not answer. Left/Right or A/D and held steering buttons move the boat. Shared projected coordinates position the fish, label and hook together.
-- **Level ladder and prompt/audio:** ten levels per difficulty mix word parts, meaning matches and morphology. Recorded replay reports delivery, failure and interruption; visible print remains explicit support. Written parts assemble in order and accepted fish return to the boat, with collected words docked on the hull on larger screens or in the clear prompt strip on compact screens until Next. Completed construction waits for the learner.
-- **Generator and ambiguity:** `reelReadLevels.js` validates every authored sequence, accepted alternatives and distractors. Actual word measurements and separated rows preserve readable labels and 56-pixel targets above the controls at all three supported sizes; the compact prompt remains clear.
-- **Feedback and reward:** wrong reading responses retain their original learning-slot evidence, while assisted retries stay separate. Casting cancellation never creates a reading mistake. Trip stars average the levels actually played, without inventing earlier grades on resume. The final accepted catch fixes one immutable receipt before its return animation or dismissal; all evidence is supported print practice, not independent oral fluency or mastery.
-- **Verification:** `reel-read-g14.spec.js` completes all 30 authored levels at each of three sizes, including keyboard/touch construction, real text bounds and target separation. `reel-read-interaction.spec.js` covers released drift, cancellation, pause, steering, actual recorded delivery and failure/replay. Browser proof does not establish physical-device, human-listening or child-observation evidence.
+- **Controls:** Left/Right or A/D steers; Space/Enter/E/Up/Down casts; drag and held touch buttons provide direct alternatives.
+- **Level ladder and prompt/audio:** ten levels per difficulty mix word parts, meaning matches and morphology; ordered constructions retain visible catch slots.
+- **Generator and ambiguity:** `reelReadLevels.js` proves every catch against the current rule and expected order; `gameSurfaces.test.js` exercises all three task types and distractors.
+- **Feedback and reward:** a wrong fish explains why it does not fit while the clue remains. Score and stars count literacy catches, not steering precision.
 
 #### Sentence Grove 2.0
 

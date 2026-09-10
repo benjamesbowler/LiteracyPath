@@ -61,7 +61,7 @@ immediately. Missing review metadata is not a publication queue.
 - [Student welcome guide](product/STUDENT_WELCOME_GUIDE.md) — first-login orientation, lightweight reminders, replayable Help, spoken guidance, and focus-session suppression
 - [School-linked parent area](product/PARENT_AREA_SPEC.md) — guardian portal product model, privacy boundary, release scope and working seeded preview
 - [Child surface rules](design/CHILD_SURFACE_RULES.md)
-- [Game design bible](design/GAME_DESIGN_BIBLE.md)
+- [Game design bible](design/GAME_DESIGN_BIBLE.md) — preserves original Arcade gameplay, including Sound Beat rhythm
 - [Game visual and playability production guide](design/GAME_VISUAL_PLAYABILITY_PRODUCTION_GUIDE.md) — agent workflow for authored visual, asset, audio, performance and evidence quality
 - [Meadow Pals animation production bible](design/ANIMATION_PRODUCTION_BIBLE.md)
 - [Student emphasis budget](design/STUDENT_EMPHASIS_BUDGET.md)
